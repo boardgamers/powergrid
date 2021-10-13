@@ -1,0 +1,16 @@
+{
+    "editor.tabSize": 4,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.formatOnSave": true,
+    "editor.suggestSelection": "first",
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.organizeImports": true
+    },
+    "vetur.format.options.tabSize": 4,
+    "vetur.format.defaultFormatter.js": "vscode-typescript",
+    "prettier.tabWidth": 4,
+    "files.trimTrailingWhitespace": true,
+    "vetur.format.defaultFormatter.html": "none",
+    "eslint.validate": ["javascript", "typescript", "vue"]
+}

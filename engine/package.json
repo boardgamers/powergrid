@@ -1,0 +1,50 @@
+{
+    "name": "container-engine",
+    "version": "1.0.8",
+    "description": "An engine for Container",
+    "main": "dist/index.js",
+    "types": "index.ts",
+    "source": "index.ts",
+    "repository": "git@github.com:LucasAMello/container-engine.git",
+    "publishConfig": {
+        "access": "public"
+    },
+    "author": "LucasAMello",
+    "license": "MIT",
+    "scripts": {
+        "prepublishOnly": "npm run test && npm run clean && tsc",
+        "build": "npm run clean && tsc",
+        "clean": "rm -Rf dist",
+        "lint": "eslint . --ext .ts",
+        "test": "mocha -r ts-node/register src/**/*.spec.ts src/*.spec.ts"
+    },
+    "dependencies": {
+        "@types/lodash": "^4.14.149",
+        "@types/seedrandom": "^2.4.27",
+        "lodash": "^4.17.15",
+        "seedrandom": "^3.0.5"
+    },
+    "devDependencies": {
+        "@types/chai": "^4.1.2",
+        "@types/mocha": "^2.2.48",
+        "@types/node": "^13.11.0",
+        "@typescript-eslint/eslint-plugin": "^2.31.0",
+        "@typescript-eslint/parser": "^2.31.0",
+        "chai": "^4.1.2",
+        "eslint": "^6.8.0",
+        "eslint-plugin-import": "^2.20.2",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-standard": "^4.0.1",
+        "mocha": "^5.0.4",
+        "ts-node": "^10.0.0",
+        "typescript": "^4.3.5"
+    },
+    "files": [
+        "index.ts",
+        "wrapper.ts",
+        "src",
+        "dist",
+        "tsconfig.json"
+    ]
+}

@@ -1,0 +1,30 @@
+name: Engine - Test
+on:
+    push:
+        paths:
+            - '.github/workflows/engine-test.yml'
+            - 'engine/**'
+    pull_request:
+        paths:
+            - '.github/workflows/engine-test.yml'
+            - 'engine/**'
+
+defaults:
+    run:
+        working-directory: engine
+
+jobs:
+    lint_and_test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
+              with:
+                  node-version: '12'
+            - uses: pnpm/action-setup@v1.2.1
+              with:
+                  version: 5.17.1
+            - run: pnpm install
+            - run: pnpm build
+            - run: pnpm lint
+            - run: pnpm test

@@ -14,7 +14,7 @@ const map: Map = {
         { name: 'Los Angeles', area: 'cyan', x: 116, y: 490 },
         { name: 'San Diego', area: 'cyan', x: 157, y: 537 },
         { name: 'Las Vegas', area: 'cyan', x: 200, y: 440 },
-        { name: 'Saltlake City', area: 'cyan', x: 266, y: 13409 },
+        { name: 'Saltlake City', area: 'cyan', x: 266, y: 341 },
         { name: 'Phoenix', area: 'cyan', x: 260, y: 516 },
         { name: 'Santa Fe', area: 'cyan', x: 371, y: 465 },
         { name: 'Kansas City', area: 'red', x: 587, y: 386 },
@@ -133,8 +133,8 @@ const map: Map = {
         { from: 'Atlanta', to: 'Savannah', cost: 7 },
         { from: 'Savannah', to: 'Jacksonvile', cost: 0 },
         { from: 'Jacksonvile', to: 'Tampa', cost: 4 },
-        { from: 'Tampa', to: 'Miami', cost: 4 }
-    ]
+        { from: 'Tampa', to: 'Miami', cost: 4 },
+    ],
 };
 
 export default map;

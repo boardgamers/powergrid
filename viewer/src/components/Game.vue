@@ -10,199 +10,384 @@
             <source src="../audio/notification.mp3" type="audio/mpeg" />
             <source src="../audio/notification.ogg" type="audio/ogg" />
         </audio>
-        <svg id="scene" viewBox="0 0 1250 650" height="650">
-            <rect width="100%" height="100%" x="0" y="0" fill="lightblue" />
-            <rect width="100%" height="100" x="0" y="0" fill="gray" />
-            <rect width="390" height="220" x="860" y="430" fill="gray" />
+        <svg id="scene" viewBox="0 0 1500 800" height="1200">
+            <rect width="100%" height="100%" x="0" y="0" fill="yellowgreen" />
 
-            <PassButton transform="translate(1105, 5)" :enabled="canPass()" @click="pass()" />
-            <UndoButton transform="translate(1105, 36)" :enabled="canUndo()" @click="undo()" />
-            <LogButton transform="translate(1105, 67)" @click="showLog()" />
-            <SoundButton transform="translate(1200, 15)" :isOn="preferences.sound" @click="toggleSound()" />
-            <HelpButton transform="translate(1200, 55)" :isOn="!preferences.disableHelp" @click="toggleHelp()" />
+            <rect width="185" height="40" x="10" y="10" rx="3" fill="goldenrod" />
+            <template v-for="index in 6">
+                <rect
+                    :key="'playerOrder' + index"
+                    width="25"
+                    height="30"
+                    :x="15 + 30 * (index - 1)"
+                    y="15"
+                    rx="2"
+                    fill="darkgoldenrod"
+                />
+                <text
+                    :key="'playerOrderText' + index"
+                    text-anchor="middle"
+                    style="font-size: 32px; font-family: monospace"
+                    :x="28 + 30 * (index - 1)"
+                    y="30"
+                    fill="gold"
+                >
+                    {{ index }}
+                </text>
+            </template>
 
-            <DropZone
-                transform="translate(5, 5)"
-                :width="600"
-                :height="90"
-                :enabled="true"
-                :accepts="'container'"
-                :data="{ type: 'supply' }"
-                :availableMoves="getCurrentPlayerMoves()"
-            />
+            <rect width="730" height="50" x="215" y="10" rx="3" fill="goldenrod" />
+            <template v-for="index in 21">
+                <rect
+                    :key="'playerCityCount' + index"
+                    width="30"
+                    height="40"
+                    :x="250 + 33 * (index - 1)"
+                    y="15"
+                    rx="2"
+                    fill="darkgoldenrod"
+                />
+                <text
+                    :key="'playerCityCountText' + index"
+                    text-anchor="middle"
+                    style="font-size: 24px; font-family: monospace"
+                    letter-spacing="-3"
+                    :x="265 + 33 * (index - 1)"
+                    y="35"
+                    fill="gold"
+                >
+                    {{ index }}
+                </text>
+            </template>
+
+            <rect width="760" height="80" x="20" y="700" rx="3" fill="goldenrod" />
+            <template v-for="index in 8">
+                <rect
+                    :key="'resources' + index"
+                    width="70"
+                    height="70"
+                    :x="25 + 85 * (index - 1)"
+                    y="705"
+                    rx="2"
+                    fill="darkgoldenrod"
+                />
+                <circle :key="'resourcesCircle' + index" r="10" :cx="92 + 85 * (index - 1)" cy="708" fill="yellow" />
+                <text
+                    :key="'resourcesText' + index"
+                    text-anchor="middle"
+                    style="font-size: 16px; font-family: monospace"
+                    :x="92 + 85 * (index - 1)"
+                    y="708"
+                    fill="darkgoldenrod"
+                >
+                    {{ index }}
+                </text>
+                <g :key="'lines' + index">
+                    <line
+                        :x1="25 + 85 * (index - 1)"
+                        y1="728"
+                        :x2="95 + 85 * (index - 1)"
+                        y2="728"
+                        stroke="goldenrod"
+                    />
+                    <line
+                        :x1="25 + 85 * (index - 1)"
+                        y1="752"
+                        :x2="95 + 85 * (index - 1)"
+                        y2="752"
+                        stroke="goldenrod"
+                    />
+
+                    <line
+                        :x1="48 + 85 * (index - 1)"
+                        y1="700"
+                        :x2="48 + 85 * (index - 1)"
+                        y2="728"
+                        stroke="goldenrod"
+                    />
+                    <line
+                        :x1="72 + 85 * (index - 1)"
+                        y1="700"
+                        :x2="72 + 85 * (index - 1)"
+                        y2="728"
+                        stroke="goldenrod"
+                    />
+                    <line
+                        :x1="42 + 85 * (index - 1)"
+                        y1="728"
+                        :x2="42 + 85 * (index - 1)"
+                        y2="752"
+                        stroke="goldenrod"
+                    />
+                    <line
+                        :x1="58 + 85 * (index - 1)"
+                        y1="728"
+                        :x2="58 + 85 * (index - 1)"
+                        y2="752"
+                        stroke="goldenrod"
+                    />
+                    <line
+                        :x1="74 + 85 * (index - 1)"
+                        y1="728"
+                        :x2="74 + 85 * (index - 1)"
+                        y2="752"
+                        stroke="goldenrod"
+                    />
+                    <line
+                        :x1="48 + 85 * (index - 1)"
+                        y1="752"
+                        :x2="48 + 85 * (index - 1)"
+                        y2="780"
+                        stroke="goldenrod"
+                    />
+                    <line
+                        :x1="72 + 85 * (index - 1)"
+                        y1="752"
+                        :x2="72 + 85 * (index - 1)"
+                        y2="780"
+                        stroke="goldenrod"
+                    />
+                </g>
+            </template>
+
+            <rect width="30" height="30" x="705" y="705" rx="2" fill="darkgoldenrod" />
+            <circle r="10" cx="732" cy="708" fill="yellow" />
+            <text
+                text-anchor="middle"
+                style="font-size: 12px; font-family: monospace"
+                x="732"
+                y="708"
+                fill="darkgoldenrod"
+            >
+                10
+            </text>
+
+            <rect width="30" height="30" x="745" y="705" rx="2" fill="darkgoldenrod" />
+            <circle r="10" cx="772" cy="708" fill="yellow" />
+            <text
+                text-anchor="middle"
+                style="font-size: 12px; font-family: monospace"
+                x="772"
+                y="708"
+                fill="darkgoldenrod"
+            >
+                12
+            </text>
+
+            <rect width="30" height="30" x="705" y="745" rx="2" fill="darkgoldenrod" />
+            <circle r="10" cx="732" cy="748" fill="yellow" />
+            <text
+                text-anchor="middle"
+                style="font-size: 12px; font-family: monospace"
+                x="732"
+                y="748"
+                fill="darkgoldenrod"
+            >
+                14
+            </text>
+
+            <rect width="30" height="30" x="745" y="745" rx="2" fill="darkgoldenrod" />
+            <circle r="10" cx="772" cy="748" fill="yellow" />
+            <text
+                text-anchor="middle"
+                style="font-size: 12px; font-family: monospace"
+                x="772"
+                y="748"
+                fill="darkgoldenrod"
+            >
+                16
+            </text>
+
+            <text x="955" y="14" font-weight="600" fill="black">Actual Market:</text>
+            <text x="955" y="80" font-weight="600" fill="black">Future Market:</text>
+
+            <PassButton transform="translate(1355, 15)" :enabled="canPass()" @click="pass()" />
+            <UndoButton transform="translate(1355, 56)" :enabled="canUndo()" @click="undo()" />
+            <LogButton transform="translate(1355, 97)" @click="showLog()" />
+            <SoundButton transform="translate(1450, 25)" :isOn="preferences.sound" @click="toggleSound()" />
+            <HelpButton transform="translate(1450, 80)" :isOn="!preferences.disableHelp" @click="toggleHelp()" />
 
             <template v-if="G">
+                <template v-if="G.phase == 'auction' && G.chosenPowerPlant">
+                    <text x="1220" y="14" font-weight="600" fill="black">Current Auction:</text>
+                    <Calculator
+                        v-if="canBid()"
+                        transform="translate(1220, 80)"
+                        :minValue="G.currentBid + 1 || G.chosenPowerPlant.number"
+                        :maxValue="G.players[player].money"
+                        @bid="bid($event)"
+                    />
+                </template>
+
+                <template v-for="city in G.map.cities">
+                    <circle
+                        :key="city.name + '_area'"
+                        r="25"
+                        :cx="city.x"
+                        :cy="city.y - 30"
+                        :fill="city.area"
+                        stroke="black"
+                    >
+                        <title>{{ city.name }}</title>
+                    </circle>
+                    <circle
+                        :key="city.name + '_circle'"
+                        r="20"
+                        :cx="city.x"
+                        :cy="city.y - 30"
+                        fill="gray"
+                        stroke="black"
+                    >
+                        <title>{{ city.name }}</title>
+                    </circle>
+                </template>
+
+                <template v-for="connection in G.map.connections">
+                    <line
+                        :key="connection.from + '_' + connection.to + '_line1'"
+                        :x1="getX1(connection)"
+                        :y1="getY1(connection) - 30"
+                        :x2="getX2(connection)"
+                        :y2="getY2(connection) - 30"
+                        stroke-width="10"
+                        stroke="black"
+                    />
+                    <line
+                        :key="connection.from + '_' + connection.to + '_line2'"
+                        :x1="getX1(connection)"
+                        :y1="getY1(connection) - 30"
+                        :x2="getX2(connection)"
+                        :y2="getY2(connection) - 30"
+                        stroke-width="9"
+                        stroke="gray"
+                    />
+                </template>
+
+                <template v-for="city in G.map.cities">
+                    <circle
+                        :key="city.name + '_circle2'"
+                        :class="[{ canClick: canBuild(city) }]"
+                        r="20"
+                        :cx="city.x"
+                        :cy="city.y - 30"
+                        fill="gray"
+                        @click="canBuild(city) && build(city)"
+                    >
+                        <title>{{ city.name }}</title>
+                    </circle>
+                </template>
+
+                <template v-for="connection in G.map.connections">
+                    <circle
+                        v-if="connection.cost > 0"
+                        :key="connection.from + '_' + connection.to + '_border'"
+                        stroke="black"
+                        :r="10 + (connection.cost * 10) / 28"
+                        :cx="(getX1(connection) + getX2(connection)) / 2"
+                        :cy="(getY1(connection) + getY2(connection) - 60) / 2"
+                        :fill="connection.cost > 15 ? 'gold' : connection.cost > 10 ? 'lightgray' : 'tan'"
+                    />
+                    <circle
+                        v-if="connection.cost > 0"
+                        :key="connection.from + '_' + connection.to + '_circle'"
+                        :r="6 + (connection.cost * 10) / 28"
+                        :cx="(getX1(connection) + getX2(connection)) / 2"
+                        :cy="(getY1(connection) + getY2(connection) - 60) / 2"
+                        fill="gray"
+                        stroke="black"
+                    />
+                    <text
+                        v-if="connection.cost > 0"
+                        :key="connection.from + '_' + connection.to + '_text'"
+                        text-anchor="middle"
+                        :style="`font-size: ${12 + (connection.cost * 6) / 28}px`"
+                        fill="black"
+                        :x="(getX1(connection) + getX2(connection)) / 2"
+                        :y="(getY1(connection) + getY2(connection) - 60) / 2"
+                    >
+                        {{ connection.cost }}
+                    </text>
+                </template>
+
                 <template v-for="(p, i) in G.players">
                     <PlayerBoard
                         :key="'B' + i"
                         :player="p"
                         :color="playerColors[i]"
-                        :transform="`translate(${250 * i}, 100)`"
+                        :transform="`translate(1100, ${140 + 110 * i})`"
                         :owner="i"
                         :isCurrentPlayer="isCurrentPlayer(i)"
                         :ended="gameEnded(G)"
-                        @pieceDrop="onPieceDrop"
-                    />
-                    <rect
-                        :key="'I' + i"
-                        width="390"
-                        height="41"
-                        x="860"
-                        :y="430 + i * 44"
-                        fill="none"
-                        stroke-width="3"
-                        :stroke="playerColors[i]"
+                        :isPlayer="player == i"
+                        @powerPlantClick="powerPlantClick($event)"
                     />
                 </template>
             </template>
 
-            <DropZone
-                :transform="`translate(280, 425)`"
-                :width="400"
-                :height="225"
-                :enabled="true"
-                :accepts="'ship'"
-                :data="{ type: 'openSea' }"
-            />
-            <DropZone
-                :transform="`translate(770, 425)`"
-                :width="480"
-                :height="225"
-                :enabled="true"
-                :accepts="'ship'"
-                :data="{ type: 'islandHarbor' }"
-            />
-
-            <template v-for="ship in ships">
-                <Ship
-                    :key="ship.id"
-                    :pieceId="ship.id"
-                    :targetState="{ x: ship.x, y: ship.y, rotate: ship.rotate }"
-                    :canDrag="canDragShip(ship)"
-                    :containers="ship.containers"
-                    :owner="ship.owner"
-                    :ownerName="G.players[ship.owner].name"
-                    :position="ship.position"
-                    :color="ship.color"
+            <template v-for="house in houses">
+                <House
+                    :key="house.id"
+                    :pieceId="house.id"
+                    :targetState="{ x: house.x, y: house.y }"
+                    :owner="house.owner"
+                    :ownerName="G.players[house.owner].name"
+                    :color="house.color"
                 />
             </template>
 
-            <template v-for="container in containers">
-                <Container
-                    :key="container.id"
-                    :pieceId="container.id"
-                    :targetState="{
-                        x: container.x,
-                        y: container.y,
-                        rotate: container.rotate,
-                    }"
-                    :canDrag="canDragContainer(container)"
-                    :color="container.color"
-                    :owner="container.owner"
-                    :state="container.state"
+            <template v-for="coal in coals">
+                <Coal
+                    :key="coal.id"
+                    :pieceId="coal.id"
+                    :targetState="{ x: coal.x, y: coal.y }"
+                    :canClick="!coal.transparent && canBuyResource('coal')"
+                    :transparent="coal.transparent"
+                    @click="buyResource('coal')"
                 />
             </template>
 
-            <template v-for="factory in factories">
-                <Factory
-                    :key="factory.id"
-                    :pieceId="factory.id"
-                    :targetState="{ x: factory.x, y: factory.y }"
-                    :color="factory.color"
-                    :canDrag="canDragFactory(factory)"
+            <template v-for="oil in oils">
+                <Oil
+                    :key="oil.id"
+                    :pieceId="oil.id"
+                    :targetState="{ x: oil.x, y: oil.y }"
+                    :canClick="!oil.transparent && canBuyResource('oil')"
+                    :transparent="oil.transparent"
+                    @click="buyResource('oil')"
                 />
             </template>
 
-            <template v-for="warehouse in warehouses">
-                <Warehouse
-                    :key="warehouse.id"
-                    :pieceId="warehouse.id"
-                    :targetState="{ x: warehouse.x, y: warehouse.y }"
-                    :canDrag="canDragWarehouse(warehouse)"
+            <template v-for="garbage in garbages">
+                <Garbage
+                    :key="garbage.id"
+                    :pieceId="garbage.id"
+                    :targetState="{ x: garbage.x, y: garbage.y }"
+                    :canClick="!garbage.transparent && canBuyResource('garbage')"
+                    :transparent="garbage.transparent"
+                    @click="buyResource('garbage')"
                 />
             </template>
 
-            <DropZone
-                :transform="`translate(1045, 5)`"
-                :width="50"
-                :height="90"
-                :enabled="true"
-                :accepts="'loan'"
-                :data="{ type: 'payLoan' }"
-            />
-
-            <template v-for="loanCard in loanCards">
-                <LoanCard
-                    :key="loanCard.id"
-                    :targetState="{ x: loanCard.x, y: loanCard.y }"
-                    :owner="loanCard.owner"
-                    :player="player"
-                    :canDrag="canDragLoan(loanCard)"
-                    @fastClick="loan($event)"
+            <template v-for="uranium in uraniums">
+                <Uranium
+                    :key="uranium.id"
+                    :pieceId="uranium.id"
+                    :targetState="{ x: uranium.x, y: uranium.y }"
+                    :canClick="!uranium.transparent && canBuyResource('uranium')"
+                    :transparent="uranium.transparent"
+                    @click="buyResource('uranium')"
                 />
             </template>
 
-            <template v-if="G && player != undefined">
-                <text x="20" y="440">Money: ${{ G.players[player].money }}</text>
-                <PointCard :pointCard="G.players[player].pointCard" transform="translate(20, 460)" />
-            </template>
-
-            <template v-if="isCurrentPlayer(player)">
-                <template v-if="player == G.auctioningPlayer">
-                    <template v-for="(bidder, i) in G.highestBidders">
-                        <rect
-                            v-if="!preferences.disableHelp"
-                            :key="'R' + bidder"
-                            x="139"
-                            :y="449 + 40 * i"
-                            width="132"
-                            height="32"
-                            fill="none"
-                            stroke="blue"
-                            stroke-width="2px"
-                            rx="2px"
-                        />
-                        <Button
-                            :key="bidder"
-                            :transform="`translate(140, ${450 + 40 * i})`"
-                            :width="130"
-                            :text="'Accept ' + getName(bidder)"
-                            @click="accept(bidder)"
-                        />
-                    </template>
-                    <rect
-                        v-if="!preferences.disableHelp"
-                        x="139"
-                        :y="449 + 40 * G.highestBidders.length"
-                        width="132"
-                        height="32"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
-                    <Button
-                        :transform="`translate(140, ${450 + 40 * G.highestBidders.length})`"
-                        :width="130"
-                        :text="'Decline'"
-                        :enabled="canDecline()"
-                        @click="decline()"
-                    />
-                </template>
-                <template v-else-if="G.phase == 'bid' && G.currentPlayers.includes(player)">
-                    <rect
-                        v-if="!preferences.disableHelp"
-                        x="135"
-                        y="425"
-                        width="140"
-                        height="220"
-                        stroke="blue"
-                        fill="transparent"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
-                    <Calculator transform="translate(140, 430)" @bid="bid($event)" />
-                </template>
+            <template v-for="card in cards">
+                <Card
+                    :key="card.id"
+                    :targetState="{ x: card.x, y: card.y }"
+                    :owner="card.owner"
+                    :powerPlant="card.powerPlant"
+                    :canClick="canChoose() && card.isActualMarket"
+                    @click="choosePowerPlant(card.powerPlant)"
+                />
             </template>
 
             <template v-if="G && gameEnded(G)">
@@ -215,261 +400,87 @@
             </template>
 
             <template v-if="!preferences.disableHelp">
-                <template v-if="ui.dragged == null">
-                    <rect
-                        v-if="canBuyFactory('orange')"
-                        x="8"
-                        y="8"
-                        width="114"
-                        height="24"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
-                    <rect
-                        v-if="canBuyFactory('brown')"
-                        x="128"
-                        y="8"
-                        width="114"
-                        height="24"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
-                    <rect
-                        v-if="canBuyFactory('white')"
-                        x="248"
-                        y="8"
-                        width="114"
-                        height="24"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
-                    <rect
-                        v-if="canBuyFactory('darkslategray')"
-                        x="368"
-                        y="8"
-                        width="114"
-                        height="24"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
-                    <rect
-                        v-if="canBuyFactory('tan')"
-                        x="488"
-                        y="8"
-                        width="114"
-                        height="24"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
+                <rect
+                    v-if="canPass()"
+                    x="1354"
+                    y="14"
+                    width="82"
+                    height="28"
+                    fill="none"
+                    stroke="blue"
+                    stroke-width="2px"
+                    rx="2px"
+                />
 
-                    <rect
-                        v-if="canBuyWarehouse()"
-                        x="615"
-                        y="10"
-                        width="424"
-                        height="72"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
+                <rect
+                    v-if="canUndo()"
+                    x="1354"
+                    y="55"
+                    width="82"
+                    height="28"
+                    fill="none"
+                    stroke="blue"
+                    stroke-width="2px"
+                    rx="2px"
+                />
 
-                    <rect
-                        v-if="canProduce('orange')"
-                        x="6"
-                        y="36"
-                        width="116"
-                        height="54"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
-                    <rect
-                        v-if="canProduce('brown')"
-                        x="126"
-                        y="36"
-                        width="116"
-                        height="54"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
-                    <rect
-                        v-if="canProduce('white')"
-                        x="246"
-                        y="36"
-                        width="116"
-                        height="54"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
-                    <rect
-                        v-if="canProduce('darkslategray')"
-                        x="366"
-                        y="36"
-                        width="116"
-                        height="54"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
-                    <rect
-                        v-if="canProduce('tan')"
-                        x="486"
-                        y="36"
-                        width="116"
-                        height="54"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
+                <rect
+                    v-if="canChoose()"
+                    x="950"
+                    y="5"
+                    width="265"
+                    height="65"
+                    fill="none"
+                    stroke="blue"
+                    stroke-width="2px"
+                    rx="2px"
+                />
 
-                    <rect
-                        v-if="canGetLoan()"
-                        x="1045"
-                        y="5"
-                        width="50"
-                        height="90"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
+                <rect
+                    v-if="canBuyResource()"
+                    x="15"
+                    y="695"
+                    width="770"
+                    height="90"
+                    rx="2"
+                    fill="none"
+                    stroke="blue"
+                    stroke-width="2px"
+                />
 
-                    <rect
-                        v-if="canPass()"
-                        x="1104"
-                        y="4"
-                        width="82"
-                        height="28"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
-
-                    <rect
-                        v-if="canUndo()"
-                        x="1104"
-                        y="35"
-                        width="82"
-                        height="28"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
-
-                    <rect
-                        v-if="canPayLoan()"
-                        :x="200 + player * 250"
-                        y="123"
-                        width="47"
-                        height="77"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
-
-                    <g v-if="canSail()">
-                        <rect
-                            v-if="!ships[player].rotate"
-                            :x="ships[player].x - 5"
-                            :y="ships[player].y - 5"
-                            width="40"
-                            height="90"
+                <template v-if="G">
+                    <template v-for="city in G.map.cities">
+                        <circle
+                            v-if="canBuild(city)"
+                            :key="city.name + '_circleHelp'"
+                            :class="[{ canClick: canBuild(city) }]"
+                            r="18"
+                            :cx="city.x"
+                            :cy="city.y - 30"
                             fill="none"
                             stroke="blue"
-                            stroke-width="2px"
-                            rx="2px"
+                            stroke-width="4px"
                         />
-                        <rect
-                            v-else
-                            :x="ships[player].x - 30"
-                            :y="ships[player].y + 20"
-                            width="90"
-                            height="40"
-                            fill="none"
-                            stroke="blue"
-                            stroke-width="2px"
-                            rx="2px"
-                        />
-                    </g>
+                    </template>
 
-                    <rect
-                        v-if="canArrangeFactory()"
-                        :x="6 + player * 250"
-                        y="158"
-                        width="188"
-                        height="44"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
-
-                    <rect
-                        v-if="canArrangeWarehouse()"
-                        :x="6 + player * 250"
-                        y="248"
-                        width="236"
-                        height="44"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
-
-                    <template v-if="G">
-                        <template v-for="(p, i) in G.players">
+                    <template v-for="(player, pi) in G.players">
+                        <template v-for="(powerPlant, ppi) in player.powerPlants">
                             <rect
-                                v-if="canBuyFromPlayerFactory(p)"
-                                :key="'PHF' + i"
-                                :x="6 + i * 250"
-                                y="158"
-                                width="188"
-                                height="44"
+                                v-if="canUsePowerPlant(powerPlant)"
+                                :key="pi + '_' + ppi + '_helper'"
+                                :x="1120 + 80 * ppi"
+                                :y="170 + 110 * pi"
+                                width="60"
+                                height="40"
                                 fill="none"
                                 stroke="blue"
-                                stroke-width="2px"
-                                rx="2px"
-                            />
-                            <rect
-                                v-if="canBuyFromPlayerWarehouse(p)"
-                                :key="'PHW' + i"
-                                :x="6 + i * 250"
-                                y="248"
-                                width="236"
-                                height="44"
-                                fill="none"
-                                stroke="blue"
-                                stroke-width="2px"
+                                stroke-width="4px"
                                 rx="2px"
                             />
                         </template>
                     </template>
                 </template>
             </template>
-
-            <use xlink:href="#moving" />
-            <use xlink:href="#dragged" />
         </svg>
 
         <div v-if="G" :class="['modal', { visible: logVisible }]">
@@ -482,27 +493,7 @@
             </div>
         </div>
 
-        <div v-if="G" :class="['modal', { visible: confirmBidVisible }]">
-            <div class="modal-content">
-                <div class="modal-title">Confirm total bid of ${{ totalBid }}?</div>
-                <div style="text-align: center">
-                    <button class="confirmButton" @click="confirmBid()">Confirm</button>
-                    <button class="confirmButton" @click="confirmBidVisible = false">Cancel</button>
-                </div>
-            </div>
-        </div>
-
-        <div v-if="G" :class="['modal', { visible: confirmSailVisible }]">
-            <div class="modal-content">
-                <div class="modal-title">End your turn and start an auction?</div>
-                <div style="text-align: center">
-                    <button class="confirmButton" @click="confirmSail()">Confirm</button>
-                    <button class="confirmButton" @click="confirmSailVisible = false">Cancel</button>
-                </div>
-            </div>
-        </div>
-
-        <div v-if="G" :class="['modal', { visible: endScoreVisible }]">
+        <!-- <div v-if="G" :class="['modal', { visible: endScoreVisible }]">
             <div class="modal-content">
                 <span class="close" @click="endScoreVisible = false">&times;</span>
                 <div class="modal-title">Final Score</div>
@@ -526,14 +517,12 @@
                             'Containers on Ship ($3 each)',
                             'Loans (-$11 each)',
                         ]"
-                        :key="'FC_' + cat"
-                    >
+                        :key="'FC_' + cat">
                         <td>{{ cat }}</td>
                         <td v-for="player in G.players" :key="'FS' + player.id + i">
                             <div
                                 :style="i === 6 || i === 9 ? 'color: red;' : 'color: green;'"
-                                v-html="getFinalScoreHTML(player, i)"
-                            />
+                                v-html="getFinalScoreHTML(player, i)" />
                         </td>
                     </tr>
                     <tr>
@@ -546,46 +535,33 @@
                     </tr>
                 </table>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Provide, ProvideReactive } from 'vue-property-decorator';
-import { MoveName, ended, move as engineMove } from 'container-engine';
-import type { GameState } from 'container-engine';
+import { MoveName, ended, move as engineMove } from 'powergrid-engine';
+import type { GameState } from 'powergrid-engine';
 import { EventEmitter } from 'events';
-import { groupBy } from 'lodash';
-import { ContainerState, DropZoneType, Piece, PieceType, ShipType, UIData, Preferences } from '../types/ui-data';
-import { ContainerColor, ShipPosition } from 'container-engine/src/gamestate';
-import { Container, Factory, Warehouse, Ship, LoanCard, Piece as PieceComponent } from './pieces';
+import { Piece, UIData, Preferences } from '../types/ui-data';
+import { Card, House, Coal, Oil, Garbage, Uranium } from './pieces';
 import { Button, PassButton, UndoButton, LogButton, SoundButton, HelpButton } from './buttons';
 import PlayerBoard from './PlayerBoard.vue';
-import PointCard from './PointCard.vue';
-import DropZone from './DropZone.vue';
 import Calculator from './Calculator.vue';
-import { GameEventName, LogMove } from 'container-engine/src/log';
+import { GameEventName, LogMove } from 'powergrid-engine/src/log';
+import { City, Phase, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
 
 @Component({
-    created(this: Game) {
-        this.communicator.on('pieceDrop', this.onPieceDrop);
-        this.$on('hook:beforeDestroy', () => this.communicator.off('pieceDrop', this.onPieceDrop));
-    },
     components: {
         PlayerBoard,
-        Container,
-        Factory,
-        Warehouse,
-        LoanCard,
-        PointCard,
-        Ship,
+        Card, House, Coal, Oil, Garbage, Uranium,
         PassButton,
         UndoButton,
         LogButton,
         SoundButton,
         HelpButton,
-        DropZone,
-        Calculator,
         Button,
+        Calculator
     },
 })
 export default class Game extends Vue {
@@ -605,7 +581,6 @@ export default class Game extends Vue {
 
     @Provide()
     ui: UIData = {
-        dragged: null,
         waitingAnimations: 0,
     };
 
@@ -616,21 +591,19 @@ export default class Game extends Vue {
     G?: GameState | null = null;
 
     // Pieces
-    containers: Piece[] = [];
-    factories: Piece[] = [];
-    warehouses: Piece[] = [];
-    warehousesBuilt: Piece[] = [];
-    loanCards: Piece[] = [];
-    ships: ShipType[] = [];
+    coals: Piece[] = [];
+    oils: Piece[] = [];
+    garbages: Piece[] = [];
+    uraniums: Piece[] = [];
+    cards: Piece[] = [];
+    houses: Piece[] = [];
 
-    playerColors = ['dodgerblue', 'red', 'yellow', 'limegreen', 'mediumorchid'];
+    playerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', 'yellow', 'brown'];
 
     animationQueue: Array<Function> = [];
 
     logVisible = false;
     endScoreVisible = false;
-    confirmBidVisible = false;
-    confirmSailVisible = false;
 
     totalBid: number = 0;
 
@@ -649,237 +622,205 @@ export default class Game extends Vue {
             if (move.name == MoveName.Pass && this.G.currentPlayers.includes(this.player!)) {
                 (document.getElementById('notification')!.cloneNode(true) as HTMLAudioElement).play();
             } else {
-                if (
-                    move.name == MoveName.DomesticSale ||
-                    move.name == MoveName.BuyWarehouse ||
-                    move.name == MoveName.ArrangeWarehouse ||
-                    move.name == MoveName.BuyFactory ||
-                    move.name == MoveName.BuyFromFactory ||
-                    move.name == MoveName.Produce ||
-                    move.name == MoveName.Sail ||
-                    move.name == MoveName.ArrangeFactory
-                ) {
+                if (move.name == MoveName.Build) {
                     setTimeout(() => {
                         (document.getElementById('piece-drop')!.cloneNode(true) as HTMLAudioElement).play();
                     }, 800);
-                } else if (
-                    move.name == MoveName.Accept ||
-                    move.name == MoveName.Decline ||
-                    move.name == MoveName.BuyFromWarehouse
-                ) {
-                    (document.getElementById('piece-drop')!.cloneNode(true) as HTMLAudioElement).play();
                 }
             }
         }
     }
 
     createPieces() {
-        // Containers
-        this.containers = [];
+        // Houses
+        this.houses = [];
+        const adjustCityCount: number[][] = [];
+        for (let i = 0; i < 22; i++)
+            adjustCityCount[i] = [];
+
+        this.G?.players.forEach((player, pi) => adjustCityCount[player.cities.length].push(pi));
         this.G?.players.forEach((player, pi) => {
-            let grouped = groupBy(player.containersOnFactoryStore, (c) => c.price);
-            Object.keys(grouped).forEach((price) => {
-                grouped[price].forEach((container, ci) => {
-                    this.containers.push({
-                        id: container.piece.id,
-                        x: 8 + pi * 250 + (container.price - 1) * 48 + (ci % 2) * 20,
-                        y: 160 + Math.floor(ci / 2) * 10,
-                        rotate: 0,
-                        color: container.piece.color.toString(),
-                        owner: pi,
-                        state: ContainerState.OnFactoryStore,
-                    });
-                });
-            });
-
-            grouped = groupBy(player.containersOnWarehouseStore, (c) => c.price);
-            Object.keys(grouped).forEach((price) => {
-                grouped[price].forEach((container, ci) => {
-                    this.containers.push({
-                        id: container.piece.id,
-                        x: 8 + pi * 250 + (container.price - 2) * 48 + (ci % 2) * 20,
-                        y: 250 + Math.floor(ci / 2) * 10,
-                        rotate: 0,
-                        color: container.piece.color.toString(),
-                        owner: pi,
-                        state: ContainerState.OnWarehouseStore,
-                    });
-                });
-            });
-
-            let lastColor;
-            let offset = 0;
-            player.containersOnIsland
-                .sort((a, b) => a.color.localeCompare(b.color))
-                .forEach((container, ci) => {
-                    if (container.color !== lastColor) offset += 10;
-
-                    if (player.containersOnIsland.length <= 28) {
-                        this.containers.push({
-                            id: container.id,
-                            x: 860 + offset + 12 * ci,
-                            y: 445 + 44 * pi,
-                            rotate: 90,
-                            color: container.color.toString(),
-                            owner: pi,
-                            state: ContainerState.OnIsland,
-                        });
+            player.cities
+                .forEach(cityPiece => {
+                    const city = this.G?.map.cities.find(city => city.name == cityPiece.name)!;
+                    let offsetX, offsetY;
+                    if (cityPiece.position == 0) {
+                        offsetX = -6;
+                        offsetY = -48;
+                    } else if (cityPiece.position == 1) {
+                        offsetX = -15;
+                        offsetY = -34;
                     } else {
-                        this.containers.push({
-                            id: container.id,
-                            x: 860 + offset + 6 * ci,
-                            y: 435 + 44 * pi + 20 * (ci % 2),
-                            rotate: 90,
-                            color: container.color.toString(),
-                            owner: pi,
-                            state: ContainerState.OnIsland,
-                        });
+                        offsetX = 15;
+                        offsetY = -34;
                     }
 
-                    lastColor = container.color;
-                });
-        });
-
-        if (this.G?.containersLeft) {
-            let c = {};
-            this.G?.containersLeft.sort().forEach((container) => {
-                if (!c[container.color]) {
-                    c[container.color] = 0;
-                }
-
-                const offset = 120 * Object.values(ContainerColor).indexOf(container.color);
-                this.containers.push({
-                    id: container.id,
-                    x: 10 + offset + 22 * (c[container.color] % 5),
-                    y: 40 + Math.floor(c[container.color] / 5) * 12,
-                    rotate: 0,
-                    color: container.color.toString(),
-                    owner: -1,
-                    state: ContainerState.OnBoard,
+                    this.houses.push({
+                        id: pi + '_' + cityPiece.name,
+                        x: city.x + offsetX,
+                        y: city.y + offsetY,
+                        color: this.playerColors[pi],
+                        owner: pi
+                    });
                 });
 
-                c[container.color]++;
-            });
-        }
+            let x = (adjustCityCount[player.cities.length].length == 1 ? 228 : 225) + 33 * player.cities.length;
+            x += adjustCityCount[player.cities.length].indexOf(pi) % 2 * 6;
 
-        // Factories
-        this.factories = [];
-        this.G?.players.forEach((player, pi) => {
-            player.factories.forEach((factory, i) => {
-                this.factories.push({
-                    id: factory.id,
-                    x: 28 + pi * 250 + i * 48,
-                    y: 140,
-                    owner: player.id,
-                    color: factory.color.toString(),
-                });
+            this.houses.push({
+                id: pi + '_cityCount',
+                x: x,
+                y: 15 + adjustCityCount[player.cities.length].indexOf(pi) * 30 / adjustCityCount[player.cities.length].length,
+                color: this.playerColors[pi],
+                owner: pi
             });
         });
 
-        if (this.G?.factoriesLeft) {
-            let c = 0;
-            let lastColor;
-            this.G?.factoriesLeft.sort().forEach((factory) => {
-                if (lastColor !== factory.color) {
-                    c = 0;
-                }
-
-                const offset = 120 * Object.values(ContainerColor).indexOf(factory.color);
-                this.factories.push({
-                    id: factory.id,
-                    x: 20 + offset + 22 * (c % 5),
-                    y: 20 + Math.floor(c / 5) * 12,
-                    owner: -1,
-                    color: factory.color.toString(),
-                });
-                lastColor = factory.color;
-                c++;
+        this.G?.playerOrder.forEach((p, i) => {
+            this.houses.push({
+                id: p + '_order',
+                x: 20 + 30 * i,
+                y: 22,
+                color: this.playerColors[p],
+                owner: p
             });
+        });
+
+        // Coal
+        if (this.G) {
+            this.coals = [];
+            Array(24).fill(0)
+                .forEach((_, i) => {
+                    this.coals.push({
+                        id: 'coal_' + i,
+                        x: 668 - 23.5 * i - 14.5 * (Math.floor(i / 3)),
+                        y: 708,
+                        transparent: i >= this.G!.coalMarket
+                    });
+                });
+
+            // Oil
+            this.oils = [];
+            Array(24).fill(0)
+                .forEach((_, i) => {
+                    this.oils.push({
+                        id: 'oil_' + i,
+                        x: 651 - 16 * i - 37 * (Math.floor(i / 3)),
+                        y: 730,
+                        transparent: i >= this.G!.oilMarket
+                    });
+                });
+
+            // Garbage
+            this.garbages = [];
+            Array(24).fill(0)
+                .forEach((_, i) => {
+                    this.garbages.push({
+                        id: 'garbage_' + i,
+                        x: 668 - 23.5 * i - 14.5 * (Math.floor(i / 3)),
+                        y: 754,
+                        transparent: i >= this.G!.garbageMarket
+                    });
+                });
+
+            // Uranium
+            this.uraniums = [];
+            Array(12).fill(0)
+                .forEach((_, i) => {
+                    if (i == 0) {
+                        this.uraniums.push({
+                            id: 'uranium_' + i,
+                            x: 750,
+                            y: 751,
+                            transparent: i >= this.G!.uraniumMarket
+                        });
+                    } else if (i == 1) {
+                        this.uraniums.push({
+                            id: 'uranium_' + i,
+                            x: 710,
+                            y: 751,
+                            transparent: i >= this.G!.uraniumMarket
+                        });
+                    } else if (i == 2) {
+                        this.uraniums.push({
+                            id: 'uranium_' + i,
+                            x: 750,
+                            y: 712,
+                            transparent: i >= this.G!.uraniumMarket
+                        });
+                    } else if (i == 3) {
+                        this.uraniums.push({
+                            id: 'uranium_' + i,
+                            x: 710,
+                            y: 712,
+                            transparent: i >= this.G!.uraniumMarket
+                        });
+                    } else {
+                        this.uraniums.push({
+                            id: 'uranium_' + i,
+                            x: 1010 - 85 * i,
+                            y: 732,
+                            transparent: i >= this.G!.uraniumMarket
+                        });
+                    }
+                });
         }
 
-        // Warehouses
-        this.warehouses = [];
-        this.G?.players.forEach((player, pi) => {
-            for (let c = 0; c < player.warehouses.length; c++) {
-                this.warehouses.push({
-                    id: player.warehouses[c].id,
-                    x: 13 + pi * 250 + c * 48,
-                    y: 210,
-                    owner: player.id,
+        // Power Plants
+        this.cards = [];
+        this.G?.actualMarket.forEach((card, i) => {
+            if (card.number != this.G?.chosenPowerPlant?.number) {
+                this.cards.push({
+                    id: 'actual_' + i,
+                    x: 955 + i * 65,
+                    y: 24,
+                    powerPlant: card,
+                    isActualMarket: true
                 });
             }
         });
 
-        if (this.G?.warehousesLeft) {
-            for (let c = 0; c < this.G.warehousesLeft.length; c++) {
-                this.warehouses.push({
-                    id: this.G.warehousesLeft[c].id,
-                    x: 620 + 32 * (c % 13),
-                    y: 15 + Math.floor(c / 13) * 32,
-                    owner: -1,
+        this.G?.futureMarket.forEach((card, i) => {
+            if (card.number != this.G?.chosenPowerPlant?.number) {
+                this.cards.push({
+                    id: 'future_' + i,
+                    x: 955 + i * 65,
+                    y: 90,
+                    powerPlant: card,
+                    isActualMarket: false
                 });
             }
+        });
+
+        if (this.G?.chosenPowerPlant) {
+            this.cards.push({
+                id: 'chosen_',
+                x: 1250,
+                y: 30,
+                powerPlant: this.G.chosenPowerPlant,
+                isActualMarket: false
+            })
         }
+    }
 
-        // Loan Cards
-        this.loanCards = [];
-        this.G?.loansLeft.forEach((loan, i) => {
-            this.loanCards.push({ id: loan.id, x: 1050 + i, y: 29 - i * 2, owner: -1 });
-        });
+    getX1(connection) {
+        const city = this.G!.map.cities.find(city => city.name == connection.from)!;
+        return city.x;
+    }
 
-        this.G?.players.forEach((player, pi) => {
-            player.loans.forEach((loan, c) => {
-                this.loanCards.push({ id: loan.id, x: 205 + pi * 250 + c * 7, y: 135 - c * 7, owner: player.id });
-            });
-        });
+    getY1(connection) {
+        const city = this.G!.map.cities.find(city => city.name == connection.from)!;
+        return city.y;
+    }
 
-        // Ships
-        this.ships = [];
-        this.G?.players.forEach((player, pi) => {
-            const color = ['dodgerblue', 'red', 'yellow', 'limegreen', 'mediumorchid'][pi];
-            switch (player.ship.shipPosition) {
-                case ShipPosition.OpenSea:
-                    this.ships.push({
-                        id: player.ship.piece.id,
-                        x: 380 + pi * 44,
-                        y: 480,
-                        rotate: 0,
-                        color,
-                        containers: player.ship.containers,
-                        owner: pi,
-                        position: player.ship.shipPosition,
-                    });
-                    break;
+    getX2(connection) {
+        const city = this.G!.map.cities.find(city => city.name == connection.to)!;
+        return city.x;
+    }
 
-                case ShipPosition.Island:
-                    this.ships.push({
-                        id: player.ship.piece.id,
-                        x: 800,
-                        y: 410 + pi * 44,
-                        rotate: 90,
-                        color,
-                        containers: player.ship.containers,
-                        owner: pi,
-                        position: player.ship.shipPosition,
-                    });
-                    break;
-
-                default:
-                    const otherPlayer = Number.parseInt(player.ship.shipPosition[12]);
-                    const harbor = Number.parseInt(player.ship.shipPosition[13]);
-                    this.ships.push({
-                        id: player.ship.piece.id,
-                        x: 26 + 250 * otherPlayer + 62 * (harbor - 1),
-                        y: 305,
-                        rotate: 0,
-                        color,
-                        containers: player.ship.containers,
-                        owner: pi,
-                        position: player.ship.shipPosition,
-                    });
-                    break;
-            }
-        });
+    getY2(connection) {
+        const city = this.G!.map.cities.find(city => city.name == connection.to)!;
+        return city.y;
     }
 
     @Watch('ui.waitingAnimations')
@@ -895,123 +836,6 @@ export default class Game extends Vue {
         }
     }
 
-    onPieceDrop(e: PieceComponent, d: any) {
-        const currentPlayer = this.G!.currentPlayers[0];
-        switch (e.pieceType) {
-            case PieceType.Warehouse:
-                this.sendMove({ name: MoveName.BuyWarehouse, data: true, extraData: { id: e.pieceId } });
-                break;
-
-            case PieceType.Factory:
-                const factory = e as Factory;
-                this.sendMove({
-                    name: MoveName.BuyFactory,
-                    data: factory.color,
-                    extraData: { id: factory.pieceId, color: factory.color },
-                });
-                break;
-
-            case PieceType.Container:
-                const container = e as Container;
-                if (container.state == ContainerState.OnBoard) {
-                    if (d.type == DropZoneType.FactoryStore) {
-                        this.sendMove({
-                            name: MoveName.Produce,
-                            data: container.color,
-                            extraData: { piece: { id: container.pieceId, color: container.color }, price: d.price },
-                        });
-                    }
-                } else if (container.state == ContainerState.OnFactoryStore) {
-                    if (d.type == DropZoneType.FactoryStore) {
-                        if (
-                            this.G!.players[currentPlayer].containersOnFactoryStore.find(
-                                (c) => c.piece.id == e.pieceId
-                            )!.price === d.price
-                        ) {
-                            return;
-                        }
-
-                        this.sendMove({
-                            name: MoveName.ArrangeFactory,
-                            data: { id: container.pieceId, color: container.color },
-                            extraData: { price: d.price },
-                        });
-                    } else if (d.type == DropZoneType.WarehouseStore) {
-                        this.sendMove({
-                            name: MoveName.BuyFromFactory,
-                            data: { player: container.owner, piece: { id: container.pieceId, color: container.color } },
-                            extraData: { price: d.price },
-                        });
-                    } else if (d.type == DropZoneType.Supply) {
-                        this.sendMove({
-                            name: MoveName.DomesticSale,
-                            data: { id: container.pieceId, color: container.color },
-                        });
-                    }
-                } else if (container.state == ContainerState.OnWarehouseStore) {
-                    if (d.type == DropZoneType.WarehouseStore) {
-                        if (
-                            this.G!.players[currentPlayer].containersOnWarehouseStore.find(
-                                (c) => c.piece.id == e.pieceId
-                            )!.price === d.price
-                        ) {
-                            return;
-                        }
-
-                        this.sendMove({
-                            name: MoveName.ArrangeWarehouse,
-                            data: { id: container.pieceId, color: container.color },
-                            extraData: { price: d.price },
-                        });
-                    } else if (d.type == DropZoneType.Ship) {
-                        this.sendMove({
-                            name: MoveName.BuyFromWarehouse,
-                            data: { player: container.owner, piece: { id: container.pieceId, color: container.color } },
-                        });
-                    } else if (d.type == DropZoneType.Supply) {
-                        this.sendMove({
-                            name: MoveName.DomesticSale,
-                            data: { id: container.pieceId, color: container.color },
-                        });
-                    }
-                }
-
-                break;
-
-            case PieceType.Ship:
-                const player = this.G!.players[currentPlayer];
-                if (d.type.startsWith('playerHarbor')) {
-                    if (!player.ship.shipPosition.startsWith('playerHarbor'))
-                        this.sendMove({ name: MoveName.Sail, data: d.type });
-                } else if (d.type === DropZoneType.OpenSea) {
-                    if (player.ship.shipPosition !== ShipPosition.OpenSea)
-                        this.sendMove({ name: MoveName.Sail, data: ShipPosition.OpenSea });
-                } else if (d.type === DropZoneType.IslandHarbor) {
-                    if (player.ship.shipPosition !== ShipPosition.Island) {
-                        this.confirmSailVisible = true;
-                    }
-                }
-
-                break;
-
-            case PieceType.Loan:
-                const loan = e as LoanCard;
-                if (loan.owner == -1 && d.type == DropZoneType.GetLoan) {
-                    this.sendMove({ name: MoveName.GetLoan, data: true });
-                } else if (loan.owner !== -1 && d.type == DropZoneType.PayLoan) {
-                    this.sendMove({ name: MoveName.PayLoan, data: true });
-                }
-
-                break;
-        }
-
-        this.updateUI();
-    }
-
-    getName(bidder) {
-        return this.G!.players[bidder].name;
-    }
-
     pass() {
         this.sendMove({ name: MoveName.Pass, data: true });
     }
@@ -1020,44 +844,57 @@ export default class Game extends Vue {
         this.sendMove({ name: MoveName.Undo, data: true });
     }
 
-    loan(event) {
-        const loan = event as LoanCard;
-        if (loan.owner == -1) {
-            this.sendMove({ name: MoveName.GetLoan, data: true });
-        } else if (loan.owner == this.player) {
-            this.sendMove({ name: MoveName.PayLoan, data: true });
+    choosePowerPlant(powerPlant: PowerPlant) {
+        this.sendMove({ name: MoveName.ChoosePowerPlant, data: powerPlant.number });
+    }
+
+    buyResource(resource: ResourceType) {
+        this.sendMove({ name: MoveName.BuyResource, data: { resource } });
+    }
+
+    bid(bid: number) {
+        this.sendMove({ name: MoveName.Bid, data: bid })
+    }
+
+    build(city: City) {
+        const currentPlayer = this.G!.players[this.player!];
+        const availableMoves = currentPlayer.availableMoves!;
+        const move = availableMoves[MoveName.Build]!.find(c => c.name == city.name)!;
+        this.sendMove({ name: MoveName.Build, data: { name: city.name, price: move.price } })
+    }
+
+    powerPlantClick(powerPlant: PowerPlant) {
+        if (this.G?.phase == Phase.Auction) {
+            this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
+        } else if (this.G?.phase == Phase.Bureaucracy) {
+            let resourcesSpent: ResourceType[] = [];
+            switch (powerPlant.type) {
+                case PowerPlantType.Coal:
+                    resourcesSpent = Array(powerPlant.cost).fill(ResourceType.Coal);
+                    break;
+                case PowerPlantType.Oil:
+                    resourcesSpent = Array(powerPlant.cost).fill(ResourceType.Oil);
+                    break;
+                case PowerPlantType.Garbage:
+                    resourcesSpent = Array(powerPlant.cost).fill(ResourceType.Garbage);
+                    break;
+                case PowerPlantType.Uranium:
+                    resourcesSpent = Array(powerPlant.cost).fill(ResourceType.Uranium);
+                    break;
+                case PowerPlantType.Hybrid:
+                    const currentPlayer = this.G!.players[this.player!];
+                    resourcesSpent = Array(Math.min(powerPlant.cost, currentPlayer.coalLeft)).fill(ResourceType.Coal)
+                        .concat(Array(powerPlant.cost - Math.min(powerPlant.cost, currentPlayer.coalLeft)).fill(ResourceType.Oil));
+
+                    break;
+            }
+
+            this.sendMove({ name: MoveName.UsePowerPlant, data: { powerPlant: powerPlant.number, resourcesSpent, citiesPowered: powerPlant.citiesPowered } });
         }
-    }
-
-    bid(event) {
-        if (this.G!.players[this.player!].bid != 0) {
-            this.confirmBidVisible = true;
-            this.totalBid = this.G!.players[this.player!].bid + event;
-        } else {
-            this.sendMove({ name: MoveName.Bid, data: true, extraData: { price: event } });
-        }
-    }
-
-    confirmBid() {
-        this.confirmBidVisible = false;
-        this.sendMove({ name: MoveName.Bid, data: true, extraData: { price: this.totalBid - this.G!.players[this.player!].bid } });
-        this.totalBid = 0;
-    }
-
-    confirmSail() {
-        this.confirmSailVisible = false;
-        this.sendMove({ name: MoveName.Sail, data: ShipPosition.Island });
-    }
-
-    accept(bidder) {
-        this.sendMove({ name: MoveName.Accept, data: bidder });
-    }
-
-    decline() {
-        this.sendMove({ name: MoveName.Decline, data: true });
     }
 
     sendMove(move) {
+        console.log(move);
         this.emitter.emit('move', move);
 
         this.replaceState(engineMove(this.G!, move, this.player!, true), true);
@@ -1069,104 +906,12 @@ export default class Game extends Vue {
 
     canMove() {
         return (
-            this.player &&
+            this.player != undefined &&
             this.G &&
             this.G.currentPlayers.includes(this.player!) &&
             this.G.players[this.player!] &&
             this.G.players[this.player!].availableMoves
         );
-    }
-
-    canDragContainer(container: Piece) {
-        if (!this.canMove()) return false;
-
-        const currentPlayer = this.G!.players[this.player!];
-        const availableMoves = currentPlayer.availableMoves!;
-
-        switch (container.state) {
-            case ContainerState.OnBoard: {
-                const available = availableMoves[MoveName.Produce];
-                return (
-                    available &&
-                    available.indexOf(container.color as ContainerColor) != -1 &&
-                    currentPlayer.produced.indexOf(container.color as ContainerColor) == -1
-                );
-            }
-
-            case ContainerState.OnFactoryStore: {
-                if (container.owner == currentPlayer.id) {
-                    return (
-                        availableMoves[MoveName.ArrangeFactory]?.find((c) => c.id == container.id) ||
-                        availableMoves[MoveName.DomesticSale]?.find((c) => c.id == container.id)
-                    );
-                } else {
-                    return availableMoves[MoveName.BuyFromFactory]?.find((a) => a.piece.id == container.id);
-                }
-            }
-
-            case ContainerState.OnWarehouseStore: {
-                if (container.owner == currentPlayer.id) {
-                    return (
-                        availableMoves[MoveName.ArrangeWarehouse]?.find((c) => c.id == container.id) ||
-                        availableMoves[MoveName.DomesticSale]?.find((c) => c.id == container.id)
-                    );
-                } else {
-                    return availableMoves[MoveName.BuyFromWarehouse]?.find((a) => a.piece.id == container.id);
-                }
-            }
-
-            case ContainerState.OnShip:
-            case ContainerState.OnIsland:
-            default:
-                return false;
-        }
-    }
-
-    canDragFactory(factory: Piece) {
-        if (!this.canMove()) return false;
-
-        const currentPlayer = this.G!.players[this.player!];
-        const availableMoves = currentPlayer.availableMoves!;
-
-        if (factory.owner !== -1) return false;
-
-        const available = availableMoves[MoveName.BuyFactory];
-        return available && available.find((a) => a == factory.color);
-    }
-
-    canDragWarehouse(warehouse: Piece) {
-        if (!this.canMove()) return false;
-
-        const currentPlayer = this.G!.players[this.player!];
-        const availableMoves = currentPlayer.availableMoves!;
-
-        if (warehouse.owner !== -1) return false;
-
-        return availableMoves[MoveName.BuyWarehouse] != undefined;
-    }
-
-    canDragLoan(loanCard: Piece) {
-        if (!this.canMove()) return false;
-
-        const currentPlayer = this.G!.players[this.player!];
-        const availableMoves = currentPlayer.availableMoves!;
-
-        if (loanCard.owner == -1) {
-            return availableMoves[MoveName.GetLoan] != undefined;
-        } else if (loanCard.owner == currentPlayer.id) {
-            return availableMoves[MoveName.PayLoan] != undefined;
-        }
-
-        return false;
-    }
-
-    canDragShip(ship: Piece) {
-        if (!this.canMove()) return false;
-
-        const currentPlayer = this.G!.players[this.player!];
-        const availableMoves = currentPlayer.availableMoves!;
-
-        return availableMoves[MoveName.Sail] && this.isCurrentPlayer(ship.owner);
     }
 
     canPass() {
@@ -1187,13 +932,57 @@ export default class Game extends Vue {
         return !!availableMoves[MoveName.Undo];
     }
 
-    canDecline() {
+    canBid() {
         if (!this.canMove()) return false;
 
         const currentPlayer = this.G!.players[this.player!];
         const availableMoves = currentPlayer.availableMoves!;
 
-        return !!availableMoves[MoveName.Decline];
+        return !!availableMoves[MoveName.Bid];
+    }
+
+    canChoose() {
+        if (!this.canMove()) return false;
+
+        const currentPlayer = this.G!.players[this.player!];
+        const availableMoves = currentPlayer.availableMoves!;
+
+        return !!availableMoves[MoveName.ChoosePowerPlant];
+    }
+
+    canBuyResource(resource?: ResourceType) {
+        if (!this.canMove()) return false;
+
+        const currentPlayer = this.G!.players[this.player!];
+        const availableMoves = currentPlayer.availableMoves!;
+
+        if (!resource) {
+            return !!availableMoves[MoveName.BuyResource];
+        } else {
+            return !!availableMoves[MoveName.BuyResource] && availableMoves[MoveName.BuyResource]!.find(m => m.resource == resource);
+        }
+    }
+
+    canBuild(city: City) {
+        if (!this.canMove()) return false;
+
+        const currentPlayer = this.G!.players[this.player!];
+        const availableMoves = currentPlayer.availableMoves!;
+
+        return !!availableMoves[MoveName.Build] && availableMoves[MoveName.Build]!.find(c => c.name == city.name);
+    }
+
+    canUsePowerPlant(powerPlant: PowerPlant) {
+        if (!this.canMove()) return false;
+
+        const currentPlayer = this.G!.players[this.player!];
+        const availableMoves = currentPlayer.availableMoves!;
+
+        if (this.G?.phase == Phase.Bureaucracy) {
+            return !!availableMoves[MoveName.UsePowerPlant] && availableMoves[MoveName.UsePowerPlant]!.find(p => p.powerPlant == powerPlant.number);
+        } else if (this.G?.phase == Phase.Auction) {
+            return !!availableMoves[MoveName.DiscardPowerPlant] && availableMoves[MoveName.DiscardPowerPlant]!.find(p => p == powerPlant.number);
+        }
     }
 
     toggleSound() {
@@ -1213,10 +1002,6 @@ export default class Game extends Vue {
             return 'Game ended!';
         } else if (this.player !== undefined && this.G?.currentPlayers.includes(this.player)) {
             if (this.G.players[this.player].availableMoves![MoveName.Bid]) {
-                if (this.G.highestBidders.length != 0) {
-                    return 'It\'s a tie, choose your ADDITIONAL bid!';
-                }
-
                 return 'It\'s your turn to bid!';
             }
 
@@ -1227,166 +1012,21 @@ export default class Game extends Vue {
                 this.G.log.length == 0 ||
                 this.G.log[this.G.log.length - 1].type != 'move' ||
                 (this.G.log[this.G.log.length - 1] as LogMove).move.name == MoveName.Pass
-            )
+            ) {
                 return `Waiting for ${this.G!.currentPlayers.map(p => this.G?.players[p].name).join(', ')} to play...`;
+            }
 
             let log = (this.G.log[this.G.log.length - 1] as LogMove).pretty;
             while (log?.indexOf('>') != -1) {
                 log = log?.substr(0, log.indexOf('<')) + log.substr(log.indexOf('>') + 1);
             }
 
-            return log.replaceAll('darkslategray', 'dark green');
+            return log;
         }
     }
 
     isCurrentPlayer(player) {
         return this.G && this.G.currentPlayers.includes(player);
-    }
-
-    canBuyFactory(color) {
-        return (
-            this.G &&
-            this.G.currentPlayers.includes(this.player!) &&
-            this.G.players[this.player!] &&
-            this.G.players[this.player!].availableMoves &&
-            this.G.players[this.player!].availableMoves![MoveName.BuyFactory] &&
-            this.G.players[this.player!].availableMoves![MoveName.BuyFactory]!.indexOf(color) != -1
-        );
-    }
-
-    canBuyWarehouse() {
-        return (
-            this.G &&
-            this.G.currentPlayers.includes(this.player!) &&
-            this.G.players[this.player!] &&
-            this.G.players[this.player!].availableMoves &&
-            this.G.players[this.player!].availableMoves![MoveName.BuyWarehouse]
-        );
-    }
-
-    canProduce(color) {
-        return (
-            this.G &&
-            this.G.currentPlayers.includes(this.player!) &&
-            this.G.players[this.player!] &&
-            this.G.players[this.player!].availableMoves &&
-            this.G.players[this.player!].availableMoves![MoveName.Produce] &&
-            this.G.players[this.player!].availableMoves![MoveName.Produce]!.indexOf(color) != -1
-        );
-    }
-
-    canGetLoan() {
-        return (
-            this.G &&
-            this.G.currentPlayers.includes(this.player!) &&
-            this.G.players[this.player!] &&
-            this.G.players[this.player!].availableMoves &&
-            this.G.players[this.player!].availableMoves![MoveName.GetLoan]
-        );
-    }
-
-    canPayLoan() {
-        return (
-            this.G &&
-            this.G.currentPlayers.includes(this.player!) &&
-            this.G.players[this.player!] &&
-            this.G.players[this.player!].availableMoves &&
-            this.G.players[this.player!].availableMoves![MoveName.PayLoan]
-        );
-    }
-
-    canSail() {
-        return (
-            this.G &&
-            this.G.currentPlayers.includes(this.player!) &&
-            this.G.players[this.player!] &&
-            this.G.players[this.player!].availableMoves &&
-            this.G.players[this.player!].availableMoves![MoveName.Sail]
-        );
-    }
-
-    canArrangeFactory() {
-        return (
-            this.G &&
-            this.G.currentPlayers.includes(this.player!) &&
-            this.G.players[this.player!] &&
-            this.G.players[this.player!].availableMoves &&
-            this.G.players[this.player!].availableMoves![MoveName.ArrangeFactory]
-        );
-    }
-
-    canArrangeWarehouse() {
-        return (
-            this.G &&
-            this.G.currentPlayers.includes(this.player!) &&
-            this.G.players[this.player!] &&
-            this.G.players[this.player!].availableMoves &&
-            this.G.players[this.player!].availableMoves![MoveName.ArrangeWarehouse]
-        );
-    }
-
-    canBuyFromPlayerFactory(otherPlayer) {
-        if (
-            this.G &&
-            this.G.currentPlayers.includes(this.player!) &&
-            this.G.players[this.player!] &&
-            this.G.players[this.player!].availableMoves &&
-            this.G.players[this.player!].availableMoves![MoveName.BuyFromFactory]
-        ) {
-            const buyable = this.G.players[this.player!].availableMoves![MoveName.BuyFromFactory]!.map(
-                (c) => c.piece.id
-            );
-            const playerContainers = otherPlayer.containersOnFactoryStore.map((c) => c.piece.id);
-            return buyable.some((id) => playerContainers.indexOf(id) !== -1);
-        }
-
-        return false;
-    }
-
-    canBuyFromPlayerWarehouse(otherPlayer) {
-        if (
-            this.G &&
-            this.G.currentPlayers.includes(this.player!) &&
-            this.G.players[this.player!] &&
-            this.G.players[this.player!].availableMoves &&
-            this.G.players[this.player!].availableMoves![MoveName.BuyFromWarehouse]
-        ) {
-            const buyable = this.G.players[this.player!].availableMoves![MoveName.BuyFromWarehouse]!.map(
-                (c) => c.piece.id
-            );
-            const playerContainers = otherPlayer.containersOnWarehouseStore.map((c) => c.piece.id);
-            return buyable.some((id) => playerContainers.indexOf(id) !== -1);
-        }
-
-        return false;
-    }
-
-    isDragging(pieceType) {
-        return this.ui && this.ui.dragged != null && this.ui.dragged.pieceType == pieceType;
-    }
-
-    draggedContainerType() {
-        if (this.ui && this.ui.dragged != null && this.ui.dragged.pieceType == 'container') {
-            const container = this.ui.dragged as Container;
-
-            if (container.owner == this.player) {
-                if (container.state == ContainerState.OnFactoryStore) {
-                    return 'ownFactoryContainer';
-                } else if (container.state == ContainerState.OnWarehouseStore) {
-                    return 'ownWarehouseContainer';
-                }
-            } else {
-                if (container.state == ContainerState.OnBoard) {
-                    return 'boardContainer';
-                } else if (container.state == ContainerState.OnFactoryStore) {
-                    return 'factoryContainer';
-                } else if (container.state == ContainerState.OnWarehouseStore) {
-                    return 'warehouseContainer';
-                }
-            }
-        }
-
-        return null;
     }
 
     get logReversed() {
@@ -1402,7 +1042,7 @@ export default class Game extends Vue {
                         logReversed.push('New event: ' + log.event.name);
                     }
                 } else if (log.type == 'move') {
-                    logReversed.push(log.pretty.replaceAll('darkslategray', 'dark green'));
+                    logReversed.push(log.pretty);
                 }
             });
 
@@ -1425,7 +1065,7 @@ export default class Game extends Vue {
                         logReversed.push('New event: ' + log.event.name);
                     }
                 } else if (log.type == 'move') {
-                    logReversed.push(log.simple.replaceAll('darkslategray', 'dark green'));
+                    logReversed.push(log.simple);
                 }
             });
 
@@ -1446,24 +1086,10 @@ export default class Game extends Vue {
 
         return this.G!.players[this.player!].availableMoves!;
     }
-
-    getFinalScoreHTML(player, i) {
-        let str = player.finalScoreBreakdown ? player.finalScoreBreakdown[i] : '0';
-
-        str = str.replaceAll('brown', '<span style="font-weight: bold; border: 1px solid black; padding: 0 12px; font-size: 12px; background-color: brown; color: brown;"></span>');
-        str = str.replaceAll('darkslategray', '<span style="font-weight: bold; border: 1px solid black; padding: 0 12px; font-size: 12px; background-color: darkslategray; color: darkslategray;"></span>');
-        str = str.replaceAll('orange', '<span style="font-weight: bold; border: 1px solid black; padding: 0 12px; font-size: 12px; background-color: orange; color: orange;"></span>');
-        str = str.replaceAll('tan', '<span style="font-weight: bold; border: 1px solid black; padding: 0 12px; font-size: 12px; background-color: tan; color: tan;"></span>');
-        str = str.replaceAll('white', '<span style="font-weight: bold; border: 1px solid black; padding: 0 12px; font-size: 12px; background-color: white; color: white;"></span>');
-
-        return str;
-    }
 }
 </script>
 <style lang="scss">
 .game {
-    height: 100%;
-    background-color: lightblue;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -1504,24 +1130,6 @@ text {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
-
-.piece {
-    &:not(.dragging) {
-        transition: transform 0.8s ease-in-out;
-    }
-
-    &.canDrag {
-        cursor: pointer;
-
-        &:hover {
-            & > circle,
-            & > rect,
-            & > path {
-                stroke: white;
-            }
-        }
-    }
 }
 
 .button {

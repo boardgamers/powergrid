@@ -3,45 +3,35 @@ import { ResourceType } from './gamestate';
 export declare namespace Moves {
     export interface MoveChoosePowerPlant {
         name: MoveName.ChoosePowerPlant;
-        data: {
-            powerPlant: number;
-            startingPrice: number;
-        };
+        data: number;
     }
 
     export interface MoveBid {
         name: MoveName.Bid;
-        data: {
-            price: number;
-        };
+        data: number;
     }
 
     export interface MoveDiscardPowerPlant {
         name: MoveName.DiscardPowerPlant;
-        data: {
-            powerPlant: number;
-        };
+        data: number;
     }
 
     export interface MoveDiscardResources {
         name: MoveName.DiscardResources;
-        data: {
-            resourcesDiscarded: ResourceType[];
-        };
+        data: ResourceType;
     }
 
     export interface MoveBuyResource {
         name: MoveName.BuyResource;
         data: {
             resource: ResourceType;
-            price: number;
         };
     }
 
     export interface MoveBuild {
         name: MoveName.Build;
         data: {
-            city: string;
+            name: string;
             price: number;
         };
     }
@@ -78,13 +68,13 @@ export type Move =
     | Moves.MoveUndo;
 
 export enum MoveName {
-    ChoosePowerPlant,
-    Bid,
-    DiscardPowerPlant,
-    DiscardResources,
-    BuyResource,
-    Build,
-    UsePowerPlant,
-    Pass,
-    Undo
+    ChoosePowerPlant = 'ChoosePowerPlant',
+    Bid = 'Bid',
+    DiscardPowerPlant = 'DiscardPowerPlant',
+    DiscardResources = 'DiscardResources',
+    BuyResource = 'BuyResource',
+    Build = 'Build',
+    UsePowerPlant = 'UsePowerPlant',
+    Pass = 'Pass',
+    Undo = 'Undo',
 }

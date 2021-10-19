@@ -1,18 +1,10 @@
 <script lang="ts">
-import { Component, Inject, Prop, Watch } from 'vue-property-decorator';
-import Draggable from './Draggable.vue';
+import { Vue, Component, Inject, Prop, Watch } from 'vue-property-decorator';
 import { EventEmitter } from 'events';
 import { PieceType, UIData } from '@/types/ui-data';
 
 @Component({
     created(this: Piece) {
-        this.$on('draggedTo', (coords: { x: number, y: number }) => {
-            [this.currentX, this.currentY] = [coords.x, coords.y];
-
-            this.$nextTick(() => {
-                this.communicator.emit('draggedPosChanged', this);
-            });
-        });
     },
     mounted(this: Piece) {
         this.mounted = true;
@@ -21,8 +13,8 @@ import { PieceType, UIData } from '@/types/ui-data';
         this.onTransitionEnd();
     }
 })
-export default class Piece extends Draggable {
-    @Prop({ default: () => ({ x: 20, y: 20, rotate: 0 }) })
+export default class Piece extends Vue {
+    @Prop({ default: () => ({ x: 0, y: 0, rotate: 0 }) })
     targetState!: {
         x: number,
         y: number,
@@ -31,6 +23,9 @@ export default class Piece extends Draggable {
 
     @Prop()
     pieceId!: string;
+
+    @Prop()
+    transparent?: boolean;
 
     @Inject()
     readonly communicator!: EventEmitter;
@@ -42,7 +37,6 @@ export default class Piece extends Draggable {
 
     currentX = 0;
     currentY = 0;
-    rotate = 0;
     mounted = false;
     transitioning = false;
     transitionCount = 0;
@@ -71,10 +65,6 @@ export default class Piece extends Draggable {
     @Watch('dragging')
     @Watch('targetState', { immediate: true })
     onTargetChanged(newVal: boolean, oldVal: boolean) {
-        if (this.dragging) {
-            return;
-        }
-
         if (this.targetState.x === this.currentX && this.targetState.y === this.currentY) {
             return;
         }
@@ -91,24 +81,12 @@ export default class Piece extends Draggable {
         if (!this.mounted) {
             this.currentX = this.targetState.x;
             this.currentY = this.targetState.y;
-            this.rotate = this.targetState.rotate;
         } else {
             // Make sure the animation plays by waiting until the class "dragging" is removed for sure from the element
             setTimeout(() => {
                 this.currentX = this.targetState.x;
                 this.currentY = this.targetState.y;
-                this.rotate = this.targetState.rotate;
             });
-        }
-    }
-
-    @Watch('dragging')
-    onDraggingChanged() {
-        if (this.dragging) {
-            this.ui.dragged = this;
-        } else {
-            this.ui.dragged = null;
-            this.communicator.emit('draggedPosChanged', this);
         }
     }
 
@@ -121,7 +99,7 @@ export default class Piece extends Draggable {
     }
 
     get elId() {
-        return this.dragging ? 'dragged' : (this.transitioning || this.moving ? 'moving' : undefined);
+        return this.transitioning || this.moving ? 'moving' : undefined;
     }
 }
 </script>

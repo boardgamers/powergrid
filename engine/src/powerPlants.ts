@@ -43,6 +43,7 @@ const powerPlants: PowerPlant[] = [
     { number: 44, type: PowerPlantType.Wind, cost: 0, citiesPowered: 5 },
     { number: 46, type: PowerPlantType.Hybrid, cost: 3, citiesPowered: 7 },
     { number: 50, type: PowerPlantType.Nuclear, cost: 0, citiesPowered: 6 },
+    { number: 99, type: PowerPlantType.Nuclear, cost: 0, citiesPowered: 6 },
 ];
 
 export default powerPlants;

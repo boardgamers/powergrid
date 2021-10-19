@@ -1,4 +1,4 @@
-# container-viewer
+# powergrid-viewer
 
 ## Project setup
 

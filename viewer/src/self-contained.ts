@@ -1,6 +1,6 @@
-import { move as execMove, Move, setup, stripSecret } from 'container-engine';
-import { moveAI } from 'container-engine/src/engine';
 import { cloneDeep } from 'lodash';
+import { move as execMove, Move, setup, stripSecret } from 'powergrid-engine';
+import { moveAI } from 'powergrid-engine/src/engine';
 import launch from './launch';
 
 function launchSelfContained(selector = '#app') {
@@ -8,16 +8,16 @@ function launchSelfContained(selector = '#app') {
 
     const emitter = launch(selector);
 
-    let gameState = setup(5, {});
+    let gameState = setup(4, {});
 
     for (let i = 0; i < gameState.players.length; i++) {
         gameState.players[i].name = `Player ${i + 1}`;
     }
 
-    const playerIndex = 1;
+    let playerIndex = 0;
 
     for (const player of gameState.players) {
-        if (player.id != playerIndex) player.isAI = true;
+        player.isAI = true;
     }
 
     emitter.on('move', async (move: Move) => {
@@ -34,6 +34,7 @@ function launchSelfContained(selector = '#app') {
                 gameState.players.findIndex((pl) => pl.isAI && pl.availableMoves)
             );
             let newState = cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState);
+            console.log('new game state', newState);
             setTimeout(() => emitter.emit('state', newState), delay);
             delay += 800;
         }

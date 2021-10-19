@@ -26,10 +26,10 @@ export interface Map {
 }
 
 export enum ResourceType {
-    Coal,
-    Oil,
-    Garbage,
-    Uranium
+    Coal = 'coal',
+    Oil = 'oil',
+    Garbage = 'garbage',
+    Uranium = 'uranium',
 }
 
 export enum PowerPlantType {
@@ -39,7 +39,7 @@ export enum PowerPlantType {
     Uranium,
     Hybrid,
     Wind,
-    Nuclear
+    Nuclear,
 }
 
 export interface PowerPlant {
@@ -66,10 +66,11 @@ export interface Player {
     garbageLeft: number;
     uraniumCapacity: number;
     uraniumLeft: number;
+    hybridCapacity: number;
     money: number;
     housesLeft: number;
     cities: CityPosition[];
-    powerPlantsUsed: number[];
+    powerPlantsNotUsed: number[];
     availableMoves: AvailableMoves | null;
     lastMove: Move | null;
     isDropped: boolean;
@@ -81,12 +82,12 @@ export interface Player {
 }
 
 export enum Phase {
-    Order,
-    Auction,
-    Resources,
-    Building,
-    Bureaucracy,
-    GameEnd
+    Order = 'order',
+    Auction = 'auction',
+    Resources = 'resources',
+    Building = 'building',
+    Bureaucracy = 'bureaucracy',
+    GameEnd = 'gameEnd',
 }
 
 // export interface HousePiece {
@@ -123,10 +124,10 @@ export interface GameState {
     oilMarket: number;
     garbageMarket: number;
     uraniumMarket: number;
-    actualMarket: number[];
-    futureMarket: number[];
-    chosenPowerPlant: number;
-    currentBid: number;
+    actualMarket: PowerPlant[];
+    futureMarket: PowerPlant[];
+    chosenPowerPlant: PowerPlant | undefined;
+    currentBid: number | undefined;
     auctioningPlayer: number | undefined;
     highestBidders: number[];
     step: number;

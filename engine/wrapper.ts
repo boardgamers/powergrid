@@ -2,7 +2,7 @@ import { cloneDeep } from 'lodash';
 import type { GameState } from './index';
 import * as engine from './src/engine';
 import type { LogMove } from './src/log';
-import { Move } from './src/move';
+import { Move, MoveName } from './src/move';
 import { asserts } from './src/utils';
 
 export async function init(nbPlayers: number, expansions: string[], options: {}, seed?: string): Promise<GameState> {
@@ -26,10 +26,10 @@ export { ended, scores, stripSecret } from './src/engine';
 export function rankings(G: GameState) {
     const sortedPlayers = cloneDeep(G.players)
         .sort((p1, p2) => {
-            if (p1.money == p2.money) {
-                return p1.containersOnIsland.length - p2.containersOnIsland.length;
-            } else {
+            if (p1.citiesPowered == p2.citiesPowered) {
                 return p1.money - p2.money;
+            } else {
+                return p1.citiesPowered - p2.citiesPowered;
             }
         })
         .map((pl) => pl.id)
@@ -65,7 +65,7 @@ export function round(G: GameState) {
 export async function dropPlayer(G: GameState, player: number) {
     G.players[player].isDropped = true;
 
-    engine.nextPlayer(G);
+    G = engine.move(G, { name: MoveName.Pass, data: true }, player);
 
     return G;
 }

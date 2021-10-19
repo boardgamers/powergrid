@@ -1,5 +1,5 @@
-import type { GameState, Move } from 'container-engine';
 import { EventEmitter } from 'events';
+import type { GameState, Move } from 'powergrid-engine';
 import Vue from 'vue';
 import Game from './components/Game.vue';
 import type { Preferences } from './types/ui-data';

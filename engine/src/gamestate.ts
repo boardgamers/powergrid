@@ -8,7 +8,7 @@ export interface GameOptions {
 
 export interface City {
     name: string;
-    area: string;
+    region: string;
     x: number;
     y: number;
 }
@@ -79,15 +79,16 @@ export interface Player {
     passed: boolean;
     skipAuction: boolean;
     citiesPowered: number;
+    resourcesUsed: ResourceType[];
 }
 
 export enum Phase {
-    Order = 'order',
-    Auction = 'auction',
-    Resources = 'resources',
-    Building = 'building',
-    Bureaucracy = 'bureaucracy',
-    GameEnd = 'gameEnd',
+    Order = 'Order',
+    Auction = 'Auction',
+    Resources = 'Resources',
+    Building = 'Building',
+    Bureaucracy = 'Bureaucracy',
+    GameEnd = 'Game End',
 }
 
 // export interface HousePiece {
@@ -138,4 +139,7 @@ export interface GameState {
     seed: string;
     round: number;
     auctionSkips: number;
+    citiesToStep2: number;
+    citiesToEndGame: number;
+    resourceResupply: string;
 }

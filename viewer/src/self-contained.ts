@@ -8,7 +8,7 @@ function launchSelfContained(selector = '#app') {
 
     const emitter = launch(selector);
 
-    let gameState = setup(4, {});
+    let gameState = setup(6, {});
 
     for (let i = 0; i < gameState.players.length; i++) {
         gameState.players[i].name = `Player ${i + 1}`;
@@ -17,6 +17,7 @@ function launchSelfContained(selector = '#app') {
     let playerIndex = 0;
 
     for (const player of gameState.players) {
+        // if (player.id != playerIndex)
         player.isAI = true;
     }
 
@@ -27,7 +28,7 @@ function launchSelfContained(selector = '#app') {
 
         emitter.emit('state', cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState));
 
-        let delay = 800;
+        let delay = 200;
         while (gameState.players.some((pl) => pl.isAI && pl.availableMoves)) {
             gameState = moveAI(
                 gameState,
@@ -36,7 +37,7 @@ function launchSelfContained(selector = '#app') {
             let newState = cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState);
             console.log('new game state', newState);
             setTimeout(() => emitter.emit('state', newState), delay);
-            delay += 800;
+            delay += 200;
         }
 
         console.log('available moves', gameState.players[playerIndex].availableMoves);
@@ -49,7 +50,7 @@ function launchSelfContained(selector = '#app') {
     emitter.emit('player', { index: playerIndex });
     emitter.emit('state', cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState));
 
-    let delay = 800;
+    let delay = 200;
     while (gameState.players.some((pl) => pl.isAI && pl.availableMoves)) {
         gameState = moveAI(
             gameState,
@@ -57,7 +58,7 @@ function launchSelfContained(selector = '#app') {
         );
         let newState = cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState);
         setTimeout(() => emitter.emit('state', newState), delay);
-        delay += 800;
+        delay += 200;
     }
 
     console.log('available moves', gameState.players[playerIndex].availableMoves);

@@ -10,7 +10,7 @@
             <source src="../audio/notification.mp3" type="audio/mpeg" />
             <source src="../audio/notification.ogg" type="audio/ogg" />
         </audio>
-        <svg id="scene" viewBox="0 0 1500 800" height="1200">
+        <svg id="scene" viewBox="0 0 1500 800" height="700">
             <rect width="100%" height="100%" x="0" y="0" fill="yellowgreen" />
 
             <rect width="185" height="40" x="10" y="10" rx="3" fill="goldenrod" />
@@ -52,6 +52,7 @@
                     text-anchor="middle"
                     style="font-size: 24px; font-family: monospace"
                     letter-spacing="-3"
+                    :text-decoration="G && (index == G.citiesToStep2 || index == G.citiesToEndGame) ? 'underline' : ''"
                     :x="265 + 33 * (index - 1)"
                     y="35"
                     fill="gold"
@@ -199,7 +200,29 @@
             </text>
 
             <text x="955" y="14" font-weight="600" fill="black">Actual Market:</text>
-            <text x="955" y="80" font-weight="600" fill="black">Future Market:</text>
+            <text v-if="G && G.step < 3" x="955" y="80" font-weight="600" fill="black">Future Market:</text>
+
+            <template v-if="G">
+                <template v-if="gameEnded(G)">
+                    <Button
+                        :transform="`translate(140, 580)`"
+                        :width="130"
+                        :text="'Final Score'"
+                        @click="endScoreVisible = true"
+                    />
+                </template>
+                <template v-else>
+                    <text x="30" y="580" font-weight="600" fill="black" style="font-size: 32px">
+                        Step: {{ G.step }}
+                    </text>
+                    <text x="30" y="620" font-weight="600" fill="black" style="font-size: 32px">
+                        Phase: {{ G.phase }}
+                    </text>
+                    <text x="30" y="680" font-weight="600" fill="black" style="font-size: 24px">
+                        Resource Resupply: {{ G.resourceResupply }}
+                    </text>
+                </template>
+            </template>
 
             <PassButton transform="translate(1355, 15)" :enabled="canPass()" @click="pass()" />
             <UndoButton transform="translate(1355, 56)" :enabled="canUndo()" @click="undo()" />
@@ -208,7 +231,7 @@
             <HelpButton transform="translate(1450, 80)" :isOn="!preferences.disableHelp" @click="toggleHelp()" />
 
             <template v-if="G">
-                <template v-if="G.phase == 'auction' && G.chosenPowerPlant">
+                <template v-if="G.phase == 'Auction' && G.chosenPowerPlant">
                     <text x="1220" y="14" font-weight="600" fill="black">Current Auction:</text>
                     <Calculator
                         v-if="canBid()"
@@ -221,11 +244,11 @@
 
                 <template v-for="city in G.map.cities">
                     <circle
-                        :key="city.name + '_area'"
+                        :key="city.name + '_region'"
                         r="25"
                         :cx="city.x"
                         :cy="city.y - 30"
-                        :fill="city.area"
+                        :fill="city.region"
                         stroke="black"
                     >
                         <title>{{ city.name }}</title>
@@ -319,6 +342,7 @@
                         :isCurrentPlayer="isCurrentPlayer(i)"
                         :ended="gameEnded(G)"
                         :isPlayer="player == i"
+                        :ranking="sortedPlayers.findIndex((x) => x.id == p.id) + 1"
                         @powerPlantClick="powerPlantClick($event)"
                     />
                 </template>
@@ -390,15 +414,6 @@
                 />
             </template>
 
-            <template v-if="G && gameEnded(G)">
-                <Button
-                    :transform="`translate(140, 580)`"
-                    :width="130"
-                    :text="'Final Score'"
-                    @click="endScoreVisible = true"
-                />
-            </template>
-
             <template v-if="!preferences.disableHelp">
                 <rect
                     v-if="canPass()"
@@ -424,17 +439,31 @@
                     rx="2px"
                 />
 
-                <rect
-                    v-if="canChoose()"
-                    x="950"
-                    y="5"
-                    width="265"
-                    height="65"
-                    fill="none"
-                    stroke="blue"
-                    stroke-width="2px"
-                    rx="2px"
-                />
+                <g v-if="G && canChoose()">
+                    <rect
+                        v-if="G.step < 3"
+                        x="950"
+                        y="5"
+                        width="265"
+                        height="65"
+                        fill="none"
+                        stroke="blue"
+                        stroke-width="2px"
+                        rx="2px"
+                    />
+
+                    <rect
+                        v-else
+                        x="950"
+                        y="5"
+                        width="200"
+                        height="120"
+                        fill="none"
+                        stroke="blue"
+                        stroke-width="2px"
+                        rx="2px"
+                    />
+                </g>
 
                 <rect
                     v-if="canBuyResource()"
@@ -493,54 +522,33 @@
             </div>
         </div>
 
-        <!-- <div v-if="G" :class="['modal', { visible: endScoreVisible }]">
+        <div v-if="G && gameEnded(G)" :class="['modal', { visible: endScoreVisible }]">
             <div class="modal-content">
                 <span class="close" @click="endScoreVisible = false">&times;</span>
                 <div class="modal-title">Final Score</div>
                 <table class="final-score-table">
                     <tr>
                         <th><div>Player</div></th>
-                        <th v-for="player in G.players" :key="'FS' + player.id">
+                        <th v-for="player in sortedPlayers" :key="'FS' + player.id">
                             <div :style="'background-color: ' + playerColors[player.id]">{{ player.name }}</div>
                         </th>
                     </tr>
-                    <tr
-                        v-for="(cat, i) in [
-                            'Money',
-                            '$10 containers',
-                            '$5/$10 containers',
-                            '$6 containers',
-                            '$4 containers',
-                            '$2 containers',
-                            'Discarded color',
-                            'Containers in Warehouses ($2 each)',
-                            'Containers on Ship ($3 each)',
-                            'Loans (-$11 each)',
-                        ]"
-                        :key="'FC_' + cat">
+                    <tr v-for="(cat, i) in ['Cities Powered', 'Money', 'Total Cities']" :key="'FC_' + cat">
                         <td>{{ cat }}</td>
-                        <td v-for="player in G.players" :key="'FS' + player.id + i">
-                            <div
-                                :style="i === 6 || i === 9 ? 'color: red;' : 'color: green;'"
-                                v-html="getFinalScoreHTML(player, i)" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Final Score</td>
-                        <td v-for="player in G.players" :key="'FS' + player.id + 'money'">
-                            <div style="font-weight: bold" :style="player.money < 0 ? 'color: red;' : 'color: green;'">
-                                {{ player.money > 0 ? '$' + player.money : '-$' + Math.abs(player.money) }}
+                        <td v-for="player in sortedPlayers" :key="'FS' + player.id + i">
+                            <div>
+                                {{ i == 0 ? player.citiesPowered : i == 1 ? player.money : player.cities.length }}
                             </div>
                         </td>
                     </tr>
                 </table>
             </div>
-        </div> -->
+        </div>
     </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Provide, ProvideReactive } from 'vue-property-decorator';
-import { MoveName, ended, move as engineMove } from 'powergrid-engine';
+import { MoveName, ended, move as engineMove, playersSortedByScore } from 'powergrid-engine';
 import type { GameState } from 'powergrid-engine';
 import { EventEmitter } from 'events';
 import { Piece, UIData, Preferences } from '../types/ui-data';
@@ -548,7 +556,7 @@ import { Card, House, Coal, Oil, Garbage, Uranium } from './pieces';
 import { Button, PassButton, UndoButton, LogButton, SoundButton, HelpButton } from './buttons';
 import PlayerBoard from './PlayerBoard.vue';
 import Calculator from './Calculator.vue';
-import { GameEventName, LogMove } from 'powergrid-engine/src/log';
+import { LogMove } from 'powergrid-engine/src/log';
 import { City, Phase, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
 
 @Component({
@@ -651,7 +659,7 @@ export default class Game extends Vue {
                         offsetX = -15;
                         offsetY = -34;
                     } else {
-                        offsetX = 15;
+                        offsetX = 1;
                         offsetY = -34;
                     }
 
@@ -769,14 +777,26 @@ export default class Game extends Vue {
         // Power Plants
         this.cards = [];
         this.G?.actualMarket.forEach((card, i) => {
-            if (card.number != this.G?.chosenPowerPlant?.number) {
-                this.cards.push({
-                    id: 'actual_' + i,
-                    x: 955 + i * 65,
-                    y: 24,
-                    powerPlant: card,
-                    isActualMarket: true
-                });
+            if (this.G!.step < 3) {
+                if (card.number != this.G?.chosenPowerPlant?.number) {
+                    this.cards.push({
+                        id: 'actual_' + i,
+                        x: 955 + i * 65,
+                        y: 24,
+                        powerPlant: card,
+                        isActualMarket: true
+                    });
+                }
+            } else {
+                if (card.number != this.G?.chosenPowerPlant?.number) {
+                    this.cards.push({
+                        id: 'actual_' + i,
+                        x: 955 + (i % 3) * 65,
+                        y: i < 3 ? 24 : 80,
+                        powerPlant: card,
+                        isActualMarket: true
+                    });
+                }
             }
         });
 
@@ -883,8 +903,9 @@ export default class Game extends Vue {
                     break;
                 case PowerPlantType.Hybrid:
                     const currentPlayer = this.G!.players[this.player!];
-                    resourcesSpent = Array(Math.min(powerPlant.cost, currentPlayer.coalLeft)).fill(ResourceType.Coal)
-                        .concat(Array(powerPlant.cost - Math.min(powerPlant.cost, currentPlayer.coalLeft)).fill(ResourceType.Oil));
+                    resourcesSpent = currentPlayer.resourcesUsed;
+                    resourcesSpent.sort();
+                    currentPlayer.resourcesUsed = [];
 
                     break;
             }
@@ -978,7 +999,9 @@ export default class Game extends Vue {
         const currentPlayer = this.G!.players[this.player!];
         const availableMoves = currentPlayer.availableMoves!;
 
-        if (this.G?.phase == Phase.Bureaucracy) {
+        if (currentPlayer.resourcesUsed.length > 0) {
+            return false;
+        } else if (this.G?.phase == Phase.Bureaucracy) {
             return !!availableMoves[MoveName.UsePowerPlant] && availableMoves[MoveName.UsePowerPlant]!.find(p => p.powerPlant == powerPlant.number);
         } else if (this.G?.phase == Phase.Auction) {
             return !!availableMoves[MoveName.DiscardPowerPlant] && availableMoves[MoveName.DiscardPowerPlant]!.find(p => p == powerPlant.number);
@@ -1033,14 +1056,8 @@ export default class Game extends Vue {
         let logReversed: string[] = [];
         if (this.G && this.G.log) {
             this.G.log.forEach((log) => {
-                if (log.type == 'phase') {
-                    logReversed.push('New phase: ' + log.phase);
-                } else if (log.type == 'event') {
-                    if (log.event.name == GameEventName.Upkeep) {
-                        logReversed.push('New event: ' + log.event.interest);
-                    } else {
-                        logReversed.push('New event: ' + log.event.name);
-                    }
+                if (log.type == 'event') {
+                    logReversed.push(log.event);
                 } else if (log.type == 'move') {
                     logReversed.push(log.pretty);
                 }
@@ -1056,14 +1073,8 @@ export default class Game extends Vue {
         let logReversed: string[] = [];
         if (this.G && this.G.log) {
             this.G.log.forEach((log) => {
-                if (log.type == 'phase') {
-                    logReversed.push('New phase: ' + log.phase);
-                } else if (log.type == 'event') {
-                    if (log.event.name == GameEventName.Upkeep) {
-                        logReversed.push('New event: ' + log.event.interest);
-                    } else {
-                        logReversed.push('New event: ' + log.event.name);
-                    }
+                if (log.type == 'event') {
+                    logReversed.push(log.event);
                 } else if (log.type == 'move') {
                     logReversed.push(log.simple);
                 }
@@ -1080,11 +1091,8 @@ export default class Game extends Vue {
         this.emitter.emit('replaceLog', [...this.logReversedSimple].reverse());
     }
 
-    getCurrentPlayerMoves() {
-        if (!this.canMove())
-            return [];
-
-        return this.G!.players[this.player!].availableMoves!;
+    get sortedPlayers() {
+        return playersSortedByScore(this.G!);
     }
 }
 </script>
@@ -1188,7 +1196,7 @@ text {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 10vh; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -1213,7 +1221,7 @@ text {
 }
 
 .modal-log {
-    max-height: calc(100% - 42px);
+    max-height: calc(80vh - 75px);
     overflow: auto;
     border: 1px solid black;
 }

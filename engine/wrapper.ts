@@ -1,6 +1,6 @@
-import { cloneDeep } from 'lodash';
 import type { GameState } from './index';
 import * as engine from './src/engine';
+import { playersSortedByScore } from './src/engine';
 import type { LogMove } from './src/log';
 import { Move, MoveName } from './src/move';
 import { asserts } from './src/utils';
@@ -24,16 +24,7 @@ export async function move(G: GameState, move: Move, player: number) {
 export { ended, scores, stripSecret } from './src/engine';
 
 export function rankings(G: GameState) {
-    const sortedPlayers = cloneDeep(G.players)
-        .sort((p1, p2) => {
-            if (p1.citiesPowered == p2.citiesPowered) {
-                return p1.money - p2.money;
-            } else {
-                return p1.citiesPowered - p2.citiesPowered;
-            }
-        })
-        .map((pl) => pl.id)
-        .reverse();
+    const sortedPlayers = playersSortedByScore(G).map((pl) => pl.id);
 
     return G.players.map((pl) => sortedPlayers.indexOf(pl.id) + 1);
 }

@@ -1,8 +1,8 @@
 # Container
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/boardgamers/container)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/boardgamers/powergrid)
 
-Mono repo containing the viewer & the engine for Gaia Container
+Mono repo containing the viewer & the engine for Power Grid
 
 Checkout their READMEs:
 

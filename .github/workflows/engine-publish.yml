@@ -33,7 +33,7 @@ jobs:
             - run: git config --global user.email bot@github.com
             - run: yarn config set version-git-message "Engine v%s"
             - run: yarn version --${{ github.event.inputs.newversion }}
-            - run: sed -i 's:container-engine:@boardgamers/container-engine:' package.json
+            - run: sed -i 's:powergrid-engine:@boardgamers/powergrid-engine:' package.json
             - run: pnpm publish --access public --no-git-checks .
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

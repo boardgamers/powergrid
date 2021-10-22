@@ -8,7 +8,7 @@ function launchSelfContained(selector = '#app') {
 
     const emitter = launch(selector);
 
-    let gameState = setup(6, {});
+    let gameState = setup(2, {});
 
     for (let i = 0; i < gameState.players.length; i++) {
         gameState.players[i].name = `Player ${i + 1}`;
@@ -17,8 +17,7 @@ function launchSelfContained(selector = '#app') {
     let playerIndex = 0;
 
     for (const player of gameState.players) {
-        // if (player.id != playerIndex)
-        player.isAI = true;
+        if (player.id != playerIndex) player.isAI = true;
     }
 
     emitter.on('move', async (move: Move) => {

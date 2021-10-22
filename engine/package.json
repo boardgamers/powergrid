@@ -1,6 +1,6 @@
 {
     "name": "powergrid-engine",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "An engine for Power Grid",
     "main": "dist/index.js",
     "types": "index.ts",
@@ -14,7 +14,7 @@
     "scripts": {
         "prepublishOnly": "npm run test && npm run clean && tsc",
         "build": "npm run clean && tsc",
-        "clean": "del /q dist",
+        "clean": "rm -Rf dist",
         "lint": "eslint . --ext .ts",
         "test": "mocha -r ts-node/register src/**/*.spec.ts src/*.spec.ts"
     },

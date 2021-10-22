@@ -497,7 +497,7 @@
                             <rect
                                 v-if="canUsePowerPlant(powerPlant)"
                                 :key="pi + '_' + ppi + '_helper'"
-                                :x="1120 + 80 * ppi"
+                                :x="player.powerPlants.length < 5 ? 1120 + 80 * ppi : 1105 + 70 * ppi"
                                 :y="170 + 110 * pi"
                                 width="60"
                                 height="40"
@@ -1024,24 +1024,38 @@ export default class Game extends Vue {
         if (!this.G || this.G.currentPlayers == []) {
             return 'Game ended!';
         } else if (this.player !== undefined && this.G?.currentPlayers.includes(this.player)) {
-            if (this.G.players[this.player].availableMoves![MoveName.Bid]) {
+            const currentPlayer = this.G.players[this.player];
+            if (currentPlayer.availableMoves![MoveName.ChoosePowerPlant]) {
+                if (currentPlayer.availableMoves![MoveName.Pass]) {
+                    return 'Choose a Power Plant to start an auction, or pass.';
+                }
+
+                return 'Choose a Power Plant to start an auction.';
+            } else if (currentPlayer.availableMoves![MoveName.Bid]) {
                 return 'It\'s your turn to bid!';
+            } else if (currentPlayer.availableMoves![MoveName.BuyResource]) {
+                return 'Buy resources on the market, or pass.';
+            } else if (currentPlayer.availableMoves![MoveName.Build]) {
+                return 'Build a new city, or pass.';
+            } else if (currentPlayer.availableMoves![MoveName.UsePowerPlant]) {
+                if (currentPlayer.resourcesUsed.length != 0) {
+                    return 'Choose which resources to spend.';
+                }
+
+                return 'Choose which Power Plant to use.';
+            } else if (currentPlayer.availableMoves![MoveName.DiscardPowerPlant]) {
+                return 'Choose which Power Plant to discard.';
+            } else if (currentPlayer.availableMoves![MoveName.DiscardResources]) {
+                return 'Choose which resources to discard.';
             }
 
             return 'It\'s your turn!';
         } else {
-            if (
-                !this.G.log ||
-                this.G.log.length == 0 ||
-                this.G.log[this.G.log.length - 1].type != 'move' ||
-                (this.G.log[this.G.log.length - 1] as LogMove).move.name == MoveName.Pass
-            ) {
-                return `Waiting for ${this.G!.currentPlayers.map(p => this.G?.players[p].name).join(', ')} to play...`;
-            }
-
             let log = (this.G.log[this.G.log.length - 1] as LogMove).pretty;
-            while (log?.indexOf('>') != -1) {
-                log = log?.substr(0, log.indexOf('<')) + log.substr(log.indexOf('>') + 1);
+            if (log) {
+                while (log?.indexOf('>') != -1) {
+                    log = log?.substr(0, log.indexOf('<')) + log.substr(log.indexOf('>') + 1);
+                }
             }
 
             return log;

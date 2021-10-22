@@ -10,7 +10,7 @@
         <Card
             v-for="(powerPlant, i) in player.powerPlants"
             :key="'powerPlant_' + powerPlant.number"
-            :targetState="{ x: 20 + 80 * i, y: 30 }"
+            :targetState="{ x: player.powerPlants.length < 5 ? 20 + 80 * i : 5 + 70 * i, y: 30 }"
             :owner="owner"
             :powerPlant="powerPlant"
             :canClick="canUse(powerPlant)"
@@ -120,7 +120,7 @@ export default class PlayerBoard extends Vue {
         if (this.player.availableMoves?.[MoveName.DiscardPowerPlant]) {
             return true;
         } else {
-            if (!this.player.powerPlantsNotUsed.includes(powerPlant.number)) {
+            if (!this.player.powerPlantsNotUsed.includes(powerPlant.number) || this.player.resourcesUsed.length > 0) {
                 return false;
             }
 

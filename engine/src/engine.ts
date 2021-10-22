@@ -495,20 +495,7 @@ export function move(G: GameState, move: Move, playerNumber: number, fake?: bool
                 if (G.players.some((p) => !p.skipAuction)) {
                     nextPlayerAuction(G, true);
                 } else {
-                    G.players.forEach((p) => {
-                        p.skipAuction = false;
-                    });
-                    G.phase = Phase.Resources;
-                    G.currentPlayers = [G.playerOrder[G.players.length - 1]];
-
-                    if (G.futureMarket.find((pp) => pp.number == 99)) {
-                        G.step = 3;
-                        G.actualMarket.shift();
-                        G.futureMarket.pop();
-
-                        G.actualMarket = [...G.actualMarket, ...G.futureMarket];
-                        G.futureMarket = [];
-                    }
+                    toResourcesPhase(G);
                 }
             }
 
@@ -565,20 +552,7 @@ export function move(G: GameState, move: Move, playerNumber: number, fake?: bool
                 if (G.players.some((p) => !p.skipAuction)) {
                     nextPlayerAuction(G, true);
                 } else {
-                    G.players.forEach((p) => {
-                        p.skipAuction = false;
-                    });
-                    G.phase = Phase.Resources;
-                    G.currentPlayers = [G.playerOrder[G.players.length - 1]];
-
-                    if (G.futureMarket.find((pp) => pp.number == 99)) {
-                        G.step = 3;
-                        G.actualMarket.shift();
-                        G.futureMarket.pop();
-
-                        G.actualMarket = [...G.actualMarket, ...G.futureMarket];
-                        G.futureMarket = [];
-                    }
+                    toResourcesPhase(G);
                 }
             }
 
@@ -923,6 +897,7 @@ function addPowerPlant(G: GameState) {
             G.powerPlantsDeck = shuffle(G.powerPlantsDeck, G.seed);
 
             if (G.phase != Phase.Auction) {
+                G.log.push({ type: 'event', event: `Starting Step 3` });
                 G.step = 3;
                 G.actualMarket.shift();
             }

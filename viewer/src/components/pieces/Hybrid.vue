@@ -26,15 +26,11 @@
 import { PieceType } from '@/types/ui-data';
 import { Component, Mixins } from 'vue-property-decorator';
 import Piece from './Piece.vue';
-import { Coal, Oil } from '.';
 
 @Component({
     created(this: Hybrid) {
         this.pieceType = PieceType.Hybrid;
-    },
-    components: {
-        Coal, Oil
-    },
+    }
 })
 export default class Hybrid extends Mixins(Piece) {
 }

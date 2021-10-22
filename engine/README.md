@@ -1,6 +1,6 @@
 # powergrid-engine
 
-Typescript engine for Container.
+Typescript engine for Power Grid.
 
 ## Setup
 

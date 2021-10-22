@@ -2,7 +2,7 @@
 import launch from './launch';
 
 if (typeof window !== 'undefined') {
-    (window as any).container = { launch };
+    (window as any).powergrid = { launch };
 }
 
 export default launch;

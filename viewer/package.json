@@ -1,6 +1,6 @@
 {
     "name": "powergrid-viewer",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
@@ -9,9 +9,9 @@
         "prepublishOnly": "npm run package"
     },
     "dependencies": {
-        "powergrid-engine": "workspace:../engine",
         "core-js": "^3.6.5",
         "lodash": "^4.17.19",
+        "powergrid-engine": "workspace:../engine",
         "regenerator-runtime": "^0.13.7",
         "tslib": "^2.2.0",
         "vue": "^2.6.11",

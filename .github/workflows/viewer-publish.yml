@@ -33,7 +33,7 @@ jobs:
             - run: git config --global user.email bot@github.com
             - run: yarn config set version-git-message "Viewer v%s"
             - run: yarn version --${{ github.event.inputs.newversion }}
-            - run: sed -i 's:"container-viewer":"@boardgamers/container-viewer":' package.json
+            - run: sed -i 's:"powergrid-viewer":"@boardgamers/powergrid-viewer":' package.json
             - run: pnpm publish --access public --no-git-checks .
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

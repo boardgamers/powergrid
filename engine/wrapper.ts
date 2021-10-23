@@ -35,6 +35,10 @@ export function rankings(G: GameState) {
     return G.players.map((pl) => sortedPlayers.indexOf(pl.id) + 1);
 }
 
+export function factions(G: GameState) {
+    return G.players.map((pl) => engine.playerColors[pl.id]);
+}
+
 export function replay(G: GameState) {
     const oldPlayers = G.players;
 

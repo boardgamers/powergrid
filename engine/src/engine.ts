@@ -10,7 +10,7 @@ import powerPlants from './powerPlants';
 import prices from './prices';
 import { asserts, shuffle } from './utils';
 
-const playerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', 'yellow', 'brown'];
+export const playerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', 'yellow', 'brown'];
 
 const coalResupply = [
     [3, 4, 3],

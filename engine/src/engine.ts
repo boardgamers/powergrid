@@ -175,6 +175,7 @@ export function stripSecret(G: GameState, player?: number): GameState {
         ...G,
         seed: 'secret',
         hiddenLog: [],
+        powerPlantsDeck: [],
         players: G.players.map((pl, i) => {
             if (player === i) {
                 return pl;

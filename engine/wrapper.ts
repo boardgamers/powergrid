@@ -1,11 +1,17 @@
 import type { GameState } from './index';
 import * as engine from './src/engine';
 import { playersSortedByScore } from './src/engine';
+import { GameOptions } from './src/gamestate';
 import type { LogMove } from './src/log';
 import { Move, MoveName } from './src/move';
 import { asserts } from './src/utils';
 
-export async function init(nbPlayers: number, expansions: string[], options: {}, seed?: string): Promise<GameState> {
+export async function init(
+    nbPlayers: number,
+    expansions: string[],
+    options: GameOptions,
+    seed?: string
+): Promise<GameState> {
     return engine.setup(nbPlayers, options, seed);
 }
 

@@ -91,7 +91,7 @@ export function setup(numPlayers: number, { fastBid = false }: GameOptions, seed
         resourcesUsed: [],
     }));
 
-    const playerOrder = shuffle(range(numPlayers), rng() + '');
+    const playerOrder = range(numPlayers);
     const startingPlayer = playerOrder[0];
 
     const regions = map.cities

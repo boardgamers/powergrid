@@ -556,7 +556,10 @@
                 <div>
                     <strong>Phases:</strong>
                     <ul>
-                        <li><strong>Determine Turn Order</strong> by cities built and highest power plant</li>
+                        <li>
+                            <strong>Determine Turn Order</strong> by number of cities built and highest power plant
+                            owned
+                        </li>
                         <li>
                             <strong>Buy Power Plants</strong> from the actual market (minimun bid is power plant number)
                         </li>
@@ -618,7 +621,7 @@
                 <div>
                     Game ends after building phase where a player has <strong>{{ G.citiesToEndGame }}</strong> or more
                     cities.<br />
-                    The winner is the player that can power more cities. Money and number of cities built are
+                    The winner is the player that can power the most cities. Money and number of cities built are
                     tiebrakers.
                 </div>
                 <br />
@@ -627,13 +630,13 @@
                     <table class="payment-table">
                         <tr>
                             <td><strong>Cities</strong></td>
-                            <template v-for="index in 21">
+                            <template v-for="index in G.citiesToEndGame">
                                 <td :key="'cities' + index">{{ index - 1 }}</td>
                             </template>
                         </tr>
                         <tr>
                             <td><strong>Payment</strong></td>
-                            <template v-for="index in 21">
+                            <template v-for="index in G.citiesToEndGame">
                                 <td :key="'payment' + index">${{ G.paymentTable[index - 1] }}</td>
                             </template>
                         </tr>
@@ -1153,7 +1156,7 @@ export default class Game extends Vue {
 
                 return 'Choose a Power Plant to start an auction.';
             } else if (currentPlayer.availableMoves![MoveName.Bid]) {
-                return "It's your turn to bid!";
+                return 'It\'s your turn to bid!';
             } else if (currentPlayer.availableMoves![MoveName.BuyResource]) {
                 return 'Buy resources on the market, or pass.';
             } else if (currentPlayer.availableMoves![MoveName.Build]) {
@@ -1170,7 +1173,7 @@ export default class Game extends Vue {
                 return 'Choose which resources to discard.';
             }
 
-            return "It's your turn!";
+            return 'It\'s your turn!';
         } else {
             let log = (this.G.log[this.G.log.length - 1] as LogMove).pretty;
             if (log) {

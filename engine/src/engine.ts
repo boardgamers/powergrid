@@ -269,7 +269,7 @@ export function move(G: GameState, move: Move, playerNumber: number, fake?: bool
                 pretty: `${playerNameHTML(player)} bids <span style="color: green">$${move.data}</span>`,
             });
 
-            nextPlayerAuction(G);
+            nextPlayerClockwise(G);
 
             break;
         }
@@ -333,7 +333,7 @@ export function move(G: GameState, move: Move, playerNumber: number, fake?: bool
                                 }
                             }
                         } else {
-                            nextPlayerAuction(G);
+                            nextPlayerClockwise(G);
                         }
                     }
 
@@ -815,11 +815,21 @@ export function reconstructState(initialState: GameState, log: LogItem[]): GameS
     return G;
 }
 
-export function nextPlayer(G: GameState) {
-    const index = G.playerOrder.indexOf(G.currentPlayers[0]);
-    G.currentPlayers = [G.playerOrder[(index + 1) % G.players.length]];
+export function nextPlayerClockwise(G: GameState) {
+    const index = G.currentPlayers[0];
+    G.currentPlayers = [(index + 1) % G.players.length];
 
-    if (G.players[G.currentPlayers[0]].isDropped && G.players.some((p) => !p.isDropped)) nextPlayer(G);
+    if (G.players[G.currentPlayers[0]].isDropped && G.players.some((p) => !p.isDropped)) {
+        G.players[G.currentPlayers[0]].skipAuction = true;
+        nextPlayerClockwise(G);
+    }
+
+    if (
+        (G.players[G.currentPlayers[0]].skipAuction || G.players[G.currentPlayers[0]].passed) &&
+        G.players.some((p) => !p.skipAuction && !p.passed)
+    ) {
+        nextPlayerClockwise(G);
+    }
 }
 
 export function nextPlayerReverse(G: GameState) {

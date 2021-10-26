@@ -8,7 +8,7 @@ function launchSelfContained(selector = '#app') {
 
     const emitter = launch(selector);
 
-    let gameState = setup(2, {});
+    let gameState = setup(6, {});
 
     for (let i = 0; i < gameState.players.length; i++) {
         gameState.players[i].name = `Player ${i + 1}`;
@@ -27,7 +27,7 @@ function launchSelfContained(selector = '#app') {
 
         emitter.emit('state', cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState));
 
-        let delay = 200;
+        let delay = 1000;
         while (gameState.players.some((pl) => pl.isAI && pl.availableMoves)) {
             gameState = moveAI(
                 gameState,
@@ -36,7 +36,7 @@ function launchSelfContained(selector = '#app') {
             let newState = cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState);
             console.log('new game state', newState);
             setTimeout(() => emitter.emit('state', newState), delay);
-            delay += 200;
+            delay += 1000;
         }
 
         console.log('available moves', gameState.players[playerIndex].availableMoves);
@@ -49,7 +49,7 @@ function launchSelfContained(selector = '#app') {
     emitter.emit('player', { index: playerIndex });
     emitter.emit('state', cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState));
 
-    let delay = 200;
+    let delay = 1000;
     while (gameState.players.some((pl) => pl.isAI && pl.availableMoves)) {
         gameState = moveAI(
             gameState,
@@ -57,7 +57,7 @@ function launchSelfContained(selector = '#app') {
         );
         let newState = cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState);
         setTimeout(() => emitter.emit('state', newState), delay);
-        delay += 200;
+        delay += 1000;
     }
 
     console.log('available moves', gameState.players[playerIndex].availableMoves);

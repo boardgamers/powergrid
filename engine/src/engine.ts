@@ -202,7 +202,7 @@ export function currentPlayers(G: GameState): number[] {
     return G.currentPlayers;
 }
 
-export function move(G: GameState, move: Move, playerNumber: number, fake?: boolean): GameState {
+export function move(G: GameState, move: Move, playerNumber: number): GameState {
     const player = G.players[playerNumber];
     const available = player.availableMoves?.[move.name];
 
@@ -690,7 +690,7 @@ export function move(G: GameState, move: Move, playerNumber: number, fake?: bool
             asserts<Moves.MoveUndo>(move);
 
             const lastLog = G.log[G.log.length - 1];
-            if (lastLog.type == 'move' && G.currentPlayers.includes(lastLog.player) && !fake) {
+            if (lastLog.type == 'move' && G.currentPlayers.includes(lastLog.player)) {
                 G.log.pop();
                 G = reconstructState(getBaseState(G), G.log);
             }

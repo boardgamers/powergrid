@@ -724,15 +724,15 @@ export default class Game extends Vue {
 
     @Watch('state', { immediate: true })
     onStateChanged(state: GameState) {
-        this.replaceState(state, false);
+        this.replaceState(state);
     }
 
-    replaceState(state: GameState, fake: boolean) {
+    replaceState(state: GameState) {
         this.G = JSON.parse(JSON.stringify(state));
 
         this.createPieces();
 
-        if (!fake && this.preferences.sound && this.G?.log[this.G?.log.length - 1].type == 'move') {
+        if (this.preferences.sound && this.G?.log[this.G?.log.length - 1].type == 'move') {
             const move = (this.G?.log[this.G?.log.length - 1] as LogMove).move;
             if (move.name == MoveName.Pass && this.G.currentPlayers.includes(this.player!)) {
                 (document.getElementById('notification')!.cloneNode(true) as HTMLAudioElement).play();
@@ -1032,8 +1032,6 @@ export default class Game extends Vue {
     sendMove(move) {
         console.log(move);
         this.emitter.emit('move', move);
-
-        this.replaceState(engineMove(this.G!, move, this.player!, true), true);
     }
 
     gameEnded(G: GameState) {

@@ -14,7 +14,7 @@
     "scripts": {
         "prepublishOnly": "npm run test && npm run clean && tsc",
         "build": "npm run clean && tsc",
-        "clean": "del /q dist",
+        "clean": "rm -Rf dist",
         "lint": "eslint . --ext .ts",
         "test": "mocha -r ts-node/register src/**/*.spec.ts src/*.spec.ts"
     },

@@ -10,7 +10,7 @@
             <source src="../audio/notification.mp3" type="audio/mpeg" />
             <source src="../audio/notification.ogg" type="audio/ogg" />
         </audio>
-        <svg id="scene" viewBox="0 0 1500 800" height="700">
+        <svg id="scene" viewBox="0 0 1500 800" height="700" style="width: 100%">
             <rect width="100%" height="100%" x="0" y="0" fill="yellowgreen" />
 
             <rect width="185" height="40" x="10" y="10" rx="3" fill="goldenrod" />
@@ -659,7 +659,12 @@ import { City, Phase, PowerPlant, PowerPlantType, ResourceType } from 'powergrid
 @Component({
     components: {
         PlayerBoard,
-        Card, House, Coal, Oil, Garbage, Uranium,
+        Card,
+        House,
+        Coal,
+        Oil,
+        Garbage,
+        Uranium,
         PassButton,
         UndoButton,
         LogButton,
@@ -667,7 +672,7 @@ import { City, Phase, PowerPlant, PowerPlantType, ResourceType } from 'powergrid
         HelpButton,
         RulesButton,
         Button,
-        Calculator
+        Calculator,
     },
 })
 export default class Game extends Vue {
@@ -742,44 +747,45 @@ export default class Game extends Vue {
         // Houses
         this.houses = [];
         const adjustCityCount: number[][] = [];
-        for (let i = 0; i < 22; i++)
-            adjustCityCount[i] = [];
+        for (let i = 0; i < 22; i++) adjustCityCount[i] = [];
 
         this.G?.players.forEach((player, pi) => adjustCityCount[player.cities.length].push(pi));
         this.G?.players.forEach((player, pi) => {
-            player.cities
-                .forEach(cityPiece => {
-                    const city = this.G?.map.cities.find(city => city.name == cityPiece.name)!;
-                    let offsetX, offsetY;
-                    if (cityPiece.position == 0) {
-                        offsetX = -6;
-                        offsetY = -48;
-                    } else if (cityPiece.position == 1) {
-                        offsetX = -15;
-                        offsetY = -34;
-                    } else {
-                        offsetX = 1;
-                        offsetY = -34;
-                    }
+            player.cities.forEach((cityPiece) => {
+                const city = this.G?.map.cities.find((city) => city.name == cityPiece.name)!;
+                let offsetX, offsetY;
+                if (cityPiece.position == 0) {
+                    offsetX = -6;
+                    offsetY = -48;
+                } else if (cityPiece.position == 1) {
+                    offsetX = -15;
+                    offsetY = -34;
+                } else {
+                    offsetX = 1;
+                    offsetY = -34;
+                }
 
-                    this.houses.push({
-                        id: pi + '_' + cityPiece.name,
-                        x: city.x + offsetX,
-                        y: city.y + offsetY,
-                        color: this.playerColors[pi],
-                        owner: pi
-                    });
+                this.houses.push({
+                    id: pi + '_' + cityPiece.name,
+                    x: city.x + offsetX,
+                    y: city.y + offsetY,
+                    color: this.playerColors[pi],
+                    owner: pi,
                 });
+            });
 
             let x = (adjustCityCount[player.cities.length].length == 1 ? 228 : 225) + 33 * player.cities.length;
-            x += adjustCityCount[player.cities.length].indexOf(pi) % 2 * 6;
+            x += (adjustCityCount[player.cities.length].indexOf(pi) % 2) * 6;
 
             this.houses.push({
                 id: pi + '_cityCount',
                 x: x,
-                y: 15 + adjustCityCount[player.cities.length].indexOf(pi) * 30 / adjustCityCount[player.cities.length].length,
+                y:
+                    15 +
+                    (adjustCityCount[player.cities.length].indexOf(pi) * 30) /
+                        adjustCityCount[player.cities.length].length,
                 color: this.playerColors[pi],
-                owner: pi
+                owner: pi,
             });
         });
 
@@ -789,85 +795,89 @@ export default class Game extends Vue {
                 x: 20 + 30 * i,
                 y: 22,
                 color: this.playerColors[p],
-                owner: p
+                owner: p,
             });
         });
 
         // Coal
         if (this.G) {
             this.coals = [];
-            Array(24).fill(0)
+            Array(24)
+                .fill(0)
                 .forEach((_, i) => {
                     this.coals.push({
                         id: 'coal_' + i,
-                        x: 668 - 23.5 * i - 14.5 * (Math.floor(i / 3)),
+                        x: 668 - 23.5 * i - 14.5 * Math.floor(i / 3),
                         y: 708,
-                        transparent: i >= this.G!.coalMarket
+                        transparent: i >= this.G!.coalMarket,
                     });
                 });
 
             // Oil
             this.oils = [];
-            Array(24).fill(0)
+            Array(24)
+                .fill(0)
                 .forEach((_, i) => {
                     this.oils.push({
                         id: 'oil_' + i,
-                        x: 651 - 16 * i - 37 * (Math.floor(i / 3)),
+                        x: 651 - 16 * i - 37 * Math.floor(i / 3),
                         y: 730,
-                        transparent: i >= this.G!.oilMarket
+                        transparent: i >= this.G!.oilMarket,
                     });
                 });
 
             // Garbage
             this.garbages = [];
-            Array(24).fill(0)
+            Array(24)
+                .fill(0)
                 .forEach((_, i) => {
                     this.garbages.push({
                         id: 'garbage_' + i,
-                        x: 668 - 23.5 * i - 14.5 * (Math.floor(i / 3)),
+                        x: 668 - 23.5 * i - 14.5 * Math.floor(i / 3),
                         y: 754,
-                        transparent: i >= this.G!.garbageMarket
+                        transparent: i >= this.G!.garbageMarket,
                     });
                 });
 
             // Uranium
             this.uraniums = [];
-            Array(12).fill(0)
+            Array(12)
+                .fill(0)
                 .forEach((_, i) => {
                     if (i == 0) {
                         this.uraniums.push({
                             id: 'uranium_' + i,
                             x: 750,
                             y: 751,
-                            transparent: i >= this.G!.uraniumMarket
+                            transparent: i >= this.G!.uraniumMarket,
                         });
                     } else if (i == 1) {
                         this.uraniums.push({
                             id: 'uranium_' + i,
                             x: 710,
                             y: 751,
-                            transparent: i >= this.G!.uraniumMarket
+                            transparent: i >= this.G!.uraniumMarket,
                         });
                     } else if (i == 2) {
                         this.uraniums.push({
                             id: 'uranium_' + i,
                             x: 750,
                             y: 712,
-                            transparent: i >= this.G!.uraniumMarket
+                            transparent: i >= this.G!.uraniumMarket,
                         });
                     } else if (i == 3) {
                         this.uraniums.push({
                             id: 'uranium_' + i,
                             x: 710,
                             y: 712,
-                            transparent: i >= this.G!.uraniumMarket
+                            transparent: i >= this.G!.uraniumMarket,
                         });
                     } else {
                         this.uraniums.push({
                             id: 'uranium_' + i,
                             x: 1010 - 85 * i,
                             y: 732,
-                            transparent: i >= this.G!.uraniumMarket
+                            transparent: i >= this.G!.uraniumMarket,
                         });
                     }
                 });
@@ -883,7 +893,7 @@ export default class Game extends Vue {
                         x: 955 + i * 65,
                         y: 24,
                         powerPlant: card,
-                        isActualMarket: true
+                        isActualMarket: true,
                     });
                 }
             } else {
@@ -893,7 +903,7 @@ export default class Game extends Vue {
                         x: 955 + (i % 3) * 65,
                         y: i < 3 ? 24 : 80,
                         powerPlant: card,
-                        isActualMarket: true
+                        isActualMarket: true,
                     });
                 }
             }
@@ -906,7 +916,7 @@ export default class Game extends Vue {
                     x: 955 + i * 65,
                     y: 90,
                     powerPlant: card,
-                    isActualMarket: false
+                    isActualMarket: false,
                 });
             }
         });
@@ -917,28 +927,28 @@ export default class Game extends Vue {
                 x: 1250,
                 y: 30,
                 powerPlant: this.G.chosenPowerPlant,
-                isActualMarket: false
-            })
+                isActualMarket: false,
+            });
         }
     }
 
     getX1(connection) {
-        const city = this.G!.map.cities.find(city => city.name == connection.from)!;
+        const city = this.G!.map.cities.find((city) => city.name == connection.from)!;
         return city.x;
     }
 
     getY1(connection) {
-        const city = this.G!.map.cities.find(city => city.name == connection.from)!;
+        const city = this.G!.map.cities.find((city) => city.name == connection.from)!;
         return city.y;
     }
 
     getX2(connection) {
-        const city = this.G!.map.cities.find(city => city.name == connection.to)!;
+        const city = this.G!.map.cities.find((city) => city.name == connection.to)!;
         return city.x;
     }
 
     getY2(connection) {
-        const city = this.G!.map.cities.find(city => city.name == connection.to)!;
+        const city = this.G!.map.cities.find((city) => city.name == connection.to)!;
         return city.y;
     }
 
@@ -972,14 +982,14 @@ export default class Game extends Vue {
     }
 
     bid(bid: number) {
-        this.sendMove({ name: MoveName.Bid, data: bid })
+        this.sendMove({ name: MoveName.Bid, data: bid });
     }
 
     build(city: City) {
         const currentPlayer = this.G!.players[this.player!];
         const availableMoves = currentPlayer.availableMoves!;
-        const move = availableMoves[MoveName.Build]!.find(c => c.name == city.name)!;
-        this.sendMove({ name: MoveName.Build, data: { name: city.name, price: move.price } })
+        const move = availableMoves[MoveName.Build]!.find((c) => c.name == city.name)!;
+        this.sendMove({ name: MoveName.Build, data: { name: city.name, price: move.price } });
     }
 
     powerPlantClick(powerPlant: PowerPlant) {
@@ -1009,7 +1019,10 @@ export default class Game extends Vue {
                     break;
             }
 
-            this.sendMove({ name: MoveName.UsePowerPlant, data: { powerPlant: powerPlant.number, resourcesSpent, citiesPowered: powerPlant.citiesPowered } });
+            this.sendMove({
+                name: MoveName.UsePowerPlant,
+                data: { powerPlant: powerPlant.number, resourcesSpent, citiesPowered: powerPlant.citiesPowered },
+            });
         }
     }
 
@@ -1079,7 +1092,10 @@ export default class Game extends Vue {
         if (!resource) {
             return !!availableMoves[MoveName.BuyResource];
         } else {
-            return !!availableMoves[MoveName.BuyResource] && availableMoves[MoveName.BuyResource]!.find(m => m.resource == resource);
+            return (
+                !!availableMoves[MoveName.BuyResource] &&
+                availableMoves[MoveName.BuyResource]!.find((m) => m.resource == resource)
+            );
         }
     }
 
@@ -1089,7 +1105,7 @@ export default class Game extends Vue {
         const currentPlayer = this.G!.players[this.player!];
         const availableMoves = currentPlayer.availableMoves!;
 
-        return !!availableMoves[MoveName.Build] && availableMoves[MoveName.Build]!.find(c => c.name == city.name);
+        return !!availableMoves[MoveName.Build] && availableMoves[MoveName.Build]!.find((c) => c.name == city.name);
     }
 
     canUsePowerPlant(powerPlant: PowerPlant) {
@@ -1101,9 +1117,15 @@ export default class Game extends Vue {
         if (currentPlayer.resourcesUsed.length > 0) {
             return false;
         } else if (this.G?.phase == Phase.Bureaucracy) {
-            return !!availableMoves[MoveName.UsePowerPlant] && availableMoves[MoveName.UsePowerPlant]!.find(p => p.powerPlant == powerPlant.number);
+            return (
+                !!availableMoves[MoveName.UsePowerPlant] &&
+                availableMoves[MoveName.UsePowerPlant]!.find((p) => p.powerPlant == powerPlant.number)
+            );
         } else if (this.G?.phase == Phase.Auction) {
-            return !!availableMoves[MoveName.DiscardPowerPlant] && availableMoves[MoveName.DiscardPowerPlant]!.find(p => p == powerPlant.number);
+            return (
+                !!availableMoves[MoveName.DiscardPowerPlant] &&
+                availableMoves[MoveName.DiscardPowerPlant]!.find((p) => p == powerPlant.number)
+            );
         }
     }
 
@@ -1131,7 +1153,7 @@ export default class Game extends Vue {
 
                 return 'Choose a Power Plant to start an auction.';
             } else if (currentPlayer.availableMoves![MoveName.Bid]) {
-                return 'It\'s your turn to bid!';
+                return "It's your turn to bid!";
             } else if (currentPlayer.availableMoves![MoveName.BuyResource]) {
                 return 'Buy resources on the market, or pass.';
             } else if (currentPlayer.availableMoves![MoveName.Build]) {
@@ -1148,7 +1170,7 @@ export default class Game extends Vue {
                 return 'Choose which resources to discard.';
             }
 
-            return 'It\'s your turn!';
+            return "It's your turn!";
         } else {
             let log = (this.G.log[this.G.log.length - 1] as LogMove).pretty;
             if (log) {

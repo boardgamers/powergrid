@@ -10,7 +10,7 @@ import powerPlants from './powerPlants';
 import prices from './prices';
 import { asserts, shuffle } from './utils';
 
-const playerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', 'yellow', 'brown'];
+export const playerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', 'yellow', 'brown'];
 
 const coalResupply = [
     [3, 4, 3],
@@ -91,7 +91,7 @@ export function setup(numPlayers: number, { fastBid = false }: GameOptions, seed
         resourcesUsed: [],
     }));
 
-    const playerOrder = shuffle(range(numPlayers), rng() + '');
+    const playerOrder = range(numPlayers);
     const startingPlayer = playerOrder[0];
 
     const regions = map.cities
@@ -182,6 +182,7 @@ export function stripSecret(G: GameState, player?: number): GameState {
         ...G,
         seed: 'secret',
         hiddenLog: [],
+        powerPlantsDeck: [],
         players: G.players.map((pl, i) => {
             if (player === i) {
                 return pl;

@@ -141,5 +141,6 @@ export interface GameState {
     auctionSkips: number;
     citiesToStep2: number;
     citiesToEndGame: number;
-    resourceResupply: string;
+    resourceResupply: string[];
+    paymentTable: number[];
 }

@@ -2,7 +2,7 @@
     <g class="player-board">
         <rect width="350" height="100" x="0" y="0" fill="gold" :stroke="color" />
         <rect width="350" height="25" x="0" y="0" :fill="color" />
-        <text x="5" y="13" font-weight="600" fill="black" :text-decoration="isCurrentPlayer ? 'underline' : ''">
+        <text x="5" y="13" font-weight="600" fill="black">
             {{ getPlayerName() }}
         </text>
         <text v-if="isPlayer || ended" x="250" y="13" font-weight="600" fill="black">Money: ${{ player.money }}</text>

@@ -42,7 +42,7 @@ const uraniumResupply = [
 ];
 const citiesToStep2 = [10, 7, 7, 7, 6];
 const citiesToEndGame = [21, 17, 17, 15, 14];
-const cityIncome = [10, 22, 33, 44, 54, 65, 73, 82, 90, 98, 105, 112, 118, 124, 129, 134, 138, 142, 145, 148, 150];
+const cityIncome = [10, 22, 33, 44, 54, 65, 73, 82, 90, 98, 105, 112, 118, 124, 129, 134, 138, 142, 145, 148, 150, 150];
 const regionsInPlay = [3, 3, 4, 5, 5];
 
 export function setup(numPlayers: number, { fastBid = false }: GameOptions, seed?: string): GameState {
@@ -130,6 +130,8 @@ export function setup(numPlayers: number, { fastBid = false }: GameOptions, seed
             playRegions.has(map.cities.find((city) => city.name == con.to)!.region)
     );
 
+    const p = players.length - 2;
+
     const G: GameState = {
         map: filteredMap,
         players,
@@ -160,7 +162,12 @@ export function setup(numPlayers: number, { fastBid = false }: GameOptions, seed
         auctionSkips: 0,
         citiesToStep2: citiesToStep2[numPlayers - 2],
         citiesToEndGame: citiesToEndGame[numPlayers - 2],
-        resourceResupply: '',
+        resourceResupply: [
+            `[${coalResupply[p][0]}, ${oilResupply[p][0]}, ${garbageResupply[p][0]}, ${uraniumResupply[p][0]}]`,
+            `[${coalResupply[p][1]}, ${oilResupply[p][1]}, ${garbageResupply[p][1]}, ${uraniumResupply[p][1]}]`,
+            `[${coalResupply[p][2]}, ${oilResupply[p][2]}, ${garbageResupply[p][2]}, ${uraniumResupply[p][2]}]`,
+        ],
+        paymentTable: cityIncome,
     } as GameState;
 
     G.log.push({ type: 'event', event: 'Game Start!' });
@@ -385,7 +392,7 @@ export function move(G: GameState, move: Move, playerNumber: number, fake?: bool
                 case Phase.Bureaucracy: {
                     player.passed = true;
 
-                    player.money += cityIncome[Math.min(player.cities.length, player.citiesPowered)];
+                    player.money += G.paymentTable[Math.min(player.cities.length, player.citiesPowered)];
                     player.citiesPowered = 0;
 
                     if (G.players.filter((p) => !p.passed).length == 0) {
@@ -695,10 +702,6 @@ export function move(G: GameState, move: Move, playerNumber: number, fake?: bool
     player.lastMove = move;
 
     G.currentPlayers.forEach((p) => (G.players[p].availableMoves = availableMoves(G, G.players[p])));
-
-    const p = G.players.length - 2;
-    const i = G.step - 1;
-    G.resourceResupply = `[${coalResupply[p][i]}, ${oilResupply[p][i]}, ${garbageResupply[p][i]}, ${uraniumResupply[p][i]}]`;
 
     return G;
 }

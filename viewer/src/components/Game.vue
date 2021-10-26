@@ -40,19 +40,22 @@
             <template v-for="index in 21">
                 <rect
                     :key="'playerCityCount' + index"
-                    width="30"
-                    height="40"
-                    :x="250 + 33 * (index - 1)"
-                    y="15"
+                    width="28"
+                    height="38"
+                    :x="251 + 33 * (index - 1)"
+                    y="16"
                     rx="2"
                     fill="darkgoldenrod"
+                    :stroke="
+                        G && (index == G.citiesToStep2 || index == G.citiesToEndGame) ? '#916a08' : 'darkgoldenrod'
+                    "
+                    stroke-width="2px"
                 />
                 <text
                     :key="'playerCityCountText' + index"
                     text-anchor="middle"
                     style="font-size: 24px; font-family: monospace"
                     letter-spacing="-3"
-                    :text-decoration="G && (index == G.citiesToStep2 || index == G.citiesToEndGame) ? 'underline' : ''"
                     :x="265 + 33 * (index - 1)"
                     y="35"
                     fill="gold"
@@ -219,7 +222,7 @@
                         Phase: {{ G.phase }}
                     </text>
                     <text x="30" y="680" font-weight="600" fill="black" style="font-size: 24px">
-                        Resource Resupply: {{ G.resourceResupply }}
+                        Resource Resupply: {{ G.resourceResupply[G.step - 1] }}
                     </text>
                 </template>
             </template>
@@ -227,8 +230,9 @@
             <PassButton transform="translate(1355, 15)" :enabled="canPass()" @click="pass()" />
             <UndoButton transform="translate(1355, 56)" :enabled="canUndo()" @click="undo()" />
             <LogButton transform="translate(1355, 97)" @click="showLog()" />
-            <SoundButton transform="translate(1450, 25)" :isOn="preferences.sound" @click="toggleSound()" />
-            <HelpButton transform="translate(1450, 80)" :isOn="!preferences.disableHelp" @click="toggleHelp()" />
+            <SoundButton transform="translate(1450, 13)" :isOn="preferences.sound" @click="toggleSound()" />
+            <HelpButton transform="translate(1450, 54)" :isOn="!preferences.disableHelp" @click="toggleHelp()" />
+            <RulesButton transform="translate(1450, 95)" @click="rulesVisible = true" />
 
             <template v-if="G">
                 <template v-if="G.phase == 'Auction' && G.chosenPowerPlant">
@@ -544,6 +548,99 @@
                 </table>
             </div>
         </div>
+
+        <div v-if="G" :class="['modal', { visible: rulesVisible }]">
+            <div class="modal-content" style="left: 50%; transform: translate(-50%)">
+                <span class="close" @click="rulesVisible = false">&times;</span>
+                <div class="modal-title">Rules Summary</div>
+                <div>
+                    <strong>Phases:</strong>
+                    <ul>
+                        <li><strong>Determine Turn Order</strong> by cities built and highest power plant</li>
+                        <li>
+                            <strong>Buy Power Plants</strong> from the actual market (minimun bid is power plant number)
+                        </li>
+                        <li>
+                            <strong>Buy Resources</strong> in <strong>reverse</strong> turn order from the resource
+                            market
+                        </li>
+                        <li>
+                            <strong>Build Cities</strong> in <strong>reverse</strong> turn order paying
+                            <strong>10/15/20</strong> plus connection cost
+                        </li>
+                        <li>
+                            <strong>Bureaucracy:</strong> spend resources to use power plants, collect money according
+                            to cities supplied, resupply resource market
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <strong>Steps:</strong>
+                    <ul>
+                        <li>
+                            <strong>Step 1:</strong>
+                            <ul>
+                                <li><strong>One</strong> player per city</li>
+                                <li>
+                                    Resource Resupply: <strong>{{ G.resourceResupply[0] }}</strong>
+                                </li>
+                                <li>Bureaucracy: remove <strong>highest</strong> power plant from market</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Step 2:</strong>
+                            <ul>
+                                <li>
+                                    Starts after building phase where a player has
+                                    <strong>{{ G.citiesToStep2 }}</strong> or more cities
+                                </li>
+                                <li><strong>Two</strong> players per city</li>
+                                <li>
+                                    Resource Resupply: <strong>{{ G.resourceResupply[1] }}</strong>
+                                </li>
+                                <li>Bureaucracy: remove <strong>highest</strong> power plant from market</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Step 3:</strong>
+                            <ul>
+                                <li>Starts after the "Step 3" card is drawn from the deck</li>
+                                <li><strong>Three</strong> players per city</li>
+                                <li>
+                                    Resource Resupply: <strong>{{ G.resourceResupply[2] }}</strong>
+                                </li>
+                                <li>Bureaucracy: remove <strong>lowest</strong> power plant from market</li>
+                                <li>All power plants available for auction</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    Game ends after building phase where a player has <strong>{{ G.citiesToEndGame }}</strong> or more
+                    cities.<br />
+                    The winner is the player that can power more cities. Money and number of cities built are
+                    tiebrakers.
+                </div>
+                <br />
+                <div>
+                    <strong>Payment Table</strong>
+                    <table class="payment-table">
+                        <tr>
+                            <td><strong>Cities</strong></td>
+                            <template v-for="index in 21">
+                                <td :key="'cities' + index">{{ index - 1 }}</td>
+                            </template>
+                        </tr>
+                        <tr>
+                            <td><strong>Payment</strong></td>
+                            <template v-for="index in 21">
+                                <td :key="'payment' + index">${{ G.paymentTable[index - 1] }}</td>
+                            </template>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script lang="ts">
@@ -553,7 +650,7 @@ import type { GameState } from 'powergrid-engine';
 import { EventEmitter } from 'events';
 import { Piece, UIData, Preferences } from '../types/ui-data';
 import { Card, House, Coal, Oil, Garbage, Uranium } from './pieces';
-import { Button, PassButton, UndoButton, LogButton, SoundButton, HelpButton } from './buttons';
+import { Button, PassButton, UndoButton, LogButton, SoundButton, HelpButton, RulesButton } from './buttons';
 import PlayerBoard from './PlayerBoard.vue';
 import Calculator from './Calculator.vue';
 import { LogMove } from 'powergrid-engine/src/log';
@@ -568,6 +665,7 @@ import { City, Phase, PowerPlant, PowerPlantType, ResourceType } from 'powergrid
         LogButton,
         SoundButton,
         HelpButton,
+        RulesButton,
         Button,
         Calculator
     },
@@ -612,6 +710,7 @@ export default class Game extends Vue {
 
     logVisible = false;
     endScoreVisible = false;
+    rulesVisible = false;
 
     totalBid: number = 0;
 
@@ -1111,6 +1210,10 @@ export default class Game extends Vue {
 }
 </script>
 <style lang="scss">
+ul {
+    margin-block-start: 0;
+}
+
 .game {
     display: flex;
     align-items: center;
@@ -1271,6 +1374,19 @@ text {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+.payment-table {
+    border: 1px solid black;
+    margin: 5px auto;
+
+    tr {
+        td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 0 10px 0 10px;
+        }
+    }
 }
 
 .final-score-table {

@@ -1,21 +1,22 @@
 import { AvailableMoves } from './available-moves';
 import { LogItem } from './log';
+import { Cities, Regions } from './maps';
 import { Move } from './move';
 
 export interface GameOptions {
     fastBid?: boolean;
+    map?: 'USA' | 'Germany';
 }
 
 export interface City {
-    name: string;
-    region: string;
+    name: Cities;
+    region: Regions;
     x: number;
     y: number;
 }
 
 export interface Connection {
-    from: string;
-    to: string;
+    nodes: Cities[];
     cost: number;
 }
 

@@ -10,7 +10,7 @@
             <source src="../audio/notification.mp3" type="audio/mpeg" />
             <source src="../audio/notification.ogg" type="audio/ogg" />
         </audio>
-        <svg id="scene" viewBox="0 0 1500 800" height="700" style="width: 100%">
+        <svg v-if="G" id="scene" viewBox="0 0 1500 800" height="700" style="width: 100%">
             <rect width="100%" height="100%" x="0" y="0" fill="yellowgreen" />
 
             <rect width="185" height="40" x="10" y="10" rx="3" fill="goldenrod" />
@@ -203,28 +203,22 @@
             </text>
 
             <text x="955" y="14" font-weight="600" fill="black">Actual Market:</text>
-            <text v-if="G && G.step < 3" x="955" y="80" font-weight="600" fill="black">Future Market:</text>
+            <text v-if="G.step < 3" x="955" y="80" font-weight="600" fill="black">Future Market:</text>
 
-            <template v-if="G">
-                <template v-if="gameEnded(G)">
-                    <Button
-                        :transform="`translate(140, 580)`"
-                        :width="130"
-                        :text="'Final Score'"
-                        @click="endScoreVisible = true"
-                    />
-                </template>
-                <template v-else>
-                    <text x="30" y="580" font-weight="600" fill="black" style="font-size: 32px">
-                        Step: {{ G.step }}
-                    </text>
-                    <text x="30" y="620" font-weight="600" fill="black" style="font-size: 32px">
-                        Phase: {{ G.phase }}
-                    </text>
-                    <text x="30" y="680" font-weight="600" fill="black" style="font-size: 24px">
-                        Resource Resupply: {{ G.resourceResupply[G.step - 1] }}
-                    </text>
-                </template>
+            <template v-if="gameEnded(G)">
+                <Button
+                    :transform="`translate(140, 580)`"
+                    :width="130"
+                    :text="'Final Score'"
+                    @click="endScoreVisible = true"
+                />
+            </template>
+            <template v-else>
+                <text x="30" y="580" font-weight="600" fill="black" style="font-size: 32px">Step: {{ G.step }}</text>
+                <text x="30" y="620" font-weight="600" fill="black" style="font-size: 32px">Phase: {{ G.phase }}</text>
+                <text x="30" y="680" font-weight="600" fill="black" style="font-size: 24px">
+                    Resource Resupply: {{ G.resourceResupply[G.step - 1] }}
+                </text>
             </template>
 
             <PassButton transform="translate(1355, 15)" :enabled="canPass()" @click="pass()" />
@@ -234,122 +228,113 @@
             <HelpButton transform="translate(1450, 54)" :isOn="!preferences.disableHelp" @click="toggleHelp()" />
             <RulesButton transform="translate(1450, 95)" @click="rulesVisible = true" />
 
-            <template v-if="G">
-                <template v-if="G.phase == 'Auction' && G.chosenPowerPlant">
-                    <text x="1220" y="14" font-weight="600" fill="black">Current Auction:</text>
-                    <Calculator
-                        v-if="canBid()"
-                        transform="translate(1220, 80)"
-                        :minValue="G.currentBid + 1 || G.chosenPowerPlant.number"
-                        :maxValue="G.players[player].money"
-                        @bid="bid($event)"
-                    />
-                </template>
+            <template v-if="G.phase == 'Auction' && G.chosenPowerPlant">
+                <text x="1220" y="14" font-weight="600" fill="black">Current Auction:</text>
+                <Calculator
+                    v-if="canBid()"
+                    transform="translate(1220, 80)"
+                    :minValue="G.currentBid + 1 || G.chosenPowerPlant.number"
+                    :maxValue="G.players[player].money"
+                    @bid="bid($event)"
+                />
+            </template>
 
-                <template v-for="city in G.map.cities">
-                    <circle
-                        :key="city.name + '_region'"
-                        r="25"
-                        :cx="city.x"
-                        :cy="city.y - 30"
-                        :fill="city.region"
-                        stroke="black"
-                    >
-                        <title>{{ city.name }}</title>
-                    </circle>
-                    <circle
-                        :key="city.name + '_circle'"
-                        r="20"
-                        :cx="city.x"
-                        :cy="city.y - 30"
-                        fill="gray"
-                        stroke="black"
-                    >
-                        <title>{{ city.name }}</title>
-                    </circle>
-                </template>
+            <template v-for="city in G.map.cities">
+                <circle
+                    :key="city.name + '_region'"
+                    r="25"
+                    :cx="city.x"
+                    :cy="city.y"
+                    :fill="city.region"
+                    stroke="black"
+                >
+                    <title>{{ city.name }}</title>
+                </circle>
+                <circle :key="city.name + '_circle'" r="20" :cx="city.x" :cy="city.y" fill="gray" stroke="black">
+                    <title>{{ city.name }}</title>
+                </circle>
+            </template>
 
-                <template v-for="connection in G.map.connections">
-                    <line
-                        :key="connection.from + '_' + connection.to + '_line1'"
-                        :x1="getX1(connection)"
-                        :y1="getY1(connection) - 30"
-                        :x2="getX2(connection)"
-                        :y2="getY2(connection) - 30"
-                        stroke-width="10"
-                        stroke="black"
-                    />
-                    <line
-                        :key="connection.from + '_' + connection.to + '_line2'"
-                        :x1="getX1(connection)"
-                        :y1="getY1(connection) - 30"
-                        :x2="getX2(connection)"
-                        :y2="getY2(connection) - 30"
-                        stroke-width="9"
-                        stroke="gray"
-                    />
-                </template>
+            <template v-for="connection in G.map.connections">
+                <line
+                    :key="connection.nodes[0] + '_' + connection.nodes[1] + '_line1'"
+                    :x1="getX1(connection)"
+                    :y1="getY1(connection)"
+                    :x2="getX2(connection)"
+                    :y2="getY2(connection)"
+                    stroke-width="10"
+                    stroke="black"
+                />
+                <line
+                    :key="connection.nodes[0] + '_' + connection.nodes[1] + '_line2'"
+                    :x1="getX1(connection)"
+                    :y1="getY1(connection)"
+                    :x2="getX2(connection)"
+                    :y2="getY2(connection)"
+                    stroke-width="9"
+                    stroke="gray"
+                />
+            </template>
 
-                <template v-for="city in G.map.cities">
-                    <circle
-                        :key="city.name + '_circle2'"
-                        :class="[{ canClick: canBuild(city) }]"
-                        r="20"
-                        :cx="city.x"
-                        :cy="city.y - 30"
-                        fill="gray"
-                        @click="canBuild(city) && build(city)"
-                    >
-                        <title>{{ city.name }}</title>
-                    </circle>
-                </template>
+            <template v-for="city in G.map.cities">
+                <circle
+                    :key="city.name + '_circle2'"
+                    :class="[{ canClick: canBuild(city) }]"
+                    r="20"
+                    :cx="city.x"
+                    :cy="city.y"
+                    fill="gray"
+                    @click="canBuild(city) && build(city)"
+                >
+                    <title>{{ city.name }}</title>
+                </circle>
+            </template>
 
-                <template v-for="connection in G.map.connections">
-                    <circle
-                        v-if="connection.cost > 0"
-                        :key="connection.from + '_' + connection.to + '_border'"
-                        stroke="black"
-                        :r="10 + (connection.cost * 10) / 28"
-                        :cx="(getX1(connection) + getX2(connection)) / 2"
-                        :cy="(getY1(connection) + getY2(connection) - 60) / 2"
-                        :fill="connection.cost > 15 ? 'gold' : connection.cost > 10 ? 'lightgray' : 'tan'"
-                    />
-                    <circle
-                        v-if="connection.cost > 0"
-                        :key="connection.from + '_' + connection.to + '_circle'"
-                        :r="6 + (connection.cost * 10) / 28"
-                        :cx="(getX1(connection) + getX2(connection)) / 2"
-                        :cy="(getY1(connection) + getY2(connection) - 60) / 2"
-                        fill="gray"
-                        stroke="black"
-                    />
-                    <text
-                        v-if="connection.cost > 0"
-                        :key="connection.from + '_' + connection.to + '_text'"
-                        text-anchor="middle"
-                        :style="`font-size: ${12 + (connection.cost * 6) / 28}px`"
-                        fill="black"
-                        :x="(getX1(connection) + getX2(connection)) / 2"
-                        :y="(getY1(connection) + getY2(connection) - 60) / 2"
-                    >
-                        {{ connection.cost }}
-                    </text>
-                </template>
+            <template v-for="connection in G.map.connections">
+                <circle
+                    v-if="connection.cost > 0"
+                    :key="connection.nodes[0] + '_' + connection.nodes[1] + '_border'"
+                    stroke="black"
+                    :r="10 + (connection.cost * 10) / 28"
+                    :cx="(getX1(connection) + getX2(connection)) / 2"
+                    :cy="(getY1(connection) + getY2(connection)) / 2"
+                    :fill="connection.cost > 15 ? 'gold' : connection.cost > 10 ? 'lightgray' : 'tan'"
+                />
+                <circle
+                    v-if="connection.cost > 0"
+                    :key="connection.nodes[0] + '_' + connection.nodes[1] + '_circle'"
+                    :r="6 + (connection.cost * 10) / 28"
+                    :cx="(getX1(connection) + getX2(connection)) / 2"
+                    :cy="(getY1(connection) + getY2(connection)) / 2"
+                    fill="gray"
+                    stroke="black"
+                />
+                <text
+                    v-if="connection.cost > 0"
+                    :key="connection.nodes[0] + '_' + connection.nodes[1] + '_text'"
+                    text-anchor="middle"
+                    :style="`font-size: ${12 + (connection.cost * 6) / 28}px`"
+                    fill="black"
+                    :x="(getX1(connection) + getX2(connection)) / 2"
+                    :y="(getY1(connection) + getY2(connection)) / 2"
+                >
+                    {{ connection.cost }}
+                </text>
+            </template>
 
-                <template v-for="(p, i) in G.players">
-                    <PlayerBoard
-                        :key="'B' + i"
-                        :player="p"
-                        :color="playerColors[i]"
-                        :transform="`translate(1100, ${140 + 110 * i})`"
-                        :owner="i"
-                        :isCurrentPlayer="isCurrentPlayer(i)"
-                        :ended="gameEnded(G)"
-                        :isPlayer="player == i"
-                        :ranking="sortedPlayers.findIndex((x) => x.id == p.id) + 1"
-                        @powerPlantClick="powerPlantClick($event)"
-                    />
-                </template>
+            <template v-for="(p, i) in G.players">
+                <PlayerBoard
+                    :key="'B' + i"
+                    :player="p"
+                    :color="playerColors[i]"
+                    :transform="`translate(1100, ${140 + 110 * i})`"
+                    :owner="i"
+                    :isCurrentPlayer="isCurrentPlayer(i)"
+                    :ended="gameEnded(G)"
+                    :isPlayer="player == i"
+                    :ranking="sortedPlayers.findIndex((x) => x.id == p.id) + 1"
+                    @powerPlantClick="powerPlantClick($event)"
+                />
             </template>
 
             <template v-for="house in houses">
@@ -443,7 +428,7 @@
                     rx="2px"
                 />
 
-                <g v-if="G && canChoose()">
+                <g v-if="canChoose()">
                     <rect
                         v-if="G.step < 3"
                         x="950"
@@ -481,36 +466,34 @@
                     stroke-width="2px"
                 />
 
-                <template v-if="G">
-                    <template v-for="city in G.map.cities">
-                        <circle
-                            v-if="canBuild(city)"
-                            :key="city.name + '_circleHelp'"
-                            :class="[{ canClick: canBuild(city) }]"
-                            r="18"
-                            :cx="city.x"
-                            :cy="city.y - 30"
+                <template v-for="city in G.map.cities">
+                    <circle
+                        v-if="canBuild(city)"
+                        :key="city.name + '_circleHelp'"
+                        :class="[{ canClick: canBuild(city) }]"
+                        r="18"
+                        :cx="city.x"
+                        :cy="city.y"
+                        fill="none"
+                        stroke="blue"
+                        stroke-width="4px"
+                    />
+                </template>
+
+                <template v-for="(player, pi) in G.players">
+                    <template v-for="(powerPlant, ppi) in player.powerPlants">
+                        <rect
+                            v-if="canUsePowerPlant(powerPlant)"
+                            :key="pi + '_' + ppi + '_helper'"
+                            :x="player.powerPlants.length < 5 ? 1120 + 80 * ppi : 1105 + 70 * ppi"
+                            :y="170 + 110 * pi"
+                            width="60"
+                            height="40"
                             fill="none"
                             stroke="blue"
                             stroke-width="4px"
+                            rx="2px"
                         />
-                    </template>
-
-                    <template v-for="(player, pi) in G.players">
-                        <template v-for="(powerPlant, ppi) in player.powerPlants">
-                            <rect
-                                v-if="canUsePowerPlant(powerPlant)"
-                                :key="pi + '_' + ppi + '_helper'"
-                                :x="player.powerPlants.length < 5 ? 1120 + 80 * ppi : 1105 + 70 * ppi"
-                                :y="170 + 110 * pi"
-                                width="60"
-                                height="40"
-                                fill="none"
-                                stroke="blue"
-                                stroke-width="4px"
-                                rx="2px"
-                            />
-                        </template>
                     </template>
                 </template>
             </template>
@@ -759,13 +742,13 @@ export default class Game extends Vue {
                 let offsetX, offsetY;
                 if (cityPiece.position == 0) {
                     offsetX = -6;
-                    offsetY = -48;
+                    offsetY = -18;
                 } else if (cityPiece.position == 1) {
                     offsetX = -15;
-                    offsetY = -34;
+                    offsetY = -4;
                 } else {
                     offsetX = 1;
-                    offsetY = -34;
+                    offsetY = -4;
                 }
 
                 this.houses.push({
@@ -786,7 +769,7 @@ export default class Game extends Vue {
                 y:
                     15 +
                     (adjustCityCount[player.cities.length].indexOf(pi) * 30) /
-                        adjustCityCount[player.cities.length].length,
+                    adjustCityCount[player.cities.length].length,
                 color: this.playerColors[pi],
                 owner: pi,
             });
@@ -936,22 +919,22 @@ export default class Game extends Vue {
     }
 
     getX1(connection) {
-        const city = this.G!.map.cities.find((city) => city.name == connection.from)!;
+        const city = this.G!.map.cities.find((city) => city.name == connection.nodes[0])!;
         return city.x;
     }
 
     getY1(connection) {
-        const city = this.G!.map.cities.find((city) => city.name == connection.from)!;
+        const city = this.G!.map.cities.find((city) => city.name == connection.nodes[0])!;
         return city.y;
     }
 
     getX2(connection) {
-        const city = this.G!.map.cities.find((city) => city.name == connection.to)!;
+        const city = this.G!.map.cities.find((city) => city.name == connection.nodes[1])!;
         return city.x;
     }
 
     getY2(connection) {
-        const city = this.G!.map.cities.find((city) => city.name == connection.to)!;
+        const city = this.G!.map.cities.find((city) => city.name == connection.nodes[1])!;
         return city.y;
     }
 

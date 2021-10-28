@@ -295,13 +295,10 @@ function dijkstra(G: GameState, player: Player): { name: string; price: number }
     currentNode.price = 0;
 
     while (nodes.some((n) => !n.visited)) {
-        const currentConnections = G.map.connections.filter(
-            (c) => c.to == currentNode.name || c.from == currentNode.name
-        );
+        const currentConnections = G.map.connections.filter((c) => c.nodes.includes(currentNode.name));
         currentConnections.forEach((connection) => {
-            const otherNode = nodes.find((n) =>
-                connection.to == currentNode.name ? n.name == connection.from : n.name == connection.to
-            )!;
+            const otherName = connection.nodes.filter((n) => n != currentNode.name)[0];
+            const otherNode = nodes.find((n) => n.name == otherName)!;
             const price = player.cities.find((c) => c.name == otherNode.name) ? 0 : currentNode.price + connection.cost;
             if (!otherNode.visited && otherNode.price > price) {
                 otherNode.price = price;

@@ -4,7 +4,7 @@ import seedrandom from 'seedrandom';
 import { availableMoves } from './available-moves';
 import { GameOptions, GameState, Phase, Player, PowerPlant, PowerPlantType, ResourceType } from './gamestate';
 import { LogItem } from './log';
-import map from './map';
+import maps from './maps';
 import { Move, MoveName, Moves } from './move';
 import powerPlants from './powerPlants';
 import prices from './prices';
@@ -45,7 +45,7 @@ const citiesToEndGame = [21, 17, 17, 15, 14];
 const cityIncome = [10, 22, 33, 44, 54, 65, 73, 82, 90, 98, 105, 112, 118, 124, 129, 134, 138, 142, 145, 148, 150, 150];
 const regionsInPlay = [3, 3, 4, 5, 5];
 
-export function setup(numPlayers: number, { fastBid = false }: GameOptions, seed?: string): GameState {
+export function setup(numPlayers: number, { fastBid = false, map = 'USA' }: GameOptions, seed?: string): GameState {
     seed = seed ?? Math.random().toString();
     const rng = seedrandom(seed);
 
@@ -94,23 +94,20 @@ export function setup(numPlayers: number, { fastBid = false }: GameOptions, seed
     const playerOrder = range(numPlayers);
     const startingPlayer = playerOrder[0];
 
-    const regions = map.cities
-        .filter((c, i) => map.cities.findIndex((cc) => cc.region == c.region) == i)
+    const chosenMap = maps.find((m) => m.name == map)!;
+
+    const regions = chosenMap.cities
+        .filter((c, i) => chosenMap.cities.findIndex((cc) => cc.region == c.region) == i)
         .map((c) => c.region);
     const regionConnections = regions.map((region) =>
         regions.filter(
             (area2) =>
                 region != area2 &&
-                (map.connections.some(
-                    (con) =>
-                        map.cities.find((city) => city.name == con.from)!.region == region &&
-                        map.cities.find((city) => city.name == con.to)!.region == area2
-                ) ||
-                    map.connections.some(
-                        (con) =>
-                            map.cities.find((city) => city.name == con.to)!.region == region &&
-                            map.cities.find((city) => city.name == con.from)!.region == area2
-                    ))
+                chosenMap.connections.some((con) =>
+                    con.nodes
+                        .map((n) => chosenMap.cities.find((city) => city.name == n)!.region)
+                        .every((r) => [region, area2].includes(r))
+                )
         )
     );
 
@@ -122,12 +119,10 @@ export function setup(numPlayers: number, { fastBid = false }: GameOptions, seed
         }
     }
 
-    const filteredMap = cloneDeep(map);
+    const filteredMap = cloneDeep(chosenMap);
     filteredMap.cities = filteredMap.cities.filter((city) => playRegions.has(city.region));
-    filteredMap.connections = filteredMap.connections.filter(
-        (con) =>
-            playRegions.has(map.cities.find((city) => city.name == con.from)!.region) &&
-            playRegions.has(map.cities.find((city) => city.name == con.to)!.region)
+    filteredMap.connections = filteredMap.connections.filter((con) =>
+        con.nodes.map((n) => chosenMap.cities.find((city) => city.name == n)!.region).every((r) => playRegions.has(r))
     );
 
     const p = players.length - 2;
@@ -365,7 +360,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                             if (maxCities >= G.citiesToStep2) {
                                 G.actualMarket.shift();
                                 addPowerPlant(G);
-                                G.log.push({ type: 'event', event: `Starting Step 2` });
+                                G.log.push({ type: 'event', event: 'Starting Step 2' });
                                 G.step = 2;
                             }
                         }
@@ -374,7 +369,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                             G.phase = Phase.GameEnd;
                             G.currentPlayers = [];
                             calculateCitiesPowered(G);
-                            G.log.push({ type: 'event', event: `Game Ended!` });
+                            G.log.push({ type: 'event', event: 'Game Ended!' });
                         } else {
                             G.players.forEach((p) => {
                                 p.passed = false;
@@ -911,7 +906,7 @@ function addPowerPlant(G: GameState) {
             G.powerPlantsDeck = shuffle(G.powerPlantsDeck, G.seed);
 
             if (G.phase != Phase.Auction) {
-                G.log.push({ type: 'event', event: `Starting Step 3` });
+                G.log.push({ type: 'event', event: 'Starting Step 3' });
                 G.step = 3;
                 G.actualMarket.shift();
             }
@@ -1053,7 +1048,7 @@ function toResourcesPhase(G: GameState) {
     G.currentPlayers = [G.playerOrder[G.players.length - 1]];
 
     if (G.futureMarket.find((pp) => pp.number == 99)) {
-        G.log.push({ type: 'event', event: `Starting Step 3` });
+        G.log.push({ type: 'event', event: 'Starting Step 3' });
         G.step = 3;
         G.actualMarket.shift();
         G.futureMarket.pop();

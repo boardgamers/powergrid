@@ -63,7 +63,7 @@
 
         <defs>
             <linearGradient id="hybrid" x1="0" y1="0" x2="100%" y2="100%">
-                <stop offset="50%" stop-color="brown" />
+                <stop offset="50%" stop-color="#8b4513" />
                 <stop offset="50%" stop-color="#445" />
             </linearGradient>
         </defs>
@@ -95,7 +95,7 @@ export default class Card extends Mixins(Piece) {
 
     getColor() {
         switch (this.powerPlant?.type) {
-            case PowerPlantType.Coal: return 'brown';
+            case PowerPlantType.Coal: return '#8b4513';
             case PowerPlantType.Oil: return '#445';
             case PowerPlantType.Garbage: return 'goldenrod';
             case PowerPlantType.Uranium: return 'red';

@@ -504,7 +504,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                         });
                         G.auctionSkips = 0;
                         G.phase = Phase.Auction;
-                        G.plantDiscountActive = true;
+                        G.plantDiscountActive = G.options.variant == 'recharged';
                         G.currentPlayers = [G.playerOrder[0]];
                     } else {
                         G.currentPlayers = G.playerOrder.filter((p) => !G.players[p].passed);
@@ -983,7 +983,7 @@ function addPowerPlant(G: GameState) {
                 G.actualMarket.shift();
             }
         } else {
-            if (powerPlant.number < G.actualMarket[0].number) {
+            if (G.plantDiscountActive && powerPlant.number < G.actualMarket[0].number) {
                 G.log.push({
                     type: 'event',
                     event: `Power Plant ${powerPlant.number} drawn from the deck and discarded.`,

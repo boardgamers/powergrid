@@ -860,14 +860,16 @@ export default class Game extends Vue {
                     });
                 });
 
-            range(this.G.coalSupply).forEach(i => {
-                this.coals.push({
-                    id: 'coal_supply_' + i,
-                    x: 800 + (i % 8) * 20 + (i >= 8 && i < 16 ? 10 : 0),
-                    y: 710 + Math.floor(i / 8) * 20,
-                    transparent: false,
+            if (this.G.options.variant == 'recharged' && this.G.map.name == 'USA') {
+                range(this.G.coalSupply).forEach(i => {
+                    this.coals.push({
+                        id: 'coal_supply_' + i,
+                        x: 800 + (i % 8) * 20 + (i >= 8 && i < 16 ? 10 : 0),
+                        y: 710 + Math.floor(i / 8) * 20,
+                        transparent: false,
+                    });
                 });
-            });
+            }
 
             // Oil
             this.oils = [];

@@ -10,7 +10,14 @@
         :transform="`translate(${currentX}, ${currentY})`"
         @click="canClick && $emit('click')"
     >
-        <rect width="60" height="40" :fill="getColor()" stroke="black" stroke-width="2" rx="4" />
+        <rect
+            width="60"
+            height="40"
+            :fill="getColor()"
+            :stroke="hasDiscount ? 'palegreen' : 'black'"
+            stroke-width="2"
+            rx="4"
+        />
         <g transform="translate(30, 10)">
             <text text-anchor="middle" x="1" y="1" fill="gray">{{ powerPlant.number }}</text>
             <text text-anchor="middle" fill="white">{{ powerPlant.number }}</text>
@@ -39,16 +46,16 @@
                 stroke-miterlimit="10"
             />
         </g>
-        <text text-anchor="middle" x="47" y="28" style="font-size: 12px" fill="black">{{
-            powerPlant.citiesPowered
-        }}</text>
+        <text text-anchor="middle" x="47" y="28" style="font-size: 12px" fill="black">
+            {{ powerPlant.citiesPowered }}
+        </text>
 
         <g transform="translate(5, 20)">
             <path :d="getResourcePath()" fill="white" />
         </g>
-        <text v-if="powerPlant.cost > 0" text-anchor="middle" x="12.5" y="27.5" style="font-size: 12px" fill="black">{{
-            powerPlant.cost
-        }}</text>
+        <text v-if="powerPlant.cost > 0" text-anchor="middle" x="12.5" y="27.5" style="font-size: 12px" fill="black">
+            {{ powerPlant.cost }}
+        </text>
 
         <g transform="translate(24, 22)">
             <path d="M0,3 L8,3 L8,0 L14,6 L8,12 L8,9 L0,9Z" fill="white" />
@@ -82,6 +89,9 @@ export default class Card extends Mixins(Piece) {
 
     @Prop()
     canClick?: boolean;
+
+    @Prop()
+    hasDiscount = false;
 
     getColor() {
         switch (this.powerPlant?.type) {

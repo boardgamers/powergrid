@@ -4,7 +4,7 @@ import seedrandom from 'seedrandom';
 import { availableMoves } from './available-moves';
 import { GameOptions, GameState, Phase, Player, PowerPlant, PowerPlantType, ResourceType } from './gamestate';
 import { LogItem } from './log';
-import maps from './maps';
+import { maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
 import powerPlants from './powerPlants';
 import prices from './prices';
@@ -45,23 +45,57 @@ const citiesToEndGame = [21, 17, 17, 15, 14];
 const cityIncome = [10, 22, 33, 44, 54, 65, 73, 82, 90, 98, 105, 112, 118, 124, 129, 134, 138, 142, 145, 148, 150, 150];
 const regionsInPlay = [3, 3, 4, 5, 5];
 
-export function setup(numPlayers: number, { fastBid = false, map = 'USA' }: GameOptions, seed?: string): GameState {
+export function setup(
+    numPlayers: number,
+    { fastBid = false, map = 'USA', variant = 'original' }: GameOptions,
+    seed?: string
+): GameState {
     seed = seed ?? Math.random().toString();
     const rng = seedrandom(seed);
 
-    let powerPlantsDeck = cloneDeep(powerPlants);
-    powerPlantsDeck = powerPlantsDeck.slice(8);
-    const powerPlant13 = powerPlantsDeck.splice(2, 1)[0];
-    const step3 = powerPlantsDeck.pop()!;
-    powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-    if (numPlayers == 2 || numPlayers == 3) {
-        powerPlantsDeck = powerPlantsDeck.slice(8);
-    } else if (numPlayers == 4) {
-        powerPlantsDeck = powerPlantsDeck.slice(4);
-    }
+    let actualMarket: PowerPlant[];
+    let futureMarket: PowerPlant[];
 
-    powerPlantsDeck.unshift(powerPlant13);
-    powerPlantsDeck.push(step3);
+    let powerPlantsDeck = cloneDeep(powerPlants);
+    if (variant == 'original') {
+        powerPlantsDeck = powerPlantsDeck.slice(8);
+        const powerPlant13 = powerPlantsDeck.splice(2, 1)[0];
+        const step3 = powerPlantsDeck.pop()!;
+
+        powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
+        if (numPlayers == 2 || numPlayers == 3) {
+            powerPlantsDeck = powerPlantsDeck.slice(8);
+        } else if (numPlayers == 4) {
+            powerPlantsDeck = powerPlantsDeck.slice(4);
+        }
+
+        powerPlantsDeck.unshift(powerPlant13);
+        powerPlantsDeck.push(step3);
+
+        actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
+        futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];
+    } else {
+        let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 13), rng() + '');
+        let initialPlantMarket = initialPowerPlants.splice(0, 8);
+        initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
+        actualMarket = initialPlantMarket.slice(0, 4);
+        futureMarket = initialPlantMarket.slice(4);
+
+        const first = initialPowerPlants.shift()!;
+        const step3 = powerPlantsDeck.pop()!;
+
+        powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
+        if (numPlayers == 2 || numPlayers == 3) {
+            initialPowerPlants = initialPowerPlants.slice(2);
+            powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
+        } else if (numPlayers == 4) {
+            initialPowerPlants = initialPowerPlants.slice(1);
+            powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
+        }
+
+        powerPlantsDeck.unshift(first);
+        powerPlantsDeck.push(step3);
+    }
 
     const players: Player[] = range(numPlayers).map((id) => ({
         id,
@@ -94,7 +128,8 @@ export function setup(numPlayers: number, { fastBid = false, map = 'USA' }: Game
     const playerOrder = range(numPlayers);
     const startingPlayer = playerOrder[0];
 
-    const chosenMap = maps.find((m) => m.name == map)!;
+    const chosenMap =
+        variant == 'original' ? maps.find((m) => m.name == map)! : mapsRecharged.find((m) => m.name == map)!;
 
     const regions = chosenMap.cities
         .filter((c, i) => chosenMap.cities.findIndex((cc) => cc.region == c.region) == i)
@@ -135,21 +170,21 @@ export function setup(numPlayers: number, { fastBid = false, map = 'USA' }: Game
         powerPlantsDeck,
         coalSupply: 0,
         oilSupply: 6,
-        garbageSupply: 18,
+        garbageSupply: variant == 'original' ? 18 : 15,
         uraniumSupply: 10,
         coalMarket: 24,
         oilMarket: 18,
-        garbageMarket: 6,
+        garbageMarket: variant == 'original' ? 6 : 9,
         uraniumMarket: 2,
-        actualMarket: [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)],
-        futureMarket: [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)],
+        actualMarket,
+        futureMarket,
         chosenPowerPlant: undefined,
         currentBid: undefined,
         highestBidders: [],
         auctioningPlayer: undefined,
         step: 1,
         phase: Phase.Auction,
-        options: { fastBid },
+        options: { fastBid, map, variant },
         log: [],
         hiddenLog: [],
         seed,
@@ -163,6 +198,12 @@ export function setup(numPlayers: number, { fastBid = false, map = 'USA' }: Game
             `[${coalResupply[p][2]}, ${oilResupply[p][2]}, ${garbageResupply[p][2]}, ${uraniumResupply[p][2]}]`,
         ],
         paymentTable: cityIncome,
+        variant,
+        minimunBid: 0,
+        plantDiscountActive: variant == 'recharged',
+        cardsLeft: powerPlantsDeck.length,
+        nextCardWeak: variant == 'recharged',
+        card39Bought: false,
     } as GameState;
 
     G.log.push({ type: 'event', event: 'Game Start!' });
@@ -214,6 +255,21 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
 
             G.chosenPowerPlant = getPowerPlant(move.data);
 
+            if (move.data == 39) {
+                G.card39Bought = true;
+            }
+
+            if (
+                G.options.variant == 'recharged' &&
+                G.plantDiscountActive &&
+                G.chosenPowerPlant.number == G.actualMarket[0].number
+            ) {
+                G.minimunBid = 1;
+                G.plantDiscountActive = false;
+            } else {
+                G.minimunBid = move.data;
+            }
+
             const notPassed = G.players.filter((p) => !p.skipAuction);
             if (notPassed.length == 1) {
                 G.log.push({
@@ -225,7 +281,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                 });
 
                 const winningPlayer = notPassed[0];
-                endAuction(G, winningPlayer, move.data);
+                endAuction(G, winningPlayer, G.minimunBid);
 
                 if (G.round == 1) {
                     setPlayerOrder(G);
@@ -410,12 +466,15 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                         G.garbageMarket += garbageResupplyValue;
                         G.garbageSupply -= garbageResupplyValue;
 
-                        const uraniumResupplyValue = Math.min(
-                            G.uraniumSupply,
-                            uraniumResupply[G.players.length - 2][G.step - 1]
-                        );
-                        G.uraniumMarket += uraniumResupplyValue;
-                        G.uraniumSupply -= uraniumResupplyValue;
+                        let uraniumResupplyValue = 0;
+                        if (G.options.variant != 'recharged' || G.options.map != 'Germany' || !G.card39Bought) {
+                            uraniumResupplyValue = Math.min(
+                                G.uraniumSupply,
+                                uraniumResupply[G.players.length - 2][G.step - 1]
+                            );
+                            G.uraniumMarket += uraniumResupplyValue;
+                            G.uraniumSupply -= uraniumResupplyValue;
+                        }
 
                         G.log.push({
                             type: 'event',
@@ -445,6 +504,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                         });
                         G.auctionSkips = 0;
                         G.phase = Phase.Auction;
+                        G.plantDiscountActive = true;
                         G.currentPlayers = [G.playerOrder[0]];
                     } else {
                         G.currentPlayers = G.playerOrder.filter((p) => !G.players[p].passed);
@@ -576,9 +636,16 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
             let price;
             switch (move.data.resource) {
                 case ResourceType.Coal:
-                    price = prices[move.data.resource][prices[move.data.resource].length - G.coalMarket];
-                    player.coalLeft++;
-                    G.coalMarket--;
+                    if (G.coalMarket == 0) {
+                        price = 8;
+                        player.coalLeft++;
+                        G.coalSupply--;
+                    } else {
+                        price = prices[move.data.resource][prices[move.data.resource].length - G.coalMarket];
+                        player.coalLeft++;
+                        G.coalMarket--;
+                    }
+
                     break;
 
                 case ResourceType.Oil:
@@ -622,9 +689,11 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
             player.cities.push({ name: move.data.name, position });
             player.money -= move.data.price;
 
-            if (G.actualMarket.length > 0 && player.cities.length >= G.actualMarket[0].number) {
-                G.actualMarket.shift();
-                addPowerPlant(G);
+            if (G.options.variant == 'original') {
+                if (G.actualMarket.length > 0 && player.cities.length >= G.actualMarket[0].number) {
+                    G.actualMarket.shift();
+                    addPowerPlant(G);
+                }
             }
 
             G.log.push({
@@ -696,6 +765,9 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
 
     player.availableMoves = null;
     player.lastMove = move;
+
+    G.cardsLeft = G.powerPlantsDeck.length;
+    G.nextCardWeak = G.options.variant == 'recharged' && G.cardsLeft > 0 && G.powerPlantsDeck[0].number <= 15;
 
     G.currentPlayers.forEach((p) => (G.players[p].availableMoves = availableMoves(G, G.players[p])));
 
@@ -911,7 +983,17 @@ function addPowerPlant(G: GameState) {
                 G.actualMarket.shift();
             }
         } else {
-            G.log.push({ type: 'event', event: `Power Plant ${powerPlant.number} drawn from the deck.` });
+            if (powerPlant.number < G.actualMarket[0].number) {
+                G.log.push({
+                    type: 'event',
+                    event: `Power Plant ${powerPlant.number} drawn from the deck and discarded.`,
+                });
+                G.plantDiscountActive = false;
+                addPowerPlant(G);
+                return;
+            } else {
+                G.log.push({ type: 'event', event: `Power Plant ${powerPlant.number} drawn from the deck.` });
+            }
         }
 
         const market = [...G.actualMarket, ...G.futureMarket, powerPlant];
@@ -1044,8 +1126,12 @@ function toResourcesPhase(G: GameState) {
         p.skipAuction = false;
     });
 
-    G.phase = Phase.Resources;
-    G.currentPlayers = [G.playerOrder[G.players.length - 1]];
+    if (G.options.variant == 'recharged') {
+        if (G.plantDiscountActive) {
+            G.actualMarket.shift();
+            addPowerPlant(G);
+        }
+    }
 
     if (G.futureMarket.find((pp) => pp.number == 99)) {
         G.log.push({ type: 'event', event: 'Starting Step 3' });
@@ -1056,6 +1142,9 @@ function toResourcesPhase(G: GameState) {
         G.actualMarket = [...G.actualMarket, ...G.futureMarket];
         G.futureMarket = [];
     }
+
+    G.phase = Phase.Resources;
+    G.currentPlayers = [G.playerOrder[G.players.length - 1]];
 }
 
 function endAuction(G: GameState, winningPlayer: Player, bid: number) {

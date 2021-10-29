@@ -10,7 +10,7 @@ function launchSelfContained(selector = '#app') {
 
     const emitter = launch(selector);
 
-    let gameState = setup(6, { map: 'Germany' });
+    let gameState = setup(6, { map: 'Germany', variant: 'recharged' });
 
     for (let i = 0; i < gameState.players.length; i++) {
         gameState.players[i].name = `Player ${i + 1}`;

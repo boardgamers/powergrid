@@ -65,10 +65,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             moves[MoveName.Pass] = [true];
                         }
                     } else {
-                        moves[MoveName.Bid] = range(
-                            G.currentBid ? G.currentBid + 1 : G.chosenPowerPlant.number,
-                            player.money + 1
-                        );
+                        moves[MoveName.Bid] = range(G.currentBid ? G.currentBid + 1 : G.minimunBid, player.money + 1);
 
                         if (G.currentBid != null) {
                             moves[MoveName.Pass] = [true];
@@ -92,6 +89,17 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                     player.coalCapacity + player.hybridCapacity > hybridCapacityUsed + player.coalLeft
                 ) {
                     toBuy.push({ resource: ResourceType.Coal });
+                }
+            } else {
+                if (G.options.variant == 'recharged' && G.map.name == 'USA' && G.coalSupply > 0) {
+                    const hybridCapacityUsed =
+                        player.hybridCapacity > 0 ? Math.max(0, player.oilLeft - player.oilCapacity) : 0;
+                    if (
+                        player.money >= 8 &&
+                        player.coalCapacity + player.hybridCapacity > hybridCapacityUsed + player.coalLeft
+                    ) {
+                        toBuy.push({ resource: ResourceType.Coal });
+                    }
                 }
             }
 

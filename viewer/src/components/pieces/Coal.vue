@@ -2,7 +2,7 @@
     <g
         :id="elId"
         :class="[{ canClick: canClick }]"
-        :transform="`translate(${currentX}, ${currentY}) scale(0.08)`"
+        :transform="`translate(${currentX}, ${currentY}) scale(${scale})`"
         :opacity="transparent ? 0.3 : 1"
         @click="canClick && $emit('click')"
     >
@@ -33,5 +33,8 @@ import Piece from './Piece.vue';
 export default class Coal extends Mixins(Piece) {
     @Prop()
     canClick?: boolean;
+
+    @Prop({ default: 0.08 })
+    scale?: number;
 }
 </script>

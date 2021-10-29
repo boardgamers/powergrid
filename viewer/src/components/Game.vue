@@ -202,8 +202,66 @@
                 16
             </text>
 
+            <template v-if="G.options.variant == 'recharged' && G.map.name == 'USA'">
+                <rect
+                    width="180"
+                    height="70"
+                    x="795"
+                    y="705"
+                    rx="2"
+                    fill="chocolate"
+                    stroke="sandybrown"
+                    stroke-width="4px"
+                />
+                <circle r="10" cx="973" cy="705" fill="yellow" />
+                <text
+                    text-anchor="middle"
+                    style="font-size: 16px; font-family: monospace"
+                    x="973"
+                    y="705"
+                    fill="darkgoldenrod"
+                >
+                    8
+                </text>
+                <Coal
+                    :pieceId="-1"
+                    :targetState="{ x: 858, y: 717 }"
+                    :canClick="false"
+                    :transparent="true"
+                    :scale="0.2"
+                />
+            </template>
+
             <text x="955" y="14" font-weight="600" fill="black">Actual Market:</text>
             <text v-if="G.step < 3" x="955" y="80" font-weight="600" fill="black">Future Market:</text>
+
+            <template v-if="G.cardsLeft > 0">
+                <text x="955" y="146" font-weight="600" fill="black">Power Plant Deck:</text>
+                <rect
+                    v-for="index in G.cardsLeft"
+                    :key="'card' + index"
+                    :x="980 + index / 5"
+                    :y="160 - index / 10"
+                    width="60"
+                    height="40"
+                    fill="gray"
+                    stroke="black"
+                    stroke-width="2"
+                    rx="4"
+                />
+                <rect
+                    :x="980 + G.cardsLeft / 5"
+                    :y="160 - G.cardsLeft / 10"
+                    width="60"
+                    height="40"
+                    :fill="G.nextCardWeak ? 'gray' : 'lightgray'"
+                    stroke="black"
+                    stroke-width="2"
+                    rx="4"
+                >
+                    <title>{{ G.cardsLeft }} cards left{{ G.nextCardWeak ? ', next is an initial plant' : '' }}</title>
+                </rect>
+            </template>
 
             <template v-if="gameEnded(G)">
                 <Button
@@ -233,7 +291,7 @@
                 <Calculator
                     v-if="canBid()"
                     transform="translate(1220, 80)"
-                    :minValue="G.currentBid + 1 || G.chosenPowerPlant.number"
+                    :minValue="G.currentBid + 1 || G.minimunBid"
                     :maxValue="G.players[player].money"
                     @bid="bid($event)"
                 />
@@ -327,7 +385,7 @@
                     :key="'B' + i"
                     :player="p"
                     :color="playerColors[i]"
-                    :transform="`translate(1100, ${140 + 110 * i})`"
+                    :transform="`translate(1140, ${140 + 110 * i})`"
                     :owner="i"
                     :isCurrentPlayer="isCurrentPlayer(i)"
                     :ended="gameEnded(G)"
@@ -392,13 +450,14 @@
                 />
             </template>
 
-            <template v-for="card in cards">
+            <template v-for="(card, i) in cards">
                 <Card
                     :key="card.id"
                     :targetState="{ x: card.x, y: card.y }"
                     :owner="card.owner"
                     :powerPlant="card.powerPlant"
                     :canClick="canChoose() && card.isActualMarket"
+                    :hasDiscount="G.plantDiscountActive && i == 0"
                     @click="choosePowerPlant(card.powerPlant)"
                 />
             </template>
@@ -485,7 +544,7 @@
                         <rect
                             v-if="canUsePowerPlant(powerPlant)"
                             :key="pi + '_' + ppi + '_helper'"
-                            :x="player.powerPlants.length < 5 ? 1120 + 80 * ppi : 1105 + 70 * ppi"
+                            :x="player.powerPlants.length < 5 ? 1160 + 80 * ppi : 1145 + 70 * ppi"
                             :y="170 + 110 * pi"
                             width="60"
                             height="40"
@@ -641,6 +700,7 @@ import PlayerBoard from './PlayerBoard.vue';
 import Calculator from './Calculator.vue';
 import { LogMove } from 'powergrid-engine/src/log';
 import { City, Phase, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
+import { range } from 'lodash';
 
 @Component({
     components: {
@@ -798,6 +858,15 @@ export default class Game extends Vue {
                         transparent: i >= this.G!.coalMarket,
                     });
                 });
+
+            range(this.G.coalSupply).forEach(i => {
+                this.coals.push({
+                    id: 'coal_supply_' + i,
+                    x: 800 + (i % 8) * 20 + (i >= 8 && i < 16 ? 10 : 0),
+                    y: 710 + Math.floor(i / 8) * 20,
+                    transparent: false,
+                });
+            });
 
             // Oil
             this.oils = [];

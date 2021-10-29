@@ -6,6 +6,7 @@ import { Move } from './move';
 export interface GameOptions {
     fastBid?: boolean;
     map?: 'USA' | 'Germany';
+    variant?: 'original' | 'recharged';
 }
 
 export interface City {
@@ -92,26 +93,6 @@ export enum Phase {
     GameEnd = 'Game End',
 }
 
-// export interface HousePiece {
-//     id: `H${number}`;
-// }
-
-// export interface CoalPiece {
-//     id: `C${number}`;
-// }
-
-// export interface OilPiece {
-//     id: `O${number}`;
-// }
-
-// export interface GarbagePiece {
-//     id: `G${number}`;
-// }
-
-// export interface UraniumPiece {
-//     id: `U${number}`;
-// }
-
 export interface GameState {
     map: Map;
     players: Player[];
@@ -144,4 +125,9 @@ export interface GameState {
     citiesToEndGame: number;
     resourceResupply: string[];
     paymentTable: number[];
+    minimunBid: number;
+    plantDiscountActive: boolean;
+    nextCardWeak: boolean;
+    cardsLeft: number;
+    card39Bought: boolean;
 }

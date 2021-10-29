@@ -47,7 +47,7 @@ const regionsInPlay = [3, 3, 4, 5, 5];
 
 export function setup(
     numPlayers: number,
-    { fastBid = false, map = 'USA', variant = 'original' }: GameOptions,
+    { fastBid = false, map = 'USA', variant = 'original', showMoney = false }: GameOptions,
     seed?: string
 ): GameState {
     seed = seed ?? Math.random().toString();
@@ -184,7 +184,7 @@ export function setup(
         auctioningPlayer: undefined,
         step: 1,
         phase: Phase.Auction,
-        options: { fastBid, map, variant },
+        options: { fastBid, map, variant, showMoney },
         log: [],
         hiddenLog: [],
         seed,
@@ -226,7 +226,7 @@ export function stripSecret(G: GameState, player?: number): GameState {
                 return {
                     ...pl,
                     availableMoves: pl.availableMoves ? {} : null,
-                    money: ended(G) ? pl.money : 0,
+                    money: ended(G) || G.options.showMoney ? pl.money : -1,
                 };
             }
         }),
@@ -1128,8 +1128,12 @@ function toResourcesPhase(G: GameState) {
 
     if (G.options.variant == 'recharged') {
         if (G.plantDiscountActive) {
-            G.actualMarket.shift();
-            addPowerPlant(G);
+            G.plantDiscountActive = false;
+            if (G.actualMarket.length > 0) {
+                G.log.push({ type: 'event', event: `Discarding Power Plant ${G.actualMarket[0].number}` });
+                G.actualMarket.shift();
+                addPowerPlant(G);
+            }
         }
     }
 

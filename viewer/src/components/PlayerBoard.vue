@@ -5,7 +5,7 @@
         <text x="5" y="13" font-weight="600" fill="black">
             {{ getPlayerName() }}
         </text>
-        <text v-if="isPlayer || ended" x="250" y="13" font-weight="600" fill="black">Money: ${{ player.money }}</text>
+        <text v-if="showMoney" x="250" y="13" font-weight="600" fill="black">Money: ${{ player.money }}</text>
 
         <Card
             v-for="(powerPlant, i) in player.powerPlants"
@@ -77,6 +77,9 @@ export default class PlayerBoard extends Vue {
 
     @Prop()
     ranking?: number;
+
+    @Prop()
+    showMoney?: boolean;
 
     powerPlantClicked?: PowerPlant;
 

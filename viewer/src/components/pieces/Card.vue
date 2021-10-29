@@ -90,8 +90,8 @@ export default class Card extends Mixins(Piece) {
     @Prop()
     canClick?: boolean;
 
-    @Prop()
-    hasDiscount = false;
+    @Prop({ default: false })
+    hasDiscount?: boolean;
 
     getColor() {
         switch (this.powerPlant?.type) {

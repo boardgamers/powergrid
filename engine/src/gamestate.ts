@@ -7,6 +7,7 @@ export interface GameOptions {
     fastBid?: boolean;
     map?: 'USA' | 'Germany';
     variant?: 'original' | 'recharged';
+    showMoney?: boolean;
 }
 
 export interface City {

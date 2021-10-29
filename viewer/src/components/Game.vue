@@ -391,6 +391,7 @@
                     :ended="gameEnded(G)"
                     :isPlayer="player == i"
                     :ranking="sortedPlayers.findIndex((x) => x.id == p.id) + 1"
+                    :showMoney="player == i || gameEnded(G) || G.options.showMoney"
                     @powerPlantClick="powerPlantClick($event)"
                 />
             </template>

@@ -134,15 +134,12 @@ export function setup(
     const regions = chosenMap.cities
         .filter((c, i) => chosenMap.cities.findIndex((cc) => cc.region == c.region) == i)
         .map((c) => c.region);
+    const connections = chosenMap.connections.map((con) =>
+        con.nodes.map((n) => chosenMap.cities.find((city) => city.name == n)!.region)
+    );
     const regionConnections = regions.map((region) =>
         regions.filter(
-            (area2) =>
-                region != area2 &&
-                chosenMap.connections.some((con) =>
-                    con.nodes
-                        .map((n) => chosenMap.cities.find((city) => city.name == n)!.region)
-                        .every((r) => [region, area2].includes(r))
-                )
+            (area2) => region != area2 && connections.some((con) => con.includes(region) && con.includes(area2))
         )
     );
 

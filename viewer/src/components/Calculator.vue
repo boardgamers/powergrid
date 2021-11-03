@@ -44,7 +44,6 @@ export default class Calculator extends Vue {
 
     bid() {
         this.$emit('bid', this.value);
-        this.value++;
     }
 }
 </script>

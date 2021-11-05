@@ -1198,7 +1198,9 @@ export default class Game extends Vue {
     }
 
     getStatusMessage() {
-        if (!this.G || this.G.currentPlayers == []) {
+        if (!this.G || this.G.log.length == 1) {
+            return 'Game Start!';
+        } else if (this.G.currentPlayers == []) {
             return 'Game ended!';
         } else if (this.player !== undefined && this.G?.currentPlayers.includes(this.player)) {
             const currentPlayer = this.G.players[this.player];
@@ -1228,14 +1230,14 @@ export default class Game extends Vue {
 
             return 'It\'s your turn!';
         } else {
-            let log = (this.G.log[this.G.log.length - 1] as LogMove).pretty;
-            if (log) {
-                while (log?.indexOf('>') != -1) {
-                    log = log?.substr(0, log.indexOf('<')) + log.substr(log.indexOf('>') + 1);
-                }
+            let log = this.G.log[this.G.log.length - 1];
+            if (log.type == 'move') {
+                return log.simple;
+            } else if (log.type == 'event') {
+                return log.event;
+            } else {
+                return log.phase;
             }
-
-            return log;
         }
     }
 

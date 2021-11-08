@@ -149,14 +149,8 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                     const othersCount = G.players.filter((p) => p.cities.find((c) => city.name == c.name)).length;
                     city.price += 10 + othersCount * 5;
 
-                    if (G.step == 1) {
-                        if (othersCount > 0) {
-                            city.price = 9999;
-                        }
-                    } else if (G.step == 2) {
-                        if (othersCount > 1) {
-                            city.price = 9999;
-                        }
+                    if (othersCount == G.step) {
+                        city.price = 9999;
                     }
 
                     if (player.cities.find((c) => c.name == city.name)) {

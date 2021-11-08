@@ -500,9 +500,15 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                             p.passed = false;
                         });
                         G.auctionSkips = 0;
-                        G.phase = Phase.Auction;
-                        G.plantDiscountActive = G.options.variant == 'recharged';
-                        G.currentPlayers = [G.playerOrder[0]];
+
+                        if (G.actualMarket.length > 0) {
+                            G.phase = Phase.Auction;
+
+                            G.plantDiscountActive = G.options.variant == 'recharged';
+                            G.currentPlayers = [G.playerOrder[0]];
+                        } else {
+                            toResourcesPhase(G);
+                        }
                     } else {
                         G.currentPlayers = G.playerOrder.filter((p) => !G.players[p].passed);
                     }

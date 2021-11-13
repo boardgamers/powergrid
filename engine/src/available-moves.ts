@@ -26,7 +26,8 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
     const moves = {};
 
     const lastLog = G.log[G.log.length - 1];
-    if (lastLog.type == 'move' && G.currentPlayers.includes(lastLog.player)) moves[MoveName.Undo] = [true];
+    if (lastLog.type == 'move' && lastLog.player == player.id && G.currentPlayers.includes(lastLog.player))
+        moves[MoveName.Undo] = [true];
 
     switch (G.phase) {
         case Phase.Auction: {

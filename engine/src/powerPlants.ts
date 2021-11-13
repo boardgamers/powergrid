@@ -19,7 +19,7 @@ const powerPlants: PowerPlant[] = [
     { number: 18, type: PowerPlantType.Wind, cost: 0, citiesPowered: 2 },
     { number: 19, type: PowerPlantType.Garbage, cost: 2, citiesPowered: 3 },
     { number: 20, type: PowerPlantType.Coal, cost: 3, citiesPowered: 5 },
-    { number: 21, type: PowerPlantType.Garbage, cost: 2, citiesPowered: 4 },
+    { number: 21, type: PowerPlantType.Hybrid, cost: 2, citiesPowered: 4 },
     { number: 22, type: PowerPlantType.Wind, cost: 0, citiesPowered: 2 },
     { number: 23, type: PowerPlantType.Uranium, cost: 1, citiesPowered: 3 },
     { number: 24, type: PowerPlantType.Garbage, cost: 2, citiesPowered: 4 },

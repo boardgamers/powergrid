@@ -411,10 +411,13 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                         const maxCities = Math.max(...G.players.map((p) => p.cities.length));
                         if (G.step == 1) {
                             if (maxCities >= G.citiesToStep2) {
-                                G.actualMarket.shift();
-                                addPowerPlant(G);
-                                G.log.push({ type: 'event', event: 'Starting Step 2' });
+                                const powerPlant = G.actualMarket.shift()!;
+                                G.log.push({
+                                    type: 'event',
+                                    event: `Starting Step 2, power plant ${powerPlant?.number} discarded`,
+                                });
                                 G.step = 2;
+                                addPowerPlant(G);
                             }
                         }
 
@@ -981,9 +984,12 @@ function addPowerPlant(G: GameState) {
             G.powerPlantsDeck = shuffle(G.powerPlantsDeck, G.seed);
 
             if (G.phase != Phase.Auction) {
-                G.log.push({ type: 'event', event: 'Starting Step 3' });
+                const powerPlantDiscarded = G.actualMarket.shift();
+                G.log.push({
+                    type: 'event',
+                    event: `Starting Step 3, power plant ${powerPlantDiscarded?.number} discarded.`,
+                });
                 G.step = 3;
-                G.actualMarket.shift();
             }
         } else {
             if (G.plantDiscountActive && powerPlant.number < G.actualMarket[0].number) {

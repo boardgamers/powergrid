@@ -279,7 +279,7 @@
                 </text>
             </template>
 
-            <PassButton transform="translate(1355, 15)" :enabled="canPass()" @click="pass()" />
+            <PassButton transform="translate(1355, 15)" :enabled="canPass()" @click="checkPass()" />
             <UndoButton transform="translate(1355, 56)" :enabled="canUndo()" @click="undo()" />
             <LogButton transform="translate(1355, 97)" @click="showLog()" />
             <SoundButton transform="translate(1450, 13)" :isOn="preferences.sound" @click="toggleSound()" />
@@ -569,6 +569,18 @@
             </div>
         </div>
 
+        <div v-if="G" :class="['modal', { visible: confirmVisible }]">
+            <div class="modal-content">
+                <span class="close" @click="confirmVisible = false">&times;</span>
+                <div class="modal-title">Confirm</div>
+                <div class="confirm-message">{{ confirmMessage }}</div>
+                <div class="confirm-buttons">
+                    <button class="confirm-button" @click="confirmPass()">OK</button>
+                    <button class="confirm-button" @click="confirmVisible = false">Cancel</button>
+                </div>
+            </div>
+        </div>
+
         <div v-if="G && gameEnded(G)" :class="['modal', { visible: endScoreVisible }]">
             <div class="modal-content">
                 <span class="close" @click="endScoreVisible = false">&times;</span>
@@ -765,6 +777,9 @@ export default class Game extends Vue {
     rulesVisible = false;
 
     totalBid: number = 0;
+
+    confirmMessage = '';
+    confirmVisible = false;
 
     @Watch('state', { immediate: true })
     onStateChanged(state: GameState) {
@@ -1021,6 +1036,36 @@ export default class Game extends Vue {
             setTimeout(() => this.updateUI());
             return;
         }
+    }
+
+    checkPass() {
+        if (this.G && this.player != null && !this.G.chosenPowerPlant) {
+            const player = this.G.players[this.player];
+            if (player && player.availableMoves && Object.keys(player.availableMoves).length > 1) {
+                if (this.G.phase != Phase.Bureaucracy || player.powerPlantsNotUsed.length == player.powerPlants.length) {
+                    const lastMove = this.G.log[this.G.log.length - 1] as LogMove;
+                    if (lastMove.player != this.player || lastMove.move.name == MoveName.Pass) {
+                        switch (this.G.phase) {
+                            case Phase.Auction: this.confirmMessage = 'Are you sure you want to skip auctions?'; break;
+                            case Phase.Resources: this.confirmMessage = 'Are you sure you want to skip buying resources?'; break;
+                            case Phase.Building: this.confirmMessage = 'Are you sure you want to skip building?'; break;
+                            case Phase.Bureaucracy: this.confirmMessage = 'Are you sure you want to pass? You didn\'t use any power plant!'; break;
+                            default: this.confirmMessage = 'Are you sure you want to pass?';
+                        }
+
+                        this.confirmVisible = true;
+                        return;
+                    }
+                }
+            }
+        }
+
+        this.pass();
+    }
+
+    confirmPass() {
+        this.confirmVisible = false;
+        this.pass();
     }
 
     pass() {
@@ -1496,7 +1541,16 @@ text {
     }
 }
 
-.confirmButton {
-    margin: 5px 15px;
+.confirm-message {
+    font-size: 18px;
+    padding: 10px;
+}
+
+.confirm-buttons {
+    text-align: center;
+}
+
+.confirm-button {
+    margin: 15px 0 0 15px;
 }
 </style>

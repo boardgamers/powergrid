@@ -66,7 +66,13 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             moves[MoveName.Pass] = [true];
                         }
                     } else {
-                        moves[MoveName.Bid] = range(G.currentBid ? G.currentBid + 1 : G.minimunBid, player.money + 1);
+                        if (G.currentBid) {
+                            if (G.currentBid < player.money) {
+                                moves[MoveName.Bid] = range(G.currentBid + 1, player.money + 1);
+                            }
+                        } else {
+                            moves[MoveName.Bid] = range(G.minimunBid, player.money + 1);
+                        }
 
                         if (G.currentBid != null) {
                             moves[MoveName.Pass] = [true];

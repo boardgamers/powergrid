@@ -1081,7 +1081,7 @@ export default class Game extends Vue {
         const currentPlayer = this.G!.players[this.player!];
         const availableMoves = currentPlayer.availableMoves!;
 
-        if (availableMoves.ChoosePowerPlant.includes(powerPlant.number)) {
+        if (availableMoves.ChoosePowerPlant && availableMoves.ChoosePowerPlant.includes(powerPlant.number)) {
             this.sendMove({ name: MoveName.ChoosePowerPlant, data: powerPlant.number });
         }
     }

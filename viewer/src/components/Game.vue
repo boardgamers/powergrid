@@ -393,6 +393,7 @@
                     :ranking="sortedPlayers.findIndex((x) => x.id == p.id) + 1"
                     :showMoney="player == i || gameEnded(G) || G.options.showMoney"
                     @powerPlantClick="powerPlantClick($event)"
+                    @discardResource="discardResource($event)"
                 />
             </template>
 
@@ -1077,7 +1078,12 @@ export default class Game extends Vue {
     }
 
     choosePowerPlant(powerPlant: PowerPlant) {
-        this.sendMove({ name: MoveName.ChoosePowerPlant, data: powerPlant.number });
+        const currentPlayer = this.G!.players[this.player!];
+        const availableMoves = currentPlayer.availableMoves!;
+
+        if (availableMoves.ChoosePowerPlant.includes(powerPlant.number)) {
+            this.sendMove({ name: MoveName.ChoosePowerPlant, data: powerPlant.number });
+        }
     }
 
     buyResource(resource: ResourceType) {
@@ -1127,6 +1133,13 @@ export default class Game extends Vue {
                 data: { powerPlant: powerPlant.number, resourcesSpent, citiesPowered: powerPlant.citiesPowered },
             });
         }
+    }
+
+    discardResource(resource) {
+        this.sendMove({
+            name: MoveName.DiscardResources,
+            data: resource
+        });
     }
 
     sendMove(move) {

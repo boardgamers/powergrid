@@ -39,7 +39,7 @@ export function factions(G: GameState) {
     return G.players.map((pl) => engine.playerColors[pl.id]);
 }
 
-export function replay(G: GameState) {
+export function replay(G: GameState, { to = Infinity }) {
     const oldPlayers = G.players;
 
     const oldG = G;
@@ -50,7 +50,7 @@ export function replay(G: GameState) {
         G.players[i].name = oldPlayers[i].name;
     }
 
-    for (const move of oldG.log.filter((event) => event.type === 'move')) {
+    for (const move of oldG.log.slice(0, to).filter((event) => event.type === 'move')) {
         asserts<LogMove>(move);
 
         G = engine.move(G, move.move, move.player);
@@ -94,7 +94,7 @@ export function logSlice(G: GameState, options?: { player?: number; start?: numb
             options?.end === undefined
                 ? stripped.players.map((pl) => pl.availableMoves)
                 : engine
-                      .stripSecret(replay({ ...G, log: G.log.slice(0, options!.end) }), options!.player)
+                      .stripSecret(replay(G, { to: options.end }), options!.player)
                       .players.map((pl) => pl.availableMoves),
     };
 }

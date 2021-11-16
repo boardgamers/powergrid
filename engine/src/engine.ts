@@ -521,9 +521,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                             toResourcesPhase(G);
                         }
                     } else {
-                        G.currentPlayers = G.playerOrder.filter(
-                            (p) => !G.players[p].passed && !!G.players[p].isDropped
-                        );
+                        G.currentPlayers = G.playerOrder.filter((p) => !G.players[p].passed && !G.players[p].isDropped);
                     }
 
                     break;

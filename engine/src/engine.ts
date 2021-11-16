@@ -339,7 +339,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                         player.skipAuction = true;
                         G.auctionSkips++;
 
-                        if (G.players.some((p) => !p.skipAuction)) {
+                        if (G.players.some((p) => !p.skipAuction && !p.isDropped)) {
                             nextPlayerAuction(G);
                         } else {
                             if (G.auctionSkips == G.players.length) {
@@ -356,7 +356,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                     } else {
                         player.passed = true;
 
-                        const notPassed = G.players.filter((p) => !p.passed && !p.skipAuction);
+                        const notPassed = G.players.filter((p) => !p.passed && !p.skipAuction && !p.isDropped);
                         if (notPassed.length == 1) {
                             const winningPlayer = notPassed[0];
                             endAuction(G, winningPlayer, winningPlayer.bid);
@@ -372,7 +372,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                                 if (G.players.some((p) => !p.skipAuction)) {
                                     G.players.forEach((p) => {
                                         p.bid = 0;
-                                        p.passed = false;
+                                        p.passed = p.isDropped;
                                     });
 
                                     nextPlayerAuction(G, true);
@@ -391,9 +391,9 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                 case Phase.Resources: {
                     player.passed = true;
 
-                    if (G.players.filter((p) => !p.passed).length == 0) {
+                    if (G.players.filter((p) => !p.passed && !p.isDropped).length == 0) {
                         G.players.forEach((p) => {
-                            p.passed = false;
+                            p.passed = p.isDropped;
                         });
                         G.phase = Phase.Building;
                         G.currentPlayers = [G.playerOrder[G.players.length - 1]];
@@ -407,7 +407,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                 case Phase.Building: {
                     player.passed = true;
 
-                    if (G.players.filter((p) => !p.passed).length == 0) {
+                    if (G.players.filter((p) => !p.passed && !p.isDropped).length == 0) {
                         const maxCities = Math.max(...G.players.map((p) => p.cities.length));
                         if (G.step == 1) {
                             if (maxCities >= G.citiesToStep2) {
@@ -428,7 +428,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                             G.log.push({ type: 'event', event: 'Game Ended!' });
                         } else {
                             G.players.forEach((p) => {
-                                p.passed = false;
+                                p.passed = p.isDropped;
                                 p.powerPlantsNotUsed = p.powerPlants.map((pp) => pp.number);
                             });
                             G.phase = Phase.Bureaucracy;
@@ -451,7 +451,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                     player.money += G.paymentTable[Math.min(player.cities.length, player.citiesPowered)];
                     player.citiesPowered = 0;
 
-                    if (G.players.filter((p) => !p.passed).length == 0) {
+                    if (G.players.filter((p) => !p.passed && !p.isDropped).length == 0) {
                         const coalResupplyValue = Math.min(
                             G.coalSupply,
                             coalResupply[G.players.length - 2][G.step - 1]
@@ -504,7 +504,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                         setPlayerOrder(G);
 
                         G.players.forEach((p) => {
-                            p.passed = false;
+                            p.passed = p.isDropped;
                         });
                         G.auctionSkips = 0;
 
@@ -521,7 +521,9 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                             toResourcesPhase(G);
                         }
                     } else {
-                        G.currentPlayers = G.playerOrder.filter((p) => !G.players[p].passed);
+                        G.currentPlayers = G.playerOrder.filter(
+                            (p) => !G.players[p].passed && !!G.players[p].isDropped
+                        );
                     }
 
                     break;
@@ -566,7 +568,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                 addPowerPlant(G);
                 G.players.forEach((p) => {
                     p.bid = 0;
-                    p.passed = false;
+                    p.passed = p.isDropped;
                 });
 
                 if (G.players.some((p) => !p.skipAuction)) {
@@ -623,7 +625,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                 addPowerPlant(G);
                 G.players.forEach((p) => {
                     p.bid = 0;
-                    p.passed = false;
+                    p.passed = p.isDropped;
                 });
 
                 if (G.players.some((p) => !p.skipAuction)) {
@@ -703,13 +705,6 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
             player.cities.push({ name: move.data.name, position });
             player.money -= move.data.price;
 
-            if (G.options.variant == 'original') {
-                if (G.actualMarket.length > 0 && player.cities.length >= G.actualMarket[0].number) {
-                    G.actualMarket.shift();
-                    addPowerPlant(G);
-                }
-            }
-
             G.log.push({
                 type: 'move',
                 player: playerNumber,
@@ -719,6 +714,13 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                     move.data.price
                 }</span>`,
             });
+
+            if (G.options.variant == 'original') {
+                if (G.actualMarket.length > 0 && player.cities.length >= G.actualMarket[0].number) {
+                    G.actualMarket.shift();
+                    addPowerPlant(G);
+                }
+            }
 
             break;
         }
@@ -919,7 +921,7 @@ export function nextPlayerClockwise(G: GameState) {
 
     if (
         (G.players[G.currentPlayers[0]].skipAuction || G.players[G.currentPlayers[0]].passed) &&
-        G.players.some((p) => !p.skipAuction && !p.passed)
+        G.players.some((p) => !p.skipAuction && !p.passed && !p.isDropped)
     ) {
         nextPlayerClockwise(G);
     }
@@ -947,7 +949,7 @@ export function nextPlayerAuction(G: GameState, reset = false) {
 
     if (
         (G.players[G.currentPlayers[0]].skipAuction || G.players[G.currentPlayers[0]].passed) &&
-        G.players.some((p) => !p.skipAuction && !p.passed)
+        G.players.some((p) => !p.skipAuction && !p.passed && !p.isDropped)
     ) {
         nextPlayerAuction(G);
     }
@@ -1166,7 +1168,7 @@ function isValid(player: Player, powerPlants: PowerPlant[]) {
 function toResourcesPhase(G: GameState) {
     G.players.forEach((p) => {
         p.bid = 0;
-        p.passed = false;
+        p.passed = p.isDropped;
     });
 
     G.players.forEach((p) => {

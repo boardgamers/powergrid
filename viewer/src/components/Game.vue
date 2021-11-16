@@ -233,7 +233,7 @@
             </template>
 
             <text x="955" y="14" font-weight="600" fill="black">Actual Market:</text>
-            <text v-if="G.step < 3" x="955" y="80" font-weight="600" fill="black">Future Market:</text>
+            <text v-if="G.futureMarket.length > 0" x="955" y="80" font-weight="600" fill="black">Future Market:</text>
 
             <template v-if="G.cardsLeft > 0">
                 <text x="955" y="146" font-weight="600" fill="black">Power Plant Deck:</text>
@@ -491,7 +491,7 @@
 
                 <g v-if="canChoose()">
                     <rect
-                        v-if="G.step < 3"
+                        v-if="G.futureMarket.length > 0"
                         x="950"
                         y="5"
                         width="265"
@@ -960,7 +960,7 @@ export default class Game extends Vue {
         // Power Plants
         this.cards = [];
         this.G?.actualMarket.forEach((card, i) => {
-            if (this.G!.step < 3) {
+            if (this.G!.futureMarket.length > 0) {
                 if (card.number != this.G?.chosenPowerPlant?.number) {
                     this.cards.push({
                         id: 'actual_' + i,

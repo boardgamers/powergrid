@@ -17,7 +17,7 @@
             <template v-for="index in 6">
                 <rect
                     :key="'playerOrder' + index"
-                    width="25"
+                    width="24"
                     height="30"
                     :x="15 + 30 * (index - 1)"
                     y="15"
@@ -28,7 +28,7 @@
                     :key="'playerOrderText' + index"
                     text-anchor="middle"
                     style="font-size: 32px; font-family: monospace"
-                    :x="28 + 30 * (index - 1)"
+                    :x="27 + 30 * (index - 1)"
                     y="30"
                     fill="gold"
                 >
@@ -55,8 +55,8 @@
                     :key="'playerCityCountText' + index"
                     text-anchor="middle"
                     style="font-size: 24px; font-family: monospace"
-                    letter-spacing="-3"
-                    :x="265 + 33 * (index - 1)"
+                    letter-spacing="-2"
+                    :x="264 + 33 * (index - 1)"
                     y="35"
                     fill="gold"
                 >
@@ -272,11 +272,16 @@
                 />
             </template>
             <template v-else>
-                <text x="30" y="580" font-weight="600" fill="black" style="font-size: 32px">Step: {{ G.step }}</text>
-                <text x="30" y="620" font-weight="600" fill="black" style="font-size: 32px">Phase: {{ G.phase }}</text>
-                <text x="30" y="680" font-weight="600" fill="black" style="font-size: 24px">
-                    Resource Resupply: {{ G.resourceResupply[G.step - 1] }}
+                <text x="30" y="550" font-weight="600" fill="black" style="font-size: 32px">Round: {{ G.round }}</text>
+                <text x="30" y="590" font-weight="600" fill="black" style="font-size: 32px">Step: {{ G.step }}</text>
+                <text x="30" y="630" font-weight="600" fill="black" style="font-size: 32px">Phase: {{ G.phase }}</text>
+                <text x="30" y="680" font-weight="600" fill="black" style="font-size: 24px; white-space: pre">
+                    Resource Resupply: {{ getResourceResupply() }}
                 </text>
+                <Coal :pieceId="-1" :targetState="{ x: 288, y: 673 }" :canClick="false" :transparent="false" />
+                <Oil :pieceId="-1" :targetState="{ x: 331, y: 672 }" :canClick="false" :transparent="false" />
+                <Garbage :pieceId="-1" :targetState="{ x: 382, y: 672 }" :canClick="false" :transparent="false" />
+                <Uranium :pieceId="-1" :targetState="{ x: 426, y: 674 }" :canClick="false" :transparent="false" />
             </template>
 
             <PassButton transform="translate(1355, 15)" :enabled="canPass()" @click="checkPass()" />
@@ -1344,6 +1349,16 @@ export default class Game extends Vue {
 
     get sortedPlayers() {
         return playersSortedByScore(this.G!);
+    }
+
+    getResourceResupply() {
+        if (this.G) {
+            let str = this.G.resourceResupply[this.G.step - 1];
+            str = str.substr(1, str.length - 2);
+            return str.split(',').join('    ');
+        }
+
+        return '';
     }
 }
 </script>

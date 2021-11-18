@@ -913,6 +913,7 @@ export function nextPlayerClockwise(G: GameState) {
     G.currentPlayers = [(index + 1) % G.players.length];
 
     if (G.players[G.currentPlayers[0]].isDropped && G.players.some((p) => !p.isDropped)) {
+        G.players[G.currentPlayers[0]].passed = true;
         G.players[G.currentPlayers[0]].skipAuction = true;
         nextPlayerClockwise(G);
     }
@@ -929,7 +930,10 @@ export function nextPlayerReverse(G: GameState) {
     const index = G.playerOrder.indexOf(G.currentPlayers[0]);
     G.currentPlayers = [G.playerOrder[(index - 1 + G.players.length) % G.players.length]];
 
-    if (G.players[G.currentPlayers[0]].isDropped && G.players.some((p) => !p.isDropped)) nextPlayerReverse(G);
+    if (G.players[G.currentPlayers[0]].isDropped && G.players.some((p) => !p.isDropped)) {
+        G.players[G.currentPlayers[0]].passed = true;
+        nextPlayerReverse(G);
+    }
 }
 
 export function nextPlayerAuction(G: GameState, reset = false) {
@@ -941,6 +945,7 @@ export function nextPlayerAuction(G: GameState, reset = false) {
     }
 
     if (G.players[G.currentPlayers[0]].isDropped && G.players.some((p) => !p.isDropped)) {
+        G.players[G.currentPlayers[0]].passed = true;
         G.players[G.currentPlayers[0]].skipAuction = true;
         nextPlayerAuction(G);
     }

@@ -278,10 +278,10 @@
                 <text x="30" y="680" font-weight="600" fill="black" style="font-size: 24px; white-space: pre">
                     Resource Resupply: {{ getResourceResupply() }}
                 </text>
-                <Coal :pieceId="-1" :targetState="{ x: 288, y: 673 }" :canClick="false" :transparent="false" />
-                <Oil :pieceId="-1" :targetState="{ x: 331, y: 672 }" :canClick="false" :transparent="false" />
-                <Garbage :pieceId="-1" :targetState="{ x: 382, y: 672 }" :canClick="false" :transparent="false" />
-                <Uranium :pieceId="-1" :targetState="{ x: 426, y: 674 }" :canClick="false" :transparent="false" />
+                <Coal :pieceId="-1" :targetState="{ x: 288, y: 672 }" :canClick="false" :transparent="false" />
+                <Oil :pieceId="-1" :targetState="{ x: 331, y: 671 }" :canClick="false" :transparent="false" />
+                <Garbage :pieceId="-1" :targetState="{ x: 382, y: 671 }" :canClick="false" :transparent="false" />
+                <Uranium :pieceId="-1" :targetState="{ x: 428, y: 672 }" :canClick="false" :transparent="false" />
             </template>
 
             <PassButton transform="translate(1355, 15)" :enabled="canPass()" @click="checkPass()" />

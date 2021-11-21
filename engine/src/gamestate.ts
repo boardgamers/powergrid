@@ -3,10 +3,13 @@ import { LogItem } from './log';
 import { Cities, Regions } from './maps';
 import { Move } from './move';
 
+export type MapName = 'USA' | 'Germany';
+export type Variant = 'original' | 'recharged';
+
 export interface GameOptions {
     fastBid?: boolean;
-    map?: 'USA' | 'Germany';
-    variant?: 'original' | 'recharged';
+    map?: MapName;
+    variant?: Variant;
     showMoney?: boolean;
 }
 

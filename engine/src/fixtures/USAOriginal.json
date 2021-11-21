@@ -1,0 +1,5216 @@
+{
+    "map": {
+        "name": "USA",
+        "cities": [
+            {
+                "name": "Seattle",
+                "region": "purple",
+                "x": 74,
+                "y": 99
+            },
+            {
+                "name": "Portland",
+                "region": "purple",
+                "x": 45,
+                "y": 167
+            },
+            {
+                "name": "Boise",
+                "region": "purple",
+                "x": 180,
+                "y": 220
+            },
+            {
+                "name": "Billings",
+                "region": "purple",
+                "x": 345,
+                "y": 180
+            },
+            {
+                "name": "Cheyenne",
+                "region": "purple",
+                "x": 410,
+                "y": 280
+            },
+            {
+                "name": "Denver",
+                "region": "purple",
+                "x": 400,
+                "y": 333
+            },
+            {
+                "name": "Omaha",
+                "region": "purple",
+                "x": 566,
+                "y": 293
+            },
+            {
+                "name": "Fargo",
+                "region": "yellow",
+                "x": 551,
+                "y": 152
+            },
+            {
+                "name": "Duluth",
+                "region": "yellow",
+                "x": 637,
+                "y": 133
+            },
+            {
+                "name": "Minneapolis",
+                "region": "yellow",
+                "x": 621,
+                "y": 190
+            },
+            {
+                "name": "Chicago",
+                "region": "yellow",
+                "x": 716,
+                "y": 281
+            },
+            {
+                "name": "St. Louis",
+                "region": "yellow",
+                "x": 678,
+                "y": 362
+            },
+            {
+                "name": "Cincinnati",
+                "region": "yellow",
+                "x": 795,
+                "y": 348
+            },
+            {
+                "name": "Knoxvile",
+                "region": "yellow",
+                "x": 796,
+                "y": 422
+            },
+            {
+                "name": "Horecin",
+                "region": "green",
+                "x": 969,
+                "y": 405
+            },
+            {
+                "name": "Raleigh",
+                "region": "green",
+                "x": 915,
+                "y": 437
+            },
+            {
+                "name": "Atlanta",
+                "region": "green",
+                "x": 801,
+                "y": 487
+            },
+            {
+                "name": "Savannah",
+                "region": "green",
+                "x": 867,
+                "y": 507
+            },
+            {
+                "name": "Jacksonvile",
+                "region": "green",
+                "x": 861,
+                "y": 559
+            },
+            {
+                "name": "Tampa",
+                "region": "green",
+                "x": 819,
+                "y": 621
+            },
+            {
+                "name": "Miami",
+                "region": "green",
+                "x": 883,
+                "y": 670
+            }
+        ],
+        "connections": [
+            {
+                "nodes": ["Seattle", "Portland"],
+                "cost": 3
+            },
+            {
+                "nodes": ["Seattle", "Boise"],
+                "cost": 12
+            },
+            {
+                "nodes": ["Seattle", "Billings"],
+                "cost": 9
+            },
+            {
+                "nodes": ["Portland", "Boise"],
+                "cost": 13
+            },
+            {
+                "nodes": ["Boise", "Billings"],
+                "cost": 12
+            },
+            {
+                "nodes": ["Boise", "Cheyenne"],
+                "cost": 24
+            },
+            {
+                "nodes": ["Billings", "Cheyenne"],
+                "cost": 9
+            },
+            {
+                "nodes": ["Billings", "Fargo"],
+                "cost": 17
+            },
+            {
+                "nodes": ["Billings", "Minneapolis"],
+                "cost": 18
+            },
+            {
+                "nodes": ["Cheyenne", "Denver"],
+                "cost": 0
+            },
+            {
+                "nodes": ["Cheyenne", "Omaha"],
+                "cost": 14
+            },
+            {
+                "nodes": ["Cheyenne", "Minneapolis"],
+                "cost": 18
+            },
+            {
+                "nodes": ["Omaha", "Minneapolis"],
+                "cost": 8
+            },
+            {
+                "nodes": ["Omaha", "Chicago"],
+                "cost": 13
+            },
+            {
+                "nodes": ["Fargo", "Duluth"],
+                "cost": 6
+            },
+            {
+                "nodes": ["Fargo", "Minneapolis"],
+                "cost": 6
+            },
+            {
+                "nodes": ["Duluth", "Minneapolis"],
+                "cost": 5
+            },
+            {
+                "nodes": ["Duluth", "Chicago"],
+                "cost": 12
+            },
+            {
+                "nodes": ["Minneapolis", "Chicago"],
+                "cost": 8
+            },
+            {
+                "nodes": ["Chicago", "St. Louis"],
+                "cost": 10
+            },
+            {
+                "nodes": ["Chicago", "Cincinnati"],
+                "cost": 7
+            },
+            {
+                "nodes": ["St. Louis", "Cincinnati"],
+                "cost": 12
+            },
+            {
+                "nodes": ["St. Louis", "Atlanta"],
+                "cost": 12
+            },
+            {
+                "nodes": ["Cincinnati", "Knoxvile"],
+                "cost": 6
+            },
+            {
+                "nodes": ["Cincinnati", "Raleigh"],
+                "cost": 15
+            },
+            {
+                "nodes": ["Knoxvile", "Atlanta"],
+                "cost": 5
+            },
+            {
+                "nodes": ["Horecin", "Raleigh"],
+                "cost": 3
+            },
+            {
+                "nodes": ["Raleigh", "Atlanta"],
+                "cost": 7
+            },
+            {
+                "nodes": ["Raleigh", "Savannah"],
+                "cost": 7
+            },
+            {
+                "nodes": ["Atlanta", "Savannah"],
+                "cost": 7
+            },
+            {
+                "nodes": ["Savannah", "Jacksonvile"],
+                "cost": 0
+            },
+            {
+                "nodes": ["Jacksonvile", "Tampa"],
+                "cost": 4
+            },
+            {
+                "nodes": ["Tampa", "Miami"],
+                "cost": 4
+            }
+        ]
+    },
+    "players": [
+        {
+            "id": 0,
+            "powerPlants": [
+                {
+                    "number": 26,
+                    "type": 1,
+                    "cost": 2,
+                    "citiesPowered": 5
+                },
+                {
+                    "number": 29,
+                    "type": 4,
+                    "cost": 1,
+                    "citiesPowered": 4
+                },
+                {
+                    "number": 31,
+                    "type": 0,
+                    "cost": 3,
+                    "citiesPowered": 6
+                }
+            ],
+            "coalCapacity": 6,
+            "coalLeft": 3,
+            "oilCapacity": 4,
+            "oilLeft": 3,
+            "garbageCapacity": 0,
+            "garbageLeft": 0,
+            "uraniumCapacity": 0,
+            "uraniumLeft": 0,
+            "hybridCapacity": 2,
+            "hybridLeft": 0,
+            "money": 77,
+            "housesLeft": 22,
+            "cities": [
+                {
+                    "name": "Savannah",
+                    "position": 0
+                },
+                {
+                    "name": "Jacksonvile",
+                    "position": 0
+                },
+                {
+                    "name": "Tampa",
+                    "position": 0
+                },
+                {
+                    "name": "Cincinnati",
+                    "position": 0
+                },
+                {
+                    "name": "Cheyenne",
+                    "position": 0
+                },
+                {
+                    "name": "Denver",
+                    "position": 0
+                },
+                {
+                    "name": "Billings",
+                    "position": 0
+                },
+                {
+                    "name": "Seattle",
+                    "position": 0
+                },
+                {
+                    "name": "Portland",
+                    "position": 0
+                },
+                {
+                    "name": "Miami",
+                    "position": 1
+                },
+                {
+                    "name": "Horecin",
+                    "position": 1
+                },
+                {
+                    "name": "Raleigh",
+                    "position": 2
+                },
+                {
+                    "name": "Knoxvile",
+                    "position": 1
+                },
+                {
+                    "name": "Chicago",
+                    "position": 2
+                },
+                {
+                    "name": "Atlanta",
+                    "position": 2
+                },
+                {
+                    "name": "St. Louis",
+                    "position": 1
+                },
+                {
+                    "name": "Minneapolis",
+                    "position": 2
+                }
+            ],
+            "powerPlantsNotUsed": [],
+            "availableMoves": null,
+            "lastMove": {
+                "name": "Pass",
+                "data": true
+            },
+            "isDropped": false,
+            "isAI": false,
+            "bid": 0,
+            "passed": true,
+            "skipAuction": false,
+            "citiesPowered": 15,
+            "resourcesUsed": [],
+            "name": "jinnes"
+        },
+        {
+            "id": 1,
+            "powerPlants": [
+                {
+                    "number": 21,
+                    "type": 4,
+                    "cost": 2,
+                    "citiesPowered": 4
+                },
+                {
+                    "number": 22,
+                    "type": 5,
+                    "cost": 0,
+                    "citiesPowered": 2
+                },
+                {
+                    "number": 42,
+                    "type": 0,
+                    "cost": 2,
+                    "citiesPowered": 6
+                }
+            ],
+            "coalCapacity": 4,
+            "coalLeft": 6,
+            "oilCapacity": 0,
+            "oilLeft": 2,
+            "garbageCapacity": 0,
+            "garbageLeft": 0,
+            "uraniumCapacity": 0,
+            "uraniumLeft": 0,
+            "hybridCapacity": 4,
+            "hybridLeft": 0,
+            "money": 30,
+            "housesLeft": 22,
+            "cities": [
+                {
+                    "name": "Minneapolis",
+                    "position": 0
+                },
+                {
+                    "name": "Duluth",
+                    "position": 0
+                },
+                {
+                    "name": "Chicago",
+                    "position": 0
+                },
+                {
+                    "name": "St. Louis",
+                    "position": 0
+                },
+                {
+                    "name": "Omaha",
+                    "position": 0
+                },
+                {
+                    "name": "Fargo",
+                    "position": 0
+                },
+                {
+                    "name": "Boise",
+                    "position": 0
+                },
+                {
+                    "name": "Atlanta",
+                    "position": 1
+                },
+                {
+                    "name": "Raleigh",
+                    "position": 1
+                },
+                {
+                    "name": "Seattle",
+                    "position": 1
+                },
+                {
+                    "name": "Portland",
+                    "position": 1
+                },
+                {
+                    "name": "Tampa",
+                    "position": 2
+                },
+                {
+                    "name": "Jacksonvile",
+                    "position": 2
+                },
+                {
+                    "name": "Miami",
+                    "position": 2
+                }
+            ],
+            "powerPlantsNotUsed": [],
+            "availableMoves": null,
+            "lastMove": {
+                "name": "Pass",
+                "data": true
+            },
+            "isDropped": false,
+            "isAI": false,
+            "bid": 0,
+            "passed": true,
+            "skipAuction": false,
+            "citiesPowered": 12,
+            "resourcesUsed": [],
+            "name": "tinymercury"
+        },
+        {
+            "id": 2,
+            "powerPlants": [
+                {
+                    "number": 28,
+                    "type": 3,
+                    "cost": 1,
+                    "citiesPowered": 4
+                },
+                {
+                    "number": 16,
+                    "type": 1,
+                    "cost": 2,
+                    "citiesPowered": 3
+                },
+                {
+                    "number": 30,
+                    "type": 2,
+                    "cost": 3,
+                    "citiesPowered": 6
+                }
+            ],
+            "coalCapacity": 0,
+            "coalLeft": 0,
+            "oilCapacity": 4,
+            "oilLeft": 2,
+            "garbageCapacity": 6,
+            "garbageLeft": 3,
+            "uraniumCapacity": 2,
+            "uraniumLeft": 2,
+            "hybridCapacity": 0,
+            "hybridLeft": 0,
+            "money": 30,
+            "housesLeft": 22,
+            "cities": [
+                {
+                    "name": "Raleigh",
+                    "position": 0
+                },
+                {
+                    "name": "Atlanta",
+                    "position": 0
+                },
+                {
+                    "name": "Horecin",
+                    "position": 0
+                },
+                {
+                    "name": "Knoxvile",
+                    "position": 0
+                },
+                {
+                    "name": "Miami",
+                    "position": 0
+                },
+                {
+                    "name": "Cincinnati",
+                    "position": 1
+                },
+                {
+                    "name": "Chicago",
+                    "position": 1
+                },
+                {
+                    "name": "Savannah",
+                    "position": 1
+                },
+                {
+                    "name": "Jacksonvile",
+                    "position": 1
+                },
+                {
+                    "name": "Minneapolis",
+                    "position": 1
+                },
+                {
+                    "name": "Duluth",
+                    "position": 1
+                },
+                {
+                    "name": "Fargo",
+                    "position": 1
+                },
+                {
+                    "name": "Tampa",
+                    "position": 1
+                }
+            ],
+            "powerPlantsNotUsed": [],
+            "availableMoves": null,
+            "lastMove": {
+                "name": "Pass",
+                "data": true
+            },
+            "isDropped": false,
+            "isAI": false,
+            "bid": 0,
+            "passed": true,
+            "skipAuction": false,
+            "citiesPowered": 13,
+            "resourcesUsed": [],
+            "name": "js3b"
+        }
+    ],
+    "playerOrder": [0, 1, 2],
+    "currentPlayers": [],
+    "powerPlantsDeck": [
+        {
+            "number": 46,
+            "type": 4,
+            "cost": 3,
+            "citiesPowered": 7
+        },
+        {
+            "number": 32,
+            "type": 1,
+            "cost": 3,
+            "citiesPowered": 6
+        },
+        {
+            "number": 40,
+            "type": 1,
+            "cost": 2,
+            "citiesPowered": 6
+        },
+        {
+            "number": 36,
+            "type": 0,
+            "cost": 3,
+            "citiesPowered": 7
+        }
+    ],
+    "coalSupply": 6,
+    "oilSupply": 7,
+    "garbageSupply": 17,
+    "uraniumSupply": 5,
+    "coalMarket": 9,
+    "oilMarket": 10,
+    "garbageMarket": 4,
+    "uraniumMarket": 5,
+    "actualMarket": [
+        {
+            "number": 23,
+            "type": 3,
+            "cost": 1,
+            "citiesPowered": 3
+        },
+        {
+            "number": 27,
+            "type": 5,
+            "cost": 0,
+            "citiesPowered": 3
+        },
+        {
+            "number": 33,
+            "type": 5,
+            "cost": 0,
+            "citiesPowered": 4
+        },
+        {
+            "number": 34,
+            "type": 3,
+            "cost": 1,
+            "citiesPowered": 5
+        },
+        {
+            "number": 37,
+            "type": 5,
+            "cost": 0,
+            "citiesPowered": 4
+        },
+        {
+            "number": 44,
+            "type": 5,
+            "cost": 0,
+            "citiesPowered": 5
+        }
+    ],
+    "futureMarket": [],
+    "highestBidders": [],
+    "step": 3,
+    "phase": "Game End",
+    "options": {
+        "fastBid": false,
+        "map": "USA",
+        "variant": "original",
+        "showMoney": false
+    },
+    "log": [
+        {
+            "type": "event",
+            "event": "Game Start!"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 5
+            },
+            "simple": "jinnes chooses Power Plant 5 to initiate an auction",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> chooses Power Plant <b>5</b> to initiate an auction"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Bid",
+                "data": 5
+            },
+            "simple": "jinnes bids $5",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> bids <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Bid",
+                "data": 6
+            },
+            "simple": "tinymercury bids $6",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> bids <span style=\"color: green\">$6</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 13 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 7
+            },
+            "simple": "jinnes chooses Power Plant 7 to initiate an auction",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> chooses Power Plant <b>7</b> to initiate an auction"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Bid",
+                "data": 7
+            },
+            "simple": "jinnes bids $7",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> bids <span style=\"color: green\">$7</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 32 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 8
+            },
+            "simple": "js3b chooses Power Plant 8",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> chooses Power Plant <b>8</b>"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 17 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $1",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$1</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $1",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$1</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $1",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$1</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $2",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$2</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $3",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $3",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $3",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "js3b buys coal for $2",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>coal</b> for <span style=\"color: green\">$2</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "js3b buys coal for $2",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>coal</b> for <span style=\"color: green\">$2</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "js3b buys coal for $3",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>coal</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Minneapolis",
+                    "price": 10
+                }
+            },
+            "simple": "tinymercury builds on Minneapolis for $10",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> builds on <b>Minneapolis</b> for <span style=\"color: green\">$10</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Savannah",
+                    "price": 10
+                }
+            },
+            "simple": "jinnes builds on Savannah for $10",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> builds on <b>Savannah</b> for <span style=\"color: green\">$10</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Jacksonvile",
+                    "price": 10
+                }
+            },
+            "simple": "jinnes builds on Jacksonvile for $10",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> builds on <b>Jacksonvile</b> for <span style=\"color: green\">$10</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Raleigh",
+                    "price": 10
+                }
+            },
+            "simple": "js3b builds on Raleigh for $10",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> builds on <b>Raleigh</b> for <span style=\"color: green\">$10</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Atlanta",
+                    "price": 17
+                }
+            },
+            "simple": "js3b builds on Atlanta for $17",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> builds on <b>Atlanta</b> for <span style=\"color: green\">$17</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 8,
+                    "resourcesSpent": ["coal", "coal", "coal"],
+                    "citiesPowered": 2
+                }
+            },
+            "simple": "js3b uses Power Plant 8",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>8</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 5,
+                    "resourcesSpent": ["coal", "coal"],
+                    "citiesPowered": 1
+                }
+            },
+            "simple": "tinymercury uses Power Plant 5",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>5</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 7,
+                    "resourcesSpent": ["oil", "oil", "oil"],
+                    "citiesPowered": 2
+                }
+            },
+            "simple": "jinnes uses Power Plant 7",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> uses Power Plant <b>7</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Resupplying resources: [4, 2, 1, 1]"
+        },
+        {
+            "type": "event",
+            "event": "Putting Power Plant 32 on the bottom of the deck"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 26 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 6
+            },
+            "simple": "js3b chooses Power Plant 6 to initiate an auction",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> chooses Power Plant <b>6</b> to initiate an auction"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Bid",
+                "data": 6
+            },
+            "simple": "js3b bids $6",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> bids <span style=\"color: green\">$6</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 21 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 10
+            },
+            "simple": "jinnes chooses Power Plant 10 to initiate an auction",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> chooses Power Plant <b>10</b> to initiate an auction"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Bid",
+                "data": 10
+            },
+            "simple": "jinnes bids $10",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> bids <span style=\"color: green\">$10</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 37 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 13
+            },
+            "simple": "tinymercury chooses Power Plant 13",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> chooses Power Plant <b>13</b>"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 33 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $2",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$2</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $2",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$2</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "jinnes buys coal for $2",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>coal</b> for <span style=\"color: green\">$2</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "jinnes buys coal for $3",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>coal</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "jinnes buys coal for $3",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>coal</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "jinnes buys coal for $3",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>coal</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $3",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $3",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "js3b buys coal for $4",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "js3b buys coal for $4",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "js3b buys coal for $4",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "garbage"
+                }
+            },
+            "simple": "js3b buys garbage for $6",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>garbage</b> for <span style=\"color: green\">$6</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Duluth",
+                    "price": 15
+                }
+            },
+            "simple": "tinymercury builds on Duluth for $15",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> builds on <b>Duluth</b> for <span style=\"color: green\">$15</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Horecin",
+                    "price": 13
+                }
+            },
+            "simple": "js3b builds on Horecin for $13",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> builds on <b>Horecin</b> for <span style=\"color: green\">$13</span>"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 16 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 8,
+                    "resourcesSpent": ["coal", "coal", "coal"],
+                    "citiesPowered": 2
+                }
+            },
+            "simple": "js3b uses Power Plant 8",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>8</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 6,
+                    "resourcesSpent": ["garbage"],
+                    "citiesPowered": 1
+                }
+            },
+            "simple": "js3b uses Power Plant 6",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>6</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 10,
+                    "resourcesSpent": ["coal", "coal"],
+                    "citiesPowered": 2
+                }
+            },
+            "simple": "jinnes uses Power Plant 10",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> uses Power Plant <b>10</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 13,
+                    "resourcesSpent": [],
+                    "citiesPowered": 1
+                }
+            },
+            "simple": "tinymercury uses Power Plant 13",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>13</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 5,
+                    "resourcesSpent": ["coal", "coal"],
+                    "citiesPowered": 1
+                }
+            },
+            "simple": "tinymercury uses Power Plant 5",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>5</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Resupplying resources: [4, 2, 1, 1]"
+        },
+        {
+            "type": "event",
+            "event": "Putting Power Plant 37 on the bottom of the deck"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 30 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 9
+            },
+            "simple": "js3b chooses Power Plant 9 to initiate an auction",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> chooses Power Plant <b>9</b> to initiate an auction"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Bid",
+                "data": 9
+            },
+            "simple": "js3b bids $9",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> bids <span style=\"color: green\">$9</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 34 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 21
+            },
+            "simple": "tinymercury chooses Power Plant 21 to initiate an auction",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> chooses Power Plant <b>21</b> to initiate an auction"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Bid",
+                "data": 21
+            },
+            "simple": "tinymercury bids $21",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> bids <span style=\"color: green\">$21</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Bid",
+                "data": 22
+            },
+            "simple": "jinnes bids $22",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> bids <span style=\"color: green\">$22</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Bid",
+                "data": 24
+            },
+            "simple": "tinymercury bids $24",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> bids <span style=\"color: green\">$24</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 46 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 26
+            },
+            "simple": "jinnes chooses Power Plant 26",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> chooses Power Plant <b>26</b>"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 19 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $3",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $3",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "jinnes buys coal for $3",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>coal</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $4",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $4",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $4",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "tinymercury buys oil for $4",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>oil</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "tinymercury buys oil for $4",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>oil</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "tinymercury buys oil for $4",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>oil</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "garbage"
+                }
+            },
+            "simple": "js3b buys garbage for $6",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>garbage</b> for <span style=\"color: green\">$6</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "js3b buys oil for $5",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>oil</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "js3b buys oil for $5",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>oil</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "js3b buys coal for $5",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>coal</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "js3b buys coal for $5",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>coal</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "js3b buys coal for $5",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>coal</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Tampa",
+                    "price": 14
+                }
+            },
+            "simple": "jinnes builds on Tampa for $14",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> builds on <b>Tampa</b> for <span style=\"color: green\">$14</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 8,
+                    "resourcesSpent": ["coal", "coal", "coal"],
+                    "citiesPowered": 2
+                }
+            },
+            "simple": "js3b uses Power Plant 8",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>8</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 9,
+                    "resourcesSpent": ["oil"],
+                    "citiesPowered": 1
+                }
+            },
+            "simple": "js3b uses Power Plant 9",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>9</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 26,
+                    "resourcesSpent": ["oil", "oil"],
+                    "citiesPowered": 5
+                }
+            },
+            "simple": "jinnes uses Power Plant 26",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> uses Power Plant <b>26</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 21,
+                    "resourcesSpent": ["coal", "oil"],
+                    "citiesPowered": 4
+                }
+            },
+            "simple": "tinymercury uses Power Plant 21",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>21</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 13,
+                    "resourcesSpent": [],
+                    "citiesPowered": 1
+                }
+            },
+            "simple": "tinymercury uses Power Plant 13",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>13</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Resupplying resources: [4, 2, 1, 1]"
+        },
+        {
+            "type": "event",
+            "event": "Putting Power Plant 46 on the bottom of the deck"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 36 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 19
+            },
+            "simple": "js3b chooses Power Plant 19 to initiate an auction",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> chooses Power Plant <b>19</b> to initiate an auction"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Bid",
+                "data": 19
+            },
+            "simple": "js3b bids $19",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> bids <span style=\"color: green\">$19</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 29 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "DiscardPowerPlant",
+                "data": 6
+            },
+            "simple": "js3b discards Power Plant 6",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> discards Power Plant <b>6</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $4",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "garbage"
+                }
+            },
+            "simple": "js3b buys garbage for $6",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>garbage</b> for <span style=\"color: green\">$6</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "js3b buys oil for $5",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>oil</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $5",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $5",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Chicago",
+                    "price": 18
+                }
+            },
+            "simple": "tinymercury builds on Chicago for $18",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> builds on <b>Chicago</b> for <span style=\"color: green\">$18</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Knoxvile",
+                    "price": 15
+                }
+            },
+            "simple": "js3b builds on Knoxvile for $15",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> builds on <b>Knoxvile</b> for <span style=\"color: green\">$15</span>"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 15 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Cincinnati",
+                    "price": 28
+                }
+            },
+            "simple": "jinnes builds on Cincinnati for $28",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> builds on <b>Cincinnati</b> for <span style=\"color: green\">$28</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 26,
+                    "resourcesSpent": ["oil", "oil"],
+                    "citiesPowered": 5
+                }
+            },
+            "simple": "jinnes uses Power Plant 26",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> uses Power Plant <b>26</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 9,
+                    "resourcesSpent": ["oil"],
+                    "citiesPowered": 1
+                }
+            },
+            "simple": "js3b uses Power Plant 9",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>9</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 19,
+                    "resourcesSpent": ["garbage", "garbage"],
+                    "citiesPowered": 3
+                }
+            },
+            "simple": "js3b uses Power Plant 19",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>19</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 21,
+                    "resourcesSpent": ["coal", "oil"],
+                    "citiesPowered": 4
+                }
+            },
+            "simple": "tinymercury uses Power Plant 21",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>21</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 13,
+                    "resourcesSpent": [],
+                    "citiesPowered": 1
+                }
+            },
+            "simple": "tinymercury uses Power Plant 13",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>13</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Resupplying resources: [4, 2, 1, 1]"
+        },
+        {
+            "type": "event",
+            "event": "Putting Power Plant 36 on the bottom of the deck"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 44 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 29
+            },
+            "simple": "jinnes chooses Power Plant 29 to initiate an auction",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> chooses Power Plant <b>29</b> to initiate an auction"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Bid",
+                "data": 29
+            },
+            "simple": "jinnes bids $29",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> bids <span style=\"color: green\">$29</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 23 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "DiscardPowerPlant",
+                "data": 7
+            },
+            "simple": "jinnes discards Power Plant 7",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> discards Power Plant <b>7</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $3",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $4",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $4",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "garbage"
+                }
+            },
+            "simple": "js3b buys garbage for $6",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>garbage</b> for <span style=\"color: green\">$6</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "garbage"
+                }
+            },
+            "simple": "js3b buys garbage for $7",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>garbage</b> for <span style=\"color: green\">$7</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "jinnes buys coal for $4",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "St. Louis",
+                    "price": 20
+                }
+            },
+            "simple": "tinymercury builds on St. Louis for $20",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> builds on <b>St. Louis</b> for <span style=\"color: green\">$20</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Omaha",
+                    "price": 18
+                }
+            },
+            "simple": "tinymercury builds on Omaha for $18",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> builds on <b>Omaha</b> for <span style=\"color: green\">$18</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Miami",
+                    "price": 25
+                }
+            },
+            "simple": "js3b builds on Miami for $25",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> builds on <b>Miami</b> for <span style=\"color: green\">$25</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 9,
+                    "resourcesSpent": ["oil"],
+                    "citiesPowered": 1
+                }
+            },
+            "simple": "js3b uses Power Plant 9",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>9</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 19,
+                    "resourcesSpent": ["garbage", "garbage"],
+                    "citiesPowered": 3
+                }
+            },
+            "simple": "js3b uses Power Plant 19",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>19</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 29,
+                    "resourcesSpent": ["coal"],
+                    "citiesPowered": 4
+                }
+            },
+            "simple": "jinnes uses Power Plant 29",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> uses Power Plant <b>29</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 21,
+                    "resourcesSpent": ["coal", "coal"],
+                    "citiesPowered": 4
+                }
+            },
+            "simple": "tinymercury uses Power Plant 21",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>21</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 13,
+                    "resourcesSpent": [],
+                    "citiesPowered": 1
+                }
+            },
+            "simple": "tinymercury uses Power Plant 13",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>13</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Resupplying resources: [4, 2, 1, 1]"
+        },
+        {
+            "type": "event",
+            "event": "Putting Power Plant 44 on the bottom of the deck"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 11 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 11
+            },
+            "simple": "js3b chooses Power Plant 11 to initiate an auction",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> chooses Power Plant <b>11</b> to initiate an auction"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Bid",
+                "data": 11
+            },
+            "simple": "js3b bids $11",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> bids <span style=\"color: green\">$11</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 31 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "DiscardPowerPlant",
+                "data": 8
+            },
+            "simple": "js3b discards Power Plant 8",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> discards Power Plant <b>8</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $4",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $5",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "garbage"
+                }
+            },
+            "simple": "js3b buys garbage for $7",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>garbage</b> for <span style=\"color: green\">$7</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "garbage"
+                }
+            },
+            "simple": "js3b buys garbage for $7",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>garbage</b> for <span style=\"color: green\">$7</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "uranium"
+                }
+            },
+            "simple": "js3b buys uranium for $6",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>uranium</b> for <span style=\"color: green\">$6</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "js3b buys oil for $5",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>oil</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "js3b buys oil for $5",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>oil</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "uranium"
+                }
+            },
+            "simple": "js3b buys uranium for $7",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>uranium</b> for <span style=\"color: green\">$7</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $3",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $4",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Cheyenne",
+                    "price": 43
+                }
+            },
+            "simple": "jinnes builds on Cheyenne for $43",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> builds on <b>Cheyenne</b> for <span style=\"color: green\">$43</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Denver",
+                    "price": 10
+                }
+            },
+            "simple": "jinnes builds on Denver for $10",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> builds on <b>Denver</b> for <span style=\"color: green\">$10</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Billings",
+                    "price": 19
+                }
+            },
+            "simple": "jinnes builds on Billings for $19",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> builds on <b>Billings</b> for <span style=\"color: green\">$19</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Fargo",
+                    "price": 16
+                }
+            },
+            "simple": "tinymercury builds on Fargo for $16",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> builds on <b>Fargo</b> for <span style=\"color: green\">$16</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Boise",
+                    "price": 39
+                }
+            },
+            "simple": "tinymercury builds on Boise for $39",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> builds on <b>Boise</b> for <span style=\"color: green\">$39</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Starting Step 2, power plant 15 discarded"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 42 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 21,
+                    "resourcesSpent": ["coal", "oil"],
+                    "citiesPowered": 4
+                }
+            },
+            "simple": "tinymercury uses Power Plant 21",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>21</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 13,
+                    "resourcesSpent": [],
+                    "citiesPowered": 1
+                }
+            },
+            "simple": "tinymercury uses Power Plant 13",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>13</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 5,
+                    "resourcesSpent": ["coal", "coal"],
+                    "citiesPowered": 1
+                }
+            },
+            "simple": "tinymercury uses Power Plant 5",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>5</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 11,
+                    "resourcesSpent": ["uranium"],
+                    "citiesPowered": 2
+                }
+            },
+            "simple": "js3b uses Power Plant 11",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>11</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 26,
+                    "resourcesSpent": ["oil", "oil"],
+                    "citiesPowered": 5
+                }
+            },
+            "simple": "jinnes uses Power Plant 26",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> uses Power Plant <b>26</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 19,
+                    "resourcesSpent": ["garbage", "garbage"],
+                    "citiesPowered": 3
+                }
+            },
+            "simple": "js3b uses Power Plant 19",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>19</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 29,
+                    "resourcesSpent": ["coal"],
+                    "citiesPowered": 4
+                }
+            },
+            "simple": "jinnes uses Power Plant 29",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> uses Power Plant <b>29</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Resupplying resources: [4, 3, 2, 1]"
+        },
+        {
+            "type": "event",
+            "event": "Putting Power Plant 42 on the bottom of the deck"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 28 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 28
+            },
+            "simple": "js3b chooses Power Plant 28",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> chooses Power Plant <b>28</b>"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 14 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "DiscardPowerPlant",
+                "data": 11
+            },
+            "simple": "js3b discards Power Plant 11",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> discards Power Plant <b>11</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "garbage"
+                }
+            },
+            "simple": "js3b buys garbage for $7",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>garbage</b> for <span style=\"color: green\">$7</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "garbage"
+                }
+            },
+            "simple": "js3b buys garbage for $7",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>garbage</b> for <span style=\"color: green\">$7</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "uranium"
+                }
+            },
+            "simple": "js3b buys uranium for $7",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>uranium</b> for <span style=\"color: green\">$7</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $3",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $3",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $3",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "jinnes buys coal for $4",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "jinnes buys coal for $4",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $5",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $5",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Cincinnati",
+                    "price": 21
+                }
+            },
+            "simple": "js3b builds on Cincinnati for $21",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> builds on <b>Cincinnati</b> for <span style=\"color: green\">$21</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Chicago",
+                    "price": 22
+                }
+            },
+            "simple": "js3b builds on Chicago for $22",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> builds on <b>Chicago</b> for <span style=\"color: green\">$22</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Atlanta",
+                    "price": 27
+                }
+            },
+            "simple": "tinymercury builds on Atlanta for $27",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> builds on <b>Atlanta</b> for <span style=\"color: green\">$27</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Raleigh",
+                    "price": 22
+                }
+            },
+            "simple": "tinymercury builds on Raleigh for $22",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> builds on <b>Raleigh</b> for <span style=\"color: green\">$22</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Seattle",
+                    "price": 19
+                }
+            },
+            "simple": "jinnes builds on Seattle for $19",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> builds on <b>Seattle</b> for <span style=\"color: green\">$19</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Portland",
+                    "price": 13
+                }
+            },
+            "simple": "jinnes builds on Portland for $13",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> builds on <b>Portland</b> for <span style=\"color: green\">$13</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 26,
+                    "resourcesSpent": ["oil", "oil"],
+                    "citiesPowered": 5
+                }
+            },
+            "simple": "jinnes uses Power Plant 26",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> uses Power Plant <b>26</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 28,
+                    "resourcesSpent": ["uranium"],
+                    "citiesPowered": 4
+                }
+            },
+            "simple": "js3b uses Power Plant 28",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>28</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 19,
+                    "resourcesSpent": ["garbage", "garbage"],
+                    "citiesPowered": 3
+                }
+            },
+            "simple": "js3b uses Power Plant 19",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>19</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 29,
+                    "resourcesSpent": ["coal"],
+                    "citiesPowered": 4
+                }
+            },
+            "simple": "jinnes uses Power Plant 29",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> uses Power Plant <b>29</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 21,
+                    "resourcesSpent": ["coal", "coal"],
+                    "citiesPowered": 4
+                }
+            },
+            "simple": "tinymercury uses Power Plant 21",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>21</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 13,
+                    "resourcesSpent": [],
+                    "citiesPowered": 1
+                }
+            },
+            "simple": "tinymercury uses Power Plant 13",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>13</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 5,
+                    "resourcesSpent": ["coal", "coal"],
+                    "citiesPowered": 1
+                }
+            },
+            "simple": "tinymercury uses Power Plant 5",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>5</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Resupplying resources: [5, 3, 2, 1]"
+        },
+        {
+            "type": "event",
+            "event": "Putting Power Plant 34 on the bottom of the deck"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 20 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 20
+            },
+            "simple": "tinymercury chooses Power Plant 20 to initiate an auction",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> chooses Power Plant <b>20</b> to initiate an auction"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Bid",
+                "data": 20
+            },
+            "simple": "tinymercury bids $20",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> bids <span style=\"color: green\">$20</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Bid",
+                "data": 21
+            },
+            "simple": "js3b bids $21",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> bids <span style=\"color: green\">$21</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Bid",
+                "data": 23
+            },
+            "simple": "tinymercury bids $23",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> bids <span style=\"color: green\">$23</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Bid",
+                "data": 24
+            },
+            "simple": "js3b bids $24",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> bids <span style=\"color: green\">$24</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Bid",
+                "data": 25
+            },
+            "simple": "tinymercury bids $25",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> bids <span style=\"color: green\">$25</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 40 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "DiscardPowerPlant",
+                "data": 5
+            },
+            "simple": "tinymercury discards Power Plant 5",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> discards Power Plant <b>5</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "garbage"
+                }
+            },
+            "simple": "js3b buys garbage for $7",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>garbage</b> for <span style=\"color: green\">$7</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "garbage"
+                }
+            },
+            "simple": "js3b buys garbage for $7",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>garbage</b> for <span style=\"color: green\">$7</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "uranium"
+                }
+            },
+            "simple": "js3b buys uranium for $7",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>uranium</b> for <span style=\"color: green\">$7</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "garbage"
+                }
+            },
+            "simple": "js3b buys garbage for $7",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>garbage</b> for <span style=\"color: green\">$7</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $3",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $3",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $3",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $4",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $4",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $4",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $4",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $5",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $5",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $5",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Savannah",
+                    "price": 22
+                }
+            },
+            "simple": "js3b builds on Savannah for $22",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> builds on <b>Savannah</b> for <span style=\"color: green\">$22</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Jacksonvile",
+                    "price": 15
+                }
+            },
+            "simple": "js3b builds on Jacksonvile for $15",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> builds on <b>Jacksonvile</b> for <span style=\"color: green\">$15</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 20,
+                    "resourcesSpent": ["coal", "coal", "coal"],
+                    "citiesPowered": 5
+                }
+            },
+            "simple": "tinymercury uses Power Plant 20",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>20</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 26,
+                    "resourcesSpent": ["oil", "oil"],
+                    "citiesPowered": 5
+                }
+            },
+            "simple": "jinnes uses Power Plant 26",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> uses Power Plant <b>26</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 9,
+                    "resourcesSpent": ["oil"],
+                    "citiesPowered": 1
+                }
+            },
+            "simple": "js3b uses Power Plant 9",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>9</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 21,
+                    "resourcesSpent": ["coal", "coal"],
+                    "citiesPowered": 4
+                }
+            },
+            "simple": "tinymercury uses Power Plant 21",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>21</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 19,
+                    "resourcesSpent": ["garbage", "garbage"],
+                    "citiesPowered": 3
+                }
+            },
+            "simple": "js3b uses Power Plant 19",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>19</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 28,
+                    "resourcesSpent": ["uranium"],
+                    "citiesPowered": 4
+                }
+            },
+            "simple": "js3b uses Power Plant 28",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>28</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 29,
+                    "resourcesSpent": ["coal"],
+                    "citiesPowered": 4
+                }
+            },
+            "simple": "jinnes uses Power Plant 29",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> uses Power Plant <b>29</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 13,
+                    "resourcesSpent": [],
+                    "citiesPowered": 1
+                }
+            },
+            "simple": "tinymercury uses Power Plant 13",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>13</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Resupplying resources: [5, 3, 2, 1]"
+        },
+        {
+            "type": "event",
+            "event": "Putting Power Plant 40 on the bottom of the deck"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 22 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 22
+            },
+            "simple": "jinnes chooses Power Plant 22 to initiate an auction",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> chooses Power Plant <b>22</b> to initiate an auction"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Bid",
+                "data": 22
+            },
+            "simple": "jinnes bids $22",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> bids <span style=\"color: green\">$22</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Bid",
+                "data": 23
+            },
+            "simple": "tinymercury bids $23",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> bids <span style=\"color: green\">$23</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 27 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "DiscardPowerPlant",
+                "data": 13
+            },
+            "simple": "tinymercury discards Power Plant 13",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> discards Power Plant <b>13</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 16
+            },
+            "simple": "js3b chooses Power Plant 16",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> chooses Power Plant <b>16</b>"
+        },
+        {
+            "type": "event",
+            "event": "Starting Step 3, power plant 14 discarded."
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "DiscardPowerPlant",
+                "data": 9
+            },
+            "simple": "js3b discards Power Plant 9",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> discards Power Plant <b>9</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $3",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $3",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$3</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $4",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $4",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "js3b buys oil for $5",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>oil</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "garbage"
+                }
+            },
+            "simple": "js3b buys garbage for $7",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>garbage</b> for <span style=\"color: green\">$7</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "uranium"
+                }
+            },
+            "simple": "js3b buys uranium for $7",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>uranium</b> for <span style=\"color: green\">$7</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "jinnes buys coal for $4",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>coal</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "jinnes buys coal for $5",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>coal</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "jinnes buys coal for $5",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>coal</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "jinnes buys coal for $5",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>coal</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Seattle",
+                    "price": 27
+                }
+            },
+            "simple": "tinymercury builds on Seattle for $27",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> builds on <b>Seattle</b> for <span style=\"color: green\">$27</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Portland",
+                    "price": 18
+                }
+            },
+            "simple": "tinymercury builds on Portland for $18",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> builds on <b>Portland</b> for <span style=\"color: green\">$18</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Minneapolis",
+                    "price": 23
+                }
+            },
+            "simple": "js3b builds on Minneapolis for $23",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> builds on <b>Minneapolis</b> for <span style=\"color: green\">$23</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Miami",
+                    "price": 19
+                }
+            },
+            "simple": "jinnes builds on Miami for $19",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> builds on <b>Miami</b> for <span style=\"color: green\">$19</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Horecin",
+                    "price": 25
+                }
+            },
+            "simple": "jinnes builds on Horecin for $25",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> builds on <b>Horecin</b> for <span style=\"color: green\">$25</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 22,
+                    "resourcesSpent": [],
+                    "citiesPowered": 2
+                }
+            },
+            "simple": "tinymercury uses Power Plant 22",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>22</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 20,
+                    "resourcesSpent": ["coal", "coal", "coal"],
+                    "citiesPowered": 5
+                }
+            },
+            "simple": "tinymercury uses Power Plant 20",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>20</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 19,
+                    "resourcesSpent": ["garbage", "garbage"],
+                    "citiesPowered": 3
+                }
+            },
+            "simple": "js3b uses Power Plant 19",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>19</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 28,
+                    "resourcesSpent": ["uranium"],
+                    "citiesPowered": 4
+                }
+            },
+            "simple": "js3b uses Power Plant 28",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>28</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 21,
+                    "resourcesSpent": ["coal", "coal"],
+                    "citiesPowered": 4
+                }
+            },
+            "simple": "tinymercury uses Power Plant 21",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> uses Power Plant <b>21</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 10,
+                    "resourcesSpent": ["coal", "coal"],
+                    "citiesPowered": 2
+                }
+            },
+            "simple": "jinnes uses Power Plant 10",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> uses Power Plant <b>10</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 16,
+                    "resourcesSpent": ["oil", "oil"],
+                    "citiesPowered": 3
+                }
+            },
+            "simple": "js3b uses Power Plant 16",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> uses Power Plant <b>16</b>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 29,
+                    "resourcesSpent": ["coal"],
+                    "citiesPowered": 4
+                }
+            },
+            "simple": "jinnes uses Power Plant 29",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> uses Power Plant <b>29</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "UsePowerPlant",
+                "data": {
+                    "powerPlant": 26,
+                    "resourcesSpent": ["oil", "oil"],
+                    "citiesPowered": 5
+                }
+            },
+            "simple": "jinnes uses Power Plant 26",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> uses Power Plant <b>26</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Resupplying resources: [3, 4, 3, 1]"
+        },
+        {
+            "type": "event",
+            "event": "Discarding Power Plant 17"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 42 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 42
+            },
+            "simple": "jinnes chooses Power Plant 42 to initiate an auction",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> chooses Power Plant <b>42</b> to initiate an auction"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Bid",
+                "data": 42
+            },
+            "simple": "jinnes bids $42",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> bids <span style=\"color: green\">$42</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Bid",
+                "data": 44
+            },
+            "simple": "tinymercury bids $44",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> bids <span style=\"color: green\">$44</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Bid",
+                "data": 45
+            },
+            "simple": "js3b bids $45",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> bids <span style=\"color: green\">$45</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Bid",
+                "data": 46
+            },
+            "simple": "tinymercury bids $46",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> bids <span style=\"color: green\">$46</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Bid",
+                "data": 48
+            },
+            "simple": "js3b bids $48",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> bids <span style=\"color: green\">$48</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Bid",
+                "data": 49
+            },
+            "simple": "tinymercury bids $49",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> bids <span style=\"color: green\">$49</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 37 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "DiscardPowerPlant",
+                "data": 20
+            },
+            "simple": "tinymercury discards Power Plant 20",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> discards Power Plant <b>20</b>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 31
+            },
+            "simple": "jinnes chooses Power Plant 31 to initiate an auction",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> chooses Power Plant <b>31</b> to initiate an auction"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Bid",
+                "data": 31
+            },
+            "simple": "jinnes bids $31",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> bids <span style=\"color: green\">$31</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 44 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "DiscardPowerPlant",
+                "data": 10
+            },
+            "simple": "jinnes discards Power Plant 10",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> discards Power Plant <b>10</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "ChoosePowerPlant",
+                "data": 30
+            },
+            "simple": "js3b chooses Power Plant 30",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> chooses Power Plant <b>30</b>"
+        },
+        {
+            "type": "event",
+            "event": "Power Plant 34 drawn from the deck."
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "DiscardPowerPlant",
+                "data": 19
+            },
+            "simple": "js3b discards Power Plant 19",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> discards Power Plant <b>19</b>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "garbage"
+                }
+            },
+            "simple": "js3b buys garbage for $6",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>garbage</b> for <span style=\"color: green\">$6</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "garbage"
+                }
+            },
+            "simple": "js3b buys garbage for $7",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>garbage</b> for <span style=\"color: green\">$7</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "garbage"
+                }
+            },
+            "simple": "js3b buys garbage for $7",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>garbage</b> for <span style=\"color: green\">$7</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "uranium"
+                }
+            },
+            "simple": "js3b buys uranium for $7",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>uranium</b> for <span style=\"color: green\">$7</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "js3b buys oil for $4",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>oil</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "js3b buys oil for $4",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> buys <b>oil</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "tinymercury buys oil for $4",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>oil</b> for <span style=\"color: green\">$4</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $5",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $5",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "coal"
+                }
+            },
+            "simple": "tinymercury buys coal for $5",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>coal</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "tinymercury buys oil for $5",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> buys <b>oil</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "BuyResource",
+                "data": {
+                    "resource": "oil"
+                }
+            },
+            "simple": "jinnes buys oil for $5",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> buys <b>oil</b> for <span style=\"color: green\">$5</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Duluth",
+                    "price": 20
+                }
+            },
+            "simple": "js3b builds on Duluth for $20",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> builds on <b>Duluth</b> for <span style=\"color: green\">$20</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Fargo",
+                    "price": 21
+                }
+            },
+            "simple": "js3b builds on Fargo for $21",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> builds on <b>Fargo</b> for <span style=\"color: green\">$21</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Tampa",
+                    "price": 19
+                }
+            },
+            "simple": "js3b builds on Tampa for $19",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> builds on <b>Tampa</b> for <span style=\"color: green\">$19</span>"
+        },
+        {
+            "type": "move",
+            "player": 2,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "js3b passes",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">js3b</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Tampa",
+                    "price": 31
+                }
+            },
+            "simple": "tinymercury builds on Tampa for $31",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> builds on <b>Tampa</b> for <span style=\"color: green\">$31</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Jacksonvile",
+                    "price": 24
+                }
+            },
+            "simple": "tinymercury builds on Jacksonvile for $24",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> builds on <b>Jacksonvile</b> for <span style=\"color: green\">$24</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Miami",
+                    "price": 24
+                }
+            },
+            "simple": "tinymercury builds on Miami for $24",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> builds on <b>Miami</b> for <span style=\"color: green\">$24</span>"
+        },
+        {
+            "type": "move",
+            "player": 1,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "tinymercury passes",
+            "pretty": "<span style=\"background-color: mediumorchid; font-weight: bold; padding: 0 3px;\">tinymercury</span> passes"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Raleigh",
+                    "price": 23
+                }
+            },
+            "simple": "jinnes builds on Raleigh for $23",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> builds on <b>Raleigh</b> for <span style=\"color: green\">$23</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Knoxvile",
+                    "price": 21
+                }
+            },
+            "simple": "jinnes builds on Knoxvile for $21",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> builds on <b>Knoxvile</b> for <span style=\"color: green\">$21</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Chicago",
+                    "price": 27
+                }
+            },
+            "simple": "jinnes builds on Chicago for $27",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> builds on <b>Chicago</b> for <span style=\"color: green\">$27</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Atlanta",
+                    "price": 25
+                }
+            },
+            "simple": "jinnes builds on Atlanta for $25",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> builds on <b>Atlanta</b> for <span style=\"color: green\">$25</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "St. Louis",
+                    "price": 25
+                }
+            },
+            "simple": "jinnes builds on St. Louis for $25",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> builds on <b>St. Louis</b> for <span style=\"color: green\">$25</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Build",
+                "data": {
+                    "name": "Minneapolis",
+                    "price": 28
+                }
+            },
+            "simple": "jinnes builds on Minneapolis for $28",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> builds on <b>Minneapolis</b> for <span style=\"color: green\">$28</span>"
+        },
+        {
+            "type": "move",
+            "player": 0,
+            "move": {
+                "name": "Pass",
+                "data": true
+            },
+            "simple": "jinnes passes",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">jinnes</span> passes"
+        },
+        {
+            "type": "event",
+            "event": "Game Ended!"
+        }
+    ],
+    "hiddenLog": [],
+    "seed": "9dfkPA+ZqM9It5+QF2bPLyAH6pMkGX+CNvpLg3CL8FU=",
+    "round": 10,
+    "auctionSkips": 0,
+    "citiesToStep2": 7,
+    "citiesToEndGame": 17,
+    "resourceResupply": ["[4, 2, 1, 1]", "[5, 3, 2, 1]", "[3, 4, 3, 1]"],
+    "paymentTable": [
+        10, 22, 33, 44, 54, 64, 73, 82, 90, 98, 105, 112, 118, 124, 129, 134, 138, 142, 145, 148, 150, 150
+    ],
+    "variant": "original",
+    "minimunBid": 30,
+    "plantDiscountActive": false,
+    "cardsLeft": 4,
+    "nextCardWeak": false,
+    "card39Bought": false
+}

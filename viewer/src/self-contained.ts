@@ -10,7 +10,7 @@ function launchSelfContained(selector = '#app') {
 
     const emitter = launch(selector);
 
-    let gameState = setup(4, { map: 'USA', variant: 'original', showMoney: true });
+    let gameState = setup(6, { map: 'USA', variant: 'original', showMoney: true });
 
     for (let i = 0; i < gameState.players.length; i++) {
         gameState.players[i].name = `Player ${i + 1}`;
@@ -46,9 +46,9 @@ function launchSelfContained(selector = '#app') {
         }, 100);
     });
 
-    emitter.on('fetchSate', () =>
-        emitter.emit('state', cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState))
-    );
+    emitter.on('fetchState', () => {
+        emitter.emit('state', cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState));
+    });
 
     emitter.emit('player', { index: playerIndex });
     emitter.emit('state', cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState));

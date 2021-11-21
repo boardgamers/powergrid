@@ -27,6 +27,7 @@ function launch(selector: string) {
     let replaying = false;
 
     params.emitter.on('move', (move: Move) => item.emit('move', move));
+    params.emitter.on('fetchState', () => item.emit('fetchState'));
     params.emitter.on('addLog', (data: string[]) => item.emit('addLog', data));
     params.emitter.on('replaceLog', (data: string[]) => item.emit('replaceLog', data));
     params.emitter.on('replay:info', (info: { start: number; current: number; end: number }) =>

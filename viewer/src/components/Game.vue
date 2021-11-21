@@ -724,6 +724,7 @@ import { range } from 'lodash';
 @Component({
     created (this: Game) {
     this.emitter.on('replayStart', () => {
+        this.paused = true;
         this.emitter.emit('replay:info', {start: 1, current: this.G!.log.length, end: this._futureState!.log.length});
     });
 
@@ -734,6 +735,7 @@ import { range } from 'lodash';
     });
 
     this.emitter.on('replayEnd', () => {
+        this.paused = false;
         this.emitter.emit('fetchState');
     });
   },
@@ -774,6 +776,8 @@ export default class Game extends Vue {
     ui: UIData = {
         waitingAnimations: 0,
     };
+
+    paused = false;
 
     @Provide()
     communicator: EventEmitter = new EventEmitter();
@@ -1168,7 +1172,9 @@ export default class Game extends Vue {
     }
 
     sendMove(move) {
-        this.emitter.emit('move', move);
+        if (!this.paused) {
+            this.emitter.emit('move', move);
+        }
     }
 
     gameEnded(G: GameState) {

@@ -3,7 +3,6 @@ import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
 import { availableMoves } from './available-moves';
 import { GameOptions, GameState, Phase, Player, PowerPlant, PowerPlantType, ResourceType } from './gamestate';
-import { LogItem } from './log';
 import { maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
 import powerPlants from './powerPlants';
@@ -770,7 +769,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
             const lastLog = G.log[G.log.length - 1];
             if (lastLog.type == 'move' && G.currentPlayers.includes(lastLog.player)) {
                 G.log.pop();
-                G = reconstructState(getBaseState(G), G.log);
+                G = reconstructState(G);
             }
 
             return G;
@@ -883,9 +882,11 @@ export function scores(G: GameState): number[] {
     return ended(G) ? G.players.map((p) => p.citiesPowered) : G.players.map((_) => 0);
 }
 
-export function reconstructState(initialState: GameState, log: LogItem[]): GameState {
+export function reconstructState(gameState: GameState, to?: number): GameState {
+    const initialState = getBaseState(gameState);
     const G = cloneDeep(initialState);
 
+    const log = to != null ? gameState.log.slice(0, to) : gameState.log;
     for (const item of log) {
         switch (item.type) {
             case 'event': {

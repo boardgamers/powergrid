@@ -709,7 +709,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Provide, ProvideReactive } from 'vue-property-decorator';
-import { MoveName, ended, move as engineMove, playersSortedByScore } from 'powergrid-engine';
+import { MoveName, ended, playersSortedByScore, reconstructState } from 'powergrid-engine';
 import type { GameState } from 'powergrid-engine';
 import { EventEmitter } from 'events';
 import { Piece, UIData, Preferences } from '../types/ui-data';
@@ -722,6 +722,21 @@ import { City, Phase, PowerPlant, PowerPlantType, ResourceType } from 'powergrid
 import { range } from 'lodash';
 
 @Component({
+    created (this: Game) {
+    this.emitter.on('replayStart', () => {
+        this.emitter.emit('replay:info', {start: 1, current: this.G!.log.length, end: this._futureState!.log.length});
+    });
+
+    this.emitter.on('replayTo', (to: number) => {
+        this.replaceState(reconstructState(this._futureState!, to), false);
+
+        this.emitter.emit('replay:info', {start: 1, current: this.G!.log.length, end: this._futureState!.log.length});
+    });
+
+    this.emitter.on('replayEnd', () => {
+        this.emitter.emit('fetchState');
+    });
+  },
     components: {
         PlayerBoard,
         Card,
@@ -765,6 +780,7 @@ export default class Game extends Vue {
 
     @ProvideReactive()
     G?: GameState | null = null;
+    _futureState?: GameState;
 
     // Pieces
     coals: Piece[] = [];
@@ -792,7 +808,11 @@ export default class Game extends Vue {
         this.replaceState(state);
     }
 
-    replaceState(state: GameState) {
+    replaceState(state: GameState, replaceState = true) {
+        if (replaceState) {
+            this._futureState = state;
+        }
+
         this.G = JSON.parse(JSON.stringify(state));
 
         this.createPieces();

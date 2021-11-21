@@ -24,10 +24,14 @@ function launch(selector: string) {
     }).$mount(selector);
 
     const item: EventEmitter = new EventEmitter();
+    let replaying = false;
 
     params.emitter.on('move', (move: Move) => item.emit('move', move));
     params.emitter.on('addLog', (data: string[]) => item.emit('addLog', data));
     params.emitter.on('replaceLog', (data: string[]) => item.emit('replaceLog', data));
+    params.emitter.on('replay:info', (info: { start: number; current: number; end: number }) =>
+        item.emit('replay:info', info)
+    );
 
     item.addListener('state', (data) => {
         params.state = data;
@@ -43,7 +47,26 @@ function launch(selector: string) {
         params.preferences = { ...params.preferences, ...data };
         app.$forceUpdate();
     });
-    item.addListener('gamelog', (_) => item.emit('fetchState'));
+    item.addListener('gamelog', (_) => {
+        if (replaying) {
+            return;
+        }
+
+        item.emit('fetchState');
+    });
+
+    item.addListener('replay:start', () => {
+        params.emitter.emit('replayStart');
+        replaying = true;
+    });
+    item.addListener('replay:to', (info) => {
+        params.emitter.emit('replayTo', info);
+    });
+    item.addListener('replay:end', () => {
+        params.emitter.emit('replayEnd');
+        replaying = false;
+        item.emit('fetchState');
+    });
 
     return item;
 }

@@ -785,8 +785,6 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
 
     G.currentPlayers.forEach((p) => (G.players[p].availableMoves = availableMoves(G, G.players[p])));
 
-    console.log('deck', G.powerPlantsDeck);
-
     return G;
 }
 

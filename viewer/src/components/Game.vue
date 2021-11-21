@@ -1148,7 +1148,6 @@ export default class Game extends Vue {
     }
 
     sendMove(move) {
-        console.log(move);
         this.emitter.emit('move', move);
     }
 

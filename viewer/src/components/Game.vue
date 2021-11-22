@@ -729,6 +729,13 @@ import { range } from 'lodash';
     });
 
     this.emitter.on('replayTo', (to: number) => {
+        const log = this._futureState!.log;
+        if (log.length > to) {
+            while (to > 1 && log[to].type != 'move') {
+                to--;
+            }
+        }
+
         this.replaceState(reconstructState(this._futureState!, to), false);
 
         this.emitter.emit('replay:info', {start: 1, current: this.G!.log.length, end: this._futureState!.log.length});

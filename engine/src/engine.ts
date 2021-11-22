@@ -533,6 +533,14 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
         case MoveName.DiscardPowerPlant: {
             asserts<Moves.MoveDiscardPowerPlant>(move);
 
+            G.log.push({
+                type: 'move',
+                player: playerNumber,
+                move,
+                simple: `${player.name} discards Power Plant ${move.data}`,
+                pretty: `${playerNameHTML(player)} discards Power Plant <b>${move.data}</b>`,
+            });
+
             player.powerPlants = player.powerPlants.filter((p) => p.number != move.data);
 
             updatePlayerCapacity(player);
@@ -575,19 +583,19 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                 }
             }
 
-            G.log.push({
-                type: 'move',
-                player: playerNumber,
-                move,
-                simple: `${player.name} discards Power Plant ${move.data}`,
-                pretty: `${playerNameHTML(player)} discards Power Plant <b>${move.data}</b>`,
-            });
-
             break;
         }
 
         case MoveName.DiscardResources: {
             asserts<Moves.MoveDiscardResources>(move);
+
+            G.log.push({
+                type: 'move',
+                player: playerNumber,
+                move,
+                simple: `${player.name} discarded a ${move.data}`,
+                pretty: `${playerNameHTML(player)} discarded a <b>${move.data}</b>`,
+            });
 
             if (move.data == ResourceType.Coal) {
                 player.coalLeft--;
@@ -631,14 +639,6 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                     toResourcesPhase(G);
                 }
             }
-
-            G.log.push({
-                type: 'move',
-                player: playerNumber,
-                move,
-                simple: `${player.name} discarded a ${move.data}`,
-                pretty: `${playerNameHTML(player)} discarded a <b>${move.data}</b>`,
-            });
 
             break;
         }

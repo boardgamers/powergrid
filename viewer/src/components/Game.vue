@@ -1281,11 +1281,17 @@ export default class Game extends Vue {
     }
 
     toggleSound() {
-        this.preferences.sound = !this.preferences.sound;
+        const newSound = !this.preferences.sound;
+
+        this.emitter.emit('update:preference', { name: 'sound', value: newSound });
+        this.preferences.sound = newSound;
     }
 
     toggleHelp() {
-        this.preferences.disableHelp = !this.preferences.disableHelp;
+        const newVal = !this.preferences.disableHelp;
+
+        this.emitter.emit('update:preference', { name: 'disableHelp', value: newVal });
+        this.preferences.disableHelp = newVal;
     }
 
     showLog() {

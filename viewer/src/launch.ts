@@ -33,6 +33,9 @@ function launch(selector: string) {
     params.emitter.on('replay:info', (info: { start: number; current: number; end: number }) =>
         item.emit('replay:info', info)
     );
+    params.emitter.on('update:preference', (data: { name: string; value: any }) =>
+        item.emit('update:preference', data)
+    );
 
     item.addListener('state', (data) => {
         params.state = data;

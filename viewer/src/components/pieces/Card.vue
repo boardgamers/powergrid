@@ -18,6 +18,10 @@
             stroke-width="2"
             rx="4"
         />
+        <g v-if="hasDiscount">
+            <rect width="12" height="12" rx="4" fill="palegreen" />
+            <text text-anchor="middle" x="6" y="6" style="font-size: 12px" fill="black">$</text>
+        </g>
         <g transform="translate(30, 10)">
             <text text-anchor="middle" x="1" y="1" fill="gray">{{ powerPlant.number }}</text>
             <text text-anchor="middle" fill="white">{{ powerPlant.number }}</text>

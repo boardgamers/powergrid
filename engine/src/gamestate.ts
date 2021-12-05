@@ -134,4 +134,7 @@ export interface GameState {
     nextCardWeak: boolean;
     cardsLeft: number;
     card39Bought: boolean;
+    knownPowerPlantDeck: PowerPlant[];
+    knownPowerPlantDeckStep3: PowerPlant[];
+    powerPlantDeckAfterStep3: PowerPlant[] | undefined;
 }

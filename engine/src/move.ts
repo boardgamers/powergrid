@@ -52,7 +52,7 @@ export declare namespace Moves {
 
     export interface MoveUndo {
         name: MoveName.Undo;
-        data: true;
+        data: boolean;
     }
 }
 

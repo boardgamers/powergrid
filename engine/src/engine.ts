@@ -766,10 +766,19 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
         case MoveName.Undo: {
             asserts<Moves.MoveUndo>(move);
 
-            const lastLog = G.log[G.log.length - 1];
-            if (lastLog.type == 'move' && G.currentPlayers.includes(lastLog.player)) {
-                G.log.pop();
-                G = reconstructState(G);
+            if (move.data) {
+                let lastLog = G.log[G.log.length - 1];
+                while (lastLog.type == 'move' && G.currentPlayers.includes(lastLog.player)) {
+                    G.log.pop();
+                    G = reconstructState(G);
+                    lastLog = G.log[G.log.length - 1];
+                }
+            } else {
+                const lastLog = G.log[G.log.length - 1];
+                if (lastLog.type == 'move' && G.currentPlayers.includes(lastLog.player)) {
+                    G.log.pop();
+                    G = reconstructState(G);
+                }
             }
 
             return G;

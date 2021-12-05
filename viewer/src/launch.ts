@@ -16,6 +16,8 @@ function launch(selector: string) {
         preferences: {
             sound: true,
             disableHelp: false,
+            adjustPlayerOrder: false,
+            undoWholeTurn: true,
         },
     };
 

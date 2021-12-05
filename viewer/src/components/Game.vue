@@ -284,7 +284,12 @@
                 <Uranium :pieceId="-1" :targetState="{ x: 428, y: 672 }" :canClick="false" :transparent="false" />
             </template>
 
-            <PassButton transform="translate(1355, 15)" :enabled="canPass()" @click="checkPass()" />
+            <PassButton
+                transform="translate(1355, 15)"
+                :enabled="canPass()"
+                :text="canUndo() ? 'Done' : 'Pass'"
+                @click="checkPass()"
+            />
             <UndoButton transform="translate(1355, 56)" :enabled="canUndo()" @click="undo()" />
             <LogButton transform="translate(1355, 97)" @click="showLog()" />
             <SoundButton transform="translate(1450, 13)" :isOn="preferences.sound" @click="toggleSound()" />
@@ -385,22 +390,42 @@
                 </text>
             </template>
 
-            <template v-for="(p, i) in G.players">
-                <PlayerBoard
-                    :key="'B' + i"
-                    :player="p"
-                    :color="playerColors[i]"
-                    :transform="`translate(1140, ${140 + 110 * i})`"
-                    :owner="i"
-                    :isCurrentPlayer="isCurrentPlayer(i)"
-                    :ended="gameEnded(G)"
-                    :isPlayer="player == i"
-                    :ranking="sortedPlayers.findIndex((x) => x.id == p.id) + 1"
-                    :showMoney="player == i || gameEnded(G) || G.options.showMoney"
-                    @powerPlantClick="powerPlantClick($event)"
-                    @discardResource="discardResource($event)"
-                />
-            </template>
+            <g v-if="preferences.adjustPlayerOrder">
+                <template v-for="(playerIndex, i) in adjustedPlayerOrder">
+                    <PlayerBoard
+                        :key="'B' + playerIndex"
+                        :player="G.players[playerIndex]"
+                        :color="playerColors[playerIndex]"
+                        :transform="`translate(1140, ${140 + 110 * i})`"
+                        :owner="playerIndex"
+                        :isCurrentPlayer="isCurrentPlayer(playerIndex)"
+                        :ended="gameEnded(G)"
+                        :isPlayer="player == playerIndex"
+                        :ranking="sortedPlayers.findIndex((x) => x.id == G.players[playerIndex].id) + 1"
+                        :showMoney="player == playerIndex || gameEnded(G) || G.options.showMoney"
+                        @powerPlantClick="powerPlantClick($event)"
+                        @discardResource="discardResource($event)"
+                    />
+                </template>
+            </g>
+            <g v-else>
+                <template v-for="(p, i) in G.players">
+                    <PlayerBoard
+                        :key="'B' + i"
+                        :player="p"
+                        :color="playerColors[i]"
+                        :transform="`translate(1140, ${140 + 110 * i})`"
+                        :owner="i"
+                        :isCurrentPlayer="isCurrentPlayer(i)"
+                        :ended="gameEnded(G)"
+                        :isPlayer="player == i"
+                        :ranking="sortedPlayers.findIndex((x) => x.id == p.id) + 1"
+                        :showMoney="player == i || gameEnded(G) || G.options.showMoney"
+                        @powerPlantClick="powerPlantClick($event)"
+                        @discardResource="discardResource($event)"
+                    />
+                </template>
+            </g>
 
             <template v-for="house in houses">
                 <House
@@ -546,22 +571,42 @@
                     />
                 </template>
 
-                <template v-for="(player, pi) in G.players">
-                    <template v-for="(powerPlant, ppi) in player.powerPlants">
-                        <rect
-                            v-if="canUsePowerPlant(powerPlant)"
-                            :key="pi + '_' + ppi + '_helper'"
-                            :x="player.powerPlants.length < 5 ? 1160 + 80 * ppi : 1145 + 70 * ppi"
-                            :y="170 + 110 * pi"
-                            width="60"
-                            height="40"
-                            fill="none"
-                            stroke="blue"
-                            stroke-width="4px"
-                            rx="2px"
-                        />
+                <g v-if="preferences.adjustPlayerOrder">
+                    <template v-for="(playerIndex, i) in adjustedPlayerOrder">
+                        <template v-for="(powerPlant, ppi) in G.players[playerIndex].powerPlants">
+                            <rect
+                                v-if="canUsePowerPlant(powerPlant)"
+                                :key="i + '_' + ppi + '_helper'"
+                                :x="G.players[playerIndex].powerPlants.length < 5 ? 1160 + 80 * ppi : 1145 + 70 * ppi"
+                                :y="170 + 110 * i"
+                                width="60"
+                                height="40"
+                                fill="none"
+                                stroke="blue"
+                                stroke-width="4px"
+                                rx="2px"
+                            />
+                        </template>
                     </template>
-                </template>
+                </g>
+                <g v-else>
+                    <template v-for="(player, pi) in G.players">
+                        <template v-for="(powerPlant, ppi) in player.powerPlants">
+                            <rect
+                                v-if="canUsePowerPlant(powerPlant)"
+                                :key="pi + '_' + ppi + '_helper'"
+                                :x="player.powerPlants.length < 5 ? 1160 + 80 * ppi : 1145 + 70 * ppi"
+                                :y="170 + 110 * pi"
+                                width="60"
+                                height="40"
+                                fill="none"
+                                stroke="blue"
+                                stroke-width="4px"
+                                rx="2px"
+                            />
+                        </template>
+                    </template>
+                </g>
             </template>
         </svg>
 
@@ -1110,7 +1155,7 @@ export default class Game extends Vue {
     }
 
     undo() {
-        this.sendMove({ name: MoveName.Undo, data: true });
+        this.sendMove({ name: MoveName.Undo, data: this.preferences.undoWholeTurn });
     }
 
     choosePowerPlant(powerPlant: PowerPlant) {
@@ -1387,6 +1432,18 @@ export default class Game extends Vue {
 
     get sortedPlayers() {
         return playersSortedByScore(this.G!);
+    }
+
+    get adjustedPlayerOrder() {
+        if (this.G) {
+            if (this.G.phase == Phase.Auction) {
+                return this.G.playerOrder;
+            } else {
+                return this.G.playerOrder.reverse();
+            }
+        }
+
+        return [];
     }
 
     getResourceResupply() {

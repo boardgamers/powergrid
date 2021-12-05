@@ -7,6 +7,8 @@ export interface UIData {
 export type Preferences = {
     sound: boolean;
     disableHelp: boolean;
+    adjustPlayerOrder: boolean;
+    undoWholeTurn: boolean;
 };
 
 export interface Piece {

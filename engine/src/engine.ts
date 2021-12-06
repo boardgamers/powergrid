@@ -771,16 +771,37 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
 
             if (move.data) {
                 let lastLog = G.log[G.log.length - 1];
-                while (lastLog.type == 'move' && G.currentPlayers.includes(lastLog.player)) {
-                    G.log.pop();
-                    G = reconstructState(G);
-                    lastLog = G.log[G.log.length - 1];
+
+                if (G.phase == Phase.Bureaucracy) {
+                    let lastMove = player.lastMove;
+                    while (lastMove?.name == MoveName.UsePowerPlant) {
+                        const reverseLog = G.log.slice().reverse();
+                        const index =
+                            G.log.length - reverseLog.findIndex((l) => l.type == 'move' && l.move == lastMove) - 1;
+                        G.log.splice(index, 1);
+                        G = reconstructState(G);
+                        lastMove = G.players[player.id].lastMove;
+                    }
+                } else {
+                    while (lastLog.type == 'move' && G.currentPlayers.includes(lastLog.player)) {
+                        G.log.pop();
+                        G = reconstructState(G);
+                        lastLog = G.log[G.log.length - 1];
+                    }
                 }
             } else {
-                const lastLog = G.log[G.log.length - 1];
-                if (lastLog.type == 'move' && G.currentPlayers.includes(lastLog.player)) {
-                    G.log.pop();
+                if (G.phase == Phase.Bureaucracy) {
+                    const reverseLog = G.log.slice().reverse();
+                    const index =
+                        G.log.length - reverseLog.findIndex((l) => l.type == 'move' && l.move == player.lastMove) - 1;
+                    G.log.splice(index, 1);
                     G = reconstructState(G);
+                } else {
+                    const lastLog = G.log[G.log.length - 1];
+                    if (lastLog.type == 'move' && G.currentPlayers.includes(lastLog.player)) {
+                        G.log.pop();
+                        G = reconstructState(G);
+                    }
                 }
             }
 

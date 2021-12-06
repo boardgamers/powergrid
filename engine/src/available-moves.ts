@@ -26,8 +26,13 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
     const moves = {};
 
     const lastLog = G.log[G.log.length - 1];
-    if (lastLog.type == 'move' && lastLog.player == player.id && G.currentPlayers.includes(lastLog.player))
-        moves[MoveName.Undo] = [true];
+    if (lastLog.type == 'move' && G.currentPlayers.includes(player.id)) {
+        if (lastLog.player == player.id && player.lastMove?.name != MoveName.Pass) {
+            moves[MoveName.Undo] = [true, false];
+        } else if (G.phase == Phase.Bureaucracy && player.lastMove?.name == MoveName.UsePowerPlant) {
+            moves[MoveName.Undo] = [true, false];
+        }
+    }
 
     switch (G.phase) {
         case Phase.Auction: {

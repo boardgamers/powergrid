@@ -67,6 +67,11 @@ export async function dropPlayer(G: GameState, playerNum: number) {
     const player = G.players[playerNum];
     player.isDropped = true;
 
+    G.log.push({
+        type: 'event',
+        event: `Player ${playerNum} was dropped`,
+    });
+
     if (player.availableMoves![MoveName.Pass]) {
         G = engine.move(G, { name: MoveName.Pass, data: true }, playerNum);
     } else {

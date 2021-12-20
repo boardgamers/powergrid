@@ -932,7 +932,10 @@ export function reconstructState(gameState: GameState, to?: number): GameState {
     for (const item of log) {
         switch (item.type) {
             case 'event': {
-                break;
+                if (item.event.endsWith('was dropped')) {
+                    const playerNum = +item.event.split(' ')[1];
+                    G.players[playerNum].isDropped = true;
+                }
             }
 
             case 'phase': {

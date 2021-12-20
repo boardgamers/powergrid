@@ -63,10 +63,17 @@ export function round(G: GameState) {
     return G.round;
 }
 
-export async function dropPlayer(G: GameState, player: number) {
-    G.players[player].isDropped = true;
+export async function dropPlayer(G: GameState, playerNum: number) {
+    const player = G.players[playerNum];
+    player.isDropped = true;
 
-    G = engine.move(G, { name: MoveName.Pass, data: true }, player);
+    if (player.availableMoves![MoveName.Pass]) {
+        G = engine.move(G, { name: MoveName.Pass, data: true }, playerNum);
+    } else {
+        do {
+            G = engine.moveAI(G, playerNum);
+        } while (G.currentPlayers.includes(playerNum));
+    }
 
     return G;
 }

@@ -2,7 +2,14 @@
     <g class="player-board">
         <rect width="350" height="100" x="0" y="0" fill="gold" :stroke="color" />
         <rect width="350" height="25" x="0" y="0" :fill="color" />
-        <image :href="avatar || `https://avatars.dicebear.com/api/pixel-art/${player.name}.svg`" height="4" width="4" />
+        <foreignObject height="30" width="30" x="-30" y="-5">
+            <img
+                :src="avatar || `https://avatars.dicebear.com/api/pixel-art/${player.name}.svg`"
+                width="100%"
+                height="100%"
+                style="border-radius: 50%"
+            />
+        </foreignObject>
         <text x="5" y="13" font-weight="600" fill="black">
             {{ getPlayerName() }}
         </text>

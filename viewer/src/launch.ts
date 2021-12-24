@@ -10,6 +10,7 @@ function launch(selector: string) {
         player?: number;
         emitter: EventEmitter;
         preferences: Preferences;
+        avatars: string[];
     } = {
         state: null,
         emitter: new EventEmitter(),
@@ -19,6 +20,7 @@ function launch(selector: string) {
             adjustPlayerOrder: false,
             undoWholeTurn: true,
         },
+        avatars: [],
     };
 
     const app = new Vue({
@@ -38,6 +40,10 @@ function launch(selector: string) {
     params.emitter.on('update:preference', (data: { name: string; value: any }) =>
         item.emit('update:preference', data)
     );
+    item.addListener('avatars', (data) => {
+        params.avatars = data;
+        app.$forceUpdate();
+    });
 
     item.addListener('state', (data) => {
         params.state = data;

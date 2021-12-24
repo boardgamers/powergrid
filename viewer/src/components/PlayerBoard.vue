@@ -2,6 +2,7 @@
     <g class="player-board">
         <rect width="350" height="100" x="0" y="0" fill="gold" :stroke="color" />
         <rect width="350" height="25" x="0" y="0" :fill="color" />
+        <image :href="avatar || `https://avatars.dicebear.com/api/pixel-art/${player.name}.svg`" height="4" width="4" />
         <text x="5" y="13" font-weight="600" fill="black">
             {{ getPlayerName() }}
         </text>
@@ -53,12 +54,19 @@ import { Coal, Oil, Garbage, Uranium, Card } from './pieces';
 
 @Component({
     components: {
-        Coal, Oil, Garbage, Uranium, Card
+        Coal,
+        Oil,
+        Garbage,
+        Uranium,
+        Card,
     },
 })
 export default class PlayerBoard extends Vue {
     @Prop()
     color?: string;
+
+    @Prop()
+    avatar?: string;
 
     @Prop()
     player!: Player;
@@ -157,9 +165,16 @@ export default class PlayerBoard extends Vue {
 
     powerPlantClick(powerPlant: PowerPlant) {
         if (powerPlant.type == PowerPlantType.Hybrid) {
-            if (this.player.coalLeft == 0 || this.player.oilLeft == 0 || this.player.coalLeft + this.player.oilLeft == powerPlant.cost) {
-                this.player.resourcesUsed = Array(Math.min(powerPlant.cost, this.player.coalLeft)).fill(ResourceType.Coal)
-                    .concat(Array(powerPlant.cost - Math.min(powerPlant.cost, this.player.coalLeft)).fill(ResourceType.Oil));
+            if (
+                this.player.coalLeft == 0 ||
+                this.player.oilLeft == 0 ||
+                this.player.coalLeft + this.player.oilLeft == powerPlant.cost
+            ) {
+                this.player.resourcesUsed = Array(Math.min(powerPlant.cost, this.player.coalLeft))
+                    .fill(ResourceType.Coal)
+                    .concat(
+                        Array(powerPlant.cost - Math.min(powerPlant.cost, this.player.coalLeft)).fill(ResourceType.Oil)
+                    );
                 this.$emit('powerPlantClick', powerPlant);
             } else {
                 this.powerPlantClicked = powerPlant;
@@ -171,14 +186,17 @@ export default class PlayerBoard extends Vue {
     }
 
     get canClickResources() {
-        return this.player.availableMoves && this.player.availableMoves['DiscardResources'] || this.player.resourcesUsed.some(r => r == null);
+        return (
+            (this.player.availableMoves && this.player.availableMoves['DiscardResources']) ||
+            this.player.resourcesUsed.some((r) => r == null)
+        );
     }
 
     clickResource(resourceType) {
         if (this.player.availableMoves && this.player.availableMoves['DiscardResources']) {
             this.$emit('discardResource', resourceType);
-        } else if (this.player.resourcesUsed.some(r => r == null)) {
-            const index = this.player.resourcesUsed.findIndex(r => r == null)!;
+        } else if (this.player.resourcesUsed.some((r) => r == null)) {
+            const index = this.player.resourcesUsed.findIndex((r) => r == null)!;
             this.player.resourcesUsed[index] = resourceType;
 
             if (resourceType == 'coal') {
@@ -187,7 +205,7 @@ export default class PlayerBoard extends Vue {
                 this.player.oilLeft--;
             }
 
-            if (!this.player.resourcesUsed.some(r => r == null)) {
+            if (!this.player.resourcesUsed.some((r) => r == null)) {
                 this.$emit('powerPlantClick', this.powerPlantClicked);
             }
         }

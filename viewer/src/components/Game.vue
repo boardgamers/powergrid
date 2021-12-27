@@ -390,42 +390,23 @@
                 </text>
             </template>
 
-            <g v-if="preferences.adjustPlayerOrder">
-                <template v-for="(playerIndex, i) in adjustedPlayerOrder">
-                    <PlayerBoard
-                        :key="'B' + playerIndex"
-                        :player="G.players[playerIndex]"
-                        :color="playerColors[playerIndex]"
-                        :transform="`translate(1140, ${140 + 110 * i})`"
-                        :owner="playerIndex"
-                        :isCurrentPlayer="isCurrentPlayer(playerIndex)"
-                        :ended="gameEnded(G)"
-                        :isPlayer="player == playerIndex"
-                        :ranking="sortedPlayers.findIndex((x) => x.id == G.players[playerIndex].id) + 1"
-                        :showMoney="player == playerIndex || gameEnded(G) || G.options.showMoney"
-                        @powerPlantClick="powerPlantClick($event)"
-                        @discardResource="discardResource($event)"
-                    />
-                </template>
-            </g>
-            <g v-else>
-                <template v-for="(p, i) in G.players">
-                    <PlayerBoard
-                        :key="'B' + i"
-                        :player="p"
-                        :color="playerColors[i]"
-                        :transform="`translate(1140, ${140 + 110 * i})`"
-                        :owner="i"
-                        :isCurrentPlayer="isCurrentPlayer(i)"
-                        :ended="gameEnded(G)"
-                        :isPlayer="player == i"
-                        :ranking="sortedPlayers.findIndex((x) => x.id == p.id) + 1"
-                        :showMoney="player == i || gameEnded(G) || G.options.showMoney"
-                        @powerPlantClick="powerPlantClick($event)"
-                        @discardResource="discardResource($event)"
-                    />
-                </template>
-            </g>
+            <template v-for="(playerIndex, i) in adjustedPlayerOrder">
+                <PlayerBoard
+                    :key="'B' + playerIndex"
+                    :player="G.players[playerIndex]"
+                    :color="playerColors[playerIndex]"
+                    :avatar="avatars[playerIndex]"
+                    :transform="`translate(1140, ${140 + 110 * i})`"
+                    :owner="playerIndex"
+                    :isCurrentPlayer="isCurrentPlayer(playerIndex)"
+                    :ended="gameEnded(G)"
+                    :isPlayer="player == playerIndex"
+                    :ranking="sortedPlayers.findIndex((x) => x.id == G.players[playerIndex].id) + 1"
+                    :showMoney="player == playerIndex || gameEnded(G) || G.options.showMoney"
+                    @powerPlantClick="powerPlantClick($event)"
+                    @discardResource="discardResource($event)"
+                />
+            </template>
 
             <template v-for="house in houses">
                 <House
@@ -827,6 +808,9 @@ export default class Game extends Vue {
 
     @Prop()
     emitter!: EventEmitter;
+
+    @Prop()
+    avatars!: string[];
 
     @Prop()
     @ProvideReactive()
@@ -1455,15 +1439,19 @@ export default class Game extends Vue {
     }
 
     get adjustedPlayerOrder() {
-        if (this.G) {
-            if (this.G.phase == Phase.Auction) {
-                return this.G.playerOrder;
-            } else {
-                return this.G.playerOrder.reverse();
-            }
+        if (!this.G) {
+            return [];
         }
 
-        return [];
+        if (!this.preferences.adjustPlayerOrder) {
+            return this.G.players.map((_p, i) => i); // 0 1 2 3 ...
+        }
+
+        if (this.G.phase == Phase.Auction) {
+            return this.G.playerOrder;
+        }
+
+        return this.G.playerOrder.reverse();
     }
 
     getResourceResupply() {

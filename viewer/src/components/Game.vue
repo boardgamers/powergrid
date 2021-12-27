@@ -10,7 +10,7 @@
             <source src="../audio/notification.mp3" type="audio/mpeg" />
             <source src="../audio/notification.ogg" type="audio/ogg" />
         </audio>
-        <svg v-if="G" id="scene" viewBox="0 0 1500 800" height="700" style="width: 100%">
+        <svg v-if="G" id="scene" viewBox="0 0 1500 800" style="width: 100%">
             <rect width="100%" height="100%" x="0" y="0" fill="yellowgreen" />
 
             <rect width="185" height="40" x="10" y="10" rx="3" fill="goldenrod" />
@@ -767,30 +767,38 @@ import { City, Phase, PowerPlant, PowerPlantType, ResourceType } from 'powergrid
 import { range } from 'lodash';
 
 @Component({
-    created (this: Game) {
-    this.emitter.on('replayStart', () => {
-        this.paused = true;
-        this.emitter.emit('replay:info', {start: 1, current: this.G!.log.length, end: this._futureState!.log.length});
-    });
+    created(this: Game) {
+        this.emitter.on('replayStart', () => {
+            this.paused = true;
+            this.emitter.emit('replay:info', {
+                start: 1,
+                current: this.G!.log.length,
+                end: this._futureState!.log.length,
+            });
+        });
 
-    this.emitter.on('replayTo', (to: number) => {
-        const log = this._futureState!.log;
-        if (log.length > to) {
-            while (to > 1 && log[to].type != 'move') {
-                to--;
+        this.emitter.on('replayTo', (to: number) => {
+            const log = this._futureState!.log;
+            if (log.length > to) {
+                while (to > 1 && log[to].type != 'move') {
+                    to--;
+                }
             }
-        }
 
-        this.replaceState(reconstructState(this._futureState!, to), false);
+            this.replaceState(reconstructState(this._futureState!, to), false);
 
-        this.emitter.emit('replay:info', {start: 1, current: this.G!.log.length, end: this._futureState!.log.length});
-    });
+            this.emitter.emit('replay:info', {
+                start: 1,
+                current: this.G!.log.length,
+                end: this._futureState!.log.length,
+            });
+        });
 
-    this.emitter.on('replayEnd', () => {
-        this.paused = false;
-        this.emitter.emit('fetchState');
-    });
-  },
+        this.emitter.on('replayEnd', () => {
+            this.paused = false;
+            this.emitter.emit('fetchState');
+        });
+    },
     components: {
         PlayerBoard,
         Card,
@@ -927,7 +935,7 @@ export default class Game extends Vue {
                 y:
                     15 +
                     (adjustCityCount[player.cities.length].indexOf(pi) * 30) /
-                    adjustCityCount[player.cities.length].length,
+                        adjustCityCount[player.cities.length].length,
                 color: this.playerColors[pi],
                 owner: pi,
             });
@@ -958,7 +966,7 @@ export default class Game extends Vue {
                 });
 
             if (this.G.options.variant == 'recharged' && this.G.map.name == 'USA') {
-                range(this.G.coalSupply).forEach(i => {
+                range(this.G.coalSupply).forEach((i) => {
                     this.coals.push({
                         id: 'coal_supply_' + i,
                         x: 800 + (i % 8) * 20 + (i >= 8 && i < 16 ? 10 : 0),
@@ -1124,15 +1132,27 @@ export default class Game extends Vue {
         if (this.G && this.player != null && !this.G.chosenPowerPlant) {
             const player = this.G.players[this.player];
             if (player && player.availableMoves && Object.keys(player.availableMoves).length > 1) {
-                if (this.G.phase != Phase.Bureaucracy || player.powerPlantsNotUsed.length == player.powerPlants.length) {
+                if (
+                    this.G.phase != Phase.Bureaucracy ||
+                    player.powerPlantsNotUsed.length == player.powerPlants.length
+                ) {
                     const lastMove = this.G.log[this.G.log.length - 1] as LogMove;
                     if (lastMove.player != this.player || lastMove.move.name == MoveName.Pass) {
                         switch (this.G.phase) {
-                            case Phase.Auction: this.confirmMessage = 'Are you sure you want to skip auctions?'; break;
-                            case Phase.Resources: this.confirmMessage = 'Are you sure you want to skip buying resources?'; break;
-                            case Phase.Building: this.confirmMessage = 'Are you sure you want to skip building?'; break;
-                            case Phase.Bureaucracy: this.confirmMessage = 'Are you sure you want to pass? You didn\'t use any power plant!'; break;
-                            default: this.confirmMessage = 'Are you sure you want to pass?';
+                            case Phase.Auction:
+                                this.confirmMessage = 'Are you sure you want to skip auctions?';
+                                break;
+                            case Phase.Resources:
+                                this.confirmMessage = 'Are you sure you want to skip buying resources?';
+                                break;
+                            case Phase.Building:
+                                this.confirmMessage = 'Are you sure you want to skip building?';
+                                break;
+                            case Phase.Bureaucracy:
+                                this.confirmMessage = "Are you sure you want to pass? You didn't use any power plant!";
+                                break;
+                            default:
+                                this.confirmMessage = 'Are you sure you want to pass?';
                         }
 
                         this.confirmVisible = true;
@@ -1219,7 +1239,7 @@ export default class Game extends Vue {
     discardResource(resource) {
         this.sendMove({
             name: MoveName.DiscardResources,
-            data: resource
+            data: resource,
         });
     }
 
@@ -1357,7 +1377,7 @@ export default class Game extends Vue {
 
                 return 'Choose a Power Plant to start an auction.';
             } else if (currentPlayer.availableMoves![MoveName.Bid]) {
-                return 'It\'s your turn to bid!';
+                return "It's your turn to bid!";
             } else if (currentPlayer.availableMoves![MoveName.BuyResource]) {
                 return 'Buy resources on the market, or pass.';
             } else if (currentPlayer.availableMoves![MoveName.Build]) {
@@ -1374,7 +1394,7 @@ export default class Game extends Vue {
                 return 'Choose which resources to discard.';
             }
 
-            return 'It\'s your turn!';
+            return "It's your turn!";
         } else {
             let log = this.G.log[this.G.log.length - 1];
             if (log.type == 'move') {
@@ -1466,6 +1486,7 @@ ul {
     display: flex;
     align-items: center;
     flex-direction: column;
+    height: 100%;
 }
 
 .statusBar {
@@ -1480,8 +1501,7 @@ ul {
 }
 
 #scene {
-    margin-top: 40px;
-    max-height: 100%;
+    max-height: calc(100% - 40px);
     flex-grow: 1;
     margin: 40px auto auto auto;
 }

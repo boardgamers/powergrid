@@ -344,7 +344,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                         if (G.players.some((p) => !p.skipAuction && !p.isDropped)) {
                             nextPlayerAuction(G);
                         } else {
-                            if (G.auctionSkips == G.players.length) {
+                            if (G.auctionSkips == G.players.length && G.options.variant == 'original') {
                                 G.log.push({
                                     type: 'event',
                                     event: `Everyone passed, removing lowest numbered Power Plant (${G.actualMarket[0].number})`,
@@ -364,10 +364,11 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                             endAuction(G, winningPlayer, winningPlayer.bid);
 
                             if (
-                                winningPlayer.powerPlants.length > 4 ||
-                                (G.players.length > 2 && winningPlayer.powerPlants.length > 3)
+                                (winningPlayer.powerPlants.length > 4 ||
+                                    (G.players.length > 2 && winningPlayer.powerPlants.length > 3)) &&
+                                !winningPlayer.isDropped
                             ) {
-                                G.currentPlayers = [winningPlayer.id];
+                                setCurrentPlayer(G, winningPlayer.id);
                             } else {
                                 addPowerPlant(G);
 
@@ -398,7 +399,13 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                             p.passed = p.isDropped;
                         });
                         G.phase = Phase.Building;
-                        G.currentPlayers = [G.playerOrder[G.players.length - 1]];
+
+                        setCurrentPlayer(G, G.playerOrder[G.players.length - 1]);
+
+                        if (G.players[G.currentPlayers[0]].isDropped && G.players.some((p) => !p.isDropped)) {
+                            G.players[G.currentPlayers[0]].passed = true;
+                            nextPlayerReverse(G);
+                        }
                     } else {
                         nextPlayerReverse(G);
                     }
@@ -434,7 +441,9 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                                 p.powerPlantsNotUsed = p.powerPlants.map((pp) => pp.number);
                             });
                             G.phase = Phase.Bureaucracy;
-                            G.currentPlayers = G.playerOrder;
+                            G.currentPlayers = G.playerOrder.filter(
+                                (p) => !G.players[p].passed && !G.players[p].isDropped
+                            );
 
                             if (G.futureMarket.length == 0) {
                                 G.step = 3;
@@ -518,7 +527,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                             }
 
                             G.plantDiscountActive = G.options.variant == 'recharged';
-                            G.currentPlayers = [G.playerOrder[0]];
+                            setCurrentPlayer(G, G.playerOrder[0]);
                         } else {
                             toResourcesPhase(G);
                         }
@@ -936,6 +945,8 @@ export function reconstructState(gameState: GameState, to?: number): GameState {
                     const playerNum = +item.event.split(' ')[1];
                     G.players[playerNum].isDropped = true;
                 }
+
+                break;
             }
 
             case 'phase': {
@@ -950,56 +961,6 @@ export function reconstructState(gameState: GameState, to?: number): GameState {
     }
 
     return G;
-}
-
-export function nextPlayerClockwise(G: GameState) {
-    const index = G.currentPlayers[0];
-    G.currentPlayers = [(index + 1) % G.players.length];
-
-    if (G.players[G.currentPlayers[0]].isDropped && G.players.some((p) => !p.isDropped)) {
-        G.players[G.currentPlayers[0]].passed = true;
-        G.players[G.currentPlayers[0]].skipAuction = true;
-        nextPlayerClockwise(G);
-    }
-
-    if (
-        (G.players[G.currentPlayers[0]].skipAuction || G.players[G.currentPlayers[0]].passed) &&
-        G.players.some((p) => !p.skipAuction && !p.passed && !p.isDropped)
-    ) {
-        nextPlayerClockwise(G);
-    }
-}
-
-export function nextPlayerReverse(G: GameState) {
-    const index = G.playerOrder.indexOf(G.currentPlayers[0]);
-    G.currentPlayers = [G.playerOrder[(index - 1 + G.players.length) % G.players.length]];
-
-    if (G.players[G.currentPlayers[0]].isDropped && G.players.some((p) => !p.isDropped)) {
-        G.players[G.currentPlayers[0]].passed = true;
-        nextPlayerReverse(G);
-    }
-}
-
-export function nextPlayerAuction(G: GameState, reset = false) {
-    if (reset) {
-        G.currentPlayers = [G.playerOrder[0]];
-    } else {
-        const index = G.playerOrder.indexOf(G.currentPlayers[0]);
-        G.currentPlayers = [G.playerOrder[(index + 1) % G.players.length]];
-    }
-
-    if (G.players[G.currentPlayers[0]].isDropped && G.players.some((p) => !p.isDropped)) {
-        G.players[G.currentPlayers[0]].passed = true;
-        G.players[G.currentPlayers[0]].skipAuction = true;
-        nextPlayerAuction(G);
-    }
-
-    if (
-        (G.players[G.currentPlayers[0]].skipAuction || G.players[G.currentPlayers[0]].passed) &&
-        G.players.some((p) => !p.skipAuction && !p.passed && !p.isDropped)
-    ) {
-        nextPlayerAuction(G);
-    }
 }
 
 function updatePlayerCapacity(player: Player) {
@@ -1270,7 +1231,7 @@ function toResourcesPhase(G: GameState) {
     }
 
     G.phase = Phase.Resources;
-    G.currentPlayers = [G.playerOrder[G.players.length - 1]];
+    setCurrentPlayer(G, G.playerOrder[G.players.length - 1]);
 }
 
 function endAuction(G: GameState, winningPlayer: Player, bid: number) {
@@ -1300,4 +1261,75 @@ function setPlayerOrder(G: GameState) {
         })
         .map((p) => p.id)
         .reverse();
+}
+
+function setCurrentPlayer(G: GameState, playerNum: number) {
+    G.currentPlayers = [playerNum];
+
+    if (G.players[playerNum].isDropped && G.players.some((p) => !p.isDropped)) {
+        G.players[playerNum].passed = true;
+        nextPlayer(G);
+    }
+}
+
+function nextPlayer(G: GameState) {
+    if (G.phase == Phase.Auction) {
+        if (G.chosenPowerPlant == undefined) {
+            nextPlayerAuction(G);
+        } else {
+            nextPlayerClockwise(G);
+        }
+    } else {
+        nextPlayerReverse(G);
+    }
+}
+
+function nextPlayerClockwise(G: GameState) {
+    const index = G.currentPlayers[0];
+    G.currentPlayers = [(index + 1) % G.players.length];
+
+    if (G.players[G.currentPlayers[0]].isDropped && G.players.some((p) => !p.isDropped)) {
+        G.players[G.currentPlayers[0]].passed = true;
+        G.players[G.currentPlayers[0]].skipAuction = true;
+        nextPlayerClockwise(G);
+    }
+
+    if (
+        (G.players[G.currentPlayers[0]].skipAuction || G.players[G.currentPlayers[0]].passed) &&
+        G.players.some((p) => !p.skipAuction && !p.passed && !p.isDropped)
+    ) {
+        nextPlayerClockwise(G);
+    }
+}
+
+function nextPlayerReverse(G: GameState) {
+    const index = G.playerOrder.indexOf(G.currentPlayers[0]);
+    G.currentPlayers = [G.playerOrder[(index - 1 + G.players.length) % G.players.length]];
+
+    if (G.players[G.currentPlayers[0]].isDropped && G.players.some((p) => !p.isDropped)) {
+        G.players[G.currentPlayers[0]].passed = true;
+        nextPlayerReverse(G);
+    }
+}
+
+function nextPlayerAuction(G: GameState, reset = false) {
+    let playerNum: number;
+    if (reset) {
+        playerNum = G.playerOrder[0];
+    } else {
+        const index = G.playerOrder.indexOf(G.currentPlayers[0]);
+        playerNum = G.playerOrder[(index + 1) % G.players.length];
+    }
+
+    G.currentPlayers = [playerNum];
+    const player = G.players[playerNum];
+
+    if (player.isDropped) {
+        player.passed = true;
+        player.skipAuction = true;
+    }
+
+    if ((player.skipAuction || player.passed) && G.players.some((p) => !p.skipAuction && !p.passed && !p.isDropped)) {
+        nextPlayerAuction(G);
+    }
 }

@@ -269,7 +269,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                 G.minimunBid = move.data;
             }
 
-            const notPassed = G.players.filter((p) => !p.skipAuction);
+            const notPassed = G.players.filter((p) => !p.skipAuction && !p.isDropped);
             if (notPassed.length == 1) {
                 G.log.push({
                     type: 'move',

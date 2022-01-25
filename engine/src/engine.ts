@@ -568,13 +568,22 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                 toDiscard.push(ResourceType.Oil);
             }
 
-            player.garbageLeft = Math.min(player.garbageLeft, player.garbageCapacity);
-            player.uraniumLeft = Math.min(player.uraniumLeft, player.uraniumCapacity);
+            if (player.garbageLeft > player.garbageCapacity) {
+                G.garbageSupply += player.garbageLeft - player.garbageCapacity;
+                player.garbageLeft = player.garbageCapacity;
+            }
+
+            if (player.uraniumLeft > player.uraniumCapacity) {
+                G.uraniumSupply += player.uraniumLeft - player.uraniumCapacity;
+                player.uraniumLeft = player.uraniumCapacity;
+            }
 
             if (toDiscard.length == 1) {
                 if (toDiscard[0] == ResourceType.Coal) {
+                    G.coalSupply += player.coalLeft - player.coalCapacity;
                     player.coalLeft = player.coalCapacity;
                 } else if (toDiscard[0] == ResourceType.Oil) {
+                    G.oilSupply += player.oilLeft - player.oilCapacity;
                     player.oilLeft = player.oilCapacity;
                 }
 

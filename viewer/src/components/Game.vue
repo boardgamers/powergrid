@@ -275,12 +275,22 @@
                 <text x="30" y="550" font-weight="600" fill="black" style="font-size: 32px">Round: {{ G.round }}</text>
                 <text x="30" y="590" font-weight="600" fill="black" style="font-size: 32px">Step: {{ G.step }}</text>
                 <text x="30" y="630" font-weight="600" fill="black" style="font-size: 32px">Phase: {{ G.phase }}</text>
-                <text x="30" y="680" font-weight="600" fill="black" style="font-size: 24px; white-space: pre">
-                    Resource Resupply: {{ getResourceResupply() }}
+                <text x="30" y="680" font-weight="600" fill="black" style="font-size: 24px">Resource Resupply:</text>
+                <text x="276" y="680" font-weight="600" fill="black" style="font-size: 24px">
+                    {{ getResourceResupply()[0] }}
                 </text>
                 <Coal :pieceId="-1" :targetState="{ x: 288, y: 672 }" :canClick="false" :transparent="false" />
+                <text x="321" y="680" font-weight="600" fill="black" style="font-size: 24px">
+                    {{ getResourceResupply()[1] }}
+                </text>
                 <Oil :pieceId="-1" :targetState="{ x: 331, y: 671 }" :canClick="false" :transparent="false" />
+                <text x="368" y="680" font-weight="600" fill="black" style="font-size: 24px">
+                    {{ getResourceResupply()[2] }}
+                </text>
                 <Garbage :pieceId="-1" :targetState="{ x: 382, y: 671 }" :canClick="false" :transparent="false" />
+                <text x="414" y="680" font-weight="600" fill="black" style="font-size: 24px">
+                    {{ getResourceResupply()[3] }}
+                </text>
                 <Uranium :pieceId="-1" :targetState="{ x: 428, y: 672 }" :canClick="false" :transparent="false" />
             </template>
 
@@ -919,7 +929,7 @@ export default class Game extends Vue {
                 y:
                     15 +
                     (adjustCityCount[player.cities.length].indexOf(pi) * 30) /
-                        adjustCityCount[player.cities.length].length,
+                    adjustCityCount[player.cities.length].length,
                 color: this.playerColors[pi],
                 owner: pi,
             });
@@ -1133,7 +1143,7 @@ export default class Game extends Vue {
                                 this.confirmMessage = 'Are you sure you want to skip building?';
                                 break;
                             case Phase.Bureaucracy:
-                                this.confirmMessage = "Are you sure you want to pass? You didn't use any power plant!";
+                                this.confirmMessage = 'Are you sure you want to pass? You didn\'t use any power plant!';
                                 break;
                             default:
                                 this.confirmMessage = 'Are you sure you want to pass?';
@@ -1361,7 +1371,7 @@ export default class Game extends Vue {
 
                 return 'Choose a Power Plant to start an auction.';
             } else if (currentPlayer.availableMoves![MoveName.Bid]) {
-                return "It's your turn to bid!";
+                return 'It\'s your turn to bid!';
             } else if (currentPlayer.availableMoves![MoveName.BuyResource]) {
                 return 'Buy resources on the market, or pass.';
             } else if (currentPlayer.availableMoves![MoveName.Build]) {
@@ -1378,7 +1388,7 @@ export default class Game extends Vue {
                 return 'Choose which resources to discard.';
             }
 
-            return "It's your turn!";
+            return 'It\'s your turn!';
         } else {
             let log = this.G.log[this.G.log.length - 1];
             if (log.type == 'move') {
@@ -1458,10 +1468,10 @@ export default class Game extends Vue {
         if (this.G) {
             let str = this.G.resourceResupply[this.G.step - 1];
             str = str.substr(1, str.length - 2);
-            return str.split(',').join('    ');
+            return str.split(',');
         }
 
-        return '';
+        return [0, 0, 0, 0];
     }
 }
 </script>

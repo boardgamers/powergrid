@@ -37,7 +37,9 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
     switch (G.phase) {
         case Phase.Auction: {
             if (player.powerPlants.length > 4 || (G.players.length > 2 && player.powerPlants.length > 3)) {
-                moves[MoveName.DiscardPowerPlant] = player.powerPlants.map((pp) => pp.number);
+                moves[MoveName.DiscardPowerPlant] = player.powerPlants
+                    .filter((_, i) => i != player.powerPlants.length - 1)
+                    .map((pp) => pp.number);
             } else {
                 const toDiscard: ResourceType[] = [];
                 let hybridCapacityUsed = Math.max(0, player.oilLeft - player.oilCapacity);

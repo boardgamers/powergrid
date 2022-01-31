@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import { ended, move, reconstructState, setup } from './engine';
 import GermanyRecharged from './fixtures/GermanyRecharged.json';
+import supply from './fixtures/supply.json';
 import USAOriginal from './fixtures/USAOriginal.json';
 import { GameOptions, MapName, Variant } from './gamestate';
 import { Move } from './move';
@@ -124,6 +125,14 @@ describe('Engine', () => {
 
         G.seed = 'secret';
         G = reconstructState(G, G.log.length - 2);
+
+        expect(ended(G)).to.be.false;
+    });
+
+    it('should replay game supply', () => {
+        const game = supply;
+
+        const G = reconstructState(game as any, game.log.length - 1);
 
         expect(ended(G)).to.be.false;
     });

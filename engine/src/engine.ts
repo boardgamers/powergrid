@@ -545,52 +545,74 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
         case MoveName.DiscardPowerPlant: {
             asserts<Moves.MoveDiscardPowerPlant>(move);
 
-            G.log.push({
-                type: 'move',
-                player: playerNumber,
-                move,
-                simple: `${player.name} discards Power Plant ${move.data}`,
-                pretty: `${playerNameHTML(player)} discards Power Plant <b>${move.data}</b>`,
-            });
+            if (!move.extra) {
+                G.log.push({
+                    type: 'move',
+                    player: playerNumber,
+                    move,
+                    simple: `${player.name} discards Power Plant ${move.data}`,
+                    pretty: `${playerNameHTML(player)} discards Power Plant <b>${move.data}</b>`,
+                });
+            }
 
+            const powerPlant = player.powerPlants.find((p) => p.number == move.data)!;
             player.powerPlants = player.powerPlants.filter((p) => p.number != move.data);
 
             updatePlayerCapacity(player);
 
-            const toDiscard: ResourceType[] = [];
-            let hybridCapacityUsed = player.hybridCapacity > 0 ? Math.max(0, player.oilLeft - player.oilCapacity) : 0;
-            if (player.coalCapacity + player.hybridCapacity < player.coalLeft + hybridCapacityUsed) {
-                toDiscard.push(ResourceType.Coal);
-            }
+            if (move.extra) {
+                const discarded: string[] = [];
+                switch (powerPlant.type) {
+                    case PowerPlantType.Coal:
+                        G.coalSupply += move.extra[0];
+                        player.coalLeft -= move.extra[0];
+                        discarded.push(move.extra[0] + ' Coal');
+                        break;
 
-            hybridCapacityUsed = player.hybridCapacity > 0 ? Math.max(0, player.coalLeft - player.coalCapacity) : 0;
-            if (player.oilCapacity + player.hybridCapacity < player.oilLeft + hybridCapacityUsed) {
-                toDiscard.push(ResourceType.Oil);
-            }
+                    case PowerPlantType.Oil:
+                        G.oilSupply += move.extra[0];
+                        player.oilLeft -= move.extra[0];
+                        discarded.push(move.extra[0] + ' Oil');
+                        break;
 
-            if (player.garbageLeft > player.garbageCapacity) {
-                G.garbageSupply += player.garbageLeft - player.garbageCapacity;
-                player.garbageLeft = player.garbageCapacity;
-            }
+                    case PowerPlantType.Garbage:
+                        G.garbageSupply += move.extra[0];
+                        player.garbageLeft -= move.extra[0];
+                        discarded.push(move.extra[0] + ' Garbage');
+                        break;
 
-            if (player.uraniumLeft > player.uraniumCapacity) {
-                G.uraniumSupply += player.uraniumLeft - player.uraniumCapacity;
-                player.uraniumLeft = player.uraniumCapacity;
-            }
+                    case PowerPlantType.Uranium:
+                        G.uraniumSupply += move.extra[0];
+                        player.uraniumLeft -= move.extra[0];
+                        discarded.push(move.extra[0] + ' Uranium');
+                        break;
 
-            if (toDiscard.length == 1) {
-                if (toDiscard[0] == ResourceType.Coal) {
-                    G.coalSupply += player.coalLeft - player.coalCapacity;
-                    player.coalLeft = player.coalCapacity;
-                } else if (toDiscard[0] == ResourceType.Oil) {
-                    G.oilSupply += player.oilLeft - player.oilCapacity;
-                    player.oilLeft = player.oilCapacity;
+                    case PowerPlantType.Hybrid:
+                        if (move.extra[0] > 0) {
+                            G.coalSupply += move.extra[0];
+                            player.coalLeft -= move.extra[0];
+                            discarded.push(move.extra[0] + ' Coal');
+                        }
+
+                        if (move.extra[1] > 0) {
+                            G.oilSupply += move.extra[1];
+                            player.oilLeft -= move.extra[1];
+                            discarded.push(move.extra[1] + ' Oil');
+                        }
+
+                        break;
                 }
 
-                toDiscard.pop();
-            }
+                G.log.push({
+                    type: 'move',
+                    player: playerNumber,
+                    move,
+                    simple: `${player.name} discards Power Plant ${move.data} and ${discarded.join(', ')}`,
+                    pretty: `${playerNameHTML(player)} discards Power Plant <b>${move.data}</b> and ${discarded.join(
+                        ', '
+                    )}`,
+                });
 
-            if (toDiscard.length == 0) {
                 addPowerPlant(G);
                 G.players.forEach((p) => {
                     p.bid = 0;
@@ -601,6 +623,54 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                     nextPlayerAuction(G, true);
                 } else {
                     toResourcesPhase(G);
+                }
+            } else {
+                const toDiscard: ResourceType[] = [];
+                let hybridCapacityUsed =
+                    player.hybridCapacity > 0 ? Math.max(0, player.oilLeft - player.oilCapacity) : 0;
+                if (player.coalCapacity + player.hybridCapacity < player.coalLeft + hybridCapacityUsed) {
+                    toDiscard.push(ResourceType.Coal);
+                }
+
+                hybridCapacityUsed = player.hybridCapacity > 0 ? Math.max(0, player.coalLeft - player.coalCapacity) : 0;
+                if (player.oilCapacity + player.hybridCapacity < player.oilLeft + hybridCapacityUsed) {
+                    toDiscard.push(ResourceType.Oil);
+                }
+
+                if (player.garbageLeft > player.garbageCapacity) {
+                    G.garbageSupply += player.garbageLeft - player.garbageCapacity;
+                    player.garbageLeft = player.garbageCapacity;
+                }
+
+                if (player.uraniumLeft > player.uraniumCapacity) {
+                    G.uraniumSupply += player.uraniumLeft - player.uraniumCapacity;
+                    player.uraniumLeft = player.uraniumCapacity;
+                }
+
+                if (toDiscard.length == 1) {
+                    if (toDiscard[0] == ResourceType.Coal) {
+                        G.coalSupply += player.coalLeft - player.coalCapacity;
+                        player.coalLeft = player.coalCapacity;
+                    } else if (toDiscard[0] == ResourceType.Oil) {
+                        G.oilSupply += player.oilLeft - player.oilCapacity;
+                        player.oilLeft = player.oilCapacity;
+                    }
+
+                    toDiscard.pop();
+                }
+
+                if (toDiscard.length == 0) {
+                    addPowerPlant(G);
+                    G.players.forEach((p) => {
+                        p.bid = 0;
+                        p.passed = p.isDropped;
+                    });
+
+                    if (G.players.some((p) => !p.skipAuction)) {
+                        nextPlayerAuction(G, true);
+                    } else {
+                        toResourcesPhase(G);
+                    }
                 }
             }
 

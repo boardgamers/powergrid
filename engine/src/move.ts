@@ -14,6 +14,7 @@ export declare namespace Moves {
     export interface MoveDiscardPowerPlant {
         name: MoveName.DiscardPowerPlant;
         data: number;
+        extra?: number[];
     }
 
     export interface MoveDiscardResources {

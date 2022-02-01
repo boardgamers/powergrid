@@ -623,6 +623,24 @@
             </div>
         </div>
 
+        <div v-if="G && discardedPowerPlant" :class="['modal', { visible: discardVisible }]">
+            <div class="modal-content">
+                <div class="modal-title">Discard Resources</div>
+                <div class="confirm-message">Choose which resources to discard:</div>
+                <div
+                    v-for="(r, i) in resourcesToDiscard"
+                    :key="'R' + i"
+                    class="confirm-message"
+                    style="text-align: center"
+                >
+                    {{ r.name }}: <input v-model="r.value" type="number" min="0" :max="r.max" style="width: 2em" />
+                </div>
+                <div class="confirm-buttons">
+                    <button class="confirm-button" :disabled="discardInvalid()" @click="confirmDiscard()">OK</button>
+                </div>
+            </div>
+        </div>
+
         <div v-if="G && gameEnded(G)" :class="['modal', { visible: endScoreVisible }]">
             <div class="modal-content">
                 <span class="close" @click="endScoreVisible = false">&times;</span>
@@ -860,6 +878,10 @@ export default class Game extends Vue {
 
     confirmMessage = '';
     confirmVisible = false;
+
+    discardedPowerPlant: PowerPlant | null = null;
+    discardVisible: boolean = false;
+    resourcesToDiscard: { name: string, max: number, value: string }[] = [];
 
     @Watch('state', { immediate: true })
     onStateChanged(state: GameState) {
@@ -1196,9 +1218,136 @@ export default class Game extends Vue {
         this.sendMove({ name: MoveName.Build, data: { name: city.name, price: move.price } });
     }
 
+    confirmDiscard() {
+        const values = this.resourcesToDiscard.map(r => parseInt(r.value));
+        if (values.reduce((acc, cur) => acc + cur, 0) > 0) {
+            this.sendMove({ name: MoveName.DiscardPowerPlant, data: this.discardedPowerPlant!.number, extra: values });
+        } else {
+            this.sendMove({ name: MoveName.DiscardPowerPlant, data: this.discardedPowerPlant!.number });
+        }
+
+        this.discardedPowerPlant = null;
+        this.discardVisible = false;
+    }
+
+    discardInvalid() {
+        const currentPlayer = this.G!.players[this.player!];
+        let hybridCapacityUsed;
+        switch (this.discardedPowerPlant!.type) {
+            case PowerPlantType.Coal:
+                hybridCapacityUsed = currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 > 0 ? Math.max(0, currentPlayer.oilLeft - currentPlayer.oilCapacity) : 0;
+                return currentPlayer.coalCapacity + currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 + parseInt(this.resourcesToDiscard[0].value) < currentPlayer.coalLeft + hybridCapacityUsed;
+
+            case PowerPlantType.Oil:
+                hybridCapacityUsed = currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 > 0 ? Math.max(0, currentPlayer.coalLeft - currentPlayer.coalCapacity) : 0;
+                return currentPlayer.oilCapacity + currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 + parseInt(this.resourcesToDiscard[1].value) < currentPlayer.oilLeft + hybridCapacityUsed;
+
+            case PowerPlantType.Garbage:
+                return currentPlayer.garbageCapacity - this.discardedPowerPlant!.cost * 2 - currentPlayer.garbageLeft + parseInt(this.resourcesToDiscard[0].value) < 0;
+
+            case PowerPlantType.Uranium:
+                return currentPlayer.uraniumCapacity - this.discardedPowerPlant!.cost * 2 - currentPlayer.uraniumLeft + parseInt(this.resourcesToDiscard[0].value) < 0;
+
+            case PowerPlantType.Hybrid:
+                hybridCapacityUsed = currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 > 0 ? Math.max(0, currentPlayer.oilLeft - currentPlayer.oilCapacity) : 0;
+                if (currentPlayer.coalCapacity + currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 + parseInt(this.resourcesToDiscard[0].value) < currentPlayer.coalLeft + hybridCapacityUsed) {
+                    return true;
+                }
+
+                hybridCapacityUsed = currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 > 0 ? Math.max(0, currentPlayer.coalLeft - currentPlayer.coalCapacity) : 0;
+                if (currentPlayer.oilCapacity + currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 + parseInt(this.resourcesToDiscard[1].value) < currentPlayer.oilLeft + hybridCapacityUsed) {
+                    return true;
+                }
+
+                return false;
+        }
+
+        return true;
+    }
+
     powerPlantClick(powerPlant: PowerPlant) {
         if (this.G?.phase == Phase.Auction) {
-            this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
+            if (powerPlant.type == PowerPlantType.Wind || powerPlant.type == PowerPlantType.Nuclear) {
+                this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
+            } else {
+                const currentPlayer = this.G!.players[this.player!];
+
+                switch (powerPlant.type) {
+                    case PowerPlantType.Coal:
+                        if (currentPlayer.powerPlants.filter(pp => pp.type == powerPlant.type).length + currentPlayer.powerPlants.filter(pp => pp.type == PowerPlantType.Hybrid).length == 1) {
+                            this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
+                            return;
+                        }
+
+                        if (currentPlayer.coalLeft == 0) {
+                            this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
+                            return;
+                        }
+
+                        this.resourcesToDiscard = [{ name: 'Coal', value: '0', max: currentPlayer.coalLeft }];
+                        break;
+
+                    case PowerPlantType.Oil:
+                        if (currentPlayer.powerPlants.filter(pp => pp.type == powerPlant.type).length + currentPlayer.powerPlants.filter(pp => pp.type == PowerPlantType.Hybrid).length == 1) {
+                            this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
+                            return;
+                        }
+
+                        if (currentPlayer.oilLeft == 0) {
+                            this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
+                            return;
+                        }
+
+                        this.resourcesToDiscard = [{ name: 'Oil', value: '0', max: currentPlayer.oilLeft }];
+                        break;
+
+                    case PowerPlantType.Garbage:
+                        if (currentPlayer.powerPlants.filter(pp => pp.type == powerPlant.type).length == 1) {
+                            this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
+                            return;
+                        }
+
+                        if (currentPlayer.garbageLeft == 0) {
+                            this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
+                            return;
+                        }
+
+                        this.resourcesToDiscard = [{ name: 'Garbage', value: '0', max: currentPlayer.garbageLeft }];
+
+                        break;
+
+                    case PowerPlantType.Uranium:
+                        if (currentPlayer.powerPlants.filter(pp => pp.type == powerPlant.type).length == 1) {
+                            this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
+                            return;
+                        }
+
+                        if (currentPlayer.uraniumLeft == 0) {
+                            this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
+                            return;
+                        }
+
+                        this.resourcesToDiscard = [{ name: 'Uranium', value: '0', max: currentPlayer.uraniumLeft }];
+                        break;
+
+                    case PowerPlantType.Hybrid:
+                        if (currentPlayer.powerPlants.filter(pp => pp.type == powerPlant.type).length + currentPlayer.powerPlants.filter(pp => pp.type == PowerPlantType.Coal).length + currentPlayer.powerPlants.filter(pp => pp.type == PowerPlantType.Oil).length == 1) {
+                            this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
+                            return;
+                        }
+
+                        if (currentPlayer.coalLeft + currentPlayer.oilLeft == 0) {
+                            this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
+                            return;
+                        }
+
+                        this.resourcesToDiscard = [{ name: 'Coal', value: '0', max: currentPlayer.coalLeft }, { name: 'Oil', value: '0', max: currentPlayer.oilLeft }];
+                        break;
+                }
+
+                this.discardedPowerPlant = powerPlant;
+                this.discardVisible = true;
+            }
         } else if (this.G?.phase == Phase.Bureaucracy) {
             let resourcesSpent: ResourceType[] = [];
             switch (powerPlant.type) {

@@ -1,25 +1,25 @@
 import seedrandom from 'seedrandom';
 import { PowerPlant } from './gamestate';
 import { map as america, mapRecharged as americaRecharged } from './maps/america';
-import { map as australia } from './maps/australia';
-import { map as badenwurttemberg } from './maps/badenwurttemberg';
-import { map as benelux } from './maps/benelux';
+// import { map as australia } from './maps/australia';
+// import { map as badenwurttemberg } from './maps/badenwurttemberg';
+// import { map as benelux } from './maps/benelux';
 import { map as brazil } from './maps/brazil';
-import { map as centraleurope } from './maps/centraleurope';
-import { map as china } from './maps/china';
+// import { map as centraleurope } from './maps/centraleurope';
+// import { map as china } from './maps/china';
 import { map as france } from './maps/france';
 import { map as germany, mapRecharged as germanyRecharged } from './maps/germany';
-import { map as indian } from './maps/indian';
+// import { map as indian } from './maps/indian';
 import { map as italy } from './maps/italy';
-import { map as japan } from './maps/japan';
-import { map as korea } from './maps/korea';
-import { map as middleeast } from './maps/middleeast';
-import { map as northerneurope } from './maps/northerneurope';
-import { map as quebec } from './maps/quebec';
-import { map as russia } from './maps/russia';
-import { map as southafrica } from './maps/southafrica';
+// import { map as japan } from './maps/japan';
+// import { map as korea } from './maps/korea';
+// import { map as middleeast } from './maps/middleeast';
+// import { map as northerneurope } from './maps/northerneurope';
+// import { map as quebec } from './maps/quebec';
+// import { map as russia } from './maps/russia';
+// import { map as southafrica } from './maps/southafrica';
 import { map as spainportugal } from './maps/spainportugal';
-import { map as ukireland } from './maps/ukireland';
+// import { map as ukireland } from './maps/ukireland';
 
 export interface City {
     name: string;
@@ -72,44 +72,44 @@ export const maps: Map[] = [
     america,
     germany,
     brazil,
-    australia,
-    badenwurttemberg,
-    benelux,
-    centraleurope,
-    china,
-    france,
-    indian,
-    italy,
-    japan,
-    korea,
-    middleeast,
-    northerneurope,
-    quebec,
-    russia,
-    southafrica,
     spainportugal,
-    ukireland,
+    france,
+    italy,
+    // australia,
+    // badenwurttemberg,
+    // benelux,
+    // centraleurope,
+    // china,
+    // indian,
+    // japan,
+    // korea,
+    // middleeast,
+    // northerneurope,
+    // quebec,
+    // russia,
+    // southafrica,
+    // ukireland,
 ];
 
 export const mapsRecharged: Map[] = [
     americaRecharged,
     germanyRecharged,
     brazil,
-    australia,
-    badenwurttemberg,
-    benelux,
-    centraleurope,
-    china,
-    france,
-    indian,
-    italy,
-    japan,
-    korea,
-    middleeast,
-    northerneurope,
-    quebec,
-    russia,
-    southafrica,
     spainportugal,
-    ukireland,
+    france,
+    italy,
+    // australia,
+    // badenwurttemberg,
+    // benelux,
+    // centraleurope,
+    // china,
+    // indian,
+    // japan,
+    // korea,
+    // middleeast,
+    // northerneurope,
+    // quebec,
+    // russia,
+    // southafrica,
+    // ukireland,
 ];

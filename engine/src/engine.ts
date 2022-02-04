@@ -299,7 +299,7 @@ export function currentPlayers(G: GameState): number[] {
     return G.currentPlayers;
 }
 
-export function move(G: GameState, move: Move, playerNumber: number, isUndo: boolean = false): GameState {
+export function move(G: GameState, move: Move, playerNumber: number, isUndo = false): GameState {
     const player = G.players[playerNumber];
     const available = player.availableMoves?.[move.name];
 

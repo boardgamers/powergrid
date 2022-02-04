@@ -1,5 +1,5 @@
 <template>
-    <div class="game">
+    <div :class="['game', { fitToScreen: preferences.fitToScreen }]">
         <div class="statusBar">
             {{ getStatusMessage() }}
         </div>
@@ -10,403 +10,112 @@
             <source src="../audio/notification.mp3" type="audio/mpeg" />
             <source src="../audio/notification.ogg" type="audio/ogg" />
         </audio>
-        <svg v-if="G" id="scene" viewBox="0 0 1500 800" style="width: 100%">
+        <svg
+            v-if="G"
+            id="scene"
+            :viewBox="G.map.viewBox ? `0 0 ${G.map.viewBox[0]} ${G.map.viewBox[1]}` : '0 0 1500 800'"
+            style="width: 100%"
+        >
             <rect width="100%" height="100%" x="0" y="0" fill="yellowgreen" />
 
-            <rect width="185" height="40" x="10" y="10" rx="3" fill="goldenrod" />
-            <template v-for="index in 6">
-                <rect
-                    :key="'playerOrder' + index"
-                    width="24"
-                    height="30"
-                    :x="15 + 30 * (index - 1)"
-                    y="15"
-                    rx="2"
-                    fill="darkgoldenrod"
-                />
-                <text
-                    :key="'playerOrderText' + index"
-                    text-anchor="middle"
-                    style="font-size: 32px; font-family: monospace"
-                    :x="27 + 30 * (index - 1)"
-                    y="30"
-                    fill="gold"
-                >
-                    {{ index }}
-                </text>
-            </template>
-
-            <rect width="730" height="50" x="215" y="10" rx="3" fill="goldenrod" />
-            <template v-for="index in 21">
-                <rect
-                    :key="'playerCityCount' + index"
-                    width="28"
-                    height="38"
-                    :x="251 + 33 * (index - 1)"
-                    y="16"
-                    rx="2"
-                    fill="darkgoldenrod"
-                    :stroke="
-                        G && (index == G.citiesToStep2 || index == G.citiesToEndGame) ? '#916a08' : 'darkgoldenrod'
-                    "
-                    stroke-width="2px"
-                />
-                <text
-                    :key="'playerCityCountText' + index"
-                    text-anchor="middle"
-                    style="font-size: 24px; font-family: monospace"
-                    letter-spacing="-2"
-                    :x="264 + 33 * (index - 1)"
-                    y="35"
-                    fill="gold"
-                >
-                    {{ index }}
-                </text>
-            </template>
-
-            <rect width="760" height="80" x="20" y="700" rx="3" fill="goldenrod" />
-            <template v-for="index in 8">
-                <rect
-                    :key="'resources' + index"
-                    width="70"
-                    height="70"
-                    :x="25 + 85 * (index - 1)"
-                    y="705"
-                    rx="2"
-                    fill="darkgoldenrod"
-                />
-                <circle :key="'resourcesCircle' + index" r="10" :cx="92 + 85 * (index - 1)" cy="708" fill="yellow" />
-                <text
-                    :key="'resourcesText' + index"
-                    text-anchor="middle"
-                    style="font-size: 16px; font-family: monospace"
-                    :x="92 + 85 * (index - 1)"
-                    y="708"
-                    fill="darkgoldenrod"
-                >
-                    {{ index }}
-                </text>
-                <g :key="'lines' + index">
-                    <line
-                        :x1="25 + 85 * (index - 1)"
-                        y1="728"
-                        :x2="95 + 85 * (index - 1)"
-                        y2="728"
-                        stroke="goldenrod"
-                    />
-                    <line
-                        :x1="25 + 85 * (index - 1)"
-                        y1="752"
-                        :x2="95 + 85 * (index - 1)"
-                        y2="752"
-                        stroke="goldenrod"
-                    />
-
-                    <line
-                        :x1="48 + 85 * (index - 1)"
-                        y1="700"
-                        :x2="48 + 85 * (index - 1)"
-                        y2="728"
-                        stroke="goldenrod"
-                    />
-                    <line
-                        :x1="72 + 85 * (index - 1)"
-                        y1="700"
-                        :x2="72 + 85 * (index - 1)"
-                        y2="728"
-                        stroke="goldenrod"
-                    />
-                    <line
-                        :x1="42 + 85 * (index - 1)"
-                        y1="728"
-                        :x2="42 + 85 * (index - 1)"
-                        y2="752"
-                        stroke="goldenrod"
-                    />
-                    <line
-                        :x1="58 + 85 * (index - 1)"
-                        y1="728"
-                        :x2="58 + 85 * (index - 1)"
-                        y2="752"
-                        stroke="goldenrod"
-                    />
-                    <line
-                        :x1="74 + 85 * (index - 1)"
-                        y1="728"
-                        :x2="74 + 85 * (index - 1)"
-                        y2="752"
-                        stroke="goldenrod"
-                    />
-                    <line
-                        :x1="48 + 85 * (index - 1)"
-                        y1="752"
-                        :x2="48 + 85 * (index - 1)"
-                        y2="780"
-                        stroke="goldenrod"
-                    />
-                    <line
-                        :x1="72 + 85 * (index - 1)"
-                        y1="752"
-                        :x2="72 + 85 * (index - 1)"
-                        y2="780"
-                        stroke="goldenrod"
-                    />
-                </g>
-            </template>
-
-            <rect width="30" height="30" x="705" y="705" rx="2" fill="darkgoldenrod" />
-            <circle r="10" cx="732" cy="708" fill="yellow" />
-            <text
-                text-anchor="middle"
-                style="font-size: 12px; font-family: monospace"
-                x="732"
-                y="708"
-                fill="darkgoldenrod"
-            >
-                10
-            </text>
-
-            <rect width="30" height="30" x="745" y="705" rx="2" fill="darkgoldenrod" />
-            <circle r="10" cx="772" cy="708" fill="yellow" />
-            <text
-                text-anchor="middle"
-                style="font-size: 12px; font-family: monospace"
-                x="772"
-                y="708"
-                fill="darkgoldenrod"
-            >
-                12
-            </text>
-
-            <rect width="30" height="30" x="705" y="745" rx="2" fill="darkgoldenrod" />
-            <circle r="10" cx="732" cy="748" fill="yellow" />
-            <text
-                text-anchor="middle"
-                style="font-size: 12px; font-family: monospace"
-                x="732"
-                y="748"
-                fill="darkgoldenrod"
-            >
-                14
-            </text>
-
-            <rect width="30" height="30" x="745" y="745" rx="2" fill="darkgoldenrod" />
-            <circle r="10" cx="772" cy="748" fill="yellow" />
-            <text
-                text-anchor="middle"
-                style="font-size: 12px; font-family: monospace"
-                x="772"
-                y="748"
-                fill="darkgoldenrod"
-            >
-                16
-            </text>
-
-            <template v-if="G.options.variant == 'recharged' && G.map.name == 'USA'">
-                <rect
-                    width="180"
-                    height="70"
-                    x="795"
-                    y="705"
-                    rx="2"
-                    fill="chocolate"
-                    stroke="sandybrown"
-                    stroke-width="4px"
-                />
-                <circle r="10" cx="973" cy="705" fill="yellow" />
-                <text
-                    text-anchor="middle"
-                    style="font-size: 16px; font-family: monospace"
-                    x="973"
-                    y="705"
-                    fill="darkgoldenrod"
-                >
-                    8
-                </text>
-                <Coal
-                    :pieceId="-1"
-                    :targetState="{ x: 858, y: 717 }"
-                    :canClick="false"
-                    :transparent="true"
-                    :scale="0.2"
-                />
-            </template>
-
-            <text x="955" y="14" font-weight="600" fill="black">Actual Market:</text>
-            <text v-if="G.futureMarket.length > 0" x="955" y="80" font-weight="600" fill="black">Future Market:</text>
-
-            <template v-if="G.cardsLeft > 0">
-                <text x="955" y="146" font-weight="600" fill="black">Power Plant Deck:</text>
-                <rect
-                    v-for="index in G.cardsLeft"
-                    :key="'card' + index"
-                    :x="980 + index / 5"
-                    :y="160 - index / 10"
-                    width="60"
-                    height="40"
-                    fill="gray"
-                    stroke="black"
-                    stroke-width="2"
-                    rx="4"
-                />
-                <rect
-                    :x="980 + G.cardsLeft / 5"
-                    :y="160 - G.cardsLeft / 10"
-                    width="60"
-                    height="40"
-                    :fill="G.nextCardWeak ? 'gray' : 'lightgray'"
-                    stroke="black"
-                    stroke-width="2"
-                    rx="4"
-                >
-                    <title>{{ G.cardsLeft }} cards left{{ G.nextCardWeak ? ', next is an initial plant' : '' }}</title>
-                </rect>
-            </template>
-
-            <template v-if="gameEnded(G)">
-                <Button
-                    :transform="`translate(140, 580)`"
-                    :width="130"
-                    :text="'Final Score'"
-                    @click="endScoreVisible = true"
-                />
-            </template>
-            <template v-else>
-                <text x="30" y="550" font-weight="600" fill="black" style="font-size: 32px">Round: {{ G.round }}</text>
-                <text x="30" y="590" font-weight="600" fill="black" style="font-size: 32px">Step: {{ G.step }}</text>
-                <text x="30" y="630" font-weight="600" fill="black" style="font-size: 32px">Phase: {{ G.phase }}</text>
-                <text x="30" y="680" font-weight="600" fill="black" style="font-size: 24px">Resource Resupply:</text>
-                <text x="276" y="680" font-weight="600" fill="black" style="font-size: 24px">
-                    {{ getResourceResupply()[0] }}
-                </text>
-                <Coal :pieceId="-1" :targetState="{ x: 288, y: 672 }" :canClick="false" :transparent="false" />
-                <text x="321" y="680" font-weight="600" fill="black" style="font-size: 24px">
-                    {{ getResourceResupply()[1] }}
-                </text>
-                <Oil :pieceId="-1" :targetState="{ x: 331, y: 671 }" :canClick="false" :transparent="false" />
-                <text x="368" y="680" font-weight="600" fill="black" style="font-size: 24px">
-                    {{ getResourceResupply()[2] }}
-                </text>
-                <Garbage :pieceId="-1" :targetState="{ x: 382, y: 671 }" :canClick="false" :transparent="false" />
-                <text x="414" y="680" font-weight="600" fill="black" style="font-size: 24px">
-                    {{ getResourceResupply()[3] }}
-                </text>
-                <Uranium :pieceId="-1" :targetState="{ x: 428, y: 672 }" :canClick="false" :transparent="false" />
-            </template>
-
-            <PassButton
-                transform="translate(1355, 15)"
-                :enabled="canPass()"
-                :text="canUndo() ? 'Done' : 'Pass'"
-                @click="checkPass()"
+            <PlayerOrder
+                ref="playerOrder"
+                :transform="`translate(${G.map.playerOrderPosition[0]}, ${G.map.playerOrderPosition[1]})`"
+                :playerColors="playerColors"
             />
-            <UndoButton transform="translate(1355, 56)" :enabled="canUndo()" @click="undo()" />
-            <LogButton transform="translate(1355, 97)" @click="showLog()" />
-            <SoundButton transform="translate(1450, 13)" :isOn="preferences.sound" @click="toggleSound()" />
-            <HelpButton transform="translate(1450, 54)" :isOn="!preferences.disableHelp" @click="toggleHelp()" />
-            <RulesButton transform="translate(1450, 95)" @click="rulesVisible = true" />
 
-            <template v-if="G.phase == 'Auction' && G.chosenPowerPlant">
-                <text x="1220" y="14" font-weight="600" fill="black">Current Auction:</text>
-                <Calculator
-                    v-if="canBid()"
-                    transform="translate(1220, 80)"
-                    :minValue="G.currentBid + 1 || G.minimunBid"
-                    :maxValue="G.players[player].money"
-                    @bid="bid($event)"
-                />
-            </template>
+            <CityCount
+                ref="cityCount"
+                :transform="`translate(${G.map.cityCountPosition[0]}, ${G.map.cityCountPosition[1]})`"
+                :playerColors="playerColors"
+                :citiesToEndGame="G.citiesToEndGame"
+                :citiesToStep2="G.citiesToStep2"
+            />
 
-            <template v-for="city in G.map.cities">
-                <circle
-                    :key="city.name + '_region'"
-                    r="25"
-                    :cx="city.x"
-                    :cy="city.y"
-                    :fill="city.region"
-                    stroke="black"
-                >
-                    <title>{{ city.name }}</title>
-                </circle>
-                <circle :key="city.name + '_circle'" r="20" :cx="city.x" :cy="city.y" fill="gray" stroke="black">
-                    <title>{{ city.name }}</title>
-                </circle>
-            </template>
+            <PowerPlantMarket
+                ref="powerPlantMarket"
+                :transform="`translate(${G.map.powerPlantMarketPosition[0]}, ${G.map.powerPlantMarketPosition[1]})`"
+                :canBid="canBid()"
+                :canChoose="canChoose()"
+                :chooseablePowerPlants="getChooseablePowerPlants()"
+                :cardsLeft="G.cardsLeft"
+                :minBid="G.currentBid + 1 || G.minimunBid"
+                :maxBid="G.players[player].money"
+                :nextCardWeak="G.nextCardWeak"
+                :plantDiscountActive="G.plantDiscountActive"
+                @choosePowerPlant="choosePowerPlant($event)"
+                @bid="bid($event)"
+            />
 
-            <template v-for="connection in G.map.connections">
-                <line
-                    :key="connection.nodes[0] + '_' + connection.nodes[1] + '_line1'"
-                    :x1="getX1(connection)"
-                    :y1="getY1(connection)"
-                    :x2="getX2(connection)"
-                    :y2="getY2(connection)"
-                    stroke-width="10"
-                    stroke="black"
-                />
-                <line
-                    :key="connection.nodes[0] + '_' + connection.nodes[1] + '_line2'"
-                    :x1="getX1(connection)"
-                    :y1="getY1(connection)"
-                    :x2="getX2(connection)"
-                    :y2="getY2(connection)"
-                    stroke-width="9"
-                    stroke="gray"
-                />
-            </template>
+            <Map
+                ref="map"
+                :transform="`translate(${G.map.mapPosition[0]}, ${G.map.mapPosition[1]})`"
+                :playerColors="playerColors"
+                :cities="G.map.cities"
+                :connections="G.map.connections"
+                :polygons="G.map.polygons"
+                :buildableCities="getBuildableCities()"
+                @build="build($event)"
+            />
 
-            <template v-for="city in G.map.cities">
-                <circle
-                    :key="city.name + '_circle2'"
-                    :class="[{ canClick: canBuild(city) }]"
-                    r="20"
-                    :cx="city.x"
-                    :cy="city.y"
-                    fill="gray"
-                    @click="canBuild(city) && build(city)"
-                >
-                    <title>{{ city.name }}</title>
-                </circle>
-            </template>
+            <Resources
+                ref="resources"
+                :transform="`translate(${G.map.supplyPosition[0]}, ${G.map.supplyPosition[1]})`"
+                :isUsaRecharged="G.options.variant == 'recharged' && G.map.name == 'USA'"
+                :buyableResources="buyableResources()"
+                :resourceResupply="getResourceResupply()"
+                @buyResource="buyResource($event)"
+            />
 
-            <template v-for="connection in G.map.connections">
-                <circle
-                    v-if="connection.cost > 0"
-                    :key="connection.nodes[0] + '_' + connection.nodes[1] + '_border'"
-                    stroke="black"
-                    :r="10 + (connection.cost * 10) / 28"
-                    :cx="(getX1(connection) + getX2(connection)) / 2"
-                    :cy="(getY1(connection) + getY2(connection)) / 2"
-                    :fill="connection.cost > 15 ? 'gold' : connection.cost > 10 ? 'lightgray' : 'tan'"
+            <g :transform="`translate(${G.map.roundInfoPosition[0]}, ${G.map.roundInfoPosition[1]})`">
+                <template v-if="gameEnded(G)">
+                    <Button
+                        :transform="`translate(20, 50)`"
+                        :width="130"
+                        :text="'Final Score'"
+                        @click="endScoreVisible = true"
+                    />
+                </template>
+                <template v-else>
+                    <text x="10" y="20" font-weight="600" fill="black" style="font-size: 32px">
+                        Round: {{ G.round }}
+                    </text>
+                    <text x="10" y="60" font-weight="600" fill="black" style="font-size: 32px">Step: {{ G.step }}</text>
+                    <text x="10" y="100" font-weight="600" fill="black" style="font-size: 32px">
+                        Phase: {{ G.phase }}
+                    </text>
+                </template>
+            </g>
+
+            <g :transform="`translate(${G.map.buttonsPosition[0]}, ${G.map.buttonsPosition[1]})`">
+                <PassButton
+                    transform="translate(15, 15)"
+                    :enabled="canPass()"
+                    :highlightButton="canPass() && !preferences.disableHelp"
+                    :text="canUndo() ? 'Done' : 'Pass'"
+                    @click="checkPass()"
                 />
-                <circle
-                    v-if="connection.cost > 0"
-                    :key="connection.nodes[0] + '_' + connection.nodes[1] + '_circle'"
-                    :r="6 + (connection.cost * 10) / 28"
-                    :cx="(getX1(connection) + getX2(connection)) / 2"
-                    :cy="(getY1(connection) + getY2(connection)) / 2"
-                    fill="gray"
-                    stroke="black"
+                <UndoButton
+                    transform="translate(15, 56)"
+                    :enabled="canUndo()"
+                    :highlightButton="canUndo() && !preferences.disableHelp"
+                    @click="undo()"
                 />
-                <text
-                    v-if="connection.cost > 0"
-                    :key="connection.nodes[0] + '_' + connection.nodes[1] + '_text'"
-                    text-anchor="middle"
-                    :style="`font-size: ${12 + (connection.cost * 6) / 28}px`"
-                    fill="black"
-                    :x="(getX1(connection) + getX2(connection)) / 2"
-                    :y="(getY1(connection) + getY2(connection)) / 2"
-                >
-                    {{ connection.cost }}
-                </text>
-            </template>
+                <LogButton transform="translate(15, 97)" @click="showLog()" />
+                <SoundButton transform="translate(110, 13)" :isOn="preferences.sound" @click="toggleSound()" />
+                <HelpButton transform="translate(110, 54)" :isOn="!preferences.disableHelp" @click="toggleHelp()" />
+                <RulesButton transform="translate(110, 95)" @click="rulesVisible = true" />
+            </g>
 
             <template v-for="(playerIndex, i) in adjustedPlayerOrder">
                 <PlayerBoard
                     :key="'B' + playerIndex"
+                    :transform="`translate(${G.map.playerBoardsPosition[0]}, ${
+                        G.map.playerBoardsPosition[1] + 110 * i
+                    })`"
                     :player="G.players[playerIndex]"
                     :color="playerColors[playerIndex]"
                     :avatar="avatars[playerIndex]"
-                    :transform="`translate(1140, ${140 + 110 * i})`"
                     :owner="playerIndex"
                     :isCurrentPlayer="isCurrentPlayer(playerIndex)"
                     :ended="gameEnded(G)"
@@ -416,188 +125,6 @@
                     @powerPlantClick="powerPlantClick($event)"
                     @discardResource="discardResource($event)"
                 />
-            </template>
-
-            <template v-for="house in houses">
-                <House
-                    :key="house.id"
-                    :pieceId="house.id"
-                    :targetState="{ x: house.x, y: house.y }"
-                    :owner="house.owner"
-                    :ownerName="G.players[house.owner].name"
-                    :color="house.color"
-                />
-            </template>
-
-            <template v-for="coal in coals">
-                <Coal
-                    :key="coal.id"
-                    :pieceId="coal.id"
-                    :targetState="{ x: coal.x, y: coal.y }"
-                    :canClick="!coal.transparent && canBuyResource('coal')"
-                    :transparent="coal.transparent"
-                    @click="buyResource('coal')"
-                />
-            </template>
-
-            <template v-for="oil in oils">
-                <Oil
-                    :key="oil.id"
-                    :pieceId="oil.id"
-                    :targetState="{ x: oil.x, y: oil.y }"
-                    :canClick="!oil.transparent && canBuyResource('oil')"
-                    :transparent="oil.transparent"
-                    @click="buyResource('oil')"
-                />
-            </template>
-
-            <template v-for="garbage in garbages">
-                <Garbage
-                    :key="garbage.id"
-                    :pieceId="garbage.id"
-                    :targetState="{ x: garbage.x, y: garbage.y }"
-                    :canClick="!garbage.transparent && canBuyResource('garbage')"
-                    :transparent="garbage.transparent"
-                    @click="buyResource('garbage')"
-                />
-            </template>
-
-            <template v-for="uranium in uraniums">
-                <Uranium
-                    :key="uranium.id"
-                    :pieceId="uranium.id"
-                    :targetState="{ x: uranium.x, y: uranium.y }"
-                    :canClick="!uranium.transparent && canBuyResource('uranium')"
-                    :transparent="uranium.transparent"
-                    @click="buyResource('uranium')"
-                />
-            </template>
-
-            <template v-for="(card, i) in cards">
-                <Card
-                    :key="card.id"
-                    :targetState="{ x: card.x, y: card.y }"
-                    :owner="card.owner"
-                    :powerPlant="card.powerPlant"
-                    :canClick="canChoose() && card.isActualMarket"
-                    :hasDiscount="G.plantDiscountActive && i == 0"
-                    @click="choosePowerPlant(card.powerPlant)"
-                />
-            </template>
-
-            <template v-if="!preferences.disableHelp">
-                <rect
-                    v-if="canPass()"
-                    x="1354"
-                    y="14"
-                    width="82"
-                    height="28"
-                    fill="none"
-                    stroke="blue"
-                    stroke-width="2px"
-                    rx="2px"
-                />
-
-                <rect
-                    v-if="canUndo()"
-                    x="1354"
-                    y="55"
-                    width="82"
-                    height="28"
-                    fill="none"
-                    stroke="blue"
-                    stroke-width="2px"
-                    rx="2px"
-                />
-
-                <g v-if="canChoose()">
-                    <rect
-                        v-if="G.futureMarket.length > 0"
-                        x="950"
-                        y="5"
-                        width="265"
-                        height="65"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
-
-                    <rect
-                        v-else
-                        x="950"
-                        y="5"
-                        width="200"
-                        height="120"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="2px"
-                        rx="2px"
-                    />
-                </g>
-
-                <rect
-                    v-if="canBuyResource()"
-                    x="15"
-                    y="695"
-                    width="770"
-                    height="90"
-                    rx="2"
-                    fill="none"
-                    stroke="blue"
-                    stroke-width="2px"
-                />
-
-                <template v-for="city in G.map.cities">
-                    <circle
-                        v-if="canBuild(city)"
-                        :key="city.name + '_circleHelp'"
-                        :class="[{ canClick: canBuild(city) }]"
-                        r="18"
-                        :cx="city.x"
-                        :cy="city.y"
-                        fill="none"
-                        stroke="blue"
-                        stroke-width="4px"
-                    />
-                </template>
-
-                <g v-if="preferences.adjustPlayerOrder">
-                    <template v-for="(playerIndex, i) in adjustedPlayerOrder">
-                        <template v-for="(powerPlant, ppi) in G.players[playerIndex].powerPlants">
-                            <rect
-                                v-if="canUsePowerPlant(powerPlant)"
-                                :key="i + '_' + ppi + '_helper'"
-                                :x="G.players[playerIndex].powerPlants.length < 5 ? 1160 + 80 * ppi : 1145 + 70 * ppi"
-                                :y="170 + 110 * i"
-                                width="60"
-                                height="40"
-                                fill="none"
-                                stroke="blue"
-                                stroke-width="4px"
-                                rx="2px"
-                            />
-                        </template>
-                    </template>
-                </g>
-                <g v-else>
-                    <template v-for="(player, pi) in G.players">
-                        <template v-for="(powerPlant, ppi) in player.powerPlants">
-                            <rect
-                                v-if="canUsePowerPlant(powerPlant)"
-                                :key="pi + '_' + ppi + '_helper'"
-                                :x="player.powerPlants.length < 5 ? 1160 + 80 * ppi : 1145 + 70 * ppi"
-                                :y="170 + 110 * pi"
-                                width="60"
-                                height="40"
-                                fill="none"
-                                stroke="blue"
-                                stroke-width="4px"
-                                rx="2px"
-                            />
-                        </template>
-                    </template>
-                </g>
             </template>
         </svg>
 
@@ -665,104 +192,114 @@
         </div>
 
         <div v-if="G" :class="['modal', { visible: rulesVisible }]">
-            <div class="modal-content" style="left: 50%; transform: translate(-50%)">
+            <div class="modal-content">
                 <span class="close" @click="rulesVisible = false">&times;</span>
                 <div class="modal-title">Rules Summary</div>
-                <div>
-                    <strong>Phases:</strong>
-                    <ul>
-                        <li>
-                            <strong>Determine Turn Order</strong> by number of cities built and highest power plant
-                            owned
-                        </li>
-                        <li>
-                            <strong>Buy Power Plants</strong> from the actual market (minimun bid is power plant number)
-                        </li>
-                        <li>
-                            <strong>Buy Resources</strong> in <strong>reverse</strong> turn order from the resource
-                            market
-                        </li>
-                        <li>
-                            <strong>Build Cities</strong> in <strong>reverse</strong> turn order paying
-                            <strong>10/15/20</strong> plus connection cost
-                        </li>
-                        <li>
-                            <strong>Bureaucracy:</strong> spend resources to use power plants, collect money according
-                            to cities supplied, resupply resource market
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <strong>Steps:</strong>
-                    <ul>
-                        <li>
-                            <strong>Step 1:</strong>
-                            <ul>
-                                <li><strong>One</strong> player per city</li>
-                                <li>
-                                    Resource Resupply: <strong>{{ G.resourceResupply[0] }}</strong>
-                                </li>
-                                <li>Bureaucracy: remove <strong>highest</strong> power plant from market</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>Step 2:</strong>
-                            <ul>
-                                <li>
-                                    Starts after building phase where a player has
-                                    <strong>{{ G.citiesToStep2 }}</strong> or more cities
-                                </li>
-                                <li><strong>Two</strong> players per city</li>
-                                <li>
-                                    Resource Resupply: <strong>{{ G.resourceResupply[1] }}</strong>
-                                </li>
-                                <li>Bureaucracy: remove <strong>highest</strong> power plant from market</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>Step 3:</strong>
-                            <ul>
-                                <li>Starts after the "Step 3" card is drawn from the deck</li>
-                                <li><strong>Three</strong> players per city</li>
-                                <li>
-                                    Resource Resupply: <strong>{{ G.resourceResupply[2] }}</strong>
-                                </li>
-                                <li>Bureaucracy: remove <strong>lowest</strong> power plant from market</li>
-                                <li>All power plants available for auction</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    Game ends after building phase where a player has <strong>{{ G.citiesToEndGame }}</strong> or more
-                    cities.<br />
-                    The winner is the player that can power the most cities. Money and number of cities built are
-                    tiebrakers.
-                </div>
-                <br />
-                <div>
-                    <strong>Payment Table</strong>
-                    <table class="payment-table">
-                        <tr>
-                            <td><strong>Cities</strong></td>
-                            <template v-for="index in G.citiesToEndGame">
-                                <td :key="'cities' + index">{{ index - 1 }}</td>
-                            </template>
-                        </tr>
-                        <tr>
-                            <td><strong>Payment</strong></td>
-                            <template v-for="index in G.citiesToEndGame">
-                                <td :key="'payment' + index">${{ G.paymentTable[index - 1] }}</td>
-                            </template>
-                        </tr>
-                    </table>
+                <div class="modal-body">
+                    <div>
+                        <strong>Phases:</strong>
+                        <ul>
+                            <li>
+                                <strong>Determine Turn Order</strong> by number of cities built and highest power plant
+                                owned
+                            </li>
+                            <li>
+                                <strong>Buy Power Plants</strong> from the actual market (minimun bid is power plant
+                                number)
+                            </li>
+                            <li>
+                                <strong>Buy Resources</strong> in <strong>reverse</strong> turn order from the resource
+                                market
+                            </li>
+                            <li>
+                                <strong>Build Cities</strong> in <strong>reverse</strong> turn order paying
+                                <strong>10/15/20</strong> plus connection cost
+                            </li>
+                            <li>
+                                <strong>Bureaucracy:</strong> spend resources to use power plants, collect money
+                                according to cities supplied, resupply resource market
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong>Steps:</strong>
+                        <ul>
+                            <li>
+                                <strong>Step 1:</strong>
+                                <ul>
+                                    <li><strong>One</strong> player per city</li>
+                                    <li>
+                                        Resource Resupply: <strong>{{ G.resourceResupply[0] }}</strong>
+                                    </li>
+                                    <li>Bureaucracy: remove <strong>highest</strong> power plant from market</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Step 2:</strong>
+                                <ul>
+                                    <li>
+                                        Starts after building phase where a player has
+                                        <strong>{{ G.citiesToStep2 }}</strong> or more cities
+                                    </li>
+                                    <li><strong>Two</strong> players per city</li>
+                                    <li>
+                                        Resource Resupply: <strong>{{ G.resourceResupply[1] }}</strong>
+                                    </li>
+                                    <li>Bureaucracy: remove <strong>highest</strong> power plant from market</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Step 3:</strong>
+                                <ul>
+                                    <li>Starts after the "Step 3" card is drawn from the deck</li>
+                                    <li><strong>Three</strong> players per city</li>
+                                    <li>
+                                        Resource Resupply: <strong>{{ G.resourceResupply[2] }}</strong>
+                                    </li>
+                                    <li>Bureaucracy: remove <strong>lowest</strong> power plant from market</li>
+                                    <li>All power plants available for auction</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        Game ends after building phase where a player has <strong>{{ G.citiesToEndGame }}</strong> or
+                        more cities.<br />
+                        The winner is the player that can power the most cities. Money and number of cities built are
+                        tiebrakers.
+                    </div>
+                    <template v-if="G.map.mapSpecificRules">
+                        <br />
+                        <div>
+                            <strong>Map Specific Rules:</strong><br />
+                            <span style="white-space: pre">{{ G.map.mapSpecificRules }}</span>
+                        </div>
+                    </template>
+                    <br />
+                    <div>
+                        <strong>Payment Table</strong>
+                        <table class="payment-table">
+                            <tr>
+                                <td><strong>Cities</strong></td>
+                                <template v-for="index in G.citiesToEndGame">
+                                    <td :key="'cities' + index">{{ index - 1 }}</td>
+                                </template>
+                            </tr>
+                            <tr>
+                                <td><strong>Payment</strong></td>
+                                <template v-for="index in G.citiesToEndGame">
+                                    <td :key="'payment' + index">${{ G.paymentTable[index - 1] }}</td>
+                                </template>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Watch, Provide, ProvideReactive } from 'vue-property-decorator';
+import { Vue, Component, Prop, Watch, Provide, ProvideReactive, Ref } from 'vue-property-decorator';
 import { MoveName, ended, playersSortedByScore, reconstructState } from 'powergrid-engine';
 import type { GameState } from 'powergrid-engine';
 import { EventEmitter } from 'events';
@@ -771,9 +308,14 @@ import { Card, House, Coal, Oil, Garbage, Uranium } from './pieces';
 import { Button, PassButton, UndoButton, LogButton, SoundButton, HelpButton, RulesButton } from './buttons';
 import PlayerBoard from './PlayerBoard.vue';
 import Calculator from './Calculator.vue';
+import PowerPlantMarket from './boards/PowerPlantMarket.vue';
+import PlayerOrder from './boards/PlayerOrder.vue';
+import CityCount from './boards/CityCount.vue';
+import Map from './boards/Map.vue';
+import Resources from './boards/Resources.vue';
 import { LogMove } from 'powergrid-engine/src/log';
-import { City, Phase, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
-import { range } from 'lodash';
+import { Phase, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
+import { City } from 'powergrid-engine/src/maps';
 
 @Component({
     created(this: Game) {
@@ -824,6 +366,11 @@ import { range } from 'lodash';
         RulesButton,
         Button,
         Calculator,
+        PowerPlantMarket,
+        PlayerOrder,
+        CityCount,
+        Map,
+        Resources
     },
 })
 export default class Game extends Vue {
@@ -858,14 +405,6 @@ export default class Game extends Vue {
     G?: GameState | null = null;
     _futureState?: GameState;
 
-    // Pieces
-    coals: Piece[] = [];
-    oils: Piece[] = [];
-    garbages: Piece[] = [];
-    uraniums: Piece[] = [];
-    cards: Piece[] = [];
-    houses: Piece[] = [];
-
     playerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', 'yellow', 'brown'];
 
     animationQueue: Array<Function> = [];
@@ -883,6 +422,12 @@ export default class Game extends Vue {
     discardVisible: boolean = false;
     resourcesToDiscard: { name: string, max: number, value: string }[] = [];
 
+    @Ref() powerPlantMarket!: PowerPlantMarket;
+    @Ref() playerOrder!: PlayerOrder;
+    @Ref() cityCount!: CityCount;
+    @Ref() map!: Map;
+    @Ref() resources!: Resources;
+
     @Watch('state', { immediate: true })
     onStateChanged(state: GameState) {
         this.replaceState(state);
@@ -895,7 +440,13 @@ export default class Game extends Vue {
 
         this.G = JSON.parse(JSON.stringify(state));
 
-        this.createPieces();
+        if (this.G) {
+            this.powerPlantMarket?.createPieces(this.G);
+            this.playerOrder?.createPieces(this.G);
+            this.cityCount?.createPieces(this.G);
+            this.map?.createPieces(this.G);
+            this.resources?.createPieces(this.G);
+        }
 
         if (this.preferences.sound && this.G?.log[this.G?.log.length - 1].type == 'move') {
             const move = (this.G?.log[this.G?.log.length - 1] as LogMove).move;
@@ -909,226 +460,6 @@ export default class Game extends Vue {
                 }
             }
         }
-    }
-
-    createPieces() {
-        // Houses
-        this.houses = [];
-        const adjustCityCount: number[][] = [];
-        for (let i = 0; i < 22; i++) adjustCityCount[i] = [];
-
-        this.G?.players.forEach((player, pi) => adjustCityCount[player.cities.length].push(pi));
-        this.G?.players.forEach((player, pi) => {
-            player.cities.forEach((cityPiece) => {
-                const city = this.G?.map.cities.find((city) => city.name == cityPiece.name)!;
-                let offsetX, offsetY;
-                if (cityPiece.position == 0) {
-                    offsetX = -6;
-                    offsetY = -18;
-                } else if (cityPiece.position == 1) {
-                    offsetX = -15;
-                    offsetY = -4;
-                } else {
-                    offsetX = 1;
-                    offsetY = -4;
-                }
-
-                this.houses.push({
-                    id: pi + '_' + cityPiece.name,
-                    x: city.x + offsetX,
-                    y: city.y + offsetY,
-                    color: this.playerColors[pi],
-                    owner: pi,
-                });
-            });
-
-            let x = (adjustCityCount[player.cities.length].length == 1 ? 228 : 225) + 33 * player.cities.length;
-            x += (adjustCityCount[player.cities.length].indexOf(pi) % 2) * 6;
-
-            this.houses.push({
-                id: pi + '_cityCount',
-                x: x,
-                y:
-                    15 +
-                    (adjustCityCount[player.cities.length].indexOf(pi) * 30) /
-                    adjustCityCount[player.cities.length].length,
-                color: this.playerColors[pi],
-                owner: pi,
-            });
-        });
-
-        this.G?.playerOrder.forEach((p, i) => {
-            this.houses.push({
-                id: p + '_order',
-                x: 20 + 30 * i,
-                y: 22,
-                color: this.playerColors[p],
-                owner: p,
-            });
-        });
-
-        // Coal
-        if (this.G) {
-            this.coals = [];
-            Array(24)
-                .fill(0)
-                .forEach((_, i) => {
-                    this.coals.push({
-                        id: 'coal_' + i,
-                        x: 668 - 23.5 * i - 14.5 * Math.floor(i / 3),
-                        y: 708,
-                        transparent: i >= this.G!.coalMarket,
-                    });
-                });
-
-            if (this.G.options.variant == 'recharged' && this.G.map.name == 'USA') {
-                range(this.G.coalSupply).forEach((i) => {
-                    this.coals.push({
-                        id: 'coal_supply_' + i,
-                        x: 800 + (i % 8) * 20 + (i >= 8 && i < 16 ? 10 : 0),
-                        y: 710 + Math.floor(i / 8) * 20,
-                        transparent: false,
-                    });
-                });
-            }
-
-            // Oil
-            this.oils = [];
-            Array(24)
-                .fill(0)
-                .forEach((_, i) => {
-                    this.oils.push({
-                        id: 'oil_' + i,
-                        x: 651 - 16 * i - 37 * Math.floor(i / 3),
-                        y: 730,
-                        transparent: i >= this.G!.oilMarket,
-                    });
-                });
-
-            // Garbage
-            this.garbages = [];
-            Array(24)
-                .fill(0)
-                .forEach((_, i) => {
-                    this.garbages.push({
-                        id: 'garbage_' + i,
-                        x: 668 - 23.5 * i - 14.5 * Math.floor(i / 3),
-                        y: 754,
-                        transparent: i >= this.G!.garbageMarket,
-                    });
-                });
-
-            // Uranium
-            this.uraniums = [];
-            Array(12)
-                .fill(0)
-                .forEach((_, i) => {
-                    if (i == 0) {
-                        this.uraniums.push({
-                            id: 'uranium_' + i,
-                            x: 750,
-                            y: 751,
-                            transparent: i >= this.G!.uraniumMarket,
-                        });
-                    } else if (i == 1) {
-                        this.uraniums.push({
-                            id: 'uranium_' + i,
-                            x: 710,
-                            y: 751,
-                            transparent: i >= this.G!.uraniumMarket,
-                        });
-                    } else if (i == 2) {
-                        this.uraniums.push({
-                            id: 'uranium_' + i,
-                            x: 750,
-                            y: 712,
-                            transparent: i >= this.G!.uraniumMarket,
-                        });
-                    } else if (i == 3) {
-                        this.uraniums.push({
-                            id: 'uranium_' + i,
-                            x: 710,
-                            y: 712,
-                            transparent: i >= this.G!.uraniumMarket,
-                        });
-                    } else {
-                        this.uraniums.push({
-                            id: 'uranium_' + i,
-                            x: 1010 - 85 * i,
-                            y: 732,
-                            transparent: i >= this.G!.uraniumMarket,
-                        });
-                    }
-                });
-        }
-
-        // Power Plants
-        this.cards = [];
-        this.G?.actualMarket.forEach((card, i) => {
-            if (this.G!.futureMarket.length > 0) {
-                if (card.number != this.G?.chosenPowerPlant?.number) {
-                    this.cards.push({
-                        id: 'actual_' + i,
-                        x: 955 + i * 65,
-                        y: 24,
-                        powerPlant: card,
-                        isActualMarket: true,
-                    });
-                }
-            } else {
-                if (card.number != this.G?.chosenPowerPlant?.number) {
-                    this.cards.push({
-                        id: 'actual_' + i,
-                        x: 955 + (i % 3) * 65,
-                        y: i < 3 ? 24 : 80,
-                        powerPlant: card,
-                        isActualMarket: true,
-                    });
-                }
-            }
-        });
-
-        this.G?.futureMarket.forEach((card, i) => {
-            if (card.number != this.G?.chosenPowerPlant?.number) {
-                this.cards.push({
-                    id: 'future_' + i,
-                    x: 955 + i * 65,
-                    y: 90,
-                    powerPlant: card,
-                    isActualMarket: false,
-                });
-            }
-        });
-
-        if (this.G?.chosenPowerPlant) {
-            this.cards.push({
-                id: 'chosen_',
-                x: 1250,
-                y: 30,
-                powerPlant: this.G.chosenPowerPlant,
-                isActualMarket: false,
-            });
-        }
-    }
-
-    getX1(connection) {
-        const city = this.G!.map.cities.find((city) => city.name == connection.nodes[0])!;
-        return city.x;
-    }
-
-    getY1(connection) {
-        const city = this.G!.map.cities.find((city) => city.name == connection.nodes[0])!;
-        return city.y;
-    }
-
-    getX2(connection) {
-        const city = this.G!.map.cities.find((city) => city.name == connection.nodes[1])!;
-        return city.x;
-    }
-
-    getY2(connection) {
-        const city = this.G!.map.cities.find((city) => city.name == connection.nodes[1])!;
-        return city.y;
     }
 
     @Watch('ui.waitingAnimations')
@@ -1442,6 +773,15 @@ export default class Game extends Vue {
         return !!availableMoves[MoveName.ChoosePowerPlant];
     }
 
+    buyableResources() {
+        if (!this.canMove()) return [];
+
+        const currentPlayer = this.G!.players[this.player!];
+        const availableMoves = currentPlayer.availableMoves!;
+
+        return !!availableMoves[MoveName.BuyResource] && availableMoves[MoveName.BuyResource]!.map((m) => m.resource) || [];
+    }
+
     canBuyResource(resource?: ResourceType) {
         if (!this.canMove()) return false;
 
@@ -1456,6 +796,24 @@ export default class Game extends Vue {
                 availableMoves[MoveName.BuyResource]!.find((m) => m.resource == resource)
             );
         }
+    }
+
+    getChooseablePowerPlants() {
+        if (!this.canMove()) return [];
+
+        const currentPlayer = this.G!.players[this.player!];
+        const availableMoves = currentPlayer.availableMoves!;
+
+        return availableMoves[MoveName.ChoosePowerPlant];
+    }
+
+    getBuildableCities() {
+        if (!this.canMove()) return [];
+
+        const currentPlayer = this.G!.players[this.player!];
+        const availableMoves = currentPlayer.availableMoves!;
+
+        return availableMoves[MoveName.Build] && availableMoves[MoveName.Build]!.map((c) => c.name) || [];
     }
 
     canBuild(city: City) {
@@ -1633,6 +991,9 @@ ul {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.fitToScreen {
     height: 100%;
 }
 
@@ -1673,6 +1034,13 @@ text {
 }
 
 .button {
+    &.highlightButton {
+        rect {
+            stroke: blue;
+            stroke-width: 4px;
+        }
+    }
+
     &.enabled {
         cursor: pointer;
 
@@ -1750,6 +1118,11 @@ text {
     position: absolute;
     left: 50%;
     transform: translate(-50%);
+}
+
+.modal-body {
+    max-height: calc(80vh - 64px);
+    overflow: auto;
 }
 
 .modal-log {

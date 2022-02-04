@@ -9,6 +9,7 @@ export type Preferences = {
     disableHelp: boolean;
     adjustPlayerOrder: boolean;
     undoWholeTurn: boolean;
+    fitToScreen: boolean;
 };
 
 export interface Piece {
@@ -16,9 +17,9 @@ export interface Piece {
     x: number;
     y: number;
     owner?: number;
+    ownerName?: string;
     color?: string;
     powerPlant?: PowerPlant;
-    isActualMarket?: boolean;
     transparent?: boolean;
 }
 

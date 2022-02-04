@@ -19,6 +19,7 @@ function launch(selector: string) {
             disableHelp: false,
             adjustPlayerOrder: false,
             undoWholeTurn: true,
+            fitToScreen: true,
         },
         avatars: [],
     };

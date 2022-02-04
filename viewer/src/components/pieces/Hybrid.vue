@@ -23,7 +23,7 @@
     </g>
 </template>
 <script lang="ts">
-import { PieceType } from '@/types/ui-data';
+import { PieceType } from './../../types/ui-data';
 import { Component, Mixins } from 'vue-property-decorator';
 import Piece from './Piece.vue';
 

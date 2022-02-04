@@ -1,9 +1,29 @@
 import { AvailableMoves } from './available-moves';
 import { LogItem } from './log';
-import { Cities, Regions } from './maps';
+import { Map } from './maps';
 import { Move } from './move';
 
-export type MapName = 'USA' | 'Germany';
+export type MapName =
+    | 'USA'
+    | 'Germany'
+    | 'Brazil'
+    // | 'Australia'
+    // | 'Baden-Württemberg'
+    // | 'Benelux'
+    // | 'Central Europe'
+    // | 'China'
+    | 'France'
+    // | 'Indian'
+    | 'Italy'
+    // | 'Japan'
+    // | 'Korea'
+    // | 'Middle East'
+    // | 'Northern Europe'
+    // | 'Quebec'
+    // | 'Russia'
+    // | 'South Africa'
+    | 'Spain & Portugal';
+// | 'UK & Ireland'
 export type Variant = 'original' | 'recharged';
 
 export interface GameOptions {
@@ -11,24 +31,6 @@ export interface GameOptions {
     map?: MapName;
     variant?: Variant;
     showMoney?: boolean;
-}
-
-export interface City {
-    name: Cities;
-    region: Regions;
-    x: number;
-    y: number;
-}
-
-export interface Connection {
-    nodes: Cities[];
-    cost: number;
-}
-
-export interface Map {
-    name: string;
-    cities: City[];
-    connections: Connection[];
 }
 
 export enum ResourceType {

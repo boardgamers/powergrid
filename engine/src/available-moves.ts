@@ -64,7 +64,18 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                     moves[MoveName.DiscardResources] = toDiscard;
                 } else {
                     if (G.chosenPowerPlant == undefined) {
-                        const canBid = G.actualMarket.filter((p) => player.money >= p.number);
+                        let canBid = G.actualMarket.filter((p) => player.money >= p.number);
+
+                        // No nuclear plants for Portugal
+                        if (G.map.name == 'Spain & Portugal') {
+                            const playerCities = player.cities.map(
+                                (c) => G.map.cities.find((c_) => c_.name == c.name)!
+                            );
+                            if (playerCities.every((c) => c.region == 'yellow')) {
+                                canBid = canBid.filter((p) => p.type != PowerPlantType.Uranium);
+                            }
+                        }
+
                         if (canBid.length > 0) {
                             moves[MoveName.ChoosePowerPlant] = canBid.map((p) => p.number);
                         }
@@ -79,6 +90,19 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             }
                         } else {
                             moves[MoveName.Bid] = range(G.minimunBid, player.money + 1);
+                        }
+
+                        // No nuclear plants for Portugal
+                        if (G.map.name == 'Spain & Portugal') {
+                            const playerCities = player.cities.map(
+                                (c) => G.map.cities.find((c_) => c_.name == c.name)!
+                            );
+                            if (
+                                playerCities.every((c) => c.region == 'yellow') &&
+                                G.chosenPowerPlant.type == PowerPlantType.Uranium
+                            ) {
+                                moves[MoveName.Bid] = undefined;
+                            }
                         }
 
                         if (G.currentBid != null) {

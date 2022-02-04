@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Vue, Component, Inject, Prop, Watch } from 'vue-property-decorator';
 import { EventEmitter } from 'events';
-import { PieceType, UIData } from '@/types/ui-data';
+import { PieceType, UIData } from './../../types/ui-data';
 
 @Component({
     created(this: Piece) {

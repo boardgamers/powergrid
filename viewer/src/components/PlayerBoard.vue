@@ -25,6 +25,23 @@
             @click="powerPlantClick(powerPlant)"
         />
 
+        <template v-if="!preferences.disableHelp">
+            <template v-for="(powerPlant, i) in player.powerPlants">
+                <rect
+                    v-if="canUse(powerPlant)"
+                    :key="i + '_' + i + '_helper'"
+                    :x="player.powerPlants.length < 5 ? 20 + 80 * i : 5 + 70 * i"
+                    :y="30"
+                    width="60"
+                    height="40"
+                    fill="none"
+                    stroke="blue"
+                    stroke-width="4px"
+                    rx="2px"
+                />
+            </template>
+        </template>
+
         <g v-if="canClickResources">
             <rect width="30" height="30" x="0" y="71" fill="none" stroke="blue" stroke-width="2px" rx="2px" />
             <rect width="30" height="30" x="70" y="71" fill="none" stroke="blue" stroke-width="2px" rx="2px" />
@@ -56,7 +73,8 @@
 <script lang="ts">
 import { MoveName, Player } from 'powergrid-engine';
 import { PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Vue, Component, Prop, Inject } from 'vue-property-decorator';
+import { Preferences } from '../types/ui-data';
 import { Coal, Oil, Garbage, Uranium, Card } from './pieces';
 
 @Component({
@@ -69,32 +87,17 @@ import { Coal, Oil, Garbage, Uranium, Card } from './pieces';
     },
 })
 export default class PlayerBoard extends Vue {
-    @Prop()
-    color?: string;
+    @Prop() color?: string;
+    @Prop() avatar?: string;
+    @Prop() player!: Player;
+    @Prop() isCurrentPlayer?: boolean;
+    @Prop() owner?: number;
+    @Prop() ended?: boolean;
+    @Prop() isPlayer?: boolean;
+    @Prop() ranking?: number;
+    @Prop() showMoney?: boolean;
 
-    @Prop()
-    avatar?: string;
-
-    @Prop()
-    player!: Player;
-
-    @Prop()
-    isCurrentPlayer?: boolean;
-
-    @Prop()
-    owner?: number;
-
-    @Prop()
-    ended?: boolean;
-
-    @Prop()
-    isPlayer?: boolean;
-
-    @Prop()
-    ranking?: number;
-
-    @Prop()
-    showMoney?: boolean;
+    @Inject() preferences!: Preferences;
 
     powerPlantClicked?: PowerPlant;
 
@@ -135,9 +138,13 @@ export default class PlayerBoard extends Vue {
     }
 
     canUse(powerPlant) {
+        if (!this.isCurrentPlayer) return false;
+
         if (this.player.availableMoves?.[MoveName.DiscardPowerPlant]) {
             return true;
         } else {
+            if (!this.player.availableMoves?.[MoveName.UsePowerPlant]) return false;
+
             if (!this.player.powerPlantsNotUsed.includes(powerPlant.number) || this.player.resourcesUsed.length > 0) {
                 return false;
             }

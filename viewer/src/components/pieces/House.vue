@@ -26,7 +26,7 @@
     </g>
 </template>
 <script lang="ts">
-import { PieceType } from '@/types/ui-data';
+import { PieceType } from './../../types/ui-data';
 import { Component, InjectReactive, Mixins, Prop } from 'vue-property-decorator';
 import Piece from './Piece.vue';
 

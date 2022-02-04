@@ -1,16 +1,41 @@
 import { cloneDeep } from 'lodash';
-import { move as execMove, Move, setup, stripSecret } from 'powergrid-engine';
+import { move as execMove, Move, Phase, setup, stripSecret } from 'powergrid-engine';
 import { moveAI } from 'powergrid-engine/src/engine';
 import launch from './launch';
 
 const delayBase = 0;
 
 function launchSelfContained(selector = '#app') {
-    const strip = false;
+    const strip = true;
 
     const emitter = launch(selector);
 
-    let gameState = setup(6, { map: 'USA', variant: 'original', showMoney: true });
+    let gameState = setup(6, { map: 'Italy', variant: 'original', showMoney: true });
+
+    // gameState.map.viewBox = [1465, 860];
+    // gameState.map.playerOrderPosition = [1160, 140];
+    // gameState.map.cityCountPosition = [0, 0];
+    // gameState.map.powerPlantMarketPosition = [745, 0];
+    // gameState.map.mapPosition = [-20, 320];
+    // gameState.map.buttonsPosition = [1305, 0];
+    // gameState.map.playerBoardsPosition = [1105, 200];
+    // gameState.map.roundInfoPosition = [20, 590];
+    // gameState.map.supplyPosition = [0, 720];
+
+    // gameState.map.adjustRatio = [1.1, 1];
+    // gameState.map.cities = gameState.map.cities.map(city => ({
+    //     ...city,
+    //     x: city.x * gameState.map.adjustRatio![0],
+    //     y: city.y * gameState.map.adjustRatio![1]
+    // }));
+
+    // gameState.map.cities = gameState.map.cities.map(city => ({
+    //     ...city,
+    //     x: city.y,
+    //     y: 600 - city.x
+    // }));
+
+    // gameState.map.cities.forEach(c => console.log(`{ name: ${c.name}, region: ${c.region}, x: ${Math.round(c.x)}, y: ${Math.round(c.y)} },`));
 
     for (let i = 0; i < gameState.players.length; i++) {
         gameState.players[i].name = `Player ${i + 1}`;
@@ -31,16 +56,20 @@ function launchSelfContained(selector = '#app') {
             emitter.emit('state', cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState));
 
             let delay = delayBase;
-            while (gameState.players.some((pl) => pl.isAI && pl.availableMoves)) {
-                gameState = moveAI(
-                    gameState,
-                    gameState.players.findIndex((pl) => pl.isAI && pl.availableMoves)
-                );
-                let newState = cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState);
-                console.log('new game state', newState);
-                setTimeout(() => emitter.emit('state', newState), delay);
-                delay += delayBase;
-            }
+            const moveAIAux = () => {
+                if (gameState.players.some((pl) => pl.isAI && pl.availableMoves)) {
+                    gameState = moveAI(
+                        gameState,
+                        gameState.players.findIndex((pl) => pl.isAI && pl.availableMoves)
+                    );
+                    let newState = cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState);
+                    console.log('new game state', newState);
+                    emitter.emit('state', newState);
+                    setTimeout(moveAIAux, gameState.phase == Phase.Bureaucracy ? delay : 0);
+                }
+            };
+
+            setTimeout(moveAIAux, gameState.phase == Phase.Bureaucracy ? delay : 0);
 
             console.log('available moves', gameState.players[playerIndex].availableMoves);
         }, 100);

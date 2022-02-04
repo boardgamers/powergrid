@@ -11,28 +11,28 @@ import { asserts, shuffle } from './utils';
 
 export const playerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', 'yellow', 'brown'];
 
-const coalResupply = [
+let coalResupply = [
     [3, 4, 3],
     [4, 5, 3],
     [5, 6, 4],
     [5, 7, 5],
     [7, 9, 6],
 ];
-const oilResupply = [
+let oilResupply = [
     [2, 2, 4],
     [2, 3, 4],
     [3, 4, 5],
     [4, 5, 6],
     [5, 6, 7],
 ];
-const garbageResupply = [
+let garbageResupply = [
     [1, 2, 3],
     [1, 2, 3],
     [2, 3, 4],
     [3, 3, 5],
     [3, 5, 6],
 ];
-const uraniumResupply = [
+let uraniumResupply = [
     [1, 1, 1],
     [1, 1, 1],
     [1, 2, 2],
@@ -47,53 +47,86 @@ const regionsInPlay = [3, 3, 4, 5, 5];
 export function setup(
     numPlayers: number,
     { fastBid = false, map = 'USA', variant = 'original', showMoney = false }: GameOptions,
-    seed?: string
+    seed?: string,
+    forcePortrait?: boolean
 ): GameState {
     seed = seed ?? Math.random().toString();
     const rng = seedrandom(seed);
+
+    const chosenMap = cloneDeep(
+        variant == 'original' ? maps.find((m) => m.name == map)! : mapsRecharged.find((m) => m.name == map)!
+    );
+
+    if (chosenMap.layout == 'Portrait' || forcePortrait) {
+        chosenMap.viewBox = chosenMap.viewBox || [1480, 1060];
+        chosenMap.adjustRatio = chosenMap.adjustRatio || [1, 1];
+        chosenMap.playerOrderPosition = chosenMap.playerOrderPosition || [1160, 160];
+        chosenMap.cityCountPosition = chosenMap.cityCountPosition || [0, 0];
+        chosenMap.powerPlantMarketPosition = chosenMap.powerPlantMarketPosition || [745, 0];
+        chosenMap.mapPosition = chosenMap.mapPosition || [0, 0];
+        chosenMap.buttonsPosition = chosenMap.buttonsPosition || [1305, 0];
+        chosenMap.playerBoardsPosition = chosenMap.playerBoardsPosition || [1105, 240];
+        chosenMap.roundInfoPosition = chosenMap.roundInfoPosition || [20, 920];
+        chosenMap.supplyPosition = chosenMap.supplyPosition || [675, 920];
+    } else {
+        chosenMap.viewBox = chosenMap.viewBox || [1465, 860];
+        chosenMap.adjustRatio = chosenMap.adjustRatio || [1, 1];
+        chosenMap.playerOrderPosition = chosenMap.playerOrderPosition || [1160, 140];
+        chosenMap.cityCountPosition = chosenMap.cityCountPosition || [0, 0];
+        chosenMap.powerPlantMarketPosition = chosenMap.powerPlantMarketPosition || [745, 0];
+        chosenMap.mapPosition = chosenMap.mapPosition || [-10, 0];
+        chosenMap.buttonsPosition = chosenMap.buttonsPosition || [1305, 0];
+        chosenMap.playerBoardsPosition = chosenMap.playerBoardsPosition || [1105, 200];
+        chosenMap.roundInfoPosition = chosenMap.roundInfoPosition || [20, 590];
+        chosenMap.supplyPosition = chosenMap.supplyPosition || [0, 720];
+    }
 
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
 
     let powerPlantsDeck = cloneDeep(powerPlants);
-    if (variant == 'original') {
-        powerPlantsDeck = powerPlantsDeck.slice(8);
-        const powerPlant13 = powerPlantsDeck.splice(2, 1)[0];
-        const step3 = powerPlantsDeck.pop()!;
-
-        powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-        if (numPlayers == 2 || numPlayers == 3) {
-            powerPlantsDeck = powerPlantsDeck.slice(8);
-        } else if (numPlayers == 4) {
-            powerPlantsDeck = powerPlantsDeck.slice(4);
-        }
-
-        powerPlantsDeck.unshift(powerPlant13);
-        powerPlantsDeck.push(step3);
-
-        actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
-        futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];
+    if (chosenMap.setupDeck) {
+        ({ actualMarket, futureMarket, powerPlantsDeck } = chosenMap.setupDeck(numPlayers, variant, rng));
     } else {
-        let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 13), rng() + '');
-        let initialPlantMarket = initialPowerPlants.splice(0, 8);
-        initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
-        actualMarket = initialPlantMarket.slice(0, 4);
-        futureMarket = initialPlantMarket.slice(4);
+        if (variant == 'original') {
+            powerPlantsDeck = powerPlantsDeck.slice(8);
+            const powerPlant13 = powerPlantsDeck.splice(2, 1)[0];
+            const step3 = powerPlantsDeck.pop()!;
 
-        const first = initialPowerPlants.shift()!;
-        const step3 = powerPlantsDeck.pop()!;
+            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
+            if (numPlayers == 2 || numPlayers == 3) {
+                powerPlantsDeck = powerPlantsDeck.slice(8);
+            } else if (numPlayers == 4) {
+                powerPlantsDeck = powerPlantsDeck.slice(4);
+            }
 
-        powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-        if (numPlayers == 2 || numPlayers == 3) {
-            initialPowerPlants = initialPowerPlants.slice(2);
-            powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
-        } else if (numPlayers == 4) {
-            initialPowerPlants = initialPowerPlants.slice(1);
-            powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
+            powerPlantsDeck.unshift(powerPlant13);
+            powerPlantsDeck.push(step3);
+
+            actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
+            futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];
+        } else {
+            let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 13), rng() + '');
+            let initialPlantMarket = initialPowerPlants.splice(0, 8);
+            initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
+            actualMarket = initialPlantMarket.slice(0, 4);
+            futureMarket = initialPlantMarket.slice(4);
+
+            const first = initialPowerPlants.shift()!;
+            const step3 = powerPlantsDeck.pop()!;
+
+            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
+            if (numPlayers == 2 || numPlayers == 3) {
+                initialPowerPlants = initialPowerPlants.slice(2);
+                powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
+            } else if (numPlayers == 4) {
+                initialPowerPlants = initialPowerPlants.slice(1);
+                powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
+            }
+
+            powerPlantsDeck.unshift(first);
+            powerPlantsDeck.push(step3);
         }
-
-        powerPlantsDeck.unshift(first);
-        powerPlantsDeck.push(step3);
     }
 
     const players: Player[] = range(numPlayers).map((id) => ({
@@ -127,8 +160,18 @@ export function setup(
     const playerOrder = range(numPlayers);
     const startingPlayer = playerOrder[0];
 
-    const chosenMap =
-        variant == 'original' ? maps.find((m) => m.name == map)! : mapsRecharged.find((m) => m.name == map)!;
+    if (chosenMap.resupply) {
+        coalResupply = chosenMap.resupply[0];
+        oilResupply = chosenMap.resupply[1];
+        garbageResupply = chosenMap.resupply[2];
+        uraniumResupply = chosenMap.resupply[3];
+    }
+
+    chosenMap.cities = chosenMap.cities.map((city) => ({
+        ...city,
+        x: city.x * chosenMap.adjustRatio![0],
+        y: city.y * chosenMap.adjustRatio![1],
+    }));
 
     const regions = chosenMap.cities
         .filter((c, i) => chosenMap.cities.findIndex((cc) => cc.region == c.region) == i)
@@ -143,7 +186,7 @@ export function setup(
     );
 
     const playRegions = new Set<string>();
-    while (playRegions.size != regionsInPlay[players.length - 2]) {
+    while (playRegions.size != Math.min(regionsInPlay[players.length - 2], regions.length)) {
         const region = regions[Math.floor(rng() * regions.length)];
         if (playRegions.size == 0 || regionConnections[regions.indexOf(region)].some((con) => playRegions.has(con))) {
             playRegions.add(region);
@@ -158,20 +201,30 @@ export function setup(
 
     const p = players.length - 2;
 
+    const coalMarket = chosenMap.startingResources ? chosenMap.startingResources[0] : 24;
+    const oilMarket = chosenMap.startingResources ? chosenMap.startingResources[1] : 18;
+    const garbageMarket = chosenMap.startingResources ? chosenMap.startingResources[2] : variant == 'original' ? 6 : 9;
+    const uraniumMarket = chosenMap.startingResources ? chosenMap.startingResources[3] : 2;
+
+    const coalSupply = 24 - coalMarket;
+    const oilSupply = 24 - oilMarket;
+    const garbageSupply = 24 - garbageMarket;
+    const uraniumSupply = 12 - uraniumMarket;
+
     const G: GameState = {
         map: filteredMap,
         players,
         playerOrder,
         currentPlayers: [startingPlayer],
         powerPlantsDeck,
-        coalSupply: 0,
-        oilSupply: 6,
-        garbageSupply: variant == 'original' ? 18 : 15,
-        uraniumSupply: 10,
-        coalMarket: 24,
-        oilMarket: 18,
-        garbageMarket: variant == 'original' ? 6 : 9,
-        uraniumMarket: 2,
+        coalSupply,
+        oilSupply,
+        garbageSupply,
+        uraniumSupply,
+        coalMarket,
+        oilMarket,
+        garbageMarket,
+        uraniumMarket,
         actualMarket,
         futureMarket,
         chosenPowerPlant: undefined,
@@ -426,6 +479,16 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                                     event: `Starting Step 2, Power Plant ${powerPlant?.number} discarded`,
                                 });
                                 G.step = 2;
+
+                                // Spain & Portugal: put plants 18, 22 and 27 on top
+                                if (G.map.name == 'Spain & Portugal') {
+                                    if (!G.powerPlantsDeck.find((p) => p.number == 18)) {
+                                        G.powerPlantsDeck.unshift(getPowerPlant(27));
+                                        G.powerPlantsDeck.unshift(getPowerPlant(22));
+                                        G.powerPlantsDeck.unshift(getPowerPlant(18));
+                                    }
+                                }
+
                                 addPowerPlant(G);
                             }
                         }
@@ -482,7 +545,11 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                         G.garbageSupply -= garbageResupplyValue;
 
                         let uraniumResupplyValue = 0;
-                        if (G.options.variant != 'recharged' || G.options.map != 'Germany' || !G.card39Bought) {
+                        if (
+                            G.options.variant != 'recharged' ||
+                            (G.options.map != 'Germany' && G.options.map != 'Italy') ||
+                            !G.card39Bought
+                        ) {
                             uraniumResupplyValue = Math.min(
                                 G.uraniumSupply,
                                 uraniumResupply[G.players.length - 2][G.step - 1]
@@ -1177,7 +1244,7 @@ function removePowerPlant(G: GameState, powerPlant: PowerPlant) {
     );
 }
 
-function getPowerPlant(num) {
+export function getPowerPlant(num) {
     return powerPlants.find((p) => p.number == num)!;
 }
 

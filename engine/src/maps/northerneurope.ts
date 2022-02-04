@@ -1,4 +1,4 @@
-import { Map } from './../maps';
+import { GameMap } from './../maps';
 
 export enum Regions {
     Brown = 'brown',
@@ -54,7 +54,7 @@ export enum Cities {
     Stavanger = 'Stavanger',
 }
 
-export const map: Map = {
+export const map: GameMap = {
     name: 'Northern Europe',
     cities: [
         { name: Cities.Oulu, region: Regions.Brown, x: 514, y: 376 },

@@ -38,7 +38,7 @@ export interface Polygon {
     points: number[][];
 }
 
-export interface Map {
+export interface GameMap {
     name: string;
     cities: City[];
     connections: Connection[];
@@ -68,7 +68,7 @@ export interface Map {
     mapSpecificRules?: string;
 }
 
-export const maps: Map[] = [
+export const maps: GameMap[] = [
     america,
     germany,
     brazil,
@@ -91,7 +91,7 @@ export const maps: Map[] = [
     // ukireland,
 ];
 
-export const mapsRecharged: Map[] = [
+export const mapsRecharged: GameMap[] = [
     americaRecharged,
     germanyRecharged,
     brazil,

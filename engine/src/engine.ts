@@ -3,7 +3,7 @@ import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
 import { availableMoves } from './available-moves';
 import { GameOptions, GameState, Phase, Player, PowerPlant, PowerPlantType, ResourceType } from './gamestate';
-import { maps, mapsRecharged } from './maps';
+import { GameMap, maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
 import powerPlants from './powerPlants';
 import prices from './prices';
@@ -48,7 +48,8 @@ export function setup(
     numPlayers: number,
     { fastBid = false, map = 'USA', variant = 'original', showMoney = false }: GameOptions,
     seed?: string,
-    forcePortrait?: boolean
+    forceDeck?: PowerPlant[],
+    forceMap?: GameMap
 ): GameState {
     seed = seed ?? Math.random().toString();
     const rng = seedrandom(seed);
@@ -57,7 +58,7 @@ export function setup(
         variant == 'original' ? maps.find((m) => m.name == map)! : mapsRecharged.find((m) => m.name == map)!
     );
 
-    if (chosenMap.layout == 'Portrait' || forcePortrait) {
+    if (chosenMap.layout == 'Portrait') {
         chosenMap.viewBox = chosenMap.viewBox || [1480, 1060];
         chosenMap.adjustRatio = chosenMap.adjustRatio || [1, 1];
         chosenMap.playerOrderPosition = chosenMap.playerOrderPosition || [1160, 160];
@@ -83,49 +84,57 @@ export function setup(
 
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
+    let powerPlantsDeck: PowerPlant[];
 
-    let powerPlantsDeck = cloneDeep(powerPlants);
-    if (chosenMap.setupDeck) {
-        ({ actualMarket, futureMarket, powerPlantsDeck } = chosenMap.setupDeck(numPlayers, variant, rng));
+    if (forceDeck) {
+        powerPlantsDeck = forceDeck;
+        actualMarket = powerPlantsDeck.splice(0, 4);
+        futureMarket = powerPlantsDeck.splice(0, 4);
     } else {
-        if (variant == 'original') {
-            powerPlantsDeck = powerPlantsDeck.slice(8);
-            const powerPlant13 = powerPlantsDeck.splice(2, 1)[0];
-            const step3 = powerPlantsDeck.pop()!;
+        powerPlantsDeck = cloneDeep(powerPlants);
 
-            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-            if (numPlayers == 2 || numPlayers == 3) {
-                powerPlantsDeck = powerPlantsDeck.slice(8);
-            } else if (numPlayers == 4) {
-                powerPlantsDeck = powerPlantsDeck.slice(4);
-            }
-
-            powerPlantsDeck.unshift(powerPlant13);
-            powerPlantsDeck.push(step3);
-
-            actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
-            futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];
+        if (chosenMap.setupDeck) {
+            ({ actualMarket, futureMarket, powerPlantsDeck } = chosenMap.setupDeck(numPlayers, variant, rng));
         } else {
-            let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 13), rng() + '');
-            let initialPlantMarket = initialPowerPlants.splice(0, 8);
-            initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
-            actualMarket = initialPlantMarket.slice(0, 4);
-            futureMarket = initialPlantMarket.slice(4);
+            if (variant == 'original') {
+                powerPlantsDeck = powerPlantsDeck.slice(8);
+                const powerPlant13 = powerPlantsDeck.splice(2, 1)[0];
+                const step3 = powerPlantsDeck.pop()!;
 
-            const first = initialPowerPlants.shift()!;
-            const step3 = powerPlantsDeck.pop()!;
+                powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
+                if (numPlayers == 2 || numPlayers == 3) {
+                    powerPlantsDeck = powerPlantsDeck.slice(8);
+                } else if (numPlayers == 4) {
+                    powerPlantsDeck = powerPlantsDeck.slice(4);
+                }
 
-            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-            if (numPlayers == 2 || numPlayers == 3) {
-                initialPowerPlants = initialPowerPlants.slice(2);
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
-            } else if (numPlayers == 4) {
-                initialPowerPlants = initialPowerPlants.slice(1);
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
+                powerPlantsDeck.unshift(powerPlant13);
+                powerPlantsDeck.push(step3);
+
+                actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
+                futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];
+            } else {
+                let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 13), rng() + '');
+                let initialPlantMarket = initialPowerPlants.splice(0, 8);
+                initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
+                actualMarket = initialPlantMarket.slice(0, 4);
+                futureMarket = initialPlantMarket.slice(4);
+
+                const first = initialPowerPlants.shift()!;
+                const step3 = powerPlantsDeck.pop()!;
+
+                powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
+                if (numPlayers == 2 || numPlayers == 3) {
+                    initialPowerPlants = initialPowerPlants.slice(2);
+                    powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
+                } else if (numPlayers == 4) {
+                    initialPowerPlants = initialPowerPlants.slice(1);
+                    powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
+                }
+
+                powerPlantsDeck.unshift(first);
+                powerPlantsDeck.push(step3);
             }
-
-            powerPlantsDeck.unshift(first);
-            powerPlantsDeck.push(step3);
         }
     }
 
@@ -212,7 +221,7 @@ export function setup(
     const uraniumSupply = 12 - uraniumMarket;
 
     const G: GameState = {
-        map: filteredMap,
+        map: forceMap || filteredMap,
         players,
         playerOrder,
         currentPlayers: [startingPlayer],
@@ -290,16 +299,24 @@ export function currentPlayers(G: GameState): number[] {
     return G.currentPlayers;
 }
 
-export function move(G: GameState, move: Move, playerNumber: number): GameState {
+export function move(G: GameState, move: Move, playerNumber: number, isUndo: boolean = false): GameState {
     const player = G.players[playerNumber];
     const available = player.availableMoves?.[move.name];
 
     assert(G.currentPlayers.includes(playerNumber), 'It is not your turn!');
     assert(available, 'You are not allowed to run the command ' + move.name);
-    assert(
-        available.some((x) => isEqual(x, move.data)),
-        'Wrong argument for the command ' + move.name
-    );
+
+    // Fix for issue 8: can't undo because of a move (discaring the pp you just bought) that is now invalid
+    if (
+        !isUndo ||
+        move.name != MoveName.DiscardPowerPlant ||
+        player.powerPlants[player.powerPlants.length - 1].number != move.data
+    ) {
+        assert(
+            available.some((x) => isEqual(x, move.data)),
+            'Wrong argument for the command ' + move.name
+        );
+    }
 
     switch (move.name) {
         case MoveName.ChoosePowerPlant: {
@@ -1100,7 +1117,7 @@ export function reconstructState(gameState: GameState, to?: number): GameState {
             }
 
             case 'move': {
-                move(G, item.move, item.player);
+                move(G, item.move, item.player, true);
                 break;
             }
         }

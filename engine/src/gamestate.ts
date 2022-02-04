@@ -1,6 +1,6 @@
 import { AvailableMoves } from './available-moves';
 import { LogItem } from './log';
-import { Map } from './maps';
+import { GameMap } from './maps';
 import { Move } from './move';
 
 export type MapName =
@@ -100,7 +100,7 @@ export enum Phase {
 }
 
 export interface GameState {
-    map: Map;
+    map: GameMap;
     players: Player[];
     playerOrder: number[];
     currentPlayers: number[];

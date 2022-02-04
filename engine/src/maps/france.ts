@@ -3,7 +3,7 @@ import seedrandom from 'seedrandom';
 import { getPowerPlant } from '../engine';
 import { PowerPlant, PowerPlantType } from '../gamestate';
 import { shuffle } from '../utils';
-import { Map } from './../maps';
+import { GameMap } from './../maps';
 import powerPlants from './../powerPlants';
 
 export enum Regions {
@@ -60,7 +60,7 @@ export enum Cities {
     Lourdes = 'Lourdes',
 }
 
-export const map: Map = {
+export const map: GameMap = {
     name: 'France',
     cities: [
         { name: Cities.Calais, region: Regions.Brown, x: 661, y: 294 },

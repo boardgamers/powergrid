@@ -3,7 +3,7 @@ import { getPowerPlant } from '../engine';
 import { PowerPlant } from '../gamestate';
 import powerPlants from '../powerPlants';
 import { shuffle } from '../utils';
-import { Map } from './../maps';
+import { GameMap } from './../maps';
 
 export enum Regions {
     Pink = 'pink',
@@ -59,7 +59,7 @@ export enum Cities {
     Braga = 'Braga',
 }
 
-export const map: Map = {
+export const map: GameMap = {
     name: 'Spain & Portugal',
     cities: [
         { name: Cities.Gerona, region: Regions.Pink, x: 3728, y: 666 },

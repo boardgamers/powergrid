@@ -15,13 +15,13 @@ export async function init(
     return engine.setup(nbPlayers, options, seed);
 }
 
-export function setPlayerMetaData(G: GameState, player: number, metaData: { name: string }) {
+export function setPlayerMetaData(G: GameState, player: number, metaData: { name: string }): GameState {
     G.players[player].name = metaData.name;
 
     return G;
 }
 
-export async function move(G: GameState, move: Move, player: number) {
+export async function move(G: GameState, move: Move, player: number): Promise<GameState> {
     G = engine.move(G, move, player);
 
     return G;
@@ -29,17 +29,17 @@ export async function move(G: GameState, move: Move, player: number) {
 
 export { ended, scores, stripSecret } from './src/engine';
 
-export function rankings(G: GameState) {
+export function rankings(G: GameState): number[] {
     const sortedPlayers = playersSortedByScore(G).map((pl) => pl.id);
 
     return G.players.map((pl) => sortedPlayers.indexOf(pl.id) + 1);
 }
 
-export function factions(G: GameState) {
+export function factions(G: GameState): string[] {
     return G.players.map((pl) => engine.playerColors[pl.id]);
 }
 
-export function replay(G: GameState, { to = Infinity }) {
+export function replay(G: GameState, { to = Infinity }: { to: number }): GameState {
     const oldPlayers = G.players;
 
     const oldG = G;
@@ -59,11 +59,11 @@ export function replay(G: GameState, { to = Infinity }) {
     return G;
 }
 
-export function round(G: GameState) {
+export function round(G: GameState): number {
     return G.round;
 }
 
-export async function dropPlayer(G: GameState, playerNum: number) {
+export async function dropPlayer(G: GameState, playerNum: number): Promise<GameState> {
     const player = G.players[playerNum];
     player.isDropped = true;
 
@@ -83,7 +83,7 @@ export async function dropPlayer(G: GameState, playerNum: number) {
     return G;
 }
 
-export function currentPlayer(G: GameState) {
+export function currentPlayer(G: GameState): number[] {
     return G.currentPlayers;
 }
 
@@ -94,7 +94,7 @@ export function messages(G: GameState) {
     };
 }
 
-export function logLength(G: GameState, _player?: number) {
+export function logLength(G: GameState, _player?: number): number {
     return G.log.length;
 }
 

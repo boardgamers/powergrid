@@ -10,13 +10,7 @@ describe('Engine', () => {
     it('should setup a game correctly', () => {
         const G = setup(5, { fastBid: false }, 'test');
 
-        // expect(G.factoriesLeft[0].id).to.equal('F1');
-        // expect(G.factoriesLeft).to.have.length(20);
-        // expect(G.players[0].factories[0].id).to.equal('F5');
-        // expect(G.players[1].factories[0].id).to.equal('F15');
-        // expect(G.players[2].factories[0].id).to.equal('F10');
-        // expect(G.players[3].factories[0].id).to.equal('F20');
-        // expect(G.players[4].factories[0].id).to.equal('F0');
+        expect(ended(G)).to.false;
     });
 
     it('should play full game Germany recharged', () => {

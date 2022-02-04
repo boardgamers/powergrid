@@ -5,7 +5,7 @@ export function asserts<T>(move: any): asserts move is T {}
 
 /* eslint-enable */
 
-export function shuffle<T>(array: T[], seed: string) {
+export function shuffle<T>(array: T[], seed: string): T[] {
     const rng = seedrandom.alea(seed);
     const reverse = new Map<number, number>();
 

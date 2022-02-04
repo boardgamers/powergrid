@@ -1244,7 +1244,7 @@ function removePowerPlant(G: GameState, powerPlant: PowerPlant) {
     );
 }
 
-export function getPowerPlant(num) {
+export function getPowerPlant(num: number): PowerPlant {
     return powerPlants.find((p) => p.number == num)!;
 }
 
@@ -1264,7 +1264,7 @@ function playerNameHTML(player) {
     }</span>`;
 }
 
-export function playersSortedByScore(G: GameState) {
+export function playersSortedByScore(G: GameState): Player[] {
     return cloneDeep(G.players)
         .sort((p1, p2) => {
             if (p1.citiesPowered == p2.citiesPowered) {

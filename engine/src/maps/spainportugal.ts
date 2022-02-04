@@ -289,5 +289,5 @@ export const map: Map = {
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
     mapSpecificRules:
-        "Remove power plants 18, 22 and 27 from the deck. Place them on top of the deck at the start of Step 2.\nYou can't buy a nuclear power plant if you only have cities in Portugal.",
+        'Remove power plants 18, 22 and 27 from the deck. Place them on top of the deck at the start of Step 2.\nYou cannot buy a nuclear power plant if you only have cities in Portugal.',
 };

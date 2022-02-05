@@ -49,7 +49,7 @@ import { Piece } from '../../types/ui-data';
         House
     },
 })
-export default class PlayerOrder extends Vue {
+export default class CityCount extends Vue {
     @Prop() citiesToStep2?: number;
     @Prop() citiesToEndGame?: number;
     @Prop() playerColors?: string[];

@@ -441,11 +441,14 @@ export default class Game extends Vue {
         this.G = JSON.parse(JSON.stringify(state));
 
         if (this.G) {
-            this.powerPlantMarket?.createPieces(this.G);
-            this.playerOrder?.createPieces(this.G);
-            this.cityCount?.createPieces(this.G);
-            this.map?.createPieces(this.G);
-            this.resources?.createPieces(this.G);
+            // workaround: refs are not set the first time
+            this.$nextTick(() => {
+                this.powerPlantMarket.createPieces(this.G);
+                this.playerOrder.createPieces(this.G);
+                this.cityCount.createPieces(this.G);
+                this.map.createPieces(this.G);
+                this.resources.createPieces(this.G);
+            });
         }
 
         if (this.preferences.sound && this.G?.log[this.G?.log.length - 1].type == 'move') {

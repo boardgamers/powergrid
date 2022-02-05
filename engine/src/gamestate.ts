@@ -3,26 +3,20 @@ import { LogItem } from './log';
 import { GameMap } from './maps';
 import { Move } from './move';
 
-export type MapName =
-    | 'USA'
-    | 'Germany'
-    | 'Brazil'
-    // | 'Australia'
-    // | 'Baden-Württemberg'
-    // | 'Benelux'
-    // | 'Central Europe'
-    // | 'China'
-    | 'France'
-    // | 'Indian'
-    | 'Italy'
-    // | 'Japan'
-    // | 'Korea'
-    // | 'Middle East'
-    // | 'Northern Europe'
-    // | 'Quebec'
-    // | 'Russia'
-    // | 'South Africa'
-    | 'Spain & Portugal';
+export type MapName = 'USA' | 'Germany' | 'Brazil' | 'Spain & Portugal' | 'France' | 'Italy';
+// | 'Australia'
+// | 'Baden-Württemberg'
+// | 'Benelux'
+// | 'Central Europe'
+// | 'China'
+// | 'Indian'
+// | 'Japan'
+// | 'Korea'
+// | 'Middle East'
+// | 'Northern Europe'
+// | 'Quebec'
+// | 'Russia'
+// | 'South Africa'
 // | 'UK & Ireland'
 export type Variant = 'original' | 'recharged';
 

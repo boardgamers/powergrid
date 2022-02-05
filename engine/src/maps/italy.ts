@@ -141,7 +141,6 @@ export const map: GameMap = {
         { name: Cities.Pisa, region: Regions.Yellow, x: 304, y: 197 },
         { name: Cities.Parma, region: Regions.Yellow, x: 224, y: 81 },
         { name: Cities.Laspezia, region: Regions.Yellow, x: 245, y: 206 },
-        { name: Cities.Lovorno, region: Regions.Red, x: 333, y: 216 },
     ],
     connections: [
         { nodes: [Cities.Palermo, Cities.Catania], cost: 15 },

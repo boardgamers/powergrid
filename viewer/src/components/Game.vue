@@ -443,11 +443,11 @@ export default class Game extends Vue {
         if (this.G) {
             // workaround: refs are not set the first time
             this.$nextTick(() => {
-                this.powerPlantMarket.createPieces(this.G);
-                this.playerOrder.createPieces(this.G);
-                this.cityCount.createPieces(this.G);
-                this.map.createPieces(this.G);
-                this.resources.createPieces(this.G);
+                this.powerPlantMarket.createPieces(this.G!);
+                this.playerOrder.createPieces(this.G!);
+                this.cityCount.createPieces(this.G!);
+                this.map.createPieces(this.G!);
+                this.resources.createPieces(this.G!);
             });
         }
 

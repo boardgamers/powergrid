@@ -262,9 +262,11 @@ export const map: GameMap = {
             actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
             futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];
         } else {
+            // Remove power plant 13
+            powerPlantsDeck.splice(10, 1)[0];
             const powerPlant11 = powerPlantsDeck.splice(8, 1)[0];
 
-            let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 12), rng() + '');
+            let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 11), rng() + '');
             let initialPlantMarket = initialPowerPlants.splice(0, 7);
             initialPlantMarket.push(powerPlant11);
             initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);

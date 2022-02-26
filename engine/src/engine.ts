@@ -543,6 +543,13 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     player.citiesPowered = 0;
 
                     if (G.players.filter((p) => !p.passed && !p.isDropped).length == 0) {
+                        if (G.map.resupply) {
+                            coalResupply = G.map.resupply[0];
+                            oilResupply = G.map.resupply[1];
+                            garbageResupply = G.map.resupply[2];
+                            uraniumResupply = G.map.resupply[3];
+                        }
+
                         const coalResupplyValue = Math.min(
                             G.coalSupply,
                             coalResupply[G.players.length - 2][G.step - 1]

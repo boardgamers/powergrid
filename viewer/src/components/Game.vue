@@ -40,7 +40,7 @@
                 :chooseablePowerPlants="getChooseablePowerPlants()"
                 :cardsLeft="G.cardsLeft"
                 :minBid="G.currentBid + 1 || G.minimunBid"
-                :maxBid="G.players[player].money"
+                :maxBid="G.players[player] ? G.players[player].money : 0"
                 :nextCardWeak="G.nextCardWeak"
                 :plantDiscountActive="G.plantDiscountActive"
                 @choosePowerPlant="choosePowerPlant($event)"

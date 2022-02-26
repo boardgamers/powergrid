@@ -574,7 +574,7 @@ export default class Game extends Vue {
 
             case PowerPlantType.Oil:
                 hybridCapacityUsed = currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 > 0 ? Math.max(0, currentPlayer.coalLeft - currentPlayer.coalCapacity) : 0;
-                return currentPlayer.oilCapacity + currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 + parseInt(this.resourcesToDiscard[1].value) < currentPlayer.oilLeft + hybridCapacityUsed;
+                return currentPlayer.oilCapacity + currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 + parseInt(this.resourcesToDiscard[0].value) < currentPlayer.oilLeft + hybridCapacityUsed;
 
             case PowerPlantType.Garbage:
                 return currentPlayer.garbageCapacity - this.discardedPowerPlant!.cost * 2 - currentPlayer.garbageLeft + parseInt(this.resourcesToDiscard[0].value) < 0;

@@ -160,7 +160,7 @@
                     class="confirm-message"
                     style="text-align: center"
                 >
-                    {{ r.name }}: <input v-model="r.value" type="number" min="0" :max="r.max" style="width: 2em" />
+                    {{ r.name }}: <input v-model="r.value" type="number" min="0" :max="r.max" style="width: 3em" />
                 </div>
                 <div class="confirm-buttons">
                     <button class="confirm-button" :disabled="discardInvalid()" @click="confirmDiscard()">OK</button>

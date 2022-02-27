@@ -266,7 +266,7 @@
                         Game ends after building phase where a player has <strong>{{ G.citiesToEndGame }}</strong> or
                         more cities.<br />
                         The winner is the player that can power the most cities. Money and number of cities built are
-                        tiebrakers.
+                        tiebreakers.
                     </div>
                     <template v-if="G.map.mapSpecificRules">
                         <br />

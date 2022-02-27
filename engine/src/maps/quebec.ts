@@ -176,6 +176,36 @@ export const map: GameMap = {
     layout: 'Portrait',
     adjustRatio: [0.25, 0.35],
     mapPosition: [-20, 75],
+    resupply: [
+        [
+            [3, 3, 3],
+            [4, 4, 3],
+            [5, 4, 4],
+            [5, 5, 5],
+            [7, 6, 6],
+        ],
+        [
+            [2, 2, 3],
+            [2, 3, 3],
+            [3, 4, 4],
+            [4, 5, 4],
+            [5, 6, 5],
+        ],
+        [
+            [1, 2, 3],
+            [1, 2, 3],
+            [2, 3, 4],
+            [3, 3, 5],
+            [3, 5, 6],
+        ],
+        [
+            [1, 1, 1],
+            [1, 1, 1],
+            [1, 2, 2],
+            [2, 3, 2],
+            [2, 3, 3],
+        ],
+    ],
     startingResources: [21, 21, 6, 2],
     setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
         let powerPlantsDeck = cloneDeep(powerPlants);

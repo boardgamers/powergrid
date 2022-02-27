@@ -588,18 +588,31 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         });
 
                         if (G.futureMarket.length > 0) {
-                            const powerPlant = G.futureMarket.pop()!;
-                            G.log.push({
-                                type: 'event',
-                                event: `Putting Power Plant ${powerPlant.number} on the bottom of the deck`,
-                            });
-                            G.powerPlantsDeck.push(powerPlant);
+                            let powerPlantToPush: PowerPlant | undefined;
+                            if (G.map.name != 'Quebec') {
+                                powerPlantToPush = G.futureMarket.pop()!;
+                            } else {
+                                // For the Quebec map, ecological plants will never be put on the bottom of the deck.
+                                let nonEcoPlants = G.futureMarket.filter((pp) => pp.type != PowerPlantType.Wind);
+                                powerPlantToPush = nonEcoPlants.pop();
+                                G.futureMarket = G.futureMarket.filter((pp) => pp.number != powerPlantToPush?.number);
+                            }
+
+                            // This check covers the rare case in which a Quebec game might have a futures market consisting of
+                            // all ecological plants. In that case, we do not draw a new plant.
+                            if (powerPlantToPush) {
+                                G.log.push({
+                                    type: 'event',
+                                    event: `Putting Power Plant ${powerPlantToPush.number} on the bottom of the deck`,
+                                });
+                                G.powerPlantsDeck.push(powerPlantToPush);
+                                addPowerPlant(G);
+                            }
                         } else if (G.actualMarket.length > 0) {
                             G.log.push({ type: 'event', event: `Discarding Power Plant ${G.actualMarket[0].number}` });
                             G.actualMarket.shift();
+                            addPowerPlant(G);
                         }
-
-                        addPowerPlant(G);
 
                         G.round++;
 

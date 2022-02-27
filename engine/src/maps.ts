@@ -6,6 +6,7 @@ import { map as france } from './maps/france';
 import { map as germany, mapRecharged as germanyRecharged } from './maps/germany';
 import { map as italy } from './maps/italy';
 import { map as spainportugal } from './maps/spainportugal';
+import { map as quebec } from './maps/quebec';
 // import { map as australia } from './maps/australia';
 // import { map as badenwurttemberg } from './maps/badenwurttemberg';
 // import { map as benelux } from './maps/benelux';
@@ -16,7 +17,6 @@ import { map as spainportugal } from './maps/spainportugal';
 // import { map as korea } from './maps/korea';
 // import { map as middleeast } from './maps/middleeast';
 // import { map as northerneurope } from './maps/northerneurope';
-// import { map as quebec } from './maps/quebec';
 // import { map as russia } from './maps/russia';
 // import { map as southafrica } from './maps/southafrica';
 // import { map as ukireland } from './maps/ukireland';
@@ -75,6 +75,7 @@ export const maps: GameMap[] = [
     spainportugal,
     france,
     italy,
+    quebec,
     // australia,
     // badenwurttemberg,
     // benelux,
@@ -85,7 +86,6 @@ export const maps: GameMap[] = [
     // korea,
     // middleeast,
     // northerneurope,
-    // quebec,
     // russia,
     // southafrica,
     // ukireland,

@@ -3,7 +3,7 @@ import { LogItem } from './log';
 import { GameMap } from './maps';
 import { Move } from './move';
 
-export type MapName = 'USA' | 'Germany' | 'Brazil' | 'Spain & Portugal' | 'France' | 'Italy';
+export type MapName = 'USA' | 'Germany' | 'Brazil' | 'Spain & Portugal' | 'France' | 'Italy' | 'Quebec';
 // | 'Australia'
 // | 'Baden-Württemberg'
 // | 'Benelux'
@@ -14,7 +14,6 @@ export type MapName = 'USA' | 'Germany' | 'Brazil' | 'Spain & Portugal' | 'Franc
 // | 'Korea'
 // | 'Middle East'
 // | 'Northern Europe'
-// | 'Quebec'
 // | 'Russia'
 // | 'South Africa'
 // | 'UK & Ireland'

@@ -246,6 +246,7 @@ export const map: GameMap = {
             // Put Step 3 card on the bottom.
             powerPlantsDeck.push(step3);
         } else { 
+            // No ecological plants will be discarded.
             // For recharged 2 player, remove a random 1 from 3-15 and random 5 from 16-50.
             // For recharged 3 player, remove a random 2 from 3-15 and random 6 from 16-50.
             // For recharged 4 player, remove a random 1 from 3-15 and random 3 from 16-50.

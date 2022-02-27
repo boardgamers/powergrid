@@ -176,21 +176,20 @@ export const map: GameMap = {
     layout: 'Portrait',
     adjustRatio: [0.25, 0.35],
     mapPosition: [-20, 75],
-    startingResources: [21, 21, 6, 1],
+    startingResources: [21, 21, 6, 2],
     setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
         let powerPlantsDeck = cloneDeep(powerPlants);
         let actualMarket: PowerPlant[];
         let futureMarket: PowerPlant[];
 
-        // For the Quebec map, no ecological plants will be discarded at the beginning,
-        // and 13, 18, 22 will be set aside and placed on the top of the deck.
-        let setAsidePlants = powerPlantsDeck.filter((pp) => [13, 18, 22].includes(pp.number));
-        let otherEcoPlants = powerPlantsDeck.filter((pp) => pp.type == PowerPlantType.Wind
-            && ![13, 18, 22].includes(pp.number));
-        let nonEcoPlantsDeck = powerPlants.filter((pp) => pp.type != PowerPlantType.Wind);
-        
-        // TODO: Check rules for deck setup for recharged.
-        // if (variant == 'original') {
+        if (variant == 'original') {
+            // No ecological plants will be discarded.
+            // 13, 18, 22 will be set aside and placed on top of the deck.
+            let setAsidePlants = powerPlantsDeck.filter((pp) => [13, 18, 22].includes(pp.number));
+            let otherEcoPlants = powerPlantsDeck.filter((pp) => (pp.type == PowerPlantType.Wind || pp.type == PowerPlantType.Nuclear)
+                && ![13, 18, 22].includes(pp.number));
+            let nonEcoPlantsDeck = powerPlantsDeck.filter((pp) => pp.type != PowerPlantType.Wind && pp.type != PowerPlantType.Nuclear);    
+
             // Remove first eight plants for actual and future market.
             powerPlantsDeck = nonEcoPlantsDeck.slice(8);
             actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
@@ -216,29 +215,43 @@ export const map: GameMap = {
 
             // Put Step 3 card on the bottom.
             powerPlantsDeck.push(step3);
-        /** } else {
-            
-            let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 13), rng() + '');
+        } else { 
+            // For recharged 2 player, remove a random 1 from 3-15 and random 5 from 16-50.
+            // For recharged 3 player, remove a random 2 from 3-15 and random 6 from 16-50.
+            // For recharged 4 player, remove a random 1 from 3-15 and random 3 from 16-50.
+            // Once you have the deck, for recharged the starting 8 are a random 8 from 3-15 (including 13),
+            // then a random one from 3-15 on top, then 18, then 22, then the rest of the deck.
+            // Once you have the deck, for recharged the starting 8 are a random 8 from 3-15 (including 13),
+            // then a random one from 3-15 on top, then 18, then 22, then the rest of the deck
+            const step3 = powerPlantsDeck.pop()!;
+            let powerPlantsDeckLow = powerPlants.filter((pp) => pp.number >= 3 && pp.number <= 10);
+            let plant13 = powerPlants.filter((pp) => pp.number == 13);
+            let otherInitialEcoPlants = powerPlants.filter((pp) => pp.number == 18 || pp.number == 22);
+            let otherEcoPlants = powerPlants.filter((pp) => pp.number != 13 && (pp.type == PowerPlantType.Wind || pp.type == PowerPlantType.Nuclear));
+            let otherPlants1 = powerPlants.filter((pp) => pp.type != PowerPlantType.Wind && pp.number >= 11 && pp.number <= 15);
+            let otherPlants2 = powerPlants.filter((pp) => pp.type != PowerPlantType.Wind && pp.type != PowerPlantType.Nuclear && pp.number >= 16);
+            if (numPlayers == 2) {
+                otherPlants1 = shuffle(otherPlants1, rng() + '').slice(1);
+                otherPlants2 = shuffle(otherPlants2, rng() + '').slice(5);
+            } else if (numPlayers == 3) {
+                otherPlants1 = shuffle(otherPlants1, rng() + '').slice(2);
+                otherPlants2 = shuffle(otherPlants2, rng() + '').slice(6);
+            } else if (numPlayers == 4) {
+                otherPlants1 = shuffle(otherPlants1, rng() + '').slice(1);
+                otherPlants2 = shuffle(otherPlants2, rng() + '').slice(3);
+            }
+
+            let initialPowerPlants = powerPlantsDeckLow.concat(plant13).concat(otherPlants1);
             let initialPlantMarket = initialPowerPlants.splice(0, 8);
             initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
             actualMarket = initialPlantMarket.slice(0, 4);
             futureMarket = initialPlantMarket.slice(4);
 
-            const first = initialPowerPlants.shift()!;
-            const step3 = powerPlantsDeck.pop()!;
-
+            let topOfDeck = initialPlantMarket.slice(1);
+            powerPlantsDeck = initialPlantMarket.concat(otherEcoPlants).concat(otherPlants2);
             powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-            if (numPlayers == 2 || numPlayers == 3) {
-                initialPowerPlants = initialPowerPlants.slice(2);
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
-            } else if (numPlayers == 4) {
-                initialPowerPlants = initialPowerPlants.slice(1);
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
-            }
-
-            powerPlantsDeck.unshift(first);
-            powerPlantsDeck.push(step3);            
-        } */
+            powerPlantsDeck = topOfDeck.concat(otherInitialEcoPlants).concat(powerPlantsDeck).concat([step3]);
+        }
 
         return { actualMarket, futureMarket, powerPlantsDeck };
     },

@@ -593,7 +593,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 powerPlantToPush = G.futureMarket.pop()!;
                             } else {
                                 // For the Quebec map, ecological plants will never be put on the bottom of the deck.
-                                let nonEcoPlants = G.futureMarket.filter((pp) => pp.type != PowerPlantType.Wind);
+                                let nonEcoPlants = G.futureMarket.filter((pp) => pp.type != PowerPlantType.Wind && pp.type != PowerPlantType.Nuclear);
                                 powerPlantToPush = nonEcoPlants.pop();
                                 G.futureMarket = G.futureMarket.filter((pp) => pp.number != powerPlantToPush?.number);
                             }

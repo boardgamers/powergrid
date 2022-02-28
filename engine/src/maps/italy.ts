@@ -224,5 +224,6 @@ export const map: GameMap = {
         { nodes: [Cities.Ferrara, Cities.Modena], cost: 4 },
     ],
     mapPosition: [-20, 320],
+    startingResources: [18, 15, 12, 2],
     mapSpecificRules: 'Stop resupplying uranium after power plant 39 has been bought.',
 };

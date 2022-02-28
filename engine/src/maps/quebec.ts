@@ -150,7 +150,6 @@ export const map: GameMap = {
         { nodes: [Cities.Quebec, Cities.Stgeorges], cost: 12 },
         { nodes: [Cities.Stgeorges, Cities.Montmagny], cost: 12 },
         { nodes: [Cities.Montmagny, Cities.Riviereduloup], cost: 16 },
-        { nodes: [Cities.Riviereduloup, Cities.Rimouski], cost: 12 },
         { nodes: [Cities.Jonquiere, Cities.Charlesbourg], cost: 21 },
         { nodes: [Cities.Montmagny, Cities.Quebec], cost: 5 },
         { nodes: [Cities.Stsimeon, Cities.Charlesbourg], cost: 18 },
@@ -252,15 +251,13 @@ export const map: GameMap = {
             // For recharged 4 player, remove a random 1 from 3-15 and random 3 from 16-50.
             // Once you have the deck, for recharged the starting 8 are a random 8 from 3-15 (including 13),
             // then a random one from 3-15 on top, then 18, then 22, then the rest of the deck.
-            // Once you have the deck, for recharged the starting 8 are a random 8 from 3-15 (including 13),
-            // then a random one from 3-15 on top, then 18, then 22, then the rest of the deck
             const step3 = powerPlantsDeck.pop()!;
-            let powerPlantsDeckLow = powerPlants.filter((pp) => pp.number >= 3 && pp.number <= 10);
-            let plant13 = powerPlants.filter((pp) => pp.number == 13);
-            let otherInitialEcoPlants = powerPlants.filter((pp) => pp.number == 18 || pp.number == 22);
-            let otherEcoPlants = powerPlants.filter((pp) => pp.number != 13 && (pp.type == PowerPlantType.Wind || pp.type == PowerPlantType.Nuclear));
-            let otherPlants1 = powerPlants.filter((pp) => pp.type != PowerPlantType.Wind && pp.number >= 11 && pp.number <= 15);
-            let otherPlants2 = powerPlants.filter((pp) => pp.type != PowerPlantType.Wind && pp.type != PowerPlantType.Nuclear && pp.number >= 16);
+            let powerPlantsDeckLow = powerPlantsDeck.filter((pp) => pp.number >= 3 && pp.number <= 10);
+            let plant13 = powerPlantsDeck.filter((pp) => pp.number == 13);
+            let otherInitialEcoPlants = powerPlantsDeck.filter((pp) => pp.number == 18 || pp.number == 22);
+            let otherEcoPlants = powerPlantsDeck.filter((pp) => ![13, 18, 22].includes(pp.number) && (pp.type == PowerPlantType.Wind || pp.type == PowerPlantType.Nuclear));
+            let otherPlants1 = powerPlantsDeck.filter((pp) => pp.type != PowerPlantType.Wind && pp.number >= 11 && pp.number <= 15);
+            let otherPlants2 = powerPlantsDeck.filter((pp) => pp.type != PowerPlantType.Wind && pp.type != PowerPlantType.Nuclear && pp.number >= 16);
             if (numPlayers == 2) {
                 otherPlants1 = shuffle(otherPlants1, rng() + '').slice(1);
                 otherPlants2 = shuffle(otherPlants2, rng() + '').slice(5);
@@ -272,18 +269,21 @@ export const map: GameMap = {
                 otherPlants2 = shuffle(otherPlants2, rng() + '').slice(3);
             }
 
-            let initialPowerPlants = powerPlantsDeckLow.concat(plant13).concat(otherPlants1);
-            let initialPlantMarket = initialPowerPlants.splice(0, 8);
+            let initialPowerPlantOptions = shuffle(powerPlantsDeckLow.concat(plant13).concat(otherPlants1), rng() + '');
+            console.log('Initial deck', initialPowerPlantOptions);
+            let initialPlantMarket = initialPowerPlantOptions.splice(0, 8);
             initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
-            actualMarket = initialPlantMarket.slice(0, 4);
-            futureMarket = initialPlantMarket.slice(4);
+            actualMarket = initialPlantMarket.splice(0, 4);
+            futureMarket = initialPlantMarket;
 
-            let topOfDeck = initialPlantMarket.slice(1);
-            powerPlantsDeck = initialPlantMarket.concat(otherEcoPlants).concat(otherPlants2);
+            let topOfDeck = initialPowerPlantOptions.splice(0, 1);
+            console.log('Top of deck', topOfDeck);
+            powerPlantsDeck = initialPowerPlantOptions.concat(otherEcoPlants).concat(otherPlants2);
             powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
             powerPlantsDeck = topOfDeck.concat(otherInitialEcoPlants).concat(powerPlantsDeck).concat([step3]);
         }
 
+        console.log('Next deck', powerPlantsDeck);
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
     mapSpecificRules:

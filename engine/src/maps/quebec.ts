@@ -270,20 +270,17 @@ export const map: GameMap = {
             }
 
             let initialPowerPlantOptions = shuffle(powerPlantsDeckLow.concat(plant13).concat(otherPlants1), rng() + '');
-            console.log('Initial deck', initialPowerPlantOptions);
             let initialPlantMarket = initialPowerPlantOptions.splice(0, 8);
             initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
             actualMarket = initialPlantMarket.splice(0, 4);
             futureMarket = initialPlantMarket;
 
             let topOfDeck = initialPowerPlantOptions.splice(0, 1);
-            console.log('Top of deck', topOfDeck);
             powerPlantsDeck = initialPowerPlantOptions.concat(otherEcoPlants).concat(otherPlants2);
             powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
             powerPlantsDeck = topOfDeck.concat(otherInitialEcoPlants).concat(powerPlantsDeck).concat([step3]);
         }
 
-        console.log('Next deck', powerPlantsDeck);
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
     mapSpecificRules:

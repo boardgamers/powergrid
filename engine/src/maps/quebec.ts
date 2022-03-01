@@ -214,15 +214,20 @@ export const map: GameMap = {
         if (variant == 'original') {
             // No ecological plants will be discarded.
             // 13, 18, 22 will be set aside and placed on top of the deck.
-            let setAsidePlants = powerPlantsDeck.filter((pp) => [13, 18, 22].includes(pp.number));
-            let otherEcoPlants = powerPlantsDeck.filter((pp) => (pp.type == PowerPlantType.Wind || pp.type == PowerPlantType.Nuclear)
-                && ![13, 18, 22].includes(pp.number));
-            let nonEcoPlantsDeck = powerPlantsDeck.filter((pp) => pp.type != PowerPlantType.Wind && pp.type != PowerPlantType.Nuclear);    
+            const setAsidePlants = powerPlantsDeck.filter((pp) => [13, 18, 22].includes(pp.number));
+            const otherEcoPlants = powerPlantsDeck.filter(
+                (pp) =>
+                    (pp.type == PowerPlantType.Wind || pp.type == PowerPlantType.Nuclear) &&
+                    ![13, 18, 22].includes(pp.number)
+            );
+            const nonEcoPlantsDeck = powerPlantsDeck.filter(
+                (pp) => pp.type != PowerPlantType.Wind && pp.type != PowerPlantType.Nuclear
+            );
 
             // Remove first eight plants for actual and future market.
             powerPlantsDeck = nonEcoPlantsDeck.slice(8);
             actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
-            futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];            
+            futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];
 
             // Set aside Step 3 card.
             const step3 = powerPlantsDeck.pop()!;
@@ -240,11 +245,11 @@ export const map: GameMap = {
             powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
 
             // Put 13, 18, 22 on top of deck.
-            powerPlantsDeck  = setAsidePlants.concat(powerPlantsDeck);
+            powerPlantsDeck = setAsidePlants.concat(powerPlantsDeck);
 
             // Put Step 3 card on the bottom.
             powerPlantsDeck.push(step3);
-        } else { 
+        } else {
             // No ecological plants will be discarded.
             // For recharged 2 player, remove a random 1 from 3-15 and random 5 from 16-50.
             // For recharged 3 player, remove a random 2 from 3-15 and random 6 from 16-50.
@@ -252,12 +257,20 @@ export const map: GameMap = {
             // Once you have the deck, for recharged the starting 8 are a random 8 from 3-15 (including 13),
             // then a random one from 3-15 on top, then 18, then 22, then the rest of the deck.
             const step3 = powerPlantsDeck.pop()!;
-            let powerPlantsDeckLow = powerPlantsDeck.filter((pp) => pp.number >= 3 && pp.number <= 10);
-            let plant13 = powerPlantsDeck.filter((pp) => pp.number == 13);
-            let otherInitialEcoPlants = powerPlantsDeck.filter((pp) => pp.number == 18 || pp.number == 22);
-            let otherEcoPlants = powerPlantsDeck.filter((pp) => ![13, 18, 22].includes(pp.number) && (pp.type == PowerPlantType.Wind || pp.type == PowerPlantType.Nuclear));
-            let otherPlants1 = powerPlantsDeck.filter((pp) => pp.type != PowerPlantType.Wind && pp.number >= 11 && pp.number <= 15);
-            let otherPlants2 = powerPlantsDeck.filter((pp) => pp.type != PowerPlantType.Wind && pp.type != PowerPlantType.Nuclear && pp.number >= 16);
+            const powerPlantsDeckLow = powerPlantsDeck.filter((pp) => pp.number >= 3 && pp.number <= 10);
+            const plant13 = powerPlantsDeck.filter((pp) => pp.number == 13);
+            const otherInitialEcoPlants = powerPlantsDeck.filter((pp) => pp.number == 18 || pp.number == 22);
+            const otherEcoPlants = powerPlantsDeck.filter(
+                (pp) =>
+                    ![13, 18, 22].includes(pp.number) &&
+                    (pp.type == PowerPlantType.Wind || pp.type == PowerPlantType.Nuclear)
+            );
+            let otherPlants1 = powerPlantsDeck.filter(
+                (pp) => pp.type != PowerPlantType.Wind && pp.number >= 11 && pp.number <= 15
+            );
+            let otherPlants2 = powerPlantsDeck.filter(
+                (pp) => pp.type != PowerPlantType.Wind && pp.type != PowerPlantType.Nuclear && pp.number >= 16
+            );
             if (numPlayers == 2) {
                 otherPlants1 = shuffle(otherPlants1, rng() + '').slice(1);
                 otherPlants2 = shuffle(otherPlants2, rng() + '').slice(5);
@@ -269,13 +282,16 @@ export const map: GameMap = {
                 otherPlants2 = shuffle(otherPlants2, rng() + '').slice(3);
             }
 
-            let initialPowerPlantOptions = shuffle(powerPlantsDeckLow.concat(plant13).concat(otherPlants1), rng() + '');
+            const initialPowerPlantOptions = shuffle(
+                powerPlantsDeckLow.concat(plant13).concat(otherPlants1),
+                rng() + ''
+            );
             let initialPlantMarket = initialPowerPlantOptions.splice(0, 8);
             initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
             actualMarket = initialPlantMarket.splice(0, 4);
             futureMarket = initialPlantMarket;
 
-            let topOfDeck = initialPowerPlantOptions.splice(0, 1);
+            const topOfDeck = initialPowerPlantOptions.splice(0, 1);
             powerPlantsDeck = initialPowerPlantOptions.concat(otherEcoPlants).concat(otherPlants2);
             powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
             powerPlantsDeck = topOfDeck.concat(otherInitialEcoPlants).concat(powerPlantsDeck).concat([step3]);

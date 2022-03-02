@@ -106,6 +106,10 @@ export interface GameState {
     oilMarket: number;
     garbageMarket: number;
     uraniumMarket: number;
+    coalResupply?: number[][];
+    oilResupply?: number[][];
+    garbageResupply?: number[][];
+    uraniumResupply?: number[][];
     actualMarket: PowerPlant[];
     futureMarket: PowerPlant[];
     chosenPowerPlant: PowerPlant | undefined;

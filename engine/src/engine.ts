@@ -11,34 +11,6 @@ import { asserts, shuffle } from './utils';
 
 export const playerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', 'yellow', 'brown'];
 
-let coalResupply = [
-    [3, 4, 3],
-    [4, 5, 3],
-    [5, 6, 4],
-    [5, 7, 5],
-    [7, 9, 6],
-];
-let oilResupply = [
-    [2, 2, 4],
-    [2, 3, 4],
-    [3, 4, 5],
-    [4, 5, 6],
-    [5, 6, 7],
-];
-let garbageResupply = [
-    [1, 2, 3],
-    [1, 2, 3],
-    [2, 3, 4],
-    [3, 3, 5],
-    [3, 5, 6],
-];
-let uraniumResupply = [
-    [1, 1, 1],
-    [1, 1, 1],
-    [1, 2, 2],
-    [2, 3, 2],
-    [2, 3, 3],
-];
 const citiesToStep2 = [10, 7, 7, 7, 6];
 const citiesToEndGame = [21, 17, 17, 15, 14];
 const cityIncome = [10, 22, 33, 44, 54, 64, 73, 82, 90, 98, 105, 112, 118, 124, 129, 134, 138, 142, 145, 148, 150, 150];
@@ -169,11 +141,44 @@ export function setup(
     const playerOrder = range(numPlayers);
     const startingPlayer = playerOrder[0];
 
+    let coalResupply: number[][];
+    let oilResupply: number[][];
+    let garbageResupply: number[][];
+    let uraniumResupply: number[][];
     if (chosenMap.resupply) {
         coalResupply = chosenMap.resupply[0];
         oilResupply = chosenMap.resupply[1];
         garbageResupply = chosenMap.resupply[2];
         uraniumResupply = chosenMap.resupply[3];
+    } else {
+        coalResupply = [
+            [3, 4, 3],
+            [4, 5, 3],
+            [5, 6, 4],
+            [5, 7, 5],
+            [7, 9, 6],
+        ];
+        oilResupply = [
+            [2, 2, 4],
+            [2, 3, 4],
+            [3, 4, 5],
+            [4, 5, 6],
+            [5, 6, 7],
+        ];
+        garbageResupply = [
+            [1, 2, 3],
+            [1, 2, 3],
+            [2, 3, 4],
+            [3, 3, 5],
+            [3, 5, 6],
+        ];
+        uraniumResupply = [
+            [1, 1, 1],
+            [1, 1, 1],
+            [1, 2, 2],
+            [2, 3, 2],
+            [2, 3, 3],
+        ];
     }
 
     chosenMap.cities = chosenMap.cities.map((city) => ({
@@ -230,6 +235,10 @@ export function setup(
         oilSupply,
         garbageSupply,
         uraniumSupply,
+        coalResupply,
+        oilResupply,
+        garbageResupply,
+        uraniumResupply,
         coalMarket,
         oilMarket,
         garbageMarket,
@@ -302,6 +311,8 @@ export function currentPlayers(G: GameState): number[] {
 export function move(G: GameState, move: Move, playerNumber: number, isUndo = false): GameState {
     const player = G.players[playerNumber];
     const available = player.availableMoves?.[move.name];
+
+    updateGameState(G);
 
     assert(G.currentPlayers.includes(playerNumber), 'It is not your turn!');
     assert(available, 'You are not allowed to run the command ' + move.name);
@@ -543,27 +554,23 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     player.citiesPowered = 0;
 
                     if (G.players.filter((p) => !p.passed && !p.isDropped).length == 0) {
-                        if (G.map.resupply) {
-                            coalResupply = G.map.resupply[0];
-                            oilResupply = G.map.resupply[1];
-                            garbageResupply = G.map.resupply[2];
-                            uraniumResupply = G.map.resupply[3];
-                        }
-
                         const coalResupplyValue = Math.min(
                             G.coalSupply,
-                            coalResupply[G.players.length - 2][G.step - 1]
+                            G.coalResupply![G.players.length - 2][G.step - 1]
                         );
                         G.coalMarket += coalResupplyValue;
                         G.coalSupply -= coalResupplyValue;
 
-                        const oilResupplyValue = Math.min(G.oilSupply, oilResupply[G.players.length - 2][G.step - 1]);
+                        const oilResupplyValue = Math.min(
+                            G.oilSupply,
+                            G.oilResupply![G.players.length - 2][G.step - 1]
+                        );
                         G.oilMarket += oilResupplyValue;
                         G.oilSupply -= oilResupplyValue;
 
                         const garbageResupplyValue = Math.min(
                             G.garbageSupply,
-                            garbageResupply[G.players.length - 2][G.step - 1]
+                            G.garbageResupply![G.players.length - 2][G.step - 1]
                         );
                         G.garbageMarket += garbageResupplyValue;
                         G.garbageSupply -= garbageResupplyValue;
@@ -576,7 +583,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         ) {
                             uraniumResupplyValue = Math.min(
                                 G.uraniumSupply,
-                                uraniumResupply[G.players.length - 2][G.step - 1]
+                                G.uraniumResupply![G.players.length - 2][G.step - 1]
                             );
                             G.uraniumMarket += uraniumResupplyValue;
                             G.uraniumSupply -= uraniumResupplyValue;
@@ -1527,5 +1534,54 @@ function nextPlayerAuction(G: GameState, reset = false) {
 
     if ((player.skipAuction || player.passed) && G.players.some((p) => !p.skipAuction && !p.passed && !p.isDropped)) {
         nextPlayerAuction(G);
+    }
+}
+
+function updateGameState(G: GameState) {
+    if (!G.coalResupply) {
+        const map = maps.find((map) => map.name === G.map.name);
+
+        if (map?.resupply) {
+            G.coalResupply = map.resupply[0];
+            G.oilResupply = map.resupply[1];
+            G.garbageResupply = map.resupply[2];
+            G.uraniumResupply = map.resupply[3];
+        } else {
+            G.coalResupply = [
+                [3, 4, 3],
+                [4, 5, 3],
+                [5, 6, 4],
+                [5, 7, 5],
+                [7, 9, 6],
+            ];
+            G.oilResupply = [
+                [2, 2, 4],
+                [2, 3, 4],
+                [3, 4, 5],
+                [4, 5, 6],
+                [5, 6, 7],
+            ];
+            G.garbageResupply = [
+                [1, 2, 3],
+                [1, 2, 3],
+                [2, 3, 4],
+                [3, 3, 5],
+                [3, 5, 6],
+            ];
+            G.uraniumResupply = [
+                [1, 1, 1],
+                [1, 1, 1],
+                [1, 2, 2],
+                [2, 3, 2],
+                [2, 3, 3],
+            ];
+        }
+
+        const p = G.players.length - 2;
+        G.resourceResupply = [
+            `[${G.coalResupply[p][0]}, ${G.oilResupply[p][0]}, ${G.garbageResupply[p][0]}, ${G.uraniumResupply[p][0]}]`,
+            `[${G.coalResupply[p][1]}, ${G.oilResupply[p][1]}, ${G.garbageResupply[p][1]}, ${G.uraniumResupply[p][1]}]`,
+            `[${G.coalResupply[p][2]}, ${G.oilResupply[p][2]}, ${G.garbageResupply[p][2]}, ${G.uraniumResupply[p][2]}]`,
+        ];
     }
 }

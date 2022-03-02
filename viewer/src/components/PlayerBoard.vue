@@ -72,7 +72,7 @@
 </template>
 <script lang="ts">
 import { MoveName, Player } from 'powergrid-engine';
-import { PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
+import { Phase, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
 import { Vue, Component, Prop, Inject } from 'vue-property-decorator';
 import { Preferences } from '../types/ui-data';
 import { Coal, Oil, Garbage, Uranium, Card } from './pieces';
@@ -96,6 +96,7 @@ export default class PlayerBoard extends Vue {
     @Prop() isPlayer?: boolean;
     @Prop() ranking?: number;
     @Prop() showMoney?: boolean;
+    @Prop() phase?: Phase;
 
     @Inject() preferences!: Preferences;
 
@@ -178,7 +179,7 @@ export default class PlayerBoard extends Vue {
     }
 
     powerPlantClick(powerPlant: PowerPlant) {
-        if (powerPlant.type == PowerPlantType.Hybrid) {
+        if (this.phase == Phase.Bureaucracy && powerPlant.type == PowerPlantType.Hybrid) {
             if (
                 this.player.coalLeft == 0 ||
                 this.player.oilLeft == 0 ||

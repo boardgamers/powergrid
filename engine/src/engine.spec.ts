@@ -6,7 +6,7 @@ import supply from './fixtures/supply.json';
 import undo from './fixtures/undo.json';
 import USAOriginal from './fixtures/USAOriginal.json';
 import { GameOptions, MapName, Variant } from './gamestate';
-import { Move } from './move';
+import { Move, MoveName } from './move';
 
 describe('Engine', () => {
     it('should setup a game correctly', () => {
@@ -158,6 +158,6 @@ describe('Engine', () => {
 
         const G = reconstructState(game as any, game.log.length - 1);
 
-        expect(ended(G)).to.be.false;
+        move(G, { name: MoveName.Undo, data: false }, 3, true);
     });
 });

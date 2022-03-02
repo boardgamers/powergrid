@@ -1120,6 +1120,7 @@ export function reconstructState(gameState: GameState, to?: number): GameState {
         G.futureMarket = G.powerPlantsDeck.splice(0, 4);
         G.players[G.currentPlayers[0]].availableMoves = availableMoves(G, G.players[G.currentPlayers[0]]);
         G.powerPlantDeckAfterStep3 = gameState.knownPowerPlantDeckStep3;
+        G.knownPowerPlantDeck = G.actualMarket.concat(G.futureMarket);
     }
 
     if (to != undefined && gameState.seed == 'secret' && gameState.knownPowerPlantDeck) {
@@ -1129,6 +1130,7 @@ export function reconstructState(gameState: GameState, to?: number): GameState {
         G.futureMarket = G.powerPlantsDeck.splice(0, 4);
         G.players[G.currentPlayers[0]].availableMoves = availableMoves(G, G.players[G.currentPlayers[0]]);
         G.powerPlantDeckAfterStep3 = gameState.knownPowerPlantDeckStep3;
+        G.knownPowerPlantDeck = G.actualMarket.concat(G.futureMarket);
     }
 
     const log = to != null ? gameState.log.slice(0, to) : gameState.log;

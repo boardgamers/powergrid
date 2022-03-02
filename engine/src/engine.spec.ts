@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import { ended, move, reconstructState, setup } from './engine';
+import france from './fixtures/france.json';
 import GermanyRecharged from './fixtures/GermanyRecharged.json';
 import supply from './fixtures/supply.json';
 import undo from './fixtures/undo.json';
@@ -148,6 +149,14 @@ describe('Engine', () => {
                 G = move(G, item.move! as Move, item.player!, true);
             }
         }
+
+        expect(ended(G)).to.be.false;
+    });
+
+    it('should replay game france', () => {
+        const game = france;
+
+        const G = reconstructState(game as any, game.log.length - 1);
 
         expect(ended(G)).to.be.false;
     });

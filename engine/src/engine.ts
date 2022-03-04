@@ -1120,24 +1120,25 @@ export function reconstructState(gameState: GameState, to?: number): GameState {
     const initialState = getBaseState(gameState);
     const G = cloneDeep(initialState);
 
-    // fix can't undo france after changing deck setup
-    if (gameState.map.name == 'France' && gameState.knownPowerPlantDeck) {
-        G.powerPlantsDeck = cloneDeep(gameState.knownPowerPlantDeck);
-        G.actualMarket = G.powerPlantsDeck.splice(0, 4);
-        G.futureMarket = G.powerPlantsDeck.splice(0, 4);
-        G.players[G.currentPlayers[0]].availableMoves = availableMoves(G, G.players[G.currentPlayers[0]]);
-        G.powerPlantDeckAfterStep3 = gameState.knownPowerPlantDeckStep3;
-        G.knownPowerPlantDeck = G.actualMarket.concat(G.futureMarket);
-    }
-
-    if (to != undefined && gameState.seed == 'secret' && gameState.knownPowerPlantDeck) {
-        G.map = gameState.map;
-        G.powerPlantsDeck = cloneDeep(gameState.knownPowerPlantDeck);
-        G.actualMarket = G.powerPlantsDeck.splice(0, 4);
-        G.futureMarket = G.powerPlantsDeck.splice(0, 4);
-        G.players[G.currentPlayers[0]].availableMoves = availableMoves(G, G.players[G.currentPlayers[0]]);
-        G.powerPlantDeckAfterStep3 = gameState.knownPowerPlantDeckStep3;
-        G.knownPowerPlantDeck = G.actualMarket.concat(G.futureMarket);
+    if (to != undefined && gameState.seed == 'secret') {
+        if (gameState.knownPowerPlantDeck) {
+            G.map = gameState.map;
+            G.powerPlantsDeck = cloneDeep(gameState.knownPowerPlantDeck);
+            G.actualMarket = G.powerPlantsDeck.splice(0, 4);
+            G.futureMarket = G.powerPlantsDeck.splice(0, 4);
+            G.players[G.currentPlayers[0]].availableMoves = availableMoves(G, G.players[G.currentPlayers[0]]);
+            G.powerPlantDeckAfterStep3 = gameState.knownPowerPlantDeckStep3;
+            G.knownPowerPlantDeck = G.actualMarket.concat(G.futureMarket);
+        }
+    } else {
+        // fix can't undo france after changing deck setup
+        if (gameState.map.name == 'France' && gameState.knownPowerPlantDeck) {
+            G.powerPlantsDeck = cloneDeep(gameState.knownPowerPlantDeck);
+            G.actualMarket = G.powerPlantsDeck.splice(0, 4);
+            G.futureMarket = G.powerPlantsDeck.splice(0, 4);
+            G.players[G.currentPlayers[0]].availableMoves = availableMoves(G, G.players[G.currentPlayers[0]]);
+            G.knownPowerPlantDeck = G.actualMarket.concat(G.futureMarket);
+        }
     }
 
     const log = to != null ? gameState.log.slice(0, to) : gameState.log;

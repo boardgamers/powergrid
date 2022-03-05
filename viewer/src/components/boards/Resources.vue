@@ -78,6 +78,30 @@
             16
         </text>
 
+        <template v-if="isUsaRecharged">
+            <rect
+                width="180"
+                height="70"
+                x="795"
+                y="45"
+                rx="2"
+                fill="chocolate"
+                stroke="sandybrown"
+                stroke-width="4px"
+            />
+            <circle r="10" cx="973" cy="45" fill="yellow" />
+            <text
+                text-anchor="middle"
+                style="font-size: 16px; font-family: monospace"
+                x="973"
+                y="45"
+                fill="darkgoldenrod"
+            >
+                8
+            </text>
+            <Coal :pieceId="-1" :targetState="{ x: 858, y: 57 }" :canClick="false" :transparent="true" :scale="0.2" />
+        </template>
+
         <template v-for="coal in coals">
             <Coal
                 :key="coal.id"
@@ -120,30 +144,6 @@
                 :transparent="uranium.transparent"
                 @click="buyResource('uranium')"
             />
-        </template>
-
-        <template v-if="isUsaRecharged">
-            <rect
-                width="180"
-                height="70"
-                x="795"
-                y="45"
-                rx="2"
-                fill="chocolate"
-                stroke="sandybrown"
-                stroke-width="4px"
-            />
-            <circle r="10" cx="973" cy="45" fill="yellow" />
-            <text
-                text-anchor="middle"
-                style="font-size: 16px; font-family: monospace"
-                x="973"
-                y="45"
-                fill="darkgoldenrod"
-            >
-                8
-            </text>
-            <Coal :pieceId="-1" :targetState="{ x: 858, y: 57 }" :canClick="false" :transparent="true" :scale="0.2" />
         </template>
 
         <template v-if="!preferences.disableHelp">

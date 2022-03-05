@@ -1,5 +1,3 @@
-import { defaultSetupDeck } from '../engine';
-import { PowerPlant, PowerPlantType } from '../gamestate';
 import { GameMap } from './../maps';
 
 export enum Regions {

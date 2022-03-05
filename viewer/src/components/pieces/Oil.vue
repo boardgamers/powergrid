@@ -2,7 +2,7 @@
     <g
         :id="elId"
         :class="[{ canClick: canClick }]"
-        :transform="`translate(${currentX}, ${currentY})`"
+        :transform="`translate(${currentX}, ${currentY}) scale(${currentScale})`"
         :opacity="transparent ? 0.3 : 1"
         @click="canClick && $emit('click')"
     >

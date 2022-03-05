@@ -62,6 +62,8 @@
                 ref="resources"
                 :transform="`translate(${G.map.supplyPosition[0]}, ${G.map.supplyPosition[1]})`"
                 :isUsaRecharged="G.options.variant == 'recharged' && G.map.name == 'USA'"
+                :isMiddleEast="G.map.name == 'Middle East'"
+                :availableSurplusOil="G.map.name == 'Middle East' ? Math.max(G.oilMarket - G.oilPrices.filter(p => p > 1).length, 0) : 0"
                 :buyableResources="buyableResources()"
                 :resourceResupply="getResourceResupply()"
                 @buyResource="buyResource($event)"
@@ -304,7 +306,7 @@ import { Vue, Component, Prop, Watch, Provide, ProvideReactive, Ref } from 'vue-
 import { MoveName, ended, playersSortedByScore, reconstructState } from 'powergrid-engine';
 import type { GameState } from 'powergrid-engine';
 import { EventEmitter } from 'events';
-import { Piece, UIData, Preferences } from '../types/ui-data';
+import { UIData, Preferences } from '../types/ui-data';
 import { Card, House, Coal, Oil, Garbage, Uranium } from './pieces';
 import { Button, PassButton, UndoButton, LogButton, SoundButton, HelpButton, RulesButton } from './buttons';
 import PlayerBoard from './PlayerBoard.vue';

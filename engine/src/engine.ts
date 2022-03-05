@@ -588,6 +588,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         if (G.map.name == 'Middle East') {
                             // If we have more oil to stock, take it from the expensive side and move it down to $1.
                             let newSurplusOil = G.oilResupply![G.players.length - 2][G.step - 1] - oilResupplyValue;
+                            oilResupplyValue += newSurplusOil;
                             for (let i = 0; i < newSurplusOil; i++) {
                                 G.oilPrices.pop()!;
                                 G.oilPrices.unshift(1);

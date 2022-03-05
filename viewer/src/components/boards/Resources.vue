@@ -150,7 +150,8 @@
             <rect width="80" height="50" x="20" y="70" rx="2" fill="gray" stroke="darkgray" stroke-width="4px" />
             <Oil
                 :pieceId="-1"
-                :targetState="{ x: 35, y: 80, scale: 1.5 }"
+                :targetState="{ x: 35, y: 80 }"
+                :scale="1.5"
                 :canClick="availableSurplusOil > 0"
                 :transparent="availableSurplusOil == 0"
                 @click="buyResource('oil')"
@@ -237,7 +238,6 @@ export default class Resources extends Vue {
                     .fill(0)
                     .forEach((_, i) => {
                         let adjustedIndex = i + (maxSurplusOil - 3);
-                        console.log('Oil index', adjustedIndex);
                         this.oils.push({
                             id: 'normal_oil_' + adjustedIndex,
                             x: 651 - 16 * adjustedIndex - 37 * Math.floor(adjustedIndex / 3),

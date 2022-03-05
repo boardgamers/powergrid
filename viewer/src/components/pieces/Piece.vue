@@ -14,12 +14,11 @@ import { PieceType, UIData } from './../../types/ui-data';
     }
 })
 export default class Piece extends Vue {
-    @Prop({ default: () => ({ x: 0, y: 0, scale: 1, rotate: 0 }) })
+    @Prop({ default: () => ({ x: 0, y: 0, rotate: 0 }) })
     targetState!: {
         x: number,
         y: number,
         rotate: number,
-        scale: number,
     };
 
     @Prop()
@@ -38,7 +37,6 @@ export default class Piece extends Vue {
 
     currentX = 0;
     currentY = 0;
-    currentScale = 1;
     mounted = false;
     transitioning = false;
     transitionCount = 0;
@@ -67,8 +65,7 @@ export default class Piece extends Vue {
     @Watch('dragging')
     @Watch('targetState', { immediate: true })
     onTargetChanged(newVal: boolean, oldVal: boolean) {
-        if (this.targetState.x === this.currentX && this.targetState.y === this.currentY
-            && (!this.targetState.scale || this.targetState.scale === this.currentScale)) {
+        if (this.targetState.x === this.currentX && this.targetState.y === this.currentY) {
             return;
         }
 
@@ -84,13 +81,11 @@ export default class Piece extends Vue {
         if (!this.mounted) {
             this.currentX = this.targetState.x;
             this.currentY = this.targetState.y;
-            this.currentScale = this.targetState.scale ?? 1;
         } else {
             // Make sure the animation plays by waiting until the class "dragging" is removed for sure from the element
             setTimeout(() => {
                 this.currentX = this.targetState.x;
                 this.currentY = this.targetState.y;
-                this.currentScale = this.targetState.scale ?? 1;
             });
         }
     }

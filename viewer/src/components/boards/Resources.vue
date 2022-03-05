@@ -143,13 +143,16 @@
             >
                 8
             </text>
-            <Coal :pieceId="-1" :targetState="{ x: 840, y: 57 }" :scale="0.2"
-                :canClick="coalSupply && canBuyResource('coal')" :transparent="coalSupply == 0" @click="buyResource('coal')" />
-            <text text-anchor="middle"
-                style="font-size: 20px; font-family: monospace"
-                x="905"
-                y="80">
-                x{{coalSupply}}
+            <Coal
+                :pieceId="-1"
+                :targetState="{ x: 840, y: 57 }"
+                :scale="0.2"
+                :canClick="coalSupply && canBuyResource('coal')"
+                :transparent="coalSupply == 0"
+                @click="buyResource('coal')"
+            />
+            <text text-anchor="middle" style="font-size: 20px; font-family: monospace" x="905" y="80">
+                x{{ coalSupply }}
             </text>
         </template>
 

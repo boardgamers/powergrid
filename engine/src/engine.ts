@@ -1275,8 +1275,9 @@ function addPowerPlant(G: GameState) {
                 if (G.map.name == 'Middle East' && G.step == 1) {
                     G.log.push({
                         type: 'event',
-                        event: `Step 2 will begin next phase, discarding two lowest plants.`,
+                        event: `Step 2 will begin next phase.`,
                     });
+                    addPowerPlant(G);
                     
                     const powerPlantDiscarded1 = G.actualMarket.shift();
                     if (powerPlantDiscarded1) {
@@ -1324,9 +1325,19 @@ function addPowerPlant(G: GameState) {
                 G.log.push({ type: 'event', event: `Power Plant ${powerPlant.number} drawn from the deck.` });
             }
         }
+        
+        const market = [...G.actualMarket, ...G.futureMarket, powerPlant];
+        market.sort((a, b) => a.number - b.number);
+        if (G.futureMarket.length == 0) {
+            G.actualMarket = market.slice(0, 6);
+            G.futureMarket = [];
+        } else {
+            G.actualMarket = market.slice(0, 4);
+            G.futureMarket = market.slice(4);
+        }
 
-        if (G.map.name == 'Middle East' && G.step == 1 && powerPlant.number != 99) {
-            // Remove garbage and uranium plants from the actual market.
+        if (G.map.name == 'Middle East' && G.step == 1) {
+            // Remove garbage and uranium plants from the actual market during step 1.
             // If the number is 6, 11, or 14, the plant is removed from the game. Otherwise, it is put at the bottom of the deck.
             let plantToRemove: PowerPlant | undefined = G.actualMarket.find((pp: PowerPlant) => pp.type == PowerPlantType.Garbage || pp.type == PowerPlantType.Uranium);
             while (plantToRemove) {
@@ -1341,16 +1352,6 @@ function addPowerPlant(G: GameState) {
 
                 addPowerPlant(G);
                 plantToRemove = G.actualMarket.find((pp: PowerPlant) => pp.type == PowerPlantType.Garbage || pp.type == PowerPlantType.Uranium);
-            }
-        } else {
-            const market = [...G.actualMarket, ...G.futureMarket, powerPlant];
-            market.sort((a, b) => a.number - b.number);
-            if (G.futureMarket.length == 0) {
-                G.actualMarket = market.slice(0, 6);
-                G.futureMarket = [];
-            } else {
-                G.actualMarket = market.slice(0, 4);
-                G.futureMarket = market.slice(4);
             }
         }
     }

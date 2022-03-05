@@ -147,23 +147,15 @@
         </template>
 
         <template v-if="isMiddleEast">
-            <rect
-                width="80"
-                height="50"
-                x="20"
-                y="70"
-                rx="2"
-                fill="gray"
-                stroke="darkgray"
-                stroke-width="4px"
+            <rect width="80" height="50" x="20" y="70" rx="2" fill="gray" stroke="darkgray" stroke-width="4px" />
+            <Oil
+                :pieceId="-1"
+                :targetState="{ x: 35, y: 80, scale: 1.5 }"
+                :canClick="availableSurplusOil > 0"
+                :transparent="availableSurplusOil == 0"
+                @click="buyResource('oil')"
             />
-            <Oil :pieceId="-1" :targetState="{ x: 35, y: 80, scale: 1.5 }" :canClick="availableSurplusOil > 0" :transparent="availableSurplusOil == 0" @click="buyResource('oil')" />
-            <text
-                text-anchor="middle"
-                style="font-size: 16px; font-family: monospace"
-                x="70"
-                y="93.5"
-            >
+            <text text-anchor="middle" style="font-size: 16px; font-family: monospace" x="70" y="93.5">
                 x{{ availableSurplusOil }}
             </text>
         </template>
@@ -239,8 +231,8 @@ export default class Resources extends Vue {
             if (gameState.map.name == 'Middle East') {
                 let maxRegularOil = gameState.oilPrices.filter(p => p > 1).length;
                 let maxSurplusOil = gameState.oilPrices.filter(p => p == 1).length;
-                let availableRegularOil = Math.min(maxRegularOil, gameState.oilMarket);                
-                
+                let availableRegularOil = Math.min(maxRegularOil, gameState.oilMarket);
+
                 Array(maxRegularOil)
                     .fill(0)
                     .forEach((_, i) => {

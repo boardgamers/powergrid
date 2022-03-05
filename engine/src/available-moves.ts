@@ -151,7 +151,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 } else {
                     price = prices[ResourceType.Oil][prices[ResourceType.Oil].length - G.oilMarket];
                 }
-                
+
                 if (
                     player.money >= price &&
                     player.oilCapacity + player.hybridCapacity > hybridCapacityUsed + player.oilLeft

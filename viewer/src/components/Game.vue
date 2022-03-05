@@ -64,6 +64,7 @@
                 :isUsaRecharged="G.options.variant == 'recharged' && G.map.name == 'USA'"
                 :buyableResources="buyableResources()"
                 :resourceResupply="getResourceResupply()"
+                :coalSupply="G.coalSupply"
                 @buyResource="buyResource($event)"
             />
 

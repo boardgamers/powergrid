@@ -115,7 +115,7 @@ export function setup(
         if (chosenMap.setupDeck) {
             ({ actualMarket, futureMarket, powerPlantsDeck } = chosenMap.setupDeck(numPlayers, variant, rng));
         } else {
-            ({ actualMarket, futureMarket, powerPlantsDeck } = defaultSetupDeck(numPlayers, variant, rng));
+            ({ actualMarket, futureMarket, powerPlantsDeck } = defaultSetupDeck(numPlayers, variant, rng));            
         }
     }
 
@@ -239,6 +239,8 @@ export function setup(
     const garbageSupply = totalGarbage - garbageMarket;
     const uraniumSupply = totalUranium - uraniumMarket;
 
+    const oilPrices = cloneDeep(prices.oil);
+
     const G: GameState = {
         map: forceMap || filteredMap,
         players,
@@ -257,6 +259,7 @@ export function setup(
         oilMarket,
         garbageMarket,
         uraniumMarket,
+        oilPrices,
         actualMarket,
         futureMarket,
         chosenPowerPlant: undefined,
@@ -575,12 +578,21 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         G.coalMarket += coalResupplyValue;
                         G.coalSupply -= coalResupplyValue;
 
-                        const oilResupplyValue = Math.min(
+                        let oilResupplyValue = Math.min(
                             G.oilSupply,
                             G.oilResupply![G.players.length - 2][G.step - 1]
                         );
                         G.oilMarket += oilResupplyValue;
                         G.oilSupply -= oilResupplyValue;
+                        
+                        if (G.map.name == 'Middle East') {
+                            // If we have more oil to stock, take it from the expensive side and move it down to $1.
+                            let newSurplusOil = G.oilResupply![G.players.length - 2][G.step - 1] - oilResupplyValue;
+                            for (let i = 0; i < newSurplusOil; i++) {
+                                G.oilPrices.pop()!;
+                                G.oilPrices.unshift(1);
+                            }
+                        }
 
                         const garbageResupplyValue = Math.min(
                             G.garbageSupply,
@@ -608,17 +620,34 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             event: `Resupplying resources: [${coalResupplyValue}, ${oilResupplyValue}, ${garbageResupplyValue}, ${uraniumResupplyValue}]`,
                         });
 
-                        if (G.futureMarket.length > 0) {
+                        if (G.map.name == 'Middle East' && G.step == 2) {
+                            // Discard top two plants instead of one.
+                            let powerPlantToPush: PowerPlant = G.futureMarket.pop()!;
+                            G.log.push({
+                                type: 'event',
+                                event: `Putting Power Plant ${powerPlantToPush.number} on the bottom of the deck`,
+                            });
+                            G.powerPlantsDeck.push(powerPlantToPush);
+                            addPowerPlant(G);
+
+                            powerPlantToPush = G.futureMarket.pop()!;
+                            G.log.push({
+                                type: 'event',
+                                event: `Putting Power Plant ${powerPlantToPush.number} on the bottom of the deck`,
+                            });
+                            G.powerPlantsDeck.push(powerPlantToPush);
+                            addPowerPlant(G);
+                        } else if (G.futureMarket.length > 0) {
                             let powerPlantToPush: PowerPlant | undefined;
-                            if (G.map.name != 'Quebec') {
-                                powerPlantToPush = G.futureMarket.pop()!;
-                            } else {
+                            if (G.map.name == 'Quebec') {
                                 // For the Quebec map, ecological plants will never be put on the bottom of the deck.
                                 const nonEcoPlants = G.futureMarket.filter(
                                     (pp) => pp.type != PowerPlantType.Wind && pp.type != PowerPlantType.Nuclear
                                 );
                                 powerPlantToPush = nonEcoPlants.pop();
                                 G.futureMarket = G.futureMarket.filter((pp) => pp.number != powerPlantToPush?.number);
+                            } else {
+                                powerPlantToPush = G.futureMarket.pop()!;
                             }
 
                             // This check covers the rare case in which a Quebec game might have a futures market consisting of
@@ -880,10 +909,15 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     break;
 
                 case ResourceType.Oil:
-                    price = prices[move.data.resource][prices[move.data.resource].length - G.oilMarket];
+                    if (G.map.name == 'Middle East') {
+                        price = G.oilPrices[G.oilPrices.length - G.oilMarket];
+                    } else {
+                        price = prices[move.data.resource][prices[move.data.resource].length - G.oilMarket];
+                    }
+                    
                     player.oilLeft++;
                     G.oilMarket--;
-                    break;
+                    break;                    
 
                 case ResourceType.Garbage:
                     price = prices[move.data.resource][prices[move.data.resource].length - G.garbageMarket];
@@ -1277,7 +1311,6 @@ function addPowerPlant(G: GameState) {
                         type: 'event',
                         event: `Step 2 will begin next phase.`,
                     });
-                    addPowerPlant(G);
                     
                     const powerPlantDiscarded1 = G.actualMarket.shift();
                     if (powerPlantDiscarded1) {
@@ -1337,8 +1370,7 @@ function addPowerPlant(G: GameState) {
         }
 
         if (G.map.name == 'Middle East' && G.step == 1) {
-            // Remove garbage and uranium plants from the actual market during step 1.
-            // If the number is 6, 11, or 14, the plant is removed from the game. Otherwise, it is put at the bottom of the deck.
+            // Remove garbage and uranium plants from the actual market.
             let plantToRemove: PowerPlant | undefined = G.actualMarket.find((pp: PowerPlant) => pp.type == PowerPlantType.Garbage || pp.type == PowerPlantType.Uranium);
             while (plantToRemove) {
                 G.actualMarket.splice(
@@ -1346,8 +1378,17 @@ function addPowerPlant(G: GameState) {
                     1
                 );
 
-                if (![6, 11, 14].includes(plantToRemove.number)) {
+                if ([6, 11, 14].includes(plantToRemove.number)) {
+                    G.log.push({
+                        type: 'event',
+                        event: `Removing Power Plant ${plantToRemove.number} from game.`,
+                    })
+                } else {
                     G.powerPlantsDeck.push(plantToRemove);
+                    G.log.push({
+                        type: 'event',
+                        event: `Sending Power Plant ${plantToRemove.number} to the bottom of the deck.`,
+                    });
                 }
 
                 addPowerPlant(G);
@@ -1374,6 +1415,40 @@ function getBaseState(G: GameState): GameState {
         player.name = G.players[i].name;
         player.isAI = G.players[i].isAI;
     });
+
+    if (baseState.map.name == 'Middle East') {
+        // Remove garbage and uranium plants from the actual market. If the number is not 6, 11, or 14, move the plant to the bottom of the deck.
+        let plantToRemove: PowerPlant | undefined = baseState.actualMarket.find((pp: PowerPlant) => pp.type == PowerPlantType.Garbage || pp.type == PowerPlantType.Uranium);
+        while (plantToRemove) {
+            baseState.actualMarket.splice(
+                baseState.actualMarket.findIndex((pp) => pp.number == plantToRemove!.number),
+                1
+            );
+
+            if ([6, 11, 14].includes(plantToRemove.number)) {
+                baseState.log.push({
+                    type: 'event',
+                    event: `Removing Power Plant ${plantToRemove.number} from game.`,
+                })
+            } else {
+                baseState.powerPlantsDeck.push(plantToRemove);
+                baseState.log.push({
+                    type: 'event',
+                    event: `Sending Power Plant ${plantToRemove.number} to the bottom of the deck.`,
+                });
+            }
+
+            let newCurrentPlant: PowerPlant = baseState.futureMarket.shift()!;
+            baseState.actualMarket.push(newCurrentPlant);
+            baseState.actualMarket.sort((a, b) => a.number - b.number);
+
+            let newFuturePlant = baseState.powerPlantsDeck.shift()!;
+            baseState.futureMarket.push(newFuturePlant);
+            baseState.futureMarket.sort((a, b) => a.number - b.number);
+
+            plantToRemove = baseState.actualMarket.find((pp: PowerPlant) => pp.type == PowerPlantType.Garbage || pp.type == PowerPlantType.Uranium);
+        }
+    }
 
     return baseState;
 }
@@ -1498,6 +1573,7 @@ function toResourcesPhase(G: GameState) {
                 type: 'event',
                 event: 'Starting Step 2, discarding two power plants.',
             });
+            G.step = 2;
 
             const powerPlantDiscarded1 = G.actualMarket.shift();
             if (powerPlantDiscarded1) {
@@ -1516,8 +1592,6 @@ function toResourcesPhase(G: GameState) {
                 });
                 addPowerPlant(G);
             }
-
-            G.step = 2;
         } else {
             const powerPlantDiscarded = G.actualMarket.shift();
             G.futureMarket.pop();

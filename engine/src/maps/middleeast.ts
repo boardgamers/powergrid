@@ -189,7 +189,7 @@ export const map: GameMap = {
         { nodes: [Cities.Sanaa, Cities.Alhudaydah], cost: 5 },
     ],
     layout: 'Portrait',
-    mapPosition: [0, 0],
+    mapPosition: [0, -100],
     resupply: [
         [
             [3, 3, 3],
@@ -203,7 +203,7 @@ export const map: GameMap = {
             [2, 3, 3],
             [3, 4, 4],
             [4, 5, 4],
-            [5, 6, 5],
+            [10, 6, 5],
         ],
         [
             [1, 2, 3],
@@ -222,38 +222,6 @@ export const map: GameMap = {
     ],
     startingResources: [21, 21, 3, 3],
     startingSupply: [24, 24, 21, 11],
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
-        // Start with default deck setup.
-        let actualMarket: PowerPlant[];
-        let futureMarket: PowerPlant[];
-        let powerPlantsDeck: PowerPlant[];
-        ({actualMarket, futureMarket, powerPlantsDeck} = defaultSetupDeck(numPlayers, variant, rng));
-
-        // Remove garbage and uranium plants from the actual market. If the number is not 6, 11, or 14, move the plant to the bottom of the deck.
-        let plantToRemove: PowerPlant | undefined = actualMarket.find((pp: PowerPlant) => pp.type == PowerPlantType.Garbage || pp.type == PowerPlantType.Uranium);
-        while (plantToRemove) {
-            actualMarket.splice(
-                actualMarket.findIndex((pp) => pp.number == plantToRemove!.number),
-                1
-            );
-
-            if (![6, 11, 14].includes(plantToRemove.number)) {
-                powerPlantsDeck.push(plantToRemove);
-            }
-
-            let newCurrentPlant: PowerPlant = futureMarket.shift()!;
-            actualMarket.push(newCurrentPlant);
-            actualMarket.sort((a, b) => a.number - b.number);
-
-            let newFuturePlant = powerPlantsDeck.shift()!;
-            futureMarket.push(newFuturePlant);
-            futureMarket.sort((a, b) => a.number - b.number);
-
-            plantToRemove = actualMarket.find((pp: PowerPlant) => pp.type == PowerPlantType.Garbage || pp.type == PowerPlantType.Uranium);
-        }
-
-        return {actualMarket, futureMarket, powerPlantsDeck};
-    },
     mapSpecificRules:
         'Only coal and oil can be bought for $1, and any number of oil can restock at $1. During step 1, garbage and nuclear plants will be removed from the current market. Step 2 will be triggered after going through the deck once rather than by a specific number of cities. Step 3 will be triggered after going through the deck again.',
 };

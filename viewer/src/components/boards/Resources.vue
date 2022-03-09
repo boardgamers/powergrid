@@ -152,7 +152,7 @@
                 :pieceId="-1"
                 :targetState="{ x: 35, y: 80 }"
                 :scale="1.5"
-                :canClick="availableSurplusOil > 0"
+                :canClick="availableSurplusOil > 0 && canBuyResource('oil')"
                 :transparent="availableSurplusOil == 0"
                 @click="buyResource('oil')"
             />
@@ -230,8 +230,8 @@ export default class Resources extends Vue {
 
             this.oils = [];
             if (gameState.map.name == 'Middle East') {
-                let maxRegularOil = gameState.oilPrices.filter(p => p > 1).length;
-                let maxSurplusOil = gameState.oilPrices.filter(p => p == 1).length;
+                let maxRegularOil = gameState.oilPrices!.filter(p => p > 1).length;
+                let maxSurplusOil = gameState.oilPrices!.filter(p => p == 1).length;
                 let availableRegularOil = Math.min(maxRegularOil, gameState.oilMarket);
 
                 Array(maxRegularOil)

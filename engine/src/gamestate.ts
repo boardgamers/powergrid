@@ -109,7 +109,7 @@ export interface GameState {
     oilResupply?: number[][];
     garbageResupply?: number[][];
     uraniumResupply?: number[][];
-    oilPrices: number[]; // Adjust oil price for Middle East map.
+    oilPrices?: number[]; // Adjust oil price for Middle East map.
     actualMarket: PowerPlant[];
     futureMarket: PowerPlant[];
     chosenPowerPlant: PowerPlant | undefined;

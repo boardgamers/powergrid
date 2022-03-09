@@ -147,7 +147,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
 
                 let price: number;
                 if (G.map.name == 'Middle East') {
-                    price = G.oilPrices[G.oilPrices.length - G.oilMarket];
+                    price = G.oilPrices![G.oilPrices!.length - G.oilMarket];
                 } else {
                     price = prices[ResourceType.Oil][prices[ResourceType.Oil].length - G.oilMarket];
                 }

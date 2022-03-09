@@ -1416,7 +1416,7 @@ function enterStepTwoMiddleEast(G: GameState) {
             event: `Power Plant ${powerPlantDiscarded2.number} discarded to start step 2.`,
         });
         addPowerPlant(G);
-    }    
+    }
 }
 
 function removePowerPlant(G: GameState, powerPlant: PowerPlant) {

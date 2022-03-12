@@ -146,6 +146,45 @@
             />
         </template>
 
+        <template v-if="isUsaRecharged">
+            <rect
+                width="180"
+                height="70"
+                x="795"
+                y="45"
+                rx="2"
+                fill="chocolate"
+                stroke="sandybrown"
+                stroke-width="4px"
+            />
+            <circle r="10" cx="973" cy="45" fill="yellow" />
+            <text
+                text-anchor="middle"
+                style="font-size: 16px; font-family: monospace"
+                x="973"
+                y="45"
+                fill="darkgoldenrod"
+            >
+                8
+            </text>
+            <Coal :pieceId="-1" :targetState="{ x: 858, y: 57 }" :canClick="false" :transparent="true" :scale="0.2" />
+        </template>
+
+        <template v-if="isMiddleEast">
+            <rect width="80" height="50" x="20" y="70" rx="2" fill="gray" stroke="darkgray" stroke-width="4px" />
+            <Oil
+                :pieceId="-1"
+                :targetState="{ x: 35, y: 80 }"
+                :scale="1.5"
+                :canClick="availableSurplusOil > 0 && canBuyResource('oil')"
+                :transparent="availableSurplusOil == 0"
+                @click="buyResource('oil')"
+            />
+            <text text-anchor="middle" style="font-size: 16px; font-family: monospace" x="70" y="93.5">
+                x{{ availableSurplusOil }}
+            </text>
+        </template>
+
         <template v-if="!preferences.disableHelp">
             <rect
                 v-if="buyableResources.length > 0"
@@ -177,6 +216,8 @@ import { range } from 'lodash';
 export default class Resources extends Vue {
     @Prop() resourceResupply?: number[];
     @Prop() isUsaRecharged?: boolean;
+    @Prop() isMiddleEast?: boolean;
+    @Prop() availableSurplusOil?: number;
     @Prop() buyableResources?: string[];
 
     @Inject() preferences!: Preferences;
@@ -212,16 +253,34 @@ export default class Resources extends Vue {
             }
 
             this.oils = [];
-            Array(24)
-                .fill(0)
-                .forEach((_, i) => {
-                    this.oils.push({
-                        id: 'oil_' + i,
-                        x: 651 - 16 * i - 37 * Math.floor(i / 3),
-                        y: 70,
-                        transparent: i >= gameState!.oilMarket,
+            if (gameState.map.name == 'Middle East') {
+                let maxRegularOil = gameState.oilPrices!.filter(p => p > 1).length;
+                let maxSurplusOil = gameState.oilPrices!.filter(p => p == 1).length;
+                let availableRegularOil = Math.min(maxRegularOil, gameState.oilMarket);
+
+                Array(maxRegularOil)
+                    .fill(0)
+                    .forEach((_, i) => {
+                        let adjustedIndex = i + (maxSurplusOil - 3);
+                        this.oils.push({
+                            id: 'normal_oil_' + adjustedIndex,
+                            x: 651 - 16 * adjustedIndex - 37 * Math.floor(adjustedIndex / 3),
+                            y: 70,
+                            transparent: i >= availableRegularOil,
+                        });
                     });
-                });
+            } else {
+                Array(24)
+                    .fill(0)
+                    .forEach((_, i) => {
+                        this.oils.push({
+                            id: 'oil_' + i,
+                            x: 651 - 16 * i - 37 * Math.floor(i / 3),
+                            y: 70,
+                            transparent: i >= gameState!.oilMarket,
+                        });
+                    });
+            }
 
             this.garbages = [];
             Array(24)

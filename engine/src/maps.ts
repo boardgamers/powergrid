@@ -5,6 +5,7 @@ import { map as brazil } from './maps/brazil';
 import { map as france } from './maps/france';
 import { map as germany, mapRecharged as germanyRecharged } from './maps/germany';
 import { map as italy } from './maps/italy';
+import { map as middleeast } from './maps/middleeast';
 import { map as quebec } from './maps/quebec';
 import { map as spainportugal } from './maps/spainportugal';
 // import { map as australia } from './maps/australia';
@@ -15,7 +16,6 @@ import { map as spainportugal } from './maps/spainportugal';
 // import { map as indian } from './maps/indian';
 // import { map as japan } from './maps/japan';
 // import { map as korea } from './maps/korea';
-// import { map as middleeast } from './maps/middleeast';
 // import { map as northerneurope } from './maps/northerneurope';
 // import { map as russia } from './maps/russia';
 // import { map as southafrica } from './maps/southafrica';
@@ -56,6 +56,7 @@ export interface GameMap {
     roundInfoPosition?: [number, number];
     resupply?: number[][][];
     startingResources?: number[];
+    startingSupply?: number[];
     setupDeck?: (
         numPlayers: number,
         variant: string,
@@ -76,6 +77,7 @@ export const maps: GameMap[] = [
     france,
     italy,
     quebec,
+    middleeast,
     // australia,
     // badenwurttemberg,
     // benelux,
@@ -84,7 +86,6 @@ export const maps: GameMap[] = [
     // indian,
     // japan,
     // korea,
-    // middleeast,
     // northerneurope,
     // russia,
     // southafrica,
@@ -99,6 +100,7 @@ export const mapsRecharged: GameMap[] = [
     france,
     italy,
     quebec,
+    middleeast,
     // australia,
     // badenwurttemberg,
     // benelux,
@@ -107,7 +109,6 @@ export const mapsRecharged: GameMap[] = [
     // indian,
     // japan,
     // korea,
-    // middleeast,
     // northerneurope,
     // russia,
     // southafrica,

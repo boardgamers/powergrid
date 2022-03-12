@@ -18,7 +18,7 @@ export default class Piece extends Vue {
     targetState!: {
         x: number,
         y: number,
-        rotate: number
+        rotate: number,
     };
 
     @Prop()

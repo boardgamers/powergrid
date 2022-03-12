@@ -144,7 +144,14 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             if (G.oilMarket > 0) {
                 const hybridCapacityUsed =
                     player.hybridCapacity > 0 ? Math.max(0, player.coalLeft - player.coalCapacity) : 0;
-                const price = prices[ResourceType.Oil][prices[ResourceType.Oil].length - G.oilMarket];
+
+                let price: number;
+                if (G.map.name == 'Middle East') {
+                    price = G.oilPrices![G.oilPrices!.length - G.oilMarket];
+                } else {
+                    price = prices[ResourceType.Oil][prices[ResourceType.Oil].length - G.oilMarket];
+                }
+
                 if (
                     player.money >= price &&
                     player.oilCapacity + player.hybridCapacity > hybridCapacityUsed + player.oilLeft

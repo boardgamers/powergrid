@@ -186,4 +186,40 @@ export const map: GameMap = {
         { nodes: [Cities.Abha, Cities.Sanaa], cost: 11 },
         { nodes: [Cities.Sanaa, Cities.Alhudaydah], cost: 5 },
     ],
+    layout: 'Portrait',
+    mapPosition: [0, -100],
+    resupply: [
+        [
+            [2, 1, 1],
+            [2, 1, 1],
+            [3, 2, 2],
+            [4, 3, 2],
+            [5, 4, 3],
+        ],
+        [
+            [5, 3, 2],
+            [5, 3, 2],
+            [6, 3, 2],
+            [8, 4, 3],
+            [9, 5, 4],
+        ],
+        [
+            [1, 3, 4],
+            [1, 3, 4],
+            [1, 4, 6],
+            [1, 4, 8],
+            [1, 6, 9],
+        ],
+        [
+            [0, 2, 2],
+            [0, 2, 2],
+            [0, 3, 3],
+            [0, 3, 4],
+            [0, 4, 5],
+        ],
+    ],
+    startingResources: [21, 21, 3, 3],
+    startingSupply: [24, 24, 21, 11],
+    mapSpecificRules:
+        'Only coal and oil can be bought for $1, and any number of oil can restock at $1. During step 1, garbage and nuclear plants will be removed from the current market. Step 2 will be triggered after going through the deck once rather than by a specific number of cities. Step 3 will be triggered after going through the deck a second time.',
 };

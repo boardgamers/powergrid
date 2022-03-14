@@ -142,7 +142,7 @@ export default class PlayerBoard extends Vue {
         if (!this.isCurrentPlayer) return false;
 
         if (this.player.availableMoves?.[MoveName.DiscardPowerPlant]) {
-            return true;
+            return powerPlant.number !== this.player.powerPlants[this.player.powerPlants.length - 1].number;
         } else {
             if (!this.player.availableMoves?.[MoveName.UsePowerPlant]) return false;
 

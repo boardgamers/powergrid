@@ -721,6 +721,7 @@ export default class Game extends Vue {
                     resourcesSpent = currentPlayer.resourcesUsed;
                     resourcesSpent.sort();
                     currentPlayer.resourcesUsed = [];
+                    currentPlayer.powerPlantsNotUsed = currentPlayer.powerPlantsNotUsed.filter((x) => x != powerPlant.number);
 
                     break;
             }

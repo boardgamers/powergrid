@@ -445,18 +445,20 @@ export default class Game extends Vue {
 
         // if player is selecting resources, keep the state
         let player: any;
-        if (this.G && this.G.players[this.player].resourcesUsed.some((r) => r == null)) {
-            player = {
-                coalLeft: this.G.players[this.player].coalLeft,
-                oilLeft: this.G.players[this.player].oilLeft,
-                resourcesUsed: this.G.players[this.player].resourcesUsed
-            };
+        if (this.player != null) {
+            if (this.G && this.G.players && this.G.players[this.player].resourcesUsed.some((r) => r == null)) {
+                player = {
+                    coalLeft: this.G.players[this.player].coalLeft,
+                    oilLeft: this.G.players[this.player].oilLeft,
+                    resourcesUsed: this.G.players[this.player].resourcesUsed
+                };
+            }
         }
 
         this.G = JSON.parse(JSON.stringify(state));
 
         if (player) {
-            Object.assign(this.G.players[this.player], player);
+            Object.assign(this.G!.players![this.player!], player);
         }
 
         if (this.G) {

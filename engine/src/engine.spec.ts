@@ -1,12 +1,11 @@
 import { expect } from 'chai';
 import { ended, move, reconstructState, setup } from './engine';
-import france from './fixtures/france.json';
 import GermanyRecharged from './fixtures/GermanyRecharged.json';
 import supply from './fixtures/supply.json';
 import undo from './fixtures/undo.json';
 import USAOriginal from './fixtures/USAOriginal.json';
 import { GameOptions, MapName, Variant } from './gamestate';
-import { Move, MoveName } from './move';
+import { Move } from './move';
 
 describe('Engine', () => {
     it('should setup a game correctly', () => {
@@ -151,13 +150,5 @@ describe('Engine', () => {
         }
 
         expect(ended(G)).to.be.false;
-    });
-
-    it('should replay game france', () => {
-        const game = france;
-
-        const G = reconstructState(game as any, game.log.length - 1);
-
-        move(G, { name: MoveName.Undo, data: false }, 3, true);
     });
 });

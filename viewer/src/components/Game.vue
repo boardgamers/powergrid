@@ -328,18 +328,21 @@ import { City } from 'powergrid-engine/src/maps';
             this.paused = true;
             this.emitter.emit('replay:info', {
                 start: 1,
-                current: this.G!.log.length,
-                end: this._futureState!.log.length,
+                current: this.G!.log.filter(l => l.type == 'move').length,
+                end: this._futureState!.log.filter(l => l.type == 'move').length,
             });
         });
 
         this.emitter.on('replayTo', (to: number) => {
+            const log = this._futureState!.log.map((l, i) => ({ index: i, ...l })).filter(l => l.type == 'move');
+            to = log[to].index;
+
             this.replaceState(reconstructState(this._futureState!, to), false);
 
             this.emitter.emit('replay:info', {
                 start: 1,
-                current: this.G!.log.length,
-                end: this._futureState!.log.length,
+                current: this.G!.log.filter(l => l.type == 'move').length,
+                end: this._futureState!.log.filter(l => l.type == 'move').length,
             });
         });
 

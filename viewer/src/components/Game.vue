@@ -335,9 +335,9 @@ import { City } from 'powergrid-engine/src/maps';
 
         this.emitter.on('replayTo', (to: number) => {
             const log = this._futureState!.log.map((l, i) => ({ index: i, ...l })).filter(l => l.type == 'move');
-            to = log[to].index;
+            to = log[to - 1].index;
 
-            this.replaceState(reconstructState(this._futureState!, to), false);
+            this.replaceState(reconstructState(this._futureState!, to + 1), false);
 
             this.emitter.emit('replay:info', {
                 start: 1,

@@ -334,13 +334,6 @@ import { City } from 'powergrid-engine/src/maps';
         });
 
         this.emitter.on('replayTo', (to: number) => {
-            const log = this._futureState!.log;
-            if (log.length > to) {
-                while (to > 1 && log[to].type != 'move') {
-                    to--;
-                }
-            }
-
             this.replaceState(reconstructState(this._futureState!, to), false);
 
             this.emitter.emit('replay:info', {

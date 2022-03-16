@@ -1784,13 +1784,12 @@ function fastAuction(G: GameState, player: Player, bid: number) {
             } else {
                 let index = G.auctioningPlayer!;
 
-                while (true) {
+                cost = 0;
+                while (cost == 0) {
                     if (highestBidders[0].id == index) {
                         cost = secondHighestBid;
-                        break;
                     } else if (G.players[index].bid == secondHighestBid) {
                         cost = secondHighestBid + 1;
-                        break;
                     }
 
                     index = (index + 1) % G.players.length;

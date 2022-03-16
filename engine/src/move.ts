@@ -4,6 +4,7 @@ export declare namespace Moves {
     export interface MoveChoosePowerPlant {
         name: MoveName.ChoosePowerPlant;
         data: number;
+        usedPlantDiscount?: boolean;
     }
 
     export interface MoveBid {
@@ -27,6 +28,7 @@ export declare namespace Moves {
         data: {
             resource: ResourceType;
         };
+        fromSupply?: boolean;
     }
 
     export interface MoveBuild {

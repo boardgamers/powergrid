@@ -3,6 +3,7 @@ import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
 import { availableMoves } from './available-moves';
 import { GameOptions, GameState, Phase, Player, PowerPlant, PowerPlantType, ResourceType } from './gamestate';
+import { LogMove } from './log';
 import { GameMap, maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
 import powerPlants from './powerPlants';
@@ -369,6 +370,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
             ) {
                 G.minimunBid = 1;
                 G.plantDiscountActive = false;
+                move.usedPlantDiscount = true;
             } else {
                 G.minimunBid = move.data;
             }
@@ -941,6 +943,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         price = 8;
                         player.coalLeft++;
                         G.coalSupply--;
+
+                        move.fromSupply = true;
                     } else {
                         price = prices[move.data.resource][prices[move.data.resource].length - G.coalMarket];
                         player.coalLeft++;
@@ -1059,48 +1063,138 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
         case MoveName.Undo: {
             asserts<Moves.MoveUndo>(move);
 
-            if (move.data) {
-                let lastLog = G.log[G.log.length - 1];
+            let lastMove = player.lastMove;
+            switch (lastMove?.name) {
+                case MoveName.ChoosePowerPlant: {
+                    if (lastMove.data == 39) {
+                        G.card39Bought = false;
+                    }
 
-                if (G.phase == Phase.Bureaucracy) {
-                    let lastMove = player.lastMove;
-                    while (lastMove?.name == MoveName.UsePowerPlant) {
-                        const reverseLog = G.log.slice().reverse();
-                        const index =
-                            G.log.length - reverseLog.findIndex((l) => l.type == 'move' && l.move == lastMove) - 1;
-                        G.log.splice(index, 1);
-                        G = reconstructState(G);
-                        lastMove = G.players[player.id].lastMove;
+                    if (lastMove.usedPlantDiscount) {
+                        G.plantDiscountActive = true;
                     }
-                } else {
-                    while (lastLog.type == 'move' && G.currentPlayers.includes(lastLog.player)) {
-                        G.log.pop();
-                        G = reconstructState(G);
-                        lastLog = G.log[G.log.length - 1];
-                    }
+
+                    G.chosenPowerPlant = undefined;
+                    G.auctioningPlayer = undefined;
+
+                    G.currentPlayers = [player.id];
+
+                    G.log.pop();
+
+                    break;
                 }
-            } else {
-                if (G.phase == Phase.Bureaucracy) {
+
+                case MoveName.BuyResource: {
+                    let price: number;
+                    switch (lastMove.data.resource) {
+                        case ResourceType.Coal:
+                            if (lastMove.fromSupply) {
+                                price = 8;
+                                player.coalLeft--;
+                                G.coalSupply++;
+                            } else {
+                                player.coalLeft--;
+                                G.coalMarket++;
+                                price =
+                                    prices[lastMove.data.resource][
+                                        prices[lastMove.data.resource].length - G.coalMarket
+                                    ];
+                            }
+
+                            break;
+
+                        case ResourceType.Oil:
+                            player.oilLeft--;
+                            G.oilMarket++;
+
+                            if (G.map.name == 'Middle East') {
+                                price = G.oilPrices![G.oilPrices!.length - G.oilMarket];
+                            } else {
+                                price =
+                                    prices[lastMove.data.resource][prices[lastMove.data.resource].length - G.oilMarket];
+                            }
+
+                            break;
+
+                        case ResourceType.Garbage:
+                            player.garbageLeft--;
+                            G.garbageMarket++;
+                            price =
+                                prices[lastMove.data.resource][prices[lastMove.data.resource].length - G.garbageMarket];
+                            break;
+
+                        case ResourceType.Uranium:
+                            player.uraniumLeft--;
+                            G.uraniumMarket++;
+                            price =
+                                prices[lastMove.data.resource][prices[lastMove.data.resource].length - G.uraniumMarket];
+                            break;
+                    }
+
+                    player.money += price;
+
+                    G.log.pop();
+
+                    break;
+                }
+
+                case MoveName.Build: {
+                    player.cities.pop();
+                    player.money += lastMove.data.price;
+
+                    G.log.pop();
+
+                    break;
+                }
+
+                case MoveName.UsePowerPlant: {
+                    player.powerPlantsNotUsed.push(lastMove.data.powerPlant);
+                    lastMove.data.resourcesSpent.forEach((resourceType) => {
+                        switch (resourceType) {
+                            case ResourceType.Coal:
+                                player.coalLeft++;
+                                G.coalSupply--;
+                                break;
+
+                            case ResourceType.Oil:
+                                player.oilLeft++;
+                                G.oilSupply--;
+                                break;
+
+                            case ResourceType.Garbage:
+                                player.garbageLeft++;
+                                G.garbageSupply--;
+                                break;
+
+                            case ResourceType.Uranium:
+                                player.uraniumLeft++;
+                                G.uraniumSupply--;
+                                break;
+                        }
+                    });
+
+                    player.citiesPowered -= lastMove.data.citiesPowered;
+
                     const reverseLog = G.log.slice().reverse();
                     const index =
-                        G.log.length - reverseLog.findIndex((l) => l.type == 'move' && l.move == player.lastMove) - 1;
+                        G.log.length - reverseLog.findIndex((l) => l.type == 'move' && l.move == lastMove) - 1;
                     G.log.splice(index, 1);
-                    G = reconstructState(G);
-                } else {
-                    const lastLog = G.log[G.log.length - 1];
-                    if (lastLog.type == 'move' && G.currentPlayers.includes(lastLog.player)) {
-                        G.log.pop();
-                        G = reconstructState(G);
-                    }
+
+                    break;
                 }
             }
-
-            return G;
         }
     }
 
     player.availableMoves = null;
-    player.lastMove = move;
+
+    if (move.name == MoveName.Undo) {
+        const reverseLog = G.log.slice().reverse();
+        const logMove = reverseLog.find((m) => m.type == 'move' && m.player == player.id) as LogMove;
+        player.lastMove = logMove?.move;
+    } else {
+        player.lastMove = move;
+    }
 
     G.cardsLeft = G.powerPlantsDeck.length;
     G.nextCardWeak = G.options.variant == 'recharged' && G.cardsLeft > 0 && G.powerPlantsDeck[0].number <= 15;

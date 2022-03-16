@@ -318,6 +318,7 @@ export function stripSecret(G: GameState, player?: number): GameState {
                     ...pl,
                     availableMoves: pl.availableMoves ? {} : null,
                     money: ended(G) || G.options.showMoney ? pl.money : -1,
+                    bid: G.options.fastBid ? 0 : pl.bid,
                 };
             }
         }),
@@ -355,6 +356,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
             asserts<Moves.MoveChoosePowerPlant>(move);
 
             G.chosenPowerPlant = getPowerPlant(move.data);
+            G.auctioningPlayer = player.id;
 
             if (move.data == 39) {
                 G.card39Bought = true;
@@ -403,6 +405,12 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     simple: `${player.name} chooses Power Plant ${move.data} to initiate an auction`,
                     pretty: `${playerNameHTML(player)} chooses Power Plant <b>${move.data}</b> to initiate an auction`,
                 });
+
+                if (G.options.fastBid) {
+                    G.currentPlayers = G.playerOrder.filter(
+                        (p) => !G.players[p].skipAuction && !G.players[p].isDropped
+                    );
+                }
             }
 
             break;
@@ -411,17 +419,29 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
         case MoveName.Bid: {
             asserts<Moves.MoveBid>(move);
 
-            G.currentBid = player.bid = move.data;
+            if (G.options.fastBid) {
+                G.hiddenLog.push({
+                    type: 'move',
+                    player: playerNumber,
+                    move,
+                    simple: `${player.name} bids $${move.data}`,
+                    pretty: `${playerNameHTML(player)} bids <span style="color: green">$${move.data}</span>`,
+                });
 
-            G.log.push({
-                type: 'move',
-                player: playerNumber,
-                move,
-                simple: `${player.name} bids $${move.data}`,
-                pretty: `${playerNameHTML(player)} bids <span style="color: green">$${move.data}</span>`,
-            });
+                fastAuction(G, player, move.data);
+            } else {
+                G.currentBid = player.bid = move.data;
 
-            nextPlayerClockwise(G);
+                G.log.push({
+                    type: 'move',
+                    player: playerNumber,
+                    move,
+                    simple: `${player.name} bids $${move.data}`,
+                    pretty: `${playerNameHTML(player)} bids <span style="color: green">$${move.data}</span>`,
+                });
+
+                nextPlayerClockwise(G);
+            }
 
             break;
         }
@@ -429,13 +449,15 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
         case MoveName.Pass: {
             asserts<Moves.MovePass>(move);
 
-            G.log.push({
-                type: 'move',
-                player: playerNumber,
-                move,
-                simple: `${player.name} passes`,
-                pretty: `${playerNameHTML(player)} passes`,
-            });
+            if (!G.options.fastBid || G.phase != Phase.Auction || !G.chosenPowerPlant) {
+                G.log.push({
+                    type: 'move',
+                    player: playerNumber,
+                    move,
+                    simple: `${player.name} passes`,
+                    pretty: `${playerNameHTML(player)} passes`,
+                });
+            }
 
             switch (G.phase) {
                 case Phase.Auction: {
@@ -458,35 +480,47 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             toResourcesPhase(G);
                         }
                     } else {
-                        player.passed = true;
+                        if (G.options.fastBid) {
+                            G.hiddenLog.push({
+                                type: 'move',
+                                player: playerNumber,
+                                move,
+                                simple: `${player.name} passes`,
+                                pretty: `${playerNameHTML(player)} passes`,
+                            });
 
-                        const notPassed = G.players.filter((p) => !p.passed && !p.skipAuction && !p.isDropped);
-                        if (notPassed.length == 1) {
-                            const winningPlayer = notPassed[0];
-                            endAuction(G, winningPlayer, winningPlayer.bid);
-
-                            if (
-                                (winningPlayer.powerPlants.length > 4 ||
-                                    (G.players.length > 2 && winningPlayer.powerPlants.length > 3)) &&
-                                !winningPlayer.isDropped
-                            ) {
-                                setCurrentPlayer(G, winningPlayer.id);
-                            } else {
-                                addPowerPlant(G);
-
-                                if (G.players.some((p) => !p.skipAuction)) {
-                                    G.players.forEach((p) => {
-                                        p.bid = 0;
-                                        p.passed = p.isDropped;
-                                    });
-
-                                    nextPlayerAuction(G, true);
-                                } else {
-                                    toResourcesPhase(G);
-                                }
-                            }
+                            fastAuction(G, player, 0);
                         } else {
-                            nextPlayerClockwise(G);
+                            player.passed = true;
+
+                            const notPassed = G.players.filter((p) => !p.passed && !p.skipAuction && !p.isDropped);
+                            if (notPassed.length == 1) {
+                                const winningPlayer = notPassed[0];
+                                endAuction(G, winningPlayer, winningPlayer.bid);
+
+                                if (
+                                    (winningPlayer.powerPlants.length > 4 ||
+                                        (G.players.length > 2 && winningPlayer.powerPlants.length > 3)) &&
+                                    !winningPlayer.isDropped
+                                ) {
+                                    setCurrentPlayer(G, winningPlayer.id);
+                                } else {
+                                    addPowerPlant(G);
+
+                                    if (G.players.some((p) => !p.skipAuction)) {
+                                        G.players.forEach((p) => {
+                                            p.bid = 0;
+                                            p.passed = p.isDropped;
+                                        });
+
+                                        nextPlayerAuction(G, true);
+                                    } else {
+                                        toResourcesPhase(G);
+                                    }
+                                }
+                            } else {
+                                nextPlayerClockwise(G);
+                            }
                         }
                     }
 
@@ -1096,8 +1130,18 @@ export function moveAI(G: GameState, playerNumber: number): GameState {
                     chosenMove = { name: MoveName.Pass, data: true };
                 }
             } else if (availableMoves?.Bid) {
-                if (!availableMoves.Pass || (Math.random() > 0.5 && player.money - availableMoves?.Bid[0] >= 15)) {
-                    chosenMove = { name: MoveName.Bid, data: availableMoves?.Bid[0] };
+                if (
+                    !availableMoves.Pass ||
+                    (availableMoves.Bid.length > 0 &&
+                        Math.random() > 0.5 &&
+                        player.money - availableMoves?.Bid[0] >= 15)
+                ) {
+                    if (G.options.fastBid) {
+                        const bid = Math.floor((Math.random() * availableMoves.Bid.length) / 2);
+                        chosenMove = { name: MoveName.Bid, data: availableMoves?.Bid[bid] };
+                    } else {
+                        chosenMove = { name: MoveName.Bid, data: availableMoves?.Bid[0] };
+                    }
                 } else {
                     chosenMove = { name: MoveName.Pass, data: true };
                 }
@@ -1706,5 +1750,76 @@ function updateGameState(G: GameState) {
             `[${G.coalResupply[p][1]}, ${G.oilResupply[p][1]}, ${G.garbageResupply[p][1]}, ${G.uraniumResupply[p][1]}]`,
             `[${G.coalResupply[p][2]}, ${G.oilResupply[p][2]}, ${G.garbageResupply[p][2]}, ${G.uraniumResupply[p][2]}]`,
         ];
+    }
+}
+
+function fastAuction(G: GameState, player: Player, bid: number) {
+    player.bid = bid;
+    G.currentPlayers = G.currentPlayers.filter((id) => id !== player.id);
+
+    if (G.currentPlayers.length === 0) {
+        G.log.push(...G.hiddenLog);
+        G.hiddenLog = [];
+
+        const bids = G.players.map((p) => p.bid).filter((b) => b > 0);
+        let cost = G.minimunBid;
+        const highestBid = Math.max(...bids);
+        const highestBidders = G.players.filter((p) => !p.isDropped && p.bid === highestBid);
+        let winnerId = highestBidders[0].id;
+
+        if (bids.length > 1) {
+            bids.splice(bids.indexOf(highestBid), 1);
+            const secondHighestBid = Math.max(...bids);
+
+            // In case of a tie, use turn order
+            if (highestBidders.length > 1) {
+                let index = G.auctioningPlayer!;
+
+                while (!highestBidders.find((p) => p.id == index)) {
+                    index = (index + 1) % G.players.length;
+                }
+
+                cost = secondHighestBid;
+                winnerId = index;
+            } else {
+                let index = G.auctioningPlayer!;
+
+                while (true) {
+                    if (highestBidders[0].id == index) {
+                        cost = secondHighestBid;
+                        break;
+                    } else if (G.players[index].bid == secondHighestBid) {
+                        cost = secondHighestBid + 1;
+                        break;
+                    }
+
+                    index = (index + 1) % G.players.length;
+                }
+            }
+        }
+
+        const winningPlayer = G.players[winnerId];
+
+        endAuction(G, winningPlayer, cost);
+
+        if (
+            (winningPlayer.powerPlants.length > 4 || (G.players.length > 2 && winningPlayer.powerPlants.length > 3)) &&
+            !winningPlayer.isDropped
+        ) {
+            setCurrentPlayer(G, winningPlayer.id);
+        } else {
+            addPowerPlant(G);
+
+            if (G.players.some((p) => !p.skipAuction)) {
+                G.players.forEach((p) => {
+                    p.bid = 0;
+                    p.passed = p.isDropped;
+                });
+
+                nextPlayerAuction(G, true);
+            } else {
+                toResourcesPhase(G);
+            }
+        }
     }
 }

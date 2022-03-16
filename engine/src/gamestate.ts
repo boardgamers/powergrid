@@ -115,7 +115,6 @@ export interface GameState {
     chosenPowerPlant: PowerPlant | undefined;
     currentBid: number | undefined;
     auctioningPlayer: number | undefined;
-    highestBidders: number[];
     step: number;
     phase: Phase;
     options: GameOptions;

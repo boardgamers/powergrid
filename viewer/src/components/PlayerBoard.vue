@@ -96,6 +96,7 @@ export default class PlayerBoard extends Vue {
     @Prop() isPlayer?: boolean;
     @Prop() ranking?: number;
     @Prop() showMoney?: boolean;
+    @Prop() showBid?: boolean;
     @Prop() phase?: Phase;
 
     @Inject() preferences!: Preferences;
@@ -131,7 +132,7 @@ export default class PlayerBoard extends Vue {
             name += ' (Skipping)';
         } else if (this.player.passed) {
             name += ' (Passed)';
-        } else if (this.player.bid && !this.isCurrentPlayer) {
+        } else if (this.player.bid && !this.isCurrentPlayer && this.showBid) {
             name += ' (Bid: $' + this.player.bid + ')';
         }
 

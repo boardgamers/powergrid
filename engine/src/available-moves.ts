@@ -84,12 +84,19 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             moves[MoveName.Pass] = [true];
                         }
                     } else {
-                        if (G.currentBid) {
-                            if (G.currentBid < player.money) {
-                                moves[MoveName.Bid] = range(G.currentBid + 1, player.money + 1);
+                        if (G.options.fastBid) {
+                            const minimunBid = G.chosenPowerPlant.number;
+                            if (minimunBid <= player.money) {
+                                moves[MoveName.Bid] = range(minimunBid, player.money + 1);
                             }
                         } else {
-                            moves[MoveName.Bid] = range(G.minimunBid, player.money + 1);
+                            if (G.currentBid) {
+                                if (G.currentBid < player.money) {
+                                    moves[MoveName.Bid] = range(G.currentBid + 1, player.money + 1);
+                                }
+                            } else {
+                                moves[MoveName.Bid] = range(G.minimunBid, player.money + 1);
+                            }
                         }
 
                         // No nuclear plants for Portugal
@@ -105,7 +112,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             }
                         }
 
-                        if (G.currentBid != null) {
+                        if (player.id != G.auctioningPlayer) {
                             moves[MoveName.Pass] = [true];
                         }
                     }

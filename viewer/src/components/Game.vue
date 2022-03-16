@@ -126,6 +126,7 @@
                     :isPlayer="player == playerIndex"
                     :ranking="sortedPlayers.findIndex((x) => x.id == G.players[playerIndex].id) + 1"
                     :showMoney="player == playerIndex || gameEnded(G) || G.options.showMoney"
+                    :showBid="!G.options.fastBid"
                     :phase="G.phase"
                     @powerPlantClick="powerPlantClick($event)"
                     @discardResource="discardResource($event)"

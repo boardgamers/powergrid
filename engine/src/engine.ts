@@ -1063,7 +1063,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
         case MoveName.Undo: {
             asserts<Moves.MoveUndo>(move);
 
-            let lastMove = player.lastMove;
+            const lastMove = player.lastMove;
             switch (lastMove?.name) {
                 case MoveName.ChoosePowerPlant: {
                     if (lastMove.data == 39) {

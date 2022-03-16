@@ -112,8 +112,14 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             }
                         }
 
-                        if (player.id != G.auctioningPlayer) {
-                            moves[MoveName.Pass] = [true];
+                        if (G.options.fastBid) {
+                            if (player.id != G.auctioningPlayer) {
+                                moves[MoveName.Pass] = [true];
+                            }
+                        } else {
+                            if (G.currentBid != null) {
+                                moves[MoveName.Pass] = [true];
+                            }
                         }
                     }
                 }

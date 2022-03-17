@@ -219,6 +219,7 @@ export const map: GameMap = {
     ],
     startingResources: [24, 21, 21, 7], // Prices begin at: coal 1 Elektro, oil 2 Elektro, garbage 2 Elektro and uranium 6 Elektro. 
     startingSupply: [24, 24, 24, 8], // Use only 8 uranium instead of 12
+    maxPriceAvailable: [3, 5, 16],
     setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
         let actualMarket: PowerPlant[];
         let futureMarket: PowerPlant[];

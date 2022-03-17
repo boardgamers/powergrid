@@ -20,8 +20,7 @@ const regionsInPlay = [3, 3, 4, 5, 5];
 export function defaultSetupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
-    let powerPlantsDeck: PowerPlant[];
-    powerPlantsDeck = cloneDeep(powerPlants);
+    let powerPlantsDeck: PowerPlant[] = cloneDeep(powerPlants);
 
     if (variant == 'original') {
         powerPlantsDeck = powerPlantsDeck.slice(8);
@@ -529,6 +528,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     break;
                 }
 
+                // TODO: For the India map, players take turns buying one resource at a time.
                 case Phase.Resources: {
                     player.passed = true;
 
@@ -604,6 +604,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     break;
                 }
 
+                // TODO: For the India map, there are two changes in the bureaucracy phase.
+                // 1. All players must power as many cities as possible given their current resources.
+                // 2. If the number of cities built in the current round is more than twice the number of
+                //    players, there is a power outage. Each city powered provides three less Elektro.
                 case Phase.Bureaucracy: {
                     player.passed = true;
 
@@ -1374,9 +1378,13 @@ function updatePlayerCapacity(player: Player) {
             }
 
             case PowerPlantType.Garbage: {
-                player.garbageCapacity += powerPlant.cost * 2;
-
-                break;
+                if (powerPlant.storage) {
+                    // For the India map, garbage plants have cost one higher, but have no additional storage.
+                    player.garbageCapacity += powerPlant.storage;
+                    break;
+                } else {
+                    player.garbageCapacity += powerPlant.cost * 2;
+                }
             }
 
             case PowerPlantType.Uranium: {

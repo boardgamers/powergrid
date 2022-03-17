@@ -128,6 +128,9 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             break;
         }
 
+        // TODO: For the India map, there are additional restrictions on which resources are available.
+        // In step 1, only the 1 to 3 Elektro spaces are available. In step 2, the 4 and 5 Elektro spaces are
+        // also available. Only in step 3 is the full market available.
         case Phase.Resources: {
             const toBuy: { resource: ResourceType }[] = [];
 

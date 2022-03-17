@@ -47,6 +47,7 @@ export interface PowerPlant {
     type: PowerPlantType;
     cost: number;
     citiesPowered: number;
+    storage?: number;
 }
 
 export interface CityPosition {

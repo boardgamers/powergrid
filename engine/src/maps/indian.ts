@@ -1,3 +1,8 @@
+import { cloneDeep } from 'lodash';
+import { defaultSetupDeck, getPowerPlant } from '../engine';
+import { PowerPlant, PowerPlantType } from '../gamestate';
+import powerPlants from '../powerPlants';
+import { shuffle } from '../utils';
 import { GameMap } from './../maps';
 
 export enum Regions {
@@ -182,4 +187,63 @@ export const map: GameMap = {
     layout: 'Portrait',
     mapPosition: [200, -60],
     adjustRatio: [1.25, 1.25],
+    resupply: [], // TODO: Find India resupply rates
+    startingResources: [24, 21, 21, 7], // Prices begin at: coal 1 Elektro, oil 2 Elektro, garbage 2 Elektro and uranium 6 Elektro. 
+    startingSupply: [24, 24, 24, 8], // Use only 8 uranium instead of 12
+    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
+        let actualMarket: PowerPlant[];
+        let futureMarket: PowerPlant[];
+        let powerPlantsDeck = cloneDeep(powerPlants).filter(pp => pp.number != 11); // Remove power plant 11.
+        
+        // Garbage plants cost one more garbage to run, but have no additional storage.
+        powerPlantsDeck.forEach(pp => {
+            if (pp.type == PowerPlantType.Garbage) {
+                pp.storage = 2*pp.cost;
+                pp.cost++;
+            }
+        });
+
+        // The rest is identical to the normal deck setup.
+        if (variant == 'original') {
+            powerPlantsDeck = powerPlantsDeck.slice(8);
+            const powerPlant13 = powerPlantsDeck.splice(2, 1)[0];
+            const step3 = powerPlantsDeck.pop()!;
+    
+            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
+            if (numPlayers == 2 || numPlayers == 3) {
+                powerPlantsDeck = powerPlantsDeck.slice(8);
+            } else if (numPlayers == 4) {
+                powerPlantsDeck = powerPlantsDeck.slice(4);
+            }
+    
+            powerPlantsDeck.unshift(powerPlant13);
+            powerPlantsDeck.push(step3);
+    
+            actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
+            futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];
+        } else {
+            let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 13), rng() + '');
+            let initialPlantMarket = initialPowerPlants.splice(0, 8);
+            initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
+            actualMarket = initialPlantMarket.slice(0, 4);
+            futureMarket = initialPlantMarket.slice(4);
+    
+            const first = initialPowerPlants.shift()!;
+            const step3 = powerPlantsDeck.pop()!;
+    
+            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
+            if (numPlayers == 2 || numPlayers == 3) {
+                initialPowerPlants = initialPowerPlants.slice(2);
+                powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
+            } else if (numPlayers == 4) {
+                initialPowerPlants = initialPowerPlants.slice(1);
+                powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
+            }
+    
+            powerPlantsDeck.unshift(first);
+            powerPlantsDeck.push(step3);
+        }
+    
+        return { actualMarket, futureMarket, powerPlantsDeck };
+    }
 };

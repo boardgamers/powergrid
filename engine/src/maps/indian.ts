@@ -187,13 +187,42 @@ export const map: GameMap = {
     layout: 'Portrait',
     mapPosition: [200, -60],
     adjustRatio: [1.25, 1.25],
-    resupply: [], // TODO: Find India resupply rates
+    resupply: [
+        [
+            [4, 5, 4],
+            [5, 6, 4],
+            [6, 7, 5],
+            [7, 8, 6],
+            [8, 10, 7],
+        ],
+        [
+            [1, 2, 2],
+            [2, 2, 2],
+            [2, 3, 3],
+            [3, 4, 4],
+            [4, 5, 5],
+        ],
+        [
+            [1, 3, 4],
+            [1, 3, 4],
+            [3, 4, 6],
+            [4, 5, 7],
+            [4, 7, 9],
+        ],
+        [
+            [1, 1, 1],
+            [1, 1, 1],
+            [1, 2, 1],
+            [2, 2, 2],
+            [2, 3, 2],
+        ],
+    ],
     startingResources: [24, 21, 21, 7], // Prices begin at: coal 1 Elektro, oil 2 Elektro, garbage 2 Elektro and uranium 6 Elektro. 
     startingSupply: [24, 24, 24, 8], // Use only 8 uranium instead of 12
     setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
         let actualMarket: PowerPlant[];
         let futureMarket: PowerPlant[];
-        let powerPlantsDeck = cloneDeep(powerPlants).filter(pp => pp.number != 11); // Remove power plant 11.
+        let powerPlantsDeck = cloneDeep(powerPlants).filter(pp => pp.number != 11); // Remove power plant 11 from the ame.
         
         // Garbage plants cost one more garbage to run, but have no additional storage.
         powerPlantsDeck.forEach(pp => {

@@ -50,13 +50,14 @@ export function defaultSetupDeck(numPlayers: number, variant: string, rng: seedr
         const first = initialPowerPlants.shift()!;
         const step3 = powerPlantsDeck.pop()!;
 
-        powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
         if (numPlayers == 2 || numPlayers == 3) {
             initialPowerPlants = initialPowerPlants.slice(2);
             powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
         } else if (numPlayers == 4) {
             initialPowerPlants = initialPowerPlants.slice(1);
             powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
+        } else {
+            powerPlantsDeck = shuffle(powerPlantsDeck.concat(initialPowerPlants), rng() + '');
         }
 
         powerPlantsDeck.unshift(first);

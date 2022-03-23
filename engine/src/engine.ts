@@ -664,8 +664,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         });
 
                         if (G.map.name == 'Middle East' && G.step == 2 && G.futureMarket.length > 0) {
-                            // Discard top two plants instead of one.
-                            let powerPlantToPush: PowerPlant | undefined = G.futureMarket.pop()!;
+                            // If we aren't about to enter step 3, discard top two plants instead of one.
+                            let powerPlantToPush: PowerPlant = G.futureMarket.pop()!;
                             G.log.push({
                                 type: 'event',
                                 event: `Putting Power Plant ${powerPlantToPush.number} on the bottom of the deck`,

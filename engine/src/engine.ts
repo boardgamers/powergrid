@@ -663,8 +663,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             event: `Resupplying resources: [${coalResupplyValue}, ${oilResupplyValue}, ${garbageResupplyValue}, ${uraniumResupplyValue}]`,
                         });
 
-                        if (G.map.name == 'Middle East' && G.step == 2) {
-                            // Discard top two plants instead of one.
+                        if (G.map.name == 'Middle East' && G.step == 2 && G.futureMarket.length > 0) {
+                            // If we aren't about to enter step 3, discard top two plants instead of one.
                             let powerPlantToPush: PowerPlant = G.futureMarket.pop()!;
                             G.log.push({
                                 type: 'event',
@@ -1443,6 +1443,11 @@ function addPowerPlant(G: GameState) {
 
             if (G.phase != Phase.Auction) {
                 if (G.map.name == 'Middle East' && G.step == 1) {
+                    // Add step 3 card to market, then trigger step 2 process.
+                    const market = [...G.actualMarket, ...G.futureMarket, powerPlant];
+                    market.sort((a, b) => a.number - b.number);
+                    G.actualMarket = market.splice(4);
+                    G.futureMarket = market;
                     enterStepTwoMiddleEast(G);
                 } else {
                     const powerPlantDiscarded = G.actualMarket.shift();
@@ -1521,6 +1526,9 @@ function enterStepTwoMiddleEast(G: GameState) {
     const step3 = G.futureMarket.pop()!;
     G.powerPlantsDeck = shuffle(G.powerPlantsDeck, G.seed);
     G.powerPlantsDeck.push(step3);
+
+    // Draw new plant to replace step 3 card.
+    addPowerPlant(G);
 
     // Discard two lowest power plants from current market.
     G.log.push({

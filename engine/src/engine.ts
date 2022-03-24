@@ -21,7 +21,7 @@ export function defaultSetupDeck(
     numPlayers: number,
     variant: string,
     rng: seedrandom.prng,
-    useOldRechargedSetup: boolean
+    useNewRechargedSetup: boolean
 ) {
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
@@ -62,7 +62,7 @@ export function defaultSetupDeck(
         } else if (numPlayers == 4) {
             initialPowerPlants = initialPowerPlants.slice(1);
             powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
-        } else if (!useOldRechargedSetup) {
+        } else if (useNewRechargedSetup) {
             // TODO: This flag exists solely to make old tests pass. We should eventually
             // fix the test and remove the flag.
             powerPlantsDeck = shuffle(powerPlantsDeck.concat(initialPowerPlants), rng() + '');
@@ -82,7 +82,7 @@ export function setup(
         map = 'USA',
         variant = 'original',
         showMoney = false,
-        useOldRechargedSetup = false,
+        useNewRechargedSetup = true,
     }: GameOptions,
     seed?: string,
     forceDeck?: PowerPlant[],
@@ -135,7 +135,7 @@ export function setup(
                 numPlayers,
                 variant,
                 rng,
-                useOldRechargedSetup
+                useNewRechargedSetup
             ));
         }
     }

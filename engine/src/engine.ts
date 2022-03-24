@@ -77,13 +77,7 @@ export function defaultSetupDeck(
 
 export function setup(
     numPlayers: number,
-    {
-        fastBid = false,
-        map = 'USA',
-        variant = 'original',
-        showMoney = false,
-        useNewRechargedSetup = true,
-    }: GameOptions,
+    { fastBid = false, map = 'USA', variant = 'original', showMoney = false, useNewRechargedSetup = true }: GameOptions,
     seed?: string,
     forceDeck?: PowerPlant[],
     forceMap?: GameMap

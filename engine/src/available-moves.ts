@@ -85,9 +85,8 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                         }
                     } else {
                         if (G.options.fastBid) {
-                            const minimunBid = G.chosenPowerPlant.number;
-                            if (minimunBid <= player.money) {
-                                moves[MoveName.Bid] = range(minimunBid, player.money + 1);
+                            if (G.minimunBid <= player.money) {
+                                moves[MoveName.Bid] = range(G.minimunBid, player.money + 1);
                             }
                         } else {
                             if (G.currentBid) {

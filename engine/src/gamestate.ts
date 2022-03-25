@@ -23,6 +23,7 @@ export interface GameOptions {
     map?: MapName;
     variant?: Variant;
     showMoney?: boolean;
+    useNewRechargedSetup?: boolean;
 }
 
 export enum ResourceType {

@@ -21,7 +21,10 @@ describe('Engine', () => {
             map: game.options.map as MapName,
             showMoney: game.options.showMoney,
             variant: game.options.variant as Variant,
+            useNewRechargedSetup: game.options.useNewRechargedSetup,
         };
+
+        expect(options.useNewRechargedSetup).to.be.false;
 
         let G = setup(game.players.length, options, game.seed);
 
@@ -38,6 +41,8 @@ describe('Engine', () => {
     it('should replay game Germany recharged', () => {
         const game = GermanyRecharged;
 
+        expect(game.options.useNewRechargedSetup).to.be.false;
+
         const G = reconstructState(game as any, game.log.length - 1);
 
         expect(ended(G)).to.be.true;
@@ -50,7 +55,10 @@ describe('Engine', () => {
             map: game.options.map as MapName,
             showMoney: game.options.showMoney,
             variant: game.options.variant as Variant,
+            useNewRechargedSetup: game.options.useNewRechargedSetup,
         };
+
+        expect(options.useNewRechargedSetup).to.be.false;
 
         let G = setup(game.players.length, options, game.seed);
 

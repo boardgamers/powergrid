@@ -289,6 +289,8 @@ export const map: GameMap = {
             } else if (numPlayers == 4) {
                 initialPowerPlants = initialPowerPlants.slice(1);
                 powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
+            } else {
+                powerPlantsDeck = shuffle(powerPlantsDeck.concat(initialPowerPlants), rng() + '');
             }
 
             powerPlantsDeck = powerPlantsDeck.concat(garbagePlants);

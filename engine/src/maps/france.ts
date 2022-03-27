@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash';
 import seedrandom from 'seedrandom';
 import { getPowerPlant } from '../engine';
-import { PowerPlant, PowerPlantType } from '../gamestate';
+import { PowerPlant } from '../gamestate';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
 import powerPlants from './../powerPlants';
@@ -246,10 +246,6 @@ export const map: GameMap = {
             powerPlantsDeck.splice(1, 1)[0];
             const step3 = powerPlantsDeck.pop()!;
 
-            powerPlantsDeck = shuffle(
-                powerPlantsDeck.filter((pp) => pp.type != PowerPlantType.Garbage),
-                rng() + ''
-            );
             if (numPlayers == 2 || numPlayers == 3) {
                 powerPlantsDeck = powerPlantsDeck.slice(8);
             } else if (numPlayers == 4) {
@@ -276,10 +272,6 @@ export const map: GameMap = {
             const first = initialPowerPlants.shift()!;
             const step3 = powerPlantsDeck.pop()!;
 
-            powerPlantsDeck = shuffle(
-                powerPlantsDeck.filter((pp) => pp.type != PowerPlantType.Garbage),
-                rng() + ''
-            );
             if (numPlayers == 2) {
                 powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
             } else if (numPlayers == 3) {
@@ -287,6 +279,8 @@ export const map: GameMap = {
                 powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
             } else if (numPlayers == 4) {
                 powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
+            } else {
+                powerPlantsDeck = shuffle(powerPlantsDeck.concat(initialPowerPlants), rng() + '');
             }
 
             powerPlantsDeck.unshift(first);

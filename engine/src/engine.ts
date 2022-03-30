@@ -1191,7 +1191,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                     const reverseLog = G.log.slice().reverse();
                     const index =
-                        G.log.length - reverseLog.findIndex((l) => l.type == 'move' && l.move == lastMove) - 1;
+                        G.log.length - reverseLog.findIndex((l) => l.type == 'move' && l.player == player.id) - 1;
                     G.log.splice(index, 1);
 
                     break;

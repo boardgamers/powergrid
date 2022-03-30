@@ -1724,7 +1724,7 @@ function endAuction(G: GameState, winningPlayer: Player, bid: number) {
 
     G.log.push({
         type: 'event',
-        event: `Player ${winningPlayer.id} wins the bid and pays ${bid}.`,
+        event: `${winningPlayer.name} wins the bid and pays ${bid}.`,
         pretty: `${playerNameHTML(winningPlayer)} wins the bid and pays <span style="color: green">$${bid}</span>.`,
     });
 

@@ -1,14 +1,9 @@
-import { Phase } from './gamestate';
 import { Move } from './move';
-
-export type LogPhase = {
-    type: 'phase';
-    phase: Phase;
-};
 
 export type LogEvent = {
     type: 'event';
     event: string;
+    pretty?: string;
 };
 
 export type LogMove = {
@@ -19,4 +14,4 @@ export type LogMove = {
     pretty: string;
 };
 
-export type LogItem = LogPhase | LogEvent | LogMove;
+export type LogItem = LogEvent | LogMove;

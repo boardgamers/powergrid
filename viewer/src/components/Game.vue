@@ -342,7 +342,7 @@ import { City } from 'powergrid-engine/src/maps';
 
             this.emitter.emit('replay:info', {
                 start: 1,
-                current: this.G!.log.filter(l => l.type == 'move').length,
+                current: this.G!.log.filter(l => l.type == 'move').length + this.G!.hiddenLog.length,
                 end: this._futureState!.log.filter(l => l.type == 'move').length,
             });
         });
@@ -924,8 +924,6 @@ export default class Game extends Vue {
                 return log.simple;
             } else if (log.type == 'event') {
                 return log.event;
-            } else {
-                return log.phase;
             }
         }
     }
@@ -939,7 +937,7 @@ export default class Game extends Vue {
         if (this.G && this.G.log) {
             this.G.log.forEach((log) => {
                 if (log.type == 'event') {
-                    logReversed.push(log.event);
+                    logReversed.push(log.pretty || log.event);
                 } else if (log.type == 'move') {
                     logReversed.push(log.pretty);
                 }

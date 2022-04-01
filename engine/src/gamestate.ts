@@ -115,6 +115,7 @@ export interface GameState {
     actualMarket: PowerPlant[];
     futureMarket: PowerPlant[];
     chosenPowerPlant: PowerPlant | undefined;
+    chosenResource?: ResourceType | undefined; // Used for India map, where only one resource can be bought at a time.
     currentBid: number | undefined;
     auctioningPlayer: number | undefined;
     step: number;

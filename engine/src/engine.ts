@@ -544,7 +544,15 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                 // TODO: For the India map, players take turns buying one resource at a time.
                 case Phase.Resources: {
-                    player.passed = true;
+                    if (G.map.name == 'India') {
+                        if (G.chosenResource) {
+                            G.chosenResource = undefined;
+                        } else {
+                            player.passed = true;
+                        }
+                    } else {
+                        player.passed = true;
+                    }
 
                     if (G.players.filter((p) => !p.passed && !p.isDropped).length == 0) {
                         G.players.forEach((p) => {
@@ -564,6 +572,12 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         }
                     } else {
                         nextPlayerReverse(G);
+                    }
+
+                    if (G.map.name == 'India') {
+                        while (G.players[G.currentPlayers[0]].passed) {
+                            nextPlayerReverse(G);
+                        }
                     }
 
                     break;
@@ -979,6 +993,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
         case MoveName.BuyResource: {
             asserts<Moves.MoveBuyResource>(move);
+            G.chosenResource = move.data.resource;
 
             let price;
             switch (move.data.resource) {
@@ -1184,6 +1199,9 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     }
 
                     player.money += price;
+                    if (G.map.name == 'India') {
+                        G.chosenResource = undefined;
+                    }
 
                     G.log.pop();
 

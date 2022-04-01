@@ -128,6 +128,11 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
         }
 
         case Phase.Resources: {
+            if (G.map.name == 'India' && G.chosenResource !== undefined) {
+                moves[MoveName.Pass] = [true];
+                break;
+            }
+
             const toBuy: { resource: ResourceType }[] = [];
             let maxPriceAvailable : number;
             if (G.map.maxPriceAvailable) {
@@ -348,7 +353,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             }
 
             // For India map, players must power as many cities as possible.
-            if (G.map.name != 'India' || player.citiesPowered == player.targetCitiesPowered) {
+            if (G.map.name != 'India' || player.citiesPowered >= player.targetCitiesPowered!) {
                 moves[MoveName.Pass] = [true];
             }
             break;

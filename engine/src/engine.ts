@@ -394,8 +394,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     type: 'move',
                     player: playerNumber,
                     move,
-                    simple: `${player.name} chooses Power Plant ${move.data}`,
-                    pretty: `${playerNameHTML(player)} chooses Power Plant <b>${move.data}</b>`,
+                    simple: `${player.name} chooses Power Plant ${move.data}.`,
+                    pretty: `${playerNameHTML(player)} chooses Power Plant <b>${move.data}</b>.`,
                 });
 
                 const winningPlayer = notPassed[0];
@@ -417,8 +417,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     type: 'move',
                     player: playerNumber,
                     move,
-                    simple: `${player.name} chooses Power Plant ${move.data} to initiate an auction`,
-                    pretty: `${playerNameHTML(player)} chooses Power Plant <b>${move.data}</b> to initiate an auction`,
+                    simple: `${player.name} chooses Power Plant ${move.data} to initiate an auction.`,
+                    pretty: `${playerNameHTML(player)} chooses Power Plant <b>${move.data}</b> to initiate an auction.`,
                 });
 
                 if (G.options.fastBid) {
@@ -439,8 +439,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     type: 'move',
                     player: playerNumber,
                     move,
-                    simple: `${player.name} bids $${move.data}`,
-                    pretty: `${playerNameHTML(player)} bids <span style="color: green">$${move.data}</span>`,
+                    simple: `${player.name} bids $${move.data}.`,
+                    pretty: `${playerNameHTML(player)} bids <span style="color: green">$${move.data}</span>.`,
                 });
 
                 fastAuction(G, player, move.data);
@@ -451,8 +451,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     type: 'move',
                     player: playerNumber,
                     move,
-                    simple: `${player.name} bids $${move.data}`,
-                    pretty: `${playerNameHTML(player)} bids <span style="color: green">$${move.data}</span>`,
+                    simple: `${player.name} bids $${move.data}.`,
+                    pretty: `${playerNameHTML(player)} bids <span style="color: green">$${move.data}</span>.`,
                 });
 
                 nextPlayerClockwise(G);
@@ -469,8 +469,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     type: 'move',
                     player: playerNumber,
                     move,
-                    simple: `${player.name} passes`,
-                    pretty: `${playerNameHTML(player)} passes`,
+                    simple: `${player.name} passes.`,
+                    pretty: `${playerNameHTML(player)} passes.`,
                 });
             }
 
@@ -486,7 +486,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             if (G.auctionSkips == G.players.length && G.options.variant == 'original') {
                                 G.log.push({
                                     type: 'event',
-                                    event: `Everyone passed, removing lowest numbered Power Plant (${G.actualMarket[0].number})`,
+                                    event: `Everyone passed, removing lowest numbered Power Plant (${G.actualMarket[0].number}).`,
                                 });
                                 G.actualMarket.shift();
                                 addPowerPlant(G);
@@ -500,8 +500,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 type: 'move',
                                 player: playerNumber,
                                 move,
-                                simple: `${player.name} passes`,
-                                pretty: `${playerNameHTML(player)} passes`,
+                                simple: `${player.name} passes.`,
+                                pretty: `${playerNameHTML(player)} passes.`,
                             });
 
                             fastAuction(G, player, 0);
@@ -575,7 +575,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 const powerPlant = G.actualMarket.shift()!;
                                 G.log.push({
                                     type: 'event',
-                                    event: `Starting Step 2, Power Plant ${powerPlant?.number} discarded`,
+                                    event: `Starting Step 2, Power Plant ${powerPlant?.number} discarded.`,
                                 });
                                 G.step = 2;
 
@@ -678,7 +678,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                         G.log.push({
                             type: 'event',
-                            event: `Resupplying resources: [${coalResupplyValue}, ${oilResupplyValue}, ${garbageResupplyValue}, ${uraniumResupplyValue}]`,
+                            event: `Resupplying resources: [${coalResupplyValue}, ${oilResupplyValue}, ${garbageResupplyValue}, ${uraniumResupplyValue}].`,
                         });
 
                         if (G.map.name == 'Middle East' && G.step == 2 && G.futureMarket.length > 0) {
@@ -686,7 +686,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             let powerPlantToPush: PowerPlant = G.futureMarket.pop()!;
                             G.log.push({
                                 type: 'event',
-                                event: `Putting Power Plant ${powerPlantToPush.number} on the bottom of the deck`,
+                                event: `Putting Power Plant ${powerPlantToPush.number} on the bottom of the deck.`,
                             });
                             G.powerPlantsDeck.push(powerPlantToPush);
                             addPowerPlant(G);
@@ -694,7 +694,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             powerPlantToPush = G.futureMarket.pop()!;
                             G.log.push({
                                 type: 'event',
-                                event: `Putting Power Plant ${powerPlantToPush.number} on the bottom of the deck`,
+                                event: `Putting Power Plant ${powerPlantToPush.number} on the bottom of the deck.`,
                             });
                             G.powerPlantsDeck.push(powerPlantToPush);
                             addPowerPlant(G);
@@ -716,13 +716,13 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             if (powerPlantToPush) {
                                 G.log.push({
                                     type: 'event',
-                                    event: `Putting Power Plant ${powerPlantToPush.number} on the bottom of the deck`,
+                                    event: `Putting Power Plant ${powerPlantToPush.number} on the bottom of the deck.`,
                                 });
                                 G.powerPlantsDeck.push(powerPlantToPush);
                                 addPowerPlant(G);
                             }
                         } else if (G.actualMarket.length > 0) {
-                            G.log.push({ type: 'event', event: `Discarding Power Plant ${G.actualMarket[0].number}` });
+                            G.log.push({ type: 'event', event: `Discarding Power Plant ${G.actualMarket[0].number}.` });
                             G.actualMarket.shift();
                             addPowerPlant(G);
                         }
@@ -767,8 +767,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     type: 'move',
                     player: playerNumber,
                     move,
-                    simple: `${player.name} discards Power Plant ${move.data}`,
-                    pretty: `${playerNameHTML(player)} discards Power Plant <b>${move.data}</b>`,
+                    simple: `${player.name} discards Power Plant ${move.data}.`,
+                    pretty: `${playerNameHTML(player)} discards Power Plant <b>${move.data}</b>.`,
                 });
             }
 
@@ -824,10 +824,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     type: 'move',
                     player: playerNumber,
                     move,
-                    simple: `${player.name} discards Power Plant ${move.data} and ${discarded.join(', ')}`,
+                    simple: `${player.name} discards Power Plant ${move.data} and ${discarded.join(', ')}.`,
                     pretty: `${playerNameHTML(player)} discards Power Plant <b>${move.data}</b> and ${discarded.join(
                         ', '
-                    )}`,
+                    )}.`,
                 });
 
                 addPowerPlant(G);
@@ -901,8 +901,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 type: 'move',
                 player: playerNumber,
                 move,
-                simple: `${player.name} discarded a ${move.data}`,
-                pretty: `${playerNameHTML(player)} discarded a <b>${move.data}</b>`,
+                simple: `${player.name} discarded a ${move.data}.`,
+                pretty: `${playerNameHTML(player)} discarded a <b>${move.data}</b>.`,
             });
 
             if (move.data == ResourceType.Coal) {
@@ -1001,10 +1001,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 type: 'move',
                 player: playerNumber,
                 move,
-                simple: `${player.name} buys ${move.data.resource} for $${price}`,
+                simple: `${player.name} buys ${move.data.resource} for $${price}.`,
                 pretty: `${playerNameHTML(player)} buys <b>${
                     move.data.resource
-                }</b> for <span style="color: green">$${price}</span>`,
+                }</b> for <span style="color: green">$${price}</span>.`,
             });
 
             break;
@@ -1021,10 +1021,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 type: 'move',
                 player: playerNumber,
                 move,
-                simple: `${player.name} builds on ${move.data.name} for $${move.data.price}`,
+                simple: `${player.name} builds on ${move.data.name} for $${move.data.price}.`,
                 pretty: `${playerNameHTML(player)} builds on <b>${move.data.name}</b> for <span style="color: green">$${
                     move.data.price
-                }</span>`,
+                }</span>.`,
             });
 
             if (G.options.variant == 'original') {
@@ -1071,8 +1071,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 type: 'move',
                 player: playerNumber,
                 move,
-                simple: `${player.name} uses Power Plant ${move.data.powerPlant}`,
-                pretty: `${playerNameHTML(player)} uses Power Plant <b>${move.data.powerPlant}</b>`,
+                simple: `${player.name} uses Power Plant ${move.data.powerPlant}.`,
+                pretty: `${playerNameHTML(player)} uses Power Plant <b>${move.data.powerPlant}</b>.`,
             });
 
             break;
@@ -1195,7 +1195,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                     const reverseLog = G.log.slice().reverse();
                     const index =
-                        G.log.length - reverseLog.findIndex((l) => l.type == 'move' && l.move == lastMove) - 1;
+                        G.log.length - reverseLog.findIndex((l) => l.type == 'move' && l.player == player.id) - 1;
                     G.log.splice(index, 1);
 
                     break;
@@ -1352,10 +1352,6 @@ export function reconstructState(gameState: GameState, to?: number): GameState {
                     G.players[playerNum].isDropped = true;
                 }
 
-                break;
-            }
-
-            case 'phase': {
                 break;
             }
 
@@ -1700,7 +1696,7 @@ function toResourcesPhase(G: GameState) {
         if (G.plantDiscountActive) {
             G.plantDiscountActive = false;
             if (G.actualMarket.length > 0) {
-                G.log.push({ type: 'event', event: `Discarding Power Plant ${G.actualMarket[0].number}` });
+                G.log.push({ type: 'event', event: `Discarding Power Plant ${G.actualMarket[0].number}.` });
                 G.actualMarket.shift();
                 addPowerPlant(G);
             }
@@ -1733,6 +1729,12 @@ function endAuction(G: GameState, winningPlayer: Player, bid: number) {
     winningPlayer.money -= bid;
     winningPlayer.skipAuction = true;
     updatePlayerCapacity(winningPlayer);
+
+    G.log.push({
+        type: 'event',
+        event: `Player ${winningPlayer.id} wins the bid and pays ${bid}.`,
+        pretty: `${playerNameHTML(winningPlayer)} wins the bid and pays <span style="color: green">$${bid}</span>.`,
+    });
 
     removePowerPlant(G, G.chosenPowerPlant!);
     G.chosenPowerPlant = G.currentBid = undefined;

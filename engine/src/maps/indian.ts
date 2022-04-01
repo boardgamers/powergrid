@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash';
-import { defaultSetupDeck, getPowerPlant } from '../engine';
-import { PowerPlant, PowerPlantType } from '../gamestate';
-import powerPlants from '../powerPlants';
+import { getPowerPlant } from '../engine';
+import { PowerPlant } from '../gamestate';
+import { indiaPowerPlants } from '../powerPlants';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
 
@@ -60,7 +60,7 @@ export enum Cities {
 }
 
 export const map: GameMap = {
-    name: 'Indian',
+    name: 'India',
     cities: [
         { name: Cities.Thiruvananthapuram, region: Regions.Red, x: 217, y: 868 },
         { name: Cities.Madurai, region: Regions.Red, x: 230, y: 829 },
@@ -221,17 +221,9 @@ export const map: GameMap = {
     startingSupply: [24, 24, 24, 8], // Use only 8 uranium instead of 12
     maxPriceAvailable: [3, 5, 16],
     setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
+        let powerPlantsDeck = cloneDeep(indiaPowerPlants);
         let actualMarket: PowerPlant[];
         let futureMarket: PowerPlant[];
-        let powerPlantsDeck = cloneDeep(powerPlants).filter(pp => pp.number != 11); // Remove power plant 11 from the ame.
-        
-        // Garbage plants cost one more garbage to run, but have no additional storage.
-        powerPlantsDeck.forEach(pp => {
-            if (pp.type == PowerPlantType.Garbage) {
-                pp.storage = 2*pp.cost;
-                pp.cost++;
-            }
-        });
 
         // The rest is identical to the normal deck setup.
         if (variant == 'original') {
@@ -274,6 +266,12 @@ export const map: GameMap = {
             powerPlantsDeck.push(step3);
         }
     
+        console.log(actualMarket);
+        console.log(futureMarket);
+        console.log(powerPlantsDeck);
+
         return { actualMarket, futureMarket, powerPlantsDeck };
-    }
+    },
+    mapSpecificRules:
+        'The power grid will suffer a power outage if too many cities are built in one round, penalizing players based on their number of cities.\nThe resource market is limited in steps 1 and 2.\nGarbage plants are less efficient.\nPlayers must power as many cities as possible.'
 };

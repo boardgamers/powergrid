@@ -3,13 +3,12 @@ import { LogItem } from './log';
 import { GameMap } from './maps';
 import { Move } from './move';
 
-export type MapName = 'USA' | 'Germany' | 'Brazil' | 'Spain & Portugal' | 'France' | 'Italy' | 'Quebec' | 'Middle East';
+export type MapName = 'USA' | 'Germany' | 'Brazil' | 'Spain & Portugal' | 'France' | 'Italy' | 'Quebec' | 'Middle East' | 'India';
 // | 'Australia'
 // | 'Baden-Württemberg'
 // | 'Benelux'
 // | 'Central Europe'
 // | 'China'
-// | 'Indian'
 // | 'Japan'
 // | 'Korea'
 // | 'Northern Europe'
@@ -81,6 +80,7 @@ export interface Player {
     passed: boolean;
     skipAuction: boolean;
     citiesPowered: number;
+    targetCitiesPowered?: number;
     resourcesUsed: ResourceType[];
 }
 
@@ -127,6 +127,7 @@ export interface GameState {
     auctionSkips: number;
     citiesToStep2: number;
     citiesToEndGame: number;
+    citiesBuiltInCurrentRound?: number; // In India, if the players build too many cities in a single round, a power outage will occur.
     resourceResupply: string[];
     paymentTable: number[];
     minimunBid: number;

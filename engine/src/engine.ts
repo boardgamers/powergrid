@@ -1534,15 +1534,20 @@ function removePlantsForMiddleEastStep1(G: GameState) {
         }
 
         // Prevent infinite loop cycling through power plants.
-        let availableFuturePlants = G.futureMarket.filter(pp => pp.type != PowerPlantType.Garbage && pp.type != PowerPlantType.Uranium);
-        let nextFuturePlantNumber = availableFuturePlants.length > 0 ? availableFuturePlants[0].number : 100;
-        if (G.powerPlantsDeck.filter(pp =>
-                (pp.type != PowerPlantType.Garbage && pp.type != PowerPlantType.Uranium)
-                || pp.number > nextFuturePlantNumber
-            ).length == 0) {
+        const availableFuturePlants = G.futureMarket.filter(
+            (pp) => pp.type != PowerPlantType.Garbage && pp.type != PowerPlantType.Uranium
+        );
+        const nextFuturePlantNumber = availableFuturePlants.length > 0 ? availableFuturePlants[0].number : 100;
+        if (
+            G.powerPlantsDeck.filter(
+                (pp) =>
+                    (pp.type != PowerPlantType.Garbage && pp.type != PowerPlantType.Uranium) ||
+                    pp.number > nextFuturePlantNumber
+            ).length == 0
+        ) {
             G.log.push({
                 type: 'event',
-                event: 'No suitable power plants available to draw.'
+                event: 'No suitable power plants available to draw.',
             });
             break;
         }

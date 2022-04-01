@@ -241,8 +241,8 @@ export const map: GameMap = {
             powerPlantsDeck.unshift(powerPlant13);
             powerPlantsDeck.push(step3);
     
-            actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
-            futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];
+            actualMarket = [getPowerPlant(3, 'India'), getPowerPlant(4, 'India'), getPowerPlant(5, 'India'), getPowerPlant(6, 'India')];
+            futureMarket = [getPowerPlant(7, 'India'), getPowerPlant(8, 'India'), getPowerPlant(9, 'India'), getPowerPlant(10, 'India')];
         } else {
             let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 13), rng() + '');
             let initialPlantMarket = initialPowerPlants.splice(0, 8);

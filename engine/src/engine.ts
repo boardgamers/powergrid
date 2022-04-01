@@ -369,7 +369,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
         case MoveName.ChoosePowerPlant: {
             asserts<Moves.MoveChoosePowerPlant>(move);
 
-            G.chosenPowerPlant = getPowerPlant(move.data);
+            G.chosenPowerPlant = getPowerPlant(move.data, G.map.name);
             G.auctioningPlayer = player.id;
 
             if (move.data == 39) {
@@ -1615,9 +1615,12 @@ function removePowerPlant(G: GameState, powerPlant: PowerPlant) {
     );
 }
 
-// TODO: Fix for India power plants.
-export function getPowerPlant(num: number): PowerPlant {
-    return powerPlants.find((p) => p.number == num)!;
+export function getPowerPlant(num: number, mapName: string = ""): PowerPlant {
+    if (mapName == 'India') {
+        return indiaPowerPlants.find((p) => p.number == num)!;
+    } else {
+        return powerPlants.find((p) => p.number == num)!;
+    }
 }
 
 function getBaseState(G: GameState): GameState {

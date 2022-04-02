@@ -542,7 +542,6 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     break;
                 }
 
-                // TODO: For the India map, players take turns buying one resource at a time.
                 case Phase.Resources: {
                     if (G.map.name == 'India') {
                         if (G.chosenResource) {
@@ -634,11 +633,13 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 (p) => !G.players[p].passed && !G.players[p].isDropped
                             );
 
-                            // Compute the maximum number of cities each player can power.
                             if (G.map.name == 'India') {
+                                // Compute the maximum number of cities each player can power.
                                 G.players.forEach(
                                     (player) => (player.targetCitiesPowered = calculateMaxCitiesPowered(player))
                                 );
+
+                                // Output log for power outage.
                                 if (G.citiesBuiltInCurrentRound! > G.players.length * 2) {
                                     G.log.push({
                                         type: 'event',

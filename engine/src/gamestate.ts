@@ -81,6 +81,11 @@ export interface Player {
     skipAuction: boolean;
     citiesPowered: number;
     resourcesUsed: ResourceType[];
+    totalIncome: number;
+    totalSpentCities: number;
+    totalSpentConnections: number;
+    totalSpentPlants: number;
+    totalSpentResources: number;
 }
 
 export enum Phase {

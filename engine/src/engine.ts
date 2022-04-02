@@ -160,6 +160,11 @@ export function setup(
         skipAuction: false,
         citiesPowered: 0,
         resourcesUsed: [],
+        totalIncome: 0,
+        totalSpentCities: 0,
+        totalSpentConnections: 0,
+        totalSpentPlants: 0,
+        totalSpentResources: 0,
     }));
 
     const playerOrder = range(numPlayers);
@@ -621,7 +626,9 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 case Phase.Bureaucracy: {
                     player.passed = true;
 
-                    player.money += G.paymentTable[Math.min(player.cities.length, player.citiesPowered)];
+                    let payment = G.paymentTable[Math.min(player.cities.length, player.citiesPowered)];
+                    player.money += payment;
+                    player.totalIncome += payment;
                     player.citiesPowered = 0;
 
                     if (G.players.filter((p) => !p.passed && !p.isDropped).length == 0) {
@@ -992,6 +999,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
             }
 
             player.money -= price;
+            player.totalSpentResources += price;
 
             G.log.push({
                 type: 'move',
@@ -1012,6 +1020,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
             const position = G.players.filter((p) => p.cities.find((c) => c.name == move.data.name)).length;
             player.cities.push({ name: move.data.name, position });
             player.money -= move.data.price;
+            player.totalSpentCities += 10 + position * 5;
+            player.totalSpentConnections += move.data.price - (10 + position * 5);
 
             G.log.push({
                 type: 'move',
@@ -1146,6 +1156,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     }
 
                     player.money += price;
+                    player.totalSpentResources -= price;
 
                     G.log.pop();
 
@@ -1155,6 +1166,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 case MoveName.Build: {
                     player.cities.pop();
                     player.money += lastMove.data.price;
+
+                    const position = G.players.filter((p) => p.cities.find((c) => c.name == lastMove.data.name)).length;
+                    player.totalSpentCities -= 10 + position * 5;
+                    player.totalSpentConnections -= lastMove.data.price - (10 + position * 5);
 
                     G.log.pop();
 
@@ -1594,6 +1609,7 @@ function playerNameHTML(player) {
 }
 
 export function playersSortedByScore(G: GameState): Player[] {
+    console.log(G.players);
     return cloneDeep(G.players)
         .sort((p1, p2) => {
             if (p1.citiesPowered == p2.citiesPowered) {
@@ -1719,6 +1735,7 @@ function toResourcesPhase(G: GameState) {
 function endAuction(G: GameState, winningPlayer: Player, bid: number) {
     winningPlayer.powerPlants.push(G.chosenPowerPlant!);
     winningPlayer.money -= bid;
+    winningPlayer.totalSpentPlants += bid;
     winningPlayer.skipAuction = true;
     updatePlayerCapacity(winningPlayer);
 

@@ -617,7 +617,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             // Include payouts in phase 5 if there is a power outage in India.
                             if (G.map.name == 'India' && G.citiesBuiltInCurrentRound! > G.players.length * 2) {
                                 G.players.forEach((player) => {
-                                    let payment = G.paymentTable[player.citiesPowered] - 3 * player.cities.length;
+                                    const payment = G.paymentTable[player.citiesPowered] - 3 * player.cities.length;
                                     player.money += Math.max(payment, 0);
                                 });
                             }
@@ -661,7 +661,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                 case Phase.Bureaucracy: {
                     player.passed = true;
-                    let citiesPowered: number = Math.min(player.cities.length, player.citiesPowered);
+                    const citiesPowered: number = Math.min(player.cities.length, player.citiesPowered);
                     let payment: number = G.paymentTable[citiesPowered];
 
                     // For the India map, if the number of cities built in the current round is more than twice
@@ -1441,13 +1441,11 @@ function updatePlayerCapacity(player: Player) {
         switch (powerPlant.type) {
             case PowerPlantType.Coal: {
                 player.coalCapacity += powerPlant.cost * 2;
-
                 break;
             }
 
             case PowerPlantType.Oil: {
                 player.oilCapacity += powerPlant.cost * 2;
-
                 break;
             }
 
@@ -1455,21 +1453,19 @@ function updatePlayerCapacity(player: Player) {
                 if (powerPlant.storage) {
                     // For the India map, garbage plants have cost one higher, but have no additional storage.
                     player.garbageCapacity += powerPlant.storage;
-                    break;
                 } else {
                     player.garbageCapacity += powerPlant.cost * 2;
                 }
+                break;
             }
 
             case PowerPlantType.Uranium: {
                 player.uraniumCapacity += powerPlant.cost * 2;
-
                 break;
             }
 
             case PowerPlantType.Hybrid: {
                 player.hybridCapacity += powerPlant.cost * 2;
-
                 break;
             }
         }
@@ -1665,7 +1661,7 @@ function removePowerPlant(G: GameState, powerPlant: PowerPlant) {
     );
 }
 
-export function getPowerPlant(num: number, mapName: string = ''): PowerPlant {
+export function getPowerPlant(num: number, mapName = ''): PowerPlant {
     if (mapName == 'India') {
         return indiaPowerPlants.find((p) => p.number == num)!;
     } else {

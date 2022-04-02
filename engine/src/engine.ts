@@ -637,6 +637,12 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             // Compute the maximum number of cities each player can power.
                             if (G.map.name == 'India') {
                                 G.players.forEach(player => player.targetCitiesPowered = calculateMaxCitiesPowered(player))
+                                if (G.citiesBuiltInCurrentRound! > G.players.length * 2) {
+                                    G.log.push({
+                                        type: 'event',
+                                        event: `Power outage! ${G.citiesBuiltInCurrentRound} built this round, which is more than twice the number of players.`
+                                    });
+                                }
                             }
 
                             if (G.futureMarket.length == 0) {
@@ -1213,6 +1219,9 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     player.money += lastMove.data.price;
 
                     G.log.pop();
+                    if (G.map.name == 'India') {
+                        G.citiesBuiltInCurrentRound!--;
+                    }
 
                     break;
                 }

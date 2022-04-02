@@ -134,11 +134,10 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             }
 
             const toBuy: { resource: ResourceType }[] = [];
-            let maxPriceAvailable : number;
+            let maxPriceAvailable: number;
             if (G.map.maxPriceAvailable) {
                 maxPriceAvailable = G.map.maxPriceAvailable[G.step - 1];
-            }
-            else {
+            } else {
                 maxPriceAvailable = 16;
             }
 
@@ -188,18 +187,22 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
 
             if (G.garbageMarket > 0) {
                 const price = prices[ResourceType.Garbage][prices[ResourceType.Garbage].length - G.garbageMarket];
-                if (player.money >= price &&
+                if (
+                    player.money >= price &&
                     player.garbageCapacity > player.garbageLeft &&
-                    price <= maxPriceAvailable) {
+                    price <= maxPriceAvailable
+                ) {
                     toBuy.push({ resource: ResourceType.Garbage });
                 }
             }
 
             if (G.uraniumMarket > 0) {
                 const price = prices[ResourceType.Uranium][prices[ResourceType.Uranium].length - G.uraniumMarket];
-                if (player.money >= price &&
+                if (
+                    player.money >= price &&
                     player.uraniumCapacity > player.uraniumLeft &&
-                    price <= maxPriceAvailable) {
+                    price <= maxPriceAvailable
+                ) {
                     toBuy.push({ resource: ResourceType.Uranium });
                 }
             }

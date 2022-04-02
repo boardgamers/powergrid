@@ -47,13 +47,13 @@ const powerPlants: PowerPlant[] = [
     { number: 99, type: PowerPlantType.Nuclear, cost: 0, citiesPowered: 6 },
 ];
 
-const indiaPowerPlants = cloneDeep(powerPlants).filter(pp => pp.number != 11);
+const indiaPowerPlants = cloneDeep(powerPlants).filter((pp) => pp.number != 11);
 // Garbage plants cost one more garbage to run, but have no additional storage.
-indiaPowerPlants.forEach(pp => {
+indiaPowerPlants.forEach((pp) => {
     if (pp.type == PowerPlantType.Garbage) {
-        pp.storage = 2*pp.cost;
+        pp.storage = 2 * pp.cost;
         pp.cost++;
     }
 });
 
-export {powerPlants, indiaPowerPlants};
+export { powerPlants, indiaPowerPlants };

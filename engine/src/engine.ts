@@ -6,7 +6,7 @@ import { GameOptions, GameState, Phase, Player, PowerPlant, PowerPlantType, Reso
 import { LogMove } from './log';
 import { GameMap, maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
-import { powerPlants, indiaPowerPlants } from './powerPlants';
+import { indiaPowerPlants, powerPlants } from './powerPlants';
 import prices from './prices';
 import { asserts, shuffle } from './utils';
 
@@ -617,7 +617,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                             // Include payouts in phase 5 if there is a power outage in India.
                             if (G.map.name == 'India' && G.citiesBuiltInCurrentRound! > G.players.length * 2) {
-                                G.players.forEach(player => {
+                                G.players.forEach((player) => {
                                     let payment = G.paymentTable[player.citiesPowered] - 3 * player.cities.length;
                                     player.money += Math.max(payment, 0);
                                 });
@@ -636,11 +636,13 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                             // Compute the maximum number of cities each player can power.
                             if (G.map.name == 'India') {
-                                G.players.forEach(player => player.targetCitiesPowered = calculateMaxCitiesPowered(player))
+                                G.players.forEach(
+                                    (player) => (player.targetCitiesPowered = calculateMaxCitiesPowered(player))
+                                );
                                 if (G.citiesBuiltInCurrentRound! > G.players.length * 2) {
                                     G.log.push({
                                         type: 'event',
-                                        event: `Power outage! ${G.citiesBuiltInCurrentRound} built this round, which is more than twice the number of players.`
+                                        event: `Power outage! ${G.citiesBuiltInCurrentRound} built this round, which is more than twice the number of players.`,
                                     });
                                 }
                             }
@@ -1054,10 +1056,6 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 }</b> for <span style="color: green">$${price}</span>.`,
             });
 
-            /* if (G.map.name == 'India') {
-                setCurrentPlayer();
-            }*/
-
             break;
         }
 
@@ -1078,7 +1076,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 }</span>.`,
             });
 
-            if(G.map.name == 'India') {
+            if (G.map.name == 'India') {
                 G.citiesBuiltInCurrentRound!++;
             }
 
@@ -1642,7 +1640,7 @@ function removePowerPlant(G: GameState, powerPlant: PowerPlant) {
     );
 }
 
-export function getPowerPlant(num: number, mapName: string = ""): PowerPlant {
+export function getPowerPlant(num: number, mapName: string = ''): PowerPlant {
     if (mapName == 'India') {
         return indiaPowerPlants.find((p) => p.number == num)!;
     } else {

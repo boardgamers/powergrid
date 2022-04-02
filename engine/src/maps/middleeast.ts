@@ -221,5 +221,5 @@ export const map: GameMap = {
     startingResources: [21, 21, 3, 3],
     startingSupply: [24, 24, 21, 11],
     mapSpecificRules:
-        'Only coal and oil can be bought for $1, and any number of oil can restock at $1. During step 1, garbage and nuclear plants will be removed from the current market. Step 2 will be triggered after going through the deck once rather than by a specific number of cities. Step 3 will be triggered after going through the deck a second time.',
+        'Only coal and oil can be bought for $1, and any number of oil can restock at $1.\nDuring step 1, garbage and uranium plants will be removed from the current market.\nStep 2 will be triggered after going through the deck once rather than by a specific number of cities.\nStep 3 will be triggered after going through the deck a second time.',
 };

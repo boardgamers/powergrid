@@ -687,6 +687,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                         let oilResupplyValue: number;
                         if (G.map.name == 'Middle East') {
+                            if (G.oilMarket == 0) {
+                                G.oilPrices = prices[ResourceType.Oil];
+                            }
+
                             oilResupplyValue = G.oilResupply![G.players.length - 2][G.step - 1];
                             for (let i = 0; i < oilResupplyValue; i++) {
                                 if (G.oilSupply > 0) {
@@ -1576,6 +1580,7 @@ function removePlantsForMiddleEastStep1(G: GameState) {
     let plantToRemove: PowerPlant | undefined = G.actualMarket.find(
         (pp: PowerPlant) => pp.type == PowerPlantType.Garbage || pp.type == PowerPlantType.Uranium
     );
+
     while (plantToRemove) {
         removePowerPlant(G, plantToRemove);
 
@@ -1590,6 +1595,25 @@ function removePlantsForMiddleEastStep1(G: GameState) {
                 type: 'event',
                 event: `Sending Power Plant ${plantToRemove.number} to the bottom of the deck.`,
             });
+        }
+
+        // Prevent infinite loop cycling through power plants.
+        const availableFuturePlants = G.futureMarket.filter(
+            (pp) => pp.type != PowerPlantType.Garbage && pp.type != PowerPlantType.Uranium
+        );
+        const nextFuturePlantNumber = availableFuturePlants.length > 0 ? availableFuturePlants[0].number : 100;
+        if (
+            G.powerPlantsDeck.filter(
+                (pp) =>
+                    (pp.type != PowerPlantType.Garbage && pp.type != PowerPlantType.Uranium) ||
+                    pp.number > nextFuturePlantNumber
+            ).length == 0
+        ) {
+            G.log.push({
+                type: 'event',
+                event: 'No suitable power plants available to draw.',
+            });
+            break;
         }
 
         addPowerPlant(G);

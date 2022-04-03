@@ -4,7 +4,7 @@ import { getPowerPlant } from '../engine';
 import { PowerPlant } from '../gamestate';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
-import powerPlants from './../powerPlants';
+import { powerPlants } from './../powerPlants';
 
 export enum Regions {
     Brown = 'brown',

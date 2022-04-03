@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash';
 import { getPowerPlant } from '../engine';
 import { PowerPlant, PowerPlantType } from '../gamestate';
-import powerPlants from '../powerPlants';
+import { powerPlants } from '../powerPlants';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
 

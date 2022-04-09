@@ -49,6 +49,7 @@ export enum PowerPlantType {
     Hybrid,
     Wind,
     Nuclear,
+    Step3,
 }
 
 export interface PowerPlant {

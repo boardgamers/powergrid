@@ -1,3 +1,8 @@
+import { cloneDeep } from 'lodash';
+import { getPowerPlant } from '../engine';
+import { PowerPlant } from '../gamestate';
+import { indiaPowerPlants } from '../powerPlants';
+import { shuffle } from '../utils';
 import { GameMap } from './../maps';
 
 export enum Regions {
@@ -55,7 +60,7 @@ export enum Cities {
 }
 
 export const map: GameMap = {
-    name: 'Indian',
+    name: 'India',
     cities: [
         { name: Cities.Thiruvananthapuram, region: Regions.Red, x: 217, y: 868 },
         { name: Cities.Madurai, region: Regions.Red, x: 230, y: 829 },
@@ -182,4 +187,101 @@ export const map: GameMap = {
     layout: 'Portrait',
     mapPosition: [200, -60],
     adjustRatio: [1.25, 1.25],
+    resupply: [
+        [
+            [4, 5, 4],
+            [5, 6, 4],
+            [6, 7, 5],
+            [7, 8, 6],
+            [8, 10, 7],
+        ],
+        [
+            [1, 2, 2],
+            [2, 2, 2],
+            [2, 3, 3],
+            [3, 4, 4],
+            [4, 5, 5],
+        ],
+        [
+            [1, 3, 4],
+            [1, 3, 4],
+            [3, 4, 6],
+            [4, 5, 7],
+            [4, 7, 9],
+        ],
+        [
+            [1, 1, 1],
+            [1, 1, 1],
+            [1, 2, 1],
+            [2, 2, 2],
+            [2, 3, 2],
+        ],
+    ],
+    startingResources: [24, 21, 21, 7], // Prices begin at: coal 1 Elektro, oil 2 Elektro, garbage 2 Elektro and uranium 6 Elektro.
+    startingSupply: [24, 24, 24, 8], // Use only 8 uranium instead of 12
+    maxPriceAvailable: [3, 5, 16], // In step 1, only resources up to $3 can be bought. In step 2, only resources up to $5 can be bought.
+    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
+        let powerPlantsDeck = cloneDeep(indiaPowerPlants);
+        let actualMarket: PowerPlant[];
+        let futureMarket: PowerPlant[];
+
+        // Except for adjusting the garbage plant cost, the setup is identical to the normal game.
+        if (variant == 'original') {
+            powerPlantsDeck = powerPlantsDeck.slice(8);
+            const powerPlant13 = powerPlantsDeck.splice(2, 1)[0];
+            const step3 = powerPlantsDeck.pop()!;
+
+            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
+            if (numPlayers == 2 || numPlayers == 3) {
+                powerPlantsDeck = powerPlantsDeck.slice(8);
+            } else if (numPlayers == 4) {
+                powerPlantsDeck = powerPlantsDeck.slice(4);
+            }
+
+            powerPlantsDeck.unshift(powerPlant13);
+            powerPlantsDeck.push(step3);
+
+            actualMarket = [
+                getPowerPlant(3, 'India'),
+                getPowerPlant(4, 'India'),
+                getPowerPlant(5, 'India'),
+                getPowerPlant(6, 'India'),
+            ];
+            futureMarket = [
+                getPowerPlant(7, 'India'),
+                getPowerPlant(8, 'India'),
+                getPowerPlant(9, 'India'),
+                getPowerPlant(10, 'India'),
+            ];
+        } else {
+            let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 13), rng() + '');
+            let initialPlantMarket = initialPowerPlants.splice(0, 8);
+            initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
+            actualMarket = initialPlantMarket.slice(0, 4);
+            futureMarket = initialPlantMarket.slice(4);
+
+            const first = initialPowerPlants.shift()!;
+            const step3 = powerPlantsDeck.pop()!;
+
+            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
+            if (numPlayers == 2 || numPlayers == 3) {
+                initialPowerPlants = initialPowerPlants.slice(2);
+                powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
+            } else if (numPlayers == 4) {
+                initialPowerPlants = initialPowerPlants.slice(1);
+                powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
+            }
+
+            powerPlantsDeck.unshift(first);
+            powerPlantsDeck.push(step3);
+        }
+
+        console.log(actualMarket);
+        console.log(futureMarket);
+        console.log(powerPlantsDeck);
+
+        return { actualMarket, futureMarket, powerPlantsDeck };
+    },
+    mapSpecificRules:
+        'The power grid will suffer a power outage if too many cities are built in one round, penalizing players $3 per city built.\nPlayers take turns buying one resource at a time. The resource market is limited in steps 1 and 2.\nGarbage plants are less efficient. Their cost is one higher, but their storage capacity is not changed.\nPlayers must power as many cities as possible in each round.',
 };

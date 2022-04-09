@@ -4,6 +4,7 @@ import { map as america, mapRecharged as americaRecharged } from './maps/america
 import { map as brazil } from './maps/brazil';
 import { map as france } from './maps/france';
 import { map as germany, mapRecharged as germanyRecharged } from './maps/germany';
+import { map as indian } from './maps/indian';
 import { map as italy } from './maps/italy';
 import { map as middleeast } from './maps/middleeast';
 import { map as quebec } from './maps/quebec';
@@ -13,7 +14,6 @@ import { map as spainportugal } from './maps/spainportugal';
 // import { map as benelux } from './maps/benelux';
 // import { map as centraleurope } from './maps/centraleurope';
 // import { map as china } from './maps/china';
-// import { map as indian } from './maps/indian';
 // import { map as japan } from './maps/japan';
 // import { map as korea } from './maps/korea';
 // import { map as northerneurope } from './maps/northerneurope';
@@ -57,6 +57,7 @@ export interface GameMap {
     resupply?: number[][][];
     startingResources?: number[];
     startingSupply?: number[];
+    maxPriceAvailable?: number[]; // For India, only limited sections of the supply are available in step 1 and 2.
     setupDeck?: (
         numPlayers: number,
         variant: string,
@@ -75,6 +76,7 @@ export const maps: GameMap[] = [
     brazil,
     spainportugal,
     france,
+    indian,
     italy,
     quebec,
     middleeast,
@@ -83,7 +85,6 @@ export const maps: GameMap[] = [
     // benelux,
     // centraleurope,
     // china,
-    // indian,
     // japan,
     // korea,
     // northerneurope,
@@ -98,6 +99,7 @@ export const mapsRecharged: GameMap[] = [
     brazil,
     spainportugal,
     france,
+    indian,
     italy,
     quebec,
     middleeast,
@@ -106,7 +108,6 @@ export const mapsRecharged: GameMap[] = [
     // benelux,
     // centraleurope,
     // china,
-    // indian,
     // japan,
     // korea,
     // northerneurope,

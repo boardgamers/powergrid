@@ -1,7 +1,13 @@
 <template>
     <g>
-        <text x="30" y="20" font-weight="600" fill="black" style="font-size: 24px">Resource Resupply:</text>
-        <text x="276" y="20" font-weight="600" fill="black" style="font-size: 24px">
+        <text v-if="resourceResupply[0] < 10" x="30" y="20" font-weight="600" fill="black" style="font-size: 24px"
+            >Resource Resupply:</text
+        >
+        <text v-else x="20" y="20" font-weight="600" fill="black" style="font-size: 24px">Resource Resupply:</text>
+        <text v-if="resourceResupply[0] < 10" x="276" y="20" font-weight="600" fill="black" style="font-size: 24px">
+            {{ resourceResupply[0] }}
+        </text>
+        <text v-else x="262" y="20" font-weight="600" fill="black" style="font-size: 24px">
             {{ resourceResupply[0] }}
         </text>
         <Coal :pieceId="-1" :targetState="{ x: 288, y: 12 }" :canClick="false" :transparent="false" />

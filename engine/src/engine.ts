@@ -6,7 +6,7 @@ import { GameOptions, GameState, Phase, Player, PowerPlant, PowerPlantType, Reso
 import { LogMove } from './log';
 import { GameMap, maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
-import powerPlants from './powerPlants';
+import { indiaPowerPlants, powerPlants } from './powerPlants';
 import prices from './prices';
 import { asserts, shuffle } from './utils';
 
@@ -25,8 +25,7 @@ export function defaultSetupDeck(
 ) {
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
-    let powerPlantsDeck: PowerPlant[];
-    powerPlantsDeck = cloneDeep(powerPlants);
+    let powerPlantsDeck: PowerPlant[] = cloneDeep(powerPlants);
 
     if (variant == 'original') {
         powerPlantsDeck = powerPlantsDeck.slice(8);
@@ -370,7 +369,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
         case MoveName.ChoosePowerPlant: {
             asserts<Moves.MoveChoosePowerPlant>(move);
 
-            G.chosenPowerPlant = getPowerPlant(move.data);
+            G.chosenPowerPlant = getPowerPlant(move.data, G.map.name);
             G.auctioningPlayer = player.id;
 
             if (move.data == 39) {
@@ -544,13 +543,25 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 }
 
                 case Phase.Resources: {
-                    player.passed = true;
+                    if (G.map.name == 'India') {
+                        if (G.chosenResource) {
+                            G.chosenResource = undefined;
+                        } else {
+                            player.passed = true;
+                        }
+                    } else {
+                        player.passed = true;
+                    }
 
                     if (G.players.filter((p) => !p.passed && !p.isDropped).length == 0) {
                         G.players.forEach((p) => {
                             p.passed = p.isDropped;
                         });
                         G.phase = Phase.Building;
+
+                        if (G.map.name == 'India') {
+                            G.citiesBuiltInCurrentRound = 0;
+                        }
 
                         setCurrentPlayer(G, G.playerOrder[G.players.length - 1]);
 
@@ -560,6 +571,12 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         }
                     } else {
                         nextPlayerReverse(G);
+                    }
+
+                    if (G.map.name == 'India') {
+                        while (G.players[G.currentPlayers[0]].passed) {
+                            nextPlayerReverse(G);
+                        }
                     }
 
                     break;
@@ -596,6 +613,15 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             G.phase = Phase.GameEnd;
                             G.currentPlayers = [];
                             calculateCitiesPowered(G);
+
+                            // Include payouts in phase 5 if there is a power outage in India.
+                            if (G.map.name == 'India' && G.citiesBuiltInCurrentRound! > G.players.length * 2) {
+                                G.players.forEach((player) => {
+                                    const payment = G.paymentTable[player.citiesPowered] - 3 * player.cities.length;
+                                    player.money += Math.max(payment, 0);
+                                });
+                            }
+
                             G.log.push({ type: 'event', event: 'Game Ended!' });
                         } else {
                             G.players.forEach((p) => {
@@ -606,6 +632,21 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             G.currentPlayers = G.playerOrder.filter(
                                 (p) => !G.players[p].passed && !G.players[p].isDropped
                             );
+
+                            if (G.map.name == 'India') {
+                                // Compute the maximum number of cities each player can power.
+                                G.players.forEach(
+                                    (player) => (player.targetCitiesPowered = calculateMaxCitiesPowered(player))
+                                );
+
+                                // Output log for power outage.
+                                if (G.citiesBuiltInCurrentRound! > G.players.length * 2) {
+                                    G.log.push({
+                                        type: 'event',
+                                        event: `Power outage! ${G.citiesBuiltInCurrentRound} built this round, which is more than twice the number of players.`,
+                                    });
+                                }
+                            }
 
                             if (G.futureMarket.length == 0) {
                                 G.step = 3;
@@ -620,9 +661,21 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                 case Phase.Bureaucracy: {
                     player.passed = true;
+                    const citiesPowered: number = Math.min(player.cities.length, player.citiesPowered);
+                    let payment: number = G.paymentTable[citiesPowered];
 
-                    player.money += G.paymentTable[Math.min(player.cities.length, player.citiesPowered)];
+                    // For the India map, if the number of cities built in the current round is more than twice
+                    // the number of players, each player is penalized three Elektro per city (power outage).
+                    if (G.map.name == 'India' && G.citiesBuiltInCurrentRound! > G.players.length * 2) {
+                        payment -= 3 * player.cities.length;
+                        payment = Math.max(payment, 0); // No negative income
+                    }
+                    player.money += payment;
                     player.citiesPowered = 0;
+
+                    if (G.map.name == 'India') {
+                        player.targetCitiesPowered = 0;
+                    }
 
                     if (G.players.filter((p) => !p.passed && !p.isDropped).length == 0) {
                         const coalResupplyValue = Math.min(
@@ -634,6 +687,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                         let oilResupplyValue: number;
                         if (G.map.name == 'Middle East') {
+                            if (G.oilMarket == 0) {
+                                G.oilPrices = prices[ResourceType.Oil];
+                            }
+
                             oilResupplyValue = G.oilResupply![G.players.length - 2][G.step - 1];
                             for (let i = 0; i < oilResupplyValue; i++) {
                                 if (G.oilSupply > 0) {
@@ -949,6 +1006,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
         case MoveName.BuyResource: {
             asserts<Moves.MoveBuyResource>(move);
+            G.chosenResource = move.data.resource;
 
             let price;
             switch (move.data.resource) {
@@ -1022,6 +1080,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     move.data.price
                 }</span>.`,
             });
+
+            if (G.map.name == 'India') {
+                G.citiesBuiltInCurrentRound!++;
+            }
 
             if (G.options.variant == 'original') {
                 if (G.actualMarket.length > 0 && player.cities.length >= G.actualMarket[0].number) {
@@ -1146,6 +1208,9 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     }
 
                     player.money += price;
+                    if (G.map.name == 'India') {
+                        G.chosenResource = undefined;
+                    }
 
                     G.log.pop();
 
@@ -1157,6 +1222,9 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     player.money += lastMove.data.price;
 
                     G.log.pop();
+                    if (G.map.name == 'India') {
+                        G.citiesBuiltInCurrentRound!--;
+                    }
 
                     break;
                 }
@@ -1373,31 +1441,31 @@ function updatePlayerCapacity(player: Player) {
         switch (powerPlant.type) {
             case PowerPlantType.Coal: {
                 player.coalCapacity += powerPlant.cost * 2;
-
                 break;
             }
 
             case PowerPlantType.Oil: {
                 player.oilCapacity += powerPlant.cost * 2;
-
                 break;
             }
 
             case PowerPlantType.Garbage: {
-                player.garbageCapacity += powerPlant.cost * 2;
-
+                if (powerPlant.storage) {
+                    // For the India map, garbage plants have cost one higher, but have no additional storage.
+                    player.garbageCapacity += powerPlant.storage;
+                } else {
+                    player.garbageCapacity += powerPlant.cost * 2;
+                }
                 break;
             }
 
             case PowerPlantType.Uranium: {
                 player.uraniumCapacity += powerPlant.cost * 2;
-
                 break;
             }
 
             case PowerPlantType.Hybrid: {
                 player.hybridCapacity += powerPlant.cost * 2;
-
                 break;
             }
         }
@@ -1508,6 +1576,7 @@ function removePlantsForMiddleEastStep1(G: GameState) {
     let plantToRemove: PowerPlant | undefined = G.actualMarket.find(
         (pp: PowerPlant) => pp.type == PowerPlantType.Garbage || pp.type == PowerPlantType.Uranium
     );
+
     while (plantToRemove) {
         removePowerPlant(G, plantToRemove);
 
@@ -1522,6 +1591,25 @@ function removePlantsForMiddleEastStep1(G: GameState) {
                 type: 'event',
                 event: `Sending Power Plant ${plantToRemove.number} to the bottom of the deck.`,
             });
+        }
+
+        // Prevent infinite loop cycling through power plants.
+        const availableFuturePlants = G.futureMarket.filter(
+            (pp) => pp.type != PowerPlantType.Garbage && pp.type != PowerPlantType.Uranium
+        );
+        const nextFuturePlantNumber = availableFuturePlants.length > 0 ? availableFuturePlants[0].number : 100;
+        if (
+            G.powerPlantsDeck.filter(
+                (pp) =>
+                    (pp.type != PowerPlantType.Garbage && pp.type != PowerPlantType.Uranium) ||
+                    pp.number > nextFuturePlantNumber
+            ).length == 0
+        ) {
+            G.log.push({
+                type: 'event',
+                event: 'No suitable power plants available to draw.',
+            });
+            break;
         }
 
         addPowerPlant(G);
@@ -1573,8 +1661,12 @@ function removePowerPlant(G: GameState, powerPlant: PowerPlant) {
     );
 }
 
-export function getPowerPlant(num: number): PowerPlant {
-    return powerPlants.find((p) => p.number == num)!;
+export function getPowerPlant(num: number, mapName = ''): PowerPlant {
+    if (mapName == 'India') {
+        return indiaPowerPlants.find((p) => p.number == num)!;
+    } else {
+        return powerPlants.find((p) => p.number == num)!;
+    }
 }
 
 function getBaseState(G: GameState): GameState {
@@ -1611,29 +1703,31 @@ export function playersSortedByScore(G: GameState): Player[] {
 
 function calculateCitiesPowered(G: GameState) {
     G.players.forEach((player) => {
-        player.citiesPowered = 0;
+        player.citiesPowered = calculateMaxCitiesPowered(player);
+    });
+}
 
-        const permutations: PowerPlant[][] = [];
-        for (let i = 0; i < Math.pow(2, player.powerPlants.length); i++) {
-            const perm: PowerPlant[] = [];
-            player.powerPlants.forEach((pp, index) => {
-                if (i & Math.pow(2, index)) {
-                    perm.push(pp);
-                }
-            });
-            permutations.push(perm);
-        }
-
-        let max = 0;
-        permutations.forEach((permutation) => {
-            if (isValid(player, permutation)) {
-                const citiesPowered = permutation.map((p) => p.citiesPowered).reduce((a, b) => a + b, 0);
-                max = Math.max(max, citiesPowered);
+function calculateMaxCitiesPowered(player: Player) {
+    const permutations: PowerPlant[][] = [];
+    for (let i = 0; i < Math.pow(2, player.powerPlants.length); i++) {
+        const perm: PowerPlant[] = [];
+        player.powerPlants.forEach((pp, index) => {
+            if (i & Math.pow(2, index)) {
+                perm.push(pp);
             }
         });
+        permutations.push(perm);
+    }
 
-        player.citiesPowered = Math.min(player.cities.length, max);
+    let max = 0;
+    permutations.forEach((permutation) => {
+        if (isValid(player, permutation)) {
+            const citiesPowered = permutation.map((p) => p.citiesPowered).reduce((a, b) => a + b, 0);
+            max = Math.max(max, citiesPowered);
+        }
     });
+
+    return Math.min(player.cities.length, max);
 }
 
 function isValid(player: Player, powerPlants: PowerPlant[]) {

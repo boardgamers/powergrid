@@ -145,7 +145,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 const hybridCapacityUsed =
                     player.hybridCapacity > 0 ? Math.max(0, player.oilLeft - player.oilCapacity) : 0;
                 const coalPrices = G.coalPrices ?? prices[ResourceType.Coal];
-                const price = coalPrices[coalPrices.length - G.oilMarket];
+                const price = coalPrices[coalPrices.length - G.coalMarket];
 
                 if (
                     player.money >= price &&

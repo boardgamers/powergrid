@@ -1016,7 +1016,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
             let price: number;
             switch (move.data.resource) {
-                case ResourceType.Coal:
+                case ResourceType.Coal: {
                     if (G.coalMarket == 0) {
                         price = 8;
                         player.coalLeft++;
@@ -1029,27 +1029,31 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         G.coalMarket--;
                     }
                     break;
+                }
 
-                case ResourceType.Oil:
+                case ResourceType.Oil: {
                     const oilPrices = G.oilPrices ?? prices[ResourceType.Oil];
                     price = oilPrices[oilPrices.length - G.oilMarket];
                     player.oilLeft++;
                     G.oilMarket--;
                     break;
+                }
 
-                case ResourceType.Garbage:
+                case ResourceType.Garbage: {
                     const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
                     price = garbagePrices[garbagePrices.length - G.garbageMarket];
                     player.garbageLeft++;
                     G.garbageMarket--;
                     break;
+                }
 
-                case ResourceType.Uranium:
+                case ResourceType.Uranium: {
                     const uraniumPrices = G.uraniumPrices ?? prices[ResourceType.Uranium];
                     price = uraniumPrices[uraniumPrices.length - G.uraniumMarket];
                     player.uraniumLeft++;
                     G.uraniumMarket--;
                     break;
+                }
             }
 
             player.money -= price;
@@ -1180,26 +1184,29 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                             break;
 
-                        case ResourceType.Oil:
+                        case ResourceType.Oil: {
                             player.oilLeft--;
                             G.oilMarket++;
                             const oilPrices = G.oilPrices ?? prices[ResourceType.Oil];
                             price = oilPrices[oilPrices.length - G.oilMarket];
                             break;
+                        }
 
-                        case ResourceType.Garbage:
+                        case ResourceType.Garbage: {
                             player.garbageLeft--;
                             G.garbageMarket++;
                             const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
                             price = garbagePrices[garbagePrices.length - G.garbageMarket];
                             break;
+                        }
 
-                        case ResourceType.Uranium:
+                        case ResourceType.Uranium: {
                             player.uraniumLeft--;
                             G.uraniumMarket++;
                             const uraniumPrices = G.uraniumPrices ?? prices[ResourceType.Uranium];
                             price = uraniumPrices[uraniumPrices.length - G.uraniumMarket];
                             break;
+                        }
                     }
 
                     player.money += price;

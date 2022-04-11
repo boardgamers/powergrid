@@ -78,25 +78,49 @@
         <template v-if="!isIndiaResourceMarket">
             <rect width="30" height="30" x="705" y="45" rx="2" fill="darkgoldenrod" />
             <circle r="10" cx="732" cy="48" fill="yellow" />
-            <text text-anchor="middle" style="font-size: 12px; font-family: monospace" x="732" y="48" fill="darkgoldenrod">
+            <text
+                text-anchor="middle"
+                style="font-size: 12px; font-family: monospace"
+                x="732"
+                y="48"
+                fill="darkgoldenrod"
+            >
                 10
             </text>
 
             <rect width="30" height="30" x="745" y="45" rx="2" fill="darkgoldenrod" />
             <circle r="10" cx="772" cy="48" fill="yellow" />
-            <text text-anchor="middle" style="font-size: 12px; font-family: monospace" x="772" y="48" fill="darkgoldenrod">
+            <text
+                text-anchor="middle"
+                style="font-size: 12px; font-family: monospace"
+                x="772"
+                y="48"
+                fill="darkgoldenrod"
+            >
                 12
             </text>
 
             <rect width="30" height="30" x="705" y="85" rx="2" fill="darkgoldenrod" />
             <circle r="10" cx="732" cy="88" fill="yellow" />
-            <text text-anchor="middle" style="font-size: 12px; font-family: monospace" x="732" y="88" fill="darkgoldenrod">
+            <text
+                text-anchor="middle"
+                style="font-size: 12px; font-family: monospace"
+                x="732"
+                y="88"
+                fill="darkgoldenrod"
+            >
                 14
             </text>
 
             <rect width="30" height="30" x="745" y="85" rx="2" fill="darkgoldenrod" />
             <circle r="10" cx="772" cy="88" fill="yellow" />
-            <text text-anchor="middle" style="font-size: 12px; font-family: monospace" x="772" y="88" fill="darkgoldenrod">
+            <text
+                text-anchor="middle"
+                style="font-size: 12px; font-family: monospace"
+                x="772"
+                y="88"
+                fill="darkgoldenrod"
+            >
                 16
             </text>
         </template>

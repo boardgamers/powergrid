@@ -144,8 +144,8 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             if (G.coalMarket > 0) {
                 const hybridCapacityUsed =
                     player.hybridCapacity > 0 ? Math.max(0, player.oilLeft - player.oilCapacity) : 0;
-                let coalPrices = G.coalPrices ?? prices[ResourceType.Coal];
-                let price = coalPrices[coalPrices.length - G.oilMarket];
+                const coalPrices = G.coalPrices ?? prices[ResourceType.Coal];
+                const price = coalPrices[coalPrices.length - G.oilMarket];
 
                 if (
                     player.money >= price &&
@@ -170,8 +170,8 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             if (G.oilMarket > 0) {
                 const hybridCapacityUsed =
                     player.hybridCapacity > 0 ? Math.max(0, player.coalLeft - player.coalCapacity) : 0;
-                let oilPrices = G.oilPrices ?? prices[ResourceType.Oil];
-                let price = oilPrices[oilPrices.length - G.oilMarket];
+                const oilPrices = G.oilPrices ?? prices[ResourceType.Oil];
+                const price = oilPrices[oilPrices.length - G.oilMarket];
 
                 if (
                     player.money >= price &&
@@ -183,8 +183,8 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             }
 
             if (G.garbageMarket > 0) {
-                let garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
-                let price = garbagePrices[garbagePrices.length - G.garbageMarket];
+                const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
+                const price = garbagePrices[garbagePrices.length - G.garbageMarket];
                 if (
                     player.money >= price &&
                     player.garbageCapacity > player.garbageLeft &&
@@ -195,8 +195,8 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             }
 
             if (G.uraniumMarket > 0) {
-                let uraniumPrices = G.uraniumPrices ?? prices[ResourceType.Uranium];
-                let price = uraniumPrices[uraniumPrices.length - G.uraniumMarket];
+                const uraniumPrices = G.uraniumPrices ?? prices[ResourceType.Uranium];
+                const price = uraniumPrices[uraniumPrices.length - G.uraniumMarket];
                 if (
                     player.money >= price &&
                     player.uraniumCapacity > player.uraniumLeft &&

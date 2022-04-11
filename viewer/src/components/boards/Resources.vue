@@ -75,6 +75,16 @@
             </g>
         </template>
 
+        <template v-if="isIndiaResourceMarket">
+            <g :key="'separators'">
+                <line x1="275" y1="40" x2="275" y2="140" stroke="red" />
+                <line x1="445" y1="40" x2="445" y2="140" stroke="red" />
+
+                <text x="220" y="130" stroke="red">Step 1</text>
+                <text x="390" y="130" stroke="red">Step 2</text>
+            </g>
+        </template>
+
         <template v-if="!isIndiaResourceMarket">
             <rect width="30" height="30" x="705" y="45" rx="2" fill="darkgoldenrod" />
             <circle r="10" cx="732" cy="48" fill="yellow" />

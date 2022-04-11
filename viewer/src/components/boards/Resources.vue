@@ -24,7 +24,8 @@
         </text>
         <Uranium :pieceId="-1" :targetState="{ x: 428, y: 12 }" :canClick="false" :transparent="false" />
 
-        <rect width="760" height="80" x="20" y="40" rx="3" fill="goldenrod" />
+        <rect v-if="!isIndiaResourceMarket" width="760" height="80" x="20" y="40" rx="3" fill="goldenrod" />
+        <rect v-if="isIndiaResourceMarket" width="680" height="80" x="20" y="40" rx="3" fill="goldenrod" />
         <template v-for="index in 8">
             <rect
                 :key="'resources' + index"
@@ -46,7 +47,7 @@
             >
                 {{ index }}
             </text>
-            <g :key="'lines' + index">
+            <g :key="'lines' + index" v-if="!isIndiaResourceMarket">
                 <line :x1="25 + 85 * (index - 1)" y1="68" :x2="95 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
                 <line :x1="25 + 85 * (index - 1)" y1="92" :x2="95 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
 
@@ -58,31 +59,81 @@
                 <line :x1="48 + 85 * (index - 1)" y1="92" :x2="48 + 85 * (index - 1)" y2="120" stroke="goldenrod" />
                 <line :x1="72 + 85 * (index - 1)" y1="92" :x2="72 + 85 * (index - 1)" y2="120" stroke="goldenrod" />
             </g>
+            <g :key="'lines' + index" v-if="isIndiaResourceMarket">
+                <line :x1="25 + 85 * (index - 1)" y1="68" :x2="95 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
+                <line :x1="25 + 85 * (index - 1)" y1="92" :x2="95 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
+
+                <line :x1="42 + 85 * (index - 1)" y1="40" :x2="42 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
+                <line :x1="59 + 85 * (index - 1)" y1="40" :x2="59 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
+                <line :x1="76 + 85 * (index - 1)" y1="40" :x2="76 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
+                <line :x1="42 + 85 * (index - 1)" y1="68" :x2="42 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
+                <line :x1="58 + 85 * (index - 1)" y1="68" :x2="58 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
+                <line :x1="74 + 85 * (index - 1)" y1="68" :x2="74 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
+                <line :x1="42 + 85 * (index - 1)" y1="92" :x2="42 + 85 * (index - 1)" y2="120" stroke="goldenrod" />
+                <line :x1="59 + 85 * (index - 1)" y1="92" :x2="59 + 85 * (index - 1)" y2="120" stroke="goldenrod" />
+                <line :x1="76 + 85 * (index - 1)" y1="92" :x2="76 + 85 * (index - 1)" y2="120" stroke="goldenrod" />
+            </g>
         </template>
 
-        <rect width="30" height="30" x="705" y="45" rx="2" fill="darkgoldenrod" />
-        <circle r="10" cx="732" cy="48" fill="yellow" />
-        <text text-anchor="middle" style="font-size: 12px; font-family: monospace" x="732" y="48" fill="darkgoldenrod">
-            10
-        </text>
+        <template v-if="isIndiaResourceMarket">
+            <g :key="'separators'">
+                <line x1="275" y1="40" x2="275" y2="140" stroke="red" />
+                <line x1="445" y1="40" x2="445" y2="140" stroke="red" />
 
-        <rect width="30" height="30" x="745" y="45" rx="2" fill="darkgoldenrod" />
-        <circle r="10" cx="772" cy="48" fill="yellow" />
-        <text text-anchor="middle" style="font-size: 12px; font-family: monospace" x="772" y="48" fill="darkgoldenrod">
-            12
-        </text>
+                <text x="220" y="130" stroke="red">Step 1</text>
+                <text x="390" y="130" stroke="red">Step 2</text>
+            </g>
+        </template>
 
-        <rect width="30" height="30" x="705" y="85" rx="2" fill="darkgoldenrod" />
-        <circle r="10" cx="732" cy="88" fill="yellow" />
-        <text text-anchor="middle" style="font-size: 12px; font-family: monospace" x="732" y="88" fill="darkgoldenrod">
-            14
-        </text>
+        <template v-if="!isIndiaResourceMarket">
+            <rect width="30" height="30" x="705" y="45" rx="2" fill="darkgoldenrod" />
+            <circle r="10" cx="732" cy="48" fill="yellow" />
+            <text
+                text-anchor="middle"
+                style="font-size: 12px; font-family: monospace"
+                x="732"
+                y="48"
+                fill="darkgoldenrod"
+            >
+                10
+            </text>
 
-        <rect width="30" height="30" x="745" y="85" rx="2" fill="darkgoldenrod" />
-        <circle r="10" cx="772" cy="88" fill="yellow" />
-        <text text-anchor="middle" style="font-size: 12px; font-family: monospace" x="772" y="88" fill="darkgoldenrod">
-            16
-        </text>
+            <rect width="30" height="30" x="745" y="45" rx="2" fill="darkgoldenrod" />
+            <circle r="10" cx="772" cy="48" fill="yellow" />
+            <text
+                text-anchor="middle"
+                style="font-size: 12px; font-family: monospace"
+                x="772"
+                y="48"
+                fill="darkgoldenrod"
+            >
+                12
+            </text>
+
+            <rect width="30" height="30" x="705" y="85" rx="2" fill="darkgoldenrod" />
+            <circle r="10" cx="732" cy="88" fill="yellow" />
+            <text
+                text-anchor="middle"
+                style="font-size: 12px; font-family: monospace"
+                x="732"
+                y="88"
+                fill="darkgoldenrod"
+            >
+                14
+            </text>
+
+            <rect width="30" height="30" x="745" y="85" rx="2" fill="darkgoldenrod" />
+            <circle r="10" cx="772" cy="88" fill="yellow" />
+            <text
+                text-anchor="middle"
+                style="font-size: 12px; font-family: monospace"
+                x="772"
+                y="88"
+                fill="darkgoldenrod"
+            >
+                16
+            </text>
+        </template>
 
         <template v-if="isUsaRecharged">
             <rect
@@ -115,6 +166,7 @@
                 :targetState="{ x: coal.x, y: coal.y }"
                 :canClick="!coal.transparent && canBuyResource('coal')"
                 :transparent="coal.transparent"
+                :scale="isIndiaResourceMarket ? 0.06 : 0.08"
                 @click="buyResource('coal')"
             />
         </template>
@@ -137,6 +189,7 @@
                 :targetState="{ x: garbage.x, y: garbage.y }"
                 :canClick="!garbage.transparent && canBuyResource('garbage')"
                 :transparent="garbage.transparent"
+                :scale="isIndiaResourceMarket ? 0.8 : 1"
                 @click="buyResource('garbage')"
             />
         </template>
@@ -223,6 +276,7 @@ export default class Resources extends Vue {
     @Prop() resourceResupply?: number[];
     @Prop() isUsaRecharged?: boolean;
     @Prop() isMiddleEast?: boolean;
+    @Prop() isIndiaResourceMarket?: boolean;
     @Prop() availableSurplusOil?: number;
     @Prop() buyableResources?: string[];
 
@@ -236,18 +290,52 @@ export default class Resources extends Vue {
     createPieces(gameState: GameState) {
         if (gameState) {
             this.coals = [];
-            Array(24)
-                .fill(0)
-                .forEach((_, i) => {
-                    this.coals.push({
-                        id: 'coal_' + i,
-                        x: 668 - 23.5 * i - 14.5 * Math.floor(i / 3),
-                        y: 48,
-                        transparent: i >= gameState!.coalMarket,
-                    });
-                });
+            if (gameState.map?.name == 'India') {
+                Array(24)
+                    .fill(0)
+                    .forEach((_, i) => {
+                        // Convert i to which of the 32 slots it belongs in, some of which are empty.
+                        let index = i;
+                        if (i >= 0) {
+                            index += 2; // 2 empty slots for $8
+                        }
+                        if (i >= 2) {
+                            index += 2; // 2 empty slots for $7
+                        }
+                        if (i >= 4) {
+                            index++; // 1 empty slot for $6
+                        }
+                        if (i >= 7) {
+                            index++; // 1 empty slot for $5
+                        }
+                        if (i >= 10) {
+                            index++; // 1 empty slot for $4
+                        }
+                        if (i >= 13) {
+                            index++; // 1 empty slot for $3
+                        }
 
-            if (gameState.options.variant == 'recharged' && gameState.map.name == 'USA') {
+                        this.coals.push({
+                            id: 'coal_' + i,
+                            x: 672 - 17 * index - 17 * Math.floor(index / 4),
+                            y: 48,
+                            transparent: i >= gameState!.coalMarket
+                        });
+                    });
+            } else {
+                Array(24)
+                    .fill(0)
+                    .forEach((_, i) => {
+                        this.coals.push({
+                            id: 'coal_' + i,
+                            x: 668 - 23.5 * i - 14.5 * Math.floor(i / 3),
+                            y: 48,
+                            transparent: i >= gameState!.coalMarket,
+                        });
+                    });
+            }
+
+            if (gameState.options.variant == 'recharged' && gameState.map?.name == 'USA') {
                 range(gameState.coalSupply).forEach((i) => {
                     this.coals.push({
                         id: 'coal_supply_' + i,
@@ -259,7 +347,7 @@ export default class Resources extends Vue {
             }
 
             this.oils = [];
-            if (gameState.map.name == 'Middle East') {
+            if (gameState.map?.name == 'Middle East') {
                 let maxRegularOil = gameState.oilPrices!.filter(p => p > 1).length;
                 let maxSurplusOil = gameState.oilPrices!.filter(p => p == 1).length;
                 let availableRegularOil = Math.min(maxRegularOil, gameState.oilMarket);
@@ -289,58 +377,85 @@ export default class Resources extends Vue {
             }
 
             this.garbages = [];
-            Array(24)
-                .fill(0)
-                .forEach((_, i) => {
-                    this.garbages.push({
-                        id: 'garbage_' + i,
-                        x: 668 - 23.5 * i - 14.5 * Math.floor(i / 3),
-                        y: 94,
-                        transparent: i >= gameState!.garbageMarket,
+            if (gameState.map?.name == 'India') {
+                Array(24)
+                    .fill(0)
+                    .forEach((_, i) => {
+                        let index = i + 8; // Leave $7 and $8 empty.
+                        this.garbages.push({
+                            id: 'garbage_' + i,
+                            x: 672 - 17 * index - 17 * Math.floor(index / 4),
+                            y: 94,
+                            transparent: i >= gameState!.garbageMarket,
+                        });
                     });
-                });
+            } else {
+                Array(24)
+                    .fill(0)
+                    .forEach((_, i) => {
+                        this.garbages.push({
+                            id: 'garbage_' + i,
+                            x: 668 - 23.5 * i - 14.5 * Math.floor(i / 3),
+                            y: 94,
+                            transparent: i >= gameState!.garbageMarket,
+                        });
+                    });
+            }
 
             this.uraniums = [];
-            Array(12)
-                .fill(0)
-                .forEach((_, i) => {
-                    if (i == 0) {
+            if (gameState.map?.name == 'India') {
+                Array(8)
+                    .fill(0)
+                    .forEach((_, i) => {
                         this.uraniums.push({
                             id: 'uranium_' + i,
-                            x: 750,
-                            y: 91,
-                            transparent: i >= gameState!.uraniumMarket,
-                        });
-                    } else if (i == 1) {
-                        this.uraniums.push({
-                            id: 'uranium_' + i,
-                            x: 710,
-                            y: 91,
-                            transparent: i >= gameState!.uraniumMarket,
-                        });
-                    } else if (i == 2) {
-                        this.uraniums.push({
-                            id: 'uranium_' + i,
-                            x: 750,
-                            y: 52,
-                            transparent: i >= gameState!.uraniumMarket,
-                        });
-                    } else if (i == 3) {
-                        this.uraniums.push({
-                            id: 'uranium_' + i,
-                            x: 710,
-                            y: 52,
-                            transparent: i >= gameState!.uraniumMarket,
-                        });
-                    } else {
-                        this.uraniums.push({
-                            id: 'uranium_' + i,
-                            x: 1010 - 85 * i,
+                            x: 670 - 85 * i,
                             y: 72,
-                            transparent: i >= gameState!.uraniumMarket,
+                            transparent: i >= gameState!.uraniumMarket
                         });
-                    }
-                });
+                    });
+            } else {
+                Array(12)
+                    .fill(0)
+                    .forEach((_, i) => {
+                        if (i == 0) {
+                            this.uraniums.push({
+                                id: 'uranium_' + i,
+                                x: 750,
+                                y: 91,
+                                transparent: i >= gameState!.uraniumMarket,
+                            });
+                        } else if (i == 1) {
+                            this.uraniums.push({
+                                id: 'uranium_' + i,
+                                x: 710,
+                                y: 91,
+                                transparent: i >= gameState!.uraniumMarket,
+                            });
+                        } else if (i == 2) {
+                            this.uraniums.push({
+                                id: 'uranium_' + i,
+                                x: 750,
+                                y: 52,
+                                transparent: i >= gameState!.uraniumMarket,
+                            });
+                        } else if (i == 3) {
+                            this.uraniums.push({
+                                id: 'uranium_' + i,
+                                x: 710,
+                                y: 52,
+                                transparent: i >= gameState!.uraniumMarket,
+                            });
+                        } else {
+                            this.uraniums.push({
+                                id: 'uranium_' + i,
+                                x: 1010 - 85 * i,
+                                y: 72,
+                                transparent: i >= gameState!.uraniumMarket,
+                            });
+                        }
+                    });
+            }
         }
     }
 

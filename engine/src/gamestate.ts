@@ -3,13 +3,21 @@ import { LogItem } from './log';
 import { GameMap } from './maps';
 import { Move } from './move';
 
-export type MapName = 'USA' | 'Germany' | 'Brazil' | 'Spain & Portugal' | 'France' | 'Italy' | 'Quebec' | 'Middle East';
+export type MapName =
+    | 'USA'
+    | 'Germany'
+    | 'Brazil'
+    | 'Spain & Portugal'
+    | 'France'
+    | 'Italy'
+    | 'Quebec'
+    | 'Middle East'
+    | 'India';
 // | 'Australia'
 // | 'Baden-Württemberg'
 // | 'Benelux'
 // | 'Central Europe'
 // | 'China'
-// | 'Indian'
 // | 'Japan'
 // | 'Korea'
 // | 'Northern Europe'
@@ -24,6 +32,7 @@ export interface GameOptions {
     variant?: Variant;
     showMoney?: boolean;
     useNewRechargedSetup?: boolean;
+    trackTotalSpent?: boolean;
 }
 
 export enum ResourceType {
@@ -41,6 +50,7 @@ export enum PowerPlantType {
     Hybrid,
     Wind,
     Nuclear,
+    Step3,
 }
 
 export interface PowerPlant {
@@ -48,6 +58,7 @@ export interface PowerPlant {
     type: PowerPlantType;
     cost: number;
     citiesPowered: number;
+    storage?: number;
 }
 
 export interface CityPosition {
@@ -80,6 +91,7 @@ export interface Player {
     passed: boolean;
     skipAuction: boolean;
     citiesPowered: number;
+    targetCitiesPowered?: number;
     resourcesUsed: ResourceType[];
     totalIncome: number;
     totalSpentCities: number;
@@ -119,6 +131,7 @@ export interface GameState {
     actualMarket: PowerPlant[];
     futureMarket: PowerPlant[];
     chosenPowerPlant: PowerPlant | undefined;
+    chosenResource?: ResourceType | undefined; // Used for India map, where only one resource can be bought at a time.
     currentBid: number | undefined;
     auctioningPlayer: number | undefined;
     step: number;
@@ -131,6 +144,7 @@ export interface GameState {
     auctionSkips: number;
     citiesToStep2: number;
     citiesToEndGame: number;
+    citiesBuiltInCurrentRound?: number; // In India, if the players build too many cities in a single round, a power outage will occur.
     resourceResupply: string[];
     paymentTable: number[];
     minimunBid: number;

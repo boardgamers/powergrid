@@ -128,7 +128,18 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
         }
 
         case Phase.Resources: {
+            if (G.map.name == 'India' && G.chosenResource !== undefined) {
+                moves[MoveName.Pass] = [true];
+                break;
+            }
+
             const toBuy: { resource: ResourceType }[] = [];
+            let maxPriceAvailable: number;
+            if (G.map.maxPriceAvailable) {
+                maxPriceAvailable = G.map.maxPriceAvailable[G.step - 1];
+            } else {
+                maxPriceAvailable = 16;
+            }
 
             if (G.coalMarket > 0) {
                 const hybridCapacityUsed =
@@ -136,7 +147,8 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 const price = prices[ResourceType.Coal][prices[ResourceType.Coal].length - G.coalMarket];
                 if (
                     player.money >= price &&
-                    player.coalCapacity + player.hybridCapacity > hybridCapacityUsed + player.coalLeft
+                    player.coalCapacity + player.hybridCapacity > hybridCapacityUsed + player.coalLeft &&
+                    price <= maxPriceAvailable
                 ) {
                     toBuy.push({ resource: ResourceType.Coal });
                 }
@@ -166,7 +178,8 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
 
                 if (
                     player.money >= price &&
-                    player.oilCapacity + player.hybridCapacity > hybridCapacityUsed + player.oilLeft
+                    player.oilCapacity + player.hybridCapacity > hybridCapacityUsed + player.oilLeft &&
+                    price <= maxPriceAvailable
                 ) {
                     toBuy.push({ resource: ResourceType.Oil });
                 }
@@ -174,14 +187,22 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
 
             if (G.garbageMarket > 0) {
                 const price = prices[ResourceType.Garbage][prices[ResourceType.Garbage].length - G.garbageMarket];
-                if (player.money >= price && player.garbageCapacity > player.garbageLeft) {
+                if (
+                    player.money >= price &&
+                    player.garbageCapacity > player.garbageLeft &&
+                    price <= maxPriceAvailable
+                ) {
                     toBuy.push({ resource: ResourceType.Garbage });
                 }
             }
 
             if (G.uraniumMarket > 0) {
                 const price = prices[ResourceType.Uranium][prices[ResourceType.Uranium].length - G.uraniumMarket];
-                if (player.money >= price && player.uraniumCapacity > player.uraniumLeft) {
+                if (
+                    player.money >= price &&
+                    player.uraniumCapacity > player.uraniumLeft &&
+                    price <= maxPriceAvailable
+                ) {
                     toBuy.push({ resource: ResourceType.Uranium });
                 }
             }
@@ -334,8 +355,10 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 moves[MoveName.UsePowerPlant] = toUse;
             }
 
-            moves[MoveName.Pass] = [true];
-
+            // For India map, players must power as many cities as possible.
+            if (G.map.name != 'India' || player.citiesPowered >= player.targetCitiesPowered! || player.isAI) {
+                moves[MoveName.Pass] = [true];
+            }
             break;
         }
     }

@@ -106,6 +106,7 @@ export default class Card extends Mixins(Piece) {
             case PowerPlantType.Hybrid: return 'url(#hybrid)';
             case PowerPlantType.Wind: return 'limegreen';
             case PowerPlantType.Nuclear: return 'dodgerblue';
+            case PowerPlantType.Step3: return 'dodgerblue';
         }
     }
 
@@ -118,6 +119,7 @@ export default class Card extends Mixins(Piece) {
             case PowerPlantType.Hybrid: return 'M0,3 L7.5,0 L15,3 L15,12 L7.5,15 L0,12Z M9,1 A6,3 0 0,1 18,1 L18,10 A6,3 0 0,1 10,10Z';
             case PowerPlantType.Wind: return '';
             case PowerPlantType.Nuclear: return '';
+            case PowerPlantType.Step3: return '';
         }
     }
 }

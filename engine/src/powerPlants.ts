@@ -1,3 +1,4 @@
+import { cloneDeep } from 'lodash';
 import { PowerPlant, PowerPlantType } from './gamestate';
 
 const powerPlants: PowerPlant[] = [
@@ -43,7 +44,16 @@ const powerPlants: PowerPlant[] = [
     { number: 44, type: PowerPlantType.Wind, cost: 0, citiesPowered: 5 },
     { number: 46, type: PowerPlantType.Hybrid, cost: 3, citiesPowered: 7 },
     { number: 50, type: PowerPlantType.Nuclear, cost: 0, citiesPowered: 6 },
-    { number: 99, type: PowerPlantType.Nuclear, cost: 0, citiesPowered: 6 },
+    { number: 99, type: PowerPlantType.Step3, cost: 0, citiesPowered: 6 },
 ];
 
-export default powerPlants;
+const indiaPowerPlants = cloneDeep(powerPlants).filter((pp) => pp.number != 11);
+// Garbage plants cost one more garbage to run, but have no additional storage.
+indiaPowerPlants.forEach((pp) => {
+    if (pp.type == PowerPlantType.Garbage) {
+        pp.storage = 2 * pp.cost;
+        pp.cost++;
+    }
+});
+
+export { powerPlants, indiaPowerPlants };

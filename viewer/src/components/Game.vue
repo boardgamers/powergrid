@@ -79,12 +79,14 @@
                         :text="'Final Score'"
                         @click="endScoreVisible = true"
                     />
-                    <Button
-                        :transform="`translate(180, 50)`"
-                        :width="120"
-                        :text="'Game Stats'"
-                        @click="spendingVisible = true"
-                    />
+                    <template v-if="G.options.trackTotals">
+                        <Button
+                            :transform="`translate(180, 50)`"
+                            :width="120"
+                            :text="'Game Stats'"
+                            @click="spendingVisible = true"
+                        />
+                    </template>
                 </template>
                 <template v-else>
                     <text x="10" y="20" font-weight="600" fill="black" style="font-size: 32px">

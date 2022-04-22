@@ -258,7 +258,7 @@ export const map: GameMap = {
                 getPowerPlant(10, 'India'),
             ];
         } else {
-            let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 13), rng() + '');
+            let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 12), rng() + '');
             let initialPlantMarket = initialPowerPlants.splice(0, 8);
             initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
             actualMarket = initialPlantMarket.slice(0, 4);

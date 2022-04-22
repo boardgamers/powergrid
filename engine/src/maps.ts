@@ -58,6 +58,10 @@ export interface GameMap {
     startingResources?: number[];
     startingSupply?: number[];
     maxPriceAvailable?: number[]; // For India, only limited sections of the supply are available in step 1 and 2.
+    coalPrices?: number[];
+    oilPrices?: number[];
+    garbagePrices?: number[];
+    uraniumPrices?: number[];
     setupDeck?: (
         numPlayers: number,
         variant: string,

@@ -217,9 +217,13 @@ export const map: GameMap = {
             [2, 3, 2],
         ],
     ],
-    startingResources: [24, 21, 21, 7], // Prices begin at: coal 1 Elektro, oil 2 Elektro, garbage 2 Elektro and uranium 6 Elektro.
+    startingResources: [24, 21, 20, 2], // Prices begin at: coal 1 Elektro, oil 2 Elektro, garbage 2 Elektro and uranium 6 Elektro.
     startingSupply: [24, 24, 24, 8], // Use only 8 uranium instead of 12
-    maxPriceAvailable: [3, 5, 16], // In step 1, only resources up to $3 can be bought. In step 2, only resources up to $5 can be bought.
+    maxPriceAvailable: [3, 5, 8], // In step 1, only resources up to $3 can be bought. In step 2, only resources up to $5 can be bought.
+    coalPrices: [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 8, 8],
+    garbagePrices: [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6],
+    uraniumPrices: [1, 2, 3, 4, 5, 6, 7, 8],
+
     setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
         let powerPlantsDeck = cloneDeep(indiaPowerPlants);
         let actualMarket: PowerPlant[];

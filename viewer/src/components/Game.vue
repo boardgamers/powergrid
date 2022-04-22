@@ -424,6 +424,8 @@ export default class Game extends Vue {
     discardVisible: boolean = false;
     resourcesToDiscard: { name: string, max: number, value: string }[] = [];
 
+    disablePass: boolean = false;
+
     @Ref() powerPlantMarket!: PowerPlantMarket;
     @Ref() playerOrder!: PlayerOrder;
     @Ref() cityCount!: CityCount;
@@ -500,7 +502,11 @@ export default class Game extends Vue {
         if (this.G && this.player != null && !this.G.chosenPowerPlant) {
             const player = this.G.players[this.player];
             if (player && player.availableMoves && Object.keys(player.availableMoves).length > 1) {
-                if (
+                if (this.G.phase == Phase.Bureaucracy && player.powerPlantsNotUsed.length > 0) {
+                    this.confirmMessage = 'Are you sure you want to pass? You have unused power plants!';
+                    this.confirmVisible = true;
+                    return;
+                } else if (
                     this.G.phase != Phase.Bureaucracy ||
                     player.powerPlantsNotUsed.length == player.powerPlants.length
                 ) {
@@ -729,6 +735,9 @@ export default class Game extends Vue {
                 name: MoveName.UsePowerPlant,
                 data: { powerPlant: powerPlant.number, resourcesSpent, citiesPowered: powerPlant.citiesPowered },
             });
+
+            this.disablePass = true;
+            setTimeout(() => this.disablePass = false, 1000);
         }
     }
 
@@ -761,6 +770,8 @@ export default class Game extends Vue {
 
     canPass() {
         if (!this.canMove()) return false;
+
+        if (this.disablePass) return false;
 
         const currentPlayer = this.G!.players[this.player!];
         const availableMoves = currentPlayer.availableMoves!;

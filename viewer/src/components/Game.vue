@@ -80,7 +80,7 @@
                         :text="'Final Score'"
                         @click="endScoreVisible = true"
                     />
-                    <template v-if="G.options.trackTotals">
+                    <template v-if="G.options.trackTotalSpent">
                         <Button
                             :transform="`translate(180, 50)`"
                             :width="120"

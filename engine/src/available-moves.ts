@@ -144,7 +144,9 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             if (G.coalMarket > 0) {
                 const hybridCapacityUsed =
                     player.hybridCapacity > 0 ? Math.max(0, player.oilLeft - player.oilCapacity) : 0;
-                const price = prices[ResourceType.Coal][prices[ResourceType.Coal].length - G.coalMarket];
+                const coalPrices = G.coalPrices ?? prices[ResourceType.Coal];
+                const price = coalPrices[coalPrices.length - G.coalMarket];
+
                 if (
                     player.money >= price &&
                     player.coalCapacity + player.hybridCapacity > hybridCapacityUsed + player.coalLeft &&
@@ -168,13 +170,8 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             if (G.oilMarket > 0) {
                 const hybridCapacityUsed =
                     player.hybridCapacity > 0 ? Math.max(0, player.coalLeft - player.coalCapacity) : 0;
-
-                let price: number;
-                if (G.map.name == 'Middle East') {
-                    price = G.oilPrices![G.oilPrices!.length - G.oilMarket];
-                } else {
-                    price = prices[ResourceType.Oil][prices[ResourceType.Oil].length - G.oilMarket];
-                }
+                const oilPrices = G.oilPrices ?? prices[ResourceType.Oil];
+                const price = oilPrices[oilPrices.length - G.oilMarket];
 
                 if (
                     player.money >= price &&
@@ -186,7 +183,8 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             }
 
             if (G.garbageMarket > 0) {
-                const price = prices[ResourceType.Garbage][prices[ResourceType.Garbage].length - G.garbageMarket];
+                const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
+                const price = garbagePrices[garbagePrices.length - G.garbageMarket];
                 if (
                     player.money >= price &&
                     player.garbageCapacity > player.garbageLeft &&
@@ -197,7 +195,8 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             }
 
             if (G.uraniumMarket > 0) {
-                const price = prices[ResourceType.Uranium][prices[ResourceType.Uranium].length - G.uraniumMarket];
+                const uraniumPrices = G.uraniumPrices ?? prices[ResourceType.Uranium];
+                const price = uraniumPrices[uraniumPrices.length - G.uraniumMarket];
                 if (
                     player.money >= price &&
                     player.uraniumCapacity > player.uraniumLeft &&

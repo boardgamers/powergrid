@@ -265,7 +265,10 @@ export function setup(
     const garbageSupply = totalGarbage - garbageMarket;
     const uraniumSupply = totalUranium - uraniumMarket;
 
-    const oilPrices = cloneDeep(prices.oil);
+    const coalPrices = cloneDeep(chosenMap.coalPrices ?? prices.coal);
+    const oilPrices = cloneDeep(chosenMap.oilPrices ?? prices.oil);
+    const garbagePrices = cloneDeep(chosenMap.garbagePrices ?? prices.garbage);
+    const uraniumPrices = cloneDeep(chosenMap.uraniumPrices ?? prices.uranium);
 
     const G: GameState = {
         map: forceMap || filteredMap,
@@ -285,7 +288,10 @@ export function setup(
         oilMarket,
         garbageMarket,
         uraniumMarket,
+        coalPrices,
         oilPrices,
+        garbagePrices,
+        uraniumPrices,
         actualMarket,
         futureMarket,
         chosenPowerPlant: undefined,
@@ -1025,45 +1031,46 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
             asserts<Moves.MoveBuyResource>(move);
             G.chosenResource = move.data.resource;
 
-            let price;
+            let price: number;
             switch (move.data.resource) {
-                case ResourceType.Coal:
+                case ResourceType.Coal: {
                     if (G.coalMarket == 0) {
                         price = 8;
                         player.coalLeft++;
                         G.coalSupply--;
-
                         move.fromSupply = true;
                     } else {
-                        price = prices[move.data.resource][prices[move.data.resource].length - G.coalMarket];
+                        const coalPrices = G.coalPrices ?? prices[ResourceType.Coal];
+                        price = coalPrices[coalPrices.length - G.coalMarket];
                         player.coalLeft++;
                         G.coalMarket--;
                     }
-
                     break;
+                }
 
-                case ResourceType.Oil:
-                    if (G.map.name == 'Middle East') {
-                        price = G.oilPrices![G.oilPrices!.length - G.oilMarket];
-                    } else {
-                        price = prices[move.data.resource][prices[move.data.resource].length - G.oilMarket];
-                    }
-
+                case ResourceType.Oil: {
+                    const oilPrices = G.oilPrices ?? prices[ResourceType.Oil];
+                    price = oilPrices[oilPrices.length - G.oilMarket];
                     player.oilLeft++;
                     G.oilMarket--;
                     break;
+                }
 
-                case ResourceType.Garbage:
-                    price = prices[move.data.resource][prices[move.data.resource].length - G.garbageMarket];
+                case ResourceType.Garbage: {
+                    const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
+                    price = garbagePrices[garbagePrices.length - G.garbageMarket];
                     player.garbageLeft++;
                     G.garbageMarket--;
                     break;
+                }
 
-                case ResourceType.Uranium:
-                    price = prices[move.data.resource][prices[move.data.resource].length - G.uraniumMarket];
+                case ResourceType.Uranium: {
+                    const uraniumPrices = G.uraniumPrices ?? prices[ResourceType.Uranium];
+                    price = uraniumPrices[uraniumPrices.length - G.uraniumMarket];
                     player.uraniumLeft++;
                     G.uraniumMarket--;
                     break;
+                }
             }
 
             player.money -= price;
@@ -1197,40 +1204,35 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             } else {
                                 player.coalLeft--;
                                 G.coalMarket++;
-                                price =
-                                    prices[lastMove.data.resource][
-                                        prices[lastMove.data.resource].length - G.coalMarket
-                                    ];
+                                const coalPrices = G.coalPrices ?? prices[ResourceType.Coal];
+                                price = coalPrices[coalPrices.length - G.coalMarket];
                             }
 
                             break;
 
-                        case ResourceType.Oil:
+                        case ResourceType.Oil: {
                             player.oilLeft--;
                             G.oilMarket++;
-
-                            if (G.map.name == 'Middle East') {
-                                price = G.oilPrices![G.oilPrices!.length - G.oilMarket];
-                            } else {
-                                price =
-                                    prices[lastMove.data.resource][prices[lastMove.data.resource].length - G.oilMarket];
-                            }
-
+                            const oilPrices = G.oilPrices ?? prices[ResourceType.Oil];
+                            price = oilPrices[oilPrices.length - G.oilMarket];
                             break;
+                        }
 
-                        case ResourceType.Garbage:
+                        case ResourceType.Garbage: {
                             player.garbageLeft--;
                             G.garbageMarket++;
-                            price =
-                                prices[lastMove.data.resource][prices[lastMove.data.resource].length - G.garbageMarket];
+                            const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
+                            price = garbagePrices[garbagePrices.length - G.garbageMarket];
                             break;
+                        }
 
-                        case ResourceType.Uranium:
+                        case ResourceType.Uranium: {
                             player.uraniumLeft--;
                             G.uraniumMarket++;
-                            price =
-                                prices[lastMove.data.resource][prices[lastMove.data.resource].length - G.uraniumMarket];
+                            const uraniumPrices = G.uraniumPrices ?? prices[ResourceType.Uranium];
+                            price = uraniumPrices[uraniumPrices.length - G.uraniumMarket];
                             break;
+                        }
                     }
 
                     player.money += price;
@@ -1259,10 +1261,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     }
 
                     G.log.pop();
+
                     if (G.map.name == 'India') {
                         G.citiesBuiltInCurrentRound!--;
                     }
-
                     break;
                 }
 

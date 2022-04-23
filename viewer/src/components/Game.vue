@@ -63,6 +63,7 @@
                 :transform="`translate(${G.map.supplyPosition[0]}, ${G.map.supplyPosition[1]})`"
                 :isUsaRecharged="G.options.variant == 'recharged' && G.map.name == 'USA'"
                 :isMiddleEast="G.map.name == 'Middle East'"
+                :isIndiaResourceMarket="G.map.name == 'India' && G.coalPrices && G.garbagePrices && G.uraniumPrices"
                 :availableSurplusOil="
                     G.map.name == 'Middle East' ? Math.max(G.oilMarket - G.oilPrices.filter((p) => p > 1).length, 0) : 0
                 "

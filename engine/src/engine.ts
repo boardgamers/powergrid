@@ -1725,7 +1725,6 @@ function playerNameHTML(player) {
 }
 
 export function playersSortedByScore(G: GameState): Player[] {
-    console.log(G.players);
     return cloneDeep(G.players)
         .sort((p1, p2) => {
             if (p1.citiesPowered == p2.citiesPowered) {

@@ -637,6 +637,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 G.players.forEach((player) => {
                                     const payment = G.paymentTable[player.citiesPowered] - 3 * player.cities.length;
                                     player.money += Math.max(payment, 0);
+                                    player.totalIncome += Math.max(payment, 0);
                                 });
                             }
 

@@ -32,6 +32,7 @@ export interface GameOptions {
     variant?: Variant;
     showMoney?: boolean;
     useNewRechargedSetup?: boolean;
+    trackTotalSpent?: boolean;
 }
 
 export enum ResourceType {
@@ -92,6 +93,11 @@ export interface Player {
     citiesPowered: number;
     targetCitiesPowered?: number;
     resourcesUsed: ResourceType[];
+    totalIncome: number;
+    totalSpentCities: number;
+    totalSpentConnections: number;
+    totalSpentPlants: number;
+    totalSpentResources: number;
 }
 
 export enum Phase {

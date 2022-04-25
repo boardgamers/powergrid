@@ -80,6 +80,14 @@
                         :text="'Final Score'"
                         @click="endScoreVisible = true"
                     />
+                    <template v-if="G.options.trackTotalSpent">
+                        <Button
+                            :transform="`translate(180, 50)`"
+                            :width="120"
+                            :text="'Game Stats'"
+                            @click="spendingVisible = true"
+                        />
+                    </template>
                 </template>
                 <template v-else>
                     <text x="10" y="20" font-weight="600" fill="black" style="font-size: 32px">
@@ -191,6 +199,48 @@
                         <td v-for="player in sortedPlayers" :key="'FS' + player.id + i">
                             <div>
                                 {{ i == 0 ? player.citiesPowered : i == 1 ? player.money : player.cities.length }}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div v-if="G && gameEnded(G)" :class="['modal', { visible: spendingVisible }]">
+            <div class="modal-content">
+                <span class="close" @click="spendingVisible = false">&times;</span>
+                <div class="modal-title">Spending</div>
+                <table class="spending-table">
+                    <tr>
+                        <th><div>Player</div></th>
+                        <th v-for="player in sortedPlayers" :key="'FS' + player.id">
+                            <div :style="'background-color: ' + playerColors[player.id]">{{ player.name }}</div>
+                        </th>
+                    </tr>
+                    <tr
+                        v-for="(cat, i) in [
+                            'Income',
+                            'Spending: Cities',
+                            'Spending: Connections',
+                            'Spending: Plants',
+                            'Spending: Resources',
+                        ]"
+                        :key="'FC_' + cat"
+                    >
+                        <td>{{ cat }}</td>
+                        <td v-for="player in sortedPlayers" :key="'FS' + player.id + i">
+                            <div>
+                                {{
+                                    i == 0
+                                        ? player.totalIncome
+                                        : i == 1
+                                        ? player.totalSpentCities
+                                        : i == 2
+                                        ? player.totalSpentConnections
+                                        : i == 3
+                                        ? player.totalSpentPlants
+                                        : player.totalSpentResources
+                                }}
                             </div>
                         </td>
                     </tr>
@@ -414,6 +464,7 @@ export default class Game extends Vue {
 
     logVisible = false;
     endScoreVisible = false;
+    spendingVisible = false;
     rulesVisible = false;
 
     totalBid: number = 0;
@@ -1209,7 +1260,8 @@ text {
     }
 }
 
-.final-score-table {
+.final-score-table,
+.spending-table {
     margin: auto;
     border: 1px solid black;
 

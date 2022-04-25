@@ -76,7 +76,14 @@ export function defaultSetupDeck(
 
 export function setup(
     numPlayers: number,
-    { fastBid = false, map = 'USA', variant = 'original', showMoney = false, useNewRechargedSetup = true }: GameOptions,
+    {
+        fastBid = false,
+        map = 'USA',
+        variant = 'original',
+        showMoney = false,
+        useNewRechargedSetup = true,
+        trackTotalSpent = true,
+    }: GameOptions,
     seed?: string,
     forceDeck?: PowerPlant[],
     forceMap?: GameMap
@@ -159,6 +166,11 @@ export function setup(
         skipAuction: false,
         citiesPowered: 0,
         resourcesUsed: [],
+        totalIncome: 0,
+        totalSpentCities: 0,
+        totalSpentConnections: 0,
+        totalSpentPlants: 0,
+        totalSpentResources: 0,
     }));
 
     const playerOrder = range(numPlayers);
@@ -288,7 +300,7 @@ export function setup(
         auctioningPlayer: undefined,
         step: 1,
         phase: Phase.Auction,
-        options: { fastBid, map, variant, showMoney },
+        options: { fastBid, map, variant, showMoney, useNewRechargedSetup, trackTotalSpent },
         log: [],
         hiddenLog: [],
         seed,
@@ -625,6 +637,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 G.players.forEach((player) => {
                                     const payment = G.paymentTable[player.citiesPowered] - 3 * player.cities.length;
                                     player.money += Math.max(payment, 0);
+                                    player.totalIncome += Math.max(payment, 0);
                                 });
                             }
 
@@ -677,6 +690,11 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         payment = Math.max(payment, 0); // No negative income
                     }
                     player.money += payment;
+
+                    if (G.options.trackTotalSpent) {
+                        player.totalIncome += payment;
+                    }
+
                     player.citiesPowered = 0;
 
                     if (G.map.name == 'India') {
@@ -1058,6 +1076,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
             player.money -= price;
 
+            if (G.options.trackTotalSpent) {
+                player.totalSpentResources += price;
+            }
+
             G.log.push({
                 type: 'move',
                 player: playerNumber,
@@ -1077,6 +1099,11 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
             const position = G.players.filter((p) => p.cities.find((c) => c.name == move.data.name)).length;
             player.cities.push({ name: move.data.name, position });
             player.money -= move.data.price;
+
+            if (G.options.trackTotalSpent) {
+                player.totalSpentCities += 10 + position * 5;
+                player.totalSpentConnections += move.data.price - (10 + position * 5);
+            }
 
             G.log.push({
                 type: 'move',
@@ -1210,6 +1237,11 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     }
 
                     player.money += price;
+
+                    if (G.options.trackTotalSpent) {
+                        player.totalSpentResources -= price;
+                    }
+
                     if (G.map.name == 'India') {
                         G.chosenResource = undefined;
                     }
@@ -1221,6 +1253,13 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 case MoveName.Build: {
                     player.cities.pop();
                     player.money += lastMove.data.price;
+
+                    const position = G.players.filter((p) => p.cities.find((c) => c.name == lastMove.data.name)).length;
+
+                    if (G.options.trackTotalSpent) {
+                        player.totalSpentCities -= 10 + position * 5;
+                        player.totalSpentConnections -= lastMove.data.price - (10 + position * 5);
+                    }
 
                     G.log.pop();
 
@@ -1814,6 +1853,11 @@ function toResourcesPhase(G: GameState) {
 function endAuction(G: GameState, winningPlayer: Player, bid: number) {
     winningPlayer.powerPlants.push(G.chosenPowerPlant!);
     winningPlayer.money -= bid;
+
+    if (G.options.trackTotalSpent) {
+        winningPlayer.totalSpentPlants += bid;
+    }
+
     winningPlayer.skipAuction = true;
     updatePlayerCapacity(winningPlayer);
 

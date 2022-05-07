@@ -689,6 +689,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         payment -= 3 * player.cities.length;
                         payment = Math.max(payment, 0); // No negative income
                     }
+
                     player.money += payment;
 
                     if (G.options.trackTotalSpent) {
@@ -768,7 +769,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             G.powerPlantsDeck.push(powerPlantToPush);
                             addPowerPlant(G);
 
-                            powerPlantToPush = G.futureMarket.pop()!;
+                            // If Step 3 was drawn above, futureMarket will be empty so use actualMarket instead
+                            powerPlantToPush = G.futureMarket.length ? G.futureMarket.pop()! : G.actualMarket.pop()!;
                             G.log.push({
                                 type: 'event',
                                 event: `Putting Power Plant ${powerPlantToPush.number} on the bottom of the deck.`,
@@ -1046,6 +1048,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         player.coalLeft++;
                         G.coalMarket--;
                     }
+
                     break;
                 }
 
@@ -1266,6 +1269,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     if (G.map.name == 'India') {
                         G.citiesBuiltInCurrentRound!--;
                     }
+
                     break;
                 }
 
@@ -1496,6 +1500,7 @@ function updatePlayerCapacity(player: Player) {
                 } else {
                     player.garbageCapacity += powerPlant.cost * 2;
                 }
+
                 break;
             }
 

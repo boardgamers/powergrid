@@ -1198,9 +1198,14 @@ text {
     margin: auto;
     padding: 10px 20px 20px 20px;
     border: 1px solid #888;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
+}
+
+@media only screen and (min-width: 1240px) {
+    .modal-content {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+    }
 }
 
 .modal-body {

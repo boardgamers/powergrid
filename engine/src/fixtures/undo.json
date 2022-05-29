@@ -27,7 +27,7 @@
                 "y": 571
             },
             {
-                "name": "Menphis",
+                "name": "Memphis",
                 "region": "red",
                 "x": 678,
                 "y": 449
@@ -129,7 +129,7 @@
                 "y": 357
             },
             {
-                "name": "Horecin",
+                "name": "Norfolk",
                 "region": "green",
                 "x": 969,
                 "y": 405
@@ -177,7 +177,7 @@
                 "cost": 8
             },
             {
-                "nodes": ["Kansas City", "Menphis"],
+                "nodes": ["Kansas City", "Memphis"],
                 "cost": 12
             },
             {
@@ -193,7 +193,7 @@
                 "cost": 3
             },
             {
-                "nodes": ["Oklahoma City", "Menphis"],
+                "nodes": ["Oklahoma City", "Memphis"],
                 "cost": 14
             },
             {
@@ -201,7 +201,7 @@
                 "cost": 5
             },
             {
-                "nodes": ["Dallas", "Menphis"],
+                "nodes": ["Dallas", "Memphis"],
                 "cost": 12
             },
             {
@@ -213,15 +213,15 @@
                 "cost": 8
             },
             {
-                "nodes": ["Menphis", "Birmingham"],
+                "nodes": ["Memphis", "Birmingham"],
                 "cost": 6
             },
             {
-                "nodes": ["Menphis", "New Orleans"],
+                "nodes": ["Memphis", "New Orleans"],
                 "cost": 7
             },
             {
-                "nodes": ["Menphis", "St. Louis"],
+                "nodes": ["Memphis", "St. Louis"],
                 "cost": 7
             },
             {
@@ -341,11 +341,11 @@
                 "cost": 3
             },
             {
-                "nodes": ["Washington", "Horecin"],
+                "nodes": ["Washington", "Norfolk"],
                 "cost": 5
             },
             {
-                "nodes": ["Horecin", "Raleigh"],
+                "nodes": ["Norfolk", "Raleigh"],
                 "cost": 3
             },
             {
@@ -411,7 +411,7 @@
             "housesLeft": 22,
             "cities": [
                 {
-                    "name": "Horecin",
+                    "name": "Norfolk",
                     "position": 0
                 },
                 {
@@ -587,7 +587,7 @@
                     "position": 0
                 },
                 {
-                    "name": "Menphis",
+                    "name": "Memphis",
                     "position": 0
                 },
                 {
@@ -690,7 +690,7 @@
                     "position": 0
                 },
                 {
-                    "name": "Horecin",
+                    "name": "Norfolk",
                     "position": 1
                 }
             ],
@@ -1240,12 +1240,12 @@
             "move": {
                 "name": "Build",
                 "data": {
-                    "name": "Horecin",
+                    "name": "Norfolk",
                     "price": 10
                 }
             },
-            "simple": "ZetaZeta builds on Horecin for $10",
-            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">ZetaZeta</span> builds on <b>Horecin</b> for <span style=\"color: green\">$10</span>"
+            "simple": "ZetaZeta builds on Norfolk for $10",
+            "pretty": "<span style=\"background-color: limegreen; font-weight: bold; padding: 0 3px;\">ZetaZeta</span> builds on <b>Norfolk</b> for <span style=\"color: green\">$10</span>"
         },
         {
             "type": "move",
@@ -1750,12 +1750,12 @@
             "move": {
                 "name": "Build",
                 "data": {
-                    "name": "Menphis",
+                    "name": "Memphis",
                     "price": 16
                 }
             },
-            "simple": "tanios builds on Menphis for $16",
-            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">tanios</span> builds on <b>Menphis</b> for <span style=\"color: green\">$16</span>"
+            "simple": "tanios builds on Memphis for $16",
+            "pretty": "<span style=\"background-color: red; font-weight: bold; padding: 0 3px;\">tanios</span> builds on <b>Memphis</b> for <span style=\"color: green\">$16</span>"
         },
         {
             "type": "move",

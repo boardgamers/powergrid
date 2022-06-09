@@ -235,7 +235,7 @@ export const map: GameMap = {
                 already placed on the supply
             plants 5 – 30: sort in ascending order with 30 on the bottom and 5 on the top and place face-down on the supply
         */
-        let allPlants = cloneDeep(powerPlants);
+        const allPlants = cloneDeep(powerPlants);
         let plantsToRemove: number[] = [];
         if (numPlayers == 2 || numPlayers == 3) {
             plantsToRemove = [3, 4, 9, 11, 16, 18, 20, 24, 30, 33, 46];
@@ -244,23 +244,25 @@ export const map: GameMap = {
         } else if (numPlayers == 5 || numPlayers == 6) {
             plantsToRemove = [3, 4, 33];
         }
-        let filteredPlants = allPlants.filter((p) => !plantsToRemove.includes(p.number));
+        const filteredPlants = allPlants.filter((p) => !plantsToRemove.includes(p.number));
 
-        let lowPlants = filteredPlants.filter((p) => p.number <= 30);
-        let middlePlants = shuffle(
+        const lowPlants = filteredPlants.filter((p) => p.number <= 30);
+        const middlePlants = shuffle(
             filteredPlants.filter((p) => p.number >= 31 && p.number <= 35),
             rng() + ''
         );
-        let step3Card = filteredPlants.filter((p) => p.type == PowerPlantType.Step3);
-        let highPlants = shuffle(
+        const step3Card = filteredPlants.filter((p) => p.type == PowerPlantType.Step3);
+        const highPlants = shuffle(
             filteredPlants.filter((p) => p.number >= 36 && p.number <= 50),
             rng() + ''
         );
 
         // In round 1, the number of plants available is equal to the number of players.
-        let actualMarket = lowPlants.splice(0, numPlayers);
-        let futureMarket: PowerPlant[] = [];
-        let powerPlantsDeck = lowPlants.concat(middlePlants).concat(step3Card).concat(highPlants);
+        const actualMarket = lowPlants.splice(0, numPlayers);
+        const futureMarket: PowerPlant[] = [];
+        const powerPlantsDeck = lowPlants.concat(middlePlants).concat(step3Card).concat(highPlants);
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
+    mapSpecificRules:
+        'The power plant deck is arranged as follows: plants from 3-30 in order, plants from 31-35 shuffled, step 3 card, plants from 36-50 shuffled.\nThe same set of plants are removed in every game.\nThere are several changes to when new plants are drawn. In particular, during steps 1 and 2, plants are only drawn from the deck during the bureaucracy phase.',
 };

@@ -1747,9 +1747,9 @@ Exception: with 2 players, add plants until there are 2 in the market.*/
         minPlantsToAdd = 3;
     }
 
-    let currentActualSize = G.actualMarket.length;
-    let minSize = G.players.length - 1;
-    let numPlantsToAdd = Math.max(minPlantsToAdd, minSize - currentActualSize);
+    const currentActualSize = G.actualMarket.length;
+    const minSize = G.players.length - 1;
+    const numPlantsToAdd = Math.max(minPlantsToAdd, minSize - currentActualSize);
     for (let i = 0; i < numPlantsToAdd; i++) {
         if (G.step == 3) {
             break;

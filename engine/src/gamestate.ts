@@ -12,12 +12,12 @@ export type MapName =
     | 'Italy'
     | 'Quebec'
     | 'Middle East'
-    | 'India';
+    | 'India'
+    | 'China';
 // | 'Australia'
 // | 'Baden-Württemberg'
 // | 'Benelux'
 // | 'Central Europe'
-// | 'China'
 // | 'Japan'
 // | 'Korea'
 // | 'Northern Europe'

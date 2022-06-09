@@ -1,3 +1,7 @@
+import { cloneDeep } from 'lodash';
+import { PowerPlant, PowerPlantType } from '../gamestate';
+import { powerPlants } from '../powerPlants';
+import { shuffle } from '../utils';
 import { GameMap } from './../maps';
 
 export enum Regions {
@@ -188,4 +192,79 @@ export const map: GameMap = {
     layout: 'Portrait',
     mapPosition: [-400, 70],
     adjustRatio: [0.35, 0.35],
+    resupply: [
+        [
+            [4, 4, 3],
+            [5, 5, 3],
+            [6, 6, 4],
+            [7, 7, 5],
+            [9, 9, 6],
+        ],
+        [
+            [2, 2, 4],
+            [3, 3, 4],
+            [4, 4, 5],
+            [5, 5, 6],
+            [6, 6, 7],
+        ],
+        [
+            [2, 2, 1],
+            [2, 2, 1],
+            [3, 3, 2],
+            [3, 3, 3],
+            [5, 5, 3],
+        ],
+        [
+            [1, 1, 1],
+            [1, 1, 1],
+            [2, 2, 2],
+            [3, 3, 2],
+            [3, 3, 3],
+        ],
+    ],
+    startingResources: [21, 21, 6, 2],
+    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
+        /* Instructions for power plant setup:
+        Depending on the number of players, remove the following power plants from the game and place them in the box:
+            with 2 and 3 players: 3, 4, 9, 11, 16, 18, 20, 24, 30, 33, 46.
+            with 4 players: 3, 4, 11, 18, 24, 33, 46.
+            with 5 and 6 players: 3, 4, 33.
+        Sort the remaining power plants as described below and place them as a face-down supply:
+            plants 36– 50: shuffle and place face-down at the bottom of the supply
+            plants 31–35: (naturally without 33) shuffle along with the step 3 card and place face-down on top of the higher numbers
+                already placed on the supply
+            plants 5 – 30: sort in ascending order with 30 on the bottom and 5 on the top and place face-down on the supply
+        */
+        let allPlants = cloneDeep(powerPlants);
+        let plantsToRemove: number[] = [];
+        if (numPlayers == 2 || numPlayers == 3) {
+            plantsToRemove = [3, 4, 9, 11, 16, 18, 20, 24, 30, 33, 46];
+        } else if (numPlayers == 4) {
+            plantsToRemove = [3, 4, 11, 18, 24, 33, 46];
+        } else if (numPlayers == 5 || numPlayers == 6) {
+            plantsToRemove = [3, 4, 33];
+        }
+        let filteredPlants = allPlants.filter((p) => !plantsToRemove.includes(p.number));
+
+        let lowPlants = filteredPlants.filter((p) => p.number <= 30);
+        let middlePlants = shuffle(
+            filteredPlants.filter((p) => p.number >= 31 && p.number <= 35),
+            rng() + ''
+        );
+        let step3Card = filteredPlants.filter((p) => p.type == PowerPlantType.Step3);
+        let highPlants = shuffle(
+            filteredPlants.filter((p) => p.number >= 36 && p.number <= 50),
+            rng() + ''
+        );
+        console.log(lowPlants);
+        console.log(middlePlants);
+        console.log(highPlants);
+
+        // In round 1, the number of plants available is equal to the number of players.
+        let actualMarket = lowPlants.splice(0, numPlayers);
+        let futureMarket: PowerPlant[] = [];
+        let powerPlantsDeck = lowPlants.concat(middlePlants).concat(step3Card).concat(highPlants);
+        console.log(powerPlantsDeck);
+        return { actualMarket, futureMarket, powerPlantsDeck };
+    },
 };

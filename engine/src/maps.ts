@@ -2,6 +2,7 @@ import seedrandom from 'seedrandom';
 import { PowerPlant } from './gamestate';
 import { map as america, mapRecharged as americaRecharged } from './maps/america';
 import { map as brazil } from './maps/brazil';
+import { map as china } from './maps/china';
 import { map as france } from './maps/france';
 import { map as germany, mapRecharged as germanyRecharged } from './maps/germany';
 import { map as indian } from './maps/indian';
@@ -13,7 +14,6 @@ import { map as spainportugal } from './maps/spainportugal';
 // import { map as badenwurttemberg } from './maps/badenwurttemberg';
 // import { map as benelux } from './maps/benelux';
 // import { map as centraleurope } from './maps/centraleurope';
-// import { map as china } from './maps/china';
 // import { map as japan } from './maps/japan';
 // import { map as korea } from './maps/korea';
 // import { map as northerneurope } from './maps/northerneurope';
@@ -84,11 +84,11 @@ export const maps: GameMap[] = [
     italy,
     quebec,
     middleeast,
+    china,
     // australia,
     // badenwurttemberg,
     // benelux,
     // centraleurope,
-    // china,
     // japan,
     // korea,
     // northerneurope,

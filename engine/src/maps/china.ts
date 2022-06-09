@@ -256,15 +256,11 @@ export const map: GameMap = {
             filteredPlants.filter((p) => p.number >= 36 && p.number <= 50),
             rng() + ''
         );
-        console.log(lowPlants);
-        console.log(middlePlants);
-        console.log(highPlants);
 
         // In round 1, the number of plants available is equal to the number of players.
         let actualMarket = lowPlants.splice(0, numPlayers);
         let futureMarket: PowerPlant[] = [];
         let powerPlantsDeck = lowPlants.concat(middlePlants).concat(step3Card).concat(highPlants);
-        console.log(powerPlantsDeck);
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
 };

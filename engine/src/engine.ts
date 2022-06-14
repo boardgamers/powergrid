@@ -316,7 +316,7 @@ export function setup(
         paymentTable: cityIncome,
         variant,
         minimunBid: 0,
-        plantDiscountActive: variant == 'recharged',
+        plantDiscountActive: variant == 'recharged' && (forceMap || filteredMap).name != 'China',
         cardsLeft: powerPlantsDeck.length,
         nextCardWeak: variant == 'recharged',
         card39Bought: false,
@@ -834,7 +834,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 G.step = 3;
                             }
 
-                            G.plantDiscountActive = G.options.variant == 'recharged';
+                            G.plantDiscountActive = G.options.variant == 'recharged' && G.map.name != 'China';
                             setCurrentPlayer(G, G.playerOrder[0]);
                         } else {
                             toResourcesPhase(G);
@@ -1731,7 +1731,7 @@ function enterStepTwoMiddleEast(G: GameState) {
 }
 
 function rebuildPlantMarketForChina(G: GameState) {
-    /*At the beginning of phase 5, the players fill the power plant market with new power plants. Depending on the 
+    /*At the beginning of phase 5, the players fill the power plant market with new power plants. Depending on the
 number of players, the players always add a minimum of 1, 2, or 3 power plants to the market from the supply:
 with 2 and 3 players, add at least 1 power plant.
 with 4 and 5 players, add at least 2 power plants.
@@ -1764,6 +1764,7 @@ Exception: with 2 players, add plants until there are 2 in the market.*/
     }
 
     if (G.step == 3) {
+        G.actualMarket = G.actualMarket.filter((pp) => pp.type != PowerPlantType.Step3);
         while (G.actualMarket.length < 4 && G.powerPlantsDeck.length > 0) {
             addPowerPlant(G);
         }

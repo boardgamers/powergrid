@@ -247,11 +247,11 @@ export const map: GameMap = {
         const filteredPlants = allPlants.filter((p) => !plantsToRemove.includes(p.number));
 
         const lowPlants = filteredPlants.filter((p) => p.number <= 30);
+        const step3Card = filteredPlants.filter((p) => p.type == PowerPlantType.Step3);
         const middlePlants = shuffle(
-            filteredPlants.filter((p) => p.number >= 31 && p.number <= 35),
+            filteredPlants.filter((p) => p.number >= 31 && p.number <= 35).concat(step3Card),
             rng() + ''
         );
-        const step3Card = filteredPlants.filter((p) => p.type == PowerPlantType.Step3);
         const highPlants = shuffle(
             filteredPlants.filter((p) => p.number >= 36 && p.number <= 50),
             rng() + ''
@@ -260,7 +260,7 @@ export const map: GameMap = {
         // In round 1, the number of plants available is equal to the number of players.
         const actualMarket = lowPlants.splice(0, numPlayers);
         const futureMarket: PowerPlant[] = [];
-        const powerPlantsDeck = lowPlants.concat(middlePlants).concat(step3Card).concat(highPlants);
+        const powerPlantsDeck = lowPlants.concat(middlePlants).concat(highPlants);
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
     mapSpecificRules:

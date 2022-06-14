@@ -427,7 +427,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     winningPlayer.powerPlants.length <= 3 ||
                     (G.players.length == 2 && winningPlayer.powerPlants.length == 4)
                 ) {
-                    addPowerPlant(G);
+                    if (G.map.name != 'China' || G.step == 3) {
+                        addPowerPlant(G);
+                    }
+
                     toResourcesPhase(G);
                 }
             } else {
@@ -501,11 +504,16 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         if (G.players.some((p) => !p.skipAuction && !p.isDropped)) {
                             nextPlayerAuction(G);
                         } else {
-                            if (G.auctionSkips == G.players.length && G.options.variant == 'original') {
+                            if (
+                                G.auctionSkips == G.players.length &&
+                                G.options.variant == 'original' &&
+                                G.map.name != 'China'
+                            ) {
                                 G.log.push({
                                     type: 'event',
                                     event: `Everyone passed, removing lowest numbered Power Plant (${G.actualMarket[0].number}).`,
                                 });
+
                                 G.actualMarket.shift();
                                 addPowerPlant(G);
                             }
@@ -538,7 +546,9 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 ) {
                                     setCurrentPlayer(G, winningPlayer.id);
                                 } else {
-                                    addPowerPlant(G);
+                                    if (G.map.name != 'China' || G.step == 3) {
+                                        addPowerPlant(G);
+                                    }
 
                                     if (G.players.some((p) => !p.skipAuction)) {
                                         G.players.forEach((p) => {
@@ -667,7 +677,9 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 }
                             }
 
-                            if (G.futureMarket.length == 0) {
+                            if (G.map.name == 'China' && G.step <= 2) {
+                                rebuildPlantMarketForChina(G);
+                            } else if (G.futureMarket.length == 0) {
                                 G.step = 3;
                             }
                         }
@@ -800,7 +812,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 G.powerPlantsDeck.push(powerPlantToPush);
                                 addPowerPlant(G);
                             }
-                        } else if (G.actualMarket.length > 0) {
+                        } else if (G.actualMarket.length > 0 && (G.map.name != 'China' || G.step == 3)) {
                             G.log.push({ type: 'event', event: `Discarding Power Plant ${G.actualMarket[0].number}.` });
                             G.actualMarket.shift();
                             addPowerPlant(G);
@@ -818,7 +830,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         if (G.actualMarket.length > 0) {
                             G.phase = Phase.Auction;
 
-                            if (G.futureMarket.length == 0) {
+                            if (G.futureMarket.length == 0 && G.map.name != 'China') {
                                 G.step = 3;
                             }
 
@@ -909,7 +921,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     )}.`,
                 });
 
-                addPowerPlant(G);
+                if (G.map.name != 'China' || G.step == 3) {
+                    addPowerPlant(G);
+                }
+
                 G.players.forEach((p) => {
                     p.bid = 0;
                     p.passed = p.isDropped;
@@ -956,7 +971,9 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 }
 
                 if (toDiscard.length == 0) {
-                    addPowerPlant(G);
+                    if (G.map.name != 'China' || G.step == 3) {
+                        addPowerPlant(G);
+                    }
                     G.players.forEach((p) => {
                         p.bid = 0;
                         p.passed = p.isDropped;
@@ -1014,7 +1031,9 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
             }
 
             if (toDiscard.length == 0) {
-                addPowerPlant(G);
+                if (G.map.name != 'China' || G.step == 3) {
+                    addPowerPlant(G);
+                }
                 G.players.forEach((p) => {
                     p.bid = 0;
                     p.passed = p.isDropped;
@@ -1123,7 +1142,11 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
             }
 
             if (G.options.variant == 'original') {
-                if (G.actualMarket.length > 0 && player.cities.length >= G.actualMarket[0].number) {
+                if (
+                    G.actualMarket.length > 0 &&
+                    player.cities.length >= G.actualMarket[0].number &&
+                    G.map.name != 'China'
+                ) {
                     G.actualMarket.shift();
                     addPowerPlant(G);
                 }
@@ -1531,7 +1554,7 @@ function addPowerPlant(G: GameState) {
             }
         }
 
-        if (G.options.variant == 'original') {
+        if (G.options.variant == 'original' && G.map.name != 'China') {
             const maxCities = Math.max(...G.players.map((p) => p.cities.length));
             while (powerPlant.number <= maxCities) {
                 G.log.push({
@@ -1560,6 +1583,8 @@ function addPowerPlant(G: GameState) {
         if (powerPlant.number == 99) {
             if (G.powerPlantDeckAfterStep3) {
                 G.powerPlantsDeck = G.powerPlantDeckAfterStep3;
+            } else if (G.map.name == 'China') {
+                G.step = 3;
             } else {
                 G.powerPlantsDeck = shuffle(G.powerPlantsDeck, G.seed);
             }
@@ -1599,18 +1624,24 @@ function addPowerPlant(G: GameState) {
             }
         }
 
-        const market = [...G.actualMarket, ...G.futureMarket, powerPlant];
-        market.sort((a, b) => a.number - b.number);
-        if (G.futureMarket.length == 0) {
-            G.actualMarket = market.slice(0, 6);
-            G.futureMarket = [];
+        if (G.map.name == 'China' && powerPlant.type != PowerPlantType.Step3) {
+            const market = [...G.actualMarket, powerPlant];
+            market.sort((a, b) => a.number - b.number);
+            G.actualMarket = market;
         } else {
-            G.actualMarket = market.slice(0, 4);
-            G.futureMarket = market.slice(4);
-        }
+            const market = [...G.actualMarket, ...G.futureMarket, powerPlant];
+            market.sort((a, b) => a.number - b.number);
+            if (G.futureMarket.length == 0) {
+                G.actualMarket = market.slice(0, 6);
+                G.futureMarket = [];
+            } else {
+                G.actualMarket = market.slice(0, 4);
+                G.futureMarket = market.slice(4);
+            }
 
-        if (G.map.name == 'Middle East' && G.step == 1) {
-            removePlantsForMiddleEastStep1(G);
+            if (G.map.name == 'Middle East' && G.step == 1) {
+                removePlantsForMiddleEastStep1(G);
+            }
         }
     }
 }
@@ -1696,6 +1727,50 @@ function enterStepTwoMiddleEast(G: GameState) {
             event: `Power Plant ${powerPlantDiscarded2.number} discarded to start step 2.`,
         });
         addPowerPlant(G);
+    }
+}
+
+function rebuildPlantMarketForChina(G: GameState) {
+    /*At the beginning of phase 5, the players fill the power plant market with new power plants. Depending on the 
+number of players, the players always add a minimum of 1, 2, or 3 power plants to the market from the supply:
+with 2 and 3 players, add at least 1 power plant.
+with 4 and 5 players, add at least 2 power plants.
+with 6 players, add at least 3 power plants.
+The players add more than the minimum if the number of plants in the market is still more than 1 less than the number of players.
+Exception: with 2 players, add plants until there are 2 in the market.*/
+    let minPlantsToAdd = 0;
+    if (G.players.length == 2 || G.players.length == 3) {
+        minPlantsToAdd = 1;
+    } else if (G.players.length == 4 || G.players.length == 5) {
+        minPlantsToAdd = 2;
+    } else if (G.players.length == 6) {
+        minPlantsToAdd = 3;
+    }
+
+    const currentActualSize = G.actualMarket.length;
+    const minSize = G.players.length - 1;
+    const numPlantsToAdd = Math.max(minPlantsToAdd, minSize - currentActualSize);
+    for (let i = 0; i < numPlantsToAdd; i++) {
+        if (G.step == 3) {
+            break;
+        } else {
+            addPowerPlant(G);
+        }
+    }
+
+    // Special rule to move the market for two players
+    while (G.players.length == 2 && G.actualMarket.length <= 2 && G.step != 3) {
+        addPowerPlant(G);
+    }
+
+    if (G.step == 3) {
+        while (G.actualMarket.length < 4 && G.powerPlantsDeck.length > 0) {
+            addPowerPlant(G);
+        }
+    } else {
+        while (G.actualMarket.length >= G.players.length) {
+            G.actualMarket.shift();
+        }
     }
 }
 
@@ -2069,7 +2144,9 @@ function fastAuction(G: GameState, player: Player, bid: number) {
         ) {
             setCurrentPlayer(G, winningPlayer.id);
         } else {
-            addPowerPlant(G);
+            if (G.map.name != 'China' || G.step == 3) {
+                addPowerPlant(G);
+            }
 
             if (G.players.some((p) => !p.skipAuction)) {
                 G.players.forEach((p) => {

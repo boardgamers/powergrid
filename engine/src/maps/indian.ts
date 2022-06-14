@@ -280,10 +280,6 @@ export const map: GameMap = {
             powerPlantsDeck.push(step3);
         }
 
-        console.log(actualMarket);
-        console.log(futureMarket);
-        console.log(powerPlantsDeck);
-
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
     mapSpecificRules:

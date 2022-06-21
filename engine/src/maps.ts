@@ -107,6 +107,7 @@ export const mapsRecharged: GameMap[] = [
     italy,
     quebec,
     middleeast,
+    china,
     // australia,
     // badenwurttemberg,
     // benelux,

@@ -251,7 +251,7 @@
         <div v-if="G" :class="['modal', { visible: rulesVisible }]">
             <div class="modal-content">
                 <span class="close" @click="rulesVisible = false">&times;</span>
-                <div class="modal-title">Rules Summary</div>
+                <div class="modal-title">Rules Summary: {{ G.map.name }}</div>
                 <div class="modal-body">
                     <div>
                         <strong>Phases:</strong>

@@ -322,9 +322,6 @@ export default class Resources extends Vue {
                 });
             }
 
-            console.log(gameState.coalSupply)
-            console.log(this.coals[30])
-
             this.oils = [];
             if (gameState.map?.name == 'Middle East') {
                 let maxRegularOil = gameState.oilPrices!.filter(p => p > 1).length;

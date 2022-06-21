@@ -222,7 +222,7 @@ export const map: GameMap = {
             [3, 3, 3],
         ],
     ],
-    startingResources: [21, 21, 6, 2],
+    startingResources: [12, 12, 6, 0],
     setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
         /* Instructions for power plant setup:
         Depending on the number of players, remove the following power plants from the game and place them in the box:

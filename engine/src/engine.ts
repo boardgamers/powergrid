@@ -550,7 +550,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                         addPowerPlant(G);
                                     }
 
-                                    if (G.players.some((p) => !p.skipAuction)) {
+                                    if (G.players.some((p) => !p.skipAuction && !p.isDropped)) {
                                         G.players.forEach((p) => {
                                             p.bid = 0;
                                             p.passed = p.isDropped;
@@ -930,7 +930,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     p.passed = p.isDropped;
                 });
 
-                if (G.players.some((p) => !p.skipAuction)) {
+                if (G.players.some((p) => !p.skipAuction && !p.isDropped)) {
                     nextPlayerAuction(G, true);
                 } else {
                     toResourcesPhase(G);
@@ -979,7 +979,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         p.passed = p.isDropped;
                     });
 
-                    if (G.players.some((p) => !p.skipAuction)) {
+                    if (G.players.some((p) => !p.skipAuction && !p.isDropped)) {
                         nextPlayerAuction(G, true);
                     } else {
                         toResourcesPhase(G);
@@ -1039,7 +1039,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     p.passed = p.isDropped;
                 });
 
-                if (G.players.some((p) => !p.skipAuction)) {
+                if (G.players.some((p) => !p.skipAuction && !p.isDropped)) {
                     nextPlayerAuction(G, true);
                 } else {
                     toResourcesPhase(G);
@@ -2149,7 +2149,7 @@ function fastAuction(G: GameState, player: Player, bid: number) {
                 addPowerPlant(G);
             }
 
-            if (G.players.some((p) => !p.skipAuction)) {
+            if (G.players.some((p) => !p.skipAuction && !p.isDropped)) {
                 G.players.forEach((p) => {
                     p.bid = 0;
                     p.passed = p.isDropped;

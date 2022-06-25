@@ -75,9 +75,9 @@ export async function dropPlayer(G: GameState, playerNum: number): Promise<GameS
     if (player.availableMoves![MoveName.Pass]) {
         G = engine.move(G, { name: MoveName.Pass, data: true }, playerNum);
     } else {
-        do {
+        while (G.currentPlayers.includes(playerNum)) {
             G = engine.moveAI(G, playerNum);
-        } while (G.currentPlayers.includes(playerNum));
+        }
     }
 
     return G;

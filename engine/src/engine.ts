@@ -239,6 +239,13 @@ export function setup(
         const region = regions[Math.floor(rng() * regions.length)];
         if (playRegions.size == 0 || regionConnections[regions.indexOf(region)].some((con) => playRegions.has(con))) {
             playRegions.add(region);
+
+            // Avoid italy Red Green Blue
+            if (chosenMap.name === 'Italy') {
+                if (playRegions.has('red') && playRegions.has('green') && playRegions.has('blue')) {
+                    playRegions.clear();
+                }
+            }
         }
     }
 

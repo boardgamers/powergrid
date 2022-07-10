@@ -554,7 +554,8 @@ export default class Game extends Vue {
         if (this.G && this.player != null && !this.G.chosenPowerPlant) {
             const player = this.G.players[this.player];
             if (player && player.availableMoves && Object.keys(player.availableMoves).length > 1) {
-                if (this.G.phase == Phase.Bureaucracy && player.powerPlantsNotUsed.length > 0) {
+                if (this.G.phase == Phase.Bureaucracy && player.powerPlantsNotUsed.length > 0
+                        && Object.keys(player.availableMoves).includes('UsePowerPlant')) {
                     this.confirmMessage = 'Are you sure you want to pass? You have unused power plants!';
                     this.confirmVisible = true;
                     return;

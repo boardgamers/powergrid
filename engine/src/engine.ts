@@ -797,6 +797,14 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                     (pp) => pp.type != PowerPlantType.Wind && pp.type != PowerPlantType.Nuclear
                                 );
                                 powerPlantToPush = nonEcoPlants.pop();
+
+                                if (!powerPlantToPush) {
+                                    const nonEcoPlants = G.futureMarket.filter(
+                                        (pp) => pp.type != PowerPlantType.Wind && pp.type != PowerPlantType.Nuclear
+                                    );
+                                    powerPlantToPush = nonEcoPlants.pop();
+                                }
+
                                 G.futureMarket = G.futureMarket.filter((pp) => pp.number != powerPlantToPush?.number);
                             } else {
                                 powerPlantToPush = G.futureMarket.pop()!;

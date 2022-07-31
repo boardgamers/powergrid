@@ -800,23 +800,21 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             let powerPlantToPush: PowerPlant | undefined;
                             if (G.map.name == 'Quebec') {
                                 // For the Quebec map, ecological plants will never be put on the bottom of the deck.
-                                const nonEcoPlants = G.futureMarket.filter(
-                                    (pp) => pp.type != PowerPlantType.Wind
-                                );
+                                const nonEcoPlants = G.futureMarket.filter((pp) => pp.type != PowerPlantType.Wind);
                                 powerPlantToPush = nonEcoPlants.pop();
 
                                 if (powerPlantToPush) {
-                                    G.futureMarket = G.futureMarket.filter((pp) => pp.number != powerPlantToPush?.number);
-                                }
-                                else
-                                {
-                                    const nonEcoPlants = G.actualMarket.filter(
-                                        (pp) => pp.type != PowerPlantType.Wind
+                                    G.futureMarket = G.futureMarket.filter(
+                                        (pp) => pp.number != powerPlantToPush?.number
                                     );
+                                } else {
+                                    const nonEcoPlants = G.actualMarket.filter((pp) => pp.type != PowerPlantType.Wind);
                                     powerPlantToPush = nonEcoPlants.pop();
 
                                     if (powerPlantToPush) {
-                                        G.actualMarket = G.actualMarket.filter((pp) => pp.number != powerPlantToPush?.number);
+                                        G.actualMarket = G.actualMarket.filter(
+                                            (pp) => pp.number != powerPlantToPush?.number
+                                        );
                                     }
                                 }
                             } else {

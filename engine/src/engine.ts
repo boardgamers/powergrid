@@ -1599,6 +1599,7 @@ function addPowerPlant(G: GameState) {
             }
         }
 
+        let skipAdd = false;
         if (powerPlant.number == 99) {
             if (G.powerPlantDeckAfterStep3) {
                 G.powerPlantsDeck = G.powerPlantDeckAfterStep3;
@@ -1613,9 +1614,10 @@ function addPowerPlant(G: GameState) {
                     // Add step 3 card to market, then trigger step 2 process.
                     const market = [...G.actualMarket, ...G.futureMarket, powerPlant];
                     market.sort((a, b) => a.number - b.number);
-                    G.actualMarket = market.splice(4);
-                    G.futureMarket = market;
+                    G.actualMarket = market.slice(0, 4);
+                    G.futureMarket = market.slice(4);
                     enterStepTwoMiddleEast(G);
+                    skipAdd = true;
                 } else {
                     const powerPlantDiscarded = G.actualMarket.shift();
                     G.log.push({
@@ -1648,18 +1650,20 @@ function addPowerPlant(G: GameState) {
             market.sort((a, b) => a.number - b.number);
             G.actualMarket = market;
         } else {
-            const market = [...G.actualMarket, ...G.futureMarket, powerPlant];
-            market.sort((a, b) => a.number - b.number);
-            if (G.futureMarket.length == 0) {
-                G.actualMarket = market.slice(0, 6);
-                G.futureMarket = [];
-            } else {
-                G.actualMarket = market.slice(0, 4);
-                G.futureMarket = market.slice(4);
-            }
+            if (!skipAdd) {
+                const market = [...G.actualMarket, ...G.futureMarket, powerPlant];
+                market.sort((a, b) => a.number - b.number);
+                if (G.futureMarket.length == 0) {
+                    G.actualMarket = market.slice(0, 6);
+                    G.futureMarket = [];
+                } else {
+                    G.actualMarket = market.slice(0, 4);
+                    G.futureMarket = market.slice(4);
+                }
 
-            if (G.map.name == 'Middle East' && G.step == 1) {
-                removePlantsForMiddleEastStep1(G);
+                if (G.map.name == 'Middle East' && G.step == 1) {
+                    removePlantsForMiddleEastStep1(G);
+                }
             }
         }
     }

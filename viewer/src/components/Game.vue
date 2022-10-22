@@ -555,7 +555,7 @@ export default class Game extends Vue {
             const player = this.G.players[this.player];
             if (player && player.availableMoves && Object.keys(player.availableMoves).length > 1) {
                 if (this.G.phase == Phase.Bureaucracy && player.powerPlantsNotUsed.length > 0
-                        && Object.keys(player.availableMoves).includes('UsePowerPlant')) {
+                    && Object.keys(player.availableMoves).includes('UsePowerPlant')) {
                     this.confirmMessage = 'Are you sure you want to pass? You have unused power plants!';
                     this.confirmVisible = true;
                     return;
@@ -660,17 +660,13 @@ export default class Game extends Vue {
                 return currentPlayer.uraniumCapacity - this.discardedPowerPlant!.cost * 2 - currentPlayer.uraniumLeft + parseInt(this.resourcesToDiscard[0].value) < 0;
 
             case PowerPlantType.Hybrid:
-                hybridCapacityUsed = currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 > 0 ? Math.max(0, currentPlayer.oilLeft - currentPlayer.oilCapacity) : 0;
-                if (currentPlayer.coalCapacity + currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 + parseInt(this.resourcesToDiscard[0].value) < currentPlayer.coalLeft + hybridCapacityUsed) {
-                    return true;
-                }
+                const coalDiscarded = parseInt(this.resourcesToDiscard[0].value);
+                const oilDiscarded = parseInt(this.resourcesToDiscard[1].value);
+                const newHybridCapacity = currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2;
+                const coalInHybrid = Math.max(0, currentPlayer.coalLeft - currentPlayer.coalCapacity - coalDiscarded);
+                const oilInHybrid = Math.max(0, currentPlayer.oilLeft - currentPlayer.oilCapacity - oilDiscarded);
 
-                hybridCapacityUsed = currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 > 0 ? Math.max(0, currentPlayer.coalLeft - currentPlayer.coalCapacity) : 0;
-                if (currentPlayer.oilCapacity + currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 + parseInt(this.resourcesToDiscard[1].value) < currentPlayer.oilLeft + hybridCapacityUsed) {
-                    return true;
-                }
-
-                return false;
+                return newHybridCapacity < coalInHybrid + oilInHybrid;
         }
 
         return true;

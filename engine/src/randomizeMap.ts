@@ -3,14 +3,13 @@ import { upperFirst } from 'lodash';
 import seedrandom from 'seedrandom';
 import { City, Connection, GameMap } from './maps';
 
-const widthByRegions = [420, 490, 490];
-const heightByRegions = [490, 560, 700];
-
-export function createRandomizedMap(map: GameMap, regionCount: number, rng: seedrandom.prng) {
+export function createRandomizedMap(map: GameMap, regionCount: number, rng: seedrandom.prng): GameMap {
     const regions = [...new Set(map.cities.map((c) => c.region))];
     const cities = Array(7 * regionCount)
         .fill(0)
         .map((_) => ({ name: '', region: '', x: 0, y: 0 }));
+    const widthByRegions = [420, 490, 490];
+    const heightByRegions = [490, 560, 700];
     const width = widthByRegions[regionCount - 3];
     const height = heightByRegions[regionCount - 3];
     const gridCellSize = 70;
@@ -35,8 +34,8 @@ export function createRandomizedMap(map: GameMap, regionCount: number, rng: seed
             city.x += gridCellSize;
         }
 
-        var t = rng() * 2 * Math.PI;
-        var r = (rng() * gridCellSize) / 2;
+        const t = rng() * 2 * Math.PI;
+        const r = (rng() * gridCellSize) / 2;
         city.x += r * Math.cos(t);
         city.y += r * Math.sin(t);
 
@@ -189,7 +188,7 @@ function bkmeans(
     regions: number,
     centroids: number[][],
     connections: boolean[][],
-    iterations: number = 100
+    iterations = 100
 ): number[] {
     const indexes = Array(points.length).fill(0);
     const pointsPerRegion = Math.ceil(points.length / regions);

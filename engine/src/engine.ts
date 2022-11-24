@@ -196,6 +196,30 @@ export function setup(
         ];
     }
 
+    if (chosenMap.layout == 'Portrait' || randomizeMap) {
+        chosenMap.viewBox = chosenMap.viewBox || [1480, 1060];
+        chosenMap.adjustRatio = chosenMap.adjustRatio || [1, 1];
+        chosenMap.playerOrderPosition = chosenMap.playerOrderPosition || [1160, 160];
+        chosenMap.cityCountPosition = chosenMap.cityCountPosition || [0, 0];
+        chosenMap.powerPlantMarketPosition = chosenMap.powerPlantMarketPosition || [745, 0];
+        chosenMap.mapPosition = chosenMap.mapPosition || [0, 0];
+        chosenMap.buttonsPosition = chosenMap.buttonsPosition || [1305, 0];
+        chosenMap.playerBoardsPosition = chosenMap.playerBoardsPosition || [1105, 240];
+        chosenMap.roundInfoPosition = chosenMap.roundInfoPosition || [20, 920];
+        chosenMap.supplyPosition = chosenMap.supplyPosition || [675, 920];
+    } else {
+        chosenMap.viewBox = chosenMap.viewBox || [1465, 860];
+        chosenMap.adjustRatio = chosenMap.adjustRatio || [1, 1];
+        chosenMap.playerOrderPosition = chosenMap.playerOrderPosition || [1160, 140];
+        chosenMap.cityCountPosition = chosenMap.cityCountPosition || [0, 0];
+        chosenMap.powerPlantMarketPosition = chosenMap.powerPlantMarketPosition || [745, 0];
+        chosenMap.mapPosition = chosenMap.mapPosition || [-10, 0];
+        chosenMap.buttonsPosition = chosenMap.buttonsPosition || [1305, 0];
+        chosenMap.playerBoardsPosition = chosenMap.playerBoardsPosition || [1105, 200];
+        chosenMap.roundInfoPosition = chosenMap.roundInfoPosition || [20, 590];
+        chosenMap.supplyPosition = chosenMap.supplyPosition || [0, 720];
+    }
+
     let finalMap: GameMap;
     if (randomizeMap) {
         finalMap = createRandomizedMap(chosenMap, regionsInPlay[p], rng);
@@ -245,30 +269,6 @@ export function setup(
         );
 
         finalMap = filteredMap;
-    }
-
-    if (finalMap.layout == 'Portrait') {
-        finalMap.viewBox = finalMap.viewBox || [1480, 1060];
-        finalMap.adjustRatio = finalMap.adjustRatio || [1, 1];
-        finalMap.playerOrderPosition = finalMap.playerOrderPosition || [1160, 160];
-        finalMap.cityCountPosition = finalMap.cityCountPosition || [0, 0];
-        finalMap.powerPlantMarketPosition = finalMap.powerPlantMarketPosition || [745, 0];
-        finalMap.mapPosition = finalMap.mapPosition || [0, 0];
-        finalMap.buttonsPosition = finalMap.buttonsPosition || [1305, 0];
-        finalMap.playerBoardsPosition = finalMap.playerBoardsPosition || [1105, 240];
-        finalMap.roundInfoPosition = finalMap.roundInfoPosition || [20, 920];
-        finalMap.supplyPosition = finalMap.supplyPosition || [675, 920];
-    } else {
-        finalMap.viewBox = finalMap.viewBox || [1465, 860];
-        finalMap.adjustRatio = finalMap.adjustRatio || [1, 1];
-        finalMap.playerOrderPosition = finalMap.playerOrderPosition || [1160, 140];
-        finalMap.cityCountPosition = finalMap.cityCountPosition || [0, 0];
-        finalMap.powerPlantMarketPosition = finalMap.powerPlantMarketPosition || [745, 0];
-        finalMap.mapPosition = finalMap.mapPosition || [-10, 0];
-        finalMap.buttonsPosition = finalMap.buttonsPosition || [1305, 0];
-        finalMap.playerBoardsPosition = finalMap.playerBoardsPosition || [1105, 200];
-        finalMap.roundInfoPosition = finalMap.roundInfoPosition || [20, 590];
-        finalMap.supplyPosition = finalMap.supplyPosition || [0, 720];
     }
 
     const coalMarket = chosenMap.startingResources ? chosenMap.startingResources[0] : 24;

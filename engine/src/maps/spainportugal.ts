@@ -62,6 +62,13 @@ export enum Cities {
 export const map: GameMap = {
     name: 'Spain & Portugal',
     cities: [
+        { name: Cities.Evora, region: Regions.Yellow, x: 890, y: 1780 },
+        { name: Cities.Faro, region: Regions.Yellow, x: 822, y: 2348 },
+        { name: Cities.Portimao, region: Regions.Yellow, x: 592, y: 2218 },
+        { name: Cities.Setubal, region: Regions.Yellow, x: 578, y: 1864 },
+        { name: Cities.Lisboa, region: Regions.Yellow, x: 572, y: 1586 },
+        { name: Cities.Porto, region: Regions.Yellow, x: 736, y: 1052 },
+        { name: Cities.Braga, region: Regions.Yellow, x: 990, y: 828 },
         { name: Cities.Gerona, region: Regions.Pink, x: 3728, y: 666 },
         { name: Cities.Barcelona, region: Regions.Pink, x: 3538, y: 848 },
         { name: Cities.Tarragona, region: Regions.Pink, x: 3312, y: 970 },
@@ -97,13 +104,6 @@ export const map: GameMap = {
         { name: Cities.Cadiz, region: Regions.Red, x: 1290, y: 2552 },
         { name: Cities.Sevilla, region: Regions.Red, x: 1390, y: 2168 },
         { name: Cities.Huelva, region: Regions.Red, x: 1082, y: 2196 },
-        { name: Cities.Evora, region: Regions.Yellow, x: 890, y: 1780 },
-        { name: Cities.Faro, region: Regions.Yellow, x: 822, y: 2348 },
-        { name: Cities.Portimao, region: Regions.Yellow, x: 592, y: 2218 },
-        { name: Cities.Setubal, region: Regions.Yellow, x: 578, y: 1864 },
-        { name: Cities.Lisboa, region: Regions.Yellow, x: 572, y: 1586 },
-        { name: Cities.Porto, region: Regions.Yellow, x: 736, y: 1052 },
-        { name: Cities.Braga, region: Regions.Yellow, x: 990, y: 828 },
     ],
     connections: [
         { nodes: [Cities.Huelva, Cities.Faro], cost: 6 },

@@ -8,6 +8,7 @@ import { GameMap, maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
 import { indiaPowerPlants, powerPlants } from './powerPlants';
 import prices from './prices';
+import { createRandomizedMap } from './randomizeMap';
 import { asserts, shuffle } from './utils';
 
 export const playerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', 'yellow', 'brown'];
@@ -83,6 +84,7 @@ export function setup(
         showMoney = false,
         useNewRechargedSetup = true,
         trackTotalSpent = true,
+        randomizeMap = false,
     }: GameOptions,
     seed?: string,
     forceDeck?: PowerPlant[],
@@ -94,30 +96,6 @@ export function setup(
     const chosenMap = cloneDeep(
         variant == 'original' ? maps.find((m) => m.name == map)! : mapsRecharged.find((m) => m.name == map)!
     );
-
-    if (chosenMap.layout == 'Portrait') {
-        chosenMap.viewBox = chosenMap.viewBox || [1480, 1060];
-        chosenMap.adjustRatio = chosenMap.adjustRatio || [1, 1];
-        chosenMap.playerOrderPosition = chosenMap.playerOrderPosition || [1160, 160];
-        chosenMap.cityCountPosition = chosenMap.cityCountPosition || [0, 0];
-        chosenMap.powerPlantMarketPosition = chosenMap.powerPlantMarketPosition || [745, 0];
-        chosenMap.mapPosition = chosenMap.mapPosition || [0, 0];
-        chosenMap.buttonsPosition = chosenMap.buttonsPosition || [1305, 0];
-        chosenMap.playerBoardsPosition = chosenMap.playerBoardsPosition || [1105, 240];
-        chosenMap.roundInfoPosition = chosenMap.roundInfoPosition || [20, 920];
-        chosenMap.supplyPosition = chosenMap.supplyPosition || [675, 920];
-    } else {
-        chosenMap.viewBox = chosenMap.viewBox || [1465, 860];
-        chosenMap.adjustRatio = chosenMap.adjustRatio || [1, 1];
-        chosenMap.playerOrderPosition = chosenMap.playerOrderPosition || [1160, 140];
-        chosenMap.cityCountPosition = chosenMap.cityCountPosition || [0, 0];
-        chosenMap.powerPlantMarketPosition = chosenMap.powerPlantMarketPosition || [745, 0];
-        chosenMap.mapPosition = chosenMap.mapPosition || [-10, 0];
-        chosenMap.buttonsPosition = chosenMap.buttonsPosition || [1305, 0];
-        chosenMap.playerBoardsPosition = chosenMap.playerBoardsPosition || [1105, 200];
-        chosenMap.roundInfoPosition = chosenMap.roundInfoPosition || [20, 590];
-        chosenMap.supplyPosition = chosenMap.supplyPosition || [0, 720];
-    }
 
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
@@ -173,6 +151,8 @@ export function setup(
         totalSpentResources: 0,
     }));
 
+    const p = players.length - 2;
+
     const playerOrder = range(numPlayers);
     const startingPlayer = playerOrder[0];
 
@@ -216,46 +196,80 @@ export function setup(
         ];
     }
 
-    chosenMap.cities = chosenMap.cities.map((city) => ({
-        ...city,
-        x: city.x * chosenMap.adjustRatio![0],
-        y: city.y * chosenMap.adjustRatio![1],
-    }));
+    let finalMap: GameMap;
+    if (randomizeMap) {
+        finalMap = createRandomizedMap(chosenMap, regionsInPlay[p], rng);
+    } else {
+        chosenMap.cities = chosenMap.cities.map((city) => ({
+            ...city,
+            x: city.x * chosenMap.adjustRatio![0],
+            y: city.y * chosenMap.adjustRatio![1],
+        }));
 
-    const regions = chosenMap.cities
-        .filter((c, i) => chosenMap.cities.findIndex((cc) => cc.region == c.region) == i)
-        .map((c) => c.region);
-    const connections = chosenMap.connections.map((con) =>
-        con.nodes.map((n) => chosenMap.cities.find((city) => city.name == n)!.region)
-    );
-    const regionConnections = regions.map((region) =>
-        regions.filter(
-            (area2) => region != area2 && connections.some((con) => con.includes(region) && con.includes(area2))
-        )
-    );
+        const regions = chosenMap.cities
+            .filter((c, i) => chosenMap.cities.findIndex((cc) => cc.region == c.region) == i)
+            .map((c) => c.region);
+        const connections = chosenMap.connections.map((con) =>
+            con.nodes.map((n) => chosenMap.cities.find((city) => city.name == n)!.region)
+        );
+        const regionConnections = regions.map((region) =>
+            regions.filter(
+                (area2) => region != area2 && connections.some((con) => con.includes(region) && con.includes(area2))
+            )
+        );
 
-    const playRegions = new Set<string>();
-    while (playRegions.size != Math.min(regionsInPlay[players.length - 2], regions.length)) {
-        const region = regions[Math.floor(rng() * regions.length)];
-        if (playRegions.size == 0 || regionConnections[regions.indexOf(region)].some((con) => playRegions.has(con))) {
-            playRegions.add(region);
+        const playRegions = new Set<string>();
+        while (playRegions.size != Math.min(regionsInPlay[p], regions.length)) {
+            const region = regions[Math.floor(rng() * regions.length)];
+            if (
+                playRegions.size == 0 ||
+                regionConnections[regions.indexOf(region)].some((con) => playRegions.has(con))
+            ) {
+                playRegions.add(region);
 
-            // Avoid italy Red Green Blue
-            if (chosenMap.name === 'Italy') {
-                if (playRegions.has('red') && playRegions.has('green') && playRegions.has('blue')) {
-                    playRegions.clear();
+                // Avoid italy Red Green Blue
+                if (chosenMap.name === 'Italy') {
+                    if (playRegions.has('red') && playRegions.has('green') && playRegions.has('blue')) {
+                        playRegions.clear();
+                    }
                 }
             }
         }
+
+        const filteredMap = cloneDeep(chosenMap);
+        filteredMap.cities = filteredMap.cities.filter((city) => playRegions.has(city.region));
+        filteredMap.connections = filteredMap.connections.filter((con) =>
+            con.nodes
+                .map((n) => chosenMap.cities.find((city) => city.name == n)!.region)
+                .every((r) => playRegions.has(r))
+        );
+
+        finalMap = filteredMap;
     }
 
-    const filteredMap = cloneDeep(chosenMap);
-    filteredMap.cities = filteredMap.cities.filter((city) => playRegions.has(city.region));
-    filteredMap.connections = filteredMap.connections.filter((con) =>
-        con.nodes.map((n) => chosenMap.cities.find((city) => city.name == n)!.region).every((r) => playRegions.has(r))
-    );
-
-    const p = players.length - 2;
+    if (finalMap.layout == 'Portrait') {
+        finalMap.viewBox = finalMap.viewBox || [1480, 1060];
+        finalMap.adjustRatio = finalMap.adjustRatio || [1, 1];
+        finalMap.playerOrderPosition = finalMap.playerOrderPosition || [1160, 160];
+        finalMap.cityCountPosition = finalMap.cityCountPosition || [0, 0];
+        finalMap.powerPlantMarketPosition = finalMap.powerPlantMarketPosition || [745, 0];
+        finalMap.mapPosition = finalMap.mapPosition || [0, 0];
+        finalMap.buttonsPosition = finalMap.buttonsPosition || [1305, 0];
+        finalMap.playerBoardsPosition = finalMap.playerBoardsPosition || [1105, 240];
+        finalMap.roundInfoPosition = finalMap.roundInfoPosition || [20, 920];
+        finalMap.supplyPosition = finalMap.supplyPosition || [675, 920];
+    } else {
+        finalMap.viewBox = finalMap.viewBox || [1465, 860];
+        finalMap.adjustRatio = finalMap.adjustRatio || [1, 1];
+        finalMap.playerOrderPosition = finalMap.playerOrderPosition || [1160, 140];
+        finalMap.cityCountPosition = finalMap.cityCountPosition || [0, 0];
+        finalMap.powerPlantMarketPosition = finalMap.powerPlantMarketPosition || [745, 0];
+        finalMap.mapPosition = finalMap.mapPosition || [-10, 0];
+        finalMap.buttonsPosition = finalMap.buttonsPosition || [1305, 0];
+        finalMap.playerBoardsPosition = finalMap.playerBoardsPosition || [1105, 200];
+        finalMap.roundInfoPosition = finalMap.roundInfoPosition || [20, 590];
+        finalMap.supplyPosition = finalMap.supplyPosition || [0, 720];
+    }
 
     const coalMarket = chosenMap.startingResources ? chosenMap.startingResources[0] : 24;
     const oilMarket = chosenMap.startingResources ? chosenMap.startingResources[1] : 18;
@@ -278,7 +292,7 @@ export function setup(
     const uraniumPrices = cloneDeep(chosenMap.uraniumPrices ?? prices.uranium);
 
     const G: GameState = {
-        map: forceMap || filteredMap,
+        map: forceMap || finalMap,
         players,
         playerOrder,
         currentPlayers: [startingPlayer],
@@ -323,7 +337,7 @@ export function setup(
         paymentTable: cityIncome,
         variant,
         minimunBid: 0,
-        plantDiscountActive: variant == 'recharged' && (forceMap || filteredMap).name != 'China',
+        plantDiscountActive: variant == 'recharged' && (forceMap || finalMap).name != 'China',
         cardsLeft: powerPlantsDeck.length,
         nextCardWeak: variant == 'recharged',
         card39Bought: false,

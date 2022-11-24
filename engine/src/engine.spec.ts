@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+import 'mocha';
 import { ended, move, reconstructState, setup } from './engine';
 import GermanyRecharged from './fixtures/GermanyRecharged.json';
 import supply from './fixtures/supply.json';

@@ -10,19 +10,19 @@ function launchSelfContained(selector = '#app') {
 
     const emitter = launch(selector);
 
-    let gameState = setup(6, { map: 'Italy', variant: 'original', showMoney: true });
+    let gameState = setup(3, { map: 'Brazil', variant: 'original', showMoney: true, randomizeMap: true }, '3');
 
-    // gameState.map.viewBox = [1465, 860];
+    // gameState.map.viewBox = [1480, 1060];
     // gameState.map.playerOrderPosition = [1160, 140];
     // gameState.map.cityCountPosition = [0, 0];
     // gameState.map.powerPlantMarketPosition = [745, 0];
-    // gameState.map.mapPosition = [-20, 320];
+    // gameState.map.mapPosition = [0, 100];
     // gameState.map.buttonsPosition = [1305, 0];
     // gameState.map.playerBoardsPosition = [1105, 200];
     // gameState.map.roundInfoPosition = [20, 590];
     // gameState.map.supplyPosition = [0, 720];
 
-    // gameState.map.adjustRatio = [1.1, 1];
+    // gameState.map.adjustRatio = [1, 1];
     // gameState.map.cities = gameState.map.cities.map(city => ({
     //     ...city,
     //     x: city.x * gameState.map.adjustRatio![0],
@@ -34,8 +34,6 @@ function launchSelfContained(selector = '#app') {
     //     x: city.y,
     //     y: 600 - city.x
     // }));
-
-    // gameState.map.cities.forEach(c => console.log(`{ name: ${c.name}, region: ${c.region}, x: ${Math.round(c.x)}, y: ${Math.round(c.y)} },`));
 
     for (let i = 0; i < gameState.players.length; i++) {
         gameState.players[i].name = `Player ${i + 1}`;

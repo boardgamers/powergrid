@@ -33,6 +33,7 @@ export interface GameOptions {
     showMoney?: boolean;
     useNewRechargedSetup?: boolean;
     trackTotalSpent?: boolean;
+    randomizeMap?: boolean;
 }
 
 export enum ResourceType {

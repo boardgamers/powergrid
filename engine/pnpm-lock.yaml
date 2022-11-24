@@ -10,7 +10,7 @@ specifiers:
     '@typescript-eslint/eslint-plugin': ^4.25.0
     '@typescript-eslint/parser': ^4.25.0
     chai: ^4.1.2
-    delaunator: ^5.0.0
+    delaunator: ^4.0.0
     eslint: ^6.8.0
     eslint-plugin-import: ^2.20.2
     eslint-plugin-node: ^11.1.0
@@ -23,7 +23,7 @@ specifiers:
     typescript: ^4.3.5
 
 dependencies:
-    delaunator: 5.0.0
+    delaunator: 4.0.1
     lodash: 4.17.21
     seedrandom: 3.0.5
 
@@ -752,13 +752,11 @@ packages:
             object-keys: 1.1.1
         dev: true
 
-    /delaunator/5.0.0:
+    /delaunator/4.0.1:
         resolution:
             {
-                integrity: sha512-AyLvtyJdbv/U1GkiS6gUUzclRoAY4Gs75qkMygJJhU75LW4DNuSF2RMzpxs9jw9Oz1BobHjTdkG3zdP55VxAqw==,
+                integrity: sha512-WNPWi1IRKZfCt/qIDMfERkDp93+iZEmOxN2yy4Jg+Xhv8SLk2UTqqbe1sfiipn0and9QrE914/ihdx82Y/Giag==,
             }
-        dependencies:
-            robust-predicates: 3.0.1
         dev: false
 
     /diff/3.5.0:
@@ -2229,13 +2227,6 @@ packages:
         dependencies:
             glob: 7.2.0
         dev: true
-
-    /robust-predicates/3.0.1:
-        resolution:
-            {
-                integrity: sha512-ndEIpszUHiG4HtDsQLeIuMvRsDnn8c8rYStabochtUeCvfuvNptb5TUbVD68LRAILPX7p9nqQGh4xJgn3EHS/g==,
-            }
-        dev: false
 
     /run-async/2.4.1:
         resolution:

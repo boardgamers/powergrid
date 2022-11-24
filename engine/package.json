@@ -16,10 +16,10 @@
         "build": "npm run clean && tsc",
         "clean": "rm -Rf dist",
         "lint": "eslint . --ext .ts",
-        "test": "mocha -r ts-node/register src/**/*.spec.ts src/*.spec.ts"
+        "test": "mocha -r ts-node/register src/*.spec.ts"
     },
     "dependencies": {
-        "delaunator": "^5.0.0",
+        "delaunator": "^4.0.0",
         "lodash": "^4.17.15",
         "seedrandom": "^3.0.5"
     },

@@ -30,9 +30,23 @@ export async function move(G: GameState, move: Move, player: number): Promise<Ga
 export { ended, scores, stripSecret } from './src/engine';
 
 export function rankings(G: GameState): number[] {
-    const sortedPlayers = playersSortedByScore(G).map((pl) => pl.id);
+    const sortedPlayers = playersSortedByScore(G);
+    sortedPlayers.forEach((player, index) => {
+        player.ranking = index + 1;
 
-    return G.players.map((pl) => sortedPlayers.indexOf(pl.id) + 1);
+        if (index > 0) {
+            const prev = sortedPlayers[index - 1];
+            if (
+                player.citiesPowered === prev.citiesPowered &&
+                player.money === prev.money &&
+                player.cities.length === prev.cities.length
+            ) {
+                player.ranking = prev.ranking;
+            }
+        }
+    });
+
+    return G.players.map((pl) => sortedPlayers.find((spl) => pl.id === spl.id)!.ranking!);
 }
 
 export function factions(G: GameState): string[] {

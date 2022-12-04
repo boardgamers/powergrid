@@ -99,6 +99,7 @@ export interface Player {
     totalSpentConnections: number;
     totalSpentPlants: number;
     totalSpentResources: number;
+    ranking?: number;
 }
 
 export enum Phase {

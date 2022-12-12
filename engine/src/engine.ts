@@ -197,6 +197,7 @@ export function setup(
     }
 
     if (chosenMap.layout == 'Portrait' || randomizeMap) {
+        const isUsaRecharged = chosenMap.name === 'USA' && variant === 'recharged';
         chosenMap.viewBox = chosenMap.viewBox || [1480, 1060];
         chosenMap.adjustRatio = chosenMap.adjustRatio || [1, 1];
         chosenMap.playerOrderPosition = chosenMap.playerOrderPosition || [1160, 160];
@@ -206,7 +207,7 @@ export function setup(
         chosenMap.buttonsPosition = chosenMap.buttonsPosition || [1305, 0];
         chosenMap.playerBoardsPosition = chosenMap.playerBoardsPosition || [1105, 240];
         chosenMap.roundInfoPosition = chosenMap.roundInfoPosition || [20, 920];
-        chosenMap.supplyPosition = chosenMap.supplyPosition || [675, 920];
+        chosenMap.supplyPosition = chosenMap.supplyPosition || [isUsaRecharged ? 480 : 675, 920];
     } else {
         chosenMap.viewBox = chosenMap.viewBox || [1465, 860];
         chosenMap.adjustRatio = chosenMap.adjustRatio || [1, 1];

@@ -1797,7 +1797,7 @@ Exception: with 2 players, add plants until there are 2 in the market.*/
     }
 
     // Special rule to move the market for two players
-    while (G.players.length == 2 && G.actualMarket.length <= 2 && G.step != 3) {
+    while (G.players.length == 2 && G.actualMarket.length < 2 && G.step != 3) {
         addPowerPlant(G);
     }
 

@@ -1808,7 +1808,7 @@ Exception: with 2 players, add plants until there are 2 in the market.*/
         }
     } else {
         // Target size is one less than number of players, or 2 for a 2-player game.
-        let targetSize = Math.max(2, G.players.length - 1);
+        const targetSize = Math.max(2, G.players.length - 1);
         while (G.actualMarket.length > targetSize) {
             G.actualMarket.shift();
         }

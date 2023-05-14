@@ -195,4 +195,5 @@ export const map: GameMap = {
         ],
     ],
     startingResources: [18, 24, 6, 2],
+    mapSpecificRules: 'Ecological plants can enter the market earlier. Remove smallest power plant after each round (unless discount plant was removed).',
 };

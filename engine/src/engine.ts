@@ -813,11 +813,14 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             G.powerPlantsDeck.push(powerPlantToPush);
                             addPowerPlant(G);
                         } else if (G.futureMarket.length > 0) {
-                            if (G.map.name == 'Benelux' && (G.options.variant == 'original' || G.discardSmallestPlant)) {
+                            if (
+                                G.map.name == 'Benelux' &&
+                                (G.options.variant == 'original' || G.discardSmallestPlant)
+                            ) {
                                 const removedPlant = G.actualMarket[0];
                                 G.log.push({
                                     type: 'event',
-                                    event: `Removing smallest plant, Power Plant ${removedPlant.number}.`
+                                    event: `Removing smallest plant, Power Plant ${removedPlant.number}.`,
                                 });
                                 G.actualMarket.shift();
                                 addPowerPlant(G);

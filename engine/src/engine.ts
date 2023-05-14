@@ -339,6 +339,7 @@ export function setup(
         variant,
         minimunBid: 0,
         plantDiscountActive: variant == 'recharged' && (forceMap || finalMap).name != 'China',
+        discardSmallestPlant: false,
         cardsLeft: powerPlantsDeck.length,
         nextCardWeak: variant == 'recharged',
         card39Bought: false,
@@ -812,6 +813,17 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             G.powerPlantsDeck.push(powerPlantToPush);
                             addPowerPlant(G);
                         } else if (G.futureMarket.length > 0) {
+                            if (G.map.name == 'Benelux' && (G.options.variant == 'original' || G.discardSmallestPlant)) {
+                                const removedPlant = G.actualMarket[0];
+                                G.log.push({
+                                    type: 'event',
+                                    event: `Removing smallest plant, Power Plant ${removedPlant.number}.`
+                                });
+                                G.actualMarket.shift();
+                                addPowerPlant(G);
+                                G.discardSmallestPlant = false;
+                            }
+
                             let powerPlantToPush: PowerPlant | undefined;
                             if (G.map.name == 'Quebec') {
                                 // For the Quebec map, ecological plants will never be put on the bottom of the deck.
@@ -1672,8 +1684,14 @@ function addPowerPlant(G: GameState) {
                     G.actualMarket = market.slice(0, 6);
                     G.futureMarket = [];
                 } else {
-                    G.actualMarket = market.slice(0, 4);
-                    G.futureMarket = market.slice(4);
+                    if (G.map.name == 'Benelux' && market[4].type == PowerPlantType.Wind) {
+                        // Add extra ecological plant to actual market.
+                        G.actualMarket = market.slice(0, 5);
+                        G.futureMarket = market.slice(5);
+                    } else {
+                        G.actualMarket = market.slice(0, 4);
+                        G.futureMarket = market.slice(4);
+                    }
                 }
 
                 if (G.map.name == 'Middle East' && G.step == 1) {
@@ -1947,6 +1965,8 @@ function toResourcesPhase(G: GameState) {
                 G.actualMarket.shift();
                 addPowerPlant(G);
             }
+        } else if (G.map.name == 'Benelux') {
+            G.discardSmallestPlant = true;
         }
     }
 

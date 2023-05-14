@@ -13,10 +13,10 @@ export type MapName =
     | 'Quebec'
     | 'Middle East'
     | 'India'
-    | 'China';
+    | 'China'
+    | 'Benelux';
 // | 'Australia'
 // | 'Baden-Württemberg'
-// | 'Benelux'
 // | 'Central Europe'
 // | 'Japan'
 // | 'Korea'
@@ -154,6 +154,7 @@ export interface GameState {
     paymentTable: number[];
     minimunBid: number;
     plantDiscountActive: boolean;
+    discardSmallestPlant: boolean; // For Benelux map, there are times when we remove the smallest plant.
     nextCardWeak: boolean;
     cardsLeft: number;
     card39Bought: boolean;

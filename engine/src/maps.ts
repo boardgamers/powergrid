@@ -49,6 +49,7 @@ export interface GameMap {
     playerOrderPosition?: [number, number];
     cityCountPosition?: [number, number];
     powerPlantMarketPosition?: [number, number];
+    actualMarketWidth?: number;
     mapPosition?: [number, number];
     buttonsPosition?: [number, number];
     playerBoardsPosition?: [number, number];

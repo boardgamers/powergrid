@@ -203,6 +203,7 @@ export function setup(
         chosenMap.playerOrderPosition = chosenMap.playerOrderPosition || [1160, 160];
         chosenMap.cityCountPosition = chosenMap.cityCountPosition || [0, 0];
         chosenMap.powerPlantMarketPosition = chosenMap.powerPlantMarketPosition || [745, 0];
+        chosenMap.actualMarketWidth = chosenMap.actualMarketWidth || 430;
         chosenMap.mapPosition = chosenMap.mapPosition || [0, 0];
         chosenMap.buttonsPosition = chosenMap.buttonsPosition || [1305, 0];
         chosenMap.playerBoardsPosition = chosenMap.playerBoardsPosition || [1105, 240];
@@ -214,6 +215,7 @@ export function setup(
         chosenMap.playerOrderPosition = chosenMap.playerOrderPosition || [1160, 140];
         chosenMap.cityCountPosition = chosenMap.cityCountPosition || [0, 0];
         chosenMap.powerPlantMarketPosition = chosenMap.powerPlantMarketPosition || [745, 0];
+        chosenMap.actualMarketWidth = chosenMap.actualMarketWidth || 430;
         chosenMap.mapPosition = chosenMap.mapPosition || [-10, 0];
         chosenMap.buttonsPosition = chosenMap.buttonsPosition || [1305, 0];
         chosenMap.playerBoardsPosition = chosenMap.playerBoardsPosition || [1105, 200];

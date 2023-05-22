@@ -164,4 +164,43 @@ export const map: GameMap = {
     layout: 'Portrait',
     mapPosition: [0, -50],
     adjustRatio: [1.15, 1.15],
+    resupply: [
+        [
+            [2, 2, 4],
+            [2, 3, 4],
+            [3, 4, 5],
+            [4, 5, 6],
+            [5, 6, 7],
+        ],
+        [
+            [3, 4, 3],
+            [4, 5, 3],
+            [5, 6, 4],
+            [5, 7, 5],
+            [7, 9, 6],
+        ],
+        [
+            [1, 2, 3],
+            [2, 2, 3],
+            [2, 3, 4],
+            [3, 4, 5],
+            [3, 6, 6],
+        ],
+        [
+            [1, 1, 1],
+            [1, 1, 1],
+            [1, 2, 1],
+            [2, 2, 2],
+            [2, 3, 2],
+        ],
+    ],
+    startingResources: [18, 24, 6, 2],
+    // Add 65 pixels of extra space for actual market since we may have 5 plants in the actual market.
+    viewBox: [1530, 1060],
+    playerOrderPosition: [1225, 140],
+    buttonsPosition: [1370, 0],
+    playerBoardsPosition: [1170, 200],
+    actualMarketWidth: 495,
+    mapSpecificRules:
+        'Ecological plants can enter the market earlier. Remove smallest power plant after each round (unless discount plant was removed).',
 };

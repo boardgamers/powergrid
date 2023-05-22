@@ -48,7 +48,7 @@
         </template>
 
         <template v-if="chosenPowerPlant">
-            <text x="430" y="14" font-weight="600" fill="black">Current Auction:</text>
+            <text :x="actualMarketWidth" y="14" font-weight="600" fill="black">Current Auction:</text>
             <Card
                 :key="chosenPowerPlant.id"
                 :targetState="{ x: chosenPowerPlant.x, y: chosenPowerPlant.y }"
@@ -56,7 +56,7 @@
             />
             <Calculator
                 v-if="canBid"
-                transform="translate(430, 80)"
+                :transform="`translate(${actualMarketWidth}, 80)`"
                 :minValue="minBid"
                 :maxValue="maxBid"
                 @bid="bid($event)"
@@ -69,7 +69,7 @@
                     v-if="futureMarketCards.length > 0"
                     x="160"
                     y="5"
-                    width="265"
+                    :width="actualMarketCards.length > 4 ? actualMarketWidth - 165 : 265"
                     height="65"
                     fill="none"
                     stroke="blue"
@@ -122,8 +122,10 @@ export default class PowerPlantMarket extends Vue {
     actualMarketCards: Piece[] = [];
     futureMarketCards: Piece[] = [];
     chosenPowerPlant: Piece | null = null;
+    actualMarketWidth: number = 430;
 
     createPieces(gameState: GameState) {
+        this.actualMarketWidth = gameState.map.actualMarketWidth ?? 430;
         this.actualMarketCards = [];
         gameState.actualMarket.forEach((card, i) => {
             if (gameState.futureMarket.length > 0) {
@@ -162,7 +164,7 @@ export default class PowerPlantMarket extends Vue {
         if (gameState.chosenPowerPlant) {
             this.chosenPowerPlant = {
                 id: 'chosen',
-                x: 460,
+                x: this.actualMarketWidth + 30,
                 y: 30,
                 powerPlant: gameState.chosenPowerPlant
             };

@@ -1,6 +1,7 @@
 import seedrandom from 'seedrandom';
 import { PowerPlant } from './gamestate';
 import { map as america, mapRecharged as americaRecharged } from './maps/america';
+import { map as benelux } from './maps/benelux';
 import { map as brazil } from './maps/brazil';
 import { map as china } from './maps/china';
 import { map as france } from './maps/france';
@@ -12,7 +13,6 @@ import { map as quebec } from './maps/quebec';
 import { map as spainportugal } from './maps/spainportugal';
 // import { map as australia } from './maps/australia';
 // import { map as badenwurttemberg } from './maps/badenwurttemberg';
-// import { map as benelux } from './maps/benelux';
 // import { map as centraleurope } from './maps/centraleurope';
 // import { map as japan } from './maps/japan';
 // import { map as korea } from './maps/korea';
@@ -49,6 +49,7 @@ export interface GameMap {
     playerOrderPosition?: [number, number];
     cityCountPosition?: [number, number];
     powerPlantMarketPosition?: [number, number];
+    actualMarketWidth?: number;
     mapPosition?: [number, number];
     buttonsPosition?: [number, number];
     playerBoardsPosition?: [number, number];
@@ -85,9 +86,9 @@ export const maps: GameMap[] = [
     quebec,
     middleeast,
     china,
+    benelux,
     // australia,
     // badenwurttemberg,
-    // benelux,
     // centraleurope,
     // japan,
     // korea,
@@ -108,9 +109,9 @@ export const mapsRecharged: GameMap[] = [
     quebec,
     middleeast,
     china,
+    benelux,
     // australia,
     // badenwurttemberg,
-    // benelux,
     // centraleurope,
     // china,
     // japan,

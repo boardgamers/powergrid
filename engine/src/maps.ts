@@ -10,6 +10,7 @@ import { map as indian } from './maps/indian';
 import { map as italy } from './maps/italy';
 import { map as middleeast } from './maps/middleeast';
 import { map as quebec } from './maps/quebec';
+import { map as russia } from './maps/russia';
 import { map as spainportugal } from './maps/spainportugal';
 // import { map as australia } from './maps/australia';
 // import { map as badenwurttemberg } from './maps/badenwurttemberg';
@@ -17,7 +18,6 @@ import { map as spainportugal } from './maps/spainportugal';
 // import { map as japan } from './maps/japan';
 // import { map as korea } from './maps/korea';
 // import { map as northerneurope } from './maps/northerneurope';
-// import { map as russia } from './maps/russia';
 // import { map as southafrica } from './maps/southafrica';
 // import { map as ukireland } from './maps/ukireland';
 
@@ -87,13 +87,13 @@ export const maps: GameMap[] = [
     middleeast,
     china,
     benelux,
+    russia,
     // australia,
     // badenwurttemberg,
     // centraleurope,
     // japan,
     // korea,
     // northerneurope,
-    // russia,
     // southafrica,
     // ukireland,
 ];
@@ -110,6 +110,7 @@ export const mapsRecharged: GameMap[] = [
     middleeast,
     china,
     benelux,
+    russia,
     // australia,
     // badenwurttemberg,
     // centraleurope,
@@ -117,7 +118,6 @@ export const mapsRecharged: GameMap[] = [
     // japan,
     // korea,
     // northerneurope,
-    // russia,
     // southafrica,
     // ukireland,
 ];

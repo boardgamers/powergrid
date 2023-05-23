@@ -191,4 +191,38 @@ export const map: GameMap = {
         { nodes: [Cities.Norilsk, Cities.Bratsk], cost: 29 },
         { nodes: [Cities.Norilsk, Cities.Surgut], cost: 19 },
     ],
+    resupply: [
+        [
+            [2, 2, 4],
+            [2, 3, 4],
+            [3, 4, 5],
+            [4, 5, 6],
+            [5, 6, 7],
+        ],
+        [
+            [3, 4, 3],
+            [3, 4, 3],
+            [5, 6, 4],
+            [5, 7, 5],
+            [7, 9, 6],
+        ],
+        [
+            [2, 2, 3],
+            [2, 2, 3],
+            [3, 3, 4],
+            [4, 3, 5],
+            [4, 5, 6],
+        ],
+        [
+            [1, 1, 1],
+            [1, 1, 1],
+            [1, 2, 2],
+            [2, 3, 2],
+            [2, 3, 3],
+        ],
+    ],
+    startingResources: [18, 24, 0, 7],
+    // TODO: Deck setup
+    // TODO: Remove smallest power plant the first time someone does not put a plant up for auction
+    // TODO: Add summary of key rule differences
 };

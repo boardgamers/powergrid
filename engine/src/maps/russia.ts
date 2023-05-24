@@ -1,4 +1,9 @@
+import { cloneDeep } from 'lodash';
 import { GameMap } from './../maps';
+import { PowerPlant } from '../gamestate';
+import { powerPlants } from '../powerPlants';
+import { getPowerPlant } from '../engine';
+import { shuffle } from '../utils';
 
 export enum Regions {
     Green = 'green',
@@ -222,7 +227,64 @@ export const map: GameMap = {
         ],
     ],
     startingResources: [18, 24, 0, 7],
-    // TODO: Deck setup
+    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
+        let powerPlantsDeck = cloneDeep(powerPlants);
+        let actualMarket: PowerPlant[] = [];
+        let futureMarket: PowerPlant[] = [];
+        const step3 = powerPlantsDeck.pop()!;
+
+        if (variant == 'original') {
+            // Set actual and future markets (plant 6 is skipped).
+            actualMarket = powerPlantsDeck.filter((p: PowerPlant) => p.number >= 3 && p.number <= 5);
+            futureMarket = powerPlantsDeck.filter((p: PowerPlant) => p.number >= 7 && p.number <= 9);
+
+            // Set aside plants 10, 11, 13.
+            let plant10 = getPowerPlant(10);
+            let plant11 = getPowerPlant(11);
+            let plant13 = getPowerPlant(13);
+
+            // Shuffle rest of plants (skipping plant 14).
+            let mainPlants = powerPlantsDeck.filter((p: PowerPlant) => p.number == 12 || p.number >= 15);
+            let mainPlantsShuffled = shuffle(mainPlants, rng() + '');
+
+            // Remove random set of plants based on number of players.
+            if (numPlayers == 2 || numPlayers == 3) {
+                mainPlantsShuffled = mainPlantsShuffled.slice(8);
+            } else if (numPlayers == 4) {
+                mainPlantsShuffled = mainPlantsShuffled.slice(4);
+            }
+
+            // Shuffle top 3 plants from main deck with plants 10 and 11, and place on top of deck.
+            let topPlants = mainPlantsShuffled.slice(0, 3).concat(plant10, plant11);
+            topPlants = shuffle(topPlants, rng() + '');
+
+            // Place plant 13 on top of deck, shuffled cards with 10 and 11 next, then the rest of the deck, then the step 3 card.
+            powerPlantsDeck = [plant13].concat(topPlants, mainPlantsShuffled.slice(3), step3);
+        } else {
+            let initialPlants = powerPlantsDeck.filter((p) => p.number <= 15 && p.number != 6 && p.number != 14);
+            let initialPlantsShuffled = shuffle(initialPlants, rng() + '');
+
+            let mainPlants = powerPlantsDeck.filter((p) => p.number >= 16);
+            let mainPlantsShuffled = shuffle(mainPlants, rng() + '');
+
+            if (numPlayers == 2) {
+                mainPlantsShuffled = mainPlantsShuffled.slice(6);
+            } else if (numPlayers == 3) {
+                mainPlantsShuffled = mainPlantsShuffled.slice(8);
+            } else if (numPlayers == 4) {
+                mainPlantsShuffled = mainPlantsShuffled.slice(4);
+            }
+
+            let initialPlantMarket = initialPlantsShuffled.slice(0, 6);
+            let otherInitialPlants = initialPlantsShuffled.slice(6);
+            initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
+            actualMarket = initialPlantMarket.slice(0, 3);
+            futureMarket = initialPlantMarket.slice(3);
+            powerPlantsDeck = otherInitialPlants.concat(mainPlantsShuffled, step3);
+        }
+
+        return { actualMarket, futureMarket, powerPlantsDeck };
+    },
     // TODO: Remove smallest power plant the first time someone does not put a plant up for auction
     // TODO: Add summary of key rule differences
 };

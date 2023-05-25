@@ -887,7 +887,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 G.step = 3;
                             }
 
-                            G.plantDiscountActive = G.options.variant == 'recharged' && G.map.name != 'China';
+                            G.plantDiscountActive =
+                                G.options.variant == 'recharged' && G.map.name != 'China' && G.map.name != 'Russia';
                             setCurrentPlayer(G, G.playerOrder[0]);
                         } else {
                             toResourcesPhase(G);

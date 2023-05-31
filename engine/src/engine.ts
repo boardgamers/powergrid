@@ -526,6 +526,15 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     if (G.chosenPowerPlant == undefined) {
                         player.skipAuction = true;
                         G.auctionSkips++;
+                        if (G.auctionSkips == 1 && G.map.name == 'Russia') {
+                            G.log.push({
+                                type: 'event',
+                                event: `First pass, removing lowest numbered Power Plant (${G.actualMarket[0].number}).`,
+                            });
+
+                            G.actualMarket.shift();
+                            addPowerPlant(G);
+                        }
 
                         if (G.players.some((p) => !p.skipAuction && !p.isDropped)) {
                             nextPlayerAuction(G);

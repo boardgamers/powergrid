@@ -286,6 +286,5 @@ export const map: GameMap = {
 
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
-    // TODO: Remove smallest power plant the first time someone does not put a plant up for auction
-    // TODO: Add summary of key rule differences
+    mapSpecificRules: 'The power plant market is restricted, and the rules for removing old plants are changed.',
 };

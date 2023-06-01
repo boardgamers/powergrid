@@ -1,9 +1,9 @@
 import { cloneDeep } from 'lodash';
-import { GameMap } from './../maps';
+import { getPowerPlant } from '../engine';
 import { PowerPlant } from '../gamestate';
 import { powerPlants } from '../powerPlants';
-import { getPowerPlant } from '../engine';
 import { shuffle } from '../utils';
+import { GameMap } from './../maps';
 
 export enum Regions {
     Green = 'green',
@@ -240,12 +240,12 @@ export const map: GameMap = {
             futureMarket = powerPlantsDeck.filter((p: PowerPlant) => p.number >= 7 && p.number <= 9);
 
             // Set aside plants 10, 11, 13.
-            let plant10 = getPowerPlant(10);
-            let plant11 = getPowerPlant(11);
-            let plant13 = getPowerPlant(13);
+            const plant10 = getPowerPlant(10);
+            const plant11 = getPowerPlant(11);
+            const plant13 = getPowerPlant(13);
 
             // Shuffle rest of plants (skipping plant 14).
-            let mainPlants = powerPlantsDeck.filter((p: PowerPlant) => p.number == 12 || p.number >= 15);
+            const mainPlants = powerPlantsDeck.filter((p: PowerPlant) => p.number == 12 || p.number >= 15);
             let mainPlantsShuffled = shuffle(mainPlants, rng() + '');
 
             // Remove random set of plants based on number of players.
@@ -262,10 +262,10 @@ export const map: GameMap = {
             // Place plant 13 on top of deck, shuffled cards with 10 and 11 next, then the rest of the deck, then the step 3 card.
             powerPlantsDeck = [plant13].concat(topPlants, mainPlantsShuffled.slice(3), step3);
         } else {
-            let initialPlants = powerPlantsDeck.filter((p) => p.number <= 15 && p.number != 6 && p.number != 14);
-            let initialPlantsShuffled = shuffle(initialPlants, rng() + '');
+            const initialPlants = powerPlantsDeck.filter((p) => p.number <= 15 && p.number != 6 && p.number != 14);
+            const initialPlantsShuffled = shuffle(initialPlants, rng() + '');
 
-            let mainPlants = powerPlantsDeck.filter((p) => p.number >= 16);
+            const mainPlants = powerPlantsDeck.filter((p) => p.number >= 16);
             let mainPlantsShuffled = shuffle(mainPlants, rng() + '');
 
             if (numPlayers == 2) {
@@ -277,7 +277,7 @@ export const map: GameMap = {
             }
 
             let initialPlantMarket = initialPlantsShuffled.slice(0, 6);
-            let otherInitialPlants = initialPlantsShuffled.slice(6);
+            const otherInitialPlants = initialPlantsShuffled.slice(6);
             initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
             actualMarket = initialPlantMarket.slice(0, 3);
             futureMarket = initialPlantMarket.slice(3);

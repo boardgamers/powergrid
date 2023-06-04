@@ -340,7 +340,8 @@ export function setup(
         paymentTable: cityIncome,
         variant,
         minimunBid: 0,
-        plantDiscountActive: variant == 'recharged' && (forceMap || finalMap).name != 'China',
+        plantDiscountActive:
+            variant == 'recharged' && (forceMap || finalMap).name != 'China' && (forceMap || finalMap).name != 'Russia',
         discardSmallestPlant: false,
         cardsLeft: powerPlantsDeck.length,
         nextCardWeak: variant == 'recharged',
@@ -525,6 +526,15 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     if (G.chosenPowerPlant == undefined) {
                         player.skipAuction = true;
                         G.auctionSkips++;
+                        if (G.auctionSkips == 1 && G.map.name == 'Russia') {
+                            G.log.push({
+                                type: 'event',
+                                event: `First pass, removing lowest numbered Power Plant (${G.actualMarket[0].number}).`,
+                            });
+
+                            G.actualMarket.shift();
+                            addPowerPlant(G);
+                        }
 
                         if (G.players.some((p) => !p.skipAuction && !p.isDropped)) {
                             nextPlayerAuction(G);
@@ -532,7 +542,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             if (
                                 G.auctionSkips == G.players.length &&
                                 G.options.variant == 'original' &&
-                                G.map.name != 'China'
+                                G.map.name != 'China' &&
+                                G.map.name != 'Russia'
                             ) {
                                 G.log.push({
                                     type: 'event',
@@ -885,7 +896,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 G.step = 3;
                             }
 
-                            G.plantDiscountActive = G.options.variant == 'recharged' && G.map.name != 'China';
+                            G.plantDiscountActive =
+                                G.options.variant == 'recharged' && G.map.name != 'China' && G.map.name != 'Russia';
                             setCurrentPlayer(G, G.playerOrder[0]);
                         } else {
                             toResourcesPhase(G);
@@ -1196,7 +1208,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 if (
                     G.actualMarket.length > 0 &&
                     player.cities.length >= G.actualMarket[0].number &&
-                    G.map.name != 'China'
+                    G.map.name != 'China' &&
+                    G.map.name != 'Russia'
                 ) {
                     G.actualMarket.shift();
                     addPowerPlant(G);
@@ -1686,10 +1699,20 @@ function addPowerPlant(G: GameState) {
                 const market = [...G.actualMarket, ...G.futureMarket, powerPlant];
                 market.sort((a, b) => a.number - b.number);
                 if (G.futureMarket.length == 0) {
-                    G.actualMarket = market.slice(0, 6);
-                    G.futureMarket = [];
+                    if (G.map.name == 'Russia') {
+                        // Only four plants in market.
+                        G.actualMarket = market.slice(0, 4);
+                        G.futureMarket = [];
+                    } else {
+                        G.actualMarket = market.slice(0, 6);
+                        G.futureMarket = [];
+                    }
                 } else {
-                    if (G.map.name == 'Benelux' && market[4].type == PowerPlantType.Wind) {
+                    if (G.map.name == 'Russia') {
+                        // Only 3 plants in actual market and 3 in future market.
+                        G.actualMarket = market.slice(0, 3);
+                        G.futureMarket = market.slice(3);
+                    } else if (G.map.name == 'Benelux' && market[4].type == PowerPlantType.Wind) {
                         // Add extra ecological plant to actual market.
                         G.actualMarket = market.slice(0, 5);
                         G.futureMarket = market.slice(5);

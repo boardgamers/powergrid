@@ -69,7 +69,7 @@
                     v-if="futureMarketCards.length > 0"
                     x="160"
                     y="5"
-                    :width="actualMarketCards.length > 4 ? actualMarketWidth - 165 : 265"
+                    :width="65 * actualMarketCards.length + 5"
                     height="65"
                     fill="none"
                     stroke="blue"

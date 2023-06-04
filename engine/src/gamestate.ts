@@ -14,14 +14,14 @@ export type MapName =
     | 'Middle East'
     | 'India'
     | 'China'
-    | 'Benelux';
+    | 'Benelux'
+    | 'Russia';
 // | 'Australia'
 // | 'Baden-Württemberg'
 // | 'Central Europe'
 // | 'Japan'
 // | 'Korea'
 // | 'Northern Europe'
-// | 'Russia'
 // | 'South Africa'
 // | 'UK & Ireland'
 export type Variant = 'original' | 'recharged';

@@ -201,4 +201,36 @@ export const map: GameMap = {
     layout: 'Portrait',
     mapPosition: [70, -60],
     adjustRatio: [1.15, 1.15],
+    resupply: [
+        [
+            [4, 5, 3],
+            [5, 6, 3],
+            [6, 7, 5],
+            [7, 8, 5],
+            [8, 10, 6],
+        ],
+        [
+            [1, 2, 3],
+            [2, 2, 3],
+            [2, 3, 4],
+            [3, 4, 5],
+            [4, 5, 6],
+        ],
+        [
+            [1, 3, 3],
+            [1, 3, 3],
+            [2, 4, 4],
+            [3, 4, 5],
+            [3, 6, 6],
+        ],
+        [
+            [1, 1, 1],
+            [1, 1, 1],
+            [1, 2, 1],
+            [2, 2, 2],
+            [2, 3, 2],
+        ],
+    ],
+    // TODO: Add restriction for uranium plants
+    // TODO: Add discount for garbage
 };

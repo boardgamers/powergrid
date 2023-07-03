@@ -12,9 +12,9 @@ import { map as middleeast } from './maps/middleeast';
 import { map as quebec } from './maps/quebec';
 import { map as russia } from './maps/russia';
 import { map as spainportugal } from './maps/spainportugal';
+import { map as centraleurope } from './maps/centraleurope';
 // import { map as australia } from './maps/australia';
 // import { map as badenwurttemberg } from './maps/badenwurttemberg';
-// import { map as centraleurope } from './maps/centraleurope';
 // import { map as japan } from './maps/japan';
 // import { map as korea } from './maps/korea';
 // import { map as northerneurope } from './maps/northerneurope';
@@ -88,9 +88,9 @@ export const maps: GameMap[] = [
     china,
     benelux,
     russia,
+    centraleurope,
     // australia,
     // badenwurttemberg,
-    // centraleurope,
     // japan,
     // korea,
     // northerneurope,
@@ -111,9 +111,9 @@ export const mapsRecharged: GameMap[] = [
     china,
     benelux,
     russia,
+    centraleurope,
     // australia,
     // badenwurttemberg,
-    // centraleurope,
     // china,
     // japan,
     // korea,

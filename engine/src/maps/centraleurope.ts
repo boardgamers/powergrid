@@ -231,6 +231,5 @@ export const map: GameMap = {
             [2, 3, 2],
         ],
     ],
-    // TODO: Add restriction for uranium plants
     // TODO: Add discount for garbage
 };

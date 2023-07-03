@@ -76,6 +76,18 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             }
                         }
 
+                        // Nuclear plants for Central Europe are only allowed for players with cities in:
+                        // Czechia (green), Slovakia (brown), Hungary (purple)
+                        if (G.map.name == 'Central Europe') {
+                            const validCities = player.cities
+                                .map((c) => G.map.cities.find((c_) => c_.name == c.name)!)
+                                .filter((c) => c.region == 'green' || c.region == 'brown' || c.region == 'purple');
+
+                            if (validCities.length == 0) {
+                                canBid = canBid.filter((p) => p.type != PowerPlantType.Uranium);
+                            }
+                        }
+
                         if (canBid.length > 0) {
                             moves[MoveName.ChoosePowerPlant] = canBid.map((p) => p.number);
                         }

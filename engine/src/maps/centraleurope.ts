@@ -231,5 +231,4 @@ export const map: GameMap = {
             [2, 3, 2],
         ],
     ],
-    // TODO: Add discount for garbage
 };

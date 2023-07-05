@@ -1145,6 +1145,15 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 case ResourceType.Garbage: {
                     const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
                     price = garbagePrices[garbagePrices.length - G.garbageMarket];
+
+                    // $1 cheaper for players in Wien in Central Europe
+                    if (G.map.name == 'Central Europe') {
+                        const wienCity = player.cities.filter((c) => c.name == 'Wien');
+                        if (wienCity?.length > 0) {
+                            price--;
+                        }
+                    }
+
                     player.garbageLeft++;
                     G.garbageMarket--;
                     break;
@@ -1314,6 +1323,15 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             G.garbageMarket++;
                             const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
                             price = garbagePrices[garbagePrices.length - G.garbageMarket];
+
+                            // $1 cheaper for players in Wien in Central Europe
+                            if (G.map.name == 'Central Europe') {
+                                const wienCity = player.cities.filter((c) => c.name == 'Wien');
+                                if (wienCity?.length > 0) {
+                                    price--;
+                                }
+                            }
+
                             break;
                         }
 

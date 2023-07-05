@@ -196,7 +196,16 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
 
             if (G.garbageMarket > 0) {
                 const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
-                const price = garbagePrices[garbagePrices.length - G.garbageMarket];
+                let price = garbagePrices[garbagePrices.length - G.garbageMarket];
+
+                // $1 cheaper for players in Wien in Central Europe
+                if (G.map.name == 'Central Europe') {
+                    const wienCity = player.cities.filter((c) => c.name == 'Wien');
+                    if (wienCity?.length > 0) {
+                        price--;
+                    }
+                }
+
                 if (
                     player.money >= price &&
                     player.garbageCapacity > player.garbageLeft &&

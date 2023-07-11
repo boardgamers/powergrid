@@ -15,10 +15,10 @@ export type MapName =
     | 'India'
     | 'China'
     | 'Benelux'
-    | 'Russia';
+    | 'Russia'
+    | 'Central Europe';
 // | 'Australia'
 // | 'Baden-Württemberg'
-// | 'Central Europe'
 // | 'Japan'
 // | 'Korea'
 // | 'Northern Europe'

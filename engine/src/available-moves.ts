@@ -76,6 +76,18 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             }
                         }
 
+                        // Nuclear plants for Central Europe are only allowed for players with cities in:
+                        // Czechia (green), Slovakia (brown), Hungary (purple)
+                        if (G.map.name == 'Central Europe') {
+                            const validCities = player.cities
+                                .map((c) => G.map.cities.find((c_) => c_.name == c.name)!)
+                                .filter((c) => c.region == 'green' || c.region == 'brown' || c.region == 'purple');
+
+                            if (validCities.length == 0) {
+                                canBid = canBid.filter((p) => p.type != PowerPlantType.Uranium);
+                            }
+                        }
+
                         if (canBid.length > 0) {
                             moves[MoveName.ChoosePowerPlant] = canBid.map((p) => p.number);
                         }
@@ -184,7 +196,16 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
 
             if (G.garbageMarket > 0) {
                 const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
-                const price = garbagePrices[garbagePrices.length - G.garbageMarket];
+                let price = garbagePrices[garbagePrices.length - G.garbageMarket];
+
+                // $1 cheaper for players in Wien in Central Europe
+                if (G.map.name == 'Central Europe') {
+                    const wienCity = player.cities.filter((c) => c.name == 'Wien');
+                    if (wienCity?.length > 0) {
+                        price--;
+                    }
+                }
+
                 if (
                     player.money >= price &&
                     player.garbageCapacity > player.garbageLeft &&

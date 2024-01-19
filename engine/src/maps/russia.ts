@@ -185,6 +185,7 @@ export const map: GameMap = {
         { nodes: [Cities.Novokuznetsk, Cities.Kemerovd], cost: 3 },
         { nodes: [Cities.Kemerovd, Cities.Tomsk], cost: 3 },
         { nodes: [Cities.Novosibirsk, Cities.Novokuznetsk], cost: 5 },
+        { nodes: [Cities.Novosibirsk, Cities.Kemerovd], cost: 4 },
         { nodes: [Cities.Novokuznetsk, Cities.Barnaul], cost: 6 },
         { nodes: [Cities.Kemerovd, Cities.Krasnoyarsk], cost: 7 },
         { nodes: [Cities.Krasnoyarsk, Cities.Novokuznetsk], cost: 7 },

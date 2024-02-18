@@ -246,6 +246,7 @@ export const map: GameMap = {
             powerPlantsDeck.splice(1, 1)[0];
             const step3 = powerPlantsDeck.pop()!;
 
+            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
             if (numPlayers == 2 || numPlayers == 3) {
                 powerPlantsDeck = powerPlantsDeck.slice(8);
             } else if (numPlayers == 4) {
@@ -272,6 +273,7 @@ export const map: GameMap = {
             const first = initialPowerPlants.shift()!;
             const step3 = powerPlantsDeck.pop()!;
 
+            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
             if (numPlayers == 2) {
                 powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
             } else if (numPlayers == 3) {

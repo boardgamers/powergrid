@@ -201,6 +201,7 @@ export const map: GameMap = {
     layout: 'Portrait',
     mapPosition: [70, -60],
     adjustRatio: [1.15, 1.15],
+    startingResources: [24, 18, 6, 5],
     resupply: [
         [
             [4, 5, 3],

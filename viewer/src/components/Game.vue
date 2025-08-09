@@ -559,11 +559,14 @@ export default class Game extends Vue {
                     this.confirmMessage = 'Are you sure you want to pass? You have unused power plants!';
                     this.confirmVisible = true;
                     return;
-                } else if (this.G.phase == Phase.Resources && !this.canPowerAllPlants(player)) {
+                }
+                if (this.G.phase == Phase.Resources && !this.canPowerAllPlants(player)) {
                     this.confirmMessage = 'Are you sure you want to skip buying resources without enough to power all your plants?';
                     this.confirmVisible = true;
                     return;
-                } else if (
+                }
+
+                if (
                     this.G.phase != Phase.Bureaucracy ||
                     player.powerPlantsNotUsed.length == player.powerPlants.length
                 ) {
@@ -966,7 +969,9 @@ export default class Game extends Vue {
             uraniumUsed > player.uraniumLeft) {
             return false;
         }
-        if (hybridUsed > player.coalLeft - coalUsed + player.oilLeft - oilUsed) {
+        const remainingCoal = player.coalLeft - coalUsed;
+        const remainingOil = player.oilLeft - oilUsed;
+        if (hybridUsed > remainingCoal + remainingOil) {
             return false;
         }
         return true;

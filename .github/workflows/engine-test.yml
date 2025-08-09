@@ -20,10 +20,8 @@ jobs:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v2
               with:
-                  node-version: '12'
-            - uses: pnpm/action-setup@v1.2.1
-              with:
-                  version: 5.17.1
+                  node-version: '14'
+            - run: corepack enable
             - run: pnpm install
             - run: pnpm build
             - run: pnpm lint

@@ -23,9 +23,7 @@ jobs:
             - uses: actions/setup-node@v2
               with:
                   node-version: '14'
-            - uses: pnpm/action-setup@v1.2.1
-              with:
-                  version: 5.17.1
+            - run: corepack enable
             - run: pnpm install
             # - run: pnpm lint
             # - run: pnpm test

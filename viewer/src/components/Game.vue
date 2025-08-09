@@ -358,7 +358,7 @@
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Provide, ProvideReactive, Ref } from 'vue-property-decorator';
 import { MoveName, ended, playersSortedByScore, reconstructState } from 'powergrid-engine';
-import type { GameState } from 'powergrid-engine';
+import type { GameState, Player } from 'powergrid-engine';
 import { EventEmitter } from 'events';
 import { UIData, Preferences } from '../types/ui-data';
 import { Card, House, Coal, Oil, Garbage, Uranium } from './pieces';
@@ -559,7 +559,14 @@ export default class Game extends Vue {
                     this.confirmMessage = 'Are you sure you want to pass? You have unused power plants!';
                     this.confirmVisible = true;
                     return;
-                } else if (
+                }
+                if (this.G.phase == Phase.Resources && !this.canPowerAllPlants(player)) {
+                    this.confirmMessage = 'Are you sure you want to skip buying resources without enough to power all your plants?';
+                    this.confirmVisible = true;
+                    return;
+                }
+
+                if (
                     this.G.phase != Phase.Bureaucracy ||
                     player.powerPlantsNotUsed.length == player.powerPlants.length
                 ) {
@@ -926,6 +933,48 @@ export default class Game extends Vue {
                 availableMoves[MoveName.DiscardPowerPlant]!.find((p) => p == powerPlant.number)
             );
         }
+    }
+
+    canPowerAllPlants(player: Player): boolean {
+        // Calculate total resource requirements for all power plants
+        let coalUsed = 0;
+        let oilUsed = 0;
+        let garbageUsed = 0;
+        let uraniumUsed = 0;
+        let hybridUsed = 0;
+        for (const powerPlant of player.powerPlants) {
+            switch (powerPlant.type) {
+                case PowerPlantType.Coal:
+                    coalUsed += powerPlant.cost;
+                    break;
+                case PowerPlantType.Oil:
+                    oilUsed += powerPlant.cost;
+                    break;
+                case PowerPlantType.Garbage:
+                    garbageUsed += powerPlant.cost;
+                    break;
+                case PowerPlantType.Uranium:
+                    uraniumUsed += powerPlant.cost;
+                    break;
+                case PowerPlantType.Hybrid:
+                    hybridUsed += powerPlant.cost;
+                    break;
+            }
+        }
+
+        // Check if player has enough resources, accounting for hybrid plants which can use either coal or oil
+        if (coalUsed > player.coalLeft ||
+            oilUsed > player.oilLeft ||
+            garbageUsed > player.garbageLeft ||
+            uraniumUsed > player.uraniumLeft) {
+            return false;
+        }
+        const remainingCoal = player.coalLeft - coalUsed;
+        const remainingOil = player.oilLeft - oilUsed;
+        if (hybridUsed > remainingCoal + remainingOil) {
+            return false;
+        }
+        return true;
     }
 
     toggleSound() {

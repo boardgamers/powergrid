@@ -1,50 +1,50 @@
 {
-    "name": "powergrid-viewer",
-    "version": "1.5.3",
-    "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
-        "test:unit": "vue-cli-service test:unit",
-        "package": "vue-cli-service build --target lib --name powergrid-viewer src/wrapper.ts",
-        "prepublishOnly": "npm run package"
-    },
-    "dependencies": {
-        "core-js": "^3.6.5",
-        "lodash": "^4.17.19",
-        "powergrid-engine": "workspace:../engine",
-        "regenerator-runtime": "^0.13.7",
-        "tslib": "^2.2.0",
-        "vue": "^2.6.11",
-        "vue-class-component": "^7.2.3",
-        "vue-property-decorator": "^8.4.2"
-    },
-    "devDependencies": {
-        "@types/assert": "^1.4.7",
-        "@types/chai": "^4.2.11",
-        "@types/events": "^3.0.0",
-        "@types/lodash": "^4.14.154",
-        "@types/mocha": "^5.2.4",
-        "@typescript-eslint/parser": "^4.26.1",
-        "@vue/cli-plugin-babel": "~4.4.0",
-        "@vue/cli-plugin-typescript": "~4.4.0",
-        "@vue/cli-plugin-unit-mocha": "~4.4.0",
-        "@vue/cli-service": "~4.4.0",
-        "@vue/test-utils": "^1.0.3",
-        "chai": "^4.1.2",
-        "eslint": "^7.28.0",
-        "eslint-plugin-vue": "^7.11.0",
-        "sass": "^1.26.5",
-        "sass-loader": "^8.0.2",
-        "typescript": "^4.3.5",
-        "vue-template-compiler": "^2.6.11"
-    },
-    "files": [
-        "src",
-        "dist/powergrid-viewer.umd.min.js",
-        "dist/powergrid-viewer.css",
-        "dist/img",
-        "dist/media",
-        "tsconfig.json",
-        "public/audio"
-    ]
+	"name": "powergrid-viewer",
+	"version": "1.5.4",
+	"scripts": {
+		"serve": "vue-cli-service serve",
+		"build": "vue-cli-service build",
+		"test:unit": "vue-cli-service test:unit",
+		"package": "vue-cli-service build --target lib --name powergrid-viewer src/wrapper.ts",
+		"prepublishOnly": "npm run package"
+	},
+	"dependencies": {
+		"core-js": "^3.6.5",
+		"lodash": "^4.17.19",
+		"powergrid-engine": "workspace:../engine",
+		"regenerator-runtime": "^0.13.7",
+		"tslib": "^2.2.0",
+		"vue": "^2.6.11",
+		"vue-class-component": "^7.2.3",
+		"vue-property-decorator": "^8.4.2"
+	},
+	"devDependencies": {
+		"@types/assert": "^1.4.7",
+		"@types/chai": "^4.2.11",
+		"@types/events": "^3.0.0",
+		"@types/lodash": "^4.14.154",
+		"@types/mocha": "^5.2.4",
+		"@typescript-eslint/parser": "^4.26.1",
+		"@vue/cli-plugin-babel": "~4.4.0",
+		"@vue/cli-plugin-typescript": "~4.4.0",
+		"@vue/cli-plugin-unit-mocha": "~4.4.0",
+		"@vue/cli-service": "~4.4.0",
+		"@vue/test-utils": "^1.0.3",
+		"chai": "^4.1.2",
+		"eslint": "^7.28.0",
+		"eslint-plugin-vue": "^7.11.0",
+		"sass": "^1.26.5",
+		"sass-loader": "^8.0.2",
+		"typescript": "^4.3.5",
+		"vue-template-compiler": "^2.6.11"
+	},
+	"files": [
+		"src",
+		"dist/powergrid-viewer.umd.min.js",
+		"dist/powergrid-viewer.css",
+		"dist/img",
+		"dist/media",
+		"tsconfig.json",
+		"public/audio"
+	]
 }

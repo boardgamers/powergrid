@@ -1,6 +1,5 @@
 {
     "license": "MIT",
-    "packageManager": "pnpm@8.15.2",
     "scripts": {
         "lint-staged": "lint-staged",
         "postinstall": "husky install",
@@ -16,5 +15,6 @@
     },
     "lint-staged": {
         "*.{css,scss,graphql,html,json,js,jsx,md,mdx,ts,tsx,vue,yaml,yml}": "prettier --plugin-search-dir=. --write"
-    }
+    },
+    "packageManager": "pnpm@7.33.7"
 }

@@ -36,6 +36,8 @@ jobs:
                   node -e "const fs = require('fs'); const package = JSON.parse(fs.readFileSync('./package.json')); package.version = '$BUMPED_VERSION'; fs.writeFileSync('./package.json', JSON.stringify(package, null, '\t') + '\n');"
                   git add .
                   git commit -m "🔖 powergrid-viewer $BUMPED_VERSION"
+            # Would be better to have correct package name in package.json, but need to check if anything broken
+            - run: sed -i 's:"powergrid-viewer":"@boardgamers/powergrid-viewer":' package.json
             - run: pnpm publish --access public --no-git-checks .
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

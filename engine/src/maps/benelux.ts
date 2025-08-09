@@ -165,13 +165,15 @@ export const map: GameMap = {
     mapPosition: [0, -50],
     adjustRatio: [1.15, 1.15],
     resupply: [
+        // Coal
         [
-            [2, 2, 4],
-            [2, 3, 4],
-            [3, 4, 5],
+            [2, 2, 4], // 2P
+            [2, 3, 4], // 3P
+            [3, 4, 5], // ...
             [4, 5, 6],
             [5, 6, 7],
         ],
+        // Oil / Gas
         [
             [3, 4, 3],
             [4, 5, 3],
@@ -179,6 +181,7 @@ export const map: GameMap = {
             [5, 7, 5],
             [7, 9, 6],
         ],
+        // Garbage
         [
             [1, 2, 3],
             [2, 2, 3],
@@ -186,6 +189,7 @@ export const map: GameMap = {
             [3, 3, 5],
             [3, 5, 6],
         ],
+        // Uranium
         [
             [1, 1, 1],
             [1, 1, 1],

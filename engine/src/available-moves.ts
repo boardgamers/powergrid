@@ -256,7 +256,30 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                         : dijkstra(G, player).map((c) => ({ name: c.name, price: c.price }));
 
                 toBuild.forEach((city) => {
+                    const cityData = G.map.cities.find((c) => c.name == city.name)!;
                     const othersCount = G.players.filter((p) => p.cities.find((c) => city.name == c.name)).length;
+
+                    // Transregional cities (e.g. Strasbourg on Baden-Württemberg) are only open
+                    // in Step 2 onward. The slot fee is replaced by a flat 15 (Step 2) or 20
+                    // (Step 3); the dijkstra connection cost from the player's existing network
+                    // is still paid on top.
+                    if (cityData.transregional) {
+                        if (G.step < 2) {
+                            city.price = 9999;
+                            return;
+                        }
+                        city.price += G.step == 3 ? 20 : 15;
+
+                        if (othersCount == G.step) {
+                            city.price = 9999;
+                        }
+
+                        if (player.cities.find((c) => c.name == city.name)) {
+                            city.price = 9999;
+                        }
+                        return;
+                    }
+
                     city.price += 10 + othersCount * 5;
 
                     if (othersCount == G.step) {

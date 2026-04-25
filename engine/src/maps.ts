@@ -14,7 +14,7 @@ import { map as quebec } from './maps/quebec';
 import { map as russia } from './maps/russia';
 import { map as spainportugal } from './maps/spainportugal';
 // import { map as australia } from './maps/australia';
-// import { map as badenwurttemberg } from './maps/badenwurttemberg';
+import { map as badenwurttemberg } from './maps/badenwurttemberg';
 // import { map as japan } from './maps/japan';
 // import { map as korea } from './maps/korea';
 // import { map as northerneurope } from './maps/northerneurope';
@@ -26,6 +26,10 @@ export interface City {
     region: string;
     x: number;
     y: number;
+    // Transregional cities (e.g. Strasbourg on Baden-Württemberg) only open in Step 2,
+    // and connecting to them costs a fixed price (transregionalConnectionCost on the GameMap)
+    // instead of the normal dijkstra path cost.
+    transregional?: boolean;
 }
 
 export interface Connection {
@@ -89,8 +93,8 @@ export const maps: GameMap[] = [
     benelux,
     russia,
     centraleurope,
+    badenwurttemberg,
     // australia,
-    // badenwurttemberg,
     // japan,
     // korea,
     // northerneurope,
@@ -112,8 +116,8 @@ export const mapsRecharged: GameMap[] = [
     benelux,
     russia,
     centraleurope,
+    badenwurttemberg,
     // australia,
-    // badenwurttemberg,
     // china,
     // japan,
     // korea,

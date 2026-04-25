@@ -12,14 +12,14 @@ export enum Cities {
     Friedrichshafen = 'Friedrichshafen',
     Ravensburg = 'Ravensburg',
     Biberach = 'Biberach',
-    Sigmarincen = 'Sigmarincen',
+    Sigmarincen = 'Sigmaringen',
     Konstanz = 'Konstanz',
     Ulm = 'Ulm',
     Augsburg = 'Augsburg',
     Basel = 'Basel',
-    Waldshuttiencen = 'Waldshut-Tiencen',
+    Waldshuttiencen = 'Waldshut-Tiengen',
     Singen = 'Singen',
-    Tuttlincen = 'Tuttlincen',
+    Tuttlincen = 'Tuttlingen',
     Donaueschingen = 'Donaueschingen',
     Freiburg = 'Freiburg',
     Lorrach = 'Lorrach',
@@ -27,23 +27,23 @@ export enum Cities {
     Schwabischhall = 'Schwabisch Hall',
     Heilbronn = 'Heilbronn',
     Sinsheim = 'Sinsheim',
-    Heidelber = 'Heidelber',
+    Heidelber = 'Heidelberg',
     Mannheim = 'Mannheim',
-    Luowigshafen = 'Luowigshafen',
+    Luowigshafen = 'Ludwigshafen',
     Nurnberg = 'Nurnberg',
     Ellwangen = 'Ellwangen',
-    Coppingen = 'Coppingen',
-    Reutlincen = 'Reutlincen',
+    Coppingen = 'Göppingen',
+    Reutlincen = 'Reutlingen',
     Stuttgart = 'Stuttgart',
     Ludwigsburg = 'Ludwigsburg',
     Boblingen = 'Boblingen',
-    Laha = 'Laha',
+    Laha = 'Lahr',
     Badenbaden = 'Baden-Baden',
     Offenburg = 'Offenburg',
     Strasbourg = 'Strasbourg',
     Pforzheim = 'Pforzheim',
     Rastatt = 'Rastatt',
-    Karlsruhf = 'Karlsruhf',
+    Karlsruhf = 'Karlsruhe',
 }
 
 export const map: GameMap = {
@@ -55,8 +55,8 @@ export const map: GameMap = {
         { name: Cities.Sigmarincen, region: Regions.Purple, x: 1111, y: 1803 },
         { name: Cities.Konstanz, region: Regions.Purple, x: 1088, y: 2163 },
         { name: Cities.Ulm, region: Regions.Purple, x: 1541, y: 1499 },
-        { name: Cities.Augsburg, region: Regions.Purple, x: 1830, y: 1505 },
-        { name: Cities.Basel, region: Regions.Green, x: 103, y: 2271 },
+        { name: Cities.Augsburg, region: Regions.Purple, x: 1830, y: 1505, transregional: true },
+        { name: Cities.Basel, region: Regions.Green, x: 103, y: 2271, transregional: true },
         { name: Cities.Waldshuttiencen, region: Regions.Green, x: 502, y: 2166 },
         { name: Cities.Singen, region: Regions.Green, x: 874, y: 2084 },
         { name: Cities.Tuttlincen, region: Regions.Green, x: 870, y: 1854 },
@@ -69,8 +69,8 @@ export const map: GameMap = {
         { name: Cities.Sinsheim, region: Regions.Red, x: 920, y: 785 },
         { name: Cities.Heidelber, region: Regions.Red, x: 817, y: 660 },
         { name: Cities.Mannheim, region: Regions.Red, x: 710, y: 540 },
-        { name: Cities.Luowigshafen, region: Regions.Red, x: 579, y: 588 },
-        { name: Cities.Nurnberg, region: Regions.Blue, x: 1837, y: 771 },
+        { name: Cities.Luowigshafen, region: Regions.Red, x: 579, y: 588, transregional: true },
+        { name: Cities.Nurnberg, region: Regions.Blue, x: 1837, y: 771, transregional: true },
         { name: Cities.Ellwangen, region: Regions.Blue, x: 1637, y: 1030 },
         { name: Cities.Coppingen, region: Regions.Blue, x: 1387, y: 1233 },
         { name: Cities.Reutlincen, region: Regions.Blue, x: 1107, y: 1443 },
@@ -80,7 +80,7 @@ export const map: GameMap = {
         { name: Cities.Laha, region: Regions.Yellow, x: 296, y: 1575 },
         { name: Cities.Badenbaden, region: Regions.Yellow, x: 554, y: 1259 },
         { name: Cities.Offenburg, region: Regions.Yellow, x: 395, y: 1422 },
-        { name: Cities.Strasbourg, region: Regions.Yellow, x: 211, y: 1330 },
+        { name: Cities.Strasbourg, region: Regions.Yellow, x: 211, y: 1330, transregional: true },
         { name: Cities.Pforzheim, region: Regions.Yellow, x: 794, y: 1095 },
         { name: Cities.Rastatt, region: Regions.Yellow, x: 509, y: 1109 },
         { name: Cities.Karlsruhf, region: Regions.Yellow, x: 638, y: 974 },
@@ -159,4 +159,44 @@ export const map: GameMap = {
     layout: 'Portrait',
     adjustRatio: [0.425, 0.425],
     mapPosition: [100, -90],
+    resupply: [
+        // Coal
+        [
+            [3, 4, 3], // 2P
+            [4, 5, 3], // 3P
+            [5, 6, 4], // 4P
+            [5, 7, 5], // 5P
+            [7, 9, 6], // 6P
+        ],
+        // Oil
+        [
+            [2, 2, 4],
+            [2, 3, 4],
+            [3, 4, 5],
+            [4, 5, 6],
+            [5, 6, 7],
+        ],
+        // Garbage
+        [
+            [1, 2, 3],
+            [1, 2, 3],
+            [2, 3, 4],
+            [3, 3, 5],
+            [3, 5, 6],
+        ],
+        // Uranium
+        [
+            [1, 1, 1],
+            [1, 1, 1],
+            [1, 2, 2],
+            [2, 3, 2],
+            [2, 3, 3],
+        ],
+    ],
+    mapSpecificRules:
+        'Phase order change: buy power plants first, then determine player order. ' +
+        'If no power plant is sold in a round, remove the two lowest-numbered plants from the market and replace them from the draw stack. ' +
+        'Never remove a power plant whose number is equal to or lower than the number of cities any player has powered. ' +
+        'Transregional cities (e.g. Strasbourg) are only available starting in Step 2. ' +
+        'Step 2 begins when any player connects to 9 cities (2 players), 6 cities (3–5 players), or 5 cities (6 players).',
 };

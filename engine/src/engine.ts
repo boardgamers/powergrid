@@ -14,6 +14,7 @@ import { asserts, shuffle } from './utils';
 export const playerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', 'yellow', 'brown'];
 
 const citiesToStep2 = [10, 7, 7, 7, 6];
+const citiesToStep2BadenWurttemberg = [9, 6, 6, 6, 5];
 const citiesToEndGame = [21, 17, 17, 15, 14];
 const cityIncome = [10, 22, 33, 44, 54, 64, 73, 82, 90, 98, 105, 112, 118, 124, 129, 134, 138, 142, 145, 148, 150, 150];
 const regionsInPlay = [3, 3, 4, 5, 5];
@@ -330,7 +331,10 @@ export function setup(
         seed,
         round: 1,
         auctionSkips: 0,
-        citiesToStep2: citiesToStep2[numPlayers - 2],
+        citiesToStep2:
+            (forceMap || finalMap).name == 'Baden-Württemberg'
+                ? citiesToStep2BadenWurttemberg[numPlayers - 2]
+                : citiesToStep2[numPlayers - 2],
         citiesToEndGame: citiesToEndGame[numPlayers - 2],
         resourceResupply: [
             `[${coalResupply[p][0]}, ${oilResupply[p][0]}, ${garbageResupply[p][0]}, ${uraniumResupply[p][0]}]`,
@@ -341,7 +345,10 @@ export function setup(
         variant,
         minimunBid: 0,
         plantDiscountActive:
-            variant == 'recharged' && (forceMap || finalMap).name != 'China' && (forceMap || finalMap).name != 'Russia',
+            variant == 'recharged' &&
+            (forceMap || finalMap).name != 'China' &&
+            (forceMap || finalMap).name != 'Russia' &&
+            (forceMap || finalMap).name != 'Baden-Württemberg',
         discardSmallestPlant: false,
         cardsLeft: powerPlantsDeck.length,
         nextCardWeak: variant == 'recharged',
@@ -545,13 +552,29 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 G.map.name != 'China' &&
                                 G.map.name != 'Russia'
                             ) {
-                                G.log.push({
-                                    type: 'event',
-                                    event: `Everyone passed, removing lowest numbered Power Plant (${G.actualMarket[0].number}).`,
-                                });
+                                if (G.map.name == 'Baden-Württemberg') {
+                                    // Baden-Württemberg: remove the two lowest plants
+                                    const removed: number[] = [];
+                                    for (let i = 0; i < 2 && G.actualMarket.length > 0; i++) {
+                                        removed.push(G.actualMarket[0].number);
+                                        G.actualMarket.shift();
+                                        addPowerPlant(G);
+                                    }
+                                    G.log.push({
+                                        type: 'event',
+                                        event: `Everyone passed, removing the two lowest numbered Power Plants (${removed.join(
+                                            ', '
+                                        )}).`,
+                                    });
+                                } else {
+                                    G.log.push({
+                                        type: 'event',
+                                        event: `Everyone passed, removing lowest numbered Power Plant (${G.actualMarket[0].number}).`,
+                                    });
 
-                                G.actualMarket.shift();
-                                addPowerPlant(G);
+                                    G.actualMarket.shift();
+                                    addPowerPlant(G);
+                                }
                             }
 
                             toResourcesPhase(G);
@@ -882,7 +905,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                         G.round++;
 
-                        setPlayerOrder(G);
+                        if (G.map.name != 'Baden-Württemberg') {
+                            // Baden-Württemberg: player order is determined AFTER the auction phase, not before it.
+                            setPlayerOrder(G);
+                        }
 
                         G.players.forEach((p) => {
                             p.passed = p.isDropped;
@@ -897,7 +923,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             }
 
                             G.plantDiscountActive =
-                                G.options.variant == 'recharged' && G.map.name != 'China' && G.map.name != 'Russia';
+                                G.options.variant == 'recharged' &&
+                                G.map.name != 'China' &&
+                                G.map.name != 'Russia' &&
+                                G.map.name != 'Baden-Württemberg';
                             setCurrentPlayer(G, G.playerOrder[0]);
                         } else {
                             toResourcesPhase(G);
@@ -1218,7 +1247,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     G.actualMarket.length > 0 &&
                     player.cities.length >= G.actualMarket[0].number &&
                     G.map.name != 'China' &&
-                    G.map.name != 'Russia'
+                    G.map.name != 'Russia' &&
+                    G.map.name != 'Baden-Württemberg'
                 ) {
                     G.actualMarket.shift();
                     addPowerPlant(G);
@@ -1994,6 +2024,11 @@ function isValid(player: Player, powerPlants: PowerPlant[]) {
 }
 
 function toResourcesPhase(G: GameState) {
+    if (G.map.name == 'Baden-Württemberg') {
+        // Baden-Württemberg: player order is determined AFTER the auction phase, every round.
+        setPlayerOrder(G);
+    }
+
     G.players.forEach((p) => {
         p.bid = 0;
         p.passed = p.isDropped;

@@ -48,5 +48,9 @@ jobs:
             # pnpm 10.16+ supports OIDC trusted publishing and rewrites the workspace:../engine
             # dependency to a real version range; use it directly to avoid bumping the repo-wide
             # packageManager (currently pnpm 7) which would force a lockfile rewrite.
+            # NODE_OPTIONS=--openssl-legacy-provider works around webpack 4's reliance on MD4,
+            # which OpenSSL 3 (bundled with Node >= 17) no longer supports out of the box.
             - run: npx -y pnpm@latest publish --access public --no-git-checks
+              env:
+                  NODE_OPTIONS: --openssl-legacy-provider
             - run: git push --follow-tags

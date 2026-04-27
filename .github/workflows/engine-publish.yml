@@ -45,9 +45,7 @@ jobs:
                   node -e "const fs = require('fs'); const package = JSON.parse(fs.readFileSync('./package.json')); package.version = '$BUMPED_VERSION'; fs.writeFileSync('./package.json', JSON.stringify(package, null, '\t') + '\n');"
                   git add .
                   git commit -m "🔖 powergrid-engine $BUMPED_VERSION"
-            # Would be better to have correct package name in package.json, but need to check if anything broken
-            - run: sed -i 's:powergrid-engine:@boardgamers/powergrid-engine:' package.json
-            # Trusted publishing requires npm >= 11.5.1; ensure we have it regardless of the node distribution
-            - run: npm install -g npm@latest
-            - run: npm publish --access public
+            # pnpm 10.16+ supports OIDC trusted publishing; use it directly to avoid bumping the
+            # repo-wide packageManager (currently pnpm 7) which would force a lockfile rewrite.
+            - run: npx -y pnpm@latest publish --access public --no-git-checks
             - run: git push --follow-tags

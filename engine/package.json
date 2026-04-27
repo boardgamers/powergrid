@@ -5,7 +5,15 @@
 	"main": "dist/index.js",
 	"types": "index.ts",
 	"source": "index.ts",
-	"repository": "git@github.com:LucasAMello/powergrid-engine.git",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/boardgamers/powergrid.git",
+		"directory": "engine"
+	},
+	"homepage": "https://github.com/boardgamers/powergrid#readme",
+	"bugs": {
+		"url": "https://github.com/boardgamers/powergrid/issues"
+	},
 	"publishConfig": {
 		"access": "public"
 	},

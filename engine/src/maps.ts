@@ -12,12 +12,12 @@ import { map as germany, mapRecharged as germanyRecharged } from './maps/germany
 import { map as indian } from './maps/indian';
 import { map as italy } from './maps/italy';
 import { map as middleeast } from './maps/middleeast';
+// import { map as japan } from './maps/japan';
+// import { map as korea } from './maps/korea';
+import { map as northerneurope } from './maps/northerneurope';
 import { map as quebec } from './maps/quebec';
 import { map as russia } from './maps/russia';
 import { map as spainportugal } from './maps/spainportugal';
-// import { map as japan } from './maps/japan';
-// import { map as korea } from './maps/korea';
-// import { map as northerneurope } from './maps/northerneurope';
 // import { map as southafrica } from './maps/southafrica';
 // import { map as ukireland } from './maps/ukireland';
 
@@ -76,6 +76,7 @@ export interface GameMap {
         futureMarket: PowerPlant[];
         powerPlantsDeck: PowerPlant[];
     };
+    regionalPowerPlants?: Record<string, PowerPlant[]>;
     mapSpecificRules?: string;
 }
 
@@ -94,10 +95,10 @@ export const maps: GameMap[] = [
     russia,
     centraleurope,
     badenwurttemberg,
+    northerneurope,
     // australia,
     // japan,
     // korea,
-    // northerneurope,
     // southafrica,
     // ukireland,
 ];
@@ -117,11 +118,11 @@ export const mapsRecharged: GameMap[] = [
     russia,
     centraleurope,
     badenwurttemberg,
+    northerneurope,
     // australia,
     // china,
     // japan,
     // korea,
-    // northerneurope,
     // southafrica,
     // ukireland,
 ];

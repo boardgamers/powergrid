@@ -16,12 +16,12 @@ export type MapName =
     | 'China'
     | 'Benelux'
     | 'Russia'
-    | 'Central Europe';
+    | 'Central Europe'
+    | 'Baden-Württemberg'
+    | 'Northern Europe';
 // | 'Australia'
-// | 'Baden-Württemberg'
 // | 'Japan'
 // | 'Korea'
-// | 'Northern Europe'
 // | 'South Africa'
 // | 'UK & Ireland'
 export type Variant = 'original' | 'recharged';

@@ -273,6 +273,23 @@ export function setup(
         );
 
         finalMap = filteredMap;
+
+        if (chosenMap.regionalPowerPlants) {
+            for (const region of playRegions) {
+                const replacements = chosenMap.regionalPowerPlants[region];
+                if (replacements) {
+                    for (const newPlant of replacements) {
+                        const swapIn = (arr: PowerPlant[]) => {
+                            const idx = arr.findIndex((p) => p.number === newPlant.number);
+                            if (idx !== -1) arr[idx] = { ...newPlant };
+                        };
+                        swapIn(actualMarket);
+                        swapIn(futureMarket);
+                        swapIn(powerPlantsDeck);
+                    }
+                }
+            }
+        }
     }
 
     const coalMarket = chosenMap.startingResources ? chosenMap.startingResources[0] : 24;

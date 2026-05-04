@@ -11,8 +11,8 @@
 		"url": "https://github.com/boardgamers/powergrid/issues"
 	},
 	"scripts": {
-		"serve": "vue-cli-service serve",
-		"build": "vue-cli-service build",
+		"serve": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
+		"build": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",
 		"test:unit": "vue-cli-service test:unit",
 		"package": "vue-cli-service build --target lib --name powergrid-viewer src/wrapper.ts",
 		"prepublishOnly": "npm run package"

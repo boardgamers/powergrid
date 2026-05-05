@@ -182,4 +182,105 @@ export const map: GameMap = {
         { nodes: [Cities.Seongjin, Cities.Hamheung], cost: 17 },
         { nodes: [Cities.Hamheung, Cities.Hyesan], cost: 23 },
     ],
+    layout: 'Portrait',
+    adjustRatio: [1.0, 1.0],
+    mapPosition: [80, 30],
+    // South-side resource market.
+    // Indexed [resource][playerCount-2][step-1].
+    // Verified from the Korea Recharged rulebook resource table (S rows).
+    resupply: [
+        // Coal (S)
+        [
+            [2, 2, 2], // 2P
+            [2, 3, 2], // 3P
+            [3, 3, 2], // 4P
+            [3, 4, 3], // 5P
+            [4, 5, 3], // 6P
+        ],
+        // Oil (S)
+        [
+            [1, 1, 3],
+            [1, 2, 3],
+            [2, 3, 3],
+            [3, 3, 4],
+            [3, 4, 4],
+        ],
+        // Garbage (S)
+        [
+            [1, 1, 2],
+            [1, 1, 2],
+            [1, 2, 2],
+            [2, 2, 3],
+            [2, 3, 3],
+        ],
+        // Uranium (S only — North bans nuclear resupply)
+        [
+            [1, 1, 1],
+            [1, 1, 1],
+            [1, 2, 2],
+            [2, 3, 2],
+            [2, 3, 3],
+        ],
+    ],
+    // North-side resource market. Three resources only (no uranium row).
+    // Verified from the Korea Recharged rulebook resource table (N rows).
+    resupplyNorth: [
+        // Coal (N)
+        [
+            [1, 2, 1],
+            [2, 2, 1],
+            [2, 3, 2],
+            [2, 3, 2],
+            [3, 4, 3],
+        ],
+        // Oil (N)
+        [
+            [1, 1, 1],
+            [1, 1, 1],
+            [1, 1, 2],
+            [1, 2, 2],
+            [2, 2, 3],
+        ],
+        // Garbage (N)
+        [
+            [0, 1, 1],
+            [0, 1, 1],
+            [1, 1, 2],
+            [1, 1, 2],
+            [1, 2, 3],
+        ],
+    ],
+    // Korea has custom slot counts per price space, different per side.
+    // Total resources (across both markets + supply) match standard Power Grid:
+    // 24 coal, 24 oil, 24 garbage, 12 uranium.
+    //
+    // North slots per price [1..8]:
+    //   coal [2,2,2,2,1,1,1,1] = 12 total
+    //   oil  [1,1,1,1,1,1,1,1] = 8 total
+    //   garbage [1,1,1,1,1,1,1,1] = 8 total
+    //
+    // South slots per price [1..8] (uranium prices [1..8,10,12,14,16]):
+    //   coal [1,1,1,1,2,2,2,2] = 12 total
+    //   oil  [2,2,2,2,2,2,2,2] = 16 total
+    //   garbage [2,2,2,2,2,2,2,2] = 16 total
+    //   uranium [1,1,1,1,1,1,1,1,1,1,1,1] = 12 total
+    //
+    // Initial market fill per rulebook:
+    //   North: coal 1–8 (12), oil 3–8 (6), garbage 7–8 (2).
+    //   South: coal 1–8 (12), oil 3–8 (12), garbage 7–8 (4), uranium 14–16 (2).
+    startingResources: [12, 12, 4, 2], // South initial market: coal, oil, garbage, uranium
+    startingResourcesNorth: [12, 6, 2], // North initial market: coal, oil, garbage
+    // Total cubes in the game across BOTH markets + shared supply.
+    // Used cubes return to the shared supply; on bureaucracy, North restocks
+    // first, then South from whatever remains.
+    startingSupply: [24, 24, 24, 12],
+    coalPrices: [1, 2, 3, 4, 5, 5, 6, 6, 7, 7, 8, 8],
+    oilPrices: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8],
+    garbagePrices: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8],
+    uraniumPrices: [1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 14, 16],
+    coalPricesNorth: [1, 1, 2, 2, 3, 3, 4, 4, 5, 6, 7, 8],
+    oilPricesNorth: [1, 2, 3, 4, 5, 6, 7, 8],
+    garbagePricesNorth: [1, 2, 3, 4, 5, 6, 7, 8],
+    mapSpecificRules:
+        'Korea has two separate resource markets: North and South. On your buying turn, choose one side — all resources you buy that turn must come from that side. The next turn you may choose the other side. The North market has no uranium track; uranium is only available from the South market. Each market restocks independently from its own supply pool during the bureaucracy phase.',
 };

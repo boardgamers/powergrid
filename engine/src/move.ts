@@ -27,6 +27,9 @@ export declare namespace Moves {
         name: MoveName.BuyResource;
         data: {
             resource: ResourceType;
+            // Korea: which side's market the resource was bought from.
+            // Omitted on all other maps.
+            side?: 'north' | 'south';
         };
         fromSupply?: boolean;
     }

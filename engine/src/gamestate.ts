@@ -18,10 +18,10 @@ export type MapName =
     | 'Russia'
     | 'Central Europe'
     | 'Baden-Württemberg'
-    | 'Northern Europe';
+    | 'Northern Europe'
+    | 'Korea';
 // | 'Australia'
 // | 'Japan'
-// | 'Korea'
 // | 'South Africa'
 // | 'UK & Ireland'
 export type Variant = 'original' | 'recharged';
@@ -129,6 +129,22 @@ export interface GameState {
     oilResupply?: number[][];
     garbageResupply?: number[][];
     uraniumResupply?: number[][];
+    // Korea: parallel North-side markets and resupply tables. The primary
+    // `*Market`/`*Resupply` fields above act as the South side. The supply pools
+    // (`coalSupply` etc.) are SHARED — used cubes return there and both sides
+    // restock from the same pool, with North restocking first.
+    // North has no uranium track (nuclear plants are banned on the North side).
+    coalMarketNorth?: number;
+    oilMarketNorth?: number;
+    garbageMarketNorth?: number;
+    coalResupplyNorth?: number[][];
+    oilResupplyNorth?: number[][];
+    garbageResupplyNorth?: number[][];
+    // Korea: per-side price arrays. Each side's market has different slot counts
+    // per price space, so the price arrays differ. (No uranium on the North side.)
+    coalPricesNorth?: number[];
+    oilPricesNorth?: number[];
+    garbagePricesNorth?: number[];
     coalPrices?: number[];
     oilPrices?: number[];
     garbagePrices?: number[];
@@ -137,6 +153,9 @@ export interface GameState {
     futureMarket: PowerPlant[];
     chosenPowerPlant: PowerPlant | undefined;
     chosenResource?: ResourceType | undefined; // Used for India map, where only one resource can be bought at a time.
+    // Korea: locked to the side a player bought their first resource from this turn.
+    // All subsequent buys this turn must be from the same side. Cleared when the player passes.
+    chosenSide?: 'north' | 'south';
     currentBid: number | undefined;
     auctioningPlayer: number | undefined;
     step: number;

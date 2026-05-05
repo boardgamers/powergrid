@@ -183,8 +183,12 @@ export const map: GameMap = {
         { nodes: [Cities.Hamheung, Cities.Hyesan], cost: 23 },
     ],
     layout: 'Portrait',
-    adjustRatio: [1.0, 1.0],
+    adjustRatio: [0.22, 0.22],
     mapPosition: [80, 30],
+    // Taller than the default Portrait viewBox to make room for Korea's stacked
+    // dual resource markets (North above South).
+    viewBox: [1480, 1180],
+    supplyPosition: [675, 1040],
     // South-side resource market.
     // Indexed [resource][playerCount-2][step-1].
     // Verified from the Korea Recharged rulebook resource table (S rows).

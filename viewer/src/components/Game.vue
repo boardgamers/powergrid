@@ -621,8 +621,12 @@ export default class Game extends Vue {
         }
     }
 
-    buyResource(resource: ResourceType) {
-        this.sendMove({ name: MoveName.BuyResource, data: { resource } });
+    buyResource(payload: { resource: ResourceType, side?: 'north' | 'south' }) {
+        const data: { resource: ResourceType, side?: 'north' | 'south' } = { resource: payload.resource };
+        if (payload.side) {
+            data.side = payload.side;
+        }
+        this.sendMove({ name: MoveName.BuyResource, data });
     }
 
     bid(bid: number) {
@@ -862,13 +866,13 @@ export default class Game extends Vue {
         return !!availableMoves[MoveName.ChoosePowerPlant];
     }
 
-    buyableResources() {
+    buyableResources(): { resource: ResourceType, side?: 'north' | 'south' }[] {
         if (!this.canMove()) return [];
 
         const currentPlayer = this.G!.players[this.player!];
         const availableMoves = currentPlayer.availableMoves!;
 
-        return !!availableMoves[MoveName.BuyResource] && availableMoves[MoveName.BuyResource]!.map((m) => m.resource) || [];
+        return availableMoves[MoveName.BuyResource] || [];
     }
 
     canBuyResource(resource?: ResourceType) {

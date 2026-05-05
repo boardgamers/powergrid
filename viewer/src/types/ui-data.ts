@@ -21,6 +21,7 @@ export interface Piece {
     color?: string;
     powerPlant?: PowerPlant;
     transparent?: boolean;
+    side?: 'north' | 'south';
 }
 
 export enum PieceType {

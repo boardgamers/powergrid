@@ -829,29 +829,47 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     }
 
                     if (G.players.filter((p) => !p.passed && !p.isDropped).length == 0) {
+                        // Resupply is also capped by remaining market capacity (the
+                        // prices array length minus current market size). Without
+                        // this, smaller markets like Korea's can overflow past the
+                        // number of slots and break price lookups.
+                        const coalCapSouth = (G.coalPrices?.length ?? prices[ResourceType.Coal].length) - G.coalMarket;
+                        const oilCapSouth = (G.oilPrices?.length ?? prices[ResourceType.Oil].length) - G.oilMarket;
+                        const garbageCapSouth =
+                            (G.garbagePrices?.length ?? prices[ResourceType.Garbage].length) - G.garbageMarket;
+                        const uraniumCapSouth =
+                            (G.uraniumPrices?.length ?? prices[ResourceType.Uranium].length) - G.uraniumMarket;
+
                         // Korea: North restocks FIRST from the shared supply pool, then
                         // South takes whatever remains. If supply runs short, South gets less.
                         let coalResupplyNorthValue = 0;
                         let oilResupplyNorthValue = 0;
                         let garbageResupplyNorthValue = 0;
                         if (G.coalResupplyNorth) {
+                            const coalCapNorth = G.coalPricesNorth!.length - G.coalMarketNorth!;
+                            const oilCapNorth = G.oilPricesNorth!.length - G.oilMarketNorth!;
+                            const garbageCapNorth = G.garbagePricesNorth!.length - G.garbageMarketNorth!;
+
                             coalResupplyNorthValue = Math.min(
                                 G.coalSupply,
-                                G.coalResupplyNorth[G.players.length - 2][G.step - 1]
+                                G.coalResupplyNorth[G.players.length - 2][G.step - 1],
+                                coalCapNorth
                             );
                             G.coalMarketNorth! += coalResupplyNorthValue;
                             G.coalSupply -= coalResupplyNorthValue;
 
                             oilResupplyNorthValue = Math.min(
                                 G.oilSupply,
-                                G.oilResupplyNorth![G.players.length - 2][G.step - 1]
+                                G.oilResupplyNorth![G.players.length - 2][G.step - 1],
+                                oilCapNorth
                             );
                             G.oilMarketNorth! += oilResupplyNorthValue;
                             G.oilSupply -= oilResupplyNorthValue;
 
                             garbageResupplyNorthValue = Math.min(
                                 G.garbageSupply,
-                                G.garbageResupplyNorth![G.players.length - 2][G.step - 1]
+                                G.garbageResupplyNorth![G.players.length - 2][G.step - 1],
+                                garbageCapNorth
                             );
                             G.garbageMarketNorth! += garbageResupplyNorthValue;
                             G.garbageSupply -= garbageResupplyNorthValue;
@@ -859,7 +877,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                         const coalResupplyValue = Math.min(
                             G.coalSupply,
-                            G.coalResupply![G.players.length - 2][G.step - 1]
+                            G.coalResupply![G.players.length - 2][G.step - 1],
+                            coalCapSouth
                         );
                         G.coalMarket += coalResupplyValue;
                         G.coalSupply -= coalResupplyValue;
@@ -882,14 +901,19 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 }
                             }
                         } else {
-                            oilResupplyValue = Math.min(G.oilSupply, G.oilResupply![G.players.length - 2][G.step - 1]);
+                            oilResupplyValue = Math.min(
+                                G.oilSupply,
+                                G.oilResupply![G.players.length - 2][G.step - 1],
+                                oilCapSouth
+                            );
                             G.oilMarket += oilResupplyValue;
                             G.oilSupply -= oilResupplyValue;
                         }
 
                         const garbageResupplyValue = Math.min(
                             G.garbageSupply,
-                            G.garbageResupply![G.players.length - 2][G.step - 1]
+                            G.garbageResupply![G.players.length - 2][G.step - 1],
+                            garbageCapSouth
                         );
                         G.garbageMarket += garbageResupplyValue;
                         G.garbageSupply -= garbageResupplyValue;
@@ -902,7 +926,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         ) {
                             uraniumResupplyValue = Math.min(
                                 G.uraniumSupply,
-                                G.uraniumResupply![G.players.length - 2][G.step - 1]
+                                G.uraniumResupply![G.players.length - 2][G.step - 1],
+                                uraniumCapSouth
                             );
                             G.uraniumMarket += uraniumResupplyValue;
                             G.uraniumSupply -= uraniumResupplyValue;
@@ -1523,11 +1548,23 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         G.chosenResource = undefined;
                     }
 
-                    // Korea: clearing chosenSide on undo would let the player switch
-                    // sides mid-turn, which is incorrect when other buys from the same
-                    // side still stand. Leave it locked; it clears naturally on Pass.
-
                     G.log.pop();
+
+                    // Korea: keep chosenSide locked while the player still has
+                    // outstanding BuyResource moves this phase, but clear it once
+                    // the last one is undone so they can switch sides again.
+                    if (G.map.name == 'Korea' && G.chosenSide) {
+                        let stillCommitted = false;
+                        for (let i = G.log.length - 1; i >= 0; i--) {
+                            const entry = G.log[i];
+                            if (entry.type !== 'move') continue;
+                            stillCommitted = entry.player === playerNumber && entry.move.name === MoveName.BuyResource;
+                            break;
+                        }
+                        if (!stillCommitted) {
+                            G.chosenSide = undefined;
+                        }
+                    }
                     break;
                 }
 

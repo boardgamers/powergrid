@@ -1,3 +1,4 @@
+// by John and Cici
 import { GameMap } from './../maps';
 
 export enum Regions {
@@ -286,5 +287,8 @@ export const map: GameMap = {
     oilPricesNorth: [1, 2, 3, 4, 5, 6, 7, 8],
     garbagePricesNorth: [1, 2, 3, 4, 5, 6, 7, 8],
     mapSpecificRules:
-        'Korea has two separate resource markets: North and South. On your buying turn, choose one side — all resources you buy that turn must come from that side. The next turn you may choose the other side. The North market has no uranium track; uranium is only available from the South market. Each market restocks independently from its own supply pool during the bureaucracy phase.',
+        'Korea has two separate resource markets: North and South.\n' +
+        'On your buying turn, choose one side — all resources you buy that turn must come from that side. The next turn you may choose the other side.\n' +
+        'The North market has no uranium track; uranium is only available from the South.\n' +
+        'Both markets share a single supply pool. During bureaucracy, North restocks first, then South from whatever remains.',
 };

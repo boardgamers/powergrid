@@ -170,6 +170,7 @@ export interface GameState {
     citiesToEndGame: number;
     citiesBuiltInCurrentRound?: number; // In India, if the players build too many cities in a single round, a power outage will occur.
     resourceResupply: string[];
+    resourceResupplyNorth?: string[]; // Korea: per-step North resupply, parallel to resourceResupply (no uranium).
     paymentTable: number[];
     minimunBid: number;
     plantDiscountActive: boolean;

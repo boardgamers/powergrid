@@ -390,6 +390,14 @@ export function setup(
             `[${coalResupply[p][1]}, ${oilResupply[p][1]}, ${garbageResupply[p][1]}, ${uraniumResupply[p][1]}]`,
             `[${coalResupply[p][2]}, ${oilResupply[p][2]}, ${garbageResupply[p][2]}, ${uraniumResupply[p][2]}]`,
         ],
+        resourceResupplyNorth:
+            coalResupplyNorth && oilResupplyNorth && garbageResupplyNorth
+                ? [
+                      `[${coalResupplyNorth[p][0]}, ${oilResupplyNorth[p][0]}, ${garbageResupplyNorth[p][0]}]`,
+                      `[${coalResupplyNorth[p][1]}, ${oilResupplyNorth[p][1]}, ${garbageResupplyNorth[p][1]}]`,
+                      `[${coalResupplyNorth[p][2]}, ${oilResupplyNorth[p][2]}, ${garbageResupplyNorth[p][2]}]`,
+                  ]
+                : undefined,
         paymentTable: cityIncome,
         variant,
         minimunBid: 0,
@@ -2409,6 +2417,13 @@ function updateGameState(G: GameState) {
             `[${G.coalResupply[p][1]}, ${G.oilResupply[p][1]}, ${G.garbageResupply[p][1]}, ${G.uraniumResupply[p][1]}]`,
             `[${G.coalResupply[p][2]}, ${G.oilResupply[p][2]}, ${G.garbageResupply[p][2]}, ${G.uraniumResupply[p][2]}]`,
         ];
+        if (G.coalResupplyNorth && G.oilResupplyNorth && G.garbageResupplyNorth) {
+            G.resourceResupplyNorth = [
+                `[${G.coalResupplyNorth[p][0]}, ${G.oilResupplyNorth[p][0]}, ${G.garbageResupplyNorth[p][0]}]`,
+                `[${G.coalResupplyNorth[p][1]}, ${G.oilResupplyNorth[p][1]}, ${G.garbageResupplyNorth[p][1]}]`,
+                `[${G.coalResupplyNorth[p][2]}, ${G.oilResupplyNorth[p][2]}, ${G.garbageResupplyNorth[p][2]}]`,
+            ];
+        }
     }
 }
 

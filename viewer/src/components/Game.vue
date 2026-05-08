@@ -49,7 +49,7 @@
 
             <Map
                 ref="map"
-                :transform="`translate(${G.map.mapPosition[0]}, ${G.map.mapPosition[1]})`"
+                :transform="mapTransform"
                 :playerColors="playerColors"
                 :cities="G.map.cities"
                 :connections="G.map.connections"
@@ -1095,6 +1095,19 @@ export default class Game extends Vue {
 
     get sortedPlayers() {
         return playersSortedByScore(this.G!);
+    }
+
+    get mapTransform() {
+        if (!this.G?.map) return '';
+        const [mx, my] = this.G.map.mapPosition!;
+        const rotation = this.G.map.mapRotation;
+        if (!rotation) return `translate(${mx}, ${my})`;
+        const cities = this.G.map.cities;
+        const xs = cities.map((c) => c.x);
+        const ys = cities.map((c) => c.y);
+        const cx = (Math.min(...xs) + Math.max(...xs)) / 2;
+        const cy = (Math.min(...ys) + Math.max(...ys)) / 2;
+        return `translate(${mx}, ${my}) rotate(${rotation}, ${cx}, ${cy})`;
     }
 
     get adjustedPlayerOrder() {

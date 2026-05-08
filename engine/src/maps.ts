@@ -7,6 +7,7 @@ import { map as benelux } from './maps/benelux';
 import { map as brazil } from './maps/brazil';
 import { map as centraleurope } from './maps/centraleurope';
 import { map as china } from './maps/china';
+import { map as europe } from './maps/europe';
 import { map as france } from './maps/france';
 import { map as germany, mapRecharged as germanyRecharged } from './maps/germany';
 import { map as indian } from './maps/indian';
@@ -55,6 +56,10 @@ export interface GameMap {
     powerPlantMarketPosition?: [number, number];
     actualMarketWidth?: number;
     mapPosition?: [number, number];
+    // Optional rotation in degrees (clockwise) applied around the centroid of
+    // the city coordinates. Useful for fitting non-rectangular maps into the
+    // viewBox (e.g., Europe).
+    mapRotation?: number;
     buttonsPosition?: [number, number];
     playerBoardsPosition?: [number, number];
     supplyPosition?: [number, number];
@@ -105,6 +110,7 @@ export const maps: GameMap[] = [
     badenwurttemberg,
     northerneurope,
     korea,
+    europe,
     // australia,
     // japan,
     // southafrica,
@@ -128,6 +134,7 @@ export const mapsRecharged: GameMap[] = [
     badenwurttemberg,
     northerneurope,
     korea,
+    europe,
     // australia,
     // china,
     // japan,

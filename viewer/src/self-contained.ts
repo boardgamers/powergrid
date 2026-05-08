@@ -10,7 +10,7 @@ function launchSelfContained(selector = '#app') {
 
     const emitter = launch(selector);
 
-    let gameState = setup(6, { map: 'Korea', variant: 'recharged', showMoney: true, randomizeMap: false }, '3');
+    let gameState = setup(5, { map: 'Europe', variant: 'recharged', showMoney: true, randomizeMap: false }, '3');
 
     // gameState.map.viewBox = [1480, 1060];
     // gameState.map.playerOrderPosition = [1160, 140];

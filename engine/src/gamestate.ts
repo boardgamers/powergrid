@@ -19,7 +19,8 @@ export type MapName =
     | 'Central Europe'
     | 'Baden-Württemberg'
     | 'Northern Europe'
-    | 'Korea';
+    | 'Korea'
+    | 'Europe';
 // | 'Australia'
 // | 'Japan'
 // | 'South Africa'

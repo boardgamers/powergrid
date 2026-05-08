@@ -755,7 +755,17 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                     }
                                 }
 
-                                addPowerPlant(G);
+                                if (G.map.name == 'Europe') {
+                                    // Europe: do NOT draw a replacement from the deck.
+                                    // The future market shrinks from 5 to 4; reorganize
+                                    // the remaining 8 plants so actual stays at 4.
+                                    const market = [...G.actualMarket, ...G.futureMarket];
+                                    market.sort((a, b) => a.number - b.number);
+                                    G.actualMarket = market.slice(0, 4);
+                                    G.futureMarket = market.slice(4);
+                                } else {
+                                    addPowerPlant(G);
+                                }
                             }
                         }
 

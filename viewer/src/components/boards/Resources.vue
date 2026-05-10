@@ -93,7 +93,7 @@
         <Uranium :pieceId="-1" :targetState="{ x: 428, y: 12 }" :canClick="false" :transparent="false" />
 
         <rect
-            v-if="!isIndiaResourceMarket && !isEurope"
+            v-if="!isIndiaResourceMarket && !isNinePriceMarket"
             width="760"
             height="80"
             x="20"
@@ -101,9 +101,9 @@
             rx="3"
             fill="goldenrod"
         />
-        <rect v-if="isEurope" width="780" height="80" x="20" y="40" rx="3" fill="goldenrod" />
+        <rect v-if="isNinePriceMarket" width="780" height="80" x="20" y="40" rx="3" fill="goldenrod" />
         <rect v-if="isIndiaResourceMarket" width="680" height="80" x="20" y="40" rx="3" fill="goldenrod" />
-        <template v-for="index in isEurope ? 9 : 8">
+        <template v-for="index in isNinePriceMarket ? 9 : 8">
             <rect
                 :key="'resources' + index"
                 width="70"
@@ -124,7 +124,7 @@
             >
                 {{ index }}
             </text>
-            <g :key="'lines' + index" v-if="!isIndiaResourceMarket && !isEurope">
+            <g :key="'lines' + index" v-if="!isIndiaResourceMarket && !isNinePriceMarket">
                 <line :x1="25 + 85 * (index - 1)" y1="68" :x2="95 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
                 <line :x1="25 + 85 * (index - 1)" y1="92" :x2="95 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
 
@@ -162,7 +162,7 @@
             </g>
         </template>
 
-        <template v-if="!isIndiaResourceMarket && !isEurope">
+        <template v-if="!isIndiaResourceMarket && !isNinePriceMarket">
             <rect width="30" height="30" x="705" y="45" rx="2" fill="darkgoldenrod" />
             <circle r="10" cx="732" cy="48" fill="yellow" />
             <text
@@ -363,7 +363,7 @@ export default class Resources extends Vue {
     uraniums: Piece[] = [];
 
     isKorea: boolean = false;
-    isEurope: boolean = false;
+    isNinePriceMarket: boolean = false;
     coalsNorth: Piece[] = [];
     oilsNorth: Piece[] = [];
     garbagesNorth: Piece[] = [];
@@ -470,12 +470,12 @@ export default class Resources extends Vue {
             return;
         }
 
-        // Europe: 9 price spaces ($1..$9), per-price slot count varies by resource,
-        // and uranium tops out at $9 (no $10/$12/$14/$16 corner).
+        // Europe and North America: 9 price spaces ($1..$9), per-price slot count
+        // varies by resource, and uranium tops out at $9 (no $10/$12/$14/$16 corner).
         // Rows are spaced apart (uranium between oil and garbage) so each cube
         // is comfortably clickable: oil 70 → uranium 92 → garbage 106.
-        if (gameState.map?.name === 'Europe') {
-            this.isEurope = true;
+        if (gameState.map?.name === 'Europe' || gameState.map?.name === 'North America') {
+            this.isNinePriceMarket = true;
             this.coals = this.buildMainRowPieces(
                 gameState.coalPrices!, gameState.coalMarket, 'coal', 48, { maxPrice: 9 },
             );
@@ -490,7 +490,7 @@ export default class Resources extends Vue {
             );
             return;
         }
-        this.isEurope = false;
+        this.isNinePriceMarket = false;
 
         // Non-Korea: original logic below (unchanged).
         this.coalsNorth = [];

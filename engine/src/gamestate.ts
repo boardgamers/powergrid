@@ -20,7 +20,8 @@ export type MapName =
     | 'Baden-Württemberg'
     | 'Northern Europe'
     | 'Korea'
-    | 'Europe';
+    | 'Europe'
+    | 'North America';
 // | 'Australia'
 // | 'Japan'
 // | 'South Africa'

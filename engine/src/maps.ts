@@ -15,6 +15,7 @@ import { map as italy } from './maps/italy';
 // import { map as japan } from './maps/japan';
 import { map as korea } from './maps/korea';
 import { map as middleeast } from './maps/middleeast';
+import { map as northamerica } from './maps/northamerica';
 import { map as northerneurope } from './maps/northerneurope';
 import { map as quebec } from './maps/quebec';
 import { map as russia } from './maps/russia';
@@ -111,6 +112,7 @@ export const maps: GameMap[] = [
     northerneurope,
     korea,
     europe,
+    northamerica,
     // australia,
     // japan,
     // southafrica,
@@ -135,6 +137,7 @@ export const mapsRecharged: GameMap[] = [
     northerneurope,
     korea,
     europe,
+    northamerica,
     // australia,
     // china,
     // japan,

@@ -12,6 +12,33 @@ function launchSelfContained(selector = '#app') {
 
     let gameState = setup(5, { map: 'North America', variant: 'recharged', showMoney: true, randomizeMap: false }, '7');
 
+    // Dev coord-picker: drop a printed-board photo into viewer/public/, then
+    // uncomment + adjust below to overlay it behind the map. Click cities on
+    // the photo; ready-to-paste `{ name, region, x, y }` lines log to the
+    // browser console.
+    //
+    // For an EXISTING map, import the map file and replace cities +
+    // connections with the originals — this bypasses the engine's setup-time
+    // `adjustRatio` scaling and the 5-of-7 region filter, so you see all
+    // cities in their authoring coord space:
+    //   import { map as fullMap } from 'powergrid-engine/src/maps/northamerica';
+    //   gameState.map.cities = fullMap.cities.map((c) => ({ ...c }));
+    //   gameState.map.connections = fullMap.connections.map((c) => ({ ...c, nodes: [...c.nodes] }));
+    //
+    // gameState.map.devBackdrop = { src: '/board.jpg', width: 2000, height: 1716, opacity: 0.5 };
+    // gameState.map.adjustRatio = [1, 1];
+    // gameState.map.mapRotation = 0;
+    // gameState.map.mapPosition = [0, 0];
+    // gameState.map.viewBox = [2000, 1716];
+    // // Push non-map UI off-screen so it doesn't block clicks:
+    // gameState.map.playerBoardsPosition = [-9999, -9999];
+    // gameState.map.powerPlantMarketPosition = [-9999, -9999];
+    // gameState.map.buttonsPosition = [-9999, -9999];
+    // gameState.map.supplyPosition = [-9999, -9999];
+    // gameState.map.roundInfoPosition = [-9999, -9999];
+    // gameState.map.cityCountPosition = [-9999, -9999];
+    // gameState.map.playerOrderPosition = [-9999, -9999];
+
     // gameState.map.viewBox = [1480, 1060];
     // gameState.map.playerOrderPosition = [1160, 140];
     // gameState.map.cityCountPosition = [0, 0];

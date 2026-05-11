@@ -55,6 +55,7 @@
                 :connections="G.map.connections"
                 :polygons="G.map.polygons"
                 :buildableCities="getBuildableCities()"
+                :devBackdrop="G.map.devBackdrop"
                 @build="build($event)"
             />
 

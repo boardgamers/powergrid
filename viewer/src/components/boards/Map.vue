@@ -1,5 +1,16 @@
 <template>
-    <g>
+    <g @click="onPickCoord">
+        <!-- Dev-only backdrop for coord-picking. See GameMap.devBackdrop. -->
+        <image
+            v-if="devBackdrop"
+            :href="devBackdrop.src"
+            x="0"
+            y="0"
+            :width="devBackdrop.width"
+            :height="devBackdrop.height"
+            :opacity="devBackdrop.opacity != null ? devBackdrop.opacity : 0.5"
+        />
+
         <!-- <template v-for="polygon in polygons">
             <polygon
                 :key="'pol_ ' + polygon.region"
@@ -132,6 +143,7 @@ export default class Map extends Vue {
     @Prop() connections?: Connection[];
     @Prop() playerColors?: string[];
     @Prop() buildableCities?: string[];
+    @Prop() devBackdrop?: { src: string; width: number; height: number; opacity?: number };
 
     @Inject() preferences!: Preferences;
 
@@ -191,6 +203,16 @@ export default class Map extends Vue {
 
     build(city: City) {
         this.$emit('build', city);
+    }
+
+    onPickCoord(e: MouseEvent) {
+        if (!this.devBackdrop) return;
+        const g = e.currentTarget as SVGGElement;
+        const ctm = g.getScreenCTM();
+        if (!ctm) return;
+        const pt = new DOMPoint(e.clientX, e.clientY).matrixTransform(ctm.inverse());
+        // eslint-disable-next-line no-console
+        console.log(`{ name: Cities.TODO, region: Regions.TODO, x: ${Math.round(pt.x)}, y: ${Math.round(pt.y)} },`);
     }
 }
 </script>

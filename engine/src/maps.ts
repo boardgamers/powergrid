@@ -92,6 +92,13 @@ export interface GameMap {
     };
     regionalPowerPlants?: Record<string, PowerPlant[]>;
     mapSpecificRules?: string;
+    // Dev-only: when set, the viewer renders an `<image>` backdrop behind the
+    // map and logs click positions (in local SVG coords) to the console as
+    // ready-to-paste `{ name, region, x, y }` lines. Intended for authoring
+    // city coordinates against a photo of the printed board. Set `adjustRatio`
+    // to [1,1] and `mapRotation` to 0 while picking so the logged coords are
+    // in the same space you'll save them in.
+    devBackdrop?: { src: string; width: number; height: number; opacity?: number };
 }
 
 export const maps: GameMap[] = [

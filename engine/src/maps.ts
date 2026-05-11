@@ -11,13 +11,13 @@ import { map as france } from './maps/france';
 import { map as germany, mapRecharged as germanyRecharged } from './maps/germany';
 import { map as indian } from './maps/indian';
 import { map as italy } from './maps/italy';
+// import { map as japan } from './maps/japan';
+import { map as korea } from './maps/korea';
 import { map as middleeast } from './maps/middleeast';
+import { map as northerneurope } from './maps/northerneurope';
 import { map as quebec } from './maps/quebec';
 import { map as russia } from './maps/russia';
 import { map as spainportugal } from './maps/spainportugal';
-// import { map as japan } from './maps/japan';
-// import { map as korea } from './maps/korea';
-// import { map as northerneurope } from './maps/northerneurope';
 // import { map as southafrica } from './maps/southafrica';
 // import { map as ukireland } from './maps/ukireland';
 
@@ -62,6 +62,14 @@ export interface GameMap {
     resupply?: number[][][];
     startingResources?: number[];
     startingSupply?: number[];
+    // Korea: parallel North-side resupply / starting tables. Indexed as
+    // [resource][playerCount-2][step-1] for resupplyNorth, and [coal, oil, garbage]
+    // for the starting arrays (no uranium row — North bans nuclear).
+    resupplyNorth?: number[][][];
+    startingResourcesNorth?: number[];
+    coalPricesNorth?: number[];
+    oilPricesNorth?: number[];
+    garbagePricesNorth?: number[];
     maxPriceAvailable?: number[]; // For India, only limited sections of the supply are available in step 1 and 2.
     coalPrices?: number[];
     oilPrices?: number[];
@@ -76,6 +84,7 @@ export interface GameMap {
         futureMarket: PowerPlant[];
         powerPlantsDeck: PowerPlant[];
     };
+    regionalPowerPlants?: Record<string, PowerPlant[]>;
     mapSpecificRules?: string;
 }
 
@@ -94,10 +103,10 @@ export const maps: GameMap[] = [
     russia,
     centraleurope,
     badenwurttemberg,
+    northerneurope,
+    korea,
     // australia,
     // japan,
-    // korea,
-    // northerneurope,
     // southafrica,
     // ukireland,
 ];
@@ -117,11 +126,11 @@ export const mapsRecharged: GameMap[] = [
     russia,
     centraleurope,
     badenwurttemberg,
+    northerneurope,
+    korea,
     // australia,
     // china,
     // japan,
-    // korea,
-    // northerneurope,
     // southafrica,
     // ukireland,
 ];

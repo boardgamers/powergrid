@@ -287,6 +287,9 @@
                                     <li><strong>One</strong> player per city</li>
                                     <li>
                                         Resource Resupply: <strong>{{ G.resourceResupply[0] }}</strong>
+                                        <template v-if="G.resourceResupplyNorth">
+                                            (S), <strong>{{ G.resourceResupplyNorth[0] }}</strong> (N)
+                                        </template>
                                     </li>
                                     <li>Bureaucracy: remove <strong>highest</strong> power plant from market</li>
                                 </ul>
@@ -301,6 +304,9 @@
                                     <li><strong>Two</strong> players per city</li>
                                     <li>
                                         Resource Resupply: <strong>{{ G.resourceResupply[1] }}</strong>
+                                        <template v-if="G.resourceResupplyNorth">
+                                            (S), <strong>{{ G.resourceResupplyNorth[1] }}</strong> (N)
+                                        </template>
                                     </li>
                                     <li>Bureaucracy: remove <strong>highest</strong> power plant from market</li>
                                 </ul>
@@ -312,6 +318,9 @@
                                     <li><strong>Three</strong> players per city</li>
                                     <li>
                                         Resource Resupply: <strong>{{ G.resourceResupply[2] }}</strong>
+                                        <template v-if="G.resourceResupplyNorth">
+                                            (S), <strong>{{ G.resourceResupplyNorth[2] }}</strong> (N)
+                                        </template>
                                     </li>
                                     <li>Bureaucracy: remove <strong>lowest</strong> power plant from market</li>
                                     <li>All power plants available for auction</li>
@@ -329,7 +338,7 @@
                         <br />
                         <div>
                             <strong>Map Specific Rules:</strong><br />
-                            <span style="white-space: pre">{{ G.map.mapSpecificRules }}</span>
+                            <span style="white-space: pre-wrap">{{ G.map.mapSpecificRules }}</span>
                         </div>
                     </template>
                     <br />
@@ -621,8 +630,12 @@ export default class Game extends Vue {
         }
     }
 
-    buyResource(resource: ResourceType) {
-        this.sendMove({ name: MoveName.BuyResource, data: { resource } });
+    buyResource(payload: { resource: ResourceType, side?: 'north' | 'south' }) {
+        const data: { resource: ResourceType, side?: 'north' | 'south' } = { resource: payload.resource };
+        if (payload.side) {
+            data.side = payload.side;
+        }
+        this.sendMove({ name: MoveName.BuyResource, data });
     }
 
     bid(bid: number) {
@@ -862,13 +875,13 @@ export default class Game extends Vue {
         return !!availableMoves[MoveName.ChoosePowerPlant];
     }
 
-    buyableResources() {
+    buyableResources(): { resource: ResourceType, side?: 'north' | 'south' }[] {
         if (!this.canMove()) return [];
 
         const currentPlayer = this.G!.players[this.player!];
         const availableMoves = currentPlayer.availableMoves!;
 
-        return !!availableMoves[MoveName.BuyResource] && availableMoves[MoveName.BuyResource]!.map((m) => m.resource) || [];
+        return availableMoves[MoveName.BuyResource] || [];
     }
 
     canBuyResource(resource?: ResourceType) {

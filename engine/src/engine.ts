@@ -161,6 +161,15 @@ export function setup(
     let oilResupply: number[][];
     let garbageResupply: number[][];
     let uraniumResupply: number[][];
+    // Korea: parallel North-side resupply tables (no uranium row).
+    let coalResupplyNorth: number[][] | undefined;
+    let oilResupplyNorth: number[][] | undefined;
+    let garbageResupplyNorth: number[][] | undefined;
+    if (chosenMap.resupplyNorth) {
+        coalResupplyNorth = chosenMap.resupplyNorth[0];
+        oilResupplyNorth = chosenMap.resupplyNorth[1];
+        garbageResupplyNorth = chosenMap.resupplyNorth[2];
+    }
     if (chosenMap.resupply) {
         coalResupply = chosenMap.resupply[0];
         oilResupply = chosenMap.resupply[1];
@@ -273,6 +282,23 @@ export function setup(
         );
 
         finalMap = filteredMap;
+
+        if (chosenMap.regionalPowerPlants) {
+            for (const region of playRegions) {
+                const replacements = chosenMap.regionalPowerPlants[region];
+                if (replacements) {
+                    for (const newPlant of replacements) {
+                        const swapIn = (arr: PowerPlant[]) => {
+                            const idx = arr.findIndex((p) => p.number === newPlant.number);
+                            if (idx !== -1) arr[idx] = { ...newPlant };
+                        };
+                        swapIn(actualMarket);
+                        swapIn(futureMarket);
+                        swapIn(powerPlantsDeck);
+                    }
+                }
+            }
+        }
     }
 
     const coalMarket = chosenMap.startingResources ? chosenMap.startingResources[0] : 24;
@@ -285,15 +311,27 @@ export function setup(
     const totalGarbage = chosenMap.startingSupply ? chosenMap.startingSupply[2] : 24;
     const totalUranium = chosenMap.startingSupply ? chosenMap.startingSupply[3] : 12;
 
-    const coalSupply = totalCoal - coalMarket;
-    const oilSupply = totalOil - oilMarket;
-    const garbageSupply = totalGarbage - garbageMarket;
+    // Korea: parallel North-side market and prices. Supply is shared — see below.
+    const coalMarketNorth = chosenMap.startingResourcesNorth?.[0];
+    const oilMarketNorth = chosenMap.startingResourcesNorth?.[1];
+    const garbageMarketNorth = chosenMap.startingResourcesNorth?.[2];
+
+    // Supply pools are shared between both sides for Korea. `startingSupply`
+    // represents the TOTAL cubes in the game; the supply pool is whatever is
+    // left after both markets are filled.
+    const coalSupply = totalCoal - coalMarket - (coalMarketNorth ?? 0);
+    const oilSupply = totalOil - oilMarket - (oilMarketNorth ?? 0);
+    const garbageSupply = totalGarbage - garbageMarket - (garbageMarketNorth ?? 0);
     const uraniumSupply = totalUranium - uraniumMarket;
 
     const coalPrices = cloneDeep(chosenMap.coalPrices ?? prices.coal);
     const oilPrices = cloneDeep(chosenMap.oilPrices ?? prices.oil);
     const garbagePrices = cloneDeep(chosenMap.garbagePrices ?? prices.garbage);
     const uraniumPrices = cloneDeep(chosenMap.uraniumPrices ?? prices.uranium);
+
+    const coalPricesNorth = chosenMap.coalPricesNorth ? cloneDeep(chosenMap.coalPricesNorth) : undefined;
+    const oilPricesNorth = chosenMap.oilPricesNorth ? cloneDeep(chosenMap.oilPricesNorth) : undefined;
+    const garbagePricesNorth = chosenMap.garbagePricesNorth ? cloneDeep(chosenMap.garbagePricesNorth) : undefined;
 
     const G: GameState = {
         map: forceMap || finalMap,
@@ -317,6 +355,17 @@ export function setup(
         oilPrices,
         garbagePrices,
         uraniumPrices,
+        // Korea: parallel North-side fields. Undefined for non-Korea maps.
+        // Supply is shared with the primary `*Supply` fields above.
+        coalMarketNorth,
+        oilMarketNorth,
+        garbageMarketNorth,
+        coalResupplyNorth,
+        oilResupplyNorth,
+        garbageResupplyNorth,
+        coalPricesNorth,
+        oilPricesNorth,
+        garbagePricesNorth,
         actualMarket,
         futureMarket,
         chosenPowerPlant: undefined,
@@ -341,6 +390,14 @@ export function setup(
             `[${coalResupply[p][1]}, ${oilResupply[p][1]}, ${garbageResupply[p][1]}, ${uraniumResupply[p][1]}]`,
             `[${coalResupply[p][2]}, ${oilResupply[p][2]}, ${garbageResupply[p][2]}, ${uraniumResupply[p][2]}]`,
         ],
+        resourceResupplyNorth:
+            coalResupplyNorth && oilResupplyNorth && garbageResupplyNorth
+                ? [
+                      `[${coalResupplyNorth[p][0]}, ${oilResupplyNorth[p][0]}, ${garbageResupplyNorth[p][0]}]`,
+                      `[${coalResupplyNorth[p][1]}, ${oilResupplyNorth[p][1]}, ${garbageResupplyNorth[p][1]}]`,
+                      `[${coalResupplyNorth[p][2]}, ${oilResupplyNorth[p][2]}, ${garbageResupplyNorth[p][2]}]`,
+                  ]
+                : undefined,
         paymentTable: cityIncome,
         variant,
         minimunBid: 0,
@@ -640,6 +697,12 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         player.passed = true;
                     }
 
+                    // Korea: end of this player's buying turn — clear the side lock
+                    // so the next player can pick freely.
+                    if (G.map.name == 'Korea') {
+                        G.chosenSide = undefined;
+                    }
+
                     if (G.players.filter((p) => !p.passed && !p.isDropped).length == 0) {
                         G.players.forEach((p) => {
                             p.passed = p.isDropped;
@@ -774,9 +837,56 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     }
 
                     if (G.players.filter((p) => !p.passed && !p.isDropped).length == 0) {
+                        // Resupply is also capped by remaining market capacity (the
+                        // prices array length minus current market size). Without
+                        // this, smaller markets like Korea's can overflow past the
+                        // number of slots and break price lookups.
+                        const coalCapSouth = (G.coalPrices?.length ?? prices[ResourceType.Coal].length) - G.coalMarket;
+                        const oilCapSouth = (G.oilPrices?.length ?? prices[ResourceType.Oil].length) - G.oilMarket;
+                        const garbageCapSouth =
+                            (G.garbagePrices?.length ?? prices[ResourceType.Garbage].length) - G.garbageMarket;
+                        const uraniumCapSouth =
+                            (G.uraniumPrices?.length ?? prices[ResourceType.Uranium].length) - G.uraniumMarket;
+
+                        // Korea: North restocks FIRST from the shared supply pool, then
+                        // South takes whatever remains. If supply runs short, South gets less.
+                        let coalResupplyNorthValue = 0;
+                        let oilResupplyNorthValue = 0;
+                        let garbageResupplyNorthValue = 0;
+                        if (G.coalResupplyNorth) {
+                            const coalCapNorth = G.coalPricesNorth!.length - G.coalMarketNorth!;
+                            const oilCapNorth = G.oilPricesNorth!.length - G.oilMarketNorth!;
+                            const garbageCapNorth = G.garbagePricesNorth!.length - G.garbageMarketNorth!;
+
+                            coalResupplyNorthValue = Math.min(
+                                G.coalSupply,
+                                G.coalResupplyNorth[G.players.length - 2][G.step - 1],
+                                coalCapNorth
+                            );
+                            G.coalMarketNorth! += coalResupplyNorthValue;
+                            G.coalSupply -= coalResupplyNorthValue;
+
+                            oilResupplyNorthValue = Math.min(
+                                G.oilSupply,
+                                G.oilResupplyNorth![G.players.length - 2][G.step - 1],
+                                oilCapNorth
+                            );
+                            G.oilMarketNorth! += oilResupplyNorthValue;
+                            G.oilSupply -= oilResupplyNorthValue;
+
+                            garbageResupplyNorthValue = Math.min(
+                                G.garbageSupply,
+                                G.garbageResupplyNorth![G.players.length - 2][G.step - 1],
+                                garbageCapNorth
+                            );
+                            G.garbageMarketNorth! += garbageResupplyNorthValue;
+                            G.garbageSupply -= garbageResupplyNorthValue;
+                        }
+
                         const coalResupplyValue = Math.min(
                             G.coalSupply,
-                            G.coalResupply![G.players.length - 2][G.step - 1]
+                            G.coalResupply![G.players.length - 2][G.step - 1],
+                            coalCapSouth
                         );
                         G.coalMarket += coalResupplyValue;
                         G.coalSupply -= coalResupplyValue;
@@ -799,14 +909,19 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 }
                             }
                         } else {
-                            oilResupplyValue = Math.min(G.oilSupply, G.oilResupply![G.players.length - 2][G.step - 1]);
+                            oilResupplyValue = Math.min(
+                                G.oilSupply,
+                                G.oilResupply![G.players.length - 2][G.step - 1],
+                                oilCapSouth
+                            );
                             G.oilMarket += oilResupplyValue;
                             G.oilSupply -= oilResupplyValue;
                         }
 
                         const garbageResupplyValue = Math.min(
                             G.garbageSupply,
-                            G.garbageResupply![G.players.length - 2][G.step - 1]
+                            G.garbageResupply![G.players.length - 2][G.step - 1],
+                            garbageCapSouth
                         );
                         G.garbageMarket += garbageResupplyValue;
                         G.garbageSupply -= garbageResupplyValue;
@@ -819,16 +934,24 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         ) {
                             uraniumResupplyValue = Math.min(
                                 G.uraniumSupply,
-                                G.uraniumResupply![G.players.length - 2][G.step - 1]
+                                G.uraniumResupply![G.players.length - 2][G.step - 1],
+                                uraniumCapSouth
                             );
                             G.uraniumMarket += uraniumResupplyValue;
                             G.uraniumSupply -= uraniumResupplyValue;
                         }
 
-                        G.log.push({
-                            type: 'event',
-                            event: `Resupplying resources: [${coalResupplyValue}, ${oilResupplyValue}, ${garbageResupplyValue}, ${uraniumResupplyValue}].`,
-                        });
+                        if (G.coalResupplyNorth) {
+                            G.log.push({
+                                type: 'event',
+                                event: `Resupplying resources — North: [${coalResupplyNorthValue}, ${oilResupplyNorthValue}, ${garbageResupplyNorthValue}], South: [${coalResupplyValue}, ${oilResupplyValue}, ${garbageResupplyValue}, ${uraniumResupplyValue}].`,
+                            });
+                        } else {
+                            G.log.push({
+                                type: 'event',
+                                event: `Resupplying resources: [${coalResupplyValue}, ${oilResupplyValue}, ${garbageResupplyValue}, ${uraniumResupplyValue}].`,
+                            });
+                        }
 
                         if (G.map.name == 'Middle East' && G.step == 2 && G.futureMarket.length > 0) {
                             // If we aren't about to enter step 3, discard top two plants instead of one.
@@ -1145,10 +1268,23 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
             asserts<Moves.MoveBuyResource>(move);
             G.chosenResource = move.data.resource;
 
+            // Korea: lock the player to the side of their first buy this turn.
+            // Subsequent buys must come from the same side until they pass.
+            if (move.data.side) {
+                G.chosenSide = move.data.side;
+            }
+
+            const isNorth = move.data.side === 'north';
+
             let price: number;
             switch (move.data.resource) {
                 case ResourceType.Coal: {
-                    if (G.coalMarket == 0) {
+                    if (isNorth) {
+                        const coalPrices = G.coalPricesNorth!;
+                        price = coalPrices[coalPrices.length - G.coalMarketNorth!];
+                        player.coalLeft++;
+                        G.coalMarketNorth!--;
+                    } else if (G.coalMarket == 0) {
                         price = 8;
                         player.coalLeft++;
                         G.coalSupply--;
@@ -1164,31 +1300,46 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 }
 
                 case ResourceType.Oil: {
-                    const oilPrices = G.oilPrices ?? prices[ResourceType.Oil];
-                    price = oilPrices[oilPrices.length - G.oilMarket];
-                    player.oilLeft++;
-                    G.oilMarket--;
+                    if (isNorth) {
+                        const oilPrices = G.oilPricesNorth!;
+                        price = oilPrices[oilPrices.length - G.oilMarketNorth!];
+                        player.oilLeft++;
+                        G.oilMarketNorth!--;
+                    } else {
+                        const oilPrices = G.oilPrices ?? prices[ResourceType.Oil];
+                        price = oilPrices[oilPrices.length - G.oilMarket];
+                        player.oilLeft++;
+                        G.oilMarket--;
+                    }
                     break;
                 }
 
                 case ResourceType.Garbage: {
-                    const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
-                    price = garbagePrices[garbagePrices.length - G.garbageMarket];
+                    if (isNorth) {
+                        const garbagePrices = G.garbagePricesNorth!;
+                        price = garbagePrices[garbagePrices.length - G.garbageMarketNorth!];
+                        player.garbageLeft++;
+                        G.garbageMarketNorth!--;
+                    } else {
+                        const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
+                        price = garbagePrices[garbagePrices.length - G.garbageMarket];
 
-                    // $1 cheaper for players in Wien in Central Europe
-                    if (G.map.name == 'Central Europe') {
-                        const wienCity = player.cities.filter((c) => c.name == 'Wien');
-                        if (wienCity?.length > 0) {
-                            price--;
+                        // $1 cheaper for players in Wien in Central Europe
+                        if (G.map.name == 'Central Europe') {
+                            const wienCity = player.cities.filter((c) => c.name == 'Wien');
+                            if (wienCity?.length > 0) {
+                                price--;
+                            }
                         }
-                    }
 
-                    player.garbageLeft++;
-                    G.garbageMarket--;
+                        player.garbageLeft++;
+                        G.garbageMarket--;
+                    }
                     break;
                 }
 
                 case ResourceType.Uranium: {
+                    // Uranium is only available from the South market (or non-Korea maps).
                     const uraniumPrices = G.uraniumPrices ?? prices[ResourceType.Uranium];
                     price = uraniumPrices[uraniumPrices.length - G.uraniumMarket];
                     player.uraniumLeft++;
@@ -1324,10 +1475,16 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 }
 
                 case MoveName.BuyResource: {
+                    const undoIsNorth = lastMove.data.side === 'north';
                     let price: number;
                     switch (lastMove.data.resource) {
                         case ResourceType.Coal:
-                            if (lastMove.fromSupply) {
+                            if (undoIsNorth) {
+                                player.coalLeft--;
+                                G.coalMarketNorth!++;
+                                const coalPrices = G.coalPricesNorth!;
+                                price = coalPrices[coalPrices.length - G.coalMarketNorth!];
+                            } else if (lastMove.fromSupply) {
                                 price = 8;
                                 player.coalLeft--;
                                 G.coalSupply++;
@@ -1341,24 +1498,38 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             break;
 
                         case ResourceType.Oil: {
-                            player.oilLeft--;
-                            G.oilMarket++;
-                            const oilPrices = G.oilPrices ?? prices[ResourceType.Oil];
-                            price = oilPrices[oilPrices.length - G.oilMarket];
+                            if (undoIsNorth) {
+                                player.oilLeft--;
+                                G.oilMarketNorth!++;
+                                const oilPrices = G.oilPricesNorth!;
+                                price = oilPrices[oilPrices.length - G.oilMarketNorth!];
+                            } else {
+                                player.oilLeft--;
+                                G.oilMarket++;
+                                const oilPrices = G.oilPrices ?? prices[ResourceType.Oil];
+                                price = oilPrices[oilPrices.length - G.oilMarket];
+                            }
                             break;
                         }
 
                         case ResourceType.Garbage: {
-                            player.garbageLeft--;
-                            G.garbageMarket++;
-                            const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
-                            price = garbagePrices[garbagePrices.length - G.garbageMarket];
+                            if (undoIsNorth) {
+                                player.garbageLeft--;
+                                G.garbageMarketNorth!++;
+                                const garbagePrices = G.garbagePricesNorth!;
+                                price = garbagePrices[garbagePrices.length - G.garbageMarketNorth!];
+                            } else {
+                                player.garbageLeft--;
+                                G.garbageMarket++;
+                                const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
+                                price = garbagePrices[garbagePrices.length - G.garbageMarket];
 
-                            // $1 cheaper for players in Wien in Central Europe
-                            if (G.map.name == 'Central Europe') {
-                                const wienCity = player.cities.filter((c) => c.name == 'Wien');
-                                if (wienCity?.length > 0) {
-                                    price--;
+                                // $1 cheaper for players in Wien in Central Europe
+                                if (G.map.name == 'Central Europe') {
+                                    const wienCity = player.cities.filter((c) => c.name == 'Wien');
+                                    if (wienCity?.length > 0) {
+                                        price--;
+                                    }
                                 }
                             }
 
@@ -1366,6 +1537,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         }
 
                         case ResourceType.Uranium: {
+                            // Uranium is only available from the South market (or non-Korea maps).
                             player.uraniumLeft--;
                             G.uraniumMarket++;
                             const uraniumPrices = G.uraniumPrices ?? prices[ResourceType.Uranium];
@@ -1385,6 +1557,22 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     }
 
                     G.log.pop();
+
+                    // Korea: keep chosenSide locked while the player still has
+                    // outstanding BuyResource moves this phase, but clear it once
+                    // the last one is undone so they can switch sides again.
+                    if (G.map.name == 'Korea' && G.chosenSide) {
+                        let stillCommitted = false;
+                        for (let i = G.log.length - 1; i >= 0; i--) {
+                            const entry = G.log[i];
+                            if (entry.type !== 'move') continue;
+                            stillCommitted = entry.player === playerNumber && entry.move.name === MoveName.BuyResource;
+                            break;
+                        }
+                        if (!stillCommitted) {
+                            G.chosenSide = undefined;
+                        }
+                    }
                     break;
                 }
 
@@ -2229,6 +2417,13 @@ function updateGameState(G: GameState) {
             `[${G.coalResupply[p][1]}, ${G.oilResupply[p][1]}, ${G.garbageResupply[p][1]}, ${G.uraniumResupply[p][1]}]`,
             `[${G.coalResupply[p][2]}, ${G.oilResupply[p][2]}, ${G.garbageResupply[p][2]}, ${G.uraniumResupply[p][2]}]`,
         ];
+        if (G.coalResupplyNorth && G.oilResupplyNorth && G.garbageResupplyNorth) {
+            G.resourceResupplyNorth = [
+                `[${G.coalResupplyNorth[p][0]}, ${G.oilResupplyNorth[p][0]}, ${G.garbageResupplyNorth[p][0]}]`,
+                `[${G.coalResupplyNorth[p][1]}, ${G.oilResupplyNorth[p][1]}, ${G.garbageResupplyNorth[p][1]}]`,
+                `[${G.coalResupplyNorth[p][2]}, ${G.oilResupplyNorth[p][2]}, ${G.garbageResupplyNorth[p][2]}]`,
+            ];
+        }
     }
 }
 

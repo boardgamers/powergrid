@@ -1,3 +1,5 @@
+// by John and Cici
+import { PowerPlantType } from './../gamestate';
 import { GameMap } from './../maps';
 
 export enum Regions {
@@ -100,6 +102,80 @@ export const map: GameMap = {
         { name: Cities.Bergen, region: Regions.Red, x: 68, y: 586 },
         { name: Cities.Stavanger, region: Regions.Red, x: 72, y: 647 },
     ],
+    layout: 'Portrait',
+    adjustRatio: [1.2, 1.0],
+    mapPosition: [80, 30],
+    startingResources: [18, 18, 12, 6],
+    resupply: [
+        // Coal
+        [
+            [2, 4, 3], // 2P
+            [3, 4, 4], // 3P
+            [4, 5, 5], // 4P
+            [4, 5, 6], // 5P
+            [6, 8, 5], // 6P
+        ],
+        // Oil
+        [
+            [1, 2, 3],
+            [2, 2, 3],
+            [2, 3, 4],
+            [3, 4, 5],
+            [4, 5, 6],
+        ],
+        // Garbage
+        [
+            [1, 2, 3],
+            [1, 2, 3],
+            [2, 3, 4],
+            [3, 3, 5],
+            [3, 5, 6],
+        ],
+        // Uranium
+        [
+            [1, 2, 2],
+            [1, 2, 2],
+            [2, 3, 2],
+            [2, 4, 3],
+            [2, 4, 4],
+        ],
+    ],
+    regionalPowerPlants: {
+        [Regions.Orange]: [
+            // Denmark
+            { number: 19, type: PowerPlantType.Oil, cost: 2, citiesPowered: 4 },
+            { number: 26, type: PowerPlantType.Coal, cost: 3, citiesPowered: 5 },
+        ],
+        [Regions.Red]: [
+            // Norway
+            { number: 7, type: PowerPlantType.Wind, cost: 0, citiesPowered: 1 },
+            { number: 46, type: PowerPlantType.Wind, cost: 0, citiesPowered: 6 },
+        ],
+        [Regions.Purple]: [
+            // Sweden South
+            { number: 10, type: PowerPlantType.Uranium, cost: 2, citiesPowered: 3 },
+            { number: 39, type: PowerPlantType.Wind, cost: 0, citiesPowered: 5 },
+        ],
+        [Regions.Yellow]: [
+            // Sweden North
+            { number: 21, type: PowerPlantType.Wind, cost: 0, citiesPowered: 2 },
+            { number: 25, type: PowerPlantType.Uranium, cost: 1, citiesPowered: 4 },
+        ],
+        [Regions.Brown]: [
+            // Finland
+            { number: 32, type: PowerPlantType.Garbage, cost: 2, citiesPowered: 6 },
+            { number: 44, type: PowerPlantType.Uranium, cost: 1, citiesPowered: 7 },
+        ],
+        [Regions.Pink]: [
+            // Baltic States
+            { number: 18, type: PowerPlantType.Coal, cost: 1, citiesPowered: 3 },
+            { number: 22, type: PowerPlantType.Wind, cost: 0, citiesPowered: 3 },
+        ],
+    },
+    mapSpecificRules:
+        'Nuclear plants may only be purchased by players with at least one city in Sweden, Finland, or the Baltic States. ' +
+        'Players with cities only in Norway or Denmark may not bid on or buy nuclear plants. ' +
+        'Resources start at: coal 3 Elektro, oil 3 Elektro, garbage 5 Elektro, uranium 7 Elektro.',
     connections: [
         { nodes: [Cities.Bood, Cities.Tromso], cost: 17 },
         { nodes: [Cities.Tromso, Cities.Oulu], cost: 25 },

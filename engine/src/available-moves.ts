@@ -11,6 +11,9 @@ export interface AvailableMoves {
     [MoveName.BuyResource]?: {
         resource: ResourceType;
         price: number;
+        // Korea: which side's market this buy option draws from.
+        // Omitted on all other maps.
+        side?: 'north' | 'south';
     }[];
     [MoveName.Build]?: { name: string; price: number }[];
     [MoveName.UsePowerPlant]?: {
@@ -157,7 +160,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 break;
             }
 
-            const toBuy: { resource: ResourceType }[] = [];
+            const toBuy: { resource: ResourceType; side?: 'north' | 'south' }[] = [];
             let maxPriceAvailable: number;
             if (G.map.maxPriceAvailable) {
                 maxPriceAvailable = G.map.maxPriceAvailable[G.step - 1];
@@ -165,7 +168,13 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 maxPriceAvailable = 16;
             }
 
-            if (G.coalMarket > 0) {
+            // Korea: each side is offered separately, tagged with the side. The
+            // player's chosenSide locks them to one side once they make a buy.
+            const isKorea = G.coalResupplyNorth !== undefined;
+            const allowSouth = !isKorea || G.chosenSide !== 'north';
+            const allowNorth = isKorea && G.chosenSide !== 'south';
+
+            if (allowSouth && G.coalMarket > 0) {
                 const hybridCapacityUsed =
                     player.hybridCapacity > 0 ? Math.max(0, player.oilLeft - player.oilCapacity) : 0;
                 const coalPrices = G.coalPrices ?? prices[ResourceType.Coal];
@@ -176,9 +185,11 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                     player.coalCapacity + player.hybridCapacity > hybridCapacityUsed + player.coalLeft &&
                     price <= maxPriceAvailable
                 ) {
-                    toBuy.push({ resource: ResourceType.Coal });
+                    toBuy.push(
+                        isKorea ? { resource: ResourceType.Coal, side: 'south' } : { resource: ResourceType.Coal }
+                    );
                 }
-            } else {
+            } else if (allowSouth) {
                 if (G.options.variant == 'recharged' && G.map.name == 'USA' && G.coalSupply > 0) {
                     const hybridCapacityUsed =
                         player.hybridCapacity > 0 ? Math.max(0, player.oilLeft - player.oilCapacity) : 0;
@@ -191,7 +202,22 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 }
             }
 
-            if (G.oilMarket > 0) {
+            if (allowNorth && G.coalMarketNorth! > 0) {
+                const hybridCapacityUsed =
+                    player.hybridCapacity > 0 ? Math.max(0, player.oilLeft - player.oilCapacity) : 0;
+                const coalPrices = G.coalPricesNorth!;
+                const price = coalPrices[coalPrices.length - G.coalMarketNorth!];
+
+                if (
+                    player.money >= price &&
+                    player.coalCapacity + player.hybridCapacity > hybridCapacityUsed + player.coalLeft &&
+                    price <= maxPriceAvailable
+                ) {
+                    toBuy.push({ resource: ResourceType.Coal, side: 'north' });
+                }
+            }
+
+            if (allowSouth && G.oilMarket > 0) {
                 const hybridCapacityUsed =
                     player.hybridCapacity > 0 ? Math.max(0, player.coalLeft - player.coalCapacity) : 0;
                 const oilPrices = G.oilPrices ?? prices[ResourceType.Oil];
@@ -202,11 +228,28 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                     player.oilCapacity + player.hybridCapacity > hybridCapacityUsed + player.oilLeft &&
                     price <= maxPriceAvailable
                 ) {
-                    toBuy.push({ resource: ResourceType.Oil });
+                    toBuy.push(
+                        isKorea ? { resource: ResourceType.Oil, side: 'south' } : { resource: ResourceType.Oil }
+                    );
                 }
             }
 
-            if (G.garbageMarket > 0) {
+            if (allowNorth && G.oilMarketNorth! > 0) {
+                const hybridCapacityUsed =
+                    player.hybridCapacity > 0 ? Math.max(0, player.coalLeft - player.coalCapacity) : 0;
+                const oilPrices = G.oilPricesNorth!;
+                const price = oilPrices[oilPrices.length - G.oilMarketNorth!];
+
+                if (
+                    player.money >= price &&
+                    player.oilCapacity + player.hybridCapacity > hybridCapacityUsed + player.oilLeft &&
+                    price <= maxPriceAvailable
+                ) {
+                    toBuy.push({ resource: ResourceType.Oil, side: 'north' });
+                }
+            }
+
+            if (allowSouth && G.garbageMarket > 0) {
                 const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
                 let price = garbagePrices[garbagePrices.length - G.garbageMarket];
 
@@ -223,11 +266,27 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                     player.garbageCapacity > player.garbageLeft &&
                     price <= maxPriceAvailable
                 ) {
-                    toBuy.push({ resource: ResourceType.Garbage });
+                    toBuy.push(
+                        isKorea ? { resource: ResourceType.Garbage, side: 'south' } : { resource: ResourceType.Garbage }
+                    );
                 }
             }
 
-            if (G.uraniumMarket > 0) {
+            if (allowNorth && G.garbageMarketNorth! > 0) {
+                const garbagePrices = G.garbagePricesNorth!;
+                const price = garbagePrices[garbagePrices.length - G.garbageMarketNorth!];
+
+                if (
+                    player.money >= price &&
+                    player.garbageCapacity > player.garbageLeft &&
+                    price <= maxPriceAvailable
+                ) {
+                    toBuy.push({ resource: ResourceType.Garbage, side: 'north' });
+                }
+            }
+
+            // Uranium is South only (or non-Korea maps).
+            if (allowSouth && G.uraniumMarket > 0) {
                 const uraniumPrices = G.uraniumPrices ?? prices[ResourceType.Uranium];
                 const price = uraniumPrices[uraniumPrices.length - G.uraniumMarket];
                 if (
@@ -235,7 +294,9 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                     player.uraniumCapacity > player.uraniumLeft &&
                     price <= maxPriceAvailable
                 ) {
-                    toBuy.push({ resource: ResourceType.Uranium });
+                    toBuy.push(
+                        isKorea ? { resource: ResourceType.Uranium, side: 'south' } : { resource: ResourceType.Uranium }
+                    );
                 }
             }
 

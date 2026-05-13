@@ -19,8 +19,8 @@ import { map as northamerica } from './maps/northamerica';
 import { map as northerneurope } from './maps/northerneurope';
 import { map as quebec } from './maps/quebec';
 import { map as russia } from './maps/russia';
+import { map as southafrica } from './maps/southafrica';
 import { map as spainportugal } from './maps/spainportugal';
-// import { map as southafrica } from './maps/southafrica';
 // import { map as ukireland } from './maps/ukireland';
 
 export interface City {
@@ -32,6 +32,11 @@ export interface City {
     // and connecting to them costs a fixed price (transregionalConnectionCost on the GameMap)
     // instead of the normal dijkstra path cost.
     transregional?: boolean;
+    // South Africa's six cross-border foreign-country spaces: only one player ever
+    // builds here (cap 1 instead of the standard 3), and the build skips the
+    // 10+position*5 house-base cost — the dijkstra path cost (the 30-Elektro edge)
+    // is the complete cost.
+    singleOccupancy?: boolean;
 }
 
 export interface Connection {
@@ -120,9 +125,9 @@ export const maps: GameMap[] = [
     korea,
     europe,
     northamerica,
+    southafrica,
     // australia,
     // japan,
-    // southafrica,
     // ukireland,
 ];
 
@@ -145,9 +150,9 @@ export const mapsRecharged: GameMap[] = [
     korea,
     europe,
     northamerica,
+    southafrica,
     // australia,
     // china,
     // japan,
-    // southafrica,
     // ukireland,
 ];

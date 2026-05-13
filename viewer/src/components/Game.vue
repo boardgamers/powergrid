@@ -69,6 +69,7 @@
                     G.map.name == 'Middle East' ? Math.max(G.oilMarket - G.oilPrices.filter((p) => p > 1).length, 0) : 0
                 "
                 :buyableResources="buyableResources()"
+                :coalStorage="G.coalStorage"
                 :resourceResupply="getResourceResupply()"
                 @buyResource="buyResource($event)"
             />
@@ -631,10 +632,13 @@ export default class Game extends Vue {
         }
     }
 
-    buyResource(payload: { resource: ResourceType, side?: 'north' | 'south' }) {
-        const data: { resource: ResourceType, side?: 'north' | 'south' } = { resource: payload.resource };
+    buyResource(payload: { resource: ResourceType, side?: 'north' | 'south', fromStorage?: boolean }) {
+        const data: { resource: ResourceType, side?: 'north' | 'south', fromStorage?: boolean } = { resource: payload.resource };
         if (payload.side) {
             data.side = payload.side;
+        }
+        if (payload.fromStorage) {
+            data.fromStorage = payload.fromStorage;
         }
         this.sendMove({ name: MoveName.BuyResource, data });
     }
@@ -876,7 +880,7 @@ export default class Game extends Vue {
         return !!availableMoves[MoveName.ChoosePowerPlant];
     }
 
-    buyableResources(): { resource: ResourceType, side?: 'north' | 'south' }[] {
+    buyableResources(): { resource: ResourceType, side?: 'north' | 'south', fromStorage?: boolean }[] {
         if (!this.canMove()) return [];
 
         const currentPlayer = this.G!.players[this.player!];

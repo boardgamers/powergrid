@@ -39,10 +39,10 @@
                     :key="coal.id"
                     :pieceId="coal.id"
                     :targetState="{ x: coal.x, y: coal.y }"
-                    :canClick="!coal.transparent && canBuyResource('coal', coal.side)"
+                    :canClick="!coal.transparent && canBuyResource('coal', coal.side, coal.fromStorage)"
                     :transparent="coal.transparent"
                     :scale="0.08"
-                    @click="buyResource('coal', coal.side)"
+                    @click="buyResource('coal', coal.side, coal.fromStorage)"
                 />
             </template>
             <template v-for="oil in oilsNorth">
@@ -236,15 +236,43 @@
             <Coal :pieceId="-1" :targetState="{ x: 858, y: 57 }" :canClick="false" :transparent="true" :scale="0.2" />
         </template>
 
+        <!-- South Africa: coal storage pool below the market. Always-available $8
+             flat buy. Used coal returns here; market refills draw from here first. -->
+        <template v-if="coalStorage !== undefined">
+            <rect
+                width="180"
+                height="70"
+                x="795"
+                y="45"
+                rx="2"
+                fill="chocolate"
+                stroke="sandybrown"
+                stroke-width="4px"
+            />
+            <circle r="10" cx="973" cy="45" fill="yellow" />
+            <text
+                text-anchor="middle"
+                style="font-size: 16px; font-family: monospace"
+                x="973"
+                y="45"
+                fill="darkgoldenrod"
+            >
+                8
+            </text>
+            <text text-anchor="start" style="font-size: 11px; font-family: monospace" x="800" y="42" fill="black">
+                Coal storage
+            </text>
+        </template>
+
         <template v-for="coal in coals">
             <Coal
                 :key="coal.id"
                 :pieceId="coal.id"
                 :targetState="{ x: coal.x, y: coal.y }"
-                :canClick="!coal.transparent && canBuyResource('coal', coal.side)"
+                :canClick="!coal.transparent && canBuyResource('coal', coal.side, coal.fromStorage)"
                 :transparent="coal.transparent"
                 :scale="isIndiaResourceMarket ? 0.06 : 0.08"
-                @click="buyResource('coal', coal.side)"
+                @click="buyResource('coal', coal.side, coal.fromStorage)"
             />
         </template>
 
@@ -353,7 +381,10 @@ export default class Resources extends Vue {
     @Prop() isMiddleEast?: boolean;
     @Prop() isIndiaResourceMarket?: boolean;
     @Prop() availableSurplusOil?: number;
-    @Prop() buyableResources?: { resource: string, side?: 'north' | 'south' }[];
+    @Prop() buyableResources?: { resource: string, side?: 'north' | 'south', fromStorage?: boolean }[];
+    // South Africa: number of coal cubes in the storage pool below the market.
+    // Undefined on all other maps (panel is hidden).
+    @Prop() coalStorage?: number;
 
     @Inject() preferences!: Preferences;
 
@@ -555,6 +586,19 @@ export default class Resources extends Vue {
                 });
             }
 
+            // South Africa: storage pool cubes. Always $8, clickable when buyable.
+            if (gameState.coalStorage !== undefined) {
+                range(gameState.coalStorage).forEach((i) => {
+                    this.coals.push({
+                        id: 'coal_storage_' + i,
+                        x: 800 + (i % 8) * 20 + (i >= 8 && i < 16 ? 10 : 0),
+                        y: 50 + Math.floor(i / 8) * 20,
+                        transparent: false,
+                        fromStorage: true,
+                    });
+                });
+            }
+
             this.oils = [];
             if (gameState.map?.name == 'Middle East') {
                 let maxRegularOil = gameState.oilPrices!.filter(p => p > 1).length;
@@ -668,8 +712,10 @@ export default class Resources extends Vue {
         }
     }
 
-    canBuyResource(resource: string, side?: 'north' | 'south') {
-        return !!this.buyableResources!.find(r => r.resource == resource && r.side == side);
+    canBuyResource(resource: string, side?: 'north' | 'south', fromStorage?: boolean) {
+        return !!this.buyableResources!.find(
+            (r) => r.resource == resource && r.side == side && !!r.fromStorage == !!fromStorage,
+        );
     }
 
     get hasBuyableNorth() {
@@ -680,8 +726,8 @@ export default class Resources extends Vue {
         return !!this.buyableResources?.some(r => r.side === 'south');
     }
 
-    buyResource(resource: string, side?: 'north' | 'south') {
-        this.$emit('buyResource', { resource, side });
+    buyResource(resource: string, side?: 'north' | 'south', fromStorage?: boolean) {
+        this.$emit('buyResource', { resource, side, fromStorage });
     }
 }
 </script>

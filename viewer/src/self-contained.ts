@@ -10,27 +10,20 @@ function launchSelfContained(selector = '#app') {
 
     const emitter = launch(selector);
 
-    let gameState = setup(5, { map: 'North America', variant: 'recharged', showMoney: true, randomizeMap: false }, '7');
+    let gameState = setup(5, { map: 'South Africa', variant: 'recharged', showMoney: true, randomizeMap: false }, '7');
 
-    // Dev coord-picker: drop a printed-board photo into viewer/public/, then
-    // uncomment + adjust below to overlay it behind the map. Click cities on
-    // the photo; ready-to-paste `{ name, region, x, y }` lines log to the
-    // browser console.
+    // Dev coord-picker example (commented; uncomment + drop a board photo into
+    // viewer/public/ to author city coordinates for a new map). See the picker
+    // notes in CLAUDE/memory or in the engine map-authoring docs.
     //
-    // For an EXISTING map, import the map file and replace cities +
-    // connections with the originals — this bypasses the engine's setup-time
-    // `adjustRatio` scaling and the 5-of-7 region filter, so you see all
-    // cities in their authoring coord space:
-    //   import { map as fullMap } from 'powergrid-engine/src/maps/northamerica';
-    //   gameState.map.cities = fullMap.cities.map((c) => ({ ...c }));
-    //   gameState.map.connections = fullMap.connections.map((c) => ({ ...c, nodes: [...c.nodes] }));
-    //
-    // gameState.map.devBackdrop = { src: '/board.jpg', width: 2000, height: 1716, opacity: 0.5 };
+    // import { map as fullMap } from 'powergrid-engine/src/maps/southafrica';
+    // gameState.map.cities = fullMap.cities.map((c) => ({ ...c }));
+    // gameState.map.connections = fullMap.connections.map((c) => ({ ...c, nodes: [...c.nodes] }));
+    // gameState.map.devBackdrop = { src: '/southafrica.jpg', width: 1200, height: 863, opacity: 0.5 };
     // gameState.map.adjustRatio = [1, 1];
     // gameState.map.mapRotation = 0;
     // gameState.map.mapPosition = [0, 0];
-    // gameState.map.viewBox = [2000, 1716];
-    // // Push non-map UI off-screen so it doesn't block clicks:
+    // gameState.map.viewBox = [1200, 863];
     // gameState.map.playerBoardsPosition = [-9999, -9999];
     // gameState.map.powerPlantMarketPosition = [-9999, -9999];
     // gameState.map.buttonsPosition = [-9999, -9999];
@@ -38,29 +31,6 @@ function launchSelfContained(selector = '#app') {
     // gameState.map.roundInfoPosition = [-9999, -9999];
     // gameState.map.cityCountPosition = [-9999, -9999];
     // gameState.map.playerOrderPosition = [-9999, -9999];
-
-    // gameState.map.viewBox = [1480, 1060];
-    // gameState.map.playerOrderPosition = [1160, 140];
-    // gameState.map.cityCountPosition = [0, 0];
-    // gameState.map.powerPlantMarketPosition = [745, 0];
-    // gameState.map.mapPosition = [0, 100];
-    // gameState.map.buttonsPosition = [1305, 0];
-    // gameState.map.playerBoardsPosition = [1105, 200];
-    // gameState.map.roundInfoPosition = [20, 590];
-    // gameState.map.supplyPosition = [0, 720];
-
-    // gameState.map.adjustRatio = [1, 1];
-    // gameState.map.cities = gameState.map.cities.map(city => ({
-    //     ...city,
-    //     x: city.x * gameState.map.adjustRatio![0],
-    //     y: city.y * gameState.map.adjustRatio![1]
-    // }));
-
-    // gameState.map.cities = gameState.map.cities.map(city => ({
-    //     ...city,
-    //     x: city.y,
-    //     y: 600 - city.x
-    // }));
 
     for (let i = 0; i < gameState.players.length; i++) {
         gameState.players[i].name = `Player ${i + 1}`;

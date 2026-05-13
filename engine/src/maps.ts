@@ -21,7 +21,7 @@ import { map as quebec } from './maps/quebec';
 import { map as russia } from './maps/russia';
 import { map as southafrica } from './maps/southafrica';
 import { map as spainportugal } from './maps/spainportugal';
-// import { map as ukireland } from './maps/ukireland';
+import { map as ukireland } from './maps/ukireland';
 
 export interface City {
     name: string;
@@ -37,6 +37,11 @@ export interface City {
     // 10+position*5 house-base cost — the dijkstra path cost (the 30-Elektro edge)
     // is the complete cost.
     singleOccupancy?: boolean;
+    // UK & Ireland: which physical island this city sits on ('gb' or 'ie'). Used
+    // together with GameMap.crossIslandSurcharge to model the two-network mechanic
+    // (no sea edges; starting a network on a new island costs a flat surcharge on
+    // top of the first-house base cost).
+    island?: string;
 }
 
 export interface Connection {
@@ -96,6 +101,10 @@ export interface GameMap {
         powerPlantsDeck: PowerPlant[];
     };
     regionalPowerPlants?: Record<string, PowerPlant[]>;
+    // UK & Ireland: extra Elektro paid to start a network on an island where the
+    // player has no city yet. Builds on the new island skip the dijkstra path
+    // cost (there is no sea edge) and pay 10+position*5 + this surcharge.
+    crossIslandSurcharge?: number;
     mapSpecificRules?: string;
     // Dev-only: when set, the viewer renders an `<image>` backdrop behind the
     // map and logs click positions (in local SVG coords) to the console as
@@ -126,9 +135,9 @@ export const maps: GameMap[] = [
     europe,
     northamerica,
     southafrica,
+    ukireland,
     // australia,
     // japan,
-    // ukireland,
 ];
 
 export const mapsRecharged: GameMap[] = [
@@ -151,8 +160,8 @@ export const mapsRecharged: GameMap[] = [
     europe,
     northamerica,
     southafrica,
+    ukireland,
     // australia,
     // china,
     // japan,
-    // ukireland,
 ];

@@ -94,6 +94,18 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             }
                         }
 
+                        // No nuclear plants for Republic of Ireland (Green region) on UK&I.
+                        // The restriction lifts as soon as the player has any non-Green city
+                        // (Scotland/Wales/England/Northern Ireland = Brown/Yellow/Red/Pink/Orange).
+                        if (G.map.name == 'UK & Ireland') {
+                            const playerCities = player.cities.map(
+                                (c) => G.map.cities.find((c_) => c_.name == c.name)!
+                            );
+                            if (playerCities.every((c) => c.region == 'green')) {
+                                canBid = canBid.filter((p) => p.type != PowerPlantType.Uranium);
+                            }
+                        }
+
                         if (canBid.length > 0) {
                             moves[MoveName.ChoosePowerPlant] = canBid.map((p) => p.number);
                         }
@@ -137,6 +149,19 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                                 .filter((c) => c.region == 'green' || c.region == 'brown' || c.region == 'purple');
 
                             if (validCities.length == 0 && G.chosenPowerPlant.type == PowerPlantType.Uranium) {
+                                moves[MoveName.Bid] = undefined;
+                            }
+                        }
+
+                        // No nuclear plants for Republic of Ireland (Green region) on UK&I.
+                        if (G.map.name == 'UK & Ireland') {
+                            const playerCities = player.cities.map(
+                                (c) => G.map.cities.find((c_) => c_.name == c.name)!
+                            );
+                            if (
+                                playerCities.every((c) => c.region == 'green') &&
+                                G.chosenPowerPlant.type == PowerPlantType.Uranium
+                            ) {
                                 moves[MoveName.Bid] = undefined;
                             }
                         }
@@ -357,6 +382,31 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             city.price = 9999;
                         }
                         return;
+                    }
+
+                    // UK & Ireland: starting a network on an island where the player has
+                    // no city yet pays the first-house base + crossIslandSurcharge. There
+                    // is no sea edge so dijkstra reports the target city as unreachable
+                    // (price=9999); we override here. The first build ever (player.cities
+                    // empty) goes through the normal first-build path and pays no surcharge.
+                    if (cityData.island && G.map.crossIslandSurcharge !== undefined && player.cities.length > 0) {
+                        const playerIslands = new Set(
+                            player.cities
+                                .map((c) => G.map.cities.find((mc) => mc.name == c.name)?.island)
+                                .filter((i): i is string => !!i)
+                        );
+                        if (!playerIslands.has(cityData.island)) {
+                            city.price = 10 + othersCount * 5 + G.map.crossIslandSurcharge;
+
+                            if (othersCount == G.step) {
+                                city.price = 9999;
+                            }
+
+                            if (player.cities.find((c) => c.name == city.name)) {
+                                city.price = 9999;
+                            }
+                            return;
+                        }
                     }
 
                     // South Africa's cross-border foreign-country spaces: cap at 1 occupant

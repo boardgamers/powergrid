@@ -22,10 +22,10 @@ export type MapName =
     | 'Korea'
     | 'Europe'
     | 'North America'
-    | 'South Africa';
+    | 'South Africa'
+    | 'UK & Ireland';
 // | 'Australia'
 // | 'Japan'
-// | 'UK & Ireland'
 export type Variant = 'original' | 'recharged';
 
 export interface GameOptions {

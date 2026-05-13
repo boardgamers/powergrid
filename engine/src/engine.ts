@@ -15,6 +15,7 @@ export const playerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', '
 
 const citiesToStep2 = [10, 7, 7, 7, 6];
 const citiesToStep2BadenWurttemberg = [9, 6, 6, 6, 5];
+const citiesToStep2UKIreland = [7, 7, 7, 7, 6];
 const citiesToEndGame = [21, 17, 17, 15, 14];
 const cityIncome = [10, 22, 33, 44, 54, 64, 73, 82, 90, 98, 105, 112, 118, 124, 129, 134, 138, 142, 145, 148, 150, 150];
 const regionsInPlay = [3, 3, 4, 5, 5];
@@ -260,7 +261,14 @@ export function setup(
             const region = regions[Math.floor(rng() * regions.length)];
             if (
                 playRegions.size == 0 ||
-                regionConnections[regions.indexOf(region)].some((con) => playRegions.has(con))
+                regionConnections[regions.indexOf(region)].some((con) => playRegions.has(con)) ||
+                // UK & Ireland: regions on the two islands have no edges between
+                // them (no sea connection). Skipping the connectivity check lets
+                // the random selection span both islands; the cross-island
+                // surcharge handles the disconnect at build time. Without this,
+                // requiring 5-of-6 regions for 5p would loop forever (GB has 4
+                // regions, IE has 2).
+                chosenMap.name === 'UK & Ireland'
             ) {
                 playRegions.add(region);
 
@@ -388,6 +396,8 @@ export function setup(
         citiesToStep2:
             (forceMap || finalMap).name == 'Baden-Württemberg'
                 ? citiesToStep2BadenWurttemberg[numPlayers - 2]
+                : (forceMap || finalMap).name == 'UK & Ireland'
+                ? citiesToStep2UKIreland[numPlayers - 2]
                 : citiesToStep2[numPlayers - 2],
         citiesToEndGame: citiesToEndGame[numPlayers - 2],
         resourceResupply: [

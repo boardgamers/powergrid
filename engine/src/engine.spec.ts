@@ -141,6 +141,23 @@ describe('Engine', () => {
         expect(ended(G)).to.be.false;
     });
 
+    it('should place UK & Ireland Step 3 card third from last with two plants below it', () => {
+        // UK & Ireland rules: the Step 3 card (plant 99) goes at deck.length - 3
+        // so two plants sit below it, and Step 3 fires two auctions earlier than
+        // a standard "Step 3 at the bottom" deck.
+        const G = setup(5, { map: 'UK & Ireland', variant: 'recharged', randomizeMap: false }, 'ukireland-test-seed');
+
+        const step3Idx = G.powerPlantsDeck.findIndex((p) => p.number === 99);
+        expect(step3Idx).to.equal(G.powerPlantsDeck.length - 3);
+
+        // The two plants below Step 3 are real plants (not another Step 3 card or
+        // undefined slots).
+        expect(G.powerPlantsDeck[step3Idx + 1]).to.exist;
+        expect(G.powerPlantsDeck[step3Idx + 2]).to.exist;
+        expect(G.powerPlantsDeck[step3Idx + 1].number).to.not.equal(99);
+        expect(G.powerPlantsDeck[step3Idx + 2].number).to.not.equal(99);
+    });
+
     it('should allow invalid move when isUndo is true', () => {
         const game = undo;
         const options: GameOptions = {

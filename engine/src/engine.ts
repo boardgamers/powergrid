@@ -495,7 +495,9 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
         case MoveName.ChoosePowerPlant: {
             asserts<Moves.MoveChoosePowerPlant>(move);
 
-            G.chosenPowerPlant = getPowerPlant(move.data, G.map.name);
+            // Pull from actualMarket so regionalPowerPlants overrides survive
+            // selection — canonical getPowerPlant() lookup would lose them.
+            G.chosenPowerPlant = G.actualMarket.find((p) => p.number === move.data)!;
             G.auctioningPlayer = player.id;
 
             if (move.data == 39) {

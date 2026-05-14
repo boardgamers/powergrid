@@ -14,6 +14,9 @@ export interface AvailableMoves {
         // Korea: which side's market this buy option draws from.
         // Omitted on all other maps.
         side?: 'north' | 'south';
+        // South Africa: $8 flat buy from the coal storage pool below the market.
+        // Distinct from the regular market buy (which can also be offered alongside).
+        fromStorage?: boolean;
     }[];
     [MoveName.Build]?: { name: string; price: number }[];
     [MoveName.UsePowerPlant]?: {
@@ -91,6 +94,18 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             }
                         }
 
+                        // No nuclear plants for Republic of Ireland (Green region) on UK&I.
+                        // The restriction lifts as soon as the player has any non-Green city
+                        // (Scotland/Wales/England/Northern Ireland = Brown/Yellow/Red/Pink/Orange).
+                        if (G.map.name == 'UK & Ireland') {
+                            const playerCities = player.cities.map(
+                                (c) => G.map.cities.find((c_) => c_.name == c.name)!
+                            );
+                            if (playerCities.every((c) => c.region == 'green')) {
+                                canBid = canBid.filter((p) => p.type != PowerPlantType.Uranium);
+                            }
+                        }
+
                         if (canBid.length > 0) {
                             moves[MoveName.ChoosePowerPlant] = canBid.map((p) => p.number);
                         }
@@ -138,6 +153,19 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             }
                         }
 
+                        // No nuclear plants for Republic of Ireland (Green region) on UK&I.
+                        if (G.map.name == 'UK & Ireland') {
+                            const playerCities = player.cities.map(
+                                (c) => G.map.cities.find((c_) => c_.name == c.name)!
+                            );
+                            if (
+                                playerCities.every((c) => c.region == 'green') &&
+                                G.chosenPowerPlant.type == PowerPlantType.Uranium
+                            ) {
+                                moves[MoveName.Bid] = undefined;
+                            }
+                        }
+
                         if (G.options.fastBid) {
                             if (player.id != G.auctioningPlayer) {
                                 moves[MoveName.Pass] = [true];
@@ -160,7 +188,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 break;
             }
 
-            const toBuy: { resource: ResourceType; side?: 'north' | 'south' }[] = [];
+            const toBuy: { resource: ResourceType; side?: 'north' | 'south'; fromStorage?: boolean }[] = [];
             let maxPriceAvailable: number;
             if (G.map.maxPriceAvailable) {
                 maxPriceAvailable = G.map.maxPriceAvailable[G.step - 1];
@@ -199,6 +227,21 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                     ) {
                         toBuy.push({ resource: ResourceType.Coal });
                     }
+                }
+            }
+
+            // South Africa: $8 flat coal from the storage pool below the market.
+            // Always available alongside the regular market option (not gated on
+            // market being empty), as long as there are cubes in storage.
+            if (allowSouth && G.coalStorage !== undefined && G.coalStorage > 0) {
+                const hybridCapacityUsed =
+                    player.hybridCapacity > 0 ? Math.max(0, player.oilLeft - player.oilCapacity) : 0;
+                if (
+                    player.money >= 8 &&
+                    player.coalCapacity + player.hybridCapacity > hybridCapacityUsed + player.coalLeft &&
+                    8 <= maxPriceAvailable
+                ) {
+                    toBuy.push({ resource: ResourceType.Coal, fromStorage: true });
                 }
             }
 
@@ -335,6 +378,50 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             city.price = 9999;
                         }
 
+                        if (player.cities.find((c) => c.name == city.name)) {
+                            city.price = 9999;
+                        }
+                        return;
+                    }
+
+                    // UK & Ireland: starting a network on an island where the player has
+                    // no city yet pays the first-house base + crossIslandSurcharge. There
+                    // is no sea edge so dijkstra reports the target city as unreachable
+                    // (price=9999); we override here. The first build ever (player.cities
+                    // empty) goes through the normal first-build path and pays no surcharge.
+                    if (cityData.island && G.map.crossIslandSurcharge !== undefined && player.cities.length > 0) {
+                        const playerIslands = new Set(
+                            player.cities
+                                .map((c) => G.map.cities.find((mc) => mc.name == c.name)?.island)
+                                .filter((i): i is string => !!i)
+                        );
+                        if (!playerIslands.has(cityData.island)) {
+                            city.price = 10 + othersCount * 5 + G.map.crossIslandSurcharge;
+
+                            if (othersCount == G.step) {
+                                city.price = 9999;
+                            }
+
+                            if (player.cities.find((c) => c.name == city.name)) {
+                                city.price = 9999;
+                            }
+                            return;
+                        }
+                    }
+
+                    // South Africa's cross-border foreign-country spaces: cap at 1 occupant
+                    // ever, and the dijkstra path cost (30 via the cross-border edge) is the
+                    // complete cost — no 10+position*5 house base is added. Players cannot
+                    // start in one of these (you have to build INTO South Africa first).
+                    if (cityData.singleOccupancy) {
+                        if (player.cities.length == 0) {
+                            city.price = 9999;
+                            return;
+                        }
+                        if (othersCount >= 1) {
+                            city.price = 9999;
+                            return;
+                        }
                         if (player.cities.find((c) => c.name == city.name)) {
                             city.price = 9999;
                         }

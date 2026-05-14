@@ -49,12 +49,13 @@
 
             <Map
                 ref="map"
-                :transform="`translate(${G.map.mapPosition[0]}, ${G.map.mapPosition[1]})`"
+                :transform="mapTransform"
                 :playerColors="playerColors"
                 :cities="G.map.cities"
                 :connections="G.map.connections"
                 :polygons="G.map.polygons"
                 :buildableCities="getBuildableCities()"
+                :devBackdrop="G.map.devBackdrop"
                 @build="build($event)"
             />
 
@@ -68,6 +69,7 @@
                     G.map.name == 'Middle East' ? Math.max(G.oilMarket - G.oilPrices.filter((p) => p > 1).length, 0) : 0
                 "
                 :buyableResources="buyableResources()"
+                :coalStorage="G.coalStorage"
                 :resourceResupply="getResourceResupply()"
                 @buyResource="buyResource($event)"
             />
@@ -630,10 +632,13 @@ export default class Game extends Vue {
         }
     }
 
-    buyResource(payload: { resource: ResourceType, side?: 'north' | 'south' }) {
-        const data: { resource: ResourceType, side?: 'north' | 'south' } = { resource: payload.resource };
+    buyResource(payload: { resource: ResourceType, side?: 'north' | 'south', fromStorage?: boolean }) {
+        const data: { resource: ResourceType, side?: 'north' | 'south', fromStorage?: boolean } = { resource: payload.resource };
         if (payload.side) {
             data.side = payload.side;
+        }
+        if (payload.fromStorage) {
+            data.fromStorage = payload.fromStorage;
         }
         this.sendMove({ name: MoveName.BuyResource, data });
     }
@@ -875,7 +880,7 @@ export default class Game extends Vue {
         return !!availableMoves[MoveName.ChoosePowerPlant];
     }
 
-    buyableResources(): { resource: ResourceType, side?: 'north' | 'south' }[] {
+    buyableResources(): { resource: ResourceType, side?: 'north' | 'south', fromStorage?: boolean }[] {
         if (!this.canMove()) return [];
 
         const currentPlayer = this.G!.players[this.player!];
@@ -1095,6 +1100,19 @@ export default class Game extends Vue {
 
     get sortedPlayers() {
         return playersSortedByScore(this.G!);
+    }
+
+    get mapTransform() {
+        if (!this.G?.map) return '';
+        const [mx, my] = this.G.map.mapPosition!;
+        const rotation = this.G.map.mapRotation;
+        if (!rotation) return `translate(${mx}, ${my})`;
+        const cities = this.G.map.cities;
+        const xs = cities.map((c) => c.x);
+        const ys = cities.map((c) => c.y);
+        const cx = (Math.min(...xs) + Math.max(...xs)) / 2;
+        const cy = (Math.min(...ys) + Math.max(...ys)) / 2;
+        return `translate(${mx}, ${my}) rotate(${rotation}, ${cx}, ${cy})`;
     }
 
     get adjustedPlayerOrder() {

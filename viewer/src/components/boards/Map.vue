@@ -1,5 +1,16 @@
 <template>
-    <g>
+    <g @click="onPickCoord">
+        <!-- Dev-only backdrop for coord-picking. See GameMap.devBackdrop. -->
+        <image
+            v-if="devBackdrop"
+            :href="devBackdrop.src"
+            x="0"
+            y="0"
+            :width="devBackdrop.width"
+            :height="devBackdrop.height"
+            :opacity="devBackdrop.opacity != null ? devBackdrop.opacity : 0.5"
+        />
+
         <!-- <template v-for="polygon in polygons">
             <polygon
                 :key="'pol_ ' + polygon.region"
@@ -17,6 +28,27 @@
             <circle :key="city.name + '_circle'" r="20" :cx="city.x" :cy="city.y" fill="gray" stroke="black">
                 <title>{{ city.name }}</title>
             </circle>
+            <!-- South Africa cross-border spaces: render a small red pennant
+                 above the city. Marks a single-occupancy space ($30 total cost). -->
+            <g v-if="city.singleOccupancy" :key="city.name + '_flag'">
+                <line
+                    :x1="city.x + 12"
+                    :y1="city.y - 12"
+                    :x2="city.x + 12"
+                    :y2="city.y - 32"
+                    stroke="black"
+                    stroke-width="1.5"
+                />
+                <polygon
+                    :points="`${city.x + 12},${city.y - 32} ${city.x + 26},${city.y - 28} ${city.x + 12},${
+                        city.y - 24
+                    }`"
+                    fill="red"
+                    stroke="black"
+                    stroke-width="1"
+                />
+                <title>{{ city.name }} — cross-border space (1 house max, 30 Elektro total cost)</title>
+            </g>
         </template>
 
         <template v-for="connection in connections">
@@ -132,6 +164,7 @@ export default class Map extends Vue {
     @Prop() connections?: Connection[];
     @Prop() playerColors?: string[];
     @Prop() buildableCities?: string[];
+    @Prop() devBackdrop?: { src: string; width: number; height: number; opacity?: number };
 
     @Inject() preferences!: Preferences;
 
@@ -191,6 +224,16 @@ export default class Map extends Vue {
 
     build(city: City) {
         this.$emit('build', city);
+    }
+
+    onPickCoord(e: MouseEvent) {
+        if (!this.devBackdrop) return;
+        const g = e.currentTarget as SVGGElement;
+        const ctm = g.getScreenCTM();
+        if (!ctm) return;
+        const pt = new DOMPoint(e.clientX, e.clientY).matrixTransform(ctm.inverse());
+        // eslint-disable-next-line no-console
+        console.log(`{ name: Cities.TODO, region: Regions.TODO, x: ${Math.round(pt.x)}, y: ${Math.round(pt.y)} },`);
     }
 }
 </script>

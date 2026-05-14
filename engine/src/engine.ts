@@ -15,6 +15,7 @@ export const playerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', '
 
 const citiesToStep2 = [10, 7, 7, 7, 6];
 const citiesToStep2BadenWurttemberg = [9, 6, 6, 6, 5];
+const citiesToStep2UKIreland = [7, 7, 7, 7, 6];
 const citiesToEndGame = [21, 17, 17, 15, 14];
 const cityIncome = [10, 22, 33, 44, 54, 64, 73, 82, 90, 98, 105, 112, 118, 124, 129, 134, 138, 142, 145, 148, 150, 150];
 const regionsInPlay = [3, 3, 4, 5, 5];
@@ -260,7 +261,14 @@ export function setup(
             const region = regions[Math.floor(rng() * regions.length)];
             if (
                 playRegions.size == 0 ||
-                regionConnections[regions.indexOf(region)].some((con) => playRegions.has(con))
+                regionConnections[regions.indexOf(region)].some((con) => playRegions.has(con)) ||
+                // UK & Ireland: regions on the two islands have no edges between
+                // them (no sea connection). Skipping the connectivity check lets
+                // the random selection span both islands; the cross-island
+                // surcharge handles the disconnect at build time. Without this,
+                // requiring 5-of-6 regions for 5p would loop forever (GB has 4
+                // regions, IE has 2).
+                chosenMap.name === 'UK & Ireland'
             ) {
                 playRegions.add(region);
 
@@ -333,6 +341,8 @@ export function setup(
     const oilPricesNorth = chosenMap.oilPricesNorth ? cloneDeep(chosenMap.oilPricesNorth) : undefined;
     const garbagePricesNorth = chosenMap.garbagePricesNorth ? cloneDeep(chosenMap.garbagePricesNorth) : undefined;
 
+    const isSouthAfrica = (forceMap || finalMap).name == 'South Africa';
+
     const G: GameState = {
         map: forceMap || finalMap,
         players,
@@ -343,6 +353,9 @@ export function setup(
         oilSupply,
         garbageSupply,
         uraniumSupply,
+        // South Africa: separate coal pool below the market. Starts empty;
+        // used coal returns here; refill draws from here first.
+        coalStorage: isSouthAfrica ? 0 : undefined,
         coalResupply,
         oilResupply,
         garbageResupply,
@@ -383,6 +396,8 @@ export function setup(
         citiesToStep2:
             (forceMap || finalMap).name == 'Baden-Württemberg'
                 ? citiesToStep2BadenWurttemberg[numPlayers - 2]
+                : (forceMap || finalMap).name == 'UK & Ireland'
+                ? citiesToStep2UKIreland[numPlayers - 2]
                 : citiesToStep2[numPlayers - 2],
         citiesToEndGame: citiesToEndGame[numPlayers - 2],
         resourceResupply: [
@@ -755,7 +770,17 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                     }
                                 }
 
-                                addPowerPlant(G);
+                                if (G.map.name == 'Europe') {
+                                    // Europe: do NOT draw a replacement from the deck.
+                                    // The future market shrinks from 5 to 4; reorganize
+                                    // the remaining 8 plants so actual stays at 4.
+                                    const market = [...G.actualMarket, ...G.futureMarket];
+                                    market.sort((a, b) => a.number - b.number);
+                                    G.actualMarket = market.slice(0, 4);
+                                    G.futureMarket = market.slice(4);
+                                } else {
+                                    addPowerPlant(G);
+                                }
                             }
                         }
 
@@ -883,13 +908,26 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             G.garbageSupply -= garbageResupplyNorthValue;
                         }
 
-                        const coalResupplyValue = Math.min(
-                            G.coalSupply,
-                            G.coalResupply![G.players.length - 2][G.step - 1],
-                            coalCapSouth
-                        );
-                        G.coalMarket += coalResupplyValue;
-                        G.coalSupply -= coalResupplyValue;
+                        // South Africa pulls from coalStorage first, then coalSupply.
+                        // Other maps just pull from coalSupply.
+                        let coalResupplyValue: number;
+                        if (G.coalStorage !== undefined) {
+                            const wantCoal = Math.min(G.coalResupply![G.players.length - 2][G.step - 1], coalCapSouth);
+                            const fromStorage = Math.min(G.coalStorage, wantCoal);
+                            const fromSupply = Math.min(G.coalSupply, wantCoal - fromStorage);
+                            coalResupplyValue = fromStorage + fromSupply;
+                            G.coalMarket += coalResupplyValue;
+                            G.coalStorage -= fromStorage;
+                            G.coalSupply -= fromSupply;
+                        } else {
+                            coalResupplyValue = Math.min(
+                                G.coalSupply,
+                                G.coalResupply![G.players.length - 2][G.step - 1],
+                                coalCapSouth
+                            );
+                            G.coalMarket += coalResupplyValue;
+                            G.coalSupply -= coalResupplyValue;
+                        }
 
                         let oilResupplyValue: number;
                         if (G.map.name == 'Middle East') {
@@ -1284,6 +1322,11 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         price = coalPrices[coalPrices.length - G.coalMarketNorth!];
                         player.coalLeft++;
                         G.coalMarketNorth!--;
+                    } else if (move.data.fromStorage) {
+                        // South Africa: $8 flat from the storage pool below the market.
+                        price = 8;
+                        player.coalLeft++;
+                        G.coalStorage!--;
                     } else if (G.coalMarket == 0) {
                         price = 8;
                         player.coalLeft++;
@@ -1375,8 +1418,14 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
             player.money -= move.data.price;
 
             if (G.options.trackTotalSpent) {
-                player.totalSpentCities += 10 + position * 5;
-                player.totalSpentConnections += move.data.price - (10 + position * 5);
+                const cityData = G.map.cities.find((c) => c.name == move.data.name)!;
+                if (cityData.singleOccupancy) {
+                    // SA cross-border: no house base — full price is "connection".
+                    player.totalSpentConnections += move.data.price;
+                } else {
+                    player.totalSpentCities += 10 + position * 5;
+                    player.totalSpentConnections += move.data.price - (10 + position * 5);
+                }
             }
 
             G.log.push({
@@ -1417,7 +1466,12 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 switch (resourceType) {
                     case ResourceType.Coal:
                         player.coalLeft--;
-                        G.coalSupply++;
+                        // SA: used coal returns to the separate storage pool below the market.
+                        if (G.coalStorage !== undefined) {
+                            G.coalStorage++;
+                        } else {
+                            G.coalSupply++;
+                        }
                         break;
 
                     case ResourceType.Oil:
@@ -1484,6 +1538,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 G.coalMarketNorth!++;
                                 const coalPrices = G.coalPricesNorth!;
                                 price = coalPrices[coalPrices.length - G.coalMarketNorth!];
+                            } else if (lastMove.data.fromStorage) {
+                                price = 8;
+                                player.coalLeft--;
+                                G.coalStorage!++;
                             } else if (lastMove.fromSupply) {
                                 price = 8;
                                 player.coalLeft--;

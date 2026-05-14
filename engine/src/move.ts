@@ -30,6 +30,10 @@ export declare namespace Moves {
             // Korea: which side's market the resource was bought from.
             // Omitted on all other maps.
             side?: 'north' | 'south';
+            // South Africa: coal bought from the storage pool below the market
+            // ($8 flat) rather than from the market. Omitted on all other maps
+            // and on regular SA market buys.
+            fromStorage?: boolean;
         };
         fromSupply?: boolean;
     }

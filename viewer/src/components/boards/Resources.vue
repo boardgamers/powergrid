@@ -39,10 +39,10 @@
                     :key="coal.id"
                     :pieceId="coal.id"
                     :targetState="{ x: coal.x, y: coal.y }"
-                    :canClick="!coal.transparent && canBuyResource('coal', coal.side)"
+                    :canClick="!coal.transparent && canBuyResource('coal', coal.side, coal.fromStorage)"
                     :transparent="coal.transparent"
                     :scale="0.08"
-                    @click="buyResource('coal', coal.side)"
+                    @click="buyResource('coal', coal.side, coal.fromStorage)"
                 />
             </template>
             <template v-for="oil in oilsNorth">
@@ -92,9 +92,18 @@
         </text>
         <Uranium :pieceId="-1" :targetState="{ x: 428, y: 12 }" :canClick="false" :transparent="false" />
 
-        <rect v-if="!isIndiaResourceMarket" width="760" height="80" x="20" y="40" rx="3" fill="goldenrod" />
+        <rect
+            v-if="!isIndiaResourceMarket && !isNinePriceMarket"
+            width="760"
+            height="80"
+            x="20"
+            y="40"
+            rx="3"
+            fill="goldenrod"
+        />
+        <rect v-if="isNinePriceMarket" width="780" height="80" x="20" y="40" rx="3" fill="goldenrod" />
         <rect v-if="isIndiaResourceMarket" width="680" height="80" x="20" y="40" rx="3" fill="goldenrod" />
-        <template v-for="index in 8">
+        <template v-for="index in isNinePriceMarket ? 9 : 8">
             <rect
                 :key="'resources' + index"
                 width="70"
@@ -115,7 +124,7 @@
             >
                 {{ index }}
             </text>
-            <g :key="'lines' + index" v-if="!isIndiaResourceMarket">
+            <g :key="'lines' + index" v-if="!isIndiaResourceMarket && !isNinePriceMarket">
                 <line :x1="25 + 85 * (index - 1)" y1="68" :x2="95 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
                 <line :x1="25 + 85 * (index - 1)" y1="92" :x2="95 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
 
@@ -153,7 +162,7 @@
             </g>
         </template>
 
-        <template v-if="!isIndiaResourceMarket">
+        <template v-if="!isIndiaResourceMarket && !isNinePriceMarket">
             <rect width="30" height="30" x="705" y="45" rx="2" fill="darkgoldenrod" />
             <circle r="10" cx="732" cy="48" fill="yellow" />
             <text
@@ -227,15 +236,43 @@
             <Coal :pieceId="-1" :targetState="{ x: 858, y: 57 }" :canClick="false" :transparent="true" :scale="0.2" />
         </template>
 
+        <!-- South Africa: coal storage pool below the market. Always-available $8
+             flat buy. Used coal returns here; market refills draw from here first. -->
+        <template v-if="coalStorage !== undefined">
+            <rect
+                width="180"
+                height="70"
+                x="795"
+                y="45"
+                rx="2"
+                fill="chocolate"
+                stroke="sandybrown"
+                stroke-width="4px"
+            />
+            <circle r="10" cx="973" cy="45" fill="yellow" />
+            <text
+                text-anchor="middle"
+                style="font-size: 16px; font-family: monospace"
+                x="973"
+                y="45"
+                fill="darkgoldenrod"
+            >
+                8
+            </text>
+            <text text-anchor="start" style="font-size: 11px; font-family: monospace" x="800" y="42" fill="black">
+                Coal storage
+            </text>
+        </template>
+
         <template v-for="coal in coals">
             <Coal
                 :key="coal.id"
                 :pieceId="coal.id"
                 :targetState="{ x: coal.x, y: coal.y }"
-                :canClick="!coal.transparent && canBuyResource('coal', coal.side)"
+                :canClick="!coal.transparent && canBuyResource('coal', coal.side, coal.fromStorage)"
                 :transparent="coal.transparent"
                 :scale="isIndiaResourceMarket ? 0.06 : 0.08"
-                @click="buyResource('coal', coal.side)"
+                @click="buyResource('coal', coal.side, coal.fromStorage)"
             />
         </template>
 
@@ -344,7 +381,10 @@ export default class Resources extends Vue {
     @Prop() isMiddleEast?: boolean;
     @Prop() isIndiaResourceMarket?: boolean;
     @Prop() availableSurplusOil?: number;
-    @Prop() buyableResources?: { resource: string, side?: 'north' | 'south' }[];
+    @Prop() buyableResources?: { resource: string, side?: 'north' | 'south', fromStorage?: boolean }[];
+    // South Africa: number of coal cubes in the storage pool below the market.
+    // Undefined on all other maps (panel is hidden).
+    @Prop() coalStorage?: number;
 
     @Inject() preferences!: Preferences;
 
@@ -354,25 +394,27 @@ export default class Resources extends Vue {
     uraniums: Piece[] = [];
 
     isKorea: boolean = false;
+    isNinePriceMarket: boolean = false;
     coalsNorth: Piece[] = [];
     oilsNorth: Piece[] = [];
     garbagesNorth: Piece[] = [];
 
-    // Korea: lay out cubes within 8 price spaces ($1..$8) using the prices array
+    // Lay out cubes within price spaces ($1..$maxPrice) using the prices array
     // to determine slot count per space. Cubes are indexed cheap→expensive in the
     // prices array, so the cheap end empties as the market depletes.
-    // Skips entries with price > 8 (uranium corner $10/$12/$14/$16) — caller renders
-    // those separately.
-    private buildKoreaMainRowPieces(
+    // Skips entries with price > maxPrice — used for Korea uranium corners ($10..$16),
+    // which the caller renders separately. Europe maxPrice=9 (no corners).
+    private buildMainRowPieces(
         prices: number[],
         market: number,
         idPrefix: string,
-        side: 'north' | 'south',
         y: number,
+        options: { side?: 'north' | 'south'; maxPrice?: number } = {},
     ): Piece[] {
+        const maxPrice = options.maxPrice ?? 8;
         const groups: { price: number; slots: number; firstIdx: number }[] = [];
         prices.forEach((p, idx) => {
-            if (p > 8) return;
+            if (p > maxPrice) return;
             const last = groups[groups.length - 1];
             if (last && last.price === p) last.slots++;
             else groups.push({ price: p, slots: 1, firstIdx: idx });
@@ -394,7 +436,7 @@ export default class Resources extends Vue {
                     x,
                     y,
                     transparent: i < (prices.length - market),
-                    side,
+                    side: options.side,
                 });
             }
         });
@@ -409,14 +451,14 @@ export default class Resources extends Vue {
 
         if (isKorea) {
             // SOUTH market — main row coal/oil/garbage at the existing y positions.
-            this.coals = this.buildKoreaMainRowPieces(
-                gameState.coalPrices!, gameState.coalMarket, 'coal', 'south', 48,
+            this.coals = this.buildMainRowPieces(
+                gameState.coalPrices!, gameState.coalMarket, 'coal', 48, { side: 'south' },
             );
-            this.oils = this.buildKoreaMainRowPieces(
-                gameState.oilPrices!, gameState.oilMarket, 'oil', 'south', 70,
+            this.oils = this.buildMainRowPieces(
+                gameState.oilPrices!, gameState.oilMarket, 'oil', 70, { side: 'south' },
             );
-            this.garbages = this.buildKoreaMainRowPieces(
-                gameState.garbagePrices!, gameState.garbageMarket, 'garbage', 'south', 94,
+            this.garbages = this.buildMainRowPieces(
+                gameState.garbagePrices!, gameState.garbageMarket, 'garbage', 94, { side: 'south' },
             );
 
             // SOUTH uranium: $1..$8 sit between the oil (y=70) and garbage (y=94) rows
@@ -446,18 +488,40 @@ export default class Resources extends Vue {
 
             // NORTH market — placed above the South so its rect sits at y=-100..-20.
             // Cube rows match the South layout's offsets within the rect (top/mid/bottom).
-            this.coalsNorth = this.buildKoreaMainRowPieces(
-                gameState.coalPricesNorth!, gameState.coalMarketNorth!, 'coal_north', 'north', -92,
+            this.coalsNorth = this.buildMainRowPieces(
+                gameState.coalPricesNorth!, gameState.coalMarketNorth!, 'coal_north', -92, { side: 'north' },
             );
-            this.oilsNorth = this.buildKoreaMainRowPieces(
-                gameState.oilPricesNorth!, gameState.oilMarketNorth!, 'oil_north', 'north', -70,
+            this.oilsNorth = this.buildMainRowPieces(
+                gameState.oilPricesNorth!, gameState.oilMarketNorth!, 'oil_north', -70, { side: 'north' },
             );
-            this.garbagesNorth = this.buildKoreaMainRowPieces(
-                gameState.garbagePricesNorth!, gameState.garbageMarketNorth!, 'garbage_north', 'north', -46,
+            this.garbagesNorth = this.buildMainRowPieces(
+                gameState.garbagePricesNorth!, gameState.garbageMarketNorth!, 'garbage_north', -46, { side: 'north' },
             );
 
             return;
         }
+
+        // Europe and North America: 9 price spaces ($1..$9), per-price slot count
+        // varies by resource, and uranium tops out at $9 (no $10/$12/$14/$16 corner).
+        // Rows are spaced apart (uranium between oil and garbage) so each cube
+        // is comfortably clickable: oil 70 → uranium 92 → garbage 106.
+        if (gameState.map?.name === 'Europe' || gameState.map?.name === 'North America') {
+            this.isNinePriceMarket = true;
+            this.coals = this.buildMainRowPieces(
+                gameState.coalPrices!, gameState.coalMarket, 'coal', 48, { maxPrice: 9 },
+            );
+            this.oils = this.buildMainRowPieces(
+                gameState.oilPrices!, gameState.oilMarket, 'oil', 70, { maxPrice: 9 },
+            );
+            this.uraniums = this.buildMainRowPieces(
+                gameState.uraniumPrices!, gameState.uraniumMarket, 'uranium', 92, { maxPrice: 9 },
+            );
+            this.garbages = this.buildMainRowPieces(
+                gameState.garbagePrices!, gameState.garbageMarket, 'garbage', 106, { maxPrice: 9 },
+            );
+            return;
+        }
+        this.isNinePriceMarket = false;
 
         // Non-Korea: original logic below (unchanged).
         this.coalsNorth = [];
@@ -518,6 +582,19 @@ export default class Resources extends Vue {
                         x: 800 + (i % 8) * 20 + (i >= 8 && i < 16 ? 10 : 0),
                         y: 50 + Math.floor(i / 8) * 20,
                         transparent: false,
+                    });
+                });
+            }
+
+            // South Africa: storage pool cubes. Always $8, clickable when buyable.
+            if (gameState.coalStorage !== undefined) {
+                range(gameState.coalStorage).forEach((i) => {
+                    this.coals.push({
+                        id: 'coal_storage_' + i,
+                        x: 800 + (i % 8) * 20 + (i >= 8 && i < 16 ? 10 : 0),
+                        y: 50 + Math.floor(i / 8) * 20,
+                        transparent: false,
+                        fromStorage: true,
                     });
                 });
             }
@@ -635,8 +712,10 @@ export default class Resources extends Vue {
         }
     }
 
-    canBuyResource(resource: string, side?: 'north' | 'south') {
-        return !!this.buyableResources!.find(r => r.resource == resource && r.side == side);
+    canBuyResource(resource: string, side?: 'north' | 'south', fromStorage?: boolean) {
+        return !!this.buyableResources!.find(
+            (r) => r.resource == resource && r.side == side && !!r.fromStorage == !!fromStorage,
+        );
     }
 
     get hasBuyableNorth() {
@@ -647,8 +726,8 @@ export default class Resources extends Vue {
         return !!this.buyableResources?.some(r => r.side === 'south');
     }
 
-    buyResource(resource: string, side?: 'north' | 'south') {
-        this.$emit('buyResource', { resource, side });
+    buyResource(resource: string, side?: 'north' | 'south', fromStorage?: boolean) {
+        this.$emit('buyResource', { resource, side, fromStorage });
     }
 }
 </script>

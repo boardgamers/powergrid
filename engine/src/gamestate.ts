@@ -19,11 +19,13 @@ export type MapName =
     | 'Central Europe'
     | 'Baden-Württemberg'
     | 'Northern Europe'
-    | 'Korea';
+    | 'Korea'
+    | 'Europe'
+    | 'North America'
+    | 'South Africa'
+    | 'UK & Ireland';
 // | 'Australia'
 // | 'Japan'
-// | 'South Africa'
-// | 'UK & Ireland'
 export type Variant = 'original' | 'recharged';
 
 export interface GameOptions {
@@ -121,6 +123,11 @@ export interface GameState {
     oilSupply: number;
     garbageSupply: number;
     uraniumSupply: number;
+    // South Africa: coal used to power plants returns here instead of coalSupply.
+    // Market refills draw from this pool first, then fall back to coalSupply.
+    // Players can always buy a coal cube from here for $8 (on top of the normal
+    // market). Undefined on non-SA maps.
+    coalStorage?: number;
     coalMarket: number;
     oilMarket: number;
     garbageMarket: number;

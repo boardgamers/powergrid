@@ -95,9 +95,12 @@ export function setup(
     seed = seed ?? Math.random().toString();
     const rng = seedrandom(seed);
 
-    const chosenMap = cloneDeep(
-        variant == 'original' ? maps.find((m) => m.name == map)! : mapsRecharged.find((m) => m.name == map)!
-    );
+    const chosenMapRaw =
+        variant == 'original' ? maps.find((m) => m.name == map) : mapsRecharged.find((m) => m.name == map);
+    if (!chosenMapRaw) {
+        throw new Error(`Map "${map}" not found for variant "${variant}"`);
+    }
+    const chosenMap = cloneDeep(chosenMapRaw);
 
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];

@@ -141,6 +141,50 @@ describe('Engine', () => {
         expect(ended(G)).to.be.false;
     });
 
+    it('should setup Korea with dual-market populated and players ready to move', () => {
+        // Smoke test for the Korea map (PR #74). If a deployed lobby fails to
+        // auto-start, setup() is the most likely culprit — this catches that
+        // class of bug without needing a recorded game fixture.
+        const G = setup(
+            2,
+            { map: 'Korea', variant: 'recharged', randomizeMap: false, fastBid: false },
+            'korea-test-seed'
+        );
+
+        expect(ended(G)).to.be.false;
+        expect(G.map.name).to.equal('Korea');
+
+        // South-side markets (standard fields, uranium only here)
+        expect(G.coalMarket).to.be.greaterThan(0);
+        expect(G.oilMarket).to.be.greaterThan(0);
+        expect(G.uraniumMarket).to.be.greaterThan(0);
+
+        // North-side markets (Korea-specific, no uranium row)
+        expect(G.coalMarketNorth).to.be.greaterThan(0);
+        expect(G.oilMarketNorth).to.be.greaterThan(0);
+        expect(G.garbageMarketNorth).to.exist;
+
+        // Korea uses parallel per-side price tables
+        expect(G.coalPricesNorth).to.be.an('array').that.is.not.empty;
+        expect(G.oilPricesNorth).to.be.an('array').that.is.not.empty;
+
+        // At least one player should have available moves (auction phase is live)
+        expect(G.players.some((p) => p.availableMoves && Object.keys(p.availableMoves).length > 0)).to.be.true;
+    });
+
+    it('should setup Northern Europe and have players ready to move', () => {
+        // Smoke test for Northern Europe (PR #74) — parity with Korea test.
+        const G = setup(
+            2,
+            { map: 'Northern Europe', variant: 'recharged', randomizeMap: false, fastBid: false },
+            'ne-test-seed'
+        );
+
+        expect(ended(G)).to.be.false;
+        expect(G.map.name).to.equal('Northern Europe');
+        expect(G.players.some((p) => p.availableMoves && Object.keys(p.availableMoves).length > 0)).to.be.true;
+    });
+
     it('should place UK & Ireland Step 3 card third from last with two plants below it', () => {
         // UK & Ireland rules: the Step 3 card (plant 99) goes at deck.length - 3
         // so two plants sit below it, and Step 3 fires two auctions earlier than

@@ -128,6 +128,55 @@
             />
         </template>
 
+        <template v-for="city in cities">
+            <!-- [10,15] city: X at bottom-right -->
+            <template v-if="city.slotCosts && city.slotCosts.length === 2 && city.slotCosts[0] === 10">
+                <line
+                    :key="city.name + '_x1'"
+                    :x1="city.x + 10"
+                    :y1="city.y + 10"
+                    :x2="city.x + 19"
+                    :y2="city.y + 19"
+                    stroke="black"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                />
+                <line
+                    :key="city.name + '_x2'"
+                    :x1="city.x + 19"
+                    :y1="city.y + 10"
+                    :x2="city.x + 10"
+                    :y2="city.y + 19"
+                    stroke="black"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                />
+            </template>
+            <!-- [15,20] city: X at top-middle -->
+            <template v-if="city.slotCosts && city.slotCosts.length === 2 && city.slotCosts[0] === 15">
+                <line
+                    :key="city.name + '_x1'"
+                    :x1="city.x - 5"
+                    :y1="city.y - 21"
+                    :x2="city.x + 5"
+                    :y2="city.y - 11"
+                    stroke="black"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                />
+                <line
+                    :key="city.name + '_x2'"
+                    :x1="city.x + 5"
+                    :y1="city.y - 21"
+                    :x2="city.x - 5"
+                    :y2="city.y - 11"
+                    stroke="black"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                />
+            </template>
+        </template>
+
         <template v-if="!preferences.disableHelp">
             <template v-for="city in cities">
                 <circle

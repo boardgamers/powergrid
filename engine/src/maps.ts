@@ -12,7 +12,7 @@ import { map as france } from './maps/france';
 import { map as germany, mapRecharged as germanyRecharged } from './maps/germany';
 import { map as indian } from './maps/indian';
 import { map as italy } from './maps/italy';
-// import { map as japan } from './maps/japan';
+import { map as japan } from './maps/japan';
 import { map as korea } from './maps/korea';
 import { map as middleeast } from './maps/middleeast';
 import { map as northamerica } from './maps/northamerica';
@@ -32,6 +32,12 @@ export interface City {
     // and connecting to them costs a fixed price (transregionalConnectionCost on the GameMap)
     // instead of the normal dijkstra path cost.
     transregional?: boolean;
+    // Custom per-slot building costs (e.g. Japan). Length also determines total slots.
+    // Defaults to [10, 15, 20] if omitted.
+    slotCosts?: number[];
+    // Max slots open per step [step1, step2, step3].
+    // Defaults to [1, 2, 3] (standard Power Grid rules) if omitted.
+    stepSlots?: number[];
     // South Africa's six cross-border foreign-country spaces: only one player ever
     // builds here (cap 1 instead of the standard 3), and the build skips the
     // 10+position*5 house-base cost — the dijkstra path cost (the 30-Elektro edge)
@@ -106,6 +112,10 @@ export interface GameMap {
     // cost (there is no sea edge) and pay 10+position*5 + this surcharge.
     crossIslandSurcharge?: number;
     mapSpecificRules?: string;
+    // Cities where a player's first house (or second network) must be placed.
+    // Used by Japan: only the 6 designated starting cities are valid first builds,
+    // and a second disconnected network can only begin in one of these cities.
+    startingCities?: string[];
     // Dev-only: when set, the viewer renders an `<image>` backdrop behind the
     // map and logs click positions (in local SVG coords) to the console as
     // ready-to-paste `{ name, region, x, y }` lines. Intended for authoring
@@ -137,7 +147,7 @@ export const maps: GameMap[] = [
     southafrica,
     ukireland,
     // australia,
-    // japan,
+    japan,
 ];
 
 export const mapsRecharged: GameMap[] = [

@@ -49,42 +49,95 @@ export enum Cities {
 export const map: GameMap = {
     name: 'Japan',
     cities: [
-        { name: Cities.Asahikawa, region: Regions.Brown, x: 3384, y: 414 },
-        { name: Cities.Sapporo, region: Regions.Brown, x: 3028, y: 382 },
-        { name: Cities.Hakodate, region: Regions.Brown, x: 2622, y: 512 },
+        { name: Cities.Asahikawa, region: Regions.Brown, x: 3384, y: 1014 },
+        { name: Cities.Sapporo, region: Regions.Brown, x: 3028, y: 982, slotCosts: [10, 10, 20], stepSlots: [2, 2, 3] },
+        { name: Cities.Hakodate, region: Regions.Brown, x: 2622, y: 1112 },
         { name: Cities.Admori, region: Regions.Brown, x: 3818, y: 1336 },
-        { name: Cities.Morioka, region: Regions.Brown, x: 3636, y: 1646 },
+        { name: Cities.Morioka, region: Regions.Brown, x: 3636, y: 1646, slotCosts: [15, 20], stepSlots: [0, 2, 2] },
         { name: Cities.Akita, region: Regions.Brown, x: 3472, y: 1480 },
         { name: Cities.Sendai, region: Regions.Brown, x: 3408, y: 1886 },
         { name: Cities.Niigata, region: Regions.Green, x: 2874, y: 1628 },
-        { name: Cities.Koriyama, region: Regions.Green, x: 3086, y: 1932 },
+        { name: Cities.Koriyama, region: Regions.Green, x: 3086, y: 1932, slotCosts: [10, 15] },
         { name: Cities.Nagano, region: Regions.Green, x: 2486, y: 1722 },
-        { name: Cities.Saitama, region: Regions.Green, x: 2450, y: 1986 },
-        { name: Cities.Tokyo, region: Regions.Green, x: 2524, y: 2122 },
+        { name: Cities.Saitama, region: Regions.Green, x: 2450, y: 1986, slotCosts: [15, 20], stepSlots: [0, 2, 2] },
+        { name: Cities.Tokyo, region: Regions.Green, x: 2524, y: 2122, slotCosts: [10, 10, 20], stepSlots: [2, 2, 3] },
         { name: Cities.Chiba, region: Regions.Green, x: 2650, y: 2316 },
-        { name: Cities.Yokohama, region: Regions.Green, x: 2306, y: 2244 },
+        {
+            name: Cities.Yokohama,
+            region: Regions.Green,
+            x: 2306,
+            y: 2244,
+            slotCosts: [10, 10, 20],
+            stepSlots: [2, 2, 3],
+        },
         { name: Cities.Kanazawa, region: Regions.Purple, x: 2207, y: 1385 },
-        { name: Cities.Toyama, region: Regions.Purple, x: 2257, y: 1595 },
+        { name: Cities.Toyama, region: Regions.Purple, x: 2257, y: 1595, slotCosts: [15, 20], stepSlots: [0, 2, 2] },
         { name: Cities.Kyoto, region: Regions.Purple, x: 1765, y: 1595 },
-        { name: Cities.Osaka, region: Regions.Purple, x: 1517, y: 1631 },
+        { name: Cities.Osaka, region: Regions.Purple, x: 1517, y: 1631, slotCosts: [10, 10, 20], stepSlots: [2, 2, 3] },
         { name: Cities.Nagoya, region: Regions.Purple, x: 1942, y: 1751 },
         { name: Cities.Kofu, region: Regions.Purple, x: 2179, y: 1897 },
-        { name: Cities.Hamamatsu, region: Regions.Purple, x: 1958, y: 2024 },
-        { name: Cities.Kobe, region: Regions.Yellow, x: 1555, y: 1451 },
-        { name: Cities.Matsue, region: Regions.Yellow, x: 1457, y: 1006 },
+        { name: Cities.Hamamatsu, region: Regions.Purple, x: 1958, y: 2024, slotCosts: [10, 15] },
+        { name: Cities.Kobe, region: Regions.Yellow, x: 1555, y: 1451, slotCosts: [10, 10, 20], stepSlots: [2, 2, 3] },
+        { name: Cities.Matsue, region: Regions.Yellow, x: 1457, y: 1006, slotCosts: [15, 20], stepSlots: [0, 2, 2] },
         { name: Cities.Okayama, region: Regions.Yellow, x: 1390, y: 1286 },
         { name: Cities.Takamatsu, region: Regions.Yellow, x: 1268, y: 1507 },
-        { name: Cities.Kochi, region: Regions.Yellow, x: 974, y: 1472 },
+        { name: Cities.Kochi, region: Regions.Yellow, x: 974, y: 1472, slotCosts: [10, 15] },
         { name: Cities.Matsuyama, region: Regions.Yellow, x: 1036, y: 1268 },
         { name: Cities.Hiroshima, region: Regions.Yellow, x: 1103, y: 1078 },
         { name: Cities.Shimonoseki, region: Regions.Red, x: 856, y: 962 },
-        { name: Cities.Oita, region: Regions.Red, x: 731, y: 1166 },
-        { name: Cities.Miyazaki, region: Regions.Red, x: 469, y: 1318 },
+        { name: Cities.Oita, region: Regions.Red, x: 731, y: 1166, slotCosts: [10, 15] },
+        { name: Cities.Miyazaki, region: Regions.Red, x: 469, y: 1318, slotCosts: [15, 20], stepSlots: [0, 2, 2] },
         { name: Cities.Kagoshima, region: Regions.Red, x: 157, y: 1255 },
         { name: Cities.Kumamoto, region: Regions.Red, x: 457, y: 1045 },
-        { name: Cities.Fukuoka, region: Regions.Red, x: 644, y: 823 },
+        { name: Cities.Fukuoka, region: Regions.Red, x: 644, y: 823, slotCosts: [10, 10, 20], stepSlots: [2, 2, 3] },
         { name: Cities.Nagasaki, region: Regions.Red, x: 313, y: 875 },
     ],
+    layout: 'Portrait',
+    adjustRatio: [0.28, 0.28],
+    mapPosition: [0, 120],
+    resupply: [
+        // Coal
+        [
+            [3, 4, 3], // 2P
+            [4, 5, 3], // 3P
+            [5, 6, 4], // 4P
+            [5, 7, 5], // 5P
+            [7, 9, 6], // 6P
+        ],
+        // Oil
+        [
+            [2, 2, 4],
+            [2, 3, 4],
+            [3, 4, 5],
+            [4, 5, 6],
+            [5, 6, 7],
+        ],
+        // Garbage
+        [
+            [1, 2, 3],
+            [1, 2, 3],
+            [2, 3, 4],
+            [3, 3, 5],
+            [3, 5, 6],
+        ],
+        // Uranium
+        [
+            [1, 1, 1],
+            [1, 1, 1],
+            [1, 2, 2],
+            [2, 3, 2],
+            [2, 3, 3],
+        ],
+    ],
+    startingResources: [21, 15, 9, 3],
+    startingCities: ['Fukuoka', 'Kobe', 'Osaka', 'Sapporo', 'Tokyo', 'Yokohama'],
+    mapSpecificRules:
+        'Each player can have two separate networks.\n' +
+        'First houses must be placed in one of six starting cities: Fukuoka, Kobe, Osaka, Sapporo, Tokyo, or Yokohama.\n' +
+        'Starting cities have two first-connection spots (cost 10 Elektro each); two players can build there in Step 1.\n' +
+        'In Step 3, a third connection spot opens in starting cities (cost 20 Elektro).\n' +
+        'Some smaller cities have only two building spots (costs 10 and 15, or 15 and 20 from Step 2).\n' +
+        'If all spots in every starting city are taken, a player is forced to play with a single network.',
     connections: [
         { nodes: [Cities.Nagasaki, Cities.Fukuoka], cost: 10 },
         { nodes: [Cities.Fukuoka, Cities.Shimonoseki], cost: 10 },

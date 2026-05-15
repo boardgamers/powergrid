@@ -15,7 +15,7 @@ export const playerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', '
 
 const citiesToStep2 = [10, 7, 7, 7, 6];
 const citiesToStep2BadenWurttemberg = [9, 6, 6, 6, 5];
-const citiesToStep2UKIreland = [7, 7, 7, 7, 6];
+const citiesToStep2UKIreland = [10, 7, 7, 7, 6];
 const citiesToEndGame = [21, 17, 17, 15, 14];
 const cityIncome = [10, 22, 33, 44, 54, 64, 73, 82, 90, 98, 105, 112, 118, 124, 129, 134, 138, 142, 145, 148, 150, 150];
 const regionsInPlay = [3, 3, 4, 5, 5];

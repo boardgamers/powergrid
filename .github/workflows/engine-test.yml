@@ -9,6 +9,9 @@ on:
             - '.github/workflows/engine-test.yml'
             - 'engine/**'
 
+permissions:
+    contents: read
+
 defaults:
     run:
         working-directory: engine

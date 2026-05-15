@@ -1,6 +1,9 @@
 name: All
 on: [pull_request, push]
 
+permissions:
+    contents: read
+
 jobs:
     prettier:
         runs-on: ubuntu-latest

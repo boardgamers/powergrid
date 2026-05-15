@@ -11,6 +11,9 @@ on:
             - '.github/workflows/viewer-test.yml'
             - 'viewer/**'
 
+permissions:
+    contents: read
+
 defaults:
     run:
         working-directory: viewer

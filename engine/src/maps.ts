@@ -12,7 +12,7 @@ import { map as france } from './maps/france';
 import { map as germany, mapRecharged as germanyRecharged } from './maps/germany';
 import { map as indian } from './maps/indian';
 import { map as italy } from './maps/italy';
-import { map as japan } from './maps/japan';
+import { map as japan, mapRecharged as japanRecharged } from './maps/japan';
 import { map as korea } from './maps/korea';
 import { map as middleeast } from './maps/middleeast';
 import { map as northamerica } from './maps/northamerica';
@@ -173,5 +173,5 @@ export const mapsRecharged: GameMap[] = [
     ukireland,
     // australia,
     // china,
-    // japan,
+    japanRecharged,
 ];

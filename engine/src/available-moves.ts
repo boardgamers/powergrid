@@ -354,10 +354,41 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
 
         case Phase.Building: {
             if (player.cities.length < 21) {
-                let toBuild =
-                    player.cities.length == 0
-                        ? G.map.cities.map((c) => ({ name: c.name, price: 0 }))
-                        : dijkstra(G, player).map((c) => ({ name: c.name, price: c.price }));
+                const isJapan = G.map.name === 'Japan';
+                const japanStartingCities = isJapan ? new Set(G.map.startingCities ?? []) : new Set<string>();
+
+                let toBuild: { name: string; price: number }[];
+                if (player.cities.length == 0) {
+                    // Japan: first house must go in one of the 6 designated starting cities.
+                    const candidates = isJapan
+                        ? G.map.cities.filter((c) => japanStartingCities.has(c.name))
+                        : G.map.cities;
+                    toBuild = candidates.map((c) => ({ name: c.name, price: 0 }));
+                } else if (isJapan && G.round === 1) {
+                    // Japan round 1: any additional house must also be a starting city.
+                    // Players cannot extend to adjacent non-starting cities until round 2.
+                    toBuild = G.map.cities
+                        .filter((c) => japanStartingCities.has(c.name))
+                        .map((c) => ({ name: c.name, price: 0 }));
+                } else {
+                    toBuild = dijkstra(G, player).map((c) => ({ name: c.name, price: c.price }));
+
+                    // Japan: a player may start a second disconnected network at any available
+                    // starting city, paying only the slot cost (no connection fee).
+                    if (
+                        isJapan &&
+                        countNetworks(
+                            G.map.connections,
+                            player.cities.map((c) => c.name)
+                        ) < 2
+                    ) {
+                        toBuild.forEach((city) => {
+                            if (japanStartingCities.has(city.name)) {
+                                city.price = 0;
+                            }
+                        });
+                    }
+                }
 
                 toBuild.forEach((city) => {
                     const cityData = G.map.cities.find((c) => c.name == city.name)!;
@@ -428,10 +459,14 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                         return;
                     }
 
-                    city.price += 10 + othersCount * 5;
+                    const slotCosts = cityData.slotCosts;
+                    const maxSlotsThisStep = cityData.stepSlots ? cityData.stepSlots[G.step - 1] : G.step;
+                    const totalSlots = slotCosts ? slotCosts.length : 3;
 
-                    if (othersCount == G.step) {
+                    if (othersCount >= maxSlotsThisStep || othersCount >= totalSlots) {
                         city.price = 9999;
+                    } else {
+                        city.price += slotCosts ? slotCosts[othersCount] : 10 + othersCount * 5;
                     }
 
                     if (player.cities.find((c) => c.name == city.name)) {
@@ -567,6 +602,31 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
     }
 
     return moves;
+}
+
+function countNetworks(connections: { nodes: string[] }[], cityNames: string[]): number {
+    const citySet = new Set(cityNames);
+    const visited = new Set<string>();
+    let count = 0;
+    for (const city of cityNames) {
+        if (visited.has(city)) continue;
+        count++;
+        const stack = [city];
+        while (stack.length > 0) {
+            const current = stack.pop()!;
+            if (visited.has(current)) continue;
+            visited.add(current);
+            for (const conn of connections) {
+                if (conn.nodes.includes(current)) {
+                    const neighbor = conn.nodes.find((n) => n !== current)!;
+                    if (citySet.has(neighbor) && !visited.has(neighbor)) {
+                        stack.push(neighbor);
+                    }
+                }
+            }
+        }
+    }
+    return count;
 }
 
 function dijkstra(G: GameState, player: Player): { name: string; price: number }[] {

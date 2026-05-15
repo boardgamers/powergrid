@@ -628,7 +628,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 G.map.name != 'Russia'
                             ) {
                                 if (G.map.name == 'Baden-Württemberg') {
-                                    // Baden-Württemberg: remove the two lowest plants
+                                    // Baden-Württemberg: remove the two lowest plants when no one buys.
                                     const removed: number[] = [];
                                     for (let i = 0; i < 2 && G.actualMarket.length > 0; i++) {
                                         removed.push(G.actualMarket[0].number);

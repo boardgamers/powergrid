@@ -144,7 +144,7 @@ export const map: GameMap = {
         [Regions.Orange]: [
             // Denmark
             { number: 19, type: PowerPlantType.Oil, cost: 2, citiesPowered: 4 },
-            { number: 26, type: PowerPlantType.Coal, cost: 3, citiesPowered: 5 },
+            { number: 26, type: PowerPlantType.Oil, cost: 3, citiesPowered: 5 },
         ],
         [Regions.Red]: [
             // Norway

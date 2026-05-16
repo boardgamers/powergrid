@@ -621,35 +621,34 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         if (G.players.some((p) => !p.skipAuction && !p.isDropped)) {
                             nextPlayerAuction(G);
                         } else {
-                            if (
+                            if (G.auctionSkips == G.players.length && G.map.name == 'Baden-Württemberg') {
+                                // Baden-Württemberg: remove the two lowest plants when no one buys.
+                                // This applies regardless of variant.
+                                const removed: number[] = [];
+                                for (let i = 0; i < 2 && G.actualMarket.length > 0; i++) {
+                                    removed.push(G.actualMarket[0].number);
+                                    G.actualMarket.shift();
+                                    addPowerPlant(G);
+                                }
+                                G.log.push({
+                                    type: 'event',
+                                    event: `Everyone passed, removing the two lowest numbered Power Plants (${removed.join(
+                                        ', '
+                                    )}).`,
+                                });
+                            } else if (
                                 G.auctionSkips == G.players.length &&
                                 G.options.variant == 'original' &&
                                 G.map.name != 'China' &&
                                 G.map.name != 'Russia'
                             ) {
-                                if (G.map.name == 'Baden-Württemberg') {
-                                    // Baden-Württemberg: remove the two lowest plants when no one buys.
-                                    const removed: number[] = [];
-                                    for (let i = 0; i < 2 && G.actualMarket.length > 0; i++) {
-                                        removed.push(G.actualMarket[0].number);
-                                        G.actualMarket.shift();
-                                        addPowerPlant(G);
-                                    }
-                                    G.log.push({
-                                        type: 'event',
-                                        event: `Everyone passed, removing the two lowest numbered Power Plants (${removed.join(
-                                            ', '
-                                        )}).`,
-                                    });
-                                } else {
-                                    G.log.push({
-                                        type: 'event',
-                                        event: `Everyone passed, removing lowest numbered Power Plant (${G.actualMarket[0].number}).`,
-                                    });
+                                G.log.push({
+                                    type: 'event',
+                                    event: `Everyone passed, removing lowest numbered Power Plant (${G.actualMarket[0].number}).`,
+                                });
 
-                                    G.actualMarket.shift();
-                                    addPowerPlant(G);
-                                }
+                                G.actualMarket.shift();
+                                addPowerPlant(G);
                             }
 
                             toResourcesPhase(G);

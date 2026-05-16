@@ -225,7 +225,17 @@ export default class Map extends Vue {
             player.cities.forEach((cityPiece) => {
                 const city = gameState.map.cities.find((city) => city.name == cityPiece.name)!;
                 let offsetX, offsetY;
-                if (cityPiece.position == 0) {
+                const is1520 = city.slotCosts?.length === 2 && city.slotCosts[0] === 15;
+                if (is1520) {
+                    // [15,20] city: slot 0 (cost 15) → bottom-left, slot 1 (cost 20) → bottom-right
+                    if (cityPiece.position == 0) {
+                        offsetX = -15;
+                        offsetY = -4;
+                    } else {
+                        offsetX = 1;
+                        offsetY = -4;
+                    }
+                } else if (cityPiece.position == 0) {
                     offsetX = -6;
                     offsetY = -18;
                 } else if (cityPiece.position == 1) {

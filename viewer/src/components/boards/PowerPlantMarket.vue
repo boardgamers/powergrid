@@ -152,10 +152,13 @@ export default class PowerPlantMarket extends Vue {
         this.futureMarketCards = [];
         gameState.futureMarket.forEach((card, i) => {
             if (card.number != gameState.chosenPowerPlant?.number) {
+                // Europe step 1 has 5 plants in the future market; the 5th would
+                // sit under the bid calculator at x=actualMarketWidth, so wrap
+                // to a second row.
                 this.futureMarketCards.push({
                     id: 'future_' + i,
-                    x: 165 + i * 65,
-                    y: 90,
+                    x: 165 + (i % 4) * 65,
+                    y: 90 + Math.floor(i / 4) * 50,
                     powerPlant: card
                 });
             }

@@ -351,10 +351,4 @@ export const map: GameMap = {
     startingResources: [20, 14, 18, 2],
     // Total cubes in the game (used cubes return here; refill draws from here).
     startingSupply: [24, 24, 24, 12],
-    mapSpecificRules:
-        'The metropolises of New York and Mexico City each consist of 2 cities ' +
-        '(New York N / New York S and Mexico City N / Mexico City S) connected by ' +
-        'a 0-cost edge. The official rules cap a player at 1 house per side of a ' +
-        'metropolis; this implementation does not enforce that cap pending publisher ' +
-        'clarification, so a player may build in both sides if they wish.',
 };

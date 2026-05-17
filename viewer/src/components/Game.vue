@@ -71,6 +71,7 @@
                 :buyableResources="buyableResources()"
                 :coalStorage="G.coalStorage"
                 :resourceResupply="getResourceResupply()"
+                :resourceResupplyNorth="getResourceResupplyNorth()"
                 @buyResource="buyResource($event)"
             />
 
@@ -1139,6 +1140,15 @@ export default class Game extends Vue {
         }
 
         return [0, 0, 0, 0];
+    }
+
+    getResourceResupplyNorth() {
+        if (this.G && this.G.resourceResupplyNorth) {
+            let str = this.G.resourceResupplyNorth[this.G.step - 1];
+            str = str.substr(1, str.length - 2);
+            return str.split(',');
+        }
+        return null;
     }
 }
 </script>

@@ -62,7 +62,7 @@ export const map: GameMap = {
         { name: Cities.Polokwane, region: Regions.Orange, x: 802, y: 189 },
         { name: Cities.PretoriaN, region: Regions.Orange, x: 759, y: 261 },
         { name: Cities.PretoriaS, region: Regions.Orange, x: 759, y: 291 },
-        { name: Cities.Rustenburg, region: Regions.Orange, x: 666, y: 310 },
+        { name: Cities.Rustenburg, region: Regions.Orange, x: 632, y: 232 },
         { name: Cities.Mozambique, region: Regions.Green, x: 1011, y: 170, singleOccupancy: true },
         { name: Cities.Mbombela, region: Regions.Green, x: 891, y: 275 },
         { name: Cities.Eswatini, region: Regions.Green, x: 926, y: 351, singleOccupancy: true },

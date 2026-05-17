@@ -17,6 +17,7 @@ const citiesToStep2 = [10, 7, 7, 7, 6];
 const citiesToStep2BadenWurttemberg = [9, 6, 6, 6, 5];
 const citiesToStep2UKIreland = [10, 7, 7, 7, 6];
 const citiesToEndGame = [21, 17, 17, 15, 14];
+const citiesToEndGameSouthAfrica = [18, 17, 17, 15, 14];
 const cityIncome = [10, 22, 33, 44, 54, 64, 73, 82, 90, 98, 105, 112, 118, 124, 129, 134, 138, 142, 145, 148, 150, 150];
 const regionsInPlay = [3, 3, 4, 5, 5];
 
@@ -402,7 +403,12 @@ export function setup(
                 : (forceMap || finalMap).name == 'UK & Ireland'
                 ? citiesToStep2UKIreland[numPlayers - 2]
                 : citiesToStep2[numPlayers - 2],
-        citiesToEndGame: citiesToEndGame[numPlayers - 2],
+        citiesToEndGame:
+            (forceMap || finalMap).name == 'South Africa'
+                ? citiesToEndGameSouthAfrica[numPlayers - 2]
+                : (forceMap || finalMap).name == 'UK & Ireland' && numPlayers == 2
+                ? Math.min(citiesToEndGame[numPlayers - 2], (forceMap || finalMap).cities.length)
+                : citiesToEndGame[numPlayers - 2],
         resourceResupply: [
             `[${coalResupply[p][0]}, ${oilResupply[p][0]}, ${garbageResupply[p][0]}, ${uraniumResupply[p][0]}]`,
             `[${coalResupply[p][1]}, ${oilResupply[p][1]}, ${garbageResupply[p][1]}, ${uraniumResupply[p][1]}]`,
@@ -757,7 +763,15 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     if (G.players.filter((p) => !p.passed && !p.isDropped).length == 0) {
                         const maxCities = Math.max(...G.players.map((p) => p.cities.length));
                         if (G.step == 1) {
-                            if (maxCities >= G.citiesToStep2 && G.map.name != 'Middle East') {
+                            // Step 1 is single-occupancy, so the sum of player city
+                            // counts equals the number of cities with a house. When
+                            // that hits map.cities.length, every Step 1 slot is full
+                            // and Step 2 needs to fire even if no player reached
+                            // citiesToStep2 (can happen on small maps / small region
+                            // counts where the threshold is unreachable).
+                            const totalCitiesBuilt = G.players.reduce((sum, p) => sum + p.cities.length, 0);
+                            const allStep1HousesFilled = totalCitiesBuilt >= G.map.cities.length;
+                            if ((maxCities >= G.citiesToStep2 || allStep1HousesFilled) && G.map.name != 'Middle East') {
                                 const powerPlant = G.actualMarket.shift()!;
                                 G.log.push({
                                     type: 'event',
@@ -1962,6 +1976,16 @@ function addPowerPlant(G: GameState) {
                     enterStepTwoMiddleEast(G);
                     skipAdd = true;
                 } else {
+                    if (G.map.name == 'UK & Ireland' && G.step == 1) {
+                        // UK&I: Step 3 sits 3rd from last in the deck, so it can
+                        // surface before any player hits citiesToStep2. Fire Step
+                        // 2 here so its rules register before Step 3 takes over.
+                        G.log.push({
+                            type: 'event',
+                            event: 'Starting Step 2 (Step 3 card drawn before Step 2 threshold).',
+                        });
+                        G.step = 2;
+                    }
                     const powerPlantDiscarded = G.actualMarket.shift();
                     G.log.push({
                         type: 'event',

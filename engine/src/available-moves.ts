@@ -106,6 +106,26 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             }
                         }
 
+                        // Nuclear plants for Northern Europe are only allowed for players with
+                        // cities in Sweden (purple/yellow), Finland (brown), or the Baltic
+                        // States (pink). Players with cities only in Norway (red) or Denmark
+                        // (orange) — and players in round 1 with no cities yet — may not bid.
+                        if (G.map.name == 'Northern Europe') {
+                            const validCities = player.cities
+                                .map((c) => G.map.cities.find((c_) => c_.name == c.name)!)
+                                .filter(
+                                    (c) =>
+                                        c.region == 'purple' ||
+                                        c.region == 'yellow' ||
+                                        c.region == 'brown' ||
+                                        c.region == 'pink'
+                                );
+
+                            if (validCities.length == 0) {
+                                canBid = canBid.filter((p) => p.type != PowerPlantType.Uranium);
+                            }
+                        }
+
                         if (canBid.length > 0) {
                             moves[MoveName.ChoosePowerPlant] = canBid.map((p) => p.number);
                         }
@@ -162,6 +182,24 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                                 playerCities.every((c) => c.region == 'green') &&
                                 G.chosenPowerPlant.type == PowerPlantType.Uranium
                             ) {
+                                moves[MoveName.Bid] = undefined;
+                            }
+                        }
+
+                        // Northern Europe nuclear restriction — mirror of the ChoosePowerPlant
+                        // filter above, applied to active-auction bids.
+                        if (G.map.name == 'Northern Europe') {
+                            const validCities = player.cities
+                                .map((c) => G.map.cities.find((c_) => c_.name == c.name)!)
+                                .filter(
+                                    (c) =>
+                                        c.region == 'purple' ||
+                                        c.region == 'yellow' ||
+                                        c.region == 'brown' ||
+                                        c.region == 'pink'
+                                );
+
+                            if (validCities.length == 0 && G.chosenPowerPlant.type == PowerPlantType.Uranium) {
                                 moves[MoveName.Bid] = undefined;
                             }
                         }

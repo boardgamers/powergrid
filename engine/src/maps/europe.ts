@@ -360,10 +360,12 @@ export const map: GameMap = {
     // the current market and the 5 next in the future market, with the Step 3 card
     // buried at the bottom of the deck.
     //
-    // The rules call for the New Power Plants Set 2 deck ("plug-back" cards) and a
-    // rule against placing a plug-back card on top of the deck — both are no-ops
-    // here since this engine ships only one power-plant set. Revisit if/when Set 2
-    // is added.
+    // For low player counts, remove random plants from the remaining deck to match
+    // standard Power Grid rules (matches the per-map reductions other maps already
+    // apply via defaultSetupDeck). The Europe rulebook splits these removals across
+    // its two plant sets ("plug-back" Set 2 vs normal Set 1) — e.g. 2P removes 2
+    // plug + 6 normal — but since this engine ships only one combined set, we
+    // remove the same total at random and revisit if Set 2 is ever added.
     //
     // The Step 2 trigger for Europe is handled in engine.ts (special branch): it
     // removes the lowest plant from the current market once, then re-sorts the
@@ -379,6 +381,12 @@ export const map: GameMap = {
         const initialPlants = powerPlantsDeck.splice(0, 9).sort((a, b) => a.number - b.number);
         const actualMarket = initialPlants.slice(0, 4);
         const futureMarket = initialPlants.slice(4); // 5 plants
+
+        if (numPlayers == 2 || numPlayers == 3) {
+            powerPlantsDeck = powerPlantsDeck.slice(8);
+        } else if (numPlayers == 4) {
+            powerPlantsDeck = powerPlantsDeck.slice(4);
+        }
 
         powerPlantsDeck.push(step3);
 

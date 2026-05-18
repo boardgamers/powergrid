@@ -441,10 +441,15 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             city.price = 9999;
                             return;
                         }
-                        city.price += G.step == 3 ? 20 : 15;
 
-                        if (othersCount == G.step) {
+                        const trSlotCosts = cityData.slotCosts;
+                        const trMaxSlots = cityData.stepSlots ? cityData.stepSlots[G.step - 1] : G.step;
+                        const trTotalSlots = trSlotCosts ? trSlotCosts.length : 3;
+
+                        if (othersCount >= trMaxSlots || othersCount >= trTotalSlots) {
                             city.price = 9999;
+                        } else {
+                            city.price += trSlotCosts ? trSlotCosts[othersCount] : G.step == 3 ? 20 : 15;
                         }
 
                         if (player.cities.find((c) => c.name == city.name)) {

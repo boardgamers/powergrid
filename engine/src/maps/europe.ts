@@ -360,12 +360,15 @@ export const map: GameMap = {
     // the current market and the 5 next in the future market, with the Step 3 card
     // buried at the bottom of the deck.
     //
-    // For low player counts, remove random plants from the remaining deck to match
-    // standard Power Grid rules (matches the per-map reductions other maps already
-    // apply via defaultSetupDeck). The Europe rulebook splits these removals across
-    // its two plant sets ("plug-back" Set 2 vs normal Set 1) — e.g. 2P removes 2
-    // plug + 6 normal — but since this engine ships only one combined set, we
-    // remove the same total at random and revisit if Set 2 is ever added.
+    // For low player counts, remove plants from the remaining deck split across the
+    // weak (number <= 15) and main (number > 15) bands — mirrors the Recharged
+    // default setup, which already removes "2 weak + 6 main" for 2/3P and
+    // "1 weak + 3 main" for 4P. The Europe rulebook describes this as "2 plug + 6
+    // normal" using the Set 2 / Set 1 split on the back of the cards; the engine
+    // ships only one combined set, so we approximate Set 2 membership with the
+    // low-numbered ("weak") band that Recharged already treats as a separate pool.
+    // If the initial 9-card market draw consumed most weak cards, fall back to
+    // topping up the removal from the main band so the total reduction stays right.
     //
     // The Step 2 trigger for Europe is handled in engine.ts (special branch): it
     // removes the lowest plant from the current market once, then re-sorts the
@@ -382,10 +385,35 @@ export const map: GameMap = {
         const actualMarket = initialPlants.slice(0, 4);
         const futureMarket = initialPlants.slice(4); // 5 plants
 
+        let weakToRemove = 0;
+        let mainToRemove = 0;
         if (numPlayers == 2 || numPlayers == 3) {
-            powerPlantsDeck = powerPlantsDeck.slice(8);
+            weakToRemove = 2;
+            mainToRemove = 6;
         } else if (numPlayers == 4) {
-            powerPlantsDeck = powerPlantsDeck.slice(4);
+            weakToRemove = 1;
+            mainToRemove = 3;
+        }
+
+        if (weakToRemove + mainToRemove > 0) {
+            const weakPool = shuffle(
+                powerPlantsDeck.filter((p) => p.number <= 15),
+                rng() + ''
+            );
+            const mainPool = shuffle(
+                powerPlantsDeck.filter((p) => p.number > 15),
+                rng() + ''
+            );
+
+            const actualWeakRemoved = Math.min(weakToRemove, weakPool.length);
+            const weakShortfall = weakToRemove - actualWeakRemoved;
+            const actualMainRemoved = Math.min(mainToRemove + weakShortfall, mainPool.length);
+
+            const removedNumbers = new Set<number>([
+                ...weakPool.slice(0, actualWeakRemoved).map((p) => p.number),
+                ...mainPool.slice(0, actualMainRemoved).map((p) => p.number),
+            ]);
+            powerPlantsDeck = powerPlantsDeck.filter((p) => !removedNumbers.has(p.number));
         }
 
         powerPlantsDeck.push(step3);

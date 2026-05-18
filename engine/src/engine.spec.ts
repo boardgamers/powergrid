@@ -8,6 +8,7 @@ import undo from './fixtures/undo.json';
 import USAOriginal from './fixtures/USAOriginal.json';
 import { GameOptions, MapName, PowerPlant, PowerPlantType, Variant } from './gamestate';
 import { Move, MoveName } from './move';
+import { powerPlants } from './powerPlants';
 
 describe('Engine', () => {
     it('should setup a game correctly', () => {
@@ -278,27 +279,53 @@ describe('Engine', () => {
         }
     });
 
-    it('should reduce Europe deck for low player counts', () => {
-        // Mike's feedback: in 2P the rules call for 2 plug + 6 normal cards removed
-        // (8 total). Engine had no reduction for Europe, leaving a too-large deck
-        // at low player counts. Standard PG: 2/3P remove 8, 4P remove 4, 5+P none.
+    it('should reduce Europe deck with weak/main split for low player counts', () => {
+        // Mike's feedback: Europe 2P rules call for "2 plug + 6 normal" cards removed.
+        // Engine ships only one combined plant set, so we approximate Set 2 ("plug")
+        // membership with the low-numbered (weak, <=15) band — same convention the
+        // Recharged default setup already uses to separate the initial-market
+        // reserve. Splits: 2/3P remove 2 weak + 6 main, 4P remove 1 weak + 3 main,
+        // 5+P remove nothing.
         // Total plants = 42 normal + step3. Initial market draw is 9 (4 actual + 5
         // future). Step 3 buried at bottom of deck. So deck length after setup:
         //   2/3P: 42 - 9 - 8 = 25, plus step3 = 26
         //   4P:   42 - 9 - 4 = 29, plus step3 = 30
         //   5+P:  42 - 9     = 33, plus step3 = 34
-        const expected: Record<number, number> = { 2: 26, 3: 26, 4: 30, 5: 34, 6: 34 };
+        const expectedSize: Record<number, number> = { 2: 26, 3: 26, 4: 30, 5: 34, 6: 34 };
+        const expectedWeakRemoved: Record<number, number> = { 2: 2, 3: 2, 4: 1, 5: 0, 6: 0 };
+        const expectedMainRemoved: Record<number, number> = { 2: 6, 3: 6, 4: 3, 5: 0, 6: 0 };
+
         for (const numPlayers of [2, 3, 4, 5, 6]) {
             const G = setup(
                 numPlayers,
                 { map: 'Europe', variant: 'recharged', randomizeMap: false },
                 `eu-trim-${numPlayers}p`
             );
-            expect(G.powerPlantsDeck.length, `Europe ${numPlayers}P deck size`).to.equal(expected[numPlayers]);
+
+            expect(G.powerPlantsDeck.length, `Europe ${numPlayers}P deck size`).to.equal(expectedSize[numPlayers]);
             expect(G.actualMarket.length).to.equal(4);
             expect(G.futureMarket.length).to.equal(5);
             // Step 3 is the last card in the deck.
             expect(G.powerPlantsDeck[G.powerPlantsDeck.length - 1].type).to.equal(PowerPlantType.Step3);
+
+            // Verify the weak/main split: compare the numbers still visible (market
+            // + future + deck) against the canonical set of plant numbers to see
+            // which were removed.
+            const visibleNumbers = new Set<number>([
+                ...G.actualMarket.map((p) => p.number),
+                ...G.futureMarket.map((p) => p.number),
+                ...G.powerPlantsDeck.map((p) => p.number),
+            ]);
+            const removed: number[] = [];
+            for (const p of powerPlants) {
+                if (p.type !== PowerPlantType.Step3 && !visibleNumbers.has(p.number)) {
+                    removed.push(p.number);
+                }
+            }
+            const weakRemoved = removed.filter((n) => n <= 15).length;
+            const mainRemoved = removed.filter((n) => n > 15).length;
+            expect(weakRemoved, `Europe ${numPlayers}P weak cards removed`).to.equal(expectedWeakRemoved[numPlayers]);
+            expect(mainRemoved, `Europe ${numPlayers}P main cards removed`).to.equal(expectedMainRemoved[numPlayers]);
         }
     });
 

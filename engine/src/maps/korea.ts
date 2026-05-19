@@ -184,8 +184,8 @@ export const map: GameMap = {
         { nodes: [Cities.Hamheung, Cities.Hyesan], cost: 23 },
     ],
     layout: 'Portrait',
-    adjustRatio: [0.22, 0.22],
-    mapPosition: [80, 30],
+    adjustRatio: [0.25, 0.25],
+    mapPosition: [40, 30],
     // Taller than the default Portrait viewBox to make room for Korea's stacked
     // dual resource markets (North above South).
     viewBox: [1480, 1180],

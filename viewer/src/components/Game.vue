@@ -66,7 +66,7 @@
                     <g
                         :key="'fj_' + i"
                         :transform="`translate(${480 + i * 30}, 80) scale(0.045)`"
-                        :opacity="fjPlayer.usedFreeJump ? 0.2 : 1"
+                        :opacity="playerHasUsedFreeJump(i) ? 0.2 : 1"
                     >
                         <path
                             d="M187.698 263.636V456.017L3 341.204V169.522L80.8579 108.141L187.698 263.636Z"
@@ -956,6 +956,38 @@ export default class Game extends Vue {
         const availableMoves = currentPlayer.availableMoves!;
 
         return availableMoves[MoveName.Build] && availableMoves[MoveName.Build]!.map((c) => c.name) || [];
+    }
+
+    playerHasUsedFreeJump(playerIndex: number): boolean {
+        if (!this.G) return false;
+        const player = this.G.players[playerIndex];
+        if (!player || player.cities.length < 2) return false;
+        if (player.usedFreeJump) return true;
+        // Retroactively compute: check if player has 2+ disconnected networks
+        const cityNames = player.cities.map((c) => c.name);
+        const citySet = new Set(cityNames);
+        const visited = new Set<string>();
+        let networkCount = 0;
+        for (const city of cityNames) {
+            if (visited.has(city)) continue;
+            networkCount++;
+            if (networkCount >= 2) return true;
+            const stack = [city];
+            while (stack.length > 0) {
+                const current = stack.pop()!;
+                if (visited.has(current)) continue;
+                visited.add(current);
+                for (const conn of this.G.map.connections) {
+                    if (conn.nodes.includes(current)) {
+                        const neighbor = conn.nodes.find((n) => n !== current)!;
+                        if (citySet.has(neighbor) && !visited.has(neighbor)) {
+                            stack.push(neighbor);
+                        }
+                    }
+                }
+            }
+        }
+        return networkCount >= 2;
     }
 
     canBuild(city: City) {

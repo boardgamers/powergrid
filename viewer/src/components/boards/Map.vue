@@ -152,6 +152,23 @@
                     stroke-linecap="round"
                 />
             </template>
+            <!-- [10,10,20] city: "10" label at bottom-left (two 10-Elektro slots) -->
+            <text
+                v-if="
+                    city.slotCosts &&
+                    city.slotCosts.length === 3 &&
+                    city.slotCosts[0] === 10 &&
+                    city.slotCosts[1] === 10
+                "
+                :key="city.name + '_10label'"
+                :x="city.x - 20"
+                :y="city.y + 19"
+                font-size="17"
+                font-weight="bold"
+                fill="black"
+                text-anchor="middle"
+                >10</text
+            >
             <!-- [15,20] city: X at top-middle -->
             <template v-if="city.slotCosts && city.slotCosts.length === 2 && city.slotCosts[0] === 15">
                 <line

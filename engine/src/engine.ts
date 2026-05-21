@@ -1432,20 +1432,18 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
         case MoveName.Build: {
             asserts<Moves.MoveBuild>(move);
 
-            // Japan: detect free jump BEFORE pushing — the free jump override only applies
-            // when the player currently has < 2 networks. If they already had >= 2 networks,
-            // this is a normal (paid) build and should not consume the free jump.
+            // Japan: detect free jump.
+            // Round 1: any second starting-city build uses the jump.
+            // Round 2+: the player explicitly opted in via freeJump:true on the move.
             let isJapanFreeJump = false;
-            if (G.map.name === 'Japan' && G.map.startingCities && !player.usedFreeJump && player.cities.length >= 1) {
-                const startingCities = new Set(G.map.startingCities);
-                if (startingCities.has(move.data.name)) {
-                    const networksBefore = countNetworks(
-                        G.map.connections,
-                        player.cities.map((c) => c.name)
-                    );
-                    if (networksBefore < 2) {
+            if (G.map.name === 'Japan' && !player.usedFreeJump && player.cities.length >= 1) {
+                if (G.round === 1 && G.map.startingCities) {
+                    const startingCities = new Set(G.map.startingCities);
+                    if (startingCities.has(move.data.name)) {
                         isJapanFreeJump = true;
                     }
+                } else if (move.data.freeJump) {
+                    isJapanFreeJump = true;
                 }
             }
 
@@ -1474,15 +1472,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 }</span>.`,
             });
 
-            // Confirm: new city is truly disconnected (forms a second network)
             if (isJapanFreeJump) {
-                const networksAfter = countNetworks(
-                    G.map.connections,
-                    player.cities.map((c) => c.name)
-                );
-                if (networksAfter >= 2) {
-                    player.usedFreeJump = true;
-                }
+                player.usedFreeJump = true;
             }
 
             if (G.map.name == 'India') {

@@ -59,6 +59,40 @@
                 @build="build($event)"
             />
 
+            <!-- Japan: Free Jump indicator -->
+            <g v-if="G.map.name === 'Japan'">
+                <text x="330" y="93" font-size="20" font-weight="bold" fill="black">Free Jump:</text>
+                <template v-for="(fjPlayer, i) in G.players">
+                    <g
+                        :key="'fj_' + i"
+                        :transform="`translate(${480 + i * 30}, 80) scale(0.045)`"
+                        :opacity="fjPlayer.usedFreeJump ? 0.2 : 1"
+                    >
+                        <path
+                            d="M187.698 263.636V456.017L3 341.204V169.522L80.8579 108.141L187.698 263.636Z"
+                            :fill="playerColors[i]"
+                            stroke="#010101"
+                            stroke-width="12"
+                            stroke-miterlimit="10"
+                        />
+                        <path
+                            d="M395.724 136.361V300.164L187.698 456.017V263.636L395.724 136.361Z"
+                            :fill="playerColors[i]"
+                            stroke="#010101"
+                            stroke-width="12"
+                            stroke-miterlimit="10"
+                        />
+                        <path
+                            d="M395.724 136.361L187.698 263.636L80.8579 108.141L304.771 4L395.724 136.361Z"
+                            :fill="playerColors[i]"
+                            stroke="#010101"
+                            stroke-width="12"
+                            stroke-miterlimit="10"
+                        />
+                    </g>
+                </template>
+            </g>
+
             <Resources
                 ref="resources"
                 :transform="`translate(${G.map.supplyPosition[0]}, ${G.map.supplyPosition[1]})`"

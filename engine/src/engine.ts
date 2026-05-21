@@ -1,7 +1,7 @@
 import assert from 'assert';
 import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
-import { availableMoves } from './available-moves';
+import { availableMoves, countNetworks } from './available-moves';
 import { GameOptions, GameState, Phase, Player, PowerPlant, PowerPlantType, ResourceType } from './gamestate';
 import { LogMove } from './log';
 import { GameMap, maps, mapsRecharged } from './maps';
@@ -155,6 +155,7 @@ export function setup(
         totalSpentConnections: 0,
         totalSpentPlants: 0,
         totalSpentResources: 0,
+        usedFreeJump: false,
     }));
 
     const p = players.length - 2;
@@ -1456,6 +1457,20 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 }</span>.`,
             });
 
+            // Japan: detect when a player uses their free jump (starts a second network)
+            if (G.map.name === 'Japan' && G.map.startingCities && !player.usedFreeJump && player.cities.length >= 2) {
+                const startingCities = new Set(G.map.startingCities);
+                if (startingCities.has(move.data.name)) {
+                    const networksNow = countNetworks(
+                        G.map.connections,
+                        player.cities.map((c) => c.name)
+                    );
+                    if (networksNow >= 2) {
+                        player.usedFreeJump = true;
+                    }
+                }
+            }
+
             if (G.map.name == 'India') {
                 G.citiesBuiltInCurrentRound!++;
             }
@@ -1667,6 +1682,17 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                     if (G.map.name == 'India') {
                         G.citiesBuiltInCurrentRound!--;
+                    }
+
+                    // Japan: reset free jump flag if undo collapses back to a single network
+                    if (G.map.name === 'Japan' && player.usedFreeJump) {
+                        const networksAfterUndo = countNetworks(
+                            G.map.connections,
+                            player.cities.map((c) => c.name)
+                        );
+                        if (networksAfterUndo < 2) {
+                            player.usedFreeJump = false;
+                        }
                     }
 
                     break;

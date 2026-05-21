@@ -647,7 +647,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
     return moves;
 }
 
-function countNetworks(connections: { nodes: string[] }[], cityNames: string[]): number {
+export function countNetworks(connections: { nodes: string[] }[], cityNames: string[]): number {
     const citySet = new Set(cityNames);
     const visited = new Set<string>();
     let count = 0;

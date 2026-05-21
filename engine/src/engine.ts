@@ -1432,6 +1432,23 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
         case MoveName.Build: {
             asserts<Moves.MoveBuild>(move);
 
+            // Japan: detect free jump BEFORE pushing — the free jump override only applies
+            // when the player currently has < 2 networks. If they already had >= 2 networks,
+            // this is a normal (paid) build and should not consume the free jump.
+            let isJapanFreeJump = false;
+            if (G.map.name === 'Japan' && G.map.startingCities && !player.usedFreeJump && player.cities.length >= 1) {
+                const startingCities = new Set(G.map.startingCities);
+                if (startingCities.has(move.data.name)) {
+                    const networksBefore = countNetworks(
+                        G.map.connections,
+                        player.cities.map((c) => c.name)
+                    );
+                    if (networksBefore < 2) {
+                        isJapanFreeJump = true;
+                    }
+                }
+            }
+
             const position = G.players.filter((p) => p.cities.find((c) => c.name == move.data.name)).length;
             player.cities.push({ name: move.data.name, position });
             player.money -= move.data.price;
@@ -1457,17 +1474,14 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 }</span>.`,
             });
 
-            // Japan: detect when a player uses their free jump (starts a second network)
-            if (G.map.name === 'Japan' && G.map.startingCities && !player.usedFreeJump && player.cities.length >= 2) {
-                const startingCities = new Set(G.map.startingCities);
-                if (startingCities.has(move.data.name)) {
-                    const networksNow = countNetworks(
-                        G.map.connections,
-                        player.cities.map((c) => c.name)
-                    );
-                    if (networksNow >= 2) {
-                        player.usedFreeJump = true;
-                    }
+            // Confirm: new city is truly disconnected (forms a second network)
+            if (isJapanFreeJump) {
+                const networksAfter = countNetworks(
+                    G.map.connections,
+                    player.cities.map((c) => c.name)
+                );
+                if (networksAfter >= 2) {
+                    player.usedFreeJump = true;
                 }
             }
 

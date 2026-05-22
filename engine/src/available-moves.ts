@@ -18,7 +18,7 @@ export interface AvailableMoves {
         // Distinct from the regular market buy (which can also be offered alongside).
         fromStorage?: boolean;
     }[];
-    [MoveName.Build]?: { name: string; price: number }[];
+    [MoveName.Build]?: { name: string; price: number; freeJump?: boolean }[];
     [MoveName.UsePowerPlant]?: {
         powerPlant: number;
         resourcesSpent: ResourceType[];
@@ -395,7 +395,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 const isJapan = G.map.name === 'Japan';
                 const japanStartingCities = isJapan ? new Set(G.map.startingCities ?? []) : new Set<string>();
 
-                let toBuild: { name: string; price: number }[];
+                let toBuild: { name: string; price: number; freeJump?: boolean }[];
                 if (player.cities.length == 0) {
                     // Japan: first house must go in one of the 6 designated starting cities.
                     const candidates = isJapan
@@ -413,18 +413,24 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
 
                     // Japan: a player may start a second disconnected network at any available
                     // starting city, paying only the slot cost (no connection fee).
+                    // We add a separate freeJump:true entry for each qualifying starting city
+                    // at connection cost 0 alongside the normal-price entry, so the player
+                    // can explicitly choose whether to spend the free jump or pay full price.
                     if (
                         isJapan &&
+                        !player.usedFreeJump &&
                         countNetworks(
                             G.map.connections,
                             player.cities.map((c) => c.name)
                         ) < 2
                     ) {
-                        toBuild.forEach((city) => {
-                            if (japanStartingCities.has(city.name)) {
-                                city.price = 0;
+                        const freeJumpEntries: { name: string; price: number; freeJump?: boolean }[] = [];
+                        japanStartingCities.forEach((cityName) => {
+                            if (!player.cities.find((c) => c.name === cityName)) {
+                                freeJumpEntries.push({ name: cityName, price: 0, freeJump: true });
                             }
                         });
+                        toBuild = [...toBuild, ...freeJumpEntries];
                     }
                 }
 
@@ -441,10 +447,15 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             city.price = 9999;
                             return;
                         }
-                        city.price += G.step == 3 ? 20 : 15;
 
-                        if (othersCount == G.step) {
+                        const trSlotCosts = cityData.slotCosts;
+                        const trMaxSlots = cityData.stepSlots ? cityData.stepSlots[G.step - 1] : G.step;
+                        const trTotalSlots = trSlotCosts ? trSlotCosts.length : 3;
+
+                        if (othersCount >= trMaxSlots || othersCount >= trTotalSlots) {
                             city.price = 9999;
+                        } else {
+                            city.price += trSlotCosts ? trSlotCosts[othersCount] : G.step == 3 ? 20 : 15;
                         }
 
                         if (player.cities.find((c) => c.name == city.name)) {
@@ -642,7 +653,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
     return moves;
 }
 
-function countNetworks(connections: { nodes: string[] }[], cityNames: string[]): number {
+export function countNetworks(connections: { nodes: string[] }[], cityNames: string[]): number {
     const citySet = new Set(cityNames);
     const visited = new Set<string>();
     let count = 0;

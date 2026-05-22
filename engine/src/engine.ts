@@ -1,7 +1,7 @@
 import assert from 'assert';
 import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
-import { availableMoves } from './available-moves';
+import { availableMoves, countNetworks } from './available-moves';
 import { GameOptions, GameState, Phase, Player, PowerPlant, PowerPlantType, ResourceType } from './gamestate';
 import { LogMove } from './log';
 import { GameMap, maps, mapsRecharged } from './maps';
@@ -155,6 +155,7 @@ export function setup(
         totalSpentConnections: 0,
         totalSpentPlants: 0,
         totalSpentResources: 0,
+        usedFreeJump: false,
     }));
 
     const p = players.length - 2;
@@ -1431,6 +1432,21 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
         case MoveName.Build: {
             asserts<Moves.MoveBuild>(move);
 
+            // Japan: detect free jump.
+            // Round 1: any second starting-city build uses the jump.
+            // Round 2+: the player explicitly opted in via freeJump:true on the move.
+            let isJapanFreeJump = false;
+            if (G.map.name === 'Japan' && !player.usedFreeJump && player.cities.length >= 1) {
+                if (G.round === 1 && G.map.startingCities) {
+                    const startingCities = new Set(G.map.startingCities);
+                    if (startingCities.has(move.data.name)) {
+                        isJapanFreeJump = true;
+                    }
+                } else if (move.data.freeJump) {
+                    isJapanFreeJump = true;
+                }
+            }
+
             const position = G.players.filter((p) => p.cities.find((c) => c.name == move.data.name)).length;
             player.cities.push({ name: move.data.name, position });
             player.money -= move.data.price;
@@ -1455,6 +1471,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     move.data.price
                 }</span>.`,
             });
+
+            if (isJapanFreeJump) {
+                player.usedFreeJump = true;
+            }
 
             if (G.map.name == 'India') {
                 G.citiesBuiltInCurrentRound!++;
@@ -1667,6 +1687,17 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                     if (G.map.name == 'India') {
                         G.citiesBuiltInCurrentRound!--;
+                    }
+
+                    // Japan: reset free jump flag if undo collapses back to a single network
+                    if (G.map.name === 'Japan' && player.usedFreeJump) {
+                        const networksAfterUndo = countNetworks(
+                            G.map.connections,
+                            player.cities.map((c) => c.name)
+                        );
+                        if (networksAfterUndo < 2) {
+                            player.usedFreeJump = false;
+                        }
                     }
 
                     break;

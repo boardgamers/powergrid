@@ -102,6 +102,7 @@ export interface Player {
     totalSpentPlants: number;
     totalSpentResources: number;
     ranking?: number;
+    usedFreeJump?: boolean;
 }
 
 export enum Phase {

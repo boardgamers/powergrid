@@ -59,6 +59,40 @@
                 @build="build($event)"
             />
 
+            <!-- Japan: Free Jump indicator -->
+            <g v-if="G.map.name === 'Japan'">
+                <text x="330" y="93" font-size="20" font-weight="bold" fill="black">Free Jump:</text>
+                <template v-for="(fjPlayer, i) in G.players">
+                    <g
+                        :key="'fj_' + i"
+                        :transform="`translate(${480 + i * 30}, 80) scale(0.045)`"
+                        :opacity="playerHasUsedFreeJump(i) ? 0.2 : 1"
+                    >
+                        <path
+                            d="M187.698 263.636V456.017L3 341.204V169.522L80.8579 108.141L187.698 263.636Z"
+                            :fill="playerColors[i]"
+                            stroke="#010101"
+                            stroke-width="12"
+                            stroke-miterlimit="10"
+                        />
+                        <path
+                            d="M395.724 136.361V300.164L187.698 456.017V263.636L395.724 136.361Z"
+                            :fill="playerColors[i]"
+                            stroke="#010101"
+                            stroke-width="12"
+                            stroke-miterlimit="10"
+                        />
+                        <path
+                            d="M395.724 136.361L187.698 263.636L80.8579 108.141L304.771 4L395.724 136.361Z"
+                            :fill="playerColors[i]"
+                            stroke="#010101"
+                            stroke-width="12"
+                            stroke-miterlimit="10"
+                        />
+                    </g>
+                </template>
+            </g>
+
             <Resources
                 ref="resources"
                 :transform="`translate(${G.map.supplyPosition[0]}, ${G.map.supplyPosition[1]})`"
@@ -164,6 +198,45 @@
                 <div class="confirm-buttons">
                     <button class="confirm-button" @click="confirmPass()">OK</button>
                     <button class="confirm-button" @click="confirmVisible = false">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <div v-if="G && freeJumpCity" :class="['modal', { visible: freeJumpVisible }]">
+            <div class="modal-content">
+                <span
+                    class="close"
+                    @click="
+                        freeJumpVisible = false;
+                        freeJumpCity = null;
+                    "
+                    >&times;</span
+                >
+                <div class="modal-title">Free Jump — {{ freeJumpCity.name }}</div>
+                <div class="confirm-message" v-if="freeJumpNormalPrice !== null">
+                    Use your <b>Free Jump</b> to build here for ${{ freeJumpSlotPrice }} (slot cost only), or pay the
+                    full connection price of ${{ freeJumpNormalPrice }} and save the jump for later.
+                </div>
+                <div class="confirm-message" v-else>
+                    Use your <b>Free Jump</b> to build here for ${{ freeJumpSlotPrice }} (slot cost only)? This city is
+                    not reachable from your network otherwise.
+                </div>
+                <div class="confirm-buttons">
+                    <button class="confirm-button" @click="confirmFreeJump(true)">
+                        Use Free Jump (${{ freeJumpSlotPrice }})
+                    </button>
+                    <button v-if="freeJumpNormalPrice !== null" class="confirm-button" @click="confirmFreeJump(false)">
+                        Pay Full Price (${{ freeJumpNormalPrice }})
+                    </button>
+                    <button
+                        class="confirm-button"
+                        @click="
+                            freeJumpVisible = false;
+                            freeJumpCity = null;
+                        "
+                    >
+                        Cancel
+                    </button>
                 </div>
             </div>
         </div>
@@ -488,6 +561,11 @@ export default class Game extends Vue {
     discardVisible: boolean = false;
     resourcesToDiscard: { name: string, max: number, value: string }[] = [];
 
+    freeJumpCity: City | null = null;
+    freeJumpNormalPrice: number | null = null;
+    freeJumpSlotPrice: number = 0;
+    freeJumpVisible: boolean = false;
+
     disablePass: boolean = false;
 
     @Ref() powerPlantMarket!: PowerPlantMarket;
@@ -651,8 +729,41 @@ export default class Game extends Vue {
     build(city: City) {
         const currentPlayer = this.G!.players[this.player!];
         const availableMoves = currentPlayer.availableMoves!;
-        const move = availableMoves[MoveName.Build]!.find((c) => c.name == city.name)!;
-        this.sendMove({ name: MoveName.Build, data: { name: city.name, price: move.price } });
+        const buildMoves = availableMoves[MoveName.Build]!;
+        const freeJumpMove = buildMoves.find((c) => c.name === city.name && c.freeJump);
+        const normalMove = buildMoves.find((c) => c.name === city.name && !c.freeJump);
+
+        if (freeJumpMove && normalMove) {
+            // Player can choose: use the free jump or pay full price
+            this.freeJumpCity = city;
+            this.freeJumpSlotPrice = freeJumpMove.price;
+            this.freeJumpNormalPrice = normalMove.price;
+            this.freeJumpVisible = true;
+        } else if (freeJumpMove && !normalMove) {
+            // Only reachable via free jump — confirm before using it
+            this.freeJumpCity = city;
+            this.freeJumpSlotPrice = freeJumpMove.price;
+            this.freeJumpNormalPrice = null;
+            this.freeJumpVisible = true;
+        } else {
+            // Normal build, no free jump involved
+            this.sendMove({ name: MoveName.Build, data: { name: city.name, price: normalMove!.price } });
+        }
+    }
+
+    confirmFreeJump(useJump: boolean) {
+        const city = this.freeJumpCity!;
+        const currentPlayer = this.G!.players[this.player!];
+        const buildMoves = currentPlayer.availableMoves![MoveName.Build]!;
+        this.freeJumpVisible = false;
+        this.freeJumpCity = null;
+        if (useJump) {
+            const freeJumpMove = buildMoves.find((c) => c.name === city.name && c.freeJump)!;
+            this.sendMove({ name: MoveName.Build, data: { name: city.name, price: freeJumpMove.price, freeJump: true } });
+        } else {
+            const normalMove = buildMoves.find((c) => c.name === city.name && !c.freeJump)!;
+            this.sendMove({ name: MoveName.Build, data: { name: city.name, price: normalMove.price } });
+        }
     }
 
     confirmDiscard() {
@@ -922,6 +1033,10 @@ export default class Game extends Vue {
         const availableMoves = currentPlayer.availableMoves!;
 
         return availableMoves[MoveName.Build] && availableMoves[MoveName.Build]!.map((c) => c.name) || [];
+    }
+
+    playerHasUsedFreeJump(playerIndex: number): boolean {
+        return !!this.G?.players[playerIndex]?.usedFreeJump;
     }
 
     canBuild(city: City) {

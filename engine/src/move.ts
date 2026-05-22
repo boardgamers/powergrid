@@ -43,6 +43,7 @@ export declare namespace Moves {
         data: {
             name: string;
             price: number;
+            freeJump?: boolean;
         };
     }
 

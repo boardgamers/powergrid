@@ -435,7 +435,12 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 }
 
                 toBuild.forEach((city) => {
-                    const cityData = G.map.cities.find((c) => c.name == city.name)!;
+                    const cityData = G.map.cities.find((c) => c.name == city.name);
+                    if (!cityData) {
+                        // City not found in map (stale game state / map update mismatch) — skip it.
+                        city.price = 9999;
+                        return;
+                    }
                     const othersCount = G.players.filter((p) => p.cities.find((c) => city.name == c.name)).length;
 
                     // Transregional cities (e.g. Strasbourg on Baden-Württemberg) are only open
@@ -685,7 +690,11 @@ function dijkstra(G: GameState, player: Player): { name: string; price: number }
         visited: false,
     }));
 
-    let currentNode = nodes.find((n) => n.name == player.cities[0].name)!;
+    let currentNode = nodes.find((n) => n.name == player.cities[0].name);
+    if (!currentNode) {
+        // Player's first city is not in the current map — return all cities as unreachable.
+        return nodes;
+    }
     currentNode.price = 0;
 
     while (nodes.some((n) => !n.visited)) {

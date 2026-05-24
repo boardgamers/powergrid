@@ -458,6 +458,7 @@ import Resources from './boards/Resources.vue';
 import { LogMove } from 'powergrid-engine/src/log';
 import { Phase, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
 import { City } from 'powergrid-engine/src/maps';
+import { countNetworks } from 'powergrid-engine/src/available-moves';
 
 @Component({
     created(this: Game) {
@@ -1036,7 +1037,16 @@ export default class Game extends Vue {
     }
 
     playerHasUsedFreeJump(playerIndex: number): boolean {
-        return !!this.G?.players[playerIndex]?.usedFreeJump;
+        const player = this.G?.players[playerIndex];
+        if (!player) return false;
+        // Primary: trust the engine flag (set for all new games).
+        if (player.usedFreeJump) return true;
+        // Fallback: detect from network topology for game states where
+        // usedFreeJump wasn't tracked (games started before that field existed).
+        if (player.cities.length >= 2) {
+            return countNetworks(this.G!.map.connections, player.cities.map(c => c.name)) >= 2;
+        }
+        return false;
     }
 
     canBuild(city: City) {

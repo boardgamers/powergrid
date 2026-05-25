@@ -56,6 +56,7 @@
                 :polygons="G.map.polygons"
                 :buildableCities="getBuildableCities()"
                 :devBackdrop="G.map.devBackdrop"
+                :mapRotation="G.map.mapRotation || 0"
                 @build="build($event)"
             />
 

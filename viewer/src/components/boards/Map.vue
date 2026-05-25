@@ -113,6 +113,13 @@
                 fill="black"
                 :x="(getX1(connection) + getX2(connection)) / 2"
                 :y="(getY1(connection) + getY2(connection)) / 2"
+                :transform="
+                    mapRotation
+                        ? `rotate(${-mapRotation}, ${(getX1(connection) + getX2(connection)) / 2}, ${
+                              (getY1(connection) + getY2(connection)) / 2
+                          })`
+                        : undefined
+                "
             >
                 {{ connection.cost }}
             </text>
@@ -167,6 +174,7 @@
                 font-weight="bold"
                 fill="black"
                 text-anchor="middle"
+                :transform="mapRotation ? `rotate(${-mapRotation}, ${city.x - 20}, ${city.y + 19})` : undefined"
                 >10</text
             >
             <!-- [15,20] city: X at top-middle -->
@@ -231,6 +239,7 @@ export default class Map extends Vue {
     @Prop() playerColors?: string[];
     @Prop() buildableCities?: string[];
     @Prop() devBackdrop?: { src: string; width: number; height: number; opacity?: number };
+    @Prop({ default: 0 }) mapRotation!: number;
 
     @Inject() preferences!: Preferences;
 

@@ -2,6 +2,7 @@ import { range } from 'lodash';
 import { GameState, Phase, Player, PowerPlantType, ResourceType } from './gamestate';
 import { MoveName } from './move';
 import prices from './prices';
+import { minBy } from './utils';
 
 export interface AvailableMoves {
     [MoveName.ChoosePowerPlant]?: number[];
@@ -690,14 +691,15 @@ function dijkstra(G: GameState, player: Player): { name: string; price: number }
         visited: false,
     }));
 
-    let currentNode = nodes.find((n) => n.name == player.cities[0].name);
-    if (!currentNode) {
+    const start = nodes.find((n) => n.name == player.cities[0].name);
+    if (!start) {
         // Player's first city is not in the current map — return all cities as unreachable.
         return nodes;
     }
-    currentNode.price = 0;
+    start.price = 0;
 
-    while (nodes.some((n) => !n.visited)) {
+    let currentNode: typeof start = start;
+    while (true) {
         const currentConnections = G.map.connections.filter((c) => c.nodes.includes(currentNode.name));
         currentConnections.forEach((connection) => {
             const otherName = connection.nodes.filter((n) => n != currentNode.name)[0];
@@ -710,29 +712,14 @@ function dijkstra(G: GameState, player: Player): { name: string; price: number }
 
         currentNode.visited = true;
 
-        if (!nodes.some((n) => !n.visited)) {
+        // Pick the cheapest still-reachable unvisited node; stop if there is
+        // none, or if it would already cost more than the player can afford.
+        const unvisited = nodes.filter((n) => !n.visited);
+        const next = minBy(unvisited, (n) => n.price);
+        if (!next || next.price > player.money) {
             break;
         }
-
-        currentNode = nodes.reduce((a, b) => {
-            if (a.visited) {
-                return b;
-            }
-
-            if (b.visited) {
-                return a;
-            }
-
-            if (a.price <= b.price) {
-                return a;
-            }
-
-            return b;
-        });
-
-        if (currentNode.price > player.money) {
-            break;
-        }
+        currentNode = next;
     }
 
     return nodes;

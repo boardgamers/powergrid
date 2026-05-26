@@ -699,6 +699,7 @@ function dijkstra(G: GameState, player: Player): { name: string; price: number }
     start.price = 0;
 
     let currentNode: typeof start = start;
+    // eslint-disable-next-line no-constant-condition
     while (true) {
         const currentConnections = G.map.connections.filter((c) => c.nodes.includes(currentNode.name));
         currentConnections.forEach((connection) => {

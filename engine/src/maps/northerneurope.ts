@@ -103,9 +103,17 @@ export const map: GameMap = {
         { name: Cities.Stavanger, region: Regions.Red, x: 72, y: 647 },
     ],
     layout: 'Portrait',
-    adjustRatio: [1.5, 1.4],
-    mapPosition: [60, -50],
+    adjustRatio: [1.5, 1.2],
+    mapPosition: [60, -40],
     mapRotation: 20,
+    // The 20-degree tilt swings the eastern Baltic cities down past the default
+    // Portrait viewBox bottom (1060) and into the resupply panel (issue #87).
+    // A taller viewBox keeps every city on the green, and the resupply panel is
+    // pushed below the lowest in-panel city. Sized for the worst-case region
+    // subset (a southern-only 2-3 player game re-centres the map and rotates
+    // Vilnius into the panel's column), not just the all-regions view.
+    viewBox: [1480, 1326],
+    supplyPosition: [675, 1184],
     startingResources: [18, 18, 12, 6],
     resupply: [
         // Coal

@@ -273,7 +273,12 @@ export function setup(
                 // surcharge handles the disconnect at build time. Without this,
                 // requiring 5-of-6 regions for 5p would loop forever (GB has 4
                 // regions, IE has 2).
-                chosenMap.name === 'UK & Ireland'
+                // Australia: regions don't need to be adjacent (rulebook).
+                // Western Australia (Red) has no inter-region edges; the
+                // 20-Elektro general connection handles the disconnect at
+                // build time.
+                chosenMap.name === 'UK & Ireland' ||
+                chosenMap.name === 'Australia'
             ) {
                 playRegions.add(region);
 

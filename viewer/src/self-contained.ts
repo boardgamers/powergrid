@@ -10,7 +10,7 @@ function launchSelfContained(selector = '#app') {
 
     const emitter = launch(selector);
 
-    let gameState = setup(5, { map: 'Japan', variant: 'recharged', showMoney: true, randomizeMap: false }, '7');
+    let gameState = setup(5, { map: 'Australia', variant: 'recharged', showMoney: true, randomizeMap: false }, '7');
 
     // Dev coord-picker example (commented; uncomment + drop a board photo into
     // viewer/public/ to author city coordinates for a new map). See the picker

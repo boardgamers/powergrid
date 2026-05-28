@@ -1,7 +1,7 @@
 import seedrandom from 'seedrandom';
 import { PowerPlant } from './gamestate';
 import { map as america, mapRecharged as americaRecharged } from './maps/america';
-// import { map as australia } from './maps/australia';
+import { map as australia } from './maps/australia';
 import { map as badenwurttemberg } from './maps/badenwurttemberg';
 import { map as benelux } from './maps/benelux';
 import { map as brazil } from './maps/brazil';
@@ -146,7 +146,7 @@ export const maps: GameMap[] = [
     northamerica,
     southafrica,
     ukireland,
-    // australia,
+    australia,
     japan,
 ];
 
@@ -171,7 +171,7 @@ export const mapsRecharged: GameMap[] = [
     northamerica,
     southafrica,
     ukireland,
-    // australia,
+    australia,
     // china,
     japanRecharged,
 ];

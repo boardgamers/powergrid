@@ -2,7 +2,17 @@ import assert from 'assert';
 import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
 import { availableMoves, countNetworks } from './available-moves';
-import { GameOptions, GameState, Phase, Player, PowerPlant, PowerPlantType, ResourceType } from './gamestate';
+import {
+    countHeldPowerPlants,
+    GameOptions,
+    GameState,
+    isUraniumMine,
+    Phase,
+    Player,
+    PowerPlant,
+    PowerPlantType,
+    ResourceType,
+} from './gamestate';
 import { LogMove } from './log';
 import { GameMap, maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
@@ -546,8 +556,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 }
 
                 if (
-                    winningPlayer.powerPlants.length <= 3 ||
-                    (G.players.length == 2 && winningPlayer.powerPlants.length == 4)
+                    countHeldPowerPlants(G, winningPlayer) <= 3 ||
+                    (G.players.length == 2 && countHeldPowerPlants(G, winningPlayer) == 4)
                 ) {
                     if (G.map.name != 'China' || G.step == 3) {
                         addPowerPlant(G);
@@ -687,8 +697,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 endAuction(G, winningPlayer, winningPlayer.bid);
 
                                 if (
-                                    (winningPlayer.powerPlants.length > 4 ||
-                                        (G.players.length > 2 && winningPlayer.powerPlants.length > 3)) &&
+                                    (countHeldPowerPlants(G, winningPlayer) > 4 ||
+                                        (G.players.length > 2 && countHeldPowerPlants(G, winningPlayer) > 3)) &&
                                     !winningPlayer.isDropped
                                 ) {
                                     setCurrentPlayer(G, winningPlayer.id);
@@ -836,7 +846,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             if (G.map.name == 'India') {
                                 // Compute the maximum number of cities each player can power.
                                 G.players.forEach(
-                                    (player) => (player.targetCitiesPowered = calculateMaxCitiesPowered(player))
+                                    (player) => (player.targetCitiesPowered = calculateMaxCitiesPowered(G, player))
                                 );
 
                                 // Output log for power outage.
@@ -2268,15 +2278,18 @@ export function playersSortedByScore(G: GameState): Player[] {
 
 function calculateCitiesPowered(G: GameState) {
     G.players.forEach((player) => {
-        player.citiesPowered = calculateMaxCitiesPowered(player);
+        player.citiesPowered = calculateMaxCitiesPowered(G, player);
     });
 }
 
-function calculateMaxCitiesPowered(player: Player) {
+function calculateMaxCitiesPowered(G: GameState, player: Player) {
+    // Australia's uranium mines never power cities, so they are excluded from the
+    // powering combinations (this also keeps the 2^n permutation set smaller).
+    const countablePlants = player.powerPlants.filter((pp) => !isUraniumMine(G, pp));
     const permutations: PowerPlant[][] = [];
-    for (let i = 0; i < Math.pow(2, player.powerPlants.length); i++) {
+    for (let i = 0; i < Math.pow(2, countablePlants.length); i++) {
         const perm: PowerPlant[] = [];
-        player.powerPlants.forEach((pp, index) => {
+        countablePlants.forEach((pp, index) => {
             if (i & Math.pow(2, index)) {
                 perm.push(pp);
             }
@@ -2598,7 +2611,8 @@ function fastAuction(G: GameState, player: Player, bid: number) {
         endAuction(G, winningPlayer, cost);
 
         if (
-            (winningPlayer.powerPlants.length > 4 || (G.players.length > 2 && winningPlayer.powerPlants.length > 3)) &&
+            (countHeldPowerPlants(G, winningPlayer) > 4 ||
+                (G.players.length > 2 && countHeldPowerPlants(G, winningPlayer) > 3)) &&
             !winningPlayer.isDropped
         ) {
             setCurrentPlayer(G, winningPlayer.id);

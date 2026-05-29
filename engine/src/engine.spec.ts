@@ -6,7 +6,7 @@ import GermanyRecharged from './fixtures/GermanyRecharged.json';
 import supply from './fixtures/supply.json';
 import undo from './fixtures/undo.json';
 import USAOriginal from './fixtures/USAOriginal.json';
-import { GameOptions, MapName, PowerPlant, PowerPlantType, Variant } from './gamestate';
+import { GameOptions, MapName, Phase, PowerPlant, PowerPlantType, Variant } from './gamestate';
 import { Move, MoveName } from './move';
 import { powerPlants } from './powerPlants';
 
@@ -344,6 +344,98 @@ describe('Engine', () => {
         expect(G.powerPlantsDeck[step3Idx + 2]).to.exist;
         expect(G.powerPlantsDeck[step3Idx + 1].number).to.not.equal(99);
         expect(G.powerPlantsDeck[step3Idx + 2].number).to.not.equal(99);
+    });
+
+    it('should remove uranium plant 17 from the Australia deck and keep the five mines', () => {
+        // Australia replaces the six uranium plants with mines: plant 17 is removed
+        // from the deck entirely, while 11/23/28/34/39 stay in (and behave as
+        // uranium mines). Use 5P so no low-player-count deck reduction can randomly
+        // drop a mine.
+        for (const variant of ['recharged', 'original'] as const) {
+            const G = setup(5, { map: 'Australia', variant, randomizeMap: false }, `australia-deck-${variant}`);
+
+            const allNumbers = new Set<number>([
+                ...G.actualMarket.map((p) => p.number),
+                ...G.futureMarket.map((p) => p.number),
+                ...G.powerPlantsDeck.map((p) => p.number),
+            ]);
+
+            expect(allNumbers.has(17), `Australia ${variant}: plant 17 removed`).to.be.false;
+            for (const mine of [11, 23, 28, 34, 39]) {
+                expect(allNumbers.has(mine), `Australia ${variant}: mine ${mine} present`).to.be.true;
+            }
+        }
+    });
+
+    it('should cap Australia connection costs at 20 (general connection), incl. jumps to disconnected regions', () => {
+        // Use 5P so all five regions are in play (Red/WA is otherwise droppable).
+        const G = setup(5, { map: 'Australia', variant: 'recharged', randomizeMap: false }, 'australia-build-cap');
+        G.phase = Phase.Building;
+        G.step = 1;
+
+        const player = G.players[0];
+        player.money = 100;
+        player.cities = [{ name: 'Perth', position: 0 }];
+
+        const builds = availableMoves(G, player)[MoveName.Build] as { name: string; price: number }[];
+        const priceOf = (name: string) => builds.find((b) => b.name === name)?.price;
+
+        // Reachable within WA: the Perth–Bunbury edge is 4, below the 20 cap, so the
+        // real path is paid — 4 connection + 10 first-slot = 14.
+        expect(priceOf('Bunbury'), 'Bunbury (cheap, reachable)').to.equal(14);
+
+        // Sydney is in a different region with no inter-region edge to WA, so dijkstra
+        // reports it unreachable; the general connection caps the jump at 20 —
+        // 20 connection + 10 first-slot = 30.
+        expect(priceOf('Sydney 1'), 'Sydney 1 (disconnected, capped)').to.equal(30);
+    });
+
+    it('should not count Australia uranium mines toward the 3-power-plant limit', () => {
+        const G = setup(5, { map: 'Australia', variant: 'recharged', randomizeMap: false }, 'australia-mine-cap');
+        G.phase = Phase.Auction;
+        const player = G.players[0];
+
+        // 3 real power plants + 2 mines: still only "3 plants" for the hand limit,
+        // so no forced discard is offered.
+        player.powerPlants = [
+            getPowerPlant(3),
+            getPowerPlant(4),
+            getPowerPlant(5),
+            getPowerPlant(11),
+            getPowerPlant(23),
+        ];
+        expect(availableMoves(G, player)[MoveName.DiscardPowerPlant], '3 plants + 2 mines').to.be.undefined;
+
+        // Sanity: 4 real power plants still trips the limit (mines didn't disable it).
+        player.powerPlants = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
+        const discardable = availableMoves(G, player)[MoveName.DiscardPowerPlant];
+        expect(discardable, '4 real plants').to.not.be.undefined;
+        // And a mine is never a discard candidate.
+        player.powerPlants = [
+            getPowerPlant(3),
+            getPowerPlant(4),
+            getPowerPlant(5),
+            getPowerPlant(6),
+            getPowerPlant(11),
+        ];
+        expect(availableMoves(G, player)[MoveName.DiscardPowerPlant]).to.not.include(11);
+    });
+
+    it('should not let Australia uranium mines power cities in Bureaucracy', () => {
+        const G = setup(5, { map: 'Australia', variant: 'recharged', randomizeMap: false }, 'australia-mine-power');
+        G.phase = Phase.Bureaucracy;
+        const player = G.players[0];
+
+        // Two mines, fully fuelled — they must still never be offered as a way to
+        // power cities (mines produce uranium for sale instead; that is session 3).
+        player.powerPlants = [getPowerPlant(11), getPowerPlant(23)];
+        player.powerPlantsNotUsed = [11, 23];
+        player.uraniumLeft = 10;
+        player.uraniumCapacity = 10;
+
+        const moves = availableMoves(G, player);
+        expect(moves[MoveName.UsePowerPlant], 'mines offered to power cities').to.be.undefined;
+        expect(moves[MoveName.Pass], 'can still pass Bureaucracy').to.not.be.undefined;
     });
 
     it('should allow invalid move when isUndo is true', () => {

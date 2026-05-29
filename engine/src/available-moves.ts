@@ -1,5 +1,13 @@
 import { range } from 'lodash';
-import { GameState, Phase, Player, PowerPlantType, ResourceType } from './gamestate';
+import {
+    countHeldPowerPlants,
+    GameState,
+    isUraniumMine,
+    Phase,
+    Player,
+    PowerPlantType,
+    ResourceType,
+} from './gamestate';
 import { MoveName } from './move';
 import prices from './prices';
 import { minBy } from './utils';
@@ -43,9 +51,12 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
 
     switch (G.phase) {
         case Phase.Auction: {
-            if (player.powerPlants.length > 4 || (G.players.length > 2 && player.powerPlants.length > 3)) {
+            if (countHeldPowerPlants(G, player) > 4 || (G.players.length > 2 && countHeldPowerPlants(G, player) > 3)) {
+                // Candidates exclude the just-bought plant (last) and Australia's
+                // mines (discarding a mine wouldn't lower the counted plants, so it
+                // could never resolve the over-limit condition).
                 moves[MoveName.DiscardPowerPlant] = player.powerPlants
-                    .filter((_, i) => i != player.powerPlants.length - 1)
+                    .filter((pp, i) => i != player.powerPlants.length - 1 && !isUraniumMine(G, pp))
                     .map((pp) => pp.number);
             } else {
                 const toDiscard: ResourceType[] = [];
@@ -514,6 +525,16 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                         return;
                     }
 
+                    // Australia "general connection": any single build may connect a
+                    // city for a flat 20 Elektro instead of its shortest-path cost,
+                    // including cities not (yet) reachable from the player's network
+                    // (dijkstra reports those as 9999). The slot/house base is still
+                    // added below, and the capped connection cost flows to
+                    // totalSpentConnections via the engine's price-minus-base split.
+                    if (G.map.name == 'Australia' && player.cities.length > 0) {
+                        city.price = Math.min(city.price, 20);
+                    }
+
                     const slotCosts = cityData.slotCosts;
                     const maxSlotsThisStep = cityData.stepSlots ? cityData.stepSlots[G.step - 1] : G.step;
                     const totalSlots = slotCosts ? slotCosts.length : 3;
@@ -545,6 +566,12 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             const toUse: { powerPlant: number; resourcesSpent: ResourceType[]; citiesPowered: number }[] = [];
 
             player.powerPlants.forEach((powerPlant) => {
+                // Australia: uranium mines never power cities. They produce uranium
+                // for the separate uranium market during Bureaucracy (session 3), so
+                // they are never offered as a city-powering option here.
+                if (isUraniumMine(G, powerPlant)) {
+                    return;
+                }
                 if (player.powerPlantsNotUsed.includes(powerPlant.number)) {
                     switch (powerPlant.type) {
                         case PowerPlantType.Coal: {

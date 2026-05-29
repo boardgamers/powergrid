@@ -190,3 +190,19 @@ export interface GameState {
     knownPowerPlantDeckStep3: PowerPlant[];
     powerPlantDeckAfterStep3: PowerPlant[] | undefined;
 }
+
+// Australia: the uranium power plants are replaced by "uranium mines". They are
+// bought in the normal auctions but do not power cities and do not count toward
+// the 3-power-plant hand limit (they DO still count for player order). On
+// Australia every remaining uranium-type plant is a mine (plant 17 is removed at
+// deck setup), so the type check alone identifies them.
+export function isUraniumMine(G: GameState, plant: PowerPlant): boolean {
+    return G.map.name === 'Australia' && plant.type === PowerPlantType.Uranium;
+}
+
+// Number of a player's plants that count toward the 3-plant hand limit — i.e.
+// excluding Australia's uranium mines. On every other map this equals
+// powerPlants.length.
+export function countHeldPowerPlants(G: GameState, player: Player): number {
+    return player.powerPlants.filter((pp) => !isUraniumMine(G, pp)).length;
+}

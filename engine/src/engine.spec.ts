@@ -289,20 +289,21 @@ describe('Engine', () => {
     });
 
     it('should reduce Europe deck with weak/main split for low player counts', () => {
-        // Mike's feedback: Europe 2P rules call for "2 plug + 6 normal" cards removed.
-        // Engine ships only one combined plant set, so we approximate Set 2 ("plug")
-        // membership with the low-numbered (weak, <=15) band — same convention the
-        // Recharged default setup already uses to separate the initial-market
-        // reserve. Splits: 2/3P remove 2 weak + 6 main, 4P remove 1 weak + 3 main,
-        // 5+P remove nothing.
-        // Total plants = 42 normal + step3. Initial market draw is 9 (4 actual + 5
-        // future). Step 3 buried at bottom of deck. So deck length after setup:
-        //   2/3P: 42 - 9 - 8 = 25, plus step3 = 26
+        // Europe (recharged) deck reduction, split plug (<=15) vs socket (>15), per the
+        // USA Recharged rulebook and confirmed with Mike: 2P removes 1 plug + 5 socket,
+        // 3P removes 2 plug + 6 socket, 4P removes 1 plug + 3 socket, 5+P removes nothing.
+        // (The original edition removes 8 at 2P — that's the separate variant == 'original' path.)
+        // The engine ships one combined plant set, so "plug" = the low (<=15) band, the
+        // same convention the Recharged default setup uses for its initial-market reserve.
+        // Total plants = 42 + step3. Opening market draw is 9 (4 actual + 5 future), all
+        // from the plug pool; Step 3 is buried at the bottom. Deck length after setup:
+        //   2P:   42 - 9 - 6 = 27, plus step3 = 28
+        //   3P:   42 - 9 - 8 = 25, plus step3 = 26
         //   4P:   42 - 9 - 4 = 29, plus step3 = 30
         //   5+P:  42 - 9     = 33, plus step3 = 34
-        const expectedSize: Record<number, number> = { 2: 26, 3: 26, 4: 30, 5: 34, 6: 34 };
-        const expectedWeakRemoved: Record<number, number> = { 2: 2, 3: 2, 4: 1, 5: 0, 6: 0 };
-        const expectedMainRemoved: Record<number, number> = { 2: 6, 3: 6, 4: 3, 5: 0, 6: 0 };
+        const expectedSize: Record<number, number> = { 2: 28, 3: 26, 4: 30, 5: 34, 6: 34 };
+        const expectedWeakRemoved: Record<number, number> = { 2: 1, 3: 2, 4: 1, 5: 0, 6: 0 };
+        const expectedMainRemoved: Record<number, number> = { 2: 5, 3: 6, 4: 3, 5: 0, 6: 0 };
 
         for (const numPlayers of [2, 3, 4, 5, 6]) {
             const G = setup(

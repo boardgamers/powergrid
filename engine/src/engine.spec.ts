@@ -1,12 +1,21 @@
 import { expect } from 'chai';
 import 'mocha';
 import { availableMoves } from './available-moves';
-import { ended, getPowerPlant, move, reconstructState, setup } from './engine';
+import { applyAustraliaStep3Shift, ended, getPowerPlant, move, reconstructState, setup } from './engine';
 import GermanyRecharged from './fixtures/GermanyRecharged.json';
 import supply from './fixtures/supply.json';
 import undo from './fixtures/undo.json';
 import USAOriginal from './fixtures/USAOriginal.json';
-import { GameOptions, MapName, Phase, PowerPlant, PowerPlantType, Variant } from './gamestate';
+import {
+    GameOptions,
+    MapName,
+    Phase,
+    PowerPlant,
+    PowerPlantType,
+    resupplyUraniumMine,
+    sellUraniumMine,
+    Variant,
+} from './gamestate';
 import { Move, MoveName } from './move';
 import { powerPlants } from './powerPlants';
 
@@ -436,6 +445,99 @@ describe('Engine', () => {
         const moves = availableMoves(G, player);
         expect(moves[MoveName.UsePowerPlant], 'mines offered to power cities').to.be.undefined;
         expect(moves[MoveName.Pass], 'can still pass Bureaucracy').to.not.be.undefined;
+    });
+
+    it('should start the Australia uranium-mine market full and only on Australia', () => {
+        const G = setup(5, { map: 'Australia', variant: 'recharged', randomizeMap: false }, 'australia-uranium-init');
+        expect(G.uraniumMineMarket).to.deep.equal([2, 2, 2, 2, 2, 2]);
+
+        const other = setup(5, { map: 'South Africa', variant: 'recharged', randomizeMap: false }, 'sa-uranium-init');
+        expect(other.uraniumMineMarket, 'non-Australia has no uranium-mine market').to.be.undefined;
+    });
+
+    it('should pay nothing for Australia uranium while the market is full (round 1)', () => {
+        const G = setup(5, { map: 'Australia', variant: 'recharged', randomizeMap: false }, 'australia-uranium-full');
+        const player = G.players[0];
+        player.money = 0;
+        player.powerPlants = [getPowerPlant(11), getPowerPlant(23)]; // mines powering 2 + 3
+
+        const sale = sellUraniumMine(G, player);
+        expect(sale.income, 'no empty slot to sell into').to.equal(0);
+        expect(sale.mines).to.equal(2);
+        expect(player.money).to.equal(0);
+        expect(G.uraniumMineMarket).to.deep.equal([2, 2, 2, 2, 2, 2]);
+    });
+
+    it('should remove Australia uranium tokens from the cheapest filled slots on resupply', () => {
+        const G = setup(5, { map: 'Australia', variant: 'recharged', randomizeMap: false }, 'australia-uranium-remove');
+        // Full market: removing 3 empties the $2 column (2 tokens), then one $3 token.
+        expect(resupplyUraniumMine(G, 3)).to.equal(3);
+        expect(G.uraniumMineMarket).to.deep.equal([0, 1, 2, 2, 2, 2]);
+
+        // Removal is capped by the tokens actually present.
+        G.uraniumMineMarket = [0, 0, 0, 0, 0, 1];
+        expect(resupplyUraniumMine(G, 5)).to.equal(1);
+        expect(G.uraniumMineMarket).to.deep.equal([0, 0, 0, 0, 0, 0]);
+    });
+
+    it('should sell Australia uranium at the highest empty price and place one token per mine', () => {
+        const G = setup(5, { map: 'Australia', variant: 'recharged', randomizeMap: false }, 'australia-uranium-sell');
+        const player = G.players[0];
+        player.money = 0;
+        // $2 and $3 columns empty, $4–$7 full. Highest empty price is $3.
+        G.uraniumMineMarket = [0, 0, 2, 2, 2, 2];
+        player.powerPlants = [getPowerPlant(11), getPowerPlant(23)]; // power 2 + 3 = 5 cities
+
+        const sale = sellUraniumMine(G, player);
+        expect(sale.price).to.equal(3);
+        expect(sale.income, '$3 × 5 cities').to.equal(15);
+        expect(player.money).to.equal(15);
+        // Two tokens placed on the highest empty slots (both into the $3 column).
+        expect(G.uraniumMineMarket).to.deep.equal([0, 2, 2, 2, 2, 2]);
+    });
+
+    it('should sell Australia uranium in player order, draining the top price first', () => {
+        const G = setup(5, { map: 'Australia', variant: 'recharged', randomizeMap: false }, 'australia-uranium-order');
+        // Only one empty slot left, at $7.
+        G.uraniumMineMarket = [2, 2, 2, 2, 2, 1];
+
+        const first = G.players[0];
+        first.money = 0;
+        first.powerPlants = [getPowerPlant(34)]; // powers 5
+        const firstSale = sellUraniumMine(G, first);
+        expect(firstSale.price, 'first seller takes $7').to.equal(7);
+        expect(first.money, '$7 × 5').to.equal(35);
+        expect(G.uraniumMineMarket).to.deep.equal([2, 2, 2, 2, 2, 2]); // now full
+
+        const second = G.players[1];
+        second.money = 0;
+        second.powerPlants = [getPowerPlant(39)]; // powers 6
+        const secondSale = sellUraniumMine(G, second);
+        expect(secondSale.income, 'market full: later seller earns nothing').to.equal(0);
+        expect(second.money).to.equal(0);
+    });
+
+    it('should apply the Australia Step 3 CO2 tax by shifting resource prices to $3–$10', () => {
+        const G = setup(5, { map: 'Australia', variant: 'recharged', randomizeMap: false }, 'australia-co2');
+        const shifted = [3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10];
+
+        expect(G.coalPrices![0], 'standard $1–$8 before Step 3').to.equal(1);
+
+        applyAustraliaStep3Shift(G);
+        expect(G.coalPrices).to.deep.equal(shifted);
+        expect(G.oilPrices).to.deep.equal(shifted);
+        expect(G.garbagePrices).to.deep.equal(shifted);
+        // A full coal market now sells its cheapest cube at $3, not $1.
+        expect(G.coalPrices![G.coalPrices!.length - G.coalMarket]).to.equal(3);
+
+        // Idempotent: a second call must not double-shift.
+        applyAustraliaStep3Shift(G);
+        expect(G.coalPrices).to.deep.equal(shifted);
+
+        // Non-Australia maps are untouched.
+        const sa = setup(5, { map: 'South Africa', variant: 'recharged', randomizeMap: false }, 'sa-co2');
+        applyAustraliaStep3Shift(sa);
+        expect(sa.coalPrices![0]).to.equal(1);
     });
 
     it('should allow invalid move when isUndo is true', () => {

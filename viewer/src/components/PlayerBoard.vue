@@ -18,19 +18,47 @@
         <Card
             v-for="(powerPlant, i) in player.powerPlants"
             :key="'powerPlant_' + powerPlant.number"
-            :targetState="{ x: player.powerPlants.length < 5 ? 20 + 80 * i : 5 + 70 * i, y: 30 }"
+            :targetState="{ x: cardX(i), y: 30 }"
             :owner="owner"
             :powerPlant="powerPlant"
             :canClick="canUse(powerPlant)"
             @click="powerPlantClick(powerPlant)"
         />
 
+        <!-- Australia: mark uranium mines (they sell uranium instead of powering
+             cities, and don't count toward the 3-plant limit) with a green frame
+             and a uranium badge. -->
+        <template v-for="(powerPlant, i) in player.powerPlants">
+            <g v-if="isMine(powerPlant)" :key="'mine_' + powerPlant.number">
+                <rect
+                    :x="cardX(i)"
+                    y="30"
+                    width="60"
+                    height="40"
+                    fill="none"
+                    stroke="#2e8b3d"
+                    stroke-width="3px"
+                    rx="3px"
+                />
+                <circle :cx="cardX(i) + 51" cy="37" r="8" fill="#46c655" stroke="#1f5c25" stroke-width="1.5" />
+                <text
+                    :x="cardX(i) + 51"
+                    y="40"
+                    text-anchor="middle"
+                    fill="white"
+                    style="font-size: 9px; font-weight: 700"
+                >
+                    U
+                </text>
+            </g>
+        </template>
+
         <template v-if="!preferences.disableHelp">
             <template v-for="(powerPlant, i) in player.powerPlants">
                 <rect
                     v-if="canUse(powerPlant)"
                     :key="i + '_' + i + '_helper'"
-                    :x="player.powerPlants.length < 5 ? 20 + 80 * i : 5 + 70 * i"
+                    :x="cardX(i)"
                     :y="30"
                     width="60"
                     height="40"
@@ -98,10 +126,26 @@ export default class PlayerBoard extends Vue {
     @Prop() showMoney?: boolean;
     @Prop() showBid?: boolean;
     @Prop() phase?: Phase;
+    // Australia: uranium plants are "mines" — flag so the hand marks them distinctly.
+    @Prop() isAustralia?: boolean;
 
     @Inject() preferences!: Preferences;
 
     powerPlantClicked?: PowerPlant;
+
+    // Horizontal position of the i-th power-plant card. Spacing compresses as the
+    // hand grows so Australia's mines (which don't count toward the 3-plant limit,
+    // so a player can hold many cards) stay on the board instead of overflowing
+    // off the right edge. Non-Australia hands never exceed 4, so they are unaffected.
+    cardX(i: number): number {
+        const n = this.player.powerPlants.length;
+        if (n < 5) return 20 + 80 * i;
+        return 5 + Math.min(70, 280 / (n - 1)) * i;
+    }
+
+    isMine(powerPlant: PowerPlant): boolean {
+        return this.isAustralia === true && powerPlant.type === PowerPlantType.Uranium;
+    }
 
     getPlayerName() {
         let name = '';

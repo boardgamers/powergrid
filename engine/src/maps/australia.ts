@@ -185,6 +185,15 @@ export const map: GameMap = {
             [0, 0, 0], // 6P
         ],
     ],
+    // Uranium-mine market refill: tokens REMOVED from the cheapest filled slots
+    // each round, per the Australia refill summary cards. Indexed [players-2][step-1].
+    uraniumMineResupply: [
+        [1, 2, 3], // 2P
+        [1, 2, 3], // 3P
+        [2, 2, 4], // 4P
+        [2, 3, 5], // 5P
+        [3, 3, 6], // 6P
+    ],
     // Main market start fill (no uranium row): coal 1–8 full, oil 3–8, garbage
     // 4–8 ⇒ 3 cubes per active price slot. Uranium starts at 0 in the main
     // market — it lives in the separate uranium market.
@@ -258,8 +267,11 @@ export const map: GameMap = {
         'all filled at game start. When selling, a player earns the highest available ' +
         '(empty-slot) price times the total cities their mines could power, then places ' +
         'one uranium token per mine on the highest empty slots. The resource-market ' +
-        'refill REMOVES uranium tokens from the cheapest filled slots. Unlike city ' +
-        'income, uranium income is still paid in the final round. ' +
+        'refill REMOVES uranium tokens from the cheapest filled slots. Selling happens ' +
+        'AUTOMATICALLY during Bureaucracy, in reverse turn order (the last player in ' +
+        'turn order sells first). The printed rules let a player decline to sell; for ' +
+        'simplicity this implementation always sells, so no player action is required. ' +
+        'Unlike city income, uranium income is still paid in the final round. ' +
         'Main resource market: there is no uranium row — coal, oil and garbage only. ' +
         'Step 3 CO2 tax: when Step 3 begins, the six cheapest tokens of each resource ' +
         'move into new $9 and $10 spaces, and the $1 and $2 spaces become inactive for ' +

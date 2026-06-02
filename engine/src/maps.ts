@@ -1,7 +1,7 @@
 import seedrandom from 'seedrandom';
 import { PowerPlant } from './gamestate';
 import { map as america, mapRecharged as americaRecharged } from './maps/america';
-// import { map as australia } from './maps/australia';
+import { map as australia } from './maps/australia';
 import { map as badenwurttemberg } from './maps/badenwurttemberg';
 import { map as benelux } from './maps/benelux';
 import { map as brazil } from './maps/brazil';
@@ -84,6 +84,11 @@ export interface GameMap {
     resupply?: number[][][];
     startingResources?: number[];
     startingSupply?: number[];
+    // Australia: per-step removal counts for the separate uranium-mine market,
+    // indexed [playerCount-2][step-1]. Each resource refill removes this many
+    // uranium tokens from the cheapest filled slots. (The main-market uranium
+    // row in `resupply[3]` stays zeroed — uranium lives only in this market.)
+    uraniumMineResupply?: number[][];
     // Korea: parallel North-side resupply / starting tables. Indexed as
     // [resource][playerCount-2][step-1] for resupplyNorth, and [coal, oil, garbage]
     // for the starting arrays (no uranium row — North bans nuclear).
@@ -146,7 +151,7 @@ export const maps: GameMap[] = [
     northamerica,
     southafrica,
     ukireland,
-    // australia,
+    australia,
     japan,
 ];
 
@@ -171,7 +176,7 @@ export const mapsRecharged: GameMap[] = [
     northamerica,
     southafrica,
     ukireland,
-    // australia,
+    australia,
     // china,
     japanRecharged,
 ];

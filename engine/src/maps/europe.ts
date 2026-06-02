@@ -89,12 +89,12 @@ export const map: GameMap = {
         { name: Cities.Dublin, region: Regions.Pink, x: 390, y: 660 },
         { name: Cities.Birmingham, region: Regions.Pink, x: 485, y: 695 },
         { name: Cities.London, region: Regions.Pink, x: 545, y: 800 },
-        { name: Cities.Randstad, region: Regions.Pink, x: 770, y: 770 },
-        { name: Cities.Vlaanderen, region: Regions.Pink, x: 700, y: 830 },
-        { name: Cities.RheinRuhr, region: Regions.Pink, x: 845, y: 860 },
+        { name: Cities.Randstad, region: Regions.Pink, x: 786, y: 594 },
+        { name: Cities.Vlaanderen, region: Regions.Pink, x: 794, y: 756 },
+        { name: Cities.RheinRuhr, region: Regions.Pink, x: 820, y: 884 },
 
         // Red — France / Iberia
-        { name: Cities.Paris, region: Regions.Red, x: 730, y: 920 },
+        { name: Cities.Paris, region: Regions.Red, x: 632, y: 926 },
         { name: Cities.Bordeaux, region: Regions.Red, x: 655, y: 1095 },
         { name: Cities.Lyon, region: Regions.Red, x: 785, y: 1100 },
         { name: Cities.Marseille, region: Regions.Red, x: 815, y: 1240 },
@@ -105,9 +105,9 @@ export const map: GameMap = {
         // Brown — Central North (Germany / Czech / Poland-south)
         { name: Cities.Bremen, region: Regions.Brown, x: 1010, y: 770 },
         { name: Cities.Berlin, region: Regions.Brown, x: 1180, y: 800 },
-        { name: Cities.RheinMain, region: Regions.Brown, x: 970, y: 920 },
+        { name: Cities.RheinMain, region: Regions.Brown, x: 982, y: 898 },
         { name: Cities.Stuttgart, region: Regions.Brown, x: 995, y: 1000 },
-        { name: Cities.München, region: Regions.Brown, x: 1100, y: 1050 },
+        { name: Cities.München, region: Regions.Brown, x: 1114, y: 1020 },
         { name: Cities.Praha, region: Regions.Brown, x: 1235, y: 940 },
         { name: Cities.Katowice, region: Regions.Brown, x: 1380, y: 940 },
 
@@ -157,7 +157,6 @@ export const map: GameMap = {
         { nodes: [Cities.London, Cities.Randstad], cost: 18 },
         { nodes: [Cities.Randstad, Cities.Vlaanderen], cost: 4 },
         { nodes: [Cities.Vlaanderen, Cities.RheinRuhr], cost: 4 },
-        { nodes: [Cities.Randstad, Cities.RheinRuhr], cost: 4 },
 
         // Red — France / Iberia (internal)
         { nodes: [Cities.Paris, Cities.Bordeaux], cost: 12 },
@@ -356,69 +355,69 @@ export const map: GameMap = {
     startingResources: [20, 16, 18, 4],
     // Total cubes in the game (used cubes return here; refill draws from here).
     startingSupply: [24, 24, 24, 12],
-    // Europe market setup: shuffle the deck, draw 9 plants, place the 4 lowest in
-    // the current market and the 5 next in the future market, with the Step 3 card
-    // buried at the bottom of the deck.
+    // Europe market setup (official rules): the opening market is drawn ONLY from the
+    // plug-back / Set 2 cards. The engine ships one combined deck, so we follow the
+    // established convention that the 13 lowest plants (numbers 3–15) are the "plug"
+    // pool — the same band the default Recharged setup treats separately. Shuffle that
+    // pool, draw 9, and place the 4 lowest in the current market and the next 5 in the
+    // future market. Everything >= 16 is the "socket" pool.
     //
-    // For low player counts, remove plants from the remaining deck split across the
-    // weak (number <= 15) and main (number > 15) bands — mirrors the Recharged
-    // default setup, which already removes "2 weak + 6 main" for 2/3P and
-    // "1 weak + 3 main" for 4P. The Europe rulebook describes this as "2 plug + 6
-    // normal" using the Set 2 / Set 1 split on the back of the cards; the engine
-    // ships only one combined set, so we approximate Set 2 membership with the
-    // low-numbered ("weak") band that Recharged already treats as a separate pool.
-    // If the initial 9-card market draw consumed most weak cards, fall back to
-    // topping up the removal from the main band so the total reduction stays right.
+    // Then reduce the draw deck by player count, split plug vs socket per the Recharged
+    // rulebook table:
+    //   2P -> 1 plug + 5 socket    3P -> 2 plug + 6 socket
+    //   4P -> 1 plug + 3 socket    5-6P -> none
+    // (The original edition removes 8 at 2P; Europe is recharged-only, so it's always 1+5.)
+    // The 4 leftover plug cards (13 drawn down to 9 in the market) cover the plug removals.
+    //
+    // Finally, per the rules the draw stack must NOT have a plug card on top: if the top
+    // is <= 15, swap a socket card up. The Step 3 card is buried at the bottom.
     //
     // The Step 2 trigger for Europe is handled in engine.ts (special branch): it
     // removes the lowest plant from the current market once, then re-sorts the
     // remaining 8 plants into 4 actual + 4 future without drawing from the deck.
     setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
-        let powerPlantsDeck = cloneDeep(powerPlants);
+        const powerPlantsDeck = cloneDeep(powerPlants);
 
         const step3Index = powerPlantsDeck.findIndex((p) => p.type === PowerPlantType.Step3);
         const step3 = powerPlantsDeck.splice(step3Index, 1)[0];
 
-        powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
+        // powerPlants is sorted by number, so the first 13 cards are the plug pool (3–15).
+        const plugPool = shuffle(powerPlantsDeck.splice(0, 13), rng() + '');
+        const socketPool = shuffle(powerPlantsDeck, rng() + ''); // the remaining >= 16 cards
 
-        const initialPlants = powerPlantsDeck.splice(0, 9).sort((a, b) => a.number - b.number);
+        const initialPlants = plugPool.splice(0, 9).sort((a, b) => a.number - b.number);
         const actualMarket = initialPlants.slice(0, 4);
-        const futureMarket = initialPlants.slice(4); // 5 plants
+        const futureMarket = initialPlants.slice(4); // 5 plants; plugPool keeps the 4 undrawn cards
 
-        let weakToRemove = 0;
-        let mainToRemove = 0;
-        if (numPlayers == 2 || numPlayers == 3) {
-            weakToRemove = 2;
-            mainToRemove = 6;
+        let plugToRemove = 0;
+        let socketToRemove = 0;
+        if (numPlayers == 2) {
+            plugToRemove = 1;
+            socketToRemove = 5;
+        } else if (numPlayers == 3) {
+            plugToRemove = 2;
+            socketToRemove = 6;
         } else if (numPlayers == 4) {
-            weakToRemove = 1;
-            mainToRemove = 3;
+            plugToRemove = 1;
+            socketToRemove = 3;
         }
 
-        if (weakToRemove + mainToRemove > 0) {
-            const weakPool = shuffle(
-                powerPlantsDeck.filter((p) => p.number <= 15),
-                rng() + ''
-            );
-            const mainPool = shuffle(
-                powerPlantsDeck.filter((p) => p.number > 15),
-                rng() + ''
-            );
+        // Remove from each pool; if the plug pool runs short, top up the removal from sockets.
+        const plugShortfall = Math.max(0, plugToRemove - plugPool.length);
+        const remainingPlug = plugPool.slice(plugToRemove);
+        const remainingSocket = socketPool.slice(socketToRemove + plugShortfall);
 
-            const actualWeakRemoved = Math.min(weakToRemove, weakPool.length);
-            const weakShortfall = weakToRemove - actualWeakRemoved;
-            const actualMainRemoved = Math.min(mainToRemove + weakShortfall, mainPool.length);
-
-            const removedNumbers = new Set<number>([
-                ...weakPool.slice(0, actualWeakRemoved).map((p) => p.number),
-                ...mainPool.slice(0, actualMainRemoved).map((p) => p.number),
-            ]);
-            powerPlantsDeck = powerPlantsDeck.filter((p) => !removedNumbers.has(p.number));
+        // Build the draw stack — rule: never leave a plug card (<= 15) on top.
+        const deck = shuffle(remainingPlug.concat(remainingSocket), rng() + '');
+        if (deck.length > 0 && deck[0].number <= 15) {
+            const socketIndex = deck.findIndex((p) => p.number > 15);
+            if (socketIndex > 0) {
+                [deck[0], deck[socketIndex]] = [deck[socketIndex], deck[0]];
+            }
         }
+        deck.push(step3);
 
-        powerPlantsDeck.push(step3);
-
-        return { actualMarket, futureMarket, powerPlantsDeck };
+        return { actualMarket, futureMarket, powerPlantsDeck: deck };
     },
     mapSpecificRules:
         'Europe uses the New Power Plants Set 2 deck (cards with a plug on the back). ' +

@@ -123,13 +123,16 @@
             {{ resourceResupply[2] }}
         </text>
         <Garbage :pieceId="-1" :targetState="{ x: 382, y: 11 }" :canClick="false" :transparent="false" />
-        <text x="414" y="20" font-weight="600" fill="black" style="font-size: 24px">
-            {{ resourceResupply[3] }}
-        </text>
-        <Uranium :pieceId="-1" :targetState="{ x: 428, y: 12 }" :canClick="false" :transparent="false" />
+        <!-- Australia has no main-market uranium row, so its resupply indicator omits uranium. -->
+        <template v-if="!isAustraliaMarket">
+            <text x="414" y="20" font-weight="600" fill="black" style="font-size: 24px">
+                {{ resourceResupply[3] }}
+            </text>
+            <Uranium :pieceId="-1" :targetState="{ x: 428, y: 12 }" :canClick="false" :transparent="false" />
+        </template>
 
         <rect
-            v-if="!isIndiaResourceMarket && !isNinePriceMarket"
+            v-if="!isIndiaResourceMarket && !isNinePriceMarket && !isAustraliaMarket"
             width="760"
             height="80"
             x="20"
@@ -138,8 +141,9 @@
             fill="goldenrod"
         />
         <rect v-if="isNinePriceMarket" width="780" height="80" x="20" y="40" rx="3" fill="goldenrod" />
+        <rect v-if="isAustraliaMarket" width="870" height="80" x="20" y="40" rx="3" fill="goldenrod" />
         <rect v-if="isIndiaResourceMarket" width="680" height="80" x="20" y="40" rx="3" fill="goldenrod" />
-        <template v-for="index in isNinePriceMarket ? 9 : 8">
+        <template v-for="index in isNinePriceMarket ? 9 : isAustraliaMarket ? 10 : 8">
             <rect
                 :key="'resources' + index"
                 width="70"
@@ -160,7 +164,7 @@
             >
                 {{ index }}
             </text>
-            <g :key="'lines' + index" v-if="!isIndiaResourceMarket && !isNinePriceMarket">
+            <g :key="'lines' + index" v-if="!isIndiaResourceMarket && !isNinePriceMarket && !isAustraliaMarket">
                 <line :x1="25 + 85 * (index - 1)" y1="68" :x2="95 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
                 <line :x1="25 + 85 * (index - 1)" y1="92" :x2="95 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
 
@@ -188,6 +192,20 @@
             </g>
         </template>
 
+        <!-- Australia: the $1 and $2 spaces close once the Step 3 CO2 tax fires. -->
+        <template v-if="isAustraliaMarket && co2TaxActive">
+            <rect width="160" height="70" x="24" y="45" rx="2" fill="black" opacity="0.55" />
+            <text
+                text-anchor="middle"
+                style="font-size: 12px; font-family: monospace; font-weight: 700"
+                x="104"
+                y="84"
+                fill="white"
+            >
+                CO₂ closed
+            </text>
+        </template>
+
         <template v-if="isIndiaResourceMarket">
             <g :key="'separators'">
                 <line x1="275" y1="40" x2="275" y2="140" stroke="red" />
@@ -198,7 +216,7 @@
             </g>
         </template>
 
-        <template v-if="!isIndiaResourceMarket && !isNinePriceMarket">
+        <template v-if="!isIndiaResourceMarket && !isNinePriceMarket && !isAustraliaMarket">
             <rect width="30" height="30" x="705" y="45" rx="2" fill="darkgoldenrod" />
             <circle r="10" cx="732" cy="48" fill="yellow" />
             <text
@@ -366,7 +384,7 @@
                 v-if="!isKorea && buyableResources.length > 0"
                 x="15"
                 y="35"
-                width="770"
+                :width="isAustraliaMarket ? 880 : 770"
                 height="90"
                 rx="2"
                 fill="none"
@@ -432,6 +450,10 @@ export default class Resources extends Vue {
 
     isKorea: boolean = false;
     isNinePriceMarket: boolean = false;
+    // Australia: coal/oil/garbage-only market that can reach $10 after the Step 3
+    // CO2 tax. co2TaxActive closes the $1/$2 columns once that shift has happened.
+    isAustraliaMarket: boolean = false;
+    co2TaxActive: boolean = false;
     coalsNorth: Piece[] = [];
     oilsNorth: Piece[] = [];
     garbagesNorth: Piece[] = [];
@@ -482,6 +504,9 @@ export default class Resources extends Vue {
 
     createPieces(gameState: GameState) {
         if (!gameState) return;
+
+        this.isAustraliaMarket = gameState.map?.name === 'Australia';
+        this.co2TaxActive = this.isAustraliaMarket && gameState.step >= 3;
 
         const isKorea = gameState.coalMarketNorth !== undefined;
         this.isKorea = isKorea;
@@ -558,6 +583,29 @@ export default class Resources extends Vue {
             );
             return;
         }
+
+        // Australia: coal/oil/garbage only (no uranium row — uranium lives in the
+        // separate mine market). Prices run $1–$8, shifting to $3–$10 at Step 3
+        // (CO2 tax). buildMainRowPieces positions cubes by price, so the shift is
+        // automatic; the template renders 10 price columns and closes $1/$2 once
+        // co2TaxActive.
+        if (this.isAustraliaMarket) {
+            this.coals = this.buildMainRowPieces(
+                gameState.coalPrices!, gameState.coalMarket, 'coal', 48, { maxPrice: 10 },
+            );
+            this.oils = this.buildMainRowPieces(
+                gameState.oilPrices!, gameState.oilMarket, 'oil', 70, { maxPrice: 10 },
+            );
+            this.garbages = this.buildMainRowPieces(
+                gameState.garbagePrices!, gameState.garbageMarket, 'garbage', 94, { maxPrice: 10 },
+            );
+            this.uraniums = [];
+            this.coalsNorth = [];
+            this.oilsNorth = [];
+            this.garbagesNorth = [];
+            return;
+        }
+
         this.isNinePriceMarket = false;
 
         // Non-Korea: original logic below (unchanged).

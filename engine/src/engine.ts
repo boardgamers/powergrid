@@ -2,7 +2,19 @@ import assert from 'assert';
 import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
 import { availableMoves, countNetworks } from './available-moves';
-import { GameOptions, GameState, Phase, Player, PowerPlant, PowerPlantType, ResourceType } from './gamestate';
+import {
+    countHeldPowerPlants,
+    GameOptions,
+    GameState,
+    isUraniumMine,
+    Phase,
+    Player,
+    PowerPlant,
+    PowerPlantType,
+    ResourceType,
+    resupplyUraniumMine,
+    sellUraniumMine,
+} from './gamestate';
 import { LogMove } from './log';
 import { GameMap, maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
@@ -59,7 +71,12 @@ export function defaultSetupDeck(
         const step3 = powerPlantsDeck.pop()!;
 
         powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-        if (numPlayers == 2 || numPlayers == 3) {
+        if (numPlayers == 2) {
+            // Recharged 2P removes 1 plug + 5 socket (6 total). The original edition
+            // removes 8 — see the variant == 'original' branch above. Confirmed with Mike.
+            initialPowerPlants = initialPowerPlants.slice(1);
+            powerPlantsDeck = shuffle(powerPlantsDeck.slice(5).concat(initialPowerPlants), rng() + '');
+        } else if (numPlayers == 3) {
             initialPowerPlants = initialPowerPlants.slice(2);
             powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
         } else if (numPlayers == 4) {
@@ -273,7 +290,12 @@ export function setup(
                 // surcharge handles the disconnect at build time. Without this,
                 // requiring 5-of-6 regions for 5p would loop forever (GB has 4
                 // regions, IE has 2).
-                chosenMap.name === 'UK & Ireland'
+                // Australia: regions don't need to be adjacent (rulebook).
+                // Western Australia (Red) has no inter-region edges; the
+                // 20-Elektro general connection handles the disconnect at
+                // build time.
+                chosenMap.name === 'UK & Ireland' ||
+                chosenMap.name === 'Australia'
             ) {
                 playRegions.add(region);
 
@@ -369,6 +391,9 @@ export function setup(
         oilMarket,
         garbageMarket,
         uraniumMarket,
+        // Australia: the separate uranium-mine market starts full (6 prices $2–$7,
+        // two tokens each). Undefined on every other map.
+        uraniumMineMarket: (forceMap || finalMap).name == 'Australia' ? [2, 2, 2, 2, 2, 2] : undefined,
         coalPrices,
         oilPrices,
         garbagePrices,
@@ -541,8 +566,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 }
 
                 if (
-                    winningPlayer.powerPlants.length <= 3 ||
-                    (G.players.length == 2 && winningPlayer.powerPlants.length == 4)
+                    countHeldPowerPlants(G, winningPlayer) <= 3 ||
+                    (G.players.length == 2 && countHeldPowerPlants(G, winningPlayer) == 4)
                 ) {
                     if (G.map.name != 'China' || G.step == 3) {
                         addPowerPlant(G);
@@ -682,8 +707,8 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 endAuction(G, winningPlayer, winningPlayer.bid);
 
                                 if (
-                                    (winningPlayer.powerPlants.length > 4 ||
-                                        (G.players.length > 2 && winningPlayer.powerPlants.length > 3)) &&
+                                    (countHeldPowerPlants(G, winningPlayer) > 4 ||
+                                        (G.players.length > 2 && countHeldPowerPlants(G, winningPlayer) > 3)) &&
                                     !winningPlayer.isDropped
                                 ) {
                                     setCurrentPlayer(G, winningPlayer.id);
@@ -817,6 +842,23 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 });
                             }
 
+                            // Australia: uranium income still pays in the final round
+                            // (unlike city income). Players sell in REVERSE turn order
+                            // (last player first); the market is not refilled afterwards.
+                            if (G.uraniumMineMarket) {
+                                [...G.playerOrder].reverse().forEach((idx) => {
+                                    const seller = G.players[idx];
+                                    const sale = sellUraniumMine(G, seller);
+                                    if (sale.mines > 0 && sale.income > 0) {
+                                        const who = seller.name ?? `Player ${seller.id}`;
+                                        G.log.push({
+                                            type: 'event',
+                                            event: `${who} sells uranium for ${sale.income} Elektro (${sale.cities} cities × $${sale.price}, ${sale.mines} mine(s)).`,
+                                        });
+                                    }
+                                });
+                            }
+
                             G.log.push({ type: 'event', event: 'Game Ended!' });
                         } else {
                             G.players.forEach((p) => {
@@ -831,7 +873,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             if (G.map.name == 'India') {
                                 // Compute the maximum number of cities each player can power.
                                 G.players.forEach(
-                                    (player) => (player.targetCitiesPowered = calculateMaxCitiesPowered(player))
+                                    (player) => (player.targetCitiesPowered = calculateMaxCitiesPowered(G, player))
                                 );
 
                                 // Output log for power outage.
@@ -847,6 +889,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 rebuildPlantMarketForChina(G);
                             } else if (G.futureMarket.length == 0) {
                                 G.step = 3;
+                                applyAustraliaStep3Shift(G);
                             }
                         }
                     } else {
@@ -881,6 +924,39 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     }
 
                     if (G.players.filter((p) => !p.passed && !p.isDropped).length == 0) {
+                        // Australia: the uranium-mine market resolves once everyone
+                        // has finished Bureaucracy. Players sell in REVERSE turn order
+                        // — the player last in turn order sells first, getting first
+                        // dibs on the highest empty price (the same trailing-player
+                        // advantage as the resource and building phases). Then the
+                        // resource refill removes tokens from the cheap end.
+                        if (G.uraniumMineMarket) {
+                            [...G.playerOrder].reverse().forEach((idx) => {
+                                const seller = G.players[idx];
+                                const sale = sellUraniumMine(G, seller);
+                                if (sale.mines > 0) {
+                                    const who = seller.name ?? `Player ${seller.id}`;
+                                    G.log.push({
+                                        type: 'event',
+                                        event:
+                                            sale.income > 0
+                                                ? `${who} sells uranium for ${sale.income} Elektro (${sale.cities} cities × $${sale.price}, ${sale.mines} mine(s)).`
+                                                : `${who}'s uranium mines earn nothing (market full).`,
+                                    });
+                                }
+                            });
+                            const removed = resupplyUraniumMine(
+                                G,
+                                G.map.uraniumMineResupply![G.players.length - 2][G.step - 1]
+                            );
+                            if (removed > 0) {
+                                G.log.push({
+                                    type: 'event',
+                                    event: `Removing ${removed} uranium from the mine market (cheapest slots).`,
+                                });
+                            }
+                        }
+
                         // Resupply is also capped by remaining market capacity (the
                         // prices array length minus current market size). Without
                         // this, smaller markets like Korea's can overflow past the
@@ -1100,6 +1176,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                             if (G.futureMarket.length == 0 && G.map.name != 'China') {
                                 G.step = 3;
+                                applyAustraliaStep3Shift(G);
                             }
 
                             G.plantDiscountActive =
@@ -2167,6 +2244,31 @@ function enterStepTwoMiddleEast(G: GameState) {
     }
 }
 
+// Australia CO2 tax: when Step 3 begins, the $1 and $2 resource spaces close for
+// the rest of the game and the six cheapest tokens of each resource move to the
+// new $9 and $10 spaces — i.e. the active price scale shifts up by $2. Because
+// the engine prices a market of M cubes as prices[length - M] (cubes sit at the
+// expensive end), swapping the price arrays to the $3–$10 scale reprices the
+// existing cubes exactly as the physical relocation does, for both full and
+// partially-depleted markets — the market counts and supply pools are untouched.
+// Idempotent and Australia-only, so it is safe to call at every Step 3 entry.
+export function applyAustraliaStep3Shift(G: GameState) {
+    if (G.map.name !== 'Australia') {
+        return;
+    }
+    if (G.coalPrices && G.coalPrices[0] === 3) {
+        return; // already shifted this game
+    }
+    const shifted = [3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10];
+    G.coalPrices = [...shifted];
+    G.oilPrices = [...shifted];
+    G.garbagePrices = [...shifted];
+    G.log.push({
+        type: 'event',
+        event: 'CO2 tax (Step 3): the $1 and $2 resource spaces close; the six cheapest tokens of each resource move to the new $9 and $10 spaces.',
+    });
+}
+
 function rebuildPlantMarketForChina(G: GameState) {
     /*At the beginning of phase 5, the players fill the power plant market with new power plants. Depending on the
 number of players, the players always add a minimum of 1, 2, or 3 power plants to the market from the supply:
@@ -2263,15 +2365,18 @@ export function playersSortedByScore(G: GameState): Player[] {
 
 function calculateCitiesPowered(G: GameState) {
     G.players.forEach((player) => {
-        player.citiesPowered = calculateMaxCitiesPowered(player);
+        player.citiesPowered = calculateMaxCitiesPowered(G, player);
     });
 }
 
-function calculateMaxCitiesPowered(player: Player) {
+function calculateMaxCitiesPowered(G: GameState, player: Player) {
+    // Australia's uranium mines never power cities, so they are excluded from the
+    // powering combinations (this also keeps the 2^n permutation set smaller).
+    const countablePlants = player.powerPlants.filter((pp) => !isUraniumMine(G, pp));
     const permutations: PowerPlant[][] = [];
-    for (let i = 0; i < Math.pow(2, player.powerPlants.length); i++) {
+    for (let i = 0; i < Math.pow(2, countablePlants.length); i++) {
         const perm: PowerPlant[] = [];
-        player.powerPlants.forEach((pp, index) => {
+        countablePlants.forEach((pp, index) => {
             if (i & Math.pow(2, index)) {
                 perm.push(pp);
             }
@@ -2367,6 +2472,7 @@ function toResourcesPhase(G: GameState) {
                 event: `Starting Step 3, Power Plant ${powerPlantDiscarded?.number} discarded.`,
             });
             G.step = 3;
+            applyAustraliaStep3Shift(G);
 
             G.actualMarket = [...G.actualMarket, ...G.futureMarket];
             G.futureMarket = [];
@@ -2593,7 +2699,8 @@ function fastAuction(G: GameState, player: Player, bid: number) {
         endAuction(G, winningPlayer, cost);
 
         if (
-            (winningPlayer.powerPlants.length > 4 || (G.players.length > 2 && winningPlayer.powerPlants.length > 3)) &&
+            (countHeldPowerPlants(G, winningPlayer) > 4 ||
+                (G.players.length > 2 && countHeldPowerPlants(G, winningPlayer) > 3)) &&
             !winningPlayer.isDropped
         ) {
             setCurrentPlayer(G, winningPlayer.id);

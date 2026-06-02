@@ -110,6 +110,68 @@
                 @buyResource="buyResource($event)"
             />
 
+            <!-- Australia: uranium-mine selling table. Six price rows $7 (top) →
+                 $2 (bottom), two token slots each. Sellers place one token per mine
+                 on the highest empty slot; the resource refill removes from the
+                 cheap (bottom) end. Lives in the clear upper-left margin. -->
+            <g v-if="G.map.name === 'Australia' && G.uraniumMineMarket" transform="translate(15, 70)">
+                <rect x="0" y="0" width="104" height="430" rx="6" fill="#8aa84a" stroke="#4d6322" stroke-width="3" />
+                <text x="52" y="22" text-anchor="middle" font-weight="700" fill="black" style="font-size: 15px">
+                    Uranium
+                </text>
+                <text x="52" y="38" text-anchor="middle" font-weight="600" fill="black" style="font-size: 11px">
+                    mine market
+                </text>
+                <g v-for="row in 6" :key="'uraniumRow' + row" :transform="`translate(0, ${50 + (row - 1) * 59})`">
+                    <text x="16" y="32" text-anchor="middle" font-weight="700" fill="black" style="font-size: 15px">
+                        ${{ 8 - row }}
+                    </text>
+                    <rect
+                        x="36"
+                        y="14"
+                        width="26"
+                        height="26"
+                        rx="3"
+                        fill="goldenrod"
+                        stroke="#4d6322"
+                        stroke-width="1.5"
+                    />
+                    <rect
+                        x="68"
+                        y="14"
+                        width="26"
+                        height="26"
+                        rx="3"
+                        fill="goldenrod"
+                        stroke="#4d6322"
+                        stroke-width="1.5"
+                    />
+                    <circle
+                        v-if="(G.uraniumMineMarket[6 - row] || 0) >= 1"
+                        cx="49"
+                        cy="27"
+                        r="10"
+                        fill="#46c655"
+                        stroke="#1f5c25"
+                        stroke-width="2"
+                    />
+                    <circle
+                        v-if="(G.uraniumMineMarket[6 - row] || 0) >= 2"
+                        cx="81"
+                        cy="27"
+                        r="10"
+                        fill="#46c655"
+                        stroke="#1f5c25"
+                        stroke-width="2"
+                    />
+                </g>
+                <!-- Removal rate: tokens taken from the cheapest slots each refill (current step). -->
+                <line x1="10" y1="402" x2="94" y2="402" stroke="#4d6322" stroke-width="1" />
+                <text x="52" y="420" text-anchor="middle" font-weight="700" fill="#22340f" style="font-size: 12px">
+                    refill −{{ G.map.uraniumMineResupply[G.players.length - 2][G.step - 1] }}/rnd
+                </text>
+            </g>
+
             <g :transform="`translate(${G.map.roundInfoPosition[0]}, ${G.map.roundInfoPosition[1]})`">
                 <template v-if="gameEnded(G)">
                     <Button
@@ -175,6 +237,7 @@
                     :showMoney="player == playerIndex || gameEnded(G) || G.options.showMoney"
                     :showBid="!G.options.fastBid"
                     :phase="G.phase"
+                    :isAustralia="G.map.name === 'Australia'"
                     @powerPlantClick="powerPlantClick($event)"
                     @discardResource="discardResource($event)"
                 />
@@ -368,6 +431,11 @@
                                             (S), <strong>{{ G.resourceResupplyNorth[0] }}</strong> (N)
                                         </template>
                                     </li>
+                                    <li v-if="G.map.uraniumMineResupply">
+                                        Uranium market: remove
+                                        <strong>{{ G.map.uraniumMineResupply[G.players.length - 2][0] }}</strong>
+                                        token(s) from the cheapest slots
+                                    </li>
                                     <li>Bureaucracy: remove <strong>highest</strong> power plant from market</li>
                                 </ul>
                             </li>
@@ -385,6 +453,11 @@
                                             (S), <strong>{{ G.resourceResupplyNorth[1] }}</strong> (N)
                                         </template>
                                     </li>
+                                    <li v-if="G.map.uraniumMineResupply">
+                                        Uranium market: remove
+                                        <strong>{{ G.map.uraniumMineResupply[G.players.length - 2][1] }}</strong>
+                                        token(s) from the cheapest slots
+                                    </li>
                                     <li>Bureaucracy: remove <strong>highest</strong> power plant from market</li>
                                 </ul>
                             </li>
@@ -398,6 +471,11 @@
                                         <template v-if="G.resourceResupplyNorth">
                                             (S), <strong>{{ G.resourceResupplyNorth[2] }}</strong> (N)
                                         </template>
+                                    </li>
+                                    <li v-if="G.map.uraniumMineResupply">
+                                        Uranium market: remove
+                                        <strong>{{ G.map.uraniumMineResupply[G.players.length - 2][2] }}</strong>
+                                        token(s) from the cheapest slots
                                     </li>
                                     <li>Bureaucracy: remove <strong>lowest</strong> power plant from market</li>
                                     <li>All power plants available for auction</li>

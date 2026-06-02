@@ -274,7 +274,11 @@ export const map: GameMap = {
             const step3 = powerPlantsDeck.pop()!;
 
             powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-            if (numPlayers == 2 || numPlayers == 3) {
+            if (numPlayers == 2) {
+                // Recharged 2P removes 1 plug + 5 socket (was incorrectly lumped with 3P).
+                initialPowerPlants = initialPowerPlants.slice(1);
+                powerPlantsDeck = shuffle(powerPlantsDeck.slice(5).concat(initialPowerPlants), rng() + '');
+            } else if (numPlayers == 3) {
                 initialPowerPlants = initialPowerPlants.slice(2);
                 powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
             } else if (numPlayers == 4) {

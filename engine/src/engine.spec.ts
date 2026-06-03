@@ -356,6 +356,69 @@ describe('Engine', () => {
         expect(G.powerPlantsDeck[step3Idx + 2].number).to.not.equal(99);
     });
 
+    it('should never strand a UK & Ireland region from the rest of its landmass', () => {
+        // The region picker may split Great Britain from Ireland (no sea edge —
+        // the cross-island surcharge bridges them), but the regions chosen WITHIN
+        // a landmass must stay mutually connected. A region stranded on its own
+        // island (e.g. Scotland without N. England) is unreachable for anyone who
+        // didn't start there, which soft-locks Step 2 / the end game. Sweep many
+        // seeds across player counts and assert each landmass's chosen regions
+        // form a single connected component.
+        for (let pc = 2; pc <= 6; pc++) {
+            for (let s = 0; s < 30; s++) {
+                const G = setup(
+                    pc,
+                    { map: 'UK & Ireland', variant: 'recharged', randomizeMap: false },
+                    `uki-conn-${pc}-${s}`
+                );
+                const cities = G.map.cities;
+
+                const regionIsland: Record<string, string> = {};
+                cities.forEach((c) => {
+                    if (c.island) regionIsland[c.region] = c.island;
+                });
+
+                const regionsInPlay = [...new Set(cities.map((c) => c.region))];
+                const adj: Record<string, Set<string>> = {};
+                regionsInPlay.forEach((r) => (adj[r] = new Set<string>()));
+                G.map.connections.forEach((con) => {
+                    const a = cities.find((c) => c.name === con.nodes[0])!.region;
+                    const b = cities.find((c) => c.name === con.nodes[1])!.region;
+                    if (a !== b) {
+                        adj[a].add(b);
+                        adj[b].add(a);
+                    }
+                });
+
+                const byIsland: Record<string, string[]> = {};
+                regionsInPlay.forEach((r) => {
+                    const isl = regionIsland[r];
+                    if (!byIsland[isl]) byIsland[isl] = [];
+                    byIsland[isl].push(r);
+                });
+
+                for (const isl of Object.keys(byIsland)) {
+                    const group = byIsland[isl];
+                    const seen = new Set<string>([group[0]]);
+                    const queue = [group[0]];
+                    while (queue.length) {
+                        const cur = queue.shift()!;
+                        adj[cur].forEach((nb) => {
+                            if (regionIsland[nb] === isl && !seen.has(nb)) {
+                                seen.add(nb);
+                                queue.push(nb);
+                            }
+                        });
+                    }
+                    expect(
+                        seen.size,
+                        `players=${pc} seed=uki-conn-${pc}-${s} island=${isl} regions=[${group}] not internally connected`
+                    ).to.equal(group.length);
+                }
+            }
+        }
+    });
+
     it('should remove uranium plant 17 from the Australia deck and keep the five mines', () => {
         // Australia replaces the six uranium plants with mines: plant 17 is removed
         // from the deck entirely, while 11/23/28/34/39 stay in (and behave as

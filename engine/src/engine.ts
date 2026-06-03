@@ -278,25 +278,52 @@ export function setup(
             )
         );
 
+        // Map each region to the landmass ('island') it sits on. Only UK & Ireland
+        // tags cities with an `island`; for every other map this stays empty and is
+        // unused.
+        const regionIsland: Record<string, string> = {};
+        for (const c of chosenMap.cities) {
+            if (c.island && regionIsland[c.region] === undefined) {
+                regionIsland[c.region] = c.island;
+            }
+        }
+
         const playRegions = new Set<string>();
         while (playRegions.size != Math.min(regionsInPlay[p], regions.length)) {
             const region = regions[Math.floor(rng() * regions.length)];
-            if (
-                playRegions.size == 0 ||
-                regionConnections[regions.indexOf(region)].some((con) => playRegions.has(con)) ||
-                // UK & Ireland: regions on the two islands have no edges between
-                // them (no sea connection). Skipping the connectivity check lets
-                // the random selection span both islands; the cross-island
-                // surcharge handles the disconnect at build time. Without this,
-                // requiring 5-of-6 regions for 5p would loop forever (GB has 4
-                // regions, IE has 2).
-                // Australia: regions don't need to be adjacent (rulebook).
-                // Western Australia (Red) has no inter-region edges; the
-                // 20-Elektro general connection handles the disconnect at
-                // build time.
-                chosenMap.name === 'UK & Ireland' ||
-                chosenMap.name === 'Australia'
-            ) {
+            const connectsToChosen =
+                playRegions.size == 0 || regionConnections[regions.indexOf(region)].some((con) => playRegions.has(con));
+
+            let accept = connectsToChosen;
+
+            // UK & Ireland: Great Britain and Ireland have no edges between them (no
+            // sea connection), so a region may ALSO be accepted if it opens a fresh
+            // landmass — i.e. no already-chosen region shares its island. But within
+            // a landmass we still require connectivity, so a region is never stranded
+            // from the rest of its own island (e.g. Scotland chosen without N. England
+            // bridging it to the south). A stranded region's cities are unreachable by
+            // any player who didn't start there: they can never be built, so neither
+            // Step 2 trigger fires (no one reaches the city threshold, and "all Step 1
+            // houses filled" is impossible) and the game soft-locks. The cross-island
+            // surcharge bridges the two landmasses at build time. This also resolves
+            // the old "5-of-6 regions for 5p loops forever" worry (GB has 4 regions,
+            // IE has 2) — opening the second island keeps the picker unblocked.
+            if (!accept && chosenMap.name === 'UK & Ireland') {
+                const startedIslands = new Set([...playRegions].map((r) => regionIsland[r]));
+                if (!startedIslands.has(regionIsland[region])) {
+                    accept = true;
+                }
+            }
+
+            // Australia: regions need not be adjacent (rulebook). Western Australia
+            // (Red) has no inter-region edges, but the 20-Elektro general connection
+            // reaches ANY city at build time, so there is no unreachable-cluster
+            // soft-lock and the connectivity check can be skipped entirely.
+            if (!accept && chosenMap.name === 'Australia') {
+                accept = true;
+            }
+
+            if (accept) {
                 playRegions.add(region);
 
                 // Avoid italy Red Green Blue

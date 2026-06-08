@@ -732,7 +732,12 @@ function dijkstra(G: GameState, player: Player): { name: string; price: number }
         currentConnections.forEach((connection) => {
             const otherName = connection.nodes.filter((n) => n != currentNode.name)[0];
             const otherNode = nodes.find((n) => n.name == otherName)!;
-            const price = player.cities.find((c) => c.name == otherNode.name) ? 0 : currentNode.price + connection.cost;
+            // Bremen charges the cost of the district you enter (node-weighted),
+            // not the edge; `connectionCost` falls back to the per-edge cost for
+            // every other map. 0 is a valid free entry, so only undefined falls back.
+            const otherCity = G.map.cities.find((c) => c.name == otherName);
+            const stepCost = otherCity?.connectionCost ?? connection.cost;
+            const price = player.cities.find((c) => c.name == otherNode.name) ? 0 : currentNode.price + stepCost;
             if (!otherNode.visited && otherNode.price > price) {
                 otherNode.price = price;
             }

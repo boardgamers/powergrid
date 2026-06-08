@@ -623,4 +623,98 @@ describe('Engine', () => {
 
         expect(ended(G)).to.be.false;
     });
+
+    it('should set Bremen Step 2 and end-game thresholds (and set up) for every player count', () => {
+        const step2 = [5, 5, 5, 5, 4];
+        const endGame = [13, 13, 13, 12, 11];
+        for (let pc = 2; pc <= 6; pc++) {
+            const G = setup(
+                pc,
+                { map: 'Bremen', variant: 'recharged', randomizeMap: false },
+                `bremen-thresholds-${pc}`
+            );
+            expect(G.citiesToStep2, `Bremen ${pc}P Step 2`).to.equal(step2[pc - 2]);
+            expect(G.citiesToEndGame, `Bremen ${pc}P end game`).to.equal(endGame[pc - 2]);
+            expect(
+                G.players.some((p) => p.availableMoves && Object.keys(p.availableMoves).length > 0),
+                `Bremen ${pc}P ready`
+            ).to.be.true;
+        }
+    });
+
+    it('should remove the Bremen banned plants (incl. all nuclear) and use no uranium', () => {
+        const baseBanned = [11, 17, 23, 28, 34, 36, 38, 39, 46];
+        // 2–4P additionally box 31 and 50; check a low and a high player count.
+        for (const pc of [2, 5]) {
+            const G = setup(pc, { map: 'Bremen', variant: 'recharged', randomizeMap: false }, `bremen-deck-${pc}`);
+            const allNumbers = new Set<number>([
+                ...G.actualMarket.map((p) => p.number),
+                ...G.futureMarket.map((p) => p.number),
+                ...G.powerPlantsDeck.map((p) => p.number),
+            ]);
+            for (const n of baseBanned) {
+                expect(allNumbers.has(n), `Bremen ${pc}P: plant ${n} removed`).to.be.false;
+            }
+            if (pc <= 4) {
+                expect(allNumbers.has(31), `Bremen ${pc}P: plant 31 removed`).to.be.false;
+                expect(allNumbers.has(50), `Bremen ${pc}P: plant 50 removed`).to.be.false;
+            }
+            // The opening market is drawn from the ≤15 weak pool.
+            expect(
+                [...G.actualMarket, ...G.futureMarket].every((p) => p.number <= 15),
+                `Bremen ${pc}P: market is weak-pool`
+            ).to.be.true;
+        }
+        // No uranium token is ever in play on Bremen.
+        const G = setup(5, { map: 'Bremen', variant: 'recharged', randomizeMap: false }, 'bremen-uranium');
+        expect(G.map.startingSupply![3], 'Bremen uranium supply').to.equal(0);
+    });
+
+    it('should price Bremen builds by summed district costs (node-weighted, asymmetric)', () => {
+        // 5P so all five regions (all 25 districts) are in play.
+        const G = setup(5, { map: 'Bremen', variant: 'recharged', randomizeMap: false }, 'bremen-build-cost');
+        G.phase = Phase.Building;
+        G.step = 1;
+        const player = G.players[0];
+        player.money = 100;
+
+        // From a network in Seehausen, the rulebook example: connecting Gröpelingen
+        // costs 25 — path Seehausen → Höfen (transit, 9) → Gröpelingen (8) = 17 in
+        // district costs, plus the first house (8). Höfen itself is a neighbour: 9 + 8.
+        player.cities = [{ name: 'Seehausen', position: 0 }];
+        let builds = availableMoves(G, player)[MoveName.Build] as { name: string; price: number }[];
+        expect(builds.find((b) => b.name === 'Höfen')?.price, 'Seehausen → Höfen').to.equal(17);
+        expect(builds.find((b) => b.name === 'Gröpelingen')?.price, 'Seehausen → Gröpelingen (rulebook)').to.equal(25);
+
+        // Asymmetry: from Höfen, connecting Seehausen pays Seehausen's own cost (14) +
+        // its first house (8, a small district) = 22, not the 17 of the reverse trip.
+        player.cities = [{ name: 'Höfen', position: 0 }];
+        builds = availableMoves(G, player)[MoveName.Build] as { name: string; price: number }[];
+        expect(builds.find((b) => b.name === 'Seehausen')?.price, 'Höfen → Seehausen (asymmetric)').to.equal(22);
+    });
+
+    it('should limit Bremen small districts to two networks', () => {
+        const G = setup(5, { map: 'Bremen', variant: 'recharged', randomizeMap: false }, 'bremen-small-cap');
+        G.phase = Phase.Building;
+        G.step = 3; // 3 slots open by step, so only the small district's own 2-slot limit binds
+        const player = G.players[0];
+        player.money = 100;
+        player.cities = [{ name: 'Walle', position: 0 }];
+        // Two other players already occupy Findorff (small, 2 slots) and Mitte (full, 3).
+        G.players[1].cities = [
+            { name: 'Findorff', position: 1 },
+            { name: 'Mitte', position: 1 },
+        ];
+        G.players[2].cities = [
+            { name: 'Findorff', position: 2 },
+            { name: 'Mitte', position: 2 },
+        ];
+
+        const builds = availableMoves(G, player)[MoveName.Build] as { name: string; price: number }[];
+        const priceOf = (name: string) => builds.find((b) => b.name === name)?.price;
+        // Findorff is full at two networks — no third slot for this player.
+        expect(priceOf('Findorff') === undefined || priceOf('Findorff') === 9999, 'Findorff small, full').to.be.true;
+        // Mitte still has its third slot (20): connection 1 + 20 = 21.
+        expect(priceOf('Mitte'), 'Mitte third slot').to.equal(21);
+    });
 });

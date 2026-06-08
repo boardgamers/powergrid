@@ -25,7 +25,8 @@ export type MapName =
     | 'South Africa'
     | 'UK & Ireland'
     | 'Japan'
-    | 'Australia';
+    | 'Australia'
+    | 'Bremen';
 export type Variant = 'original' | 'recharged';
 
 export interface GameOptions {

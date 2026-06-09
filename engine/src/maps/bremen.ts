@@ -50,56 +50,58 @@ export const map: GameMap = {
     name: 'Bremen',
     cities: [
         // Blue
-        { name: Cities.Borgfeld, region: Regions.Blue, connectionCost: 15, slotCosts: [8, 14], x: 288, y: 120 },
-        { name: Cities.Oberneuland, region: Regions.Blue, connectionCost: 14, slotCosts: [8, 14, 20], x: 372, y: 128 },
-        { name: Cities.Osterholz, region: Regions.Blue, connectionCost: 11, slotCosts: [8, 14, 20], x: 456, y: 124 },
-        { name: Cities.HornLehe, region: Regions.Blue, connectionCost: 9, slotCosts: [8, 14, 20], x: 336, y: 192 },
-        { name: Cities.Vahr, region: Regions.Blue, connectionCost: 6, slotCosts: [8, 14, 20], x: 424, y: 216 },
+        { name: Cities.Borgfeld, region: Regions.Blue, connectionCost: 15, slotCosts: [8, 14], x: 645, y: 273 },
+        { name: Cities.Oberneuland, region: Regions.Blue, connectionCost: 14, slotCosts: [8, 14, 20], x: 652, y: 342 },
+        { name: Cities.Osterholz, region: Regions.Blue, connectionCost: 11, slotCosts: [8, 14, 20], x: 660, y: 434 },
+        { name: Cities.HornLehe, region: Regions.Blue, connectionCost: 9, slotCosts: [8, 14, 20], x: 572, y: 322 },
+        { name: Cities.Vahr, region: Regions.Blue, connectionCost: 6, slotCosts: [8, 14, 20], x: 583, y: 376 },
         // Pink
-        { name: Cities.Schwachhausen, region: Regions.Pink, connectionCost: 5, slotCosts: [8, 14, 20], x: 328, y: 240 },
+        { name: Cities.Schwachhausen, region: Regions.Pink, connectionCost: 5, slotCosts: [8, 14, 20], x: 517, y: 357 },
         {
             name: Cities.OstlicheVorstadt,
             region: Regions.Pink,
             connectionCost: 2,
             slotCosts: [8, 14, 20],
-            x: 404,
-            y: 240,
+            x: 536,
+            y: 409,
         },
-        { name: Cities.Findorff, region: Regions.Pink, connectionCost: 3, slotCosts: [8, 14], x: 316, y: 282 },
-        { name: Cities.Walle, region: Regions.Pink, connectionCost: 6, slotCosts: [8, 14, 20], x: 330, y: 316 },
-        { name: Cities.Mitte, region: Regions.Pink, connectionCost: 1, slotCosts: [8, 14, 20], x: 368, y: 288 },
+        { name: Cities.Findorff, region: Regions.Pink, connectionCost: 3, slotCosts: [8, 14], x: 488, y: 311 },
+        { name: Cities.Walle, region: Regions.Pink, connectionCost: 6, slotCosts: [8, 14, 20], x: 438, y: 342 },
+        { name: Cities.Mitte, region: Regions.Pink, connectionCost: 1, slotCosts: [8, 14, 20], x: 472, y: 388 },
         // Purple
-        { name: Cities.Hemelingen, region: Regions.Purple, connectionCost: 8, slotCosts: [8, 14, 20], x: 460, y: 216 },
-        { name: Cities.Mahndorf, region: Regions.Purple, connectionCost: 10, slotCosts: [8, 14, 20], x: 520, y: 172 },
-        { name: Cities.Neustadt, region: Regions.Purple, connectionCost: 5, slotCosts: [8, 14, 20], x: 488, y: 288 },
+        { name: Cities.Hemelingen, region: Regions.Purple, connectionCost: 8, slotCosts: [8, 14, 20], x: 600, y: 453 },
+        { name: Cities.Mahndorf, region: Regions.Purple, connectionCost: 10, slotCosts: [8, 14, 20], x: 666, y: 499 },
+        { name: Cities.Neustadt, region: Regions.Purple, connectionCost: 5, slotCosts: [8, 14, 20], x: 464, y: 452 },
         {
             name: Cities.Obervieland,
             region: Regions.Purple,
             connectionCost: 10,
             slotCosts: [8, 14, 20],
-            x: 464,
-            y: 380,
+            x: 529,
+            y: 479,
         },
-        { name: Cities.Huchting, region: Regions.Purple, connectionCost: 12, slotCosts: [8, 14], x: 500, y: 424 },
+        { name: Cities.Huchting, region: Regions.Purple, connectionCost: 12, slotCosts: [8, 14], x: 386, y: 442 },
         // Red
-        { name: Cities.Hofen, region: Regions.Red, connectionCost: 9, slotCosts: [8, 14, 20], x: 292, y: 396 },
-        { name: Cities.Pusdorf, region: Regions.Red, connectionCost: 7, slotCosts: [8, 14, 20], x: 356, y: 348 },
-        { name: Cities.Neustadtshafen, region: Regions.Red, connectionCost: 8, slotCosts: [8, 14, 20], x: 388, y: 380 },
-        { name: Cities.Strom, region: Regions.Red, connectionCost: 14, slotCosts: [8, 14, 20], x: 432, y: 404 },
-        { name: Cities.Seehausen, region: Regions.Red, connectionCost: 14, slotCosts: [8, 14], x: 328, y: 452 },
+        { name: Cities.Hofen, region: Regions.Red, connectionCost: 9, slotCosts: [8, 14, 20], x: 352, y: 272 },
+        { name: Cities.Pusdorf, region: Regions.Red, connectionCost: 7, slotCosts: [8, 14, 20], x: 399, y: 386 },
+        { name: Cities.Neustadtshafen, region: Regions.Red, connectionCost: 8, slotCosts: [8, 14, 20], x: 375, y: 340 },
+        { name: Cities.Strom, region: Regions.Red, connectionCost: 14, slotCosts: [8, 14, 20], x: 328, y: 393 },
+        { name: Cities.Seehausen, region: Regions.Red, connectionCost: 14, slotCosts: [8, 14], x: 290, y: 321 },
         // Orange
-        { name: Cities.Blockland, region: Regions.Orange, connectionCost: 11, slotCosts: [8, 14, 20], x: 248, y: 224 },
-        { name: Cities.Gropelingen, region: Regions.Orange, connectionCost: 8, slotCosts: [8, 14, 20], x: 268, y: 352 },
-        { name: Cities.Burglesum, region: Regions.Orange, connectionCost: 13, slotCosts: [8, 14, 20], x: 224, y: 408 },
-        { name: Cities.Vegesack, region: Regions.Orange, connectionCost: 10, slotCosts: [8, 14, 20], x: 188, y: 464 },
-        { name: Cities.Blumenthal, region: Regions.Orange, connectionCost: 15, slotCosts: [8, 14], x: 136, y: 624 },
+        { name: Cities.Blockland, region: Regions.Orange, connectionCost: 11, slotCosts: [8, 14, 20], x: 476, y: 251 },
+        { name: Cities.Gropelingen, region: Regions.Orange, connectionCost: 8, slotCosts: [8, 14, 20], x: 426, y: 280 },
+        { name: Cities.Burglesum, region: Regions.Orange, connectionCost: 13, slotCosts: [8, 14, 20], x: 337, y: 197 },
+        { name: Cities.Vegesack, region: Regions.Orange, connectionCost: 10, slotCosts: [8, 14, 20], x: 248, y: 170 },
+        { name: Cities.Blumenthal, region: Regions.Orange, connectionCost: 15, slotCosts: [8, 14], x: 154, y: 135 },
     ],
     // Bremen has flat per-district costs (the `connectionCost` on each city), not
     // per-edge costs — so every connection's `cost` is 0 and only encodes which
     // districts border each other. Crossing the Weser/Lesum rivers costs nothing
     // extra (you still pay the destination district's cost), so river borders are
-    // ordinary adjacencies here (e.g. Höfen ↔ Gröpelingen). First-pass adjacency
-    // read off the board photo — refine against the printed board.
+    // ordinary adjacencies here.
+    // WIP (S2 borders pass): reset to trusted internal skeletons for Blue/Red/Orange
+    // only. Pink + Purple internals and ALL inter-region links (incl. the Höfen↔
+    // Gröpelingen Weser crossing) were cleared, to be rebuilt against the board.
     connections: [
         // Blue (internal)
         { nodes: [Cities.Borgfeld, Cities.Oberneuland], cost: 0 },
@@ -109,59 +111,67 @@ export const map: GameMap = {
         { nodes: [Cities.Oberneuland, Cities.Vahr], cost: 0 },
         { nodes: [Cities.Osterholz, Cities.Vahr], cost: 0 },
         { nodes: [Cities.HornLehe, Cities.Vahr], cost: 0 },
-        // Blue → neighbours
+        // Blue → neighbours (S2 rebuild)
         { nodes: [Cities.HornLehe, Cities.Schwachhausen], cost: 0 },
-        { nodes: [Cities.Vahr, Cities.OstlicheVorstadt], cost: 0 },
+        { nodes: [Cities.HornLehe, Cities.Findorff], cost: 0 },
         { nodes: [Cities.Vahr, Cities.Hemelingen], cost: 0 },
         { nodes: [Cities.Osterholz, Cities.Mahndorf], cost: 0 },
-        { nodes: [Cities.HornLehe, Cities.Blockland], cost: 0 },
-        // Pink (internal)
-        { nodes: [Cities.Schwachhausen, Cities.Findorff], cost: 0 },
-        { nodes: [Cities.Schwachhausen, Cities.Mitte], cost: 0 },
-        { nodes: [Cities.Schwachhausen, Cities.OstlicheVorstadt], cost: 0 },
-        { nodes: [Cities.Findorff, Cities.Mitte], cost: 0 },
-        { nodes: [Cities.Findorff, Cities.Walle], cost: 0 },
-        { nodes: [Cities.Mitte, Cities.Walle], cost: 0 },
-        { nodes: [Cities.Mitte, Cities.OstlicheVorstadt], cost: 0 },
-        // Pink → neighbours
-        { nodes: [Cities.OstlicheVorstadt, Cities.Hemelingen], cost: 0 },
-        { nodes: [Cities.Walle, Cities.Gropelingen], cost: 0 },
-        { nodes: [Cities.Walle, Cities.Pusdorf], cost: 0 },
-        { nodes: [Cities.Mitte, Cities.Pusdorf], cost: 0 },
-        { nodes: [Cities.Findorff, Cities.Blockland], cost: 0 },
-        // Purple (internal)
-        { nodes: [Cities.Hemelingen, Cities.Mahndorf], cost: 0 },
-        { nodes: [Cities.Hemelingen, Cities.Neustadt], cost: 0 },
-        { nodes: [Cities.Mahndorf, Cities.Neustadt], cost: 0 },
-        { nodes: [Cities.Neustadt, Cities.Obervieland], cost: 0 },
-        { nodes: [Cities.Neustadt, Cities.Huchting], cost: 0 },
-        { nodes: [Cities.Obervieland, Cities.Huchting], cost: 0 },
-        // Purple → neighbours
-        { nodes: [Cities.Neustadt, Cities.Strom], cost: 0 },
-        { nodes: [Cities.Obervieland, Cities.Strom], cost: 0 },
-        { nodes: [Cities.Huchting, Cities.Seehausen], cost: 0 },
         // Red (internal)
-        { nodes: [Cities.Hofen, Cities.Pusdorf], cost: 0 },
         { nodes: [Cities.Hofen, Cities.Neustadtshafen], cost: 0 },
         { nodes: [Cities.Hofen, Cities.Seehausen], cost: 0 },
         { nodes: [Cities.Pusdorf, Cities.Neustadtshafen], cost: 0 },
         { nodes: [Cities.Neustadtshafen, Cities.Seehausen], cost: 0 },
         { nodes: [Cities.Neustadtshafen, Cities.Strom], cost: 0 },
         { nodes: [Cities.Seehausen, Cities.Strom], cost: 0 },
-        // Red → neighbours (Höfen ↔ Gröpelingen crosses the Weser, free)
-        { nodes: [Cities.Hofen, Cities.Gropelingen], cost: 0 },
         // Orange (internal)
         { nodes: [Cities.Blockland, Cities.Gropelingen], cost: 0 },
         { nodes: [Cities.Blockland, Cities.Burglesum], cost: 0 },
         { nodes: [Cities.Gropelingen, Cities.Burglesum], cost: 0 },
         { nodes: [Cities.Burglesum, Cities.Vegesack], cost: 0 },
         { nodes: [Cities.Vegesack, Cities.Blumenthal], cost: 0 },
+        // Purple (internal, S2 rebuild)
+        { nodes: [Cities.Mahndorf, Cities.Hemelingen], cost: 0 },
+        { nodes: [Cities.Hemelingen, Cities.Obervieland], cost: 0 },
+        { nodes: [Cities.Obervieland, Cities.Neustadt], cost: 0 },
+        { nodes: [Cities.Neustadt, Cities.Huchting], cost: 0 },
+        // Purple → neighbours (S2 rebuild)
+        { nodes: [Cities.Hemelingen, Cities.OstlicheVorstadt], cost: 0 },
+        { nodes: [Cities.Obervieland, Cities.OstlicheVorstadt], cost: 0 },
+        { nodes: [Cities.Neustadt, Cities.Mitte], cost: 0 },
+        { nodes: [Cities.Neustadt, Cities.OstlicheVorstadt], cost: 0 },
+        { nodes: [Cities.Huchting, Cities.Strom], cost: 0 },
+        { nodes: [Cities.Huchting, Cities.Pusdorf], cost: 0 },
+        // Pink (internal, S2 rebuild)
+        { nodes: [Cities.Findorff, Cities.Walle], cost: 0 },
+        { nodes: [Cities.Findorff, Cities.Mitte], cost: 0 },
+        { nodes: [Cities.Findorff, Cities.Schwachhausen], cost: 0 },
+        { nodes: [Cities.Schwachhausen, Cities.OstlicheVorstadt], cost: 0 },
+        { nodes: [Cities.Schwachhausen, Cities.Mitte], cost: 0 },
+        { nodes: [Cities.Walle, Cities.Mitte], cost: 0 },
+        { nodes: [Cities.Mitte, Cities.OstlicheVorstadt], cost: 0 },
+        // Red (internal, S2 rebuild)
+        { nodes: [Cities.Strom, Cities.Pusdorf], cost: 0 },
+        // Cross-region (S2 rebuild)
+        { nodes: [Cities.Vahr, Cities.Schwachhausen], cost: 0 }, // blue–pink
+        { nodes: [Cities.Blockland, Cities.HornLehe], cost: 0 }, // orange–blue
+        { nodes: [Cities.Hemelingen, Cities.Osterholz], cost: 0 }, // purple–blue
+        { nodes: [Cities.Hofen, Cities.Gropelingen], cost: 0 }, // red–orange (Weser crossing)
+        { nodes: [Cities.Hofen, Cities.Burglesum], cost: 0 }, // red–orange
+        { nodes: [Cities.Burglesum, Cities.Seehausen], cost: 0 }, // orange–red
+        { nodes: [Cities.Walle, Cities.Gropelingen], cost: 0 }, // pink–orange
+        { nodes: [Cities.Walle, Cities.Blockland], cost: 0 }, // pink–orange
+        { nodes: [Cities.Findorff, Cities.Blockland], cost: 0 }, // pink–orange
+        { nodes: [Cities.Walle, Cities.Hofen], cost: 0 }, // pink–red
+        { nodes: [Cities.Walle, Cities.Neustadtshafen], cost: 0 }, // pink–red
+        { nodes: [Cities.Walle, Cities.Pusdorf], cost: 0 }, // pink–red
+        { nodes: [Cities.Pusdorf, Cities.Neustadt], cost: 0 }, // red–purple
     ],
-    layout: 'Portrait',
-    // First-pass coords in board-photo space scaled ×0.4; tune adjustRatio /
-    // mapPosition against the live render in the viewer session.
-    adjustRatio: [1, 1],
-    mapPosition: [0, 0],
+    layout: 'Landscape',
+    // Coords authored in landscape (~768×576 space) by clicking the board photo in
+    // the viewer; scaled up here to fill the 1500×800 canvas with the panels to the
+    // right/top. (The board photo is EXIF-rotated 90° CW, so landscape is native.)
+    adjustRatio: [1.75, 1.75],
+    mapPosition: [-120, -140],
     mapRotation: 0,
     // Resupply read from the printed Bremen refill cards. Indexed
     // [resource][playerCount-2][step-1]. 2P and 3P rows are identical. No uranium.

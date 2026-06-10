@@ -225,7 +225,7 @@ export const map: GameMap = {
             removed.add(31);
             removed.add(50);
         }
-        let deck = cloneDeep(powerPlants).filter((pp) => !removed.has(pp.number));
+        const deck = cloneDeep(powerPlants).filter((pp) => !removed.has(pp.number));
         // The Step 3 card is the last entry of the master list and is never removed.
         const step3 = deck.pop()!;
 

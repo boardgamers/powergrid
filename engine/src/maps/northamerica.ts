@@ -93,7 +93,7 @@ export const map: GameMap = {
 
         // Brown — California / Pacific SW / Mountain West
         { name: Cities.Portland, region: Regions.Brown, x: 122, y: 516 },
-        { name: Cities.SanFrancisco, region: Regions.Brown, x: 135, y: 660 },
+        { name: Cities.SanFrancisco, region: Regions.Brown, x: 123, y: 697 },
         { name: Cities.LosAngeles, region: Regions.Brown, x: 160, y: 911 },
         { name: Cities.SanDiego, region: Regions.Brown, x: 223, y: 1007 },
         { name: Cities.SaltLakeCity, region: Regions.Brown, x: 380, y: 555 },
@@ -106,21 +106,21 @@ export const map: GameMap = {
         { name: Cities.Chihuahua, region: Regions.Orange, x: 577, y: 1183 },
         { name: Cities.Monterrey, region: Regions.Orange, x: 791, y: 1292 },
         { name: Cities.Guadalajara, region: Regions.Orange, x: 715, y: 1391 },
-        { name: Cities.MexicoCityN, region: Regions.Orange, x: 918, y: 1410 },
-        { name: Cities.MexicoCityS, region: Regions.Orange, x: 918, y: 1474 },
+        { name: Cities.MexicoCityN, region: Regions.Orange, x: 913, y: 1335 },
+        { name: Cities.MexicoCityS, region: Regions.Orange, x: 913, y: 1425 },
 
         // Green — Texas / Deep South / Florida
         { name: Cities.SanAntonio, region: Regions.Green, x: 767, y: 1172 },
         { name: Cities.DallasFortWorth, region: Regions.Green, x: 850, y: 1020 },
-        { name: Cities.Houston, region: Regions.Green, x: 931, y: 1095 },
+        { name: Cities.Houston, region: Regions.Green, x: 940, y: 1145 },
         { name: Cities.NewOrleans, region: Regions.Green, x: 1126, y: 1095 },
         { name: Cities.Atlanta, region: Regions.Green, x: 1318, y: 1021 },
         { name: Cities.Jacksonville, region: Regions.Green, x: 1398, y: 1109 },
         { name: Cities.Miami, region: Regions.Green, x: 1398, y: 1235 },
 
         // Blue — Midwest / Plains / Mid-South
-        { name: Cities.Milwaukee, region: Regions.Blue, x: 1165, y: 502 },
-        { name: Cities.Chicago, region: Regions.Blue, x: 1148, y: 601 },
+        { name: Cities.Milwaukee, region: Regions.Blue, x: 1206, y: 414 },
+        { name: Cities.Chicago, region: Regions.Blue, x: 1121, y: 531 },
         { name: Cities.KansasCity, region: Regions.Blue, x: 825, y: 720 },
         { name: Cities.StLouis, region: Regions.Blue, x: 1047, y: 768 },
         { name: Cities.Indianapolis, region: Regions.Blue, x: 1206, y: 694 },
@@ -140,8 +140,8 @@ export const map: GameMap = {
         { name: Cities.Quebec, region: Regions.Red, x: 1911, y: 354 },
         { name: Cities.Ottawa, region: Regions.Red, x: 1653, y: 458 },
         { name: Cities.Montreal, region: Regions.Red, x: 1875, y: 461 },
-        { name: Cities.NewYorkN, region: Regions.Red, x: 1730, y: 598 },
-        { name: Cities.NewYorkS, region: Regions.Red, x: 1730, y: 648 },
+        { name: Cities.NewYorkN, region: Regions.Red, x: 1727, y: 561 },
+        { name: Cities.NewYorkS, region: Regions.Red, x: 1727, y: 637 },
         { name: Cities.Boston, region: Regions.Red, x: 1928, y: 579 },
         { name: Cities.Philadelphia, region: Regions.Red, x: 1724, y: 755 },
     ],
@@ -290,7 +290,7 @@ export const map: GameMap = {
     mapPosition: [70, 50],
     // Slight counterclockwise tilt to keep the pink region out of the power-plant
     // header row at the top of the layout.
-    mapRotation: -5,
+    mapRotation: -2,
 
     // Resupply table verified with John from the NA refill summary cards.
     // Indexed [resource][playerCount-2][step-1].

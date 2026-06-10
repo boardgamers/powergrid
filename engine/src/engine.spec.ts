@@ -419,6 +419,28 @@ describe('Engine', () => {
         }
     });
 
+    it('should only offer the UK & Ireland cross-island jump into empty cities', () => {
+        const G = setup(5, { map: 'UK & Ireland', variant: 'recharged', randomizeMap: false }, 'uki-jump');
+        G.phase = Phase.Building;
+        G.step = 2; // second houses are open to same-island networks, but NOT to the jump
+        const player = G.players[0];
+        player.money = 200;
+
+        const gbCity = G.map.cities.find((c) => c.island === 'gb')!;
+        const ieCities = G.map.cities.filter((c) => c.island === 'ie');
+        player.cities = [{ name: gbCity.name, position: 0 }];
+        // Another player already holds a house in one Irish city.
+        G.players[1].cities = [{ name: ieCities[0].name, position: 0 }];
+
+        const builds = availableMoves(G, player)[MoveName.Build] as { name: string; price: number }[];
+        const priceOf = (name: string) => builds.find((b) => b.name === name)?.price;
+
+        const occupied = priceOf(ieCities[0].name);
+        expect(occupied === undefined || occupied === 9999, 'occupied Irish city not jumpable in Step 2').to.be.true;
+        // An empty Irish city is jumpable as a first house: 10 + 20 surcharge.
+        expect(priceOf(ieCities[1].name), 'empty Irish city jumpable at 30').to.equal(30);
+    });
+
     it('should remove uranium plant 17 from the Australia deck and keep the five mines', () => {
         // Australia replaces the six uranium plants with mines: plant 17 is removed
         // from the deck entirely, while 11/23/28/34/39 stay in (and behave as

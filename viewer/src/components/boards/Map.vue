@@ -22,10 +22,26 @@
         </template> -->
 
         <template v-for="city in cities">
-            <circle :key="city.name + '_region'" r="25" :cx="city.x" :cy="city.y" :fill="city.region" stroke="black">
+            <circle
+                v-if="city.connectionCost == null"
+                :key="city.name + '_region'"
+                r="25"
+                :cx="city.x"
+                :cy="city.y"
+                :fill="city.region"
+                stroke="black"
+            >
                 <title>{{ city.name }}</title>
             </circle>
-            <circle :key="city.name + '_circle'" r="20" :cx="city.x" :cy="city.y" fill="gray" stroke="black">
+            <circle
+                v-if="city.connectionCost == null"
+                :key="city.name + '_circle'"
+                r="20"
+                :cx="city.x"
+                :cy="city.y"
+                fill="gray"
+                stroke="black"
+            >
                 <title>{{ city.name }}</title>
             </circle>
             <!-- South Africa cross-border spaces: render a small red pennant
@@ -72,8 +88,65 @@
             />
         </template>
 
+        <!-- Bremen-style node-weighted districts: clean labeled tiles (entry-cost
+             number + 8/14/20 house slots), drawn AFTER the links so the gray lines
+             sit behind. Gated on connectionCost; other maps keep circular nodes. -->
+        <template v-for="city in cities">
+            <g v-if="city.connectionCost != null" :key="city.name + '_tile'">
+                <rect
+                    :class="[{ canClick: canBuild(city) }]"
+                    :x="city.x - 23"
+                    :y="city.y - 23"
+                    width="46"
+                    height="46"
+                    rx="7"
+                    fill="gray"
+                    :stroke="city.region"
+                    stroke-width="4"
+                    :transform="`rotate(45, ${city.x}, ${city.y})`"
+                    @click="canBuild(city) && build(city)"
+                >
+                    <title>{{ city.name }} — connect for {{ city.connectionCost }} (entry) + house</title>
+                </rect>
+                <!-- house slots laid out like the board: 8 top, 14 left, 20 right -->
+                <template v-for="(sc, i) in city.slotCosts">
+                    <rect
+                        :key="city.name + '_slot' + i"
+                        :x="city.x + nodeSlotPos(i).dx - 6.5"
+                        :y="city.y + nodeSlotPos(i).dy - 6.5"
+                        width="13"
+                        height="13"
+                        rx="1"
+                        fill="gray"
+                        stroke="black"
+                        stroke-width="1"
+                        :transform="`rotate(45, ${city.x + nodeSlotPos(i).dx}, ${city.y + nodeSlotPos(i).dy})`"
+                    />
+                    <text
+                        :key="city.name + '_slotlbl' + i"
+                        :x="city.x + nodeSlotPos(i).dx"
+                        :y="city.y + nodeSlotPos(i).dy"
+                        font-size="10"
+                        text-anchor="middle"
+                        dominant-baseline="central"
+                        fill="black"
+                        :transform="
+                            mapRotation
+                                ? `rotate(${-mapRotation}, ${city.x + nodeSlotPos(i).dx}, ${
+                                      city.y + nodeSlotPos(i).dy
+                                  })`
+                                : undefined
+                        "
+                    >
+                        {{ sc }}
+                    </text>
+                </template>
+            </g>
+        </template>
+
         <template v-for="city in cities">
             <circle
+                v-if="city.connectionCost == null"
                 :key="city.name + '_circle2'"
                 :class="[{ canClick: canBuild(city) }]"
                 r="20"
@@ -133,6 +206,33 @@
                 :ownerName="house.ownerName"
                 :color="house.color"
             />
+        </template>
+
+        <!-- Bremen entry-cost number, on top so it stays readable over houses -->
+        <template v-for="city in cities">
+            <g v-if="city.connectionCost != null" :key="city.name + '_cc'">
+                <circle
+                    :cx="city.x"
+                    :cy="city.y + 15"
+                    r="11"
+                    fill="goldenrod"
+                    stroke="darkgoldenrod"
+                    stroke-width="2"
+                />
+                <circle :cx="city.x" :cy="city.y + 15" r="7.5" fill="gray" stroke="darkgoldenrod" stroke-width="1" />
+                <text
+                    :x="city.x"
+                    :y="city.y + 15"
+                    font-size="11"
+                    font-weight="bold"
+                    text-anchor="middle"
+                    dominant-baseline="central"
+                    fill="black"
+                    :transform="mapRotation ? `rotate(${-mapRotation}, ${city.x}, ${city.y + 15})` : undefined"
+                >
+                    {{ city.connectionCost }}
+                </text>
+            </g>
         </template>
 
         <template v-for="city in cities">
@@ -251,8 +351,16 @@ export default class Map extends Vue {
             player.cities.forEach((cityPiece) => {
                 const city = gameState.map.cities.find((city) => city.name == cityPiece.name)!;
                 let offsetX, offsetY;
+                const isNodeWeighted = city.connectionCost != null;
                 const is1520 = city.slotCosts?.length === 2 && city.slotCosts[0] === 15;
-                if (is1520) {
+                if (isNodeWeighted) {
+                    // Bremen tiles: 8 top, 14 left, 20 right — matches the board layout.
+                    // The House piece is anchored top-left (~14×16 after its scale), so
+                    // offset by half its size to center it on the slot.
+                    const slot = this.nodeSlotPos(cityPiece.position);
+                    offsetX = slot.dx - 7;
+                    offsetY = slot.dy - 8;
+                } else if (is1520) {
                     // [15,20] city: slot 0 (cost 15) → bottom-left, slot 1 (cost 20) → bottom-right
                     if (cityPiece.position == 0) {
                         offsetX = -15;
@@ -301,6 +409,13 @@ export default class Map extends Vue {
     getY2(connection) {
         const city = this.cities!.find((city) => city.name == connection.nodes[1])!;
         return city.y;
+    }
+
+    nodeSlotPos(i: number) {
+        // House slots laid out like the printed board: 0 = 8 (top), 1 = 14 (left), 2 = 20 (right).
+        if (i === 0) return { dx: 0, dy: -15 };
+        if (i === 1) return { dx: -15, dy: 0 };
+        return { dx: 15, dy: 0 };
     }
 
     canBuild(city: City) {

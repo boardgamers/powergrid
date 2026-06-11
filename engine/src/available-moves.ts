@@ -486,6 +486,9 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                     // is no sea edge so dijkstra reports the target city as unreachable
                     // (price=9999); we override here. The first build ever (player.cities
                     // empty) goes through the normal first-build path and pays no surcharge.
+                    // The jump can only START a city — an empty one (first house). Cities
+                    // already holding a house are not reachable via the jump, even in
+                    // Steps 2/3 when their later slots are open to same-island networks.
                     if (cityData.island && G.map.crossIslandSurcharge !== undefined && player.cities.length > 0) {
                         const playerIslands = new Set(
                             player.cities
@@ -493,15 +496,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                                 .filter((i): i is string => !!i)
                         );
                         if (!playerIslands.has(cityData.island)) {
-                            city.price = 10 + othersCount * 5 + G.map.crossIslandSurcharge;
-
-                            if (othersCount == G.step) {
-                                city.price = 9999;
-                            }
-
-                            if (player.cities.find((c) => c.name == city.name)) {
-                                city.price = 9999;
-                            }
+                            city.price = othersCount > 0 ? 9999 : 10 + G.map.crossIslandSurcharge;
                             return;
                         }
                     }
@@ -732,7 +727,12 @@ function dijkstra(G: GameState, player: Player): { name: string; price: number }
         currentConnections.forEach((connection) => {
             const otherName = connection.nodes.filter((n) => n != currentNode.name)[0];
             const otherNode = nodes.find((n) => n.name == otherName)!;
-            const price = player.cities.find((c) => c.name == otherNode.name) ? 0 : currentNode.price + connection.cost;
+            // Bremen charges the cost of the district you enter (node-weighted),
+            // not the edge; `connectionCost` falls back to the per-edge cost for
+            // every other map. 0 is a valid free entry, so only undefined falls back.
+            const otherCity = G.map.cities.find((c) => c.name == otherName);
+            const stepCost = otherCity?.connectionCost ?? connection.cost;
+            const price = player.cities.find((c) => c.name == otherNode.name) ? 0 : currentNode.price + stepCost;
             if (!otherNode.visited && otherNode.price > price) {
                 otherNode.price = price;
             }

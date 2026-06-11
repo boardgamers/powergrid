@@ -5,6 +5,7 @@ import { map as australia } from './maps/australia';
 import { map as badenwurttemberg } from './maps/badenwurttemberg';
 import { map as benelux } from './maps/benelux';
 import { map as brazil } from './maps/brazil';
+import { map as bremen } from './maps/bremen';
 import { map as centraleurope } from './maps/centraleurope';
 import { map as china } from './maps/china';
 import { map as europe } from './maps/europe';
@@ -48,6 +49,13 @@ export interface City {
     // (no sea edges; starting a network on a new island costs a flat surcharge on
     // top of the first-house base cost).
     island?: string;
+    // Bremen: flat per-district connection cost. When set, the build-cost
+    // pathfinder (dijkstra) charges this district's own cost on entry instead of
+    // a per-edge `connection.cost` — so `connections` just encode adjacency and
+    // the price lives on the node. Paying the destination's cost on every hop
+    // makes links naturally asymmetric (A→B costs B, B→A costs A) and charges
+    // transit through unbuilt districts, matching the printed Bremen rules.
+    connectionCost?: number;
 }
 
 export interface Connection {
@@ -152,6 +160,7 @@ export const maps: GameMap[] = [
     southafrica,
     ukireland,
     australia,
+    bremen,
     japan,
 ];
 
@@ -177,6 +186,7 @@ export const mapsRecharged: GameMap[] = [
     southafrica,
     ukireland,
     australia,
+    bremen,
     // china,
     japanRecharged,
 ];

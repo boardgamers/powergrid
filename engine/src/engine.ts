@@ -30,6 +30,8 @@ const citiesToStep2BadenWurttemberg = [9, 6, 6, 6, 5];
 const citiesToStep2UKIreland = [10, 7, 7, 7, 6];
 const citiesToEndGame = [21, 17, 17, 15, 14];
 const citiesToEndGameSouthAfrica = [18, 17, 17, 15, 14];
+const citiesToStep2Bremen = [5, 5, 5, 5, 4];
+const citiesToEndGameBremen = [13, 13, 13, 12, 11];
 const cityIncome = [10, 22, 33, 44, 54, 64, 73, 82, 90, 98, 105, 112, 118, 124, 129, 134, 138, 142, 145, 148, 150, 150];
 const regionsInPlay = [3, 3, 4, 5, 5];
 
@@ -455,12 +457,16 @@ export function setup(
                 ? citiesToStep2BadenWurttemberg[numPlayers - 2]
                 : (forceMap || finalMap).name == 'UK & Ireland'
                 ? citiesToStep2UKIreland[numPlayers - 2]
+                : (forceMap || finalMap).name == 'Bremen'
+                ? citiesToStep2Bremen[numPlayers - 2]
                 : citiesToStep2[numPlayers - 2],
         citiesToEndGame:
             (forceMap || finalMap).name == 'South Africa'
                 ? citiesToEndGameSouthAfrica[numPlayers - 2]
                 : (forceMap || finalMap).name == 'UK & Ireland' && numPlayers == 2
                 ? Math.min(citiesToEndGame[numPlayers - 2], (forceMap || finalMap).cities.length)
+                : (forceMap || finalMap).name == 'Bremen'
+                ? citiesToEndGameBremen[numPlayers - 2]
                 : citiesToEndGame[numPlayers - 2],
         resourceResupply: [
             `[${coalResupply[p][0]}, ${oilResupply[p][0]}, ${garbageResupply[p][0]}, ${uraniumResupply[p][0]}]`,

@@ -209,11 +209,15 @@ export const map: GameMap = {
             [0, 0, 0],
         ],
     ],
-    // Coal fills 1–8, oil 3–8, garbage 3–8, no uranium. 2 each of coal/oil/garbage
-    // and all uranium are placed back in the box, so total supply is 22/22/22/0:
-    // coal starts 2 short of a full market (the top price slot), oil/garbage hold
-    // 4 in reserve each.
-    startingResources: [22, 18, 18, 0],
+    // The printed market track holds only TWO cubes per resource at $7 and $8
+    // (three everywhere else): 22 slots per resource, matching the 22-cube
+    // supply exactly — which is why 2 of each go back in the box.
+    coalPrices: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 8, 8],
+    oilPrices: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 8, 8],
+    garbagePrices: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 8, 8],
+    // Coal fills 1–8 (a full 22-cube market), oil 3–8 and garbage 3–8 (16 cubes
+    // each, 6 in reserve), no uranium.
+    startingResources: [22, 16, 16, 0],
     startingSupply: [22, 22, 22, 0],
     // Bremen plays with fewer power plants. Remove 11, 17, 23, 28, 34, 36, 38, 39,
     // 46 (this includes every nuclear plant); 2–4 players also remove 31 and 50.

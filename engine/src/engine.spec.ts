@@ -690,6 +690,16 @@ describe('Engine', () => {
         // No uranium token is ever in play on Bremen.
         const G = setup(5, { map: 'Bremen', variant: 'recharged', randomizeMap: false }, 'bremen-uranium');
         expect(G.map.startingSupply![3], 'Bremen uranium supply').to.equal(0);
+        // The printed track holds only two cubes per resource at $7 and $8,
+        // so a full market is 22 cubes and coal starts exactly full.
+        for (const track of [G.coalPrices!, G.oilPrices!, G.garbagePrices!]) {
+            expect(track, 'Bremen $7/$8 hold two cubes').to.deep.equal([
+                1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 8, 8,
+            ]);
+        }
+        expect(G.coalMarket, 'Bremen coal market starts full').to.equal(22);
+        expect(G.oilMarket, 'Bremen oil fills $3–$8').to.equal(16);
+        expect(G.garbageMarket, 'Bremen garbage fills $3–$8').to.equal(16);
     });
 
     it('should price Bremen builds by summed district costs (node-weighted, asymmetric)', () => {

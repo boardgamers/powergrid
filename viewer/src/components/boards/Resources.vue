@@ -123,8 +123,8 @@
             {{ resourceResupply[2] }}
         </text>
         <Garbage :pieceId="-1" :targetState="{ x: 382, y: 11 }" :canClick="false" :transparent="false" />
-        <!-- Australia has no main-market uranium row, so its resupply indicator omits uranium. -->
-        <template v-if="!isAustraliaMarket">
+        <!-- Australia and Bremen have no main-market uranium row, so their resupply indicators omit uranium. -->
+        <template v-if="!isAustraliaMarket && !isBremenMarket">
             <text x="414" y="20" font-weight="600" fill="black" style="font-size: 24px">
                 {{ resourceResupply[3] }}
             </text>
@@ -164,7 +164,10 @@
             >
                 {{ index }}
             </text>
-            <g :key="'lines' + index" v-if="!isIndiaResourceMarket && !isNinePriceMarket && !isAustraliaMarket">
+            <g
+                :key="'lines' + index"
+                v-if="!isIndiaResourceMarket && !isNinePriceMarket && !isAustraliaMarket && !isBremenMarket"
+            >
                 <line :x1="25 + 85 * (index - 1)" y1="68" :x2="95 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
                 <line :x1="25 + 85 * (index - 1)" y1="92" :x2="95 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
 
@@ -216,7 +219,7 @@
             </g>
         </template>
 
-        <template v-if="!isIndiaResourceMarket && !isNinePriceMarket && !isAustraliaMarket">
+        <template v-if="!isIndiaResourceMarket && !isNinePriceMarket && !isAustraliaMarket && !isBremenMarket">
             <rect width="30" height="30" x="705" y="45" rx="2" fill="darkgoldenrod" />
             <circle r="10" cx="732" cy="48" fill="yellow" />
             <text
@@ -453,6 +456,9 @@ export default class Resources extends Vue {
     // Australia: coal/oil/garbage-only market that can reach $10 after the Step 3
     // CO2 tax. co2TaxActive closes the $1/$2 columns once that shift has happened.
     isAustraliaMarket: boolean = false;
+    // Bremen: coal/oil/garbage-only market (no uranium row, like Korea's North
+    // table) where the $7/$8 spaces hold two cubes each.
+    isBremenMarket: boolean = false;
     co2TaxActive: boolean = false;
     coalsNorth: Piece[] = [];
     oilsNorth: Piece[] = [];
@@ -507,6 +513,7 @@ export default class Resources extends Vue {
 
         this.isAustraliaMarket = gameState.map?.name === 'Australia';
         this.co2TaxActive = this.isAustraliaMarket && gameState.step >= 3;
+        this.isBremenMarket = gameState.map?.name === 'Bremen';
 
         const isKorea = gameState.coalMarketNorth !== undefined;
         this.isKorea = isKorea;
@@ -599,6 +606,20 @@ export default class Resources extends Vue {
             this.garbages = this.buildMainRowPieces(
                 gameState.garbagePrices!, gameState.garbageMarket, 'garbage', 94, { maxPrice: 10 },
             );
+            this.uraniums = [];
+            this.coalsNorth = [];
+            this.oilsNorth = [];
+            this.garbagesNorth = [];
+            return;
+        }
+
+        // Bremen: three-resource market rendered like Korea's North table — no
+        // uranium row or $10–$16 corner. Slot counts per price space come from
+        // the price arrays ($7/$8 hold two cubes each).
+        if (this.isBremenMarket) {
+            this.coals = this.buildMainRowPieces(gameState.coalPrices!, gameState.coalMarket, 'coal', 48);
+            this.oils = this.buildMainRowPieces(gameState.oilPrices!, gameState.oilMarket, 'oil', 70);
+            this.garbages = this.buildMainRowPieces(gameState.garbagePrices!, gameState.garbageMarket, 'garbage', 94);
             this.uraniums = [];
             this.coalsNorth = [];
             this.oilsNorth = [];

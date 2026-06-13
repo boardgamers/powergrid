@@ -1040,24 +1040,9 @@ export default class Game extends Vue {
     playerHasUsedFreeJump(playerIndex: number): boolean {
         const player = this.G?.players[playerIndex];
         if (!player) return false;
-        // 1. Engine flag — most reliable, set for all games running latest code.
         if (player.usedFreeJump) return true;
-        // 2. Network topology — works when the two networks are still disconnected.
         if (player.cities.length >= 2) {
             if (countNetworks(this.G!.map.connections, player.cities.map(c => c.name)) >= 2) return true;
-        }
-        // 3. Log scan — works for explicit round 2+ free jumps on older server builds
-        //    where usedFreeJump wasn't tracked: the freeJump:true flag is still stored
-        //    in the move data even if the engine ignored it.
-        if (this.G?.log) {
-            for (const entry of this.G.log) {
-                if (entry.type === 'move' && (entry as any).player === playerIndex) {
-                    const move = (entry as any).move;
-                    if (move?.name === MoveName.Build && move?.data?.freeJump === true) {
-                        return true;
-                    }
-                }
-            }
         }
         return false;
     }

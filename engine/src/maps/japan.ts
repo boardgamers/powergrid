@@ -133,10 +133,10 @@ export const map: GameMap = {
     startingCities: ['Fukuoka', 'Kobe', 'Osaka', 'Sapporo', 'Tokyo', 'Yokohama'],
     mapSpecificRules:
         'Each player can have two separate networks.\n' +
-        "All first round house/city builds MUST be placed in one of six starting cities: Fukuoka, Kobe, Osaka, Sapporo, Tokyo, or Yokohama. If you build 2 cities in round 1, you must use your 1 free jump and build in a second of these six starting cities. All 6 are marked with a '10' on the map.\n" +
+        'All first round house/city builds MUST be placed in one of six starting cities: Fukuoka, Kobe, Osaka, Sapporo, Tokyo, or Yokohama. If you build 2 cities in round 1, you must use your 1 free jump and build in a second of these six starting cities. All 6 are marked with a 10 on the map.\n' +
         'Starting cities have two first-connection spots (cost 10 Elektro each); two players can build there in Step 1.\n' +
         'In Step 3, a third connection spot opens in starting cities (cost 20 Elektro).\n' +
-        "Some smaller cities have only two building spots (costs 10 and 15, or 15 and 20 from Step 2). These cities are marked with an 'X' - 'X' at the top means no Step 1 builds allowed ($15 and $20 will be available during Step 2/Step 3), 'X' at the bottom means no Step 3 builds allowed, only $10 and $15 (Step 1 and Step 2) builds are allowed.\n" +
+        'Some smaller cities have only two building spots (costs 10 and 15, or 15 and 20 from Step 2). These cities are marked with an X - an X at the top means no Step 1 builds allowed ($15 and $20 will be available during Step 2/Step 3), an X at the bottom means no Step 3 builds allowed, only $10 and $15 (Step 1 and Step 2) builds are allowed.\n' +
         'If all spots in every starting city are taken, a player is forced to play with a single network.',
     connections: [
         { nodes: [Cities.Nagasaki, Cities.Fukuoka], cost: 10 },

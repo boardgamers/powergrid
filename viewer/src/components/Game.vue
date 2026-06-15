@@ -537,7 +537,6 @@ import Resources from './boards/Resources.vue';
 import { LogMove } from 'powergrid-engine/src/log';
 import { Phase, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
 import { City } from 'powergrid-engine/src/maps';
-import { countNetworks } from 'powergrid-engine/src/available-moves';
 
 @Component({
     created(this: Game) {
@@ -1119,8 +1118,15 @@ export default class Game extends Vue {
         const player = this.G?.players[playerIndex];
         if (!player) return false;
         if (player.usedFreeJump) return true;
-        if (player.cities.length >= 2) {
-            if (countNetworks(this.G!.map.connections, player.cities.map(c => c.name)) >= 2) return true;
+        if (this.G?.log) {
+            for (const entry of this.G.log) {
+                if (entry.type === 'move' && (entry as any).player === playerIndex) {
+                    const move = (entry as any).move;
+                    if (move?.name === MoveName.Build && move?.data?.freeJump === true) {
+                        return true;
+                    }
+                }
+            }
         }
         return false;
     }

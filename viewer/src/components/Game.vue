@@ -1118,12 +1118,9 @@ export default class Game extends Vue {
     playerHasUsedFreeJump(playerIndex: number): boolean {
         const player = this.G?.players[playerIndex];
         if (!player) return false;
-        // Primary: trust the engine flag (set for all new games).
         if (player.usedFreeJump) return true;
-        // Fallback: detect from network topology for game states where
-        // usedFreeJump wasn't tracked (games started before that field existed).
         if (player.cities.length >= 2) {
-            return countNetworks(this.G!.map.connections, player.cities.map(c => c.name)) >= 2;
+            if (countNetworks(this.G!.map.connections, player.cities.map(c => c.name)) >= 2) return true;
         }
         return false;
     }

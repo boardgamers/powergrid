@@ -270,9 +270,10 @@ export const map: GameMap = {
         'costs the sum of the district costs along the cheapest path from your ' +
         'network (you pay for each district entered, including ones you only pass ' +
         'through), plus the cheapest building cost (8 / 14 / 20 Elektro) in the new ' +
-        'district. Small districts have only two spaces (8 / 14) and can hold just ' +
-        'two networks. The Weser and Lesum rivers can be crossed without extra ' +
-        'cost. No nuclear: nuclear power plants and uranium are not used. Step 2 ' +
+        'district. (on your 1st placement if A has 1 and B has 3 then A to B is ' +
+        '8+3+8=19, and B to A is 8+1+8=17, meaning it is asymmetrical) Small ' +
+        'districts have only two spaces (8 / 14) and can hold just two networks. ' +
+        'No nuclear: nuclear power plants and uranium are not used. Step 2 ' +
         'begins once a player has 5 connected districts (4 for 6 players); the game ' +
         'ends when a player connects 13 districts (12 for 5 players, 11 for 6).',
 };

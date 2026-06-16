@@ -749,4 +749,55 @@ describe('Engine', () => {
         // Mitte still has its third slot (20): connection 1 + 20 = 21.
         expect(priceOf('Mitte'), 'Mitte third slot').to.equal(21);
     });
+
+    it('should keep the Japan free jump available even when owned cities span multiple network components', () => {
+        // 5 players so all five Japan regions are in play (Sapporo sits in Brown).
+        const G = setup(5, { map: 'Japan', variant: 'recharged', randomizeMap: false }, 'japan-free-jump');
+        G.phase = Phase.Building;
+        G.step = 1;
+        G.round = 3; // any round past the first, where the free jump becomes a choice
+        const player = G.players[0];
+        player.money = 100;
+        player.usedFreeJump = false;
+        // Yokohama and Kofu connect only THROUGH unowned cities (Tokyo, Saitama), so
+        // countNetworks() sees two components — the exact shape that used to wrongly hide
+        // the free jump even though the player never spent it.
+        player.cities = [
+            { name: 'Yokohama', position: 0 },
+            { name: 'Kofu', position: 0 },
+        ];
+
+        const builds = availableMoves(G, player)[MoveName.Build] as {
+            name: string;
+            price: number;
+            freeJump?: boolean;
+        }[];
+        const sapporoJump = builds.find((b) => b.name === 'Sapporo' && b.freeJump === true);
+        expect(sapporoJump, 'Sapporo offered as a free jump').to.not.be.undefined;
+        expect(sapporoJump!.price, 'free jump pays the slot cost only (10 in Step 1)').to.equal(10);
+    });
+
+    it('should stop offering the Japan free jump once it has been spent', () => {
+        const G = setup(5, { map: 'Japan', variant: 'recharged', randomizeMap: false }, 'japan-free-jump-used');
+        G.phase = Phase.Building;
+        G.step = 1;
+        G.round = 3;
+        const player = G.players[0];
+        player.money = 100;
+        player.usedFreeJump = true;
+        player.cities = [
+            { name: 'Yokohama', position: 0 },
+            { name: 'Kofu', position: 0 },
+        ];
+
+        const builds = availableMoves(G, player)[MoveName.Build] as {
+            name: string;
+            price: number;
+            freeJump?: boolean;
+        }[];
+        expect(
+            builds.some((b) => b.freeJump === true),
+            'no free-jump entries after the jump is used'
+        ).to.be.false;
+    });
 });

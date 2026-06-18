@@ -132,11 +132,12 @@ export const map: GameMap = {
     startingResources: [21, 15, 9, 3],
     startingCities: ['Fukuoka', 'Kobe', 'Osaka', 'Sapporo', 'Tokyo', 'Yokohama'],
     mapSpecificRules:
-        'Each player has one network but gets one free jump to start a city anywhere on the map, bypassing normal connection costs.\n' +
-        'All first round house/city builds MUST be placed in one of six starting cities: Fukuoka, Kobe, Osaka, Sapporo, Tokyo, or Yokohama. If you build 2 cities in round 1, you must use your free jump and build in a second of these six starting cities. All 6 are marked with a 10 on the map.\n' +
-        'Starting cities have two first-connection spots (cost 10 Elektro each); two players can build there in Step 1.\n' +
-        'In Step 3, a third connection spot opens in starting cities (cost 20 Elektro).\n' +
-        'Some smaller cities have only two building spots (costs 10 and 15, or 15 and 20 from Step 2). These cities are marked with an X - an X at the top means no Step 1 builds allowed ($15 and $20 will be available during Step 2/Step 3), an X at the bottom means no Step 3 builds allowed, only $10 and $15 (Step 1 and Step 2) builds are allowed.\n' +
+        'Users may build 0, 1, 2 houses in round 1. The first house you place MUST be in one of the six special starting cities: Fukuoka, Kobe, Osaka, Sapporo, Tokyo, or Yokohama whether it be round 1 or after.\n' +
+        'You get a free jump but that free jump can only go into one of these six starting cities (you still pay for the house, just no connection fee).\n' +
+        'All of these six special starting cities are [10, 10, 20] meaning two players can go there in step 1 and these cities are marked with 10 on the map.\n' +
+        'If you build 2 cities in round 1, you must use your free jump even though they might have 0 connection like Tokyo and Yokohama (system will auto use your free jump).\n' +
+        'In Step 3, the third connection spots (cost 20) are opened in the starting cities and are available for normal or free jump.\n' +
+        'Some smaller cities have only two building spots (10 and 15, or 15 and 20). These cities are marked with an X. An X at the top means no Step 1 builds, an X at the bottom means no Step 3 builds.\n' +
         'If all starting city spots are taken, you cannot use your free jump.',
     connections: [
         { nodes: [Cities.Nagasaki, Cities.Fukuoka], cost: 10 },

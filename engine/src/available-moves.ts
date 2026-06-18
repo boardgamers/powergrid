@@ -415,11 +415,16 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                         : G.map.cities;
                     toBuild = candidates.map((c) => ({ name: c.name, price: 0 }));
                 } else if (isJapan && G.round === 1) {
-                    // Japan round 1: any additional house must also be a starting city.
-                    // Players cannot extend to adjacent non-starting cities until round 2.
-                    toBuild = G.map.cities
-                        .filter((c) => japanStartingCities.has(c.name))
-                        .map((c) => ({ name: c.name, price: 0 }));
+                    // Japan round 1: the only legal builds are starting cities, and a player
+                    // may place at most two houses — the initial placement plus the one free
+                    // jump. The jump is auto-consumed on the second starting-city build, so
+                    // once it is spent no further round-1 builds are offered (players cannot
+                    // extend to adjacent non-starting cities until round 2 either way).
+                    toBuild = player.usedFreeJump
+                        ? []
+                        : G.map.cities
+                              .filter((c) => japanStartingCities.has(c.name))
+                              .map((c) => ({ name: c.name, price: 0 }));
                 } else {
                     toBuild = dijkstra(G, player).map((c) => ({ name: c.name, price: c.price }));
 

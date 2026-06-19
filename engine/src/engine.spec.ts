@@ -725,6 +725,87 @@ describe('Engine', () => {
         expect(builds.find((b) => b.name === 'Seehausen')?.price, 'Höfen → Seehausen (asymmetric)').to.equal(22);
     });
 
+    it('should set Manhattan end-game thresholds, stay in Step 1, and set up for every player count', () => {
+        const endGame = [18, 17, 17, 15, 14];
+        for (let pc = 2; pc <= 6; pc++) {
+            const G = setup(
+                pc,
+                { map: 'Manhattan', variant: 'recharged', randomizeMap: false },
+                `manhattan-thresholds-${pc}`
+            );
+            expect(G.citiesToEndGame, `Manhattan ${pc}P end game`).to.equal(endGame[pc - 2]);
+            expect(G.step, `Manhattan ${pc}P starts in Step 1`).to.equal(1);
+            expect(
+                G.players.some((p) => p.availableMoves && Object.keys(p.availableMoves).length > 0),
+                `Manhattan ${pc}P ready`
+            ).to.be.true;
+        }
+    });
+
+    it('should box the Manhattan Step 3 card + 2–3P plants and keep uranium in play', () => {
+        for (const pc of [2, 5]) {
+            const G = setup(
+                pc,
+                { map: 'Manhattan', variant: 'recharged', randomizeMap: false },
+                `manhattan-deck-${pc}`
+            );
+            const allNumbers = new Set<number>([
+                ...G.actualMarket.map((p) => p.number),
+                ...G.futureMarket.map((p) => p.number),
+                ...G.powerPlantsDeck.map((p) => p.number),
+            ]);
+            // The opening 8-card market is drawn from the ≤15 plug pool.
+            expect(
+                [...G.actualMarket, ...G.futureMarket].every((p) => p.number <= 15),
+                `Manhattan ${pc}P: market is plug-pool`
+            ).to.be.true;
+            // 2–3 players box plants 20, 22, 37; 4–6 players keep them in the deck.
+            for (const n of [20, 22, 37]) {
+                expect(allNumbers.has(n), `Manhattan ${pc}P: plant ${n} present?`).to.equal(pc > 3);
+            }
+        }
+        // Manhattan uses uranium (unlike Bremen): the supply is the full 12 cubes.
+        const G = setup(5, { map: 'Manhattan', variant: 'recharged', randomizeMap: false }, 'manhattan-uranium');
+        expect(G.map.startingSupply![3], 'Manhattan uranium supply').to.equal(12);
+    });
+
+    it('should price Manhattan builds by a flat 5 per transited space + the building cost', () => {
+        const G = setup(5, { map: 'Manhattan', variant: 'recharged', randomizeMap: false }, 'manhattan-build-cost');
+        G.phase = Phase.Building;
+        G.step = 1;
+        const player = G.players[0];
+        player.money = 200;
+
+        // First house: any empty space, building cost only (placeholder grid rows are
+        // priced 40/30/20/15/10, so M1 = 40 and M20 = 10).
+        player.cities = [];
+        let builds = availableMoves(G, player)[MoveName.Build] as { name: string; price: number }[];
+        expect(builds.find((b) => b.name === 'M1')?.price, 'first house M1 (40)').to.equal(40);
+        expect(builds.find((b) => b.name === 'M20')?.price, 'first house M20 (10)').to.equal(10);
+
+        // From a network at M1 (top-left of the 4×5 grid):
+        //  • M2 adjacent (same row, 40)            → 40 (building cost only)
+        //  • M5 adjacent (row below, 30)           → 30
+        //  • M3 = 1 transit through M2             → 5 + 40 = 45
+        //  • M9 = 1 transit through M5 (row 20)    → 5 + 20 = 25
+        //  • M4 = 2 transits through M2, M3        → 10 + 40 = 50
+        player.cities = [{ name: 'M1', position: 0 }];
+        builds = availableMoves(G, player)[MoveName.Build] as { name: string; price: number }[];
+        expect(builds.find((b) => b.name === 'M2')?.price, 'M1 → M2 (adjacent)').to.equal(40);
+        expect(builds.find((b) => b.name === 'M5')?.price, 'M1 → M5 (adjacent)').to.equal(30);
+        expect(builds.find((b) => b.name === 'M3')?.price, 'M1 → M3 (1 transit)').to.equal(45);
+        expect(builds.find((b) => b.name === 'M9')?.price, 'M1 → M9 (1 transit)').to.equal(25);
+        expect(builds.find((b) => b.name === 'M4')?.price, 'M1 → M4 (2 transits)').to.equal(50);
+
+        // One house per space: if another player holds M2, it drops out of the list.
+        G.players[1].cities = [{ name: 'M2', position: 0 }];
+        builds = availableMoves(G, player)[MoveName.Build] as { name: string; price: number }[];
+        expect(
+            builds.find((b) => b.name === 'M2'),
+            'M2 occupied → not buildable'
+        ).to.be.undefined;
+    });
+
     it('should limit Bremen small districts to two networks', () => {
         const G = setup(5, { map: 'Bremen', variant: 'recharged', randomizeMap: false }, 'bremen-small-cap');
         G.phase = Phase.Building;

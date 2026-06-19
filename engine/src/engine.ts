@@ -32,6 +32,7 @@ const citiesToEndGame = [21, 17, 17, 15, 14];
 const citiesToEndGameSouthAfrica = [18, 17, 17, 15, 14];
 const citiesToStep2Bremen = [5, 5, 5, 5, 4];
 const citiesToEndGameBremen = [13, 13, 13, 12, 11];
+const citiesToEndGameManhattan = [18, 17, 17, 15, 14];
 const cityIncome = [10, 22, 33, 44, 54, 64, 73, 82, 90, 98, 105, 112, 118, 124, 129, 134, 138, 142, 145, 148, 150, 150];
 const regionsInPlay = [3, 3, 4, 5, 5];
 
@@ -414,6 +415,8 @@ export function setup(
                 ? Math.min(citiesToEndGame[numPlayers - 2], (forceMap || finalMap).cities.length)
                 : (forceMap || finalMap).name == 'Bremen'
                 ? citiesToEndGameBremen[numPlayers - 2]
+                : (forceMap || finalMap).name == 'Manhattan'
+                ? citiesToEndGameManhattan[numPlayers - 2]
                 : citiesToEndGame[numPlayers - 2],
         resourceResupply: [
             `[${coalResupply[p][0]}, ${oilResupply[p][0]}, ${garbageResupply[p][0]}, ${uraniumResupply[p][0]}]`,
@@ -873,7 +876,11 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             // counts where the threshold is unreachable).
                             const totalCitiesBuilt = G.players.reduce((sum, p) => sum + p.cities.length, 0);
                             const allStep1HousesFilled = totalCitiesBuilt >= G.map.cities.length;
-                            if ((maxCities >= G.citiesToStep2 || allStep1HousesFilled) && G.map.name != 'Middle East') {
+                            if (
+                                (maxCities >= G.citiesToStep2 || allStep1HousesFilled) &&
+                                G.map.name != 'Middle East' &&
+                                G.map.name != 'Manhattan'
+                            ) {
                                 const powerPlant = G.actualMarket.shift()!;
                                 G.log.push({
                                     type: 'event',

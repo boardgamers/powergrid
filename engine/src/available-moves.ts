@@ -533,6 +533,15 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                         city.price = Math.min(city.price, 20);
                     }
 
+                    // Manhattan: connections cost a flat 5 Elektro per space transited
+                    // (not per edge). connectionCost:5 on every space makes the dijkstra
+                    // charge 5 on entry — including the target, which we refund here
+                    // because you BUILD on the target (paying its building cost below),
+                    // you don't transit it. Adjacent target: 5 → 0; +5 per extra hop.
+                    if (G.map.name == 'Manhattan' && player.cities.length > 0) {
+                        city.price = Math.max(0, city.price - 5);
+                    }
+
                     const slotCosts = cityData.slotCosts;
                     const maxSlotsThisStep = cityData.stepSlots ? cityData.stepSlots[G.step - 1] : G.step;
                     const totalSlots = slotCosts ? slotCosts.length : 3;

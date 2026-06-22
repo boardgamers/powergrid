@@ -203,6 +203,19 @@ export interface GameState {
     knownPowerPlantDeck: PowerPlant[];
     knownPowerPlantDeckStep3: PowerPlant[];
     powerPlantDeckAfterStep3: PowerPlant[] | undefined;
+    // Manhattan market lifecycle (see applyManhattanMarketLifecycle in engine.ts).
+    // The "separate pile" of plants set aside from the future market each round —
+    // recyclable (reshuffled into a new deck at the first depletion), NOT boxed.
+    manhattanRecyclePile?: PowerPlant[];
+    // Which deck-depletion stage Manhattan's market is in: 0 = before the first
+    // depletion (peel two to the recycle pile each round), 1 = between the first
+    // and second depletions (rotate one to the deck bottom each round), 2 = after
+    // the second depletion (whole market buyable, box the smallest each round).
+    manhattanDepletion?: number;
+    // Names of building spaces blocked at setup (Manhattan player-count scaling).
+    // Blocked spaces stay in the connection graph — they are transitable (flat-5
+    // per space) but can never hold a house. Chosen by GameMap.blockSpaces.
+    blockedCities?: string[];
 }
 
 // Australia: the uranium power plants are replaced by "uranium mines". They are

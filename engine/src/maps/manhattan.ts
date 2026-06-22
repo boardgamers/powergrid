@@ -136,6 +136,33 @@ export const map: GameMap = {
         const powerPlantsDeck = [...plug, ...socket];
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
+    // Player-count scaling = blocked spaces (transitable but unbuildable). 5–6
+    // players use the full board. 4 players block 14 spaces (one colour's worth);
+    // 2–3 players block 28 (two colours). The blocked spaces are chosen at random
+    // within fixed cost tiers — the printed rule has players mutually agree, so the
+    // engine picks for them:
+    //   per colour:  3×10  3×15  2×20  2×25  2×30  2×35   (= 14; 40 is never blocked)
+    // The real ~80-space board (Session 3) carries every tier; the Session-1
+    // placeholder only has prices 40/30/20/15/10, so the per-tier pick is
+    // best-effort (min(count, available)) until the real board lands.
+    blockSpaces(numPlayers: number, cities: City[], rng: seedrandom.prng): string[] {
+        if (numPlayers >= 5) {
+            return [];
+        }
+        const perColour: Record<number, number> = { 10: 3, 15: 3, 20: 2, 25: 2, 30: 2, 35: 2 };
+        const colours = numPlayers === 4 ? 1 : 2; // 2–3 players block two colours' worth
+        const blocked: string[] = [];
+        for (const [priceStr, perColourCount] of Object.entries(perColour)) {
+            const price = Number(priceStr);
+            const count = perColourCount * colours;
+            const candidates = shuffle(
+                cities.filter((c) => c.slotCosts && c.slotCosts[0] === price).map((c) => c.name),
+                rng() + ''
+            );
+            blocked.push(...candidates.slice(0, count));
+        }
+        return blocked;
+    },
     mapSpecificRules:
         'Single region, one house per space: every building space holds just one ' +
         'house at its printed building cost (10–40 Elektro). The game runs only in ' +

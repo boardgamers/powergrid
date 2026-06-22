@@ -456,6 +456,15 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                         city.price = 9999;
                         return;
                     }
+
+                    // Manhattan: blocked spaces are transitable but never buildable.
+                    // They remain in the connection graph (so dijkstra still routes
+                    // through them at the flat-5 transit cost) but can never hold a
+                    // house. Blocking is fixed per game by player count at setup.
+                    if (G.blockedCities?.includes(city.name)) {
+                        city.price = 9999;
+                        return;
+                    }
                     const othersCount = G.players.filter((p) => p.cities.find((c) => city.name == c.name)).length;
 
                     // Transregional cities (e.g. Strasbourg on Baden-Württemberg) are only open

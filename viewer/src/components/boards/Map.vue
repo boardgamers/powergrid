@@ -92,7 +92,10 @@
              number + 8/14/20 house slots), drawn AFTER the links so the gray lines
              sit behind. Gated on connectionCost; other maps keep circular nodes. -->
         <template v-for="city in cities">
-            <g v-if="city.connectionCost != null" :key="city.name + '_tile'">
+            <g
+                v-if="city.connectionCost != null && city.slotCosts && city.slotCosts.length >= 2"
+                :key="city.name + '_tile'"
+            >
                 <rect
                     :class="[{ canClick: canBuild(city) || canPickRegion(city) }]"
                     :x="city.x - 23"
@@ -141,6 +144,44 @@
                         {{ sc }}
                     </text>
                 </template>
+            </g>
+        </template>
+
+        <!-- Manhattan single-house spaces: one house per space at its printed price.
+             Small, semi-transparent tile (no entry-cost circle — connection is a flat
+             5 everywhere, stated in the rules) so the price reads cleanly and tiles
+             never hide the board beneath when they overlap. -->
+        <template v-for="city in cities">
+            <g
+                v-if="city.connectionCost != null && city.slotCosts && city.slotCosts.length === 1"
+                :key="city.name + '_mtile'"
+            >
+                <rect
+                    :class="[{ canClick: canBuild(city) }]"
+                    :x="city.x - 11"
+                    :y="city.y - 11"
+                    width="22"
+                    height="22"
+                    rx="4"
+                    fill="gray"
+                    fill-opacity="0.4"
+                    stroke="black"
+                    stroke-width="1.5"
+                    @click="canBuild(city) && build(city)"
+                >
+                    <title>{{ city.name }} — build for {{ city.slotCosts[0] }} (+ flat 5 per transited space)</title>
+                </rect>
+                <text
+                    :x="city.x"
+                    :y="city.y"
+                    font-size="11"
+                    font-weight="bold"
+                    text-anchor="middle"
+                    dominant-baseline="central"
+                    fill="black"
+                >
+                    {{ city.slotCosts[0] }}
+                </text>
             </g>
         </template>
 
@@ -210,7 +251,10 @@
 
         <!-- Bremen entry-cost number, on top so it stays readable over houses -->
         <template v-for="city in cities">
-            <g v-if="city.connectionCost != null" :key="city.name + '_cc'">
+            <g
+                v-if="city.connectionCost != null && city.slotCosts && city.slotCosts.length >= 2"
+                :key="city.name + '_cc'"
+            >
                 <circle
                     :cx="city.x"
                     :cy="city.y + 15"
@@ -348,7 +392,7 @@ import { City, Connection, Polygon } from 'powergrid-engine/src/maps';
 
 @Component({
     components: {
-        House
+        House,
     },
 })
 export default class Map extends Vue {

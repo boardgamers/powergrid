@@ -784,33 +784,57 @@ describe('Engine', () => {
         const player = G.players[0];
         player.money = 200;
 
-        // First house: any empty space, building cost only (placeholder grid rows are
-        // priced 40/30/20/15/10, so M1 = 40 and M20 = 10).
+        // Geometry-agnostic: derive cases from the live map graph so the test holds as
+        // the Session-3 board is refined. adj = the street-adjacency of every space.
+        const cities = G.map.cities;
+        const priceOf = (name: string) => cities.find((c) => c.name === name)!.slotCosts![0];
+        const adj: Record<string, string[]> = {};
+        for (const c of cities) adj[c.name] = [];
+        for (const con of G.map.connections) {
+            adj[con.nodes[0]].push(con.nodes[1]);
+            adj[con.nodes[1]].push(con.nodes[0]);
+        }
+
+        // First house: any empty space costs exactly its own building cost.
         player.cities = [];
         let builds = availableMoves(G, player)[MoveName.Build] as { name: string; price: number }[];
-        expect(builds.find((b) => b.name === 'M1')?.price, 'first house M1 (40)').to.equal(40);
-        expect(builds.find((b) => b.name === 'M20')?.price, 'first house M20 (10)').to.equal(10);
+        for (const c of cities) {
+            expect(builds.find((b) => b.name === c.name)?.price, `first house ${c.name}`).to.equal(priceOf(c.name));
+        }
 
-        // From a network at M1 (top-left of the 4×5 grid):
-        //  • M2 adjacent (same row, 40)            → 40 (building cost only)
-        //  • M5 adjacent (row below, 30)           → 30
-        //  • M3 = 1 transit through M2             → 5 + 40 = 45
-        //  • M9 = 1 transit through M5 (row 20)    → 5 + 20 = 25
-        //  • M4 = 2 transits through M2, M3        → 10 + 40 = 50
-        player.cities = [{ name: 'M1', position: 0 }];
+        // Find A - N0 (adjacent) - C (two hops, not itself adjacent to A).
+        let A = '';
+        let N0 = '';
+        let C = '';
+        search: for (const a of cities) {
+            for (const n of adj[a.name]) {
+                const c = adj[n].find((x) => x !== a.name && !adj[a.name].includes(x));
+                if (c) {
+                    A = a.name;
+                    N0 = n;
+                    C = c;
+                    break search;
+                }
+            }
+        }
+        expect(A, 'found an A-N0-C chain in the board graph').to.not.equal('');
+
+        // From a one-space network at A: every direct neighbour costs only its building
+        // cost (adjacent, no transit); the two-hop space C costs its building cost + a
+        // single flat-5 transit.
+        player.cities = [{ name: A, position: 0 }];
         builds = availableMoves(G, player)[MoveName.Build] as { name: string; price: number }[];
-        expect(builds.find((b) => b.name === 'M2')?.price, 'M1 → M2 (adjacent)').to.equal(40);
-        expect(builds.find((b) => b.name === 'M5')?.price, 'M1 → M5 (adjacent)').to.equal(30);
-        expect(builds.find((b) => b.name === 'M3')?.price, 'M1 → M3 (1 transit)').to.equal(45);
-        expect(builds.find((b) => b.name === 'M9')?.price, 'M1 → M9 (1 transit)').to.equal(25);
-        expect(builds.find((b) => b.name === 'M4')?.price, 'M1 → M4 (2 transits)').to.equal(50);
+        for (const N of adj[A]) {
+            expect(builds.find((b) => b.name === N)?.price, `${A} -> ${N} (adjacent)`).to.equal(priceOf(N));
+        }
+        expect(builds.find((b) => b.name === C)?.price, `${A} -> ${C} (one transit)`).to.equal(priceOf(C) + 5);
 
-        // One house per space: if another player holds M2, it drops out of the list.
-        G.players[1].cities = [{ name: 'M2', position: 0 }];
+        // One house per space: if another player holds neighbour N0, it drops out.
+        G.players[1].cities = [{ name: N0, position: 0 }];
         builds = availableMoves(G, player)[MoveName.Build] as { name: string; price: number }[];
         expect(
-            builds.find((b) => b.name === 'M2'),
-            'M2 occupied → not buildable'
+            builds.find((b) => b.name === N0),
+            `${N0} occupied -> not buildable`
         ).to.be.undefined;
     });
 
@@ -941,21 +965,55 @@ describe('Engine', () => {
         const b = setup(3, { map: 'Manhattan', variant: 'recharged', randomizeMap: false }, 'manhattan-block-det');
         expect(a.blockedCities).to.deep.equal(b.blockedCities);
 
-        // Transitable but unbuildable: a blocked M2 cannot hold a house, yet M3 is
-        // still reachable from M1 by paying the flat-5 transit through M2.
+        // Transitable but unbuildable: blocking a space B makes B unbuildable, yet a
+        // space C two hops away - whose only short path runs through B - stays reachable
+        // by paying the flat-5 transit through the blocked B. Derived from the graph so
+        // it holds as the board is refined.
         const G = setup(5, { map: 'Manhattan', variant: 'recharged', randomizeMap: false }, 'manhattan-block-transit');
         G.phase = Phase.Building;
         G.step = 1;
-        G.blockedCities = ['M2'];
+        const cities = G.map.cities;
+        const priceOf = (name: string) => cities.find((c) => c.name === name)!.slotCosts![0];
+        const adj: Record<string, string[]> = {};
+        for (const c of cities) adj[c.name] = [];
+        for (const con of G.map.connections) {
+            adj[con.nodes[0]].push(con.nodes[1]);
+            adj[con.nodes[1]].push(con.nodes[0]);
+        }
+        // A-B adjacent; C adjacent to B, not to A, and B is the ONLY one of A's
+        // neighbours adjacent to C - so C's cheapest route from A (2 hops, +5) transits B.
+        let A = '';
+        let B = '';
+        let C = '';
+        chain: for (const a of cities) {
+            for (const b of adj[a.name]) {
+                const c = adj[b].find(
+                    (x) =>
+                        x !== a.name &&
+                        !adj[a.name].includes(x) &&
+                        adj[a.name].filter((n) => adj[n].includes(x)).length === 1
+                );
+                if (c) {
+                    A = a.name;
+                    B = b;
+                    C = c;
+                    break chain;
+                }
+            }
+        }
+        expect(A, 'found an A-B-C chain where B is the only 2-hop connector for C').to.not.equal('');
+        G.blockedCities = [B];
         const player = G.players[0];
-        player.money = 200;
-        player.cities = [{ name: 'M1', position: 0 }];
+        player.money = 500;
+        player.cities = [{ name: A, position: 0 }];
         const builds = availableMoves(G, player)[MoveName.Build] as { name: string; price: number }[];
         expect(
-            builds.find((b) => b.name === 'M2'),
-            'blocked M2 is unbuildable'
+            builds.find((b) => b.name === B),
+            `blocked ${B} is unbuildable`
         ).to.be.undefined;
-        expect(builds.find((b) => b.name === 'M3')?.price, 'M3 still reachable, transiting blocked M2').to.equal(45);
+        expect(builds.find((b) => b.name === C)?.price, `${C} reachable transiting blocked ${B}`).to.equal(
+            priceOf(C) + 5
+        );
     });
 
     it('should limit Bremen small districts to two networks', () => {

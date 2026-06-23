@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import 'mocha';
-import { availableMoves } from './available-moves';
+import { availableMoves, computeRegionGraph, regionPickable } from './available-moves';
 import { applyAustraliaStep3Shift, ended, getPowerPlant, move, reconstructState, setup } from './engine';
 import GermanyRecharged from './fixtures/GermanyRecharged.json';
 import supply from './fixtures/supply.json';
@@ -748,5 +748,121 @@ describe('Engine', () => {
         expect(priceOf('Findorff') === undefined || priceOf('Findorff') === 9999, 'Findorff small, full').to.be.true;
         // Mitte still has its third slot (20): connection 1 + 20 = 21.
         expect(priceOf('Mitte'), 'Mitte third slot').to.equal(21);
+    });
+
+    it('should draft regions when chooseRegions is set, then start the auction', () => {
+        const numPlayers = 5;
+        const G0 = setup(numPlayers, { map: 'Germany', chooseRegions: true, fastBid: false }, 'cr-seed');
+
+        // Setup enters the draft holding the FULL map; nothing filtered yet.
+        const allRegions = new Set(G0.map.cities.map((c) => c.region));
+        const regionsNeeded = G0.regionDraft!.regionsNeeded;
+        expect(G0.phase).to.equal(Phase.RegionSelection);
+        expect(regionsNeeded).to.equal(5); // 5 players use 5 regions
+        expect(allRegions.size).to.be.greaterThan(regionsNeeded); // otherwise no real choice
+        expect(G0.currentPlayers).to.deep.equal([0]);
+
+        // The first picker may choose any region.
+        const firstMoves = G0.players[0].availableMoves![MoveName.ChooseRegion]!;
+        expect(new Set(firstMoves)).to.deep.equal(allRegions);
+
+        // Drive the draft: each current player picks the first legal region.
+        let G = G0;
+        const picks: string[] = [];
+        const pickOrder: number[] = [];
+        while (G.phase === Phase.RegionSelection) {
+            const picker = G.currentPlayers[0];
+            pickOrder.push(picker);
+            const options = G.players[picker].availableMoves![MoveName.ChooseRegion]!;
+            expect(options.length, 'the current picker always has at least one legal region').to.be.greaterThan(0);
+            const region = options[0];
+            picks.push(region);
+            G = move(G, { name: MoveName.ChooseRegion, data: region } as Move, picker);
+        }
+
+        // Draft completed straight into the auction.
+        expect(G.phase).to.equal(Phase.Auction);
+        expect(G.regionDraft).to.be.undefined;
+        expect(picks.length).to.equal(regionsNeeded);
+
+        // Players picked in seating order (5 regions, 5 players -> one each).
+        expect(pickOrder).to.deep.equal([0, 1, 2, 3, 4]);
+
+        // Map filtered to exactly the picked regions, and every kept connection lies
+        // entirely within them.
+        const finalRegions = new Set(G.map.cities.map((c) => c.region));
+        expect(finalRegions).to.deep.equal(new Set(picks));
+        const cityRegion = new Map(G.map.cities.map((c) => [c.name, c.region]));
+        for (const con of G.map.connections) {
+            for (const node of con.nodes) {
+                expect(finalRegions.has(cityRegion.get(node)!), node).to.be.true;
+            }
+        }
+
+        // The game is playable: the starting player can act in the auction.
+        expect(G.currentPlayers).to.deep.equal([0]);
+        expect(G.players[0].availableMoves![MoveName.ChoosePowerPlant]).to.exist;
+    });
+
+    it('should draft in seating order, wrapping for 2 players (chooseRegions)', () => {
+        const G0 = setup(2, { map: 'Germany', chooseRegions: true, fastBid: false }, 'cr-2p');
+        expect(G0.regionDraft!.regionsNeeded).to.equal(3); // 2 players use 3 regions
+
+        let G = G0;
+        const pickOrder: number[] = [];
+        while (G.phase === Phase.RegionSelection) {
+            const picker = G.currentPlayers[0];
+            pickOrder.push(picker);
+            const region = G.players[picker].availableMoves![MoveName.ChooseRegion]![0];
+            G = move(G, { name: MoveName.ChooseRegion, data: region } as Move, picker);
+        }
+
+        // First player, second player, then first player again.
+        expect(pickOrder).to.deep.equal([0, 1, 0]);
+        expect(G.phase).to.equal(Phase.Auction);
+        expect(new Set(G.map.cities.map((c) => c.region)).size).to.equal(3);
+    });
+
+    it('should restrict region picks to connected regions (chooseRegions)', () => {
+        const G0 = setup(3, { map: 'Germany', chooseRegions: true, fastBid: false }, 'cr-seed2');
+        expect(G0.phase).to.equal(Phase.RegionSelection);
+
+        // Player 0 picks one region.
+        const firstRegion = G0.players[0].availableMoves![MoveName.ChooseRegion]![0];
+        const G1 = move(G0, { name: MoveName.ChooseRegion, data: firstRegion } as Move, 0);
+
+        // Player 1's options exclude the picked region and are all legally connected
+        // (Germany has no UK/Australia exception).
+        const options = G1.players[1].availableMoves![MoveName.ChooseRegion]!;
+        expect(options.length).to.be.greaterThan(0);
+        expect(options).to.not.include(firstRegion);
+        const graph = computeRegionGraph(G1.map);
+        for (const region of options) {
+            expect(regionPickable('Germany', graph, [firstRegion], region), region).to.be.true;
+        }
+    });
+
+    it('should replay a chooseRegions draft deterministically', () => {
+        const opts: GameOptions = { map: 'Germany', chooseRegions: true, fastBid: false };
+        const seed = 'cr-replay';
+
+        // Play the draft, recording each pick.
+        let G = setup(4, opts, seed);
+        const draftMoves: { player: number; data: string }[] = [];
+        while (G.phase === Phase.RegionSelection) {
+            const picker = G.currentPlayers[0];
+            const region = G.players[picker].availableMoves![MoveName.ChooseRegion]![0];
+            draftMoves.push({ player: picker, data: region });
+            G = move(G, { name: MoveName.ChooseRegion, data: region } as Move, picker);
+        }
+
+        // Re-run setup with the same seed and replay the recorded picks.
+        let G2 = setup(4, opts, seed);
+        for (const m of draftMoves) {
+            G2 = move(G2, { name: MoveName.ChooseRegion, data: m.data } as Move, m.player);
+        }
+
+        expect(G2.phase).to.equal(Phase.Auction);
+        expect(G2.map.cities.map((c) => c.name).sort()).to.deep.equal(G.map.cities.map((c) => c.name).sort());
     });
 });

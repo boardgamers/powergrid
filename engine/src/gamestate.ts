@@ -37,6 +37,9 @@ export interface GameOptions {
     useNewRechargedSetup?: boolean;
     trackTotalSpent?: boolean;
     randomizeMap?: boolean;
+    // When set, the regions in play are drafted by the players at the start of
+    // the game (each picks in turn) instead of being chosen randomly at setup.
+    chooseRegions?: boolean;
 }
 
 export enum ResourceType {
@@ -107,6 +110,7 @@ export interface Player {
 }
 
 export enum Phase {
+    RegionSelection = 'Region Selection',
     Order = 'Order',
     Auction = 'Auction',
     Resources = 'Resources',
@@ -173,6 +177,10 @@ export interface GameState {
     auctioningPlayer: number | undefined;
     step: number;
     phase: Phase;
+    // Present only while phase == RegionSelection (chooseRegions option). Tracks
+    // how many regions must be drafted and which have been picked so far. Cleared
+    // once the draft completes and the map is filtered to the chosen regions.
+    regionDraft?: { regionsNeeded: number; picked: string[] };
     options: GameOptions;
     log: LogItem[];
     hiddenLog: LogItem[];

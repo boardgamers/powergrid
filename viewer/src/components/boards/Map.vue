@@ -94,7 +94,7 @@
         <template v-for="city in cities">
             <g v-if="city.connectionCost != null" :key="city.name + '_tile'">
                 <rect
-                    :class="[{ canClick: canBuild(city) }]"
+                    :class="[{ canClick: canBuild(city) || canPickRegion(city) }]"
                     :x="city.x - 23"
                     :y="city.y - 23"
                     width="46"
@@ -104,7 +104,7 @@
                     :stroke="city.region"
                     stroke-width="4"
                     :transform="`rotate(45, ${city.x}, ${city.y})`"
-                    @click="canBuild(city) && build(city)"
+                    @click="onCityClick(city)"
                 >
                     <title>{{ city.name }} — connect for {{ city.connectionCost }} (entry) + house</title>
                 </rect>
@@ -148,12 +148,12 @@
             <circle
                 v-if="city.connectionCost == null"
                 :key="city.name + '_circle2'"
-                :class="[{ canClick: canBuild(city) }]"
+                :class="[{ canClick: canBuild(city) || canPickRegion(city) }]"
                 r="20"
                 :cx="city.x"
                 :cy="city.y"
                 fill="gray"
-                @click="canBuild(city) && build(city)"
+                @click="onCityClick(city)"
             >
                 <title>{{ city.name }}</title>
             </circle>
@@ -317,6 +317,25 @@
                 />
             </template>
         </template>
+
+        <!-- chooseRegions draft: outline every city in a pickable region so the
+             current player can see and click the regions they may draft. Shown
+             regardless of the help preference since the draft can't proceed
+             without it. -->
+        <template v-for="city in cities">
+            <circle
+                v-if="canPickRegion(city)"
+                :key="city.name + '_pickRegion'"
+                class="canClick"
+                r="18"
+                :cx="city.x"
+                :cy="city.y"
+                fill="none"
+                stroke="gold"
+                stroke-width="5px"
+                @click="onCityClick(city)"
+            />
+        </template>
     </g>
 </template>
 
@@ -338,6 +357,8 @@ export default class Map extends Vue {
     @Prop() connections?: Connection[];
     @Prop() playerColors?: string[];
     @Prop() buildableCities?: string[];
+    // chooseRegions draft: region names the current player may pick this turn.
+    @Prop() pickableRegions?: string[];
     @Prop() devBackdrop?: { src: string; width: number; height: number; opacity?: number };
     @Prop({ default: 0 }) mapRotation!: number;
 
@@ -424,6 +445,23 @@ export default class Map extends Vue {
 
     build(city: City) {
         this.$emit('build', city);
+    }
+
+    canPickRegion(city: City) {
+        return !!this.pickableRegions && this.pickableRegions.includes(city.region);
+    }
+
+    pickRegion(city: City) {
+        this.$emit('pickRegion', city.region);
+    }
+
+    // During the region draft a city click picks its region; otherwise it builds.
+    onCityClick(city: City) {
+        if (this.canBuild(city)) {
+            this.build(city);
+        } else if (this.canPickRegion(city)) {
+            this.pickRegion(city);
+        }
     }
 
     onPickCoord(e: MouseEvent) {

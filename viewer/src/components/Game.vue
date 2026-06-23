@@ -55,9 +55,11 @@
                 :connections="G.map.connections"
                 :polygons="G.map.polygons"
                 :buildableCities="getBuildableCities()"
+                :pickableRegions="getPickableRegions()"
                 :devBackdrop="G.map.devBackdrop"
                 :mapRotation="G.map.mapRotation || 0"
                 @build="build($event)"
+                @pickRegion="pickRegion($event)"
             />
 
             <!-- Japan: Free Jump indicator -->
@@ -1114,6 +1116,19 @@ export default class Game extends Vue {
         return availableMoves[MoveName.Build] && availableMoves[MoveName.Build]!.map((c) => c.name) || [];
     }
 
+    getPickableRegions(): string[] {
+        if (!this.canMove()) return [];
+
+        const currentPlayer = this.G!.players[this.player!];
+        const availableMoves = currentPlayer.availableMoves!;
+
+        return availableMoves[MoveName.ChooseRegion] || [];
+    }
+
+    pickRegion(region: string) {
+        this.sendMove({ name: MoveName.ChooseRegion, data: region });
+    }
+
     playerHasUsedFreeJump(playerIndex: number): boolean {
         const player = this.G?.players[playerIndex];
         if (!player) return false;
@@ -1222,6 +1237,20 @@ export default class Game extends Vue {
     }
 
     getStatusMessage() {
+        // Region draft (chooseRegions): show the pick prompt to the current picker
+        // even on the very first turn, before any moves are in the log.
+        if (
+            this.G &&
+            this.G.phase == Phase.RegionSelection &&
+            this.player !== undefined &&
+            this.G.currentPlayers.includes(this.player)
+        ) {
+            const draft = this.G.regionDraft;
+            return draft
+                ? `Choose a region to play in (${draft.picked.length + 1} of ${draft.regionsNeeded}).`
+                : 'Choose a region to play in.';
+        }
+
         if (!this.G || this.G.log.length == 1) {
             return 'Game Start!';
         } else if (this.G.currentPlayers == []) {

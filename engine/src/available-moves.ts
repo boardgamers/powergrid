@@ -8,6 +8,7 @@ import {
     PowerPlantType,
     ResourceType,
 } from './gamestate';
+import { GameMap } from './maps';
 import { MoveName } from './move';
 import prices from './prices';
 import { minBy } from './utils';
@@ -33,6 +34,7 @@ export interface AvailableMoves {
         resourcesSpent: ResourceType[];
         citiesPowered: number;
     }[];
+    [MoveName.ChooseRegion]?: string[];
     [MoveName.Pass]?: boolean[];
     [MoveName.Undo]?: boolean[];
 }
@@ -677,9 +679,79 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             }
             break;
         }
+
+        case Phase.RegionSelection: {
+            // Drafting in-play regions (chooseRegions option). G.map still holds the
+            // full, unfiltered map, so its cities/connections describe every region.
+            const picked = G.regionDraft?.picked ?? [];
+            const graph = computeRegionGraph(G.map);
+            moves[MoveName.ChooseRegion] = graph.regions.filter((region) =>
+                regionPickable(G.map.name, graph, picked, region)
+            );
+            break;
+        }
     }
 
     return moves;
+}
+
+export interface RegionGraph {
+    // Distinct region names, in first-appearance order.
+    regions: string[];
+    // For each region (parallel to `regions`), the regions directly connected to it.
+    regionConnections: string[][];
+    // Region name -> landmass id. Only UK & Ireland tags cities with an `island`;
+    // empty for every other map.
+    regionIsland: Record<string, string>;
+}
+
+// Builds the region adjacency graph used by region selection (both the random
+// setup picker and the chooseRegions draft). Single source of truth so the two
+// paths can never diverge on what "connected" means.
+export function computeRegionGraph(map: Pick<GameMap, 'cities' | 'connections'>): RegionGraph {
+    const regions = map.cities
+        .filter((c, i) => map.cities.findIndex((cc) => cc.region == c.region) == i)
+        .map((c) => c.region);
+    const connections = map.connections.map((con) =>
+        con.nodes.map((n) => map.cities.find((city) => city.name == n)!.region)
+    );
+    const regionConnections = regions.map((region) =>
+        regions.filter(
+            (area2) => region != area2 && connections.some((con) => con.includes(region) && con.includes(area2))
+        )
+    );
+    const regionIsland: Record<string, string> = {};
+    for (const c of map.cities) {
+        if (c.island && regionIsland[c.region] === undefined) {
+            regionIsland[c.region] = c.island;
+        }
+    }
+    return { regions, regionConnections, regionIsland };
+}
+
+// Whether `region` may be added to the already-`picked` set under the region
+// connectivity rules. The first pick is always allowed; subsequent picks must
+// connect to an already-picked region, with two map-specific exceptions:
+//   - UK & Ireland: a region may open a fresh landmass (no picked region shares
+//     its island), since the two islands have no sea edges between them.
+//   - Australia: regions need not be adjacent (the 20-Elektro general connection
+//     reaches any city), so any region is allowed.
+export function regionPickable(mapName: string, graph: RegionGraph, picked: string[], region: string): boolean {
+    const pickedSet = new Set(picked);
+    if (pickedSet.has(region)) return false;
+    if (pickedSet.size == 0) return true;
+
+    const idx = graph.regions.indexOf(region);
+    if (idx == -1) return false;
+    if (graph.regionConnections[idx].some((con) => pickedSet.has(con))) return true;
+
+    if (mapName === 'UK & Ireland') {
+        const startedIslands = new Set([...pickedSet].map((r) => graph.regionIsland[r]));
+        if (!startedIslands.has(graph.regionIsland[region])) return true;
+    }
+    if (mapName === 'Australia') return true;
+
+    return false;
 }
 
 export function countNetworks(connections: { nodes: string[] }[], cityNames: string[]): number {

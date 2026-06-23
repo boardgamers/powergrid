@@ -1,7 +1,7 @@
 import assert from 'assert';
 import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
-import { availableMoves } from './available-moves';
+import { availableMoves, computeRegionGraph, regionPickable } from './available-moves';
 import {
     countHeldPowerPlants,
     GameOptions,
@@ -107,6 +107,7 @@ export function setup(
         useNewRechargedSetup = true,
         trackTotalSpent = true,
         randomizeMap = false,
+        chooseRegions = false,
     }: GameOptions,
     seed?: string,
     forceDeck?: PowerPlant[],
@@ -259,6 +260,9 @@ export function setup(
     }
 
     let finalMap: GameMap;
+    // Set when the chooseRegions option defers region selection to a player draft;
+    // consumed after the GameState is built to enter the RegionSelection phase.
+    let pendingRegionDraft: { regionsNeeded: number; picked: string[] } | undefined;
     if (randomizeMap) {
         finalMap = createRandomizedMap(chosenMap, regionsInPlay[p], rng);
     } else {
@@ -268,100 +272,43 @@ export function setup(
             y: city.y * chosenMap.adjustRatio![1],
         }));
 
-        const regions = chosenMap.cities
-            .filter((c, i) => chosenMap.cities.findIndex((cc) => cc.region == c.region) == i)
-            .map((c) => c.region);
-        const connections = chosenMap.connections.map((con) =>
-            con.nodes.map((n) => chosenMap.cities.find((city) => city.name == n)!.region)
-        );
-        const regionConnections = regions.map((region) =>
-            regions.filter(
-                (area2) => region != area2 && connections.some((con) => con.includes(region) && con.includes(area2))
-            )
-        );
+        // Region adjacency graph (shared with the chooseRegions draft via
+        // available-moves) — single source of truth for what "connected" means.
+        const graph = computeRegionGraph(chosenMap);
+        const regions = graph.regions;
+        const regionsNeeded = Math.min(regionsInPlay[p], regions.length);
 
-        // Map each region to the landmass ('island') it sits on. Only UK & Ireland
-        // tags cities with an `island`; for every other map this stays empty and is
-        // unused.
-        const regionIsland: Record<string, string> = {};
-        for (const c of chosenMap.cities) {
-            if (c.island && regionIsland[c.region] === undefined) {
-                regionIsland[c.region] = c.island;
-            }
-        }
+        if (chooseRegions && regions.length > regionsNeeded) {
+            // Defer region selection to a player draft (the RegionSelection phase).
+            // Keep the full map in play for now; finalizeRegions() filters it to the
+            // chosen regions once the draft completes, and applies the
+            // regionalPowerPlants swap at that point.
+            finalMap = chosenMap;
+            pendingRegionDraft = { regionsNeeded, picked: [] };
+        } else {
+            const playRegions = new Set<string>();
+            while (playRegions.size != regionsNeeded) {
+                const region = regions[Math.floor(rng() * regions.length)];
 
-        const playRegions = new Set<string>();
-        while (playRegions.size != Math.min(regionsInPlay[p], regions.length)) {
-            const region = regions[Math.floor(rng() * regions.length)];
-            const connectsToChosen =
-                playRegions.size == 0 || regionConnections[regions.indexOf(region)].some((con) => playRegions.has(con));
+                // regionPickable enforces connectivity with the UK & Ireland
+                // (fresh-landmass) and Australia (any-region) exceptions. A region
+                // that is already picked or that would be stranded is rejected, and
+                // the loop draws again — see regionPickable for the soft-lock
+                // reasoning behind the connectivity requirement.
+                if (regionPickable(chosenMap.name, graph, [...playRegions], region)) {
+                    playRegions.add(region);
 
-            let accept = connectsToChosen;
-
-            // UK & Ireland: Great Britain and Ireland have no edges between them (no
-            // sea connection), so a region may ALSO be accepted if it opens a fresh
-            // landmass — i.e. no already-chosen region shares its island. But within
-            // a landmass we still require connectivity, so a region is never stranded
-            // from the rest of its own island (e.g. Scotland chosen without N. England
-            // bridging it to the south). A stranded region's cities are unreachable by
-            // any player who didn't start there: they can never be built, so neither
-            // Step 2 trigger fires (no one reaches the city threshold, and "all Step 1
-            // houses filled" is impossible) and the game soft-locks. The cross-island
-            // surcharge bridges the two landmasses at build time. This also resolves
-            // the old "5-of-6 regions for 5p loops forever" worry (GB has 4 regions,
-            // IE has 2) — opening the second island keeps the picker unblocked.
-            if (!accept && chosenMap.name === 'UK & Ireland') {
-                const startedIslands = new Set([...playRegions].map((r) => regionIsland[r]));
-                if (!startedIslands.has(regionIsland[region])) {
-                    accept = true;
-                }
-            }
-
-            // Australia: regions need not be adjacent (rulebook). Western Australia
-            // (Red) has no inter-region edges, but the 20-Elektro general connection
-            // reaches ANY city at build time, so there is no unreachable-cluster
-            // soft-lock and the connectivity check can be skipped entirely.
-            if (!accept && chosenMap.name === 'Australia') {
-                accept = true;
-            }
-
-            if (accept) {
-                playRegions.add(region);
-
-                // Avoid italy Red Green Blue
-                if (chosenMap.name === 'Italy') {
-                    if (playRegions.has('red') && playRegions.has('green') && playRegions.has('blue')) {
-                        playRegions.clear();
+                    // Avoid italy Red Green Blue
+                    if (chosenMap.name === 'Italy') {
+                        if (playRegions.has('red') && playRegions.has('green') && playRegions.has('blue')) {
+                            playRegions.clear();
+                        }
                     }
                 }
             }
-        }
 
-        const filteredMap = cloneDeep(chosenMap);
-        filteredMap.cities = filteredMap.cities.filter((city) => playRegions.has(city.region));
-        filteredMap.connections = filteredMap.connections.filter((con) =>
-            con.nodes
-                .map((n) => chosenMap.cities.find((city) => city.name == n)!.region)
-                .every((r) => playRegions.has(r))
-        );
-
-        finalMap = filteredMap;
-
-        if (chosenMap.regionalPowerPlants) {
-            for (const region of playRegions) {
-                const replacements = chosenMap.regionalPowerPlants[region];
-                if (replacements) {
-                    for (const newPlant of replacements) {
-                        const swapIn = (arr: PowerPlant[]) => {
-                            const idx = arr.findIndex((p) => p.number === newPlant.number);
-                            if (idx !== -1) arr[idx] = { ...newPlant };
-                        };
-                        swapIn(actualMarket);
-                        swapIn(futureMarket);
-                        swapIn(powerPlantsDeck);
-                    }
-                }
-            }
+            finalMap = filterMapToRegions(chosenMap, playRegions);
+            applyRegionalPowerPlants(chosenMap, playRegions, actualMarket, futureMarket, powerPlantsDeck);
         }
     }
 
@@ -446,7 +393,7 @@ export function setup(
         auctioningPlayer: undefined,
         step: 1,
         phase: Phase.Auction,
-        options: { fastBid, map, variant, showMoney, useNewRechargedSetup, trackTotalSpent },
+        options: { fastBid, map, variant, showMoney, useNewRechargedSetup, trackTotalSpent, chooseRegions },
         log: [],
         hiddenLog: [],
         seed,
@@ -504,9 +451,81 @@ export function setup(
         removePlantsForMiddleEastStep1(G);
     }
 
+    // chooseRegions: start in the region draft instead of the auction. The map
+    // currently holds every region; finalizeRegions() filters it once the players
+    // finish picking.
+    if (pendingRegionDraft) {
+        G.phase = Phase.RegionSelection;
+        G.regionDraft = pendingRegionDraft;
+    }
+
     G.players[startingPlayer].availableMoves = availableMoves(G, G.players[startingPlayer]);
 
     return G;
+}
+
+// Filters a (full) map down to just the chosen regions: keeps only cities in
+// those regions and connections whose endpoints are both kept. Returns a new map;
+// the input is not mutated.
+function filterMapToRegions(map: GameMap, playRegions: Set<string>): GameMap {
+    const filteredMap = cloneDeep(map);
+    filteredMap.cities = filteredMap.cities.filter((city) => playRegions.has(city.region));
+    filteredMap.connections = filteredMap.connections.filter((con) =>
+        con.nodes.map((n) => map.cities.find((city) => city.name == n)!.region).every((r) => playRegions.has(r))
+    );
+    return filteredMap;
+}
+
+// Applies the map's regionalPowerPlants overrides for the chosen regions, swapping
+// the replacement plants into whichever of the three decks currently hold the
+// matching plant numbers. Mutates the passed arrays in place.
+function applyRegionalPowerPlants(
+    map: GameMap,
+    playRegions: Set<string>,
+    actualMarket: PowerPlant[],
+    futureMarket: PowerPlant[],
+    powerPlantsDeck: PowerPlant[]
+) {
+    if (!map.regionalPowerPlants) {
+        return;
+    }
+    for (const region of playRegions) {
+        const replacements = map.regionalPowerPlants[region];
+        if (replacements) {
+            for (const newPlant of replacements) {
+                const swapIn = (arr: PowerPlant[]) => {
+                    const idx = arr.findIndex((p) => p.number === newPlant.number);
+                    if (idx !== -1) arr[idx] = { ...newPlant };
+                };
+                swapIn(actualMarket);
+                swapIn(futureMarket);
+                swapIn(powerPlantsDeck);
+            }
+        }
+    }
+}
+
+// Completes the chooseRegions draft: filters the map to the picked regions, applies
+// the deferred regionalPowerPlants swap, fixes region-dependent end-game targets,
+// and hands off to the auction with the starting player to move.
+function finalizeRegions(G: GameState) {
+    const playRegions = new Set(G.regionDraft!.picked);
+    const fullMap = G.map;
+
+    G.map = filterMapToRegions(fullMap, playRegions);
+    applyRegionalPowerPlants(fullMap, playRegions, G.actualMarket, G.futureMarket, G.powerPlantsDeck);
+    // knownPowerPlantDeck mirrors actualMarket+futureMarket and must reflect any swap.
+    G.knownPowerPlantDeck = G.actualMarket.concat(G.futureMarket);
+
+    // UK & Ireland 2p caps the end-game target at the number of cities actually in
+    // play, which is only known once the regions are chosen.
+    if (G.map.name == 'UK & Ireland' && G.players.length == 2) {
+        G.citiesToEndGame = Math.min(citiesToEndGame[G.players.length - 2], G.map.cities.length);
+    }
+
+    G.regionDraft = undefined;
+    G.phase = Phase.Auction;
+    G.currentPlayers = [G.playerOrder[0]];
 }
 
 export function stripSecret(G: GameState, player?: number): GameState {
@@ -652,6 +671,30 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 });
 
                 nextPlayerClockwise(G);
+            }
+
+            break;
+        }
+
+        case MoveName.ChooseRegion: {
+            asserts<Moves.MoveChooseRegion>(move);
+
+            G.regionDraft!.picked.push(move.data);
+
+            G.log.push({
+                type: 'move',
+                player: playerNumber,
+                move,
+                simple: `${player.name} chooses region ${move.data}.`,
+                pretty: `${playerNameHTML(player)} chooses region <b>${move.data}</b>.`,
+            });
+
+            if (G.regionDraft!.picked.length >= G.regionDraft!.regionsNeeded) {
+                finalizeRegions(G);
+            } else {
+                // Next picker, in seating order, wrapping around.
+                const order = G.playerOrder;
+                G.currentPlayers = [order[(order.indexOf(playerNumber) + 1) % order.length]];
             }
 
             break;
@@ -1888,6 +1931,14 @@ export function moveAI(G: GameState, playerNumber: number): GameState {
     let chosenMove: Move = { name: MoveName.Pass, data: true };
 
     switch (G.phase) {
+        case Phase.RegionSelection: {
+            if (availableMoves?.ChooseRegion && availableMoves.ChooseRegion.length > 0) {
+                chosenMove = { name: MoveName.ChooseRegion, data: chooseRandom(availableMoves.ChooseRegion) };
+            }
+
+            break;
+        }
+
         case Phase.Auction: {
             if (availableMoves?.ChoosePowerPlant) {
                 if (

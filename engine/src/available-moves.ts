@@ -417,27 +417,28 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                         : G.map.cities;
                     toBuild = candidates.map((c) => ({ name: c.name, price: 0 }));
                 } else if (isJapan && G.round === 1) {
-                    // Japan round 1: any additional house must also be a starting city.
-                    // Players cannot extend to adjacent non-starting cities until round 2.
-                    toBuild = G.map.cities
-                        .filter((c) => japanStartingCities.has(c.name))
-                        .map((c) => ({ name: c.name, price: 0 }));
+                    // Japan round 1: the only legal builds are starting cities, and a player
+                    // may place at most two houses — the initial placement plus the one free
+                    // jump. The jump is auto-consumed on the second starting-city build, so
+                    // once it is spent no further round-1 builds are offered (players cannot
+                    // extend to adjacent non-starting cities until round 2 either way).
+                    toBuild = player.usedFreeJump
+                        ? []
+                        : G.map.cities
+                              .filter((c) => japanStartingCities.has(c.name))
+                              .map((c) => ({ name: c.name, price: 0 }));
                 } else {
                     toBuild = dijkstra(G, player).map((c) => ({ name: c.name, price: c.price }));
 
-                    // Japan: a player may start a second disconnected network at any available
-                    // starting city, paying only the slot cost (no connection fee).
-                    // We add a separate freeJump:true entry for each qualifying starting city
-                    // at connection cost 0 alongside the normal-price entry, so the player
-                    // can explicitly choose whether to spend the free jump or pay full price.
-                    if (
-                        isJapan &&
-                        !player.usedFreeJump &&
-                        countNetworks(
-                            G.map.connections,
-                            player.cities.map((c) => c.name)
-                        ) < 2
-                    ) {
+                    // Japan: while the player still holds their one free jump, they may
+                    // start a house in any available starting city paying only the slot
+                    // cost (no connection fee). We add a freeJump:true entry at connection
+                    // cost 0 for each such city, alongside any normal-price entry, so the
+                    // player can explicitly choose to spend the jump or pay full price.
+                    // Availability is tracked solely by player.usedFreeJump — never inferred
+                    // from network topology: owned cities connect *through* unowned ones, so a
+                    // single intended network routinely looks like several components.
+                    if (isJapan && !player.usedFreeJump) {
                         const freeJumpEntries: { name: string; price: number; freeJump?: boolean }[] = [];
                         japanStartingCities.forEach((cityName) => {
                             if (!player.cities.find((c) => c.name === cityName)) {

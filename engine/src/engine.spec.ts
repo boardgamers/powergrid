@@ -865,4 +865,139 @@ describe('Engine', () => {
         expect(G2.phase).to.equal(Phase.Auction);
         expect(G2.map.cities.map((c) => c.name).sort()).to.deep.equal(G.map.cities.map((c) => c.name).sort());
     });
+
+    it('should keep the Japan free jump available even when owned cities span multiple network components', () => {
+        // 5 players so all five Japan regions are in play (Sapporo sits in Brown).
+        const G = setup(5, { map: 'Japan', variant: 'recharged', randomizeMap: false }, 'japan-free-jump');
+        G.phase = Phase.Building;
+        G.step = 1;
+        G.round = 3; // any round past the first, where the free jump becomes a choice
+        const player = G.players[0];
+        player.money = 100;
+        player.usedFreeJump = false;
+        // Yokohama and Kofu connect only THROUGH unowned cities (Tokyo, Saitama), so
+        // countNetworks() sees two components — the exact shape that used to wrongly hide
+        // the free jump even though the player never spent it.
+        player.cities = [
+            { name: 'Yokohama', position: 0 },
+            { name: 'Kofu', position: 0 },
+        ];
+
+        const builds = availableMoves(G, player)[MoveName.Build] as {
+            name: string;
+            price: number;
+            freeJump?: boolean;
+        }[];
+        const sapporoJump = builds.find((b) => b.name === 'Sapporo' && b.freeJump === true);
+        expect(sapporoJump, 'Sapporo offered as a free jump').to.not.be.undefined;
+        expect(sapporoJump!.price, 'free jump pays the slot cost only (10 in Step 1)').to.equal(10);
+    });
+
+    it('should stop offering the Japan free jump once it has been spent', () => {
+        const G = setup(5, { map: 'Japan', variant: 'recharged', randomizeMap: false }, 'japan-free-jump-used');
+        G.phase = Phase.Building;
+        G.step = 1;
+        G.round = 3;
+        const player = G.players[0];
+        player.money = 100;
+        player.usedFreeJump = true;
+        player.cities = [
+            { name: 'Yokohama', position: 0 },
+            { name: 'Kofu', position: 0 },
+        ];
+
+        const builds = availableMoves(G, player)[MoveName.Build] as {
+            name: string;
+            price: number;
+            freeJump?: boolean;
+        }[];
+        expect(
+            builds.some((b) => b.freeJump === true),
+            'no free-jump entries after the jump is used'
+        ).to.be.false;
+    });
+
+    it('should restrict the Japan first house to a starting city even when the player skipped round 1', () => {
+        // Player builds nothing in round 1; in round 2 their first house must still be
+        // one of the six starting cities (the cities.length===0 rule is not round-gated).
+        const G = setup(5, { map: 'Japan', variant: 'recharged', randomizeMap: false }, 'japan-skip-r1');
+        G.phase = Phase.Building;
+        G.step = 1;
+        G.round = 2;
+        const player = G.players[0];
+        player.money = 100;
+        player.usedFreeJump = false;
+        player.cities = [];
+
+        const builds = availableMoves(G, player)[MoveName.Build] as {
+            name: string;
+            price: number;
+            freeJump?: boolean;
+        }[];
+        expect(builds.map((b) => b.name).sort(), 'only the six starting cities are offered').to.deep.equal(
+            ['Fukuoka', 'Kobe', 'Osaka', 'Sapporo', 'Tokyo', 'Yokohama'].sort()
+        );
+        expect(
+            builds.every((b) => b.freeJump !== true),
+            'the initial placement is never a free jump'
+        ).to.be.true;
+    });
+
+    it('should keep then spend the Japan free jump for a player who skipped round 1', () => {
+        const G = setup(5, { map: 'Japan', variant: 'recharged', randomizeMap: false }, 'japan-skip-r1-jump');
+        G.phase = Phase.Building;
+        G.step = 1;
+        G.round = 2;
+        const player = G.players[0];
+        player.money = 100;
+        player.usedFreeJump = false;
+        player.cities = [];
+
+        // Initial placement in round 2 — must NOT consume the jump.
+        G.currentPlayers = [0];
+        player.availableMoves = availableMoves(G, player);
+        const tokyo = (player.availableMoves[MoveName.Build] as { name: string; price: number }[]).find(
+            (b) => b.name === 'Tokyo'
+        )!;
+        move(G, { name: MoveName.Build, data: tokyo }, 0);
+        expect(player.usedFreeJump, 'initial placement keeps the jump').to.be.false;
+
+        // Second build offers the jump into another starting city.
+        player.availableMoves = availableMoves(G, player);
+        const osaka = (
+            player.availableMoves[MoveName.Build] as { name: string; price: number; freeJump?: boolean }[]
+        ).find((b) => b.name === 'Osaka' && b.freeJump === true)!;
+        expect(osaka, 'free jump offered for the second build').to.not.be.undefined;
+        move(G, { name: MoveName.Build, data: osaka }, 0);
+        expect(player.usedFreeJump, 'jump consumed on the free-jump build').to.be.true;
+    });
+
+    it('should cap Japan round 1 at two houses (initial placement plus the free jump)', () => {
+        const G = setup(5, { map: 'Japan', variant: 'recharged', randomizeMap: false }, 'japan-r1-cap');
+        G.phase = Phase.Building;
+        G.step = 1;
+        G.round = 1;
+        const player = G.players[0];
+        player.money = 100;
+        player.usedFreeJump = false;
+        player.cities = [];
+
+        // House 1 (initial placement) and house 2 (auto free jump).
+        G.currentPlayers = [0];
+        player.availableMoves = availableMoves(G, player);
+        const h1 = (player.availableMoves[MoveName.Build] as { name: string; price: number }[]).find(
+            (b) => b.name === 'Tokyo'
+        )!;
+        move(G, { name: MoveName.Build, data: h1 }, 0);
+        player.availableMoves = availableMoves(G, player);
+        const h2 = (player.availableMoves[MoveName.Build] as { name: string; price: number }[]).find(
+            (b) => b.name === 'Osaka'
+        )!;
+        move(G, { name: MoveName.Build, data: h2 }, 0);
+        expect(player.usedFreeJump, 'second round-1 build consumes the jump').to.be.true;
+
+        // No third build may be offered in round 1 — the jump is spent.
+        const builds3 = availableMoves(G, player)[MoveName.Build];
+        expect(builds3, 'no further builds offered in round 1 after the jump is spent').to.be.undefined;
+    });
 });

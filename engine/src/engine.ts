@@ -1,7 +1,7 @@
 import assert from 'assert';
 import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
-import { availableMoves, computeRegionGraph, countNetworks, regionPickable } from './available-moves';
+import { availableMoves, computeRegionGraph, regionPickable } from './available-moves';
 import {
     countHeldPowerPlants,
     GameOptions,
@@ -1826,6 +1826,24 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 }
 
                 case MoveName.Build: {
+                    // Japan: was this specific build the move that consumed the free jump?
+                    // Round 1: the player's second starting-city build auto-uses the jump.
+                    // Round 2+: the build carried freeJump:true. Decided before the city is
+                    // popped (the round-1 check needs the pre-pop city count). The jump is
+                    // returned only when *this* move spent it — never re-derived from topology.
+                    let undoJapanFreeJump = false;
+                    if (G.map.name === 'Japan' && player.usedFreeJump) {
+                        if (
+                            G.round === 1 &&
+                            player.cities.length >= 2 &&
+                            (G.map.startingCities?.includes(lastMove.data.name) ?? false)
+                        ) {
+                            undoJapanFreeJump = true;
+                        } else if (lastMove.data.freeJump) {
+                            undoJapanFreeJump = true;
+                        }
+                    }
+
                     player.cities.pop();
                     player.money += lastMove.data.price;
 
@@ -1842,15 +1860,9 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         G.citiesBuiltInCurrentRound!--;
                     }
 
-                    // Japan: reset free jump flag if undo collapses back to a single network
-                    if (G.map.name === 'Japan' && player.usedFreeJump) {
-                        const networksAfterUndo = countNetworks(
-                            G.map.connections,
-                            player.cities.map((c) => c.name)
-                        );
-                        if (networksAfterUndo < 2) {
-                            player.usedFreeJump = false;
-                        }
+                    // Japan: return the free jump only if this build was the one that spent it.
+                    if (undoJapanFreeJump) {
+                        player.usedFreeJump = false;
                     }
 
                     break;

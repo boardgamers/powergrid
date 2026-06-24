@@ -630,7 +630,13 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     setPlayerOrder(G);
                 }
 
-                if (
+                if (G.discountBonusPlayer != undefined) {
+                    // Manhattan: the buyer of the discounted plant gets another
+                    // purchase. They are still the only eligible bidder, so refill
+                    // the market and re-prompt them (they may also Pass to decline).
+                    addPowerPlant(G);
+                    setCurrentPlayer(G, G.discountBonusPlayer);
+                } else if (
                     countHeldPowerPlants(G, winningPlayer) <= 3 ||
                     (G.players.length == 2 && countHeldPowerPlants(G, winningPlayer) == 4)
                 ) {
@@ -730,6 +736,12 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 case Phase.Auction: {
                     if (G.chosenPowerPlant == undefined) {
                         player.skipAuction = true;
+
+                        // Manhattan: passing here declines the discount bonus purchase.
+                        if (G.discountBonusPlayer == player.id) {
+                            G.discountBonusPlayer = undefined;
+                        }
+
                         G.auctionSkips++;
                         if (G.auctionSkips == 1 && G.map.name == 'Russia' && G.actualMarket?.length > 0) {
                             G.log.push({
@@ -2681,6 +2693,8 @@ function toResourcesPhase(G: GameState) {
         p.skipAuction = false;
     });
 
+    G.discountBonusPlayer = undefined;
+
     if (G.options.variant == 'recharged') {
         if (G.plantDiscountActive) {
             G.plantDiscountActive = false;
@@ -2724,7 +2738,28 @@ function endAuction(G: GameState, winningPlayer: Player, bid: number) {
         winningPlayer.totalSpentPlants += bid;
     }
 
-    winningPlayer.skipAuction = true;
+    // Manhattan: buying the discounted power plant (whose minimum bid was lowered to
+    // 1) lets the buyer purchase one more plant this phase. Keep them eligible
+    // (skipAuction stays false) and remember they are owed the extra purchase, so
+    // they may also decline it via Pass even in round 1 — when buying is otherwise
+    // mandatory. minimunBid == 1 uniquely marks the discount auction (a normal bid
+    // floor is the plant number, always >= 3).
+    if (
+        G.map.name == 'Manhattan' &&
+        G.options.variant == 'recharged' &&
+        G.minimunBid == 1 &&
+        !winningPlayer.isDropped
+    ) {
+        G.discountBonusPlayer = winningPlayer.id;
+    } else {
+        winningPlayer.skipAuction = true;
+
+        // If this win was the bonus purchase itself, the buyer is now done.
+        if (G.discountBonusPlayer == winningPlayer.id) {
+            G.discountBonusPlayer = undefined;
+        }
+    }
+
     updatePlayerCapacity(winningPlayer);
 
     G.log.push({

@@ -144,7 +144,10 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             moves[MoveName.ChoosePowerPlant] = canBid.map((p) => p.number);
                         }
 
-                        if (G.round > 1) {
+                        // Round 1 forces every player to buy a plant — except a
+                        // Manhattan discount-bonus buyer, who may decline their extra
+                        // purchase (and must be able to, e.g. when nothing is affordable).
+                        if (G.round > 1 || G.discountBonusPlayer == player.id) {
                             moves[MoveName.Pass] = [true];
                         }
                     } else {

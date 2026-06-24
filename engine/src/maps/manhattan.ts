@@ -403,6 +403,7 @@ export const map: GameMap = {
         'players, some spaces are blocked at setup (4 players block 14 spaces; 2–3 ' +
         'players block 28). In the physical game the players mutually choose which ' +
         'spaces to block; here the system selects them automatically for your ' +
-        'convenience. The game ends when a player has connected 18 spaces ' +
-        '(17 for 3–4 players, 15 for 5, 14 for 6).',
+        'convenience. If you buy the discounted power plant you may purchase ' +
+        'another power plant during the same phase. The game ends when a player ' +
+        'has connected 18 spaces (17 for 3–4 players, 15 for 5, 14 for 6).',
 };

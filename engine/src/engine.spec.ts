@@ -1016,6 +1016,63 @@ describe('Engine', () => {
         );
     });
 
+    it('should grant a Manhattan discount buyer another purchase this phase (declinable in round 1)', () => {
+        let G = setup(2, { map: 'Manhattan', variant: 'recharged', randomizeMap: false }, 'manhattan-discount-bonus');
+        expect(G.phase, 'starts in Auction').to.equal(Phase.Auction);
+        expect(G.round, 'round 1').to.equal(1);
+        expect(G.plantDiscountActive, 'discount active at setup').to.be.true;
+
+        const buyer = G.currentPlayers[0];
+        const other = G.players.find((p) => p.id !== buyer)!.id;
+        const discounted = G.actualMarket[0].number;
+
+        // Take the discounted plant: choose it, open at the discount floor of 1,
+        // the other player passes the bid -> buyer wins it for 1.
+        G = move(G, { name: MoveName.ChoosePowerPlant, data: discounted } as Move, buyer);
+        G = move(G, { name: MoveName.Bid, data: 1 } as Move, buyer);
+        G = move(G, { name: MoveName.Pass, data: true } as Move, other);
+
+        expect(
+            G.players[buyer].powerPlants.map((p) => p.number),
+            'buyer got the discounted plant'
+        ).to.include(discounted);
+        // Buyer is owed the bonus purchase and is NOT yet done with the auction.
+        expect(G.discountBonusPlayer, 'buyer owed the bonus').to.equal(buyer);
+        expect(G.players[buyer].skipAuction, 'buyer still eligible').to.be.false;
+        expect(G.currentPlayers[0], 'buyer acts again').to.equal(buyer);
+
+        // The fix: round 1 normally forces a buy, but the bonus buyer may decline AND
+        // may buy another plant.
+        const bonusMoves = availableMoves(G, G.players[buyer]);
+        expect(bonusMoves[MoveName.Pass], 'bonus is declinable even in round 1').to.not.be.undefined;
+        expect(bonusMoves[MoveName.ChoosePowerPlant], 'bonus buyer may buy another plant').to.not.be.undefined;
+
+        // Decline it: buyer is now done, flag clears, the auction moves to the other player.
+        G = move(G, { name: MoveName.Pass, data: true } as Move, buyer);
+        expect(G.discountBonusPlayer, 'flag cleared on decline').to.be.undefined;
+        expect(G.players[buyer].skipAuction, 'buyer done after declining').to.be.true;
+        expect(G.currentPlayers[0], 'other player must still buy (round 1)').to.equal(other);
+    });
+
+    it('should NOT grant a bonus purchase for a non-discounted Manhattan buy', () => {
+        let G = setup(2, { map: 'Manhattan', variant: 'recharged', randomizeMap: false }, 'manhattan-no-bonus');
+        const buyer = G.currentPlayers[0];
+        const other = G.players.find((p) => p.id !== buyer)!.id;
+        // Choose a plant that is NOT the cheapest -> no discount applies.
+        const plant = G.actualMarket[1].number;
+
+        G = move(G, { name: MoveName.ChoosePowerPlant, data: plant } as Move, buyer);
+        G = move(G, { name: MoveName.Bid, data: plant } as Move, buyer);
+        G = move(G, { name: MoveName.Pass, data: true } as Move, other);
+
+        expect(
+            G.players[buyer].powerPlants.map((p) => p.number),
+            'buyer got the chosen plant'
+        ).to.include(plant);
+        expect(G.discountBonusPlayer, 'no bonus for a non-discounted buy').to.be.undefined;
+        expect(G.players[buyer].skipAuction, 'buyer done after a normal buy').to.be.true;
+    });
+
     it('should limit Bremen small districts to two networks', () => {
         const G = setup(5, { map: 'Bremen', variant: 'recharged', randomizeMap: false }, 'bremen-small-cap');
         G.phase = Phase.Building;

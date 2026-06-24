@@ -196,6 +196,7 @@ export interface GameState {
     paymentTable: number[];
     minimunBid: number;
     plantDiscountActive: boolean;
+    discountBonusPlayer?: number; // Manhattan: id of the player who bought the discounted plant and may purchase one more this phase.
     discardSmallestPlant: boolean; // For Benelux map, there are times when we remove the smallest plant.
     nextCardWeak: boolean;
     cardsLeft: number;

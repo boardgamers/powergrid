@@ -29,7 +29,7 @@
                 :transform="`translate(${G.map.cityCountPosition[0]}, ${G.map.cityCountPosition[1]})`"
                 :playerColors="playerColors"
                 :citiesToEndGame="G.citiesToEndGame"
-                :citiesToStep2="G.citiesToStep2"
+                :citiesToStep2="G.map.name === 'Manhattan' ? undefined : G.citiesToStep2"
             />
 
             <PowerPlantMarket
@@ -442,7 +442,7 @@
                                     <li>Bureaucracy: remove <strong>highest</strong> power plant from market</li>
                                 </ul>
                             </li>
-                            <li>
+                            <li v-if="G.map.name !== 'Manhattan'">
                                 <strong>Step 2:</strong>
                                 <ul>
                                     <li>
@@ -464,7 +464,7 @@
                                     <li>Bureaucracy: remove <strong>highest</strong> power plant from market</li>
                                 </ul>
                             </li>
-                            <li>
+                            <li v-if="G.map.name !== 'Manhattan'">
                                 <strong>Step 3:</strong>
                                 <ul>
                                     <li>Starts after the "Step 3" card is drawn from the deck</li>

@@ -632,9 +632,18 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                 if (G.discountBonusPlayer != undefined) {
                     // Manhattan: the buyer of the discounted plant gets another
-                    // purchase. They are still the only eligible bidder, so refill
-                    // the market and re-prompt them (they may also Pass to decline).
-                    addPowerPlant(G);
+                    // purchase. They are still the only eligible bidder, so re-prompt
+                    // them (they may also Pass to decline). Refill the market for the
+                    // plant they just took — UNLESS that purchase put them over the
+                    // plant limit: then they must discard first and the discard handler
+                    // does the refill, so refilling here too would draw a second plant
+                    // for one purchase and grow the market past 8.
+                    const overPlantLimit =
+                        countHeldPowerPlants(G, winningPlayer) > 4 ||
+                        (G.players.length > 2 && countHeldPowerPlants(G, winningPlayer) > 3);
+                    if (!overPlantLimit) {
+                        addPowerPlant(G);
+                    }
                     setCurrentPlayer(G, G.discountBonusPlayer);
                 } else if (
                     countHeldPowerPlants(G, winningPlayer) <= 3 ||

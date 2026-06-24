@@ -1073,6 +1073,37 @@ describe('Engine', () => {
         expect(G.players[buyer].skipAuction, 'buyer done after a normal buy').to.be.true;
     });
 
+    it('should not grow the Manhattan market when a discount-bonus buy forces a discard', () => {
+        let G = setup(2, { map: 'Manhattan', variant: 'recharged', randomizeMap: false }, 'manhattan-overcap-bonus');
+        // Put player 0 at the 2P plant cap (4) with high plants that are NOT in the
+        // opening market, and make it their uncontested turn with the discount live.
+        // Buying the discounted plant pushes them to 5 -> forced discard.
+        const p0 = G.players[0];
+        p0.money = 100;
+        p0.powerPlants = [getPowerPlant(42), getPowerPlant(44), getPowerPlant(46), getPowerPlant(50)];
+        G.players[1].skipAuction = true;
+        G.plantDiscountActive = true;
+        G.round = 2;
+        G.currentPlayers = [0];
+        G.chosenPowerPlant = undefined;
+
+        const before = G.actualMarket.length + G.futureMarket.length;
+        const discounted = G.actualMarket[0].number;
+        G = move(G, { name: MoveName.ChoosePowerPlant, data: discounted } as Move, 0);
+
+        // Over the cap now -> must discard; the bonus is still owed.
+        expect(G.discountBonusPlayer, 'still owed the bonus after the discount buy').to.equal(0);
+        const discardable = (availableMoves(G, G.players[0])[MoveName.DiscardPowerPlant] ?? []) as number[];
+        expect(discardable.length, 'over the cap -> must discard a plant').to.be.greaterThan(0);
+
+        G = move(G, { name: MoveName.DiscardPowerPlant, data: discardable[0] } as Move, 0);
+
+        // The market must NOT have grown: one plant bought + one refilled = net zero.
+        // (Regression: the bonus branch used to refill here AND in the discard handler.)
+        expect(G.actualMarket.length + G.futureMarket.length, 'market unchanged by buy+discard').to.equal(before);
+        expect(G.discountBonusPlayer, 'bonus still owed after discarding').to.equal(0);
+    });
+
     it('should limit Bremen small districts to two networks', () => {
         const G = setup(5, { map: 'Bremen', variant: 'recharged', randomizeMap: false }, 'bremen-small-cap');
         G.phase = Phase.Building;

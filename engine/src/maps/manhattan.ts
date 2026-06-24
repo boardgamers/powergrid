@@ -278,6 +278,18 @@ export const map: GameMap = {
     cities: manhattanCities,
     connections: manhattanConnections,
     layout: 'Portrait',
+    // S4 render frame (first pass, tuned live against the board). Coords are raw photo
+    // pixels (x 234–673, y 129–1041): a tall narrow upright island, so no rotation.
+    // adjustRatio scales coords into the portrait viewBox; the map sits left and the
+    // panels fall into the right margin (Northern Europe precedent, issue #87).
+    adjustRatio: [1.15, 1.15],
+    mapPosition: [30, 10],
+    mapRotation: 0,
+    // The board is tall (renders to ~y1207), so the green is taller than the portrait
+    // default and the resource resupply table is dropped clear of the southeast spaces
+    // (the default [675, 920] sat on top of them — Northern Europe / issue #87 pattern).
+    viewBox: [1480, 1400],
+    supplyPosition: [675, 1240],
     // Flat refill (single-column Manhattan cards): the game only runs in Step 1, so
     // only the Step-1 entry is ever read — all three columns are filled identically.
     // Indexed [resource][playerCount-2][step-1]. 2P and 3P rows are identical.

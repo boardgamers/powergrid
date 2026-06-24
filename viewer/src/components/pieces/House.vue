@@ -1,5 +1,5 @@
 <template>
-    <g :id="elId" :class="['piece']" :transform="`translate(${currentX}, ${currentY}) scale(0.035)`">
+    <g :id="elId" :class="['piece']" :transform="`translate(${currentX}, ${currentY}) scale(${scale})`">
         <!-- <path d="M15 0 L30 10 L30 30 L0 30 L0 10Z" :fill="color" stroke="black" /> -->
         <path
             d="M187.698 263.636V456.017L3 341.204V169.522L80.8579 108.141L187.698 263.636Z"
@@ -41,6 +41,9 @@ export default class House extends Mixins(Piece) {
 
     @Prop()
     color?: string;
+
+    @Prop({ default: 0.035 })
+    scale!: number;
 
     @Prop()
     owner?: number;

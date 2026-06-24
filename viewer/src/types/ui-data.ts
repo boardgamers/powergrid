@@ -21,6 +21,8 @@ export interface Piece {
     color?: string;
     powerPlant?: PowerPlant;
     transparent?: boolean;
+    // Per-piece render scale override (House defaults to 0.035; Manhattan enlarges).
+    scale?: number;
     side?: 'north' | 'south';
     // South Africa: this coal cube sits in the storage pool below the market.
     // Clicking emits buyResource with fromStorage:true (flat $8 buy).

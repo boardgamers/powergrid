@@ -32,6 +32,7 @@ const citiesToEndGame = [21, 17, 17, 15, 14];
 const citiesToEndGameSouthAfrica = [18, 17, 17, 15, 14];
 const citiesToStep2Bremen = [5, 5, 5, 5, 4];
 const citiesToEndGameBremen = [13, 13, 13, 12, 11];
+const citiesToEndGameManhattan = [18, 17, 17, 15, 14];
 const cityIncome = [10, 22, 33, 44, 54, 64, 73, 82, 90, 98, 105, 112, 118, 124, 129, 134, 138, 142, 145, 148, 150, 150];
 const regionsInPlay = [3, 3, 4, 5, 5];
 
@@ -414,6 +415,8 @@ export function setup(
                 ? Math.min(citiesToEndGame[numPlayers - 2], (forceMap || finalMap).cities.length)
                 : (forceMap || finalMap).name == 'Bremen'
                 ? citiesToEndGameBremen[numPlayers - 2]
+                : (forceMap || finalMap).name == 'Manhattan'
+                ? citiesToEndGameManhattan[numPlayers - 2]
                 : citiesToEndGame[numPlayers - 2],
         resourceResupply: [
             `[${coalResupply[p][0]}, ${oilResupply[p][0]}, ${garbageResupply[p][0]}, ${uraniumResupply[p][0]}]`,
@@ -457,6 +460,16 @@ export function setup(
     if (pendingRegionDraft) {
         G.phase = Phase.RegionSelection;
         G.regionDraft = pendingRegionDraft;
+    }
+
+    if (G.map.blockSpaces) {
+        G.blockedCities = G.map.blockSpaces(numPlayers, G.map.cities, rng);
+        if (G.blockedCities.length > 0) {
+            G.log.push({
+                type: 'event',
+                event: `${G.blockedCities.length} building spaces are blocked for ${numPlayers} players.`,
+            });
+        }
     }
 
     G.players[startingPlayer].availableMoves = availableMoves(G, G.players[startingPlayer]);
@@ -873,7 +886,11 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             // counts where the threshold is unreachable).
                             const totalCitiesBuilt = G.players.reduce((sum, p) => sum + p.cities.length, 0);
                             const allStep1HousesFilled = totalCitiesBuilt >= G.map.cities.length;
-                            if ((maxCities >= G.citiesToStep2 || allStep1HousesFilled) && G.map.name != 'Middle East') {
+                            if (
+                                (maxCities >= G.citiesToStep2 || allStep1HousesFilled) &&
+                                G.map.name != 'Middle East' &&
+                                G.map.name != 'Manhattan'
+                            ) {
                                 const powerPlant = G.actualMarket.shift()!;
                                 G.log.push({
                                     type: 'event',
@@ -963,7 +980,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
                             if (G.map.name == 'China' && G.step <= 2) {
                                 rebuildPlantMarketForChina(G);
-                            } else if (G.futureMarket.length == 0) {
+                            } else if (G.futureMarket.length == 0 && G.map.name != 'Manhattan') {
+                                // Manhattan never advances to Step 3 — its empty future
+                                // market is the all-buyable endgame stage, handled by the
+                                // market lifecycle, not a step change.
                                 G.step = 3;
                                 applyAustraliaStep3Shift(G);
                             }
@@ -1162,7 +1182,12 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                             });
                         }
 
-                        if (G.map.name == 'Middle East' && G.step == 2 && G.futureMarket.length > 0) {
+                        if (G.map.name == 'Manhattan') {
+                            // Manhattan's market is driven by deck depletions, not by a
+                            // step change. Its whole bureaucracy market behaviour lives in
+                            // the lifecycle helper, replacing the generic refill below.
+                            applyManhattanMarketLifecycle(G);
+                        } else if (G.map.name == 'Middle East' && G.step == 2 && G.futureMarket.length > 0) {
                             // If we aren't about to enter step 3, discard top two plants instead of one.
                             let powerPlantToPush: PowerPlant = G.futureMarket.pop()!;
                             G.log.push({
@@ -1250,7 +1275,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         if (G.actualMarket.length > 0) {
                             G.phase = Phase.Auction;
 
-                            if (G.futureMarket.length == 0 && G.map.name != 'China') {
+                            if (G.futureMarket.length == 0 && G.map.name != 'China' && G.map.name != 'Manhattan') {
                                 G.step = 3;
                                 applyAustraliaStep3Shift(G);
                             }
@@ -2252,6 +2277,118 @@ function addPowerPlant(G: GameState) {
                     removePlantsForMiddleEastStep1(G);
                 }
             }
+        }
+    }
+}
+
+// Manhattan never leaves Step 1, so the usual "future market empties → Step 3"
+// machinery is guarded off for it. Instead the power-plant market is driven by
+// DECK DEPLETIONS, in three stages tracked by G.manhattanDepletion (0 → 1 → 2).
+// This replaces the generic Bureaucracy market refill for Manhattan and runs once
+// per Bureaucracy round:
+//
+//   Stage 0 — before the first depletion. The two highest-numbered future-market
+//     plants are set aside each round on a SEPARATE recycle pile (not boxed: they
+//     come back) and the market is refilled from the deck, steadily draining it.
+//   First depletion (deck runs dry while a recycle pile exists): the recycle pile
+//     is reshuffled into a fresh deck and the market refilled. → stage 1.
+//   Stage 1 — between the depletions. One highest future plant rotates to the
+//     bottom of the deck each round; the deck cycles through exactly once and is
+//     drained the rest of the way by ordinary auction purchases.
+//   Second depletion (deck runs dry again): the entire market collapses into the
+//     actual market, so every plant becomes buyable (Step-3-like, but still
+//     Step 1). → stage 2.
+//   Stage 2 — endgame churn. The single cheapest market plant is removed from the
+//     game each round, shrinking the market until it (or the game) ends.
+export function applyManhattanMarketLifecycle(G: GameState) {
+    G.manhattanRecyclePile ??= [];
+    G.manhattanDepletion ??= 0;
+
+    // Pull the single highest-numbered plant out of the future market.
+    const popBiggestFuture = (): PowerPlant | undefined => {
+        if (G.futureMarket.length == 0) {
+            return undefined;
+        }
+        G.futureMarket.sort((a, b) => a.number - b.number);
+        return G.futureMarket.pop();
+    };
+
+    // Draw from the deck until the market holds `size` plants (or the deck is
+    // empty), then keep it sorted with the cheapest four buyable (actual market)
+    // and the rest visible-but-not-buyable (future market).
+    const refillMarketTo = (size: number) => {
+        while (G.actualMarket.length + G.futureMarket.length < size && G.powerPlantsDeck.length > 0) {
+            const drawn = G.powerPlantsDeck.shift()!;
+            if (G.knownPowerPlantDeck) {
+                G.knownPowerPlantDeck.push(drawn);
+            }
+            G.log.push({ type: 'event', event: `Power Plant ${drawn.number} drawn from the deck.` });
+            G.futureMarket.push(drawn);
+        }
+        const market = [...G.actualMarket, ...G.futureMarket].sort((a, b) => a.number - b.number);
+        G.actualMarket = market.slice(0, 4);
+        G.futureMarket = market.slice(4);
+    };
+
+    if (G.manhattanDepletion == 0) {
+        for (let i = 0; i < 2; i++) {
+            const plant = popBiggestFuture();
+            if (!plant) {
+                break;
+            }
+            G.manhattanRecyclePile.push(plant);
+            G.log.push({
+                type: 'event',
+                event: `Setting Power Plant ${plant.number} aside on the recycle pile.`,
+            });
+        }
+        refillMarketTo(8);
+
+        if (G.powerPlantsDeck.length == 0 && G.manhattanRecyclePile.length > 0) {
+            G.powerPlantsDeck = shuffle(G.manhattanRecyclePile, G.seed + ':manhattan-depletion-1');
+            G.manhattanRecyclePile = [];
+            G.manhattanDepletion = 1;
+            G.log.push({
+                type: 'event',
+                event: 'The draw deck is empty — reshuffling the recycle pile into a new deck.',
+            });
+            refillMarketTo(8);
+        }
+    } else if (G.manhattanDepletion == 1) {
+        const plant = popBiggestFuture();
+        if (plant) {
+            G.powerPlantsDeck.push(plant);
+            G.log.push({
+                type: 'event',
+                event: `Putting Power Plant ${plant.number} on the bottom of the deck.`,
+            });
+        }
+        refillMarketTo(8);
+
+        if (G.powerPlantsDeck.length == 0) {
+            G.manhattanDepletion = 2;
+            const market = [...G.actualMarket, ...G.futureMarket].sort((a, b) => a.number - b.number);
+            G.actualMarket = market;
+            G.futureMarket = [];
+            G.log.push({
+                type: 'event',
+                event: 'The deck is empty for the second time — the entire market is now buyable.',
+            });
+        }
+    } else {
+        // Stage 2. Collapse any stragglers into the buyable market (defensive), then
+        // box the single cheapest plant for the game's final churn.
+        if (G.futureMarket.length > 0) {
+            const market = [...G.actualMarket, ...G.futureMarket].sort((a, b) => a.number - b.number);
+            G.actualMarket = market;
+            G.futureMarket = [];
+        }
+        if (G.actualMarket.length > 0) {
+            const removed = G.actualMarket.shift()!;
+            G.log.push({
+                type: 'event',
+                event: `Removing the smallest plant, Power Plant ${removed.number}, from the game.`,
+            });
         }
     }
 }

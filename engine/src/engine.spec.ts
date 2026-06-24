@@ -1,7 +1,15 @@
 import { expect } from 'chai';
 import 'mocha';
 import { availableMoves, computeRegionGraph, regionPickable } from './available-moves';
-import { applyAustraliaStep3Shift, ended, getPowerPlant, move, reconstructState, setup } from './engine';
+import {
+    applyAustraliaStep3Shift,
+    applyManhattanMarketLifecycle,
+    ended,
+    getPowerPlant,
+    move,
+    reconstructState,
+    setup,
+} from './engine';
 import GermanyRecharged from './fixtures/GermanyRecharged.json';
 import supply from './fixtures/supply.json';
 import undo from './fixtures/undo.json';
@@ -723,6 +731,289 @@ describe('Engine', () => {
         player.cities = [{ name: 'Höfen', position: 0 }];
         builds = availableMoves(G, player)[MoveName.Build] as { name: string; price: number }[];
         expect(builds.find((b) => b.name === 'Seehausen')?.price, 'Höfen → Seehausen (asymmetric)').to.equal(22);
+    });
+
+    it('should set Manhattan end-game thresholds, stay in Step 1, and set up for every player count', () => {
+        const endGame = [18, 17, 17, 15, 14];
+        for (let pc = 2; pc <= 6; pc++) {
+            const G = setup(
+                pc,
+                { map: 'Manhattan', variant: 'recharged', randomizeMap: false },
+                `manhattan-thresholds-${pc}`
+            );
+            expect(G.citiesToEndGame, `Manhattan ${pc}P end game`).to.equal(endGame[pc - 2]);
+            expect(G.step, `Manhattan ${pc}P starts in Step 1`).to.equal(1);
+            expect(
+                G.players.some((p) => p.availableMoves && Object.keys(p.availableMoves).length > 0),
+                `Manhattan ${pc}P ready`
+            ).to.be.true;
+        }
+    });
+
+    it('should box the Manhattan Step 3 card + 2–3P plants and keep uranium in play', () => {
+        for (const pc of [2, 5]) {
+            const G = setup(
+                pc,
+                { map: 'Manhattan', variant: 'recharged', randomizeMap: false },
+                `manhattan-deck-${pc}`
+            );
+            const allNumbers = new Set<number>([
+                ...G.actualMarket.map((p) => p.number),
+                ...G.futureMarket.map((p) => p.number),
+                ...G.powerPlantsDeck.map((p) => p.number),
+            ]);
+            // The opening 8-card market is drawn from the ≤15 plug pool.
+            expect(
+                [...G.actualMarket, ...G.futureMarket].every((p) => p.number <= 15),
+                `Manhattan ${pc}P: market is plug-pool`
+            ).to.be.true;
+            // 2–3 players box plants 20, 22, 37; 4–6 players keep them in the deck.
+            for (const n of [20, 22, 37]) {
+                expect(allNumbers.has(n), `Manhattan ${pc}P: plant ${n} present?`).to.equal(pc > 3);
+            }
+        }
+        // Manhattan uses uranium (unlike Bremen): the supply is the full 12 cubes.
+        const G = setup(5, { map: 'Manhattan', variant: 'recharged', randomizeMap: false }, 'manhattan-uranium');
+        expect(G.map.startingSupply![3], 'Manhattan uranium supply').to.equal(12);
+    });
+
+    it('should price Manhattan builds by a flat 5 per transited space + the building cost', () => {
+        const G = setup(5, { map: 'Manhattan', variant: 'recharged', randomizeMap: false }, 'manhattan-build-cost');
+        G.phase = Phase.Building;
+        G.step = 1;
+        const player = G.players[0];
+        player.money = 200;
+
+        // Geometry-agnostic: derive cases from the live map graph so the test holds as
+        // the Session-3 board is refined. adj = the street-adjacency of every space.
+        const cities = G.map.cities;
+        const priceOf = (name: string) => cities.find((c) => c.name === name)!.slotCosts![0];
+        const adj: Record<string, string[]> = {};
+        for (const c of cities) adj[c.name] = [];
+        for (const con of G.map.connections) {
+            adj[con.nodes[0]].push(con.nodes[1]);
+            adj[con.nodes[1]].push(con.nodes[0]);
+        }
+
+        // First house: any empty space costs exactly its own building cost.
+        player.cities = [];
+        let builds = availableMoves(G, player)[MoveName.Build] as { name: string; price: number }[];
+        for (const c of cities) {
+            expect(builds.find((b) => b.name === c.name)?.price, `first house ${c.name}`).to.equal(priceOf(c.name));
+        }
+
+        // Find A - N0 (adjacent) - C (two hops, not itself adjacent to A).
+        let A = '';
+        let N0 = '';
+        let C = '';
+        search: for (const a of cities) {
+            for (const n of adj[a.name]) {
+                const c = adj[n].find((x) => x !== a.name && !adj[a.name].includes(x));
+                if (c) {
+                    A = a.name;
+                    N0 = n;
+                    C = c;
+                    break search;
+                }
+            }
+        }
+        expect(A, 'found an A-N0-C chain in the board graph').to.not.equal('');
+
+        // From a one-space network at A: every direct neighbour costs only its building
+        // cost (adjacent, no transit); the two-hop space C costs its building cost + a
+        // single flat-5 transit.
+        player.cities = [{ name: A, position: 0 }];
+        builds = availableMoves(G, player)[MoveName.Build] as { name: string; price: number }[];
+        for (const N of adj[A]) {
+            expect(builds.find((b) => b.name === N)?.price, `${A} -> ${N} (adjacent)`).to.equal(priceOf(N));
+        }
+        expect(builds.find((b) => b.name === C)?.price, `${A} -> ${C} (one transit)`).to.equal(priceOf(C) + 5);
+
+        // One house per space: if another player holds neighbour N0, it drops out.
+        G.players[1].cities = [{ name: N0, position: 0 }];
+        builds = availableMoves(G, player)[MoveName.Build] as { name: string; price: number }[];
+        expect(
+            builds.find((b) => b.name === N0),
+            `${N0} occupied -> not buildable`
+        ).to.be.undefined;
+    });
+
+    it('should drive the Manhattan market lifecycle through both deck depletions', () => {
+        const mkt = (...nums: number[]): PowerPlant[] => nums.map((n) => getPowerPlant(n));
+        const nums = (plants: PowerPlant[]): number[] => plants.map((p) => p.number).sort((a, b) => a - b);
+        const base = () =>
+            setup(4, { map: 'Manhattan', variant: 'recharged', randomizeMap: false }, 'manhattan-lifecycle');
+
+        // Stage 0: the two highest future-market plants go to the recycle pile (not
+        // the box) and the market refills from the deck, staying at eight.
+        let G = base();
+        G.actualMarket = mkt(3, 4, 5, 6);
+        G.futureMarket = mkt(7, 8, 9, 10);
+        G.powerPlantsDeck = mkt(11, 12, 13, 14, 15, 16);
+        G.manhattanRecyclePile = [];
+        G.manhattanDepletion = 0;
+        applyManhattanMarketLifecycle(G);
+        expect(G.manhattanDepletion, 'stage 0 stays stage 0 while the deck has cards').to.equal(0);
+        expect(nums(G.manhattanRecyclePile!), 'two biggest future plants set aside').to.deep.equal([9, 10]);
+        expect(G.actualMarket.length + G.futureMarket.length, 'market refilled to 8').to.equal(8);
+        expect(G.powerPlantsDeck.length, 'two plants drawn from the deck').to.equal(4);
+        expect(
+            [...G.actualMarket, ...G.futureMarket].some((p) => p.number === 9 || p.number === 10),
+            '9 and 10 are off the market'
+        ).to.be.false;
+
+        // First depletion: deck empty + a recycle pile exists → reshuffle the pile
+        // into a fresh deck, advance to stage 1, and refill the market.
+        G = base();
+        G.actualMarket = mkt(3, 4, 5, 6);
+        G.futureMarket = mkt(7, 8, 9, 10);
+        G.powerPlantsDeck = [];
+        G.manhattanRecyclePile = mkt(16, 17, 18);
+        G.manhattanDepletion = 0;
+        applyManhattanMarketLifecycle(G);
+        expect(G.manhattanDepletion, 'first depletion → stage 1').to.equal(1);
+        expect(G.manhattanRecyclePile!.length, 'recycle pile emptied into the deck').to.equal(0);
+        expect(G.actualMarket.length + G.futureMarket.length, 'market refilled to 8 after reshuffle').to.equal(8);
+        // Pile was [16,17,18] + peeled [9,10] = 5 cards; two were drawn to refill.
+        expect(G.powerPlantsDeck.length, 'three of the five recycled cards remain').to.equal(3);
+
+        // Stage 1: the single highest future plant rotates to the bottom of the deck.
+        G = base();
+        G.actualMarket = mkt(3, 4, 5, 6);
+        G.futureMarket = mkt(7, 8, 9, 10);
+        G.powerPlantsDeck = mkt(20, 21);
+        G.manhattanRecyclePile = [];
+        G.manhattanDepletion = 1;
+        applyManhattanMarketLifecycle(G);
+        expect(G.manhattanDepletion, 'stage 1 stays stage 1 while the deck has cards').to.equal(1);
+        expect(G.actualMarket.length + G.futureMarket.length, 'market still 8').to.equal(8);
+        expect(G.manhattanRecyclePile!.length, 'no recycle pile in stage 1').to.equal(0);
+        expect(G.powerPlantsDeck[G.powerPlantsDeck.length - 1].number, 'plant 10 rotated under the deck').to.equal(10);
+
+        // Second depletion: deck empties again → the whole market becomes buyable
+        // (everything collapses into the actual market) and we stay in Step 1.
+        G = base();
+        G.actualMarket = mkt(3, 4, 5);
+        G.futureMarket = mkt(8);
+        G.powerPlantsDeck = [];
+        G.manhattanRecyclePile = [];
+        G.manhattanDepletion = 1;
+        applyManhattanMarketLifecycle(G);
+        expect(G.manhattanDepletion, 'second depletion → stage 2').to.equal(2);
+        expect(G.futureMarket.length, 'no future market once all plants are buyable').to.equal(0);
+        expect(nums(G.actualMarket), 'every plant is in the buyable market').to.deep.equal([3, 4, 5, 8]);
+        expect(G.step, 'Manhattan never advances past Step 1').to.equal(1);
+
+        // Stage 2: each round boxes the single cheapest plant for the endgame churn.
+        G = base();
+        G.actualMarket = mkt(3, 4, 5, 6, 7, 8);
+        G.futureMarket = [];
+        G.powerPlantsDeck = [];
+        G.manhattanDepletion = 2;
+        applyManhattanMarketLifecycle(G);
+        expect(G.manhattanDepletion, 'stage 2 is terminal').to.equal(2);
+        expect(nums(G.actualMarket), 'smallest plant (3) removed from the game').to.deep.equal([4, 5, 6, 7, 8]);
+    });
+
+    it('should block Manhattan spaces by player count, transitable but unbuildable', () => {
+        // Per-colour cost-tier plan (mirrors manhattan.ts blockSpaces). 4 players
+        // block one colour, 2–3 players block two; 5–6 players block nothing.
+        const tierTable: Record<number, number> = { 10: 3, 15: 3, 20: 2, 25: 2, 30: 2, 35: 2 };
+        const expectedBlocked = (cities: { slotCosts?: number[] }[], colours: number): number => {
+            let total = 0;
+            for (const [priceStr, perColour] of Object.entries(tierTable)) {
+                const avail = cities.filter((c) => c.slotCosts && c.slotCosts[0] === Number(priceStr)).length;
+                total += Math.min(perColour * colours, avail);
+            }
+            return total;
+        };
+
+        // 5–6 players: full board, nothing blocked.
+        for (const pc of [5, 6]) {
+            const G = setup(
+                pc,
+                { map: 'Manhattan', variant: 'recharged', randomizeMap: false },
+                `manhattan-block-${pc}`
+            );
+            expect(G.blockedCities ?? [], `Manhattan ${pc}P blocks nothing`).to.deep.equal([]);
+        }
+
+        // 2–4 players: the right number per the tier plan, all distinct, never the
+        // top (40) tier, and two-colour counts (2–3P) at least the one-colour count.
+        const counts: Record<number, number> = {};
+        for (const pc of [2, 3, 4]) {
+            const G = setup(
+                pc,
+                { map: 'Manhattan', variant: 'recharged', randomizeMap: false },
+                `manhattan-block-${pc}`
+            );
+            const blocked = G.blockedCities ?? [];
+            const colours = pc === 4 ? 1 : 2;
+            expect(blocked.length, `Manhattan ${pc}P block count`).to.equal(expectedBlocked(G.map.cities, colours));
+            expect(new Set(blocked).size, `Manhattan ${pc}P blocked spaces distinct`).to.equal(blocked.length);
+            for (const name of blocked) {
+                const cost = G.map.cities.find((c) => c.name === name)!.slotCosts![0];
+                expect(cost, `Manhattan ${pc}P never blocks the 40 tier`).to.not.equal(40);
+            }
+            counts[pc] = blocked.length;
+        }
+        expect(counts[2], '2–3P (two colours) blocks at least as much as 4P').to.be.greaterThan(counts[4]);
+        expect(counts[2], '2P and 3P block the same amount').to.equal(counts[3]);
+
+        // Same seed → same blocked set (deterministic for replay).
+        const a = setup(3, { map: 'Manhattan', variant: 'recharged', randomizeMap: false }, 'manhattan-block-det');
+        const b = setup(3, { map: 'Manhattan', variant: 'recharged', randomizeMap: false }, 'manhattan-block-det');
+        expect(a.blockedCities).to.deep.equal(b.blockedCities);
+
+        // Transitable but unbuildable: blocking a space B makes B unbuildable, yet a
+        // space C two hops away - whose only short path runs through B - stays reachable
+        // by paying the flat-5 transit through the blocked B. Derived from the graph so
+        // it holds as the board is refined.
+        const G = setup(5, { map: 'Manhattan', variant: 'recharged', randomizeMap: false }, 'manhattan-block-transit');
+        G.phase = Phase.Building;
+        G.step = 1;
+        const cities = G.map.cities;
+        const priceOf = (name: string) => cities.find((c) => c.name === name)!.slotCosts![0];
+        const adj: Record<string, string[]> = {};
+        for (const c of cities) adj[c.name] = [];
+        for (const con of G.map.connections) {
+            adj[con.nodes[0]].push(con.nodes[1]);
+            adj[con.nodes[1]].push(con.nodes[0]);
+        }
+        // A-B adjacent; C adjacent to B, not to A, and B is the ONLY one of A's
+        // neighbours adjacent to C - so C's cheapest route from A (2 hops, +5) transits B.
+        let A = '';
+        let B = '';
+        let C = '';
+        chain: for (const a of cities) {
+            for (const b of adj[a.name]) {
+                const c = adj[b].find(
+                    (x) =>
+                        x !== a.name &&
+                        !adj[a.name].includes(x) &&
+                        adj[a.name].filter((n) => adj[n].includes(x)).length === 1
+                );
+                if (c) {
+                    A = a.name;
+                    B = b;
+                    C = c;
+                    break chain;
+                }
+            }
+        }
+        expect(A, 'found an A-B-C chain where B is the only 2-hop connector for C').to.not.equal('');
+        G.blockedCities = [B];
+        const player = G.players[0];
+        player.money = 500;
+        player.cities = [{ name: A, position: 0 }];
+        const builds = availableMoves(G, player)[MoveName.Build] as { name: string; price: number }[];
+        expect(
+            builds.find((b) => b.name === B),
+            `blocked ${B} is unbuildable`
+        ).to.be.undefined;
+        expect(builds.find((b) => b.name === C)?.price, `${C} reachable transiting blocked ${B}`).to.equal(
+            priceOf(C) + 5
+        );
     });
 
     it('should limit Bremen small districts to two networks', () => {

@@ -92,7 +92,10 @@
              number + 8/14/20 house slots), drawn AFTER the links so the gray lines
              sit behind. Gated on connectionCost; other maps keep circular nodes. -->
         <template v-for="city in cities">
-            <g v-if="city.connectionCost != null" :key="city.name + '_tile'">
+            <g
+                v-if="city.connectionCost != null && city.slotCosts && city.slotCosts.length >= 2"
+                :key="city.name + '_tile'"
+            >
                 <rect
                     :class="[{ canClick: canBuild(city) || canPickRegion(city) }]"
                     :x="city.x - 23"
@@ -141,6 +144,48 @@
                         {{ sc }}
                     </text>
                 </template>
+            </g>
+        </template>
+
+        <!-- Manhattan single-house spaces: one house per space at its printed price.
+             Small, semi-transparent tile (no entry-cost circle — connection is a flat
+             5 everywhere, stated in the rules) so the price reads cleanly and tiles
+             never hide the board beneath when they overlap. -->
+        <template v-for="city in cities">
+            <g
+                v-if="city.connectionCost != null && city.slotCosts && city.slotCosts.length === 1"
+                :key="city.name + '_mtile'"
+            >
+                <rect
+                    :class="[{ canClick: canBuild(city) }]"
+                    :x="city.x - 13"
+                    :y="city.y - 13"
+                    width="26"
+                    height="26"
+                    rx="5"
+                    :fill="isBlocked(city) ? '#555555' : 'white'"
+                    :fill-opacity="isBlocked(city) ? 0.88 : 0.82"
+                    stroke="black"
+                    stroke-width="1.5"
+                    @click="canBuild(city) && build(city)"
+                >
+                    <title>
+                        {{ city.name }}<template v-if="isBlocked(city)"> — blocked for this player count (transit
+                        only)</template ><template v-else> — build for {{ city.slotCosts[0] }} (+ flat 5 per transited
+                        space)</template>
+                    </title>
+                </rect>
+                <text
+                    :x="city.x"
+                    :y="city.y"
+                    font-size="17"
+                    font-weight="bold"
+                    text-anchor="middle"
+                    dominant-baseline="central"
+                    :fill="isBlocked(city) ? '#dddddd' : 'black'"
+                >
+                    {{ city.slotCosts[0] }}
+                </text>
             </g>
         </template>
 
@@ -205,12 +250,16 @@
                 :owner="house.owner"
                 :ownerName="house.ownerName"
                 :color="house.color"
+                :scale="house.scale"
             />
         </template>
 
         <!-- Bremen entry-cost number, on top so it stays readable over houses -->
         <template v-for="city in cities">
-            <g v-if="city.connectionCost != null" :key="city.name + '_cc'">
+            <g
+                v-if="city.connectionCost != null && city.slotCosts && city.slotCosts.length >= 2"
+                :key="city.name + '_cc'"
+            >
                 <circle
                     :cx="city.x"
                     :cy="city.y + 15"
@@ -348,7 +397,7 @@ import { City, Connection, Polygon } from 'powergrid-engine/src/maps';
 
 @Component({
     components: {
-        House
+        House,
     },
 })
 export default class Map extends Vue {
@@ -357,6 +406,8 @@ export default class Map extends Vue {
     @Prop() connections?: Connection[];
     @Prop() playerColors?: string[];
     @Prop() buildableCities?: string[];
+    // Manhattan: spaces blocked for this player count — transitable but never buildable.
+    @Prop() blockedCities?: string[];
     // chooseRegions draft: region names the current player may pick this turn.
     @Prop() pickableRegions?: string[];
     @Prop() devBackdrop?: { src: string; width: number; height: number; opacity?: number };
@@ -372,9 +423,20 @@ export default class Map extends Vue {
             player.cities.forEach((cityPiece) => {
                 const city = gameState.map.cities.find((city) => city.name == cityPiece.name)!;
                 let offsetX, offsetY;
+                let pieceScale: number | undefined;
                 const isNodeWeighted = city.connectionCost != null;
+                // Manhattan = a node-weighted map with exactly one house per space.
+                const isManhattan = isNodeWeighted && city.slotCosts?.length === 1;
                 const is1520 = city.slotCosts?.length === 2 && city.slotCosts[0] === 15;
-                if (isNodeWeighted) {
+                if (isManhattan) {
+                    // One house per space, enlarged and centered so the house silhouette
+                    // slightly overflows the (smaller) price tile and covers it — no white
+                    // corners showing. The House shape's bbox center is ~(199, 230) in its
+                    // own units, so at scale S it centers on the space when offset -199S/-230S.
+                    pieceScale = 0.085;
+                    offsetX = -199 * pieceScale;
+                    offsetY = -230 * pieceScale;
+                } else if (isNodeWeighted) {
                     // Bremen tiles: 8 top, 14 left, 20 right — matches the board layout.
                     // The House piece is anchored top-left (~14×16 after its scale), so
                     // offset by half its size to center it on the slot.
@@ -407,6 +469,7 @@ export default class Map extends Vue {
                     y: city.y + offsetY,
                     color: this.playerColors![pi],
                     owner: pi,
+                    scale: pieceScale,
                 });
             });
         });
@@ -441,6 +504,10 @@ export default class Map extends Vue {
 
     canBuild(city: City) {
         return !!this.buildableCities!.find((cityName) => cityName == city.name);
+    }
+
+    isBlocked(city: City) {
+        return !!this.blockedCities && this.blockedCities.includes(city.name);
     }
 
     build(city: City) {

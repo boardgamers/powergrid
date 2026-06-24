@@ -55,6 +55,7 @@
                 :connections="G.map.connections"
                 :polygons="G.map.polygons"
                 :buildableCities="getBuildableCities()"
+                :blockedCities="G.blockedCities"
                 :pickableRegions="getPickableRegions()"
                 :devBackdrop="G.map.devBackdrop"
                 :mapRotation="G.map.mapRotation || 0"

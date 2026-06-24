@@ -15,6 +15,7 @@ import { map as indian } from './maps/indian';
 import { map as italy } from './maps/italy';
 import { map as japan, mapRecharged as japanRecharged } from './maps/japan';
 import { map as korea } from './maps/korea';
+import { map as manhattan } from './maps/manhattan';
 import { map as middleeast } from './maps/middleeast';
 import { map as northamerica } from './maps/northamerica';
 import { map as northerneurope } from './maps/northerneurope';
@@ -119,6 +120,12 @@ export interface GameMap {
         futureMarket: PowerPlant[];
         powerPlantsDeck: PowerPlant[];
     };
+    // Manhattan: with fewer players some building spaces are blocked at setup —
+    // transitable (you still pay the flat-5 to route through them) but never
+    // buildable. Returns the names of the spaces to block for this player count;
+    // empty for full-board player counts. The printed rule has players mutually
+    // choose which spaces to block, so the selection is random within cost tiers.
+    blockSpaces?: (numPlayers: number, cities: City[], rng: seedrandom.prng) => string[];
     regionalPowerPlants?: Record<string, PowerPlant[]>;
     // UK & Ireland: extra Elektro paid to start a network on an island where the
     // player has no city yet. Builds on the new island skip the dijkstra path
@@ -161,6 +168,7 @@ export const maps: GameMap[] = [
     ukireland,
     australia,
     bremen,
+    manhattan,
     japan,
 ];
 
@@ -187,6 +195,7 @@ export const mapsRecharged: GameMap[] = [
     ukireland,
     australia,
     bremen,
+    manhattan,
     // china,
     japanRecharged,
 ];

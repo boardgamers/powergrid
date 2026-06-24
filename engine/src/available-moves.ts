@@ -456,6 +456,15 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                         city.price = 9999;
                         return;
                     }
+
+                    // Manhattan: blocked spaces are transitable but never buildable.
+                    // They remain in the connection graph (so dijkstra still routes
+                    // through them at the flat-5 transit cost) but can never hold a
+                    // house. Blocking is fixed per game by player count at setup.
+                    if (G.blockedCities?.includes(city.name)) {
+                        city.price = 9999;
+                        return;
+                    }
                     const othersCount = G.players.filter((p) => p.cities.find((c) => city.name == c.name)).length;
 
                     // Transregional cities (e.g. Strasbourg on Baden-Württemberg) are only open
@@ -531,6 +540,15 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                     // totalSpentConnections via the engine's price-minus-base split.
                     if (G.map.name == 'Australia' && player.cities.length > 0) {
                         city.price = Math.min(city.price, 20);
+                    }
+
+                    // Manhattan: connections cost a flat 5 Elektro per space transited
+                    // (not per edge). connectionCost:5 on every space makes the dijkstra
+                    // charge 5 on entry — including the target, which we refund here
+                    // because you BUILD on the target (paying its building cost below),
+                    // you don't transit it. Adjacent target: 5 → 0; +5 per extra hop.
+                    if (G.map.name == 'Manhattan' && player.cities.length > 0) {
+                        city.price = Math.max(0, city.price - 5);
                     }
 
                     const slotCosts = cityData.slotCosts;

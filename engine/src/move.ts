@@ -61,6 +61,11 @@ export declare namespace Moves {
         data: string;
     }
 
+    export interface MoveChooseColor {
+        name: MoveName.ChooseColor;
+        data: string;
+    }
+
     export interface MovePass {
         name: MoveName.Pass;
         data: true;
@@ -81,6 +86,7 @@ export type Move =
     | Moves.MoveBuild
     | Moves.MoveUsePowerPlant
     | Moves.MoveChooseRegion
+    | Moves.MoveChooseColor
     | Moves.MovePass
     | Moves.MoveUndo;
 
@@ -93,6 +99,7 @@ export enum MoveName {
     Build = 'Build',
     UsePowerPlant = 'UsePowerPlant',
     ChooseRegion = 'ChooseRegion',
+    ChooseColor = 'ChooseColor',
     Pass = 'Pass',
     Undo = 'Undo',
 }

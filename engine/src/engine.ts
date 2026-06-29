@@ -9,6 +9,7 @@ import {
     isUraniumMine,
     Phase,
     Player,
+    playerColors,
     PowerPlant,
     PowerPlantType,
     ResourceType,
@@ -23,7 +24,9 @@ import prices from './prices';
 import { createRandomizedMap } from './randomizeMap';
 import { asserts, shuffle } from './utils';
 
-export const playerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', 'yellow', 'brown'];
+// Re-exported from gamestate (single source of truth) so existing importers that
+// reference engine.playerColors (e.g. the wrapper's factions()) keep working.
+export { playerColors };
 
 const citiesToStep2 = [10, 7, 7, 7, 6];
 const citiesToStep2BadenWurttemberg = [9, 6, 6, 6, 5];
@@ -109,6 +112,7 @@ export function setup(
         trackTotalSpent = true,
         randomizeMap = false,
         chooseRegions = false,
+        chooseColors = false,
     }: GameOptions,
     seed?: string,
     forceDeck?: PowerPlant[],
@@ -394,7 +398,16 @@ export function setup(
         auctioningPlayer: undefined,
         step: 1,
         phase: Phase.Auction,
-        options: { fastBid, map, variant, showMoney, useNewRechargedSetup, trackTotalSpent, chooseRegions },
+        options: {
+            fastBid,
+            map,
+            variant,
+            showMoney,
+            useNewRechargedSetup,
+            trackTotalSpent,
+            chooseRegions,
+            chooseColors,
+        },
         log: [],
         hiddenLog: [],
         seed,
@@ -460,6 +473,14 @@ export function setup(
     if (pendingRegionDraft) {
         G.phase = Phase.RegionSelection;
         G.regionDraft = pendingRegionDraft;
+    }
+
+    // chooseColors: players draft their colors first of all. The region draft (if
+    // any) stays pending in G.regionDraft and only activates once colors are done
+    // (see finalizeColors). The phase set here wins over RegionSelection above.
+    if (chooseColors) {
+        G.phase = Phase.ColorSelection;
+        G.colorDraft = { picked: [] };
     }
 
     if (G.map.blockSpaces) {
@@ -539,6 +560,19 @@ function finalizeRegions(G: GameState) {
     G.regionDraft = undefined;
     G.phase = Phase.Auction;
     G.currentPlayers = [G.playerOrder[0]];
+}
+
+// Completes the chooseColors draft once every player has a color. Hands off to the
+// region draft if one is still pending (chooseColors + chooseRegions), otherwise
+// straight to the auction with the starting player to move.
+function finalizeColors(G: GameState) {
+    G.colorDraft = undefined;
+    G.currentPlayers = [G.playerOrder[0]];
+    if (G.regionDraft) {
+        G.phase = Phase.RegionSelection;
+    } else {
+        G.phase = Phase.Auction;
+    }
 }
 
 export function stripSecret(G: GameState, player?: number): GameState {
@@ -723,6 +757,30 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 // Next picker, in seating order, wrapping around.
                 const order = G.playerOrder;
                 G.currentPlayers = [order[(order.indexOf(playerNumber) + 1) % order.length]];
+            }
+
+            break;
+        }
+
+        case MoveName.ChooseColor: {
+            asserts<Moves.MoveChooseColor>(move);
+
+            player.color = move.data;
+            G.colorDraft!.picked.push(move.data);
+
+            G.log.push({
+                type: 'move',
+                player: playerNumber,
+                move,
+                simple: `${player.name} chooses ${move.data}.`,
+                pretty: `${playerNameHTML(player)} chooses <b>${move.data}</b>.`,
+            });
+
+            if (G.colorDraft!.picked.length >= G.players.length) {
+                finalizeColors(G);
+            } else {
+                // Next picker, in seating order (each player picks exactly once).
+                G.currentPlayers = [G.playerOrder[G.colorDraft!.picked.length]];
             }
 
             break;
@@ -1985,6 +2043,14 @@ export function moveAI(G: GameState, playerNumber: number): GameState {
             break;
         }
 
+        case Phase.ColorSelection: {
+            if (availableMoves?.ChooseColor && availableMoves.ChooseColor.length > 0) {
+                chosenMove = { name: MoveName.ChooseColor, data: chooseRandom(availableMoves.ChooseColor) };
+            }
+
+            break;
+        }
+
         case Phase.Auction: {
             if (availableMoves?.ChoosePowerPlant) {
                 if (
@@ -2596,9 +2662,9 @@ function getBaseState(G: GameState): GameState {
 }
 
 function playerNameHTML(player) {
-    return `<span style="background-color: ${playerColors[player.id]}; font-weight: bold; padding: 0 3px;">${
-        player.name
-    }</span>`;
+    return `<span style="background-color: ${
+        player.color ?? playerColors[player.id]
+    }; font-weight: bold; padding: 0 3px;">${player.name}</span>`;
 }
 
 export function playersSortedByScore(G: GameState): Player[] {

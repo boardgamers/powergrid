@@ -308,6 +308,26 @@
             </div>
         </div>
 
+        <!-- chooseColors: shown on the current player's turn during the color draft.
+             No close button — picking a color is required to proceed. -->
+        <div v-if="G && canChooseColor()" class="modal visible">
+            <div class="modal-content">
+                <div class="modal-title">Choose your color</div>
+                <div class="confirm-message">Pick the color you'll play as.</div>
+                <div class="confirm-buttons">
+                    <button
+                        v-for="color in getChooseableColors()"
+                        :key="color"
+                        class="confirm-button"
+                        :style="`background-color: ${color}; color: white; text-shadow: 0 0 3px black;`"
+                        @click="chooseColor(color)"
+                    >
+                        {{ color }}
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <div v-if="G && discardedPowerPlant" :class="['modal', { visible: discardVisible }]">
             <div class="modal-content">
                 <div class="modal-title">Discard Resources</div>
@@ -625,7 +645,19 @@ export default class Game extends Vue {
     G?: GameState | null = null;
     _futureState?: GameState;
 
-    playerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', 'yellow', 'brown'];
+    defaultPlayerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', 'yellow', 'brown'];
+
+    // Colors indexed by player id. Falls back to the default palette, but any color
+    // a player drafted via the chooseColors option overrides their default entry.
+    get playerColors() {
+        const colors = [...this.defaultPlayerColors];
+        if (this.G) {
+            for (const p of this.G.players) {
+                if (p.color) colors[p.id] = p.color;
+            }
+        }
+        return colors;
+    }
 
     animationQueue: Array<Function> = [];
 
@@ -1130,6 +1162,24 @@ export default class Game extends Vue {
         this.sendMove({ name: MoveName.ChooseRegion, data: region });
     }
 
+    canChooseColor() {
+        if (!this.canMove()) return false;
+
+        const currentPlayer = this.G!.players[this.player!];
+        return !!currentPlayer.availableMoves![MoveName.ChooseColor];
+    }
+
+    getChooseableColors(): string[] {
+        if (!this.canMove()) return [];
+
+        const currentPlayer = this.G!.players[this.player!];
+        return currentPlayer.availableMoves![MoveName.ChooseColor] || [];
+    }
+
+    chooseColor(color: string) {
+        this.sendMove({ name: MoveName.ChooseColor, data: color });
+    }
+
     playerHasUsedFreeJump(playerIndex: number): boolean {
         const player = this.G?.players[playerIndex];
         if (!player) return false;
@@ -1238,6 +1288,17 @@ export default class Game extends Vue {
     }
 
     getStatusMessage() {
+        // Color draft (chooseColors): prompt the current picker, even on the very
+        // first turn before any moves are in the log.
+        if (
+            this.G &&
+            this.G.phase == Phase.ColorSelection &&
+            this.player !== undefined &&
+            this.G.currentPlayers.includes(this.player)
+        ) {
+            return 'Choose your color.';
+        }
+
         // Region draft (chooseRegions): show the pick prompt to the current picker
         // even on the very first turn, before any moves are in the log.
         if (

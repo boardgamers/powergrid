@@ -1379,4 +1379,83 @@ describe('Engine', () => {
         const builds3 = availableMoves(G, player)[MoveName.Build];
         expect(builds3, 'no further builds offered in round 1 after the jump is spent').to.be.undefined;
     });
+
+    it('should draft player colors when chooseColors is set, then start the auction', () => {
+        const numPlayers = 4;
+        const G0 = setup(numPlayers, { map: 'Germany', chooseColors: true, fastBid: false }, 'cc-seed');
+
+        expect(G0.phase).to.equal(Phase.ColorSelection);
+        expect(G0.colorDraft!.picked).to.deep.equal([]);
+        expect(G0.currentPlayers).to.deep.equal([0]);
+
+        // The first picker sees the full palette.
+        const firstOptions = G0.players[0].availableMoves![MoveName.ChooseColor]!;
+        expect(firstOptions.length).to.equal(6);
+
+        let G = G0;
+        const pickOrder: number[] = [];
+        const picks: string[] = [];
+        while (G.phase === Phase.ColorSelection) {
+            const picker = G.currentPlayers[0];
+            pickOrder.push(picker);
+            const options = G.players[picker].availableMoves![MoveName.ChooseColor]!;
+            // Already-taken colors are never offered again.
+            for (const taken of picks) expect(options).to.not.include(taken);
+            const color = options[0];
+            picks.push(color);
+            G = move(G, { name: MoveName.ChooseColor, data: color } as Move, picker);
+        }
+
+        // Each player picked exactly once, in seating order.
+        expect(pickOrder).to.deep.equal([0, 1, 2, 3]);
+        // Colors recorded per player and all distinct.
+        expect(G.players.map((p) => p.color)).to.deep.equal(picks);
+        expect(new Set(picks).size).to.equal(numPlayers);
+
+        // No region draft -> straight into a playable auction.
+        expect(G.phase).to.equal(Phase.Auction);
+        expect(G.colorDraft).to.be.undefined;
+        expect(G.currentPlayers).to.deep.equal([0]);
+        expect(G.players[0].availableMoves![MoveName.ChoosePowerPlant]).to.exist;
+    });
+
+    it('should leave colors unset and skip the color draft by default', () => {
+        const G = setup(4, { map: 'Germany', fastBid: false }, 'cc-default');
+        expect(G.phase).to.equal(Phase.Auction);
+        expect(G.colorDraft).to.be.undefined;
+        expect(G.players.every((p) => p.color === undefined)).to.be.true;
+    });
+
+    it('should run the color draft before the region draft when both options are set', () => {
+        const G0 = setup(3, { map: 'Germany', chooseColors: true, chooseRegions: true, fastBid: false }, 'cc-cr');
+        expect(G0.phase).to.equal(Phase.ColorSelection);
+        expect(G0.regionDraft, 'region draft is pending but inactive during the color draft').to.exist;
+        // Capture before play — move() mutates in place, so the draft clears this later.
+        const regionsNeeded = G0.regionDraft!.regionsNeeded;
+        const allRegions = new Set(G0.map.cities.map((c) => c.region));
+
+        let G = G0;
+        // Colors first.
+        while (G.phase === Phase.ColorSelection) {
+            const picker = G.currentPlayers[0];
+            const color = G.players[picker].availableMoves![MoveName.ChooseColor]![0];
+            G = move(G, { name: MoveName.ChooseColor, data: color } as Move, picker);
+        }
+
+        // Color draft hands off to the region draft, full map still intact.
+        expect(G.phase).to.equal(Phase.RegionSelection);
+        expect(G.players.every((p) => !!p.color)).to.be.true;
+        expect(new Set(G.map.cities.map((c) => c.region))).to.deep.equal(allRegions);
+
+        // Regions next.
+        while (G.phase === Phase.RegionSelection) {
+            const picker = G.currentPlayers[0];
+            const region = G.players[picker].availableMoves![MoveName.ChooseRegion]![0];
+            G = move(G, { name: MoveName.ChooseRegion, data: region } as Move, picker);
+        }
+
+        expect(G.phase).to.equal(Phase.Auction);
+        expect(new Set(G.map.cities.map((c) => c.region)).size).to.equal(regionsNeeded);
+        expect(G.players.every((p) => !!p.color)).to.be.true;
+    });
 });

@@ -5,6 +5,7 @@ import {
     isUraniumMine,
     Phase,
     Player,
+    playerColors,
     PowerPlantType,
     ResourceType,
 } from './gamestate';
@@ -35,6 +36,7 @@ export interface AvailableMoves {
         citiesPowered: number;
     }[];
     [MoveName.ChooseRegion]?: string[];
+    [MoveName.ChooseColor]?: string[];
     [MoveName.Pass]?: boolean[];
     [MoveName.Undo]?: boolean[];
 }
@@ -709,6 +711,14 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             moves[MoveName.ChooseRegion] = graph.regions.filter((region) =>
                 regionPickable(G.map.name, graph, picked, region)
             );
+            break;
+        }
+
+        case Phase.ColorSelection: {
+            // Drafting player colors (chooseColors option): offer every palette
+            // color not already taken by an earlier picker.
+            const taken = G.colorDraft?.picked ?? [];
+            moves[MoveName.ChooseColor] = playerColors.filter((color) => !taken.includes(color));
             break;
         }
     }

@@ -50,7 +50,7 @@ export function rankings(G: GameState): number[] {
 }
 
 export function factions(G: GameState): string[] {
-    return G.players.map((pl) => engine.playerColors[pl.id]);
+    return G.players.map((pl) => pl.color ?? engine.playerColors[pl.id]);
 }
 
 export function replay(G: GameState, { to = Infinity }: { to: number }): GameState {

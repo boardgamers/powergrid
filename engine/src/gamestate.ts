@@ -3,6 +3,11 @@ import { LogItem } from './log';
 import { GameMap } from './maps';
 import { Move } from './move';
 
+// The default player palette, indexed by player id. Single source of truth: the
+// engine and (via factions / the chooseColors draft) the viewer both fall back to
+// this when a player has no explicitly chosen color.
+export const playerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', 'yellow', 'brown'];
+
 export type MapName =
     | 'USA'
     | 'Germany'
@@ -41,6 +46,9 @@ export interface GameOptions {
     // When set, the regions in play are drafted by the players at the start of
     // the game (each picks in turn) instead of being chosen randomly at setup.
     chooseRegions?: boolean;
+    // When set, each player picks their own color (in turn) at the start of the
+    // game instead of colors being assigned by seat. Runs before the region draft.
+    chooseColors?: boolean;
 }
 
 export enum ResourceType {
@@ -108,9 +116,13 @@ export interface Player {
     totalSpentResources: number;
     ranking?: number;
     usedFreeJump?: boolean;
+    // chooseColors: the color this player drafted. When unset, rendering falls
+    // back to the default palette entry for this player's id (playerColors[id]).
+    color?: string;
 }
 
 export enum Phase {
+    ColorSelection = 'Color Selection',
     RegionSelection = 'Region Selection',
     Order = 'Order',
     Auction = 'Auction',
@@ -181,7 +193,13 @@ export interface GameState {
     // Present only while phase == RegionSelection (chooseRegions option). Tracks
     // how many regions must be drafted and which have been picked so far. Cleared
     // once the draft completes and the map is filtered to the chosen regions.
+    // With chooseColors also on, this is populated at setup but stays inactive
+    // until the color draft finishes and the phase flips to RegionSelection.
     regionDraft?: { regionsNeeded: number; picked: string[] };
+    // Present only while phase == ColorSelection (chooseColors option). `picked`
+    // is the colors taken so far, in pick order; its length is also the seating
+    // index of the next picker. Cleared once every player has a color.
+    colorDraft?: { picked: string[] };
     options: GameOptions;
     log: LogItem[];
     hiddenLog: LogItem[];

@@ -660,10 +660,6 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 const winningPlayer = notPassed[0];
                 endAuction(G, winningPlayer, G.minimunBid);
 
-                if (G.round == 1) {
-                    setPlayerOrder(G);
-                }
-
                 if (G.discountBonusPlayer != undefined) {
                     // Manhattan: the buyer of the discounted plant gets another
                     // purchase. They are still the only eligible bidder, so re-prompt
@@ -2756,6 +2752,14 @@ function isValid(player: Player, powerPlants: PowerPlant[]) {
 function toResourcesPhase(G: GameState) {
     if (G.map.name == 'Baden-Württemberg') {
         // Baden-Württemberg: player order is determined AFTER the auction phase, every round.
+        setPlayerOrder(G);
+    } else if (G.round == 1) {
+        // Round 1 starts in seating order; once the auction ends, reorder by the
+        // plants just bought (there are no cities yet). Done here — the single funnel
+        // into the resources phase — so EVERY auction-completion path reorders, not
+        // just the uncontested ChoosePowerPlant branch. Contested bids and Manhattan's
+        // discount-bonus purchase otherwise reach this point with the seating order
+        // intact (e.g. the first player keeps moving first regardless of plants bought).
         setPlayerOrder(G);
     }
 

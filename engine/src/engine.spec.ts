@@ -1458,4 +1458,69 @@ describe('Engine', () => {
         expect(new Set(G.map.cities.map((c) => c.region)).size).to.equal(regionsNeeded);
         expect(G.players.every((p) => !!p.color)).to.be.true;
     });
+
+    it('should reorder players by plants after a contested round 1 auction (Manhattan)', () => {
+        // Regression (reported on ManhattanJune28): round-1 player order is set by the
+        // plants bought, but the reorder used to live only in the uncontested
+        // ChoosePowerPlant branch. Manhattan's discount-bonus purchase lets round 1
+        // finish via the contested/bonus completion path, which skipped the reorder
+        // and left the seating order [0,1,2,3,4]. This deterministic auction ends
+        // round 1 through that path; the reorder now happens in toResourcesPhase, the
+        // single funnel into the resources phase, so it always runs.
+        const moves: { player: number; move: Move }[] = [
+            { player: 0, move: { name: MoveName.ChoosePowerPlant, data: 3 } },
+            { player: 0, move: { name: MoveName.Bid, data: 1 } },
+            { player: 1, move: { name: MoveName.Pass, data: true } },
+            { player: 2, move: { name: MoveName.Bid, data: 2 } },
+            { player: 3, move: { name: MoveName.Bid, data: 3 } },
+            { player: 4, move: { name: MoveName.Pass, data: true } },
+            { player: 0, move: { name: MoveName.Pass, data: true } },
+            { player: 2, move: { name: MoveName.Bid, data: 4 } },
+            { player: 3, move: { name: MoveName.Bid, data: 5 } },
+            { player: 2, move: { name: MoveName.Pass, data: true } },
+            { player: 0, move: { name: MoveName.ChoosePowerPlant, data: 8 } },
+            { player: 0, move: { name: MoveName.Bid, data: 8 } },
+            { player: 1, move: { name: MoveName.Pass, data: true } },
+            { player: 2, move: { name: MoveName.Pass, data: true } },
+            { player: 3, move: { name: MoveName.Bid, data: 9 } },
+            { player: 4, move: { name: MoveName.Bid, data: 10 } },
+            { player: 0, move: { name: MoveName.Pass, data: true } },
+            { player: 3, move: { name: MoveName.Bid, data: 11 } },
+            { player: 4, move: { name: MoveName.Bid, data: 12 } },
+            { player: 3, move: { name: MoveName.Pass, data: true } },
+            { player: 0, move: { name: MoveName.ChoosePowerPlant, data: 9 } },
+            { player: 0, move: { name: MoveName.Bid, data: 9 } },
+            { player: 1, move: { name: MoveName.Bid, data: 10 } },
+            { player: 2, move: { name: MoveName.Pass, data: true } },
+            { player: 3, move: { name: MoveName.Pass, data: true } },
+            { player: 0, move: { name: MoveName.Pass, data: true } },
+            { player: 0, move: { name: MoveName.ChoosePowerPlant, data: 7 } },
+            { player: 0, move: { name: MoveName.Bid, data: 7 } },
+            { player: 2, move: { name: MoveName.Pass, data: true } },
+            { player: 3, move: { name: MoveName.Bid, data: 8 } },
+            { player: 0, move: { name: MoveName.Bid, data: 9 } },
+            { player: 3, move: { name: MoveName.Pass, data: true } },
+            { player: 2, move: { name: MoveName.ChoosePowerPlant, data: 10 } },
+            { player: 2, move: { name: MoveName.Bid, data: 10 } },
+            { player: 3, move: { name: MoveName.Bid, data: 11 } },
+            { player: 2, move: { name: MoveName.Bid, data: 12 } },
+            { player: 3, move: { name: MoveName.Pass, data: true } },
+            { player: 3, move: { name: MoveName.Pass, data: true } },
+        ];
+
+        let G = setup(5, { map: 'Manhattan', variant: 'recharged' }, 'cap1');
+        for (const m of moves) {
+            if (G.phase !== Phase.Auction) break;
+            G = move(G, m.move as Move, m.player);
+        }
+
+        expect(G.phase).to.equal(Phase.Resources);
+
+        // Round 1: no cities yet, so player order must be by largest plant descending
+        // — never the untouched seating order.
+        const largestPlant = G.playerOrder.map((id) => Math.max(...G.players[id].powerPlants.map((p) => p.number), -1));
+        expect(largestPlant).to.deep.equal([...largestPlant].sort((a, b) => b - a));
+        expect(G.playerOrder).to.not.deep.equal([0, 1, 2, 3, 4]);
+        expect(G.playerOrder).to.deep.equal([2, 1, 4, 0, 3]);
+    });
 });

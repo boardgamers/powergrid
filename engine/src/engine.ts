@@ -2077,7 +2077,11 @@ export function moveAI(G: GameState, playerNumber: number): GameState {
                     chosenMove = { name: MoveName.Pass, data: true };
                 }
             } else if (availableMoves?.DiscardPowerPlant) {
-                chosenMove = { name: MoveName.DiscardPowerPlant, data: player.powerPlants[0].number };
+                // Pick from the offered candidates: the oldest-held plant can be an
+                // Australia uranium mine or the just-bought plant, neither of which
+                // is legal to discard — and dropPlayer() replays this prompt via
+                // moveAI, so an illegal pick would throw inside the drop path.
+                chosenMove = { name: MoveName.DiscardPowerPlant, data: Math.min(...availableMoves.DiscardPowerPlant) };
             } else if (availableMoves?.DiscardResources) {
                 chosenMove = { name: MoveName.DiscardResources, data: chooseRandom(availableMoves.DiscardResources) };
             }

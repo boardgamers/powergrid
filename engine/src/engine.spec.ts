@@ -7,6 +7,7 @@ import {
     ended,
     getPowerPlant,
     move,
+    moveAI,
     reconstructState,
     setup,
 } from './engine';
@@ -524,6 +525,32 @@ describe('Engine', () => {
         expect(availableMoves(G, player)[MoveName.DiscardPowerPlant]).to.not.include(11);
     });
 
+    it('should have moveAI discard a legal candidate when a mine is held first', () => {
+        const G = setup(4, { map: 'Australia', variant: 'recharged', randomizeMap: false }, 'australia-ai-discard');
+        G.phase = Phase.Auction;
+        G.currentPlayers = [0];
+        const player = G.players[0];
+
+        // Mine 11 bought first, then four real plants: the over-limit discard
+        // prompt fires, but neither the mine nor the just-bought plant is a legal
+        // candidate. dropPlayer() auto-plays exactly this prompt through moveAI
+        // when a player times out, so an illegal AI pick throws in the drop path.
+        player.powerPlants = [
+            getPowerPlant(11),
+            getPowerPlant(19),
+            getPowerPlant(20),
+            getPowerPlant(22),
+            getPowerPlant(25),
+        ];
+        player.availableMoves = availableMoves(G, player);
+        const candidates = player.availableMoves[MoveName.DiscardPowerPlant]!;
+        expect(candidates, 'mine and just-bought plant are never candidates').to.deep.equal([19, 20, 22]);
+
+        const after = moveAI(G, 0);
+        const remaining = after.players[0].powerPlants.map((p) => p.number);
+        expect(remaining, 'discarded the weakest legal candidate').to.deep.equal([11, 20, 22, 25]);
+    });
+
     it('should not let Australia uranium mines power cities in Bureaucracy', () => {
         const G = setup(5, { map: 'Australia', variant: 'recharged', randomizeMap: false }, 'australia-mine-power');
         G.phase = Phase.Bureaucracy;
@@ -891,28 +918,43 @@ describe('Engine', () => {
         expect(G.powerPlantsDeck[G.powerPlantsDeck.length - 1].number, 'plant 10 rotated under the deck').to.equal(10);
 
         // Second depletion: deck empties again → the whole market becomes buyable
-        // (everything collapses into the actual market) and we stay in Step 1.
+        // (everything collapses into the actual market) and we stay in Step 1. The
+        // collapse must SORT the combined market: this is the "whole display is now
+        // buyable" moment, and a regression that skipped the sort would leave a plant
+        // out of order — the live-game symptom that prompted this guard (a smaller
+        // plant rendering after a larger one once everything became buyable). Seed an
+        // out-of-order input (future 5 behind actual's 8) so the assertion is real.
         G = base();
-        G.actualMarket = mkt(3, 4, 5);
-        G.futureMarket = mkt(8);
+        G.actualMarket = mkt(3, 4, 8);
+        G.futureMarket = mkt(5);
         G.powerPlantsDeck = [];
         G.manhattanRecyclePile = [];
         G.manhattanDepletion = 1;
         applyManhattanMarketLifecycle(G);
         expect(G.manhattanDepletion, 'second depletion → stage 2').to.equal(2);
         expect(G.futureMarket.length, 'no future market once all plants are buyable').to.equal(0);
-        expect(nums(G.actualMarket), 'every plant is in the buyable market').to.deep.equal([3, 4, 5, 8]);
+        expect(
+            G.actualMarket.map((p) => p.number),
+            'whole market is buyable AND sorted ascending (no out-of-order plant)'
+        ).to.deep.equal([3, 4, 5, 8]);
         expect(G.step, 'Manhattan never advances past Step 1').to.equal(1);
 
-        // Stage 2: each round boxes the single cheapest plant for the endgame churn.
+        // Stage 2: any straggler left in the future market collapses in (sorted),
+        // then the single cheapest plant is boxed for the endgame churn. Seed an
+        // out-of-order straggler (future 6 behind actual's 9) to guard the sort here
+        // too, and assert the surviving market stays in ascending order.
         G = base();
-        G.actualMarket = mkt(3, 4, 5, 6, 7, 8);
-        G.futureMarket = [];
+        G.actualMarket = mkt(3, 4, 5, 9);
+        G.futureMarket = mkt(6);
         G.powerPlantsDeck = [];
         G.manhattanDepletion = 2;
         applyManhattanMarketLifecycle(G);
         expect(G.manhattanDepletion, 'stage 2 is terminal').to.equal(2);
-        expect(nums(G.actualMarket), 'smallest plant (3) removed from the game').to.deep.equal([4, 5, 6, 7, 8]);
+        expect(G.futureMarket.length, 'stragglers collapse into the buyable market').to.equal(0);
+        expect(
+            G.actualMarket.map((p) => p.number),
+            'smallest plant (3) boxed; the rest stay sorted ascending'
+        ).to.deep.equal([4, 5, 6, 9]);
     });
 
     it('should block Manhattan spaces by player count, transitable but unbuildable', () => {

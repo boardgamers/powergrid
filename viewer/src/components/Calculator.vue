@@ -18,12 +18,12 @@
     </g>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 
 @Component({
     created(this: Calculator) {
         this.value = this.minValue;
-    }
+    },
 })
 export default class Calculator extends Vue {
     @Prop()
@@ -33,6 +33,13 @@ export default class Calculator extends Vue {
     maxValue;
 
     value: number = 0;
+
+    // The legal floor can rise while the calculator is open (e.g. a rival bid in a
+    // classic auction). Lift a stale value to the floor; never lower a dialed-in bid.
+    @Watch('minValue')
+    onMinValueChanged() {
+        this.value = Math.max(this.value, this.minValue);
+    }
 
     add() {
         this.value = Math.min(this.maxValue, this.value + 1);

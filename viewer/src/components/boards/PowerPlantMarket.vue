@@ -54,8 +54,11 @@
                 :targetState="{ x: chosenPowerPlant.x, y: chosenPowerPlant.y }"
                 :powerPlant="chosenPowerPlant.powerPlant"
             />
+            <!-- Keyed per plant so every auction gets a fresh calculator: a reused
+                 instance would keep displaying the previous auction's bid floor. -->
             <Calculator
                 v-if="canBid"
+                :key="'calc' + chosenPowerPlant.powerPlant.number"
                 :transform="`translate(${actualMarketWidth}, 80)`"
                 :minValue="minBid"
                 :maxValue="maxBid"
@@ -104,7 +107,7 @@ import Calculator from './../Calculator.vue';
 @Component({
     components: {
         Card,
-        Calculator
+        Calculator,
     },
 })
 export default class PowerPlantMarket extends Vue {
@@ -134,7 +137,7 @@ export default class PowerPlantMarket extends Vue {
                         id: 'actual_' + i,
                         x: 165 + i * 65,
                         y: 24,
-                        powerPlant: card
+                        powerPlant: card,
                     });
                 }
             } else {
@@ -143,7 +146,7 @@ export default class PowerPlantMarket extends Vue {
                         id: 'actual_' + i,
                         x: 165 + (i % 3) * 65,
                         y: i < 3 ? 24 : 80,
-                        powerPlant: card
+                        powerPlant: card,
                     });
                 }
             }
@@ -159,7 +162,7 @@ export default class PowerPlantMarket extends Vue {
                     id: 'future_' + i,
                     x: 165 + (i % 4) * 65,
                     y: 90 + Math.floor(i / 4) * 50,
-                    powerPlant: card
+                    powerPlant: card,
                 });
             }
         });
@@ -169,7 +172,7 @@ export default class PowerPlantMarket extends Vue {
                 id: 'chosen',
                 x: this.actualMarketWidth + 30,
                 y: 30,
-                powerPlant: gameState.chosenPowerPlant
+                powerPlant: gameState.chosenPowerPlant,
             };
         } else {
             this.chosenPowerPlant = null;

@@ -404,6 +404,15 @@ export const map: GameMap = {
         'players block 28). In the physical game the players mutually choose which ' +
         'spaces to block; here the system selects them automatically for your ' +
         'convenience. If you buy the discounted power plant you may purchase ' +
-        'another power plant during the same phase. The game ends when a player ' +
-        'has connected 18 spaces (17 for 3–4 players, 15 for 5, 14 for 6).',
+        'another power plant during the same phase. Power plant market: during ' +
+        'each Bureaucracy phase the two highest plants of the future market are ' +
+        'placed on a discard pile and the market is refilled to 8 from the deck. ' +
+        'When the deck runs out for the first time, the discard pile is shuffled ' +
+        'and becomes the new deck; from then on, each Bureaucracy phase the ' +
+        'highest future-market plant is instead placed under the deck. When the ' +
+        'deck runs out for the second time, every plant in the whole market ' +
+        'becomes available for auction, and each Bureaucracy phase the lowest ' +
+        'plant is removed from the game. If the market is completely empty, no ' +
+        'more power plants can be bought. The game ends when a player has ' +
+        'connected 18 spaces (17 for 3–4 players, 15 for 5, 14 for 6).',
 };

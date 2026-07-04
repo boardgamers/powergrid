@@ -84,7 +84,7 @@
                     v-else
                     x="160"
                     y="5"
-                    width="200"
+                    :width="actualMarketHighlightWidth"
                     height="120"
                     fill="none"
                     stroke="blue"
@@ -126,10 +126,16 @@ export default class PowerPlantMarket extends Vue {
     futureMarketCards: Piece[] = [];
     chosenPowerPlant: Piece | null = null;
     actualMarketWidth: number = 430;
+    actualMarketHighlightWidth: number = 200;
 
     createPieces(gameState: GameState) {
         this.actualMarketWidth = gameState.map.actualMarketWidth ?? 430;
         this.actualMarketCards = [];
+        // Step 3 holds at most 6 plants (3+3), but Manhattan's second-depletion
+        // "whole market buyable" state keeps up to 8 in the actual market — wrap
+        // at 4 per row there so cards 7 and 8 don't paint on top of the second row.
+        const actualPerRow = gameState.actualMarket.length > 6 ? 4 : 3;
+        this.actualMarketHighlightWidth = 65 * Math.min(gameState.actualMarket.length, actualPerRow) + 5;
         gameState.actualMarket.forEach((card, i) => {
             if (gameState.futureMarket.length > 0) {
                 if (card.number != gameState.chosenPowerPlant?.number) {
@@ -144,8 +150,8 @@ export default class PowerPlantMarket extends Vue {
                 if (card.number != gameState.chosenPowerPlant?.number) {
                     this.actualMarketCards.push({
                         id: 'actual_' + i,
-                        x: 165 + (i % 3) * 65,
-                        y: i < 3 ? 24 : 80,
+                        x: 165 + (i % actualPerRow) * 65,
+                        y: 24 + Math.floor(i / actualPerRow) * 56,
                         powerPlant: card,
                     });
                 }

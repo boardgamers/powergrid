@@ -459,7 +459,11 @@
                                         <strong>{{ G.map.uraniumMineResupply[G.players.length - 2][0] }}</strong>
                                         token(s) from the cheapest slots
                                     </li>
-                                    <li>Bureaucracy: remove <strong>highest</strong> power plant from market</li>
+                                    <li v-if="G.map.name === 'Manhattan'">
+                                        Bureaucracy: move the <strong>two highest</strong> future-market plants to the
+                                        discard pile (see Map Specific Rules for the full deck cycle)
+                                    </li>
+                                    <li v-else>Bureaucracy: remove <strong>highest</strong> power plant from market</li>
                                 </ul>
                             </li>
                             <li v-if="G.map.name !== 'Manhattan'">

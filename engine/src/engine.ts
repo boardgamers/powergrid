@@ -2232,7 +2232,18 @@ function updatePlayerCapacity(player: Player) {
     });
 }
 
-function addPowerPlant(G: GameState) {
+export function addPowerPlant(G: GameState): void {
+    // Manhattan: the draw deck can run dry mid-round during an auction, not only at
+    // Bureaucracy. Fire the depletion transition the instant it does, so the first
+    // depletion's reshuffle (or the second depletion's whole-market-buyable collapse)
+    // happens when it should instead of stalling the market until the end of the round
+    // — the "3 in the top row, 4 in the bottom, the new deck should start but it
+    // didn't" report on ManhattanJune28. The helper only reshuffles/collapses; the
+    // draw below still owns the single post-buy refill, so the market can't double-fill.
+    if (G.map.name == 'Manhattan' && G.powerPlantsDeck.length == 0) {
+        applyManhattanDepletionOnEmptyDeck(G);
+    }
+
     let powerPlant = G.powerPlantsDeck.shift();
 
     if (powerPlant) {
@@ -2477,6 +2488,43 @@ export function applyManhattanMarketLifecycle(G: GameState) {
                 event: `Removing the smallest plant, Power Plant ${removed.number}, from the game.`,
             });
         }
+    }
+}
+
+// Fire Manhattan's deck-depletion transition the instant the draw deck runs dry,
+// wherever that happens — in particular during an auction purchase's refill, not
+// only the Bureaucracy lifecycle above. It mirrors the two depletion arms of
+// applyManhattanMarketLifecycle:
+//   • first depletion  (stage 0, a recycle pile exists) → reshuffle that pile into a
+//     fresh deck and advance to stage 1; the caller's own draw then refills the market.
+//   • second depletion (stage 1) → collapse the whole market into the buyable (actual)
+//     market, sorted, and advance to stage 2; no deck remains to draw from.
+// Unlike the Bureaucracy path it deliberately does NOT draw/refill — the sole caller
+// (addPowerPlant) owns the single post-buy draw, so the market cannot double-fill.
+export function applyManhattanDepletionOnEmptyDeck(G: GameState): void {
+    if (G.map.name != 'Manhattan' || G.powerPlantsDeck.length > 0) {
+        return;
+    }
+    G.manhattanRecyclePile ??= [];
+    G.manhattanDepletion ??= 0;
+
+    if (G.manhattanDepletion == 0 && G.manhattanRecyclePile.length > 0) {
+        G.powerPlantsDeck = shuffle(G.manhattanRecyclePile, G.seed + ':manhattan-depletion-1');
+        G.manhattanRecyclePile = [];
+        G.manhattanDepletion = 1;
+        G.log.push({
+            type: 'event',
+            event: 'The draw deck is empty — reshuffling the recycle pile into a new deck.',
+        });
+    } else if (G.manhattanDepletion == 1) {
+        G.manhattanDepletion = 2;
+        const market = [...G.actualMarket, ...G.futureMarket].sort((a, b) => a.number - b.number);
+        G.actualMarket = market;
+        G.futureMarket = [];
+        G.log.push({
+            type: 'event',
+            event: 'The deck is empty for the second time — the entire market is now buyable.',
+        });
     }
 }
 

@@ -2,7 +2,9 @@ import { expect } from 'chai';
 import 'mocha';
 import { availableMoves, computeRegionGraph, regionPickable } from './available-moves';
 import {
+    addPowerPlant,
     applyAustraliaStep3Shift,
+    applyManhattanDepletionOnEmptyDeck,
     applyManhattanMarketLifecycle,
     ended,
     getPowerPlant,
@@ -955,6 +957,62 @@ describe('Engine', () => {
             G.actualMarket.map((p) => p.number),
             'smallest plant (3) boxed; the rest stay sorted ascending'
         ).to.deep.equal([4, 5, 6, 9]);
+    });
+
+    it('should start a fresh Manhattan deck mid-round when the draw deck runs dry in an auction', () => {
+        const mkt = (...nums: number[]): PowerPlant[] => nums.map((n) => getPowerPlant(n));
+        const base = () =>
+            setup(5, { map: 'Manhattan', variant: 'recharged', randomizeMap: false }, 'manhattan-midround-depletion');
+
+        // Reproduces ManhattanJune28 (Mike's report): stage 0, the deck is empty
+        // mid-auction with every big plant parked on the recycle pile, the buyable
+        // market decayed to three (the "top row") and four sitting in the future market
+        // (the "bottom row"). The next post-buy refill must NOT stall: it reshuffles the
+        // recycle pile into a fresh deck (first depletion → stage 1), draws the one owed
+        // replacement, and restores the cheapest-four-buyable split. Pre-fix addPowerPlant
+        // early-returned on the empty deck and left the market frozen — "the new deck
+        // should start, but it didn't."
+        let G = base();
+        G.actualMarket = mkt(19, 22, 23);
+        G.futureMarket = mkt(31, 33, 37, 38);
+        G.powerPlantsDeck = [];
+        G.manhattanRecyclePile = mkt(46, 35, 39, 36, 44, 42, 40, 34, 50, 32);
+        G.manhattanDepletion = 0;
+        G.plantDiscountActive = false;
+        addPowerPlant(G);
+        expect(G.manhattanDepletion, 'deck ran dry → first depletion fires mid-round').to.equal(1);
+        expect(G.manhattanRecyclePile!.length, 'recycle pile reshuffled into the deck').to.equal(0);
+        expect(G.powerPlantsDeck.length, 'fresh deck exists (10 recycled − 1 drawn)').to.equal(9);
+        expect(G.actualMarket.length + G.futureMarket.length, 'market refilled to 8').to.equal(8);
+        expect(G.actualMarket.length, 'cheapest four are buyable again').to.equal(4);
+
+        // Inert while the deck still has cards — no premature depletion.
+        G = base();
+        G.actualMarket = mkt(19, 22, 23, 31);
+        G.futureMarket = mkt(33, 37, 38);
+        G.powerPlantsDeck = mkt(40, 42);
+        G.manhattanRecyclePile = mkt(50);
+        G.manhattanDepletion = 0;
+        applyManhattanDepletionOnEmptyDeck(G);
+        expect(G.manhattanDepletion, 'deck still has cards → no depletion').to.equal(0);
+        expect(G.powerPlantsDeck.length, 'deck untouched').to.equal(2);
+        expect(G.manhattanRecyclePile!.length, 'recycle pile untouched').to.equal(1);
+
+        // Stage 1, empty deck, no recycle pile → second depletion mid-round: the whole
+        // market becomes buyable (sorted), exactly as the Bureaucracy path would do.
+        G = base();
+        G.actualMarket = mkt(22, 30, 40);
+        G.futureMarket = mkt(25);
+        G.powerPlantsDeck = [];
+        G.manhattanRecyclePile = [];
+        G.manhattanDepletion = 1;
+        applyManhattanDepletionOnEmptyDeck(G);
+        expect(G.manhattanDepletion, 'stage 1 empty deck → second depletion').to.equal(2);
+        expect(G.futureMarket.length, 'no future market once everything is buyable').to.equal(0);
+        expect(
+            G.actualMarket.map((p) => p.number),
+            'whole market buyable and sorted'
+        ).to.deep.equal([22, 25, 30, 40]);
     });
 
     it('should block Manhattan spaces by player count, transitable but unbuildable', () => {

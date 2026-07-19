@@ -77,7 +77,17 @@ export declare namespace Moves {
     }
 }
 
-export type Move =
+// Metadata the client may attach to any move. `time` is the wall-clock timestamp
+// (ms since epoch) at which the move was submitted; it drives the per-player
+// clocks. It is stored in the log, so replaying a game reproduces the exact same
+// times — the engine must never read the clock itself or replays would diverge.
+// Engine-generated moves (AI, dropped players) omit it and simply don't tick the
+// clocks.
+export interface MoveMeta {
+    time?: number;
+}
+
+export type Move = (
     | Moves.MoveChoosePowerPlant
     | Moves.MoveBid
     | Moves.MoveDiscardPowerPlant
@@ -88,7 +98,9 @@ export type Move =
     | Moves.MoveChooseRegion
     | Moves.MoveChooseColor
     | Moves.MovePass
-    | Moves.MoveUndo;
+    | Moves.MoveUndo
+) &
+    MoveMeta;
 
 export enum MoveName {
     ChoosePowerPlant = 'ChoosePowerPlant',

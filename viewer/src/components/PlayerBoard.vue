@@ -96,13 +96,27 @@
 
         <Uranium :pieceId="'Uranium' + player.id" :targetState="{ x: 215, y: 76 }" />
         <text text-anchor="middle" x="250" y="85" fill="black">{{ player.uraniumLeft }}</text>
+
+        <!-- Time this player has spent on the clock. Ticks live while it is their
+             turn; sits in the free space right of the resource counters. -->
+        <text
+            text-anchor="end"
+            x="345"
+            y="85"
+            fill="black"
+            :font-weight="isCurrentPlayer ? 700 : 400"
+            style="font-size: 13px"
+        >
+            {{ timeUsed }}
+        </text>
     </g>
 </template>
 <script lang="ts">
 import { MoveName, Player } from 'powergrid-engine';
-import { Phase, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
+import { Phase, playerTimeUsed, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
 import { Vue, Component, Prop, Inject } from 'vue-property-decorator';
 import { Preferences } from '../types/ui-data';
+import { formatDuration } from '../util/time';
 import { Coal, Oil, Garbage, Uranium, Card } from './pieces';
 
 @Component({
@@ -132,6 +146,27 @@ export default class PlayerBoard extends Vue {
     @Inject() preferences!: Preferences;
 
     powerPlantClicked?: PowerPlant;
+
+    // Ticks the live clock. Kept in this component rather than in Game so the
+    // per-second update only re-renders the player boards, not the whole board SVG.
+    now = Date.now();
+    private clockTimer?: number;
+
+    mounted() {
+        this.clockTimer = window.setInterval(() => (this.now = Date.now()), 1000);
+    }
+
+    beforeDestroy() {
+        if (this.clockTimer != undefined) {
+            window.clearInterval(this.clockTimer);
+        }
+    }
+
+    // Total time this player has been on the clock, counting the stretch currently
+    // running so the active player's timer visibly ticks up.
+    get timeUsed(): string {
+        return formatDuration(playerTimeUsed(this.player, this.now));
+    }
 
     // Horizontal position of the i-th power-plant card. Spacing compresses as the
     // hand grows so Australia's mines (which don't count toward the 3-plant limit,

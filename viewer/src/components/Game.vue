@@ -541,8 +541,9 @@ import CityCount from './boards/CityCount.vue';
 import Map from './boards/Map.vue';
 import Resources from './boards/Resources.vue';
 import { LogMove } from 'powergrid-engine/src/log';
-import { Phase, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
+import { Phase, playerTimeUsed, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
 import { City } from 'powergrid-engine/src/maps';
+import { formatDuration } from '../util/time';
 
 @Component({
     created(this: Game) {
@@ -1033,7 +1034,10 @@ export default class Game extends Vue {
 
     sendMove(move) {
         if (!this.paused) {
-            this.emitter.emit('move', move);
+            // Stamp the move so the engine can advance the per-player clocks. The
+            // engine never reads the system clock itself — the timestamp lives in the
+            // log so replaying a game reproduces the same times.
+            this.emitter.emit('move', { ...move, time: Date.now() });
         }
     }
 
@@ -1399,6 +1403,8 @@ export default class Game extends Vue {
             },
             { label: 'Spending: Plants', value: (p) => p.totalSpentPlants },
             { label: 'Spending: Resources', value: (p) => p.totalSpentResources },
+            // Every clock is stopped once the game ends, so the banked total is final.
+            { label: 'Time Used', value: (p) => formatDuration(playerTimeUsed(p)) },
         ];
     }
 

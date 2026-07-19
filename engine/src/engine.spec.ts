@@ -1692,6 +1692,21 @@ describe('Engine', () => {
         expect(G.players.every((p) => p.clockStartedAt === undefined)).to.be.true;
     });
 
+    it('should keep the clocks running across auto-played turns', () => {
+        // Regression: moveAI used to submit moves without a timestamp, so no clock
+        // ever started. Any human waiting after a bot or a dropped player's
+        // auto-played turn sat on an un-started clock showing zero.
+        let G = setup(3, { map: 'Germany' }, 'clk-ai');
+
+        G = moveAI(G, G.currentPlayers[0]);
+
+        // Whoever is on the clock now has it running, so their timer ticks.
+        expect(G.currentPlayers.length).to.be.greaterThan(0);
+        for (const id of G.currentPlayers) {
+            expect(G.players[id].clockStartedAt, `player ${id} clock started`).to.be.a('number');
+        }
+    });
+
     it('should reproduce identical player times when the same moves are replayed', () => {
         // Times come from the moves, never from the system clock, so replaying a log
         // must rebuild exactly the same clocks.

@@ -2171,7 +2171,14 @@ export function moveAI(G: GameState, playerNumber: number): GameState {
     }
 
     console.log('ai move', chosenMove);
-    return move(G, chosenMove, playerNumber);
+    // Stamp the move so the per-player clocks keep advancing across auto-played
+    // turns (bots, and dropped players auto-played by dropPlayer). Without this the
+    // clock chain breaks: no clock starts, so the next human to move sits on an
+    // un-started clock showing zero. Reading the wall clock is safe here — moveAI is
+    // a live move generator that is never re-run on replay (it is already
+    // non-deterministic via chooseRandom), and the timestamp it produces is written
+    // into the log, so replays re-apply the recorded value.
+    return move(G, { ...chosenMove, time: Date.now() }, playerNumber);
 }
 
 function chooseRandom(moves: any[]) {

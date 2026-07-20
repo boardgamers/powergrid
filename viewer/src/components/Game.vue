@@ -380,31 +380,10 @@
                             <div :style="'background-color: ' + playerColors[player.id]">{{ player.name }}</div>
                         </th>
                     </tr>
-                    <tr
-                        v-for="(cat, i) in [
-                            'Income',
-                            'Spending: Cities',
-                            'Spending: Connections',
-                            'Spending: Plants',
-                            'Spending: Resources',
-                        ]"
-                        :key="'FC_' + cat"
-                    >
-                        <td>{{ cat }}</td>
-                        <td v-for="player in sortedPlayers" :key="'FS' + player.id + i">
-                            <div>
-                                {{
-                                    i == 0
-                                        ? player.totalIncome
-                                        : i == 1
-                                        ? player.totalSpentCities
-                                        : i == 2
-                                        ? player.totalSpentConnections
-                                        : i == 3
-                                        ? player.totalSpentPlants
-                                        : player.totalSpentResources
-                                }}
-                            </div>
+                    <tr v-for="row in spendingRows" :key="'FC_' + row.label">
+                        <td>{{ row.label }}</td>
+                        <td v-for="player in sortedPlayers" :key="'FS' + player.id + row.label">
+                            <div>{{ row.value(player) }}</div>
                         </td>
                     </tr>
                 </table>
@@ -1403,6 +1382,24 @@ export default class Game extends Vue {
 
     get sortedPlayers() {
         return playersSortedByScore(this.G!);
+    }
+
+    // Rows of the end-of-game Spending table, in display order.
+    get spendingRows(): { label: string; value: (player: Player) => string | number }[] {
+        return [
+            { label: 'Income', value: (p) => p.totalIncome },
+            { label: 'Spending: Cities', value: (p) => p.totalSpentCities },
+            { label: 'Spending: Connections', value: (p) => p.totalSpentConnections },
+            {
+                // What each city on the board effectively cost: the house price plus
+                // the connection cost paid to reach it, averaged over cities built.
+                label: 'Cost per City',
+                value: (p) =>
+                    p.cities.length ? ((p.totalSpentCities + p.totalSpentConnections) / p.cities.length).toFixed(1) : '-',
+            },
+            { label: 'Spending: Plants', value: (p) => p.totalSpentPlants },
+            { label: 'Spending: Resources', value: (p) => p.totalSpentResources },
+        ];
     }
 
     get mapTransform() {

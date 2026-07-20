@@ -19,6 +19,7 @@ import undo from './fixtures/undo.json';
 import USAOriginal from './fixtures/USAOriginal.json';
 import {
     GameOptions,
+    GameState,
     MapName,
     Phase,
     PowerPlant,
@@ -1622,5 +1623,103 @@ describe('Engine', () => {
         expect(largestPlant).to.deep.equal([...largestPlant].sort((a, b) => b - a));
         expect(G.playerOrder).to.not.deep.equal([0, 1, 2, 3, 4]);
         expect(G.playerOrder).to.deep.equal([2, 1, 4, 0, 3]);
+    });
+
+    // --- per-player clocks -------------------------------------------------
+
+    const MINUTE = 60000;
+
+    // Submits a Bid if one is offered, otherwise a Pass, stamped at time `t`.
+    function bidOrPass(G: GameState, playerId: number, t: number): Move {
+        const bids = G.players[playerId].availableMoves![MoveName.Bid];
+        return bids && bids.length
+            ? ({ name: MoveName.Bid, data: bids[0], time: t } as Move)
+            : ({ name: MoveName.Pass, data: true, time: t } as Move);
+    }
+
+    it('should run every current player clock independently during simultaneous phases', () => {
+        let G = setup(3, { map: 'Germany', fastBid: true }, 'clk');
+
+        // With fastBid, opening an auction puts every eligible bidder on the clock
+        // at the same instant.
+        const plant = G.players[0].availableMoves![MoveName.ChoosePowerPlant]![0];
+        G = move(G, { name: MoveName.ChoosePowerPlant, data: plant, time: 0 } as Move, 0);
+        expect(G.currentPlayers.length, 'several players on the clock at once').to.be.greaterThan(1);
+        expect(G.players.map((p) => p.clockStartedAt)).to.deep.equal([0, 0, 0]);
+
+        // Each bidder answers after a different delay.
+        G = move(G, bidOrPass(G, 1, 1 * MINUTE), 1);
+        G = move(G, bidOrPass(G, 2, 10 * MINUTE), 2);
+        G = move(G, bidOrPass(G, 0, 4 * MINUTE), 0);
+
+        // Each is charged their OWN thinking time, not a share of the window.
+        expect(G.players[0].totalTimeUsed).to.equal(4 * MINUTE);
+        expect(G.players[1].totalTimeUsed).to.equal(1 * MINUTE);
+        expect(G.players[2].totalTimeUsed).to.equal(10 * MINUTE);
+
+        // So the sum legitimately exceeds the 10 minutes of wall clock that passed.
+        const total = G.players.reduce((sum, p) => sum + p.totalTimeUsed, 0);
+        expect(total).to.equal(15 * MINUTE);
+        expect(total).to.be.greaterThan(10 * MINUTE);
+    });
+
+    it('should charge a player only for the stretch they were on the clock', () => {
+        let G = setup(2, { map: 'Germany' }, 'clk-seq');
+
+        // The opening move has no earlier timestamp to measure against, so it is
+        // free — it just starts the clocks.
+        const opener = G.currentPlayers[0];
+        const plant = G.players[opener].availableMoves![MoveName.ChoosePowerPlant]![0];
+        G = move(G, { name: MoveName.ChoosePowerPlant, data: plant, time: 0 } as Move, opener);
+        expect(G.players[opener].totalTimeUsed).to.equal(0);
+
+        // Whoever is on the clock now started at 0 and is charged their own delay.
+        const next = G.currentPlayers[0];
+        expect(G.players[next].clockStartedAt).to.equal(0);
+        G = move(G, bidOrPass(G, next, 3 * MINUTE), next);
+        expect(G.players[next].totalTimeUsed).to.equal(3 * MINUTE);
+    });
+
+    it('should leave the clocks untouched for moves without a timestamp', () => {
+        let G = setup(2, { map: 'Germany' }, 'clk-nots');
+
+        const opener = G.currentPlayers[0];
+        const plant = G.players[opener].availableMoves![MoveName.ChoosePowerPlant]![0];
+        G = move(G, { name: MoveName.ChoosePowerPlant, data: plant } as Move, opener);
+
+        // AI / dropped-player moves carry no time and must not tick any clock.
+        expect(G.players.every((p) => p.totalTimeUsed === 0)).to.be.true;
+        expect(G.players.every((p) => p.clockStartedAt === undefined)).to.be.true;
+    });
+
+    it('should keep the clocks running across auto-played turns', () => {
+        // Regression: moveAI used to submit moves without a timestamp, so no clock
+        // ever started. Any human waiting after a bot or a dropped player's
+        // auto-played turn sat on an un-started clock showing zero.
+        let G = setup(3, { map: 'Germany' }, 'clk-ai');
+
+        G = moveAI(G, G.currentPlayers[0]);
+
+        // Whoever is on the clock now has it running, so their timer ticks.
+        expect(G.currentPlayers.length).to.be.greaterThan(0);
+        for (const id of G.currentPlayers) {
+            expect(G.players[id].clockStartedAt, `player ${id} clock started`).to.be.a('number');
+        }
+    });
+
+    it('should reproduce identical player times when the same moves are replayed', () => {
+        // Times come from the moves, never from the system clock, so replaying a log
+        // must rebuild exactly the same clocks.
+        const playOut = () => {
+            let G = setup(3, { map: 'Germany', fastBid: true }, 'clk-replay');
+            const plant = G.players[0].availableMoves![MoveName.ChoosePowerPlant]![0];
+            G = move(G, { name: MoveName.ChoosePowerPlant, data: plant, time: 0 } as Move, 0);
+            G = move(G, bidOrPass(G, 1, 2 * MINUTE), 1);
+            G = move(G, bidOrPass(G, 2, 7 * MINUTE), 2);
+            G = move(G, bidOrPass(G, 0, 5 * MINUTE), 0);
+            return G.players.map((p) => p.totalTimeUsed);
+        };
+
+        expect(playOut()).to.deep.equal(playOut());
     });
 });

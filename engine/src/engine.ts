@@ -181,6 +181,7 @@ export function setup(
         totalSpentPlants: 0,
         totalSpentResources: 0,
         usedFreeJump: false,
+        totalTimeUsed: 0,
     }));
 
     const p = players.length - 2;
@@ -2020,9 +2021,44 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
     G.cardsLeft = G.powerPlantsDeck.length;
     G.nextCardWeak = G.options.variant == 'recharged' && G.cardsLeft > 0 && G.powerPlantsDeck[0].number <= 15;
 
+    updateClocks(G, move.time);
+
     G.currentPlayers.forEach((p) => (G.players[p].availableMoves = availableMoves(G, G.players[p])));
 
     return G;
+}
+
+// A player's clock runs exactly while they are a current player. Called once after
+// each move has resolved (so currentPlayers is final):
+//   - anyone whose clock was running but who is no longer current has that stretch
+//     banked into totalTimeUsed (they either just moved or their window closed);
+//   - anyone now current without a running clock starts one at this timestamp.
+// A player who is still current after moving (a multi-step turn) keeps their clock
+// running, so their whole turn accumulates as one stretch.
+//
+// During simultaneous phases every current player's clock runs independently, so
+// the sum of players' time can legitimately exceed the wall-clock time elapsed.
+//
+// `ts` comes from the move (client-supplied) rather than the system clock, so
+// replaying a log reproduces identical times. Moves without a timestamp (AI,
+// dropped players) leave every clock untouched.
+function updateClocks(G: GameState, ts?: number) {
+    if (ts == undefined) {
+        return;
+    }
+
+    for (const player of G.players) {
+        const isCurrent = G.currentPlayers.includes(player.id);
+
+        if (!isCurrent && player.clockStartedAt != undefined) {
+            // Math.max guards against clock skew between players' browsers, which
+            // could otherwise make a stretch negative.
+            player.totalTimeUsed = (player.totalTimeUsed ?? 0) + Math.max(0, ts - player.clockStartedAt);
+            player.clockStartedAt = undefined;
+        } else if (isCurrent && player.clockStartedAt == undefined) {
+            player.clockStartedAt = ts;
+        }
+    }
 }
 
 export function moveAI(G: GameState, playerNumber: number): GameState {
@@ -2135,7 +2171,14 @@ export function moveAI(G: GameState, playerNumber: number): GameState {
     }
 
     console.log('ai move', chosenMove);
-    return move(G, chosenMove, playerNumber);
+    // Stamp the move so the per-player clocks keep advancing across auto-played
+    // turns (bots, and dropped players auto-played by dropPlayer). Without this the
+    // clock chain breaks: no clock starts, so the next human to move sits on an
+    // un-started clock showing zero. Reading the wall clock is safe here — moveAI is
+    // a live move generator that is never re-run on replay (it is already
+    // non-deterministic via chooseRandom), and the timestamp it produces is written
+    // into the log, so replays re-apply the recorded value.
+    return move(G, { ...chosenMove, time: Date.now() }, playerNumber);
 }
 
 function chooseRandom(moves: any[]) {

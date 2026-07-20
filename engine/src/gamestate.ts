@@ -119,6 +119,14 @@ export interface Player {
     // chooseColors: the color this player drafted. When unset, rendering falls
     // back to the default palette entry for this player's id (playerColors[id]).
     color?: string;
+    // Total time this player has been on the clock, in milliseconds. A player's
+    // clock runs exactly while they are a current player, so during simultaneous
+    // phases every waiting player accrues time independently.
+    totalTimeUsed: number;
+    // Timestamp (ms since epoch) at which this player's clock started, or undefined
+    // when it is not running. Time still on this running clock is not yet included
+    // in totalTimeUsed — see playerTimeUsed().
+    clockStartedAt?: number;
 }
 
 export enum Phase {
@@ -244,6 +252,16 @@ export interface GameState {
 // deck setup), so the type check alone identifies them.
 export function isUraniumMine(G: GameState, plant: PowerPlant): boolean {
     return G.map.name === 'Australia' && plant.type === PowerPlantType.Uranium;
+}
+
+// Total time a player has spent on the clock, in milliseconds, including the clock
+// that is currently running (if any). `now` is the wall-clock time to measure a
+// running clock against — pass Date.now() for a live display. Without it, only
+// time already banked into totalTimeUsed is returned.
+export function playerTimeUsed(player: Player, now?: number): number {
+    const running =
+        player.clockStartedAt != undefined && now != undefined ? Math.max(0, now - player.clockStartedAt) : 0;
+    return (player.totalTimeUsed ?? 0) + running;
 }
 
 // Number of a player's plants that count toward the 3-plant hand limit — i.e.

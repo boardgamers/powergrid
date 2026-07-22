@@ -740,6 +740,40 @@ describe('Engine', () => {
         expect(G.garbageMarket, 'Bremen garbage fills $3–$8').to.equal(16);
     });
 
+    it('should build the Bremen deck: eight low plants to the market, one on top, the rest shuffled in', () => {
+        // Players asked whether Bremen was stacking every low ("plug") plant on top of
+        // the deck. It follows the recharged setup: eight open the market, one is
+        // placed on top of the deck and the leftovers are shuffled into it. This pins
+        // that structure — and that the leftovers really do land all over the deck.
+        const leftoverPositions = new Set<number>();
+        for (const pc of [2, 3, 4, 5, 6]) {
+            for (const seed of ['a', 'b', 'c', 'd']) {
+                const G = setup(
+                    pc,
+                    { map: 'Bremen', variant: 'recharged', randomizeMap: false },
+                    `bremen-plugs-${pc}-${seed}`
+                );
+                const market = [...G.actualMarket, ...G.futureMarket];
+                const deck = G.powerPlantsDeck.map((p) => p.number);
+                expect(market.length, `Bremen ${pc}P: opening market of 8`).to.equal(8);
+                expect(
+                    market.every((p) => p.number <= 15),
+                    `Bremen ${pc}P: market is low plants`
+                ).to.be.true;
+                expect(deck[deck.length - 1], `Bremen ${pc}P: Step 3 on the bottom`).to.equal(99);
+                // No player-count reduction beyond Bremen's own removals (9, plus 31
+                // and 50 for 2–4 players).
+                expect(market.length + deck.length, `Bremen ${pc}P: deck size`).to.equal(
+                    powerPlants.length - (pc <= 4 ? 11 : 9)
+                );
+                const low = deck.map((n, i) => (n <= 15 ? i : -1)).filter((i) => i >= 0);
+                expect(low[0], `Bremen ${pc}P: one low plant guaranteed on top`).to.equal(0);
+                low.slice(1).forEach((i) => leftoverPositions.add(i));
+            }
+        }
+        expect(leftoverPositions.size, 'leftover low plants are spread through the deck').to.be.greaterThan(5);
+    });
+
     it('should price Bremen builds by summed district costs (node-weighted, asymmetric)', () => {
         // 5P so all five regions (all 25 districts) are in play.
         const G = setup(5, { map: 'Bremen', variant: 'recharged', randomizeMap: false }, 'bremen-build-cost');

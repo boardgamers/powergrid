@@ -220,9 +220,11 @@ export const map: GameMap = {
     startingResources: [22, 16, 16, 0],
     startingSupply: [22, 22, 22, 0],
     // Bremen plays with fewer power plants. Remove 11, 17, 23, 28, 34, 36, 38, 39,
-    // 46 (this includes every nuclear plant); 2–4 players also remove 31 and 50.
-    // The opening market is then drawn from the remaining "weak" pool (≤15) per the
-    // recharged convention, and NO further player-count deck reduction is applied.
+    // 46 — every uranium-burning plant (11/17/23/28/34/39) plus the three plants that
+    // power 7 cities (36/38/46); 2–4 players also remove 31 and 50. The opening
+    // market is then drawn from the remaining "weak" pool (≤15) per the recharged
+    // convention — 8 open the market, one goes on top of the deck and the leftovers
+    // are shuffled in — and NO further player-count deck reduction is applied.
     setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
         const removed = new Set([11, 17, 23, 28, 34, 36, 38, 39, 46]);
         if (numPlayers <= 4) {
@@ -272,8 +274,17 @@ export const map: GameMap = {
         'through), plus the cheapest building cost (8 / 14 / 20 Elektro) in the new ' +
         'district. (on your 1st placement if A has 1 and B has 3 then A to B is ' +
         '8+3+8=19, and B to A is 8+1+8=17, meaning it is asymmetrical) Small ' +
-        'districts have only two spaces (8 / 14) and can hold just two networks. ' +
-        'No nuclear: nuclear power plants and uranium are not used. Step 2 ' +
-        'begins once a player has 5 connected districts (4 for 6 players); the game ' +
-        'ends when a player connects 13 districts (12 for 5 players, 11 for 6).',
+        'districts have only two spaces (8 / 14) and can hold just two networks.\n' +
+        'No uranium: uranium is never sold, and every plant that burns it is removed ' +
+        'from the game. Plant 50 needs no fuel, so it stays in the deck with 5 or 6 ' +
+        'players.\n' +
+        'Deck preparation: power plants 11, 17, 23, 28, 34, 36, 38, 39 and 46 are ' +
+        'removed before setup — the six uranium plants plus the three plants that ' +
+        'power 7 cities. With 2 to 4 players, plants 31 and 50 are removed as well. ' +
+        'No further power plants are removed for the number of players. The opening ' +
+        'market of eight is then drawn from the low plants (numbered 15 or less); of ' +
+        'the low plants left over, one is placed on top of the draw deck and the rest ' +
+        'are shuffled into it, with the Step 3 card on the bottom.\n' +
+        'Step 2 begins once a player has 5 connected districts (4 for 6 players); the ' +
+        'game ends when a player connects 13 districts (12 for 5 players, 11 for 6).',
 };

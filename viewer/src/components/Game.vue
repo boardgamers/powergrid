@@ -57,6 +57,7 @@
                 :buildableCities="getBuildableCities()"
                 :blockedCities="G.blockedCities"
                 :pickableRegions="getPickableRegions()"
+                :noUraniumRegions="G.map.noUraniumRegions"
                 :devBackdrop="G.map.devBackdrop"
                 :mapRotation="G.map.mapRotation || 0"
                 @build="build($event)"

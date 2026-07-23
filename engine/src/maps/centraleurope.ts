@@ -56,6 +56,10 @@ export enum Cities {
 
 export const map: GameMap = {
     name: 'Central Europe',
+    // Nuclear plants may only be used by players with a city in Czechia (green),
+    // Slovakia (brown) or Hungary (purple) — see the restriction in available-moves.
+    // The three Polish regions therefore show the struck-through nuclear marker.
+    noUraniumRegions: [Regions.Blue, Regions.Red, Regions.Yellow],
     cities: [
         { name: Cities.Bialystok, region: Regions.Blue, x: 543, y: 135 },
         { name: Cities.Lublin, region: Regions.Blue, x: 590, y: 294 },

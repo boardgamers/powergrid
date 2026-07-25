@@ -385,6 +385,32 @@
                 @click="onCityClick(city)"
             />
         </template>
+
+        <!-- Regions where nuclear plants are banned: a nuclear-plant tile under a red
+             prohibition sign (ring + diagonal bar), matching the marker printed on
+             the physical board. -->
+        <g
+            v-for="marker in noUraniumMarkers"
+            :key="'noUranium_' + marker.region"
+            :transform="`translate(${marker.x}, ${marker.y})`"
+        >
+            <!-- nuclear plant tile: dark card with the red uranium barrel glyph -->
+            <rect x="-15" y="-11" width="30" height="22" rx="3" fill="#4a4a4a" stroke="black" stroke-width="1.5" />
+            <g transform="translate(-9, -7) scale(1.2)">
+                <path d="M1,2 l4,-2 l6,0 l4,2 l0,11 l-4,2 l-6,0 l-4,-2Z" fill="#ef3b3b" />
+            </g>
+            <!-- prohibition sign over it, tinted with the region's own colour -->
+            <circle cx="0" cy="0" r="20" fill="none" :stroke="marker.region" stroke-width="4.5" />
+            <line
+                x1="-14.1"
+                y1="-14.1"
+                x2="14.1"
+                y2="14.1"
+                :stroke="marker.region"
+                stroke-width="4.5"
+                stroke-linecap="round"
+            />
+        </g>
     </g>
 </template>
 
@@ -410,6 +436,8 @@ export default class Map extends Vue {
     @Prop() blockedCities?: string[];
     // chooseRegions draft: region names the current player may pick this turn.
     @Prop() pickableRegions?: string[];
+    // Regions where nuclear plants are banned; each gets a struck-through marker.
+    @Prop() noUraniumRegions?: string[];
     @Prop() devBackdrop?: { src: string; width: number; height: number; opacity?: number };
     @Prop({ default: 0 }) mapRotation!: number;
 
@@ -500,6 +528,81 @@ export default class Map extends Vue {
         if (i === 0) return { dx: 0, dy: -15 };
         if (i === 1) return { dx: -15, dy: 0 };
         return { dx: 15, dy: 0 };
+    }
+
+    // One "no nuclear" marker per banned region. Placed at the most open spot
+    // inside the region — the point (within the region's own area) that is farthest
+    // from every city and every connection cost-label — so the marker never covers a
+    // city node or a connection cost. Uses the already-adjusted city coordinates, so
+    // it needs no knowledge of the map's adjustRatio.
+    get noUraniumMarkers(): { region: string; x: number; y: number }[] {
+        if (!this.noUraniumRegions || !this.cities || this.cities.length === 0) return [];
+        const cities = this.cities;
+
+        // Obstacles the marker must avoid: city centres and connection cost labels
+        // (drawn at each connection's midpoint).
+        const obstacles = cities.map((c) => ({ x: c.x, y: c.y }));
+        for (const con of this.connections ?? []) {
+            if (!con.cost || con.cost <= 0) continue;
+            const a = cities.find((c) => c.name === con.nodes[0]);
+            const b = cities.find((c) => c.name === con.nodes[1]);
+            if (a && b) obstacles.push({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
+        }
+
+        const nearestDist = (x: number, y: number, pts: { x: number; y: number }[]) => {
+            let min = Infinity;
+            for (const p of pts) {
+                const d = Math.hypot(p.x - x, p.y - y);
+                if (d < min) min = d;
+            }
+            return min;
+        };
+
+        const markers: { region: string; x: number; y: number }[] = [];
+        for (const region of this.noUraniumRegions) {
+            const regionCities = cities.filter((c) => c.region === region);
+            if (regionCities.length === 0) continue;
+
+            const xs = regionCities.map((c) => c.x);
+            const ys = regionCities.map((c) => c.y);
+            const centroid = { x: xs.reduce((s, v) => s + v, 0) / xs.length, y: ys.reduce((s, v) => s + v, 0) / ys.length };
+
+            // Scan a grid over the region's bounding box for points that fall inside
+            // this region (nearest city belongs to it). Among those with enough
+            // clearance to not cover an obstacle, prefer the one closest to the
+            // region centre so the marker stays central rather than drifting to an
+            // empty edge. Fall back to the most open point if none clear the bar.
+            const MIN_CLEARANCE = 44; // marker radius (~22) + obstacle radius (~20) + gap
+            let central: { x: number; y: number; distToCentroid: number } | undefined;
+            let openest: { x: number; y: number; clearance: number } | undefined;
+            const step = 10;
+            for (let x = Math.min(...xs); x <= Math.max(...xs); x += step) {
+                for (let y = Math.min(...ys); y <= Math.max(...ys); y += step) {
+                    let nearestCity = regionCities[0];
+                    let nd = Infinity;
+                    for (const c of cities) {
+                        const d = Math.hypot(c.x - x, c.y - y);
+                        if (d < nd) {
+                            nd = d;
+                            nearestCity = c;
+                        }
+                    }
+                    if (nearestCity.region !== region) continue;
+
+                    const clearance = nearestDist(x, y, obstacles);
+                    if (!openest || clearance > openest.clearance) openest = { x, y, clearance };
+
+                    if (clearance >= MIN_CLEARANCE) {
+                        const distToCentroid = Math.hypot(x - centroid.x, y - centroid.y);
+                        if (!central || distToCentroid < central.distToCentroid) central = { x, y, distToCentroid };
+                    }
+                }
+            }
+
+            const chosen = central ?? openest;
+            markers.push({ region, x: chosen ? chosen.x : centroid.x, y: chosen ? chosen.y : centroid.y });
+        }
+        return markers;
     }
 
     canBuild(city: City) {

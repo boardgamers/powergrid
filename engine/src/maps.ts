@@ -74,6 +74,11 @@ export interface GameMap {
     cities: City[];
     connections: Connection[];
     polygons?: Polygon[];
+    // Regions where nuclear (uranium) plants may never be used. The physical board
+    // prints a struck-through nuclear plant in each such region; the viewer renders
+    // that marker at the region's centre. The auction restriction itself is enforced
+    // per-map in available-moves (this list is the visual counterpart).
+    noUraniumRegions?: string[];
     layout?: 'Portrait' | 'Landscape';
     adjustRatio?: [number, number];
     viewBox?: [number, number];

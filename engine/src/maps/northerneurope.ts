@@ -58,6 +58,9 @@ export enum Cities {
 
 export const map: GameMap = {
     name: 'Northern Europe',
+    // Nuclear plants are banned in Norway (red) and Denmark (orange) — see the
+    // restriction in available-moves. The viewer draws the struck-through markers.
+    noUraniumRegions: [Regions.Red, Regions.Orange],
     cities: [
         { name: Cities.Oulu, region: Regions.Brown, x: 514, y: 376 },
         { name: Cities.Kuopid, region: Regions.Brown, x: 551, y: 474 },

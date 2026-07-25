@@ -61,6 +61,9 @@ export enum Cities {
 
 export const map: GameMap = {
     name: 'UK & Ireland',
+    // Nuclear plants are banned in the Republic of Ireland (green) — see the
+    // restriction in available-moves. The viewer draws the struck-through marker.
+    noUraniumRegions: [Regions.Green],
     cities: [
         { name: Cities.Norwich, region: Regions.Red, island: 'gb', x: 646, y: 702 },
         { name: Cities.London1, region: Regions.Red, island: 'gb', x: 554, y: 756 },

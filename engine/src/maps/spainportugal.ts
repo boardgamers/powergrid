@@ -61,6 +61,9 @@ export enum Cities {
 
 export const map: GameMap = {
     name: 'Spain & Portugal',
+    // Nuclear plants are banned in Portugal (yellow) — see the restriction in
+    // available-moves. The viewer draws the struck-through nuclear marker there.
+    noUraniumRegions: [Regions.Yellow],
     cities: [
         { name: Cities.Evora, region: Regions.Yellow, x: 890, y: 1780 },
         { name: Cities.Faro, region: Regions.Yellow, x: 822, y: 2348 },

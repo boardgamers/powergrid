@@ -309,6 +309,26 @@
             </div>
         </div>
 
+        <!-- Sole-buyer confirmation: choosing a plant when you're the only remaining
+             buyer purchases it outright, so confirm before committing. -->
+        <div v-if="G && soleBuyerPlant" class="modal visible">
+            <div class="modal-content">
+                <span class="close" @click="soleBuyerPlant = null">&times;</span>
+                <div class="modal-title">Buy Power Plant {{ soleBuyerPlant.number }}</div>
+                <div class="confirm-message">
+                    You are the only player who can still buy. Buy Power Plant
+                    <b>{{ soleBuyerPlant.number }}</b> for <b>${{ soleBuyerPrice() }}</b
+                    >?
+                </div>
+                <div class="confirm-buttons">
+                    <button class="confirm-button" @click="confirmSoleBuyerPurchase()">
+                        Buy for ${{ soleBuyerPrice() }}
+                    </button>
+                    <button class="confirm-button" @click="soleBuyerPlant = null">Cancel</button>
+                </div>
+            </div>
+        </div>
+
         <!-- chooseColors: shown on the current player's turn during the color draft.
              No close button — picking a color is required to proceed. -->
         <div v-if="G && canChooseColor()" class="modal visible">
@@ -665,6 +685,9 @@ export default class Game extends Vue {
     freeJumpSlotPrice: number = 0;
     freeJumpVisible: boolean = false;
 
+    // When set, the sole-remaining-buyer confirmation dialog is showing for this plant.
+    soleBuyerPlant: PowerPlant | null = null;
+
     disablePass: boolean = false;
 
     @Ref() powerPlantMarket!: PowerPlantMarket;
@@ -805,9 +828,48 @@ export default class Game extends Vue {
         const currentPlayer = this.G!.players[this.player!];
         const availableMoves = currentPlayer.availableMoves!;
 
-        if (availableMoves.ChoosePowerPlant && availableMoves.ChoosePowerPlant.includes(powerPlant.number)) {
-            this.sendMove({ name: MoveName.ChoosePowerPlant, data: powerPlant.number });
+        if (!(availableMoves.ChoosePowerPlant && availableMoves.ChoosePowerPlant.includes(powerPlant.number))) {
+            return;
         }
+
+        // When you are the only player who can still buy, choosing a plant buys it
+        // outright at the minimum price (there is no one to bid against). Confirm the
+        // purchase first so it isn't committed on a stray click — Cancel returns to the
+        // market to pick a different plant or pass.
+        if (this.isSoleBuyer()) {
+            this.soleBuyerPlant = powerPlant;
+            return;
+        }
+
+        this.sendMove({ name: MoveName.ChoosePowerPlant, data: powerPlant.number });
+    }
+
+    // True when it is the auction, it's this player's turn to choose a plant, and they
+    // are the only remaining buyer — matching the engine's uncontested-purchase case.
+    isSoleBuyer(): boolean {
+        if (!this.canMove() || this.G!.phase !== Phase.Auction || this.G!.chosenPowerPlant || !this.canChoose()) {
+            return false;
+        }
+        const remaining = this.G!.players.filter((p) => !p.skipAuction && !p.isDropped);
+        return remaining.length === 1 && remaining[0].id === this.player;
+    }
+
+    // Minimum price the sole buyer pays: the plant number, or $1 for the recharged
+    // discount plant (the cheapest in the market) — mirrors the engine's minimum bid.
+    soleBuyerPrice(): number {
+        if (!this.soleBuyerPlant) return 0;
+        const discounted =
+            this.G!.options.variant === 'recharged' &&
+            this.G!.plantDiscountActive &&
+            this.G!.actualMarket[0]?.number === this.soleBuyerPlant.number;
+        return discounted ? 1 : this.soleBuyerPlant.number;
+    }
+
+    confirmSoleBuyerPurchase() {
+        if (this.soleBuyerPlant) {
+            this.sendMove({ name: MoveName.ChoosePowerPlant, data: this.soleBuyerPlant.number });
+        }
+        this.soleBuyerPlant = null;
     }
 
     buyResource(payload: { resource: ResourceType, side?: 'north' | 'south', fromStorage?: boolean }) {

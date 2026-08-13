@@ -368,23 +368,22 @@ describe('Engine', () => {
         expect(G.powerPlantsDeck[step3Idx + 2].number).to.not.equal(99);
     });
 
-    it('should start the India original deck with a random plant on top', () => {
-        // India removes plant 11 from the game, so the old code's splice(2, 1)
-        // — written for the standard list where index 2 is plant 13 — landed on
-        // plant 14 and pinned it to the top of every deck. The rule (Mike,
-        // 2026-08-13) is that India sets NO plant aside: a random plant starts
-        // on top. Pre-fix this sweep sees plant 14 on top for every seed.
-        const tops = new Set<number>();
+    it('should place plant 13 on top of the India original deck', () => {
+        // India removes plant 11 from the game, so the pre-#113 splice(2, 1)
+        // — written for the standard list where index 2 is plant 13 — landed
+        // on plant 14 and pinned IT to the top instead. #113 briefly made the
+        // top random; Mike's follow-up ruling restores the printed rule: 13
+        // goes on top, now found by number rather than by index. This sweep
+        // fails against both prior behaviors (14 on top / random on top).
         for (let seed = 0; seed < 10; seed++) {
             const G = setup(4, { map: 'India', variant: 'original', randomizeMap: false }, `india-top-${seed}`);
+            expect(G.powerPlantsDeck[0].number, 'plant 13 on top').to.equal(13);
             expect(
                 G.powerPlantsDeck.some((p) => p.number == 11),
                 'plant 11 must stay removed'
             ).to.be.false;
             expect(G.powerPlantsDeck[G.powerPlantsDeck.length - 1].number, 'Step 3 stays on the bottom').to.equal(99);
-            tops.add(G.powerPlantsDeck[0].number);
         }
-        expect(tops.size, `top cards across seeds: ${[...tops].join(',')}`).to.be.greaterThan(1);
     });
 
     it('should never strand a UK & Ireland region from the rest of its landmass', () => {

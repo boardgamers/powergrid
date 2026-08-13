@@ -300,5 +300,12 @@ export const map: GameMap = {
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
     mapSpecificRules:
-        'Put power plants 13, 18, 22 on top of the deck. Ecological power plants will never be put on the bottom of the deck.',
+        'Ecological power plants will never be put on the bottom of the deck.\n' +
+        'Deck build recharged - the starting market is drawn from the low ' +
+        'plants (including 13); one more low plant goes on top of the deck, ' +
+        'with 18 and 22 placed directly beneath it. Ecological plants (wind ' +
+        'and fusion) are never removed during setup.\n' +
+        'Deck build original - power plants 13, 18, 22 are set aside and ' +
+        'placed on top of the deck (13 topmost); ecological plants are ' +
+        'excluded from the player-count removal.',
 };

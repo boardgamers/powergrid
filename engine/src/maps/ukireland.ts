@@ -308,5 +308,7 @@ export const map: GameMap = {
         'until they build a city in Scotland, Wales, England, or Northern Ireland. ' +
         'Early Step 3: the Step 3 card is placed 3rd from last in the deck (two ' +
         'plants below it). Step 2 begins when a player connects their 7th city ' +
-        '(6th for 6 players).',
+        '(6th for 6 players).\n' +
+        'Deck build - standard setup for both variants, except the Step 3 card ' +
+        'is placed third from the bottom of the deck (two plants below it).',
 };

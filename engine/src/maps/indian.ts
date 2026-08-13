@@ -232,7 +232,6 @@ export const map: GameMap = {
         // Except for adjusting the garbage plant cost, the setup is identical to the normal game.
         if (variant == 'original') {
             powerPlantsDeck = powerPlantsDeck.slice(8);
-            const powerPlant13 = powerPlantsDeck.splice(2, 1)[0];
             const step3 = powerPlantsDeck.pop()!;
 
             powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
@@ -242,7 +241,9 @@ export const map: GameMap = {
                 powerPlantsDeck = powerPlantsDeck.slice(4);
             }
 
-            powerPlantsDeck.unshift(powerPlant13);
+            // India sets no plant aside for the top of the deck - a random
+            // plant starts there (Mike, 2026-08-13; the old splice landed on
+            // 14 anyway because India's list has no plant 11).
             powerPlantsDeck.push(step3);
 
             actualMarket = [
@@ -289,5 +290,5 @@ export const map: GameMap = {
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
     mapSpecificRules:
-        'The power grid will suffer a power outage if too many cities are built in one round, penalizing players $3 per city built.\nPlayers take turns buying one resource at a time. The resource market is limited in steps 1 and 2.\nGarbage plants are less efficient. Their cost is one higher, but their storage capacity is not changed.\nPlayers must power as many cities as possible in each round.',
+        'The power grid will suffer a power outage if too many cities are built in one round, penalizing players $3 per city built.\nPlayers take turns buying one resource at a time. The resource market is limited in steps 1 and 2.\nGarbage plants are less efficient. Their cost is one higher, but their storage capacity is not changed.\nPlayers must power as many cities as possible in each round.\nDeck build - power plant 11 is removed from the game. In the original variant no plant is set aside for the top of the deck - a random plant starts on top.',
 };

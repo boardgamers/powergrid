@@ -420,7 +420,6 @@ export const map: GameMap = {
         return { actualMarket, futureMarket, powerPlantsDeck: deck };
     },
     mapSpecificRules:
-        'Europe uses the New Power Plants Set 2 deck (cards with a plug on the back). ' +
-        'The power plant market starts as 4 current + 5 future power plants (9 total). ' +
-        'When Step 2 begins, remove the lowest-numbered plant from the current market from the game once and do not replace it; the future market then has 4 plants instead of 5.',
+        'When Step 2 begins, remove the lowest-numbered plant from the current market from the game once and do not replace it; the future market then has 4 plants instead of 5.\n' +
+        'Deck build - Europe uses the New Power Plants Set 2 deck (cards with a plug on the back). The power plant market starts as 4 current + 5 future power plants (9 total), all drawn from the plug plants; the top card of the draw deck is never a plug plant.',
 };

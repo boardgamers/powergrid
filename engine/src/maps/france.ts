@@ -291,5 +291,11 @@ export const map: GameMap = {
 
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
-    mapSpecificRules: 'Remove power plant 13. Put power plant 11 on top of the deck.',
+    mapSpecificRules:
+        'Deck build recharged - power plant 13 is removed from the game and ' +
+        'power plant 11 always starts in the market. Removal by player count: ' +
+        '2 players remove 6 higher plants, 3 players remove 1 low and 6 higher, ' +
+        '4 players remove 3 higher.\n' +
+        'Deck build original - power plant 13 is removed from the game; power ' +
+        'plant 11 is placed on top of the deck in its place.',
 };

@@ -306,5 +306,13 @@ export const map: GameMap = {
 
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
-    mapSpecificRules: 'Play with all garbage power plants.',
+    mapSpecificRules:
+        'Play with all garbage power plants.\n' +
+        'Deck build recharged - power plants 6 and 14 always start in the ' +
+        'market; the other six market plants are drawn from the remaining low ' +
+        'plants. Garbage plants above 14 are set aside during the player-count ' +
+        'removal and shuffled back in, so no garbage plant ever leaves the game.\n' +
+        'Deck build original - both 13 and 14 are set aside; after the ' +
+        'player-count removal (garbage plants excluded and shuffled back in), ' +
+        '13 goes on top of the deck with 14 directly below it.',
 };

@@ -264,5 +264,12 @@ export const map: GameMap = {
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
     mapSpecificRules:
-        'The power plant deck is arranged as follows: plants from 3-30 in order, plants from 31-35 and step 3 card shuffled, plants from 36-50 shuffled.\nThe same set of plants are removed in every game.\nThere are several changes to when new plants are drawn. In particular, during steps 1 and 2, plants are only drawn from the deck during the bureaucracy phase.',
+        'There are several changes to when new plants are drawn. In particular, during steps 1 and 2, plants are only drawn from the deck during the bureaucracy phase.\n' +
+        'Deck build - the same plants are removed every game: with 2-3 players ' +
+        '3, 4, 9, 11, 16, 18, 20, 24, 30, 33, 46; with 4 players 3, 4, 11, 18, ' +
+        '24, 33, 46; with 5-6 players 3, 4, 33. The deck is ordered, not ' +
+        'shuffled: plants 5-30 in ascending order on top, then plants 31-35 ' +
+        'shuffled together with the Step 3 card, then plants 36-50 shuffled on ' +
+        'the bottom. The starting market has one plant per player and the ' +
+        'future market starts empty.',
 };

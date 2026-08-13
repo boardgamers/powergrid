@@ -414,5 +414,10 @@ export const map: GameMap = {
         'becomes available for auction, and each Bureaucracy phase the lowest ' +
         'plant is removed from the game. If the market is completely empty, no ' +
         'more power plants can be bought. The game ends when a player has ' +
-        'connected 18 spaces (17 for 3–4 players, 15 for 5, 14 for 6).',
+        'connected 18 spaces (17 for 3–4 players, 15 for 5, 14 for 6).\n' +
+        'Deck build - at the start of the game, 4 random plug plants are ' +
+        'removed. Of the other 9, 8 are in the starting market and 1 is on ' +
+        'the top of the deck. The rest of the deck is random with no plug ' +
+        'plants. The Step 3 card is removed from the game. For 2-3 players: ' +
+        'also place power plants 20, 22, and 37 into the game box.',
 };

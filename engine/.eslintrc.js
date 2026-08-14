@@ -29,6 +29,10 @@ module.exports = {
         'no-return-assign': 'off',
         //    'no-fallthrough': 'off',
         'no-empty': 'off',
-        quotes: ['error', 'single'],
+        // avoidEscape lets a string that itself contains an apostrophe use double
+        // quotes ("Xi'an") instead of escaping ('Xi\'an'). Without it this rule and
+        // Prettier deadlock: Prettier rewrites the escaped form to double quotes to
+        // minimise escapes, and the rule then rejects what Prettier just produced.
+        quotes: ['error', 'single', { avoidEscape: true }],
     },
 };

@@ -29,6 +29,7 @@ import {
     sellUraniumMine,
     Variant,
 } from './gamestate';
+import { Cities as ChinaCities, map as chinaMap } from './maps/china';
 import { Move, MoveName } from './move';
 import { powerPlants } from './powerPlants';
 
@@ -1838,5 +1839,46 @@ describe('Engine', () => {
 
         expect(G.currentPlayers, 'the dropped player is no longer on the clock').to.not.include(dropped);
         expect(G.players[dropped].isDropped).to.be.true;
+    });
+
+    it('should spell the China cities as the printed board does', () => {
+        // Issue #59: seven names were transcribed wrong. Asserted on the map module
+        // rather than through setup(), because setup() trims cities by player count
+        // and would quietly stop covering whichever names fell out of play.
+        const names = chinaMap.cities.map((c) => c.name);
+
+        for (const name of ["Qiqha'er", 'Qingdao', 'Baotou', "Ku'erle", "Xi'an", 'Guiyang', 'Yinchuan']) {
+            expect(names, `${name} is on the map`).to.include(name);
+        }
+
+        for (const typo of ['Qiqhaer', 'Qingoad', 'Badtou', 'Kuerle', 'Xian', 'Chiyang', 'Yinchjan']) {
+            expect(names, `the old spelling ${typo} is gone`).to.not.include(typo);
+        }
+    });
+
+    it('should price the China Changchun–Jilin connection at 2', () => {
+        // Issue #59: the file said 5; the printed board says 2.
+        const link = chinaMap.connections.find(
+            (c) => c.nodes.includes(ChinaCities.Changchun) && c.nodes.includes(ChinaCities.Jilin)
+        );
+
+        expect(link, 'Changchun–Jilin is connected').to.not.be.undefined;
+        expect(link!.cost).to.equal(2);
+    });
+
+    it('should still set up a full China game after the renames', () => {
+        // A rename that missed a reference would leave a connection pointing at a city
+        // that no longer exists; region graph and setup both walk that list.
+        const G = setup(6, { map: 'China', variant: 'recharged' }, 'china-rename-smoke');
+
+        expect(G.map.name).to.equal('China');
+        expect(G.players).to.have.length(6);
+
+        const cityNames = G.map.cities.map((c) => c.name);
+        for (const connection of G.map.connections) {
+            for (const node of connection.nodes) {
+                expect(cityNames, `connection endpoint ${node} exists`).to.include(node);
+            }
+        }
     });
 });

@@ -77,6 +77,11 @@ export function round(G: GameState): number {
     return G.round;
 }
 
+// Ceiling on the moves auto-played for one dropped player's turn. Real turns resolve in
+// a handful — the longest is a Resources phase bought one cube at a time — so this sits
+// orders of magnitude above any legitimate turn and only ever trips on a stuck state.
+const MAX_AUTO_MOVES = 1000;
+
 export async function dropPlayer(G: GameState, playerNum: number): Promise<GameState> {
     const player = G.players[playerNum];
     player.isDropped = true;
@@ -89,7 +94,20 @@ export async function dropPlayer(G: GameState, playerNum: number): Promise<GameS
     if (player.availableMoves![MoveName.Pass]) {
         G = engine.move(G, { name: MoveName.Pass, data: true }, playerNum);
     } else {
+        let autoMoves = 0;
+
         while (G.currentPlayers.includes(playerNum)) {
+            if (++autoMoves > MAX_AUTO_MOVES) {
+                // A state moveAI cannot advance would otherwise spin this loop forever,
+                // pinning a game-server worker at 100% CPU with no request ever
+                // returning. Fail loudly instead: a thrown error is recoverable and
+                // diagnosable, a hung worker is neither.
+                throw new Error(
+                    `dropPlayer: player ${playerNum} is still current after ${MAX_AUTO_MOVES} auto-played ` +
+                        `moves (phase ${G.phase}, round ${G.round}) — aborting to avoid an infinite loop`
+                );
+            }
+
             G = engine.moveAI(G, playerNum);
         }
     }

@@ -11,6 +11,7 @@ import {
     getPowerPlant,
     move,
     moveAI,
+    rebuildPlantMarketForChina,
     reconstructState,
     setup,
 } from './engine';
@@ -1880,5 +1881,34 @@ describe('Engine', () => {
                 expect(cityNames, `connection endpoint ${node} exists`).to.include(node);
             }
         }
+    });
+
+    it('should hold the China market at four plants in Step 3 (#67)', () => {
+        // RIO 573 China: "in Step 3, there are always 4 power plants in the power plant
+        // market regardless of the number of players." Steps 1-2 hold the market at
+        // players-1 — five at six players — so the Step 3 branch has to trim down, not
+        // only fill up. Six players is the only count that can exceed four.
+        const G = setup(6, { map: 'China', variant: 'recharged' }, 'china-step3-trim');
+        G.step = 3;
+        G.actualMarket = [5, 6, 7, 8, 9].map((n) => getPowerPlant(n));
+
+        rebuildPlantMarketForChina(G);
+
+        expect(G.actualMarket.length, 'Step 3 market is exactly four').to.equal(4);
+        expect(
+            G.actualMarket.map((p) => p.number),
+            'the smallest plant is the one boxed'
+        ).to.deep.equal([6, 7, 8, 9]);
+    });
+
+    it('should still fill the China Step 3 market up to four when it is short', () => {
+        // The trim must not break the existing fill-up direction.
+        const G = setup(6, { map: 'China', variant: 'recharged' }, 'china-step3-fill');
+        G.step = 3;
+        G.actualMarket = [getPowerPlant(5), getPowerPlant(6)];
+
+        rebuildPlantMarketForChina(G);
+
+        expect(G.actualMarket.length, 'topped back up to four').to.equal(4);
     });
 });

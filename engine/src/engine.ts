@@ -2684,7 +2684,7 @@ export function applyAustraliaStep3Shift(G: GameState) {
     });
 }
 
-function rebuildPlantMarketForChina(G: GameState) {
+export function rebuildPlantMarketForChina(G: GameState) {
     /*At the beginning of phase 5, the players fill the power plant market with new power plants. Depending on the
 number of players, the players always add a minimum of 1, 2, or 3 power plants to the market from the supply:
 with 2 and 3 players, add at least 1 power plant.
@@ -2719,6 +2719,15 @@ Exception: with 2 players, add plants until there are 2 in the market.*/
 
     if (G.step == 3) {
         G.actualMarket = G.actualMarket.filter((pp) => pp.type != PowerPlantType.Step3);
+        // RIO 573: "in Step 3, there are always 4 power plants in the power plant market
+        // regardless of the number of players." Steps 1-2 hold the market at players-1,
+        // which is FIVE at six players, so the Step 3 branch has to trim down as well as
+        // fill up. Smallest-first, matching the step 1/2 branch below and the rulebook's
+        // "remove the smallest power plant from the market".
+        while (G.actualMarket.length > 4) {
+            G.actualMarket.shift();
+        }
+
         while (G.actualMarket.length < 4 && G.powerPlantsDeck.length > 0) {
             addPowerPlant(G);
         }

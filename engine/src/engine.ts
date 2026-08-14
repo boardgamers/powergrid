@@ -2147,10 +2147,14 @@ export function moveAI(G: GameState, playerNumber: number): GameState {
         }
 
         case Phase.Building: {
-            const capacity = player.powerPlants.map((pp) => pp.citiesPowered).reduce((a, b) => a + b);
+            // Seed the sum: reduce() with no initial value throws on an empty array, so a
+            // plant-less player would crash the auto-play path instead of scoring zero capacity.
+            const capacity = player.powerPlants.map((pp) => pp.citiesPowered).reduce((a, b) => a + b, 0);
 
             if (availableMoves?.Build && (player.money >= 30 || capacity > player.cities.length)) {
-                const minPrice = availableMoves.Build.sort((a, b) => a.price - b.price)[0].price;
+                // Sort a copy: `availableMoves` is `player.availableMoves`, which lives on the
+                // game state and is served to clients — choosing a move must not reorder it.
+                const minPrice = [...availableMoves.Build].sort((a, b) => a.price - b.price)[0].price;
                 const cheapestCities = availableMoves.Build.filter((x) => x.price == minPrice);
                 chosenMove = { name: MoveName.Build, data: chooseRandom(cheapestCities) };
             }
@@ -2162,7 +2166,8 @@ export function moveAI(G: GameState, playerNumber: number): GameState {
             if (availableMoves?.UsePowerPlant && player.cities.length > player.citiesPowered) {
                 chosenMove = {
                     name: MoveName.UsePowerPlant,
-                    data: availableMoves.UsePowerPlant.sort((a, b) => a.citiesPowered - b.citiesPowered)[0],
+                    // Sorted on a copy, for the same reason as Build above.
+                    data: [...availableMoves.UsePowerPlant].sort((a, b) => a.citiesPowered - b.citiesPowered)[0],
                 };
             }
 
@@ -2170,7 +2175,6 @@ export function moveAI(G: GameState, playerNumber: number): GameState {
         }
     }
 
-    console.log('ai move', chosenMove);
     // Stamp the move so the per-player clocks keep advancing across auto-played
     // turns (bots, and dropped players auto-played by dropPlayer). Without this the
     // clock chain breaks: no clock starts, so the next human to move sits on an

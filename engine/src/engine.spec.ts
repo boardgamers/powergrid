@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import 'mocha';
+import { dropPlayer } from '../wrapper';
 import { availableMoves, computeRegionGraph, regionPickable } from './available-moves';
 import {
     addPowerPlant,
@@ -1773,5 +1774,69 @@ describe('Engine', () => {
         };
 
         expect(playOut()).to.deep.equal(playOut());
+    });
+
+    // moveAI stopped being an internal-only helper when the platform started driving
+    // live bot players through it (engine/index.ts re-export). These guard the two ways
+    // it could hurt a real game from that seat.
+    it('should let moveAI build for a player holding no power plants', () => {
+        // Regression: the capacity sum used reduce() with no initial value, so an empty
+        // powerPlants array threw "Reduce of empty array with no initial value" — killing
+        // the bot / dropped-player turn instead of scoring zero capacity.
+        const G = setup(3, { map: 'Germany' }, 'ai-build-no-plants');
+        G.phase = Phase.Building;
+        G.currentPlayers = [0];
+        const player = G.players[0];
+        player.powerPlants = [];
+        player.availableMoves = availableMoves(G, player);
+
+        expect(() => moveAI(G, 0)).to.not.throw();
+    });
+
+    it('should not reorder the stored available moves when moveAI picks one', () => {
+        // availableMoves lives on the game state and is served to clients; sorting it in
+        // place to find the cheapest option silently rewrote what players are shown.
+        const G = setup(3, { map: 'Germany' }, 'ai-build-no-sort');
+        G.phase = Phase.Building;
+        G.currentPlayers = [0];
+        const player = G.players[0];
+        // A network makes build prices vary with distance; without one every city costs
+        // the same opening slot price and an in-place sort would be undetectable.
+        player.money = 200;
+        player.cities = [{ name: G.map.cities[0].name, position: 0 }];
+        // Hold a plant so this test exercises the sort rather than tripping the
+        // empty-reduce covered by the test above.
+        player.powerPlants = [getPowerPlant(4)];
+        player.availableMoves = availableMoves(G, player);
+
+        const stored = player.availableMoves[MoveName.Build]!;
+        const before = stored.map((c) => c.name);
+        const prices = stored.map((c) => c.price);
+        // Without this the test could pass on a list that was already price-ordered.
+        expect(
+            prices.some((p, i) => i > 0 && p < prices[i - 1]),
+            'the natural city order is not already sorted by price, so an in-place sort would show'
+        ).to.be.true;
+
+        moveAI(G, 0);
+
+        expect(
+            stored.map((c) => c.name),
+            'the stored Build list keeps its original order'
+        ).to.deep.equal(before);
+    });
+
+    it('should finish dropping a player whose turn has no Pass available', async () => {
+        // Round 1 forces a purchase, so dropPlayer cannot simply Pass — it auto-plays
+        // through moveAI in a loop. Guards that the loop still terminates (it is now
+        // bounded by MAX_AUTO_MOVES rather than running forever on a stuck state).
+        let G = setup(3, { map: 'Germany' }, 'drop-no-pass');
+        const dropped = G.currentPlayers[0];
+        expect(G.players[dropped].availableMoves![MoveName.Pass], 'round 1 offers no Pass').to.be.undefined;
+
+        G = await dropPlayer(G, dropped);
+
+        expect(G.currentPlayers, 'the dropped player is no longer on the clock').to.not.include(dropped);
+        expect(G.players[dropped].isDropped).to.be.true;
     });
 });

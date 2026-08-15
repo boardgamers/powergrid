@@ -41,6 +41,37 @@ export interface AvailableMoves {
     [MoveName.Undo]?: boolean[];
 }
 
+/**
+ * Which of coal and oil the player is holding more of than they can store.
+ *
+ * A hybrid plant's capacity is a shared tank, so an overflow of one resource eats into
+ * the other's headroom — but only when the player actually owns a hybrid plant. This
+ * file used to compute that overflow unguarded while the two discard handlers in
+ * engine.ts guarded it, so a player with no hybrid plant who was over on coal got
+ * offered an *oil* discard — oil they might not hold at all, which the handler then
+ * decremented past zero. Both sides read this now, so the moves offered and the moves
+ * executed cannot disagree.
+ */
+export function coalOilOverCapacity(player: Player): ResourceType[] {
+    const over: ResourceType[] = [];
+
+    // `> 0` because an oversubscribed shared tank fails BOTH tests: a player drowning in
+    // oil trips the coal test too, and used to be offered a coal discard while holding
+    // no coal — the handler then decremented it to -1. You can only discard what you
+    // hold, and whichever resource actually caused the overflow is still offered.
+    const oilOverflow = player.hybridCapacity > 0 ? Math.max(0, player.oilLeft - player.oilCapacity) : 0;
+    if (player.coalLeft > 0 && player.coalCapacity + player.hybridCapacity < player.coalLeft + oilOverflow) {
+        over.push(ResourceType.Coal);
+    }
+
+    const coalOverflow = player.hybridCapacity > 0 ? Math.max(0, player.coalLeft - player.coalCapacity) : 0;
+    if (player.oilLeft > 0 && player.oilCapacity + player.hybridCapacity < player.oilLeft + coalOverflow) {
+        over.push(ResourceType.Oil);
+    }
+
+    return over;
+}
+
 export function availableMoves(G: GameState, player: Player): AvailableMoves {
     const moves = {};
 
@@ -63,16 +94,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                     .filter((pp, i) => i != player.powerPlants.length - 1 && !isUraniumMine(G, pp))
                     .map((pp) => pp.number);
             } else {
-                const toDiscard: ResourceType[] = [];
-                let hybridCapacityUsed = Math.max(0, player.oilLeft - player.oilCapacity);
-                if (player.coalCapacity + player.hybridCapacity < player.coalLeft + hybridCapacityUsed) {
-                    toDiscard.push(ResourceType.Coal);
-                }
-
-                hybridCapacityUsed = Math.max(0, player.coalLeft - player.coalCapacity);
-                if (player.oilCapacity + player.hybridCapacity < player.oilLeft + hybridCapacityUsed) {
-                    toDiscard.push(ResourceType.Oil);
-                }
+                const toDiscard: ResourceType[] = coalOilOverCapacity(player);
 
                 if (player.garbageCapacity < player.garbageLeft) {
                     toDiscard.push(ResourceType.Garbage);

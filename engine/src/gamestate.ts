@@ -223,6 +223,7 @@ export interface GameState {
     minimunBid: number;
     plantDiscountActive: boolean;
     discountBonusPlayer?: number; // Manhattan: id of the player who bought the discounted plant and may purchase one more this phase.
+    pendingMarketRefill?: boolean; // A purchase is owed its replacement plant. Set in endAuction, consumed by whichever path finishes the purchase (#67).
     discardSmallestPlant: boolean; // For Benelux map, there are times when we remove the smallest plant.
     nextCardWeak: boolean;
     cardsLeft: number;

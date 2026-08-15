@@ -11,6 +11,7 @@ import {
     getPowerPlant,
     move,
     moveAI,
+    rebuildPlantMarketForChina,
     reconstructState,
     setup,
 } from './engine';
@@ -25,6 +26,7 @@ import {
     Phase,
     PowerPlant,
     PowerPlantType,
+    ResourceType,
     resupplyUraniumMine,
     sellUraniumMine,
     Variant,
@@ -1880,5 +1882,116 @@ describe('Engine', () => {
                 expect(cityNames, `connection endpoint ${node} exists`).to.include(node);
             }
         }
+    });
+
+    it('should hold the China market at four plants in Step 3 (#67)', () => {
+        // RIO 573 China: "in Step 3, there are always 4 power plants in the power plant
+        // market regardless of the number of players." Steps 1-2 hold the market at
+        // players-1 — five at six players — so the Step 3 branch has to trim down, not
+        // only fill up. Six players is the only count that can exceed four.
+        const G = setup(6, { map: 'China', variant: 'recharged' }, 'china-step3-trim');
+        G.step = 3;
+        G.actualMarket = [5, 6, 7, 8, 9].map((n) => getPowerPlant(n));
+
+        rebuildPlantMarketForChina(G);
+
+        expect(G.actualMarket.length, 'Step 3 market is exactly four').to.equal(4);
+        expect(
+            G.actualMarket.map((p) => p.number),
+            'the smallest plant is the one boxed'
+        ).to.deep.equal([6, 7, 8, 9]);
+    });
+
+    it('should still fill the China Step 3 market up to four when it is short', () => {
+        // The trim must not break the existing fill-up direction.
+        const G = setup(6, { map: 'China', variant: 'recharged' }, 'china-step3-fill');
+        G.step = 3;
+        G.actualMarket = [getPowerPlant(5), getPowerPlant(6)];
+
+        rebuildPlantMarketForChina(G);
+
+        expect(G.actualMarket.length, 'topped back up to four').to.equal(4);
+    });
+
+    it('should not draw a plant when an over-capacity player discards resources without buying (#67)', () => {
+        // The draw at the end of the discard chain is the refill for a PURCHASE. But
+        // available-moves offers DiscardResources to any over-capacity player in the
+        // auction phase, purchase or not — so a player carrying resources their plants
+        // can no longer hold triggers a free plant into the market. On China that shows
+        // as a fifth plant in a Step 3 market the rulebook pins at four; on every other
+        // map the extra plant inflates the future market instead.
+        let G = setup(4, { map: 'China', variant: 'recharged' }, 'china-spurious-refill');
+        G.step = 3;
+        G.phase = Phase.Auction;
+        G.actualMarket = [30, 31, 32, 33].map((n) => getPowerPlant(n));
+        G.futureMarket = [];
+        G.chosenPowerPlant = undefined;
+
+        // Nobody has bought anything this phase; this player is simply holding a coal
+        // cube with no coal capacity left to hold it.
+        const idx = G.players[0].id;
+        const player = G.players[idx];
+        player.coalLeft = 1;
+        player.coalCapacity = 0;
+        player.oilLeft = 0;
+        player.oilCapacity = 0;
+        player.hybridCapacity = 0;
+        player.skipAuction = false;
+        G.currentPlayers = [idx];
+        player.availableMoves = availableMoves(G, player);
+
+        expect(player.availableMoves[MoveName.DiscardResources], 'the over-capacity player is asked to discard').to.not
+            .be.undefined;
+
+        G = move(G, { name: MoveName.DiscardResources, data: ResourceType.Coal } as Move, idx);
+
+        expect(G.actualMarket.length, 'a discard with no purchase behind it must not draw a plant').to.equal(4);
+    });
+
+    it('should not ask a player with no hybrid plant to discard a resource they do not hold', () => {
+        // A hybrid plant's capacity is a shared tank, so one resource overflowing eats
+        // into the other's headroom — but only if the player owns a hybrid plant.
+        // available-moves used to skip that guard while the engine applied it, so a coal
+        // overflow made the oil test fail too and offered a discard of oil the player
+        // never had. The engine then decremented it past zero.
+        const G = setup(3, { map: 'Germany' }, 'no-phantom-oil-discard');
+        G.phase = Phase.Auction;
+
+        const player = G.players[0];
+        player.coalLeft = 2;
+        player.coalCapacity = 0;
+        player.oilLeft = 0;
+        player.oilCapacity = 0;
+        player.hybridCapacity = 0;
+        G.currentPlayers = [player.id];
+
+        const offered = availableMoves(G, player)[MoveName.DiscardResources];
+
+        expect(offered, 'the coal overflow is still offered').to.deep.equal([ResourceType.Coal]);
+    });
+
+    it('should clear the whole overflow and return the cubes to the supply when auto-discarding', () => {
+        // The DiscardResources handler used to step down by a single cube and drop it on
+        // the floor. A player over by two stayed over by one, got prompted again later,
+        // and that second discard drew a spurious plant (#67).
+        let G = setup(3, { map: 'Germany' }, 'auto-discard-clears-overflow');
+        G.phase = Phase.Auction;
+
+        const idx = G.players[0].id;
+        const player = G.players[idx];
+        player.coalLeft = 3;
+        player.coalCapacity = 0;
+        player.oilLeft = 0;
+        player.oilCapacity = 0;
+        player.hybridCapacity = 0;
+        G.currentPlayers = [idx];
+        player.availableMoves = availableMoves(G, player);
+
+        const supplyBefore = G.coalSupply;
+
+        G = move(G, { name: MoveName.DiscardResources, data: ResourceType.Coal } as Move, idx);
+
+        expect(G.players[idx].coalLeft, 'the player is left within capacity, not one cube over').to.equal(0);
+        expect(G.coalSupply - supplyBefore, 'every discarded cube goes back to the supply').to.equal(3);
     });
 });

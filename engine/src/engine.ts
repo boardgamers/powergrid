@@ -1,7 +1,7 @@
 import assert from 'assert';
 import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
-import { availableMoves, computeRegionGraph, regionPickable } from './available-moves';
+import { availableMoves, coalOilOverCapacity, computeRegionGraph, regionPickable } from './available-moves';
 import {
     countHeldPowerPlants,
     GameOptions,
@@ -673,16 +673,14 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                         countHeldPowerPlants(G, winningPlayer) > 4 ||
                         (G.players.length > 2 && countHeldPowerPlants(G, winningPlayer) > 3);
                     if (!overPlantLimit) {
-                        addPowerPlant(G);
+                        refillMarketAfterPurchase(G);
                     }
                     setCurrentPlayer(G, G.discountBonusPlayer);
                 } else if (
                     countHeldPowerPlants(G, winningPlayer) <= 3 ||
                     (G.players.length == 2 && countHeldPowerPlants(G, winningPlayer) == 4)
                 ) {
-                    if (G.map.name != 'China' || G.step == 3) {
-                        addPowerPlant(G);
-                    }
+                    refillMarketAfterPurchase(G);
 
                     toResourcesPhase(G);
                 }
@@ -878,9 +876,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                                 ) {
                                     setCurrentPlayer(G, winningPlayer.id);
                                 } else {
-                                    if (G.map.name != 'China' || G.step == 3) {
-                                        addPowerPlant(G);
-                                    }
+                                    refillMarketAfterPurchase(G);
 
                                     if (G.players.some((p) => !p.skipAuction && !p.isDropped)) {
                                         G.players.forEach((p) => {
@@ -1447,9 +1443,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     )}.`,
                 });
 
-                if (G.map.name != 'China' || G.step == 3) {
-                    addPowerPlant(G);
-                }
+                refillMarketAfterPurchase(G);
 
                 G.players.forEach((p) => {
                     p.bid = 0;
@@ -1462,17 +1456,7 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                     toResourcesPhase(G);
                 }
             } else {
-                const toDiscard: ResourceType[] = [];
-                let hybridCapacityUsed =
-                    player.hybridCapacity > 0 ? Math.max(0, player.oilLeft - player.oilCapacity) : 0;
-                if (player.coalCapacity + player.hybridCapacity < player.coalLeft + hybridCapacityUsed) {
-                    toDiscard.push(ResourceType.Coal);
-                }
-
-                hybridCapacityUsed = player.hybridCapacity > 0 ? Math.max(0, player.coalLeft - player.coalCapacity) : 0;
-                if (player.oilCapacity + player.hybridCapacity < player.oilLeft + hybridCapacityUsed) {
-                    toDiscard.push(ResourceType.Oil);
-                }
+                const toDiscard: ResourceType[] = coalOilOverCapacity(player);
 
                 if (player.garbageLeft > player.garbageCapacity) {
                     G.garbageSupply += player.garbageLeft - player.garbageCapacity;
@@ -1485,21 +1469,12 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 }
 
                 if (toDiscard.length == 1) {
-                    if (toDiscard[0] == ResourceType.Coal) {
-                        G.coalSupply += player.coalLeft - player.coalCapacity;
-                        player.coalLeft = player.coalCapacity;
-                    } else if (toDiscard[0] == ResourceType.Oil) {
-                        G.oilSupply += player.oilLeft - player.oilCapacity;
-                        player.oilLeft = player.oilCapacity;
-                    }
-
+                    discardDownToCapacity(G, player, toDiscard[0]);
                     toDiscard.pop();
                 }
 
                 if (toDiscard.length == 0) {
-                    if (G.map.name != 'China' || G.step == 3) {
-                        addPowerPlant(G);
-                    }
+                    refillMarketAfterPurchase(G);
                     G.players.forEach((p) => {
                         p.bid = 0;
                         p.passed = p.isDropped;
@@ -1535,31 +1510,15 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
                 G.oilSupply++;
             }
 
-            const toDiscard: ResourceType[] = [];
-            let hybridCapacityUsed = player.hybridCapacity > 0 ? Math.max(0, player.oilLeft - player.oilCapacity) : 0;
-            if (player.coalCapacity + player.hybridCapacity < player.coalLeft + hybridCapacityUsed) {
-                toDiscard.push(ResourceType.Coal);
-            }
-
-            hybridCapacityUsed = player.hybridCapacity > 0 ? Math.max(0, player.coalLeft - player.coalCapacity) : 0;
-            if (player.oilCapacity + player.hybridCapacity < player.oilLeft + hybridCapacityUsed) {
-                toDiscard.push(ResourceType.Oil);
-            }
+            const toDiscard: ResourceType[] = coalOilOverCapacity(player);
 
             if (toDiscard.length == 1) {
-                if (toDiscard[0] == ResourceType.Coal) {
-                    player.coalLeft--;
-                } else if (toDiscard[0] == ResourceType.Oil) {
-                    player.oilLeft--;
-                }
-
+                discardDownToCapacity(G, player, toDiscard[0]);
                 toDiscard.pop();
             }
 
             if (toDiscard.length == 0) {
-                if (G.map.name != 'China' || G.step == 3) {
-                    addPowerPlant(G);
-                }
+                refillMarketAfterPurchase(G);
                 G.players.forEach((p) => {
                     p.bid = 0;
                     p.passed = p.isDropped;
@@ -2684,7 +2643,7 @@ export function applyAustraliaStep3Shift(G: GameState) {
     });
 }
 
-function rebuildPlantMarketForChina(G: GameState) {
+export function rebuildPlantMarketForChina(G: GameState) {
     /*At the beginning of phase 5, the players fill the power plant market with new power plants. Depending on the
 number of players, the players always add a minimum of 1, 2, or 3 power plants to the market from the supply:
 with 2 and 3 players, add at least 1 power plant.
@@ -2719,6 +2678,15 @@ Exception: with 2 players, add plants until there are 2 in the market.*/
 
     if (G.step == 3) {
         G.actualMarket = G.actualMarket.filter((pp) => pp.type != PowerPlantType.Step3);
+        // RIO 573: "in Step 3, there are always 4 power plants in the power plant market
+        // regardless of the number of players." Steps 1-2 hold the market at players-1,
+        // which is FIVE at six players, so the Step 3 branch has to trim down as well as
+        // fill up. Smallest-first, matching the step 1/2 branch below and the rulebook's
+        // "remove the smallest power plant from the market".
+        while (G.actualMarket.length > 4) {
+            G.actualMarket.shift();
+        }
+
         while (G.actualMarket.length < 4 && G.powerPlantsDeck.length > 0) {
             addPowerPlant(G);
         }
@@ -2728,6 +2696,51 @@ Exception: with 2 players, add plants until there are 2 in the market.*/
         while (G.actualMarket.length > targetSize) {
             G.actualMarket.shift();
         }
+    }
+}
+
+/**
+ * Discard just enough of one resource to fit the player's storage, returning the cubes
+ * to the supply.
+ *
+ * The over-capacity test is `capacity + hybrid < held + otherOverflow`, so the largest
+ * legal holding is `capacity + hybrid - otherOverflow`. The DiscardResources handler
+ * used to step down by a single cube instead, which left a player who was over by two
+ * still over by one — they get prompted again later, and that later discard used to
+ * draw a spurious plant into the market (#67). It also dropped the cubes on the floor
+ * rather than returning them to the supply.
+ */
+function discardDownToCapacity(G: GameState, player: Player, resource: ResourceType) {
+    if (resource == ResourceType.Coal) {
+        G.coalSupply += Math.max(0, player.coalLeft - player.coalCapacity);
+        player.coalLeft = Math.min(player.coalLeft, player.coalCapacity);
+    } else if (resource == ResourceType.Oil) {
+        G.oilSupply += Math.max(0, player.oilLeft - player.oilCapacity);
+        player.oilLeft = Math.min(player.oilLeft, player.oilCapacity);
+    }
+}
+
+/**
+ * Draw the replacement plant a completed purchase is owed — and only then.
+ *
+ * `endAuction` marks the purchase; whichever path finishes it consumes the mark. The
+ * mark is what was missing: available-moves offers DiscardResources to ANY player over
+ * capacity during the auction phase, not just a buyer, so a player merely carrying a
+ * resource their plants can no longer hold used to complete a discard and pull a free
+ * plant into the market. On China that surfaced as a fifth plant in a Step 3 market the
+ * rulebook pins at four (#67); elsewhere it inflated the future market instead.
+ */
+function refillMarketAfterPurchase(G: GameState) {
+    if (!G.pendingMarketRefill) {
+        return;
+    }
+
+    G.pendingMarketRefill = false;
+
+    // China refills once per round in Bureaucracy while in steps 1-2 (see
+    // rebuildPlantMarketForChina), not per purchase.
+    if (G.map.name != 'China' || G.step == 3) {
+        addPowerPlant(G);
     }
 }
 
@@ -2948,6 +2961,11 @@ function endAuction(G: GameState, winningPlayer: Player, bid: number) {
 
     removePowerPlant(G, G.chosenPowerPlant!);
     G.chosenPowerPlant = G.currentBid = undefined;
+
+    // This purchase is owed exactly one replacement plant. Whichever path finishes the
+    // purchase draws it — immediately, or after the buyer discards down to the plant
+    // limit — and consumes the mark. See refillMarketAfterPurchase.
+    G.pendingMarketRefill = true;
 }
 
 function setPlayerOrder(G: GameState) {
@@ -3151,9 +3169,7 @@ function fastAuction(G: GameState, player: Player, bid: number) {
         ) {
             setCurrentPlayer(G, winningPlayer.id);
         } else {
-            if (G.map.name != 'China' || G.step == 3) {
-                addPowerPlant(G);
-            }
+            refillMarketAfterPurchase(G);
 
             if (G.players.some((p) => !p.skipAuction && !p.isDropped)) {
                 G.players.forEach((p) => {

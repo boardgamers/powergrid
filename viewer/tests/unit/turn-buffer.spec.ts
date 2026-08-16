@@ -1,7 +1,7 @@
-import { expect } from 'chai';
-import { move as engineMove, MoveName, setup } from 'powergrid-engine';
-import type { GameState, Move } from 'powergrid-engine';
 import { matchesTurnBuffer, moveMatches, rebaseTurnBuffer, replayTurnBuffer } from '@/util/turn-buffer';
+import { expect } from 'chai';
+import type { GameState, Move } from 'powergrid-engine';
+import { move as engineMove, MoveName, setup } from 'powergrid-engine';
 
 describe('turn-buffer', () => {
     const clone = <T>(value: T): T => JSON.parse(JSON.stringify(value));

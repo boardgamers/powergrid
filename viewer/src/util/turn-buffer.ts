@@ -1,7 +1,6 @@
 import { isEqual } from 'lodash';
+import type { GameState, LogItem, LogMove, Move } from 'powergrid-engine';
 import { move as engineMove } from 'powergrid-engine';
-import type { GameState, LogItem, Move } from 'powergrid-engine';
-import type { LogMove } from 'powergrid-engine/src/log';
 
 /**
  * Pure helpers for the viewer's tentative-turn buffer.

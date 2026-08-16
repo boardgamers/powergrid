@@ -56,9 +56,34 @@ describe('turn-buffer', () => {
         // The whole buffer came back committed: nothing left to replay
         expect(rebaseTurnBuffer(next, committed.log, [choose, bid], player)).to.deep.equal([]);
 
-        // A racing extra move survives the rebase (it is re-sent on the new base)
+        // A racing extra move is scrapped when the commit ends our turn — the bid
+        // handed the auction to the other player, so nothing of ours can replay on
+        // the new base. (Previously it was kept and only died in the replay's
+        // illegal-move error path.)
         const racing: Move = { name: MoveName.Pass, data: true, time: 3000 };
-        expect(rebaseTurnBuffer(next, committed.log, [choose, bid, racing], player)).to.deep.equal([racing]);
+        expect(next.currentPlayers).to.not.include(player);
+        expect(rebaseTurnBuffer(next, committed.log, [choose, bid, racing], player)).to.deep.equal([]);
+    });
+
+    it('rebaseTurnBuffer scraps a leftover fastBid bid whose effect committed to the hidden log', () => {
+        const committed = setup(2, { fastBid: true }, 'turn-buffer-fastbid');
+        const player = committed.currentPlayers[0];
+        const plants = committed.players[player].availableMoves![MoveName.ChoosePowerPlant]!;
+        const choose: Move = { name: MoveName.ChoosePowerPlant, data: Math.min(...plants), time: 1000 };
+        const bid: Move = { name: MoveName.Bid, data: choose.data as number, time: 2000 };
+
+        let next: GameState = engineMove(clone(committed), choose, player);
+        expect(next.newTurn, 'the chooser is still on the clock to bid').to.be.false;
+        next = engineMove(next, bid, player);
+        expect(next.newTurn, 'a fastBid bid commits immediately').to.be.true;
+
+        // The bid went to the HIDDEN log: the committed echo extends the visible log
+        // by the choose alone. The leftover [bid] is nonetheless already reflected in
+        // the state — the mover left currentPlayers — so the rebase scraps it cleanly
+        // instead of leaving it to be rejected (noisily) by the replay.
+        expect(next.log.length).to.equal(committed.log.length + 1);
+        expect(next.currentPlayers).to.not.include(player);
+        expect(rebaseTurnBuffer(next, committed.log, [choose, bid], player)).to.deep.equal([]);
     });
 
     it("rebaseTurnBuffer keeps the buffer across another player's commit and scraps it on a mismatch", () => {

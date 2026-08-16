@@ -728,10 +728,20 @@ export default class Game extends Vue {
                 const preview = this.replayTurnBuffer();
                 if (this.turnMoves.length > 0) {
                     this.emitter.emit('move', [...this.turnMoves]);
-                    // The replay scrubber still needs the newest committed state
-                    this._futureState = state;
-                    this.replaceState(preview, false);
-                    return;
+                    // Only show the preview while it is still tentative. A rebased
+                    // buffer ending in a COMMITTING move (e.g. Bureaucracy
+                    // [UsePowerPlant, Pass] racing another player's commit) replays
+                    // hidden outcomes (deck draws, upkeep) on the STRIPPED committed
+                    // state — empty deck, secret seed — so its preview would flash
+                    // bogus results. Fall through to the new committed base instead;
+                    // the server's echo of the real committed result of the re-sent
+                    // buffer lands next and clears the buffer via the rebase above.
+                    if (preview.newTurn === false) {
+                        // The replay scrubber still needs the newest committed state
+                        this._futureState = state;
+                        this.replaceState(preview, false);
+                        return;
+                    }
                 }
             }
         } else if (state && !matchesTurnBuffer(state, this.committedState, this.turnMoves, this.player)) {

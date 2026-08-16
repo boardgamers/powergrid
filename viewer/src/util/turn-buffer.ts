@@ -57,11 +57,12 @@ export function matchesTurnBuffer(
  * Adjust the turn buffer to an incoming COMMITTED state.
  *
  * - Our own commit echoed back: the new log contains the buffered moves — drop them
- *   (usually emptying the buffer; a racing extra move may survive).
+ *   (usually emptying the buffer; a racing extra move may survive if we can still act).
  * - Someone else's commit (simultaneous Bureaucracy): the new log contains no moves of
  *   ours — keep the whole buffer, to be replayed on the new base.
- * - Anything else (our turn superseded, e.g. auto-played after a drop, or a log that
- *   did not grow monotonically): scrap the buffer.
+ * - Anything else (our turn superseded, e.g. auto-played after a drop, a leftover whose
+ *   effect is already committed hidden — a fastBid bid — or a log that did not grow
+ *   monotonically): scrap the buffer.
  */
 export function rebaseTurnBuffer(
     committed: GameState,
@@ -82,7 +83,19 @@ export function rebaseTurnBuffer(
         return [];
     }
 
-    return turnMoves.slice(appendedOurs.length);
+    const remaining = turnMoves.slice(appendedOurs.length);
+
+    // A leftover move is only replayable if we can still act on the new base. This is
+    // how buffered moves whose effect is HIDDEN get dropped: a fastBid bid goes to the
+    // engine's hidden log and commits immediately, so a chooser's [choose, bid] buffer
+    // echoes back with only the choose visible — the bid is already reflected in the
+    // committed state, and the mover has left `currentPlayers`. Scrap the rest
+    // silently instead of letting the replay reject it with an error.
+    if (remaining.length > 0 && (player === undefined || !committed.currentPlayers.includes(player))) {
+        return [];
+    }
+
+    return remaining;
 }
 
 /**

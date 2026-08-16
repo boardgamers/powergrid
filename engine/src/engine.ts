@@ -1746,7 +1746,6 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
 
             break;
         }
-
     }
 
     player.availableMoves = null;

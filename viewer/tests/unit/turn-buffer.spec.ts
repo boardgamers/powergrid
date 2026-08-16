@@ -61,7 +61,7 @@ describe('turn-buffer', () => {
         expect(rebaseTurnBuffer(next, committed.log, [choose, bid, racing], player)).to.deep.equal([racing]);
     });
 
-    it('rebaseTurnBuffer keeps the buffer across another player\'s commit and scraps it on a mismatch', () => {
+    it("rebaseTurnBuffer keeps the buffer across another player's commit and scraps it on a mismatch", () => {
         const { committed, player, choose, bid } = fixture();
         const other = 1 - player;
         let next: GameState = engineMove(clone(committed), choose, player);

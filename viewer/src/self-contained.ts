@@ -42,12 +42,25 @@ function launchSelfContained(selector = '#app') {
         if (player.id != playerIndex) player.isAI = true;
     }
 
-    emitter.on('move', async (move: Move) => {
+    emitter.on('move', async (moves: Move | Move[]) => {
         setTimeout(() => {
-            console.log('move received', move);
-            gameState = execMove(gameState, move, playerIndex);
-            console.log('new game state', gameState);
+            console.log('moves received', moves);
 
+            // Mimic the platform: replay the whole turn buffer from the last committed
+            // state; only keep (persist) the result once the turn is committed.
+            let newState = cloneDeep(gameState);
+            for (const move of Array.isArray(moves) ? moves : [moves]) {
+                newState = execMove(newState, move, playerIndex);
+            }
+            console.log('new game state', newState);
+
+            if (newState.newTurn === false) {
+                // Tentative: just echo the state back to the acting player
+                emitter.emit('state', cloneDeep(strip ? stripSecret(newState, playerIndex) : newState));
+                return;
+            }
+
+            gameState = newState;
             emitter.emit('state', cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState));
 
             let delay = delayBase;
@@ -57,9 +70,13 @@ function launchSelfContained(selector = '#app') {
                         gameState,
                         gameState.players.findIndex((pl) => pl.isAI && pl.availableMoves)
                     );
-                    let newState = cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState);
-                    console.log('new game state', newState);
-                    emitter.emit('state', newState);
+                    // Only broadcast committed states: the human viewer discards
+                    // tentative states that don't match its own turn buffer.
+                    if (gameState.newTurn !== false) {
+                        let newAIState = cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState);
+                        console.log('new game state', newAIState);
+                        emitter.emit('state', newAIState);
+                    }
                     setTimeout(moveAIAux, gameState.phase == Phase.Bureaucracy ? delay : 0);
                 }
             };
@@ -83,9 +100,12 @@ function launchSelfContained(selector = '#app') {
             gameState,
             gameState.players.findIndex((pl) => pl.isAI && pl.availableMoves)
         );
-        let newState = cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState);
-        setTimeout(() => emitter.emit('state', newState), delay);
-        delay += delayBase;
+        // Only broadcast committed states (see moveAIAux above).
+        if (gameState.newTurn !== false) {
+            let newState = cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState);
+            setTimeout(() => emitter.emit('state', newState), delay);
+            delay += delayBase;
+        }
     }
 
     console.log('available moves', gameState.players[playerIndex].availableMoves);

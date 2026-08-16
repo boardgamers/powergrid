@@ -70,11 +70,6 @@ export declare namespace Moves {
         name: MoveName.Pass;
         data: true;
     }
-
-    export interface MoveUndo {
-        name: MoveName.Undo;
-        data: boolean;
-    }
 }
 
 // Metadata the client may attach to any move. `time` is the wall-clock timestamp
@@ -98,7 +93,6 @@ export type Move = (
     | Moves.MoveChooseRegion
     | Moves.MoveChooseColor
     | Moves.MovePass
-    | Moves.MoveUndo
 ) &
     MoveMeta;
 
@@ -113,5 +107,4 @@ export enum MoveName {
     ChooseRegion = 'ChooseRegion',
     ChooseColor = 'ChooseColor',
     Pass = 'Pass',
-    Undo = 'Undo',
 }

@@ -244,6 +244,14 @@ export interface GameState {
     // Blocked spaces stay in the connection graph — they are transitable (flat-5
     // per space) but can never hold a house. Chosen by GameMap.blockSpaces.
     blockedCities?: string[];
+    /**
+     * Tentative-turn marker. `true` (or `undefined`, for robustness with states saved
+     * before this flag existed) when the state is committed: the last mover can no
+     * longer undo and the state can be persisted. `false` while a player's turn is
+     * still in progress — mid-turn moves are undone by the viewer replaying a
+     * shortened turn buffer from the last committed state, never by an engine move.
+     */
+    newTurn?: boolean;
 }
 
 // Australia: the uranium power plants are replaced by "uranium mines". They are

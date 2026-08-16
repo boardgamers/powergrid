@@ -16,7 +16,6 @@ import {
     resupplyUraniumMine,
     sellUraniumMine,
 } from './gamestate';
-import { LogMove } from './log';
 import { GameMap, maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
 import { indiaPowerPlants, powerPlants } from './powerPlants';
@@ -413,6 +412,7 @@ export function setup(
         hiddenLog: [],
         seed,
         round: 1,
+        newTurn: true,
         auctionSkips: 0,
         citiesToStep2:
             (forceMap || finalMap).name == 'Baden-Württemberg'
@@ -602,7 +602,7 @@ export function currentPlayers(G: GameState): number[] {
     return G.currentPlayers;
 }
 
-export function move(G: GameState, move: Move, playerNumber: number, isUndo = false): GameState {
+export function move(G: GameState, move: Move, playerNumber: number): GameState {
     const player = G.players[playerNumber];
     const available = player.availableMoves?.[move.name];
 
@@ -610,18 +610,10 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
 
     assert(G.currentPlayers.includes(playerNumber), 'It is not your turn!');
     assert(available, 'You are not allowed to run the command ' + move.name);
-
-    // Fix for issue 8: can't undo because of a move (discaring the pp you just bought) that is now invalid
-    if (
-        !isUndo ||
-        move.name != MoveName.DiscardPowerPlant ||
-        player.powerPlants[player.powerPlants.length - 1].number != move.data
-    ) {
-        assert(
-            available.some((x) => isEqual(x, move.data)),
-            'Wrong argument for the command ' + move.name
-        );
-    }
+    assert(
+        available.some((x) => isEqual(x, move.data)),
+        'Wrong argument for the command ' + move.name
+    );
 
     switch (move.name) {
         case MoveName.ChoosePowerPlant: {
@@ -1755,227 +1747,11 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
             break;
         }
 
-        case MoveName.Undo: {
-            asserts<Moves.MoveUndo>(move);
-
-            const lastMove = player.lastMove;
-            switch (lastMove?.name) {
-                case MoveName.ChoosePowerPlant: {
-                    if (lastMove.data == 39) {
-                        G.card39Bought = false;
-                    }
-
-                    if (lastMove.usedPlantDiscount) {
-                        G.plantDiscountActive = true;
-                    }
-
-                    G.chosenPowerPlant = undefined;
-                    G.auctioningPlayer = undefined;
-
-                    G.currentPlayers = [player.id];
-
-                    G.log.pop();
-
-                    break;
-                }
-
-                case MoveName.BuyResource: {
-                    const undoIsNorth = lastMove.data.side === 'north';
-                    let price: number;
-                    switch (lastMove.data.resource) {
-                        case ResourceType.Coal:
-                            if (undoIsNorth) {
-                                player.coalLeft--;
-                                G.coalMarketNorth!++;
-                                const coalPrices = G.coalPricesNorth!;
-                                price = coalPrices[coalPrices.length - G.coalMarketNorth!];
-                            } else if (lastMove.data.fromStorage) {
-                                price = 8;
-                                player.coalLeft--;
-                                G.coalStorage!++;
-                            } else if (lastMove.fromSupply) {
-                                price = 8;
-                                player.coalLeft--;
-                                G.coalSupply++;
-                            } else {
-                                player.coalLeft--;
-                                G.coalMarket++;
-                                const coalPrices = G.coalPrices ?? prices[ResourceType.Coal];
-                                price = coalPrices[coalPrices.length - G.coalMarket];
-                            }
-
-                            break;
-
-                        case ResourceType.Oil: {
-                            if (undoIsNorth) {
-                                player.oilLeft--;
-                                G.oilMarketNorth!++;
-                                const oilPrices = G.oilPricesNorth!;
-                                price = oilPrices[oilPrices.length - G.oilMarketNorth!];
-                            } else {
-                                player.oilLeft--;
-                                G.oilMarket++;
-                                const oilPrices = G.oilPrices ?? prices[ResourceType.Oil];
-                                price = oilPrices[oilPrices.length - G.oilMarket];
-                            }
-                            break;
-                        }
-
-                        case ResourceType.Garbage: {
-                            if (undoIsNorth) {
-                                player.garbageLeft--;
-                                G.garbageMarketNorth!++;
-                                const garbagePrices = G.garbagePricesNorth!;
-                                price = garbagePrices[garbagePrices.length - G.garbageMarketNorth!];
-                            } else {
-                                player.garbageLeft--;
-                                G.garbageMarket++;
-                                const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
-                                price = garbagePrices[garbagePrices.length - G.garbageMarket];
-
-                                // $1 cheaper for players in Wien in Central Europe
-                                if (G.map.name == 'Central Europe') {
-                                    const wienCity = player.cities.filter((c) => c.name == 'Wien');
-                                    if (wienCity?.length > 0) {
-                                        price--;
-                                    }
-                                }
-                            }
-
-                            break;
-                        }
-
-                        case ResourceType.Uranium: {
-                            // Uranium is only available from the South market (or non-Korea maps).
-                            player.uraniumLeft--;
-                            G.uraniumMarket++;
-                            const uraniumPrices = G.uraniumPrices ?? prices[ResourceType.Uranium];
-                            price = uraniumPrices[uraniumPrices.length - G.uraniumMarket];
-                            break;
-                        }
-                    }
-
-                    player.money += price;
-
-                    if (G.options.trackTotalSpent) {
-                        player.totalSpentResources -= price;
-                    }
-
-                    if (G.map.name == 'India') {
-                        G.chosenResource = undefined;
-                    }
-
-                    G.log.pop();
-
-                    // Korea: keep chosenSide locked while the player still has
-                    // outstanding BuyResource moves this phase, but clear it once
-                    // the last one is undone so they can switch sides again.
-                    if (G.map.name == 'Korea' && G.chosenSide) {
-                        let stillCommitted = false;
-                        for (let i = G.log.length - 1; i >= 0; i--) {
-                            const entry = G.log[i];
-                            if (entry.type !== 'move') continue;
-                            stillCommitted = entry.player === playerNumber && entry.move.name === MoveName.BuyResource;
-                            break;
-                        }
-                        if (!stillCommitted) {
-                            G.chosenSide = undefined;
-                        }
-                    }
-                    break;
-                }
-
-                case MoveName.Build: {
-                    // Japan: was this specific build the move that consumed the free jump?
-                    // Round 1: the player's second starting-city build auto-uses the jump.
-                    // Round 2+: the build carried freeJump:true. Decided before the city is
-                    // popped (the round-1 check needs the pre-pop city count). The jump is
-                    // returned only when *this* move spent it — never re-derived from topology.
-                    let undoJapanFreeJump = false;
-                    if (G.map.name === 'Japan' && player.usedFreeJump) {
-                        if (
-                            G.round === 1 &&
-                            player.cities.length >= 2 &&
-                            (G.map.startingCities?.includes(lastMove.data.name) ?? false)
-                        ) {
-                            undoJapanFreeJump = true;
-                        } else if (lastMove.data.freeJump) {
-                            undoJapanFreeJump = true;
-                        }
-                    }
-
-                    player.cities.pop();
-                    player.money += lastMove.data.price;
-
-                    const position = G.players.filter((p) => p.cities.find((c) => c.name == lastMove.data.name)).length;
-
-                    if (G.options.trackTotalSpent) {
-                        player.totalSpentCities -= 10 + position * 5;
-                        player.totalSpentConnections -= lastMove.data.price - (10 + position * 5);
-                    }
-
-                    G.log.pop();
-
-                    if (G.map.name == 'India') {
-                        G.citiesBuiltInCurrentRound!--;
-                    }
-
-                    // Japan: return the free jump only if this build was the one that spent it.
-                    if (undoJapanFreeJump) {
-                        player.usedFreeJump = false;
-                    }
-
-                    break;
-                }
-
-                case MoveName.UsePowerPlant: {
-                    player.powerPlantsNotUsed.push(lastMove.data.powerPlant);
-                    lastMove.data.resourcesSpent.forEach((resourceType) => {
-                        switch (resourceType) {
-                            case ResourceType.Coal:
-                                player.coalLeft++;
-                                G.coalSupply--;
-                                break;
-
-                            case ResourceType.Oil:
-                                player.oilLeft++;
-                                G.oilSupply--;
-                                break;
-
-                            case ResourceType.Garbage:
-                                player.garbageLeft++;
-                                G.garbageSupply--;
-                                break;
-
-                            case ResourceType.Uranium:
-                                player.uraniumLeft++;
-                                G.uraniumSupply--;
-                                break;
-                        }
-                    });
-
-                    player.citiesPowered -= lastMove.data.citiesPowered;
-
-                    const reverseLog = G.log.slice().reverse();
-                    const index =
-                        G.log.length - reverseLog.findIndex((l) => l.type == 'move' && l.player == player.id) - 1;
-                    G.log.splice(index, 1);
-
-                    break;
-                }
-            }
-        }
     }
 
     player.availableMoves = null;
 
-    if (move.name == MoveName.Undo) {
-        const reverseLog = G.log.slice().reverse();
-        const logMove = reverseLog.find((m) => m.type == 'move' && m.player == player.id) as LogMove;
-        player.lastMove = logMove?.move;
-    } else {
-        player.lastMove = move;
-    }
+    player.lastMove = move;
 
     G.cardsLeft = G.powerPlantsDeck.length;
     G.nextCardWeak = G.options.variant == 'recharged' && G.cardsLeft > 0 && G.powerPlantsDeck[0].number <= 15;
@@ -1983,6 +1759,31 @@ export function move(G: GameState, move: Move, playerNumber: number, isUndo = fa
     updateClocks(G, move.time);
 
     G.currentPlayers.forEach((p) => (G.players[p].availableMoves = availableMoves(G, G.players[p])));
+
+    // Tentative-turn bookkeeping: the state is committed (`newTurn`) once the mover can
+    // no longer undo. This mirrors the old undo-availability rule — undo was offered to
+    // the mover while the last visible log entry was their own move, they were still a
+    // current player, and that move was not a Pass. (The old rule's second branch —
+    // Bureaucracy undo after ANOTHER player's move landed on top of yours — collapses
+    // into this one under the turn-buffer model: a buffer always replays from a
+    // committed state, so after the mover's move the last log entry is always theirs.)
+    //
+    // Consequences, phase by phase:
+    // - Pass always commits (every turn ends with one, or with a move that hands
+    //   control elsewhere), including the simultaneous Bureaucracy phase where the
+    //   mover's own powering ends even though other players stay current.
+    // - Moves followed by engine-pushed log EVENTS (market refills, auction
+    //   resolutions, upkeep...) commit, exactly like the old rule refused to undo
+    //   across them.
+    // - Bids in a fastBid auction go to the hidden log; the mover leaves
+    //   currentPlayers, so they commit as single-move turns.
+    const lastLog = G.log[G.log.length - 1];
+    G.newTurn = !(
+        lastLog?.type === 'move' &&
+        lastLog.player === playerNumber &&
+        G.currentPlayers.includes(playerNumber) &&
+        player.lastMove?.name !== MoveName.Pass
+    );
 
     return G;
 }
@@ -2185,7 +1986,7 @@ export function reconstructState(gameState: GameState, to?: number): GameState {
             }
 
             case 'move': {
-                move(G, item.move, item.player, true);
+                move(G, item.move, item.player);
                 break;
             }
         }

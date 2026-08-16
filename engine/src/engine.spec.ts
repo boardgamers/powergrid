@@ -17,7 +17,6 @@ import {
 } from './engine';
 import GermanyRecharged from './fixtures/GermanyRecharged.json';
 import supply from './fixtures/supply.json';
-import undo from './fixtures/undo.json';
 import USAOriginal from './fixtures/USAOriginal.json';
 import {
     GameOptions,
@@ -684,26 +683,6 @@ describe('Engine', () => {
         const sa = setup(5, { map: 'South Africa', variant: 'recharged', randomizeMap: false }, 'sa-co2');
         applyAustraliaStep3Shift(sa);
         expect(sa.coalPrices![0]).to.equal(1);
-    });
-
-    it('should allow invalid move when isUndo is true', () => {
-        const game = undo;
-        const options: GameOptions = {
-            fastBid: game.options.fastBid,
-            map: game.options.map as MapName,
-            showMoney: game.options.showMoney,
-            variant: game.options.variant as Variant,
-        };
-
-        let G = setup(game.players.length, options, game.seed, game.knownPowerPlantDeck, game.map);
-
-        for (const item of game.log) {
-            if (item.type === 'move') {
-                G = move(G, item.move! as Move, item.player!, true);
-            }
-        }
-
-        expect(ended(G)).to.be.false;
     });
 
     it('should set Bremen Step 2 and end-game thresholds (and set up) for every player count', () => {

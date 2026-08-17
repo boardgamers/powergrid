@@ -1,4 +1,10 @@
-import { matchesTurnBuffer, moveMatches, rebaseTurnBuffer, replayTurnBuffer } from '@/util/turn-buffer';
+import {
+    matchesTurnBuffer,
+    moveMatches,
+    rebaseTurnBuffer,
+    replayTurnBuffer,
+    shouldAdoptLogState,
+} from '@/util/turn-buffer';
 import { expect } from 'chai';
 import type { GameState, Move } from 'powergrid-engine';
 import { move as engineMove, MoveName, setup } from 'powergrid-engine';
@@ -16,6 +22,29 @@ describe('turn-buffer', () => {
 
         return { committed, player, choose, bid };
     }
+
+    it('shouldAdoptLogState only adopts a state while it is tentative', () => {
+        const { committed, player, choose } = fixture();
+        const tentative = engineMove(clone(committed), choose, player);
+
+        // The one thing the gamelog state channel exists for
+        expect(shouldAdoptLogState(tentative), "a tentative state is the acting player's own").to.be.true;
+
+        // A committed state on this channel may have come from the plain log fetch,
+        // which is not logged-in: stripSecret blanks every player's availableMoves when
+        // the player index is -1, so adopting it kills the board until the game is
+        // re-entered. Refetch instead.
+        expect(shouldAdoptLogState(committed), 'a committed state is refetched').to.be.false;
+        const blanked = {
+            ...clone(committed),
+            players: committed.players.map((pl) => ({ ...pl, availableMoves: {} })),
+        };
+        expect(shouldAdoptLogState(blanked as GameState), 'especially a blanked one').to.be.false;
+
+        // Engine >= 2.0.1 omits state entirely when it cannot attribute it
+        expect(shouldAdoptLogState(undefined), 'no state at all').to.be.false;
+        expect(shouldAdoptLogState(null), 'null state').to.be.false;
+    });
 
     it('moveMatches ignores engine annotations but not payload or time stamp', () => {
         const { choose } = fixture();

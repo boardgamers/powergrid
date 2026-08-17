@@ -224,11 +224,26 @@ export function logLength(G: GameState, _player?: number): number {
 
 export function logSlice(G: GameState, options?: { player?: number; start?: number; end?: number }) {
     const stripped = engine.stripSecret(G, options?.player);
+
+    // `stripSecret` only leaves a player's own `availableMoves` intact for the index it
+    // is given; everyone else is blanked to `{}`. The platform's move route is
+    // logged-in and always passes the mover's index, but `GET /gameplay/:id/log` is not
+    // — it derives the index with `findIndex`, which yields **-1** whenever the user
+    // cannot be resolved. Handing back a `state` built that way tells the acting
+    // player's viewer they have no moves: the board renders and nothing is clickable
+    // until they re-enter the game (which takes the `fetchState` path instead).
+    //
+    // That blanking predates the tentative-turn model and was harmless while the viewer
+    // ignored this payload. Now that the viewer adopts `state` from it, only offer the
+    // state when we actually know whose it is; without it `launch.ts` falls back to
+    // `fetchState`, which is exactly the old behaviour.
+    const playerKnown = options?.player != undefined && options.player >= 0;
+
     return {
         // The full (stripped) state. This is how the acting player's viewer receives
         // tentative states: they are never persisted or broadcast, only returned in the
         // move response's log slice.
-        state: stripped,
+        state: playerKnown ? stripped : undefined,
         log: stripped.log.slice(options?.start, options?.end),
         availableMoves:
             options?.end === undefined

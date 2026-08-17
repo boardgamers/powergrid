@@ -465,6 +465,28 @@ describe('wrapper (tentative turns)', () => {
         expect(result.players[result.currentPlayers[0]].availableMoves).to.not.be.null;
     });
 
+    it('should only hand back a state from logSlice when it knows whose it is', async () => {
+        // `GET /gameplay/:id/log` is not logged-in: it resolves the player with
+        // `findIndex`, which is -1 when there is no user. `stripSecret` then blanks
+        // EVERY player's availableMoves, so adopting that state left the acting
+        // player looking at a live board with nothing clickable until they re-entered
+        // the game. Without `state` the viewer falls back to `fetchState`.
+        const G = setup(3, {}, 'wrapper-test-log-slice');
+        const current = G.currentPlayers[0];
+
+        const known = wrapper.logSlice(G, { player: current });
+        expect(known.state, 'a known player still gets the state').to.not.be.undefined;
+        expect(Object.keys(known.state!.players[current].availableMoves!), 'and it keeps their own available moves').to
+            .not.be.empty;
+
+        expect(wrapper.logSlice(G, { player: -1 }).state, 'unresolved user (-1): no state').to.be.undefined;
+        expect(wrapper.logSlice(G, {}).state, 'no player given: no state').to.be.undefined;
+        expect(wrapper.logSlice(G).state, 'no options at all: no state').to.be.undefined;
+
+        // The log itself is public and must keep flowing either way.
+        expect(wrapper.logSlice(G, { player: -1 }).log, 'the log is still served').to.deep.equal(G.log);
+    });
+
     it('should not advance the turn when dropping a player who is not up', async () => {
         const G = setup(3, {}, 'wrapper-test-drop-idle');
         const current = [...G.currentPlayers];

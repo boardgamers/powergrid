@@ -12,6 +12,28 @@ import { move as engineMove } from 'powergrid-engine';
  */
 
 /**
+ * Should a state arriving on the `gamelog` channel be applied directly, rather than
+ * refetched?
+ *
+ * Only while it is TENTATIVE. That is the single reason this channel exists: tentative
+ * states are never persisted or broadcast, so the move response is the only way one can
+ * reach the acting player's viewer.
+ *
+ * A committed state is refetched instead, exactly as it was before the tentative-turn
+ * model. The same `gamelog` channel also carries the plain log fetch, and
+ * `GET /gameplay/:id/log` is not logged-in: it resolves the player with `findIndex`,
+ * which yields -1 when there is no user, and `stripSecret` then blanks EVERY player's
+ * `availableMoves`. Adopting that state left the acting player looking at a fully
+ * rendered board with nothing clickable after a page refresh, recovering only by
+ * re-entering the game. `fetchState` asks a route that knows who is asking.
+ */
+export function shouldAdoptLogState(state?: GameState | null): boolean {
+    // Written without optional chaining on purpose: webpack 4's parser rejects `?.` in
+    // this module under the unit-test pipeline.
+    return !!state && state.newTurn === false;
+}
+
+/**
  * Compare a move echoed in a log entry with a buffered one. The engine may annotate
  * the logged copy (`usedPlantDiscount`, `fromSupply`), so only the identity fields
  * count: name, payload, and the stamp given when the move entered the buffer.

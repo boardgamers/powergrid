@@ -3,6 +3,7 @@ import type { GameState, Move } from 'powergrid-engine';
 import Vue from 'vue';
 import Game from './components/Game.vue';
 import type { Preferences } from './types/ui-data';
+import { shouldAdoptLogState } from './util/turn-buffer';
 
 function launch(selector: string) {
     let params: {
@@ -67,10 +68,11 @@ function launch(selector: string) {
             return;
         }
 
-        if (logData?.data?.state) {
+        if (shouldAdoptLogState(logData?.data?.state)) {
             // Move responses carry the (possibly tentative) resulting state. Tentative
             // states are never persisted or broadcast by the platform — this is the
-            // only way they reach the acting player's viewer.
+            // only way they reach the acting player's viewer. Committed states are
+            // refetched; see shouldAdoptLogState for why adopting them is unsafe.
             params.state = logData.data.state;
             app.$forceUpdate();
         } else {

@@ -11,5 +11,5 @@ export {
 } from './src/engine';
 export { Phase } from './src/gamestate';
 export type { GameState, Player } from './src/gamestate';
-export { LogItem } from './src/log';
+export { LogItem, LogMove } from './src/log';
 export { Move, MoveName, Moves } from './src/move';

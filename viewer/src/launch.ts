@@ -31,7 +31,9 @@ function launch(selector: string) {
     const item: EventEmitter = new EventEmitter();
     let replaying = false;
 
-    params.emitter.on('move', (move: Move) => item.emit('move', move));
+    // The move payload is the whole current turn so far (an array of atomic moves),
+    // replayed by the engine wrapper from the last committed state.
+    params.emitter.on('move', (moves: Move[]) => item.emit('move', moves));
     params.emitter.on('fetchState', () => item.emit('fetchState'));
     params.emitter.on('addLog', (data: string[]) => item.emit('addLog', data));
     params.emitter.on('replaceLog', (data: string[]) => item.emit('replaceLog', data));
@@ -60,12 +62,20 @@ function launch(selector: string) {
         params.preferences = { ...params.preferences, ...data };
         app.$forceUpdate();
     });
-    item.addListener('gamelog', (_) => {
+    item.addListener('gamelog', (logData) => {
         if (replaying) {
             return;
         }
 
-        item.emit('fetchState');
+        if (logData?.data?.state) {
+            // Move responses carry the (possibly tentative) resulting state. Tentative
+            // states are never persisted or broadcast by the platform — this is the
+            // only way they reach the acting player's viewer.
+            params.state = logData.data.state;
+            app.$forceUpdate();
+        } else {
+            item.emit('fetchState');
+        }
     });
 
     item.addListener('replay:start', () => {

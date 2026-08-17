@@ -549,8 +549,9 @@
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Provide, ProvideReactive, Ref } from 'vue-property-decorator';
 import { MoveName, ended, playersSortedByScore, reconstructState } from 'powergrid-engine';
-import type { GameState, Player } from 'powergrid-engine';
+import type { GameState, LogItem, Move, Player } from 'powergrid-engine';
 import { EventEmitter } from 'events';
+import { matchesTurnBuffer, rebaseTurnBuffer, replayTurnBuffer as replayBuffer } from '../util/turn-buffer';
 import { UIData, Preferences } from '../types/ui-data';
 import { Card, House, Coal, Oil, Garbage, Uranium } from './pieces';
 import { Button, PassButton, UndoButton, LogButton, SoundButton, HelpButton, RulesButton } from './buttons';
@@ -696,9 +697,73 @@ export default class Game extends Vue {
     @Ref() map!: Map;
     @Ref() resources!: Resources;
 
+    // Tentative-turn buffer: the moves of the current, not-yet-committed turn. The
+    // full buffer is (re)sent to the platform on every action and replayed
+    // server-side from the last committed state; undo simply shortens it.
+    turnMoves: Move[] = [];
+
+    // Last committed state received from the platform. Undo replays the shortened
+    // turn buffer from this state; when the buffer empties, the preview resets to it
+    // without any server call (the platform's saved state IS the turn start).
+    committedState: GameState | null = null;
+
     @Watch('state', { immediate: true })
     onStateChanged(state: GameState) {
+        if (state && state.newTurn !== false) {
+            // Committed state. Usually this clears the turn buffer (our own turn came
+            // back committed), but during the simultaneous Bureaucracy phase it can be
+            // ANOTHER player's commit landing while our turn is still tentative — then
+            // our buffer must be REBASED onto the new state, not discarded.
+            const previousLog: LogItem[] | null = this.committedState ? this.committedState.log : null;
+            this.committedState = JSON.parse(JSON.stringify(state));
+
+            if (this.turnMoves.length > 0) {
+                this.turnMoves = rebaseTurnBuffer(this.committedState!, previousLog, this.turnMoves, this.player);
+            }
+
+            if (this.turnMoves.length > 0) {
+                // Preview the rebased buffer locally (dropping any move the new base
+                // no longer allows) and re-send it so the server echoes the matching
+                // tentative state.
+                const preview = this.replayTurnBuffer();
+                if (this.turnMoves.length > 0) {
+                    this.emitter.emit('move', [...this.turnMoves]);
+                    // Only show the preview while it is still tentative. A rebased
+                    // buffer ending in a COMMITTING move (e.g. Bureaucracy
+                    // [UsePowerPlant, Pass] racing another player's commit) replays
+                    // hidden outcomes (deck draws, upkeep) on the STRIPPED committed
+                    // state — empty deck, secret seed — so its preview would flash
+                    // bogus results. Fall through to the new committed base instead;
+                    // the server's echo of the real committed result of the re-sent
+                    // buffer lands next and clears the buffer via the rebase above.
+                    if (preview.newTurn === false) {
+                        // The replay scrubber still needs the newest committed state
+                        this._futureState = state;
+                        this.replaceState(preview, false);
+                        return;
+                    }
+                }
+            }
+        } else if (state && !matchesTurnBuffer(state, this.committedState, this.turnMoves, this.player)) {
+            // Stale tentative echo: server responses can arrive after the buffer has
+            // changed (a move was undone — possibly down to an empty buffer, which
+            // re-emits nothing — or another move was made before the echo landed).
+            // Applying it would transiently show a phantom or regressed move; the
+            // echo for the current buffer (if any) will follow, so just drop this one.
+            return;
+        }
+
         this.replaceState(state);
+    }
+
+    /**
+     * Replays the turn buffer on the last committed state (dropping any move the
+     * engine now rejects — possible after a rebase) and returns the preview.
+     */
+    replayTurnBuffer(): GameState {
+        const { state, applied } = replayBuffer(this.committedState!, this.turnMoves, this.player!);
+        this.turnMoves = applied;
+        return state;
     }
 
     replaceState(state: GameState, replaceState = true) {
@@ -821,7 +886,29 @@ export default class Game extends Vue {
     }
 
     undo() {
-        this.sendMove({ name: MoveName.Undo, data: this.preferences.undoWholeTurn });
+        if (this.paused || this.turnMoves.length === 0 || !this.committedState) {
+            return;
+        }
+
+        // Honor the preference locally — the engine has no Undo move anymore: pop the
+        // last move from the turn buffer, or scrap the whole tentative turn.
+        if (this.preferences.undoWholeTurn) {
+            this.turnMoves = [];
+        } else {
+            this.turnMoves.pop();
+        }
+
+        if (this.turnMoves.length > 0) {
+            // Preview the shortened turn locally and re-send it so the server echoes
+            // the matching tentative state.
+            const preview = this.replayTurnBuffer();
+            this.emitter.emit('move', [...this.turnMoves]);
+            this.replaceState(preview, false);
+        } else {
+            // Empty buffer: nothing to send — nothing was ever persisted for this
+            // turn, so the last committed state IS the turn start.
+            this.replaceState(this.committedState, false);
+        }
     }
 
     choosePowerPlant(powerPlant: PowerPlant) {
@@ -1096,12 +1183,19 @@ export default class Game extends Vue {
     }
 
     sendMove(move) {
-        if (!this.paused) {
-            // Stamp the move so the engine can advance the per-player clocks. The
-            // engine never reads the system clock itself — the timestamp lives in the
-            // log so replaying a game reproduces the same times.
-            this.emitter.emit('move', { ...move, time: Date.now() });
+        if (this.paused) {
+            return;
         }
+
+        // Stamp the move ONCE, when it enters the turn buffer, so the engine can
+        // advance the per-player clocks. The engine never reads the system clock
+        // itself — the stamp travels with the move on every resend of the buffer, so
+        // replays (and the eventual committed log) reproduce the same times.
+        this.turnMoves.push({ ...move, time: Date.now() });
+
+        // Send the WHOLE turn so far: the platform is stateless between calls and
+        // replays the buffer from the last committed (saved) state.
+        this.emitter.emit('move', [...this.turnMoves]);
     }
 
     gameEnded(G: GameState) {
@@ -1132,10 +1226,8 @@ export default class Game extends Vue {
     canUndo() {
         if (!this.canMove()) return false;
 
-        const currentPlayer = this.G!.players[this.player!];
-        const availableMoves = currentPlayer.availableMoves!;
-
-        return !!availableMoves[MoveName.Undo];
+        // Undo scope = the current tentative turn: anything still in the buffer
+        return this.turnMoves.length > 0;
     }
 
     canBid() {

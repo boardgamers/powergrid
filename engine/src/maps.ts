@@ -137,6 +137,12 @@ export interface GameMap {
     // cost (there is no sea edge) and pay 10+position*5 + this surcharge.
     crossIslandSurcharge?: number;
     mapSpecificRules?: string;
+    // How this map's power-plant deck and opening market differ from the standard
+    // build. The rules dialog always shows the standard build for the variant in
+    // play, then this underneath as "On this map"; so write the DIFFERENCE, not a
+    // whole procedure, and omit it entirely when the map builds its deck normally.
+    // A map whose two variants diverge gives one string per variant.
+    deckBuild?: string | { recharged?: string; original?: string };
     // Cities where a player's first house (or second network) must be placed.
     // Used by Japan: only the 6 designated starting cities are valid first builds,
     // and a second disconnected network can only begin in one of these cities.

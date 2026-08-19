@@ -288,16 +288,18 @@ export const map: GameMap = {
 
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
-    mapSpecificRules:
-        'The power plant market is restricted, and the rules for removing old ' +
-        'plants are changed.\n' +
-        'Deck build recharged - plants 6 and 14 are removed from the game. The ' +
-        'market has 6 plants (3 current, 3 future) drawn at random from the ' +
-        'low plants; the six undrawn low plants sit shuffled on top of the ' +
-        'deck. Removal by player count (higher plants only): 2 players remove ' +
-        '6, 3 players remove 8, 4 players remove 4.\n' +
-        'Deck build original - plants 6 and 14 are removed from the game; the ' +
-        'market is 3, 4, 5 / 7, 8, 9. Plant 13 goes on top of the deck, then ' +
-        'five shuffled cards (plants 10, 11 and the top three of the deck), ' +
-        'then the rest, with the Step 3 card on the bottom.',
+    mapSpecificRules: 'The power plant market is restricted, and the rules for removing old ' + 'plants are changed.\n',
+    deckBuild: {
+        recharged:
+            'plants 6 and 14 are removed from the game. The ' +
+            'market has 6 plants (3 current, 3 future) drawn at random from the ' +
+            'low plants; the six undrawn low plants sit shuffled on top of the ' +
+            'deck. Removal by player count (higher plants only): 2 players remove ' +
+            '6, 3 players remove 8, 4 players remove 4.',
+        original:
+            'plants 6 and 14 are removed from the game; the ' +
+            'market is 3, 4, 5 / 7, 8, 9. Plant 13 goes on top of the deck, then ' +
+            'five shuffled cards (plants 10, 11 and the top three of the deck), ' +
+            'then the rest, with the Step 3 card on the bottom.',
+    },
 };

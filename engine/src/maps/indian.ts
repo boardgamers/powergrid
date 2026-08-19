@@ -294,5 +294,8 @@ export const map: GameMap = {
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
     mapSpecificRules:
-        'The power grid will suffer a power outage if too many cities are built in one round, penalizing players $3 per city built.\nPlayers take turns buying one resource at a time. The resource market is limited in steps 1 and 2.\nGarbage plants are less efficient. Their cost is one higher, but their storage capacity is not changed.\nPlayers must power as many cities as possible in each round.\nDeck build - power plant 11 is removed from the game; otherwise standard setup for both variants (original: plant 13 on top of the deck).',
+        'The power grid will suffer a power outage if too many cities are built in one round, penalizing players $3 per city built.\nPlayers take turns buying one resource at a time. The resource market is limited in steps 1 and 2.\nGarbage plants are less efficient. Their cost is one higher, but their storage capacity is not changed.\nPlayers must power as many cities as possible in each round.',
+    deckBuild:
+        'power plant 11 is removed from the game; otherwise standard setup for ' +
+        'both variants (original: plant 13 on top of the deck).',
 };

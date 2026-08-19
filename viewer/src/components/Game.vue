@@ -1,5 +1,5 @@
 <template>
-    <div :class="['game', { fitToScreen: preferences.fitToScreen }]">
+    <div :class="['game', { fitToScreen: preferences.fitToScreen && !stacked, stacked: stacked }]">
         <div class="statusBar">
             {{ getStatusMessage() }}
         </div>
@@ -10,62 +10,65 @@
             <source src="../audio/notification.mp3" type="audio/mpeg" />
             <source src="../audio/notification.ogg" type="audio/ogg" />
         </audio>
-        <svg
-            v-if="G"
-            id="scene"
-            :viewBox="G.map.viewBox ? `0 0 ${G.map.viewBox[0]} ${G.map.viewBox[1]}` : '0 0 1500 800'"
-            style="width: 100%"
-        >
+        <svg v-if="G" id="scene" :class="{ stacked: stacked }" :viewBox="sceneViewBox" style="width: 100%">
             <rect width="100%" height="100%" x="0" y="0" fill="yellowgreen" />
 
-            <PlayerOrder
-                ref="playerOrder"
-                :transform="`translate(${G.map.playerOrderPosition[0]}, ${G.map.playerOrderPosition[1]})`"
-                :playerColors="playerColors"
-            />
+            <g ref="slotPlayerOrder" :transform="slotT('playerOrder')">
+                <PlayerOrder
+                    ref="playerOrder"
+                    :transform="`translate(${G.map.playerOrderPosition[0]}, ${G.map.playerOrderPosition[1]})`"
+                    :playerColors="playerColors"
+                />
+            </g>
 
-            <CityCount
-                ref="cityCount"
-                :transform="`translate(${G.map.cityCountPosition[0]}, ${G.map.cityCountPosition[1]})`"
-                :playerColors="playerColors"
-                :citiesToEndGame="G.citiesToEndGame"
-                :citiesToStep2="G.map.name === 'Manhattan' ? undefined : G.citiesToStep2"
-            />
+            <g ref="slotCityCount" :transform="slotT('cityCount')">
+                <CityCount
+                    ref="cityCount"
+                    :transform="`translate(${G.map.cityCountPosition[0]}, ${G.map.cityCountPosition[1]})`"
+                    :playerColors="playerColors"
+                    :citiesToEndGame="G.citiesToEndGame"
+                    :citiesToStep2="G.map.name === 'Manhattan' ? undefined : G.citiesToStep2"
+                />
+            </g>
 
-            <PowerPlantMarket
-                ref="powerPlantMarket"
-                :transform="`translate(${G.map.powerPlantMarketPosition[0]}, ${G.map.powerPlantMarketPosition[1]})`"
-                :canBid="canBid()"
-                :canChoose="canChoose()"
-                :chooseablePowerPlants="getChooseablePowerPlants()"
-                :cardsLeft="G.cardsLeft"
-                :minBid="G.currentBid + 1 || G.minimunBid"
-                :maxBid="G.players[player] ? G.players[player].money : 0"
-                :nextCardWeak="G.nextCardWeak"
-                :plantDiscountActive="G.plantDiscountActive"
-                @choosePowerPlant="choosePowerPlant($event)"
-                @bid="bid($event)"
-            />
+            <g ref="slotPowerPlantMarket" :transform="slotT('powerPlantMarket')">
+                <PowerPlantMarket
+                    ref="powerPlantMarket"
+                    :transform="`translate(${G.map.powerPlantMarketPosition[0]}, ${G.map.powerPlantMarketPosition[1]})`"
+                    :canBid="canBid()"
+                    :canChoose="canChoose()"
+                    :chooseablePowerPlants="getChooseablePowerPlants()"
+                    :cardsLeft="G.cardsLeft"
+                    :minBid="G.currentBid + 1 || G.minimunBid"
+                    :maxBid="G.players[player] ? G.players[player].money : 0"
+                    :nextCardWeak="G.nextCardWeak"
+                    :plantDiscountActive="G.plantDiscountActive"
+                    @choosePowerPlant="choosePowerPlant($event)"
+                    @bid="bid($event)"
+                />
+            </g>
 
-            <Map
-                ref="map"
-                :transform="mapTransform"
-                :playerColors="playerColors"
-                :cities="G.map.cities"
-                :connections="G.map.connections"
-                :polygons="G.map.polygons"
-                :buildableCities="getBuildableCities()"
-                :blockedCities="G.blockedCities"
-                :pickableRegions="getPickableRegions()"
-                :noUraniumRegions="G.map.noUraniumRegions"
-                :devBackdrop="G.map.devBackdrop"
-                :mapRotation="G.map.mapRotation || 0"
-                @build="build($event)"
-                @pickRegion="pickRegion($event)"
-            />
+            <g ref="slotMap" :transform="slotT('map')">
+                <Map
+                    ref="map"
+                    :transform="mapTransform"
+                    :playerColors="playerColors"
+                    :cities="G.map.cities"
+                    :connections="G.map.connections"
+                    :polygons="G.map.polygons"
+                    :buildableCities="getBuildableCities()"
+                    :blockedCities="G.blockedCities"
+                    :pickableRegions="getPickableRegions()"
+                    :noUraniumRegions="G.map.noUraniumRegions"
+                    :devBackdrop="G.map.devBackdrop"
+                    :mapRotation="G.map.mapRotation || 0"
+                    @build="build($event)"
+                    @pickRegion="pickRegion($event)"
+                />
+            </g>
 
             <!-- Japan: Free Jump indicator -->
-            <g v-if="G.map.name === 'Japan'">
+            <g v-if="G.map.name === 'Japan'" ref="slotFreeJump" :transform="slotT('freeJump')">
                 <text x="330" y="93" font-size="20" font-weight="bold" fill="black">Free Jump:</text>
                 <template v-for="(fjPlayer, i) in G.players">
                     <g
@@ -98,27 +101,35 @@
                 </template>
             </g>
 
-            <Resources
-                ref="resources"
-                :transform="`translate(${G.map.supplyPosition[0]}, ${G.map.supplyPosition[1]})`"
-                :isUsaRecharged="G.options.variant == 'recharged' && G.map.name == 'USA'"
-                :isMiddleEast="G.map.name == 'Middle East'"
-                :isIndiaResourceMarket="G.map.name == 'India' && G.coalPrices && G.garbagePrices && G.uraniumPrices"
-                :availableSurplusOil="
-                    G.map.name == 'Middle East' ? Math.max(G.oilMarket - G.oilPrices.filter((p) => p > 1).length, 0) : 0
-                "
-                :buyableResources="buyableResources()"
-                :coalStorage="G.coalStorage"
-                :resourceResupply="getResourceResupply()"
-                :resourceResupplyNorth="getResourceResupplyNorth()"
-                @buyResource="buyResource($event)"
-            />
+            <g ref="slotResources" :transform="slotT('resources')">
+                <Resources
+                    ref="resources"
+                    :transform="`translate(${G.map.supplyPosition[0]}, ${G.map.supplyPosition[1]})`"
+                    :isUsaRecharged="G.options.variant == 'recharged' && G.map.name == 'USA'"
+                    :isMiddleEast="G.map.name == 'Middle East'"
+                    :isIndiaResourceMarket="G.map.name == 'India' && G.coalPrices && G.garbagePrices && G.uraniumPrices"
+                    :availableSurplusOil="
+                        G.map.name == 'Middle East'
+                            ? Math.max(G.oilMarket - G.oilPrices.filter((p) => p > 1).length, 0)
+                            : 0
+                    "
+                    :buyableResources="buyableResources()"
+                    :coalStorage="G.coalStorage"
+                    :resourceResupply="getResourceResupply()"
+                    :resourceResupplyNorth="getResourceResupplyNorth()"
+                    @buyResource="buyResource($event)"
+                />
+            </g>
 
             <!-- Australia: uranium-mine selling table. Six price rows $7 (top) →
                  $2 (bottom), two token slots each. Sellers place one token per mine
                  on the highest empty slot; the resource refill removes from the
                  cheap (bottom) end. Lives in the clear upper-left margin. -->
-            <g v-if="G.map.name === 'Australia' && G.uraniumMineMarket" transform="translate(15, 70)">
+            <g
+                v-if="G.map.name === 'Australia' && G.uraniumMineMarket"
+                ref="slotUraniumMines"
+                :transform="slotT('uraniumMines') || 'translate(15, 70)'"
+            >
                 <rect x="0" y="0" width="104" height="430" rx="6" fill="#8aa84a" stroke="#4d6322" stroke-width="3" />
                 <text x="52" y="22" text-anchor="middle" font-weight="700" fill="black" style="font-size: 15px">
                     Uranium
@@ -176,7 +187,12 @@
                 </text>
             </g>
 
-            <g :transform="`translate(${G.map.roundInfoPosition[0]}, ${G.map.roundInfoPosition[1]})`">
+            <g
+                ref="slotRoundInfo"
+                :transform="
+                    slotT('roundInfo') || `translate(${G.map.roundInfoPosition[0]}, ${G.map.roundInfoPosition[1]})`
+                "
+            >
                 <template v-if="gameEnded(G)">
                     <Button
                         :transform="`translate(20, 50)`"
@@ -204,7 +220,10 @@
                 </template>
             </g>
 
-            <g :transform="`translate(${G.map.buttonsPosition[0]}, ${G.map.buttonsPosition[1]})`">
+            <g
+                ref="slotButtons"
+                :transform="slotT('buttons') || `translate(${G.map.buttonsPosition[0]}, ${G.map.buttonsPosition[1]})`"
+            >
                 <PassButton
                     transform="translate(15, 15)"
                     :enabled="canPass()"
@@ -224,28 +243,30 @@
                 <RulesButton transform="translate(110, 95)" @click="rulesVisible = true" />
             </g>
 
-            <template v-for="(playerIndex, i) in adjustedPlayerOrder">
-                <PlayerBoard
-                    :key="'B' + playerIndex"
-                    :transform="`translate(${G.map.playerBoardsPosition[0]}, ${
-                        G.map.playerBoardsPosition[1] + 110 * i
-                    })`"
-                    :player="G.players[playerIndex]"
-                    :color="playerColors[playerIndex]"
-                    :avatar="avatars[playerIndex]"
-                    :owner="playerIndex"
-                    :isCurrentPlayer="isCurrentPlayer(playerIndex)"
-                    :ended="gameEnded(G)"
-                    :isPlayer="player == playerIndex"
-                    :ranking="sortedPlayers.findIndex((x) => x.id == G.players[playerIndex].id) + 1"
-                    :showMoney="player == playerIndex || gameEnded(G) || G.options.showMoney"
-                    :showBid="!G.options.fastBid"
-                    :phase="G.phase"
-                    :isAustralia="G.map.name === 'Australia'"
-                    @powerPlantClick="powerPlantClick($event)"
-                    @discardResource="discardResource($event)"
-                />
-            </template>
+            <g ref="slotPlayerBoards" :transform="slotT('playerBoards')">
+                <template v-for="(playerIndex, i) in adjustedPlayerOrder">
+                    <PlayerBoard
+                        :key="'B' + playerIndex"
+                        :transform="`translate(${G.map.playerBoardsPosition[0]}, ${
+                            G.map.playerBoardsPosition[1] + 110 * i
+                        })`"
+                        :player="G.players[playerIndex]"
+                        :color="playerColors[playerIndex]"
+                        :avatar="avatars[playerIndex]"
+                        :owner="playerIndex"
+                        :isCurrentPlayer="isCurrentPlayer(playerIndex)"
+                        :ended="gameEnded(G)"
+                        :isPlayer="player == playerIndex"
+                        :ranking="sortedPlayers.findIndex((x) => x.id == G.players[playerIndex].id) + 1"
+                        :showMoney="player == playerIndex || gameEnded(G) || G.options.showMoney"
+                        :showBid="!G.options.fastBid"
+                        :phase="G.phase"
+                        :isAustralia="G.map.name === 'Australia'"
+                        @powerPlantClick="powerPlantClick($event)"
+                        @discardResource="discardResource($event)"
+                    />
+                </template>
+            </g>
         </svg>
 
         <div v-if="G" :class="['modal', { visible: logVisible }]">
@@ -371,22 +392,24 @@
             <div class="modal-content">
                 <span class="close" @click="endScoreVisible = false">&times;</span>
                 <div class="modal-title">Final Score</div>
-                <table class="final-score-table">
-                    <tr>
-                        <th><div>Player</div></th>
-                        <th v-for="player in sortedPlayers" :key="'FS' + player.id">
-                            <div :style="'background-color: ' + playerColors[player.id]">{{ player.name }}</div>
-                        </th>
-                    </tr>
-                    <tr v-for="(cat, i) in ['Cities Powered', 'Money', 'Total Cities']" :key="'FC_' + cat">
-                        <td>{{ cat }}</td>
-                        <td v-for="player in sortedPlayers" :key="'FS' + player.id + i">
-                            <div>
-                                {{ i == 0 ? player.citiesPowered : i == 1 ? player.money : player.cities.length }}
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+                <div class="table-scroll">
+                    <table class="final-score-table">
+                        <tr>
+                            <th><div>Player</div></th>
+                            <th v-for="player in sortedPlayers" :key="'FS' + player.id">
+                                <div :style="'background-color: ' + playerColors[player.id]">{{ player.name }}</div>
+                            </th>
+                        </tr>
+                        <tr v-for="(cat, i) in ['Cities Powered', 'Money', 'Total Cities']" :key="'FC_' + cat">
+                            <td>{{ cat }}</td>
+                            <td v-for="player in sortedPlayers" :key="'FS' + player.id + i">
+                                <div>
+                                    {{ i == 0 ? player.citiesPowered : i == 1 ? player.money : player.cities.length }}
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -394,20 +417,22 @@
             <div class="modal-content">
                 <span class="close" @click="spendingVisible = false">&times;</span>
                 <div class="modal-title">Spending</div>
-                <table class="spending-table">
-                    <tr>
-                        <th><div>Player</div></th>
-                        <th v-for="player in sortedPlayers" :key="'FS' + player.id">
-                            <div :style="'background-color: ' + playerColors[player.id]">{{ player.name }}</div>
-                        </th>
-                    </tr>
-                    <tr v-for="row in spendingRows" :key="'FC_' + row.label">
-                        <td>{{ row.label }}</td>
-                        <td v-for="player in sortedPlayers" :key="'FS' + player.id + row.label">
-                            <div>{{ row.value(player) }}</div>
-                        </td>
-                    </tr>
-                </table>
+                <div class="table-scroll">
+                    <table class="spending-table">
+                        <tr>
+                            <th><div>Player</div></th>
+                            <th v-for="player in sortedPlayers" :key="'FS' + player.id">
+                                <div :style="'background-color: ' + playerColors[player.id]">{{ player.name }}</div>
+                            </th>
+                        </tr>
+                        <tr v-for="row in spendingRows" :key="'FC_' + row.label">
+                            <td>{{ row.label }}</td>
+                            <td v-for="player in sortedPlayers" :key="'FS' + player.id + row.label">
+                                <div>{{ row.value(player) }}</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -520,26 +545,28 @@
                         <br />
                         <div>
                             <strong>Map Specific Rules:</strong><br />
-                            <span style="white-space: pre-wrap">{{ G.map.mapSpecificRules }}</span>
+                            <span class="map-specific-rules">{{ G.map.mapSpecificRules }}</span>
                         </div>
                     </template>
                     <br />
                     <div>
                         <strong>Payment Table</strong>
-                        <table class="payment-table">
-                            <tr>
-                                <td><strong>Cities</strong></td>
-                                <template v-for="index in G.citiesToEndGame">
-                                    <td :key="'cities' + index">{{ index - 1 }}</td>
-                                </template>
-                            </tr>
-                            <tr>
-                                <td><strong>Payment</strong></td>
-                                <template v-for="index in G.citiesToEndGame">
-                                    <td :key="'payment' + index">${{ G.paymentTable[index - 1] }}</td>
-                                </template>
-                            </tr>
-                        </table>
+                        <div class="table-scroll">
+                            <table class="payment-table">
+                                <tr>
+                                    <td><strong>Cities</strong></td>
+                                    <template v-for="index in G.citiesToEndGame">
+                                        <td :key="'cities' + index">{{ index - 1 }}</td>
+                                    </template>
+                                </tr>
+                                <tr>
+                                    <td><strong>Payment</strong></td>
+                                    <template v-for="index in G.citiesToEndGame">
+                                        <td :key="'payment' + index">${{ G.paymentTable[index - 1] }}</td>
+                                    </template>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -566,6 +593,31 @@ import { LogMove } from 'powergrid-engine/src/log';
 import { Phase, playerTimeUsed, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
 import { City } from 'powergrid-engine/src/maps';
 import { formatDuration } from '../util/time';
+
+// Portrait layout: the rows the scene is broken into, top to bottom. Slots on
+// the same row sit side by side and share one scale. Names map to the `slotX`
+// refs on the wrapper groups in the template; a slot whose group is absent for
+// this map (Australia's mine market, Japan's free jump) is simply skipped.
+const STACK_ROWS: string[][] = [
+    ['cityCount', 'playerOrder'],
+    ['map'],
+    ['buttons', 'roundInfo'],
+    ['powerPlantMarket'],
+    ['resources'],
+    ['uraniumMines'],
+    ['freeJump'],
+    ['playerBoards'],
+];
+/** Width of the stacked canvas in scene units — kept at the usual scene width
+ *  so the numbers stay recognisable next to the per-map coordinates. */
+const STACK_WIDTH = 1465;
+const STACK_PAD = 16;
+const STACK_GAP = 28;
+/** A small strip magnified without limit looks broken rather than legible. */
+const STACK_MAX_SCALE = 4;
+
+const slotRef = (name: string) => `slot${name[0].toUpperCase()}${name.slice(1)}`;
+const round = (n: number, digits = 2) => Number(n.toFixed(digits));
 
 @Component({
     created(this: Game) {
@@ -797,6 +849,10 @@ export default class Game extends Vue {
                 this.cityCount.createPieces(this.G!);
                 this.map.createPieces(this.G!);
                 this.resources.createPieces(this.G!);
+                // Pieces are added imperatively, so the groups only reach their
+                // final size here — the portrait layout must measure after this,
+                // not on the state change that triggered it.
+                this.scheduleRelayout();
             });
         }
 
@@ -825,6 +881,9 @@ export default class Game extends Vue {
             setTimeout(() => this.updateUI());
             return;
         }
+
+        // Pieces have finished moving, so the groups are at their settled size.
+        this.scheduleRelayout();
     }
 
     checkPass() {
@@ -1597,6 +1656,129 @@ export default class Game extends Vue {
         return `translate(${mx}, ${my}) rotate(${rotation}, ${cx}, ${cy})`;
     }
 
+    // ── Portrait ("stacked") layout ─────────────────────────────────────────
+    // The whole game is ONE svg laid out in per-map absolute coordinates: board
+    // on the left, market and player boards in a right-hand column, resource
+    // supply along the bottom. That composition assumes a landscape viewport.
+    // On a portrait phone it letterboxes: measured at 390x844 the board drew at
+    // 390x229 and left 73% of the screen empty, with 7x10px city slots and
+    // 21x7px buttons.
+    //
+    // Rather than author a second set of coordinates for 24 maps, we re-use the
+    // ones we already have: each group is measured with getBBox() and mapped
+    // onto a full-width row by a single transform on its wrapper <g>. Nothing
+    // inside the components changes, and on a landscape/desktop viewport no
+    // transform is emitted at all, so those layouts render exactly as before.
+
+    /** True while the portrait row layout is in effect. */
+    stacked = false;
+    /** Height of the stacked canvas, in scene units. */
+    stackHeight = STACK_WIDTH;
+    /** Wrapper transform per slot; empty means "render as authored". */
+    slotTransforms: Record<string, string> = {};
+
+    get sceneViewBox() {
+        if (this.stacked) {
+            return `0 0 ${STACK_WIDTH} ${this.stackHeight}`;
+        }
+        return this.G?.map?.viewBox ? `0 0 ${this.G.map.viewBox[0]} ${this.G.map.viewBox[1]}` : '0 0 1500 800';
+    }
+
+    slotT(name: string): string | undefined {
+        return this.slotTransforms[name];
+    }
+
+    /**
+     * Only portrait viewports are re-laid out. A landscape phone already reads
+     * well (the scene's own aspect ratio is close to the screen's), so leaving
+     * it alone keeps the change surface small.
+     */
+    private shouldStack(): boolean {
+        return window.innerWidth < 900 && window.innerHeight > window.innerWidth * 1.1;
+    }
+
+    relayout() {
+        if (!this.shouldStack()) {
+            if (this.stacked) {
+                this.stacked = false;
+                this.slotTransforms = {};
+            }
+            return;
+        }
+
+        // getBBox() reports a group's box in its OWN user space, i.e. before its
+        // own transform is applied — so measuring is safe even while a previous
+        // stacked transform is in place, and a re-layout never feeds on its own
+        // output.
+        const boxes: Record<string, { x: number; y: number; width: number; height: number }> = {};
+        for (const name of STACK_ROWS.flat()) {
+            const el = this.$refs[slotRef(name)] as SVGGraphicsElement | undefined;
+            if (!el || typeof el.getBBox !== 'function') continue;
+            try {
+                const bb = el.getBBox();
+                if (bb.width > 0 && bb.height > 0) {
+                    boxes[name] = { x: bb.x, y: bb.y, width: bb.width, height: bb.height };
+                }
+            } catch {
+                // Not rendered yet (or detached) — skip; the next relayout catches it.
+            }
+        }
+
+        const transforms: Record<string, string> = {};
+        let y = STACK_PAD;
+        for (const row of STACK_ROWS) {
+            const present = row.filter((name) => boxes[name]);
+            if (!present.length) continue;
+
+            const gaps = STACK_GAP * (present.length - 1);
+            const usable = STACK_WIDTH - 2 * STACK_PAD - gaps;
+            const combined = present.reduce((sum, name) => sum + boxes[name].width, 0);
+            // One scale per row keeps neighbours visually consistent. The cap stops
+            // a small strip (the turn-order token row) from being blown up absurdly.
+            const scale = Math.min(usable / combined, STACK_MAX_SCALE);
+            const rowHeight = Math.max(...present.map((name) => boxes[name].height * scale));
+
+            let x = (STACK_WIDTH - (combined * scale + gaps)) / 2;
+            for (const name of present) {
+                const bb = boxes[name];
+                // Centre a shorter slot against the tallest one in its row.
+                const top = y + (rowHeight - bb.height * scale) / 2;
+                transforms[name] =
+                    `translate(${round(x - bb.x * scale)}, ${round(top - bb.y * scale)}) scale(${round(scale, 4)})`;
+                x += bb.width * scale + STACK_GAP;
+            }
+            y += rowHeight + STACK_GAP;
+        }
+
+        this.stackHeight = Math.round(y + STACK_PAD - STACK_GAP);
+        this.slotTransforms = transforms;
+        this.stacked = true;
+    }
+
+    private scheduleRelayout() {
+        this.$nextTick(() => this.relayout());
+    }
+
+    private onViewportResize = () => this.scheduleRelayout();
+
+    mounted() {
+        window.addEventListener('resize', this.onViewportResize);
+        window.addEventListener('orientationchange', this.onViewportResize);
+        this.scheduleRelayout();
+    }
+
+    beforeDestroy() {
+        window.removeEventListener('resize', this.onViewportResize);
+        window.removeEventListener('orientationchange', this.onViewportResize);
+    }
+
+    // Boards grow as players buy plants, so the row heights are re-derived on
+    // every state change rather than measured once at mount.
+    @Watch('G')
+    onSceneContentChanged() {
+        this.scheduleRelayout();
+    }
+
     get adjustedPlayerOrder() {
         if (!this.G) {
             return [];
@@ -1663,6 +1845,20 @@ ul {
     max-height: calc(100% - 40px);
     flex-grow: 1;
     margin: 40px auto auto auto;
+}
+
+// Portrait: the scene is taller than the viewport by design (each row is scaled
+// to the full width), so it must be allowed to overflow and scroll instead of
+// being squeezed back into one screen.
+.game.stacked {
+    height: auto;
+    align-items: stretch;
+
+    #scene {
+        max-height: none;
+        flex-grow: 0;
+        margin-top: 40px;
+    }
 }
 
 body,
@@ -1766,6 +1962,8 @@ text {
     margin: auto;
     padding: 10px 20px 20px 20px;
     border: 1px solid #888;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 @media only screen and (min-width: 1240px) {
@@ -1820,6 +2018,25 @@ text {
     cursor: pointer;
 }
 
+// Printed rules text keeps its authored line breaks, but a long unbroken run
+// (a city list, a URL) must still fold rather than widen the dialog.
+.map-specific-rules {
+    display: block;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+// Tables are naturally wider than a phone (one column per player, plus a wide
+// label column). Without a scroll container they simply overflowed the modal and
+// the far columns were unreachable — on a 6-player game only the last player was
+// visible. The container scrolls; the label column stays pinned so a value never
+// loses its row.
+.table-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 .payment-table {
     border: 1px solid black;
     margin: 5px auto;
@@ -1854,9 +2071,53 @@ text {
 
         td:first-child,
         th:first-child {
+            position: sticky;
+            left: 0;
+            background-color: #fefefe;
+            box-shadow: 2px 0 3px -1px rgba(0, 0, 0, 0.3);
+
             div {
                 width: 250px;
             }
+        }
+    }
+}
+
+// Phone-sized screens: shrink the columns so more than one player fits on
+// screen before any scrolling is needed.
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        padding: 10px;
+    }
+
+    .final-score-table,
+    .spending-table {
+        tr {
+            td,
+            th {
+                div {
+                    width: auto;
+                    min-width: 60px;
+                    padding: 0 6px;
+                    line-height: 32px;
+                }
+            }
+
+            td:first-child,
+            th:first-child {
+                div {
+                    width: auto;
+                    min-width: 0;
+                    max-width: 38vw;
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    .payment-table {
+        tr td {
+            padding: 0 6px;
         }
     }
 }

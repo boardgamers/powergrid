@@ -838,9 +838,16 @@ export default class Game extends Vue {
                     return;
                 }
                 if (this.G.phase == Phase.Resources && !this.canPowerAllPlants(player)) {
-                    this.confirmMessage = 'Are you sure you want to skip buying resources without enough to power all your plants?';
-                    this.confirmVisible = true;
-                    return;
+                    // India's resource market is restrictive (per-step price caps,
+                    // price tiers, one purchase at a time), so a player often can't
+                    // buy enough even when trying. Only warn there when they bought
+                    // nothing this turn — buying some but not enough is a deliberate
+                    // choice, not a slip.
+                    if (this.G.map.name !== 'India' || !this.playerBoughtResourceThisTurn()) {
+                        this.confirmMessage = 'Are you sure you want to skip buying resources without enough to power all your plants?';
+                        this.confirmVisible = true;
+                        return;
+                    }
                 }
 
                 if (
@@ -1409,6 +1416,20 @@ export default class Game extends Vue {
             return false;
         }
         return true;
+    }
+
+    // Whether this player has bought at least one resource during their current
+    // resource-buying turn — i.e. the consecutive run of their own moves at the tail
+    // of the log includes a BuyResource. (In the Resources phase only the current
+    // player acts, so their turn is exactly that tail run.)
+    playerBoughtResourceThisTurn(): boolean {
+        const log = this.G!.log;
+        for (let i = log.length - 1; i >= 0; i--) {
+            const entry = log[i];
+            if (entry.type !== 'move' || entry.player !== this.player) return false;
+            if (entry.move.name === MoveName.BuyResource) return true;
+        }
+        return false;
     }
 
     toggleSound() {

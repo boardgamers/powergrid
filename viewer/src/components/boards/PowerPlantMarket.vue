@@ -1,33 +1,8 @@
 <template>
     <g>
-        <text x="10" y="14" font-weight="600" fill="black">Power Plant Deck:</text>
-        <template v-if="cardsLeft > 0">
-            <rect
-                v-for="index in cardsLeft"
-                :key="'card' + index"
-                :x="35 + index / 5"
-                :y="38 - index / 10"
-                width="60"
-                height="40"
-                fill="gray"
-                stroke="black"
-                stroke-width="2"
-                rx="4"
-            />
-            <rect
-                :x="35 + cardsLeft / 5"
-                :y="38 - cardsLeft / 10"
-                width="60"
-                height="40"
-                :fill="nextCardWeak ? 'gray' : 'lightgray'"
-                stroke="black"
-                stroke-width="2"
-                rx="4"
-            >
-                <title>{{ cardsLeft }} cards left{{ nextCardWeak ? ', next is an initial plant' : '' }}</title>
-            </rect>
-        </template>
-
+        <!-- The draw pile is rendered by Game.vue as its own group, not here: it is
+             static reference art next to three interactive markets, so the portrait
+             layout needs to be able to place it on a different row. -->
         <text x="165" y="14" font-weight="600" fill="black">Actual Market:</text>
         <template v-for="(card, i) in actualMarketCards">
             <Card

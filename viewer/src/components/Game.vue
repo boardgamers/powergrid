@@ -31,6 +31,47 @@
                 />
             </g>
 
+            <!-- The power-plant draw pile. Authored at the market's own origin so
+                 the landscape board is unchanged, but kept as a separate group so
+                 the portrait layout can move it off the market's row. -->
+            <g
+                ref="slotPowerPlantDeck"
+                :transform="
+                    slotT('powerPlantDeck') ||
+                    `translate(${G.map.powerPlantMarketPosition[0]}, ${G.map.powerPlantMarketPosition[1]})`
+                "
+            >
+                <text x="10" y="14" font-weight="600" fill="black">Power Plant Deck:</text>
+                <template v-if="G.cardsLeft > 0">
+                    <rect
+                        v-for="index in G.cardsLeft"
+                        :key="'deckcard' + index"
+                        :x="35 + index / 5"
+                        :y="38 - index / 10"
+                        width="60"
+                        height="40"
+                        fill="gray"
+                        stroke="black"
+                        stroke-width="2"
+                        rx="4"
+                    />
+                    <rect
+                        :x="35 + G.cardsLeft / 5"
+                        :y="38 - G.cardsLeft / 10"
+                        width="60"
+                        height="40"
+                        :fill="G.nextCardWeak ? 'gray' : 'lightgray'"
+                        stroke="black"
+                        stroke-width="2"
+                        rx="4"
+                    >
+                        <title>
+                            {{ G.cardsLeft }} cards left{{ G.nextCardWeak ? ', next is an initial plant' : '' }}
+                        </title>
+                    </rect>
+                </template>
+            </g>
+
             <g ref="slotPowerPlantMarket" :transform="slotT('powerPlantMarket')">
                 <PowerPlantMarket
                     ref="powerPlantMarket"
@@ -601,7 +642,11 @@ import { formatDuration } from '../util/time';
 const STACK_ROWS: string[][] = [
     ['cityCount', 'playerOrder'],
     ['map'],
-    ['buttons', 'roundInfo'],
+    // Everything that is chrome or reference-only shares ONE row, so the three
+    // markets below can have a row of their own to grow into. John's call at the
+    // phone, 2026-08-19: the market is what you read and tap during an auction;
+    // the draw pile and the round readout are things you glance at.
+    ['buttons', 'roundInfo', 'powerPlantDeck'],
     ['powerPlantMarket'],
     ['resources'],
     ['uraniumMines'],
@@ -615,6 +660,20 @@ const STACK_PAD = 16;
 const STACK_GAP = 28;
 /** A small strip magnified without limit looks broken rather than legible. */
 const STACK_MAX_SCALE = 4;
+/**
+ * Per-slot ceilings, for groups that share a row with something that deserves
+ * the space more. The round/step/phase readout is text and only needs to be
+ * readable; the buttons next to it are tap targets and want every pixel.
+ */
+const STACK_SLOT_MAX_SCALE: Record<string, number> = {
+    roundInfo: 2.2,
+    playerOrder: 2.5,
+    // The market is held just short of the full width on purpose. Stretched edge
+    // to edge, "Actual Market" sits under the far left of the screen and the bid
+    // OK button under the far right — the two spots a thumb reaches worst while
+    // holding the phone. Pulling it in centres the whole row within thumb arc.
+    powerPlantMarket: 3.1,
+};
 
 const slotRef = (name: string) => `slot${name[0].toUpperCase()}${name.slice(1)}`;
 const round = (n: number, digits = 2) => Number(n.toFixed(digits));
@@ -1735,12 +1794,16 @@ export default class Game extends Vue {
             const combined = present.reduce((sum, name) => sum + boxes[name].width, 0);
             // One scale per row keeps neighbours visually consistent. The cap stops
             // a small strip (the turn-order token row) from being blown up absurdly.
-            const scale = Math.min(usable / combined, STACK_MAX_SCALE);
-            const rowHeight = Math.max(...present.map((name) => boxes[name].height * scale));
+            const rowScale = Math.min(usable / combined, STACK_MAX_SCALE);
+            // A slot may decline part of that scale so a neighbour keeps the space.
+            const scaleOf = (name: string) => Math.min(rowScale, STACK_SLOT_MAX_SCALE[name] ?? Infinity);
+            const rowWidth = present.reduce((sum, name) => sum + boxes[name].width * scaleOf(name), 0);
+            const rowHeight = Math.max(...present.map((name) => boxes[name].height * scaleOf(name)));
 
-            let x = (STACK_WIDTH - (combined * scale + gaps)) / 2;
+            let x = (STACK_WIDTH - (rowWidth + gaps)) / 2;
             for (const name of present) {
                 const bb = boxes[name];
+                const scale = scaleOf(name);
                 // Centre a shorter slot against the tallest one in its row.
                 const top = y + (rowHeight - bb.height * scale) / 2;
                 transforms[name] =

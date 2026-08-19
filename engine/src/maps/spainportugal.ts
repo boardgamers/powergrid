@@ -297,9 +297,9 @@ export const map: GameMap = {
 
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
-    mapSpecificRules:
-        'You cannot buy a nuclear power plant if you only have cities in Portugal.\n' +
-        'Deck build - power plants 18, 22 and 27 are set aside at setup; when ' +
+    mapSpecificRules: 'You cannot buy a nuclear power plant if you only have cities in Portugal.\n',
+    deckBuild:
+        'power plants 18, 22 and 27 are set aside at setup; when ' +
         'Step 2 begins they are placed on top of the deck (18 topmost, then ' +
         '22, then 27).',
 };

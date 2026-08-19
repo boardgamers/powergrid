@@ -1,6 +1,7 @@
 import { cloneDeep } from 'lodash';
 import { move as execMove, Move, Phase, setup, stripSecret } from 'powergrid-engine';
 import { moveAI } from 'powergrid-engine/src/engine';
+import type { MapName, Variant } from 'powergrid-engine/src/gamestate';
 import launch from './launch';
 
 const delayBase = 0;
@@ -10,7 +11,20 @@ function launchSelfContained(selector = '#app') {
 
     const emitter = launch(selector);
 
-    let gameState = setup(6, { map: 'Bremen', variant: 'recharged', showMoney: true, randomizeMap: false }, '0');
+    // The sandbox game can be steered from the URL so a layout or rules change can
+    // be checked against several maps without editing this file each time, e.g.
+    //   ?map=Australia&players=3&variant=original&seed=7
+    const params = new URLSearchParams(window.location.search);
+    // Note: randomizeMap short-circuits region selection in setup(), so ticking
+    // both gives a randomized board with no draft. They are alternatives.
+    const gameOptions = {
+        map: (params.get('map') || 'Bremen') as MapName,
+        variant: (params.get('variant') || 'recharged') as Variant,
+        showMoney: true,
+        randomizeMap: params.get('randomize') === '1',
+        chooseRegions: params.get('regions') === '1',
+    };
+    let gameState = setup(Number(params.get('players')) || 6, gameOptions, params.get('seed') || '0');
 
     // Dev coord-picker example (commented; uncomment + drop a board photo into
     // viewer/public/ to author city coordinates for a new map). See the picker

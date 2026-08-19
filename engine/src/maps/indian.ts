@@ -185,6 +185,13 @@ export const map: GameMap = {
         { nodes: [Cities.Lakhnau, Cities.Varanasi], cost: 7 },
     ],
     layout: 'Portrait',
+    // Taller than the default Portrait viewBox (1060) because India is the one map
+    // that draws BELOW its resource panel: the red "Step 1"/"Step 2" price-cap
+    // markers sit at y=1050 with their separator lines running to y=1060, i.e. flush
+    // with the bottom edge. Measured at 1 px of margin, so any change to the height
+    // the platform gives the viewer clipped them off (issue #123). Same remedy as
+    // Northern Europe's viewBox in #87.
+    viewBox: [1480, 1100],
     mapPosition: [200, -60],
     adjustRatio: [1.25, 1.25],
     resupply: [
@@ -294,5 +301,8 @@ export const map: GameMap = {
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
     mapSpecificRules:
-        'The power grid will suffer a power outage if too many cities are built in one round, penalizing players $3 per city built.\nPlayers take turns buying one resource at a time. The resource market is limited in steps 1 and 2.\nGarbage plants are less efficient. Their cost is one higher, but their storage capacity is not changed.\nPlayers must power as many cities as possible in each round.\nDeck build - power plant 11 is removed from the game; otherwise standard setup for both variants (original: plant 13 on top of the deck).',
+        'The power grid will suffer a power outage if the number of cities built in one round is more than twice the number of players — 9 or more cities in a 4-player game. Every player is then penalized $3 for each city they own, though income for the round never falls below $0.\nPlayers take turns buying one resource at a time. The resource market is limited by step: only resources costing $3 or less may be bought in step 1, $5 or less in step 2, and the whole market is open from step 3.\nGarbage plants are less efficient. Their cost is one higher, but their storage capacity is not changed.\nPlayers must power as many cities as possible in each round.',
+    deckBuild:
+        'power plant 11 is removed from the game; otherwise standard setup for ' +
+        'both variants (original: plant 13 on top of the deck).',
 };

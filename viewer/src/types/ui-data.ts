@@ -10,6 +10,9 @@ export type Preferences = {
     adjustPlayerOrder: boolean;
     undoWholeTurn: boolean;
     fitToScreen: boolean;
+    // Portrait phones stack the board into full-width rows. Per player, not per
+    // game: it describes the screen you are holding, not the rules being played.
+    stackOnPortrait: boolean;
 };
 
 export interface Piece {

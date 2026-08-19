@@ -279,15 +279,19 @@ export const map: GameMap = {
         'from the game. Plant 50 needs no fuel, so it stays in the deck with 5 or 6 ' +
         'players.\n' +
         'Step 2 begins once a player has 5 connected districts (4 for 6 players); the ' +
-        'game ends when a player connects 13 districts (12 for 5 players, 11 for 6).\n' +
-        'Deck build recharged - power plants 11, 17, 23, 28, 34, 36, 38, 39 and 46 ' +
-        'are removed before setup — the six uranium plants plus the three plants ' +
-        'that power 7 cities. With 2 to 4 players, plants 31 and 50 are removed as ' +
-        'well. No further power plants are removed for the number of players. The ' +
-        'opening market of eight is then drawn from the low plants (numbered 15 or ' +
-        'less); of the low plants left over, one is placed on top of the draw deck ' +
-        'and the rest are shuffled into it, with the Step 3 card on the bottom.\n' +
-        'Deck build original - same removals; the market is the fixed 3-6 / 7-10 ' +
-        '(none of these are removed on Bremen), plant 13 is placed on top of the ' +
-        'deck and the Step 3 card on the bottom.',
+        'game ends when a player connects 13 districts (12 for 5 players, 11 for 6).\n',
+    deckBuild: {
+        recharged:
+            'power plants 11, 17, 23, 28, 34, 36, 38, 39 and 46 ' +
+            'are removed before setup — the six uranium plants plus the three plants ' +
+            'that power 7 cities. With 2 to 4 players, plants 31 and 50 are removed as ' +
+            'well. No further power plants are removed for the number of players. The ' +
+            'opening market of eight is then drawn from the low plants (numbered 15 or ' +
+            'less); of the low plants left over, one is placed on top of the draw deck ' +
+            'and the rest are shuffled into it, with the Step 3 card on the bottom.',
+        original:
+            'same removals; the market is the fixed 3-6 / 7-10 ' +
+            '(none of these are removed on Bremen), plant 13 is placed on top of the ' +
+            'deck and the Step 3 card on the bottom.',
+    },
 };

@@ -282,6 +282,15 @@
                 <SoundButton transform="translate(110, 13)" :isOn="preferences.sound" @click="toggleSound()" />
                 <HelpButton transform="translate(110, 54)" :isOn="!preferences.disableHelp" @click="toggleHelp()" />
                 <RulesButton transform="translate(110, 95)" @click="rulesVisible = true" />
+                <!-- Only offered where it means something. Shown whenever the
+                     viewport is portrait — not only while stacking is active — so
+                     it can undo its own effect. -->
+                <LayoutButton
+                    v-if="portraitViewport"
+                    transform="translate(15, 138)"
+                    :isOn="stacked"
+                    @click="toggleStackLayout()"
+                />
             </g>
 
             <g ref="slotPlayerBoards" :transform="slotT('playerBoards')">
@@ -622,7 +631,16 @@ import { EventEmitter } from 'events';
 import { matchesTurnBuffer, rebaseTurnBuffer, replayTurnBuffer as replayBuffer } from '../util/turn-buffer';
 import { UIData, Preferences } from '../types/ui-data';
 import { Card, House, Coal, Oil, Garbage, Uranium } from './pieces';
-import { Button, PassButton, UndoButton, LogButton, SoundButton, HelpButton, RulesButton } from './buttons';
+import {
+    Button,
+    PassButton,
+    UndoButton,
+    LogButton,
+    SoundButton,
+    HelpButton,
+    RulesButton,
+    LayoutButton,
+} from './buttons';
 import PlayerBoard from './PlayerBoard.vue';
 import Calculator from './Calculator.vue';
 import PowerPlantMarket from './boards/PowerPlantMarket.vue';
@@ -721,6 +739,7 @@ const round = (n: number, digits = 2) => Number(n.toFixed(digits));
         SoundButton,
         HelpButton,
         RulesButton,
+        LayoutButton,
         Button,
         Calculator,
         PowerPlantMarket,
@@ -1731,6 +1750,13 @@ export default class Game extends Vue {
 
     /** True while the portrait row layout is in effect. */
     stacked = false;
+    /**
+     * True when the viewport is one the row layout applies to, whether or not the
+     * player has it switched on. Kept separate from `stacked` so the toggle stays
+     * visible after someone turns stacking off — otherwise the button that undoes
+     * the choice would disappear along with the layout.
+     */
+    portraitViewport = false;
     /** Height of the stacked canvas, in scene units. */
     stackHeight = STACK_WIDTH;
     /** Wrapper transform per slot; empty means "render as authored". */
@@ -1752,11 +1778,25 @@ export default class Game extends Vue {
      * well (the scene's own aspect ratio is close to the screen's), so leaving
      * it alone keeps the change surface small.
      */
-    private shouldStack(): boolean {
+    private isPortraitViewport(): boolean {
         return window.innerWidth < 900 && window.innerHeight > window.innerWidth * 1.1;
     }
 
+    private shouldStack(): boolean {
+        return this.isPortraitViewport() && this.preferences.stackOnPortrait !== false;
+    }
+
+    toggleStackLayout() {
+        const newVal = !this.stacked;
+
+        this.emitter.emit('update:preference', { name: 'stackOnPortrait', value: newVal });
+        this.preferences.stackOnPortrait = newVal;
+        this.relayout();
+    }
+
     relayout() {
+        this.portraitViewport = this.isPortraitViewport();
+
         if (!this.shouldStack()) {
             if (this.stacked) {
                 this.stacked = false;

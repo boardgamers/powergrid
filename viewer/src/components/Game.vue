@@ -694,11 +694,20 @@ const STACK_MAX_ROW_SCREENS = 0.72;
 const STACK_SLOT_MAX_SCALE: Record<string, number> = {
     roundInfo: 2.2,
     playerOrder: 2.5,
-    // The market is held just short of the full width on purpose. Stretched edge
-    // to edge, "Actual Market" sits under the far left of the screen and the bid
-    // OK button under the far right — the two spots a thumb reaches worst while
-    // holding the phone. Pulling it in centres the whole row within thumb arc.
-    powerPlantMarket: 3.1,
+};
+/**
+ * Share of the canvas width a slot may occupy. The market is held short of the
+ * full width on purpose: stretched edge to edge, "Actual Market" sits under the
+ * far left of the screen and the bid OK button under the far right — the two
+ * spots a thumb reaches worst while holding the phone.
+ *
+ * This has to be a WIDTH budget rather than a scale ceiling, because the market's
+ * own width varies: Benelux authors `actualMarketWidth: 495`, and it shrinks again
+ * in Step 3 once the future market is gone. A fixed scale that centred Bremen left
+ * Benelux at 97% of the canvas, i.e. still touching both edges.
+ */
+const STACK_SLOT_MAX_WIDTH: Record<string, number> = {
+    powerPlantMarket: 0.88,
 };
 
 const slotRef = (name: string) => `slot${name[0].toUpperCase()}${name.slice(1)}`;
@@ -1851,7 +1860,12 @@ export default class Game extends Vue {
             // A slot may decline part of that scale so a neighbour keeps the space,
             // and no slot may grow past the height budget for one row.
             const scaleOf = (name: string) =>
-                Math.min(rowScale, STACK_SLOT_MAX_SCALE[name] ?? Infinity, heightCapFor(boxes[name].height));
+                Math.min(
+                    rowScale,
+                    STACK_SLOT_MAX_SCALE[name] ?? Infinity,
+                    ((STACK_SLOT_MAX_WIDTH[name] ?? Infinity) * usable) / boxes[name].width,
+                    heightCapFor(boxes[name].height)
+                );
             const rowWidth = present.reduce((sum, name) => sum + boxes[name].width * scaleOf(name), 0);
             const rowHeight = Math.max(...present.map((name) => boxes[name].height * scaleOf(name)));
 

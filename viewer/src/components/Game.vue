@@ -284,10 +284,12 @@
                 <RulesButton transform="translate(110, 95)" @click="rulesVisible = true" />
                 <!-- Only offered where it means something. Shown whenever the
                      viewport is portrait — not only while stacking is active — so
-                     it can undo its own effect. -->
+                     it can undo its own effect. Sits under Rules rather than under
+                     Log: the left column's next slot overlaps the turn-order table
+                     on the authored board. -->
                 <LayoutButton
                     v-if="portraitViewport"
-                    transform="translate(15, 138)"
+                    transform="translate(110, 136)"
                     :isOn="stacked"
                     @click="toggleStackLayout()"
                 />
@@ -678,6 +680,12 @@ const STACK_PAD = 16;
 const STACK_GAP = 28;
 /** A small strip magnified without limit looks broken rather than legible. */
 const STACK_MAX_SCALE = 4;
+/**
+ * No single row may fill more than this share of the screen, so the row below it
+ * always peeks and the page reads as scrollable. Without it a tall, narrow board
+ * (Manhattan takes 92% of an iPhone XR) looks like the whole page.
+ */
+const STACK_MAX_ROW_SCREENS = 0.72;
 /**
  * Per-slot ceilings, for groups that share a row with something that deserves
  * the space more. The round/step/phase readout is text and only needs to be
@@ -1823,6 +1831,11 @@ export default class Game extends Vue {
             }
         }
 
+        // A row of `h` scene units renders at h * (innerWidth / STACK_WIDTH) css px,
+        // because the canvas width always maps to the viewport width.
+        const unitsPerScreen = (STACK_MAX_ROW_SCREENS * window.innerHeight * STACK_WIDTH) / window.innerWidth;
+        const heightCapFor = (height: number) => unitsPerScreen / height;
+
         const transforms: Record<string, string> = {};
         let y = STACK_PAD;
         for (const row of STACK_ROWS) {
@@ -1835,8 +1848,10 @@ export default class Game extends Vue {
             // One scale per row keeps neighbours visually consistent. The cap stops
             // a small strip (the turn-order token row) from being blown up absurdly.
             const rowScale = Math.min(usable / combined, STACK_MAX_SCALE);
-            // A slot may decline part of that scale so a neighbour keeps the space.
-            const scaleOf = (name: string) => Math.min(rowScale, STACK_SLOT_MAX_SCALE[name] ?? Infinity);
+            // A slot may decline part of that scale so a neighbour keeps the space,
+            // and no slot may grow past the height budget for one row.
+            const scaleOf = (name: string) =>
+                Math.min(rowScale, STACK_SLOT_MAX_SCALE[name] ?? Infinity, heightCapFor(boxes[name].height));
             const rowWidth = present.reduce((sum, name) => sum + boxes[name].width * scaleOf(name), 0);
             const rowHeight = Math.max(...present.map((name) => boxes[name].height * scaleOf(name)));
 

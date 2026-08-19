@@ -728,7 +728,8 @@ const STACK_SLOT_MAX_WIDTH: Record<string, number> = {
  */
 const STANDARD_DECK_BUILD: Record<string, string> = {
     recharged:
-        'Shuffle the 13 low power plants (3-15). Draw 8 and sort them ascending: the 4 cheapest form the ' +
+        'Shuffle the 13 low power plants — the "plug plants" (3-15), named for the plug on the back of ' +
+        'the printed cards. Draw 8 and sort them ascending: the 4 cheapest form the ' +
         'current market, the next 4 the future market. One of the remaining low plants goes face down on ' +
         'top of the draw deck. Player-count removal: 2 players remove 1 low + 5 higher plants; 3 players ' +
         'remove 2 low + 6 higher; 4 players remove 1 low + 3 higher; 5-6 players remove none. The leftover ' +

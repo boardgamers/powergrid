@@ -15,11 +15,14 @@ function launchSelfContained(selector = '#app') {
     // be checked against several maps without editing this file each time, e.g.
     //   ?map=Australia&players=3&variant=original&seed=7
     const params = new URLSearchParams(window.location.search);
+    // Note: randomizeMap short-circuits region selection in setup(), so ticking
+    // both gives a randomized board with no draft. They are alternatives.
     const gameOptions = {
         map: (params.get('map') || 'Bremen') as MapName,
         variant: (params.get('variant') || 'recharged') as Variant,
         showMoney: true,
-        randomizeMap: false,
+        randomizeMap: params.get('randomize') === '1',
+        chooseRegions: params.get('regions') === '1',
     };
     let gameState = setup(Number(params.get('players')) || 6, gameOptions, params.get('seed') || '0');
 

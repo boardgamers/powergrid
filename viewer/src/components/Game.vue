@@ -279,9 +279,9 @@
                     @click="undo()"
                 />
                 <LogButton transform="translate(15, 97)" @click="showLog()" />
-                <SoundButton transform="translate(110, 13)" :isOn="preferences.sound" @click="toggleSound()" />
-                <HelpButton transform="translate(110, 54)" :isOn="!preferences.disableHelp" @click="toggleHelp()" />
-                <RulesButton transform="translate(110, 95)" @click="rulesVisible = true" />
+                <SoundButton :transform="iconButton(0)" :isOn="preferences.sound" @click="toggleSound()" />
+                <HelpButton :transform="iconButton(1)" :isOn="!preferences.disableHelp" @click="toggleHelp()" />
+                <RulesButton :transform="iconButton(2)" @click="rulesVisible = true" />
                 <!-- Only offered where it means something. Shown whenever the
                      viewport is portrait — not only while stacking is active — so
                      it can undo its own effect. Sits under Rules rather than under
@@ -289,7 +289,7 @@
                      on the authored board. -->
                 <LayoutButton
                     v-if="portraitViewport"
-                    transform="translate(110, 136)"
+                    :transform="iconButton(3)"
                     :isOn="stacked"
                     @click="toggleStackLayout()"
                 />
@@ -703,7 +703,7 @@ const STACK_MAX_ROW_SCREENS = 0.72;
  * readable; the buttons next to it are tap targets and want every pixel.
  */
 const STACK_SLOT_MAX_SCALE: Record<string, number> = {
-    roundInfo: 2.2,
+    roundInfo: 1.9,
     playerOrder: 2.5,
 };
 /**
@@ -1837,6 +1837,19 @@ export default class Game extends Vue {
     }
 
     /**
+     * Placement of the icon column beside Pass / Undo / Log. On a portrait viewport
+     * that column gains a fourth button — the layout toggle — in a space authored for
+     * three, and at the authored pitch the fourth one hung 41 units below everything
+     * else and crowded the market row beneath it. On portrait the icons shrink to the
+     * 26-unit height of the text buttons next to them and re-pitch so all four end
+     * level with Log. Landscape and desktop keep the authored positions exactly.
+     */
+    iconButton(index: number): string {
+        if (!this.portraitViewport) return `translate(110, ${13 + 41 * index})`;
+        return `translate(110, ${13 + 30 * index}) scale(${round(26 / 30, 4)})`;
+    }
+
+    /**
      * Only portrait viewports are re-laid out. A landscape phone already reads
      * well (the scene's own aspect ratio is close to the screen's), so leaving
      * it alone keeps the change surface small.
@@ -1900,18 +1913,40 @@ export default class Game extends Vue {
             const gaps = STACK_GAP * (present.length - 1);
             const usable = STACK_WIDTH - 2 * STACK_PAD - gaps;
             const combined = present.reduce((sum, name) => sum + boxes[name].width, 0);
-            // One scale per row keeps neighbours visually consistent. The cap stops
-            // a small strip (the turn-order token row) from being blown up absurdly.
-            const rowScale = Math.min(usable / combined, STACK_MAX_SCALE);
-            // A slot may decline part of that scale so a neighbour keeps the space,
-            // and no slot may grow past the height budget for one row.
-            const scaleOf = (name: string) =>
+            // A slot may decline part of the row's scale so a neighbour keeps the
+            // space, and no slot may grow past the height budget for one row.
+            const ceilingOf = (name: string) =>
                 Math.min(
-                    rowScale,
                     STACK_SLOT_MAX_SCALE[name] ?? Infinity,
                     ((STACK_SLOT_MAX_WIDTH[name] ?? Infinity) * usable) / boxes[name].width,
-                    heightCapFor(boxes[name].height)
+                    heightCapFor(boxes[name].height),
+                    STACK_MAX_SCALE
                 );
+            // What a capped slot declines is width left on the table: without this it
+            // became margin either side of the row. Hand it to the slots that can
+            // still grow — the round readout gives up ~130 units beside the buttons,
+            // and the buttons are the part a thumb needs. Repeat until it settles:
+            // growing the free slots can push one of them into its own ceiling, and
+            // then there is more to re-split. rowScale only ever rises here, and a
+            // slot that caps mid-loop leaves the row shorter than solved for, so the
+            // row can never end up wider than the space it was given.
+            // One scale per row keeps neighbours visually consistent. The cap stops a
+            // small strip (the turn-order token row) from being blown up absurdly.
+            let rowScale = Math.min(usable / combined, STACK_MAX_SCALE);
+            for (let pass = 0; pass < present.length; pass++) {
+                let cappedWidth = 0;
+                let freeWidth = 0;
+                for (const name of present) {
+                    const ceiling = ceilingOf(name);
+                    if (ceiling < rowScale) cappedWidth += boxes[name].width * ceiling;
+                    else freeWidth += boxes[name].width;
+                }
+                if (!freeWidth) break;
+                const grown = Math.min((usable - cappedWidth) / freeWidth, STACK_MAX_SCALE);
+                if (grown <= rowScale + 0.0001) break;
+                rowScale = grown;
+            }
+            const scaleOf = (name: string) => Math.min(rowScale, ceilingOf(name));
             const rowWidth = present.reduce((sum, name) => sum + boxes[name].width * scaleOf(name), 0);
             const rowHeight = Math.max(...present.map((name) => boxes[name].height * scaleOf(name)));
 

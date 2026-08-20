@@ -386,6 +386,55 @@
             />
         </template>
 
+        <!-- City tap targets, drawn LAST so they sit above the houses already built
+             there. Houses are painted after the city's own circle, and SVG hit-testing
+             takes the topmost element — so once a city held houses the active player
+             could only pick at the gray slivers between them (eric-hu, #125).
+
+             The radius reaches out to the printed region ring, which is what the eye
+             reads as the edge of the city, but never past half the distance to the
+             nearest city: the maps disagree enormously about spacing (Bremen's closest
+             pair is 90.8 apart, South Africa's Johannesburg N/S is 21), so the limit
+             has to be measured rather than picked.
+
+             Only rendered while the city can actually be acted on, so houses keep
+             their own tooltips the rest of the time. -->
+        <template v-for="city in cities">
+            <circle
+                v-if="city.connectionCost == null && (canBuild(city) || canPickRegion(city))"
+                :key="city.name + '_tap'"
+                class="canClick"
+                :r="tapRadius(city)"
+                :cx="city.x"
+                :cy="city.y"
+                fill="none"
+                pointer-events="all"
+                @click="onCityClick(city)"
+            >
+                <title>{{ city.name }}</title>
+            </circle>
+            <!-- Node-weighted tiles (Bremen) get the same treatment at the tile's own
+                 size — their houses sit in slots inside the diamond. Manhattan's spaces
+                 hold one house each, so a built space is never buildable again and needs
+                 no overlay. -->
+            <rect
+                v-if="isNodeTile(city) && (canBuild(city) || canPickRegion(city))"
+                :key="city.name + '_tapTile'"
+                class="canClick"
+                :x="city.x - 23"
+                :y="city.y - 23"
+                width="46"
+                height="46"
+                rx="7"
+                fill="none"
+                pointer-events="all"
+                :transform="`rotate(45, ${city.x}, ${city.y})`"
+                @click="onCityClick(city)"
+            >
+                <title>{{ city.name }}</title>
+            </rect>
+        </template>
+
         <!-- Regions where nuclear plants are banned: a nuclear-plant tile under a red
              prohibition sign (ring + diagonal bar), matching the marker printed on
              the physical board. -->
@@ -420,6 +469,11 @@ import { Vue, Component, Prop, Inject } from 'vue-property-decorator';
 import { House } from '../pieces';
 import { Piece, Preferences } from '../../types/ui-data';
 import { City, Connection, Polygon } from 'powergrid-engine/src/maps';
+
+/** The gray disc a city is drawn as, and the tap target it has always had. */
+const CITY_RADIUS = 20;
+/** The coloured region ring drawn around that disc — the city's visible edge. */
+const CITY_RING_RADIUS = 25;
 
 @Component({
     components: {
@@ -603,6 +657,42 @@ export default class Map extends Vue {
             markers.push({ region, x: chosen ? chosen.x : centroid.x, y: chosen ? chosen.y : centroid.y });
         }
         return markers;
+    }
+
+    /**
+     * Distance from each city to its nearest neighbour. Cached as a computed so the
+     * O(n^2) sweep runs once per board rather than once per tap target; n is at most
+     * a few dozen cities.
+     */
+    get nearestCityDistance(): Record<string, number> {
+        const out: Record<string, number> = {};
+        const cities = this.cities ?? [];
+        for (const a of cities) {
+            let min = Infinity;
+            for (const b of cities) {
+                if (b === a) continue;
+                const d = Math.hypot(b.x - a.x, b.y - a.y);
+                if (d < min) min = d;
+            }
+            out[a.name] = min;
+        }
+        return out;
+    }
+
+    /**
+     * How far a city's tap target reaches. Out to the region ring where there is room
+     * for it, but never more than halfway to the next city — on the tight maps two
+     * targets would otherwise overlap and whichever is drawn later would swallow both
+     * cities' taps. Never smaller than the disc it has always been.
+     */
+    tapRadius(city: City): number {
+        const halfWayToNeighbour = (this.nearestCityDistance[city.name] ?? Infinity) / 2;
+        return Math.max(CITY_RADIUS, Math.min(CITY_RING_RADIUS, halfWayToNeighbour));
+    }
+
+    /** A Bremen-style node-weighted district: a diamond tile with several house slots. */
+    isNodeTile(city: City) {
+        return city.connectionCost != null && !!city.slotCosts && city.slotCosts.length >= 2;
     }
 
     canBuild(city: City) {

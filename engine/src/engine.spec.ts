@@ -33,6 +33,7 @@ import {
 import { Cities as ChinaCities, map as chinaMap } from './maps/china';
 import { Move, MoveName } from './move';
 import { powerPlants } from './powerPlants';
+import prices from './prices';
 
 describe('Engine', () => {
     it('should setup a game correctly', () => {
@@ -2012,5 +2013,48 @@ describe('Engine', () => {
         const fed = seatWith(20);
         expect(fed.availableMoves![MoveName.UsePowerPlant], 'fuelled, so its plant can be fired').to.not.be.undefined;
         expect(fed.availableMoves![MoveName.Pass], 'and while one can, India still refuses the pass').to.be.undefined;
+    });
+
+    it('should only offer South Africa storage coal when nothing on the track is cheaper', () => {
+        // Mike's ruling, 2026-08-24: you cannot reach past a cheap cube on the printed
+        // track to pay $8 for a stored one. The track tops out at $8, so storage opens
+        // once the market reaches its last band or empties. Mirrors USA recharged's
+        // $8-from-supply, which was already gated on the market being bare.
+        const seat = (coalMarket: number) => {
+            const G = setup(2, { map: 'South Africa', variant: 'recharged', randomizeMap: false }, 'sa-storage');
+            G.phase = Phase.Resources;
+            const player = G.players[G.players[0].id];
+            G.currentPlayers = [player.id];
+            G.coalStorage = 6;
+            G.coalMarket = coalMarket;
+            player.money = 100;
+            player.coalCapacity = 20;
+            player.coalLeft = 0;
+            player.availableMoves = availableMoves(G, player);
+            const buys = player.availableMoves[MoveName.BuyResource] ?? [];
+            return {
+                storage: buys.some((b) => b.fromStorage),
+                market: buys.some((b) => b.resource === ResourceType.Coal && !b.fromStorage),
+                price: G.coalPrices
+                    ? G.coalPrices[G.coalPrices.length - coalMarket]
+                    : prices[ResourceType.Coal][prices[ResourceType.Coal].length - coalMarket],
+            };
+        };
+
+        // A full track: the next cube is $1, so $8 storage is off the table.
+        const cheap = seat(24);
+        expect(cheap.price, 'a full track sells its next cube at $1').to.equal(1);
+        expect(cheap.market, 'the market itself is buyable').to.be.true;
+        expect(cheap.storage, 'and storage is not, while $1 coal is sitting there').to.be.false;
+
+        // Down to the last band, where the track charges $8 too.
+        const dear = seat(3);
+        expect(dear.price, 'the last three cubes are the $8 band').to.equal(8);
+        expect(dear.storage, 'nothing is cheaper now, so storage opens').to.be.true;
+
+        // And an empty track leaves storage as the only coal there is.
+        const bare = seat(0);
+        expect(bare.market, 'no cubes left on the track').to.be.false;
+        expect(bare.storage, 'storage is still there at $8').to.be.true;
     });
 });

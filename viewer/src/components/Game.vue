@@ -143,7 +143,23 @@
             </g>
 
             <g ref="slotResources" :transform="slotT('resources')">
+                <!-- On a phone the printed price track is a strip of unreadable
+                     columns, so the stacked layout swaps it for one box per buyable
+                     source. Landscape and desktop keep the printed board exactly as
+                     it was — this is an either/or, never an overlay. -->
+                <ResourceBoxes
+                    v-if="stacked"
+                    :transform="`translate(${G.map.supplyPosition[0]}, ${G.map.supplyPosition[1]})`"
+                    :gameState="G"
+                    :player="player"
+                    :isUsaRecharged="G.options.variant == 'recharged' && G.map.name == 'USA'"
+                    :buyableResources="buyableResources()"
+                    :resourceResupply="getResourceResupply()"
+                    :resourceResupplyNorth="getResourceResupplyNorth()"
+                    @buyResource="buyResource($event)"
+                />
                 <Resources
+                    v-else
                     ref="resources"
                     :transform="`translate(${G.map.supplyPosition[0]}, ${G.map.supplyPosition[1]})`"
                     :isUsaRecharged="G.options.variant == 'recharged' && G.map.name == 'USA'"
@@ -162,12 +178,76 @@
                 />
             </g>
 
+            <!-- Australia: the same uranium-mine selling table laid on its side for
+                 portrait. A 104x430 strip is the worst possible shape for a full-width
+                 row — it can only grow until its HEIGHT fills the row, so it ends up a
+                 sliver with the whole width beside it empty. Turned through 90° the six
+                 prices run left to right in the same order they run top to bottom, and
+                 the row is filled by something worth reading. -->
+            <g
+                v-if="stacked && G.map.name === 'Australia' && G.uraniumMineMarket"
+                ref="slotUraniumMines"
+                :transform="slotT('uraniumMines') || 'translate(15, 70)'"
+            >
+                <rect x="0" y="0" width="620" height="146" rx="6" fill="#8aa84a" stroke="#4d6322" stroke-width="3" />
+                <text x="310" y="26" text-anchor="middle" font-weight="700" fill="black" style="font-size: 22px">
+                    Uranium mine market
+                </text>
+                <g v-for="col in 6" :key="'uraniumCol' + col" :transform="`translate(${10 + (col - 1) * 100}, 0)`">
+                    <text x="50" y="56" text-anchor="middle" font-weight="700" fill="black" style="font-size: 20px">
+                        ${{ 8 - col }}
+                    </text>
+                    <rect
+                        x="21"
+                        y="66"
+                        width="26"
+                        height="26"
+                        rx="3"
+                        fill="goldenrod"
+                        stroke="#4d6322"
+                        stroke-width="1.5"
+                    />
+                    <rect
+                        x="53"
+                        y="66"
+                        width="26"
+                        height="26"
+                        rx="3"
+                        fill="goldenrod"
+                        stroke="#4d6322"
+                        stroke-width="1.5"
+                    />
+                    <circle
+                        v-if="(G.uraniumMineMarket[6 - col] || 0) >= 1"
+                        cx="34"
+                        cy="79"
+                        r="10"
+                        fill="#46c655"
+                        stroke="#1f5c25"
+                        stroke-width="2"
+                    />
+                    <circle
+                        v-if="(G.uraniumMineMarket[6 - col] || 0) >= 2"
+                        cx="66"
+                        cy="79"
+                        r="10"
+                        fill="#46c655"
+                        stroke="#1f5c25"
+                        stroke-width="2"
+                    />
+                </g>
+                <line x1="10" y1="108" x2="610" y2="108" stroke="#4d6322" stroke-width="1" />
+                <text x="310" y="132" text-anchor="middle" font-weight="700" fill="#22340f" style="font-size: 18px">
+                    refill −{{ G.map.uraniumMineResupply[G.players.length - 2][G.step - 1] }}/rnd
+                </text>
+            </g>
+
             <!-- Australia: uranium-mine selling table. Six price rows $7 (top) →
                  $2 (bottom), two token slots each. Sellers place one token per mine
                  on the highest empty slot; the resource refill removes from the
                  cheap (bottom) end. Lives in the clear upper-left margin. -->
             <g
-                v-if="G.map.name === 'Australia' && G.uraniumMineMarket"
+                v-if="!stacked && G.map.name === 'Australia' && G.uraniumMineMarket"
                 ref="slotUraniumMines"
                 :transform="slotT('uraniumMines') || 'translate(15, 70)'"
             >
@@ -660,6 +740,7 @@ import PowerPlantMarket from './boards/PowerPlantMarket.vue';
 import PlayerOrder from './boards/PlayerOrder.vue';
 import CityCount from './boards/CityCount.vue';
 import Map from './boards/Map.vue';
+import ResourceBoxes from './boards/ResourceBoxes.vue';
 import Resources from './boards/Resources.vue';
 import { LogMove } from 'powergrid-engine/src/log';
 import { Phase, playerTimeUsed, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
@@ -719,6 +800,9 @@ const STACK_SLOT_MAX_SCALE: Record<string, number> = {
  */
 const STACK_SLOT_MAX_WIDTH: Record<string, number> = {
     powerPlantMarket: 0.88,
+    // The box market is one tall stack of full-width buttons; run edge to edge it
+    // reads as though it had been cropped rather than laid out.
+    resources: 0.94,
 };
 
 /**
@@ -794,7 +878,8 @@ const round = (n: number, digits = 2) => Number(n.toFixed(digits));
         PlayerOrder,
         CityCount,
         Map,
-        Resources
+        Resources,
+        ResourceBoxes
     },
 })
 export default class Game extends Vue {
@@ -987,7 +1072,8 @@ export default class Game extends Vue {
                 this.playerOrder.createPieces(this.G!);
                 this.cityCount.createPieces(this.G!);
                 this.map.createPieces(this.G!);
-                this.resources.createPieces(this.G!);
+                // Absent while the portrait layout is showing the box market instead.
+                this.resources?.createPieces(this.G!);
                 // Pieces are added imperatively, so the groups only reach their
                 // final size here — the portrait layout must measure after this,
                 // not on the state change that triggered it.
@@ -2033,6 +2119,19 @@ export default class Game extends Vue {
         this.stackHeight = Math.round(y + STACK_PAD - STACK_GAP);
         this.slotTransforms = transforms;
         this.stacked = true;
+    }
+
+    /**
+     * Entering or leaving the stacked layout swaps the printed resource track for the
+     * box market, which is a different shape entirely. `relayout` sets `stacked` last,
+     * so the swap only reaches the DOM a tick later — by which point the row heights
+     * it just solved for describe the component that is no longer there. Measure again
+     * once the swap has landed. This settles after one extra pass: the second run
+     * leaves `stacked` unchanged, so it does not re-trigger.
+     */
+    @Watch('stacked')
+    onStackedChanged() {
+        this.scheduleRelayout();
     }
 
     private scheduleRelayout() {

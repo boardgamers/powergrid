@@ -310,7 +310,7 @@
                         :ended="gameEnded(G)"
                         :isPlayer="player == playerIndex"
                         :ranking="sortedPlayers.findIndex((x) => x.id == G.players[playerIndex].id) + 1"
-                        :showMoney="player == playerIndex || gameEnded(G) || G.options.showMoney"
+                        :showMoney="player == playerIndex || moneyIsPublic"
                         :showBid="!G.options.fastBid"
                         :phase="G.phase"
                         :isAustralia="G.map.name === 'Australia'"
@@ -822,6 +822,11 @@ export default class Game extends Vue {
 
     paused = false;
 
+    // Set once the platform has served a finished game, and never cleared.
+    // Reactive on purpose: `_futureState` is not, and the money gate has to
+    // re-evaluate as the replay scrubber steps through the game.
+    gameIsOver = false;
+
     @Provide()
     communicator: EventEmitter = new EventEmitter();
 
@@ -947,6 +952,14 @@ export default class Game extends Vue {
     replaceState(state: GameState, replaceState = true, playSound = true) {
         if (replaceState) {
             this._futureState = state;
+        }
+
+        // Remember that the platform has served us a finished game. The replay
+        // scrubber renders reconstructed MID-game states, whose own `ended()` is
+        // false however long ago the game finished, so it cannot be asked. See
+        // `moneyIsPublic`.
+        if (replaceState && ended(state)) {
+            this.gameIsOver = true;
         }
 
         // if player is selecting resources, keep the state
@@ -1427,6 +1440,26 @@ export default class Game extends Vue {
         return ended(G);
     }
 
+    /**
+     * Is every player's cash public?
+     *
+     * Money is hidden information while a game is running, but a finished game has
+     * nothing left to hide — the engine's `stripSecret` reveals it and the end-game
+     * table prints it. The replay scrubber, though, shows a RECONSTRUCTED mid-game
+     * state, and `ended()` on that state is false however long ago the game actually
+     * finished. So stepping back through a finished game blacked out everyone
+     * else's cash, which is most of what makes a replay worth reviewing: you could
+     * not tell whether someone ending the game early would have changed the result
+     * (eric-hu, #130). Ask whether the GAME is over, not whether the step being
+     * displayed is.
+     *
+     * An in-progress game stays hidden, which is the point — the reconstruction
+     * derives every player's true cash from the log, so this gate is the only thing
+     * standing between a mid-game replay and other people's wallets.
+     */
+    get moneyIsPublic(): boolean {
+        return !!this.G && (!!this.G.options.showMoney || this.gameIsOver || ended(this.G));
+    }
 
     canMove() {
         return (

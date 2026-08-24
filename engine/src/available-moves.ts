@@ -708,8 +708,19 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 moves[MoveName.UsePowerPlant] = toUse;
             }
 
-            // For India map, players must power as many cities as possible.
-            if (G.map.name != 'India' || player.citiesPowered >= player.targetCitiesPowered! || player.isAI) {
+            // For India map, players must power as many cities as possible — but "as
+            // many as possible" is already satisfied once there is nothing left that
+            // CAN be fired. Without that last clause a player who runs out of fuel
+            // short of their target is offered no move at all: not a plant, not Pass.
+            // Bureaucracy is simultaneous, so the whole table then waits on a seat with
+            // nothing to click. Bots never hit it (isAI is an escape here), which is
+            // why it only ever bites humans.
+            if (
+                G.map.name != 'India' ||
+                player.citiesPowered >= player.targetCitiesPowered! ||
+                player.isAI ||
+                toUse.length === 0
+            ) {
                 moves[MoveName.Pass] = [true];
             }
             break;

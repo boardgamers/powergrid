@@ -7,7 +7,7 @@ import {
 } from '@/util/turn-buffer';
 import { expect } from 'chai';
 import type { GameState, Move } from 'powergrid-engine';
-import { move as engineMove, MoveName, setup } from 'powergrid-engine';
+import { move as engineMove, moveAI, MoveName, Phase, setup } from 'powergrid-engine';
 
 describe('turn-buffer', () => {
     const clone = <T>(value: T): T => JSON.parse(JSON.stringify(value));
@@ -157,5 +157,73 @@ describe('turn-buffer', () => {
 
         // The input state is never mutated by a preview
         expect(committed.chosenPowerPlant).to.be.undefined;
+    });
+
+    // The reason the viewer previews a move locally BEFORE sending it (Game.vue
+    // sendMove). These two tests describe the bug that motivated it: eric-hu's #131,
+    // "Wrong argument for the command BuyResource" at the end of a game.
+    it('previewing a move advances availableMoves, which is what disables the next illegal click', () => {
+        const { committed, player, choose } = fixture();
+
+        // The viewer used to judge every click against the last state the SERVER sent.
+        // A click made before the reply landed was therefore built from a stale list.
+        expect(
+            committed.players[player].availableMoves![MoveName.ChoosePowerPlant],
+            'the stale list still offers a plant to choose'
+        ).to.include(choose.data as number);
+
+        // Sending both is what the platform rejects: it replays the WHOLE buffer.
+        expect(() => {
+            let s = engineMove(clone(committed), choose, player);
+            engineMove(s, { ...choose, time: 2000 } as Move, player);
+        }, 'the platform replays the buffer and throws').to.throw();
+
+        // Previewing the buffer locally moves the board on, so the second click is
+        // never offered — the illegal buffer cannot be built in the first place.
+        const { state } = replayTurnBuffer(committed, [choose], player);
+        expect(state.players[player].availableMoves![MoveName.ChoosePowerPlant]).to.be.undefined;
+    });
+
+    it('a preview after every buy stops a resource click going past storage capacity', () => {
+        // Drive a real game to a seat that can buy resources.
+        let G: GameState = setup(4, {}, 'turn-buffer-resources');
+        for (let i = 0; i < 4000; i++) {
+            const seat = G.players.findIndex((p) => p.availableMoves);
+            if (seat < 0) break;
+            if (G.phase === Phase.Resources && G.players[seat].availableMoves![MoveName.BuyResource]) {
+                const stale = G.players[seat].availableMoves![MoveName.BuyResource]!;
+                const target = stale[0];
+
+                // How many of that resource fit? Buy until the engine stops offering it.
+                let previewed: GameState = clone(G);
+                const buffer: Move[] = [];
+                for (let n = 0; n < 40; n++) {
+                    // No optional chaining in this file: webpack 4 parses the unit-test
+                    // bundle and rejects it (same note as util/turn-buffer.ts).
+                    const moves = previewed.players[seat].availableMoves;
+                    const fresh = moves ? moves[MoveName.BuyResource] : undefined;
+                    if (!fresh || !fresh.some((m) => JSON.stringify(m) === JSON.stringify(target))) break;
+                    const buy: Move = { name: MoveName.BuyResource, data: target, time: 1000 + n };
+                    buffer.push(buy);
+                    previewed = replayTurnBuffer(G, buffer, seat).state;
+                }
+                expect(buffer.length, 'the seat can buy at least one cube').to.be.greaterThan(0);
+
+                // WITHOUT a preview the cube stays clickable, so one more click is
+                // buffered and the platform rejects the whole turn.
+                const oneTooMany = [...buffer, { name: MoveName.BuyResource, data: target, time: 9999 } as Move];
+                expect(() => {
+                    let s: GameState = clone(G);
+                    for (const m of oneTooMany) s = engineMove(s, m, seat);
+                }, 'this is the state eric-hu got stuck in').to.throw(/BuyResource/);
+
+                // WITH a preview, the extra click is never offered, and even if one
+                // races in the replay truncates it rather than sending it on.
+                expect(replayTurnBuffer(G, oneTooMany, seat).applied).to.deep.equal(buffer);
+                return;
+            }
+            G = moveAI(G, seat);
+        }
+        expect.fail('never reached a seat that could buy resources');
     });
 });

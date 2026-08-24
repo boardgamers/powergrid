@@ -944,7 +944,7 @@ export default class Game extends Vue {
         return state;
     }
 
-    replaceState(state: GameState, replaceState = true) {
+    replaceState(state: GameState, replaceState = true, playSound = true) {
         if (replaceState) {
             this._futureState = state;
         }
@@ -982,7 +982,7 @@ export default class Game extends Vue {
             });
         }
 
-        if (this.preferences.sound && this.G?.log[this.G?.log.length - 1].type == 'move') {
+        if (playSound && this.preferences.sound && this.G?.log[this.G?.log.length - 1].type == 'move') {
             const move = (this.G?.log[this.G?.log.length - 1] as LogMove).move;
             if (move.name == MoveName.Pass && this.G.currentPlayers.includes(this.player!)) {
                 (document.getElementById('notification')!.cloneNode(true) as HTMLAudioElement).play();
@@ -1385,14 +1385,48 @@ export default class Game extends Vue {
         // replays (and the eventual committed log) reproduce the same times.
         this.turnMoves.push({ ...move, time: Date.now() });
 
+        // Preview the move locally BEFORE sending it. Without this the board — and with
+        // it `availableMoves` — stays frozen on the last server reply, so every click
+        // made while a response is in flight is judged against a stale list. Buy one
+        // resource past what your plants can hold and the platform rejects the whole
+        // replayed buffer with "Wrong argument for the command BuyResource"; the
+        // rejected move then stays in the buffer, so every later action resends it and
+        // fails again until the page is refreshed (#131).
+        //
+        // Replaying the buffer on the committed state is exact: any move with hidden
+        // side effects commits, which ends the buffer (see util/turn-buffer).
+        let preview: GameState | null = null;
+
+        if (this.committedState && this.player != undefined) {
+            const buffered = this.turnMoves.length;
+            preview = this.replayTurnBuffer();
+
+            if (this.turnMoves.length < buffered) {
+                // The engine refused the move we just added, so it never reaches the
+                // server and the board already shows the truth.
+                return;
+            }
+        }
+
         // Send the WHOLE turn so far: the platform is stateless between calls and
         // replays the buffer from the last committed (saved) state.
         this.emitter.emit('move', [...this.turnMoves]);
+
+        // Only adopt a preview that is still TENTATIVE. A committing move (Pass, a bid
+        // that ends an auction) replays hidden outcomes — deck draws, upkeep — on a
+        // state whose deck and seed are stripped, so its preview would flash bogus
+        // results; wait for the server's committed answer instead. The echo of this
+        // same buffer lands next and is authoritative, and it owns the sound, so the
+        // preview stays silent rather than doubling it.
+        if (preview && preview.newTurn === false) {
+            this.replaceState(preview, false, false);
+        }
     }
 
     gameEnded(G: GameState) {
         return ended(G);
     }
+
 
     canMove() {
         return (

@@ -143,7 +143,23 @@
             </g>
 
             <g ref="slotResources" :transform="slotT('resources')">
+                <!-- On a phone the printed price track is a strip of unreadable
+                     columns, so the stacked layout swaps it for one box per buyable
+                     source. Landscape and desktop keep the printed board exactly as
+                     it was — this is an either/or, never an overlay. -->
+                <ResourceBoxes
+                    v-if="stacked"
+                    :transform="`translate(${G.map.supplyPosition[0]}, ${G.map.supplyPosition[1]})`"
+                    :gameState="G"
+                    :player="player"
+                    :isUsaRecharged="G.options.variant == 'recharged' && G.map.name == 'USA'"
+                    :buyableResources="buyableResources()"
+                    :resourceResupply="getResourceResupply()"
+                    :resourceResupplyNorth="getResourceResupplyNorth()"
+                    @buyResource="buyResource($event)"
+                />
                 <Resources
+                    v-else
                     ref="resources"
                     :transform="`translate(${G.map.supplyPosition[0]}, ${G.map.supplyPosition[1]})`"
                     :isUsaRecharged="G.options.variant == 'recharged' && G.map.name == 'USA'"
@@ -660,6 +676,7 @@ import PowerPlantMarket from './boards/PowerPlantMarket.vue';
 import PlayerOrder from './boards/PlayerOrder.vue';
 import CityCount from './boards/CityCount.vue';
 import Map from './boards/Map.vue';
+import ResourceBoxes from './boards/ResourceBoxes.vue';
 import Resources from './boards/Resources.vue';
 import { LogMove } from 'powergrid-engine/src/log';
 import { Phase, playerTimeUsed, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
@@ -794,7 +811,8 @@ const round = (n: number, digits = 2) => Number(n.toFixed(digits));
         PlayerOrder,
         CityCount,
         Map,
-        Resources
+        Resources,
+        ResourceBoxes
     },
 })
 export default class Game extends Vue {
@@ -974,7 +992,8 @@ export default class Game extends Vue {
                 this.playerOrder.createPieces(this.G!);
                 this.cityCount.createPieces(this.G!);
                 this.map.createPieces(this.G!);
-                this.resources.createPieces(this.G!);
+                // Absent while the portrait layout is showing the box market instead.
+                this.resources?.createPieces(this.G!);
                 // Pieces are added imperatively, so the groups only reach their
                 // final size here — the portrait layout must measure after this,
                 // not on the state change that triggered it.
@@ -2000,6 +2019,19 @@ export default class Game extends Vue {
         this.stackHeight = Math.round(y + STACK_PAD - STACK_GAP);
         this.slotTransforms = transforms;
         this.stacked = true;
+    }
+
+    /**
+     * Entering or leaving the stacked layout swaps the printed resource track for the
+     * box market, which is a different shape entirely. `relayout` sets `stacked` last,
+     * so the swap only reaches the DOM a tick later — by which point the row heights
+     * it just solved for describe the component that is no longer there. Measure again
+     * once the swap has landed. This settles after one extra pass: the second run
+     * leaves `stacked` unchanged, so it does not re-trigger.
+     */
+    @Watch('stacked')
+    onStackedChanged() {
+        this.scheduleRelayout();
     }
 
     private scheduleRelayout() {

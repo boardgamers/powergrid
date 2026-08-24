@@ -300,15 +300,23 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             }
 
             // South Africa: $8 flat coal from the storage pool below the market.
-            // Always available alongside the regular market option (not gated on
-            // market being empty), as long as there are cubes in storage.
+            // Only on offer while the market has no coal going cheaper — you cannot
+            // reach past a $4 cube on the track to pay $8 for a stored one (Mike's
+            // ruling, 2026-08-24). The printed track tops out at $8, so in practice
+            // storage opens once the market reaches its last price band or empties.
+            // This mirrors USA recharged's $8-from-supply, which was already gated on
+            // the market being bare.
             if (allowSouth && G.coalStorage !== undefined && G.coalStorage > 0) {
                 const hybridCapacityUsed =
                     player.hybridCapacity > 0 ? Math.max(0, player.oilLeft - player.oilCapacity) : 0;
+                const coalPrices = G.coalPrices ?? prices[ResourceType.Coal];
+                const marketPrice =
+                    G.coalMarket > 0 ? coalPrices[coalPrices.length - G.coalMarket] : Number.POSITIVE_INFINITY;
                 if (
                     player.money >= 8 &&
                     player.coalCapacity + player.hybridCapacity > hybridCapacityUsed + player.coalLeft &&
-                    8 <= maxPriceAvailable
+                    8 <= maxPriceAvailable &&
+                    marketPrice >= 8
                 ) {
                     toBuy.push({ resource: ResourceType.Coal, fromStorage: true });
                 }

@@ -1973,4 +1973,44 @@ describe('Engine', () => {
         expect(G.players[idx].coalLeft, 'the player is left within capacity, not one cube over').to.equal(0);
         expect(G.coalSupply - supplyBefore, 'every discarded cube goes back to the supply').to.equal(3);
     });
+    it('should let an India player pass when they cannot fire anything, target or not', () => {
+        // India requires powering as many cities as possible, which was read as "you
+        // may not pass below your target". A player who then runs out of fuel short of
+        // that target was offered NOTHING: no plant, no pass. Bureaucracy is
+        // simultaneous, so the whole table waits on a seat with nothing to click.
+        //
+        // Both halves need the player to actually OWN a plant that burns something:
+        // with an empty hand, or a wind/nuclear plant that needs no fuel, the first
+        // assertion would pass for the wrong reason.
+        const seatWith = (fuel: number) => {
+            const G = setup(2, { map: 'India', variant: 'recharged', randomizeMap: false }, 'india-deadlock');
+            G.phase = Phase.Bureaucracy;
+            const player = G.players[G.players[0].id];
+            G.currentPlayers = [player.id];
+
+            const burner = G.actualMarket
+                .concat(G.futureMarket)
+                .find((p) => p.type === PowerPlantType.Coal || p.type === PowerPlantType.Oil);
+            expect(burner, 'the opening market always holds a coal or oil plant').to.not.be.undefined;
+
+            player.powerPlants = [burner!];
+            player.powerPlantsNotUsed = [burner!.number];
+            player.coalLeft = fuel;
+            player.oilLeft = fuel;
+            player.citiesPowered = 0;
+            player.targetCitiesPowered = 3;
+            player.availableMoves = availableMoves(G, player);
+            return player;
+        };
+
+        const dry = seatWith(0);
+        expect(dry.availableMoves![MoveName.UsePowerPlant], 'no fuel, so its plant cannot be fired').to.be.undefined;
+        expect(dry.availableMoves![MoveName.Pass], 'so passing has to be legal, or there is no legal move at all').to
+            .not.be.undefined;
+
+        // The requirement still bites while a plant CAN still be fired.
+        const fed = seatWith(20);
+        expect(fed.availableMoves![MoveName.UsePowerPlant], 'fuelled, so its plant can be fired').to.not.be.undefined;
+        expect(fed.availableMoves![MoveName.Pass], 'and while one can, India still refuses the pass').to.be.undefined;
+    });
 });

@@ -192,18 +192,21 @@ function rowsFor(G: GameState, north: boolean, opts: RowOptions): ResourceRow[] 
         rows.push(marketRow(G, 'coal', north, opts));
     }
 
+    // South Africa: used coal returns to a storage pool below the market and can
+    // always be bought back at $8, alongside whatever the track is charging. It sits
+    // directly under the market coal rather than at the bottom of the list, so the two
+    // coal prices are read together — the track is usually the cheaper of the two and
+    // that should be obvious without hunting.
+    if (!north && G.coalStorage !== undefined) {
+        rows.push(flatRow(G, G.coalStorage, true, 'Coal (from storage)', opts));
+    }
+
     rows.push(marketRow(G, 'oil', north, opts));
     rows.push(marketRow(G, 'garbage', north, opts));
 
     // Korea's north side has no uranium row.
     if (!north && uraniumOnTrack(G)) {
         rows.push(marketRow(G, 'uranium', north, opts));
-    }
-
-    // South Africa: used coal returns to a storage pool below the market and can
-    // always be bought back at $8, alongside whatever the track is charging.
-    if (!north && G.coalStorage !== undefined) {
-        rows.push(flatRow(G, G.coalStorage, true, 'Coal (from storage)', opts));
     }
 
     return rows;

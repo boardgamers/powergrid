@@ -21,8 +21,14 @@
                 </text>
 
                 <text x="4" y="42" fill="#3a2c08" style="font-size: 24px; letter-spacing: 1px">CURRENT PRICE</text>
-                <text x="250" y="42" fill="#3a2c08" style="font-size: 24px; letter-spacing: 1px">
-                    BUYABLE AT THIS PRICE
+                <text
+                    :x="CUBE_BAND_CENTRE"
+                    y="42"
+                    text-anchor="middle"
+                    fill="#3a2c08"
+                    style="font-size: 24px; letter-spacing: 1px"
+                >
+                    AT THIS PRICE
                 </text>
                 <text
                     :x="BOX_W - 4"
@@ -81,14 +87,14 @@
                     <circle
                         v-for="n in row.atPrice"
                         :key="'cube' + n"
-                        :cx="266 + (n - 1) * 44"
+                        :cx="cubeX(row.atPrice, n)"
                         :cy="58"
                         r="17"
                         :fill="row.color"
                         stroke="black"
                         stroke-width="2"
                     />
-                    <text v-if="row.flat && row.cubes > 0" x="266" y="66" fill="#3a2c08" style="font-size: 22px">
+                    <text v-if="row.flat && row.cubes > 0" x="300" y="66" fill="#3a2c08" style="font-size: 22px">
                         every cube at this price
                     </text>
 
@@ -122,12 +128,15 @@ import { GameState } from 'powergrid-engine';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { BuyMove, ResourceBlock, resourceBlocks } from '../../util/resource-rows';
 
-const BOX_W = 760;
+const BOX_W = 700;
 const BOX_H = 104;
 const BOX_GAP = 8;
 /** Block title + column captions above the first box. */
 const HEAD_H = 62;
 const BLOCK_GAP = 30;
+const CUBE_PITCH = 44;
+/** Middle of the band between the price block and the cubes-left count. */
+const CUBE_BAND_CENTRE = 420;
 
 /**
  * The portrait resource market.
@@ -163,6 +172,12 @@ export default class ResourceBoxes extends Vue {
     BOX_H = BOX_H;
     BOX_GAP = BOX_GAP;
     HEAD_H = HEAD_H;
+    CUBE_BAND_CENTRE = CUBE_BAND_CENTRE;
+
+    /** Centre the cube cluster in that band, however many cubes there are. */
+    cubeX(count: number, n: number): number {
+        return CUBE_BAND_CENTRE - ((count - 1) * CUBE_PITCH) / 2 + (n - 1) * CUBE_PITCH;
+    }
 
     get step(): number {
         return this.gameState.step;

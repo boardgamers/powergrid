@@ -178,12 +178,76 @@
                 />
             </g>
 
+            <!-- Australia: the same uranium-mine selling table laid on its side for
+                 portrait. A 104x430 strip is the worst possible shape for a full-width
+                 row — it can only grow until its HEIGHT fills the row, so it ends up a
+                 sliver with the whole width beside it empty. Turned through 90° the six
+                 prices run left to right in the same order they run top to bottom, and
+                 the row is filled by something worth reading. -->
+            <g
+                v-if="stacked && G.map.name === 'Australia' && G.uraniumMineMarket"
+                ref="slotUraniumMines"
+                :transform="slotT('uraniumMines') || 'translate(15, 70)'"
+            >
+                <rect x="0" y="0" width="620" height="146" rx="6" fill="#8aa84a" stroke="#4d6322" stroke-width="3" />
+                <text x="310" y="26" text-anchor="middle" font-weight="700" fill="black" style="font-size: 22px">
+                    Uranium mine market
+                </text>
+                <g v-for="col in 6" :key="'uraniumCol' + col" :transform="`translate(${10 + (col - 1) * 100}, 0)`">
+                    <text x="50" y="56" text-anchor="middle" font-weight="700" fill="black" style="font-size: 20px">
+                        ${{ 8 - col }}
+                    </text>
+                    <rect
+                        x="21"
+                        y="66"
+                        width="26"
+                        height="26"
+                        rx="3"
+                        fill="goldenrod"
+                        stroke="#4d6322"
+                        stroke-width="1.5"
+                    />
+                    <rect
+                        x="53"
+                        y="66"
+                        width="26"
+                        height="26"
+                        rx="3"
+                        fill="goldenrod"
+                        stroke="#4d6322"
+                        stroke-width="1.5"
+                    />
+                    <circle
+                        v-if="(G.uraniumMineMarket[6 - col] || 0) >= 1"
+                        cx="34"
+                        cy="79"
+                        r="10"
+                        fill="#46c655"
+                        stroke="#1f5c25"
+                        stroke-width="2"
+                    />
+                    <circle
+                        v-if="(G.uraniumMineMarket[6 - col] || 0) >= 2"
+                        cx="66"
+                        cy="79"
+                        r="10"
+                        fill="#46c655"
+                        stroke="#1f5c25"
+                        stroke-width="2"
+                    />
+                </g>
+                <line x1="10" y1="108" x2="610" y2="108" stroke="#4d6322" stroke-width="1" />
+                <text x="310" y="132" text-anchor="middle" font-weight="700" fill="#22340f" style="font-size: 18px">
+                    refill −{{ G.map.uraniumMineResupply[G.players.length - 2][G.step - 1] }}/rnd
+                </text>
+            </g>
+
             <!-- Australia: uranium-mine selling table. Six price rows $7 (top) →
                  $2 (bottom), two token slots each. Sellers place one token per mine
                  on the highest empty slot; the resource refill removes from the
                  cheap (bottom) end. Lives in the clear upper-left margin. -->
             <g
-                v-if="G.map.name === 'Australia' && G.uraniumMineMarket"
+                v-if="!stacked && G.map.name === 'Australia' && G.uraniumMineMarket"
                 ref="slotUraniumMines"
                 :transform="slotT('uraniumMines') || 'translate(15, 70)'"
             >
@@ -736,6 +800,9 @@ const STACK_SLOT_MAX_SCALE: Record<string, number> = {
  */
 const STACK_SLOT_MAX_WIDTH: Record<string, number> = {
     powerPlantMarket: 0.88,
+    // The box market is one tall stack of full-width buttons; run edge to edge it
+    // reads as though it had been cropped rather than laid out.
+    resources: 0.94,
 };
 
 /**

@@ -727,6 +727,7 @@ import type { GameState, LogItem, Move, Player } from 'powergrid-engine';
 import { EventEmitter } from 'events';
 import {
     bufferedBuyCounts,
+    engineRefusedIt,
     lastBuyIndex,
     matchesTurnBuffer,
     rebaseTurnBuffer,
@@ -980,6 +981,9 @@ export default class Game extends Vue {
     // server-side from the last committed state; undo simply shortens it.
     turnMoves: Move[] = [];
 
+    /** Why the last local replay stopped, if it did — see `engineRefusedIt`. */
+    private lastReplayFailure: unknown;
+
     // Last committed state received from the platform. Undo replays the shortened
     // turn buffer from this state; when the buffer empties, the preview resets to it
     // without any server call (the platform's saved state IS the turn start).
@@ -1039,8 +1043,9 @@ export default class Game extends Vue {
      * engine now rejects — possible after a rebase) and returns the preview.
      */
     replayTurnBuffer(): GameState {
-        const { state, applied } = replayBuffer(this.committedState!, this.turnMoves, this.player!);
+        const { state, applied, failure } = replayBuffer(this.committedState!, this.turnMoves, this.player!);
         this.turnMoves = applied;
+        this.lastReplayFailure = failure;
         return state;
     }
 
@@ -1529,11 +1534,20 @@ export default class Game extends Vue {
             return;
         }
 
+        // What the board offered when this click was judged — the same list the
+        // button that produced it was enabled from.
+        const offeredWhenClicked =
+            this.player != undefined && this.G && this.G.players[this.player]
+                ? this.G.players[this.player].availableMoves
+                : undefined;
+        const theServerOfferedThisMove = !!offeredWhenClicked && !!offeredWhenClicked[move.name];
+
         // Stamp the move ONCE, when it enters the turn buffer, so the engine can
         // advance the per-player clocks. The engine never reads the system clock
         // itself — the stamp travels with the move on every resend of the buffer, so
         // replays (and the eventual committed log) reproduce the same times.
-        this.turnMoves.push({ ...move, time: Date.now() });
+        const stamped = { ...move, time: Date.now() };
+        this.turnMoves.push(stamped);
 
         // Preview the move locally BEFORE sending it. Without this the board — and with
         // it `availableMoves` — stays frozen on the last server reply, so every click
@@ -1542,9 +1556,6 @@ export default class Game extends Vue {
         // replayed buffer with "Wrong argument for the command BuyResource"; the
         // rejected move then stays in the buffer, so every later action resends it and
         // fails again until the page is refreshed (#131).
-        //
-        // Replaying the buffer on the committed state is exact: any move with hidden
-        // side effects commits, which ends the buffer (see util/turn-buffer).
         let preview: GameState | null = null;
 
         if (this.committedState && this.player != undefined) {
@@ -1552,9 +1563,31 @@ export default class Game extends Vue {
             preview = this.replayTurnBuffer();
 
             if (this.turnMoves.length < buffered) {
-                // The engine refused the move we just added, so it never reaches the
-                // server and the board already shows the truth.
-                return;
+                // The replay could not carry the move — which is NOT the same thing as
+                // the move being illegal, and telling them apart is the whole job here.
+                //
+                // The state a player holds is stripped of everything they may not see.
+                // A fastBid auction keeps the other players' sealed bids hidden, so the
+                // response that RESOLVES that auction cannot be replayed on this copy at
+                // all: the engine reaches for a bid that was stripped out and throws.
+                // A human is almost always the last to answer — bots reply instantly —
+                // so treating that as a refusal silently swallowed nearly every Pass in
+                // a fastBid auction, with an enabled button and no way to tell.
+                //
+                // So defer to the only authority on legality that this viewer has: the
+                // `availableMoves` the server sent. If it offered the move, send it and
+                // let the server replay it from the full state; just do not pretend to
+                // preview what could not be previewed.
+                const onlyThisMoveWasDropped = this.turnMoves.length === buffered - 1;
+
+                if (engineRefusedIt(this.lastReplayFailure) || !theServerOfferedThisMove || !onlyThisMoveWasDropped) {
+                    // A genuinely stale click (#131): the engine asserted against it on
+                    // a state it could read in full. The board already shows the truth.
+                    return;
+                }
+
+                this.turnMoves.push(stamped);
+                preview = null;
             }
         }
 

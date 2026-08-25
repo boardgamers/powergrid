@@ -1,6 +1,7 @@
 import {
     bufferedBuyCounts,
     buySourceKey,
+    engineRefusedIt,
     lastBuyIndex,
     matchesTurnBuffer,
     moveMatches,
@@ -10,7 +11,7 @@ import {
 } from '@/util/turn-buffer';
 import { expect } from 'chai';
 import type { GameState, Move } from 'powergrid-engine';
-import { move as engineMove, moveAI, MoveName, Phase, setup } from 'powergrid-engine';
+import { move as engineMove, moveAI, MoveName, Phase, setup, stripSecret } from 'powergrid-engine';
 
 describe('turn-buffer', () => {
     const clone = <T>(value: T): T => JSON.parse(JSON.stringify(value));
@@ -313,5 +314,57 @@ describe('turn-buffer', () => {
             G = moveAI(G, seat);
         }
         expect.fail('never reached a seat that could buy resources');
+    });
+
+    // A move can fail to replay for two completely different reasons, and the viewer
+    // sends or swallows it on that difference.
+    it('engineRefusedIt tells a refusal from a state that could not carry the move', () => {
+        // Node stamps a code; the browser build of assert does not. Only the name
+        // survives both, and checking the code alone passed every test here while
+        // letting illegal moves through in the bundle.
+        expect(engineRefusedIt({ name: 'AssertionError', code: 'ERR_ASSERTION' }), 'node').to.be.true;
+        expect(engineRefusedIt({ name: 'AssertionError', operator: '==' }), 'browser').to.be.true;
+        expect(engineRefusedIt(new TypeError("Cannot read properties of undefined (reading 'id')"))).to.be.false;
+        expect(engineRefusedIt(undefined)).to.be.false;
+    });
+
+    it('a fastBid pass that resolves the auction cannot be replayed on the player own copy', () => {
+        // The bug behind it: bots answer instantly, so the human is nearly always the
+        // last to respond, and their Pass is the move that RESOLVES the auction —
+        // which reaches for the other players' sealed bids. Those are stripped out of
+        // the copy that player holds, so the replay throws. Treating that as "the
+        // engine refused it" silently swallowed the move with the button still lit.
+        let G: GameState = setup(4, { map: 'Korea', variant: 'recharged', fastBid: true } as never, '1');
+
+        for (let i = 0; i < 40000; i++) {
+            const seat = G.players.findIndex((p) => p.availableMoves);
+            if (seat < 0) break;
+            const moves = G.players[seat].availableMoves;
+            const chosen = G as unknown as { chosenPowerPlant?: unknown; auctioningPlayer?: number };
+
+            if (
+                G.phase === Phase.Auction &&
+                chosen.chosenPowerPlant &&
+                moves &&
+                moves[MoveName.Pass] &&
+                chosen.auctioningPlayer !== seat &&
+                G.currentPlayers.length === 1
+            ) {
+                const pass: Move = { name: MoveName.Pass, data: true, time: 1000 } as Move;
+
+                // The server holds the whole state, and it is a perfectly legal move.
+                expect(() => engineMove(clone(G), pass, seat), 'legal on the full state').to.not.throw();
+
+                // The player's own copy cannot carry it — and NOT because it is illegal.
+                const mine = stripSecret(clone(G), seat);
+                const { applied, failure } = replayTurnBuffer(mine, [pass], seat);
+
+                expect(applied, 'the replay drops it').to.deep.equal([]);
+                expect(engineRefusedIt(failure), 'but the engine never refused it').to.be.false;
+                return;
+            }
+            G = moveAI(G, seat);
+        }
+        expect.fail('never reached a fastBid auction awaiting one last response');
     });
 });

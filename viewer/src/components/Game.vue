@@ -2024,6 +2024,10 @@ export default class Game extends Vue {
      * the choice would disappear along with the layout.
      */
     portraitViewport = false;
+
+    /** Viewport the board was last laid out against, as `WxH` — see onViewportResize. */
+    private lastViewport = '';
+    private viewportObserver: ResizeObserver | null = null;
     /** Height of the stacked canvas, in scene units. */
     stackHeight = STACK_WIDTH;
     /** Wrapper transform per slot; empty means "render as authored". */
@@ -2062,6 +2066,16 @@ export default class Game extends Vue {
         return window.innerWidth < 900 && window.innerHeight > window.innerWidth * 1.1;
     }
 
+    /**
+     * The platform mounts the viewer in an iframe that is `display: none` until the
+     * game state arrives, so the first measurement here is 0x0 — which is not a
+     * landscape phone, it is nothing at all. Answering then would settle the layout
+     * against a viewport that does not exist yet.
+     */
+    private viewportIsMeasurable(): boolean {
+        return window.innerWidth > 0 && window.innerHeight > 0;
+    }
+
     private shouldStack(): boolean {
         return this.isPortraitViewport() && this.preferences.stackOnPortrait !== false;
     }
@@ -2075,6 +2089,11 @@ export default class Game extends Vue {
     }
 
     relayout() {
+        if (!this.viewportIsMeasurable()) {
+            // Still hidden. Whoever reveals us triggers the observer below.
+            return;
+        }
+
         this.portraitViewport = this.isPortraitViewport();
 
         if (!this.shouldStack()) {
@@ -2189,17 +2208,57 @@ export default class Game extends Vue {
         this.$nextTick(() => this.relayout());
     }
 
-    private onViewportResize = () => this.scheduleRelayout();
+    /**
+     * Re-lay out only when the viewport itself changed size. The observer below also
+     * fires for our OWN output — laying out the board changes the document's box — and
+     * without this that would be a loop.
+     */
+    private onViewportResize = () => {
+        const size = `${window.innerWidth}x${window.innerHeight}`;
+
+        if (size === this.lastViewport) {
+            return;
+        }
+
+        this.lastViewport = size;
+        this.scheduleRelayout();
+    };
 
     mounted() {
         window.addEventListener('resize', this.onViewportResize);
         window.addEventListener('orientationchange', this.onViewportResize);
+        window.addEventListener('load', this.onViewportResize);
+
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', this.onViewportResize);
+        }
+
+        // The one signal that does not depend on the browser dispatching an event:
+        // being revealed changes the document's own box. Safari does not reliably fire
+        // `resize` inside an iframe going from `display: none` to visible, and the
+        // board then stays in the landscape layout with no toggle to escape it — the
+        // measurement was taken at 0x0 and nothing ever asked again.
+        if (typeof ResizeObserver !== 'undefined') {
+            this.viewportObserver = new ResizeObserver(this.onViewportResize);
+            this.viewportObserver.observe(document.documentElement);
+        }
+
         this.scheduleRelayout();
     }
 
     beforeDestroy() {
         window.removeEventListener('resize', this.onViewportResize);
         window.removeEventListener('orientationchange', this.onViewportResize);
+        window.removeEventListener('load', this.onViewportResize);
+
+        if (window.visualViewport) {
+            window.visualViewport.removeEventListener('resize', this.onViewportResize);
+        }
+
+        if (this.viewportObserver) {
+            this.viewportObserver.disconnect();
+            this.viewportObserver = null;
+        }
     }
 
     // Boards grow as players buy plants, so the row heights are re-derived on

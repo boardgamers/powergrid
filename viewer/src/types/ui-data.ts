@@ -30,6 +30,11 @@ export interface Piece {
     // South Africa: this coal cube sits in the storage pool below the market.
     // Clicking emits buyResource with fromStorage:true (flat $8 buy).
     fromStorage?: boolean;
+    // Empty spaces only: distance from the market's fill line, 1 for the space the
+    // next cube would come back to. A purchase made this turn can be taken back by
+    // clicking the ghost that holds it (#127), so the first `n` ranks are clickable
+    // when the turn buffer holds `n` buys from that source.
+    ghostRank?: number;
 }
 
 export enum PieceType {

@@ -3,7 +3,7 @@
         :id="elId"
         :class="[{ canClick: canClick }]"
         :transform="`translate(${currentX}, ${currentY}) scale(${scale})`"
-        :opacity="transparent ? 0.3 : 1"
+        :opacity="pieceOpacity"
         @click="canClick && $emit('click')"
     >
         <path d="M6,4 A6,4,0 0,1 14,4 L14,16 A6,4 0 0,1 6,16Z" fill="none" stroke="black" />

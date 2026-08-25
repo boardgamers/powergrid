@@ -156,7 +156,9 @@
                     :buyableResources="buyableResources()"
                     :resourceResupply="getResourceResupply()"
                     :resourceResupplyNorth="getResourceResupplyNorth()"
+                    :bufferedBuys="bufferedBuys"
                     @buyResource="buyResource($event)"
+                    @unbuyResource="unbuyResource($event)"
                 />
                 <Resources
                     v-else
@@ -174,7 +176,9 @@
                     :coalStorage="G.coalStorage"
                     :resourceResupply="getResourceResupply()"
                     :resourceResupplyNorth="getResourceResupplyNorth()"
+                    :bufferedBuys="bufferedBuys"
                     @buyResource="buyResource($event)"
+                    @unbuyResource="unbuyResource($event)"
                 />
             </g>
 
@@ -721,7 +725,13 @@ import { Vue, Component, Prop, Watch, Provide, ProvideReactive, Ref } from 'vue-
 import { MoveName, ended, playersSortedByScore, reconstructState } from 'powergrid-engine';
 import type { GameState, LogItem, Move, Player } from 'powergrid-engine';
 import { EventEmitter } from 'events';
-import { matchesTurnBuffer, rebaseTurnBuffer, replayTurnBuffer as replayBuffer } from '../util/turn-buffer';
+import {
+    bufferedBuyCounts,
+    lastBuyIndex,
+    matchesTurnBuffer,
+    rebaseTurnBuffer,
+    replayTurnBuffer as replayBuffer,
+} from '../util/turn-buffer';
 import { UIData, Preferences } from '../types/ui-data';
 import { Card, House, Coal, Oil, Garbage, Uranium } from './pieces';
 import {
@@ -1259,6 +1269,47 @@ export default class Game extends Vue {
             data.fromStorage = payload.fromStorage;
         }
         this.sendMove({ name: MoveName.BuyResource, data });
+    }
+
+    /**
+     * Take back a resource bought earlier in this same turn (#127): a market's empty
+     * spaces are clickable while the buffer still holds a purchase from that source.
+     *
+     * This is not an engine undo — there is no Undo move any more (2.0.0). A tentative
+     * turn lives only in this buffer, so a purchase is taken back by dropping it and
+     * replaying the rest, exactly as `undo()` drops the last move. Removing a buy only
+     * ever frees money and plant capacity, so the remaining buffer always replays.
+     */
+    unbuyResource(payload: { resource: ResourceType, side?: 'north' | 'south', fromStorage?: boolean }) {
+        if (this.paused || !this.committedState) {
+            return;
+        }
+
+        const index = lastBuyIndex(this.turnMoves, payload);
+
+        if (index < 0) {
+            return;
+        }
+
+        this.turnMoves.splice(index, 1);
+
+        if (this.turnMoves.length > 0) {
+            const preview = this.replayTurnBuffer();
+            this.emitter.emit('move', [...this.turnMoves]);
+            this.replaceState(preview, false);
+        } else {
+            // Empty buffer: nothing to send — nothing was ever persisted for this turn,
+            // so the last committed state IS the turn start.
+            this.replaceState(this.committedState, false);
+        }
+    }
+
+    /**
+     * Cubes the turn buffer would give back, per source — how many of each market's
+     * empty spaces are clickable.
+     */
+    get bufferedBuys(): Record<string, number> {
+        return bufferedBuyCounts(this.turnMoves);
     }
 
     bid(bid: number) {

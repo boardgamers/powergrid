@@ -1,4 +1,7 @@
 import {
+    bufferedBuyCounts,
+    buySourceKey,
+    lastBuyIndex,
     matchesTurnBuffer,
     moveMatches,
     rebaseTurnBuffer,
@@ -220,6 +223,91 @@ describe('turn-buffer', () => {
                 // WITH a preview, the extra click is never offered, and even if one
                 // races in the replay truncates it rather than sending it on.
                 expect(replayTurnBuffer(G, oneTooMany, seat).applied).to.deep.equal(buffer);
+                return;
+            }
+            G = moveAI(G, seat);
+        }
+        expect.fail('never reached a seat that could buy resources');
+    });
+
+    // #127 — eric-hu's decrement. A purchase made this turn is taken back by dropping
+    // it from the buffer and replaying the rest; there is no Undo move to disagree with.
+    it('bufferedBuyCounts counts cubes per source, keeping the two sides and the pool apart', () => {
+        const buy = (data: unknown, time: number): Move => ({ name: MoveName.BuyResource, data, time } as Move);
+        const buffer: Move[] = [
+            buy({ resource: 'coal' }, 1),
+            buy({ resource: 'coal' }, 2),
+            buy({ resource: 'coal', fromStorage: true }, 3),
+            buy({ resource: 'coal', side: 'north' }, 4),
+            buy({ resource: 'oil' }, 5),
+            { name: MoveName.Build, data: { name: 'somewhere', price: 10 }, time: 6 } as Move,
+        ];
+
+        const counts = bufferedBuyCounts(buffer);
+
+        expect(counts[buySourceKey({ resource: 'coal' })], 'two off the printed track').to.equal(2);
+        expect(
+            counts[buySourceKey({ resource: 'coal', fromStorage: true })],
+            "South Africa's pool is its own source"
+        ).to.equal(1);
+        expect(
+            counts[buySourceKey({ resource: 'coal', side: 'north' })],
+            "Korea's north table is its own source"
+        ).to.equal(1);
+        expect(counts[buySourceKey({ resource: 'oil' })]).to.equal(1);
+        expect(counts[buySourceKey({ resource: 'garbage' })], 'nothing bought, nothing to give back').to.be.undefined;
+    });
+
+    it('lastBuyIndex finds the newest buy from that source, and only that source', () => {
+        const buy = (data: unknown, time: number): Move => ({ name: MoveName.BuyResource, data, time } as Move);
+        const buffer: Move[] = [
+            buy({ resource: 'coal' }, 1),
+            buy({ resource: 'oil' }, 2),
+            buy({ resource: 'coal' }, 3),
+            buy({ resource: 'coal', fromStorage: true }, 4),
+        ];
+
+        // Cubes leave a track cheapest-first, so the LAST buy is the one the market
+        // hands back — not the first one, and not a same-resource buy from elsewhere.
+        expect(lastBuyIndex(buffer, { resource: 'coal' })).to.equal(2);
+        expect(lastBuyIndex(buffer, { resource: 'coal', fromStorage: true })).to.equal(3);
+        expect(lastBuyIndex(buffer, { resource: 'oil' })).to.equal(1);
+        expect(lastBuyIndex(buffer, { resource: 'garbage' }), 'nothing to take back').to.equal(-1);
+    });
+
+    it('dropping a buy from the buffer replays to the state where it was never made', () => {
+        let G: GameState = setup(4, {}, 'turn-buffer-unbuy');
+        for (let i = 0; i < 4000; i++) {
+            const seat = G.players.findIndex((p) => p.availableMoves);
+            if (seat < 0) break;
+            if (G.phase === Phase.Resources && G.players[seat].availableMoves![MoveName.BuyResource]) {
+                const target = G.players[seat].availableMoves![MoveName.BuyResource]![0];
+
+                // Buy three cubes of the same source, previewing as the viewer does.
+                let previewed: GameState = clone(G);
+                const buffer: Move[] = [];
+                for (let n = 0; n < 3; n++) {
+                    const moves = previewed.players[seat].availableMoves;
+                    const fresh = moves ? moves[MoveName.BuyResource] : undefined;
+                    if (!fresh || !fresh.some((m) => JSON.stringify(m) === JSON.stringify(target))) break;
+                    buffer.push({ name: MoveName.BuyResource, data: target, time: 1000 + n } as Move);
+                    previewed = replayTurnBuffer(G, buffer, seat).state;
+                }
+                if (buffer.length < 2) {
+                    G = moveAI(G, seat);
+                    continue;
+                }
+
+                const index = lastBuyIndex(buffer, target);
+                expect(index, 'the newest buy of that source').to.equal(buffer.length - 1);
+
+                const shortened = buffer.filter((_, at) => at !== index);
+                const after = replayTurnBuffer(G, shortened, seat);
+
+                // Nothing is left behind: the whole shortened buffer replays, and the
+                // state is the one where that cube was never bought.
+                expect(after.applied.length, 'the rest of the turn still replays').to.equal(shortened.length);
+                expect(after.state).to.deep.equal(replayTurnBuffer(G, buffer.slice(0, -1), seat).state);
                 return;
             }
             G = moveAI(G, seat);

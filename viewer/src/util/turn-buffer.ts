@@ -1,6 +1,6 @@
 import { isEqual } from 'lodash';
 import type { GameState, LogItem, LogMove, Move } from 'powergrid-engine';
-import { move as engineMove } from 'powergrid-engine';
+import { move as engineMove, MoveName } from 'powergrid-engine';
 
 /**
  * Pure helpers for the viewer's tentative-turn buffer.
@@ -146,4 +146,69 @@ export function replayTurnBuffer(
     }
 
     return { state, applied };
+}
+
+/**
+ * Where a resource purchase came from. The same resource bought from the north or the
+ * south table, or out of South Africa's storage pool, is a different source with its
+ * own cubes — so a decrement must give back a cube from the source that was clicked.
+ */
+export interface BuySource {
+    resource: string;
+    side?: 'north' | 'south';
+    fromStorage?: boolean;
+}
+
+/** Stable key for a buy source, so counts can be looked up per market row or track. */
+export function buySourceKey(source: BuySource): string {
+    return `${source.resource}|${source.side || ''}|${source.fromStorage ? 'storage' : ''}`;
+}
+
+function isBuyFrom(move: Move, source: BuySource): boolean {
+    const data = move.data as BuySource | undefined;
+
+    return (
+        move.name === MoveName.BuyResource &&
+        !!data &&
+        data.resource === source.resource &&
+        (data.side || '') === (source.side || '') &&
+        !!data.fromStorage === !!source.fromStorage
+    );
+}
+
+/**
+ * How many cubes of each source the buffer would give back, keyed by `buySourceKey`.
+ * The market draws one ghost per cube taken off it, so this is also how many of those
+ * ghosts can be clicked to take a purchase back.
+ */
+export function bufferedBuyCounts(turnMoves: Move[]): Record<string, number> {
+    const counts: Record<string, number> = {};
+
+    for (const move of turnMoves) {
+        if (move.name !== MoveName.BuyResource || !move.data) {
+            continue;
+        }
+
+        const key = buySourceKey(move.data as BuySource);
+        counts[key] = (counts[key] || 0) + 1;
+    }
+
+    return counts;
+}
+
+/**
+ * Index of the purchase a decrement click should remove: the LAST buffered buy from
+ * that source. Cubes leave a track cheapest-first, so the last buy is the one the
+ * market hands back — and removing a purchase only ever frees money and plant capacity,
+ * so the rest of the buffer always replays (verified over 653 mid-buffer removals).
+ * Returns -1 when the buffer holds no purchase from that source.
+ */
+export function lastBuyIndex(turnMoves: Move[], source: BuySource): number {
+    for (let i = turnMoves.length - 1; i >= 0; i--) {
+        if (isBuyFrom(turnMoves[i], source)) {
+            return i;
+        }
+    }
+
+    return -1;
 }

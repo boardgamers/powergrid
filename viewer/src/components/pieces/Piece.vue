@@ -27,6 +27,12 @@ export default class Piece extends Vue {
     @Prop()
     transparent?: boolean;
 
+    // An empty market space holding a purchase that can still be taken back (#127).
+    // Drawn brighter than a plain empty space so the click target is visible — there
+    // is no hover cursor to discover it with on a phone.
+    @Prop()
+    restorable?: boolean;
+
     @Inject()
     readonly communicator!: EventEmitter;
 
@@ -42,6 +48,14 @@ export default class Piece extends Vue {
     transitionCount = 0;
 
     moving = false;
+
+    get pieceOpacity(): number {
+        if (!this.transparent) {
+            return 1;
+        }
+
+        return this.restorable ? 0.6 : 0.3;
+    }
 
     startTransitioning() {
         if (this.transitioning) {

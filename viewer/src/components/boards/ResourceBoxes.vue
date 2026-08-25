@@ -116,6 +116,44 @@
                         step {{ step }} sells to ${{ maxPrice }}
                     </text>
 
+                    <!-- A purchase made this turn can be handed back (#127). The box
+                         market has no empty spaces to click — the printed track's
+                         ghosts are exactly what it replaces — so the take-back lives
+                         on a chip, and stops the click reaching the buy target under
+                         it. Sits in the free band above the cubes, and appears whether
+                         or not the row is still buyable: being unable to afford the
+                         next cube is precisely when you want the last one back. -->
+                    <g v-if="canUnbuy(row)" class="canClick" @click.stop="$emit('unbuyResource', row.move)">
+                        <rect
+                            :x="chipBox(row).hx"
+                            :y="chipBox(row).hy"
+                            :width="chipBox(row).hw"
+                            :height="chipBox(row).hh"
+                            fill="transparent"
+                            pointer-events="all"
+                        />
+                        <rect
+                            :x="chipBox(row).x"
+                            :y="chipBox(row).y"
+                            :width="chipBox(row).w"
+                            :height="chipBox(row).h"
+                            rx="10"
+                            fill="#f0e6c8"
+                            stroke="#6b5312"
+                            stroke-width="2"
+                        />
+                        <text
+                            :x="chipBox(row).x + chipBox(row).w / 2"
+                            :y="chipBox(row).y + chipBox(row).h / 2 + 8"
+                            text-anchor="middle"
+                            font-weight="700"
+                            fill="#3a2c08"
+                            :style="`font-size: ${chipBox(row).fontSize}px`"
+                        >
+                            − take back
+                        </text>
+                    </g>
+
                     <title>{{ row.title }}</title>
                 </g>
             </g>
@@ -126,7 +164,8 @@
 <script lang="ts">
 import { GameState } from 'powergrid-engine';
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { BuyMove, ResourceBlock, resourceBlocks } from '../../util/resource-rows';
+import { BuyMove, ResourceBlock, ResourceRow, resourceBlocks } from '../../util/resource-rows';
+import { buySourceKey } from '../../util/turn-buffer';
 
 const BOX_W = 700;
 const BOX_H = 104;
@@ -167,12 +206,35 @@ export default class ResourceBoxes extends Vue {
     @Prop() isUsaRecharged?: boolean;
     /** The seat looking at the board — only needed for Central Europe's Wien discount. */
     @Prop() player?: number;
+    /** Purchases still sitting in this turn's buffer, per source (#127). */
+    @Prop() bufferedBuys?: Record<string, number>;
 
     BOX_W = BOX_W;
     BOX_H = BOX_H;
     BOX_GAP = BOX_GAP;
     HEAD_H = HEAD_H;
     CUBE_BAND_CENTRE = CUBE_BAND_CENTRE;
+
+    /**
+     * Where a row's take-back button sits: in the gap between the price block and the
+     * cubes, and big enough for a thumb (~28 css px tall on a phone).
+     *
+     * The two pool rows carry a long label right across that gap — but they are
+     * flat-priced, so nothing sits below them, and the button drops under the label at
+     * the same size rather than shrinking.
+     */
+    chipBox(row: ResourceRow) {
+        const labelFillsTheTop = row.label.length > 8;
+
+        return labelFillsTheTop
+            ? { x: 130, y: 36, w: 140, h: 52, hx: 120, hy: 32, hw: 164, hh: 60, fontSize: 22 }
+            : { x: 130, y: 6, w: 140, h: 52, hx: 120, hy: 2, hw: 164, hh: 60, fontSize: 22 };
+    }
+
+    /** Does this turn's buffer hold a purchase from this row's source? */
+    canUnbuy(row: ResourceRow): boolean {
+        return !!this.bufferedBuys && !!this.bufferedBuys[buySourceKey(row.move)];
+    }
 
     /** Centre the cube cluster in that band, however many cubes there are. */
     cubeX(count: number, n: number): number {

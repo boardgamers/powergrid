@@ -75,10 +75,13 @@
                     :key="coal.id"
                     :pieceId="coal.id"
                     :targetState="{ x: coal.x, y: coal.y }"
-                    :canClick="!coal.transparent && canBuyResource('coal', coal.side, coal.fromStorage)"
+                    :canClick="
+                        coal.transparent ? canUnbuy('coal', coal) : canBuyResource('coal', coal.side, coal.fromStorage)
+                    "
                     :transparent="coal.transparent"
+                    :restorable="canUnbuy('coal', coal)"
                     :scale="0.08"
-                    @click="buyResource('coal', coal.side, coal.fromStorage)"
+                    @click="clickResource('coal', coal)"
                 />
             </template>
             <template v-for="oil in oilsNorth">
@@ -86,9 +89,10 @@
                     :key="oil.id"
                     :pieceId="oil.id"
                     :targetState="{ x: oil.x, y: oil.y }"
-                    :canClick="!oil.transparent && canBuyResource('oil', oil.side)"
+                    :canClick="oil.transparent ? canUnbuy('oil', oil) : canBuyResource('oil', oil.side)"
                     :transparent="oil.transparent"
-                    @click="buyResource('oil', oil.side)"
+                    :restorable="canUnbuy('oil', oil)"
+                    @click="clickResource('oil', oil)"
                 />
             </template>
             <template v-for="garbage in garbagesNorth">
@@ -96,9 +100,12 @@
                     :key="garbage.id"
                     :pieceId="garbage.id"
                     :targetState="{ x: garbage.x, y: garbage.y }"
-                    :canClick="!garbage.transparent && canBuyResource('garbage', garbage.side)"
+                    :canClick="
+                        garbage.transparent ? canUnbuy('garbage', garbage) : canBuyResource('garbage', garbage.side)
+                    "
                     :transparent="garbage.transparent"
-                    @click="buyResource('garbage', garbage.side)"
+                    :restorable="canUnbuy('garbage', garbage)"
+                    @click="clickResource('garbage', garbage)"
                 />
             </template>
             <text x="20" y="35" font-weight="700" fill="black" style="font-size: 22px">South Market</text>
@@ -326,10 +333,13 @@
                 :key="coal.id"
                 :pieceId="coal.id"
                 :targetState="{ x: coal.x, y: coal.y }"
-                :canClick="!coal.transparent && canBuyResource('coal', coal.side, coal.fromStorage)"
+                :canClick="
+                    coal.transparent ? canUnbuy('coal', coal) : canBuyResource('coal', coal.side, coal.fromStorage)
+                "
                 :transparent="coal.transparent"
+                :restorable="canUnbuy('coal', coal)"
                 :scale="isIndiaResourceMarket ? 0.06 : 0.08"
-                @click="buyResource('coal', coal.side, coal.fromStorage)"
+                @click="clickResource('coal', coal)"
             />
         </template>
 
@@ -338,9 +348,10 @@
                 :key="oil.id"
                 :pieceId="oil.id"
                 :targetState="{ x: oil.x, y: oil.y }"
-                :canClick="!oil.transparent && canBuyResource('oil', oil.side)"
+                :canClick="oil.transparent ? canUnbuy('oil', oil) : canBuyResource('oil', oil.side)"
                 :transparent="oil.transparent"
-                @click="buyResource('oil', oil.side)"
+                :restorable="canUnbuy('oil', oil)"
+                @click="clickResource('oil', oil)"
             />
         </template>
 
@@ -349,10 +360,11 @@
                 :key="garbage.id"
                 :pieceId="garbage.id"
                 :targetState="{ x: garbage.x, y: garbage.y }"
-                :canClick="!garbage.transparent && canBuyResource('garbage', garbage.side)"
+                :canClick="garbage.transparent ? canUnbuy('garbage', garbage) : canBuyResource('garbage', garbage.side)"
                 :transparent="garbage.transparent"
+                :restorable="canUnbuy('garbage', garbage)"
                 :scale="isIndiaResourceMarket ? 0.8 : 1"
-                @click="buyResource('garbage', garbage.side)"
+                @click="clickResource('garbage', garbage)"
             />
         </template>
 
@@ -361,9 +373,10 @@
                 :key="uranium.id"
                 :pieceId="uranium.id"
                 :targetState="{ x: uranium.x, y: uranium.y }"
-                :canClick="!uranium.transparent && canBuyResource('uranium', uranium.side)"
+                :canClick="uranium.transparent ? canUnbuy('uranium', uranium) : canBuyResource('uranium', uranium.side)"
                 :transparent="uranium.transparent"
-                @click="buyResource('uranium', uranium.side)"
+                :restorable="canUnbuy('uranium', uranium)"
+                @click="clickResource('uranium', uranium)"
             />
         </template>
 
@@ -426,6 +439,7 @@ import { Vue, Component, Prop, Inject } from 'vue-property-decorator';
 import { Coal, Garbage, Oil, Uranium } from '../pieces';
 import { Piece, Preferences } from '../../types/ui-data';
 import { range } from 'lodash';
+import { buySourceKey } from '../../util/turn-buffer';
 
 @Component({
     components: {
@@ -443,6 +457,9 @@ export default class Resources extends Vue {
     // South Africa: number of coal cubes in the storage pool below the market.
     // Undefined on all other maps (panel is hidden).
     @Prop() coalStorage?: number;
+    // Purchases still sitting in this turn's buffer, per source (#127). Each one can be
+    // taken back by clicking the empty space it left behind.
+    @Prop() bufferedBuys?: Record<string, number>;
 
     @Inject() preferences!: Preferences;
 
@@ -452,6 +469,7 @@ export default class Resources extends Vue {
     uraniums: Piece[] = [];
 
     isKorea: boolean = false;
+    coalComesFromSupply: boolean = false;
     isNinePriceMarket: boolean = false;
     // Australia: coal/oil/garbage-only market that can reach $10 after the Step 3
     // CO2 tax. co2TaxActive closes the $1/$2 columns once that shift has happened.
@@ -501,6 +519,7 @@ export default class Resources extends Vue {
                     x,
                     y,
                     transparent: i < (prices.length - market),
+                    ghostRank: (prices.length - market) - i,
                     side: options.side,
                 });
             }
@@ -511,6 +530,10 @@ export default class Resources extends Vue {
     createPieces(gameState: GameState) {
         if (!gameState) return;
 
+        // USA recharged: once the printed track is bare, coal is bought from the $8
+        // supply pile, and a cube taken back returns THERE — so the empty track spaces
+        // must not offer to give it back (#127).
+        this.coalComesFromSupply = !!this.isUsaRecharged && gameState.coalMarket === 0 && gameState.coalSupply > 0;
         this.isAustraliaMarket = gameState.map?.name === 'Australia';
         this.co2TaxActive = this.isAustraliaMarket && gameState.step >= 3;
         this.isBremenMarket = gameState.map?.name === 'Bremen';
@@ -551,6 +574,7 @@ export default class Resources extends Vue {
                     id: `uranium_${i}`,
                     x, y,
                     transparent: i < (uPrices.length - gameState.uraniumMarket),
+                    ghostRank: (uPrices.length - gameState.uraniumMarket) - i,
                     side: 'south',
                 });
             });
@@ -665,7 +689,8 @@ export default class Resources extends Vue {
                             id: 'coal_' + i,
                             x: 672 - 17 * index - 17 * Math.floor(index / 4),
                             y: 48,
-                            transparent: i >= gameState!.coalMarket
+                            transparent: i >= gameState!.coalMarket,
+                            ghostRank: i - (gameState!.coalMarket) + 1,
                         });
                     });
             } else {
@@ -677,6 +702,7 @@ export default class Resources extends Vue {
                             x: 668 - 23.5 * i - 14.5 * Math.floor(i / 3),
                             y: 48,
                             transparent: i >= gameState!.coalMarket,
+                            ghostRank: i - (gameState!.coalMarket) + 1,
                         });
                     });
             }
@@ -720,6 +746,7 @@ export default class Resources extends Vue {
                             x: 651 - 16 * adjustedIndex - 37 * Math.floor(adjustedIndex / 3),
                             y: 70,
                             transparent: i >= availableRegularOil,
+                            ghostRank: i - (availableRegularOil) + 1,
                         });
                     });
             } else {
@@ -731,6 +758,7 @@ export default class Resources extends Vue {
                             x: 651 - 16 * i - 37 * Math.floor(i / 3),
                             y: 70,
                             transparent: i >= gameState!.oilMarket,
+                            ghostRank: i - (gameState!.oilMarket) + 1,
                         });
                     });
             }
@@ -746,6 +774,7 @@ export default class Resources extends Vue {
                             x: 672 - 17 * index - 17 * Math.floor(index / 4),
                             y: 94,
                             transparent: i >= gameState!.garbageMarket,
+                            ghostRank: i - (gameState!.garbageMarket) + 1,
                         });
                     });
             } else {
@@ -757,6 +786,7 @@ export default class Resources extends Vue {
                             x: 668 - 23.5 * i - 14.5 * Math.floor(i / 3),
                             y: 94,
                             transparent: i >= gameState!.garbageMarket,
+                            ghostRank: i - (gameState!.garbageMarket) + 1,
                         });
                     });
             }
@@ -770,7 +800,8 @@ export default class Resources extends Vue {
                             id: 'uranium_' + i,
                             x: 670 - 85 * i,
                             y: 72,
-                            transparent: i >= gameState!.uraniumMarket
+                            transparent: i >= gameState!.uraniumMarket,
+                            ghostRank: i - (gameState!.uraniumMarket) + 1,
                         });
                     });
             } else {
@@ -783,6 +814,7 @@ export default class Resources extends Vue {
                                 x: 750,
                                 y: 91,
                                 transparent: i >= gameState!.uraniumMarket,
+                                ghostRank: i - (gameState!.uraniumMarket) + 1,
                             });
                         } else if (i == 1) {
                             this.uraniums.push({
@@ -790,6 +822,7 @@ export default class Resources extends Vue {
                                 x: 710,
                                 y: 91,
                                 transparent: i >= gameState!.uraniumMarket,
+                                ghostRank: i - (gameState!.uraniumMarket) + 1,
                             });
                         } else if (i == 2) {
                             this.uraniums.push({
@@ -797,6 +830,7 @@ export default class Resources extends Vue {
                                 x: 750,
                                 y: 52,
                                 transparent: i >= gameState!.uraniumMarket,
+                                ghostRank: i - (gameState!.uraniumMarket) + 1,
                             });
                         } else if (i == 3) {
                             this.uraniums.push({
@@ -804,6 +838,7 @@ export default class Resources extends Vue {
                                 x: 710,
                                 y: 52,
                                 transparent: i >= gameState!.uraniumMarket,
+                                ghostRank: i - (gameState!.uraniumMarket) + 1,
                             });
                         } else {
                             this.uraniums.push({
@@ -811,6 +846,7 @@ export default class Resources extends Vue {
                                 x: 1010 - 85 * i,
                                 y: 72,
                                 transparent: i >= gameState!.uraniumMarket,
+                                ghostRank: i - (gameState!.uraniumMarket) + 1,
                             });
                         }
                     });
@@ -834,6 +870,34 @@ export default class Resources extends Vue {
 
     buyResource(resource: string, side?: 'north' | 'south', fromStorage?: boolean) {
         this.$emit('buyResource', { resource, side, fromStorage });
+    }
+
+    /**
+     * Can this empty space give a cube back? Buying empties a track from its cheap end,
+     * so the `n` spaces nearest the fill line hold the `n` purchases this turn's buffer
+     * still has from that source — `ghostRank` counts out from that line.
+     */
+    canUnbuy(resource: string, piece: Piece) {
+        if (!piece.transparent || !piece.ghostRank || !this.bufferedBuys) {
+            return false;
+        }
+
+        if (this.coalComesFromSupply && resource === 'coal' && !piece.fromStorage) {
+            return false;
+        }
+
+        const buffered = this.bufferedBuys[buySourceKey({ resource, side: piece.side, fromStorage: piece.fromStorage })];
+
+        return !!buffered && piece.ghostRank <= buffered;
+    }
+
+    /** A cube buys; the empty space it left takes the purchase back. */
+    clickResource(resource: string, piece: Piece) {
+        if (piece.transparent) {
+            this.$emit('unbuyResource', { resource, side: piece.side, fromStorage: piece.fromStorage });
+        } else {
+            this.buyResource(resource, piece.side, piece.fromStorage);
+        }
     }
 }
 </script>

@@ -131,21 +131,43 @@ export function replayTurnBuffer(
     committedState: GameState,
     turnMoves: Move[],
     player: number
-): { state: GameState; applied: Move[] } {
+): { state: GameState; applied: Move[]; failure?: unknown } {
     let state: GameState = JSON.parse(JSON.stringify(committedState));
     const applied: Move[] = [];
+    let failure: unknown;
 
     for (const move of turnMoves) {
         try {
             state = engineMove(state, move, player);
         } catch (err) {
             console.error('dropping turn-buffer tail no longer legal on the committed state', move, err);
+            failure = err;
             break;
         }
         applied.push(move);
     }
 
-    return { state, applied };
+    return { state, applied, failure };
+}
+
+/**
+ * Did the engine REFUSE this move, or could this copy of the state simply not carry it?
+ *
+ * The engine refuses with an assertion. A state stripped of what a player may not see —
+ * a fastBid auction's sealed bids — instead fails while reaching for something that was
+ * stripped out, which says nothing at all about legality.
+ */
+export function engineRefusedIt(failure: unknown): boolean {
+    if (!failure) {
+        return false;
+    }
+
+    // Node stamps `code: 'ERR_ASSERTION'`; the browser build of `assert` does not, and
+    // checking only for the code let every illegal move through in the bundle while
+    // passing every test in Node.
+    const err = failure as { name?: string; code?: string };
+
+    return err.name === 'AssertionError' || err.code === 'ERR_ASSERTION';
 }
 
 /**

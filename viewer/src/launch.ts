@@ -26,6 +26,7 @@ function launch(selector: string) {
             undoWholeTurn: true,
             fitToScreen: true,
             stackOnPortrait: true,
+            portraitResourceTrack: false,
         }),
         avatars: [],
     };

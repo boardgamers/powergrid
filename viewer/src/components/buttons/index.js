@@ -4,7 +4,18 @@ import LayoutButton from './LayoutButton.vue';
 import LogButton from './LogButton.vue';
 import PassButton from './PassButton.vue';
 import SoundButton from './SoundButton.vue';
+import ResourceViewButton from './ResourceViewButton.vue';
 import RulesButton from './RulesButton.vue';
 import UndoButton from './UndoButton.vue';
 
-export { Button, HelpButton, LayoutButton, LogButton, PassButton, SoundButton, RulesButton, UndoButton };
+export {
+    Button,
+    HelpButton,
+    LayoutButton,
+    LogButton,
+    PassButton,
+    ResourceViewButton,
+    SoundButton,
+    RulesButton,
+    UndoButton,
+};

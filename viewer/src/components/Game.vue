@@ -142,13 +142,21 @@
                 </template>
             </g>
 
+            <g v-if="stacked" ref="slotResourceView" :transform="slotT('resourceView')">
+                <ResourceViewButton :showTrack="showResourceTrack" @select="setResourceView($event)" />
+            </g>
+
             <g ref="slotResources" :transform="slotT('resources')">
                 <!-- On a phone the printed price track is a strip of unreadable
-                     columns, so the stacked layout swaps it for one box per buyable
-                     source. Landscape and desktop keep the printed board exactly as
-                     it was — this is an either/or, never an overlay. -->
+                     columns, so the stacked layout defaults to one box per buyable
+                     source. It is still only a default: the switch above this row
+                     puts the printed track back, because the boxes deliberately
+                     throw away the price ladder and that ladder is most of what
+                     there is to know about uranium. Landscape and desktop keep the
+                     printed board exactly as it was — an either/or, never an
+                     overlay. -->
                 <ResourceBoxes
-                    v-if="stacked"
+                    v-if="stacked && !showResourceTrack"
                     :transform="`translate(${G.map.supplyPosition[0]}, ${G.map.supplyPosition[1]})`"
                     :gameState="G"
                     :player="player"
@@ -744,6 +752,7 @@ import {
     HelpButton,
     RulesButton,
     LayoutButton,
+    ResourceViewButton,
 } from './buttons';
 import PlayerBoard from './PlayerBoard.vue';
 import Calculator from './Calculator.vue';
@@ -771,6 +780,9 @@ const STACK_ROWS: string[][] = [
     // the draw pile and the round readout are things you glance at.
     ['buttons', 'roundInfo', 'powerPlantDeck'],
     ['powerPlantMarket'],
+    // The resource-display switch sits between the two markets rather than in the
+    // icon column: it belongs to the row it changes, and reads as that row's header.
+    ['resourceView'],
     ['resources'],
     ['uraniumMines'],
     ['freeJump'],
@@ -814,6 +826,9 @@ const STACK_SLOT_MAX_WIDTH: Record<string, number> = {
     // The box market is one tall stack of full-width buttons; run edge to edge it
     // reads as though it had been cropped rather than laid out.
     resources: 0.94,
+    // Matched to `resources` on purpose: equal budgets render equal widths, so the
+    // switch and the market below it line up instead of nearly lining up.
+    resourceView: 0.94,
 };
 
 /**
@@ -883,6 +898,7 @@ const round = (n: number, digits = 2) => Number(n.toFixed(digits));
         HelpButton,
         RulesButton,
         LayoutButton,
+        ResourceViewButton,
         Button,
         Calculator,
         PowerPlantMarket,
@@ -2119,6 +2135,43 @@ export default class Game extends Vue {
         this.emitter.emit('update:preference', { name: 'stackOnPortrait', value: newVal });
         this.preferences.stackOnPortrait = newVal;
         this.relayout();
+    }
+
+    /**
+     * Only ever consulted inside the stacked layout — landscape and desktop draw the
+     * printed board regardless, so this preference cannot reach them.
+     */
+    get showResourceTrack(): boolean {
+        return this.preferences.portraitResourceTrack === true;
+    }
+
+    setResourceView(showTrack: boolean) {
+        if (showTrack === this.showResourceTrack) {
+            return;
+        }
+
+        this.emitter.emit('update:preference', { name: 'portraitResourceTrack', value: showTrack });
+        this.preferences.portraitResourceTrack = showTrack;
+    }
+
+    /**
+     * The two resource displays are different shapes, so switching between them
+     * invalidates the row heights the last layout solved for — the same trap as
+     * entering the stacked layout at all. Measure again once the swap has landed.
+     */
+    @Watch('showResourceTrack')
+    onResourceViewChanged() {
+        this.$nextTick(() => {
+            // The printed track fills itself imperatively and `createPieces` only ever
+            // runs on a state update, so a track switched on mid-turn would draw an
+            // EMPTY market until the next move landed — a display that lies. Fill it
+            // before measuring: the cubes are what give the group its size.
+            if (this.G) {
+                this.resources?.createPieces(this.G);
+            }
+
+            this.scheduleRelayout();
+        });
     }
 
     relayout() {

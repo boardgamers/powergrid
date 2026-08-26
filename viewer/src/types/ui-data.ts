@@ -13,6 +13,11 @@ export type Preferences = {
     // Portrait phones stack the board into full-width rows. Per player, not per
     // game: it describes the screen you are holding, not the rules being played.
     stackOnPortrait: boolean;
+    // Within the stacked layout, show the printed price track instead of the box
+    // market. The boxes are the buying surface; the track is the reading surface --
+    // it is the only place the whole price ladder is visible at once, which matters
+    // most for uranium, where the cubes are few and the prices far apart.
+    portraitResourceTrack: boolean;
 };
 
 export interface Piece {

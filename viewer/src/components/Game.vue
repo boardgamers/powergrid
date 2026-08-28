@@ -766,6 +766,7 @@ import { LogMove } from 'powergrid-engine/src/log';
 import { Phase, playerTimeUsed, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
 import { City } from 'powergrid-engine/src/maps';
 import { formatDuration } from '../util/time';
+import { playerOrderForDisplay } from '../util/player-order';
 
 // Portrait layout: the rows the scene is broken into, top to bottom. Slots on
 // the same row sit side by side and share one scale. Names map to the `slotX`
@@ -2355,19 +2356,7 @@ export default class Game extends Vue {
     }
 
     get adjustedPlayerOrder() {
-        if (!this.G) {
-            return [];
-        }
-
-        if (!this.preferences.adjustPlayerOrder) {
-            return this.G.players.map((_p, i) => i); // 0 1 2 3 ...
-        }
-
-        if (this.G.phase == Phase.Auction) {
-            return this.G.playerOrder;
-        }
-
-        return this.G.playerOrder.reverse();
+        return playerOrderForDisplay(this.G, this.preferences.adjustPlayerOrder);
     }
 
     getResourceResupply() {

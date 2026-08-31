@@ -1964,10 +1964,22 @@ export function reconstructState(gameState: GameState, to?: number): GameState {
         if (gameState.knownPowerPlantDeck) {
             G.map = gameState.map;
             G.powerPlantsDeck = cloneDeep(gameState.knownPowerPlantDeck);
-            G.actualMarket = G.powerPlantsDeck.splice(0, 4);
-            G.futureMarket = G.powerPlantsDeck.splice(0, 4);
+            // Split sizes must match the map's setup, not the standard 4+4: Russia
+            // deals a 3+3 market, China numPlayers+0, etc. The base state was built
+            // by the same setupDeck, so its market sizes are authoritative even
+            // though the (seeded) contents are not. knownPowerPlantDeck is
+            // actual-then-future at game start with the draws appended, so the
+            // first actualN+futureN entries seed the market and the rest the deck.
+            const actualN = initialState.actualMarket.length;
+            const futureN = initialState.futureMarket.length;
+            G.actualMarket = G.powerPlantsDeck.splice(0, actualN);
+            G.futureMarket = G.powerPlantsDeck.splice(0, futureN);
             G.players[G.currentPlayers[0]].availableMoves = availableMoves(G, G.players[G.currentPlayers[0]]);
-            G.powerPlantDeckAfterStep3 = gameState.knownPowerPlantDeckStep3;
+            // cloneDeep: addPowerPlant() replaces powerPlantsDeck with this array and
+            // shift()s draws off it — sharing the caller's array would consume
+            // knownPowerPlantDeckStep3 across successive replays (each replayTo
+            // must see the full deck).
+            G.powerPlantDeckAfterStep3 = cloneDeep(gameState.knownPowerPlantDeckStep3);
             G.knownPowerPlantDeck = G.actualMarket.concat(G.futureMarket);
         }
     }

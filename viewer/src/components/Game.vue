@@ -1080,7 +1080,11 @@ export default class Game extends Vue {
         // scrubber renders reconstructed MID-game states, whose own `ended()` is
         // false however long ago the game finished, so it cannot be asked. See
         // `moneyIsPublic`.
-        if (replaceState && ended(state)) {
+        // `state` is null until the platform posts the first one: launch() mounts
+        // the viewer with `state: null` and the immediate `@Watch('state')` fires
+        // at mount, so this runs once with null (hard refresh / first load) and
+        // must not dereference it.
+        if (replaceState && state && ended(state)) {
             this.gameIsOver = true;
         }
 

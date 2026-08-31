@@ -1148,7 +1148,8 @@ export default class Game extends Vue {
             const player = this.G.players[this.player];
             if (player && player.availableMoves && Object.keys(player.availableMoves).length > 1) {
                 if (this.G.phase == Phase.Bureaucracy && player.powerPlantsNotUsed.length > 0
-                    && Object.keys(player.availableMoves).includes('UsePowerPlant')) {
+                    && Object.keys(player.availableMoves).includes('UsePowerPlant')
+                    && !this.canPowerAllCitiesWithUsedPlants(player)) {
                     this.confirmMessage = 'Are you sure you want to pass? You have unused power plants!';
                     this.confirmVisible = true;
                     return;
@@ -1813,6 +1814,14 @@ export default class Game extends Vue {
                 availableMoves[MoveName.DiscardPowerPlant]!.find((p) => p == powerPlant.number)
             );
         }
+    }
+
+    // Whether the power plants the player has already used this Bureaucracy
+    // phase can cover every city they own — if so, the unused plants are
+    // surplus and passing without them is not worth a warning.
+    canPowerAllCitiesWithUsedPlants(player: Player): boolean {
+        const usedPlants = player.powerPlants.filter((p) => !player.powerPlantsNotUsed.includes(p.number));
+        return usedPlants.reduce((sum, p) => sum + p.citiesPowered, 0) >= player.cities.length;
     }
 
     canPowerAllPlants(player: Player): boolean {

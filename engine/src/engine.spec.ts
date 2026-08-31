@@ -15,7 +15,9 @@ import {
     reconstructState,
     setup,
 } from './engine';
+import ChinaStep3 from './fixtures/ChinaStep3.json';
 import GermanyRecharged from './fixtures/GermanyRecharged.json';
+import RussiaStep3 from './fixtures/RussiaStep3.json';
 import supply from './fixtures/supply.json';
 import USAOriginal from './fixtures/USAOriginal.json';
 import {
@@ -166,6 +168,67 @@ describe('Engine', () => {
         const G = reconstructState(game as any, game.log.length - 1);
 
         expect(ended(G)).to.be.false;
+    });
+
+    // Regression tests for the secret-seed replay prologue (scrubber path). The
+    // prologue re-seeds the deck from knownPowerPlantDeck; it used to assume a
+    // standard 4+4 market and to alias knownPowerPlantDeckStep3, which broke
+    // replays on Russia (3+3 market) / China (numPlayers+0) after the Step-3
+    // boundary ("Wrong argument for the command ChoosePowerPlant" — game
+    // 3-game). Fixtures are deterministic moveAI games that reach Step 3.
+    describe('replay from stripped state (secret seed)', () => {
+        const stripAndMoveIndices = (game: any) => {
+            const stripped = { ...game, seed: 'secret', powerPlantsDeck: [], hiddenLog: [] };
+            const moveIndices = game.log
+                .map((item: any, index: number) => ({ item, index }))
+                .filter(({ item }: any) => item.type === 'move')
+                .map(({ index }: any) => index);
+            return { stripped, moveIndices };
+        };
+
+        it('should replay every prefix of a Russia game (3+3 market, Step-3 deck swap)', () => {
+            const { stripped, moveIndices } = stripAndMoveIndices(RussiaStep3);
+
+            expect(RussiaStep3.step).to.equal(3);
+            expect(RussiaStep3.knownPowerPlantDeckStep3).to.not.be.empty;
+            // Sanity: this fixture only bites the old bug if the setup market is 3+3.
+            // The final market is empty (game end) — check via a fresh setup, which
+            // the replay prologue also derives its split sizes from.
+            const russiaSetup = setup(3, RussiaStep3.options as GameOptions, 'replay-prologue-check');
+            expect(russiaSetup.actualMarket).to.have.lengthOf(3);
+            expect(russiaSetup.futureMarket).to.have.lengthOf(3);
+
+            for (const index of moveIndices) {
+                // throws on the old 4+4 split or the consumed step-3 deck
+                reconstructState(stripped as any, index + 1);
+            }
+        });
+
+        it('should replay every prefix of a China game (numPlayers+0 market)', () => {
+            const { stripped, moveIndices } = stripAndMoveIndices(ChinaStep3);
+
+            const chinaSetup = setup(3, ChinaStep3.options as GameOptions, 'replay-prologue-check');
+            expect(chinaSetup.actualMarket).to.have.lengthOf(3);
+            expect(chinaSetup.futureMarket).to.have.lengthOf(0);
+
+            for (const index of moveIndices) {
+                reconstructState(stripped as any, index + 1);
+            }
+        });
+
+        it('should not consume knownPowerPlantDeckStep3 across successive replays', () => {
+            const { stripped } = stripAndMoveIndices(RussiaStep3);
+            const step3Before = RussiaStep3.knownPowerPlantDeckStep3.map((p: PowerPlant) => p.number);
+
+            // Replay past the Step-3 boundary twice (scrubber steps past it, then
+            // back and forward again). addPowerPlant() swaps powerPlantsDeck to
+            // powerPlantDeckAfterStep3 and shift()s draws off it — without the
+            // cloneDeep, the second replay would re-draw already-consumed plants.
+            reconstructState(stripped as any, RussiaStep3.log.length);
+            reconstructState(stripped as any, RussiaStep3.log.length);
+
+            expect(stripped.knownPowerPlantDeckStep3.map((p: PowerPlant) => p.number)).to.deep.equal(step3Before);
+        });
     });
 
     it('should setup Korea with dual-market populated and players ready to move', () => {

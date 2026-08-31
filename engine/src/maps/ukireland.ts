@@ -302,7 +302,7 @@ export const map: GameMap = {
         'Two networks: Ireland (Green and Orange regions) and Great Britain ' +
         '(Red, Pink, Yellow, Brown) have no sea connection. A player may run ' +
         'one network on each island. Starting a second network on the other ' +
-        'island costs an extra 20 Elektro on top of the normal first-house cost. ' +
+        'island costs an extra 20 Elektro on top of the normal FIRST-house cost($10). ' +
         'Nuclear restriction: a player whose network is entirely in the Republic ' +
         'of Ireland (Green region) cannot bid on or auction a nuclear power plant ' +
         'until they build a city in Scotland, Wales, England, or Northern Ireland. ' +

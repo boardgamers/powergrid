@@ -642,6 +642,11 @@
                                         Starts after building phase where a player has
                                         <strong>{{ G.citiesToStep2 }}</strong> or more cities
                                     </li>
+                                    <li v-if="G.map.name !== 'Middle East'">
+                                        Also starts after a building phase where <strong>every city</strong> has a house
+                                        (all Step 1 slots filled), even if no player reached
+                                        {{ G.citiesToStep2 }}
+                                    </li>
                                     <li><strong>Two</strong> players per city</li>
                                     <li>
                                         Resource Resupply: <strong>{{ G.resourceResupply[1] }}</strong>

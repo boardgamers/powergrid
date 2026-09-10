@@ -3,14 +3,14 @@
         <div class="statusBar">
             {{ getStatusMessage() }}
         </div>
-        <audio id="piece-drop" preload="none">
-            <source src="../audio/piece-drop.mp3" type="audio/mpeg" />
-        </audio>
-        <audio id="notification" preload="none">
-            <source src="../audio/notification.mp3" type="audio/mpeg" />
-            <source src="../audio/notification.ogg" type="audio/ogg" />
-        </audio>
-        <svg v-if="G" id="scene" :class="{ stacked: stacked }" :viewBox="sceneViewBox" style="width: 100%">
+        <svg
+            v-if="G"
+            id="scene"
+            :class="{ stacked: stacked }"
+            :viewBox="sceneViewBox"
+            :style="{ width: '100%', aspectRatio: sceneViewBox.split(' ').slice(2).join(' / ') }"
+            preserveAspectRatio="xMidYMin meet"
+        >
             <rect width="100%" height="100%" x="0" y="0" fill="yellowgreen" />
 
             <g ref="slotPlayerOrder" :transform="slotT('playerOrder')">
@@ -413,6 +413,11 @@
             </g>
         </svg>
 
+        <div class="journal-and-chat">
+            <InlineLog v-if="G" :entries="logReversed.slice().reverse()" :mapName="G.options.map" />
+            <div class="chat-host"></div>
+        </div>
+
         <div v-if="G" :class="['modal', { visible: logVisible }]">
             <div class="modal-content">
                 <span class="close" @click="logVisible = false">&times;</span>
@@ -734,6 +739,7 @@
     </div>
 </template>
 <script lang="ts">
+import InlineLog from './InlineLog.vue';
 import { Vue, Component, Prop, Watch, Provide, ProvideReactive, Ref } from 'vue-property-decorator';
 import { MoveName, ended, playersSortedByScore, reconstructState } from 'powergrid-engine';
 import type { GameState, LogItem, Move, Player } from 'powergrid-engine';
@@ -866,21 +872,21 @@ const round = (n: number, digits = 2) => Number(n.toFixed(digits));
             this.paused = true;
             this.emitter.emit('replay:info', {
                 start: 1,
-                current: this.G!.log.filter(l => l.type == 'move').length,
-                end: this._futureState!.log.filter(l => l.type == 'move').length,
+                current: this.G!.log.filter((l) => l.type == 'move').length,
+                end: this._futureState!.log.filter((l) => l.type == 'move').length,
             });
         });
 
         this.emitter.on('replayTo', (to: number) => {
-            const log = this._futureState!.log.map((l, i) => ({ index: i, ...l })).filter(l => l.type == 'move');
+            const log = this._futureState!.log.map((l, i) => ({ index: i, ...l })).filter((l) => l.type == 'move');
             to = log[to - 1].index;
 
             this.replaceState(reconstructState(this._futureState!, to + 1), false);
 
             this.emitter.emit('replay:info', {
                 start: 1,
-                current: this.G!.log.filter(l => l.type == 'move').length + this.G!.hiddenLog.length,
-                end: this._futureState!.log.filter(l => l.type == 'move').length,
+                current: this.G!.log.filter((l) => l.type == 'move').length + this.G!.hiddenLog.length,
+                end: this._futureState!.log.filter((l) => l.type == 'move').length,
             });
         });
 
@@ -890,6 +896,7 @@ const round = (n: number, digits = 2) => Number(n.toFixed(digits));
         });
     },
     components: {
+        InlineLog,
         PlayerBoard,
         Card,
         House,
@@ -912,7 +919,7 @@ const round = (n: number, digits = 2) => Number(n.toFixed(digits));
         CityCount,
         Map,
         Resources,
-        ResourceBoxes
+        ResourceBoxes,
     },
 })
 export default class Game extends Vue {
@@ -980,7 +987,7 @@ export default class Game extends Vue {
 
     discardedPowerPlant: PowerPlant | null = null;
     discardVisible: boolean = false;
-    resourcesToDiscard: { name: string, max: number, value: string }[] = [];
+    resourcesToDiscard: { name: string; max: number; value: string }[] = [];
 
     freeJumpCity: City | null = null;
     freeJumpNormalPrice: number | null = null;
@@ -1095,7 +1102,7 @@ export default class Game extends Vue {
                 player = {
                     coalLeft: this.G.players[this.player].coalLeft,
                     oilLeft: this.G.players[this.player].oilLeft,
-                    resourcesUsed: this.G.players[this.player].resourcesUsed
+                    resourcesUsed: this.G.players[this.player].resourcesUsed,
                 };
             }
         }
@@ -1121,19 +1128,6 @@ export default class Game extends Vue {
                 this.scheduleRelayout();
             });
         }
-
-        if (playSound && this.preferences.sound && this.G?.log[this.G?.log.length - 1].type == 'move') {
-            const move = (this.G?.log[this.G?.log.length - 1] as LogMove).move;
-            if (move.name == MoveName.Pass && this.G.currentPlayers.includes(this.player!)) {
-                (document.getElementById('notification')!.cloneNode(true) as HTMLAudioElement).play();
-            } else {
-                if (move.name == MoveName.Build) {
-                    setTimeout(() => {
-                        (document.getElementById('piece-drop')!.cloneNode(true) as HTMLAudioElement).play();
-                    }, 800);
-                }
-            }
-        }
     }
 
     @Watch('ui.waitingAnimations')
@@ -1156,9 +1150,12 @@ export default class Game extends Vue {
         if (this.G && this.player != null && !this.G.chosenPowerPlant) {
             const player = this.G.players[this.player];
             if (player && player.availableMoves && Object.keys(player.availableMoves).length > 1) {
-                if (this.G.phase == Phase.Bureaucracy && player.powerPlantsNotUsed.length > 0
-                    && Object.keys(player.availableMoves).includes('UsePowerPlant')
-                    && !this.canPowerAllCitiesWithUsedPlants(player)) {
+                if (
+                    this.G.phase == Phase.Bureaucracy &&
+                    player.powerPlantsNotUsed.length > 0 &&
+                    Object.keys(player.availableMoves).includes('UsePowerPlant') &&
+                    !this.canPowerAllCitiesWithUsedPlants(player)
+                ) {
                     this.confirmMessage = 'Are you sure you want to pass? You have unused power plants!';
                     this.confirmVisible = true;
                     return;
@@ -1170,7 +1167,8 @@ export default class Game extends Vue {
                     // nothing this turn — buying some but not enough is a deliberate
                     // choice, not a slip.
                     if (this.G.map.name !== 'India' || !this.playerBoughtResourceThisTurn()) {
-                        this.confirmMessage = 'Are you sure you want to skip buying resources without enough to power all your plants?';
+                        this.confirmMessage =
+                            'Are you sure you want to skip buying resources without enough to power all your plants?';
                         this.confirmVisible = true;
                         return;
                     }
@@ -1193,7 +1191,7 @@ export default class Game extends Vue {
                                 this.confirmMessage = 'Are you sure you want to skip building?';
                                 break;
                             case Phase.Bureaucracy:
-                                this.confirmMessage = 'Are you sure you want to pass? You didn\'t use any power plant!';
+                                this.confirmMessage = "Are you sure you want to pass? You didn't use any power plant!";
                                 break;
                             default:
                                 this.confirmMessage = 'Are you sure you want to pass?';
@@ -1292,8 +1290,10 @@ export default class Game extends Vue {
         this.soleBuyerPlant = null;
     }
 
-    buyResource(payload: { resource: ResourceType, side?: 'north' | 'south', fromStorage?: boolean }) {
-        const data: { resource: ResourceType, side?: 'north' | 'south', fromStorage?: boolean } = { resource: payload.resource };
+    buyResource(payload: { resource: ResourceType; side?: 'north' | 'south'; fromStorage?: boolean }) {
+        const data: { resource: ResourceType; side?: 'north' | 'south'; fromStorage?: boolean } = {
+            resource: payload.resource,
+        };
         if (payload.side) {
             data.side = payload.side;
         }
@@ -1312,7 +1312,7 @@ export default class Game extends Vue {
      * replaying the rest, exactly as `undo()` drops the last move. Removing a buy only
      * ever frees money and plant capacity, so the remaining buffer always replays.
      */
-    unbuyResource(payload: { resource: ResourceType, side?: 'north' | 'south', fromStorage?: boolean }) {
+    unbuyResource(payload: { resource: ResourceType; side?: 'north' | 'south'; fromStorage?: boolean }) {
         if (this.paused || !this.committedState) {
             return;
         }
@@ -1381,7 +1381,10 @@ export default class Game extends Vue {
         this.freeJumpCity = null;
         if (useJump) {
             const freeJumpMove = buildMoves.find((c) => c.name === city.name && c.freeJump)!;
-            this.sendMove({ name: MoveName.Build, data: { name: city.name, price: freeJumpMove.price, freeJump: true } });
+            this.sendMove({
+                name: MoveName.Build,
+                data: { name: city.name, price: freeJumpMove.price, freeJump: true },
+            });
         } else {
             const normalMove = buildMoves.find((c) => c.name === city.name && !c.freeJump)!;
             this.sendMove({ name: MoveName.Build, data: { name: city.name, price: normalMove.price } });
@@ -1389,7 +1392,7 @@ export default class Game extends Vue {
     }
 
     confirmDiscard() {
-        const values = this.resourcesToDiscard.map(r => parseInt(r.value));
+        const values = this.resourcesToDiscard.map((r) => parseInt(r.value));
         if (values.reduce((acc, cur) => acc + cur, 0) > 0) {
             this.sendMove({ name: MoveName.DiscardPowerPlant, data: this.discardedPowerPlant!.number, extra: values });
         } else {
@@ -1405,18 +1408,48 @@ export default class Game extends Vue {
         let hybridCapacityUsed;
         switch (this.discardedPowerPlant!.type) {
             case PowerPlantType.Coal:
-                hybridCapacityUsed = currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 > 0 ? Math.max(0, currentPlayer.oilLeft - currentPlayer.oilCapacity) : 0;
-                return currentPlayer.coalCapacity + currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 + parseInt(this.resourcesToDiscard[0].value) < currentPlayer.coalLeft + hybridCapacityUsed;
+                hybridCapacityUsed =
+                    currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 > 0
+                        ? Math.max(0, currentPlayer.oilLeft - currentPlayer.oilCapacity)
+                        : 0;
+                return (
+                    currentPlayer.coalCapacity +
+                        currentPlayer.hybridCapacity -
+                        this.discardedPowerPlant!.cost * 2 +
+                        parseInt(this.resourcesToDiscard[0].value) <
+                    currentPlayer.coalLeft + hybridCapacityUsed
+                );
 
             case PowerPlantType.Oil:
-                hybridCapacityUsed = currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 > 0 ? Math.max(0, currentPlayer.coalLeft - currentPlayer.coalCapacity) : 0;
-                return currentPlayer.oilCapacity + currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 + parseInt(this.resourcesToDiscard[0].value) < currentPlayer.oilLeft + hybridCapacityUsed;
+                hybridCapacityUsed =
+                    currentPlayer.hybridCapacity - this.discardedPowerPlant!.cost * 2 > 0
+                        ? Math.max(0, currentPlayer.coalLeft - currentPlayer.coalCapacity)
+                        : 0;
+                return (
+                    currentPlayer.oilCapacity +
+                        currentPlayer.hybridCapacity -
+                        this.discardedPowerPlant!.cost * 2 +
+                        parseInt(this.resourcesToDiscard[0].value) <
+                    currentPlayer.oilLeft + hybridCapacityUsed
+                );
 
             case PowerPlantType.Garbage:
-                return currentPlayer.garbageCapacity - this.discardedPowerPlant!.cost * 2 - currentPlayer.garbageLeft + parseInt(this.resourcesToDiscard[0].value) < 0;
+                return (
+                    currentPlayer.garbageCapacity -
+                        this.discardedPowerPlant!.cost * 2 -
+                        currentPlayer.garbageLeft +
+                        parseInt(this.resourcesToDiscard[0].value) <
+                    0
+                );
 
             case PowerPlantType.Uranium:
-                return currentPlayer.uraniumCapacity - this.discardedPowerPlant!.cost * 2 - currentPlayer.uraniumLeft + parseInt(this.resourcesToDiscard[0].value) < 0;
+                return (
+                    currentPlayer.uraniumCapacity -
+                        this.discardedPowerPlant!.cost * 2 -
+                        currentPlayer.uraniumLeft +
+                        parseInt(this.resourcesToDiscard[0].value) <
+                    0
+                );
 
             case PowerPlantType.Hybrid:
                 const coalDiscarded = parseInt(this.resourcesToDiscard[0].value);
@@ -1440,7 +1473,11 @@ export default class Game extends Vue {
 
                 switch (powerPlant.type) {
                     case PowerPlantType.Coal:
-                        if (currentPlayer.powerPlants.filter(pp => pp.type == powerPlant.type).length + currentPlayer.powerPlants.filter(pp => pp.type == PowerPlantType.Hybrid).length == 1) {
+                        if (
+                            currentPlayer.powerPlants.filter((pp) => pp.type == powerPlant.type).length +
+                                currentPlayer.powerPlants.filter((pp) => pp.type == PowerPlantType.Hybrid).length ==
+                            1
+                        ) {
                             this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
                             return;
                         }
@@ -1454,7 +1491,11 @@ export default class Game extends Vue {
                         break;
 
                     case PowerPlantType.Oil:
-                        if (currentPlayer.powerPlants.filter(pp => pp.type == powerPlant.type).length + currentPlayer.powerPlants.filter(pp => pp.type == PowerPlantType.Hybrid).length == 1) {
+                        if (
+                            currentPlayer.powerPlants.filter((pp) => pp.type == powerPlant.type).length +
+                                currentPlayer.powerPlants.filter((pp) => pp.type == PowerPlantType.Hybrid).length ==
+                            1
+                        ) {
                             this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
                             return;
                         }
@@ -1468,7 +1509,7 @@ export default class Game extends Vue {
                         break;
 
                     case PowerPlantType.Garbage:
-                        if (currentPlayer.powerPlants.filter(pp => pp.type == powerPlant.type).length == 1) {
+                        if (currentPlayer.powerPlants.filter((pp) => pp.type == powerPlant.type).length == 1) {
                             this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
                             return;
                         }
@@ -1483,7 +1524,7 @@ export default class Game extends Vue {
                         break;
 
                     case PowerPlantType.Uranium:
-                        if (currentPlayer.powerPlants.filter(pp => pp.type == powerPlant.type).length == 1) {
+                        if (currentPlayer.powerPlants.filter((pp) => pp.type == powerPlant.type).length == 1) {
                             this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
                             return;
                         }
@@ -1497,7 +1538,12 @@ export default class Game extends Vue {
                         break;
 
                     case PowerPlantType.Hybrid:
-                        if (currentPlayer.powerPlants.filter(pp => pp.type == powerPlant.type).length + currentPlayer.powerPlants.filter(pp => pp.type == PowerPlantType.Coal).length + currentPlayer.powerPlants.filter(pp => pp.type == PowerPlantType.Oil).length == 1) {
+                        if (
+                            currentPlayer.powerPlants.filter((pp) => pp.type == powerPlant.type).length +
+                                currentPlayer.powerPlants.filter((pp) => pp.type == PowerPlantType.Coal).length +
+                                currentPlayer.powerPlants.filter((pp) => pp.type == PowerPlantType.Oil).length ==
+                            1
+                        ) {
                             this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
                             return;
                         }
@@ -1507,7 +1553,10 @@ export default class Game extends Vue {
                             return;
                         }
 
-                        this.resourcesToDiscard = [{ name: 'Coal', value: '0', max: currentPlayer.coalLeft }, { name: 'Oil', value: '0', max: currentPlayer.oilLeft }];
+                        this.resourcesToDiscard = [
+                            { name: 'Coal', value: '0', max: currentPlayer.coalLeft },
+                            { name: 'Oil', value: '0', max: currentPlayer.oilLeft },
+                        ];
                         break;
                 }
 
@@ -1534,7 +1583,9 @@ export default class Game extends Vue {
                     resourcesSpent = currentPlayer.resourcesUsed;
                     resourcesSpent.sort();
                     currentPlayer.resourcesUsed = [];
-                    currentPlayer.powerPlantsNotUsed = currentPlayer.powerPlantsNotUsed.filter((x) => x != powerPlant.number);
+                    currentPlayer.powerPlantsNotUsed = currentPlayer.powerPlantsNotUsed.filter(
+                        (x) => x != powerPlant.number
+                    );
 
                     break;
             }
@@ -1545,7 +1596,7 @@ export default class Game extends Vue {
             });
 
             this.disablePass = true;
-            setTimeout(() => this.disablePass = false, 1000);
+            setTimeout(() => (this.disablePass = false), 1000);
         }
     }
 
@@ -1704,7 +1755,7 @@ export default class Game extends Vue {
         return !!availableMoves[MoveName.ChoosePowerPlant];
     }
 
-    buyableResources(): { resource: ResourceType, side?: 'north' | 'south', fromStorage?: boolean }[] {
+    buyableResources(): { resource: ResourceType; side?: 'north' | 'south'; fromStorage?: boolean }[] {
         if (!this.canMove()) return [];
 
         const currentPlayer = this.G!.players[this.player!];
@@ -1744,7 +1795,7 @@ export default class Game extends Vue {
         const currentPlayer = this.G!.players[this.player!];
         const availableMoves = currentPlayer.availableMoves!;
 
-        return availableMoves[MoveName.Build] && availableMoves[MoveName.Build]!.map((c) => c.name) || [];
+        return (availableMoves[MoveName.Build] && availableMoves[MoveName.Build]!.map((c) => c.name)) || [];
     }
 
     getPickableRegions(): string[] {
@@ -1861,10 +1912,12 @@ export default class Game extends Vue {
         }
 
         // Check if player has enough resources, accounting for hybrid plants which can use either coal or oil
-        if (coalUsed > player.coalLeft ||
+        if (
+            coalUsed > player.coalLeft ||
             oilUsed > player.oilLeft ||
             garbageUsed > player.garbageLeft ||
-            uraniumUsed > player.uraniumLeft) {
+            uraniumUsed > player.uraniumLeft
+        ) {
             return false;
         }
         const remainingCoal = player.coalLeft - coalUsed;
@@ -1946,7 +1999,7 @@ export default class Game extends Vue {
 
                 return 'Choose a Power Plant to start an auction.';
             } else if (currentPlayer.availableMoves![MoveName.Bid]) {
-                return 'It\'s your turn to bid!';
+                return "It's your turn to bid!";
             } else if (currentPlayer.availableMoves![MoveName.BuyResource]) {
                 return 'Buy resources on the market, or pass.';
             } else if (currentPlayer.availableMoves![MoveName.Build]) {
@@ -1963,7 +2016,7 @@ export default class Game extends Vue {
                 return 'Choose which resources to discard.';
             }
 
-            return 'It\'s your turn!';
+            return "It's your turn!";
         } else {
             let log = this.G.log[this.G.log.length - 1];
             if (log.type == 'move') {
@@ -2032,7 +2085,9 @@ export default class Game extends Vue {
                 // the connection cost paid to reach it, averaged over cities built.
                 label: 'Cost per City',
                 value: (p) =>
-                    p.cities.length ? ((p.totalSpentCities + p.totalSpentConnections) / p.cities.length).toFixed(1) : '-',
+                    p.cities.length
+                        ? ((p.totalSpentCities + p.totalSpentConnections) / p.cities.length).toFixed(1)
+                        : '-',
             },
             { label: 'Spending: Plants', value: (p) => p.totalSpentPlants },
             { label: 'Spending: Resources', value: (p) => p.totalSpentResources },
@@ -2284,8 +2339,10 @@ export default class Game extends Vue {
                 const scale = scaleOf(name);
                 // Centre a shorter slot against the tallest one in its row.
                 const top = y + (rowHeight - bb.height * scale) / 2;
-                transforms[name] =
-                    `translate(${round(x - bb.x * scale)}, ${round(top - bb.y * scale)}) scale(${round(scale, 4)})`;
+                transforms[name] = `translate(${round(x - bb.x * scale)}, ${round(top - bb.y * scale)}) scale(${round(
+                    scale,
+                    4
+                )})`;
                 x += bb.width * scale + STACK_GAP;
             }
             y += rowHeight + STACK_GAP;
@@ -2408,8 +2465,8 @@ ul {
     flex-direction: column;
 }
 
-.fitToScreen {
-    height: 100%;
+.fitToScreen #scene {
+    max-height: calc(100vh - 40px);
 }
 
 .statusBar {
@@ -2420,13 +2477,17 @@ ul {
     text-align: center;
     line-height: 40px;
     font-size: 20px;
-    position: fixed;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    flex-shrink: 0;
 }
 
 #scene {
-    max-height: calc(100% - 40px);
-    flex-grow: 1;
-    margin: 40px auto auto auto;
+    display: block;
+    height: auto;
+    flex: none;
+    margin: 0 auto;
 }
 
 // Portrait: the scene is taller than the viewport by design (each row is scaled
@@ -2439,12 +2500,14 @@ ul {
     #scene {
         max-height: none;
         flex-grow: 0;
-        margin-top: 40px;
+        margin-top: 0;
     }
 }
 
 body,
 html {
+    background: #e7ebda;
+    color: #263521;
     height: 100%;
     width: 100%;
     margin: 0;
@@ -2715,5 +2778,26 @@ text {
 
 .confirm-button {
     margin: 15px 0 0 15px;
+}
+</style>
+
+<style>
+.journal-and-chat {
+    width: 100%;
+    display: grid;
+    gap: 8px;
+    margin-top: 8px;
+    align-items: start;
+}
+.journal-and-chat > * {
+    min-width: 0;
+}
+.journal-and-chat .bgs-game-chat {
+    margin: 0;
+}
+@media (min-width: 1000px) {
+    .journal-and-chat {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
 }
 </style>

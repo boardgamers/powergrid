@@ -1,3 +1,5 @@
+import { installLocalChat } from './game-chat';
+import { mountSoundTests } from './sounds';
 import { cloneDeep } from 'lodash';
 import { move as execMove, Move, Phase, setup, stripSecret } from 'powergrid-engine';
 import { moveAI } from 'powergrid-engine/src/engine';
@@ -10,6 +12,8 @@ function launchSelfContained(selector = '#app') {
     const strip = true;
 
     const emitter = launch(selector);
+    mountSoundTests(emitter);
+    installLocalChat(emitter);
 
     // The sandbox game can be steered from the URL so a layout or rules change can
     // be checked against several maps without editing this file each time, e.g.

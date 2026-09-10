@@ -1,3 +1,5 @@
+import { mountGameChat } from './game-chat';
+import { installActionSounds } from './sounds';
 import { EventEmitter } from 'events';
 import type { GameState, Move } from 'powergrid-engine';
 import Vue from 'vue';
@@ -100,6 +102,8 @@ function launch(selector: string) {
         item.emit('fetchState');
     });
 
+    installActionSounds(item);
+    mountGameChat(item, app.$el);
     return item;
 }
 

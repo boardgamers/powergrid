@@ -171,8 +171,8 @@
                 >
                     <title>
                         {{ city.name }}<template v-if="isBlocked(city)"> — blocked for this player count (transit
-                        only)</template ><template v-else> — build for {{ city.slotCosts[0] }} (+ flat 5 per transited
-                        space)</template>
+                        only)</template ><template v-else-if="buildCostLabel(city)">{{ buildCostLabel(city) }}</template
+                        ><template v-else> — build for {{ city.slotCosts[0] }} (+ flat 5 per transited space)</template>
                     </title>
                 </rect>
                 <text
@@ -411,7 +411,7 @@
                 pointer-events="all"
                 @click="onCityClick(city)"
             >
-                <title>{{ city.name }}</title>
+                <title>{{ city.name }}{{ buildCostLabel(city) }}</title>
             </circle>
             <!-- Node-weighted tiles (Bremen) get the same treatment at the tile's own
                  size — their houses sit in slots inside the diamond. Manhattan's spaces
@@ -431,7 +431,7 @@
                 :transform="`rotate(45, ${city.x}, ${city.y})`"
                 @click="onCityClick(city)"
             >
-                <title>{{ city.name }}</title>
+                <title>{{ city.name }}{{ buildCostLabel(city) }}</title>
             </rect>
         </template>
 
@@ -486,6 +486,8 @@ export default class Map extends Vue {
     @Prop() connections?: Connection[];
     @Prop() playerColors?: string[];
     @Prop() buildableCities?: string[];
+    // #148: what each of those cities would cost this player, from available-moves.
+    @Prop() buildPrices?: Record<string, { price?: number; jumpPrice?: number }>;
     // Manhattan: spaces blocked for this player count — transitable but never buildable.
     @Prop() blockedCities?: string[];
     // chooseRegions draft: region names the current player may pick this turn.
@@ -697,6 +699,34 @@ export default class Map extends Vue {
 
     canBuild(city: City) {
         return !!this.buildableCities!.find((cityName) => cityName == city.name);
+    }
+
+    /**
+     * The " — build for N" tail appended to a buildable city's tooltip (#148).
+     *
+     * coyotte508 asked for this because in Step 3 the cost varies city by city with how
+     * many players are already there, and the board alone does not say what YOU would
+     * pay. It is a tooltip rather than a printed label on purpose: measured across every
+     * recharged map, a Step-3 build turn offers a median 26–52% of the cities in play
+     * and up to all of them, so labelling each one would bury the board it is meant to
+     * explain — and there is nowhere to put such a label in portrait.
+     *
+     * Empty while the city is only region-pickable, so the draft tooltip is untouched.
+     */
+    buildCostLabel(city: City): string {
+        const entry = this.buildPrices && this.buildPrices[city.name];
+        if (!entry) return '';
+
+        if (entry.price != null && entry.jumpPrice != null) {
+            return ` — build for ${entry.price}, or ${entry.jumpPrice} using your free jump`;
+        }
+        if (entry.price != null) {
+            return ` — build for ${entry.price}`;
+        }
+        if (entry.jumpPrice != null) {
+            return ` — build for ${entry.jumpPrice}, using your free jump`;
+        }
+        return '';
     }
 
     isBlocked(city: City) {

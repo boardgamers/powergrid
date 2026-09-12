@@ -16,7 +16,7 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
 .bgs-game-chat summary{cursor:pointer;font-weight:650;border-radius:3px;width:fit-content;padding:2px 4px;margin:-2px -4px}
 .bgs-game-chat summary:hover{color:#126778}
 .bgs-game-chat summary:focus-visible,.bgs-game-chat button:focus-visible{outline:2px solid #247d8c;outline-offset:3px}
-.bgs-game-chat .chat-messages{max-height:250px;overflow:auto;overscroll-behavior:contain;margin:6px 0 8px}
+.bgs-game-chat .chat-messages{max-height:250px;overflow:auto;overscroll-behavior:auto;margin:6px 0 8px}
 .bgs-game-chat article{padding:5px 0;border-bottom:1px solid #75818d26;white-space:pre-wrap;overflow-wrap:anywhere}
 .bgs-game-chat article strong{padding:0 3px;font-weight:bold}
 .bgs-game-chat article:last-child{border-bottom:0}

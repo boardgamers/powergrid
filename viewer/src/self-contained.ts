@@ -1,10 +1,10 @@
-import { installLocalChat } from './game-chat';
-import { mountSoundTests } from './sounds';
 import { cloneDeep } from 'lodash';
 import { move as execMove, Move, Phase, setup, stripSecret } from 'powergrid-engine';
 import { moveAI } from 'powergrid-engine/src/engine';
 import type { MapName, Variant } from 'powergrid-engine/src/gamestate';
+import { installLocalChat } from './game-chat';
 import launch from './launch';
+import { mountSoundTests } from './sounds';
 
 const delayBase = 0;
 

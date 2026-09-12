@@ -91,7 +91,7 @@ summary {
 .journal-feed {
     max-height: 220px;
     overflow: auto;
-    overscroll-behavior: contain;
+    overscroll-behavior: auto;
     margin-top: 8px;
 }
 .journal-plant {

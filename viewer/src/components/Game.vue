@@ -98,6 +98,7 @@
                     :connections="G.map.connections"
                     :polygons="G.map.polygons"
                     :buildableCities="getBuildableCities()"
+                    :buildPrices="getBuildableCityPrices()"
                     :blockedCities="G.blockedCities"
                     :pickableRegions="getPickableRegions()"
                     :noUraniumRegions="G.map.noUraniumRegions"
@@ -1796,6 +1797,39 @@ export default class Game extends Vue {
         const availableMoves = currentPlayer.availableMoves!;
 
         return (availableMoves[MoveName.Build] && availableMoves[MoveName.Build]!.map((c) => c.name)) || [];
+    }
+
+    /**
+     * What each buildable city would cost this player, keyed by city name (#148).
+     *
+     * The total is not computed here: `available-moves` already sums the shortest-path
+     * connection cost and the slot cost for the number of players ALREADY in the city
+     * (10/15/20 in the standard build, per-map `slotCosts` otherwise), then drops every
+     * city the player cannot afford. That per-city occupancy is exactly what #148 asks
+     * about in Step 3, so the number only needed surfacing — the viewer was discarding
+     * it and keeping the names.
+     *
+     * A map with a free jump (Japan) offers the same city twice at two prices, so both
+     * are kept; a city reachable ONLY by jump has no `price`.
+     */
+    getBuildableCityPrices(): Record<string, { price?: number; jumpPrice?: number }> {
+        if (!this.canMove()) return {};
+
+        const moves = this.G!.players[this.player!].availableMoves![MoveName.Build];
+        if (!moves) return {};
+
+        const prices: Record<string, { price?: number; jumpPrice?: number }> = {};
+        for (const move of moves) {
+            if (!prices[move.name]) {
+                prices[move.name] = {};
+            }
+            if (move.freeJump) {
+                prices[move.name].jumpPrice = move.price;
+            } else {
+                prices[move.name].price = move.price;
+            }
+        }
+        return prices;
     }
 
     getPickableRegions(): string[] {

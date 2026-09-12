@@ -2820,7 +2820,8 @@ text {
     width: 100%;
     display: grid;
     gap: 8px;
-    margin-top: 8px;
+    margin: 8px 0;
+    padding-bottom: env(safe-area-inset-bottom);
     align-items: start;
 }
 .journal-and-chat > * {

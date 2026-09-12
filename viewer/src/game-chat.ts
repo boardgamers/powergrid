@@ -32,6 +32,14 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
 .bgs-game-chat .chat-status:empty{display:none}
 .chat-shortcut{position:fixed;left:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:900;padding:7px 12px;border:1px solid #6a8589;border-radius:3px;background:#263521;color:#fff;font:600 14px Arial,sans-serif;cursor:pointer;box-shadow:0 2px 6px #0003}
 .chat-shortcut[hidden]{display:none}
+.game-feed-tabs{display:none}
+@media(max-width:700px){
+.game-feed-tabs{display:flex;gap:4px;margin-top:8px}
+.game-feed-tabs button{border:1px solid #a2aa82;border-radius:3px 3px 0 0;padding:7px 14px;background:#e7ead7;color:#263521;font:600 14px Arial,sans-serif;cursor:pointer}
+.game-feed-tabs button[aria-pressed="true"]{background:#f3f0dc;border-bottom:3px solid #526f32}
+.game-feed-tabs button:focus-visible{outline:2px solid #247d8c;outline-offset:2px}
+.journal-and-chat[data-feed="chat"]>.inline-game-log,.journal-and-chat[data-feed="journal"]>.chat-host{display:none}
+}
 .chat-shortcut:hover{background:#315966}
 .chat-shortcut:focus-visible{outline:2px solid #fff;outline-offset:2px}
 
@@ -40,6 +48,29 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
     const slot = host.querySelector('.chat-host');
     if (slot) slot.append(panel);
     else host.insertAdjacentElement('afterend', panel);
+    const feeds = host.querySelector('.journal-and-chat') as HTMLElement | null;
+    const tabs = document.createElement('nav');
+    tabs.className = 'game-feed-tabs';
+    tabs.setAttribute('aria-label', 'Chat and journal');
+    const chatTab = document.createElement('button');
+    const journalTab = document.createElement('button');
+    chatTab.type = journalTab.type = 'button';
+    chatTab.textContent = 'Chat';
+    journalTab.textContent = 'Journal';
+    tabs.append(chatTab, journalTab);
+    if (feeds) feeds.insertAdjacentElement('beforebegin', tabs);
+    function selectFeed(feed: 'chat' | 'journal'): void {
+        if (feeds) feeds.dataset.feed = feed;
+        chatTab.setAttribute('aria-pressed', String(feed === 'chat'));
+        journalTab.setAttribute('aria-pressed', String(feed === 'journal'));
+    }
+    selectFeed('chat');
+    chatTab.onclick = () => {
+        selectFeed('chat');
+        panel.open = true;
+        requestAnimationFrame(read);
+    };
+    journalTab.onclick = () => selectFeed('journal');
     const list = panel.querySelector('.chat-messages') as HTMLDivElement;
     const input = panel.querySelector('input') as HTMLInputElement;
     const button = panel.querySelector('button') as HTMLButtonElement;
@@ -70,7 +101,7 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
     shortcut.type = 'button';
     shortcut.className = 'chat-shortcut';
     shortcut.hidden = true;
-    panel.insertAdjacentElement('afterend', shortcut);
+    (feeds || panel).insertAdjacentElement('afterend', shortcut);
     let chatVisible = false;
     function updateShortcut(): void {
         const count = unread.size;
@@ -78,9 +109,11 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
         shortcut.textContent = label;
         shortcut.setAttribute('aria-label', `Open ${label}`);
         summary.textContent = label;
+        chatTab.textContent = label;
         shortcut.hidden = chatVisible;
     }
     shortcut.onclick = () => {
+        selectFeed('chat');
         panel.open = true;
         requestAnimationFrame(() => {
             const firstUnread = Array.from(list.children).find((row) =>
@@ -117,6 +150,7 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
             return;
         }
         const bounds = list.getBoundingClientRect();
+        if (!bounds.width || !bounds.height) return;
         const visible = Array.from(list.children).filter((el) => {
             const r = el.getBoundingClientRect();
             return r.bottom <= Math.min(bounds.bottom, window.innerHeight) + 1 && r.top >= Math.max(bounds.top, 0);

@@ -32,6 +32,7 @@ export default class InlineLog extends Vue {
     @Prop({ default: () => [] }) entries!: string[];
     @Prop({ default: '' }) mapName!: string;
     follow = true;
+    private feedObserver?: ResizeObserver;
     get illustratedEntries() {
         return this.entries.map((entry) => {
             const parts: { html?: string; plant?: PowerPlant }[] = [];
@@ -54,7 +55,14 @@ export default class InlineLog extends Vue {
         } cities`;
     }
     mounted() {
+        this.feedObserver = new ResizeObserver(() => {
+            if (this.follow) this.scrollToLatest();
+        });
+        this.feedObserver.observe(this.$refs.feed as HTMLElement);
         this.scrollToLatest();
+    }
+    beforeDestroy() {
+        this.feedObserver?.disconnect();
     }
     @Watch('entries') changed() {
         if (this.follow) {
@@ -63,13 +71,13 @@ export default class InlineLog extends Vue {
     }
     scrollToLatest() {
         const feed = this.$refs.feed as HTMLElement;
-        if (feed) {
+        if (feed?.clientHeight) {
             feed.scrollTop = feed.scrollHeight;
         }
     }
     onScroll() {
         const feed = this.$refs.feed as HTMLElement;
-        this.follow = feed.scrollHeight - feed.scrollTop - feed.clientHeight < 32;
+        if (feed.clientHeight) this.follow = feed.scrollHeight - feed.scrollTop - feed.clientHeight < 32;
     }
 }
 </script>

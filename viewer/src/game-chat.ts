@@ -301,7 +301,7 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
         }
     };
     list.onscroll = () => {
-        following = list.scrollHeight - list.scrollTop - list.clientHeight < 32;
+        if (list.clientHeight) following = list.scrollHeight - list.scrollTop - list.clientHeight < 32;
         read();
     };
     panel.ontoggle = () => {
@@ -314,10 +314,12 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
     window.addEventListener('focus', read);
     window.addEventListener('resize', read);
     const sizing = new ResizeObserver(() => {
+        if (following && list.clientHeight) list.scrollTop = list.scrollHeight;
         updateShortcut();
         read();
     });
     sizing.observe(panel);
+    sizing.observe(list);
     document.addEventListener('visibilitychange', read);
     status.textContent = reason;
     controls();

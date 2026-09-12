@@ -2,6 +2,8 @@ import { EventEmitter } from 'events';
 import type { GameState, Move } from 'powergrid-engine';
 import Vue from 'vue';
 import Game from './components/Game.vue';
+import { mountGameChat } from './game-chat';
+import { installActionSounds } from './sounds';
 import type { Preferences } from './types/ui-data';
 import { shouldAdoptLogState } from './util/turn-buffer';
 
@@ -100,6 +102,8 @@ function launch(selector: string) {
         item.emit('fetchState');
     });
 
+    installActionSounds(item);
+    mountGameChat(item, app.$el);
     return item;
 }
 

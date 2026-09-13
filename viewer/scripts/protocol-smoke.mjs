@@ -98,6 +98,17 @@ try {
             return el && Math.abs(el.scrollHeight - el.scrollTop - el.clientHeight) < 3;
         });
         assert.equal(await panel.locator('summary').textContent(), 'Chat', 'old history is not unread');
+        if (width === 390) {
+            await page.locator('.game-feed-tabs button').filter({ hasText: 'Journal' }).click();
+            await page.waitForFunction(() => !document.querySelector('.chat-shortcut').hidden);
+            assert.equal(
+                await page.locator('.chat-shortcut').isVisible(),
+                true,
+                'chat shortcut remains reachable from journal'
+            );
+            await page.locator('.chat-shortcut').click();
+            await page.waitForFunction(() => document.querySelector('.journal-and-chat').dataset.feed === 'chat');
+        }
         await input.fill('@');
         assert.deepEqual(await panel.locator('.chat-suggestions button').allTextContents(), ['@Ada Lovelace', '@Bob']);
         await input.press('Enter');

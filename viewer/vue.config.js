@@ -31,6 +31,17 @@ module.exports = {
                 }));
             }
         }
+        // Engine sources have their own tsconfig; every viewer worker must use
+        // the Vue config, including its legacy-decorator setting.
+        for (const name of ['ts', 'tsx']) {
+            config.module
+                .rule(name)
+                .use('ts-loader')
+                .tap((options) => ({
+                    ...options,
+                    configFile: join(__dirname, 'tsconfig.json'),
+                }));
+        }
         // Webpack 4 predates package exports; resolve the published ESM entry points.
         config.resolve.alias.set('@boardgamers/protocol/viewer', join(protocolDist, 'viewer.js'));
         config.resolve.alias.set('@boardgamers/protocol/chat', join(protocolDist, 'chat.js'));

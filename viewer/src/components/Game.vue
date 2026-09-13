@@ -414,6 +414,7 @@
             </g>
         </svg>
 
+        <div class="chat-tabs-host"></div>
         <div class="journal-and-chat">
             <InlineLog v-if="G" :entries="logReversed.slice().reverse()" :mapName="G.options.map" />
             <div class="chat-host"></div>
@@ -2022,7 +2023,7 @@ export default class Game extends Vue {
 
         if (!this.G || this.G.log.length == 1) {
             return 'Game Start!';
-        } else if (this.G.currentPlayers == []) {
+        } else if (this.G.currentPlayers.length === 0) {
             return 'Game ended!';
         } else if (this.player !== undefined && this.G?.currentPlayers.includes(this.player)) {
             const currentPlayer = this.G.players[this.player];

@@ -1,21 +1,22 @@
+import { ChatController, ChatMessage, chatSegments } from '@boardgamers/protocol/chat';
+import { mountChat } from '@boardgamers/protocol/chat/dom';
+import { attachChat, ViewerEmitter } from '@boardgamers/protocol/viewer';
 import { playerColors } from 'powergrid-engine/src/gamestate';
-type ChatMessage = { _id?: string; author?: string; text: string; createdAt?: string; playerIndex?: number };
-type ChatEmitter = {
-    on: (event: string, fn: (data: any) => void) => unknown;
-    emit: (event: string, data: any) => unknown;
-};
-export function mountGameChat(emitter: ChatEmitter, host: Element): void {
-    const panel = document.createElement('details');
-    panel.className = 'bgs-game-chat';
-    panel.open = true;
-    panel.innerHTML =
-        '<summary>Chat</summary><div class="chat-messages" role="log" aria-label="Game chat"></div><div class="chat-composer"><input type="text" aria-label="Chat message" placeholder="Message…" autocomplete="off"><button type="button">Send</button></div><div class="chat-status" role="status"></div>';
+type ChatEmitter = Pick<ViewerEmitter<any, any>, 'on' | 'emit'>;
+export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): () => void {
+    const chat = new ChatController();
+    const detach = attachChat(emitter, chat);
+    const slot = host.querySelector<HTMLElement>('.chat-host') || document.createElement('div');
+    if (!slot.parentElement) host.insertAdjacentElement('afterend', slot);
     const style = document.createElement('style');
     style.textContent = `
 .bgs-game-chat{box-sizing:border-box;font:14px/1.4 Arial,sans-serif;border:1px solid #a2aa82;border-radius:3px;margin:8px 0;padding:8px 12px;background:#f3f0dc;color:#263521}
 .bgs-game-chat summary{cursor:pointer;font-weight:650;border-radius:3px;width:fit-content;padding:2px 4px;margin:-2px -4px}
 .bgs-game-chat summary:hover{color:#126778}
 .bgs-game-chat summary:focus-visible,.bgs-game-chat button:focus-visible{outline:2px solid #247d8c;outline-offset:3px}
+.bgs-game-chat .chat-day{display:flex;align-items:center;gap:8px;margin:12px 0 6px;font-size:.85em;opacity:.8}
+.bgs-game-chat .chat-day::before,.bgs-game-chat .chat-day::after{content:"";flex:1;border-top:1px solid currentColor;opacity:.3}
+.bgs-game-chat .chat-day time{margin:0;color:inherit;font-size:inherit}
 .bgs-game-chat .chat-messages{max-height:250px;overflow:auto;overscroll-behavior:auto;margin:6px 0 8px}
 .bgs-game-chat article{padding:5px 0;border-bottom:1px solid #75818d26;white-space:pre-wrap;overflow-wrap:anywhere}
 .bgs-game-chat article strong{padding:0 3px;font-weight:bold}
@@ -28,6 +29,11 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
 .bgs-game-chat button{box-sizing:border-box;height:30px;cursor:pointer;border:1px solid #7f8c8d;border-radius:3px;background:#dddeda;color:#172d34;padding:3px 12px;font:14px Arial,sans-serif}
 .bgs-game-chat button:hover:not(:disabled){background:#c8d3d0}
 .bgs-game-chat button:disabled{color:#788786;border-color:#b0bcb8;background:#dce3df;cursor:default}
+.bgs-game-chat .chat-mention{height:auto;padding:0 2px;border:0;background:transparent;color:inherit;font:inherit;font-weight:bold;text-decoration:underline}
+.bgs-game-chat article a{color:inherit;text-decoration:underline}
+.chat-suggestions{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.chat-suggestions:empty{display:none}
+.chat-suggestions button[aria-pressed="true"]{outline:2px solid #527f89}
 .bgs-game-chat .chat-status{font-size:12px;margin-top:6px}
 .bgs-game-chat .chat-status:empty{display:none}
 .chat-shortcut{position:fixed;left:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:900;padding:7px 12px;border:1px solid #6a8589;border-radius:3px;background:#263521;color:#fff;font:600 14px Arial,sans-serif;cursor:pointer;box-shadow:0 2px 6px #0003}
@@ -44,292 +50,120 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
 .chat-shortcut:focus-visible{outline:2px solid #fff;outline-offset:2px}
 
 `;
-    panel.append(style);
-    const slot = host.querySelector('.chat-host');
-    if (slot) slot.append(panel);
-    else host.insertAdjacentElement('afterend', panel);
-    const feeds = host.querySelector('.journal-and-chat') as HTMLElement | null;
+    slot.append(style);
+    let players: { id: number; name: string; color?: string; faction?: string }[] = [];
+    let localPlayer: number | undefined;
+    let chatVisible = false;
+    const shortcut = document.createElement('button');
+    shortcut.type = 'button';
+    shortcut.className = 'chat-shortcut';
+    shortcut.hidden = true;
+    (host.querySelector('.chat-tabs-host') || slot).append(shortcut);
+    const feeds = host.querySelector<HTMLElement>('.journal-and-chat');
     const tabs = document.createElement('nav');
     tabs.className = 'game-feed-tabs';
     tabs.setAttribute('aria-label', 'Chat and journal');
     const chatTab = document.createElement('button');
     const journalTab = document.createElement('button');
     chatTab.type = journalTab.type = 'button';
-    chatTab.textContent = 'Chat';
     journalTab.textContent = 'Journal';
     tabs.append(chatTab, journalTab);
-    if (feeds) feeds.insertAdjacentElement('beforebegin', tabs);
-    function selectFeed(feed: 'chat' | 'journal'): void {
+    host.querySelector('.chat-tabs-host')?.append(tabs);
+    function selectFeed(feed: 'chat' | 'journal') {
         if (feeds) feeds.dataset.feed = feed;
         chatTab.setAttribute('aria-pressed', String(feed === 'chat'));
         journalTab.setAttribute('aria-pressed', String(feed === 'journal'));
     }
     selectFeed('chat');
-    chatTab.onclick = () => {
-        selectFeed('chat');
-        panel.open = true;
-        requestAnimationFrame(read);
-    };
-    journalTab.onclick = () => selectFeed('journal');
-    const list = panel.querySelector('.chat-messages') as HTMLDivElement;
-    const input = panel.querySelector('input') as HTMLInputElement;
-    const button = panel.querySelector('button') as HTMLButtonElement;
-    const status = panel.querySelector('.chat-status') as HTMLDivElement;
-    let messages: ChatMessage[] = [];
-    let players: { id: number; name: string; color?: string }[] = [];
-    let localPlayer: number | undefined;
-    emitter.on('state', (state) => {
-        players = state?.players || [];
-        render();
+    const view = mountChat(slot, {
+        chat,
+        styles: false,
+        openPlayer: (index) => emitter.emit('player:clicked', { index }),
+        renderAuthor,
+        onVisibilityChange(visible) {
+            chatVisible = visible;
+            updateShortcut();
+        },
     });
-    emitter.on('player', (player) => {
-        localPlayer = player?.index;
-        render();
-    });
-    let canSend = false;
-    let disabled = false;
-    let reason = 'Chat is connecting…';
-    let pending: { id: string; text: string } | undefined;
-    let timeout: ReturnType<typeof setTimeout> | undefined;
-    let readTimer: ReturnType<typeof setTimeout> | undefined;
-    let watermark = '';
-    let candidate = '';
-    let following = true;
-    const unread = new Set<string>();
-    const summary = panel.querySelector('summary')!;
-    const shortcut = document.createElement('button');
-    shortcut.type = 'button';
-    shortcut.className = 'chat-shortcut';
-    shortcut.hidden = true;
-    (feeds || panel).insertAdjacentElement('afterend', shortcut);
-    let chatVisible = false;
-    function updateShortcut(): void {
-        const count = unread.size;
+    function renderAuthor(message: ChatMessage): Node {
+        const author = document.createElement('strong');
+        author.textContent = message.author || 'Game';
+        const index =
+            message.playerIndex ??
+            (message.author === 'You' ? localPlayer : players.find((p) => p.name === message.author)?.id);
+        if (index !== undefined && playerColors[index]) {
+            author.style.backgroundColor = players.find((p) => p.id === index)?.color || playerColors[index];
+            author.style.color = author.style.backgroundColor === 'brown' ? '#fff' : '#111';
+        }
+        return author;
+    }
+    function updateShortcut() {
+        const count = chat.unread;
         const label = count ? `Chat · ${count} unread` : 'Chat';
         shortcut.textContent = label;
-        shortcut.setAttribute('aria-label', `Open ${label}`);
-        summary.textContent = label;
-        chatTab.textContent = label;
         shortcut.hidden = chatVisible;
+        shortcut.setAttribute('aria-label', `Open ${label}`);
+        chatTab.textContent = label;
     }
     shortcut.onclick = () => {
         selectFeed('chat');
-        panel.open = true;
-        requestAnimationFrame(() => {
-            const firstUnread = Array.from(list.children).find((row) =>
-                unread.has((row as HTMLElement).dataset.id || '')
-            );
-            if (firstUnread) firstUnread.scrollIntoView({ block: 'center' });
-            else panel.scrollIntoView({ block: 'center' });
-            summary.focus({ preventScroll: true });
-            read();
-        });
+        view.open();
     };
-    const visibility = new IntersectionObserver(
-        (entries) => {
-            for (const entry of entries) {
-                if (entry.target === panel) {
-                    chatVisible =
-                        entry.isIntersecting &&
-                        entry.intersectionRect.height >=
-                            Math.min(panel.open ? 80 : 20, entry.boundingClientRect.height);
-                }
+    const dispose = [
+        detach,
+        chat.subscribe(updateShortcut),
+        emitter.on('state', (state) => {
+            players = (state?.players || []).map((player: any, index: number) => ({ ...player, id: index }));
+            view.refresh();
+        }),
+        emitter.on('gamelog', ({ data }: any) => {
+            if (data?.state) {
+                players = (data.state.players || []).map((player: any, index: number) => ({ ...player, id: index }));
+                view.refresh();
             }
-            updateShortcut();
-            read();
-        },
-        { threshold: Array.from({ length: 21 }, (_, i) => i / 20) }
-    );
-    visibility.observe(panel);
-    function controls(): void {
-        button.disabled = !canSend || disabled || !!pending || !input.value.trim();
-        input.disabled = !canSend || disabled;
-    }
-    function read(): void {
-        if (!panel.open || document.visibilityState !== 'visible' || !document.hasFocus()) {
-            return;
-        }
-        const bounds = list.getBoundingClientRect();
-        if (!bounds.width || !bounds.height) return;
-        const visible = Array.from(list.children).filter((el) => {
-            const r = el.getBoundingClientRect();
-            return r.bottom <= Math.min(bounds.bottom, window.innerHeight) + 1 && r.top >= Math.max(bounds.top, 0);
-        });
-        for (const row of visible) unread.delete((row as HTMLElement).dataset.id || '');
-        updateShortcut();
-        const id = (visible[visible.length - 1] as HTMLElement)?.dataset.id || '';
-        if (!/^[a-f0-9]{24}$/i.test(id) || id.toLowerCase() <= watermark) {
-            return;
-        }
-        candidate = candidate > id.toLowerCase() ? candidate : id.toLowerCase();
-        if (!readTimer) {
-            readTimer = setTimeout(() => {
-                readTimer = undefined;
-                if (
-                    panel.open &&
-                    document.visibilityState === 'visible' &&
-                    document.hasFocus() &&
-                    candidate > watermark
-                ) {
-                    watermark = candidate;
-                    emitter.emit('chat:read', { messageId: watermark });
-                }
-            }, 500);
-        }
-    }
-    function render(): void {
-        list.textContent = '';
-        for (const message of messages) {
-            const row = document.createElement('article');
-            row.dataset.id = message._id || '';
-            const author = document.createElement('strong');
-            author.textContent = message.author || 'Game';
-            const index =
-                message.playerIndex ??
-                (message.author === 'You' ? localPlayer : players.find((p) => p.name === message.author)?.id);
-            if (index !== undefined && playerColors[index]) {
-                author.style.backgroundColor = players.find((p) => p.id === index)?.color || playerColors[index];
-                author.style.color = author.style.backgroundColor === 'brown' ? '#fff' : '#111';
-            }
-            row.append(author, document.createTextNode(' '), document.createTextNode(message.text));
-            if (message.createdAt) {
-                const time = document.createElement('time');
-                const date = new Date(message.createdAt);
-                if (!isNaN(date.getTime())) {
-                    time.textContent = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                    time.title = date.toLocaleString();
-                    row.append(time);
-                }
-            }
-
-            list.append(row);
-        }
-        if (following) {
-            list.scrollTop = list.scrollHeight;
-        }
-        updateShortcut();
-        read();
-    }
-    emitter.on('chat:messages', (data: ChatMessage[]) => {
-        messages = data || [];
-        unread.clear();
-        render();
-    });
-    emitter.on('chat:appended', (data: ChatMessage[]) => {
-        for (const message of data || []) {
-            if (!message._id || !messages.some((m) => m._id === message._id)) {
-                messages.push(message);
-                const own = message.playerIndex !== undefined && message.playerIndex === localPlayer;
-                if (message._id && !own && message.author !== 'You') unread.add(message._id);
-            }
-        }
-        render();
-    });
-    emitter.on('chat:updated', (data: ChatMessage[]) => {
-        for (const message of data || []) {
-            const index = messages.findIndex((m) => m._id === message._id);
-            if (index >= 0) {
-                messages[index] = message;
-            }
-        }
-        render();
-    });
-    emitter.on('chat:deleted', (ids: string[]) => {
-        messages = messages.filter((m) => !ids.includes(m._id || ''));
-        ids.forEach((id) => unread.delete(id));
-        render();
-    });
-    emitter.on('chat:disabled', (value: boolean) => {
-        disabled = value;
-        status.textContent = value ? 'Chat disabled' : reason;
-        controls();
-    });
-    emitter.on('chat:state', (value: { canSend: boolean; reason?: string }) => {
-        canSend = value.canSend;
-        reason = canSend
-            ? ''
-            : (
-                  {
-                      'not-logged-in': 'Sign in to chat',
-                      'not-confirmed': 'Confirm your account to chat',
-                      'not-a-player': 'Only players can send messages',
-                      'chat-disabled': 'Chat disabled',
-                      'no-game': 'Chat will be available when the game starts',
-                  } as Record<string, string>
-              )[value.reason || ''] || 'Chat is read-only';
-        status.textContent = reason;
-        controls();
-    });
-    emitter.on('chat:result', (result: { requestId: string; ok: boolean; error?: string }) => {
-        if (pending?.id !== result.requestId) {
-            return;
-        }
-        if (timeout) {
-            clearTimeout(timeout);
-        }
-        if (result.ok && input.value === pending.text) {
-            input.value = '';
-        }
-        status.textContent = result.ok ? '' : result.error || 'Message could not be sent. Your draft is kept.';
-        pending = undefined;
-        controls();
-    });
-    function sendMessage(): void {
-        if (button.disabled) {
-            return;
-        }
-        pending = { id: `${Date.now()}-${Math.random().toString(36).slice(2)}`, text: input.value };
-        controls();
-        status.textContent = 'Sending…';
-        const sending = pending;
-        timeout = setTimeout(() => {
-            if (pending) {
-                pending = undefined;
-                status.textContent = 'No confirmation received. Check the conversation before sending again.';
-                controls();
-            }
-        }, 20000);
-        emitter.emit('chat:send', { text: sending.text.trim(), requestId: sending.id });
-    }
-    button.onclick = sendMessage;
-    input.oninput = controls;
-    input.onkeydown = (event) => {
-        if (event.key === 'Enter' && !event.shiftKey && !event.isComposing) {
-            event.preventDefault();
-            event.stopPropagation();
-            sendMessage();
-        }
+        }),
+        emitter.on('player', (player) => {
+            localPlayer = player?.index;
+            view.refresh();
+        }),
+    ];
+    chatTab.onclick = () => {
+        selectFeed('chat');
+        chat.setOpen(true);
+        view.refresh();
     };
-    list.onscroll = () => {
-        if (list.clientHeight) following = list.scrollHeight - list.scrollTop - list.clientHeight < 32;
-        read();
+    journalTab.onclick = () => {
+        selectFeed('journal');
+        view.refresh();
     };
-    panel.ontoggle = () => {
-        if (panel.open && following) {
-            list.scrollTop = list.scrollHeight;
-        }
-        read();
+    dispose.push(() => tabs.remove());
+    return () => {
+        dispose.forEach((cleanup) => cleanup());
+        view.destroy();
+        shortcut.remove();
+        style.remove();
     };
-    window.addEventListener('scroll', read, { passive: true });
-    window.addEventListener('focus', read);
-    window.addEventListener('resize', read);
-    const sizing = new ResizeObserver(() => {
-        if (following && list.clientHeight) list.scrollTop = list.scrollHeight;
-        updateShortcut();
-        read();
-    });
-    sizing.observe(panel);
-    sizing.observe(list);
-    document.addEventListener('visibilitychange', read);
-    status.textContent = reason;
-    controls();
 }
 
 export function installLocalChat(emitter: ChatEmitter): void {
+    let seat = 0;
+    let roster: { id: string; name: string; playerIndex: number }[] = [];
+    emitter.on('player', (player) => {
+        seat = player.index ?? 0;
+    });
+    emitter.on('state', (state) => {
+        roster = (state?.players || []).map((player: any, index: number) => ({
+            id: String(index),
+            name: player.name || `Player ${index + 1}`,
+            playerIndex: index,
+        }));
+        emitter.emit('chat:state', { canSend: true, mentions: roster.filter((player) => player.playerIndex !== seat) });
+    });
     emitter.emit('chat:state', { canSend: true });
     emitter.emit('chat:messages', [
         {
             _id: '000000000000000000000001',
+            type: 'system',
             author: 'Playtest',
             text: 'Local chat preview. Messages stay in this browser.',
             createdAt: new Date().toISOString(),
@@ -338,7 +172,15 @@ export function installLocalChat(emitter: ChatEmitter): void {
     let next = 2;
     emitter.on('chat:send', ({ text, requestId }) => {
         emitter.emit('chat:appended', [
-            { _id: (next++).toString(16).padStart(24, '0'), author: 'You', text, createdAt: new Date().toISOString() },
+            {
+                _id: (next++).toString(16).padStart(24, '0'),
+                type: 'text',
+                author: 'You',
+                playerIndex: seat,
+                text,
+                segments: chatSegments(text, new Map(roster.map((player) => [player.name, player.id])), true),
+                createdAt: new Date().toISOString(),
+            },
         ]);
         emitter.emit('chat:result', { requestId, ok: true });
     });

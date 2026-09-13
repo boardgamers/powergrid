@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+    '@boardgamers/protocol': 0.2.2
     '@types/assert': ^1.4.7
     '@types/chai': ^4.2.11
     '@types/events': ^3.0.0
@@ -17,18 +18,20 @@ specifiers:
     eslint: ^7.28.0
     eslint-plugin-vue: ^7.11.0
     lodash: ^4.17.19
+    playwright: 1.62.1
     powergrid-engine: workspace:../engine
     regenerator-runtime: ^0.13.7
     sass: ^1.26.5
     sass-loader: ^8.0.2
     tslib: ^2.2.0
-    typescript: ^4.3.5
+    typescript: ^5.9.3
     vue: ^2.6.11
     vue-class-component: ^7.2.3
-    vue-property-decorator: ^8.4.2
+    vue-property-decorator: ^9.1.2
     vue-template-compiler: ^2.6.11
 
 dependencies:
+    '@boardgamers/protocol': 0.2.2
     core-js: 3.12.1
     lodash: 4.17.21
     powergrid-engine: link:../engine
@@ -36,7 +39,7 @@ dependencies:
     tslib: 2.2.0
     vue: 2.6.12
     vue-class-component: 7.2.6_vue@2.6.12
-    vue-property-decorator: 8.5.1_vue@2.6.12
+    vue-property-decorator: 9.1.2_fxccklctoeetzhv4zjyvg2we5e
 
 devDependencies:
     '@types/assert': 1.5.4
@@ -44,18 +47,19 @@ devDependencies:
     '@types/events': 3.0.0
     '@types/lodash': 4.14.169
     '@types/mocha': 5.2.7
-    '@typescript-eslint/parser': 4.26.1_hvsn7xyc3cha3odhoi2h7wbqka
+    '@typescript-eslint/parser': 4.26.1_t2pndrslmzswfoo56qukh7j2xa
     '@vue/cli-plugin-babel': 4.4.6_wk3ecsakdzdntnoc6zjm4vkc6m
-    '@vue/cli-plugin-typescript': 4.4.6_bgtgvudm46fiaxqjkvr5oene2a
+    '@vue/cli-plugin-typescript': 4.4.6_66ljlrl2sgzmqziwi3olz77yay
     '@vue/cli-plugin-unit-mocha': 4.4.6_@vue+cli-service@4.4.6
-    '@vue/cli-service': 4.4.6_ciyeerloybtcgxjf6hfzuendpy
+    '@vue/cli-service': 4.4.6_ahldn2fciozfjyhbojpgei5vzu
     '@vue/test-utils': 1.2.0_vzku3ckh27usnmau3wrfqzpvc4
     chai: 4.3.4
     eslint: 7.28.0
     eslint-plugin-vue: 7.11.0_eslint@7.28.0
+    playwright: 1.62.1
     sass: 1.32.13
     sass-loader: 8.0.2_sass@1.32.13
-    typescript: 4.3.5
+    typescript: 5.9.3
     vue-template-compiler: 2.6.12
 
 packages:
@@ -1454,6 +1458,15 @@ packages:
             to-fast-properties: 2.0.0
         dev: true
 
+    /@boardgamers/protocol/0.2.2:
+        resolution:
+            {
+                integrity: sha512-5o5nPZW6CN6PysF0i90OR+B30djiFhAGutCZe5RKJV6h3RgqE36HA7l0pOpvhdHz8uYtqE0nmaPlc+2ZtYiM/A==,
+            }
+        dependencies:
+            zod: 4.6.4
+        dev: false
+
     /@eslint/eslintrc/0.4.2:
         resolution:
             {
@@ -1694,7 +1707,7 @@ packages:
             }
         dev: true
 
-    /@typescript-eslint/parser/4.26.1_hvsn7xyc3cha3odhoi2h7wbqka:
+    /@typescript-eslint/parser/4.26.1_t2pndrslmzswfoo56qukh7j2xa:
         resolution:
             {
                 integrity: sha512-q7F3zSo/nU6YJpPJvQveVlIIzx9/wu75lr6oDbDzoeIRWxpoc/HQ43G4rmMoCc5my/3uSj2VEpg/D83LYZF5HQ==,
@@ -1709,10 +1722,10 @@ packages:
         dependencies:
             '@typescript-eslint/scope-manager': 4.26.1
             '@typescript-eslint/types': 4.26.1
-            '@typescript-eslint/typescript-estree': 4.26.1_typescript@4.3.5
+            '@typescript-eslint/typescript-estree': 4.26.1_typescript@5.9.3
             debug: 4.3.1
             eslint: 7.28.0
-            typescript: 4.3.5
+            typescript: 5.9.3
         transitivePeerDependencies:
             - supports-color
         dev: true
@@ -1736,7 +1749,7 @@ packages:
         engines: { node: ^8.10.0 || ^10.13.0 || >=11.10.1 }
         dev: true
 
-    /@typescript-eslint/typescript-estree/4.26.1_typescript@4.3.5:
+    /@typescript-eslint/typescript-estree/4.26.1_typescript@5.9.3:
         resolution:
             {
                 integrity: sha512-l3ZXob+h0NQzz80lBGaykdScYaiEbFqznEs99uwzm8fPHhDjwaBFfQkjUC/slw6Sm7npFL8qrGEAMxcfBsBJUg==,
@@ -1754,8 +1767,8 @@ packages:
             globby: 11.0.3
             is-glob: 4.0.1
             semver: 7.3.5
-            tsutils: 3.21.0_typescript@4.3.5
-            typescript: 4.3.5
+            tsutils: 3.21.0_typescript@5.9.3
+            typescript: 5.9.3
         transitivePeerDependencies:
             - supports-color
         dev: true
@@ -1972,7 +1985,7 @@ packages:
         dependencies:
             '@babel/core': 7.14.2
             '@vue/babel-preset-app': 4.5.13_core-js@3.12.1+vue@2.6.12
-            '@vue/cli-service': 4.4.6_ciyeerloybtcgxjf6hfzuendpy
+            '@vue/cli-service': 4.4.6_ahldn2fciozfjyhbojpgei5vzu
             '@vue/cli-shared-utils': 4.5.13
             babel-loader: 8.2.2_2swszv6rj6musmmlfc4pyadyxy
             cache-loader: 4.1.0_webpack@4.46.0
@@ -1994,11 +2007,11 @@ packages:
         peerDependencies:
             '@vue/cli-service': ^3.0.0 || ^4.0.0-0
         dependencies:
-            '@vue/cli-service': 4.4.6_ciyeerloybtcgxjf6hfzuendpy
+            '@vue/cli-service': 4.4.6_ahldn2fciozfjyhbojpgei5vzu
             '@vue/cli-shared-utils': 4.5.13
         dev: true
 
-    /@vue/cli-plugin-typescript/4.4.6_bgtgvudm46fiaxqjkvr5oene2a:
+    /@vue/cli-plugin-typescript/4.4.6_66ljlrl2sgzmqziwi3olz77yay:
         resolution:
             {
                 integrity: sha512-FIIx9yqm19M62+2X4QwTrnlePdghsKnFbBPCHJawx3ULx30B11fL7X0uwmcq+kEAAHwAGBI6QyU7dgwPDRUCOw==,
@@ -2013,16 +2026,16 @@ packages:
         dependencies:
             '@babel/core': 7.14.2
             '@types/webpack-env': 1.16.0
-            '@vue/cli-service': 4.4.6_ciyeerloybtcgxjf6hfzuendpy
+            '@vue/cli-service': 4.4.6_ahldn2fciozfjyhbojpgei5vzu
             '@vue/cli-shared-utils': 4.5.13
             babel-loader: 8.2.2_2swszv6rj6musmmlfc4pyadyxy
             cache-loader: 4.1.0_webpack@4.46.0
-            fork-ts-checker-webpack-plugin: 3.1.1_jkd53xeak6oj6cv3533afzbflq
+            fork-ts-checker-webpack-plugin: 3.1.1_i4sifk2kmfnc3vsigeblhfmvam
             globby: 9.2.0
             thread-loader: 2.1.3_webpack@4.46.0
-            ts-loader: 6.2.2_typescript@4.3.5
-            tslint: 5.20.1_typescript@4.3.5
-            typescript: 4.3.5
+            ts-loader: 6.2.2_typescript@5.9.3
+            tslint: 5.20.1_typescript@5.9.3
+            typescript: 5.9.3
             vue-template-compiler: 2.6.12
             webpack: 4.46.0
             yorkie: 2.0.0
@@ -2041,7 +2054,7 @@ packages:
         peerDependencies:
             '@vue/cli-service': ^3.0.0 || ^4.0.0-0
         dependencies:
-            '@vue/cli-service': 4.4.6_ciyeerloybtcgxjf6hfzuendpy
+            '@vue/cli-service': 4.4.6_ahldn2fciozfjyhbojpgei5vzu
             '@vue/cli-shared-utils': 4.5.13
             jsdom: 15.2.1
             jsdom-global: 3.0.2_jsdom@15.2.1
@@ -2063,10 +2076,10 @@ packages:
         peerDependencies:
             '@vue/cli-service': ^3.0.0 || ^4.0.0-0
         dependencies:
-            '@vue/cli-service': 4.4.6_ciyeerloybtcgxjf6hfzuendpy
+            '@vue/cli-service': 4.4.6_ahldn2fciozfjyhbojpgei5vzu
         dev: true
 
-    /@vue/cli-service/4.4.6_ciyeerloybtcgxjf6hfzuendpy:
+    /@vue/cli-service/4.4.6_ahldn2fciozfjyhbojpgei5vzu:
         resolution:
             {
                 integrity: sha512-k5OFGh2NnvRymCyq9DfBiNJvECUuun3pl5KMm3557IZyA5E5csv+RHoSW3dX8HHe0zXq18g52VswP1llvR9POw==,
@@ -2132,7 +2145,7 @@ packages:
             lodash.transform: 4.6.0
             mini-css-extract-plugin: 0.9.0_webpack@4.46.0
             minimist: 1.2.5
-            pnp-webpack-plugin: 1.6.4_typescript@4.3.5
+            pnp-webpack-plugin: 1.6.4_typescript@5.9.3
             portfinder: 1.0.28
             postcss-loader: 3.0.0
             sass-loader: 8.0.2_sass@1.32.13
@@ -3508,7 +3521,7 @@ packages:
             mississippi: 3.0.0
             mkdirp: 0.5.5
             move-concurrently: 1.0.1
-            promise-inflight: 1.0.1
+            promise-inflight: 1.0.1_bluebird@3.7.2
             rimraf: 2.7.1
             ssri: 6.0.2
             unique-filename: 1.1.1
@@ -6234,7 +6247,7 @@ packages:
         resolution: { integrity: sha1-+8cfDEGt6zf5bFd60e1C2P2sypE= }
         dev: true
 
-    /fork-ts-checker-webpack-plugin/3.1.1_jkd53xeak6oj6cv3533afzbflq:
+    /fork-ts-checker-webpack-plugin/3.1.1_i4sifk2kmfnc3vsigeblhfmvam:
         resolution:
             {
                 integrity: sha512-DuVkPNrM12jR41KM2e+N+styka0EgLkTnXmNcXdgOM37vtGeY+oCBK/Jx0hzSeEU6memFCtWb4htrHPMDfwwUQ==,
@@ -6259,7 +6272,7 @@ packages:
             minimatch: 3.0.4
             semver: 5.7.1
             tapable: 1.1.3
-            typescript: 4.3.5
+            typescript: 5.9.3
             vue-template-compiler: 2.6.12
             webpack: 4.46.0
             worker-rpc: 0.1.1
@@ -6345,7 +6358,7 @@ packages:
             }
         engines: { node: '>= 4.0' }
         os: [darwin]
-        deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+        deprecated: Upgrade to fsevents v2 to mitigate potential security issues
         requiresBuild: true
         dependencies:
             bindings: 1.5.0
@@ -9477,6 +9490,28 @@ packages:
             find-up: 4.1.0
         dev: true
 
+    /playwright-core/1.62.1:
+        resolution:
+            {
+                integrity: sha512-wPYSwEBJY9GHraISXqyqtx0na0LpO3XEX7jNDhntbex7tzUS7kLnZsOlFruFJB4Hi/rhDMjXGqHewDZ68nYZVw==,
+            }
+        engines: { node: '>=20' }
+        hasBin: true
+        dev: true
+
+    /playwright/1.62.1:
+        resolution:
+            {
+                integrity: sha512-0M+L3LAD8/nm554LOla9Ayx0j0tmFZ0FBcoQ7F1VuVHpM/XpiC8RcDzBQB8W5+hA8L22THxELzeF+2WcUzvcLg==,
+            }
+        engines: { node: '>=20' }
+        hasBin: true
+        dependencies:
+            playwright-core: 1.62.1
+        optionalDependencies:
+            fsevents: 2.3.2
+        dev: true
+
     /pn/1.1.0:
         resolution:
             {
@@ -9484,14 +9519,14 @@ packages:
             }
         dev: true
 
-    /pnp-webpack-plugin/1.6.4_typescript@4.3.5:
+    /pnp-webpack-plugin/1.6.4_typescript@5.9.3:
         resolution:
             {
                 integrity: sha512-7Wjy+9E3WwLOEL30D+m8TSTF7qJJUJLONBnwQp0518siuMxUQUbgZwssaFX+QKlZkjHZcw/IpZCt/H0srrntSg==,
             }
         engines: { node: '>=6' }
         dependencies:
-            ts-pnp: 1.2.0_typescript@4.3.5
+            ts-pnp: 1.2.0_typescript@5.9.3
         transitivePeerDependencies:
             - typescript
         dev: true
@@ -10047,6 +10082,17 @@ packages:
         peerDependenciesMeta:
             bluebird:
                 optional: true
+        dev: true
+
+    /promise-inflight/1.0.1_bluebird@3.7.2:
+        resolution: { integrity: sha1-mEcocL8igTL8vdhoEputEsPAKeM= }
+        peerDependencies:
+            bluebird: '*'
+        peerDependenciesMeta:
+            bluebird:
+                optional: true
+        dependencies:
+            bluebird: 3.7.2
         dev: true
 
     /proto-list/1.2.4:
@@ -11860,7 +11906,7 @@ packages:
             }
         dev: true
 
-    /ts-loader/6.2.2_typescript@4.3.5:
+    /ts-loader/6.2.2_typescript@5.9.3:
         resolution:
             {
                 integrity: sha512-HDo5kXZCBml3EUPcc7RlZOV/JGlLHwppTLEHb3SHnr5V7NXD4klMEkrhJe5wgRbaWsSXi+Y1SIBN/K9B6zWGWQ==,
@@ -11874,10 +11920,10 @@ packages:
             loader-utils: 1.4.0
             micromatch: 4.0.4
             semver: 6.3.0
-            typescript: 4.3.5
+            typescript: 5.9.3
         dev: true
 
-    /ts-pnp/1.2.0_typescript@4.3.5:
+    /ts-pnp/1.2.0_typescript@5.9.3:
         resolution:
             {
                 integrity: sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==,
@@ -11889,7 +11935,7 @@ packages:
             typescript:
                 optional: true
         dependencies:
-            typescript: 4.3.5
+            typescript: 5.9.3
         dev: true
 
     /tslib/1.14.1:
@@ -11906,7 +11952,7 @@ packages:
             }
         dev: false
 
-    /tslint/5.20.1_typescript@4.3.5:
+    /tslint/5.20.1_typescript@5.9.3:
         resolution:
             {
                 integrity: sha512-EcMxhzCFt8k+/UP5r8waCf/lzmeSyVlqxqMEDQE7rWYiQky8KpIBz1JAoYXfROHrPZ1XXd43q8yQnULOLiBRQg==,
@@ -11928,11 +11974,11 @@ packages:
             resolve: 1.20.0
             semver: 5.7.1
             tslib: 1.14.1
-            tsutils: 2.29.0_typescript@4.3.5
-            typescript: 4.3.5
+            tsutils: 2.29.0_typescript@5.9.3
+            typescript: 5.9.3
         dev: true
 
-    /tsutils/2.29.0_typescript@4.3.5:
+    /tsutils/2.29.0_typescript@5.9.3:
         resolution:
             {
                 integrity: sha512-g5JVHCIJwzfISaXpXE1qvNalca5Jwob6FjI4AoPlqMusJ6ftFE7IkkFoMhVLRgK+4Kx3gkzb8UZK5t5yTTvEmA==,
@@ -11941,10 +11987,10 @@ packages:
             typescript: '>=2.1.0 || >=2.1.0-dev || >=2.2.0-dev || >=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev || >= 3.0.0-dev || >= 3.1.0-dev'
         dependencies:
             tslib: 1.14.1
-            typescript: 4.3.5
+            typescript: 5.9.3
         dev: true
 
-    /tsutils/3.21.0_typescript@4.3.5:
+    /tsutils/3.21.0_typescript@5.9.3:
         resolution:
             {
                 integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==,
@@ -11954,7 +12000,7 @@ packages:
             typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
         dependencies:
             tslib: 1.14.1
-            typescript: 4.3.5
+            typescript: 5.9.3
         dev: true
 
     /tty-browserify/0.0.0:
@@ -12027,12 +12073,12 @@ packages:
         resolution: { integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c= }
         dev: true
 
-    /typescript/4.3.5:
+    /typescript/5.9.3:
         resolution:
             {
-                integrity: sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==,
+                integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==,
             }
-        engines: { node: '>=4.2.0' }
+        engines: { node: '>=14.17' }
         hasBin: true
         dev: true
 
@@ -12455,13 +12501,14 @@ packages:
             - whiskers
         dev: true
 
-    /vue-property-decorator/8.5.1_vue@2.6.12:
+    /vue-property-decorator/9.1.2_fxccklctoeetzhv4zjyvg2we5e:
         resolution:
             {
-                integrity: sha512-O6OUN2OMsYTGPvgFtXeBU3jPnX5ffQ9V4I1WfxFQ6dqz6cOUbR3Usou7kgFpfiXDvV7dJQSFcJ5yUPgOtPPm1Q==,
+                integrity: sha512-xYA8MkZynPBGd/w5QFJ2d/NM0z/YeegMqYTphy7NJQXbZcuU6FC6AOdUAcy4SXP+YnkerC6AfH+ldg7PDk9ESQ==,
             }
         peerDependencies:
             vue: '*'
+            vue-class-component: '*'
         dependencies:
             vue: 2.6.12
             vue-class-component: 7.2.6_vue@2.6.12
@@ -13095,3 +13142,10 @@ packages:
             normalize-path: 1.0.0
             strip-indent: 2.0.0
         dev: true
+
+    /zod/4.6.4:
+        resolution:
+            {
+                integrity: sha512-AXSD6hvGdvRjajG/l1cC+d6IrhH+sjmPKtYeQdJIK8MFJl3LyClzS+o/YsVC+zQZPupAaeH5skwwm8YqYH7BqA==,
+            }
+        dev: false

@@ -21,13 +21,19 @@ defaults:
 jobs:
     test_and_build:
         runs-on: ubuntu-latest
+        env:
+            NODE_OPTIONS: --openssl-legacy-provider
         steps:
             - uses: actions/checkout@v6
             - uses: actions/setup-node@v6
               with:
-                  node-version: '14'
+                  node-version: '24'
             - run: corepack enable
             - run: pnpm install
             # - run: pnpm lint
             # - run: pnpm test
             - run: pnpm build
+            - run: pnpm --dir ../engine build
+            - run: pnpm package
+            - run: pnpm exec playwright install --with-deps chromium
+            - run: pnpm test:browser

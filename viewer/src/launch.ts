@@ -1,3 +1,4 @@
+import { createViewer } from '@boardgamers/protocol/viewer';
 import { EventEmitter } from 'events';
 import type { GameState, Move } from 'powergrid-engine';
 import Vue from 'vue';
@@ -7,7 +8,14 @@ import { installActionSounds } from './sounds';
 import type { Preferences } from './types/ui-data';
 import { shouldAdoptLogState } from './util/turn-buffer';
 
+let dispose: (() => void) | undefined;
+
 function launch(selector: string) {
+    const target = document.querySelector(selector);
+    if (!target) throw new Error(`Viewer mount point not found: ${selector}`);
+    dispose?.();
+    const mountPoint = document.createElement('div');
+    target.append(mountPoint);
     let params: {
         state: null | GameState;
         player?: number;
@@ -35,75 +43,71 @@ function launch(selector: string) {
 
     const app = new Vue({
         render: (h) => h(Game, { props: params }, []),
-    }).$mount(selector);
+    }).$mount(mountPoint);
 
-    const item: EventEmitter = new EventEmitter();
     let replaying = false;
-
-    // The move payload is the whole current turn so far (an array of atomic moves),
-    // replayed by the engine wrapper from the last committed state.
-    params.emitter.on('move', (moves: Move[]) => item.emit('move', moves));
-    params.emitter.on('fetchState', () => item.emit('fetchState'));
-    params.emitter.on('addLog', (data: string[]) => item.emit('addLog', data));
-    params.emitter.on('replaceLog', (data: string[]) => item.emit('replaceLog', data));
-    params.emitter.on('replay:info', (info: { start: number; current: number; end: number }) =>
-        item.emit('replay:info', info)
-    );
-    params.emitter.on('update:preference', (data: { name: string; value: any }) =>
-        item.emit('update:preference', data)
-    );
-    item.addListener('avatars', (data) => {
-        params.avatars = data;
-        app.$forceUpdate();
-    });
-
-    item.addListener('state', (data) => {
-        params.state = data;
-        app.$forceUpdate();
-        app.$nextTick().then(() => item.emit('ready'));
-    });
-    item.addListener('state:updated', () => item.emit('fetchState'));
-    item.addListener('player', (data) => {
-        params.player = data.index;
-        app.$forceUpdate();
-    });
-    item.addListener('preferences', (data) => {
-        // Mutate (don't replace) the observable object so the update stays reactive
-        Object.assign(params.preferences, data);
-        app.$forceUpdate();
-    });
-    item.addListener('gamelog', (logData) => {
-        if (replaying) {
-            return;
-        }
-
-        if (shouldAdoptLogState(logData?.data?.state)) {
-            // Move responses carry the (possibly tentative) resulting state. Tentative
-            // states are never persisted or broadcast by the platform — this is the
-            // only way they reach the acting player's viewer. Committed states are
-            // refetched; see shouldAdoptLogState for why adopting them is unsafe.
-            params.state = logData.data.state;
+    const viewer = createViewer<GameState, Move[]>({
+        async onState(data) {
+            params.state = data;
             app.$forceUpdate();
-        } else {
-            item.emit('fetchState');
-        }
+            await app.$nextTick();
+        },
+        onPlayer(data) {
+            params.player = data.index;
+            app.$forceUpdate();
+        },
+        onPreferences(data) {
+            Object.assign(params.preferences, data);
+            app.$forceUpdate();
+        },
+        onAvatars(data) {
+            params.avatars = data;
+            app.$forceUpdate();
+        },
+        onUpdate() {
+            if (!replaying) viewer.fetchState();
+        },
+        async onLog(logData) {
+            if (replaying) return;
+            const data = logData.data as { state?: GameState } | undefined;
+            // Only tentative move responses may replace the local turn buffer.
+            if (shouldAdoptLogState(data?.state)) {
+                params.state = data!.state!;
+                app.$forceUpdate();
+                await app.$nextTick();
+            } else viewer.fetchState();
+        },
+        onReplayStart() {
+            replaying = true;
+            params.emitter.emit('replayStart');
+        },
+        onReplayTo(index) {
+            params.emitter.emit('replayTo', index);
+        },
+        onReplayEnd() {
+            params.emitter.emit('replayEnd');
+            replaying = false;
+            viewer.fetchState();
+        },
     });
-
-    item.addListener('replay:start', () => {
-        params.emitter.emit('replayStart');
-        replaying = true;
-    });
-    item.addListener('replay:to', (info) => {
-        params.emitter.emit('replayTo', info);
-    });
-    item.addListener('replay:end', () => {
-        params.emitter.emit('replayEnd');
-        replaying = false;
-        item.emit('fetchState');
-    });
-
+    const item = viewer.emitter;
+    params.emitter.on('move', (moves: Move[]) => viewer.move(moves));
+    params.emitter.on('fetchState', () => viewer.fetchState());
+    params.emitter.on('addLog', (data: string[]) => viewer.addLog(data));
+    params.emitter.on('replaceLog', (data: string[]) => viewer.replaceLog(data));
+    params.emitter.on('replay:info', (info) => viewer.setReplayInfo(info));
+    params.emitter.on('update:preference', ({ name, value }) => viewer.updatePreference(name, value));
     installActionSounds(item);
-    mountGameChat(item, app.$el);
+    const removeChat = mountGameChat(item, app.$el);
+    app.$once('hook:beforeDestroy', () => {
+        removeChat();
+        viewer.destroy();
+        params.emitter.removeAllListeners();
+    });
+    dispose = () => {
+        app.$destroy();
+        target.replaceChildren();
+    };
     return item;
 }
 

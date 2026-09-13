@@ -1,10 +1,14 @@
+import type { ChatMessage } from '@boardgamers/protocol/chat';
+import { applyMention, ChatController, chatSegments, mentionQueryAt } from '@boardgamers/protocol/chat';
+import type { ViewerEmitter } from '@boardgamers/protocol/viewer';
+import { attachChat } from '@boardgamers/protocol/viewer';
 import { playerColors } from 'powergrid-engine/src/gamestate';
-type ChatMessage = { _id?: string; author?: string; text: string; createdAt?: string; playerIndex?: number };
-type ChatEmitter = {
-    on: (event: string, fn: (data: any) => void) => unknown;
-    emit: (event: string, data: any) => unknown;
-};
-export function mountGameChat(emitter: ChatEmitter, host: Element): void {
+type ChatEmitter = Pick<ViewerEmitter<any, any>, 'on' | 'emit'>;
+export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): () => void {
+    const chat = new ChatController();
+    const detach = attachChat(emitter, chat);
+    const cleanup: (() => void)[] = [detach];
+    let disposed = false;
     const panel = document.createElement('details');
     panel.className = 'bgs-game-chat';
     panel.open = true;
@@ -28,6 +32,11 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
 .bgs-game-chat button{box-sizing:border-box;height:30px;cursor:pointer;border:1px solid #7f8c8d;border-radius:3px;background:#dddeda;color:#172d34;padding:3px 12px;font:14px Arial,sans-serif}
 .bgs-game-chat button:hover:not(:disabled){background:#c8d3d0}
 .bgs-game-chat button:disabled{color:#788786;border-color:#b0bcb8;background:#dce3df;cursor:default}
+.bgs-game-chat .chat-mention{height:auto;padding:0 2px;border:0;background:transparent;color:inherit;font:inherit;font-weight:bold;text-decoration:underline}
+.bgs-game-chat article a{color:inherit;text-decoration:underline}
+.chat-suggestions{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.chat-suggestions:empty{display:none}
+.chat-suggestions button[aria-pressed="true"]{outline:2px solid #527f89}
 .bgs-game-chat .chat-status{font-size:12px;margin-top:6px}
 .bgs-game-chat .chat-status:empty{display:none}
 .chat-shortcut{position:fixed;left:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:900;padding:7px 12px;border:1px solid #6a8589;border-radius:3px;background:#263521;color:#fff;font:600 14px Arial,sans-serif;cursor:pointer;box-shadow:0 2px 6px #0003}
@@ -58,7 +67,7 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
     chatTab.textContent = 'Chat';
     journalTab.textContent = 'Journal';
     tabs.append(chatTab, journalTab);
-    if (feeds) feeds.insertAdjacentElement('beforebegin', tabs);
+    host.querySelector('.chat-tabs-host')?.append(tabs);
     function selectFeed(feed: 'chat' | 'journal'): void {
         if (feeds) feeds.dataset.feed = feed;
         chatTab.setAttribute('aria-pressed', String(feed === 'chat'));
@@ -75,27 +84,32 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
     const input = panel.querySelector('input') as HTMLInputElement;
     const button = panel.querySelector('button') as HTMLButtonElement;
     const status = panel.querySelector('.chat-status') as HTMLDivElement;
-    let messages: ChatMessage[] = [];
+    let messages: readonly ChatMessage[] = [];
     let players: { id: number; name: string; color?: string }[] = [];
     let localPlayer: number | undefined;
-    emitter.on('state', (state) => {
-        players = state?.players || [];
-        render();
-    });
-    emitter.on('player', (player) => {
-        localPlayer = player?.index;
-        render();
-    });
-    let canSend = false;
-    let disabled = false;
-    let reason = 'Chat is connecting…';
-    let pending: { id: string; text: string } | undefined;
-    let timeout: ReturnType<typeof setTimeout> | undefined;
-    let readTimer: ReturnType<typeof setTimeout> | undefined;
-    let watermark = '';
-    let candidate = '';
+    cleanup.push(
+        emitter.on('state', (state) => {
+            players = state?.players || [];
+            render();
+        })
+    );
+    cleanup.push(
+        emitter.on('gamelog', ({ data }: any) => {
+            if (data?.state) {
+                players = data.state.players || [];
+                render();
+            }
+        })
+    );
+    cleanup.push(
+        emitter.on('player', (player) => {
+            localPlayer = player?.index;
+            render();
+        })
+    );
     let following = true;
-    const unread = new Set<string>();
+    let followFrame: number | undefined;
+    let unread: readonly string[] = [];
     const summary = panel.querySelector('summary')!;
     const shortcut = document.createElement('button');
     shortcut.type = 'button';
@@ -104,7 +118,7 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
     (feeds || panel).insertAdjacentElement('afterend', shortcut);
     let chatVisible = false;
     function updateShortcut(): void {
-        const count = unread.size;
+        const count = chat.unread;
         const label = count ? `Chat · ${count} unread` : 'Chat';
         shortcut.textContent = label;
         shortcut.setAttribute('aria-label', `Open ${label}`);
@@ -117,7 +131,7 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
         panel.open = true;
         requestAnimationFrame(() => {
             const firstUnread = Array.from(list.children).find((row) =>
-                unread.has((row as HTMLElement).dataset.id || '')
+                unread.includes((row as HTMLElement).dataset.id || '')
             );
             if (firstUnread) firstUnread.scrollIntoView({ block: 'center' });
             else panel.scrollIntoView({ block: 'center' });
@@ -142,42 +156,45 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
     );
     visibility.observe(panel);
     function controls(): void {
-        button.disabled = !canSend || disabled || !!pending || !input.value.trim();
-        input.disabled = !canSend || disabled;
+        const state = chat.snapshot;
+        input.disabled = !state.canSend || state.disabled;
+        button.disabled = input.disabled || !!state.pending || !state.draft.trim();
+        if (input.value !== state.draft) input.value = state.draft;
+        const reasons: Record<string, string> = {
+            'not-logged-in': 'Sign in to chat',
+            'not-confirmed': 'Confirm your account to chat',
+            'not-a-player': 'Only players can send messages',
+            'chat-disabled': 'Chat disabled',
+            'no-game': 'Chat will be available when the game starts',
+        };
+        status.textContent =
+            state.error ||
+            (state.pending
+                ? 'Sending…'
+                : state.disabled
+                ? 'Chat disabled'
+                : !state.enabled
+                ? 'Chat is connecting…'
+                : !state.canSend
+                ? reasons[state.reason] || 'Chat is read-only'
+                : '');
     }
     function read(): void {
-        if (!panel.open || document.visibilityState !== 'visible' || !document.hasFocus()) {
+        if (disposed || !panel.open || document.visibilityState !== 'visible' || !document.hasFocus()) {
             return;
         }
         const bounds = list.getBoundingClientRect();
+        if (!bounds.width || !bounds.height) return;
         if (!bounds.width || !bounds.height) return;
         const visible = Array.from(list.children).filter((el) => {
             const r = el.getBoundingClientRect();
             return r.bottom <= Math.min(bounds.bottom, window.innerHeight) + 1 && r.top >= Math.max(bounds.top, 0);
         });
-        for (const row of visible) unread.delete((row as HTMLElement).dataset.id || '');
-        updateShortcut();
-        const id = (visible[visible.length - 1] as HTMLElement)?.dataset.id || '';
-        if (!/^[a-f0-9]{24}$/i.test(id) || id.toLowerCase() <= watermark) {
-            return;
-        }
-        candidate = candidate > id.toLowerCase() ? candidate : id.toLowerCase();
-        if (!readTimer) {
-            readTimer = setTimeout(() => {
-                readTimer = undefined;
-                if (
-                    panel.open &&
-                    document.visibilityState === 'visible' &&
-                    document.hasFocus() &&
-                    candidate > watermark
-                ) {
-                    watermark = candidate;
-                    emitter.emit('chat:read', { messageId: watermark });
-                }
-            }, 500);
-        }
+        const id = (visible[visible.length - 1] as HTMLElement)?.dataset.id;
+        if (id) chat.markRead(id);
     }
     function render(): void {
+        const scrollTop = list.scrollTop;
         list.textContent = '';
         for (const message of messages) {
             const row = document.createElement('article');
@@ -191,7 +208,8 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
                 author.style.backgroundColor = players.find((p) => p.id === index)?.color || playerColors[index];
                 author.style.color = author.style.backgroundColor === 'brown' ? '#fff' : '#111';
             }
-            row.append(author, document.createTextNode(' '), document.createTextNode(message.text));
+            row.append(author, document.createTextNode(' '));
+            appendMessage(row, message);
             if (message.createdAt) {
                 const time = document.createElement('time');
                 const date = new Date(message.createdAt);
@@ -206,106 +224,118 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
         }
         if (following) {
             list.scrollTop = list.scrollHeight;
-        }
+            // Vue may move the board and feeds during the same state update.
+            if (followFrame !== undefined) cancelAnimationFrame(followFrame);
+            followFrame = requestAnimationFrame(() => {
+                followFrame = undefined;
+                if (!disposed) {
+                    list.scrollTop = list.scrollHeight;
+                    read();
+                }
+            });
+        } else list.scrollTop = scrollTop;
         updateShortcut();
         read();
     }
-    emitter.on('chat:messages', (data: ChatMessage[]) => {
-        messages = data || [];
-        unread.clear();
-        render();
-    });
-    emitter.on('chat:appended', (data: ChatMessage[]) => {
-        for (const message of data || []) {
-            if (!message._id || !messages.some((m) => m._id === message._id)) {
-                messages.push(message);
-                const own = message.playerIndex !== undefined && message.playerIndex === localPlayer;
-                if (message._id && !own && message.author !== 'You') unread.add(message._id);
-            }
+    function appendMessage(row: HTMLElement, message: ChatMessage): void {
+        for (const segment of message.segments || [{ kind: 'text', text: message.text }]) {
+            if (segment.kind === 'link') {
+                const link = document.createElement('a');
+                link.href = segment.url;
+                link.textContent = segment.text;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                row.append(link);
+            } else if (segment.kind === 'mention') {
+                const mention = document.createElement('button');
+                mention.type = 'button';
+                mention.className = 'chat-mention';
+                mention.textContent = '@' + segment.name;
+                const player = chat.snapshot.mentions.find((p) => p.id === segment.id);
+                if (player?.playerIndex !== undefined)
+                    mention.onclick = () => emitter.emit('player:clicked', { index: player.playerIndex! });
+                else mention.disabled = true;
+                row.append(mention);
+            } else row.append(document.createTextNode(segment.text));
         }
-        render();
-    });
-    emitter.on('chat:updated', (data: ChatMessage[]) => {
-        for (const message of data || []) {
-            const index = messages.findIndex((m) => m._id === message._id);
-            if (index >= 0) {
-                messages[index] = message;
-            }
-        }
-        render();
-    });
-    emitter.on('chat:deleted', (ids: string[]) => {
-        messages = messages.filter((m) => !ids.includes(m._id || ''));
-        ids.forEach((id) => unread.delete(id));
-        render();
-    });
-    emitter.on('chat:disabled', (value: boolean) => {
-        disabled = value;
-        status.textContent = value ? 'Chat disabled' : reason;
-        controls();
-    });
-    emitter.on('chat:state', (value: { canSend: boolean; reason?: string }) => {
-        canSend = value.canSend;
-        reason = canSend
-            ? ''
-            : (
-                  {
-                      'not-logged-in': 'Sign in to chat',
-                      'not-confirmed': 'Confirm your account to chat',
-                      'not-a-player': 'Only players can send messages',
-                      'chat-disabled': 'Chat disabled',
-                      'no-game': 'Chat will be available when the game starts',
-                  } as Record<string, string>
-              )[value.reason || ''] || 'Chat is read-only';
-        status.textContent = reason;
-        controls();
-    });
-    emitter.on('chat:result', (result: { requestId: string; ok: boolean; error?: string }) => {
-        if (pending?.id !== result.requestId) {
-            return;
-        }
-        if (timeout) {
-            clearTimeout(timeout);
-        }
-        if (result.ok && input.value === pending.text) {
-            input.value = '';
-        }
-        status.textContent = result.ok ? '' : result.error || 'Message could not be sent. Your draft is kept.';
-        pending = undefined;
-        controls();
-    });
-    function sendMessage(): void {
-        if (button.disabled) {
-            return;
-        }
-        pending = { id: `${Date.now()}-${Math.random().toString(36).slice(2)}`, text: input.value };
-        controls();
-        status.textContent = 'Sending…';
-        const sending = pending;
-        timeout = setTimeout(() => {
-            if (pending) {
-                pending = undefined;
-                status.textContent = 'No confirmation received. Check the conversation before sending again.';
-                controls();
-            }
-        }, 20000);
-        emitter.emit('chat:send', { text: sending.text.trim(), requestId: sending.id });
     }
-    button.onclick = sendMessage;
-    input.oninput = controls;
+    const suggestions = document.createElement('div');
+    suggestions.className = 'chat-suggestions';
+    suggestions.setAttribute('aria-label', 'Mention suggestions');
+    panel.querySelector('.chat-composer')!.insertAdjacentElement('afterend', suggestions);
+    let selected = 0;
+    let candidates: ReturnType<ChatController['suggestions']> = [];
+    let query: ReturnType<typeof mentionQueryAt> = null;
+    function chooseMention(index: number): void {
+        const person = candidates[index];
+        if (!query || !person) return;
+        const result = applyMention(input.value, query, person.name);
+        chat.setDraft(result.text);
+        input.focus();
+        input.setSelectionRange(result.caret, result.caret);
+        suggestions.replaceChildren();
+        candidates = [];
+        query = null;
+    }
+    function suggest(): void {
+        query = mentionQueryAt(input.value, input.selectionStart ?? input.value.length);
+        candidates = query ? chat.suggestions(query.query).slice(0, 6) : [];
+        selected = Math.min(selected, Math.max(0, candidates.length - 1));
+        suggestions.replaceChildren();
+        candidates.forEach((candidate, index) => {
+            const option = document.createElement('button');
+            option.type = 'button';
+            option.textContent = '@' + candidate.name;
+            option.setAttribute('aria-pressed', String(index === selected));
+            option.onmousedown = (event) => event.preventDefault();
+            option.onclick = () => chooseMention(index);
+            suggestions.append(option);
+        });
+    }
+    button.onclick = () => chat.submit();
+    input.oninput = () => {
+        selected = 0;
+        chat.setDraft(input.value);
+        suggest();
+    };
+    input.onclick = suggest;
     input.onkeydown = (event) => {
-        if (event.key === 'Enter' && !event.shiftKey && !event.isComposing) {
+        if (event.isComposing) return;
+        if (candidates.length && ['ArrowDown', 'ArrowUp', 'Enter', 'Tab', 'Escape'].includes(event.key)) {
             event.preventDefault();
             event.stopPropagation();
-            sendMessage();
+            if (event.key === 'Escape') {
+                candidates = [];
+                suggestions.replaceChildren();
+            } else if (event.key === 'Enter' || event.key === 'Tab') chooseMention(selected);
+            else {
+                selected = (selected + (event.key === 'ArrowDown' ? 1 : candidates.length - 1)) % candidates.length;
+                suggest();
+            }
+        } else if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault();
+            event.stopPropagation();
+            chat.submit();
         }
     };
+    cleanup.push(
+        chat.subscribe((state) => {
+            const changed = messages !== state.messages;
+            messages = state.messages;
+            unread = state.unreadIds;
+            controls();
+            if (changed) render();
+            else updateShortcut();
+        })
+    );
     list.onscroll = () => {
-        if (list.clientHeight) following = list.scrollHeight - list.scrollTop - list.clientHeight < 32;
+        if (followFrame === undefined && list.clientHeight)
+            following = list.scrollHeight - list.scrollTop - list.clientHeight < 32;
         read();
     };
     panel.ontoggle = () => {
-        if (panel.open && following) {
+        chat.setOpen(panel.open);
+        if (!disposed && panel.open && following) {
             list.scrollTop = list.scrollHeight;
         }
         read();
@@ -321,15 +351,42 @@ export function mountGameChat(emitter: ChatEmitter, host: Element): void {
     sizing.observe(panel);
     sizing.observe(list);
     document.addEventListener('visibilitychange', read);
-    status.textContent = reason;
     controls();
+    return () => {
+        disposed = true;
+        if (followFrame !== undefined) cancelAnimationFrame(followFrame);
+        cleanup.forEach((dispose) => dispose());
+        visibility.disconnect();
+        sizing.disconnect();
+        window.removeEventListener('scroll', read);
+        window.removeEventListener('focus', read);
+        window.removeEventListener('resize', read);
+        document.removeEventListener('visibilitychange', read);
+        panel.remove();
+        shortcut.remove();
+        tabs.remove();
+    };
 }
 
 export function installLocalChat(emitter: ChatEmitter): void {
+    let seat = 0;
+    let roster: { id: string; name: string; playerIndex: number }[] = [];
+    emitter.on('player', (player) => {
+        seat = player.index ?? 0;
+    });
+    emitter.on('state', (state) => {
+        roster = (state?.players || []).map((player: any, index: number) => ({
+            id: String(index),
+            name: player.name || `Player ${index + 1}`,
+            playerIndex: index,
+        }));
+        emitter.emit('chat:state', { canSend: true, mentions: roster.filter((player) => player.playerIndex !== seat) });
+    });
     emitter.emit('chat:state', { canSend: true });
     emitter.emit('chat:messages', [
         {
             _id: '000000000000000000000001',
+            type: 'system',
             author: 'Playtest',
             text: 'Local chat preview. Messages stay in this browser.',
             createdAt: new Date().toISOString(),
@@ -338,7 +395,15 @@ export function installLocalChat(emitter: ChatEmitter): void {
     let next = 2;
     emitter.on('chat:send', ({ text, requestId }) => {
         emitter.emit('chat:appended', [
-            { _id: (next++).toString(16).padStart(24, '0'), author: 'You', text, createdAt: new Date().toISOString() },
+            {
+                _id: (next++).toString(16).padStart(24, '0'),
+                type: 'text',
+                author: 'You',
+                playerIndex: seat,
+                text,
+                segments: chatSegments(text, new Map(roster.map((player) => [player.name, player.id])), true),
+                createdAt: new Date().toISOString(),
+            },
         ]);
         emitter.emit('chat:result', { requestId, ok: true });
     });

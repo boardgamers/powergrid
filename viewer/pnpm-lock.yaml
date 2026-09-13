@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-    '@boardgamers/protocol': 0.2.0
+    '@boardgamers/protocol': 0.2.1
     '@types/assert': ^1.4.7
     '@types/chai': ^4.2.11
     '@types/events': ^3.0.0
@@ -31,7 +31,7 @@ specifiers:
     vue-template-compiler: ^2.6.11
 
 dependencies:
-    '@boardgamers/protocol': 0.2.0
+    '@boardgamers/protocol': 0.2.1
     core-js: 3.12.1
     lodash: 4.17.21
     powergrid-engine: link:../engine
@@ -1458,10 +1458,10 @@ packages:
             to-fast-properties: 2.0.0
         dev: true
 
-    /@boardgamers/protocol/0.2.0:
+    /@boardgamers/protocol/0.2.1:
         resolution:
             {
-                integrity: sha512-6vUH+vjERARwHmUeOX+Gg1AgvV3+glPJjnh73E3ZlJGrYv6bXFe53Z6Xs+Pvv4i3zvdVHRBnxjEfQ7GDAE3mVg==,
+                integrity: sha512-e114ohTXaZ1cHdzJs9kj+MkT1ciHGtcaqFherLVMFNrgvxLUGq8kZ8cCxsObXI4n0MGjzPU+Y/j+DAKD0yHoxw==,
             }
         dependencies:
             zod: 4.6.4

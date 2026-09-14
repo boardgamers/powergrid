@@ -14,6 +14,7 @@ import {
     rebuildPlantMarketForChina,
     reconstructState,
     setup,
+    stripSecret,
 } from './engine';
 import ChinaStep3 from './fixtures/ChinaStep3.json';
 import GermanyRecharged from './fixtures/GermanyRecharged.json';
@@ -1925,6 +1926,40 @@ describe('Engine', () => {
                 expect(cityNames, `connection endpoint ${node} exists`).to.include(node);
             }
         }
+    });
+
+    it('should stop refilling the two-player China market when the deck is empty or hidden', () => {
+        for (const marketSize of [0, 1]) {
+            const G = stripSecret(setup(2, { map: 'China', variant: 'original' }, 'china-hidden-deck'), 1);
+            G.actualMarket = G.actualMarket.slice(0, marketSize);
+
+            rebuildPlantMarketForChina(G);
+
+            expect(G.actualMarket).to.have.lengthOf(marketSize);
+            expect(G.step).to.equal(1);
+        }
+    });
+
+    it('should draw all remaining plants even if they cannot fill the two-player China market', () => {
+        const G = setup(2, { map: 'China', variant: 'original' }, 'china-short-deck');
+        G.actualMarket = [];
+        G.powerPlantsDeck = [getPowerPlant(7)];
+
+        rebuildPlantMarketForChina(G);
+
+        expect(G.actualMarket.map((p) => p.number)).to.deep.equal([7]);
+        expect(G.powerPlantsDeck).to.have.lengthOf(0);
+    });
+
+    it('should still fill the two-player China market when cards are available', () => {
+        const G = setup(2, { map: 'China', variant: 'original' }, 'china-full-deck');
+        G.actualMarket = [];
+        G.powerPlantsDeck = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(10)];
+
+        rebuildPlantMarketForChina(G);
+
+        expect(G.actualMarket.map((p) => p.number)).to.deep.equal([7, 8]);
+        expect(G.powerPlantsDeck.map((p) => p.number)).to.deep.equal([10]);
     });
 
     it('should hold the China market at four plants in Step 3 (#67)', () => {

@@ -11,7 +11,7 @@ import {
 } from '@/util/turn-buffer';
 import { expect } from 'chai';
 import type { GameState, Move } from 'powergrid-engine';
-import { move as engineMove, moveAI, MoveName, Phase, setup, stripSecret } from 'powergrid-engine';
+import { availableMoves, move as engineMove, moveAI, MoveName, Phase, setup, stripSecret } from 'powergrid-engine';
 
 describe('turn-buffer', () => {
     const clone = <T>(value: T): T => JSON.parse(JSON.stringify(value));
@@ -26,6 +26,37 @@ describe('turn-buffer', () => {
 
         return { committed, player, choose, bid };
     }
+
+    it('replays Done after the last China building turn without trying to fill a hidden deck', () => {
+        const committed = setup(2, { map: 'China', variant: 'original' }, 'china-done');
+        committed.phase = Phase.Building;
+        committed.playerOrder = [1, 0];
+        committed.currentPlayers = [1];
+        committed.players[0].passed = true;
+        committed.players[1].passed = false;
+        committed.actualMarket = [];
+        committed.players[1].availableMoves = availableMoves(committed, committed.players[1]);
+        const build: Move = {
+            name: MoveName.Build,
+            data: committed.players[1].availableMoves.Build![0],
+            time: 1000,
+        };
+        const pass: Move = { name: MoveName.Pass, data: true, time: 2000 };
+        const stripped = stripSecret(clone(committed), 1);
+        const building = replayTurnBuffer(stripped, [build], 1);
+        expect(building.state.newTurn).to.be.false;
+
+        const done = replayTurnBuffer(stripped, [build, pass], 1);
+        expect(done.failure).to.equal(undefined);
+        expect(done.applied).to.deep.equal([build, pass]);
+        expect(done.state.phase).to.equal(Phase.Bureaucracy);
+        expect(done.state.newTurn).to.be.true;
+        expect(stripped.players[1].cities).to.have.lengthOf(0);
+
+        const server = engineMove(engineMove(clone(committed), build, 1), pass, 1);
+        expect(server.actualMarket).to.have.lengthOf(2);
+        expect(server.players[1].cities).to.deep.equal(done.state.players[1].cities);
+    });
 
     it('shouldAdoptLogState only adopts a state while it is tentative', () => {
         const { committed, player, choose } = fixture();

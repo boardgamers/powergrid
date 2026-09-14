@@ -98,15 +98,12 @@ try {
             return el && Math.abs(el.scrollHeight - el.scrollTop - el.clientHeight) < 3;
         });
         assert.equal(await panel.locator('summary').textContent(), 'Chat', 'old history is not unread');
+        const shortcut = page.locator('.chat-shortcut');
         if (width === 390) {
             await page.locator('.game-feed-tabs button').filter({ hasText: 'Journal' }).click();
-            await page.waitForFunction(() => !document.querySelector('.chat-shortcut').hidden);
-            assert.equal(
-                await page.locator('.chat-shortcut').isVisible(),
-                true,
-                'chat shortcut remains reachable from journal'
-            );
-            await page.locator('.chat-shortcut').click();
+            await page.waitForTimeout(300);
+            assert.equal(await shortcut.isHidden(), true, 'no floating shortcut without unread chat');
+            await page.locator('.game-feed-tabs button').filter({ hasText: 'Chat' }).click();
             await page.waitForFunction(() => document.querySelector('.journal-and-chat').dataset.feed === 'chat');
         }
         await input.fill('@');
@@ -126,6 +123,9 @@ try {
         );
         assert.equal(await input.inputValue(), 'next draft');
         assert.match(await panel.locator('.chat-status').textContent(), /Try again/);
+        if (width === 390) {
+            await page.locator('.game-feed-tabs button').filter({ hasText: 'Journal' }).click();
+        }
         await panel.evaluate((el) => {
             el.open = false;
         });
@@ -154,6 +154,23 @@ try {
             /1 unread/,
             'history refresh preserves known unread'
         );
+        await page.waitForFunction(() => !document.querySelector('.chat-shortcut').hidden);
+        assert.match(await shortcut.textContent(), /Chat\s*1$/, 'shortcut shows the unread count');
+        const shortcutBox = await shortcut.boundingBox();
+        assert.equal(
+            Math.round(width - (shortcutBox.x + shortcutBox.width)),
+            89,
+            'shortcut is anchored bottom-right, just left of the settings gear'
+        );
+        const covered = await page.evaluate(
+            (b) =>
+                Array.from(document.querySelectorAll('#scene g.button'))
+                    .map((g) => g.getBoundingClientRect())
+                    .filter((r) => r.left < b.x + b.width && r.right > b.x && r.top < b.y + b.height && r.bottom > b.y)
+                    .length,
+            shortcutBox
+        );
+        assert.equal(covered, 0, 'shortcut covers no game buttons');
         const link = list.locator('a');
         assert.equal(await link.getAttribute('href'), 'https://example.com');
         assert.match(await link.getAttribute('rel'), /noopener/);
@@ -165,10 +182,17 @@ try {
         assert.equal(await list.locator('article').last().locator('img').count(), 0);
         assert.match(await list.locator('article').last().textContent(), /<img/);
         await page.evaluate((incoming) => host.emit('chat:updated', [incoming]), incoming);
-        await panel.evaluate((el) => {
-            el.open = true;
+        await shortcut.click();
+        await page.waitForFunction(() => {
+            const chat = document.querySelector('.bgs-game-chat');
+            const rect = chat.getBoundingClientRect();
+            return (
+                chat.open &&
+                document.querySelector('.journal-and-chat').dataset.feed === 'chat' &&
+                rect.top < innerHeight &&
+                rect.bottom > 0
+            );
         });
-        await panel.scrollIntoViewIfNeeded();
         await list.evaluate((el) => {
             el.scrollTop = el.scrollHeight;
             el.dispatchEvent(new Event('scroll'));
@@ -176,6 +200,7 @@ try {
         await list.locator('.chat-mention').click();
         assert.deepEqual(await page.evaluate(() => playerClicks), [{ index: 0 }]);
         await page.waitForFunction(() => receipts.some((r) => r.messageId === '000000000000000000000028'));
+        await page.waitForFunction(() => document.querySelector('.chat-shortcut').hidden);
         const receiptCount = await page.evaluate(() => receipts.length);
         await list.evaluate((el) => {
             el.scrollTop = 0;

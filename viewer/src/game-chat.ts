@@ -36,8 +36,10 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
 .chat-suggestions button[aria-pressed="true"]{outline:2px solid #527f89}
 .bgs-game-chat .chat-status{font-size:12px;margin-top:6px}
 .bgs-game-chat .chat-status:empty{display:none}
-.chat-shortcut{position:fixed;left:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:900;padding:7px 12px;border:1px solid #6a8589;border-radius:3px;background:#263521;color:#fff;font:600 14px Arial,sans-serif;cursor:pointer;box-shadow:0 2px 6px #0003}
+.chat-shortcut{position:fixed;right:89px;bottom:max(17px,env(safe-area-inset-bottom));z-index:900;display:inline-flex;align-items:center;gap:7px;box-sizing:border-box;height:40px;padding:0 10px 0 13px;border:1px solid #6a8589;border-radius:20px;background:#263521;color:#fff;font:600 14px Arial,sans-serif;cursor:pointer;box-shadow:0 2px 6px #0003}
 .chat-shortcut[hidden]{display:none}
+.chat-shortcut svg{flex:none}
+.chat-shortcut-count{box-sizing:border-box;min-width:22px;height:22px;padding:0 6px;border-radius:11px;background:#f2c230;color:#172d34;font:700 12px/22px Arial,sans-serif;text-align:center}
 .game-feed-tabs{display:none}
 @media(max-width:700px){
 .game-feed-tabs{display:flex;gap:4px;margin-top:8px}
@@ -58,6 +60,14 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
     shortcut.type = 'button';
     shortcut.className = 'chat-shortcut';
     shortcut.hidden = true;
+    // Bottom-right, just left of the platform's settings gear (fixed at right:25px, 45px wide):
+    // the slot the platform's own chat button used. Shown only for unread messages, since the
+    // feed itself is always reachable below the board.
+    shortcut.innerHTML =
+        '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M3.5 1.5h9A1.5 1.5 0 0 1 14 3v6.5A1.5 1.5 0 0 1 12.5 11H6.6l-3.3 2.8a.5.5 0 0 1-.8-.4V11A1.5 1.5 0 0 1 2 9.5V3a1.5 1.5 0 0 1 1.5-1.5z"/></svg><span>Chat</span>';
+    const shortcutCount = document.createElement('span');
+    shortcutCount.className = 'chat-shortcut-count';
+    shortcut.append(shortcutCount);
     (host.querySelector('.chat-tabs-host') || slot).append(shortcut);
     const feeds = host.querySelector<HTMLElement>('.journal-and-chat');
     const tabs = document.createElement('nav');
@@ -100,8 +110,8 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
     function updateShortcut() {
         const count = chat.unread;
         const label = count ? `Chat · ${count} unread` : 'Chat';
-        shortcut.textContent = label;
-        shortcut.hidden = chatVisible;
+        shortcutCount.textContent = String(count);
+        shortcut.hidden = chatVisible || !count;
         shortcut.setAttribute('aria-label', `Open ${label}`);
         chatTab.textContent = label;
     }

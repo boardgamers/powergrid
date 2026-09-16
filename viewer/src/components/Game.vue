@@ -724,16 +724,21 @@
                         <strong>Payment Table</strong>
                         <div class="table-scroll">
                             <table class="payment-table">
+                                <!-- The whole table, so this agrees with the city track on the
+                                     board. Counting to citiesToEndGame stopped one column short
+                                     of the number that ends the game — and a player can finish
+                                     holding more cities than that, having built in the same
+                                     phase as whoever triggered it. -->
                                 <tr>
                                     <td><strong>Powered cities</strong></td>
-                                    <template v-for="index in G.citiesToEndGame">
-                                        <td :key="'cities' + index">{{ index - 1 }}</td>
+                                    <template v-for="(income, count) in G.paymentTable">
+                                        <td :key="'cities' + count">{{ count }}</td>
                                     </template>
                                 </tr>
                                 <tr>
                                     <td><strong>Payment</strong></td>
-                                    <template v-for="index in G.citiesToEndGame">
-                                        <td :key="'payment' + index">${{ G.paymentTable[index - 1] }}</td>
+                                    <template v-for="(income, count) in G.paymentTable">
+                                        <td :key="'payment' + count">${{ income }}</td>
                                     </template>
                                 </tr>
                             </table>
@@ -2652,7 +2657,12 @@ text {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    // Above the sticky status bar (z-index 10), which is painted by the page behind
+    // the overlay rather than through it. The modal opens 10vh down and the bar is a
+    // fixed 40px, so on a short viewport — a phone held sideways — the bar landed on
+    // the dialog's own header and covered the close button, leaving no way out of the
+    // dialog at all.
+    z-index: 20;
     padding-top: 10vh; /* Location of the box */
     left: 0;
     top: 0;

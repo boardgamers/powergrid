@@ -102,7 +102,7 @@ export function installActionSounds(emitter: Pick<ViewerEmitter<any, any>, 'on'>
     let previous: string[] | undefined;
     let replaying = false;
     emitter.on('update:preference', (pref) => {
-        if (pref?.name === 'sound') {
+        if (pref?.name === 'sound' && typeof pref.value === 'boolean') {
             setSoundEnabled(pref.value);
         }
     });

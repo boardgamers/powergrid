@@ -1,0 +1,135 @@
+.powergrid-tutorial {
+    max-width: 1600px;
+    margin: auto;
+    padding: 16px;
+    color: #233745;
+    background: #f0f1e9;
+    font: 16px/1.5 system-ui, sans-serif;
+    box-sizing: border-box;
+}
+.powergrid-tutorial .bgs-tutorial-guide {
+    background: #fffef5;
+    border: 1px solid #c6cbc4;
+    border-top: 4px solid #3c758a;
+    border-radius: 8px;
+    padding: 16px 20px;
+}
+.powergrid-tutorial .bgs-tutorial-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+}
+.powergrid-tutorial .bgs-tutorial-heading strong {
+    font-size: 20px;
+}
+.powergrid-tutorial .bgs-tutorial-body p {
+    max-width: 90ch;
+    margin: 12px 0;
+}
+.powergrid-tutorial .bgs-tutorial-body small {
+    color: #566870;
+    display: block;
+    margin: 12px 0;
+}
+.powergrid-tutorial .bgs-tutorial-body [role='alert'] {
+    color: #a3311d;
+    font-weight: 600;
+}
+.powergrid-tutorial .bgs-tutorial-feedback {
+    background: #e0f0df;
+    border-left: 4px solid #45824b;
+    padding: 10px 14px;
+    margin: 12px 0;
+}
+.powergrid-tutorial .bgs-tutorial-controls,
+.powergrid-tutorial .bgs-tutorial-playback,
+.powergrid-tutorial .bgs-tutorial-help,
+.powergrid-tutorial .tutorial-answers {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.powergrid-tutorial .bgs-tutorial-playback {
+    flex-wrap: nowrap;
+}
+.powergrid-tutorial .bgs-tutorial-help:empty {
+    display: none;
+}
+.powergrid-tutorial button {
+    font: inherit;
+    border: 1px solid #96afb5;
+    border-radius: 6px;
+    padding: 8px 12px;
+    min-height: 40px;
+    background: #edf3f2;
+    color: #234250;
+    cursor: pointer;
+}
+.powergrid-tutorial button:hover:not(:disabled) {
+    background: #d8e8ea;
+}
+.powergrid-tutorial button:focus-visible {
+    outline: 3px solid #267f9f;
+    outline-offset: 2px;
+}
+.powergrid-tutorial button:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+.powergrid-tutorial .bgs-tutorial-transport {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    flex: 0 0 40px;
+    padding: 0;
+}
+.powergrid-tutorial .bgs-tutorial-next-chapter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 40px;
+    white-space: nowrap;
+}
+.powergrid-tutorial .bgs-tutorial-guide [hidden],
+.powergrid-tutorial .tutorial-answers[hidden] {
+    display: none;
+}
+.powergrid-tutorial .tutorial-answers {
+    margin-top: 12px;
+}
+.powergrid-tutorial .tutorial-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    padding: 14px 4px;
+    font-size: 13px;
+    color: #536568;
+}
+.powergrid-tutorial .tutorial-board {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.powergrid-tutorial .bgs-tutorial-highlight {
+    outline: 3px solid #d28913;
+    outline-offset: 3px;
+}
+@media (max-width: 600px) {
+    .powergrid-tutorial {
+        padding: 8px;
+        font-size: 14px;
+    }
+    .powergrid-tutorial .bgs-tutorial-guide {
+        padding: 12px;
+    }
+    .powergrid-tutorial .bgs-tutorial-heading strong {
+        font-size: 17px;
+    }
+    .powergrid-tutorial .tutorial-summary {
+        gap: 5px 12px;
+    }
+}

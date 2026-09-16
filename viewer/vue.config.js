@@ -46,6 +46,8 @@ module.exports = {
         config.resolve.alias.set('@boardgamers/protocol/viewer', join(protocolDist, 'viewer.js'));
         config.resolve.alias.set('@boardgamers/protocol/chat/dom$', join(protocolDist, 'chat-dom.js'));
         config.resolve.alias.set('@boardgamers/protocol/chat$', join(protocolDist, 'chat.js'));
+        config.resolve.alias.set('@boardgamers/protocol/tutorial/dom$', join(protocolDist, 'tutorial-dom.js'));
+        config.resolve.alias.set('@boardgamers/protocol/tutorial$', join(protocolDist, 'tutorial.js'));
         // vue-cli's svg rule uses plain file-loader (always emits files); replace it
         // with url-loader so the icons are inlined. Reuse the url-loader already
         // resolved for the images rule (it is not hoisted to our node_modules).

@@ -10,6 +10,11 @@ import { shouldAdoptLogState } from './util/turn-buffer';
 
 let dispose: (() => void) | undefined;
 
+export function destroyViewer() {
+    dispose?.();
+    dispose = undefined;
+}
+
 function launch(selector: string) {
     const target = document.querySelector(selector);
     if (!target) throw new Error(`Viewer mount point not found: ${selector}`);

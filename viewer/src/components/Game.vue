@@ -26,6 +26,8 @@
                     ref="cityCount"
                     :transform="`translate(${G.map.cityCountPosition[0]}, ${G.map.cityCountPosition[1]})`"
                     :playerColors="playerColors"
+                    :paymentTable="G.paymentTable"
+                    :compact="stacked"
                     :citiesToEndGame="G.citiesToEndGame"
                     :citiesToStep2="G.map.name === 'Manhattan' ? undefined : G.citiesToStep2"
                 />
@@ -72,7 +74,7 @@
                 </template>
             </g>
 
-            <g ref="slotPowerPlantMarket" :transform="slotT('powerPlantMarket')">
+            <g ref="slotPowerPlantMarket" data-tutorial="plants" :transform="slotT('powerPlantMarket')">
                 <PowerPlantMarket
                     ref="powerPlantMarket"
                     :transform="`translate(${G.map.powerPlantMarketPosition[0]}, ${G.map.powerPlantMarketPosition[1]})`"
@@ -89,12 +91,13 @@
                 />
             </g>
 
-            <g ref="slotMap" :transform="slotT('map')">
+            <g ref="slotMap" data-tutorial="map" :transform="slotT('map')">
                 <Map
                     ref="map"
                     :transform="mapTransform"
                     :playerColors="playerColors"
                     :cities="G.map.cities"
+                    :tutorialCity="tutorialCity"
                     :connections="G.map.connections"
                     :polygons="G.map.polygons"
                     :buildableCities="getBuildableCities()"
@@ -147,7 +150,7 @@
                 <ResourceViewButton :showTrack="showResourceTrack" @select="setResourceView($event)" />
             </g>
 
-            <g ref="slotResources" :transform="slotT('resources')">
+            <g ref="slotResources" data-tutorial="resources" :transform="slotT('resources')">
                 <!-- On a phone the printed price track is a strip of unreadable
                      columns, so the stacked layout defaults to one box per buyable
                      source. It is still only a default: the switch above this row
@@ -356,13 +359,14 @@
 
             <g
                 ref="slotButtons"
+                data-tutorial="turn"
                 :transform="slotT('buttons') || `translate(${G.map.buttonsPosition[0]}, ${G.map.buttonsPosition[1]})`"
             >
                 <PassButton
                     transform="translate(15, 15)"
                     :enabled="canPass()"
                     :highlightButton="canPass() && !preferences.disableHelp"
-                    :text="canUndo() ? 'Done' : 'Pass'"
+                    :text="tutorialMove || canUndo() ? 'Done' : 'Pass'"
                     @click="checkPass()"
                 />
                 <UndoButton
@@ -388,7 +392,7 @@
                 />
             </g>
 
-            <g ref="slotPlayerBoards" :transform="slotT('playerBoards')">
+            <g ref="slotPlayerBoards" data-tutorial="players" :transform="slotT('playerBoards')">
                 <template v-for="(playerIndex, i) in adjustedPlayerOrder">
                     <PlayerBoard
                         :key="'B' + playerIndex"
@@ -721,7 +725,7 @@
                         <div class="table-scroll">
                             <table class="payment-table">
                                 <tr>
-                                    <td><strong>Cities</strong></td>
+                                    <td><strong>Powered cities</strong></td>
                                     <template v-for="index in G.citiesToEndGame">
                                         <td :key="'cities' + index">{{ index - 1 }}</td>
                                     </template>
@@ -935,6 +939,15 @@ export default class Game extends Vue {
     @Prop()
     emitter!: EventEmitter;
 
+    @Prop({ default: false })
+    interactionDisabled!: boolean;
+
+    @Prop()
+    tutorialMove?: (move: Move) => void;
+
+    @Prop()
+    tutorialCity?: string;
+
     @Prop()
     avatars!: string[];
 
@@ -1022,6 +1035,17 @@ export default class Game extends Vue {
 
     @Watch('state', { immediate: true })
     onStateChanged(state: GameState) {
+        if (this.tutorialMove) {
+            // Tutorial moves are individual engine checkpoints, not server turn buffers.
+            // Rewinds must also clear temporary UI selections from a later step.
+            this.turnMoves = [];
+            this.G = null;
+            this.confirmVisible = this.discardVisible = this.endScoreVisible = false;
+            this.soleBuyerPlant = null;
+            this.totalBid = 0;
+            this.replaceState(state);
+            return;
+        }
         if (state && state.newTurn !== false) {
             // Committed state. Usually this clears the turn buffer (our own turn came
             // back committed), but during the simultaneous Bureaucracy phase it can be
@@ -1610,7 +1634,12 @@ export default class Game extends Vue {
     }
 
     sendMove(move) {
-        if (this.paused) {
+        if (this.paused || this.interactionDisabled) {
+            return;
+        }
+
+        if (this.tutorialMove) {
+            this.tutorialMove(move);
             return;
         }
 
@@ -1713,6 +1742,7 @@ export default class Game extends Vue {
 
     canMove() {
         return (
+            !this.interactionDisabled &&
             this.player != undefined &&
             this.G &&
             this.G.currentPlayers.includes(this.player!) &&

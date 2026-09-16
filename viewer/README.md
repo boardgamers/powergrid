@@ -33,3 +33,25 @@ yarn lint
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Playable tutorials
+
+Seven independent chapters cover auctions, fuel, connections, income, plant replacement, Steps 2/3 and final scoring. They use Germany with classic rules, deterministic positions and scripted opponents. Actions go through the real engine; only the learner's filtered state reaches the board.
+
+From the repository root:
+
+```sh
+pnpm --dir engine build
+pnpm --dir viewer test:tutorial
+NODE_OPTIONS=--openssl-legacy-provider pnpm --dir viewer package
+pnpm --dir viewer test:tutorial:browser
+pnpm --dir viewer preview:tutorial
+```
+
+Open <http://127.0.0.1:5199/?chapter=auctions>. Other chapter IDs are `resources`, `network`, `income`, `upgrades`, `steps` and `final-round`.
+
+The ordinary viewer bundle exposes both `powergrid.launch` and `powergrid.launchTutorial`. Upload the usual JS/CSS and configure the tutorial chapters on the same BGS game version. `pnpm --dir viewer tutorial:manifest` prints the chapter metadata. No second bundle or engine release is required.
+
+Lessons live in `src/tutorial/lessons.ts`. Keep their IDs stable and increase a chapter's version when changing its setup or accepted actions would invalidate saved progress. Test normal board clicks, refresh, rewind and completion on desktop and mobile before release.
+
+See the [desktop and mobile screenshots](docs/tutorials/README.md) for examples of the tutorial UI.

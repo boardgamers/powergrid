@@ -69,6 +69,32 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
     shortcutCount.className = 'chat-shortcut-count';
     shortcut.append(shortcutCount);
     (host.querySelector('.chat-tabs-host') || slot).append(shortcut);
+    function positionShortcut() {
+        shortcut.style.bottom = '';
+        if (shortcut.hidden) return;
+        const box = shortcut.getBoundingClientRect();
+        let top = box.top;
+        const controls = Array.from(host.querySelectorAll('#scene g.button'))
+            .map((control) => control.getBoundingClientRect())
+            .filter((control) => control.left < box.right && control.right > box.left)
+            .sort((a, b) => b.top - a.top);
+        for (const control of controls) {
+            if (control.top < top + box.height && control.bottom > top) top = control.top - box.height - 8;
+        }
+        if (top !== box.top) shortcut.style.bottom = `${window.innerHeight - top - box.height}px`;
+    }
+    let positionFrame: number | undefined;
+    function scheduleShortcutPosition() {
+        if (positionFrame !== undefined) return;
+        positionFrame = window.requestAnimationFrame(() => {
+            positionFrame = undefined;
+            positionShortcut();
+        });
+    }
+    window.addEventListener('scroll', scheduleShortcutPosition, { passive: true });
+    window.addEventListener('resize', scheduleShortcutPosition);
+    const layoutObserver = new ResizeObserver(scheduleShortcutPosition);
+    layoutObserver.observe(host);
     const feeds = host.querySelector<HTMLElement>('.journal-and-chat');
     const tabs = document.createElement('nav');
     tabs.className = 'game-feed-tabs';
@@ -114,6 +140,7 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
         shortcut.hidden = chatVisible || !count;
         shortcut.setAttribute('aria-label', `Open ${label}`);
         chatTab.textContent = label;
+        positionShortcut();
     }
     shortcut.onclick = () => {
         selectFeed('chat');
@@ -149,6 +176,10 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
     dispose.push(() => tabs.remove());
     return () => {
         dispose.forEach((cleanup) => cleanup());
+        window.removeEventListener('scroll', scheduleShortcutPosition);
+        window.removeEventListener('resize', scheduleShortcutPosition);
+        layoutObserver.disconnect();
+        if (positionFrame !== undefined) window.cancelAnimationFrame(positionFrame);
         view.destroy();
         shortcut.remove();
         style.remove();
@@ -192,6 +223,6 @@ export function installLocalChat(emitter: ChatEmitter): void {
                 createdAt: new Date().toISOString(),
             },
         ]);
-        emitter.emit('chat:result', { requestId, ok: true });
+        if (requestId) emitter.emit('chat:result', { requestId, ok: true });
     });
 }

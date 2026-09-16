@@ -76,6 +76,15 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 import { House } from '../pieces';
 import { Piece } from '../../types/ui-data';
 
+// The House piece at the 0.03 scale this track draws it, rounded to whole units: the
+// path spans 3-396 x 4-456, so 12 x 14 on the board. Used as the grid pitch below.
+const HOUSE_WIDTH = 12;
+const HOUSE_HEIGHT = 14;
+// The cell rect the template draws at x 13 y 14, 28 x 38 — houses are placed against
+// its bottom edge, clear of the income strip that starts 4 units below it.
+const CELL_CENTRE_X = 27;
+const CELL_BOTTOM = 52;
+
 @Component({
     components: {
         House
@@ -105,14 +114,30 @@ export default class CityCount extends Vue {
 
         gameState.players.forEach((player, pi) => adjustCityCount[player.cities.length].push(pi));
         gameState.players.forEach((player, pi) => {
-            let x = adjustCityCount[player.cities.length].length == 1 ? 20 : 17;
-            x += (adjustCityCount[player.cities.length].indexOf(pi) % 2) * 6;
+            // Players sharing a count get a grid, bottom-aligned in the cell so it grows
+            // upward from the income strip and leaves the digit above readable. At the
+            // old 6px/3px offsets even TWO players on the same number — the ordinary
+            // case all game — overlapped by half and read as one smudge.
+            //
+            // Five or six share go three wide rather than three tall: a third row starts
+            // at the top of the cell and hides the number completely, which is every
+            // game's opening position. Three columns only have to overlap by a few
+            // pixels, and the cells are spaced wider than they are drawn.
+            const sharing = adjustCityCount[player.cities.length];
+            const seat = sharing.indexOf(pi);
+            const cols = sharing.length > 4 ? 3 : 2;
+            const pitch = cols === 3 ? 9 : HOUSE_WIDTH;
+            const rows = Math.ceil(sharing.length / cols);
 
             this.houses.push({
                 id: pi + '_cityCount',
                 cityCount: player.cities.length,
-                x: x,
-                y: 35 + Math.floor(adjustCityCount[player.cities.length].indexOf(pi) / 2) * 3,
+                // CELL_CENTRE_X/BOTTOM are the darkgoldenrod cell drawn in the template.
+                x:
+                    sharing.length == 1
+                        ? CELL_CENTRE_X - HOUSE_WIDTH / 2
+                        : CELL_CENTRE_X - ((cols - 1) * pitch + HOUSE_WIDTH) / 2 + (seat % cols) * pitch,
+                y: CELL_BOTTOM - rows * HOUSE_HEIGHT + Math.floor(seat / cols) * HOUSE_HEIGHT,
                 color: this.playerColors![pi],
                 owner: pi,
                 ownerName: player.name,

@@ -72,14 +72,24 @@ export declare namespace Moves {
     }
 }
 
-// Metadata the client may attach to any move. `time` is the wall-clock timestamp
-// (ms since epoch) at which the move was submitted; it drives the per-player
-// clocks. It is stored in the log, so replaying a game reproduces the exact same
-// times — the engine must never read the clock itself or replays would diverge.
-// Engine-generated moves (AI, dropped players) omit it and simply don't tick the
-// clocks.
+// Metadata attached to a move. Both stamps are ms-since-epoch and are stored in the
+// log, so replaying a game reproduces the exact same times — the engine must never
+// read the clock itself or replays would diverge. Engine-generated moves (AI, dropped
+// players) omit them and simply don't tick the clocks.
+//
+// `time` is the ACTING CLIENT's wall clock when the move entered the turn buffer. It is
+// the move's identity for reconciling the buffer against the server's echo (see the
+// viewer's turn-buffer helpers), so it must survive untouched.
+//
+// `serverTime` is stamped once by the authoritative move processor (`wrapper.move`) from
+// the SERVER clock. The per-player clocks are driven by it in preference to `time`:
+// banking a clock stretch subtracts one player's stamp from another's, and browser
+// clocks disagree (skew of a minute has been seen), so a client whose clock ran fast
+// would otherwise charge that skew to itself on every turn — inflating its timer toward
+// the whole game's elapsed time. A single server clock removes the skew.
 export interface MoveMeta {
     time?: number;
+    serverTime?: number;
 }
 
 export type Move = (

@@ -11,6 +11,20 @@ const pass: Move = { name: MoveName.Pass, data: true };
 const json = (value: unknown) => JSON.parse(JSON.stringify(value));
 
 describe('wrapper (tentative turns)', () => {
+    // `wrapper.move` stamps each turn with the server clock (Date.now) so the per-player
+    // clocks run off one clock instead of the acting client's skewed one. Pin it here so
+    // a buffer replayed twice yields byte-identical states; a test that cares about elapsed
+    // time advances the clock by mutating `now`. Restored after each test.
+    const realNow = Date.now;
+    let now = 1_000_000;
+    beforeEach(() => {
+        now = 1_000_000;
+        Date.now = () => now;
+    });
+    afterEach(() => {
+        Date.now = realNow;
+    });
+
     /**
      * Simulates the platform: `saved` only ever advances when `toSave` returns the
      * state (committed); tentative states are discarded, like the game server does.
@@ -368,36 +382,50 @@ describe('wrapper (tentative turns)', () => {
         expect(platform.saved.players[B].powerPlants, 'the higher bidder wins').to.have.length(1);
     });
 
-    it('should tick the clocks deterministically across resends of the same buffer', async () => {
+    it('should drive the per-player clocks from the server clock, immune to client skew', async () => {
+        // The absurd client `time`s below stand in for skewed browser clocks — banking a
+        // stretch subtracts one player's stamp from another's, so before turns were
+        // server-stamped a fast client charged its skew to itself every turn, creeping
+        // toward the whole game's elapsed time. None of these client stamps may reach a
+        // timer (the shared `now`, pinned at 1_000_000, is the only clock that counts).
         const platform = new Platform(2, 'wrapper-test-clocks');
         const A = platform.saved.currentPlayers[0];
         const B = 1 - A;
 
-        const t1 = 1_000_000;
-        const t2 = 1_000_000 + 30_000;
+        const skew = (m: Move, t: number): Move => ({ ...m, time: t });
 
-        const choose: Move = { ...cheapestChoosable(platform, A), time: t1 };
-
-        // The tentative call ticks the clocks of its (discarded) result the same way
-        // the final replay will: the stamp travels with the move, not the wall clock.
-        const mid = await platform.send([choose], A);
-        expect(mid.result.players[A].clockStartedAt).to.equal(t1);
-
-        const bid: Move = { ...openingBid(choose), time: t2 };
-        const full = await platform.send([choose, bid], A);
-        expect(full.saved).to.be.true;
-
-        // A's turn banked exactly t2 - t1 (the clock started on their first stamped
-        // move and stopped when the bid handed control to B).
-        expect(platform.saved.players[A].totalTimeUsed).to.equal(t2 - t1);
+        // A opens the auction and commits at server time 1_000_000. Whatever nonsense
+        // client stamps the moves carry, control passing to B starts B's clock on the
+        // SERVER clock, and A's (single-buffer) stretch is banked and cleared.
+        const choose = cheapestChoosable(platform, A);
+        await platform.send([skew(choose, 9_000_000_000), skew(openingBid(choose), 3)], A);
+        expect(platform.saved.players[B].clockStartedAt).to.equal(1_000_000);
         expect(platform.saved.players[A].clockStartedAt).to.be.undefined;
-        expect(platform.saved.players[B].clockStartedAt).to.equal(t2);
 
-        // Replaying the identical buffer from the same base reproduces identical clocks:
-        // the tentative detour above changed nothing about the committed outcome.
-        const again = await wrapper.move(setup(2, {}, 'wrapper-test-clocks'), [choose, bid], A);
-        expect(json(again)).to.deep.equal(json(full.result));
-        expect(again.players[A].totalTimeUsed).to.equal(t2 - t1);
+        // Finish the auction (still at 1_000_000, so these stretches are ~0) to reach
+        // the sequential Resources phase.
+        await platform.send([skew(pass, 1)], B);
+        await platform.send([skew(cheapestChoosable(platform, B), 2)], B);
+        expect(platform.saved.phase).to.equal(Phase.Resources);
+
+        // The first Resources player is on the clock from the phase start (1_000_000).
+        const R = platform.saved.currentPlayers[0];
+        expect(platform.saved.players[R].clockStartedAt).to.equal(1_000_000);
+
+        // 25 minutes of SERVER time pass; the client stamp is nonsense. The stretch
+        // banked is the server span, not anything derived from the client stamp.
+        now = 1_000_000 + 25 * 60_000;
+        await platform.send([skew(pass, 42)], R);
+        expect(platform.saved.players[R].totalTimeUsed).to.equal(25 * 60_000);
+        expect(platform.saved.players[R].clockStartedAt).to.be.undefined;
+
+        // Replay reads the server stamps stored in the log, never the wall clock, so
+        // it reproduces the identical clocks even though Date.now has moved on.
+        now = 987_654_321;
+        const replayed = wrapper.replay(cloneDeep(platform.saved));
+        expect(replayed.players.map((p) => p.totalTimeUsed)).to.deep.equal(
+            platform.saved.players.map((p) => p.totalTimeUsed)
+        );
     });
 
     it('should let two simultaneous Bureaucracy players commit independently (engine-level rebase)', async () => {

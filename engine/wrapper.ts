@@ -46,8 +46,20 @@ export async function move(G: GameState, move: Move | Move[] | null | undefined,
         return { ...G, newTurn: false };
     }
 
+    // Drive the per-player clocks from a single clock. Each move's `time` is the acting
+    // client's own Date.now(), and browser clocks disagree — a player whose clock runs
+    // fast would charge that skew to itself on every turn, inflating its timer toward the
+    // whole game's elapsed time. This is the authoritative move processor and never runs
+    // during a deterministic replay (`replay` calls `engine.move` directly), so stamping
+    // the server clock here is safe: the stamp is written into the log and reused on
+    // replay. The client `time` is preserved untouched so it can still reconcile the
+    // turn buffer against this state's echo. One `now` for the whole buffer is enough —
+    // a turn's atomic moves are one player's, so their internal gaps don't matter; the
+    // stretch charged is from the previous turn's stamp to this one.
+    const now = Date.now();
+
     for (let i = 0; i < moves.length; i++) {
-        G = engine.move(G, moves[i], player);
+        G = engine.move(G, { ...moves[i], serverTime: now }, player);
 
         // The buffer must describe at most ONE turn: committing is what grants the
         // mover their per-turn time increment. Without this guard a buffer like

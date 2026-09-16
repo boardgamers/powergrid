@@ -22,7 +22,7 @@
             stroke-width="12"
             stroke-miterlimit="10"
         />
-        <title>{{ ownerName }}'s House</title>
+        <title>{{ houseTitle }}</title>
     </g>
 </template>
 <script lang="ts">
@@ -50,5 +50,11 @@ export default class House extends Mixins(Piece) {
 
     @Prop()
     ownerName?: string;
+
+    get houseTitle() {
+        if (this.owner !== undefined && this.owner === this.player) return 'Your House';
+        if (this.ownerName) return `${this.ownerName}'s House`;
+        return this.owner === undefined ? 'House' : `Player ${this.owner + 1}'s House`;
+    }
 }
 </script>

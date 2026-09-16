@@ -193,6 +193,7 @@
             <circle
                 v-if="city.connectionCost == null"
                 :key="city.name + '_circle2'"
+                :data-tutorial="city.name === tutorialCity ? 'destination' : undefined"
                 :class="[{ canClick: canBuild(city) || canPickRegion(city) }]"
                 r="20"
                 :cx="city.x"
@@ -460,6 +461,21 @@
                 stroke-linecap="round"
             />
         </g>
+        <g v-if="guidedCity" pointer-events="none">
+            <circle :cx="guidedCity.x" :cy="guidedCity.y" r="29" fill="none" stroke="#a96600" stroke-width="4" />
+            <text
+                :x="guidedCity.x"
+                :y="guidedCity.y - 37"
+                text-anchor="middle"
+                fill="#233745"
+                stroke="#fffef5"
+                stroke-width="6"
+                paint-order="stroke"
+                font-size="19"
+                font-weight="600"
+                v-text="guidedCity.name"
+            />
+        </g>
     </g>
 </template>
 
@@ -481,6 +497,8 @@ const CITY_RING_RADIUS = 25;
     },
 })
 export default class Map extends Vue {
+    @Prop() tutorialCity?: string;
+    get guidedCity() { return this.cities?.find((city) => city.name === this.tutorialCity); }
     @Prop() polygons?: Polygon[];
     @Prop() cities?: City[];
     @Prop() connections?: Connection[];
@@ -553,6 +571,7 @@ export default class Map extends Vue {
                     y: city.y + offsetY,
                     color: this.playerColors![pi],
                     owner: pi,
+                    ownerName: player.name,
                     scale: pieceScale,
                 });
             });

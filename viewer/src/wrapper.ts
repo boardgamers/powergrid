@@ -1,8 +1,19 @@
-// Import vue component
-import launch from './launch';
+import { createTutorialLauncher, TutorialLaunchOptions } from '@boardgamers/protocol/tutorial';
+import launchGame, { destroyViewer } from './launch';
+import { mountTutorial } from './tutorial/mount';
+
+const tutorial = createTutorialLauncher(mountTutorial);
+export function launch(selector: string) {
+    tutorial.destroy();
+    return launchGame(selector);
+}
+export function launchTutorial(selector: string, options: TutorialLaunchOptions) {
+    destroyViewer();
+    return tutorial.launch(selector, options);
+}
 
 if (typeof window !== 'undefined') {
-    (window as any).powergrid = { launch };
+    (window as any).powergrid = { launch, launchTutorial };
 }
 
 export default launch;

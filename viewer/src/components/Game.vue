@@ -1622,10 +1622,13 @@ export default class Game extends Vue {
                 : undefined;
         const theServerOfferedThisMove = !!offeredWhenClicked && !!offeredWhenClicked[move.name];
 
-        // Stamp the move ONCE, when it enters the turn buffer, so the engine can
-        // advance the per-player clocks. The engine never reads the system clock
-        // itself — the stamp travels with the move on every resend of the buffer, so
-        // replays (and the eventual committed log) reproduce the same times.
+        // Stamp the move ONCE, when it enters the turn buffer. This client stamp is the
+        // move's identity for reconciling the buffer against the server's echo, and it
+        // drives the clocks in the LOCAL preview below. The engine never reads the system
+        // clock itself, so the stamp travels with the move on every resend of the buffer.
+        // For the authoritative per-player clocks the server re-stamps a single server
+        // clock (`serverTime`) in `wrapper.move`: browser clocks are skewed, and a stamp
+        // shared across players is what keeps a fast clock from inflating its own timer.
         const stamped = { ...move, time: Date.now() };
         this.turnMoves.push(stamped);
 

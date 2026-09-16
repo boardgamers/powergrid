@@ -1755,7 +1755,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
     G.cardsLeft = G.powerPlantsDeck.length;
     G.nextCardWeak = G.options.variant == 'recharged' && G.cardsLeft > 0 && G.powerPlantsDeck[0].number <= 15;
 
-    updateClocks(G, move.time);
+    updateClocks(G, move.serverTime ?? move.time);
 
     G.currentPlayers.forEach((p) => (G.players[p].availableMoves = availableMoves(G, G.players[p])));
 
@@ -1798,9 +1798,13 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
 // During simultaneous phases every current player's clock runs independently, so
 // the sum of players' time can legitimately exceed the wall-clock time elapsed.
 //
-// `ts` comes from the move (client-supplied) rather than the system clock, so
-// replaying a log reproduces identical times. Moves without a timestamp (AI,
-// dropped players) leave every clock untouched.
+// `ts` comes from the move (its `serverTime`, else the client `time`) rather than the
+// system clock, so replaying a log reproduces identical times. It must be a stamp from
+// a single clock shared by every player: banking a stretch below subtracts one player's
+// stamp from another's, so mixing skewed per-client clocks would charge the skew to
+// whoever's clock runs fast. `wrapper.move` supplies `serverTime` for human turns and
+// `moveAI` stamps the server clock into `time`, so both resolve to the server clock.
+// Moves without any timestamp (dropped players) leave every clock untouched.
 function updateClocks(G: GameState, ts?: number) {
     if (ts == undefined) {
         return;

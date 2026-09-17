@@ -2,12 +2,10 @@
     <section class="round-planner" aria-label="Round planning">
         <template v-if="plan">
             <div class="planner-strip">
-                <div class="planner-controls">
-                    <span
-                        class="preview-label"
-                        title="Use the normal board controls. No move is sent until you confirm a queue. The preview does not predict hidden plant draws."
-                        >Preview only</span
-                    >
+                <div
+                    v-if="queueable || hasQueue || (plan.state.phase === 'Auction' && !discarding)"
+                    class="planner-controls"
+                >
                     <button v-if="plan.state.phase === 'Auction' && !discarding" @click="$emit('skip-plant')">
                         Continue without buying
                     </button>
@@ -125,11 +123,6 @@ button:disabled {
 button:focus-visible {
     outline: 2px solid #d7ed95;
     outline-offset: 2px;
-}
-.preview-label {
-    font-size: 12px;
-    color: #d7ed95;
-    margin-right: 4px;
 }
 .queue-hint {
     margin: 7px 0 0;

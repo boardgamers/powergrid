@@ -25,7 +25,3 @@ npm run serve
 ```
 
 It will use the engine in its sibling folder
-
-## Current-round planning
-
-See [planning and premoves](docs/premoves/README.md) for the local preview and verification commands.

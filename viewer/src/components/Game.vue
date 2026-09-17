@@ -33,7 +33,6 @@
                 :pending="!!pendingPlanId"
                 :error="planningError"
                 :live-changed="planningChanged"
-                @skip-plant="sendMove({ name: 'Pass', data: true })"
                 @queue="submitRoundPlan"
                 @cancel="cancelPhasePlan"
             />
@@ -1159,8 +1158,6 @@ export default class Game extends Vue {
     get queueHint(): string {
         if (this.roundPlan && this.committedState && this.roundPlan.state.round !== this.committedState.round)
             return 'The round ended. Start a new simulation.';
-        if (this.turnMoves.length || !this.committedState || !canQueuePhases(this.committedState, this.player!, []))
-            return 'Purchases are simulation only. Finish buying resources in the live game before queueing.';
         return '';
     }
     startPlanning() {

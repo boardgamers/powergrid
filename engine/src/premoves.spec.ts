@@ -122,6 +122,11 @@ describe('current-round planning and premoves', () => {
         expect(skipped.state.phase).to.equal(Phase.Resources);
         expect(skipped.state.players[0].money).to.equal(70);
         expect(() => planMove(selected, { name: MoveName.Bid, data: 71 })).to.throw('affordable');
+        const opening = setup(3, { map: 'Germany', variant: 'original' }, 'skip-plant');
+        expect(availableMoves(opening, opening.players[0]).Pass).to.equal(undefined);
+        const openingPlan = startRoundPlan(opening, 0);
+        expect(openingPlan.state.players[0].availableMoves!.Pass).to.deep.equal([true]);
+        expect(planMove(openingPlan, pass).state.phase).to.equal(Phase.Resources);
     });
     it('queues privately off turn, executes each phase, and credits increments only when executed', async () => {
         const G = position(),

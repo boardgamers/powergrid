@@ -153,7 +153,8 @@ try {
     for (let i = 0; i < 6; i++) await undo().click();
     await phase('Auction');
     assert.equal(await undo().count(), 0, 'Undo rewinds through purchases and phase changes to the start');
-    await button('Continue without buying').click();
+    await done().click();
+    await page.locator('.modal.visible').getByRole('button', { name: 'OK', exact: true }).click();
     await phase('Resources');
     assert.match(await ownBoard().textContent(), /Money: \$70/);
     assert.equal(sent, sentBeforeAuction);

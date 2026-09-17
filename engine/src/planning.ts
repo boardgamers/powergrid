@@ -31,6 +31,19 @@ export function nextPlanningPhase(G: GameState, seat: number): Phase | undefined
     return roundPhases[index];
 }
 
+function updatePlanningMoves(G: GameState, seat: number) {
+    const player = G.players[seat];
+    player.availableMoves = availableMoves(G, player);
+    // Done can simulate skipping a plant, including before mandatory round-one buying.
+    if (
+        G.phase === Phase.Auction &&
+        !player.availableMoves.DiscardPowerPlant &&
+        !player.availableMoves.DiscardResources
+    ) {
+        player.availableMoves.Pass = [true];
+    }
+}
+
 /** Only the player's own decisions are simulated. No guessed opponent moves or deck draws. */
 export function planningPhase(G: GameState, seat: number, phase: Phase): GameState {
     const previous = G.phase;
@@ -58,7 +71,7 @@ export function planningPhase(G: GameState, seat: number, phase: Phase): GameSta
         player.resourcesUsed = [];
         player.targetCitiesPowered = calculateMaxCitiesPowered(G, player);
     }
-    player.availableMoves = availableMoves(G, player);
+    updatePlanningMoves(G, seat);
     return G;
 }
 
@@ -172,15 +185,7 @@ export function planMove(previous: RoundPlan, input: Move): RoundPlan {
     }
     if (!plan.finished) {
         G.currentPlayers = [plan.seat];
-        player.availableMoves = availableMoves(G, player);
-        // Passing here explicitly means "simulate without buying a plant".
-        if (
-            G.phase === Phase.Auction &&
-            !player.availableMoves.DiscardPowerPlant &&
-            !player.availableMoves.DiscardResources
-        ) {
-            player.availableMoves.Pass = [true];
-        }
+        updatePlanningMoves(G, plan.seat);
     }
     // Normal move bookkeeping derives these from the hidden deck, absent in a viewer.
     // No draw is predicted in a plan, so keep its public deck indicator unchanged.

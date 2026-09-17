@@ -2,13 +2,7 @@
     <section class="round-planner" aria-label="Round planning">
         <template v-if="plan">
             <div class="planner-strip">
-                <div
-                    v-if="queueable || hasQueue || (plan.state.phase === 'Auction' && !discarding)"
-                    class="planner-controls"
-                >
-                    <button v-if="plan.state.phase === 'Auction' && !discarding" @click="$emit('skip-plant')">
-                        Continue without buying
-                    </button>
+                <div v-if="queueable || hasQueue" class="planner-controls">
                     <button
                         v-if="queueable"
                         class="primary"
@@ -26,9 +20,6 @@
                 </div>
             </div>
             <p v-if="!queueable && queueHint" class="muted queue-hint">{{ queueHint }}</p>
-            <p v-if="plan.state.phase === 'Auction' && !discarding" class="muted">
-                Choose a plant, then use the bid control to enter an assumed winning price. No bid is sent.
-            </p>
             <p v-if="liveChanged" class="notice">
                 The live game changed. Costs and fuel will be checked again before queueing.
             </p>
@@ -60,10 +51,6 @@ export default Vue.extend({
     computed: {
         hasQueue(): boolean {
             return !!this.queue?.phases.length;
-        },
-        discarding(): boolean {
-            const moves = this.plan?.state.players[this.plan.seat].availableMoves;
-            return !!(moves?.DiscardPowerPlant || moves?.DiscardResources);
         },
     },
 });

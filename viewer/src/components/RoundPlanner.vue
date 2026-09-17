@@ -22,7 +22,7 @@
                     >
                         Validate
                     </button>
-                    <button v-if="hasQueue" :disabled="pending" @click="$emit('cancel')">Cancel all</button>
+                    <button v-if="hasQueue" :disabled="pending" @click="$emit('cancel')">Cancel premoves</button>
                 </div>
             </div>
             <p v-if="!queueable && queueHint" class="muted queue-hint">{{ queueHint }}</p>

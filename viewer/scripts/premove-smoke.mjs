@@ -90,12 +90,12 @@ try {
     await queuedPlan(4).waitFor();
     assert.equal(await button('View on board').count(), 0, 'Plan is the single entry to the saved queue');
     assert.equal(await button('Cancel powering').count(), 0);
-    assert.equal(await button('Cancel from here').count(), 0, 'no duplicate Cancel all control');
+    assert.equal(await button('Cancel from here').count(), 0, 'no duplicate Cancel premoves control');
     await screenshot('queued');
     await queuedPlan(4).click();
     await phase('Simulation complete');
     assert.equal(await button('Validate').count(), 0, 'viewing an unchanged queue needs no validation');
-    await button('Cancel all').click();
+    await button('Cancel premoves').click();
     await page.waitForFunction(
         () => !document.querySelector('.round-planner')?.textContent.includes('Saving premoves')
     );
@@ -184,7 +184,7 @@ try {
     await queuedPlan(2).click();
     await phase('Simulation complete');
     const cancelled = page.waitForResponse((r) => new URL(r.url()).pathname === '/move');
-    await button('Cancel all').click();
+    await button('Cancel premoves').click();
     await cancelled;
     await button('Validate').waitFor();
     // Even a phase with no cities/plants queues a pass and needs a visible counter.
@@ -196,7 +196,7 @@ try {
     await queuedPlan(1).waitFor();
     await queuedPlan(1).click();
     await phase('Simulation complete');
-    await button('Cancel all').click();
+    await button('Cancel premoves').click();
     await button('Validate').waitFor();
     await button('Return to live game').click();
     await button('Plan').waitFor();

@@ -1,6 +1,6 @@
 <template>
     <div :class="['game', { fitToScreen: preferences.fitToScreen && !stacked, stacked: stacked }]">
-        <div class="planner-header" :class="{ planning: roundPlan }">
+        <div class="planner-header" :class="{ planning: hasPlanPanel }">
             <div class="statusBar">
                 <span class="status-message">{{ getStatusMessage() }}</span>
                 <button
@@ -16,7 +16,10 @@
                     <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true">
                         <path d="M3 2v15h15M6 12l4-5 4 3 4-6" fill="none" stroke="currentColor" stroke-width="1.6" />
                     </svg>
-                    {{ canPreparePremoves ? 'Plan' : 'Simulate' }}
+                    {{ canPreparePremoves ? 'Plan' : 'Simulate'
+                    }}<span v-if="queuedMoveCount">
+                        · {{ queuedMoveCount }} {{ queuedMoveCount === 1 ? 'premove' : 'premoves' }}
+                    </span>
                 </button>
                 <button v-if="roundPlan" class="plan-entry" @click="stopPlanning()">Return to live game</button>
             </div>
@@ -30,7 +33,6 @@
                 :pending="!!pendingPlanId"
                 :error="planningError"
                 :live-changed="planningChanged"
-                @clear="startPlanning(true)"
                 @skip-plant="sendMove({ name: 'Pass', data: true })"
                 @queue="submitRoundPlan"
                 @cancel="cancelPhasePlan"
@@ -1107,7 +1109,6 @@ export default class Game extends Vue {
     get hasPlanPanel(): boolean {
         return !!(
             this.roundPlan ||
-            this.myPhaseQueue?.phases.length ||
             this.myPhaseQueue?.notice ||
             this.planningError ||
             this.pendingPlanId
@@ -1115,6 +1116,13 @@ export default class Game extends Vue {
     }
     get myPhaseQueue() {
         return this.committedState?.automation?.plans[this.player!];
+    }
+    get queuedMoveCount(): number {
+        return (this.myPhaseQueue?.phases || []).reduce(
+            // An otherwise empty phase still queues the decision to finish it.
+            (count, phase) => count + Math.max(1, phase.moves.filter((move) => move.name !== MoveName.Pass).length),
+            0
+        );
     }
     get planningChanged(): boolean {
         if (!this.roundPlan || !this.planningBase || !this.committedState) return false;
@@ -1155,10 +1163,10 @@ export default class Game extends Vue {
             return 'Purchases are simulation only. Finish buying resources in the live game before queueing.';
         return '';
     }
-    startPlanning(restart = false) {
+    startPlanning() {
         if (!this.canPlanRound) return;
         try {
-            const base = restart || this.roundPlan ? this.committedState! : this.G!;
+            const base = this.roundPlan ? this.committedState! : this.G!;
             this.planningBase = copyState(base);
             this.roundPlan = startRoundPlan(base, this.player!);
             this.planningError = '';

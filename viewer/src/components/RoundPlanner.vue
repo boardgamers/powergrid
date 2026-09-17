@@ -1,5 +1,5 @@
 <template>
-    <section class="round-planner" :class="{ active: plan, compact: !plan && !hasQueue }" aria-label="Round planning">
+    <section class="round-planner" aria-label="Round planning">
         <template v-if="plan">
             <div class="planner-strip">
                 <div class="planner-controls">
@@ -8,7 +8,6 @@
                         title="Use the normal board controls. No move is sent until you confirm a queue. The preview does not predict hidden plant draws."
                         >Preview only</span
                     >
-                    <button :disabled="!plan.entries.length" @click="$emit('clear')">Start over</button>
                     <button v-if="plan.state.phase === 'Auction' && !discarding" @click="$emit('skip-plant')">
                         Continue without buying
                     </button>
@@ -25,7 +24,7 @@
                     >
                         Validate
                     </button>
-                    <button v-if="hasQueue" :disabled="pending" @click="$emit('cancel')">Cancel queued moves</button>
+                    <button v-if="hasQueue" :disabled="pending" @click="$emit('cancel')">Cancel all</button>
                 </div>
             </div>
             <p v-if="!queueable && queueHint" class="muted queue-hint">{{ queueHint }}</p>
@@ -33,31 +32,12 @@
                 Choose a plant, then use the bid control to enter an assumed winning price. No bid is sent.
             </p>
             <p v-if="liveChanged" class="notice">
-                The live game changed. Costs and fuel will be checked again before queueing. Start over to recalculate
-                the preview.
+                The live game changed. Costs and fuel will be checked again before queueing.
             </p>
             <p v-if="plan.finalScoring" class="muted">
                 The end-game threshold is reached. Final scoring uses the most cities you can power with your fuel;
                 there is no normal income payment.
             </p>
-        </template>
-        <template v-else-if="hasQueue">
-            <div class="planner-heading">
-                <strong>Your premoves · round {{ queue.round }}</strong>
-                <div class="planner-controls">
-                    <button :disabled="pending" @click="$emit('cancel')">Cancel all</button>
-                </div>
-            </div>
-            <div v-for="phase in queue.phases" :key="phase.phase" class="queued-phase">
-                <strong>{{ phaseName(phase.phase) }}</strong
-                ><span>{{
-                    phase.moves
-                        .filter((move) => move.name !== 'Pass')
-                        .map(describeMove)
-                        .join(' · ') ||
-                    (phase.phase === 'Building' ? 'Finish without building' : 'Finish without powering')
-                }}</span>
-            </div>
         </template>
         <p v-if="queue && queue.notice" role="status" class="notice">{{ queue.notice }}</p>
         <p v-if="pending" role="status">Saving premoves…</p>
@@ -68,7 +48,6 @@
 import Vue from 'vue';
 import type { RoundPlan } from 'powergrid-engine/src/planning';
 import type { PremovePlan } from 'powergrid-engine/src/premoves';
-import { describeMove } from '../util/round-plan';
 export default Vue.extend({
     props: {
         plan: { type: Object as () => RoundPlan | null, default: null },
@@ -80,7 +59,6 @@ export default Vue.extend({
         error: String,
         queueHint: String,
     },
-    methods: { describeMove, phaseName: (phase: string) => (phase === 'Bureaucracy' ? 'Powering' : phase) },
     computed: {
         hasQueue(): boolean {
             return !!this.queue?.phases.length;
@@ -93,37 +71,18 @@ export default Vue.extend({
 });
 </script>
 <style scoped>
-.round-planner {
-    align-self: stretch;
-    box-sizing: border-box;
-    width: 100%;
-    font-family: Arial, sans-serif;
-    background: #171c13;
-    color: #f0f2e9;
-    border-bottom: 2px solid #9acd32;
-    padding: 8px 20px 10px;
-    font-size: 14px;
-    text-align: left;
+.round-planner,
+.planner-strip {
+    display: contents;
 }
-.round-planner.compact {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 16px;
-    background: #171c13;
-    padding: 6px 14px;
-    flex-wrap: wrap;
-}
-.planner-heading,
 .planner-controls {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 10px;
     flex-wrap: wrap;
-}
-.planner-heading strong {
-    font-size: 17px;
+    padding: 5px 10px 5px 0;
+    font: 14px Arial, sans-serif;
+    color: #f0f2e9;
 }
 p {
     margin: 6px 0;
@@ -153,21 +112,11 @@ button:disabled {
 .primary:hover {
     background: #b0df52;
 }
-.round-planner.active,
-.planner-strip {
-    display: contents;
-}
-.round-planner.active .planner-controls {
-    padding: 5px 10px 5px 0;
-}
-.round-planner.active > p {
+.round-planner > p {
     flex-basis: 100%;
     padding: 0 12px;
     margin: 0 0 8px;
     font: 13px Arial, sans-serif;
-}
-.planner-controls {
-    justify-content: flex-start;
 }
 .muted {
     color: #bcc7ad;
@@ -185,28 +134,7 @@ button:focus-visible {
 .queue-hint {
     margin: 7px 0 0;
 }
-.queued-phase {
-    display: flex;
-    gap: 14px;
-    align-items: baseline;
-    flex-wrap: wrap;
-    padding: 8px 0;
-}
-.queued-phase > span {
-    flex: 1;
-}
-.queued-phase button {
-    font-size: 12px;
-}
 .notice {
     color: #efcb88;
-}
-@media (max-width: 600px) {
-    .round-planner {
-        padding: 12px;
-    }
-    .planner-heading strong {
-        font-size: 16px;
-    }
 }
 </style>

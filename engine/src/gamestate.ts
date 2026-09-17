@@ -2,6 +2,7 @@ import { AvailableMoves } from './available-moves';
 import { LogItem } from './log';
 import { GameMap } from './maps';
 import { Move } from './move';
+import type { AutomationState } from './premoves';
 
 // The default player palette, indexed by player id. Single source of truth: the
 // engine and (via factions / the chooseColors draft) the viewer both fall back to
@@ -141,6 +142,7 @@ export enum Phase {
 }
 
 export interface GameState {
+    automation?: AutomationState;
     map: GameMap;
     players: Player[];
     playerOrder: number[];

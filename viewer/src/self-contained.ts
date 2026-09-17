@@ -1,6 +1,7 @@
+import { move as wrapperMove, moveAI as wrapperAI } from 'powergrid-engine/wrapper';
+import type { PremoveCommand } from 'powergrid-engine/src/premoves';
 import { cloneDeep } from 'lodash';
-import { move as execMove, Move, Phase, setup, stripSecret } from 'powergrid-engine';
-import { moveAI } from 'powergrid-engine/src/engine';
+import { Move, Phase, setup, stripSecret } from 'powergrid-engine';
 import type { MapName, Variant } from 'powergrid-engine/src/gamestate';
 import { installLocalChat } from './game-chat';
 import launch from './launch';
@@ -60,16 +61,13 @@ function launchSelfContained(selector = '#app') {
         if (player.id != playerIndex) player.isAI = true;
     }
 
-    emitter.on('move', async (moves: Move | Move[]) => {
-        setTimeout(() => {
+    emitter.on('move', async (moves: Move[] | PremoveCommand) => {
+        setTimeout(async () => {
             console.log('moves received', moves);
 
             // Mimic the platform: replay the whole turn buffer from the last committed
             // state; only keep (persist) the result once the turn is committed.
-            let newState = cloneDeep(gameState);
-            for (const move of Array.isArray(moves) ? moves : [moves]) {
-                newState = execMove(newState, move, playerIndex);
-            }
+            const newState = await wrapperMove(cloneDeep(gameState), moves, playerIndex);
             console.log('new game state', newState);
 
             if (newState.newTurn === false) {
@@ -84,7 +82,7 @@ function launchSelfContained(selector = '#app') {
             let delay = delayBase;
             const moveAIAux = () => {
                 if (gameState.players.some((pl) => pl.isAI && pl.availableMoves)) {
-                    gameState = moveAI(
+                    gameState = wrapperAI(
                         gameState,
                         gameState.players.findIndex((pl) => pl.isAI && pl.availableMoves)
                     );
@@ -114,7 +112,7 @@ function launchSelfContained(selector = '#app') {
 
     let delay = delayBase;
     while (gameState.players.some((pl) => pl.isAI && pl.availableMoves)) {
-        gameState = moveAI(
+        gameState = wrapperAI(
             gameState,
             gameState.players.findIndex((pl) => pl.isAI && pl.availableMoves)
         );

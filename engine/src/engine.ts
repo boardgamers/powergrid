@@ -580,6 +580,12 @@ export function stripSecret(G: GameState, player?: number): GameState {
     return {
         ...G,
         seed: 'secret',
+        automation: {
+            version: 1,
+            plans: player != undefined && G.automation?.plans[player] ? { [player]: G.automation.plans[player] } : {},
+            increments: G.automation?.increments || G.players.map(() => 0),
+            liveUpdate: G.automation?.liveUpdate || false,
+        },
         hiddenLog: [],
         powerPlantsDeck: [],
         players: G.players.map((pl, i) => {
@@ -602,7 +608,12 @@ export function currentPlayers(G: GameState): number[] {
     return G.currentPlayers;
 }
 
-export function move(G: GameState, move: Move, playerNumber: number): GameState {
+export function move(
+    G: GameState,
+    move: Move,
+    playerNumber: number,
+    { updateBuildingMarket = true }: { updateBuildingMarket?: boolean } = {}
+): GameState {
     const player = G.players[playerNumber];
     const available = player.availableMoves?.[move.name];
 
@@ -1061,15 +1072,7 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
 
                 case Phase.Bureaucracy: {
                     player.passed = true;
-                    const citiesPowered: number = Math.min(player.cities.length, player.citiesPowered);
-                    let payment: number = G.paymentTable[citiesPowered];
-
-                    // For the India map, if the number of cities built in the current round is more than twice
-                    // the number of players, each player is penalized three Elektro per city (power outage).
-                    if (G.map.name == 'India' && G.citiesBuiltInCurrentRound! > G.players.length * 2) {
-                        payment -= 3 * player.cities.length;
-                        payment = Math.max(payment, 0); // No negative income
-                    }
+                    const payment = powerIncome(G, player);
 
                     player.money += payment;
 
@@ -1685,7 +1688,9 @@ export function move(G: GameState, move: Move, playerNumber: number): GameState 
                 G.citiesBuiltInCurrentRound!++;
             }
 
-            if (G.options.variant == 'original') {
+            // Local round planning cannot know the replacement from the hidden deck.
+            // That market change only matters for later rounds, outside its scope.
+            if (updateBuildingMarket && G.options.variant == 'original') {
                 if (
                     G.actualMarket.length > 0 &&
                     player.cities.length >= G.actualMarket[0].number &&
@@ -2614,7 +2619,7 @@ function calculateCitiesPowered(G: GameState) {
     });
 }
 
-function calculateMaxCitiesPowered(G: GameState, player: Player) {
+export function calculateMaxCitiesPowered(G: GameState, player: Player) {
     // Australia's uranium mines never power cities, so they are excluded from the
     // powering combinations (this also keeps the 2^n permutation set smaller).
     const countablePlants = player.powerPlants.filter((pp) => !isUraniumMine(G, pp));
@@ -2738,7 +2743,7 @@ function toResourcesPhase(G: GameState) {
     setCurrentPlayer(G, G.playerOrder[G.players.length - 1]);
 }
 
-function endAuction(G: GameState, winningPlayer: Player, bid: number) {
+export function endAuction(G: GameState, winningPlayer: Player, bid: number) {
     winningPlayer.powerPlants.push(G.chosenPowerPlant!);
     winningPlayer.money -= bid;
 
@@ -3000,4 +3005,13 @@ function fastAuction(G: GameState, player: Player, bid: number) {
             }
         }
     }
+}
+
+/** City income is shared with the current-round planner. Australia mine sales resolve separately. */
+export function powerIncome(G: GameState, player: Player): number {
+    let payment = G.paymentTable[Math.min(player.cities.length, player.citiesPowered)];
+    if (G.map.name === 'India' && G.citiesBuiltInCurrentRound! > G.players.length * 2) {
+        payment = Math.max(0, payment - 3 * player.cities.length);
+    }
+    return payment;
 }

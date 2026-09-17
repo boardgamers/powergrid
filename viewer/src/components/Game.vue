@@ -1,7 +1,42 @@
 <template>
     <div :class="['game', { fitToScreen: preferences.fitToScreen && !stacked, stacked: stacked }]">
-        <div class="statusBar">
-            {{ getStatusMessage() }}
+        <div class="planner-header" :class="{ planning: roundPlan }">
+            <div class="statusBar">
+                <span class="status-message">{{ getStatusMessage() }}</span>
+                <button
+                    v-if="!tutorialMove && !paused && canPlanRound && !roundPlan"
+                    class="plan-entry"
+                    :title="
+                        canPreparePremoves
+                            ? 'Plan cities and powering for this round'
+                            : 'Simulate the rest of this round with the game controls'
+                    "
+                    @click="startPlanning()"
+                >
+                    <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M3 2v15h15M6 12l4-5 4 3 4-6" fill="none" stroke="currentColor" stroke-width="1.6" />
+                    </svg>
+                    {{ canPreparePremoves ? 'Plan' : 'Simulate' }}
+                </button>
+                <button v-if="roundPlan" class="plan-entry" @click="stopPlanning()">Return to live game</button>
+            </div>
+            <RoundPlanner
+                v-if="!tutorialMove && !paused && (roundPlan || myPhaseQueue || planningError)"
+                :plan="roundPlan"
+                :queue="myPhaseQueue"
+                :can-start="canPlanRound"
+                :queueable="canQueueRound"
+                :plays-now="planPlaysNow"
+                :queue-hint="queueHint"
+                :pending="!!pendingPlanId"
+                :error="planningError"
+                :live-changed="planningChanged"
+                @clear="startPlanning(true)"
+                @skip-plant="sendMove({ name: 'Pass', data: true })"
+                @queue="submitRoundPlan"
+                @view="viewQueuedPlan"
+                @cancel="cancelPhasePlan"
+            />
         </div>
         <svg
             v-if="G"
@@ -366,7 +401,7 @@
                     transform="translate(15, 15)"
                     :enabled="canPass()"
                     :highlightButton="canPass() && !preferences.disableHelp"
-                    :text="tutorialMove || canUndo() ? 'Done' : 'Pass'"
+                    :text="tutorialMove || roundPlan || canUndo() ? 'Done' : 'Pass'"
                     @click="checkPass()"
                 />
                 <UndoButton
@@ -783,6 +818,17 @@ import PlayerOrder from './boards/PlayerOrder.vue';
 import CityCount from './boards/CityCount.vue';
 import Map from './boards/Map.vue';
 import ResourceBoxes from './boards/ResourceBoxes.vue';
+import RoundPlanner from './RoundPlanner.vue';
+import {
+    copyState,
+    nextPlanningPhase,
+    startRoundPlan,
+    planMove,
+    replayRoundPlan,
+    RoundPlan,
+} from 'powergrid-engine/src/planning';
+import { PhasePlan, PremoveCommand, canQueuePhases } from 'powergrid-engine/src/premoves';
+import { completedPhases } from '../util/round-plan';
 import Resources from './boards/Resources.vue';
 import { LogMove } from 'powergrid-engine/src/log';
 import { Phase, playerTimeUsed, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
@@ -925,6 +971,7 @@ const round = (n: number, digits = 2) => Number(n.toFixed(digits));
         ResourceViewButton,
         Button,
         Calculator,
+        RoundPlanner,
         PowerPlantMarket,
         PlayerOrder,
         CityCount,
@@ -1038,6 +1085,146 @@ export default class Game extends Vue {
     // without any server call (the platform's saved state IS the turn start).
     committedState: GameState | null = null;
 
+    roundPlan: RoundPlan | null = null;
+    planningBase: GameState | null = null;
+    planningError = '';
+    pendingPlanId = '';
+    pendingPlanIsCancel = false;
+    pendingPlanTimer: ReturnType<typeof setTimeout> | undefined;
+
+    get canPlanRound(): boolean {
+        return (
+            !this.tutorialMove &&
+            !this.paused &&
+            !this.interactionDisabled &&
+            this.player != undefined &&
+            !!this.committedState &&
+            !!nextPlanningPhase(this.committedState, this.player)
+        );
+    }
+    get canPreparePremoves(): boolean {
+        return !!this.committedState && this.player != null && canQueuePhases(this.committedState, this.player, []);
+    }
+    get myPhaseQueue() {
+        return this.committedState?.automation?.plans[this.player!];
+    }
+    get planningChanged(): boolean {
+        if (!this.roundPlan || !this.planningBase || !this.committedState) return false;
+        const base = this.planningBase,
+            live = this.committedState;
+        return (
+            base.round !== live.round ||
+            base.phase !== live.phase ||
+            base.log.length !== live.log.length ||
+            JSON.stringify(base.players[this.player!]) !== JSON.stringify(live.players[this.player!])
+        );
+    }
+    get canQueueRound(): boolean {
+        if (
+            !this.roundPlan ||
+            !this.committedState ||
+            this.pendingPlanId ||
+            this.turnMoves.length ||
+            this.roundPlan.state.round !== this.committedState.round
+        )
+            return false;
+        const phases = completedPhases(this.roundPlan);
+        return phases.length > 0 && canQueuePhases(this.committedState, this.player!, phases);
+    }
+    get planPlaysNow(): boolean {
+        return (
+            !!this.roundPlan &&
+            !!this.committedState?.currentPlayers.includes(this.player!) &&
+            completedPhases(this.roundPlan)[0]?.phase === this.committedState.phase
+        );
+    }
+    get queueHint(): string {
+        if (this.roundPlan && this.committedState && this.roundPlan.state.round !== this.committedState.round)
+            return 'The round ended. Start a new simulation.';
+        if (this.turnMoves.length || !this.committedState || !canQueuePhases(this.committedState, this.player!, []))
+            return 'Purchases are simulation only. Finish buying resources in the live game before queueing.';
+        return '';
+    }
+    startPlanning(restart = false) {
+        if (!this.canPlanRound) return;
+        try {
+            const base = restart || this.roundPlan ? this.committedState! : this.G!;
+            this.planningBase = copyState(base);
+            this.roundPlan = startRoundPlan(base, this.player!);
+            this.planningError = '';
+            this.showPlan();
+        } catch (error) {
+            this.planningError = String(error instanceof Error ? error.message : error);
+        }
+    }
+    showPlan() {
+        this.confirmVisible = this.discardVisible = this.freeJumpVisible = false;
+        this.soleBuyerPlant = null;
+        this.G = null;
+        this.replaceState(this.roundPlan!.state, false, false);
+    }
+    stopPlanning() {
+        this.roundPlan = null;
+        this.planningBase = null;
+        this.planningError = '';
+        this.G = null;
+        this.replaceState(this.turnMoves.length ? this.replayTurnBuffer() : this.committedState!, false, false);
+    }
+    undoPlan() {
+        if (!this.roundPlan?.entries.length) return;
+        this.roundPlan = replayRoundPlan(
+            this.planningBase!,
+            this.player!,
+            this.roundPlan.entries.slice(0, -1),
+            this.roundPlan.startPhase
+        );
+        this.planningError = '';
+        this.showPlan();
+    }
+    submitRoundPlan() {
+        if (!this.canQueueRound) return;
+        this.sendPhasePlan(completedPhases(this.roundPlan!));
+    }
+    cancelPhasePlan(from: number) {
+        this.sendPhasePlan((this.myPhaseQueue?.phases || []).slice(0, from), true);
+    }
+    sendPhasePlan(phases: PhasePlan[], cancelling = false) {
+        if (this.pendingPlanId || !this.committedState) return;
+        const request: PremoveCommand = {
+            type: 'premoves',
+            round: this.committedState.round,
+            revision: this.myPhaseQueue?.revision || 0,
+            requestId: crypto.randomUUID(),
+            phases,
+        };
+        this.pendingPlanId = request.requestId;
+        this.pendingPlanIsCancel = cancelling;
+        this.planningError = '';
+        this.emitter.emit('premoves', request);
+        this.pendingPlanTimer = setTimeout(() => {
+            if (this.pendingPlanId) {
+                this.pendingPlanId = '';
+                this.planningError = 'The queue was not confirmed. Refresh the live game before trying again.';
+                this.emitter.emit('fetchState');
+            }
+        }, 12000);
+    }
+    viewQueuedPlan() {
+        if (!this.myPhaseQueue?.phases.length) return;
+        this.startPlanning();
+        try {
+            // Viewing a powering-only queue must not add a queued pass through building.
+            this.roundPlan = startRoundPlan(this.planningBase!, this.player!, this.myPhaseQueue.phases[0].phase);
+            for (const phase of this.myPhaseQueue.phases) {
+                for (const move of phase.moves) this.roundPlan = planMove(this.roundPlan!, move);
+            }
+            this.showPlan();
+        } catch (error) {
+            this.planningError = 'The live board changed: ' + String(error instanceof Error ? error.message : error);
+            this.showPlan();
+        }
+    }
+
     @Watch('state', { immediate: true })
     onStateChanged(state: GameState) {
         if (this.tutorialMove) {
@@ -1049,6 +1236,26 @@ export default class Game extends Vue {
             this.soleBuyerPlant = null;
             this.totalBid = 0;
             this.replaceState(state);
+            return;
+        }
+        if (
+            state &&
+            state.newTurn !== false &&
+            this.pendingPlanId &&
+            state.automation?.plans[this.player!]?.requestId === this.pendingPlanId
+        ) {
+            this.pendingPlanId = '';
+            if (this.pendingPlanTimer) clearTimeout(this.pendingPlanTimer);
+            if (!this.pendingPlanIsCancel) {
+                this.roundPlan = null;
+                this.planningBase = null;
+            }
+        }
+        if (this.roundPlan) {
+            if (state && state.newTurn !== false) {
+                this.committedState = copyState(state);
+                this._futureState = state;
+            }
             return;
         }
         if (state && state.newTurn !== false) {
@@ -1248,6 +1455,10 @@ export default class Game extends Vue {
     }
 
     undo() {
+        if (this.roundPlan) {
+            this.undoPlan();
+            return;
+        }
         if (this.paused || this.turnMoves.length === 0 || !this.committedState) {
             return;
         }
@@ -1296,6 +1507,7 @@ export default class Game extends Vue {
     // True when it is the auction, it's this player's turn to choose a plant, and they
     // are the only remaining buyer — matching the engine's uncontested-purchase case.
     isSoleBuyer(): boolean {
+        if (this.roundPlan) return false;
         if (!this.canMove() || this.G!.phase !== Phase.Auction || this.G!.chosenPowerPlant || !this.canChoose()) {
             return false;
         }
@@ -1344,6 +1556,19 @@ export default class Game extends Vue {
      * ever frees money and plant capacity, so the remaining buffer always replays.
      */
     unbuyResource(payload: { resource: ResourceType; side?: 'north' | 'south'; fromStorage?: boolean }) {
+        if (this.roundPlan) {
+            const entries = [...this.roundPlan.entries];
+            const index = lastBuyIndex(
+                entries.map((e) => e.move),
+                payload
+            );
+            if (index >= 0 && this.roundPlan.state.phase === Phase.Resources) {
+                entries.splice(index, 1);
+                this.roundPlan = replayRoundPlan(this.planningBase!, this.player!, entries, this.roundPlan.startPhase);
+                this.showPlan();
+            }
+            return;
+        }
         if (this.paused || !this.committedState) {
             return;
         }
@@ -1372,7 +1597,13 @@ export default class Game extends Vue {
      * empty spaces are clickable.
      */
     get bufferedBuys(): Record<string, number> {
-        return bufferedBuyCounts(this.turnMoves);
+        return bufferedBuyCounts(
+            this.roundPlan
+                ? this.roundPlan.state.phase === Phase.Resources
+                    ? this.roundPlan.entries.filter((e) => e.phase === Phase.Resources).map((e) => e.move)
+                    : []
+                : this.turnMoves
+        );
     }
 
     bid(bid: number) {
@@ -1648,6 +1879,17 @@ export default class Game extends Vue {
             return;
         }
 
+        if (this.roundPlan) {
+            try {
+                this.roundPlan = planMove(this.roundPlan, move);
+                this.planningError = '';
+                this.showPlan();
+            } catch (error) {
+                this.planningError = String(error instanceof Error ? error.message : error);
+            }
+            return;
+        }
+
         // What the board offered when this click was judged — the same list the
         // button that produced it was enabled from.
         const offeredWhenClicked =
@@ -1771,6 +2013,7 @@ export default class Game extends Vue {
     }
 
     canUndo() {
+        if (this.roundPlan) return this.roundPlan.entries.length > 0;
         if (!this.canMove()) return false;
 
         // Undo scope = the current tentative turn: anything still in the buffer
@@ -2034,6 +2277,13 @@ export default class Game extends Vue {
     }
 
     getStatusMessage() {
+        if (this.roundPlan)
+            return this.roundPlan.finished
+                ? 'Simulation complete · Round ' + this.roundPlan.state.round
+                : 'Planning · ' +
+                      (this.roundPlan.state.phase === Phase.Bureaucracy
+                          ? 'Powering cities'
+                          : this.roundPlan.state.phase);
         // Color draft (chooseColors): prompt the current picker, even on the very
         // first turn before any moves are in the log.
         if (
@@ -2482,6 +2732,7 @@ export default class Game extends Vue {
     }
 
     beforeDestroy() {
+        if (this.pendingPlanTimer) clearTimeout(this.pendingPlanTimer);
         window.removeEventListener('resize', this.onViewportResize);
         window.removeEventListener('orientationchange', this.onViewportResize);
         window.removeEventListener('load', this.onViewportResize);
@@ -2542,18 +2793,70 @@ ul {
     max-height: calc(100vh - 40px);
 }
 
+.planner-header {
+    display: contents;
+}
+.planner-header.planning {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 12px;
+    padding: 0 10px;
+    color: white;
+    background: black;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.planner-header.planning .statusBar {
+    display: contents;
+}
+.planner-header.planning .status-message {
+    min-width: 150px;
+}
 .statusBar {
-    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 40px;
+    box-sizing: border-box;
+    padding: 0 10px;
     width: 100%;
     background-color: black;
     color: #fff;
     text-align: center;
-    line-height: 40px;
+    line-height: 1.3;
     font-size: 20px;
     position: sticky;
     top: 0;
     z-index: 10;
     flex-shrink: 0;
+}
+
+.status-message {
+    flex: 1;
+    padding: 7px 0;
+}
+.plan-entry {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid #69776b;
+    border-radius: 4px;
+    padding: 5px 9px;
+    color: #e5efd9;
+    background: #242e23;
+    font: 500 13px system-ui, sans-serif;
+    cursor: pointer;
+}
+.plan-entry:hover {
+    background: #3a4c32;
+}
+.plan-entry:focus-visible {
+    outline: 2px solid #e0efb6;
+    outline-offset: 2px;
 }
 
 #scene {

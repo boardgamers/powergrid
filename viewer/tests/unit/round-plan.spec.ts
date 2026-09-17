@@ -1,7 +1,11 @@
+import { completedPhases } from '@/util/round-plan';
 import { expect } from 'chai';
 import { MoveName, Phase, setup } from 'powergrid-engine';
-import { planMove, startRoundPlan } from 'powergrid-engine/dist/src/planning';
-import { completedPhases } from '@/util/round-plan';
+// Use source types so the app can type-check before the engine build. Unit tests run the compiled engine.
+const {
+    planMove,
+    startRoundPlan,
+}: typeof import('powergrid-engine/src/planning') = require('powergrid-engine/dist/src/planning');
 
 describe('round planner queue selection', () => {
     it('queues only complete building and powering phases, excluding assumed purchases', () => {

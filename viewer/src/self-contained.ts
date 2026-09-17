@@ -1,8 +1,8 @@
-import { move as wrapperMove, moveAI as wrapperAI } from 'powergrid-engine/wrapper';
-import type { PremoveCommand } from 'powergrid-engine/src/premoves';
 import { cloneDeep } from 'lodash';
 import { Move, Phase, setup, stripSecret } from 'powergrid-engine';
 import type { MapName, Variant } from 'powergrid-engine/src/gamestate';
+import type { PremoveCommand } from 'powergrid-engine/src/premoves';
+import { move as wrapperMove, moveAI as wrapperAI } from 'powergrid-engine/wrapper';
 import { installLocalChat } from './game-chat';
 import launch from './launch';
 import { mountSoundTests } from './sounds';

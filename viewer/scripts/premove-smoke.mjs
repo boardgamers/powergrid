@@ -78,7 +78,7 @@ try {
     assert.deepEqual(await state(), initial, 'live state unchanged by simulation');
     await screenshot('planning');
     await button('Review premoves').click();
-    assert.match(await page.getByRole('dialog').innerText(), /Osnabrück · up to \$10/);
+    assert.match(await page.getByRole('dialog').innerText(), /Osnabrück · \$10/);
     await button('Queue phases').click();
     await page.getByText('Your premoves · round 3', { exact: true }).waitFor();
     assert.equal(sent, 1);
@@ -86,9 +86,12 @@ try {
     assert.deepEqual((await state('after-resources', 1)).automation.plans, {}, 'queue is private');
     await page.reload();
     await button('View on board').waitFor();
+    assert.equal(await button('Cancel powering').count(), 0);
+    assert.equal(await button('Cancel from here').count(), 0, 'no duplicate Cancel all control');
     await screenshot('queued');
     await button('View on board').click();
     await phase('Simulation complete');
+    assert.equal(await button('Review premoves').count(), 0, 'viewing an unchanged queue needs no review');
     await button('Cancel queued moves').click();
     await page.waitForFunction(
         () => !document.querySelector('.round-planner')?.textContent.includes('Saving premoves')

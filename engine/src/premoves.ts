@@ -54,14 +54,14 @@ function resolveMove(G: GameState, seat: number, move: Move): Move {
     const offered = availableMoves(G, G.players[seat])[move.name];
     if (move.name === MoveName.Build) {
         const intended = move as Moves.MoveBuild;
-        assert(Number.isFinite(intended.data.price) && intended.data.price >= 0, 'Invalid city spending limit.');
+        assert(Number.isFinite(intended.data.price) && intended.data.price >= 0, 'Invalid city price.');
         const actual = (offered as Moves.MoveBuild['data'][] | undefined)?.find(
             (p) => p.name === intended.data.name && !!p.freeJump === !!intended.data.freeJump
         );
         assert(actual, `${intended.data.name} is no longer available or affordable.`);
         assert(
-            actual.price <= intended.data.price,
-            `${intended.data.name} now costs $${actual.price}, above your $${intended.data.price} limit.`
+            actual.price === intended.data.price,
+            `${intended.data.name} now costs $${actual.price}, instead of the planned $${intended.data.price}.`
         );
         return { name: MoveName.Build, data: copyState(actual) };
     }

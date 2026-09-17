@@ -6,8 +6,8 @@ import { GameState, Phase } from './gamestate';
 import { Move, MoveName } from './move';
 import { copyState, planMove, replayRoundPlan, startRoundPlan } from './planning';
 import { powerPlants } from './powerPlants';
-const getPowerPlant = (number: number) => copyState(powerPlants.find((p) => p.number === number)!);
 import { automation, PhasePlan, PremoveCommand, runPremoves } from './premoves';
+const getPowerPlant = (number: number) => copyState(powerPlants.find((p) => p.number === number)!);
 
 const pass: Move = { name: MoveName.Pass, data: true };
 export function position(): GameState {
@@ -149,19 +149,18 @@ describe('current-round planning and premoves', () => {
             .reduce((sum, m) => sum + (m.data as any).price, 0);
         expect(saved.players[0].money).to.equal(start - cost + 33);
     });
-    it('cancels the tail and rejects stale edits or duplicate execution', async () => {
+    it('cancels the queue and rejects stale edits or duplicate execution', async () => {
         let G = await wrapper.move(position(), request(fullPlan()), 0);
         G = await wrapper.move(G, request(fullPlan(), 0), 0);
         expect(G.automation!.plans[0].revision).to.equal(1);
-        G = await wrapper.move(G, request([fullPlan()[0]], 1, 'cancel-power'), 0);
-        expect(G.automation!.plans[0].phases).to.have.length(1);
+        G = await wrapper.move(G, request([], 1, 'cancel-all'), 0);
+        expect(G.automation!.plans[0].phases).to.have.length(0);
         try {
             await wrapper.move(copyState(G), request([], 1, 'stale'), 0);
             throw Error('accepted');
         } catch (e) {
             expect(e.message).to.contain('queue changed');
         }
-        G = await wrapper.move(G, request([], 2, 'cancel-all'), 0);
         expect(G.automation!.plans[0].phases).to.have.length(0);
         expect(wrapper.timeIncrements(G)[0]).to.equal(0);
     });
@@ -204,7 +203,7 @@ describe('current-round planning and premoves', () => {
         expect(G.automation!.plans[0].notice).to.contain('Premoves stopped');
         expect(wrapper.timeIncrements(G)[0]).to.equal(0);
     });
-    it('honours city price ceilings when an extra house slot raises the cost', async () => {
+    it('stops when an extra house slot changes the planned price', async () => {
         let G = position();
         G.step = 2;
         const phases = fullPlan(G);
@@ -215,7 +214,7 @@ describe('current-round planning and premoves', () => {
         G.players[0].passed = false;
         G = runPremoves(G);
         expect(G.players[0].money).to.equal(70);
-        expect(G.automation!.plans[0].notice).to.contain('above your');
+        expect(G.automation!.plans[0].notice).to.contain('instead of the planned');
     });
     it('does not use unavailable fuel or let a plan carry into the next round', async () => {
         let G = await wrapper.move(position(), request(fullPlan()), 0);

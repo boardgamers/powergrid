@@ -15,7 +15,7 @@
                     <button v-if="queueable" class="primary" @click="review = true">
                         {{ playsNow ? 'Review and play' : 'Review premoves' }}
                     </button>
-                    <button v-if="hasQueue" :disabled="pending" @click="$emit('cancel', 0)">Cancel queued moves</button>
+                    <button v-if="hasQueue" :disabled="pending" @click="$emit('cancel')">Cancel queued moves</button>
                 </div>
             </div>
             <p v-if="!queueable && queueHint" class="muted queue-hint">{{ queueHint }}</p>
@@ -36,10 +36,10 @@
                 <strong>Your premoves · round {{ queue.round }}</strong>
                 <div class="planner-controls">
                     <button v-if="canStart" @click="$emit('view')">View on board</button
-                    ><button :disabled="pending" @click="$emit('cancel', 0)">Cancel all</button>
+                    ><button :disabled="pending" @click="$emit('cancel')">Cancel all</button>
                 </div>
             </div>
-            <div v-for="(phase, i) in queue.phases" :key="phase.phase" class="queued-phase">
+            <div v-for="phase in queue.phases" :key="phase.phase" class="queued-phase">
                 <strong>{{ phaseName(phase.phase) }}</strong
                 ><span>{{
                     phase.moves
@@ -47,10 +47,7 @@
                         .map(describeMove)
                         .join(' · ') ||
                     (phase.phase === 'Building' ? 'Finish without building' : 'Finish without powering')
-                }}</span
-                ><button :disabled="pending" @click="$emit('cancel', i)">
-                    {{ phase.phase === 'Bureaucracy' ? 'Cancel powering' : 'Cancel from here' }}
-                </button>
+                }}</span>
             </div>
         </template>
         <p v-if="queue && queue.notice" role="status" class="notice">{{ queue.notice }}</p>
@@ -74,8 +71,8 @@
                     </ol>
                 </div>
                 <p>
-                    Each city has the price limit shown above. If any move in a phase is unavailable, that phase spends
-                    nothing and the remaining queue stops.
+                    If a city’s price changes or a move becomes unavailable, that phase spends nothing and the remaining
+                    queue stops.
                 </p>
                 <div class="planner-controls">
                     <button @click="review = false">Keep planning</button

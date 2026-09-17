@@ -785,6 +785,7 @@
     </div>
 </template>
 <script lang="ts">
+import { isEqual } from 'lodash';
 import InlineLog from './InlineLog.vue';
 import { Vue, Component, Prop, Watch, Provide, ProvideReactive, Ref } from 'vue-property-decorator';
 import { MoveName, ended, playersSortedByScore, reconstructState } from 'powergrid-engine';
@@ -1138,7 +1139,9 @@ export default class Game extends Vue {
         )
             return false;
         const phases = completedPhases(this.roundPlan);
-        return phases.length > 0 && canQueuePhases(this.committedState, this.player!, phases);
+        return phases.length > 0 &&
+            !isEqual(phases, this.myPhaseQueue?.phases) &&
+            canQueuePhases(this.committedState, this.player!, phases);
     }
     get planPlaysNow(): boolean {
         return (
@@ -1194,8 +1197,8 @@ export default class Game extends Vue {
         if (!this.canQueueRound) return;
         this.sendPhasePlan(completedPhases(this.roundPlan!));
     }
-    cancelPhasePlan(from: number) {
-        this.sendPhasePlan((this.myPhaseQueue?.phases || []).slice(0, from), true);
+    cancelPhasePlan() {
+        this.sendPhasePlan([], true);
     }
     sendPhasePlan(phases: PhasePlan[], cancelling = false) {
         if (this.pendingPlanId || !this.committedState) return;

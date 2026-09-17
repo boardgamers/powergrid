@@ -1,4 +1,4 @@
-import { Phase, MoveName, Move } from 'powergrid-engine';
+import { Move, MoveName, Phase } from 'powergrid-engine';
 import type { RoundPlan } from 'powergrid-engine/src/planning';
 import type { PhasePlan } from 'powergrid-engine/src/premoves';
 
@@ -13,7 +13,7 @@ export function completedPhases(plan: RoundPlan): PhasePlan[] {
 export function describeMove(move: Move): string {
     switch (move.name) {
         case MoveName.Build:
-            return `${move.data.name} · up to $${move.data.price}`;
+            return `${move.data.name} · $${move.data.price}`;
         case MoveName.UsePowerPlant:
             return `Plant ${move.data.powerPlant}${
                 move.data.resourcesSpent.length ? ' · ' + move.data.resourcesSpent.join(', ') : ' · no fuel'

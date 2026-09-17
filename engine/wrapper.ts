@@ -1,3 +1,9 @@
+import type { GameState } from './index';
+import * as engine from './src/engine';
+import { playersSortedByScore } from './src/engine';
+import { GameOptions } from './src/gamestate';
+import type { LogMove } from './src/log';
+import { Move, MoveName } from './src/move';
 import {
     automation,
     canManagePremoves,
@@ -7,12 +13,6 @@ import {
     runPremoves,
     setPremoves,
 } from './src/premoves';
-import type { GameState } from './index';
-import * as engine from './src/engine';
-import { playersSortedByScore } from './src/engine';
-import { GameOptions } from './src/gamestate';
-import type { LogMove } from './src/log';
-import { Move, MoveName } from './src/move';
 import { asserts } from './src/utils';
 
 export async function init(

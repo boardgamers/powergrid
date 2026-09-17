@@ -179,6 +179,11 @@ try {
         (await state('powering')).automation.plans[0].phases.map((p) => p.phase),
         ['Bureaucracy']
     );
+    const cancelled = page.waitForResponse((r) => new URL(r.url()).pathname === '/move');
+    await button('Cancel all').click();
+    await cancelled;
+    await page.locator('.round-planner').waitFor({ state: 'detached' });
+    assert.equal(await page.locator('.round-planner').count(), 0, 'empty saved queue has no leftover strip');
     console.log('Mobile powering-only plan passed.');
     assert.deepEqual(errors, [], 'no browser runtime errors');
 } finally {

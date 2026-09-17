@@ -21,7 +21,7 @@
                 <button v-if="roundPlan" class="plan-entry" @click="stopPlanning()">Return to live game</button>
             </div>
             <RoundPlanner
-                v-if="!tutorialMove && !paused && (roundPlan || myPhaseQueue || planningError)"
+                v-if="!tutorialMove && !paused && hasPlanPanel"
                 :plan="roundPlan"
                 :queue="myPhaseQueue"
                 :can-start="canPlanRound"
@@ -1104,6 +1104,15 @@ export default class Game extends Vue {
     }
     get canPreparePremoves(): boolean {
         return !!this.committedState && this.player != null && canQueuePhases(this.committedState, this.player, []);
+    }
+    get hasPlanPanel(): boolean {
+        return !!(
+            this.roundPlan ||
+            this.myPhaseQueue?.phases.length ||
+            this.myPhaseQueue?.notice ||
+            this.planningError ||
+            this.pendingPlanId
+        );
     }
     get myPhaseQueue() {
         return this.committedState?.automation?.plans[this.player!];

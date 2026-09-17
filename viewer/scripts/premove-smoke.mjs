@@ -77,21 +77,20 @@ try {
     assert.equal(sent, 0, 'planning never submits real moves');
     assert.deepEqual(await state(), initial, 'live state unchanged by simulation');
     await screenshot('planning');
-    await button('Review premoves').click();
-    assert.match(await page.getByRole('dialog').innerText(), /Osnabrück · \$10/);
-    await button('Queue phases').click();
+    await button('Validate').click();
     await page.getByText('Your premoves · round 3', { exact: true }).waitFor();
     assert.equal(sent, 1);
     assert.equal((await state()).automation.plans[0].phases.length, 2);
     assert.deepEqual((await state('after-resources', 1)).automation.plans, {}, 'queue is private');
     await page.reload();
-    await button('View on board').waitFor();
+    await button('Plan').waitFor();
+    assert.equal(await button('View on board').count(), 0, 'Plan is the single entry to the saved queue');
     assert.equal(await button('Cancel powering').count(), 0);
     assert.equal(await button('Cancel from here').count(), 0, 'no duplicate Cancel all control');
     await screenshot('queued');
-    await button('View on board').click();
+    await button('Plan').click();
     await phase('Simulation complete');
-    assert.equal(await button('Review premoves').count(), 0, 'viewing an unchanged queue needs no review');
+    assert.equal(await button('Validate').count(), 0, 'viewing an unchanged queue needs no validation');
     await button('Cancel queued moves').click();
     await page.waitForFunction(
         () => !document.querySelector('.round-planner')?.textContent.includes('Saving premoves')
@@ -99,8 +98,7 @@ try {
     await phase('Simulation complete');
     assert.equal((await state()).automation.plans[0].phases.length, 0);
     assert.match(await ownBoard().textContent(), /Money: \$76/, 'cancelling keeps local simulation');
-    await button('Review premoves').click();
-    await button('Queue phases').click();
+    await button('Validate').click();
     await button('Cancel all').waitFor();
     for (let i = 0; i < 2; i++) {
         const response = page.waitForResponse((r) => new URL(r.url()).pathname === '/opponent');
@@ -145,7 +143,7 @@ try {
     await phase('Building');
     await city('Osnabrück').click();
     assert.match(await ownBoard().textContent(), /Money: \$39/);
-    assert.equal(await button('Review premoves').count(), 0, 'assumed purchases cannot be queued');
+    assert.equal(await button('Validate').count(), 0, 'assumed purchases cannot be queued');
     await screenshot('auction');
     await button('Start over').click();
     await phase('Auction');
@@ -170,13 +168,7 @@ try {
         'no mobile horizontal overflow'
     );
     await screenshot('mobile');
-    await button('Review premoves').click();
-    assert.equal(
-        await page.getByRole('dialog').getByText('Building', { exact: true }).count(),
-        0,
-        'powering-only plan'
-    );
-    await button('Queue phases').click();
+    await button('Validate').click();
     await button('Cancel all').waitFor();
     assert.deepEqual(
         (await state('powering')).automation.plans[0].phases.map((p) => p.phase),

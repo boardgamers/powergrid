@@ -4,7 +4,7 @@ The existing black status bar offers **Simulate** during auctions/resource buyin
 
 Plant bids are assumed winning prices in the simulation. Resource purchases use today's prices and storage limits. Neither can be queued. The preview does not predict other players' decisions or hidden plant draws, so building leaves the plant market and public deck indicator unchanged. Final scoring uses available power capacity without awarding normal income. Australia’s uranium mine sales are excluded from projected city income because their price depends on other players' sales.
 
-After real resource buying, finish a simulated building and/or powering phase with **Done**, then review and confirm the premoves. Each queued phase includes its ending pass. A phase already due plays immediately on confirmation; later phases wait for the player's turn. The saved queue can be viewed or cancelled after reload, and execution does not require an open browser.
+After real resource buying, finish a simulated building and/or powering phase with **Done**, then select **Validate**. Each queued phase includes its ending pass. A phase already due plays immediately when validated; later phases wait for the player's turn. The saved queue can be reopened with Plan or cancelled after reload, and execution does not require an open browser.
 
 Each city keeps its exact previewed price. The server rechecks every action against the current position, and commits a phase only if all its moves are legal. An occupied/unaffordable city, a changed price, or missing fuel stops the queue without partially spending on that phase. Already completed phases remain played. Manual moves replace the queue for that phase; later queued phases remain. Queues expire at the round boundary or game end.
 

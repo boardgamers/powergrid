@@ -12,8 +12,18 @@
                     <button v-if="plan.state.phase === 'Auction' && !discarding" @click="$emit('skip-plant')">
                         Continue without buying
                     </button>
-                    <button v-if="queueable" class="primary" @click="review = true">
-                        {{ playsNow ? 'Review and play' : 'Review premoves' }}
+                    <button
+                        v-if="queueable"
+                        class="primary"
+                        :disabled="pending"
+                        :title="
+                            playsNow
+                                ? 'Play this phase and queue the remaining moves'
+                                : 'Queue these moves for your turn'
+                        "
+                        @click="$emit('queue')"
+                    >
+                        Validate
                     </button>
                     <button v-if="hasQueue" :disabled="pending" @click="$emit('cancel')">Cancel queued moves</button>
                 </div>
@@ -35,8 +45,7 @@
             <div class="planner-heading">
                 <strong>Your premoves · round {{ queue.round }}</strong>
                 <div class="planner-controls">
-                    <button v-if="canStart" @click="$emit('view')">View on board</button
-                    ><button :disabled="pending" @click="$emit('cancel')">Cancel all</button>
+                    <button :disabled="pending" @click="$emit('cancel')">Cancel all</button>
                 </div>
             </div>
             <div v-for="phase in queue.phases" :key="phase.phase" class="queued-phase">
@@ -53,49 +62,13 @@
         <p v-if="queue && queue.notice" role="status" class="notice">{{ queue.notice }}</p>
         <p v-if="pending" role="status">Saving premoves…</p>
         <p v-if="error" role="status" class="notice">{{ error }}</p>
-        <div v-if="review" class="plan-dialog-backdrop">
-            <section role="dialog" aria-modal="true" aria-label="Confirm premoves" class="plan-dialog">
-                <h3>{{ playsNow ? 'Play this phase and queue the next?' : 'Queue these phases?' }}</h3>
-                <p>
-                    {{
-                        playsNow ? 'The current phase plays as soon as you confirm.' : 'These moves wait for your turn.'
-                    }}
-                    Later phases run automatically, even with your browser closed.
-                </p>
-                <div v-for="phase in phases" :key="phase.phase">
-                    <h4>{{ phaseName(phase.phase) }}</h4>
-                    <ol>
-                        <li v-for="(move, i) in phase.moves.filter((move) => move.name !== 'Pass')" :key="i">
-                            {{ describeMove(move) }}
-                        </li>
-                    </ol>
-                </div>
-                <p>
-                    If a city’s price changes or a move becomes unavailable, that phase spends nothing and the remaining
-                    queue stops.
-                </p>
-                <div class="planner-controls">
-                    <button @click="review = false">Keep planning</button
-                    ><button
-                        class="primary"
-                        :disabled="pending || !queueable"
-                        @click="
-                            review = false;
-                            $emit('queue');
-                        "
-                    >
-                        {{ playsNow ? 'Play and queue' : 'Queue phases' }}
-                    </button>
-                </div>
-            </section>
-        </div>
     </section>
 </template>
 <script lang="ts">
 import Vue from 'vue';
 import type { RoundPlan } from 'powergrid-engine/src/planning';
 import type { PremovePlan } from 'powergrid-engine/src/premoves';
-import { completedPhases, describeMove } from '../util/round-plan';
+import { describeMove } from '../util/round-plan';
 export default Vue.extend({
     props: {
         plan: { type: Object as () => RoundPlan | null, default: null },
@@ -104,18 +77,13 @@ export default Vue.extend({
         queueable: Boolean,
         playsNow: Boolean,
         pending: Boolean,
-        canStart: Boolean,
         error: String,
         queueHint: String,
     },
-    data: () => ({ review: false }),
     methods: { describeMove, phaseName: (phase: string) => (phase === 'Bureaucracy' ? 'Powering' : phase) },
     computed: {
         hasQueue(): boolean {
             return !!this.queue?.phases.length;
-        },
-        phases() {
-            return this.plan ? completedPhases(this.plan) : [];
         },
         discarding(): boolean {
             const moves = this.plan?.state.players[this.plan.seat].availableMoves;
@@ -232,28 +200,6 @@ button:focus-visible {
 }
 .notice {
     color: #efcb88;
-}
-.plan-dialog-backdrop {
-    position: fixed;
-    inset: 0;
-    z-index: 5000;
-    background: #0009;
-    display: grid;
-    place-items: center;
-    padding: 16px;
-}
-.plan-dialog {
-    background: #232d1a;
-    color: #f0f2e9;
-    max-width: 600px;
-    max-height: 85vh;
-    overflow: auto;
-    padding: 24px;
-    border-radius: 8px;
-    box-shadow: 0 12px 50px #0006;
-}
-.plan-dialog h3 {
-    margin-top: 0;
 }
 @media (max-width: 600px) {
     .round-planner {

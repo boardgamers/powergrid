@@ -11,7 +11,7 @@
                             ? 'Plan cities and powering for this round'
                             : 'Simulate the rest of this round with the game controls'
                     "
-                    @click="startPlanning()"
+                    @click="myPhaseQueue && myPhaseQueue.phases.length ? viewQueuedPlan() : startPlanning()"
                 >
                     <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true">
                         <path d="M3 2v15h15M6 12l4-5 4 3 4-6" fill="none" stroke="currentColor" stroke-width="1.6" />
@@ -24,7 +24,6 @@
                 v-if="!tutorialMove && !paused && hasPlanPanel"
                 :plan="roundPlan"
                 :queue="myPhaseQueue"
-                :can-start="canPlanRound"
                 :queueable="canQueueRound"
                 :plays-now="planPlaysNow"
                 :queue-hint="queueHint"
@@ -34,7 +33,6 @@
                 @clear="startPlanning(true)"
                 @skip-plant="sendMove({ name: 'Pass', data: true })"
                 @queue="submitRoundPlan"
-                @view="viewQueuedPlan"
                 @cancel="cancelPhasePlan"
             />
         </div>

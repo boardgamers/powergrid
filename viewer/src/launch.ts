@@ -1,6 +1,7 @@
 import { createViewer } from '@boardgamers/protocol/viewer';
 import { EventEmitter } from 'events';
 import type { GameState, Move } from 'powergrid-engine';
+import type { PremoveCommand } from 'powergrid-engine/src/premoves';
 import Vue from 'vue';
 import Game from './components/Game.vue';
 import { mountGameChat } from './game-chat';
@@ -51,7 +52,7 @@ function launch(selector: string) {
     }).$mount(mountPoint);
 
     let replaying = false;
-    const viewer = createViewer<GameState, Move[]>({
+    const viewer = createViewer<GameState, Move[] | PremoveCommand>({
         async onState(data) {
             params.state = data;
             app.$forceUpdate();
@@ -97,6 +98,7 @@ function launch(selector: string) {
     });
     const item = viewer.emitter;
     params.emitter.on('move', (moves: Move[]) => viewer.move(moves));
+    params.emitter.on('premoves', (command: PremoveCommand) => viewer.move(command));
     params.emitter.on('fetchState', () => viewer.fetchState());
     params.emitter.on('addLog', (data: string[]) => viewer.addLog(data));
     params.emitter.on('replaceLog', (data: string[]) => viewer.replaceLog(data));

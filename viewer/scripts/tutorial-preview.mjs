@@ -19,6 +19,10 @@ export function previewServer() {
     return createServer(async (req, res) => {
         const path = new URL(req.url, 'http://localhost').pathname;
         try {
+            if (path === '/favicon.ico') {
+                res.writeHead(204).end();
+                return;
+            }
             const file = files[path];
             if (path !== '/' && !file) {
                 res.writeHead(404).end();

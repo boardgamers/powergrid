@@ -4,6 +4,15 @@ import { playersSortedByScore } from './src/engine';
 import { GameOptions } from './src/gamestate';
 import type { LogMove } from './src/log';
 import { Move, MoveName } from './src/move';
+import {
+    automation,
+    canManagePremoves,
+    isPremoveCommand,
+    PremoveCommand,
+    reconcileManualPlan,
+    runPremoves,
+    setPremoves,
+} from './src/premoves';
 import { asserts } from './src/utils';
 
 export async function init(
@@ -37,7 +46,17 @@ export function setPlayerMetaData(G: GameState, player: number, metaData: { name
  * start. Each move carries the wall-clock stamp given to it when it FIRST entered the
  * buffer, so successive replays of the same buffer tick the in-game clocks identically.
  */
-export async function move(G: GameState, move: Move | Move[] | null | undefined, player: number): Promise<GameState> {
+export async function move(
+    G: GameState,
+    move: Move | Move[] | PremoveCommand | null | undefined,
+    player: number
+): Promise<GameState> {
+    automation(G).liveUpdate = false;
+    if (isPremoveCommand(move)) {
+        setPremoves(G, move, player);
+        return runPremoves(G, Date.now());
+    }
+    const initialPhase = G.phase;
     const moves: Move[] = move == null ? [] : Array.isArray(move) ? move : [move];
 
     if (moves.length === 0) {
@@ -74,7 +93,22 @@ export async function move(G: GameState, move: Move | Move[] | null | undefined,
         }
     }
 
+    if (G.newTurn !== false) {
+        automation(G).increments[player]++;
+        reconcileManualPlan(G, player, initialPhase);
+        G = runPremoves(G, now);
+    }
     return G;
+}
+
+export function canMoveOutOfTurn(G: GameState, move: unknown, player: number): boolean {
+    return isPremoveCommand(move) && canManagePremoves(G, player);
+}
+export function isLiveUpdate(G: GameState): boolean {
+    return G.automation?.liveUpdate === true;
+}
+export function timeIncrements(G: GameState): number[] {
+    return G.automation?.increments || G.players.map(() => 0);
 }
 
 /**
@@ -94,11 +128,13 @@ export { ended, scores, stripSecret } from './src/engine';
  * keep playing until the turn commits.
  */
 export function moveAI(G: GameState, player: number): GameState {
+    automation(G).liveUpdate = false;
     for (let i = 0; i < 500 && !engine.ended(G) && G.currentPlayers.includes(player); i++) {
         G = engine.moveAI(G, player);
 
         if (G.newTurn !== false) {
-            return G;
+            automation(G).increments[player]++;
+            return runPremoves(G, Date.now());
         }
     }
 
@@ -167,6 +203,9 @@ export function replay(G: GameState, { to = Infinity }: { to?: number } = {}): G
         G = engine.move(G, move.move, move.player);
     }
 
+    // Queue edits are private operational state, not game moves. Preserve them only
+    // for a full reconstruction; historical replay positions have no future queue.
+    if (to >= oldG.log.length && oldG.automation) G.automation = JSON.parse(JSON.stringify(oldG.automation));
     return G;
 }
 
@@ -180,6 +219,7 @@ export function round(G: GameState): number {
 const MAX_AUTO_MOVES = 1000;
 
 export async function dropPlayer(G: GameState, playerNum: number): Promise<GameState> {
+    automation(G).liveUpdate = false;
     const player = G.players[playerNum];
     player.isDropped = true;
 
@@ -215,8 +255,7 @@ export async function dropPlayer(G: GameState, playerNum: number): Promise<GameS
     // commit. Force the flag anyway (it costs nothing) so an unexpected auto-play path
     // can never leave the persisted state un-saveable.
     G.newTurn = true;
-
-    return G;
+    return runPremoves(G, Date.now());
 }
 
 export function currentPlayer(G: GameState): number[] {

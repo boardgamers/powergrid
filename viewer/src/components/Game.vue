@@ -27,6 +27,7 @@
                 v-if="!tutorialMove && !paused && hasPlanPanel"
                 :plan="roundPlan"
                 :queue="myPhaseQueue"
+                :notice="phaseQueueNotice"
                 :queueable="canQueueRound"
                 :plays-now="planPlaysNow"
                 :queue-hint="queueHint"
@@ -1106,12 +1107,11 @@ export default class Game extends Vue {
         return !!this.committedState && this.player != null && canQueuePhases(this.committedState, this.player, []);
     }
     get hasPlanPanel(): boolean {
-        return !!(
-            this.roundPlan ||
-            this.myPhaseQueue?.notice ||
-            this.planningError ||
-            this.pendingPlanId
-        );
+        return !!(this.roundPlan || this.phaseQueueNotice || this.planningError || this.pendingPlanId);
+    }
+    get phaseQueueNotice(): string {
+        const notice = this.myPhaseQueue?.notice || '';
+        return ['Your queued cities were built.', 'Your queued plants powered cities.'].includes(notice) ? '' : notice;
     }
     get myPhaseQueue() {
         return this.committedState?.automation?.plans[this.player!];
@@ -1144,9 +1144,11 @@ export default class Game extends Vue {
         )
             return false;
         const phases = completedPhases(this.roundPlan);
-        return phases.length > 0 &&
+        return (
+            phases.length > 0 &&
             !isEqual(phases, this.myPhaseQueue?.phases) &&
-            canQueuePhases(this.committedState, this.player!, phases);
+            canQueuePhases(this.committedState, this.player!, phases)
+        );
     }
     get planPlaysNow(): boolean {
         return (

@@ -28,7 +28,6 @@
                 there is no normal income payment.
             </p>
         </template>
-        <p v-if="notice" role="status" class="notice">{{ notice }}</p>
         <p v-if="pending" role="status">Saving premoves…</p>
         <p v-if="error" role="status" class="notice">{{ error }}</p>
     </section>
@@ -41,7 +40,6 @@ export default Vue.extend({
     props: {
         plan: { type: Object as () => RoundPlan | null, default: null },
         queue: { type: Object as () => PremovePlan | undefined, default: undefined },
-        notice: String,
         liveChanged: Boolean,
         queueable: Boolean,
         playsNow: Boolean,

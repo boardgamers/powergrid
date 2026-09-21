@@ -1,6 +1,6 @@
 {
 	"name": "powergrid-viewer",
-	"version": "2.1.9",
+	"version": "2.1.10",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/boardgamers/powergrid.git",
@@ -23,7 +23,7 @@
 		"tutorial:manifest": "node scripts/tutorial-manifest.cjs"
 	},
 	"dependencies": {
-		"@boardgamers/protocol": "0.4.0",
+		"@boardgamers/protocol": "0.4.2",
 		"core-js": "^3.6.5",
 		"lodash": "^4.17.19",
 		"powergrid-engine": "workspace:../engine",

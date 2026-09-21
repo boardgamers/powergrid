@@ -304,3 +304,20 @@ export function logSlice(G: GameState, options?: { player?: number; start?: numb
                       .players.map((pl) => pl.availableMoves),
     };
 }
+
+export function createAnalysis(data: GameState, { to }: { to: number; sourceEnded: boolean }): GameState {
+    if (!Number.isInteger(to) || to < 0 || to > data.log.length) throw new Error('Invalid history position');
+    const copy = replay(JSON.parse(JSON.stringify(data)), { to });
+    delete copy.automation;
+    for (const player of copy.players) player.isDropped = false;
+    copy.newTurn = true;
+    return copy;
+}
+
+export async function analysisMove(data: GameState, input: Move | Move[], player: number): Promise<GameState> {
+    if (isPremoveCommand(input)) throw new Error('Premoves are not available in an analysis');
+    delete data.automation;
+    const result = await move(data, input, player);
+    delete result.automation;
+    return result;
+}

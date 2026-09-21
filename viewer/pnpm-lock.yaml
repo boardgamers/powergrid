@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-    '@boardgamers/protocol': 0.3.3
+    '@boardgamers/protocol': 0.4.0
     '@types/assert': ^1.4.7
     '@types/chai': ^4.2.11
     '@types/events': ^3.0.0
@@ -34,7 +34,7 @@ specifiers:
     zod: 4.6.4
 
 dependencies:
-    '@boardgamers/protocol': 0.3.3
+    '@boardgamers/protocol': 0.4.0
     core-js: 3.12.1
     lodash: 4.17.21
     powergrid-engine: link:../engine
@@ -1464,10 +1464,10 @@ packages:
             to-fast-properties: 2.0.0
         dev: true
 
-    /@boardgamers/protocol/0.3.3:
+    /@boardgamers/protocol/0.4.0:
         resolution:
             {
-                integrity: sha512-AS+x84WHXRudW6xt/s/5I3xYmNTQFbZEBp3V+41w0I2RirSr2fWjYnYf0p11nwTbZ6G5upivKz/sjYLtk8HOYA==,
+                integrity: sha512-dqrU94QGPZAh7vWhHmu2AHY6bFo7NbNVytb3dyUidou8R6P0FfT3xm0qLR8LbrE4EHEYmm99LajdfTfKmgwEzQ==,
             }
         dependencies:
             zod: 4.6.4

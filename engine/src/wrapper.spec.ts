@@ -528,3 +528,22 @@ describe('wrapper (tentative turns)', () => {
         expect(result.players[current[0]].availableMoves).to.not.be.null;
     });
 });
+
+describe('analysis adapter', () => {
+    it('clears automation, preserves tentative turns and keeps every seat manual', async () => {
+        const source = setup(3, {}, 'analysis');
+        source.players[1].isDropped = true;
+        const original = json(source);
+        let copy = wrapper.createAnalysis(source, { to: source.log.length, sourceEnded: true });
+        expect(copy.players.every((p) => !p.isDropped)).to.equal(true);
+        expect(copy.automation).to.equal(undefined);
+        const actor = copy.currentPlayers[0];
+        const available = copy.players[actor].availableMoves!;
+        const name = Object.keys(available)[0] as MoveName;
+        const data = (available[name] as any[])[0];
+        copy = await wrapper.analysisMove(copy, { name, data } as Move, actor);
+        expect(copy.automation).to.equal(undefined);
+        expect(copy.log.length).to.be.greaterThan(original.log.length);
+        expect(json(source)).to.deep.equal(original);
+    });
+});

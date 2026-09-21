@@ -31,6 +31,7 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
 .bgs-game-chat button:disabled{color:#788786;border-color:#b0bcb8;background:#dce3df;cursor:default}
 .bgs-game-chat .chat-mention{height:auto;padding:0 2px;border:0;background:transparent;color:inherit;font:inherit;font-weight:bold;text-decoration:underline}
 .bgs-game-chat article a{color:inherit;text-decoration:underline}
+.bgs-game-chat .chat-translate{height:auto;min-height:24px;padding:2px 4px;margin-left:6px;border:0;background:transparent;color:inherit;font-size:.8em;text-decoration:underline}
 .chat-suggestions{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
 .chat-suggestions:empty{display:none}
 .chat-suggestions button[aria-pressed="true"]{outline:2px solid #527f89}
@@ -56,6 +57,7 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
     let players: { id: number; name: string; color?: string; faction?: string }[] = [];
     let localPlayer: number | undefined;
     let chatVisible = false;
+    let analysis = false;
     const shortcut = document.createElement('button');
     shortcut.type = 'button';
     shortcut.className = 'chat-shortcut';
@@ -137,7 +139,7 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
         const count = chat.unread;
         const label = count ? `Chat · ${count} unread` : 'Chat';
         shortcutCount.textContent = String(count);
-        shortcut.hidden = chatVisible || !count;
+        shortcut.hidden = analysis || chatVisible || !count;
         shortcut.setAttribute('aria-label', `Open ${label}`);
         chatTab.textContent = label;
         positionShortcut();
@@ -148,6 +150,13 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
     };
     const dispose = [
         detach,
+        emitter.on('preferences', (preferences) => {
+            analysis = preferences.analysis === true;
+            slot.hidden = analysis;
+            tabs.style.display = analysis ? 'none' : '';
+            if (analysis) selectFeed('journal');
+            updateShortcut();
+        }),
         chat.subscribe(updateShortcut),
         emitter.on('state', (state) => {
             players = (state?.players || []).map((player: any, index: number) => ({ ...player, id: index }));

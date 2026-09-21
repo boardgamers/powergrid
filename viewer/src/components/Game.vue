@@ -1094,6 +1094,7 @@ export default class Game extends Vue {
 
     get canPlanRound(): boolean {
         return (
+            !this.preferences.analysis &&
             !this.tutorialMove &&
             !this.paused &&
             !this.interactionDisabled &&
@@ -1103,13 +1104,18 @@ export default class Game extends Vue {
         );
     }
     get canPreparePremoves(): boolean {
-        return !!this.committedState && this.player != null && canQueuePhases(this.committedState, this.player, []);
+        return (
+            !this.preferences.analysis &&
+            !!this.committedState &&
+            this.player != null &&
+            canQueuePhases(this.committedState, this.player, [])
+        );
     }
     get hasPlanPanel(): boolean {
         return !!(this.roundPlan || this.planningError || this.pendingPlanId);
     }
     get myPhaseQueue() {
-        return this.committedState?.automation?.plans[this.player!];
+        return this.preferences.analysis ? undefined : this.committedState?.automation?.plans[this.player!];
     }
     get queuedMoveCount(): number {
         return (this.myPhaseQueue?.phases || []).reduce(

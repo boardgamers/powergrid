@@ -1,12 +1,14 @@
 lockfileVersion: 5.4
 
 specifiers:
-    '@boardgamers/protocol': 0.4.2
+    '@boardgamers/protocol': 0.5.0
     '@types/assert': ^1.4.7
     '@types/chai': ^4.2.11
     '@types/events': ^3.0.0
     '@types/lodash': ^4.14.154
     '@types/mocha': ^5.2.4
+    '@types/node': 15.3.0
+    '@types/webpack-env': 1.18.8
     '@typescript-eslint/parser': ^4.26.1
     '@vue/cli-plugin-babel': ~4.4.0
     '@vue/cli-plugin-typescript': ~4.4.0
@@ -29,12 +31,10 @@ specifiers:
     vue-class-component: ^7.2.3
     vue-property-decorator: ^9.1.2
     vue-template-compiler: ^2.6.11
-    '@types/node': 15.3.0
-    '@types/webpack-env': 1.18.8
     zod: 4.6.4
 
 dependencies:
-    '@boardgamers/protocol': 0.4.2
+    '@boardgamers/protocol': 0.5.0
     core-js: 3.12.1
     lodash: 4.17.21
     powergrid-engine: link:../engine
@@ -51,6 +51,8 @@ devDependencies:
     '@types/events': 3.0.0
     '@types/lodash': 4.14.169
     '@types/mocha': 5.2.7
+    '@types/node': 15.3.0
+    '@types/webpack-env': 1.18.8
     '@typescript-eslint/parser': 4.26.1_t2pndrslmzswfoo56qukh7j2xa
     '@vue/cli-plugin-babel': 4.4.6_wk3ecsakdzdntnoc6zjm4vkc6m
     '@vue/cli-plugin-typescript': 4.4.6_66ljlrl2sgzmqziwi3olz77yay
@@ -65,8 +67,6 @@ devDependencies:
     sass-loader: 8.0.2_sass@1.32.13
     typescript: 5.9.3
     vue-template-compiler: 2.6.12
-    '@types/node': 15.3.0
-    '@types/webpack-env': 1.18.8
 
 packages:
     /@babel/code-frame/7.12.11:
@@ -1464,10 +1464,10 @@ packages:
             to-fast-properties: 2.0.0
         dev: true
 
-    /@boardgamers/protocol/0.4.2:
+    /@boardgamers/protocol/0.5.0:
         resolution:
             {
-                integrity: sha512-dFWwj/uIR8LZuiFSPX++63f4Ivd3cG4JFFWCCObOu6u5RYw5GBT95rcSIiiWRLkBkXWKXgv3awQ/RMrAf+uFDQ==,
+                integrity: sha512-9SjU0cSktwxeMLItCW5VmUeSFl3Kg965JkKFf+BKZBxR2a2dyFoMKE3RYN2+ZwrI6GNS1mA6Fki9HOHQnD2WRw==,
             }
         dependencies:
             zod: 4.6.4
@@ -1710,6 +1710,13 @@ packages:
         resolution:
             {
                 integrity: sha512-Fx+NpfOO0CpeYX2g9bkvX8O5qh9wrU1sOF4g8sft4Mu7z+qfe387YlyY8w8daDyDsKY5vUxM0yxkAYnbkRbZEw==,
+            }
+        dev: true
+
+    /@types/webpack-env/1.18.8:
+        resolution:
+            {
+                integrity: sha512-G9eAoJRMLjcvN4I08wB5I7YofOb/kaJNd5uoCMX+LbKXTPCF+ZIHuqTnFaK9Jz1rgs035f9JUPUhNFtqgucy/A==,
             }
         dev: true
 
@@ -13155,10 +13162,3 @@ packages:
                 integrity: sha512-AXSD6hvGdvRjajG/l1cC+d6IrhH+sjmPKtYeQdJIK8MFJl3LyClzS+o/YsVC+zQZPupAaeH5skwwm8YqYH7BqA==,
             }
         dev: false
-
-    /@types/webpack-env/1.18.8:
-        resolution:
-            {
-                integrity: sha512-G9eAoJRMLjcvN4I08wB5I7YofOb/kaJNd5uoCMX+LbKXTPCF+ZIHuqTnFaK9Jz1rgs035f9JUPUhNFtqgucy/A==,
-            }
-        dev: true

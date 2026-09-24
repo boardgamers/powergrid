@@ -10,7 +10,15 @@
                 style="border-radius: 50%"
             />
         </foreignObject>
-        <text x="5" y="13" font-weight="600" fill="black">
+        <text
+            :data-bgs-player="owner"
+            style="pointer-events: all"
+            tabindex="0"
+            x="5"
+            y="13"
+            font-weight="600"
+            fill="black"
+        >
             {{ getPlayerName() }}
         </text>
         <text v-if="showMoney" x="250" y="13" font-weight="600" fill="black">Money: ${{ player.money }}</text>

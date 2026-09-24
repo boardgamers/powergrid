@@ -1,3 +1,4 @@
+import { checkHostPresentation } from './host-presentation-smoke.mjs';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createServer } from 'node:http';
@@ -286,6 +287,8 @@ try {
         assert.equal(await page.locator('.bgs-game-chat').count(), 1);
         assert.equal(await page.locator('.chat-messages article').count(), 0, 'relaunch detaches old chat');
         assert.deepEqual(errors, [], 'no browser errors');
+        await checkHostPresentation(page, 'host', `/tmp/powergrid-board-thumbnail-${width}.png`);
+        assert.deepEqual(errors, []);
         await page.close();
         console.log(`${game} ${width}px: protocol/chat smoke passed`);
     }

@@ -1,3 +1,4 @@
+import { installPlayerCards, createBoardThumbnail } from './host-presentation';
 import { createViewer } from '@boardgamers/protocol/viewer';
 import { EventEmitter } from 'events';
 import type { GameState, Move } from 'powergrid-engine';
@@ -51,8 +52,13 @@ function launch(selector: string) {
         render: (h) => h(Game, { props: params }, []),
     }).$mount(mountPoint);
 
+    const thumbnail = createBoardThumbnail(app.$el);
     let replaying = false;
     const viewer = createViewer<GameState, Move[] | PremoveCommand>({
+        async onThumbnail(size) {
+            await app.$nextTick();
+            return thumbnail.render(app.$el.querySelector('[data-tutorial="map"]'), size, '#e7e6df');
+        },
         async onState(data) {
             params.state = data;
             app.$forceUpdate();
@@ -105,8 +111,11 @@ function launch(selector: string) {
     params.emitter.on('replay:info', (info) => viewer.setReplayInfo(info));
     params.emitter.on('update:preference', ({ name, value }) => viewer.updatePreference(name, value));
     installActionSounds(item);
+    const removeCards = installPlayerCards(app.$el, viewer);
     const removeChat = mountGameChat(item, app.$el);
     app.$once('hook:beforeDestroy', () => {
+        removeCards();
+        thumbnail.destroy();
         removeChat();
         viewer.destroy();
         params.emitter.removeAllListeners();

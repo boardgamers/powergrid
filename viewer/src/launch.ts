@@ -1,3 +1,4 @@
+import { mountLocalization } from './localization';
 import { installPlayerCards, createBoardThumbnail } from './host-presentation';
 import { createViewer } from '@boardgamers/protocol/viewer';
 import { EventEmitter } from 'events';
@@ -53,6 +54,7 @@ function launch(selector: string) {
     }).$mount(mountPoint);
 
     const thumbnail = createBoardThumbnail(app.$el);
+    const localization = mountLocalization(target.ownerDocument.body);
     let replaying = false;
     const viewer = createViewer<GameState, Move[] | PremoveCommand>({
         async onThumbnail(size) {
@@ -60,6 +62,7 @@ function launch(selector: string) {
             return thumbnail.render(app.$el.querySelector('[data-tutorial="map"]'), size, '#e7e6df');
         },
         async onState(data) {
+            localization.setState(data);
             params.state = data;
             app.$forceUpdate();
             await app.$nextTick();
@@ -69,6 +72,7 @@ function launch(selector: string) {
             app.$forceUpdate();
         },
         onPreferences(data) {
+            localization.setLocale(data.locale);
             Object.assign(params.preferences, data);
             app.$forceUpdate();
         },
@@ -114,6 +118,7 @@ function launch(selector: string) {
     const removeCards = installPlayerCards(app.$el, viewer);
     const removeChat = mountGameChat(item, app.$el);
     app.$once('hook:beforeDestroy', () => {
+        localization.destroy();
         removeCards();
         thumbnail.destroy();
         removeChat();

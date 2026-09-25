@@ -30,6 +30,7 @@ jobs:
                   node-version: '24'
             - run: corepack enable
             - run: pnpm install
+            - run: pnpm --dir .. test:locales
             # - run: pnpm lint
             # - run: pnpm test
             - run: pnpm build

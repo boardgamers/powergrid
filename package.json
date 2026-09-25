@@ -4,7 +4,8 @@
         "lint-staged": "lint-staged",
         "postinstall": "husky install",
         "prettier": "prettier --plugin-search-dir=. --write .",
-        "prettier-check": "prettier --plugin-search-dir=. --check ."
+        "prettier-check": "prettier --plugin-search-dir=. --check .",
+        "test:locales": "node scripts/check-locales.mjs viewer/src/localization && node --test scripts/localization.test.mjs"
     },
     "devDependencies": {
         "husky": "^5.0.9",

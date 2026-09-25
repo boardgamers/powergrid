@@ -108,7 +108,9 @@
                     >
                         {{ row.cubes }}
                     </text>
-                    <text :x="BOX_W - 18" y="90" text-anchor="end" fill="#3a2c08" style="font-size: 20px">LEFT</text>
+                    <text :x="BOX_W - 18" y="90" text-anchor="end" fill="#3a2c08" style="font-size: 20px"
+                        >REMAINING</text
+                    >
 
                     <!-- India caps which prices are on sale per step; a row above the
                          cap is on the board but cannot be bought by anyone yet. -->

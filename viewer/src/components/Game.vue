@@ -463,7 +463,7 @@
                 <span class="close" @click="logVisible = false">&times;</span>
                 <div class="modal-title">Log</div>
                 <div class="modal-log">
-                    <div v-for="(log, i) in logReversed" :key="'L' + i" class="log-line" v-html="log" />
+                    <InlineLog v-if="logVisible" :entries="logReversed.slice().reverse()" :mapName="G.options.map" />
                 </div>
             </div>
         </div>
@@ -492,12 +492,12 @@
                 >
                 <div class="modal-title">Free Jump — {{ freeJumpCity.name }}</div>
                 <div class="confirm-message" v-if="freeJumpNormalPrice !== null">
-                    Use your <b>Free Jump</b> to build here for ${{ freeJumpSlotPrice }} (slot cost only), or pay the
-                    full connection price of ${{ freeJumpNormalPrice }} and save the jump for later.
+                    Use your Free Jump to build here for ${{ freeJumpSlotPrice }} (slot cost only), or pay the full
+                    connection price of ${{ freeJumpNormalPrice }} and save the jump for later.
                 </div>
                 <div class="confirm-message" v-else>
-                    Use your <b>Free Jump</b> to build here for ${{ freeJumpSlotPrice }} (slot cost only)? This city is
-                    not reachable from your network otherwise.
+                    Use your Free Jump to build here for ${{ freeJumpSlotPrice }} (slot cost only)? This city is not
+                    reachable from your network otherwise.
                 </div>
                 <div class="confirm-buttons">
                     <button class="confirm-button" @click="confirmFreeJump(true)">
@@ -526,9 +526,9 @@
                 <span class="close" @click="soleBuyerPlant = null">&times;</span>
                 <div class="modal-title">Buy Power Plant {{ soleBuyerPlant.number }}</div>
                 <div class="confirm-message">
-                    You are the only player who can still buy. Buy Power Plant
-                    <b>{{ soleBuyerPlant.number }}</b> for <b>${{ soleBuyerPrice() }}</b
-                    >?
+                    You are the only player who can still buy. Buy Power Plant {{ soleBuyerPlant.number }} for ${{
+                        soleBuyerPrice()
+                    }}?
                 </div>
                 <div class="confirm-buttons">
                     <button class="confirm-button" @click="confirmSoleBuyerPurchase()">
@@ -633,25 +633,13 @@
                     <div>
                         <strong>Phases:</strong>
                         <ul>
+                            <li>Determine Turn Order by number of cities built and highest power plant owned</li>
+                            <li>Buy Power Plants from the actual market (minimum bid is power plant number)</li>
+                            <li>Buy Resources in reverse turn order from the resource market</li>
+                            <li>Build Cities in reverse turn order paying 10/15/20 plus connection cost</li>
                             <li>
-                                <strong>Determine Turn Order</strong> by number of cities built and highest power plant
-                                owned
-                            </li>
-                            <li>
-                                <strong>Buy Power Plants</strong> from the actual market (minimun bid is power plant
-                                number)
-                            </li>
-                            <li>
-                                <strong>Buy Resources</strong> in <strong>reverse</strong> turn order from the resource
-                                market
-                            </li>
-                            <li>
-                                <strong>Build Cities</strong> in <strong>reverse</strong> turn order paying
-                                <strong>10/15/20</strong> plus connection cost
-                            </li>
-                            <li>
-                                <strong>Bureaucracy:</strong> spend resources to use power plants, collect money
-                                according to cities supplied, resupply resource market
+                                Bureaucracy: spend resources to use power plants, collect money according to cities
+                                supplied, resupply resource market
                             </li>
                         </ul>
                     </div>
@@ -661,23 +649,23 @@
                             <li>
                                 <strong>Step 1:</strong>
                                 <ul>
-                                    <li><strong>One</strong> player per city</li>
+                                    <li>One player per city</li>
                                     <li>
-                                        Resource Resupply: <strong>{{ G.resourceResupply[0] }}</strong>
+                                        Resource Resupply: {{ G.resourceResupply[0] }}
                                         <template v-if="G.resourceResupplyNorth">
-                                            (S), <strong>{{ G.resourceResupplyNorth[0] }}</strong> (N)
+                                            (S), {{ G.resourceResupplyNorth[0] }} (N)
                                         </template>
                                     </li>
                                     <li v-if="G.map.uraniumMineResupply">
                                         Uranium market: remove
-                                        <strong>{{ G.map.uraniumMineResupply[G.players.length - 2][0] }}</strong>
+                                        {{ G.map.uraniumMineResupply[G.players.length - 2][0] }}
                                         token(s) from the cheapest slots
                                     </li>
                                     <li v-if="G.map.name === 'Manhattan'">
-                                        Bureaucracy: move the <strong>two highest</strong> future-market plants to the
-                                        discard pile (see Map Specific Rules for the full deck cycle)
+                                        Bureaucracy: move the two highest future-market plants to the discard pile (see
+                                        Map Specific Rules for the full deck cycle)
                                     </li>
-                                    <li v-else>Bureaucracy: remove <strong>highest</strong> power plant from market</li>
+                                    <li v-else>Bureaucracy: remove highest power plant from market</li>
                                 </ul>
                             </li>
                             <li v-if="G.map.name !== 'Manhattan'">
@@ -685,53 +673,52 @@
                                 <ul>
                                     <li>
                                         Starts after building phase where a player has
-                                        <strong>{{ G.citiesToStep2 }}</strong> or more cities
+                                        {{ G.citiesToStep2 }} or more cities
                                     </li>
                                     <li v-if="G.map.name !== 'Middle East'">
-                                        Also starts after a building phase where <strong>every city</strong> has a house
-                                        (all Step 1 slots filled), even if no player reached
+                                        Also starts after a building phase where every city has a house (all Step 1
+                                        slots filled), even if no player reached
                                         {{ G.citiesToStep2 }}
                                     </li>
-                                    <li><strong>Two</strong> players per city</li>
+                                    <li>Two players per city</li>
                                     <li>
-                                        Resource Resupply: <strong>{{ G.resourceResupply[1] }}</strong>
+                                        Resource Resupply: {{ G.resourceResupply[1] }}
                                         <template v-if="G.resourceResupplyNorth">
-                                            (S), <strong>{{ G.resourceResupplyNorth[1] }}</strong> (N)
+                                            (S), {{ G.resourceResupplyNorth[1] }} (N)
                                         </template>
                                     </li>
                                     <li v-if="G.map.uraniumMineResupply">
                                         Uranium market: remove
-                                        <strong>{{ G.map.uraniumMineResupply[G.players.length - 2][1] }}</strong>
+                                        {{ G.map.uraniumMineResupply[G.players.length - 2][1] }}
                                         token(s) from the cheapest slots
                                     </li>
-                                    <li>Bureaucracy: remove <strong>highest</strong> power plant from market</li>
+                                    <li>Bureaucracy: remove highest power plant from market</li>
                                 </ul>
                             </li>
                             <li v-if="G.map.name !== 'Manhattan'">
                                 <strong>Step 3:</strong>
                                 <ul>
                                     <li>Starts after the "Step 3" card is drawn from the deck</li>
-                                    <li><strong>Three</strong> players per city</li>
+                                    <li>Three players per city</li>
                                     <li>
-                                        Resource Resupply: <strong>{{ G.resourceResupply[2] }}</strong>
+                                        Resource Resupply: {{ G.resourceResupply[2] }}
                                         <template v-if="G.resourceResupplyNorth">
-                                            (S), <strong>{{ G.resourceResupplyNorth[2] }}</strong> (N)
+                                            (S), {{ G.resourceResupplyNorth[2] }} (N)
                                         </template>
                                     </li>
                                     <li v-if="G.map.uraniumMineResupply">
                                         Uranium market: remove
-                                        <strong>{{ G.map.uraniumMineResupply[G.players.length - 2][2] }}</strong>
+                                        {{ G.map.uraniumMineResupply[G.players.length - 2][2] }}
                                         token(s) from the cheapest slots
                                     </li>
-                                    <li>Bureaucracy: remove <strong>lowest</strong> power plant from market</li>
+                                    <li>Bureaucracy: remove lowest power plant from market</li>
                                     <li>All power plants available for auction</li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                     <div>
-                        Game ends after building phase where a player has <strong>{{ G.citiesToEndGame }}</strong> or
-                        more cities.<br />
+                        Game ends after building phase where a player has {{ G.citiesToEndGame }} or more cities.<br />
                         The winner is the player that can power the most cities. Money and number of cities built are
                         tiebreakers.
                     </div>

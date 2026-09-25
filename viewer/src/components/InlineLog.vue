@@ -2,7 +2,7 @@
     <details class="inline-game-log" open>
         <summary>Journal</summary>
         <div ref="feed" class="journal-feed" @scroll="onScroll">
-            <div v-for="(entry, index) in illustratedEntries" :key="index" class="journal-entry">
+            <div v-for="(entry, index) in illustratedEntries" :key="index" class="journal-entry" translate="no">
                 <template v-for="(part, i) in entry">
                     <svg
                         v-if="part.plant"
@@ -26,6 +26,8 @@
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import Card from './pieces/Card.vue';
 import { getPowerPlant } from 'powergrid-engine/src/engine';
+import { translateText } from '../localization';
+import { localizeJournal } from '../localization/journal';
 import type { PowerPlant } from 'powergrid-engine/src/gamestate';
 @Component({ components: { Card } })
 export default class InlineLog extends Vue {
@@ -33,28 +35,31 @@ export default class InlineLog extends Vue {
     @Prop({ default: '' }) mapName!: string;
     follow = true;
     private feedObserver?: ResizeObserver;
+    locale = 'en';
+    private localeObserver?: MutationObserver;
     get illustratedEntries() {
-        return this.entries.map((entry) => {
-            const parts: { html?: string; plant?: PowerPlant }[] = [];
-            const pattern = /Power Plant\s+(?:<b>)?(\d+)(?:<\/b>)?/gi;
-            let offset = 0;
-            let match: RegExpExecArray | null;
-            while ((match = pattern.exec(entry))) {
-                const plant = getPowerPlant(Number(match[1]), this.mapName);
-                if (!plant) continue;
-                parts.push({ html: entry.slice(offset, match.index) }, { plant });
-                offset = match.index + match[0].length;
-            }
-            parts.push({ html: entry.slice(offset) });
-            return parts;
-        });
+        return this.entries.map((entry) => localizeJournal(
+            entry,
+            (text: string) => translateText(text, this.locale),
+            (number: number) => getPowerPlant(number, this.mapName)
+        ));
     }
     plantLabel(plant: PowerPlant) {
-        return `Power plant ${plant.number}: ${plant.cost ? `${plant.cost} ${plant.type}` : 'no fuel'} → ${
+        return translateText(`Power plant ${plant.number}: ${plant.cost ? `${plant.cost} ${plant.type}` : 'no fuel'} → ${
             plant.citiesPowered
-        } cities`;
+        } cities`, this.locale);
     }
     mounted() {
+        const updateLocale = () => {
+            this.locale = this.$el.closest('[lang]')?.getAttribute('lang') || 'en';
+        };
+        updateLocale();
+        this.localeObserver = new MutationObserver(updateLocale);
+        let ancestor: Element | null = this.$el;
+        while (ancestor) {
+            this.localeObserver.observe(ancestor, { attributes: true, attributeFilter: ['lang'] });
+            ancestor = ancestor.parentElement;
+        }
         this.feedObserver = new ResizeObserver(() => {
             if (this.follow) this.scrollToLatest();
         });
@@ -62,6 +67,7 @@ export default class InlineLog extends Vue {
         this.scrollToLatest();
     }
     beforeDestroy() {
+        this.localeObserver?.disconnect();
         this.feedObserver?.disconnect();
     }
     @Watch('entries') changed() {

@@ -73,6 +73,12 @@ export function createTranslator(catalogs, initialLocale = 'en') {
         if (translated === undefined && cache.has(text)) {
             translated = cache.get(text);
         }
+        if (translated === undefined) {
+            const prefix = /^(\d+\s*\/\s*\d+\s*·\s*)(.+)$/u.exec(text);
+            if (prefix && depth < 2) {
+                translated = prefix[1] + translate(prefix[2], depth + 1);
+            }
+        }
         if (translated === undefined && depth < 2 && text.length <= 2500) {
             for (const { source, pieces } of patterns) {
                 if (!text.startsWith(pieces[0])) {
@@ -103,12 +109,6 @@ export function createTranslator(catalogs, initialLocale = 'en') {
                     translate(parameters[key] ?? key, depth + 1)
                 );
                 break;
-            }
-        }
-        if (translated === undefined) {
-            const prefix = /^(\d+\s*\/\s*\d+\s*·\s*)(.+)$/u.exec(text);
-            if (prefix && depth < 2) {
-                translated = prefix[1] + translate(prefix[2], depth + 1);
             }
         }
         if (translated === undefined) {

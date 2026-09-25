@@ -10,8 +10,9 @@
             :transform="`translate(${cellX(count)}, ${cellY(count)})`"
         >
             <title>
-                {{ count }} powered {{ count === 1 ? 'city' : 'cities' }}: ${{ income }} total income, before any map
-                penalties. Houses mark cities built.
+                {{
+                    `Cities supplied: ${count}. Income: $${income} before map penalties. Houses show connected cities.`
+                }}
             </title>
             <rect
                 width="28"

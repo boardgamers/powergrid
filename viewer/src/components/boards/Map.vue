@@ -44,6 +44,28 @@
             >
                 <title>{{ city.name }}</title>
             </circle>
+        </template>
+
+        <g v-if="preferences.colorBlind" class="region-borders" pointer-events="none">
+            <g
+                v-for="city in regionBorderCities"
+                :key="city.name + '_regionBorder'"
+                :transform="`translate(${city.x}, ${city.y}) rotate(${city.connectionCost == null ? 0 : 45})`"
+            >
+                <path :d="regionBorderPath(city)" fill="none" stroke="#fffbe9" stroke-width="3.5" />
+                <path
+                    class="region-border"
+                    :data-region="city.region"
+                    :d="regionBorderPath(city)"
+                    fill="none"
+                    stroke="#17251d"
+                    stroke-width="2.5"
+                    :stroke-dasharray="regionBorder(city.region)"
+                />
+            </g>
+        </g>
+
+        <template v-for="city in cities">
             <!-- South Africa cross-border spaces: render a small red pennant
                  above the city. Marks a single-occupancy space ($30 total cost). -->
             <g v-if="city.singleOccupancy" :key="city.name + '_flag'">
@@ -387,25 +409,6 @@
             />
         </template>
 
-        <g v-if="preferences.colorBlind" class="region-borders" pointer-events="none">
-            <g
-                v-for="city in regionBorderCities"
-                :key="city.name + '_regionBorder'"
-                :transform="`translate(${city.x}, ${city.y}) rotate(${city.connectionCost == null ? 0 : 45})`"
-            >
-                <path :d="regionBorderPath(city)" fill="none" stroke="#fffbe9" stroke-width="3.5" />
-                <path
-                    class="region-border"
-                    :data-region="city.region"
-                    :d="regionBorderPath(city)"
-                    fill="none"
-                    stroke="#17251d"
-                    stroke-width="2.5"
-                    :stroke-dasharray="regionBorder(city.region)"
-                />
-            </g>
-        </g>
-
         <!-- City tap targets, drawn LAST so they sit above the houses already built
              there. Houses are painted after the city's own circle, and SVG hit-testing
              takes the topmost element — so once a city held houses the active player
@@ -545,7 +548,7 @@ export default class Map extends Vue {
     regionBorderPath(city: City) {
         return city.connectionCost == null
             ? 'M25 0a25 25 0 1 1 -50 0a25 25 0 1 1 50 0Z'
-            : 'M-16 -25H16Q25 -25 25 -16V16Q25 25 16 25H-16Q-25 25 -25 16V-16Q-25 -25 -16 -25Z';
+            : 'M-16 -27H16Q27 -27 27 -16V16Q27 27 16 27H-16Q-27 27 -27 16V-16Q-27 -27 -16 -27Z';
     }
 
     regionBorder(region: string) {

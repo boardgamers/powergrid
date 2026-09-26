@@ -14,6 +14,7 @@ export const languages = {
     vi: 'Tiếng Việt',
     it: 'Italiano',
     nl: 'Nederlands',
+    fa: 'فارسی',
 };
 
 export function resolveLocale(value) {

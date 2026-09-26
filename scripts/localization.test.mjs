@@ -61,3 +61,18 @@ test('decorative arrows and attached currency values keep their meaning', () => 
     assert.equal(t.translate('Draw →'), 'Tekenen →');
     assert.equal(t.translate('Your cash: $20'), 'Je geld: $20');
 });
+
+test('Persian regional tags, prices and journal parameters stay intact', async () => {
+    assert.equal(resolveLocale('fa-IR'), 'fa');
+    assert.equal(resolveLocale('FA_IR'), 'fa');
+    const fa = JSON.parse(await readFile(new URL('../viewer/src/localization/fa.json', import.meta.url), 'utf8'));
+    const t = createTranslator({ fa }, 'fa-IR');
+    t.setNames(['Power Plant']);
+    assert.equal(t.translate('Buy for $25'), 'خرید به قیمت $25');
+    assert.equal(t.translate('Power Plant buys 2 Coal for $6.'), 'Power Plant با پرداخت $6، 2 زغال‌سنگ می‌خرد.');
+    assert.equal(t.translate('translate(110, 20) scale(2)'), 'translate(110, 20) scale(2)');
+    assert.equal(t.translate('Power Plant'), 'Power Plant');
+    assert.equal(t.translate('REMAINING'), 'باقی‌مانده');
+    t.setLocale('en');
+    assert.equal(t.translate('Buy for $25'), 'Buy for $25');
+});

@@ -13,6 +13,8 @@ import catalog11 from './zh-TW.json';
 import catalog12 from './vi.json';
 import catalog13 from './it.json';
 import catalog14 from './nl.json';
+import catalog15 from './fa.json';
+import './rtl.css';
 import { mountLocalization as mount, createTranslator } from './runtime.js';
 export { languages, resolveLocale } from './runtime.js';
 export const catalogs = {
@@ -31,6 +33,7 @@ export const catalogs = {
     vi: catalog12,
     it: catalog13,
     nl: catalog14,
+    fa: catalog15,
 };
 const translators = new Map();
 export function translateText(text, locale = 'en') {

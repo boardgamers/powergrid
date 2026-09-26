@@ -1,0 +1,26 @@
+/* Localize prose direction without reversing the board, price tracks or SVG coordinates. */
+.game:lang(fa),
+.tutorial-board:lang(fa),
+.game svg:lang(fa) {
+    direction: ltr;
+}
+
+.modal-content:lang(fa),
+.status-message:lang(fa),
+.round-planner:lang(fa),
+.inline-game-log:lang(fa),
+.game-feed-tabs:lang(fa),
+.bgs-tutorial-guide:lang(fa),
+.tutorial-answers:lang(fa),
+.tutorial-summary:lang(fa) {
+    direction: rtl;
+    text-align: start;
+}
+
+/* Keep mixed Persian prose, player names and prices in their own bidi paragraph. */
+.confirm-message:lang(fa),
+.journal-entry:lang(fa),
+.bgs-tutorial-body p:lang(fa),
+.bgs-tutorial-feedback:lang(fa) {
+    unicode-bidi: plaintext;
+}

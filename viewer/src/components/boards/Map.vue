@@ -387,6 +387,24 @@
             />
         </template>
 
+        <g v-if="preferences.colorBlind" class="region-labels" pointer-events="none">
+            <g
+                v-for="city in cities"
+                :key="city.name + '_regionLabel'"
+                :transform="`translate(${city.x}, ${
+                    city.y - (city.connectionCost == null ? 24 : 32)
+                }) rotate(${-mapRotation})`"
+            >
+                <rect x="-7" y="-7" width="14" height="14" rx="3" fill="#fffbe9" stroke="#17251d" />
+                <text
+                    text-anchor="middle"
+                    dominant-baseline="central"
+                    style="font: bold 12px sans-serif; fill: #17251d"
+                    >{{ regionLabel(city.region) }}</text
+                >
+            </g>
+        </g>
+
         <!-- City tap targets, drawn LAST so they sit above the houses already built
              there. Houses are painted after the city's own circle, and SVG hit-testing
              takes the topmost element — so once a city held houses the active player
@@ -518,6 +536,10 @@ export default class Map extends Vue {
     @Inject() preferences!: Preferences;
 
     houses: Piece[] = [];
+
+    regionLabel(region: string) {
+        return ({ blue: 'A', brown: 'B', cyan: 'C', green: 'D', orange: 'E', pink: 'F', purple: 'G', red: 'H', yellow: 'I', manhattan: 'J' } as Record<string, string>)[region] || '?';
+    }
 
     createPieces(gameState: GameState) {
         this.houses = [];

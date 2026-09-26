@@ -7,6 +7,7 @@ export interface UIData {
 export type Preferences = {
     analysis?: boolean;
     sound: boolean;
+    colorBlind: boolean;
     disableHelp: boolean;
     adjustPlayerOrder: boolean;
     undoWholeTurn: boolean;

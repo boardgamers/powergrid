@@ -196,6 +196,7 @@ export default class PlayerBoard extends Vue {
             name += '• ';
         }
 
+        if (this.preferences.colorBlind && this.owner !== undefined) name += `${this.owner + 1} · `;
         name += this.player.name;
 
         if (this.ended) {

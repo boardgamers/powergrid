@@ -55,3 +55,9 @@ The ordinary viewer bundle exposes both `powergrid.launch` and `powergrid.launch
 Lessons live in `src/tutorial/lessons.ts`. Keep their IDs stable and increase a chapter's version when changing its setup or accepted actions would invalidate saved progress. Test normal board clicks, refresh, rewind and completion on desktop and mobile before release.
 
 See the [desktop and mobile screenshots](docs/tutorials/README.md) for examples of the tutorial UI.
+
+## Shared accessibility preference
+
+The viewer accepts BGS's `colorBlind` boolean preference (default `false`). The eye button in the status bar changes it through `update:preference`, so BGS saves the setting across games. It also works locally in tutorials.
+
+When enabled, houses on the map, turn-order track and city-count track carry their owner's seat number. Player panels use the same number, regardless of turn order or selected color. Map regions have distinct letter badges, with a fixed mapping that survives region selection. Resources already use different shapes.

@@ -1,5 +1,3 @@
-import { mountLocalization } from './localization';
-import { installPlayerCards, createBoardThumbnail } from './host-presentation';
 import { createViewer } from '@boardgamers/protocol/viewer';
 import { EventEmitter } from 'events';
 import type { GameState, Move } from 'powergrid-engine';
@@ -7,6 +5,8 @@ import type { PremoveCommand } from 'powergrid-engine/src/premoves';
 import Vue from 'vue';
 import Game from './components/Game.vue';
 import { mountGameChat } from './game-chat';
+import { createBoardThumbnail, installPlayerCards } from './host-presentation';
+import { mountLocalization } from './localization';
 import { installActionSounds } from './sounds';
 import type { Preferences } from './types/ui-data';
 import { shouldAdoptLogState } from './util/turn-buffer';
@@ -39,6 +39,7 @@ function launch(selector: string) {
         // toggles, platform preference pushes) would only paint on the next re-render.
         preferences: Vue.observable({
             sound: true,
+            colorBlind: false,
             disableHelp: false,
             adjustPlayerOrder: false,
             undoWholeTurn: true,

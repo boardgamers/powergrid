@@ -316,6 +316,26 @@ try {
             /unread/,
             'opening chat clears restored unread'
         );
+        await page.evaluate(() => {
+            window.preferenceUpdates = [];
+            host.on('update:preference', (value) => preferenceUpdates.push(value));
+            host.emit('preferences', { sound: false, colorBlind: true });
+        });
+        await page.waitForFunction(
+            () => document.querySelector('.color-blind-toggle')?.getAttribute('aria-pressed') === 'true'
+        );
+        const owners = await page.locator('.house-owner text').allTextContents();
+        assert.deepEqual([...new Set(owners.map((t) => t.trim()))].sort(), ['1', '2', '3']);
+        assert.match(await page.locator('.player-board [data-bgs-player="1"]').textContent(), /2 · Ada Lovelace/);
+        const regions = await page.locator('.region-labels text').allTextContents();
+        assert.equal(regions.length, state.map.cities.length);
+        assert.equal(new Set(regions).size, new Set(state.map.cities.map((city) => city.region)).size);
+        await page.locator('#scene').screenshot({ path: `/tmp/powergrid-color-blind-${width}.png` });
+        await page.getByRole('button', { name: 'Color-blind mode', exact: true }).click();
+        await page.waitForFunction(() => !document.querySelector('.house-owner'));
+        assert.equal(await page.locator('.region-labels').count(), 0);
+        assert.doesNotMatch(await page.locator('.player-board [data-bgs-player="1"]').textContent(), /2 ·/);
+        assert.deepEqual(await page.evaluate(() => preferenceUpdates), [{ name: 'colorBlind', value: false }]);
         await checkHostPresentation(page, 'host', `/tmp/powergrid-board-thumbnail-${width}.png`);
         assert.deepEqual(errors, []);
         await page.close();

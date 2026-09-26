@@ -22,12 +22,23 @@
             stroke-width="12"
             stroke-miterlimit="10"
         />
+        <g v-if="preferences.colorBlind && owner !== undefined" class="house-owner" pointer-events="none">
+            <circle cx="200" cy="285" r="143" fill="#fffbe9" stroke="#17251d" stroke-width="18" />
+            <text
+                x="200"
+                y="288"
+                text-anchor="middle"
+                dominant-baseline="central"
+                style="font: bold 255px sans-serif; fill: #17251d"
+                >{{ owner + 1 }}</text
+            >
+        </g>
         <title>{{ houseTitle }}</title>
     </g>
 </template>
 <script lang="ts">
-import { PieceType } from './../../types/ui-data';
-import { Component, InjectReactive, Mixins, Prop } from 'vue-property-decorator';
+import { PieceType, Preferences } from './../../types/ui-data';
+import { Component, Inject, InjectReactive, Mixins, Prop } from 'vue-property-decorator';
 import Piece from './Piece.vue';
 
 @Component({
@@ -36,6 +47,8 @@ import Piece from './Piece.vue';
     }
 })
 export default class House extends Mixins(Piece) {
+    @Inject() readonly preferences!: Preferences;
+
     @InjectReactive()
     readonly player!: number;
 

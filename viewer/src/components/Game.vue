@@ -2,6 +2,19 @@
     <div :class="['game', { fitToScreen: preferences.fitToScreen && !stacked, stacked: stacked }]">
         <div class="planner-header" :class="{ planning: hasPlanPanel }">
             <div class="statusBar">
+                <button
+                    class="color-blind-toggle"
+                    aria-label="Color-blind mode"
+                    title="Color-blind mode"
+                    :aria-pressed="preferences.colorBlind ? 'true' : 'false'"
+                    @click="toggleColorBlind()"
+                >
+                    <svg width="24" height="24" viewBox="0 0 30 30" aria-hidden="true">
+                        <path d="M4 15Q15 2 26 15Q15 28 4 15Z" fill="none" stroke="currentColor" stroke-width="1.7" />
+                        <circle cx="15" cy="15" r="4.5" fill="none" stroke="currentColor" stroke-width="1.7" />
+                        <path d="M15 10.5V19.5A4.5 4.5 0 0 1 15 10.5" fill="currentColor" />
+                    </svg>
+                </button>
                 <span class="status-message">{{ getStatusMessage() }}</span>
                 <button
                     v-if="!tutorialMove && !paused && canPlanRound && !roundPlan"
@@ -2263,6 +2276,11 @@ export default class Game extends Vue {
         return false;
     }
 
+    toggleColorBlind() {
+        this.preferences.colorBlind = !this.preferences.colorBlind;
+        this.emitter.emit('update:preference', { name: 'colorBlind', value: this.preferences.colorBlind });
+    }
+
     toggleSound() {
         const newSound = !this.preferences.sound;
 
@@ -2840,6 +2858,28 @@ ul {
     flex-shrink: 0;
 }
 
+.color-blind-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 1px solid #93a786;
+    border-radius: 5px;
+    background: #253221;
+    color: #fff;
+    cursor: pointer;
+}
+.color-blind-toggle[aria-pressed='true'] {
+    background: #eaf4cf;
+    color: #203a45;
+}
+.color-blind-toggle:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
 .status-message {
     flex: 1;
     padding: 7px 0;

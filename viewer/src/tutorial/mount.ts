@@ -35,6 +35,7 @@ export const mountTutorial: TutorialMount = async (target, { chapter, onProgress
         emitter,
         preferences: Vue.observable({
             sound: false,
+            colorBlind: false,
             disableHelp: false,
             adjustPlayerOrder: false,
             undoWholeTurn: true,

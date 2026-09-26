@@ -387,21 +387,22 @@
             />
         </template>
 
-        <g v-if="preferences.colorBlind" class="region-labels" pointer-events="none">
+        <g v-if="preferences.colorBlind" class="region-borders" pointer-events="none">
             <g
-                v-for="city in cities"
-                :key="city.name + '_regionLabel'"
-                :transform="`translate(${city.x}, ${
-                    city.y - (city.connectionCost == null ? 24 : 32)
-                }) rotate(${-mapRotation})`"
+                v-for="city in regionBorderCities"
+                :key="city.name + '_regionBorder'"
+                :transform="`translate(${city.x}, ${city.y}) rotate(${city.connectionCost == null ? 0 : 45})`"
             >
-                <rect x="-7" y="-7" width="14" height="14" rx="3" fill="#fffbe9" stroke="#17251d" />
-                <text
-                    text-anchor="middle"
-                    dominant-baseline="central"
-                    style="font: bold 12px sans-serif; fill: #17251d"
-                    >{{ regionLabel(city.region) }}</text
-                >
+                <path :d="regionBorderPath(city)" fill="none" stroke="#fffbe9" stroke-width="3.5" />
+                <path
+                    class="region-border"
+                    :data-region="city.region"
+                    :d="regionBorderPath(city)"
+                    fill="none"
+                    stroke="#17251d"
+                    stroke-width="2.5"
+                    :stroke-dasharray="regionBorder(city.region)"
+                />
             </g>
         </g>
 
@@ -537,8 +538,29 @@ export default class Map extends Vue {
 
     houses: Piece[] = [];
 
-    regionLabel(region: string) {
-        return ({ blue: 'A', brown: 'B', cyan: 'C', green: 'D', orange: 'E', pink: 'F', purple: 'G', red: 'H', yellow: 'I', manhattan: 'J' } as Record<string, string>)[region] || '?';
+    get regionBorderCities() {
+        return (this.cities || []).filter(city => city.connectionCost == null || (city.slotCosts && city.slotCosts.length >= 2));
+    }
+
+    regionBorderPath(city: City) {
+        return city.connectionCost == null
+            ? 'M25 0a25 25 0 1 1 -50 0a25 25 0 1 1 50 0Z'
+            : 'M-16 -25H16Q25 -25 25 -16V16Q25 25 16 25H-16Q-25 25 -25 16V-16Q-25 -25 -16 -25Z';
+    }
+
+    regionBorder(region: string) {
+        // Keep each region's pattern stable when the draft removes other regions.
+        return ({
+            blue: '4 4',
+            brown: '2 3 2 3 10 4',
+            cyan: '18 6',
+            green: '2 5',
+            orange: '18 4 4 4',
+            pink: '8 3 2 3 2 3',
+            purple: '12 4 2 4',
+            red: '8 5',
+            yellow: 'none',
+        } as Record<string, string>)[region] || 'none';
     }
 
     createPieces(gameState: GameState) {

@@ -1,8 +1,17 @@
 <template>
-    <g :class="['button', { enabled, highlightButton }]" @click="enabled && $emit('click')">
+    <g
+        :class="['button', { enabled, highlightButton }]"
+        data-board-control="undo"
+        role="button"
+        aria-label="Undo last move"
+        :tabindex="enabled ? 0 : -1"
+        :aria-disabled="!enabled"
+        @click="enabled && $emit('click')"
+        @keydown.enter.prevent="enabled && $emit('click')"
+        @keydown.space.prevent="enabled && $emit('click')"
+    >
         <rect width="80" height="26" fill="gainsboro" stroke="black" rx="2" />
-        <image x="11" y="4" width="16" height="16" href="../../icons/undo.svg" />
-        <text text-anchor="middle" fill="black" x="47" y="13">Undo</text>
+        <image x="30" y="3" width="20" height="20" href="../../icons/undo.svg" aria-hidden="true" />
         <title>Undo last move</title>
     </g>
 </template>

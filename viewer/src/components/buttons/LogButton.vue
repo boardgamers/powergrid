@@ -1,8 +1,16 @@
 <template>
-    <g class="button enabled" @click="$emit('click')">
+    <g
+        class="button enabled"
+        data-board-control="log"
+        role="button"
+        aria-label="Show log"
+        tabindex="0"
+        @click="$emit('click')"
+        @keydown.enter.prevent="$emit('click')"
+        @keydown.space.prevent="$emit('click')"
+    >
         <rect width="80" height="26" fill="gainsboro" stroke="black" rx="2" />
-        <image x="11" y="5" width="16" height="16" href="../../icons/log.svg" />
-        <text text-anchor="middle" fill="black" x="47" y="13">Log</text>
+        <image x="30" y="3" width="20" height="20" href="../../icons/log.svg" aria-hidden="true" />
         <title>Show log</title>
     </g>
 </template>

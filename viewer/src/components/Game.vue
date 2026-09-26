@@ -2907,6 +2907,11 @@ text {
 }
 
 .button {
+    &[data-board-control]:focus-visible {
+        outline: 2px solid black;
+        outline-offset: 3px;
+    }
+
     &.highlightButton {
         rect {
             stroke: blue;

@@ -321,3 +321,5 @@ export async function analysisMove(data: GameState, input: Move | Move[], player
     delete result.automation;
     return result;
 }
+
+export { createAnalysisScenario } from './src/analysis';

@@ -466,6 +466,8 @@ export function setup(
 
     if (G.map.name == 'Middle East') {
         removePlantsForMiddleEastStep1(G);
+        G.cardsLeft = G.powerPlantsDeck.length;
+        G.nextCardWeak = variant === 'recharged' && G.cardsLeft > 0 && G.powerPlantsDeck[0].number <= 15;
     }
 
     // chooseRegions: start in the region draft instead of the auction. The map
@@ -1965,13 +1967,19 @@ export function scores(G: GameState): number[] {
     return ended(G) ? G.players.map((p) => p.citiesPowered) : G.players.map((_) => 0);
 }
 
-export function reconstructState(gameState: GameState, to?: number): GameState {
+// A public reconstruction must replay observed draws across shuffles (not shuffle
+// those observations as though they were an unknown future deck). This ephemeral
+// queue never enters a saved state or a scenario snapshot.
+const publicReplayDraws = new WeakMap<GameState, PowerPlant[]>();
+
+export function reconstructState(gameState: GameState, to?: number, forcePublicDraws = false): GameState {
     const initialState = getBaseState(gameState);
     const G = cloneDeep(initialState);
 
     if (to != undefined && gameState.seed == 'secret') {
         if (gameState.knownPowerPlantDeck) {
             G.map = gameState.map;
+            G.blockedCities = gameState.blockedCities?.slice();
             G.powerPlantsDeck = cloneDeep(gameState.knownPowerPlantDeck);
             // Split sizes must match the map's setup, not the standard 4+4: Russia
             // deals a 3+3 market, China numPlayers+0, etc. The base state was built
@@ -1990,6 +1998,26 @@ export function reconstructState(gameState: GameState, to?: number): GameState {
             // must see the full deck).
             G.powerPlantDeckAfterStep3 = cloneDeep(gameState.knownPowerPlantDeckStep3);
             G.knownPowerPlantDeck = G.actualMarket.concat(G.futureMarket);
+            if (forcePublicDraws) {
+                publicReplayDraws.set(
+                    G,
+                    gameState.knownPowerPlantDeck
+                        .slice(actualN + futureN)
+                        .concat(gameState.knownPowerPlantDeckStep3 || [])
+                );
+                G.powerPlantsDeck = cloneDeep(initialState.powerPlantsDeck);
+                G.powerPlantDeckAfterStep3 = undefined;
+                if (G.map.name === 'Middle East') {
+                    G.powerPlantsDeck = defaultSetupDeck(
+                        G.players.length,
+                        G.options.variant!,
+                        seedrandom('public-replay'),
+                        G.options.useNewRechargedSetup ?? true
+                    ).powerPlantsDeck;
+                    removePlantsForMiddleEastStep1(G);
+                    G.players[G.currentPlayers[0]].availableMoves = availableMoves(G, G.players[G.currentPlayers[0]]);
+                }
+            }
         }
     }
 
@@ -2072,6 +2100,7 @@ export function addPowerPlant(G: GameState): void {
     }
 
     let powerPlant = G.powerPlantsDeck.shift();
+    if (publicReplayDraws.has(G)) powerPlant = publicReplayDraws.get(G)!.shift();
 
     if (powerPlant) {
         if (G.step == 3) {
@@ -2094,6 +2123,7 @@ export function addPowerPlant(G: GameState): void {
 
                 if (G.powerPlantsDeck.length > 0) {
                     powerPlant = G.powerPlantsDeck.shift()!;
+                    if (publicReplayDraws.has(G)) powerPlant = publicReplayDraws.get(G)!.shift()!;
 
                     if (G.step == 3) {
                         if (G.knownPowerPlantDeckStep3) {
@@ -2243,7 +2273,9 @@ export function applyManhattanMarketLifecycle(G: GameState) {
     // and the rest visible-but-not-buyable (future market).
     const refillMarketTo = (size: number) => {
         while (G.actualMarket.length + G.futureMarket.length < size && G.powerPlantsDeck.length > 0) {
-            const drawn = G.powerPlantsDeck.shift()!;
+            const drawn = publicReplayDraws.has(G)
+                ? (G.powerPlantsDeck.shift(), publicReplayDraws.get(G)!.shift()!)
+                : G.powerPlantsDeck.shift()!;
             if (G.knownPowerPlantDeck) {
                 G.knownPowerPlantDeck.push(drawn);
             }

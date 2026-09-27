@@ -1,5 +1,10 @@
 lockfileVersion: 5.4
 
+patchedDependencies:
+    '@boardgamers/protocol@0.6.1':
+        hash: oubd3xmna5uo2zbpwuoh2jxdke
+        path: ../patches/@boardgamers__protocol@0.6.1.patch
+
 specifiers:
     '@boardgamers/protocol': 0.6.1
     '@types/assert': ^1.4.7
@@ -34,7 +39,7 @@ specifiers:
     zod: 4.6.4
 
 dependencies:
-    '@boardgamers/protocol': 0.6.1
+    '@boardgamers/protocol': 0.6.1_oubd3xmna5uo2zbpwuoh2jxdke
     core-js: 3.12.1
     lodash: 4.17.21
     powergrid-engine: link:../engine
@@ -1464,7 +1469,7 @@ packages:
             to-fast-properties: 2.0.0
         dev: true
 
-    /@boardgamers/protocol/0.6.1:
+    /@boardgamers/protocol/0.6.1_oubd3xmna5uo2zbpwuoh2jxdke:
         resolution:
             {
                 integrity: sha512-/SdqqYrRUNizjGqQygR4kxTZqCOqWfj190Uj/YHI8i0pD4eNXGofZJd2QhkB63n0iSRHMvJJRJReadof151wBg==,
@@ -1472,6 +1477,7 @@ packages:
         dependencies:
             zod: 4.6.4
         dev: false
+        patched: true
 
     /@eslint/eslintrc/0.4.2:
         resolution:

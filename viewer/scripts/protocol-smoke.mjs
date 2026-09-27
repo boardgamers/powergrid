@@ -99,6 +99,20 @@ try {
             return el && Math.abs(el.scrollHeight - el.scrollTop - el.clientHeight) < 3;
         });
         assert.equal(await panel.locator('summary').textContent(), 'Chat', 'old history is not unread');
+        const bottom = await list.evaluate((el) => el.scrollTop);
+        const bounds = await list.boundingBox();
+        await page.mouse.move(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2);
+        await page.mouse.wheel(0, -8);
+        await page.waitForTimeout(100);
+        assert.ok(
+            (await list.evaluate((el) => el.scrollTop)) < bottom - 3,
+            'small wheel movement escapes chat following'
+        );
+        await list.evaluate((el) => {
+            el.scrollTop = el.scrollHeight;
+        });
+        await page.waitForTimeout(100);
+
         const shortcut = page.locator('.chat-shortcut');
         if (width === 390) {
             await page.locator('.game-feed-tabs button').filter({ hasText: 'Journal' }).click();

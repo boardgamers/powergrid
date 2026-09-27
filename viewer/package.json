@@ -1,6 +1,6 @@
 {
 	"name": "powergrid-viewer",
-	"version": "2.1.13",
+	"version": "2.1.14",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/boardgamers/powergrid.git",
@@ -65,5 +65,10 @@
 		"dist/media",
 		"tsconfig.json",
 		"public/audio"
-	]
+	],
+	"pnpm": {
+		"patchedDependencies": {
+			"@boardgamers/protocol@0.6.1": "../patches/@boardgamers__protocol@0.6.1.patch"
+		}
+	}
 }

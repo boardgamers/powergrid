@@ -2,39 +2,7 @@
     <div :class="['game', { fitToScreen: preferences.fitToScreen && !stacked, stacked: stacked }]">
         <div class="planner-header" :class="{ planning: hasPlanPanel }">
             <div class="statusBar">
-                <button
-                    class="color-blind-toggle"
-                    aria-label="Color-blind mode"
-                    title="Color-blind mode"
-                    :aria-pressed="preferences.colorBlind ? 'true' : 'false'"
-                    @click="toggleColorBlind()"
-                >
-                    <svg width="24" height="24" viewBox="0 0 30 30" aria-hidden="true">
-                        <path d="M4 15Q15 2 26 15Q15 28 4 15Z" fill="none" stroke="currentColor" stroke-width="1.7" />
-                        <circle cx="15" cy="15" r="4.5" fill="none" stroke="currentColor" stroke-width="1.7" />
-                        <path d="M15 10.5V19.5A4.5 4.5 0 0 1 15 10.5" fill="currentColor" />
-                    </svg>
-                </button>
                 <span class="status-message">{{ getStatusMessage() }}</span>
-                <button
-                    v-if="!tutorialMove && !paused && canPlanRound && !roundPlan"
-                    class="plan-entry"
-                    :title="
-                        canPreparePremoves
-                            ? 'Plan cities and powering for this round'
-                            : 'Simulate the rest of this round with the game controls'
-                    "
-                    @click="myPhaseQueue && myPhaseQueue.phases.length ? viewQueuedPlan() : startPlanning()"
-                >
-                    <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true">
-                        <path d="M3 2v15h15M6 12l4-5 4 3 4-6" fill="none" stroke="currentColor" stroke-width="1.6" />
-                    </svg>
-                    {{ canPreparePremoves ? 'Plan' : 'Simulate'
-                    }}<span v-if="queuedMoveCount">
-                        · {{ queuedMoveCount }} {{ queuedMoveCount === 1 ? 'premove' : 'premoves' }}
-                    </span>
-                </button>
-                <button v-if="roundPlan" class="plan-entry" @click="stopPlanning()">Return to live game</button>
             </div>
             <RoundPlanner
                 v-if="!tutorialMove && !paused && hasPlanPanel"
@@ -90,7 +58,11 @@
                     `translate(${G.map.powerPlantMarketPosition[0]}, ${G.map.powerPlantMarketPosition[1]})`
                 "
             >
-                <text x="10" y="14" font-weight="600" fill="black">Power Plant Deck:</text>
+                <!-- Reserve breathing room around the pile in the measured mobile row. -->
+                <rect x="0" y="0" width="130" height="78" fill="none" pointer-events="none" />
+                <text :x="65 + G.cardsLeft / 5" y="14" text-anchor="middle" font-weight="600" fill="black">
+                    Draw pile
+                </text>
                 <template v-if="G.cardsLeft > 0">
                     <rect
                         v-for="index in G.cardsLeft"
@@ -422,14 +394,43 @@
                     :highlightButton="canUndo() && !preferences.disableHelp"
                     @click="undo()"
                 />
-                <LogButton transform="translate(15, 97)" @click="showLog()" />
+                <BoardOption
+                    transform="translate(15, 97)"
+                    control="color-blind"
+                    icon="eye"
+                    label="Color-blind mode"
+                    :active="!!preferences.colorBlind"
+                    @click="toggleColorBlind()"
+                />
+                <BoardOption
+                    v-if="roundPlan || canPlanRound"
+                    transform="translate(59, 97)"
+                    control="plan"
+                    :icon="roundPlan ? 'return' : 'plan'"
+                    :label="
+                        roundPlan
+                            ? 'Return to live game'
+                            : canPreparePremoves
+                            ? 'Plan cities and powering for this round'
+                            : 'Simulate the rest of this round with the game controls'
+                    "
+                    :active="!!roundPlan"
+                    :badge="queuedMoveCount"
+                    @click="
+                        roundPlan
+                            ? stopPlanning()
+                            : myPhaseQueue && myPhaseQueue.phases.length
+                            ? viewQueuedPlan()
+                            : startPlanning()
+                    "
+                />
                 <SoundButton :transform="iconButton(0)" :isOn="preferences.sound" @click="toggleSound()" />
                 <HelpButton :transform="iconButton(1)" :isOn="!preferences.disableHelp" @click="toggleHelp()" />
                 <RulesButton :transform="iconButton(2)" @click="rulesVisible = true" />
                 <!-- Only offered where it means something. Shown whenever the
                      viewport is portrait — not only while stacking is active — so
                      it can undo its own effect. Sits under Rules rather than under
-                     Log: the left column's next slot overlaps the turn-order table
+                     the options: the left column's next slot overlaps the turn-order table
                      on the authored board. -->
                 <LayoutButton
                     v-if="portraitViewport"
@@ -469,16 +470,6 @@
         <div class="journal-and-chat">
             <InlineLog v-if="G" :entries="logReversed.slice().reverse()" :mapName="G.options.map" />
             <div class="chat-host"></div>
-        </div>
-
-        <div v-if="G" :class="['modal', { visible: logVisible }]">
-            <div class="modal-content">
-                <span class="close" @click="logVisible = false">&times;</span>
-                <div class="modal-title">Log</div>
-                <div class="modal-log">
-                    <InlineLog v-if="logVisible" :entries="logReversed.slice().reverse()" :mapName="G.options.map" />
-                </div>
-            </div>
         </div>
 
         <div v-if="G" :class="['modal', { visible: confirmVisible }]">
@@ -804,7 +795,7 @@ import {
     Button,
     PassButton,
     UndoButton,
-    LogButton,
+    BoardOption,
     SoundButton,
     HelpButton,
     RulesButton,
@@ -963,7 +954,7 @@ const round = (n: number, digits = 2) => Number(n.toFixed(digits));
         Uranium,
         PassButton,
         UndoButton,
-        LogButton,
+        BoardOption,
         SoundButton,
         HelpButton,
         RulesButton,
@@ -1042,7 +1033,6 @@ export default class Game extends Vue {
 
     animationQueue: Array<Function> = [];
 
-    logVisible = false;
     endScoreVisible = false;
     spendingVisible = false;
     rulesVisible = false;
@@ -2295,10 +2285,6 @@ export default class Game extends Vue {
         this.preferences.disableHelp = newVal;
     }
 
-    showLog() {
-        this.logVisible = true;
-    }
-
     getStatusMessage() {
         if (this.roundPlan)
             return this.roundPlan.finished
@@ -2514,12 +2500,12 @@ export default class Game extends Vue {
     }
 
     /**
-     * Placement of the icon column beside Pass / Undo / Log. On a portrait viewport
+     * Placement of the icon column beside Pass / Undo / board options. On a portrait viewport
      * that column gains a fourth button — the layout toggle — in a space authored for
      * three, and at the authored pitch the fourth one hung 41 units below everything
      * else and crowded the market row beneath it. On portrait the icons shrink to the
      * 26-unit height of the text buttons next to them and re-pitch so all four end
-     * level with Log. Landscape and desktop keep the authored positions exactly.
+     * level with the board options. Landscape and desktop keep the authored positions exactly.
      */
     iconButton(index: number): string {
         if (!this.portraitViewport) return `translate(110, ${13 + 41 * index})`;
@@ -2858,50 +2844,20 @@ ul {
     flex-shrink: 0;
 }
 
-.color-blind-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 34px;
-    height: 34px;
-    padding: 0;
-    border: 1px solid #93a786;
-    border-radius: 5px;
-    background: #253221;
-    color: #fff;
-    cursor: pointer;
-}
-.color-blind-toggle[aria-pressed='true'] {
-    background: #eaf4cf;
-    color: #203a45;
-}
-.color-blind-toggle:focus-visible {
-    outline: 2px solid white;
-    outline-offset: 2px;
-}
 .status-message {
     flex: 1;
     padding: 7px 0;
 }
-.plan-entry {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    border: 1px solid #69776b;
-    border-radius: 4px;
-    padding: 5px 9px;
-    color: #e5efd9;
-    background: #242e23;
-    font: 500 13px system-ui, sans-serif;
-    cursor: pointer;
-}
-.plan-entry:hover {
-    background: #3a4c32;
-}
-.plan-entry:focus-visible {
-    outline: 2px solid #e0efb6;
-    outline-offset: 2px;
+
+@media (max-width: 600px) {
+    .statusBar,
+    .planner-header.planning {
+        font-size: 16px;
+    }
+    .planner-header.planning .status-message {
+        flex-basis: 100%;
+        text-align: center;
+    }
 }
 
 #scene {
@@ -3053,12 +3009,6 @@ text {
 .modal-body {
     max-height: calc(80vh - 64px);
     overflow: auto;
-}
-
-.modal-log {
-    max-height: calc(80vh - 75px);
-    overflow: auto;
-    border: 1px solid black;
 }
 
 .log-line {

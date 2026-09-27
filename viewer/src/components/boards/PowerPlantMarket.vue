@@ -3,7 +3,7 @@
         <!-- The draw pile is rendered by Game.vue as its own group, not here: it is
              static reference art next to three interactive markets, so the portrait
              layout needs to be able to place it on a different row. -->
-        <text x="165" y="14" font-weight="600" fill="black">Actual Market:</text>
+        <text x="165" y="14" font-weight="600" fill="black">Actual Market</text>
         <template v-for="(card, i) in actualMarketCards">
             <Card
                 :key="card.id"
@@ -16,14 +16,14 @@
         </template>
 
         <template v-if="futureMarketCards.length > 0">
-            <text x="165" y="80" font-weight="600" fill="black">Future Market:</text>
+            <text x="165" y="80" font-weight="600" fill="black">Future Market</text>
             <template v-for="card in futureMarketCards">
                 <Card :key="card.id" :targetState="{ x: card.x, y: card.y }" :powerPlant="card.powerPlant" />
             </template>
         </template>
 
         <template v-if="chosenPowerPlant">
-            <text :x="actualMarketWidth" y="14" font-weight="600" fill="black">Current Auction:</text>
+            <text :x="actualMarketWidth" y="14" font-weight="600" fill="black">Current Auction</text>
             <Card
                 :key="chosenPowerPlant.id"
                 :targetState="{ x: chosenPowerPlant.x, y: chosenPowerPlant.y }"

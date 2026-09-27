@@ -58,6 +58,6 @@ See the [desktop and mobile screenshots](docs/tutorials/README.md) for examples 
 
 ## Shared accessibility preference
 
-The viewer accepts BGS's `colorBlind` boolean preference (default `false`). The eye button in the status bar changes it through `update:preference`, so BGS saves the setting across games. It also works locally in tutorials.
+The viewer accepts BGS's `colorBlind` boolean preference (default `false`). The eye button on the board changes it through `update:preference`, so BGS saves the setting across games. It also works locally in tutorials.
 
 When enabled, houses on the map, turn-order track and city-count track carry their owner's seat number. Player panels use the same number, regardless of turn order or selected color. City rims use contrasting dash and dot patterns to distinguish map regions without extra labels. Each region keeps its pattern after region selection. Resources already use different shapes.

@@ -21,8 +21,20 @@ try {
     page.on('request', (request) => {
         if (new URL(request.url()).pathname === '/move') sent++;
     });
-    const button = (name) => page.getByRole('button', { name, exact: true });
-    const queuedPlan = (count) => button(`Plan · ${count} ${count === 1 ? 'premove' : 'premoves'}`);
+    const button = (name) =>
+        page.getByRole('button', {
+            name:
+                name === 'Plan'
+                    ? 'Plan cities and powering for this round'
+                    : name === 'Simulate'
+                    ? 'Simulate the rest of this round with the game controls'
+                    : name,
+            exact: true,
+        });
+    const queuedPlan = (count) =>
+        page
+            .locator('[data-board-control="plan"][aria-pressed="false"]')
+            .filter({ has: page.locator('text', { hasText: new RegExp(`^${count}$`) }) });
     const city = (name) =>
         page.locator('circle.canClick[pointer-events="all"]').filter({
             has: page.locator('title').filter({ hasText: new RegExp(`^${name} — build`) }),
@@ -53,7 +65,19 @@ try {
     }
     await page.goto(url);
     await button('Plan').waitFor();
-    assert.equal(await page.locator('.statusBar .plan-entry').count(), 1, 'entry is in existing black toolbar');
+    assert.equal(
+        await page.locator('.statusBar [role=button], .statusBar button').count(),
+        0,
+        'status text has the full toolbar width'
+    );
+    assert.equal(await page.locator('#scene [data-board-control="plan"]').count(), 1, 'planning is on the board');
+    assert.equal(await page.locator('[data-board-control="log"], .modal-log').count(), 0, 'no duplicate journal modal');
+    const color = page.locator('[data-board-control="color-blind"]');
+    await color.focus();
+    await page.keyboard.press('Enter');
+    assert.equal(await color.getAttribute('aria-pressed'), 'true');
+    await page.keyboard.press('Space');
+    assert.equal(await color.getAttribute('aria-pressed'), 'false');
     assert.equal(await page.locator('.round-planner').count(), 0, 'no empty planning toolbar');
     const initial = await state();
     const deckLabel = () =>

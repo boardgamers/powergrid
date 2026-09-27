@@ -322,7 +322,7 @@ try {
             host.emit('preferences', { sound: false, colorBlind: true });
         });
         await page.waitForFunction(
-            () => document.querySelector('.color-blind-toggle')?.getAttribute('aria-pressed') === 'true'
+            () => document.querySelector('[data-board-control="color-blind"]')?.getAttribute('aria-pressed') === 'true'
         );
         const owners = await page.locator('.house-owner text').allTextContents();
         assert.deepEqual([...new Set(owners.map((t) => t.trim()))].sort(), ['1', '2', '3']);

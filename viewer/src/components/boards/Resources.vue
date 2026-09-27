@@ -4,42 +4,15 @@
              The South market re-uses the existing rendering below; Korea-specific
              cube positions are populated in createPieces. -->
         <template v-if="isKorea">
-            <template v-if="resourceResupplyNorth">
-                <text
-                    v-if="resourceResupplyNorth[0] < 10"
-                    x="30"
-                    y="-125"
-                    font-weight="600"
-                    fill="black"
-                    style="font-size: 24px"
-                    >Resource Resupply:</text
-                >
-                <text v-else x="20" y="-125" font-weight="600" fill="black" style="font-size: 24px"
-                    >Resource Resupply:</text
-                >
-                <text
-                    v-if="resourceResupplyNorth[0] < 10"
-                    x="276"
-                    y="-125"
-                    font-weight="600"
-                    fill="black"
-                    style="font-size: 24px"
-                >
-                    {{ resourceResupplyNorth[0] }}
-                </text>
-                <text v-else x="262" y="-125" font-weight="600" fill="black" style="font-size: 24px">
-                    {{ resourceResupplyNorth[0] }}
-                </text>
-                <Coal :pieceId="-1" :targetState="{ x: 288, y: -133 }" :canClick="false" :transparent="false" />
-                <text x="321" y="-125" font-weight="600" fill="black" style="font-size: 24px">
-                    {{ resourceResupplyNorth[1] }}
-                </text>
-                <Oil :pieceId="-1" :targetState="{ x: 331, y: -134 }" :canClick="false" :transparent="false" />
-                <text x="368" y="-125" font-weight="600" fill="black" style="font-size: 24px">
-                    {{ resourceResupplyNorth[2] }}
-                </text>
-                <Garbage :pieceId="-1" :targetState="{ x: 382, y: -134 }" :canClick="false" :transparent="false" />
-            </template>
+            <g v-if="resourceResupplyNorth" class="resupply-strip">
+                <ResupplyBadge
+                    v-for="(resource, index) in ['coal', 'oil', 'garbage']"
+                    :key="resource"
+                    :transform="`translate(${20 + index * 86}, -151)`"
+                    :resource="resource"
+                    :amount="resourceResupplyNorth[index]"
+                />
+            </g>
             <text x="20" y="-110" font-weight="700" fill="black" style="font-size: 22px">North Market</text>
             <rect width="760" height="80" x="20" y="-100" rx="3" fill="#c89c3a" />
             <template v-for="index in 8">
@@ -111,32 +84,17 @@
             <text x="20" y="35" font-weight="700" fill="black" style="font-size: 22px">South Market</text>
         </template>
 
-        <text v-if="resourceResupply[0] < 10" x="30" y="20" font-weight="600" fill="black" style="font-size: 24px"
-            >Resource Resupply:</text
-        >
-        <text v-else x="20" y="20" font-weight="600" fill="black" style="font-size: 24px">Resource Resupply:</text>
-        <text v-if="resourceResupply[0] < 10" x="276" y="20" font-weight="600" fill="black" style="font-size: 24px">
-            {{ resourceResupply[0] }}
-        </text>
-        <text v-else x="262" y="20" font-weight="600" fill="black" style="font-size: 24px">
-            {{ resourceResupply[0] }}
-        </text>
-        <Coal :pieceId="-1" :targetState="{ x: 288, y: 12 }" :canClick="false" :transparent="false" />
-        <text x="321" y="20" font-weight="600" fill="black" style="font-size: 24px">
-            {{ resourceResupply[1] }}
-        </text>
-        <Oil :pieceId="-1" :targetState="{ x: 331, y: 11 }" :canClick="false" :transparent="false" />
-        <text x="368" y="20" font-weight="600" fill="black" style="font-size: 24px">
-            {{ resourceResupply[2] }}
-        </text>
-        <Garbage :pieceId="-1" :targetState="{ x: 382, y: 11 }" :canClick="false" :transparent="false" />
-        <!-- Australia and Bremen have no main-market uranium row, so their resupply indicators omit uranium. -->
-        <template v-if="!isAustraliaMarket && !isBremenMarket">
-            <text x="414" y="20" font-weight="600" fill="black" style="font-size: 24px">
-                {{ resourceResupply[3] }}
-            </text>
-            <Uranium :pieceId="-1" :targetState="{ x: 428, y: 12 }" :canClick="false" :transparent="false" />
-        </template>
+        <g v-if="resourceResupply" class="resupply-strip">
+            <ResupplyBadge
+                v-for="(resource, index) in isAustraliaMarket || isBremenMarket
+                    ? ['coal', 'oil', 'garbage']
+                    : ['coal', 'oil', 'garbage', 'uranium']"
+                :key="resource"
+                :transform="`translate(${20 + index * 86}, -6)`"
+                :resource="resource"
+                :amount="resourceResupply[index]"
+            />
+        </g>
 
         <rect
             v-if="!isIndiaResourceMarket && !isNinePriceMarket && !isAustraliaMarket"
@@ -434,6 +392,7 @@
 </template>
 
 <script lang="ts">
+import ResupplyBadge from './ResupplyBadge.vue';
 import type { GameState } from 'powergrid-engine';
 import { Vue, Component, Prop, Inject } from 'vue-property-decorator';
 import { Coal, Garbage, Oil, Uranium } from '../pieces';
@@ -443,7 +402,7 @@ import { buySourceKey } from '../../util/turn-buffer';
 
 @Component({
     components: {
-        Coal, Oil, Garbage, Uranium
+        Coal, Oil, Garbage, Uranium, ResupplyBadge
     },
 })
 export default class Resources extends Vue {

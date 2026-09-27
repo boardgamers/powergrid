@@ -6,20 +6,6 @@
                     {{ block.title }}
                 </text>
 
-                <!-- Restock, as the printed refill card reads it: one number per row,
-                     in the same order the rows are drawn. -->
-                <text
-                    v-if="block.restock"
-                    :x="BOX_W - 4"
-                    y="16"
-                    text-anchor="end"
-                    font-weight="600"
-                    fill="#3a2c08"
-                    style="font-size: 24px"
-                >
-                    Restock {{ block.restock }}
-                </text>
-
                 <text x="4" y="42" fill="#3a2c08" style="font-size: 24px; letter-spacing: 1px">CURRENT PRICE</text>
                 <text
                     :x="CUBE_BAND_CENTRE"
@@ -69,6 +55,13 @@
                     <text x="18" y="26" font-weight="700" fill="black" style="font-size: 22px; letter-spacing: 1px">
                         {{ row.label }}
                     </text>
+
+                    <ResupplyBadge
+                        v-if="restockFor(row) != null"
+                        :transform="`translate(${BOX_W - 110}, 4) scale(1.25)`"
+                        :resource="row.move.resource"
+                        :amount="restockFor(row)"
+                    />
 
                     <template v-if="row.price != null">
                         <text x="18" y="80" font-weight="700" fill="black" style="font-size: 26px">$</text>
@@ -164,6 +157,7 @@
 </template>
 
 <script lang="ts">
+import ResupplyBadge from './ResupplyBadge.vue';
 import { GameState } from 'powergrid-engine';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { BuyMove, ResourceBlock, ResourceRow, resourceBlocks } from '../../util/resource-rows';
@@ -199,7 +193,7 @@ const CUBE_BAND_CENTRE = 420;
  * side lock are all accounted for already. The row model itself lives in
  * `util/resource-rows`, where it can be tested against the engine's own arithmetic.
  */
-@Component
+@Component({ components: { ResupplyBadge } })
 export default class ResourceBoxes extends Vue {
     @Prop() gameState!: GameState;
     @Prop() buyableResources?: BuyMove[];
@@ -241,6 +235,13 @@ export default class ResourceBoxes extends Vue {
     /** Centre the cube cluster in that band, however many cubes there are. */
     cubeX(count: number, n: number): number {
         return CUBE_BAND_CENTRE - ((count - 1) * CUBE_PITCH) / 2 + (n - 1) * CUBE_PITCH;
+    }
+
+    restockFor(row: ResourceRow): number | string | undefined {
+        if (row.flat) return undefined;
+        const table = row.move.side === 'north' ? this.resourceResupplyNorth : this.resourceResupply;
+        const index = ['coal', 'oil', 'garbage', 'uranium'].indexOf(row.move.resource);
+        return table && index >= 0 ? table[index] : undefined;
     }
 
     get step(): number {

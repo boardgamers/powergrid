@@ -27,7 +27,7 @@ export function createAnalysisScenario(
             n <= 3 ? [3, 4, 9, 11, 16, 18, 20, 24, 30, 33, 46] : n === 4 ? [3, 4, 11, 18, 24, 33, 46] : [3, 4, 33];
     if (name === 'Spain & Portugal' && s.step === 1) excluded = [18, 22, 27];
     const catalogue = JSON.parse(JSON.stringify(name === 'India' ? indiaPowerPlants : powerPlants)) as PowerPlant[];
-    for (const region of new Set(s.map.cities.map((c) => c.region))) {
+    for (const region of new Set(s.regionDraft ? [] : s.map.cities.map((c) => c.region))) {
         for (const replacement of s.map.regionalPowerPlants?.[region] || []) {
             const i = catalogue.findIndex((p) => p.number === replacement.number);
             if (i >= 0) catalogue[i] = { ...replacement };

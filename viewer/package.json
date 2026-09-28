@@ -1,6 +1,6 @@
 {
 	"name": "powergrid-viewer",
-	"version": "2.1.14",
+	"version": "2.1.15",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/boardgamers/powergrid.git",
@@ -23,7 +23,7 @@
 		"tutorial:manifest": "node scripts/tutorial-manifest.cjs"
 	},
 	"dependencies": {
-		"@boardgamers/protocol": "0.6.1",
+		"@boardgamers/protocol": "0.6.2",
 		"core-js": "^3.6.5",
 		"lodash": "^4.17.19",
 		"powergrid-engine": "workspace:../engine",
@@ -65,10 +65,5 @@
 		"dist/media",
 		"tsconfig.json",
 		"public/audio"
-	],
-	"pnpm": {
-		"patchedDependencies": {
-			"@boardgamers/protocol@0.6.1": "../patches/@boardgamers__protocol@0.6.1.patch"
-		}
-	}
+	]
 }

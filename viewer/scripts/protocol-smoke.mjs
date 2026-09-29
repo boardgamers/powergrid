@@ -25,6 +25,9 @@ const server = createServer(async (req, res) => {
         if (req.url === '/') {
             res.setHeader('Content-Type', 'text/html');
             res.end(html);
+        } else if (/^\/powergrid-viewer\.umd\.min\.locale-[a-zA-Z-]+\.js$/.test(req.url)) {
+            res.setHeader('Content-Type', 'text/javascript; charset=utf-8');
+            res.end(await readFile(fileURLToPath(new URL('viewer/dist' + req.url, repo))));
         } else if (files[req.url]) {
             res.setHeader('Content-Type', req.url.endsWith('.css') ? 'text/css' : 'text/javascript; charset=utf-8');
             res.end(await readFile(files[req.url]));

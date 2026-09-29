@@ -48,6 +48,9 @@ module.exports = {
         config.resolve.alias.set('@boardgamers/protocol/chat$', join(protocolDist, 'chat.js'));
         config.resolve.alias.set('@boardgamers/protocol/tutorial/dom$', join(protocolDist, 'tutorial-dom.js'));
         config.resolve.alias.set('@boardgamers/protocol/tutorial$', join(protocolDist, 'tutorial.js'));
+        // Use one ESM engine graph for both root and subpath imports.
+        config.resolve.alias.set('powergrid-engine$', join(__dirname, '../engine/index.ts'));
+        config.resolve.alias.set('lodash$', require.resolve('lodash'));
         // vue-cli's svg rule uses plain file-loader (always emits files); replace it
         // with url-loader so the icons are inlined. Reuse the url-loader already
         // resolved for the images rule (it is not hoisted to our node_modules).

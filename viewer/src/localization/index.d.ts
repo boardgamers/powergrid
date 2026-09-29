@@ -1,8 +1,9 @@
 import type { TutorialMount } from '@boardgamers/protocol/tutorial';
 export interface Localization {
     readonly locale: string;
+    readonly ready: Promise<boolean>;
     translate(text: string): string;
-    setLocale(locale: unknown): void;
+    setLocale(locale: unknown): Promise<boolean>;
     setState(state: unknown): void;
     setNames(names: unknown[]): void;
     refresh(): void;

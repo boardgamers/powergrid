@@ -1,6 +1,6 @@
 {
 	"name": "powergrid-viewer",
-	"version": "2.1.15",
+	"version": "2.1.16",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/boardgamers/powergrid.git",
@@ -14,7 +14,7 @@
 		"serve": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
 		"build": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",
 		"test:unit": "vue-cli-service test:unit",
-		"package": "vue-cli-service build --target lib --name powergrid-viewer src/wrapper.ts",
+		"package": "vue-cli-service build --target lib --name powergrid-viewer src/wrapper.ts && node ../scripts/check-bundle-size.mjs",
 		"prepublishOnly": "npm run package",
 		"test:browser": "node scripts/protocol-smoke.mjs",
 		"test:tutorial": "node --test tests/tutorial/lessons.cjs",
@@ -60,6 +60,7 @@
 	"files": [
 		"src",
 		"dist/powergrid-viewer.umd.min.js",
+		"dist/powergrid-viewer.umd.min.locale-*.js",
 		"dist/powergrid-viewer.css",
 		"dist/img",
 		"dist/media",

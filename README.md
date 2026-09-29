@@ -25,3 +25,5 @@ npm run serve
 ```
 
 It will use the engine in its sibling folder
+
+Viewer releases: see [uploading the complete viewer build](docs/viewer-publishing.md).

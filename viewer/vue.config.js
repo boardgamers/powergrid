@@ -1,7 +1,4 @@
-// The production deploy uploads ONLY dist/powergrid-viewer.umd.min.js and
-// dist/powergrid-viewer.css — nothing else from dist/ is served. Any asset emitted
-// as a separate file (dist/img/*.svg icons, dist/media/*.mp3 audio) would 404, so
-// every static asset must be inlined into the bundles as a data URI.
+// Small icons and sounds stay inline. Language chunks are uploaded with the entry and CSS.
 const INLINE_ASSETS_LIMIT = 10 * 1024 * 1024;
 
 const { dirname, join } = require('path');

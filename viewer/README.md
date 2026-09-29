@@ -50,7 +50,7 @@ pnpm --dir viewer preview:tutorial
 
 Open <http://127.0.0.1:5199/?chapter=auctions>. Other chapter IDs are `resources`, `network`, `income`, `upgrades`, `steps` and `final-round`.
 
-The ordinary viewer bundle exposes both `powergrid.launch` and `powergrid.launchTutorial`. Upload the usual JS/CSS and configure the tutorial chapters on the same BGS game version. `pnpm --dir viewer tutorial:manifest` prints the chapter metadata. No second bundle or engine release is required.
+The ordinary viewer bundle exposes both `powergrid.launch` and `powergrid.launchTutorial`. Upload the entry JS, CSS and all `.umd.min.locale-*.js` chunks and configure the tutorial chapters on the same BGS game version. `pnpm --dir viewer tutorial:manifest` prints the chapter metadata. No second bundle or engine release is required.
 
 Lessons live in `src/tutorial/lessons.ts`. Keep their IDs stable and increase a chapter's version when changing its setup or accepted actions would invalidate saved progress. Test normal board clicks, refresh, rewind and completion on desktop and mobile before release.
 

@@ -2259,8 +2259,7 @@
             "reason": "Waited about 15 minutes for A10G hardware. H200 has successfully run both recent distillation jobs and provides more rollout CPU capacity."
         },
         "status": {
-            "stage": "SCHEDULING",
-            "message": "Scheduling"
+            "stage": "RUNNING"
         }
     },
     "multiplayer_search_recovery_2p": {
@@ -3349,5 +3348,38 @@
         "initial_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",
         "initial_checkpoint": "runs/multiplayer-distillation-v2-hard/best.pt",
         "rationale": "CPU pilot completed 240 balanced games and one update in 422 seconds. Train against stronger geographic search while retaining self-play and frozen snapshots; independent screening still required."
+    },
+    "multiplayer_envworker_pilot": {
+        "job_id": "6abd5f0afbc85ba68235c7b1",
+        "run": "multiplayer-geoleague-envworkers-pilot-v1",
+        "flavor": "cpu-performance",
+        "device": "cpu",
+        "workers": 240,
+        "envs": 240,
+        "torch_threads": 4,
+        "updates": 1,
+        "timeout": "3h",
+        "opponent_mode": "mixed_search_geo",
+        "source_revision": "0fe849528790ab616c9eddb7caf6ad1c7c2a5966",
+        "initial_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",
+        "hypothesis": "One process per game avoids several expensive search games serialized on one engine worker. OS schedules processes over available CPU cores.",
+        "predicted_first_update_search_load": {
+            "24_workers": {
+                "search_games": 27,
+                "search_seats": 87,
+                "max_search_seats_per_worker": 16,
+                "workers_with_search": 16
+            },
+            "240_workers": {
+                "search_games": 29,
+                "search_seats": 86,
+                "max_search_seats_per_worker": 5,
+                "workers_with_search": 29
+            }
+        },
+        "comparison_limit": "Changing worker count also changes worker-derived RNG seeds, so workloads are similar rather than identical. Measure rollout counts and durations; no strength claim from throughput.",
+        "status": {
+            "stage": "RUNNING"
+        }
     }
 }

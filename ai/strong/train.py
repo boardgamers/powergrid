@@ -301,6 +301,7 @@ try:
         save("best", export=True)
     for update in range(updates):
         start = time.perf_counter()
+        engine_start = start
         current = rollout.call(
             {
                 "op": "reset",
@@ -315,6 +316,9 @@ try:
                 "featureRevisions": feature_revisions,
             }
         )["observations"]
+        engine_seconds = time.perf_counter() - engine_start
+        policy_seconds = 0.0
+        last_progress = time.perf_counter()
         pending = [[] for _ in range(nenv)]
         batch = []
         endings = []
@@ -327,6 +331,7 @@ try:
             logps = [0.0] * len(rows)
             values = [[0.0] * (6 if multiplayer else 3)] * len(rows)
             roles = {r["roles"][r["seat"]] for r in rows}
+            policy_start = time.perf_counter()
             for role in roles:
                 indices = [
                     j for j, r in enumerate(rows) if r["roles"][r["seat"]] == role
@@ -351,6 +356,7 @@ try:
                     choice[j] = a
                     logps[j] = lp
                     values[j] = v
+            policy_seconds += time.perf_counter() - policy_start
             actions = [None] * nenv
             for j, i in enumerate(live):
                 actions[i] = choice[j]
@@ -365,7 +371,9 @@ try:
                     }
                 )
                 decisions += 1
+            engine_start = time.perf_counter()
             reply = rollout.call({"op": "step", "actions": actions})
+            engine_seconds += time.perf_counter() - engine_start
             current = reply["observations"]
             for end in reply["ended"]:
                 endings.append(end)
@@ -379,6 +387,32 @@ try:
                         r["advantage"] = r["value"][0] - r["oldvalue"]
                         batch.append(r)
                 pending[end["env"]] = []
+            if time.perf_counter() - last_progress >= 60:
+                active = [r for r in current if r is not None]
+                print(
+                    json.dumps(
+                        {
+                            "stage": "rollout_progress",
+                            "run": run,
+                            "update": update,
+                            "completed_games": len(endings),
+                            "requested_games": nenv,
+                            "decisions": decisions,
+                            "active_games": len(active),
+                            "active_round_min": min(
+                                (r["round"] for r in active), default=None
+                            ),
+                            "active_round_max": max(
+                                (r["round"] for r in active), default=None
+                            ),
+                            "engine_seconds": engine_seconds,
+                            "policy_seconds": policy_seconds,
+                            "seconds": time.perf_counter() - start,
+                        }
+                    ),
+                    flush=True,
+                )
+                last_progress = time.perf_counter()
         rollout_seconds = time.perf_counter() - start
         if not batch:
             raise RuntimeError("No completed training episodes")
@@ -467,6 +501,8 @@ try:
             "truncated": sum(x["truncated"] for x in endings),
             "samples": len(batch),
             "rollout_seconds": rollout_seconds,
+            "engine_seconds": engine_seconds,
+            "policy_seconds": policy_seconds,
             "seconds": time.perf_counter() - start,
             "loss": float(np.mean(losses)),
         }

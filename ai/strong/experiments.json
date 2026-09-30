@@ -10997,5 +10997,21 @@
             }
         },
         "decision": "Continue H200 training: update19 improves over update9 against economic opponents at 3-6 players and frozen A260 at 3 players with paired intervals above zero. A260 win credit 32.0833% remains below 33.3333% equal-share point reference and is not qualification. Two-player economic performance regresses versus geoleague update9 (paired -6.875pp, CI [-13.28125,-0.78125]); retain earlier candidates."
+    },
+    "strong_teacher_selective_repair": {
+        "status": "PREPARED_NOT_LAUNCHED",
+        "reason": "Six-player original teacher job reports two capped teacher rollouts at 110 games. Original job remains running; repair must wait for all five complete shards and pin their immutable input revision.",
+        "source": {
+            "archive": "strong-source-v33.tgz",
+            "revision": "be9262485a29f38dd5c7f0f8442909d70bb98b94",
+            "base_revision": "37465b08df007221665d796448aea57e6828257e",
+            "changed_files": [
+                "ai/strong/repair-teacher-dataset.py"
+            ],
+            "archive_sha256": "c1d380544a9db2f15dece6d6d45c5233a5eaa39fd3243f1aef4326a3ca5cf556"
+        },
+        "launcher": "ai/strong/launch-teacher-repair.sh",
+        "output_version": "multiplayer-teacher-v2-strong-repaired",
+        "policy": "Preserve clean games; replay only affected full games at 2400-step search horizon using original IDs/seeds. Keep originals untouched and record original capped counts. Require full strict audit before GPU training."
     }
 }

@@ -8,7 +8,7 @@ hf jobs run --detach --flavor "${HF_FLAVOR:-a10g-large}" --timeout "${JOB_TIMEOU
   --secrets HF_TOKEN \
   --env HF_DATA_REPO=coyotte508/powergrid-ai-training-v1 \
   --env HF_MODEL_REPO=coyotte508/powergrid-ai-germany-v1 \
-  --env RUN_NAME="${RUN_NAME:-multiplayer-distillation-strong-replay-v1-$mode}" --env TARGET_MODE="$mode" --env TRAIN_SEED=622 --env ARCHITECTURE=multiplayer_ordered --env DATA_REVISION="$revision" --env EPOCHS="${EPOCHS:-15}" --env LR="${LR:-0.00005}" --env DATA_VERSION=multiplayer-teacher-v2-strong --env SHARDS=5 --env DISAGREEMENT_WEIGHT=2 \
+  --env RUN_NAME="${RUN_NAME:-multiplayer-distillation-strong-replay-v1-$mode}" --env TARGET_MODE="$mode" --env TRAIN_SEED=622 --env ARCHITECTURE=multiplayer_ordered --env DATA_REVISION="$revision" --env EPOCHS="${EPOCHS:-15}" --env LR="${LR:-0.00005}" --env DATA_VERSION="${DATA_VERSION:-multiplayer-teacher-v2-strong-repaired}" --env SHARDS=5 --env DISAGREEMENT_WEIGHT=2 \
   --env INIT_CHECKPOINT=runs/multiplayer-distillation-v2-hard/best.pt --env INIT_REVISION=ab34dd266010ded1c9a6c818c721e5505dd1ddeb \
   --env REPLAY_DATA_VERSION=multiplayer-teacher-v1 --env REPLAY_DATA_REVISION=082ca1456736940ee32c96db3ad1bc4e4d0b206b \
   --label project=powergrid-ai --label stage="multiplayer-distillation-strong-replay-$mode" \

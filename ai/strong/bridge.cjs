@@ -1,6 +1,6 @@
 const c = require('../core.cjs'),
     eco = require('./economics.cjs'),
-    f = require('./features.cjs'),
+    encoders = require('./encoders.cjs'),
     readline = require('node:readline');
 let envs = [],
     sequence = 0;
@@ -15,15 +15,16 @@ function applyBot(e, p) {
         } finally {
             Math.random = old;
         }
-    } else if (role === 'search') {
+    } else if (role === 'search' || role === 'search_geo') {
         const legal = c.candidates(e.g, p),
             strategic = legal.length > 1 && legal.some((a) => ['ChoosePowerPlant', 'Bid', 'Build'].includes(a.name));
         c.E.move(
             e.g,
             strategic
                 ? require('./search.cjs').choose(e.g, p, {
-                      samples: 4,
-                      candidates: 5,
+                      samples: role === 'search_geo' ? 16 : 4,
+                      candidates: role === 'search_geo' ? 6 : 5,
+                      geography: role === 'search_geo',
                       seed: 'arena-search-' + e.g.round + '-' + p + '-' + Math.floor(e.rng() * 1e9),
                   }).action
                 : eco.choose(e.g, p, e.rng).action,
@@ -48,17 +49,43 @@ function advance(e) {
 function observation(e) {
     if (c.E.ended(e.g) || e.steps >= 1600) return null;
     const seat = e.g.currentPlayers[0],
-        x = f.encode(e.g, seat);
+        x = encoders.forRevision(e.featureRevisions[e.roles[seat]]).encode(e.g, seat);
     delete x.moves;
     return { ...x, episode: e.id, roles: e.roles, round: e.g.round };
 }
-function reset(mode = 'mixed', arenaSeed, arenaId) {
+function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}) {
+    if (
+        ![
+            'mixed',
+            'mixed_search',
+            'economic',
+            'heuristic',
+            'rush',
+            'legacy',
+            'selfplay',
+            'snapshot0',
+            'snapshot1',
+            'snapshot2',
+            'search',
+            'search_geo',
+        ].includes(mode)
+    )
+        throw Error('Unknown opponent mode: ' + mode);
     const id = arenaSeed === undefined ? sequence++ : arenaId,
         seat = Math.floor(id / 4) % 3,
         kind = Math.floor(c.seedrandom(seed + '-opponents-' + id)() * 8);
     const opponent =
-        mode === 'mixed'
-            ? ['economic', 'heuristic', 'rush', 'legacy', 'selfplay', 'snapshot0', 'snapshot1', 'snapshot2'][kind]
+        mode === 'mixed' || mode === 'mixed_search'
+            ? [
+                  'economic',
+                  'heuristic',
+                  'rush',
+                  mode === 'mixed_search' ? 'search' : 'legacy',
+                  'selfplay',
+                  'snapshot0',
+                  'snapshot1',
+                  'snapshot2',
+              ][kind]
             : mode;
     const roles =
         opponent === 'selfplay'
@@ -72,6 +99,8 @@ function reset(mode = 'mixed', arenaSeed, arenaId) {
         roles,
         rng: c.seedrandom(arenaSeed === undefined ? seed + '-bot-' + id : gameSeed + '-bot'),
         steps: 0,
+        policyMoves: {},
+        featureRevisions,
     };
     advance(e);
     return e;
@@ -82,7 +111,9 @@ function reset(mode = 'mixed', arenaSeed, arenaId) {
             const q = JSON.parse(line),
                 ended = [];
             if (q.op === 'reset')
-                envs = Array.from({ length: q.n }, (_, i) => reset(q.mode, q.arenaSeed, (q.offset || 0) + i));
+                envs = Array.from({ length: q.n }, (_, i) =>
+                    reset(q.mode, q.arenaSeed, (q.offset || 0) + i, q.featureRevisions)
+                );
             else if (q.op === 'step')
                 for (let i = 0; i < envs.length; i++) {
                     const e = envs[i];
@@ -99,10 +130,12 @@ function reset(mode = 'mixed', arenaSeed, arenaId) {
                                   samples: choice.searchSamples,
                                   candidates: 6,
                                   extraCandidates: [index],
+                                  geography: !!choice.geography,
                                   seed: 'arena-guided-' + e.id + '-' + e.steps,
                               }).action
                             : legal[index];
                     c.E.move(e.g, action, seat);
+                    if (e.roles[seat] === 'learner') e.policyMoves[action.name] = (e.policyMoves[action.name] || 0) + 1;
                     e.steps++;
                     advance(e);
                     if (c.E.ended(e.g) || e.steps >= 1600)
@@ -114,6 +147,17 @@ function reset(mode = 'mixed', arenaSeed, arenaId) {
                             value: c.E.ended(e.g) ? c.outcome(e.g) : [0, 0, 0],
                             steps: e.steps,
                             roles: e.roles,
+                            policyMoves: e.policyMoves,
+                            final: {
+                                round: e.g.round,
+                                players: e.g.players.map((p) => ({
+                                    cities: p.cities.length,
+                                    powered: p.citiesPowered,
+                                    money: p.money,
+                                    capacity: c.capacity(p),
+                                    plants: p.powerPlants.map((pp) => pp.number),
+                                })),
+                            },
                         });
                 }
             else throw Error('unknown op');

@@ -24,7 +24,33 @@
         "search-teacher-v2-5": "6abd1c1e404719ba37613631",
         "search-teacher-v2-6": "6abd1c1f404719ba37613633",
         "search-teacher-v2-7": "6abd1c20404719ba37613635",
-        "b20-guided-search-screening": "6abd1c21fbc85ba68235b521"
+        "b20-guided-search-screening": "6abd1c21fbc85ba68235b521",
+        "search-teacher-v3-0": "6abd1fcffbc85ba68235b664",
+        "search-teacher-v3-1": "6abd1fd0fbc85ba68235b666",
+        "search-teacher-v3-2": "6abd1fd1404719ba3761371b",
+        "search-teacher-v3-3": "6abd1fd2404719ba3761371d",
+        "search-teacher-v3-4": "6abd1fd2404719ba3761371f",
+        "search-teacher-v3-5": "6abd1fd3404719ba37613721",
+        "search-teacher-v3-6": "6abd1fd4fbc85ba68235b668",
+        "search-teacher-v3-7": "6abd1fd5fbc85ba68235b66a",
+        "b160-guided-16-screening": "6abd2167fbc85ba68235b71e",
+        "b160-guided-48-screening": "6abd2167404719ba376137a3",
+        "search-distillation-v3-hard": "6abd2239404719ba376137c0",
+        "search-distillation-v3-soft": "6abd223a404719ba376137c2",
+        "strong-refine-v1-full": "6abd2782404719ba3761385e",
+        "strong-refine-v1-search": "6abd2783404719ba37613860",
+        "geo-screen-v2-soft48-0": "6abd2a7cfbc85ba68235b99b",
+        "geo-screen-v2-soft48-1": "6abd2a7d404719ba376138f9",
+        "geo-screen-v2-soft48-2": "6abd2a7e404719ba376138fb",
+        "geo-screen-v2-soft48-3": "6abd2a7f404719ba37613900",
+        "geo-screen-v2-b16048-0": "6abd2a7f404719ba37613902",
+        "geo-screen-v2-b16048-1": "6abd2a80404719ba37613904",
+        "geo-screen-v2-b16048-2": "6abd2a81404719ba37613906",
+        "geo-screen-v2-b16048-3": "6abd2a81404719ba37613908",
+        "geo-screen-v2-soft16-0": "6abd2a82fbc85ba68235b99f",
+        "geo-screen-v2-soft16-1": "6abd2a83404719ba3761390a",
+        "geo-screen-v2-soft16-2": "6abd2a83404719ba3761390c",
+        "geo-screen-v2-soft16-3": "6abd2a84404719ba3761390e"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -46,12 +72,33 @@
         "archive": "strong-source-v6.tgz",
         "commit": "cc79acffc12ad4cc1daffbad20b024d2e1f4fe98"
     },
-    "stopped_for_sustained_regression": [
-        "6abd15cafbc85ba68235b347",
-        "6abd15ca404719ba376134e5"
-    ],
+    "stopped_for_sustained_regression": ["6abd15cafbc85ba68235b347", "6abd15ca404719ba376134e5"],
     "all_phase_distillation_source": {
         "archive": "strong-source-v7.tgz",
         "commit": "0862207a0f62cb75edfd0e6ecbc472cdc190bcd0"
+    },
+    "corrected_teacher_source": {
+        "archive": "strong-source-v8.tgz",
+        "commit": "afd0e368d939b996d02efc8eb24e653b47ca0bd4",
+        "feature_revision": "3.1-uranium39"
+    },
+    "superseded_training_data": {
+        "search-teacher-v2": "Feature revision 3.0 omits Recharged uranium cutoff; retain for reproducibility but use v3 for corrected training"
+    },
+    "checkpoints": {
+        "b20": {
+            "model_commit": "f9dfad5bde9862bc41aa42d77d9622621d70e8ce",
+            "sha256": "f9a5d4f206c03d34acb99b3263234a8d00cefdd6ae1a8dc4e353bd4d1ae9a07b",
+            "feature_revision": "3.0"
+        },
+        "b160": {
+            "model_commit": "55e2354f08c8088edd1f6634e1bb7d903dbfaf94",
+            "sha256": "3a4748c0511a7f65311611969330d2d1423a2b88ba81cfc212b4956d6a1ab891",
+            "feature_revision": "3.0"
+        }
+    },
+    "geographic_arena_source": {
+        "archive": "strong-source-v11.tgz",
+        "commit": "49c872954eaf7761a3ac3453acbf737f569849b2"
     }
 }

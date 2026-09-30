@@ -61,5 +61,13 @@ const truncated = !c.E.ended(g),
     value = truncated ? [0, 0, 0] : c.outcome(g),
     relativeValue = Array.from({ length: 3 }, (_, i) => value[(seat + i) % 3]);
 console.log(
-    JSON.stringify({ id, seed, steps, truncated, value, rows: rows.map((r) => ({ ...r, value: relativeValue })) })
+    JSON.stringify({
+        id,
+        seed,
+        featureRevision: features.FEATURE_REVISION,
+        steps,
+        truncated,
+        value,
+        rows: rows.map((r) => ({ ...r, value: relativeValue })),
+    })
 );

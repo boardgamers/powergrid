@@ -1,13 +1,13 @@
+// Frozen encoder for historical checkpoints; do not update its semantics.
 const c = require('../core.cjs'),
-    eco = require('./economics.cjs');
+    eco = require('./economics-v3_0.cjs');
 const SCHEMA = 3;
-const FEATURE_REVISION = '3.1-uranium39';
 const spatial = require('./spatial.cjs');
 function observe(g, seat, geometry) {
     const state = c.observe(g, seat),
         order = [seat, (seat + 1) % 3, (seat + 2) % 3];
     for (const r of c.RES) {
-        const supplies = [1, 2, 3].map((step) => eco.replenishment(g, r, step));
+        const supplies = g[r + 'Resupply'][g.players.length - 2];
         state.push(...supplies.map((n) => n / 12), c.resourcePrice(g, r) / 20);
         // Exact capped refill available now, and shared demand under full portfolio use.
         state.push(Math.min(g[r + 'Supply'], eco.replenishment(g, r), g[r + 'Prices'].length - g[r + 'Market']) / 24);
@@ -72,7 +72,7 @@ function encode(g, seat) {
         return [...c.actionFeatures(g, seat, a), ...extra, ...spatial.actionFeatures(g, seat, a, geometry)];
     });
     return {
-        featureRevision: FEATURE_REVISION,
+        featureRevision: '3.0',
         state: observe(g, seat, geometry),
         actions,
         moves,
@@ -81,4 +81,4 @@ function encode(g, seat) {
         seat,
     };
 }
-module.exports = { SCHEMA, FEATURE_REVISION, observe, encode };
+module.exports = { SCHEMA, observe, encode };

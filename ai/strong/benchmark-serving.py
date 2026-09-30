@@ -14,6 +14,7 @@ p.add_argument("fixtures")
 p.add_argument("--output", required=True)
 p.add_argument("--search-samples", type=int, default=0)
 p.add_argument("--stride", type=int, default=1)
+p.add_argument("--geographic-search", action="store_true")
 args = p.parse_args()
 worker = subprocess.Popen(
     [
@@ -22,7 +23,8 @@ worker = subprocess.Popen(
         args.model,
         "--search-samples",
         str(args.search_samples),
-    ],
+    ]
+    + (["--geographic-search"] if args.geographic_search else []),
     stdin=subprocess.PIPE,
     stdout=subprocess.PIPE,
     text=True,
@@ -61,6 +63,7 @@ report = {
     "model_sha256": sha,
     "all_moves_legal": True,
     "search_samples": args.search_samples,
+    "geographic_search": args.geographic_search,
     "cold_start_ms": latencies[0],
     "warm_roundtrip_p50_ms": float(np.percentile(latencies[1:], 50)),
     "warm_roundtrip_p95_ms": float(np.percentile(latencies[1:], 95)),

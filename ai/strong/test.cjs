@@ -39,6 +39,33 @@ test('UK/Ireland tracks opponent presence and empty slots on both islands', () =
         assert.equal(island.open, old.open - 1);
     }
 });
+test('effective uranium replenishment matches the engine after Recharged plant 39', () => {
+    for (const variant of ['original', 'recharged']) {
+        const g = c.start('uranium-refill-rule', variant),
+            before = f.observe(g, g.currentPlayers[0]);
+        g.card39Bought = true;
+        // The persistent rule applies even when nobody currently owns plant 39.
+        assert.ok(g.players.every((p) => !p.powerPlants.some((pp) => pp.number === 39)));
+        const expected = variant === 'recharged' ? 0 : g.uraniumResupply[1][0];
+        assert.equal(eco.replenishment(g, 'uranium'), expected);
+        if (variant === 'recharged') {
+            assert.notDeepEqual(f.observe(g, g.currentPlayers[0]), before);
+            assert.deepEqual(
+                [1, 2, 3].map((step) => eco.replenishment(g, 'uranium', step)),
+                [0, 0, 0]
+            );
+        }
+        g.uraniumMarket = 0;
+        g.uraniumSupply = 12;
+        let steps = 0;
+        while (g.round === 1 && steps++ < 300) {
+            const p = g.currentPlayers[0];
+            c.E.move(g, eco.choose(g, p).action, p);
+        }
+        assert.equal(g.round, 2);
+        assert.equal(g.uraniumMarket, expected);
+    }
+});
 test('projected order uses cities and highest-plant tie break', () => {
     const g = c.start('order');
     g.players[0].cities = [{ name: 'a' }];
@@ -100,4 +127,32 @@ test('public topology preserves map edges, ownership and island crossing rule', 
         g.players[1].bid = 999;
         assert.deepEqual(graph.encode(g, 0), x);
     }
+});
+
+test('geographic search proposals cover starting regions and ignore hidden information', () => {
+    const search = require('./search.cjs'),
+        g = c.start('geographic-start');
+    let steps = 0;
+    while (g.phase !== c.E.Phase.Building && steps++ < 300) {
+        const p = g.currentPlayers[0];
+        c.E.move(g, eco.choose(g, p).action, p);
+    }
+    assert.equal(g.phase, c.E.Phase.Building);
+    const p = g.currentPlayers[0],
+        actions = c.candidates(g, p),
+        selected = search.shortlist(g, p, 6, true);
+    const region = (a) => g.map.cities.find((x) => x.name === a.data.name).region;
+    const available = new Set(actions.filter((a) => a.name === 'Build').map(region));
+    const covered = new Set(
+        selected
+            .map((i) => actions[i])
+            .filter((a) => a.name === 'Build')
+            .map(region)
+    );
+    assert.deepEqual(covered, available);
+    assert.ok(selected.length <= 6);
+    assert.ok(selected.some((i) => actions[i].name === 'Pass'));
+    g.seed = 'private';
+    g.powerPlantsDeck.reverse();
+    assert.deepEqual(search.shortlist(g, p, 6, true), selected);
 });

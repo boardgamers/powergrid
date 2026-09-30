@@ -2,10 +2,31 @@
 const c = require('../core.cjs'),
     eco = require('./economics.cjs');
 const { createAnalysisScenario } = require('../../engine/dist/src/analysis.js');
-function shortlist(g, seat, limit = 5) {
+function shortlist(g, seat, limit = 5, geography = false) {
     const a = c.candidates(g, seat),
         v = eco.scores(g, seat, a),
         indices = [...a.keys()].sort((i, j) => v[j] - v[i]);
+    if (geography && a.some((x) => x.name === 'Build')) {
+        const ranked = require('./geographic-proposals.cjs').rank(g, seat, a),
+            chosen = new Set([indices[0]]),
+            add = (index) => {
+                if (index >= 0 && chosen.size < limit) chosen.add(index);
+            };
+        add(a.findIndex((x) => x.name === 'Pass'));
+        add(c.heuristic(g, seat).index);
+        // Cover different islands/regions before filling equal-price ties.
+        for (const key of ['island', 'region']) {
+            const seen = new Set();
+            for (const x of ranked)
+                if (!seen.has(x[key])) {
+                    add(x.index);
+                    seen.add(x[key]);
+                }
+        }
+        for (const x of ranked) add(x.index);
+        for (const i of indices) add(i);
+        return [...chosen];
+    }
     const chosen = new Set(indices.slice(0, Math.max(1, limit - 2)));
     const pass = a.findIndex((x) => x.name === 'Pass');
     if (pass >= 0) chosen.add(pass);
@@ -18,10 +39,17 @@ function shortlist(g, seat, limit = 5) {
 function choose(
     g,
     seat,
-    { samples = 6, candidates = 5, seed = 'public-search', maxSteps = 1200, extraCandidates = [] } = {}
+    {
+        samples = 6,
+        candidates = 5,
+        seed = 'public-search',
+        maxSteps = 1200,
+        extraCandidates = [],
+        geography = false,
+    } = {}
 ) {
     const actions = c.candidates(g, seat),
-        options = [...new Set([...shortlist(g, seat, candidates), ...extraCandidates])];
+        options = [...new Set([...shortlist(g, seat, candidates, geography), ...extraCandidates])];
     if (options.some((i) => !Number.isInteger(i) || i < 0 || i >= actions.length))
         throw Error('Invalid search proposal');
     if (options.length === 1) return { index: options[0], action: actions[options[0]], evaluations: 0 };

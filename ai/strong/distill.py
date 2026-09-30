@@ -15,6 +15,7 @@ from huggingface_hub import HfApi, hf_hub_download
 
 from model import Policy, tensors
 from distillation_targets import policy_targets
+from feature_contract import FEATURE_REVISION, embed_revision
 
 assert torch.cuda.is_available(), "Training must run on a GPU HF Job"
 torch.set_num_threads(2)
@@ -42,6 +43,10 @@ for shard in range(int(os.getenv("SHARDS", "4"))):
     with gzip.open(path, "rt") as source:
         for line in source:
             game = json.loads(line)
+            if game.get("featureRevision", "3.0") != FEATURE_REVISION:
+                raise ValueError(
+                    "Dataset uses a different feature revision; use its archived encoder or regenerate"
+                )
             if game["truncated"]:
                 continue
             # Keep whole games together, never split positions from one game.
@@ -63,6 +68,7 @@ def export(name):
     torch.save(
         {
             "schema": 3,
+            "feature_revision": FEATURE_REVISION,
             "state_dim": 738,
             "action_dim": 96,
             "state_dict": {k: v.detach().cpu() for k, v in net.state_dict().items()},
@@ -90,6 +96,7 @@ def export(name):
         opset_version=17,
         dynamo=False,
     )
+    embed_revision(out / f"{name}.onnx")
 
 
 def validate():
@@ -184,6 +191,7 @@ for epoch in range(int(os.getenv("EPOCHS", "30")) + 1):
             json.dumps(
                 {
                     "version": 3,
+                    "feature_revision": FEATURE_REVISION,
                     "players": 3,
                     "map": "Germany",
                     "run": run,

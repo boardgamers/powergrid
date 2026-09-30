@@ -1,14 +1,8 @@
+// Frozen economic features for historical checkpoints.
 // Public-information economic calculations. Never inspect the hidden deck or sealed bids.
 const c = require('../core.cjs');
 const income = (g, n) => g.paymentTable[Math.max(0, Math.min(g.paymentTable.length - 1, n))];
 function replenishment(g, r, step = g.step) {
-    if (
-        r === 'uranium' &&
-        g.options.variant === 'recharged' &&
-        ['Germany', 'Italy'].includes(g.options.map) &&
-        g.card39Bought
-    )
-        return 0;
     return g[r + 'Resupply'][g.players.length - 2][step - 1];
 }
 function fuelVariants(pp) {

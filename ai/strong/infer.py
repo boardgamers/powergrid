@@ -5,13 +5,17 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from infer import Model, Node
+from feature_contract import check_revision, model_revision
 
 p = argparse.ArgumentParser()
 p.add_argument("model")
 p.add_argument("--search-samples", type=int, default=0)
+p.add_argument("--geographic-search", action="store_true")
 args = p.parse_args()
 if not 0 <= args.search_samples <= 64:
     p.error("--search-samples must be 0..64")
+if args.geographic_search and not args.search_samples:
+    p.error("--geographic-search requires positive --search-samples")
 model = Model(args.model)
 node = Node("strong/worker.cjs")
 try:
@@ -23,9 +27,10 @@ try:
                 raise ValueError("Expected object")
             q = obj
             start = time.perf_counter()
-            r = node.call({**q, "op": "rank"})
+            r = node.call({**q, "op": "rank", "featureRevision": model_revision(model)})
             if "error" in r:
                 raise ValueError(r["error"])
+            check_revision(model, r.get("featureRevision", "3.0"))
             index, values = model.predict(r["state"], r["actions"])
             search = None
             if args.search_samples:
@@ -35,6 +40,8 @@ try:
                         "op": "search",
                         "proposal": index,
                         "samples": args.search_samples,
+                        "featureRevision": model_revision(model),
+                        "geography": args.geographic_search,
                     }
                 )
                 if "error" in search:
@@ -50,6 +57,7 @@ try:
                         "valueStatus": "uncalibrated-training-opponents",
                         "playerOrder": r["playerOrder"],
                         "schema": 3,
+                        "featureRevision": r["featureRevision"],
                         "search": {
                             k: v
                             for k, v in search.items()

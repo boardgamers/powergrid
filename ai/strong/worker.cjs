@@ -1,4 +1,4 @@
-const f = require('./features.cjs'),
+const encoders = require('./encoders.cjs'),
     readline = require('node:readline');
 (async () => {
     for await (const line of readline.createInterface({ input: process.stdin })) {
@@ -7,7 +7,7 @@ const f = require('./features.cjs'),
                 g = q.state,
                 p = q.player;
             if (!Number.isInteger(p) || !g.currentPlayers.includes(p)) throw Error('Player cannot act');
-            const x = f.encode(g, p);
+            const x = encoders.forRevision(q.featureRevision).encode(g, p);
             if (q.op === 'search') {
                 if (!Number.isInteger(q.proposal) || q.proposal < 0 || q.proposal >= x.moves.length)
                     throw Error('Invalid search proposal');
@@ -20,6 +20,7 @@ const f = require('./features.cjs'),
                           samples: q.samples,
                           candidates: 6,
                           extraCandidates: [q.proposal],
+                          geography: !!q.geography,
                           seed: 'serving-' + (q.requestId || 'public'),
                       })
                     : { index: q.proposal, action: x.moves[q.proposal], evaluations: 0 };

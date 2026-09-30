@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import torch
 from model import Policy
+from feature_contract import embed_revision
 
 p = argparse.ArgumentParser()
 p.add_argument("checkpoint")
@@ -32,6 +33,7 @@ torch.onnx.export(
     opset_version=17,
     dynamo=False,
 )
+embed_revision(args.output, checkpoint.get("feature_revision", "3.0"))
 Path(args.output + ".json").write_text(
     json.dumps(
         {"source": args.checkpoint, "strategic_only": strategic_only, "schema": 3}

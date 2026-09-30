@@ -11,7 +11,8 @@ import torch
 from torch.distributions import Categorical
 from model import Policy, tensors
 from pool import EnginePool
-from huggingface_hub import HfApi
+from huggingface_hub import HfApi, hf_hub_download
+from feature_contract import FEATURE_REVISION, embed_revision
 
 seed = int(os.getenv("TRAIN_SEED", "101"))
 random.seed(seed)
@@ -20,7 +21,28 @@ torch.manual_seed(seed)
 torch.set_num_threads(2)
 device = "cuda"
 assert torch.cuda.is_available(), "Training must run on a GPU HF Job"
-net = Policy().to(device)
+initial_checkpoint = os.getenv("INIT_CHECKPOINT")
+initial_revision = os.getenv("INIT_REVISION")
+checkpoint = None
+if initial_checkpoint:
+    if not initial_revision:
+        raise ValueError("Pin INIT_REVISION when continuing a checkpoint")
+    checkpoint = torch.load(
+        hf_hub_download(
+            os.environ["HF_MODEL_REPO"], initial_checkpoint, revision=initial_revision
+        ),
+        map_location="cpu",
+        weights_only=True,
+    )
+    if checkpoint.get("feature_revision", "3.0") != FEATURE_REVISION:
+        raise ValueError("Initial checkpoint requires a different feature encoder")
+strategic_only = os.getenv("STRATEGIC_ONLY", "0") == "1"
+net = Policy(strategic_only=strategic_only).to(device)
+if checkpoint:
+    net.load_state_dict(checkpoint["state_dict"])
+initial_anchor = (
+    copy.deepcopy(net).eval() if os.getenv("ANCHOR_POLICY") == "initial" else None
+)
 optimizer = torch.optim.AdamW(
     net.parameters(), lr=float(os.getenv("LR", "0.00015")), weight_decay=1e-5
 )
@@ -37,6 +59,7 @@ rollout = EnginePool(
 snapshots = [copy.deepcopy(net).eval()]
 metrics = []
 best = -1
+update = -1
 
 
 def save(name, export=False):
@@ -45,6 +68,11 @@ def save(name, export=False):
             "state_dim": 738,
             "action_dim": 96,
             "schema": 3,
+            "feature_revision": FEATURE_REVISION,
+            "strategic_only": strategic_only,
+            "update": update,
+            "initial_checkpoint": initial_checkpoint,
+            "initial_revision": initial_revision,
             "state_dict": {k: v.detach().cpu() for k, v in net.state_dict().items()},
         },
         out / (name + ".pt"),
@@ -71,11 +99,13 @@ def save(name, export=False):
             opset_version=17,
             dynamo=False,
         )
+        embed_revision(out / (name + ".onnx"))
     (out / "metrics.json").write_text(json.dumps(metrics, indent=2))
     (out / "schema.json").write_text(
         json.dumps(
             {
                 "version": 3,
+                "feature_revision": FEATURE_REVISION,
                 "state_dim": 738,
                 "action_dim": 96,
                 "players": 3,
@@ -83,6 +113,9 @@ def save(name, export=False):
                 "information": "all money public, sealed bids/deck/queued plans excluded",
                 "run": run,
                 "seed": seed,
+                "initial_checkpoint": initial_checkpoint,
+                "initial_revision": initial_revision,
+                "strategic_only": strategic_only,
             }
         )
     )
@@ -150,11 +183,19 @@ try:
         ),
         flush=True,
     )
+    if initial_checkpoint:
+        net.eval()
+        evaluation = evaluate(-1)
+        metrics.append({"stage": "evaluation", "update": -1, **evaluation})
+        best = float(
+            np.mean([evaluation[x]["win"] for x in ["economic", "heuristic", "rush"]])
+        )
+        save("best", export=True)
     for update in range(updates):
         start = time.perf_counter()
-        current = rollout.call({"op": "reset", "n": nenv, "mode": "mixed"})[
-            "observations"
-        ]
+        current = rollout.call(
+            {"op": "reset", "n": nenv, "mode": os.getenv("OPPONENT_MODE", "mixed")}
+        )["observations"]
         pending = [[] for _ in range(nenv)]
         batch = []
         endings = []
@@ -242,7 +283,11 @@ try:
                 target = torch.tensor([r["value"] for r in rows], device=device)
                 ratio = (dist.log_prob(act) - old).exp()
                 pg = -torch.minimum(ratio * adv, ratio.clamp(0.8, 1.2) * adv).mean()
-                anchor = (x[1][:, :, 74] * 2).masked_fill(~x[2], -1e9).softmax(-1)
+                if initial_anchor is not None:
+                    with torch.no_grad():
+                        anchor = initial_anchor(*x)[0].softmax(-1)
+                else:
+                    anchor = (x[1][:, :, 74] * 2).masked_fill(~x[2], -1e9).softmax(-1)
                 kl = torch.nn.functional.kl_div(
                     logits.log_softmax(-1), anchor, reduction="batchmean"
                 )
@@ -268,6 +313,18 @@ try:
             "seconds": time.perf_counter() - start,
             "loss": float(np.mean(losses)),
         }
+        opponent_outcomes = {}
+        for ending in endings:
+            if ending["roles"].count("learner") != 1:
+                continue
+            opponent = next(r for r in ending["roles"] if r != "learner")
+            group = opponent_outcomes.setdefault(
+                opponent, {"games": 0, "wins": 0, "truncated": 0}
+            )
+            group["games"] += 1
+            group["wins"] += ending["value"][ending["roles"].index("learner")]
+            group["truncated"] += ending["truncated"]
+        metric["training_opponents"] = opponent_outcomes
         metrics.append(metric)
         print(json.dumps(metric), flush=True)
         if update % int(os.getenv("EVAL_EVERY", "10")) == 0 or update == updates - 1:

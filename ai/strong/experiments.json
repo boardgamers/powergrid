@@ -2171,9 +2171,9 @@
         }
     },
     "multiplayer_refine_hard_v1": {
-        "job_id": "6abd541cfbc85ba68235c542",
-        "flavor": "a10g-large",
-        "workers": 8,
+        "job_id": "6abd57b1fbc85ba68235c5fb",
+        "flavor": "h200",
+        "workers": 16,
         "envs": 240,
         "updates": 80,
         "mixed_player_counts": true,
@@ -2183,7 +2183,18 @@
         "architecture": "multiplayer_ordered",
         "opponent_mode": "mixed_search",
         "anchor_policy": "initial",
-        "rationale": "Independent screening shows higher-count improvement but inadequate 2p and frozen 3p performance. Test terminal-reward refinement while preserving teacher model for comparison; not a promoted candidate."
+        "rationale": "Independent screening shows higher-count improvement but inadequate 2p and frozen 3p performance. Test terminal-reward refinement while preserving teacher model for comparison; not a promoted candidate.",
+        "rescheduled": {
+            "previous_job": "6abd541cfbc85ba68235c542",
+            "previous_status": "CANCELED before start, verified",
+            "previous_flavor": "a10g-large",
+            "previous_workers": 8,
+            "reason": "Waited about 15 minutes for A10G hardware. H200 has successfully run both recent distillation jobs and provides more rollout CPU capacity."
+        },
+        "status": {
+            "stage": "SCHEDULING",
+            "message": "Scheduling"
+        }
     },
     "multiplayer_search_recovery_2p": {
         "candidate_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",

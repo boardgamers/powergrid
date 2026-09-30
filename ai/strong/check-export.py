@@ -34,6 +34,8 @@ worker = subprocess.Popen(
 errors = [0.0, 0.0]
 count = 0
 route_counts = {}
+by_count = {}
+inactive_values_zero = True
 try:
     for line in Path(a.fixtures).read_text().splitlines():
         request = json.loads(line)["request"]
@@ -64,6 +66,11 @@ try:
         for i in range(2):
             errors[i] = max(errors[i], float(np.max(np.abs(expected[i] - actual[i]))))
             np.testing.assert_allclose(actual[i], expected[i], rtol=1e-4, atol=1e-5)
+        n = len(request["state"]["players"])
+        by_count[str(n)] = by_count.get(str(n), 0) + 1
+        assert row["playerOrder"] == [(request["player"] + i) % n for i in range(n)]
+        assert np.all(actual[1][:, n:] == 0)
+        assert np.isfinite(actual[1]).all() and np.isclose(actual[1].sum(), 1)
         assert np.argmax(actual[0]) == np.argmax(expected[0])
         count += 1
 finally:
@@ -72,6 +79,8 @@ finally:
     worker.stdout.close()
 report = {
     "positions": count,
+    "by_player_count": by_count,
+    "inactive_values_zero": inactive_values_zero,
     "feature_revision": revision,
     "model_sha256": hashlib.sha256(Path(a.model).read_bytes()).hexdigest(),
     "max_logit_error": errors[0],

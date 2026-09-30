@@ -4,7 +4,7 @@ import argparse
 import json
 from pathlib import Path
 import sys
-from arena_statistics import win_summary, search_summary
+from arena_statistics import win_summary, search_summary, validate_pairs
 
 p = argparse.ArgumentParser()
 p.add_argument("candidate")
@@ -25,7 +25,16 @@ def require(condition, message):
         errors.append(message)
 
 
-expected = {x["name"]: x for x in protocol["opponents"]}
+multiplayer = isinstance(protocol.get("scope"), dict)
+expected = (
+    {
+        f"{x['name']}/{n}p": {**x, **spec, "player_count": int(n)}
+        for x in protocol["opponents"]
+        for n, spec in x["counts"].items()
+    }
+    if multiplayer
+    else {x["name"]: {**x, "player_count": 3} for x in protocol["opponents"]}
+)
 sha = candidate["model_sha256"]
 require(
     candidate.get("status") == "selected", "Candidate was not frozen before validation"
@@ -37,9 +46,11 @@ for path in a.reports:
             x
             for x in expected.values()
             if (
-                report.get("opponent_sha256") == x.get("model_sha256")
+                report.get("player_count", 3) == x["player_count"]
+                and report.get("opponent_sha256") == x.get("model_sha256")
                 if "model_sha256" in x
-                else report.get("opponent") == x["name"]
+                else report.get("player_count", 3) == x["player_count"]
+                and report.get("opponent") == x["name"]
                 and not report.get("opponent_sha256")
             )
         ),
@@ -48,7 +59,8 @@ for path in a.reports:
     if spec is None:
         errors.append(f"Unknown opponent report: {path}")
         continue
-    name = spec["name"]
+    n = spec["player_count"]
+    name = f"{spec['name']}/{n}p" if multiplayer else spec["name"]
     require(name not in audited, f"{name}: duplicate opponent report")
     require(report["model_sha256"] == sha, f"{name}: wrong checkpoint")
     require(
@@ -74,6 +86,10 @@ for path in a.reports:
     require(
         len(rows) == report["games"] == spec["games"], f"{name}: incomplete game count"
     )
+    try:
+        validate_pairs(rows, n)
+    except ValueError as error:
+        errors.append(f"{name}: {error}")
     pairs = set()
     deals = {}
     for row in rows:
@@ -92,7 +108,7 @@ for path in a.reports:
             and row["roles"][row["seat"]] == "learner",
             f"{name}: incorrect learner seat",
         )
-        role = "snapshot0" if "model_path" in spec else name
+        role = "snapshot0" if "model_path" in spec else spec["name"]
         require(
             all(r in ["learner", role] for r in row["roles"]),
             f"{name}: wrong opponent roles",
@@ -106,13 +122,15 @@ for path in a.reports:
         (v, s, seat)
         for v in ["original", "recharged"]
         for s in [False, True]
-        for seat in range(3)
+        for seat in range(n)
     }
     require(
         all(x == required_pairs for x in deals.values()),
         f"{name}: missing seat/rule combinations",
     )
-    require(len(deals) == spec["games"] // 12, f"{name}: wrong independent-deal count")
+    require(
+        len(deals) == spec["games"] // (4 * n), f"{name}: wrong independent-deal count"
+    )
     summary = win_summary(rows)
     require(
         summary["win_rate"] >= spec["minimum_win_rate"],
@@ -122,7 +140,11 @@ for path in a.reports:
     require(
         interval is not None
         and interval[0]
-        > protocol["requirements"]["overall_interval_lower_bound_above"],
+        > (
+            1 / n
+            if multiplayer
+            else protocol["requirements"]["overall_interval_lower_bound_above"]
+        ),
         f"{name}: overall advantage is not established",
     )
     groups = []
@@ -139,7 +161,13 @@ for path in a.reports:
             require(
                 interval is not None
                 and interval[0]
-                > protocol["requirements"]["each_rule_interval_lower_bound_above"],
+                > (
+                    1 / n
+                    if multiplayer
+                    else protocol["requirements"][
+                        "each_rule_interval_lower_bound_above"
+                    ]
+                ),
                 f"{name}: advantage not established for {variant}, sealed={sealed}",
             )
             groups.append({"variant": variant, "sealed": sealed, **group})
@@ -154,11 +182,12 @@ parity, cpu, package = read(a.parity), read(a.cpu), read(a.package)
 for label, artifact in [("parity", parity), ("cpu", cpu), ("package", package)]:
     require(artifact["model_sha256"] == sha, f"{label}: wrong model hash")
 require(
-    parity["positions"] == 427 and parity["all_actions_match"],
+    parity["positions"] == (2553 if multiplayer else 427)
+    and parity["all_actions_match"],
     "Checkpoint/export parity did not cover all fixtures",
 )
 require(
-    cpu["positions"] == 427 and cpu["all_moves_legal"],
+    cpu["positions"] == (2553 if multiplayer else 427) and cpu["all_moves_legal"],
     "CPU worker did not pass all legal fixtures",
 )
 require("8840U" in cpu.get("processor_model", ""), "CPU benchmark was not on the 8840U")
@@ -171,9 +200,24 @@ require(
 require(
     package["all_hashes_match"]
     and package["files_verified"] > 0
-    and package["legal_fixture_responses"] == 427,
+    and (
+        package.get("positions_verified") == 80
+        and package.get("player_counts") == [2, 3, 4, 5, 6]
+        if multiplayer
+        else package["legal_fixture_responses"] == 427
+    ),
     "Standalone archive verification incomplete",
 )
+if multiplayer:
+    require(
+        set(cpu.get("by_player_count", {})) == {"2", "3", "4", "5", "6"},
+        "CPU benchmark missing player counts",
+    )
+    require(
+        set(parity.get("by_player_count", {})) == {"2", "3", "4", "5", "6"}
+        and parity.get("inactive_values_zero"),
+        "Parity missing counts or inactive-value checks",
+    )
 result = {
     "passed": not errors,
     "errors": errors,

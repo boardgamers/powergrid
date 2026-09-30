@@ -54,6 +54,7 @@ finally:
     worker.wait(timeout=10)
     worker.stdout.close()
 report = dict(
+    all_hashes_match=True,
     files_verified=len(manifest["files"]),
     positions_verified=len(seen),
     player_counts=sorted({key[0] for key in seen}),

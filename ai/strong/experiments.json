@@ -383,6 +383,14 @@
         "status": "untrained initial-policy prototype; CPU feasibility only",
         "parity": {
             "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
             "feature_revision": "4.0-multiplayer",
             "model_sha256": "2c0c9ea2d72179cf8be6327b5b9dc7ee963124512251d2fd726e8a8c1f70bae7",
             "max_logit_error": 0.0,
@@ -460,6 +468,7 @@
             }
         },
         "package": {
+            "all_hashes_match": true,
             "files_verified": 1203,
             "positions_verified": 80,
             "player_counts": [
@@ -472,5 +481,41 @@
             "all_moves_legal": true,
             "model_sha256": "2c0c9ea2d72179cf8be6327b5b9dc7ee963124512251d2fd726e8a8c1f70bae7"
         }
+    },
+    "multiplayer_teacher_3p_audit": {
+        "revision": "71993d98c2bc025fa4d6df622af6006f956e082f",
+        "count": 3,
+        "opponents": {
+            "rush": {
+                "games": 84,
+                "wins": 73.0,
+                "positions": 10463
+            },
+            "economic": {
+                "games": 84,
+                "wins": 72.0,
+                "positions": 10670
+            },
+            "heuristic": {
+                "games": 72,
+                "wins": 68.0,
+                "positions": 8764
+            }
+        },
+        "game_truncations": 0,
+        "search_rollouts": 961984,
+        "search_rollout_truncations": 0,
+        "status": "completed teacher-data shard; development performance only"
+    },
+    "deployment_interest": {
+        "browser_live_analysis": "User noted potential browser embedding on 2026-09-30; keep portable ONNX artifact; no browser deployment requested now",
+        "next_steps": "Continue strength training. Browser runtime performance and value calibration require separate validation."
+    },
+    "multiplayer_final_tooling": {
+        "dry_run_jobs": 320,
+        "games": 20160,
+        "seed_prefix": "strong-multiplayer-final-reserved-v1",
+        "launched": false,
+        "negative_test": "Rejected development candidate, development seeds, missing counts/opponents, insufficient sample size and weak results"
     }
 }

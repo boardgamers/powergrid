@@ -18,17 +18,31 @@ protocol = json.loads(Path(a.protocol).read_text())
 candidate = json.loads(Path(a.candidate).read_text())
 plan = []
 prefix = protocol["seed_prefix"]
+multiplayer = isinstance(protocol.get("scope"), dict)
+launcher = (
+    "ai/strong/launch-multiplayer-arena.sh"
+    if multiplayer
+    else "ai/strong/launch-arena.sh"
+)
 for opponent in protocol["opponents"]:
-    assert opponent["games"] % 48 == 0
-    for shard in range(opponent["games"] // 48):
-        plan.append(
-            {
-                "name": f"{prefix}-{opponent['name']}-{shard:02}",
-                "seed": f"{prefix}-{shard}",
-                "opponent": opponent,
-                "games": 48,
-            }
-        )
+    counts = opponent["counts"] if multiplayer else {"3": {"games": opponent["games"]}}
+    for count, spec in counts.items():
+        n = int(count)
+        shard_games = 4 * n * 4
+        assert spec["games"] % shard_games == 0
+        for shard in range(spec["games"] // shard_games):
+            plan.append(
+                {
+                    "name": f"{prefix}-{opponent['name']}-{n}p-{shard:02}"
+                    if multiplayer
+                    else f"{prefix}-{opponent['name']}-{shard:02}",
+                    "seed": f"{prefix}-{n}p" if multiplayer else f"{prefix}-{shard}",
+                    "player_count": n,
+                    "deal_offset": shard * 4 if multiplayer else 0,
+                    "opponent": opponent,
+                    "games": shard_games,
+                }
+            )
 print(
     json.dumps(
         {
@@ -44,6 +58,8 @@ if not a.launch:
     raise SystemExit(0)
 if candidate.get("status") != "selected":
     raise ValueError("Select and freeze the candidate before spending final seeds")
+if multiplayer and candidate.get("feature_revision") != "4.0-multiplayer":
+    raise ValueError("Multiplayer final requires a schema-4 candidate")
 from huggingface_hub import hf_hub_download
 
 model = Path(
@@ -56,9 +72,7 @@ model = Path(
 assert hashlib.sha256(model.read_bytes()).hexdigest() == candidate["model_sha256"]
 manifest_path = root / "ai/strong/experiments.json"
 manifest = json.loads(manifest_path.read_text())
-launcher_sha256 = hashlib.sha256(
-    (root / "ai/strong/launch-arena.sh").read_bytes()
-).hexdigest()
+launcher_sha256 = hashlib.sha256((root / launcher).read_bytes()).hexdigest()
 fingerprint = hashlib.sha256(
     json.dumps(
         {
@@ -94,6 +108,8 @@ for item in plan:
     env.pop("OPPONENT_MODEL_PATH", None)
     env.pop("OPPONENT_MODEL_REVISION", None)
     env["SEARCH_SCOPE"] = candidate.get("search_scope", "all")
+    env["PLAYER_COUNT"] = str(item["player_count"])
+    env["DEAL_OFFSET"] = str(item["deal_offset"])
     if "model_path" in opponent:
         env.update(
             OPPONENT_MODEL_PATH=opponent["model_path"],
@@ -102,7 +118,7 @@ for item in plan:
     result = subprocess.run(
         [
             "bash",
-            "ai/strong/launch-arena.sh",
+            launcher,
             item["name"],
             candidate["model_path"],
             candidate["model_revision"],

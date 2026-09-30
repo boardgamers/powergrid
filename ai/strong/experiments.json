@@ -98,7 +98,14 @@
         "multiplayer-teacher-v1-3": "6abd425a404719ba37613e21",
         "multiplayer-teacher-v1-4": "6abd425b404719ba37613e23",
         "multiplayer-distillation-v1-soft": "6abd4d17404719ba37613fb6",
-        "multiplayer-distillation-v1-hard": "6abd4d17fbc85ba68235c391"
+        "multiplayer-distillation-v1-hard": "6abd4d17fbc85ba68235c391",
+        "multiplayer-p5-economic-2p": "6abd4db1fbc85ba68235c3a8",
+        "multiplayer-p5-economic-3p": "6abd4db2fbc85ba68235c3aa",
+        "multiplayer-p5-economic-4p": "6abd4db2404719ba37613fd5",
+        "multiplayer-p5-economic-5p": "6abd4db3fbc85ba68235c3ac",
+        "multiplayer-p5-economic-6p": "6abd4db4404719ba37613fd7",
+        "multiplayer-p5-a260-3p": "6abd4dce404719ba37613fdc",
+        "multiplayer-p5-search-probe-6p": "6abd4dcffbc85ba68235c3ae"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -738,5 +745,48 @@
         },
         "source_archive": "strong-source-v18.tgz",
         "source_revision": "49cc1bb94678e6ede37b606ae1ce9a8cb2018c1d"
+    },
+    "multiplayer_p5_screening": {
+        "candidate": {
+            "status": "development",
+            "model_revision": "a1b729b75c3639606a169afa0f043fcd16b65efb",
+            "model_path": "runs/multiplayer-pipeline-v1/best.onnx",
+            "model_sha256": "b17143c7f9183b2d49d6bd139b1befff5c72ae54796562fc8753a958138bf787",
+            "update": 5,
+            "feature_revision": "4.0-multiplayer",
+            "search_samples": 0,
+            "geographic_search": false,
+            "search_scope": "all"
+        },
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "b17143c7f9183b2d49d6bd139b1befff5c72ae54796562fc8753a958138bf787",
+            "max_logit_error": 1.9073486328125e-06,
+            "max_value_error": 4.172325134277344e-07,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "economic_games": {
+            "2": 320,
+            "3": 480,
+            "4": 640,
+            "5": 800,
+            "6": 960
+        },
+        "economic_independent_deals_per_count": 40,
+        "a260_games_3p": 480,
+        "search_probe_games_6p": 48,
+        "search_probe_independent_deals": 2,
+        "scope": "Development comparisons only; six-player search probe is too small for a strength claim",
+        "status": "submitted"
     }
 }

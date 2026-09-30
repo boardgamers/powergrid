@@ -8971,6 +8971,132 @@
                 ]
             }
         },
-        "decision": "Continue training and stronger-opponent teacher collection. Economic-bot results improved in point estimate at every count, but three-player frozen neural opponent remains below equal-share reference; no qualification or promotion."
+        "decision": "Continue training and stronger-opponent teacher collection. Economic-bot results improved in point estimate at every count, but three-player frozen neural opponent remains below equal-share reference; no qualification or promotion.",
+        "a260_terminal_diagnostics": {
+            "scope": "Descriptive terminal-state analysis of zero-credit losses only; opponent maxima are separate per metric, not one designated winner; does not establish causal mistakes or affordable alternatives.",
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 120,
+                    "win_rate": 0.2,
+                    "zero_credit_losses": 96,
+                    "terminal_loss_summary": {
+                        "cities": {
+                            "learner_mean": 15.604166666666666,
+                            "opponent_max_mean": 18.197916666666668,
+                            "mean_gap": -2.59375
+                        },
+                        "powered": {
+                            "learner_mean": 14.739583333333334,
+                            "opponent_max_mean": 17.125,
+                            "mean_gap": -2.3854166666666665
+                        },
+                        "money": {
+                            "learner_mean": 67.86458333333333,
+                            "opponent_max_mean": 34.84375,
+                            "mean_gap": 33.020833333333336
+                        },
+                        "capacity": {
+                            "learner_mean": 15.645833333333334,
+                            "opponent_max_mean": 17.78125,
+                            "mean_gap": -2.1354166666666665
+                        }
+                    },
+                    "below_city_capacity_powered": 0
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 120,
+                    "win_rate": 0.20833333333333334,
+                    "zero_credit_losses": 95,
+                    "terminal_loss_summary": {
+                        "cities": {
+                            "learner_mean": 15.557894736842105,
+                            "opponent_max_mean": 17.94736842105263,
+                            "mean_gap": -2.389473684210526
+                        },
+                        "powered": {
+                            "learner_mean": 14.821052631578947,
+                            "opponent_max_mean": 16.936842105263157,
+                            "mean_gap": -2.1157894736842104
+                        },
+                        "money": {
+                            "learner_mean": 48.66315789473684,
+                            "opponent_max_mean": 43.71578947368421,
+                            "mean_gap": 4.947368421052632
+                        },
+                        "capacity": {
+                            "learner_mean": 15.8,
+                            "opponent_max_mean": 17.694736842105264,
+                            "mean_gap": -1.894736842105263
+                        }
+                    },
+                    "below_city_capacity_powered": 0
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 120,
+                    "win_rate": 0.3333333333333333,
+                    "zero_credit_losses": 80,
+                    "terminal_loss_summary": {
+                        "cities": {
+                            "learner_mean": 15.175,
+                            "opponent_max_mean": 18.3375,
+                            "mean_gap": -3.1625
+                        },
+                        "powered": {
+                            "learner_mean": 14.6875,
+                            "opponent_max_mean": 17.5625,
+                            "mean_gap": -2.875
+                        },
+                        "money": {
+                            "learner_mean": 57.625,
+                            "opponent_max_mean": 26.9125,
+                            "mean_gap": 30.7125
+                        },
+                        "capacity": {
+                            "learner_mean": 16.45,
+                            "opponent_max_mean": 18.475,
+                            "mean_gap": -2.025
+                        }
+                    },
+                    "below_city_capacity_powered": 1
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 120,
+                    "win_rate": 0.23333333333333334,
+                    "zero_credit_losses": 92,
+                    "terminal_loss_summary": {
+                        "cities": {
+                            "learner_mean": 14.51086956521739,
+                            "opponent_max_mean": 18.043478260869566,
+                            "mean_gap": -3.532608695652174
+                        },
+                        "powered": {
+                            "learner_mean": 13.98913043478261,
+                            "opponent_max_mean": 17.456521739130434,
+                            "mean_gap": -3.467391304347826
+                        },
+                        "money": {
+                            "learner_mean": 46.358695652173914,
+                            "opponent_max_mean": 33.46739130434783,
+                            "mean_gap": 12.891304347826088
+                        },
+                        "capacity": {
+                            "learner_mean": 16.184782608695652,
+                            "opponent_max_mean": 18.358695652173914,
+                            "mean_gap": -2.1739130434782608
+                        }
+                    },
+                    "below_city_capacity_powered": 2
+                }
+            ],
+            "interpretation": "Capacity and city-count deficits with substantial residual cash suggest investigating earlier auction/build timing. Only 3 of 363 zero-credit losses ended below min(cities, capacity) in powered count. Stronger-opponent teacher data and continuing PPO remain the next learning steps; do not alter rewards on terminal evidence alone."
+        }
     }
 }

@@ -3796,5 +3796,22 @@
             "Final verifier rejects ablation reports as deployment evidence"
         ],
         "status": "SUBMITTED"
+    },
+    "synchronous_geoleague_superseded": {
+        "job_id": "6abd5cb4fbc85ba68235c728",
+        "replacement_job_id": "6abd63b8fbc85ba68235c8d9",
+        "reason": "Verified complete async pilot and confirmed long async replacement running. Release capacity for independent strength evaluations.",
+        "first_batch": {
+            "episodes": 240,
+            "episodes_per_count": 48,
+            "samples": 38888,
+            "truncated": 0,
+            "rollout_seconds": 1685.610223481,
+            "total_seconds": 1745.5442109609999,
+            "search_evaluations": 347296,
+            "search_truncated": 0
+        },
+        "status": "CANCELED",
+        "checkpoint_note": "Stopped after first logged batch; no newly trained checkpoint saved at the 10-update checkpoint interval. Original teacher warm start remains pinned."
     }
 }

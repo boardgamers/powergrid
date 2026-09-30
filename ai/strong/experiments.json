@@ -2260,7 +2260,92 @@
         },
         "status": {
             "stage": "RUNNING"
-        }
+        },
+        "first_update": {
+            "stage": "train",
+            "run": "multiplayer-refine-hard-v1",
+            "update": 0,
+            "episodes": 240,
+            "player_count": "mixed",
+            "by_player_count": {
+                "2": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 8011
+                },
+                "3": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 7811
+                },
+                "4": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 8676
+                },
+                "5": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 6666
+                },
+                "6": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 8355
+                }
+            },
+            "truncated": 0,
+            "samples": 39519,
+            "rollout_seconds": 358.0984410038218,
+            "seconds": 368.51974144997075,
+            "loss": 0.07155261155246555,
+            "training_opponents": {
+                "search": {
+                    "games": 31,
+                    "wins": 1,
+                    "truncated": 0
+                },
+                "economic": {
+                    "games": 40,
+                    "wins": 10,
+                    "truncated": 0
+                },
+                "heuristic": {
+                    "games": 31,
+                    "wins": 13,
+                    "truncated": 0
+                },
+                "rush": {
+                    "games": 30,
+                    "wins": 8,
+                    "truncated": 0
+                },
+                "snapshot2": {
+                    "games": 27,
+                    "wins": 3,
+                    "truncated": 0
+                },
+                "snapshot1": {
+                    "games": 27,
+                    "wins": 3,
+                    "truncated": 0
+                },
+                "snapshot0": {
+                    "games": 28,
+                    "wins": 2,
+                    "truncated": 0
+                }
+            },
+            "search_rollouts_reported": true,
+            "search_stats": {
+                "search": {
+                    "decisions": 3922,
+                    "evaluations": 62612,
+                    "truncated": 0
+                }
+            }
+        },
+        "timing_comparison_limit": "GPU and CPU pilot use different source optimizations and stochastic trajectories; elapsed components establish practical viability and bottleneck, not a controlled hardware speed ratio."
     },
     "multiplayer_search_recovery_2p": {
         "candidate_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",

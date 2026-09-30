@@ -801,7 +801,7 @@
         "search_probe_games_6p": 48,
         "search_probe_independent_deals": 2,
         "scope": "Development comparisons only; six-player search probe is too small for a strength claim",
-        "status": "submitted",
+        "status": "completed development screening; strength gate failed",
         "economic_2p_result": {
             "games": 320,
             "win_rate": 0.559375,
@@ -1218,6 +1218,73 @@
                     ]
                 }
             ]
+        },
+        "search_probe_6p_result": {
+            "games": 48,
+            "win_rate": 0.0,
+            "truncated": 0,
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 12,
+                    "win_rate": 0.0,
+                    "independent_seeds": 2,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.0,
+                        0.0
+                    ]
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 12,
+                    "win_rate": 0.0,
+                    "independent_seeds": 2,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.0,
+                        0.0
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 12,
+                    "win_rate": 0.0,
+                    "independent_seeds": 2,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.0,
+                        0.0
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 12,
+                    "win_rate": 0.0,
+                    "independent_seeds": 2,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.0,
+                        0.0
+                    ]
+                }
+            ],
+            "seed_bootstrap_95_interval": [
+                0.0,
+                0.0
+            ],
+            "search_stats": {
+                "search_geo": {
+                    "decisions": 11223,
+                    "evaluations": 915472,
+                    "truncated": 0
+                }
+            },
+            "seconds": 3215.1210224089996
         }
     },
     "multiplayer_ordered_architecture": {

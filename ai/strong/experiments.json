@@ -10288,5 +10288,71 @@
             }
         ],
         "scope": "Development screen; old 1200-step reports must not be combined with these"
+    },
+    "multiplayer_h200_update19_screening": {
+        "candidate_revision": "849cea0ecdd648946529d7c4b2769011317d280d",
+        "model_path": "runs/multiplayer-refine-hard-v1/latest.onnx",
+        "model_sha256": "25dcb31f673f0ad699392c23142ff644eca4bdb932d9c1f98b81b2837eda12da",
+        "training_games": 4800,
+        "training_truncated": 0,
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "25dcb31f673f0ad699392c23142ff644eca4bdb932d9c1f98b81b2837eda12da",
+            "max_logit_error": 3.4332275390625e-05,
+            "max_value_error": 2.592802047729492e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "jobs": [
+            {
+                "run": "multiplayer-h200-u19-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abd84b4fbc85ba68235d153"
+            },
+            {
+                "run": "multiplayer-h200-u19-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abd84b5fbc85ba68235d155"
+            },
+            {
+                "run": "multiplayer-h200-u19-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abd84b5404719ba37614802"
+            },
+            {
+                "run": "multiplayer-h200-u19-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abd84b6404719ba37614804"
+            },
+            {
+                "run": "multiplayer-h200-u19-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abd84b7fbc85ba68235d157"
+            },
+            {
+                "run": "multiplayer-h200-u19-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abd84b7404719ba37614806"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Paired held-out development screening; not final qualification",
+        "arena_source": "37465b08df007221665d796448aea57e6828257e",
+        "search_samples": 0
     }
 }

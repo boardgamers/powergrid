@@ -4979,6 +4979,110 @@
         "workers": 32,
         "purpose": "Timing/protocol pilot reusing already evaluated deals. Must not be counted as new independent strength evidence. Compare full terminal records with synchronous 24-worker completed shard.",
         "local_validation": "Eight real paired 2p games, all four rule/auction combinations, sync8 vs async8: every terminal record exactly equal including final state, outcome, move counts and search counts. One search sample used for local protocol check; no local training.",
-        "local_timing_caveat": "Both local runs executed concurrently; their18.43s and9.93s are not isolated benchmarks. Await HF full-budget timing."
+        "local_timing_caveat": "Both local runs executed concurrently; their18.43s and9.93s are not isolated benchmarks. Await HF full-budget timing.",
+        "status": "COMPLETED",
+        "result_revision": "d86b5a7e4d5bfd3daeb723bf7b7deceb8e0763cc",
+        "result": {
+            "async_rollout": true,
+            "engine_workers": 32,
+            "player_count": 2,
+            "chance_win_rate": 0.5,
+            "deal_offset": 0,
+            "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/ab34dd266010ded1c9a6c818c721e5505dd1ddeb/runs/multiplayer-distillation-v2-hard/best.onnx",
+            "model_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
+            "model_feature_revision": "4.0-multiplayer",
+            "encoder_feature_revision": "4.0-multiplayer",
+            "opponent": "search_geo",
+            "opponent_sha256": null,
+            "opponent_feature_revision": null,
+            "paired_seats": true,
+            "candidate_search_samples": 48,
+            "candidate_search_scope": "all",
+            "candidate_geographic_search": true,
+            "candidate_search_model_proposal": true,
+            "seed": "multiplayer-search-strong-probe-v1-2p",
+            "games": 32,
+            "win_rate": 0.53125,
+            "truncated": 0,
+            "seconds": 484.2783763970001,
+            "inference_p95_ms": 1.0274208999817347,
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 8,
+                    "win_rate": 0.75,
+                    "independent_seeds": 4,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.5,
+                        1.0
+                    ]
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 8,
+                    "win_rate": 0.25,
+                    "independent_seeds": 4,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.0,
+                        0.5
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 8,
+                    "win_rate": 0.75,
+                    "independent_seeds": 4,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.5,
+                        1.0
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 8,
+                    "win_rate": 0.375,
+                    "independent_seeds": 4,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.125,
+                        0.5
+                    ]
+                }
+            ],
+            "independent_seeds": 4,
+            "seed_bootstrap_95_interval": [
+                0.3125,
+                0.75
+            ],
+            "search_rollouts_reported": true,
+            "search_stats": {
+                "search_geo": {
+                    "decisions": 1764,
+                    "evaluations": 140128,
+                    "truncated": 0
+                },
+                "learner": {
+                    "decisions": 1790,
+                    "evaluations": 428544,
+                    "truncated": 0
+                }
+            }
+        },
+        "comparison": {
+            "all_terminal_records_match": true,
+            "synchronous_seconds": 1147.2093434509989,
+            "asynchronous_seconds": 484.2783763970001,
+            "observed_speedup": 2.368904744387231,
+            "synchronous_workers": 24,
+            "asynchronous_workers": 32,
+            "limitation": "One exact-game batch on separate HF jobs; both scheduling and process count changed. No broad hardware-independent speed claim."
+        }
     }
 }

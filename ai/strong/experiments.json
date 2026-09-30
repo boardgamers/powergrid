@@ -1935,6 +1935,63 @@
                 0.41770833333333335,
                 0.4875
             ]
+        },
+        "paired_comparison_to_pooled": {
+            "2": {
+                "games": 320,
+                "independent_seeds": 40,
+                "truncated": 0,
+                "seed_bootstrap_95_interval": [
+                    -0.13125,
+                    0.0203125
+                ],
+                "win_rate_delta": -0.0546875,
+                "scope": "Paired development comparison; same independent deals, seats and rules. Positive means ordered teacher model wins more often."
+            },
+            "3": {
+                "games": 480,
+                "independent_seeds": 40,
+                "truncated": 0,
+                "seed_bootstrap_95_interval": [
+                    0.00625,
+                    0.12291666666666666
+                ],
+                "win_rate_delta": 0.06458333333333334,
+                "scope": "Paired development comparison; same independent deals, seats and rules. Positive means ordered teacher model wins more often."
+            },
+            "4": {
+                "games": 640,
+                "independent_seeds": 40,
+                "truncated": 0,
+                "seed_bootstrap_95_interval": [
+                    0.1015625,
+                    0.21484375
+                ],
+                "win_rate_delta": 0.16015625,
+                "scope": "Paired development comparison; same independent deals, seats and rules. Positive means ordered teacher model wins more often."
+            },
+            "5": {
+                "games": 800,
+                "independent_seeds": 40,
+                "truncated": 0,
+                "seed_bootstrap_95_interval": [
+                    0.098125,
+                    0.20875
+                ],
+                "win_rate_delta": 0.151875,
+                "scope": "Paired development comparison; same independent deals, seats and rules. Positive means ordered teacher model wins more often."
+            },
+            "6": {
+                "games": 960,
+                "independent_seeds": 40,
+                "truncated": 0,
+                "seed_bootstrap_95_interval": [
+                    0.07604166666666666,
+                    0.16927083333333334
+                ],
+                "win_rate_delta": 0.12291666666666666,
+                "scope": "Paired development comparison; same independent deals, seats and rules. Positive means ordered teacher model wins more often."
+            }
         }
     },
     "multiplayer_teacher_margin_audit": {

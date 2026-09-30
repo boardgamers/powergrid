@@ -98,7 +98,15 @@ workers = int(os.getenv("WORKERS", "4"))
 nenv = int(os.getenv("ENVS", "64"))
 batchsize = int(os.getenv("BATCH_SIZE", "512"))
 updates = int(os.getenv("UPDATES", "10"))
-rollout = EnginePool(
+async_rollout = os.getenv("ASYNC_ROLLOUT") == "1"
+rollout_class = EnginePool
+if async_rollout:
+    from async_pool import AsyncEnginePool
+
+    if workers != nenv:
+        raise ValueError("Async rollout requires WORKERS == ENVS")
+    rollout_class = AsyncEnginePool
+rollout = rollout_class(
     workers, seed=f"strong-train-{seed}", script="ai/strong/bridge.cjs"
 )
 snapshots = [copy.deepcopy(net).eval()]
@@ -119,6 +127,7 @@ def save(name, export=False):
             "update": update,
             "mixed_player_counts": mix_player_counts,
             "training_device": device,
+            "async_rollout": async_rollout,
             "initial_checkpoint": initial_checkpoint,
             "initial_revision": initial_revision,
             "initial_feature_revision": checkpoint.get("feature_revision", "3.0")
@@ -288,6 +297,7 @@ try:
                 "envs": nenv,
                 "device": device,
                 "torch_threads": torch.get_num_threads(),
+                "async_rollout": async_rollout,
                 "gpu": torch.cuda.get_device_name() if device == "cuda" else None,
             }
         ),

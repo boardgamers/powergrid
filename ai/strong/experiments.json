@@ -1474,12 +1474,20 @@
         },
         "jobs": {
             "economic_2p": "6abd5271404719ba3761405e",
-            "a260_3p": "6abd5295fbc85ba68235c4ee"
+            "a260_3p": "6abd5295fbc85ba68235c4ee",
+            "economic_3p": "6abd5348fbc85ba68235c51c",
+            "economic_4p": "6abd5349404719ba3761406f",
+            "economic_5p": "6abd5349404719ba37614071",
+            "economic_6p": "6abd534a404719ba37614073"
         },
         "canceled_invalid_opponent_argument": "6abd5279404719ba37614060",
         "games": {
             "economic_2p": 320,
-            "a260_3p": 480
+            "a260_3p": 480,
+            "economic_3p": 480,
+            "economic_4p": 640,
+            "economic_5p": 800,
+            "economic_6p": 960
         },
         "independent_deals": 40,
         "scope": "Development seeds shared with pooled baseline for comparison, separate from teacher data and reserved final seeds.",
@@ -1567,6 +1575,241 @@
             "model_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c"
         },
         "remote_research_directory": "~/powergrid-ai-multiplayer-hard-e10",
-        "deployment_status": "Research benchmark only; no production routing changed"
+        "deployment_status": "Research benchmark only; no production routing changed",
+        "economic_2p_result": {
+            "games": 320,
+            "win_rate": 0.5046875,
+            "truncated": 0,
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 80,
+                    "win_rate": 0.525,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.425,
+                        0.625
+                    ]
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 80,
+                    "win_rate": 0.425,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.3125,
+                        0.5375
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 80,
+                    "win_rate": 0.54375,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.4375,
+                        0.65
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 80,
+                    "win_rate": 0.525,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.4,
+                        0.6375
+                    ]
+                }
+            ],
+            "seed_bootstrap_95_interval": [
+                0.4515625,
+                0.559375
+            ]
+        }
+    },
+    "multiplayer_teacher_margin_audit": {
+        "scope": "Held-out teacher states; finite 16-rollout estimates, not calibrated confidence or true action quality.",
+        "validation_games": 232,
+        "groups": {
+            "2": {
+                "positions": 7393,
+                "search_comparisons": 2708,
+                "tied_top_estimates": 1587,
+                "top_gap_at_most_one_of_16_rollouts": 2202,
+                "teacher_disagreements": 1037,
+                "disagreements_with_tied_top": 284,
+                "fewer_than_two_searched_candidates": 4685
+            },
+            "2/Auction": {
+                "positions": 1792,
+                "search_comparisons": 1495,
+                "tied_top_estimates": 818,
+                "top_gap_at_most_one_of_16_rollouts": 1191,
+                "teacher_disagreements": 646,
+                "disagreements_with_tied_top": 165,
+                "fewer_than_two_searched_candidates": 297
+            },
+            "2/Resources": {
+                "positions": 2890,
+                "fewer_than_two_searched_candidates": 2890
+            },
+            "2/Building": {
+                "positions": 1213,
+                "search_comparisons": 1213,
+                "tied_top_estimates": 769,
+                "top_gap_at_most_one_of_16_rollouts": 1011,
+                "teacher_disagreements": 391,
+                "disagreements_with_tied_top": 119
+            },
+            "2/Bureaucracy": {
+                "positions": 1498,
+                "fewer_than_two_searched_candidates": 1498
+            },
+            "3": {
+                "positions": 5975,
+                "search_comparisons": 2331,
+                "tied_top_estimates": 1385,
+                "top_gap_at_most_one_of_16_rollouts": 1858,
+                "teacher_disagreements": 900,
+                "disagreements_with_tied_top": 276,
+                "fewer_than_two_searched_candidates": 3644
+            },
+            "3/Auction": {
+                "positions": 1582,
+                "search_comparisons": 1346,
+                "tied_top_estimates": 709,
+                "top_gap_at_most_one_of_16_rollouts": 1021,
+                "teacher_disagreements": 606,
+                "disagreements_with_tied_top": 171,
+                "fewer_than_two_searched_candidates": 236
+            },
+            "3/Resources": {
+                "positions": 2292,
+                "fewer_than_two_searched_candidates": 2292
+            },
+            "3/Building": {
+                "positions": 985,
+                "search_comparisons": 985,
+                "tied_top_estimates": 676,
+                "top_gap_at_most_one_of_16_rollouts": 837,
+                "teacher_disagreements": 294,
+                "disagreements_with_tied_top": 105
+            },
+            "3/Bureaucracy": {
+                "positions": 1116,
+                "fewer_than_two_searched_candidates": 1116
+            },
+            "4": {
+                "positions": 5768,
+                "search_comparisons": 2333,
+                "tied_top_estimates": 1474,
+                "top_gap_at_most_one_of_16_rollouts": 1969,
+                "teacher_disagreements": 791,
+                "disagreements_with_tied_top": 203,
+                "fewer_than_two_searched_candidates": 3435
+            },
+            "4/Auction": {
+                "positions": 1560,
+                "search_comparisons": 1375,
+                "tied_top_estimates": 789,
+                "top_gap_at_most_one_of_16_rollouts": 1127,
+                "teacher_disagreements": 543,
+                "disagreements_with_tied_top": 130,
+                "fewer_than_two_searched_candidates": 185
+            },
+            "4/Resources": {
+                "positions": 2246,
+                "fewer_than_two_searched_candidates": 2246
+            },
+            "4/Building": {
+                "positions": 958,
+                "search_comparisons": 958,
+                "tied_top_estimates": 685,
+                "top_gap_at_most_one_of_16_rollouts": 842,
+                "teacher_disagreements": 248,
+                "disagreements_with_tied_top": 73
+            },
+            "4/Bureaucracy": {
+                "positions": 1004,
+                "fewer_than_two_searched_candidates": 1004
+            },
+            "5": {
+                "positions": 4117,
+                "search_comparisons": 1782,
+                "tied_top_estimates": 1133,
+                "top_gap_at_most_one_of_16_rollouts": 1469,
+                "teacher_disagreements": 625,
+                "disagreements_with_tied_top": 170,
+                "fewer_than_two_searched_candidates": 2335
+            },
+            "5/Auction": {
+                "positions": 1214,
+                "search_comparisons": 1088,
+                "tied_top_estimates": 645,
+                "top_gap_at_most_one_of_16_rollouts": 882,
+                "teacher_disagreements": 436,
+                "disagreements_with_tied_top": 121,
+                "fewer_than_two_searched_candidates": 126
+            },
+            "5/Resources": {
+                "positions": 1506,
+                "fewer_than_two_searched_candidates": 1506
+            },
+            "5/Building": {
+                "positions": 694,
+                "search_comparisons": 694,
+                "tied_top_estimates": 488,
+                "top_gap_at_most_one_of_16_rollouts": 587,
+                "teacher_disagreements": 189,
+                "disagreements_with_tied_top": 49
+            },
+            "5/Bureaucracy": {
+                "positions": 703,
+                "fewer_than_two_searched_candidates": 703
+            },
+            "6": {
+                "positions": 4407,
+                "search_comparisons": 2019,
+                "tied_top_estimates": 1193,
+                "top_gap_at_most_one_of_16_rollouts": 1565,
+                "teacher_disagreements": 739,
+                "disagreements_with_tied_top": 185,
+                "fewer_than_two_searched_candidates": 2388
+            },
+            "6/Auction": {
+                "positions": 1374,
+                "search_comparisons": 1250,
+                "tied_top_estimates": 684,
+                "top_gap_at_most_one_of_16_rollouts": 952,
+                "teacher_disagreements": 518,
+                "disagreements_with_tied_top": 127,
+                "fewer_than_two_searched_candidates": 124
+            },
+            "6/Resources": {
+                "positions": 1505,
+                "fewer_than_two_searched_candidates": 1505
+            },
+            "6/Building": {
+                "positions": 769,
+                "search_comparisons": 769,
+                "tied_top_estimates": 509,
+                "top_gap_at_most_one_of_16_rollouts": 613,
+                "teacher_disagreements": 221,
+                "disagreements_with_tied_top": 58
+            },
+            "6/Bureaucracy": {
+                "positions": 759,
+                "fewer_than_two_searched_candidates": 759
+            }
+        }
     }
 }

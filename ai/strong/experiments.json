@@ -8276,7 +8276,29 @@
                 "shard": 4,
                 "job_id": "6abd756a404719ba3761453d"
             }
-        ]
+        ],
+        "completed_shard_audits": {
+            "3": {
+                "revision": "0775c06c1d5a8afbba505e61be51ab969bfddadf",
+                "version": "multiplayer-teacher-v2-strong",
+                "shard": 1,
+                "player_count": 3,
+                "validated": true,
+                "counts": {
+                    "games": 240,
+                    "positions": 30652,
+                    "truncated": 0,
+                    "teacher_rollouts": 3052992,
+                    "teacher_truncated": 0,
+                    "opponent_rollouts": 2018512,
+                    "opponent_truncated": 0
+                },
+                "seat_rule_cells": 12,
+                "games_per_cell": 20,
+                "validation_games": 48,
+                "training_games": 192
+            }
+        }
     },
     "strong_teacher_replay_preparation": {
         "status": "IMPLEMENTED_NOT_TRAINED",

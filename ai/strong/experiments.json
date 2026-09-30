@@ -12236,7 +12236,7 @@
         "decision": "Continue H200 training: update19 improves over update9 against economic opponents at 3-6 players and frozen A260 at 3 players with paired intervals above zero. A260 win credit 32.0833% remains below 33.3333% equal-share point reference and is not qualification. Two-player economic performance regresses versus geoleague update9 (paired -6.875pp, CI [-13.28125,-0.78125]); retain earlier candidates."
     },
     "strong_teacher_selective_repair": {
-        "status": "LAUNCHED",
+        "status": "COMPLETED_AUDITED",
         "reason": "Six-player original teacher job reports two capped teacher rollouts at 110 games. Original job remains running; repair must wait for all five complete shards and pin their immutable input revision.",
         "source": {
             "archive": "strong-source-v33.tgz",
@@ -12251,7 +12251,231 @@
         "output_version": "multiplayer-teacher-v2-strong-repaired",
         "policy": "Preserve clean games; replay only affected full games at 2400-step search horizon using original IDs/seeds. Keep originals untouched and record original capped counts. Require full strict audit before GPU training.",
         "job_id": "6abd994c404719ba37614c46",
-        "input_revision": "23d31daa1e6d09f93d1f4d151184c8ed514fe482"
+        "input_revision": "23d31daa1e6d09f93d1f4d151184c8ed514fe482",
+        "artifact_revision": "05a750ca228595ec05bc677bac1ed730ee768bc5",
+        "manifest": {
+            "input_revision": "23d31daa1e6d09f93d1f4d151184c8ed514fe482",
+            "input_version": "multiplayer-teacher-v2-strong",
+            "output_version": "multiplayer-teacher-v2-strong-repaired",
+            "repaired_search_max_steps": 2400,
+            "shards": [
+                {
+                    "shard": 0,
+                    "player_count": 2,
+                    "games": 240,
+                    "preserved_games": 240,
+                    "regenerated_games": 0,
+                    "positions": 38427,
+                    "original_capped_games": []
+                },
+                {
+                    "shard": 1,
+                    "player_count": 3,
+                    "games": 240,
+                    "preserved_games": 240,
+                    "regenerated_games": 0,
+                    "positions": 30652,
+                    "original_capped_games": []
+                },
+                {
+                    "shard": 2,
+                    "player_count": 4,
+                    "games": 240,
+                    "preserved_games": 240,
+                    "regenerated_games": 0,
+                    "positions": 30612,
+                    "original_capped_games": []
+                },
+                {
+                    "shard": 3,
+                    "player_count": 5,
+                    "games": 240,
+                    "preserved_games": 240,
+                    "regenerated_games": 0,
+                    "positions": 25986,
+                    "original_capped_games": []
+                },
+                {
+                    "shard": 4,
+                    "player_count": 6,
+                    "games": 240,
+                    "preserved_games": 238,
+                    "regenerated_games": 2,
+                    "positions": 23674,
+                    "original_capped_games": [
+                        {
+                            "id": 1051,
+                            "seed": "multiplayer-teacher-v2-strong-6p-1051",
+                            "truncated": false,
+                            "searchStats": {
+                                "decisions": 51,
+                                "evaluations": 12624,
+                                "truncated": 1
+                            },
+                            "opponentSearchStats": {
+                                "decisions": 247,
+                                "evaluations": 19824,
+                                "truncated": 0
+                            }
+                        },
+                        {
+                            "id": 1055,
+                            "seed": "multiplayer-teacher-v2-strong-6p-1055",
+                            "truncated": false,
+                            "searchStats": {
+                                "decisions": 66,
+                                "evaluations": 16560,
+                                "truncated": 1
+                            },
+                            "opponentSearchStats": {
+                                "decisions": 249,
+                                "evaluations": 19600,
+                                "truncated": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "audit": {
+            "revision": "05a750ca228595ec05bc677bac1ed730ee768bc5",
+            "version": "multiplayer-teacher-v2-strong-repaired",
+            "counts": {
+                "2": {
+                    "games": 240,
+                    "positions": 38427,
+                    "truncated": 0,
+                    "search_rollouts": 3225936,
+                    "search_rollouts_truncated": 0,
+                    "opponent_search_rollouts": 1039136,
+                    "opponent_search_rollouts_truncated": 0,
+                    "teacher_win_credit": 151.0,
+                    "disagreements": 7175,
+                    "seat_rule_cells": 8,
+                    "phases": {
+                        "Auction": 8829,
+                        "Resources": 15338,
+                        "Building": 6240,
+                        "Bureaucracy": 8020
+                    },
+                    "opponents": {
+                        "search_geo": {
+                            "games": 240,
+                            "win_credit": 151.0
+                        }
+                    },
+                    "validation_games": 48,
+                    "training_games": 192
+                },
+                "3": {
+                    "games": 240,
+                    "positions": 30652,
+                    "truncated": 0,
+                    "search_rollouts": 3052992,
+                    "search_rollouts_truncated": 0,
+                    "opponent_search_rollouts": 2018512,
+                    "opponent_search_rollouts_truncated": 0,
+                    "teacher_win_credit": 94.0,
+                    "disagreements": 6264,
+                    "seat_rule_cells": 12,
+                    "phases": {
+                        "Auction": 9030,
+                        "Resources": 11337,
+                        "Building": 4710,
+                        "Bureaucracy": 5575
+                    },
+                    "opponents": {
+                        "search_geo": {
+                            "games": 240,
+                            "win_credit": 94.0
+                        }
+                    },
+                    "validation_games": 48,
+                    "training_games": 192
+                },
+                "4": {
+                    "games": 240,
+                    "positions": 30612,
+                    "truncated": 0,
+                    "search_rollouts": 3306336,
+                    "search_rollouts_truncated": 0,
+                    "opponent_search_rollouts": 3184272,
+                    "opponent_search_rollouts_truncated": 0,
+                    "teacher_win_credit": 82.0,
+                    "disagreements": 6381,
+                    "seat_rule_cells": 16,
+                    "phases": {
+                        "Auction": 9968,
+                        "Resources": 10880,
+                        "Building": 4522,
+                        "Bureaucracy": 5242
+                    },
+                    "opponents": {
+                        "search_geo": {
+                            "games": 240,
+                            "win_credit": 82.0
+                        }
+                    },
+                    "validation_games": 48,
+                    "training_games": 192
+                },
+                "5": {
+                    "games": 240,
+                    "positions": 25986,
+                    "truncated": 0,
+                    "search_rollouts": 3030432,
+                    "search_rollouts_truncated": 0,
+                    "opponent_search_rollouts": 3935536,
+                    "opponent_search_rollouts_truncated": 0,
+                    "teacher_win_credit": 68.0,
+                    "disagreements": 5089,
+                    "seat_rule_cells": 20,
+                    "phases": {
+                        "Auction": 9351,
+                        "Resources": 8741,
+                        "Building": 3721,
+                        "Bureaucracy": 4173
+                    },
+                    "opponents": {
+                        "search_geo": {
+                            "games": 240,
+                            "win_credit": 68.0
+                        }
+                    },
+                    "validation_games": 40,
+                    "training_games": 200
+                },
+                "6": {
+                    "games": 240,
+                    "positions": 23674,
+                    "truncated": 0,
+                    "search_rollouts": 2891760,
+                    "search_rollouts_truncated": 0,
+                    "opponent_search_rollouts": 4725360,
+                    "opponent_search_rollouts_truncated": 0,
+                    "teacher_win_credit": 77.0,
+                    "disagreements": 4605,
+                    "seat_rule_cells": 24,
+                    "phases": {
+                        "Auction": 9211,
+                        "Resources": 7647,
+                        "Building": 3218,
+                        "Bureaucracy": 3598
+                    },
+                    "opponents": {
+                        "search_geo": {
+                            "games": 240,
+                            "win_credit": 77.0
+                        }
+                    },
+                    "validation_games": 48,
+                    "training_games": 192
+                }
+            },
+            "unique_games": 1200,
+            "validated": true,
+            "scope": "Teacher-generated development data; not held-out strength evidence"
+        }
     },
     "multiplayer_geoleague_update19_screening": {
         "candidate_revision": "dd5fbfee60e7f0b5e20f09675601aeaa7ad8691b",
@@ -13670,5 +13894,15 @@
             }
         },
         "decision": "Continue H200 training without promotion: five- and six-player economic gains versus both update19 runs have positive paired 95% intervals. Two-, three-, and four-player economic changes versus H200 update19 remain uncertain. Frozen A260 reaches 35.5208% win credit but the gain over either update19 run is uncertain and remains below the 40% qualification floor. Await stronger teacher replay to address persistent weaknesses; reserved final seeds untouched."
+    },
+    "strong_teacher_replay_pilot": {
+        "status": "LAUNCHED",
+        "job_id": "6abd9c96404719ba37614cb6",
+        "run": "multiplayer-distillation-strong-replay-pilot-v1-hard",
+        "epochs": 1,
+        "data_revision": "05a750ca228595ec05bc677bac1ed730ee768bc5",
+        "data_version": "multiplayer-teacher-v2-strong-repaired",
+        "source_revision": "508bc42027cae5bfeea01228b48069c8287b332a",
+        "purpose": "HF-only end-to-end replay distillation validation before full training; not strength evidence"
     }
 }

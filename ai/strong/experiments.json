@@ -787,6 +787,66 @@
         "search_probe_games_6p": 48,
         "search_probe_independent_deals": 2,
         "scope": "Development comparisons only; six-player search probe is too small for a strength claim",
-        "status": "submitted"
+        "status": "submitted",
+        "economic_2p_result": {
+            "games": 320,
+            "win_rate": 0.559375,
+            "truncated": 0,
+            "seed_bootstrap_95_interval": [
+                0.50625,
+                0.615625
+            ],
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 80,
+                    "win_rate": 0.525,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.425,
+                        0.625
+                    ]
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 80,
+                    "win_rate": 0.4875,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.3875,
+                        0.5875
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 80,
+                    "win_rate": 0.6375,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.5375,
+                        0.725
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 80,
+                    "win_rate": 0.5875,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.475,
+                        0.7
+                    ]
+                }
+            ]
+        },
+        "economic_2p_assessment": "Marginal overall advantage; original sealed below 50%; does not satisfy strong-play gate."
     }
 }

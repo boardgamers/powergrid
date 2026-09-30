@@ -1,5 +1,5 @@
 {
-  "status": "network restored; soft and hard multiplayer distillation submitted to HF",
+  "status": "ordered-opponent architecture verified; v2 teacher distillation submitted on L4/H200",
   "feature_revision": "4.0-multiplayer",
   "scope": {
     "map": "Germany",
@@ -25,7 +25,9 @@
     "action": 98,
     "player_slots": 6,
     "player_width": 74,
-    "value": "six slots with inactive players masked to zero"
+    "value": "six slots with inactive players masked to zero",
+    "architecture": "multiplayer_ordered",
+    "parameters": 983682
   },
   "verified": {
     "complete_games": 20,
@@ -47,7 +49,7 @@
     "teacher_truncated_rollouts": 0
   },
   "pending": [
-    "Complete HF pipeline run and inspect count-specific learning stability",
+    "Collect original pooled-architecture pipeline completion as a development baseline",
     "Collect and validate all 1200 HF teacher games; pin immutable dataset revision",
     "Run prepared multiplayer distillation with whole-game stratified validation on HF",
     "Refine distilled policy against strong opponents and self-play on HF",

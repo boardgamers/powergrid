@@ -106,7 +106,9 @@
         "multiplayer-p5-economic-6p": "6abd4db4404719ba37613fd7",
         "multiplayer-p5-a260-3p": "6abd4dce404719ba37613fdc",
         "multiplayer-p5-search-probe-6p": "6abd4dcffbc85ba68235c3ae",
-        "multiplayer-distillation-v1-hard-canceled-queued": "6abd4d17fbc85ba68235c391"
+        "multiplayer-distillation-v1-hard-canceled-queued": "6abd4d17fbc85ba68235c391",
+        "multiplayer-distillation-v2-soft": "6abd5021fbc85ba68235c463",
+        "multiplayer-distillation-v2-hard": "6abd5022404719ba37614022"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -1244,6 +1246,41 @@
                 "hard": 1.3058999043965747,
                 "soft": 1.3987828060399936
             }
+        },
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "6892efae963a1a0611b485c7afd26b3e965c5416fc2b9e6724691ebf4bd41226",
+            "max_logit_error": 0.0,
+            "max_value_error": 5.960464477539063e-08,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
         }
+    },
+    "multiplayer_distillation_v2": {
+        "status": "submitted",
+        "architecture": "multiplayer_ordered",
+        "source_archive": "strong-source-v20.tgz",
+        "source_revision": "c259cc1664fe39565bdbdd5d64789c9825a62692",
+        "dataset_revision": "082ca1456736940ee32c96db3ad1bc4e4d0b206b",
+        "jobs": {
+            "soft": {
+                "id": "6abd5021fbc85ba68235c463",
+                "flavor": "l4x1"
+            },
+            "hard": {
+                "id": "6abd5022404719ba37614022",
+                "flavor": "h200"
+            }
+        },
+        "supersedes": "Both v1 runs were verified canceled while queued; no v1 teacher model was trained."
     }
 }

@@ -14,7 +14,7 @@ hf jobs run --detach --flavor cpu-performance --timeout 3h \
   --label project=powergrid-ai --label stage="$1" \
   -- pytorch/pytorch:2.6.0-cuda12.4-cudnn9-runtime bash -lc '
 set -euo pipefail
-python -m pip install --quiet huggingface_hub onnxruntime
+python -m pip install --quiet --timeout 120 --retries 5 huggingface_hub==2.0.0 onnxruntime==1.30.0 numpy==2.4.6
 mkdir -p /workspace
 python -c "import urllib.request,tarfile; urllib.request.urlretrieve(\"https://nodejs.org/dist/v24.14.0/node-v24.14.0-linux-x64.tar.xz\",\"/tmp/node.tar.xz\");tarfile.open(\"/tmp/node.tar.xz\").extractall(\"/opt\")"
 export PATH=/opt/node-v24.14.0-linux-x64/bin:$PATH

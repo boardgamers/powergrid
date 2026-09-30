@@ -83,7 +83,7 @@
         "refine119-economic-screen": "6abd34cc404719ba37613b4c",
         "refine119-vs-a260-screen": "6abd34cd404719ba37613b4e",
         "geo-screen-v2-specialists-0": "6abd395b404719ba37613c3a",
-        "geo-screen-v2-specialists-1": "6abd395cfbc85ba68235be59",
+        "geo-screen-v2-specialists-1": "6abd3b59fbc85ba68235beee",
         "geo-screen-v2-specialists-2": "6abd395cfbc85ba68235be5b",
         "geo-screen-v2-specialists-3": "6abd395dfbc85ba68235be5d",
         "specialists-economic-screen": "6abd39e1fbc85ba68235be76",
@@ -172,5 +172,13 @@
         "search_scope": "recharged-sealed",
         "search_samples": 48,
         "feature_revision": "3.1-uranium39"
-    }
+    },
+    "retried_jobs": [
+        {
+            "name": "geo-screen-v2-specialists-1",
+            "failed_id": "6abd395cfbc85ba68235be59",
+            "replacement_id": "6abd3b59fbc85ba68235beee",
+            "reason": "Terminal ERROR during pip dependency download: files.pythonhosted.org read timeout; no games started. Identical checkpoint, source, scope and seed retried."
+        }
+    ]
 }

@@ -56,12 +56,28 @@ with tempfile.TemporaryDirectory() as tmp:
     for name in strong:
         shutil.copy2(root / "ai/strong" / name, bundle / "ai/strong" / name)
     shutil.copy2(model, bundle / "policy.onnx")
+    (bundle / "serve.py").write_text(
+        """import hashlib, json, os, sys
+from pathlib import Path
+root = Path(__file__).resolve().parent
+if len(sys.argv) != 1:
+    raise SystemExit("Invoke this frozen worker without arguments; send JSONL on stdin.")
+manifest = json.loads((root / "manifest.json").read_text())
+model = root / "policy.onnx"
+if hashlib.sha256(model.read_bytes()).hexdigest() != manifest["model_sha256"]:
+    raise SystemExit("Model hash differs from the frozen manifest")
+command = [sys.executable, str(root / "ai/strong/infer.py"), str(model), "--search-samples", str(manifest["search_samples"]), "--search-scope", manifest.get("search_scope", "all")]
+if manifest["geographic_search"]:
+    command.append("--geographic-search")
+os.execv(sys.executable, command)
+"""
+    )
     command = (
         f"python ai/strong/infer.py policy.onnx --search-samples {a.search_samples} --search-scope {a.search_scope}"
         + (" --geographic-search" if a.geographic_search else "")
     )
     (bundle / "START.txt").write_text(
-        "Powergrid CPU research worker\n\nRequires Node.js 24 and Python 3.11 or 3.12.\nCreate a virtual environment and install: pip install -r ai/requirements-serve.txt\nRun from this directory: "
+        "Powergrid CPU research worker\n\nRequires Node.js 24 and Python 3.11 or 3.12.\nCreate a virtual environment and install: pip install -r ai/requirements-serve.txt\nRun the frozen configuration from any directory: python /path/to/package/serve.py\nEquivalent direct command: "
         + command
         + "\n\nSend one JSON object per line with requestId, revision, player (seat index), and state (engine game state). Keep the process alive between requests. Each response proposes one atomic move. The platform must check the game revision and validate the move through the authoritative engine before committing it. Errors must not be committed as moves.\n\nScope: Germany, three players, automatic setup; original/Recharged and open/sealed auctions. Other players’ money is intentionally visible. Hidden deck order and sealed bids are excluded from policy inputs and search beliefs. Value outputs are uncalibrated training-opponent estimates, not objective player-analysis scores.\n\nThis archive makes no strength claim by itself. Consult the accompanying measured evaluations. No production routing is installed.\n"
     )

@@ -21,6 +21,9 @@ keys = [
     "candidate_search_samples",
     "candidate_geographic_search",
 ]
+for report in reports:
+    report.setdefault("candidate_search_scope", "all")
+keys.append("candidate_search_scope")
 config = {k: reports[0][k] for k in keys}
 rows = []
 seen = set()

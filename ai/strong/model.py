@@ -49,3 +49,31 @@ def tensors(rows, device):
         actions[i, : len(r["actions"])] = r["actions"]
         mask[i, : len(r["actions"])] = True
     return tuple(torch.from_numpy(a).to(device) for a in [state, actions, mask])
+
+
+class RuleSpecialists(nn.Module):
+    """Fixed specialists selected only by the public schema-3 rule flags."""
+
+    def __init__(self, default_strategic_only=False, sealed_strategic_only=False):
+        super().__init__()
+        self.default_policy = Policy(strategic_only=default_strategic_only)
+        self.recharged_sealed_policy = Policy(strategic_only=sealed_strategic_only)
+
+    def forward(self, state, actions, mask):
+        regular = self.default_policy(state, actions, mask)
+        sealed = self.recharged_sealed_policy(state, actions, mask)
+        # Eight phase flags, round, step, Recharged flag, sealed-auction flag.
+        use_sealed = ((state[:, 10] > 0.5) & (state[:, 11] > 0.5))[:, None]
+        return tuple(torch.where(use_sealed, b, a) for a, b in zip(regular, sealed))
+
+
+def policy_from_checkpoint(checkpoint):
+    architecture = checkpoint.get("architecture", "policy")
+    if architecture == "rule_specialists":
+        net = RuleSpecialists(**checkpoint["model_args"])
+    elif architecture == "policy":
+        net = Policy(strategic_only=checkpoint.get("strategic_only", False))
+    else:
+        raise ValueError(f"Unsupported architecture: {architecture}")
+    net.load_state_dict(checkpoint["state_dict"])
+    return net

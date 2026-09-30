@@ -60,7 +60,14 @@ function observation(e) {
     const seat = e.g.currentPlayers[0],
         x = encoders.forRevision(e.featureRevisions[e.roles[seat]]).encode(e.g, seat);
     delete x.moves;
-    return { ...x, episode: e.id, roles: e.roles, round: e.g.round };
+    return {
+        ...x,
+        episode: e.id,
+        roles: e.roles,
+        round: e.g.round,
+        variant: e.g.options.variant,
+        sealed: !!e.g.options.fastBid,
+    };
 }
 function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}) {
     if (

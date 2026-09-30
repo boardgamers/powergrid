@@ -81,7 +81,16 @@
         "geo-screen-v2-arefine4048-2": "6abd318dfbc85ba68235bbe1",
         "geo-screen-v2-arefine4048-3": "6abd318efbc85ba68235bbe5",
         "refine119-economic-screen": "6abd34cc404719ba37613b4c",
-        "refine119-vs-a260-screen": "6abd34cd404719ba37613b4e"
+        "refine119-vs-a260-screen": "6abd34cd404719ba37613b4e",
+        "geo-screen-v2-specialists-0": "6abd395b404719ba37613c3a",
+        "geo-screen-v2-specialists-1": "6abd395cfbc85ba68235be59",
+        "geo-screen-v2-specialists-2": "6abd395cfbc85ba68235be5b",
+        "geo-screen-v2-specialists-3": "6abd395dfbc85ba68235be5d",
+        "specialists-economic-screen": "6abd39e1fbc85ba68235be76",
+        "specialists-heuristic-screen": "6abd39e2fbc85ba68235be7a",
+        "specialists-rush-screen": "6abd39e2404719ba37613c5c",
+        "specialists-legacy-screen": "6abd39e3fbc85ba68235be7c",
+        "specialists-frozen-a260-screen": "6abd39e4404719ba37613c5e"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -146,5 +155,22 @@
     "final_arena_source": {
         "archive": "strong-source-v13.tgz",
         "commit": "3eea217f53333f63d81345a7319179a59d63a55b"
+    },
+    "stopped_after_regression": {
+        "strong-refine-v1-search": {
+            "job": "6abd2783404719ba37613860",
+            "best_evaluation_update": 10,
+            "later_evaluations": [20, 30],
+            "reason": "Mean economic/heuristic/rush win share declined from 0.5764 at update 10 to 0.5660 at 20 and 0.5347 at 30; every update-30 opponent result was below update 20. Best checkpoint retained; corrected A260 refinement is substantially stronger."
+        }
+    },
+    "specialist_candidate": {
+        "model_revision": "16a405099df4121e986e2cc9cc6097b0f6c44caa",
+        "sha256": "b4cae14eb6e1aff72b16e5056983b2a57ad42984f4a27cf99dd70bb63e86be32",
+        "source_archive": "strong-source-v14.tgz",
+        "source_revision": "5f1c68899807970428e55033fc81223970795c52",
+        "search_scope": "recharged-sealed",
+        "search_samples": 48,
+        "feature_revision": "3.1-uranium39"
     }
 }

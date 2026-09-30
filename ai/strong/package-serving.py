@@ -10,9 +10,11 @@ import tarfile
 import tempfile
 import onnxruntime as ort
 from feature_contract import METADATA_KEY
+from search_scope import SCOPES
 
 p = argparse.ArgumentParser()
 p.add_argument("model")
+p.add_argument("--search-scope", choices=SCOPES, default="all")
 p.add_argument("output")
 p.add_argument("--model-revision", required=True)
 p.add_argument("--search-samples", type=int, default=0)
@@ -38,6 +40,7 @@ with tempfile.TemporaryDirectory() as tmp:
         "worker.cjs",
         "encoders.cjs",
         "feature_contract.py",
+        "search_scope.py",
         "features.cjs",
         "features-v3_0.cjs",
         "economics.cjs",
@@ -54,7 +57,7 @@ with tempfile.TemporaryDirectory() as tmp:
         shutil.copy2(root / "ai/strong" / name, bundle / "ai/strong" / name)
     shutil.copy2(model, bundle / "policy.onnx")
     command = (
-        f"python ai/strong/infer.py policy.onnx --search-samples {a.search_samples}"
+        f"python ai/strong/infer.py policy.onnx --search-samples {a.search_samples} --search-scope {a.search_scope}"
         + (" --geographic-search" if a.geographic_search else "")
     )
     (bundle / "START.txt").write_text(
@@ -72,6 +75,7 @@ with tempfile.TemporaryDirectory() as tmp:
             ["git", "rev-parse", "HEAD"], cwd=root, text=True
         ).strip(),
         "search_samples": a.search_samples,
+        "search_scope": a.search_scope,
         "geographic_search": a.geographic_search,
         "scope": {
             "map": "Germany",

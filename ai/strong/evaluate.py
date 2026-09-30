@@ -8,10 +8,12 @@ import numpy as np
 from infer import Model
 from pool import EnginePool
 from arena_statistics import win_summary, search_summary
+from search_scope import SCOPES, search_enabled
 from feature_contract import FEATURE_REVISION, check_revision, model_revision
 
 p = argparse.ArgumentParser()
 p.add_argument("model")
+p.add_argument("--search-scope", choices=SCOPES, default="all")
 p.add_argument(
     "--opponent",
     default="economic",
@@ -89,7 +91,9 @@ try:
                     "searchSamples": args.search_samples,
                     "geography": args.geographic_search,
                 }
-                if actor is model and args.search_samples
+                if actor is model
+                and args.search_samples
+                and search_enabled(args.search_scope, x["variant"], x["sealed"])
                 else a
             )
         r = pool.call({"op": "step", "actions": actions})
@@ -119,6 +123,7 @@ report = {
     else None,
     "paired_seats": True,
     "candidate_search_samples": args.search_samples,
+    "candidate_search_scope": args.search_scope,
     "candidate_geographic_search": args.geographic_search,
     "seed": args.seed,
     "games": len(rows),

@@ -6,10 +6,13 @@ from pathlib import Path
 import subprocess
 import sys
 import time
+import platform
 import numpy as np
+from search_scope import SCOPES
 
 p = argparse.ArgumentParser()
 p.add_argument("model")
+p.add_argument("--search-scope", choices=SCOPES, default="all")
 p.add_argument("fixtures")
 p.add_argument("--output", required=True)
 p.add_argument("--search-samples", type=int, default=0)
@@ -21,6 +24,8 @@ worker = subprocess.Popen(
         sys.executable,
         str(Path(__file__).with_name("infer.py")),
         args.model,
+        "--search-scope",
+        args.search_scope,
         "--search-samples",
         str(args.search_samples),
     ]
@@ -69,11 +74,26 @@ finally:
     worker.stdin.close()
     worker.wait(timeout=10)
     worker.stdout.close()
+cpu_info = Path("/proc/cpuinfo")
+processor_model = platform.processor()
+if cpu_info.exists():
+    processor_model = next(
+        (
+            line.split(":", 1)[1].strip()
+            for line in cpu_info.read_text().splitlines()
+            if line.startswith("model name")
+        ),
+        processor_model,
+    )
 report = {
+    "hostname": platform.node(),
+    "processor_model": processor_model,
+    "python_version": platform.python_version(),
     "positions": len(latencies),
     "model_sha256": sha,
     "all_moves_legal": True,
     "search_samples": args.search_samples,
+    "search_scope": args.search_scope,
     "geographic_search": args.geographic_search,
     "cold_start_ms": latencies[0],
     "warm_roundtrip_p50_ms": float(np.percentile(latencies[1:], 50)),

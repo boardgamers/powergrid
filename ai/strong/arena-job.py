@@ -22,6 +22,8 @@ command = [
     os.environ.get("WORKERS", "24"),
     "--seed",
     os.environ["EVAL_SEED"],
+    "--search-scope",
+    os.environ.get("SEARCH_SCOPE", "all"),
     "--search-samples",
     os.environ.get("SEARCH_SAMPLES", "0"),
     "--output",

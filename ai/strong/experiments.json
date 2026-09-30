@@ -14018,6 +14018,114 @@
             ],
             "specialist_route_counts": {}
         },
-        "decision": "One of 2553 positions exceeds existing near-zero logit tolerance (1.5258789e-5 at logit approximately 0.03033). All legal action selections match, values pass, inactive values remain zero. Disabling ONNX graph optimization does not change result. Do not mark strict parity passed; investigate numeric cancellation or re-export and retain independent validation before promotion."
+        "decision": "Strict check remains failed for epoch5. Double precision comparison isolates small ONNX float32 error (1.46118e-5 versus reference at the offending logit), with 0.77281 winning margin and all 2553 actions identical. Epoch10 passes unchanged strict verification; evaluate epoch10 rather than relax the gate.",
+        "double_precision_reference": {
+            "positions": 2553,
+            "reference_details": [
+                {
+                    "position": 2307,
+                    "output": 0,
+                    "player_count": 6,
+                    "mismatches": [
+                        {
+                            "index": [
+                                0,
+                                11
+                            ],
+                            "torch32": 0.030332565307617188,
+                            "onnx32": 0.030347824096679688,
+                            "reference64": 0.030333212302579682
+                        }
+                    ],
+                    "torch_max_error": 3.5502267365927764e-06,
+                    "onnx_max_error": 1.4611794100005682e-05,
+                    "winning_margin": 0.7728108349122729
+                }
+            ],
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "7684e4c6f7e36bdf93a1cdb2568c50f0ef8d10adb5a45649f8808617c5b25eb7",
+            "max_logit_error": 4.1961669921875e-05,
+            "max_value_error": 1.9669532775878906e-06,
+            "all_actions_match": true,
+            "action_mismatches": 0,
+            "tolerance_violation_positions": [
+                1,
+                0
+            ],
+            "specialist_route_counts": {}
+        }
+    },
+    "strong_teacher_replay_epoch10_screening": {
+        "candidate_revision": "625bc9534ea0eb43ef1ac80116984267706b0839",
+        "model_path": "runs/multiplayer-distillation-strong-replay-v1-hard/latest.onnx",
+        "model_sha256": "7c6c365d438e9f7a7434657ca8ae0383bf220d3963958cdadfc65ba0f733cc4a",
+        "epoch": 10,
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "7c6c365d438e9f7a7434657ca8ae0383bf220d3963958cdadfc65ba0f733cc4a",
+            "max_logit_error": 4.57763671875e-05,
+            "max_value_error": 2.3245811462402344e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "jobs": [
+            {
+                "run": "multiplayer-strong-replay-e10-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abda04b404719ba37614d6f"
+            },
+            {
+                "run": "multiplayer-strong-replay-e10-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abda04c404719ba37614d71"
+            },
+            {
+                "run": "multiplayer-strong-replay-e10-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abda04c404719ba37614d73"
+            },
+            {
+                "run": "multiplayer-strong-replay-e10-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abda04dfbc85ba68235d964"
+            },
+            {
+                "run": "multiplayer-strong-replay-e10-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abda04efbc85ba68235d966"
+            },
+            {
+                "run": "multiplayer-strong-replay-e10-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abda04f404719ba37614d75"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Paired held-out development screening; not final qualification",
+        "arena_source": "37465b08df007221665d796448aea57e6828257e",
+        "search_samples": 0
     }
 }

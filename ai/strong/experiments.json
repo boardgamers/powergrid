@@ -11033,5 +11033,71 @@
         "launcher": "ai/strong/launch-teacher-repair.sh",
         "output_version": "multiplayer-teacher-v2-strong-repaired",
         "policy": "Preserve clean games; replay only affected full games at 2400-step search horizon using original IDs/seeds. Keep originals untouched and record original capped counts. Require full strict audit before GPU training."
+    },
+    "multiplayer_geoleague_update19_screening": {
+        "candidate_revision": "dd5fbfee60e7f0b5e20f09675601aeaa7ad8691b",
+        "model_path": "runs/multiplayer-refine-geoleague-async-v1/latest.onnx",
+        "model_sha256": "fea5656ea15ed8f6c8f363b90aa1f3205a3ef18a9e413496644982c528cb936d",
+        "training_games": 4800,
+        "training_truncated": 0,
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "fea5656ea15ed8f6c8f363b90aa1f3205a3ef18a9e413496644982c528cb936d",
+            "max_logit_error": 3.814697265625e-05,
+            "max_value_error": 2.294778823852539e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "jobs": [
+            {
+                "run": "multiplayer-geoleague-u19-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abd8fff404719ba376149aa"
+            },
+            {
+                "run": "multiplayer-geoleague-u19-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abd9000404719ba376149ac"
+            },
+            {
+                "run": "multiplayer-geoleague-u19-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abd9001404719ba376149ae"
+            },
+            {
+                "run": "multiplayer-geoleague-u19-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abd9001404719ba376149b0"
+            },
+            {
+                "run": "multiplayer-geoleague-u19-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abd9002fbc85ba68235d42b"
+            },
+            {
+                "run": "multiplayer-geoleague-u19-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abd9002404719ba376149b3"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Paired held-out development screening; not final qualification",
+        "arena_source": "37465b08df007221665d796448aea57e6828257e",
+        "search_samples": 0
     }
 }

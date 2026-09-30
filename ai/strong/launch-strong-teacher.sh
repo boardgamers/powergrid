@@ -9,7 +9,7 @@ games=${GAMES:-24}
 [[ "$games" =~ ^[0-9]+$ ]]
 (( games >= 8 * players && games % (4 * players) == 0 ))
 [[ "$shard" =~ ^[0-9]+$ ]]
-hf jobs run --detach --flavor cpu-performance --timeout 3h \
+hf jobs run --detach --flavor cpu-performance --timeout "${JOB_TIMEOUT:-6h}" \
   --secrets HF_TOKEN \
   --env HF_DATA_REPO=coyotte508/powergrid-ai-training-v1 \
   --env TEACHER_OPPONENTS=search_geo --env OPPONENT_SEARCH_SAMPLES=16 \

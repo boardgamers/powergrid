@@ -29,6 +29,8 @@ for shard, n in enumerate(range(2, 7)):
         truncated=0,
         search_rollouts=0,
         search_rollouts_truncated=0,
+        opponent_search_rollouts=0,
+        opponent_search_rollouts_truncated=0,
         teacher_win_credit=0.0,
         disagreements=0,
     )
@@ -47,6 +49,11 @@ for shard, n in enumerate(range(2, 7)):
             stats["positions"] += len(game["rows"])
             stats["search_rollouts"] += game["searchStats"]["evaluations"]
             stats["search_rollouts_truncated"] += game["searchStats"]["truncated"]
+            opponent_search = game.get("opponentSearchStats", {})
+            stats["opponent_search_rollouts"] += opponent_search.get("evaluations", 0)
+            stats["opponent_search_rollouts_truncated"] += opponent_search.get(
+                "truncated", 0
+            )
             if game["truncated"]:
                 continue
             assert game["rows"]
@@ -72,6 +79,12 @@ for shard, n in enumerate(range(2, 7)):
                 }
             )
     assert stats["games"] == 240 and len(cells) == n * 4
+    assert (
+        stats["truncated"]
+        == stats["search_rollouts_truncated"]
+        == stats["opponent_search_rollouts_truncated"]
+        == 0
+    )
     summary[str(n)] = {
         **stats,
         "seat_rule_cells": len(cells),

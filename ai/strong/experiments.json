@@ -8008,6 +8008,92 @@
         "purpose": "Generate fresh supervised examples under strong opponent resource/city pressure; existing teacher data uses only economic/heuristic/rush opponents. Pilot before scaling across2\u20136players. Existing PPO jobs unchanged.",
         "local_validation": "One complete3p game with one sample per search:118 valid schema4 positions,450 opponent rollouts, no game/teacher/opponent truncation; value rotations and candidate targets validated. No local optimization.",
         "acceptance": "Require all24 complete games, every seat/rule cell exactly twice, zero teacher/opponent rollout truncation, valid targets and outcomes, and measurable teacher performance before dataset scaling. Do not treat training-data win rate as held-out strength evidence.",
-        "status": "SUBMITTED"
+        "status": "COMPLETED",
+        "audit": {
+            "revision": "6fb178f28fb4911c2b7d28559b9d2bf7ea2ad4fd",
+            "games": 24,
+            "positions": 3095,
+            "teacher_win_credit": 9,
+            "teacher_win_rate": 0.375,
+            "seat_rule_cells": 12,
+            "games_per_cell": 2,
+            "validation_games": 12,
+            "training_games": 12,
+            "teacher_rollouts": 300624,
+            "opponent_rollouts": 202800,
+            "game_and_search_truncations": 0,
+            "unique_seeds": 24,
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 6,
+                    "wins": 2
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 6,
+                    "wins": 1
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 6,
+                    "wins": 2
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 6,
+                    "wins": 4
+                }
+            ]
+        },
+        "decision": "Schema, coverage and truncation checks pass.9/24teacherwins are not proof of superiority. Scale to expose training to strong-opponent states; judge learned checkpoint via independent arenas."
+    },
+    "strong_opponent_teacher_dataset": {
+        "version": "multiplayer-teacher-v2-strong",
+        "games_per_count": 240,
+        "counts": [
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
+        "teacher_samples": 48,
+        "opponent": "search_geo",
+        "opponent_samples": 16,
+        "source_revision": "a30fdb26474d2d78a4803f396c8888f9d974a371",
+        "timeout": "6h",
+        "purpose": "Broader hard-state supervision, complementary to original weak-opponent dataset. Outcomes not held-out strength evidence. Audit every full shard before optimization.",
+        "jobs": [
+            {
+                "players": 2,
+                "shard": 0,
+                "job_id": "6abd7568fbc85ba68235cd24"
+            },
+            {
+                "players": 3,
+                "shard": 1,
+                "job_id": "6abd7568fbc85ba68235cd26"
+            },
+            {
+                "players": 4,
+                "shard": 2,
+                "job_id": "6abd7569fbc85ba68235cd28"
+            },
+            {
+                "players": 5,
+                "shard": 3,
+                "job_id": "6abd756a404719ba3761453b"
+            },
+            {
+                "players": 6,
+                "shard": 4,
+                "job_id": "6abd756a404719ba3761453d"
+            }
+        ]
     }
 }

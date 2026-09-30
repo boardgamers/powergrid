@@ -70,6 +70,7 @@ except BaseException:
 rows = []
 latency = []
 start = time.perf_counter()
+last_progress = start
 try:
     while any(x is not None for x in current):
         actions = []
@@ -109,6 +110,20 @@ try:
                     "win": e["value"][seat],
                 }
             )
+        if time.perf_counter() - last_progress >= 30:
+            print(
+                json.dumps(
+                    {
+                        "stage": "arena_progress",
+                        "completed_games": len(rows),
+                        "requested_games": args.games,
+                        "seconds": time.perf_counter() - start,
+                        "seed": args.seed,
+                    }
+                ),
+                flush=True,
+            )
+            last_progress = time.perf_counter()
 finally:
     pool.close()
 report = {

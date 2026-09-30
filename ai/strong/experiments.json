@@ -2780,5 +2780,33 @@
             ]
         },
         "status": "all screening completed"
+    },
+    "rollout_replacement_cost_optimization": {
+        "change": "Skip replacement fuel price calculation when buy=true; score already discards it in that branch.",
+        "equivalence": {
+            "fixtures": 2553,
+            "scores_identical": true,
+            "plan_modes_per_fixture": 4,
+            "full_search_result_identical": true
+        },
+        "timing": {
+            "baseline": [
+                2.8573514360000445,
+                3.1259411280002496,
+                3.005175191000035,
+                2.9449805059998653
+            ],
+            "optimized": [
+                2.146242207999876,
+                2.4928782890001457,
+                2.291965985999923,
+                2.39531736500021
+            ],
+            "median_speedup": 1.2694252195635467,
+            "identical_full_search_results": true,
+            "scope": "One fixed two-player auction search, 48 samples, alternating four process runs per implementation; local CPU only."
+        },
+        "tests": "node --test ai/strong/test.cjs passed",
+        "deployment": "Local source only; running HF jobs retain pinned source v20/v18."
     }
 }

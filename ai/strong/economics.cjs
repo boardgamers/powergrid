@@ -49,7 +49,7 @@ function plan(g, p, target = p.cities.length, { buy = true, unused = false, budg
         const cost = buy ? purchaseCost(g, p, option.used) : 0;
         if (cost > budget) continue;
         const powered = Math.min(target, option.power + (unused ? p.citiesPowered : 0));
-        const replacement = option.used.reduce((s, n, i) => s + n * c.resourcePrice(g, c.RES[i]), 0);
+        const replacement = buy ? 0 : option.used.reduce((s, n, i) => s + n * c.resourcePrice(g, c.RES[i]), 0);
         const score = (endgame ? powered * 1000 : income(g, powered)) - cost - (buy ? 0 : replacement * 0.2);
         if (score > best.score) best = { ...option, powered, cost, score };
     }

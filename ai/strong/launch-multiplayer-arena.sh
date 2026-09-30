@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 # name model-path revision opponent samples geography games seed
+case "${4:?opponent}" in
+  economic|heuristic|rush|legacy|search|search_geo) ;;
+  *) echo "Unsupported opponent mode; use OPPONENT_MODEL_PATH for a frozen model" >&2; exit 2 ;;
+esac
 extra_env=()
 if [[ -n "${OPPONENT_MODEL_PATH:-}" ]]; then
   extra_env+=(--env "OPPONENT_MODEL_PATH=$OPPONENT_MODEL_PATH" --env "OPPONENT_MODEL_REVISION=${OPPONENT_MODEL_REVISION:?pin opponent revision}")

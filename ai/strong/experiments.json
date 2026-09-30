@@ -1431,5 +1431,44 @@
         "anchor_policy": "initial",
         "selection_requirement": "Pin independently screened teacher checkpoint before dispatch",
         "compute_rationale": "Prior six-player rollouts took about 648 seconds versus about 8 seconds optimization. Prefer CPU capacity and parallel environments; GPU memory occupancy is not the optimization target."
+    },
+    "multiplayer_hard_e10_screening": {
+        "candidate": {
+            "status": "development",
+            "model_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",
+            "model_path": "runs/multiplayer-distillation-v2-hard/best.onnx",
+            "model_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
+            "architecture": "multiplayer_ordered",
+            "feature_revision": "4.0-multiplayer",
+            "epoch": 10
+        },
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
+            "max_logit_error": 3.4332275390625e-05,
+            "max_value_error": 2.6226043701171875e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "jobs": {
+            "economic_2p": "6abd5271404719ba3761405e",
+            "a260_3p": "6abd5295fbc85ba68235c4ee"
+        },
+        "canceled_invalid_opponent_argument": "6abd5279404719ba37614060",
+        "games": {
+            "economic_2p": 320,
+            "a260_3p": 480
+        },
+        "independent_deals": 40,
+        "scope": "Development seeds shared with pooled baseline for comparison, separate from teacher data and reserved final seeds."
     }
 }

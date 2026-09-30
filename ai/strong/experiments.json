@@ -1276,7 +1276,7 @@
                 "id": "6abd53d4404719ba37614088",
                 "flavor": "h200",
                 "status": {
-                    "stage": "RUNNING"
+                    "stage": "COMPLETED"
                 }
             },
             "hard": {
@@ -2255,6 +2255,102 @@
                 0.40625,
                 0.5875
             ]
+        },
+        "amd8840u_benchmark": {
+            "hostname": "coyotte508-4X4-BOX-8840U",
+            "processor_model": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+            "python_version": "3.12.3",
+            "positions": 349,
+            "by_player_count": {
+                "2": {
+                    "positions": 349,
+                    "p95_ms": 4444.561270394479
+                }
+            },
+            "model_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
+            "all_moves_legal": true,
+            "search_samples": 48,
+            "search_scope": "all",
+            "geographic_search": true,
+            "cold_start_ms": 3338.661242989474,
+            "warm_roundtrip_p50_ms": 4.975974501576275,
+            "warm_roundtrip_p95_ms": 4444.885748844536,
+            "worker_p95_ms": 4444.546710541181,
+            "max_roundtrip_ms": 5988.6466010066215,
+            "search_decisions": 125,
+            "search_evaluations": 29328,
+            "search_truncated_rollouts": 0,
+            "search_roundtrip_p50_ms": 3031.9444140041014,
+            "search_roundtrip_p95_ms": 5289.782245203969,
+            "by_phase": {
+                "Auction": {
+                    "positions": 89,
+                    "p50_ms": 3228.3607429999392,
+                    "p95_ms": 5302.299627600587,
+                    "max_ms": 5698.2844680023845
+                },
+                "Resources": {
+                    "positions": 119,
+                    "p50_ms": 3.951420003431849,
+                    "p95_ms": 5.850050295703111,
+                    "max_ms": 7.459674001438543
+                },
+                "Building": {
+                    "positions": 69,
+                    "p50_ms": 1259.1618620062945,
+                    "p95_ms": 4394.480760997975,
+                    "max_ms": 5988.6466010066215
+                },
+                "Bureaucracy": {
+                    "positions": 72,
+                    "p50_ms": 3.6588400034816004,
+                    "p95_ms": 6.007221357140224,
+                    "max_ms": 7.891396002378315
+                }
+            }
         }
+    },
+    "multiplayer_soft_e15_screening": {
+        "candidate": {
+            "status": "development",
+            "model_revision": "74974a0740df2a110baac31ef4c4ce9d4878102e",
+            "model_path": "runs/multiplayer-distillation-v2-soft/best.onnx",
+            "model_sha256": "d92f9966c8c6215669a18a5b32f63c7e332650d587b73a753ec53cb696ad1683",
+            "best_epoch": 15,
+            "selection_scores": {
+                "0": 0.22111111111111112,
+                "5": 0.39763888888888893,
+                "10": 0.31958333333333333,
+                "15": 0.43097222222222226,
+                "20": 0.21791666666666668
+            }
+        },
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "d92f9966c8c6215669a18a5b32f63c7e332650d587b73a753ec53cb696ad1683",
+            "max_logit_error": 9.1552734375e-05,
+            "max_value_error": 2.8014183044433594e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "jobs": {
+            "economic_2p": "6abd5682fbc85ba68235c5b3",
+            "economic_3p": "6abd5683404719ba376140d2",
+            "economic_4p": "6abd5684404719ba376140d4",
+            "economic_5p": "6abd5684fbc85ba68235c5b7",
+            "economic_6p": "6abd5685404719ba376140d6",
+            "a260_3p": "6abd5693fbc85ba68235c5bb"
+        },
+        "independent_deals_per_count": 40,
+        "scope": "Development comparison sharing independent seeds with hard and pooled candidates; not final qualification."
     }
 }

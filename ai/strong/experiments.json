@@ -3725,7 +3725,96 @@
         "opponent_mode": "mixed_search_geo",
         "timeout": "24h",
         "status": "RUNNING",
-        "purpose": "Scale verified asynchronous full-game collection against geographic-search league; preserve original teacher warm start for clear comparison."
+        "purpose": "Scale verified asynchronous full-game collection against geographic-search league; preserve original teacher warm start for clear comparison.",
+        "first_completed_update": {
+            "stage": "train",
+            "run": "multiplayer-refine-geoleague-async-v1",
+            "update": 0,
+            "episodes": 240,
+            "player_count": "mixed",
+            "by_player_count": {
+                "2": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 8421
+                },
+                "3": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 6841
+                },
+                "4": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 10308
+                },
+                "5": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 6269
+                },
+                "6": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 8107
+                }
+            },
+            "truncated": 0,
+            "samples": 39946,
+            "rollout_seconds": 499.7080845949995,
+            "engine_seconds": 392.34590494800796,
+            "engine_timing": "blocking_call_wall_time",
+            "async_rollout": true,
+            "policy_seconds": 106.25150237700927,
+            "seconds": 562.0267693669994,
+            "loss": 0.0672934655186559,
+            "training_opponents": {
+                "rush": {
+                    "games": 28,
+                    "wins": 4,
+                    "truncated": 0
+                },
+                "economic": {
+                    "games": 30,
+                    "wins": 5,
+                    "truncated": 0
+                },
+                "heuristic": {
+                    "games": 30,
+                    "wins": 12,
+                    "truncated": 0
+                },
+                "snapshot2": {
+                    "games": 29,
+                    "wins": 5,
+                    "truncated": 0
+                },
+                "snapshot1": {
+                    "games": 30,
+                    "wins": 1,
+                    "truncated": 0
+                },
+                "snapshot0": {
+                    "games": 35,
+                    "wins": 1,
+                    "truncated": 0
+                },
+                "search_geo": {
+                    "games": 29,
+                    "wins": 1,
+                    "truncated": 0
+                }
+            },
+            "search_rollouts_reported": true,
+            "search_stats": {
+                "search_geo": {
+                    "decisions": 4437,
+                    "evaluations": 359920,
+                    "truncated": 0
+                }
+            }
+        },
+        "first_update_note": "Full environment coverage guard passed before optimization; 48 games per count. Training outcomes are sampled-policy league games, not independent strength evidence."
     },
     "multiplayer_search_strong_probe": {
         "candidate_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",

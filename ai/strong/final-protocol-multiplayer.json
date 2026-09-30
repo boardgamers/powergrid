@@ -1,0 +1,183 @@
+{
+  "status": "prepared; no selected candidate; final seeds unused",
+  "seed_prefix": "strong-multiplayer-final-reserved-v1",
+  "scope": {
+    "map": "Germany",
+    "players": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "variants": [
+      "original",
+      "recharged"
+    ],
+    "auctions": [
+      "open",
+      "sealed"
+    ],
+    "setup": "automatic"
+  },
+  "reason_for_new_protocol": "Scope expanded from three players to 2\u20136 before any final seeds were used. Preserve the original three-player minimum rates; scale other counts by the same fraction of improvement above equal-seat chance. Default-bot minimum stays 90% at every count.",
+  "pairing": "Every independent deal is repeated in each candidate seat and all four rule combinations. Exactly 4*N matches per deal; disjoint integer deal offsets across shards.",
+  "intervals": "95% seed-cluster bootstrap; resample deals, retaining their seat/rule repeats. Report each count/rule separately. Intervals are per comparison, not a simultaneous family-wide confidence guarantee.",
+  "requirements": {
+    "all_games_complete": true,
+    "no_illegal_moves": true,
+    "full_paired_deals": true,
+    "each_count_overall_interval_lower_bound": "strictly above 1/N",
+    "each_count_each_rule_interval_lower_bound": "strictly above 1/N",
+    "search_rollout_counts": "required, with incomplete rollouts explicitly reported",
+    "export_parity": "All 2553 multiplayer fixtures agree in legal action with checkpoint, finite value outputs, inactive slots zero",
+    "serving": "All 2553 fixtures return legal moves with correct request/revision and player ordering; benchmark same selected model/search settings on actual AMD 8840U, with results for every count",
+    "package": "Standalone extracted archive hashes and legal CPU responses verified"
+  },
+  "opponents": [
+    {
+      "name": "legacy",
+      "independent_deals_per_count": 40,
+      "counts": {
+        "2": {
+          "games": 320,
+          "minimum_win_rate": 0.9
+        },
+        "3": {
+          "games": 480,
+          "minimum_win_rate": 0.9
+        },
+        "4": {
+          "games": 640,
+          "minimum_win_rate": 0.9
+        },
+        "5": {
+          "games": 800,
+          "minimum_win_rate": 0.9
+        },
+        "6": {
+          "games": 960,
+          "minimum_win_rate": 0.9
+        }
+      }
+    },
+    {
+      "name": "heuristic",
+      "independent_deals_per_count": 40,
+      "counts": {
+        "2": {
+          "games": 320,
+          "minimum_win_rate": 0.775
+        },
+        "3": {
+          "games": 480,
+          "minimum_win_rate": 0.7000000000000001
+        },
+        "4": {
+          "games": 640,
+          "minimum_win_rate": 0.6625000000000001
+        },
+        "5": {
+          "games": 800,
+          "minimum_win_rate": 0.6400000000000001
+        },
+        "6": {
+          "games": 960,
+          "minimum_win_rate": 0.625
+        }
+      }
+    },
+    {
+      "name": "economic",
+      "independent_deals_per_count": 40,
+      "counts": {
+        "2": {
+          "games": 320,
+          "minimum_win_rate": 0.6625
+        },
+        "3": {
+          "games": 480,
+          "minimum_win_rate": 0.55
+        },
+        "4": {
+          "games": 640,
+          "minimum_win_rate": 0.49375
+        },
+        "5": {
+          "games": 800,
+          "minimum_win_rate": 0.46
+        },
+        "6": {
+          "games": 960,
+          "minimum_win_rate": 0.4375
+        }
+      }
+    },
+    {
+      "name": "rush",
+      "independent_deals_per_count": 40,
+      "counts": {
+        "2": {
+          "games": 320,
+          "minimum_win_rate": 0.625
+        },
+        "3": {
+          "games": 480,
+          "minimum_win_rate": 0.5
+        },
+        "4": {
+          "games": 640,
+          "minimum_win_rate": 0.4375
+        },
+        "5": {
+          "games": 800,
+          "minimum_win_rate": 0.4
+        },
+        "6": {
+          "games": 960,
+          "minimum_win_rate": 0.375
+        }
+      }
+    },
+    {
+      "name": "search_geo",
+      "independent_deals_per_count": 80,
+      "counts": {
+        "2": {
+          "games": 640,
+          "minimum_win_rate": 0.55
+        },
+        "3": {
+          "games": 960,
+          "minimum_win_rate": 0.4
+        },
+        "4": {
+          "games": 1280,
+          "minimum_win_rate": 0.325
+        },
+        "5": {
+          "games": 1600,
+          "minimum_win_rate": 0.28
+        },
+        "6": {
+          "games": 1920,
+          "minimum_win_rate": 0.25
+        }
+      }
+    },
+    {
+      "name": "frozen_a260",
+      "counts": {
+        "3": {
+          "games": 960,
+          "minimum_win_rate": 0.4
+        }
+      },
+      "independent_deals_per_count": 80,
+      "model_path": "runs/strong-league-v2-a/best.onnx",
+      "model_revision": "b38515c29e57826de05b55b645c29591e4a886bf",
+      "model_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd"
+    }
+  ],
+  "failure_policy": "A failed gate remains a failure. Do not relax thresholds after seeing final results. New candidate requires a new reserved final seed prefix."
+}

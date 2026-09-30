@@ -26,8 +26,9 @@ root = Path(__file__).resolve().parents[2]
 model = Path(a.model).resolve()
 session = ort.InferenceSession(str(model), providers=["CPUExecutionProvider"])
 revision = session.get_modelmeta().custom_metadata_map.get(METADATA_KEY, "3.0")
-if revision not in ["3.0", "3.1-uranium39"]:
+if revision not in ["3.0", "3.1-uranium39", "4.0-multiplayer"]:
     raise ValueError("Unknown feature revision")
+multiplayer = revision == "4.0-multiplayer"
 out = Path(a.output).resolve()
 out.mkdir(parents=True, exist_ok=False)
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
@@ -43,6 +44,7 @@ with tempfile.TemporaryDirectory() as tmp:
         "search_scope.py",
         "features.cjs",
         "features-v3_0.cjs",
+        "features-v4.cjs",
         "economics.cjs",
         "economics-v3_0.cjs",
         "spatial.cjs",
@@ -79,13 +81,15 @@ os.execv(sys.executable, command)
     (bundle / "START.txt").write_text(
         "Powergrid CPU research worker\n\nRequires Node.js 24 and Python 3.11 or 3.12.\nCreate a virtual environment and install: pip install -r ai/requirements-serve.txt\nRun the frozen configuration from any directory: python /path/to/package/serve.py\nEquivalent direct command: "
         + command
-        + "\n\nSend one JSON object per line with requestId, revision, player (seat index), and state (engine game state). Keep the process alive between requests. Each response proposes one atomic move. The platform must check the game revision and validate the move through the authoritative engine before committing it. Errors must not be committed as moves.\n\nScope: Germany, three players, automatic setup; original/Recharged and open/sealed auctions. Other players’ money is intentionally visible. Hidden deck order and sealed bids are excluded from policy inputs and search beliefs. Value outputs are uncalibrated training-opponent estimates, not objective player-analysis scores.\n\nThis archive makes no strength claim by itself. Consult the accompanying measured evaluations. No production routing is installed.\n"
+        + "\n\nSend one JSON object per line with requestId, revision, player (seat index), and state (engine game state). Keep the process alive between requests. Each response proposes one atomic move. The platform must check the game revision and validate the move through the authoritative engine before committing it. Errors must not be committed as moves.\n\nScope: Germany, "
+        + ("2–6 players" if multiplayer else "three players")
+        + ", automatic setup; original/Recharged and open/sealed auctions. Other players’ money is intentionally visible. Hidden deck order and sealed bids are excluded from policy inputs and search beliefs. Value outputs are uncalibrated training-opponent estimates, not objective player-analysis scores.\n\nThis archive makes no strength claim by itself. Consult the accompanying measured evaluations. No production routing is installed.\n"
     )
     manifest = {
         "model_sha256": sha(model),
         "model_repository_revision": a.model_revision,
         "feature_revision": revision,
-        "schema": 3,
+        "schema": 4 if multiplayer else 3,
         "engine_revision": "365fc519903fa2b4e8c593eed6cc5f5f77b5332a",
         "runtime_git_revision": subprocess.check_output(
             ["git", "rev-parse", "HEAD"], cwd=root, text=True
@@ -100,7 +104,7 @@ os.execv(sys.executable, command)
         "geographic_search": a.geographic_search,
         "scope": {
             "map": "Germany",
-            "players": 3,
+            "players": [2, 3, 4, 5, 6] if multiplayer else 3,
             "automatic_setup": True,
             "variants": ["original", "recharged"],
             "auctions": ["open", "sealed"],

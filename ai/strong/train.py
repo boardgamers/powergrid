@@ -435,7 +435,9 @@ try:
         metric["training_opponents"] = opponent_outcomes
         metrics.append(metric)
         print(json.dumps(metric), flush=True)
-        if update % int(os.getenv("EVAL_EVERY", "10")) == 0 or update == updates - 1:
+        if (update + int(multiplayer)) % int(
+            os.getenv("EVAL_EVERY", "10")
+        ) == 0 or update == updates - 1:
             net.eval()
             evaluation = evaluate(update)
             metrics.append({"stage": "evaluation", "update": update, **evaluation})

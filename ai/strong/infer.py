@@ -1,4 +1,4 @@
-"""Persistent CPU ONNX worker for schema 3 public-information states."""
+"""Persistent CPU ONNX worker for versioned public-information states."""
 
 import sys, json, argparse, time
 from pathlib import Path
@@ -59,10 +59,10 @@ try:
                         "requestId": q.get("requestId"),
                         "revision": q.get("revision"),
                         "move": r["moves"][index],
-                        "winProbabilities": values,
+                        "winProbabilities": values[: len(r["playerOrder"])],
                         "valueStatus": "uncalibrated-training-opponents",
                         "playerOrder": r["playerOrder"],
-                        "schema": 3,
+                        "schema": r["schema"],
                         "featureRevision": r["featureRevision"],
                         "search": {
                             k: v

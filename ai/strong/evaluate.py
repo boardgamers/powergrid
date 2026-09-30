@@ -7,19 +7,21 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np
 from infer import Model
 from pool import EnginePool
-from arena_statistics import win_summary, search_summary
+from arena_statistics import win_summary, search_summary, validate_pairs
 from search_scope import SCOPES, search_enabled
 from feature_contract import FEATURE_REVISION, check_revision, model_revision
 
 p = argparse.ArgumentParser()
 p.add_argument("model")
+p.add_argument("--players", type=int, choices=range(2, 7), default=3)
+p.add_argument("--deal-offset", type=int, default=0)
 p.add_argument("--search-scope", choices=SCOPES, default="all")
 p.add_argument(
     "--opponent",
     default="economic",
     choices=["economic", "heuristic", "rush", "legacy", "search", "search_geo"],
 )
-p.add_argument("--opponent-model", help="Frozen ONNX policy in both opponent seats")
+p.add_argument("--opponent-model", help="Frozen ONNX policy in every opponent seat")
 p.add_argument("--workers", type=int, default=4)
 p.add_argument("--geographic-search", action="store_true")
 p.add_argument(
@@ -42,10 +44,22 @@ if not 0 <= args.search_samples <= 64:
 if args.geographic_search and not args.search_samples:
     p.error("--geographic-search requires positive --search-samples")
 model = Model(args.model)
-if args.games < 12 or args.games % 12:
-    p.error("--games must be a positive multiple of 12 for paired rules and seats")
+paired_size = 4 * args.players
+if args.games < paired_size or args.games % paired_size:
+    p.error(
+        f"--games must be a positive multiple of {paired_size} for paired rules and seats"
+    )
+if args.deal_offset < 0:
+    p.error("--deal-offset cannot be negative")
 opponent_model = Model(args.opponent_model) if args.opponent_model else None
-pool = EnginePool(args.workers, seed=args.seed, script="ai/strong/bridge.cjs")
+for actor in [model, opponent_model]:
+    if actor and args.players != 3 and model_revision(actor) != "4.0-multiplayer":
+        p.error("Non-three-player evaluation requires schema 4 for every model")
+if args.allow_feature_transfer and model_revision(model) == "4.0-multiplayer":
+    p.error("Schema 4 cannot be transferred to a schema 3 encoder")
+pool = EnginePool(
+    min(args.workers, args.games), seed=args.seed, script="ai/strong/bridge.cjs"
+)
 feature_revision = (
     FEATURE_REVISION if args.allow_feature_transfer else model_revision(model)
 )
@@ -59,6 +73,8 @@ try:
         {
             "op": "reset",
             "n": args.games,
+            "playerCount": args.players,
+            "offset": args.deal_offset * paired_size,
             "mode": "snapshot0" if opponent_model else args.opponent,
             "arenaSeed": args.seed,
             "featureRevisions": feature_revisions,
@@ -126,7 +142,11 @@ try:
             last_progress = time.perf_counter()
 finally:
     pool.close()
+validate_pairs(rows, args.players)
 report = {
+    "player_count": args.players,
+    "chance_win_rate": 1 / args.players,
+    "deal_offset": args.deal_offset,
     "model": args.model,
     "model_sha256": model.sha256,
     "model_feature_revision": model_revision(model),

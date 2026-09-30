@@ -27,7 +27,13 @@ const encoders = require('./encoders.cjs'),
                 console.log(JSON.stringify(result));
                 continue;
             }
-            console.log(JSON.stringify({ ...x, playerOrder: [p, (p + 1) % 3, (p + 2) % 3] }));
+            console.log(
+                JSON.stringify({
+                    ...x,
+                    playerOrder: Array.from({ length: g.players.length }, (_, i) => (p + i) % g.players.length),
+                    schema: encoders.forRevision(q.featureRevision).SCHEMA,
+                })
+            );
         } catch (e) {
             console.log(JSON.stringify({ error: e.message }));
         }

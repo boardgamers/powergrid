@@ -40,6 +40,7 @@ search_latencies = []
 search_evaluations = 0
 search_truncations = 0
 by_phase = {}
+by_count = {}
 sha = None
 try:
     with open(args.fixtures) as source:
@@ -57,7 +58,13 @@ try:
             assert result["move"] in fixture["legal"], result
             assert result["requestId"] == request["requestId"]
             assert result["revision"] == request["revision"]
-            assert result["schema"] == 3
+            assert result["schema"] in [3, 4]
+            n = len(request["state"]["players"])
+            assert len(result["winProbabilities"]) == n
+            assert result["playerOrder"] == [
+                (request["player"] + j) % n for j in range(n)
+            ]
+            by_count.setdefault(str(n), []).append(latencies[-1])
             assert result["playerOrder"][0] == request["player"]
             assert abs(sum(result["winProbabilities"]) - 1) < 1e-5
             assert sha is None or sha == result["modelSha256"]
@@ -90,6 +97,10 @@ report = {
     "processor_model": processor_model,
     "python_version": platform.python_version(),
     "positions": len(latencies),
+    "by_player_count": {
+        n: {"positions": len(xs), "p95_ms": float(np.percentile(xs, 95))}
+        for n, xs in by_count.items()
+    },
     "model_sha256": sha,
     "all_moves_legal": True,
     "search_samples": args.search_samples,

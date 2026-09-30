@@ -3,7 +3,7 @@
 import argparse
 import json
 from pathlib import Path
-from arena_statistics import win_summary, search_summary
+from arena_statistics import win_summary, search_summary, validate_pairs
 
 p = argparse.ArgumentParser()
 p.add_argument("reports", nargs="+")
@@ -23,7 +23,8 @@ keys = [
 ]
 for report in reports:
     report.setdefault("candidate_search_scope", "all")
-keys.append("candidate_search_scope")
+    report.setdefault("player_count", 3)
+keys.extend(["candidate_search_scope", "player_count"])
 config = {k: reports[0][k] for k in keys}
 rows = []
 seen = set()
@@ -35,8 +36,7 @@ for report in reports:
         assert key not in seen, f"Duplicate match: {key}"
         seen.add(key)
         rows.append(row)
-for deal in {r["gameSeed"] for r in rows}:
-    assert sum(r["gameSeed"] == deal for r in rows) == 12, "Incomplete paired deal"
+validate_pairs(rows, config["player_count"])
 result = {
     **config,
     "sources": a.reports,

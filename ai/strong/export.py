@@ -21,7 +21,11 @@ checkpoint["strategic_only"] = strategic_only
 net = policy_from_checkpoint(checkpoint).eval()
 torch.onnx.export(
     net,
-    (torch.zeros(1, 738), torch.zeros(1, 8, 96), torch.ones(1, 8, dtype=torch.bool)),
+    (
+        torch.zeros(1, checkpoint.get("state_dim", 738)),
+        torch.zeros(1, 8, checkpoint.get("action_dim", 96)),
+        torch.ones(1, 8, dtype=torch.bool),
+    ),
     args.output,
     input_names=["state", "actions", "mask"],
     output_names=["logits", "value"],
@@ -38,6 +42,10 @@ torch.onnx.export(
 embed_revision(args.output, checkpoint.get("feature_revision", "3.0"))
 Path(args.output + ".json").write_text(
     json.dumps(
-        {"source": args.checkpoint, "strategic_only": strategic_only, "schema": 3}
+        {
+            "source": args.checkpoint,
+            "strategic_only": strategic_only,
+            "schema": checkpoint.get("schema", 3),
+        }
     )
 )

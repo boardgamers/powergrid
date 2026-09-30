@@ -3,7 +3,7 @@ set -euo pipefail
 revision=${1:?Pin completed dataset revision}
 mode=${2:-soft}
 [[ "$mode" == hard || "$mode" == soft ]]
-hf jobs run --detach --flavor a10g-large --timeout 3h \
+hf jobs run --detach --flavor "${HF_FLAVOR:-a10g-large}" --timeout 3h \
   --secrets HF_TOKEN \
   --env HF_DATA_REPO=coyotte508/powergrid-ai-training-v1 \
   --env HF_MODEL_REPO=coyotte508/powergrid-ai-germany-v1 \

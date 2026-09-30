@@ -14,6 +14,7 @@ from distillation_targets import policy_targets
 p = argparse.ArgumentParser()
 p.add_argument("dataset_directory")
 p.add_argument("--output", required=True)
+p.add_argument("--ordered-players", action="store_true")
 a = p.parse_args()
 selected = []
 cells = Counter()
@@ -42,7 +43,7 @@ for path in files:
 # Mix counts in each batch to exercise padding and masked-value targets.
 np.random.default_rng(742).shuffle(selected)
 torch.set_num_threads(1)
-net = MultiplayerPolicy().eval()
+net = MultiplayerPolicy(ordered_players=a.ordered_players).eval()
 losses = {mode: [] for mode in ["hard", "soft"]}
 with torch.inference_mode():
     for start in range(0, len(selected), 64):
@@ -65,6 +66,8 @@ with torch.inference_mode():
             losses[mode].extend(ce.tolist())
 report = {
     "purpose": "Offline CPU preflight only; no training",
+    "architecture": "multiplayer_ordered" if a.ordered_players else "multiplayer",
+    "parameters": sum(p.numel() for p in net.parameters()),
     "shards": len(files),
     "positions": len(selected),
     "counts": dict(Counter(r["playerCount"] for r in selected)),

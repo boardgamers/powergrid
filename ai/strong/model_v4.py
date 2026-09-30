@@ -5,12 +5,13 @@ from torch import nn
 
 
 class MultiplayerPolicy(nn.Module):
-    def __init__(self, width=384):
+    def __init__(self, width=384, ordered_players=False):
         super().__init__()
+        self.ordered_players = ordered_players
         self.player = nn.Sequential(nn.Linear(74, 128), nn.LayerNorm(128), nn.SiLU())
         # Global context, city ownership and territory occupancy retain seat order.
         self.context = nn.Sequential(
-            nn.Linear(258 + 308 + 133 + 256 + 6, width),
+            nn.Linear(258 + 308 + 133 + (896 if ordered_players else 256) + 6, width),
             nn.LayerNorm(width),
             nn.SiLU(),
             nn.Linear(width, width),
@@ -32,9 +33,15 @@ class MultiplayerPolicy(nn.Module):
         pooled = (p * active[:, :, None]).sum(1) / active.sum(1, keepdim=True).clamp(
             min=1
         )
+        # Keep holdings attached to the same relative seats used by city ownership
+        # and action territory features. The mean alone loses those associations.
+        player_context = (
+            (p * active[:, :, None]).flatten(1) if self.ordered_players else p[:, 0]
+        )
         s = self.context(
             torch.cat(
-                (state[:, 6:264], state[:, 708:], p[:, 0], pooled, state[:, :6]), -1
+                (state[:, 6:264], state[:, 708:], player_context, pooled, state[:, :6]),
+                -1,
             )
         )
         a = self.action(actions)

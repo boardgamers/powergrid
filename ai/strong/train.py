@@ -17,7 +17,9 @@ from arena_statistics import search_summary
 from huggingface_hub import HfApi, hf_hub_download
 from feature_contract import FEATURE_REVISION, embed_revision
 
-multiplayer = os.getenv("ARCHITECTURE") == "multiplayer"
+architecture = os.getenv("ARCHITECTURE", "policy")
+multiplayer = architecture in ["multiplayer", "multiplayer_ordered"]
+ordered_players = architecture == "multiplayer_ordered"
 if multiplayer:
     FEATURE_REVISION = "4.0-multiplayer"
 state_dim, action_dim = (1149, 98) if multiplayer else (738, 96)
@@ -74,7 +76,9 @@ strategic_only = (
 if multiplayer and strategic_only:
     raise ValueError("Strategic-only schema-3 routing cannot be used with schema 4")
 net = (
-    MultiplayerPolicy() if multiplayer else Policy(strategic_only=strategic_only)
+    MultiplayerPolicy(ordered_players=ordered_players)
+    if multiplayer
+    else Policy(strategic_only=strategic_only)
 ).to(device)
 if checkpoint:
     net.load_state_dict(checkpoint["state_dict"])
@@ -106,7 +110,7 @@ def save(name, export=False):
             "state_dim": state_dim,
             "action_dim": action_dim,
             "schema": 4 if multiplayer else 3,
-            "architecture": "multiplayer" if multiplayer else "policy",
+            "architecture": architecture if multiplayer else "policy",
             "feature_revision": FEATURE_REVISION,
             "strategic_only": strategic_only,
             "update": update,

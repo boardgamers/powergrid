@@ -20,7 +20,9 @@ from teacher_contract import validate_game, validation_seeds
 from distillation_targets import policy_targets
 from feature_contract import FEATURE_REVISION, embed_revision
 
-multiplayer = os.getenv("ARCHITECTURE") == "multiplayer"
+architecture = os.getenv("ARCHITECTURE", "policy")
+multiplayer = architecture in ["multiplayer", "multiplayer_ordered"]
+ordered_players = architecture == "multiplayer_ordered"
 if multiplayer:
     FEATURE_REVISION = "4.0-multiplayer"
     if not os.getenv("DATA_REVISION"):
@@ -38,7 +40,9 @@ run = os.getenv("RUN_NAME", "search-distillation-v1")
 out = Path("ai/runs") / run
 out.mkdir(parents=True, exist_ok=True)
 device = "cuda"
-net = (MultiplayerPolicy() if multiplayer else Policy()).to(device)
+net = (
+    MultiplayerPolicy(ordered_players=ordered_players) if multiplayer else Policy()
+).to(device)
 train, validation = [], []
 dataset_revisions = []
 seen_games = set()
@@ -112,7 +116,7 @@ def export(name):
     torch.save(
         {
             "schema": 4 if multiplayer else 3,
-            "architecture": "multiplayer" if multiplayer else "policy",
+            "architecture": architecture if multiplayer else "policy",
             "feature_revision": FEATURE_REVISION,
             "state_dim": state_dim,
             "action_dim": action_dim,

@@ -8216,5 +8216,60 @@
         },
         "launcher": "ai/strong/launch-strong-replay-distill.sh",
         "launch_status": "Prepared, not launched; awaiting all five audited stronger-opponent data shards. Start with a one-epoch HF pilot."
+    },
+    "multiplayer_5p_search_expansion": {
+        "purpose": "Expand eight-deal five-player search screen to forty independent deals without changing candidate or opponent configuration",
+        "jobs": [
+            {
+                "job": "6abd7845fbc85ba68235cdac",
+                "run": "multiplayer-hard-e10-search48-search_geo-5p-probe-8",
+                "deal_offset": 8,
+                "games": 80
+            },
+            {
+                "job": "6abd7846fbc85ba68235cdae",
+                "run": "multiplayer-hard-e10-search48-search_geo-5p-probe-12",
+                "deal_offset": 12,
+                "games": 80
+            },
+            {
+                "job": "6abd7847fbc85ba68235cdb0",
+                "run": "multiplayer-hard-e10-search48-search_geo-5p-probe-16",
+                "deal_offset": 16,
+                "games": 80
+            },
+            {
+                "job": "6abd7848fbc85ba68235cdb2",
+                "run": "multiplayer-hard-e10-search48-search_geo-5p-probe-20",
+                "deal_offset": 20,
+                "games": 80
+            },
+            {
+                "job": "6abd7849fbc85ba68235cdb4",
+                "run": "multiplayer-hard-e10-search48-search_geo-5p-probe-24",
+                "deal_offset": 24,
+                "games": 80
+            },
+            {
+                "job": "6abd784a404719ba37614590",
+                "run": "multiplayer-hard-e10-search48-search_geo-5p-probe-28",
+                "deal_offset": 28,
+                "games": 80
+            },
+            {
+                "job": "6abd784afbc85ba68235cdb6",
+                "run": "multiplayer-hard-e10-search48-search_geo-5p-probe-32",
+                "deal_offset": 32,
+                "games": 80
+            },
+            {
+                "job": "6abd784b404719ba37614592",
+                "run": "multiplayer-hard-e10-search48-search_geo-5p-probe-36",
+                "deal_offset": 36,
+                "games": 80
+            }
+        ],
+        "source_revision": "1632ae68aabb62fb924a6e119b7704f10dd3da4a",
+        "async_arena": true
     }
 }

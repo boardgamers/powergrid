@@ -2470,7 +2470,99 @@
                     "max_ms": 7.891396002378315
                 }
             }
-        }
+        },
+        "search_result": {
+            "player_count": 2,
+            "chance_win_rate": 0.5,
+            "deal_offset": 0,
+            "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/ab34dd266010ded1c9a6c818c721e5505dd1ddeb/runs/multiplayer-distillation-v2-hard/best.onnx",
+            "model_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
+            "model_feature_revision": "4.0-multiplayer",
+            "encoder_feature_revision": "4.0-multiplayer",
+            "opponent": "economic",
+            "opponent_sha256": null,
+            "opponent_feature_revision": null,
+            "paired_seats": true,
+            "candidate_search_samples": 48,
+            "candidate_search_scope": "all",
+            "candidate_geographic_search": true,
+            "seed": "multiplayer-search-recovery-v1-2p",
+            "games": 160,
+            "win_rate": 0.925,
+            "truncated": 0,
+            "seconds": 3683.0019175199996,
+            "inference_p95_ms": 0.3714829999807989,
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 40,
+                    "win_rate": 1.0,
+                    "independent_seeds": 20,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 40,
+                    "win_rate": 0.85,
+                    "independent_seeds": 20,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.75,
+                        0.95
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 40,
+                    "win_rate": 0.95,
+                    "independent_seeds": 20,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.875,
+                        1.0
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 40,
+                    "win_rate": 0.9,
+                    "independent_seeds": 20,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.775,
+                        1.0
+                    ]
+                }
+            ],
+            "independent_seeds": 20,
+            "seed_bootstrap_95_interval": [
+                0.88125,
+                0.9625
+            ],
+            "search_rollouts_reported": true,
+            "search_stats": {
+                "learner": {
+                    "decisions": 8868,
+                    "evaluations": 2135136,
+                    "truncated": 0
+                }
+            }
+        },
+        "paired_improvement": 0.43125,
+        "paired_seed_bootstrap_95_interval": [
+            0.33125,
+            0.525
+        ],
+        "result_revision": "d4e92108af9cc7a51c9450600e71cdd200a701af",
+        "status": "COMPLETED"
     },
     "multiplayer_soft_e15_screening": {
         "candidate": {
@@ -3497,8 +3589,113 @@
         ],
         "comparison_limit": "Same game seeds and opponent assignments as synchronous 240-worker pilot, but stochastic learner RNG is consumed in readiness order, so sampled trajectories can differ.",
         "status": {
-            "stage": "RUNNING"
-        }
+            "stage": "COMPLETED"
+        },
+        "result_revision": "d4e92108af9cc7a51c9450600e71cdd200a701af",
+        "training_result": {
+            "stage": "train",
+            "run": "multiplayer-geoleague-async-pilot-v1",
+            "update": 0,
+            "episodes": 240,
+            "player_count": "mixed",
+            "by_player_count": {
+                "2": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 8620
+                },
+                "3": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 6972
+                },
+                "4": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 10177
+                },
+                "5": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 6271
+                },
+                "6": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 8422
+                }
+            },
+            "truncated": 0,
+            "samples": 40462,
+            "rollout_seconds": 447.53190804800033,
+            "engine_seconds": 339.11456483498387,
+            "policy_seconds": 107.27118742997118,
+            "seconds": 506.27836810699955,
+            "loss": 0.072037932293703,
+            "training_opponents": {
+                "heuristic": {
+                    "games": 30,
+                    "wins": 12,
+                    "truncated": 0
+                },
+                "rush": {
+                    "games": 28,
+                    "wins": 2,
+                    "truncated": 0
+                },
+                "economic": {
+                    "games": 30,
+                    "wins": 5,
+                    "truncated": 0
+                },
+                "snapshot2": {
+                    "games": 29,
+                    "wins": 4,
+                    "truncated": 0
+                },
+                "snapshot1": {
+                    "games": 30,
+                    "wins": 3,
+                    "truncated": 0
+                },
+                "snapshot0": {
+                    "games": 35,
+                    "wins": 2,
+                    "truncated": 0
+                },
+                "search_geo": {
+                    "games": 29,
+                    "wins": 0,
+                    "truncated": 0
+                }
+            },
+            "search_rollouts_reported": true,
+            "search_stats": {
+                "search_geo": {
+                    "decisions": 4050,
+                    "evaluations": 327344,
+                    "truncated": 0
+                }
+            }
+        },
+        "export_parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "2e603953785da2a295a0915a4582ca1aa884c7dd88bb08d7a722c9e1d2a7a1ec",
+            "max_logit_error": 3.814697265625e-05,
+            "max_value_error": 1.7285346984863281e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "conclusion": "Complete balanced batch passed; rollout 447.53 seconds and total update 506.28 seconds. Synchronous 240-worker pilot was still in its first batch after 1048 seconds. Different stochastic trajectories prevent an exact matched speed ratio. No strength conclusion from one update."
     },
     "async_training_batch_guard": {
         "source_bundle": {
@@ -3510,5 +3707,62 @@
         },
         "invariant": "Before optimization, exactly ENVS terminal records with unique environment indices covering 0..ENVS-1.",
         "telemetry": "Ready games are distinct from unfinished/in-flight games; engine timing is blocking-call wall time, not aggregate background CPU work."
+    },
+    "multiplayer_async_geoleague_refinement": {
+        "job_id": "6abd63b8fbc85ba68235c8d9",
+        "run": "multiplayer-refine-geoleague-async-v1",
+        "source_revision": "80fcc719b64b13fe1592e206712b68f94ef19951",
+        "source_archive": "strong-source-v26.tgz",
+        "initial_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",
+        "initial_checkpoint": "runs/multiplayer-distillation-v2-hard/best.pt",
+        "flavor": "cpu-performance",
+        "device": "cpu",
+        "workers": 240,
+        "envs": 240,
+        "torch_threads": 4,
+        "updates": 80,
+        "async_rollout": true,
+        "opponent_mode": "mixed_search_geo",
+        "timeout": "24h",
+        "status": "SUBMITTED",
+        "purpose": "Scale verified asynchronous full-game collection against geographic-search league; preserve original teacher warm start for clear comparison."
+    },
+    "multiplayer_search_strong_probe": {
+        "candidate_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",
+        "source_revision": "bcea005fb81ee05c662600b3238cba10d529abc5",
+        "samples": 48,
+        "geographic": true,
+        "deals_per_matchup": 8,
+        "purpose": "Small development screen against stronger opponents after economic success, not final qualification. Two shards of four paired deals per matchup.",
+        "jobs": [
+            {
+                "run": "multiplayer-hard-e10-search48-search_geo-2p-probe-0",
+                "offset": 0,
+                "players": 2,
+                "opponent": "search_geo",
+                "job_id": "6abd63cbfbc85ba68235c8dd"
+            },
+            {
+                "run": "multiplayer-hard-e10-search48-search_geo-2p-probe-4",
+                "offset": 4,
+                "players": 2,
+                "opponent": "search_geo",
+                "job_id": "6abd63cc404719ba376142b4"
+            },
+            {
+                "run": "multiplayer-hard-e10-search48-a260-3p-probe-0",
+                "offset": 0,
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abd63cc404719ba376142b6"
+            },
+            {
+                "run": "multiplayer-hard-e10-search48-a260-3p-probe-4",
+                "offset": 4,
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abd63cdfbc85ba68235c8df"
+            }
+        ]
     }
 }

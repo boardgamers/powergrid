@@ -1273,11 +1273,10 @@
         "dataset_revision": "082ca1456736940ee32c96db3ad1bc4e4d0b206b",
         "jobs": {
             "soft": {
-                "id": "6abd5021fbc85ba68235c463",
-                "flavor": "l4x1",
+                "id": "6abd53d4404719ba37614088",
+                "flavor": "h200",
                 "status": {
-                    "stage": "SCHEDULING",
-                    "message": "Waiting for requested hardware to become available"
+                    "stage": "submitted"
                 }
             },
             "hard": {
@@ -1313,6 +1312,13 @@
                 "20": 0.2668055555555556
             },
             "interpretation": "Later epochs lower training loss but worsen small-sample game selection score; retain epoch 10 pending broad independent screening."
+        },
+        "soft_reschedule": {
+            "previous_job": "6abd5021fbc85ba68235c463",
+            "previous_status": "CANCELED before start, verified",
+            "replacement_job": "6abd53d4404719ba37614088",
+            "flavor": "h200",
+            "reason": "L4 waited over 15 minutes; H200 successfully completed identical hard-target workload."
         }
     },
     "multiplayer_pipeline_completion": {
@@ -1634,6 +1640,301 @@
                 0.4515625,
                 0.559375
             ]
+        },
+        "economic_3p_result": {
+            "games": 480,
+            "win_rate": 0.5020833333333333,
+            "truncated": 0,
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 120,
+                    "win_rate": 0.425,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.325,
+                        0.5333333333333333
+                    ]
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 120,
+                    "win_rate": 0.3416666666666667,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.25,
+                        0.44166666666666665
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 120,
+                    "win_rate": 0.6416666666666667,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.5583333333333333,
+                        0.725
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 120,
+                    "win_rate": 0.6,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.5333333333333333,
+                        0.6666666666666666
+                    ]
+                }
+            ],
+            "seed_bootstrap_95_interval": [
+                0.4583333333333333,
+                0.54375
+            ]
+        },
+        "economic_4p_result": {
+            "games": 640,
+            "win_rate": 0.50390625,
+            "truncated": 0,
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 160,
+                    "win_rate": 0.4,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.325,
+                        0.475
+                    ]
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 160,
+                    "win_rate": 0.453125,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.365625,
+                        0.540625
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 160,
+                    "win_rate": 0.61875,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.55,
+                        0.6875
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 160,
+                    "win_rate": 0.54375,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.46875,
+                        0.61875
+                    ]
+                }
+            ],
+            "seed_bootstrap_95_interval": [
+                0.46015625,
+                0.54609375
+            ]
+        },
+        "economic_5p_result": {
+            "games": 800,
+            "win_rate": 0.539375,
+            "truncated": 0,
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 200,
+                    "win_rate": 0.4825,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.4125,
+                        0.555
+                    ]
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 200,
+                    "win_rate": 0.455,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.385,
+                        0.525
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 200,
+                    "win_rate": 0.655,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.595,
+                        0.72
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 200,
+                    "win_rate": 0.565,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.49,
+                        0.64
+                    ]
+                }
+            ],
+            "seed_bootstrap_95_interval": [
+                0.505625,
+                0.571875
+            ]
+        },
+        "a260_3p_result": {
+            "games": 480,
+            "win_rate": 0.19583333333333333,
+            "truncated": 0,
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 120,
+                    "win_rate": 0.19166666666666668,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.125,
+                        0.26666666666666666
+                    ]
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 120,
+                    "win_rate": 0.18333333333333332,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.1,
+                        0.275
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 120,
+                    "win_rate": 0.25,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.15833333333333333,
+                        0.35
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 120,
+                    "win_rate": 0.15833333333333333,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.09166666666666666,
+                        0.23333333333333334
+                    ]
+                }
+            ],
+            "seed_bootstrap_95_interval": [
+                0.15208333333333332,
+                0.24375
+            ]
+        },
+        "economic_6p_result": {
+            "games": 960,
+            "win_rate": 0.45416666666666666,
+            "truncated": 0,
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 240,
+                    "win_rate": 0.37083333333333335,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.3125,
+                        0.43333333333333335
+                    ]
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 240,
+                    "win_rate": 0.35,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.29791666666666666,
+                        0.4041666666666667
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 240,
+                    "win_rate": 0.5666666666666667,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.49166666666666664,
+                        0.6416666666666667
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 240,
+                    "win_rate": 0.5291666666666667,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.45,
+                        0.6083333333333333
+                    ]
+                }
+            ],
+            "seed_bootstrap_95_interval": [
+                0.41770833333333335,
+                0.4875
+            ]
         }
     },
     "multiplayer_teacher_margin_audit": {
@@ -1811,5 +2112,20 @@
                 "fewer_than_two_searched_candidates": 759
             }
         }
+    },
+    "multiplayer_refine_hard_v1": {
+        "job_id": "6abd541cfbc85ba68235c542",
+        "flavor": "a10g-large",
+        "workers": 8,
+        "envs": 240,
+        "updates": 80,
+        "mixed_player_counts": true,
+        "initial_checkpoint": "runs/multiplayer-distillation-v2-hard/best.pt",
+        "initial_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",
+        "source_revision": "c259cc1664fe39565bdbdd5d64789c9825a62692",
+        "architecture": "multiplayer_ordered",
+        "opponent_mode": "mixed_search",
+        "anchor_policy": "initial",
+        "rationale": "Independent screening shows higher-count improvement but inadequate 2p and frozen 3p performance. Test terminal-reward refinement while preserving teacher model for comparison; not a promoted candidate."
     }
 }

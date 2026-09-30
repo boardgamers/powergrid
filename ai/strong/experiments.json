@@ -366,5 +366,111 @@
                 }
             }
         }
+    },
+    "multiplayer_tooling": {
+        "source_archive": "strong-source-v18.tgz",
+        "source_revision": "49cc1bb94678e6ede37b606ae1ce9a8cb2018c1d",
+        "git_revision": "4110d72",
+        "distillation_ready": true,
+        "distillation_launched": false,
+        "split": "within each player-count/seat/rule cell, rank whole games by SHA256(seed) and hold out approximately 20%",
+        "final_protocol": "final-protocol-multiplayer.json",
+        "final_seeds_used": false
+    },
+    "multiplayer_cpu_prototype": {
+        "model_revision": "f947dec07f898243ca273c6897d5536fe84d9343",
+        "model_sha256": "2c0c9ea2d72179cf8be6327b5b9dc7ee963124512251d2fd726e8a8c1f70bae7",
+        "status": "untrained initial-policy prototype; CPU feasibility only",
+        "parity": {
+            "positions": 2553,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "2c0c9ea2d72179cf8be6327b5b9dc7ee963124512251d2fd726e8a8c1f70bae7",
+            "max_logit_error": 0.0,
+            "max_value_error": 5.960464477539063e-08,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "serving": {
+            "hostname": "coyotte508-4X4-BOX-8840U",
+            "processor_model": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+            "python_version": "3.12.3",
+            "positions": 2553,
+            "by_player_count": {
+                "2": {
+                    "positions": 349,
+                    "p95_ms": 3.8632554002106176
+                },
+                "3": {
+                    "positions": 427,
+                    "p95_ms": 3.4076224983436987
+                },
+                "4": {
+                    "positions": 527,
+                    "p95_ms": 4.197293498145882
+                },
+                "5": {
+                    "positions": 609,
+                    "p95_ms": 4.851117398357019
+                },
+                "6": {
+                    "positions": 641,
+                    "p95_ms": 5.2782699931412935
+                }
+            },
+            "model_sha256": "2c0c9ea2d72179cf8be6327b5b9dc7ee963124512251d2fd726e8a8c1f70bae7",
+            "all_moves_legal": true,
+            "search_samples": 0,
+            "search_scope": "all",
+            "geographic_search": false,
+            "cold_start_ms": 167.1677829872351,
+            "warm_roundtrip_p50_ms": 2.0699224987765774,
+            "warm_roundtrip_p95_ms": 4.688831949897575,
+            "worker_p95_ms": 2.7789266518084323,
+            "max_roundtrip_ms": 167.1677829872351,
+            "search_decisions": 0,
+            "search_evaluations": 0,
+            "search_truncated_rollouts": 0,
+            "search_roundtrip_p50_ms": null,
+            "search_roundtrip_p95_ms": null,
+            "by_phase": {
+                "Auction": {
+                    "positions": 840,
+                    "p50_ms": 1.9640145037556067,
+                    "p95_ms": 4.528308007866143,
+                    "max_ms": 167.1677829872351
+                },
+                "Resources": {
+                    "positions": 755,
+                    "p50_ms": 2.079826997942291,
+                    "p95_ms": 4.735090497706551,
+                    "max_ms": 7.375882007181644
+                },
+                "Building": {
+                    "positions": 491,
+                    "p50_ms": 2.33914700220339,
+                    "p95_ms": 5.163508998521138,
+                    "max_ms": 8.10930400621146
+                },
+                "Bureaucracy": {
+                    "positions": 467,
+                    "p50_ms": 2.055149001535028,
+                    "p95_ms": 4.3062214041128755,
+                    "max_ms": 7.938474998809397
+                }
+            }
+        },
+        "package": {
+            "files_verified": 1203,
+            "positions_verified": 80,
+            "player_counts": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "all_moves_legal": true,
+            "model_sha256": "2c0c9ea2d72179cf8be6327b5b9dc7ee963124512251d2fd726e8a8c1f70bae7"
+        }
     }
 }

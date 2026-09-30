@@ -34,15 +34,20 @@
     "cpu_model_forward_all_counts": true,
     "training_protocol_complete_games": 80,
     "initial_hf_evaluation_games": 640,
-    "initial_hf_evaluation_truncated": 0
+    "initial_hf_evaluation_truncated": 0,
+    "onnx_parity_positions": 2553,
+    "amd_8840u_legal_positions": 2553,
+    "amd_8840u_prototype_p95_ms": 4.688831949897575,
+    "standalone_verified_files": 1203,
+    "standalone_positions": 80
   },
   "pending": [
-    "Complete short HF pipeline run; verify checkpoint export and per-count learning stability",
-    "Collect and validate 1200 HF search-teacher games; use a seed-hash validation split",
-    "Generalize independent arena, distillation and serving tools to schema 4",
-    "Train search-distilled initialization and refine against strong opponents/self-play on HF",
-    "Count-specific held-out strength gates; old three-player final protocol is insufficient",
-    "ONNX parity and AMD 8840U benchmark across all supported counts"
+    "Complete HF pipeline run and inspect count-specific learning stability",
+    "Collect and validate all 1200 HF teacher games; pin immutable dataset revision",
+    "Run prepared multiplayer distillation with whole-game stratified validation on HF",
+    "Refine distilled policy against strong opponents and self-play on HF",
+    "Independent held-out strength testing at every count/rule combination",
+    "Re-run ONNX parity and AMD 8840U benchmark with the eventual selected model and search configuration"
   ],
   "preserved_baseline": "Schema 3 encoders and three-player checkpoint architecture unchanged; final seeds remain unused"
 }

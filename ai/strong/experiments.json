@@ -4128,6 +4128,94 @@
                         }
                     }
                 }
+            },
+            "multiplayer-hard-e10-search48-a260-3p-probe-0": {
+                "result_revision": "c9e1d00bc6f9b2e64d4212cc573b3827212ca87c",
+                "report": {
+                    "player_count": 3,
+                    "chance_win_rate": 0.3333333333333333,
+                    "deal_offset": 0,
+                    "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/ab34dd266010ded1c9a6c818c721e5505dd1ddeb/runs/multiplayer-distillation-v2-hard/best.onnx",
+                    "model_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
+                    "model_feature_revision": "4.0-multiplayer",
+                    "encoder_feature_revision": "4.0-multiplayer",
+                    "opponent": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/b38515c29e57826de05b55b645c29591e4a886bf/runs/strong-league-v2-a/best.onnx",
+                    "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+                    "opponent_feature_revision": "3.0",
+                    "paired_seats": true,
+                    "candidate_search_samples": 48,
+                    "candidate_search_scope": "all",
+                    "candidate_geographic_search": true,
+                    "seed": "multiplayer-search-strong-probe-v1-3p",
+                    "games": 48,
+                    "win_rate": 0.4375,
+                    "truncated": 0,
+                    "seconds": 1142.435139335,
+                    "inference_p95_ms": 0.5210491499923363,
+                    "by_rules": [
+                        {
+                            "variant": "original",
+                            "sealed": false,
+                            "games": 12,
+                            "win_rate": 0.5,
+                            "independent_seeds": 4,
+                            "truncated": 0,
+                            "seed_bootstrap_95_interval": [
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "variant": "original",
+                            "sealed": true,
+                            "games": 12,
+                            "win_rate": 0.6666666666666666,
+                            "independent_seeds": 4,
+                            "truncated": 0,
+                            "seed_bootstrap_95_interval": [
+                                0.3333333333333333,
+                                1.0
+                            ]
+                        },
+                        {
+                            "variant": "recharged",
+                            "sealed": false,
+                            "games": 12,
+                            "win_rate": 0.4166666666666667,
+                            "independent_seeds": 4,
+                            "truncated": 0,
+                            "seed_bootstrap_95_interval": [
+                                0.08333333333333333,
+                                0.8333333333333334
+                            ]
+                        },
+                        {
+                            "variant": "recharged",
+                            "sealed": true,
+                            "games": 12,
+                            "win_rate": 0.16666666666666666,
+                            "independent_seeds": 4,
+                            "truncated": 0,
+                            "seed_bootstrap_95_interval": [
+                                0.0,
+                                0.5
+                            ]
+                        }
+                    ],
+                    "independent_seeds": 4,
+                    "seed_bootstrap_95_interval": [
+                        0.20833333333333334,
+                        0.6666666666666666
+                    ],
+                    "search_rollouts_reported": true,
+                    "search_stats": {
+                        "learner": {
+                            "decisions": 2001,
+                            "evaluations": 495408,
+                            "truncated": 0
+                        }
+                    }
+                }
             }
         },
         "combined_2p_search_geo": {
@@ -4219,7 +4307,92 @@
                 }
             ]
         },
-        "two_player_decision": "53.125% on 64 games / 8 independent deals; seed-cluster 95% interval 40.625\u201365.625%. Does not establish superiority or meet final strength gate. Continue refinement and other-count diagnosis; do not promote solely on 92.5% economic result."
+        "two_player_decision": "53.125% on 64 games / 8 independent deals; seed-cluster 95% interval 40.625\u201365.625%. Does not establish superiority or meet final strength gate. Continue refinement and other-count diagnosis; do not promote solely on 92.5% economic result.",
+        "combined_3p_a260": {
+            "model_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
+            "model_feature_revision": "4.0-multiplayer",
+            "encoder_feature_revision": "4.0-multiplayer",
+            "opponent": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/b38515c29e57826de05b55b645c29591e4a886bf/runs/strong-league-v2-a/best.onnx",
+            "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+            "opponent_feature_revision": "3.0",
+            "paired_seats": true,
+            "candidate_search_samples": 48,
+            "candidate_geographic_search": true,
+            "candidate_search_scope": "all",
+            "player_count": 3,
+            "candidate_search_model_proposal": true,
+            "sources": [
+                "ai/runs/strong-probes/runs/multiplayer-hard-e10-search48-a260-3p-probe-0/evaluation.json",
+                "ai/runs/strong-probes/runs/multiplayer-hard-e10-search48-a260-3p-probe-4/evaluation.json"
+            ],
+            "games": 96,
+            "independent_seeds": 8,
+            "win_rate": 0.4583333333333333,
+            "truncated": 0,
+            "seed_bootstrap_95_interval": [
+                0.2916666666666667,
+                0.6145833333333334
+            ],
+            "search_rollouts_reported": true,
+            "search_stats": {
+                "learner": {
+                    "decisions": 3927,
+                    "evaluations": 971472,
+                    "truncated": 0
+                }
+            },
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 24,
+                    "independent_seeds": 8,
+                    "win_rate": 0.4166666666666667,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.16666666666666666,
+                        0.6666666666666666
+                    ]
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 24,
+                    "independent_seeds": 8,
+                    "win_rate": 0.625,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.375,
+                        0.8333333333333334
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 24,
+                    "independent_seeds": 8,
+                    "win_rate": 0.375,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.125,
+                        0.6666666666666666
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 24,
+                    "independent_seeds": 8,
+                    "win_rate": 0.4166666666666667,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.16666666666666666,
+                        0.6666666666666666
+                    ]
+                }
+            ]
+        },
+        "three_player_a260_decision": "45.833% on 96 games / 8 independent deals; seed-cluster95% interval29.167\u201361.458%, includes33.333% chance. Promising point estimate but not verified superiority. Continue refinement and search-bot screens before expensive final qualification."
     },
     "multiplayer_search_proposal_ablation": {
         "job_id": "6abd64b7404719ba376142d8",

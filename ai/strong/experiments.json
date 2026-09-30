@@ -4418,13 +4418,113 @@
         "geographic": true,
         "model_proposal": false,
         "opponent": "economic",
-        "interpretation": "Only omit model action from strategic search candidate set. Non-search moves still use model, so this is not a pure heuristic-search baseline. Compare paired completed model-proposal arm (92.5%).",
+        "interpretation": "The neural proposal adds only1.25 percentage points on this economic-opponent experiment; paired interval includes zero. Non-search actions remain neural in both arms, so this does not quantify the full neural policy contribution. Search assistance, not proposal quality alone, explains the large improvement over raw model. Continue stronger-league training.",
         "validation": [
             "8 complete real games covering both seats and four rules, zero game or rollout truncation",
             "Combiner rejects mixing enabled/disabled proposal reports",
             "Final verifier rejects ablation reports as deployment evidence"
         ],
-        "status": "SUBMITTED"
+        "status": "COMPLETED",
+        "result_revision": "b9ca91525aabda5d4ac0a7c85e2573d6da890bb6",
+        "result": {
+            "player_count": 2,
+            "chance_win_rate": 0.5,
+            "deal_offset": 0,
+            "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/ab34dd266010ded1c9a6c818c721e5505dd1ddeb/runs/multiplayer-distillation-v2-hard/best.onnx",
+            "model_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
+            "model_feature_revision": "4.0-multiplayer",
+            "encoder_feature_revision": "4.0-multiplayer",
+            "opponent": "economic",
+            "opponent_sha256": null,
+            "opponent_feature_revision": null,
+            "paired_seats": true,
+            "candidate_search_samples": 48,
+            "candidate_search_scope": "all",
+            "candidate_geographic_search": true,
+            "candidate_search_model_proposal": false,
+            "seed": "multiplayer-search-recovery-v1-2p",
+            "games": 160,
+            "win_rate": 0.9125,
+            "truncated": 0,
+            "seconds": 2529.305797967,
+            "inference_p95_ms": 0.36078840016671165,
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 40,
+                    "win_rate": 1.0,
+                    "independent_seeds": 20,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 40,
+                    "win_rate": 0.8,
+                    "independent_seeds": 20,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.7,
+                        0.9
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 40,
+                    "win_rate": 0.95,
+                    "independent_seeds": 20,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.875,
+                        1.0
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 40,
+                    "win_rate": 0.9,
+                    "independent_seeds": 20,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.775,
+                        1.0
+                    ]
+                }
+            ],
+            "independent_seeds": 20,
+            "seed_bootstrap_95_interval": [
+                0.86875,
+                0.95625
+            ],
+            "search_rollouts_reported": true,
+            "search_stats": {
+                "learner": {
+                    "decisions": 8871,
+                    "evaluations": 2134704,
+                    "truncated": 0
+                }
+            }
+        },
+        "paired_comparison": {
+            "model_proposal_win_rate": 0.925,
+            "no_proposal_win_rate": 0.9125,
+            "paired_improvement": 0.0125,
+            "paired_seed_bootstrap_95_interval": [
+                0.0,
+                0.03125
+            ],
+            "changed_outcomes": 2,
+            "same_final_states": 153,
+            "games": 160,
+            "independent_deals": 20
+        }
     },
     "synchronous_geoleague_superseded": {
         "job_id": "6abd5cb4fbc85ba68235c728",

@@ -1,5 +1,5 @@
 {
-  "status": "implementation; not trained or strength-qualified",
+  "status": "HF pipeline training and teacher jobs launched; not strength-qualified",
   "feature_revision": "4.0-multiplayer",
   "scope": {
     "map": "Germany",
@@ -31,14 +31,18 @@
     "complete_games": 20,
     "encoded_decisions": 9363,
     "hidden_information_invariance": true,
-    "cpu_model_forward_all_counts": true
+    "cpu_model_forward_all_counts": true,
+    "training_protocol_complete_games": 80,
+    "initial_hf_evaluation_games": 640,
+    "initial_hf_evaluation_truncated": 0
   },
   "pending": [
-    "Generalize bridge seat rotation, roles, terminal vectors and episode cap without changing schema 3 behavior",
-    "Generalize PPO value targets and league checkpoint routing",
-    "Balanced HF teacher generation and HF training across counts and rules",
-    "Count-specific paired held-out evaluation and strength gates; old three-player final protocol is insufficient",
-    "ONNX export and AMD 8840U benchmark across all supported counts"
+    "Complete short HF pipeline run; verify checkpoint export and per-count learning stability",
+    "Collect and validate 1200 HF search-teacher games; use a seed-hash validation split",
+    "Generalize independent arena, distillation and serving tools to schema 4",
+    "Train search-distilled initialization and refine against strong opponents/self-play on HF",
+    "Count-specific held-out strength gates; old three-player final protocol is insufficient",
+    "ONNX parity and AMD 8840U benchmark across all supported counts"
   ],
   "preserved_baseline": "Schema 3 encoders and three-player checkpoint architecture unchanged; final seeds remain unused"
 }

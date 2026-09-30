@@ -91,7 +91,12 @@
         "specialists-rush-screen": "6abd39e2404719ba37613c5c",
         "specialists-legacy-screen": "6abd39e3fbc85ba68235be7c",
         "specialists-frozen-a260-screen": "6abd39e4404719ba37613c5e",
-        "multiplayer-pipeline-v1": "6abd41d2404719ba37613e0f"
+        "multiplayer-pipeline-v1": "6abd41d2404719ba37613e0f",
+        "multiplayer-teacher-v1-0": "6abd4258404719ba37613e1d",
+        "multiplayer-teacher-v1-1": "6abd4259404719ba37613e1f",
+        "multiplayer-teacher-v1-2": "6abd4259fbc85ba68235c124",
+        "multiplayer-teacher-v1-3": "6abd425a404719ba37613e21",
+        "multiplayer-teacher-v1-4": "6abd425b404719ba37613e23"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -209,5 +214,157 @@
         "envs": 120,
         "opponent_mode": "mixed_search",
         "status": "submitted; no strength claim"
+    },
+    "multiplayer_teacher": {
+        "source_archive": "strong-source-v17.tgz",
+        "source_revision": "36c3d6b2f8545bd3551fc571a8cb6cb45a8f88b1",
+        "feature_revision": "4.0-multiplayer",
+        "games_per_count": 240,
+        "players": [
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
+        "samples": 16,
+        "geography": true,
+        "all_phases": true,
+        "status": "submitted",
+        "validation_split_requirement": "Use deterministic seed hash or stratification; id modulo 5 confounds seat/rules at five players."
+    },
+    "specialists_remaining_results": {
+        "specialists-legacy-screen": {
+            "games": 480,
+            "win_rate": 0.9458333333333333,
+            "truncated": 0,
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 120,
+                    "win_rate": 0.9083333333333333,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.85,
+                        0.9583333333333334
+                    ]
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 120,
+                    "win_rate": 0.95,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.9,
+                        0.9916666666666667
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 120,
+                    "win_rate": 0.95,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.9,
+                        0.9916666666666667
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 120,
+                    "win_rate": 0.975,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.9416666666666667,
+                        1.0
+                    ]
+                }
+            ],
+            "seed_bootstrap_95_interval": [
+                0.925,
+                0.9666666666666667
+            ],
+            "search_stats": {
+                "learner": {
+                    "decisions": 5488,
+                    "evaluations": 1343472,
+                    "truncated": 0
+                }
+            }
+        },
+        "specialists-frozen-a260-screen": {
+            "games": 480,
+            "win_rate": 0.4666666666666667,
+            "truncated": 0,
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 120,
+                    "win_rate": 0.425,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.3416666666666667,
+                        0.5166666666666667
+                    ]
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 120,
+                    "win_rate": 0.36666666666666664,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.2833333333333333,
+                        0.45
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 120,
+                    "win_rate": 0.4666666666666667,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.38333333333333336,
+                        0.5583333333333333
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 120,
+                    "win_rate": 0.6083333333333333,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.5083333333333333,
+                        0.7
+                    ]
+                }
+            ],
+            "seed_bootstrap_95_interval": [
+                0.42291666666666666,
+                0.5083333333333333
+            ],
+            "search_stats": {
+                "learner": {
+                    "decisions": 4564,
+                    "evaluations": 1136640,
+                    "truncated": 0
+                }
+            }
+        }
     }
 }

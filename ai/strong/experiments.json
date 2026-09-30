@@ -3074,7 +3074,243 @@
                     "truncated": 0
                 }
             }
-        }
+        },
+        "status": "COMPLETED",
+        "result_revision": "3b6b60eeae43823db41e898b90e01747db33bd18",
+        "updates_completed": [
+            {
+                "stage": "train",
+                "run": "multiplayer-refine-cpu-pilot-v1",
+                "update": 0,
+                "episodes": 240,
+                "player_count": "mixed",
+                "by_player_count": {
+                    "2": {
+                        "episodes": 48,
+                        "truncated": 0,
+                        "samples": 7926
+                    },
+                    "3": {
+                        "episodes": 48,
+                        "truncated": 0,
+                        "samples": 8109
+                    },
+                    "4": {
+                        "episodes": 48,
+                        "truncated": 0,
+                        "samples": 8788
+                    },
+                    "5": {
+                        "episodes": 48,
+                        "truncated": 0,
+                        "samples": 6968
+                    },
+                    "6": {
+                        "episodes": 48,
+                        "truncated": 0,
+                        "samples": 8331
+                    }
+                },
+                "truncated": 0,
+                "samples": 40122,
+                "rollout_seconds": 361.7861359352246,
+                "seconds": 421.67150955926627,
+                "loss": 0.0672784899416692,
+                "training_opponents": {
+                    "economic": {
+                        "games": 40,
+                        "wins": 5,
+                        "truncated": 0
+                    },
+                    "search": {
+                        "games": 31,
+                        "wins": 4,
+                        "truncated": 0
+                    },
+                    "rush": {
+                        "games": 30,
+                        "wins": 5,
+                        "truncated": 0
+                    },
+                    "heuristic": {
+                        "games": 31,
+                        "wins": 19,
+                        "truncated": 0
+                    },
+                    "snapshot0": {
+                        "games": 28,
+                        "wins": 2,
+                        "truncated": 0
+                    },
+                    "snapshot1": {
+                        "games": 27,
+                        "wins": 3,
+                        "truncated": 0
+                    },
+                    "snapshot2": {
+                        "games": 27,
+                        "wins": 4,
+                        "truncated": 0
+                    }
+                },
+                "search_rollouts_reported": true,
+                "search_stats": {
+                    "search": {
+                        "decisions": 3991,
+                        "evaluations": 64196,
+                        "truncated": 0
+                    }
+                }
+            },
+            {
+                "stage": "train",
+                "run": "multiplayer-refine-cpu-pilot-v1",
+                "update": 1,
+                "episodes": 240,
+                "player_count": "mixed",
+                "by_player_count": {
+                    "2": {
+                        "episodes": 48,
+                        "truncated": 0,
+                        "samples": 8943
+                    },
+                    "3": {
+                        "episodes": 48,
+                        "truncated": 0,
+                        "samples": 9983
+                    },
+                    "4": {
+                        "episodes": 48,
+                        "truncated": 0,
+                        "samples": 7851
+                    },
+                    "5": {
+                        "episodes": 48,
+                        "truncated": 0,
+                        "samples": 10645
+                    },
+                    "6": {
+                        "episodes": 48,
+                        "truncated": 0,
+                        "samples": 8419
+                    }
+                },
+                "truncated": 0,
+                "samples": 45841,
+                "rollout_seconds": 341.4953621355817,
+                "seconds": 414.2559402799234,
+                "loss": 0.06531770333423521,
+                "training_opponents": {
+                    "heuristic": {
+                        "games": 30,
+                        "wins": 16,
+                        "truncated": 0
+                    },
+                    "search": {
+                        "games": 25,
+                        "wins": 11,
+                        "truncated": 0
+                    },
+                    "rush": {
+                        "games": 31,
+                        "wins": 7,
+                        "truncated": 0
+                    },
+                    "economic": {
+                        "games": 22,
+                        "wins": 9,
+                        "truncated": 0
+                    },
+                    "snapshot1": {
+                        "games": 28,
+                        "wins": 2,
+                        "truncated": 0
+                    },
+                    "snapshot0": {
+                        "games": 40,
+                        "wins": 2,
+                        "truncated": 0
+                    },
+                    "snapshot2": {
+                        "games": 20,
+                        "wins": 2,
+                        "truncated": 0
+                    }
+                },
+                "search_rollouts_reported": true,
+                "search_stats": {
+                    "search": {
+                        "decisions": 3612,
+                        "evaluations": 58236,
+                        "truncated": 0
+                    }
+                }
+            }
+        ],
+        "selection_evaluation_win_rates": [
+            {
+                "2p/economic": 0.375,
+                "2p/heuristic": 0.3125,
+                "2p/rush": 0.34375,
+                "2p/legacy": 1.0,
+                "3p/economic": 0.4583333333333333,
+                "3p/heuristic": 0.6666666666666666,
+                "3p/rush": 0.4583333333333333,
+                "3p/legacy": 0.9166666666666666,
+                "4p/economic": 0.625,
+                "4p/heuristic": 1.0,
+                "4p/rush": 0.59375,
+                "4p/legacy": 0.84375,
+                "5p/economic": 0.425,
+                "5p/heuristic": 0.925,
+                "5p/rush": 0.45,
+                "5p/legacy": 0.975,
+                "6p/economic": 0.2916666666666667,
+                "6p/heuristic": 0.875,
+                "6p/rush": 0.375,
+                "6p/legacy": 0.9791666666666666
+            },
+            {
+                "2p/economic": 0.4375,
+                "2p/heuristic": 0.1875,
+                "2p/rush": 0.5625,
+                "2p/legacy": 1.0,
+                "3p/economic": 0.4583333333333333,
+                "3p/heuristic": 0.625,
+                "3p/rush": 0.375,
+                "3p/legacy": 0.875,
+                "4p/economic": 0.5,
+                "4p/heuristic": 1.0,
+                "4p/rush": 0.59375,
+                "4p/legacy": 0.75,
+                "5p/economic": 0.4,
+                "5p/heuristic": 0.875,
+                "5p/rush": 0.475,
+                "5p/legacy": 0.875,
+                "6p/economic": 0.3125,
+                "6p/heuristic": 0.8541666666666666,
+                "6p/rush": 0.4166666666666667,
+                "6p/legacy": 0.8541666666666666
+            }
+        ],
+        "latest_export_parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "40240c9a8ebde8f93b94d94f2e58d7b86f0dea1764c6fb17d6ca4aa1ff09420f",
+            "max_logit_error": 3.4332275390625e-05,
+            "max_value_error": 1.7285346984863281e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "conclusion": "Two complete updates, 480 games, exactly 96/count, no game or search-rollout truncations. About 7 minutes/update including 60\u201373 seconds optimization. CPU training/export viable; tiny gameplay selection sample shows no reliable strength improvement after two updates."
     },
     "multiplayer_geoleague_cpu_v1": {
         "job_id": "6abd5cb4fbc85ba68235c728",

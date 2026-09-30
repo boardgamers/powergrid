@@ -13896,13 +13896,67 @@
         "decision": "Continue H200 training without promotion: five- and six-player economic gains versus both update19 runs have positive paired 95% intervals. Two-, three-, and four-player economic changes versus H200 update19 remain uncertain. Frozen A260 reaches 35.5208% win credit but the gain over either update19 run is uncertain and remains below the 40% qualification floor. Await stronger teacher replay to address persistent weaknesses; reserved final seeds untouched."
     },
     "strong_teacher_replay_pilot": {
-        "status": "LAUNCHED",
+        "status": "COMPLETED_PIPELINE_VALIDATED",
         "job_id": "6abd9c96404719ba37614cb6",
         "run": "multiplayer-distillation-strong-replay-pilot-v1-hard",
         "epochs": 1,
         "data_revision": "05a750ca228595ec05bc677bac1ed730ee768bc5",
         "data_version": "multiplayer-teacher-v2-strong-repaired",
         "source_revision": "508bc42027cae5bfeea01228b48069c8287b332a",
-        "purpose": "HF-only end-to-end replay distillation validation before full training; not strength evidence"
+        "purpose": "HF-only end-to-end replay distillation validation before full training; not strength evidence",
+        "artifact_revision": "cf930c2b43252aecb998e57a9cdcc0e62b447604",
+        "epoch1_log": {
+            "epoch": 1,
+            "loss": 0.8447044598551449,
+            "validation": {
+                "positions": 56534,
+                "by_player_count": {
+                    "2": {
+                        "positions": 15041,
+                        "correct": 11674,
+                        "disagreements": 2401,
+                        "disagreement_correct": 452
+                    },
+                    "3": {
+                        "positions": 12140,
+                        "correct": 9614,
+                        "disagreements": 2146,
+                        "disagreement_correct": 445
+                    },
+                    "4": {
+                        "positions": 11875,
+                        "correct": 9300,
+                        "disagreements": 2169,
+                        "disagreement_correct": 434
+                    },
+                    "5": {
+                        "positions": 8296,
+                        "correct": 6601,
+                        "disagreements": 1407,
+                        "disagreement_correct": 257
+                    },
+                    "6": {
+                        "positions": 9182,
+                        "correct": 7279,
+                        "disagreements": 1559,
+                        "disagreement_correct": 326
+                    }
+                },
+                "accuracy": 0.7865709130788552,
+                "search_disagreements": 9682,
+                "disagreement_accuracy": 0.19768642842387937
+            }
+        },
+        "export_limit": "Uploaded artifacts are epoch0 because export cadence is five epochs. Epoch1 training and validation confirmed by terminal logs; no trained pilot export or strength claim."
+    },
+    "strong_teacher_replay_full": {
+        "status": "LAUNCHED",
+        "job_id": "6abd9e17404719ba37614ceb",
+        "run": "multiplayer-distillation-strong-replay-v1-hard",
+        "epochs": 15,
+        "data_revision": "05a750ca228595ec05bc677bac1ed730ee768bc5",
+        "source_revision": "508bc42027cae5bfeea01228b48069c8287b332a",
+        "initial_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",
+        "scope": "HF GPU replay distillation; evaluate trained exports independently before promotion"
     }
 }

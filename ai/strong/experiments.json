@@ -9286,7 +9286,7 @@
         }
     },
     "six_player_search_horizon_investigation": {
-        "status": "OPEN",
+        "status": "DIAGNOSTIC_SUBMITTED",
         "current_default_max_steps": 1200,
         "affected_match": {
             "seed": "multiplayer-search-strong-probe-v1-6p-5",
@@ -9296,6 +9296,19 @@
         },
         "truncated_learner_rollouts": 1,
         "total_learner_rollouts": 2327280,
-        "next_action": "Reproduce affected match with diagnostic capture of the capped simulation. Check whether extending that same simulation terminates, then verify outcome parity for unaffected cases before changing defaults. Retain the original report and do not erase truncated counts."
+        "next_action": "Reproduce affected match with diagnostic capture of the capped simulation. Check whether extending that same simulation terminates, then verify outcome parity for unaffected cases before changing defaults. Retain the original report and do not erase truncated counts.",
+        "job": "6abd8041404719ba37614703",
+        "source": {
+            "archive": "strong-source-v31.tgz",
+            "revision": "9752cbc31db834b8c07b62504997fc0134a8e0ee",
+            "base_revision": "508bc42027cae5bfeea01228b48069c8287b332a",
+            "changed_files": [
+                "ai/strong/diagnose-search-horizon.py",
+                "ai/strong/diagnose-search-horizon.cjs"
+            ],
+            "archive_sha256": "7aec51dcc2f2af636965c0496705850ed2d2d6b3dee89021d494e26dc6820cb7",
+            "report_revision": "6f9442ff21521c460e5c6abc14ba06efb3a4dd25"
+        },
+        "actual_policy": "Original 1200-move cap; diagnostic retry does not change decisions"
     }
 }

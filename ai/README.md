@@ -50,7 +50,7 @@ The value head is an **uncalibrated self-play win estimate**, not a forecast of 
 
 ## Run and reproduce
 
-Install the engine dependencies and build `engine/tsconfig.json` using the repository's package manager. Use Python 3.11+, Node 24, and `numpy`, `onnxruntime` for serving. Cloud training additionally needs PyTorch, `onnx`, and `huggingface_hub`; launch scripts use the PyTorch 2.6.0 CUDA 12.4 image.
+Install the engine dependencies and build `engine/tsconfig.json` using the repository's package manager. Use Python 3.11+, Node 24, and `pip install -r ai/requirements-serve.txt` for serving. Verified runtimes: Python 3.11 / NumPy 2.4.6 on the laptop; Python 3.12 / NumPy 2.5.3 on the 8840U; ONNX Runtime 1.30.0 on both. Cloud training additionally needs PyTorch, `onnx`, and `huggingface_hub`; launch scripts use the PyTorch 2.6.0 CUDA 12.4 image.
 
 ```sh
 node --test ai/test.cjs

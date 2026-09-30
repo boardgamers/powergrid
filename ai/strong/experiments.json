@@ -50,7 +50,9 @@
         "geo-screen-v2-soft16-0": "6abd2a82fbc85ba68235b99f",
         "geo-screen-v2-soft16-1": "6abd2a83404719ba3761390a",
         "geo-screen-v2-soft16-2": "6abd2a83404719ba3761390c",
-        "geo-screen-v2-soft16-3": "6abd2a84404719ba3761390e"
+        "geo-screen-v2-soft16-3": "6abd2a84404719ba3761390e",
+        "a260-economic-screen": "6abd2b6efbc85ba68235ba0b",
+        "refine30-economic-screen": "6abd2b6e404719ba37613961"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -72,7 +74,10 @@
         "archive": "strong-source-v6.tgz",
         "commit": "cc79acffc12ad4cc1daffbad20b024d2e1f4fe98"
     },
-    "stopped_for_sustained_regression": ["6abd15cafbc85ba68235b347", "6abd15ca404719ba376134e5"],
+    "stopped_for_sustained_regression": [
+        "6abd15cafbc85ba68235b347",
+        "6abd15ca404719ba376134e5"
+    ],
     "all_phase_distillation_source": {
         "archive": "strong-source-v7.tgz",
         "commit": "0862207a0f62cb75edfd0e6ecbc472cdc190bcd0"
@@ -100,5 +105,10 @@
     "geographic_arena_source": {
         "archive": "strong-source-v11.tgz",
         "commit": "49c872954eaf7761a3ac3453acbf737f569849b2"
-    }
+    },
+    "new_candidate_revision": "b38515c29e57826de05b55b645c29591e4a886bf",
+    "cancelled_wrong_screening_seed": [
+        "6abd2b51404719ba37613954",
+        "6abd2b51404719ba37613956"
+    ]
 }

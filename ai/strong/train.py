@@ -10,9 +10,18 @@ import numpy as np
 import torch
 from torch.distributions import Categorical
 from model import Policy, tensors
+from model_v4 import MultiplayerPolicy
+from multiplayer import ROLE_REVISIONS, rotate_outcome
 from pool import EnginePool
 from huggingface_hub import HfApi, hf_hub_download
 from feature_contract import FEATURE_REVISION, embed_revision
+
+multiplayer = os.getenv("ARCHITECTURE") == "multiplayer"
+if multiplayer:
+    FEATURE_REVISION = "4.0-multiplayer"
+state_dim, action_dim = (1149, 98) if multiplayer else (738, 96)
+player_counts = [2, 3, 4, 5, 6] if multiplayer else [3]
+feature_revisions = ROLE_REVISIONS if multiplayer else {}
 
 seed = int(os.getenv("TRAIN_SEED", "101"))
 random.seed(seed)
@@ -60,7 +69,11 @@ strategic_only = (
     )
     == "1"
 )
-net = Policy(strategic_only=strategic_only).to(device)
+if multiplayer and strategic_only:
+    raise ValueError("Strategic-only schema-3 routing cannot be used with schema 4")
+net = (
+    MultiplayerPolicy() if multiplayer else Policy(strategic_only=strategic_only)
+).to(device)
 if checkpoint:
     net.load_state_dict(checkpoint["state_dict"])
 initial_anchor = (
@@ -88,9 +101,10 @@ update = -1
 def save(name, export=False):
     torch.save(
         {
-            "state_dim": 738,
-            "action_dim": 96,
-            "schema": 3,
+            "state_dim": state_dim,
+            "action_dim": action_dim,
+            "schema": 4 if multiplayer else 3,
+            "architecture": "multiplayer" if multiplayer else "policy",
             "feature_revision": FEATURE_REVISION,
             "strategic_only": strategic_only,
             "update": update,
@@ -108,8 +122,8 @@ def save(name, export=False):
         torch.onnx.export(
             clone,
             (
-                torch.zeros(1, 738),
-                torch.zeros(1, 8, 96),
+                torch.zeros(1, state_dim),
+                torch.zeros(1, 8, action_dim),
                 torch.ones(1, 8, dtype=torch.bool),
             ),
             str(out / (name + ".onnx")),
@@ -125,16 +139,16 @@ def save(name, export=False):
             opset_version=17,
             dynamo=False,
         )
-        embed_revision(out / (name + ".onnx"))
+        embed_revision(out / (name + ".onnx"), FEATURE_REVISION)
     (out / "metrics.json").write_text(json.dumps(metrics, indent=2))
     (out / "schema.json").write_text(
         json.dumps(
             {
-                "version": 3,
+                "version": 4 if multiplayer else 3,
                 "feature_revision": FEATURE_REVISION,
-                "state_dim": 738,
-                "action_dim": 96,
-                "players": 3,
+                "state_dim": state_dim,
+                "action_dim": action_dim,
+                "players": player_counts if multiplayer else 3,
                 "map": "Germany",
                 "information": "all money public, sealed bids/deck/queued plans excluded",
                 "run": run,
@@ -160,34 +174,71 @@ def evaluate(update):
     pool = EnginePool(4, seed="strong-development-v1", script="ai/strong/bridge.cjs")
     result = {}
     try:
-        for mode in ["economic", "heuristic", "rush", "legacy"]:
-            current = pool.call({"op": "reset", "n": 96, "mode": mode})["observations"]
-            ends = []
-            while any(x is not None for x in current):
-                live = [i for i, x in enumerate(current) if x is not None]
-                rows = [current[i] for i in live]
-                with torch.no_grad():
-                    logits, _ = net(*tensors(rows, device))
-                    chosen = logits.argmax(-1).cpu().tolist()
-                actions = [None] * len(current)
-                for i, a in zip(live, chosen):
-                    actions[i] = a
-                r = pool.call({"op": "step", "actions": actions})
-                current = r["observations"]
-                ends.extend(r["ended"])
-            wins = [
-                sum(
-                    e["value"][i]
-                    for i, role in enumerate(e["roles"])
-                    if role == "learner"
-                )
-                for e in ends
-            ]
-            result[mode] = {
-                "win": float(np.mean(wins)),
-                "truncated": sum(e["truncated"] for e in ends),
-                "games": len(ends),
-            }
+        for player_count in player_counts:
+            for mode in ["economic", "heuristic", "rush", "legacy"]:
+                current = pool.call(
+                    {
+                        "op": "reset",
+                        "n": 8 * player_count if multiplayer else 96,
+                        "mode": mode,
+                        "playerCount": player_count,
+                        "featureRevisions": feature_revisions,
+                        **(
+                            {"arenaSeed": f"multiplayer-development-{player_count}-v1"}
+                            if multiplayer
+                            else {}
+                        ),
+                    }
+                )["observations"]
+                ends = []
+                while any(x is not None for x in current):
+                    live = [i for i, x in enumerate(current) if x is not None]
+                    rows = [current[i] for i in live]
+                    with torch.no_grad():
+                        logits, _ = net(*tensors(rows, device))
+                        chosen = logits.argmax(-1).cpu().tolist()
+                    actions = [None] * len(current)
+                    for i, a in zip(live, chosen):
+                        actions[i] = a
+                    r = pool.call({"op": "step", "actions": actions})
+                    current = r["observations"]
+                    ends.extend(r["ended"])
+                wins = [
+                    sum(
+                        e["value"][i]
+                        for i, role in enumerate(e["roles"])
+                        if role == "learner"
+                    )
+                    for e in ends
+                ]
+                result[f"{player_count}p/{mode}" if multiplayer else mode] = {
+                    "player_count": player_count,
+                    "by_rule": {
+                        f"{variant}/{sealed}": {
+                            "games": len(group),
+                            "win": float(
+                                np.mean(
+                                    [
+                                        e["value"][e["roles"].index("learner")]
+                                        for e in group
+                                    ]
+                                )
+                            ),
+                        }
+                        for variant in ["original", "recharged"]
+                        for sealed in [False, True]
+                        if (
+                            group := [
+                                e
+                                for e in ends
+                                if e["variant"] == variant and e["sealed"] == sealed
+                            ]
+                        )
+                    },
+                    "win": float(np.mean(wins)),
+                    "truncated": sum(e["truncated"] for e in ends),
+                    "games": len(ends),
+                }
     finally:
         pool.close()
     print(
@@ -197,6 +248,22 @@ def evaluate(update):
         flush=True,
     )
     return result
+
+
+def selection_score(evaluation):
+    if not multiplayer:
+        return float(
+            np.mean([evaluation[x]["win"] for x in ["economic", "heuristic", "rush"]])
+        )
+    return float(
+        np.mean(
+            [
+                (v["win"] - 1 / v["player_count"]) / (1 - 1 / v["player_count"])
+                for k, v in evaluation.items()
+                if not k.endswith("/legacy")
+            ]
+        )
+    )
 
 
 try:
@@ -212,18 +279,22 @@ try:
         ),
         flush=True,
     )
-    if initial_checkpoint:
+    if initial_checkpoint or multiplayer:
         net.eval()
         evaluation = evaluate(-1)
         metrics.append({"stage": "evaluation", "update": -1, **evaluation})
-        best = float(
-            np.mean([evaluation[x]["win"] for x in ["economic", "heuristic", "rush"]])
-        )
+        best = selection_score(evaluation)
         save("best", export=True)
     for update in range(updates):
         start = time.perf_counter()
         current = rollout.call(
-            {"op": "reset", "n": nenv, "mode": os.getenv("OPPONENT_MODE", "mixed")}
+            {
+                "op": "reset",
+                "n": nenv,
+                "mode": os.getenv("OPPONENT_MODE", "mixed"),
+                "playerCount": player_counts[update % len(player_counts)],
+                "featureRevisions": feature_revisions,
+            }
         )["observations"]
         pending = [[] for _ in range(nenv)]
         batch = []
@@ -235,7 +306,7 @@ try:
             rows = [current[i] for i in live]
             choice = [0] * len(rows)
             logps = [0.0] * len(rows)
-            values = [[0.0, 0.0, 0.0]] * len(rows)
+            values = [[0.0] * (6 if multiplayer else 3)] * len(rows)
             roles = {r["roles"][r["seat"]] for r in rows}
             for role in roles:
                 indices = [
@@ -281,9 +352,11 @@ try:
                 endings.append(end)
                 if not end["truncated"]:
                     for r in pending[end["env"]]:
-                        r["value"] = [
-                            end["value"][(r["seat"] + j) % 3] for j in range(3)
-                        ]
+                        r["value"] = (
+                            rotate_outcome(end["value"], r["seat"])
+                            if multiplayer
+                            else [end["value"][(r["seat"] + j) % 3] for j in range(3)]
+                        )
                         r["advantage"] = r["value"][0] - r["oldvalue"]
                         batch.append(r)
                 pending[end["env"]] = []
@@ -322,7 +395,12 @@ try:
                 )
                 loss = (
                     pg
-                    + 0.5 * ((value - target) ** 2).mean()
+                    + 0.5
+                    * (
+                        (((value - target) ** 2).sum(-1) / x[0][:, :6].sum(-1)).mean()
+                        if multiplayer
+                        else ((value - target) ** 2).mean()
+                    )
                     - float(os.getenv("ENTROPY", ".01")) * dist.entropy().mean()
                     + float(os.getenv("ANCHOR", ".01")) * kl
                 )
@@ -336,6 +414,7 @@ try:
             "run": run,
             "update": update,
             "episodes": len(endings),
+            "player_count": player_counts[update % len(player_counts)],
             "truncated": sum(x["truncated"] for x in endings),
             "samples": len(batch),
             "rollout_seconds": rollout_seconds,
@@ -360,9 +439,7 @@ try:
             net.eval()
             evaluation = evaluate(update)
             metrics.append({"stage": "evaluation", "update": update, **evaluation})
-            score = np.mean(
-                [evaluation[x]["win"] for x in ["economic", "heuristic", "rush"]]
-            )
+            score = selection_score(evaluation)
             if score > best:
                 best = score
                 snapshots.append(copy.deepcopy(net).eval())

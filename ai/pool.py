@@ -40,7 +40,7 @@ class EnginePool:
                 raise ValueError("Need at least one environment per worker")
             self.sizes = [n // workers + (i < n % workers) for i in range(workers)]
             requests = []
-            offset = 0
+            offset = request.get("offset", 0)
             for n in self.sizes:
                 requests.append({**request, "n": n, "offset": offset})
                 offset += n

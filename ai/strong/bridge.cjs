@@ -67,9 +67,11 @@ function observation(e) {
         round: e.g.round,
         variant: e.g.options.variant,
         sealed: !!e.g.options.fastBid,
+        playerCount: e.g.players.length,
     };
 }
-function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}) {
+function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}, playerCount = 3) {
+    if (!Number.isInteger(playerCount) || playerCount < 2 || playerCount > 6) throw Error('Invalid player count');
     if (
         ![
             'mixed',
@@ -88,7 +90,7 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}) {
     )
         throw Error('Unknown opponent mode: ' + mode);
     const id = arenaSeed === undefined ? sequence++ : arenaId,
-        seat = Math.floor(id / 4) % 3,
+        seat = Math.floor(id / 4) % playerCount,
         kind = Math.floor(c.seedrandom(seed + '-opponents-' + id)() * 8);
     const opponent =
         mode === 'mixed' || mode === 'mixed_search'
@@ -105,13 +107,17 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}) {
             : mode;
     const roles =
         opponent === 'selfplay'
-            ? ['learner', 'learner', 'learner']
-            : Array.from({ length: 3 }, (_, i) => (i === seat ? 'learner' : opponent));
-    const gameSeed = arenaSeed === undefined ? seed + '-' + id : arenaSeed + '-' + Math.floor(id / 12);
+            ? Array(playerCount).fill('learner')
+            : Array.from({ length: playerCount }, (_, i) => (i === seat ? 'learner' : opponent));
+    const gameSeed = arenaSeed === undefined ? seed + '-' + id : arenaSeed + '-' + Math.floor(id / (4 * playerCount));
     const e = {
         id,
         gameSeed,
-        g: c.start(gameSeed, id % 2 ? 'recharged' : 'original', id % 4 < 2),
+        g: c.E.setup(
+            playerCount,
+            { map: 'Germany', variant: id % 2 ? 'recharged' : 'original', fastBid: id % 4 < 2, showMoney: true },
+            gameSeed
+        ),
         roles,
         rng: c.seedrandom(arenaSeed === undefined ? seed + '-bot-' + id : gameSeed + '-bot'),
         steps: 0,
@@ -129,7 +135,7 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}) {
                 ended = [];
             if (q.op === 'reset')
                 envs = Array.from({ length: q.n }, (_, i) =>
-                    reset(q.mode, q.arenaSeed, (q.offset || 0) + i, q.featureRevisions)
+                    reset(q.mode, q.arenaSeed, (q.offset || 0) + i, q.featureRevisions, q.playerCount ?? 3)
                 );
             else if (q.op === 'step')
                 for (let i = 0; i < envs.length; i++) {
@@ -161,7 +167,10 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}) {
                             episode: e.id,
                             gameSeed: e.gameSeed,
                             truncated: !c.E.ended(e.g),
-                            value: c.E.ended(e.g) ? c.outcome(e.g) : [0, 0, 0],
+                            value: c.E.ended(e.g) ? c.outcome(e.g) : Array(e.g.players.length).fill(0),
+                            playerCount: e.g.players.length,
+                            variant: e.g.options.variant,
+                            sealed: !!e.g.options.fastBid,
                             steps: e.steps,
                             roles: e.roles,
                             policyMoves: e.policyMoves,

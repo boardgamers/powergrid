@@ -11,8 +11,9 @@ import torch
 from torch.distributions import Categorical
 from model import Policy, tensors
 from model_v4 import MultiplayerPolicy
-from multiplayer import ROLE_REVISIONS, rotate_outcome
+from multiplayer import ROLE_REVISIONS, rotate_outcome, balance_training_rows
 from pool import EnginePool
+from arena_statistics import search_summary
 from huggingface_hub import HfApi, hf_hub_download
 from feature_contract import FEATURE_REVISION, embed_revision
 
@@ -22,6 +23,7 @@ if multiplayer:
 state_dim, action_dim = (1149, 98) if multiplayer else (738, 96)
 player_counts = [2, 3, 4, 5, 6] if multiplayer else [3]
 feature_revisions = ROLE_REVISIONS if multiplayer else {}
+mix_player_counts = multiplayer and os.getenv("MIX_PLAYER_COUNTS") == "1"
 
 seed = int(os.getenv("TRAIN_SEED", "101"))
 random.seed(seed)
@@ -108,6 +110,7 @@ def save(name, export=False):
             "feature_revision": FEATURE_REVISION,
             "strategic_only": strategic_only,
             "update": update,
+            "mixed_player_counts": mix_player_counts,
             "initial_checkpoint": initial_checkpoint,
             "initial_revision": initial_revision,
             "initial_feature_revision": checkpoint.get("feature_revision", "3.0")
@@ -149,6 +152,7 @@ def save(name, export=False):
                 "state_dim": state_dim,
                 "action_dim": action_dim,
                 "players": player_counts if multiplayer else 3,
+                "mixed_player_counts": mix_player_counts,
                 "map": "Germany",
                 "information": "all money public, sealed bids/deck/queued plans excluded",
                 "run": run,
@@ -293,6 +297,11 @@ try:
                 "n": nenv,
                 "mode": os.getenv("OPPONENT_MODE", "mixed"),
                 "playerCount": player_counts[update % len(player_counts)],
+                **(
+                    {"playerCounts": player_counts, "offset": update * nenv}
+                    if mix_player_counts
+                    else {}
+                ),
                 "featureRevisions": feature_revisions,
             }
         )["observations"]
@@ -366,6 +375,8 @@ try:
         advantages = np.array([r["advantage"] for r in batch])
         mean = advantages.mean()
         std = advantages.std() + 1e-6
+        if mix_player_counts:
+            balance_training_rows(batch)
         losses = []
         net.train()
         for epoch in range(3):
@@ -378,30 +389,46 @@ try:
                 act = torch.tensor([r["choice"] for r in rows], device=device)
                 old = torch.tensor([r["oldlogp"] for r in rows], device=device)
                 adv = torch.tensor(
-                    [(r["advantage"] - mean) / std for r in rows],
+                    [
+                        r["normalized_advantage"]
+                        if mix_player_counts
+                        else (r["advantage"] - mean) / std
+                        for r in rows
+                    ],
                     device=device,
                     dtype=torch.float32,
                 )
                 target = torch.tensor([r["value"] for r in rows], device=device)
                 ratio = (dist.log_prob(act) - old).exp()
-                pg = -torch.minimum(ratio * adv, ratio.clamp(0.8, 1.2) * adv).mean()
+                weights = torch.tensor(
+                    [r["training_weight"] if mix_player_counts else 1.0 for r in rows],
+                    device=device,
+                )
+                weighted_mean = lambda values: (values * weights).sum() / weights.sum()
+                pg = -weighted_mean(
+                    torch.minimum(ratio * adv, ratio.clamp(0.8, 1.2) * adv)
+                )
                 if initial_anchor is not None:
                     with torch.no_grad():
                         anchor = initial_anchor(*x)[0].softmax(-1)
                 else:
                     anchor = (x[1][:, :, 74] * 2).masked_fill(~x[2], -1e9).softmax(-1)
-                kl = torch.nn.functional.kl_div(
-                    logits.log_softmax(-1), anchor, reduction="batchmean"
+                kl = weighted_mean(
+                    torch.nn.functional.kl_div(
+                        logits.log_softmax(-1), anchor, reduction="none"
+                    ).sum(-1)
                 )
                 loss = (
                     pg
                     + 0.5
                     * (
-                        (((value - target) ** 2).sum(-1) / x[0][:, :6].sum(-1)).mean()
+                        weighted_mean(
+                            ((value - target) ** 2).sum(-1) / x[0][:, :6].sum(-1)
+                        )
                         if multiplayer
                         else ((value - target) ** 2).mean()
                     )
-                    - float(os.getenv("ENTROPY", ".01")) * dist.entropy().mean()
+                    - float(os.getenv("ENTROPY", ".01")) * weighted_mean(dist.entropy())
                     + float(os.getenv("ANCHOR", ".01")) * kl
                 )
                 optimizer.zero_grad()
@@ -414,7 +441,19 @@ try:
             "run": run,
             "update": update,
             "episodes": len(endings),
-            "player_count": player_counts[update % len(player_counts)],
+            "player_count": "mixed"
+            if mix_player_counts
+            else player_counts[update % len(player_counts)],
+            "by_player_count": {
+                n: {
+                    "episodes": sum(e["playerCount"] == n for e in endings),
+                    "truncated": sum(
+                        e["playerCount"] == n and e["truncated"] for e in endings
+                    ),
+                    "samples": sum(r["playerCount"] == n for r in batch),
+                }
+                for n in player_counts
+            },
             "truncated": sum(x["truncated"] for x in endings),
             "samples": len(batch),
             "rollout_seconds": rollout_seconds,
@@ -433,6 +472,7 @@ try:
             group["wins"] += ending["value"][ending["roles"].index("learner")]
             group["truncated"] += ending["truncated"]
         metric["training_opponents"] = opponent_outcomes
+        metric.update(search_summary(endings))
         metrics.append(metric)
         print(json.dumps(metric), flush=True)
         if (update + int(multiplayer)) % int(

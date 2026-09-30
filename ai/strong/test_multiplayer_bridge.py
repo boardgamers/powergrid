@@ -10,6 +10,50 @@ from multiplayer import ROLE_REVISIONS, rotate_outcome
 
 
 class BridgeTests(unittest.TestCase):
+    def test_mixed_training_schedule_covers_every_seat_and_rule(self):
+        pool = EnginePool(3, seed="mixed-count-protocol", script="ai/strong/bridge.cjs")
+        seen = {n: set() for n in range(2, 7)}
+        try:
+            for cycle in range(6):
+                reply = pool.call(
+                    {
+                        "op": "reset",
+                        "n": 20,
+                        "mode": "economic",
+                        "playerCounts": [2, 3, 4, 5, 6],
+                        "featureRevisions": ROLE_REVISIONS,
+                        "offset": cycle * 20,
+                    }
+                )
+                current = reply["observations"]
+                self.assertEqual(len(current), 20)
+                for row in current:
+                    n = row["playerCount"]
+                    self.assertEqual(row["seat"], cycle % n)
+                    seen[n].add((row["seat"], row["variant"], row["sealed"]))
+                self.assertEqual(
+                    [sum(r["playerCount"] == n for r in current) for n in range(2, 7)],
+                    [4] * 5,
+                )
+            ends = []
+            for _ in range(1800):
+                reply = pool.call(
+                    {
+                        "op": "step",
+                        "actions": [r["teacher"] if r else None for r in current],
+                    }
+                )
+                ends.extend(reply["ended"])
+                current = reply["observations"]
+                if all(r is None for r in current):
+                    break
+            self.assertEqual(len(ends), 20)
+            self.assertFalse(any(e["truncated"] for e in ends))
+            for n, cells in seen.items():
+                self.assertEqual(len(cells), 4 * n)
+        finally:
+            pool.close()
+
     def test_complete_paired_counts_and_rotate_terminal_targets(self):
         pool = EnginePool(3, seed="multiplayer-protocol", script="ai/strong/bridge.cjs")
         try:

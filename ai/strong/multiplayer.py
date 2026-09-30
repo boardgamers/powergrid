@@ -15,3 +15,19 @@ def rotate_outcome(outcome, seat):
     if abs(sum(outcome) - 1) > 1e-6 or any(x < 0 for x in outcome):
         raise ValueError("Expected complete terminal win credits")
     return [outcome[(seat + j) % n] for j in range(n)] + [0.0] * (6 - n)
+
+
+def balance_training_rows(rows):
+    """Normalize advantages within a count and give each count equal loss mass."""
+    import numpy as np
+
+    groups = {}
+    for row in rows:
+        groups.setdefault(row["playerCount"], []).append(row)
+    for group in groups.values():
+        advantages = np.asarray([row["advantage"] for row in group])
+        mean, std = advantages.mean(), advantages.std() + 1e-6
+        weight = len(rows) / (len(groups) * len(group))
+        for row in group:
+            row["normalized_advantage"] = float((row["advantage"] - mean) / std)
+            row["training_weight"] = weight

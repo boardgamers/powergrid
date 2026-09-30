@@ -70,7 +70,7 @@ function observation(e) {
         playerCount: e.g.players.length,
     };
 }
-function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}, playerCount = 3) {
+function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}, playerCount = 3, trainingIndex, learnerSeat) {
     if (!Number.isInteger(playerCount) || playerCount < 2 || playerCount > 6) throw Error('Invalid player count');
     if (
         ![
@@ -89,8 +89,8 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}, player
         ].includes(mode)
     )
         throw Error('Unknown opponent mode: ' + mode);
-    const id = arenaSeed === undefined ? sequence++ : arenaId,
-        seat = Math.floor(id / 4) % playerCount,
+    const id = arenaSeed === undefined ? trainingIndex ?? sequence++ : arenaId,
+        seat = learnerSeat ?? Math.floor(id / 4) % playerCount,
         kind = Math.floor(c.seedrandom(seed + '-opponents-' + id)() * 8);
     const opponent =
         mode === 'mixed' || mode === 'mixed_search'
@@ -133,11 +133,32 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}, player
         try {
             const q = JSON.parse(line),
                 ended = [];
-            if (q.op === 'reset')
-                envs = Array.from({ length: q.n }, (_, i) =>
-                    reset(q.mode, q.arenaSeed, (q.offset || 0) + i, q.featureRevisions, q.playerCount ?? 3)
-                );
-            else if (q.op === 'step')
+            if (q.op === 'reset') {
+                const counts = q.playerCounts;
+                if (
+                    counts &&
+                    (q.arenaSeed !== undefined ||
+                        !Array.isArray(counts) ||
+                        !counts.length ||
+                        new Set(counts).size !== counts.length ||
+                        counts.some((n) => !Number.isInteger(n) || n < 2 || n > 6))
+                )
+                    throw Error('Mixed player counts require a valid training-only schedule');
+                envs = Array.from({ length: q.n }, (_, i) => {
+                    const index = (q.offset || 0) + i;
+                    const count = counts ? counts[Math.floor(index / 4) % counts.length] : q.playerCount ?? 3;
+                    const seat = counts ? Math.floor(index / (4 * counts.length)) % count : undefined;
+                    return reset(
+                        q.mode,
+                        q.arenaSeed,
+                        index,
+                        q.featureRevisions,
+                        count,
+                        counts ? index : undefined,
+                        seat
+                    );
+                });
+            } else if (q.op === 'step')
                 for (let i = 0; i < envs.length; i++) {
                     const e = envs[i];
                     if (q.actions[i] === null) continue;

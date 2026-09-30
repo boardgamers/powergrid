@@ -6,9 +6,24 @@ import unittest
 import torch
 from model import tensors
 from model_v4 import MultiplayerPolicy
+from multiplayer import balance_training_rows
 
 
 class MultiplayerTests(unittest.TestCase):
+    def test_training_balance_does_not_favor_longer_counts(self):
+        rows = [
+            dict(playerCount=n, advantage=float(i % 2))
+            for n in range(2, 7)
+            for i in range(n * 4)
+        ]
+        balance_training_rows(rows)
+        for n in range(2, 7):
+            group = [r for r in rows if r["playerCount"] == n]
+            self.assertAlmostEqual(
+                sum(r["training_weight"] for r in group), len(rows) / 5
+            )
+            self.assertAlmostEqual(sum(r["normalized_advantage"] for r in group), 0)
+
     def test_all_counts_mask_values_and_legal_actions(self):
         root = Path(__file__).resolve().parents[2]
         rows = json.loads(

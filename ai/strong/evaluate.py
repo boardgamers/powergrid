@@ -7,6 +7,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np
 from infer import Model
 from pool import EnginePool
+from async_pool import AsyncEnginePool
 from arena_statistics import win_summary, search_summary, validate_pairs
 from search_scope import SCOPES, search_enabled
 from feature_contract import FEATURE_REVISION, check_revision, model_revision
@@ -23,6 +24,11 @@ p.add_argument(
 )
 p.add_argument("--opponent-model", help="Frozen ONNX policy in every opponent seat")
 p.add_argument("--workers", type=int, default=4)
+p.add_argument(
+    "--async-rollout",
+    action="store_true",
+    help="Advance ready games independently using one engine process per game",
+)
 p.add_argument("--geographic-search", action="store_true")
 p.add_argument(
     "--disable-search-proposal",
@@ -64,9 +70,9 @@ for actor in [model, opponent_model]:
         p.error("Non-three-player evaluation requires schema 4 for every model")
 if args.allow_feature_transfer and model_revision(model) == "4.0-multiplayer":
     p.error("Schema 4 cannot be transferred to a schema 3 encoder")
-pool = EnginePool(
-    min(args.workers, args.games), seed=args.seed, script="ai/strong/bridge.cjs"
-)
+pool_class = AsyncEnginePool if args.async_rollout else EnginePool
+engine_workers = args.games if args.async_rollout else min(args.workers, args.games)
+pool = pool_class(engine_workers, seed=args.seed, script="ai/strong/bridge.cjs")
 feature_revision = (
     FEATURE_REVISION if args.allow_feature_transfer else model_revision(model)
 )
@@ -152,6 +158,8 @@ finally:
     pool.close()
 validate_pairs(rows, args.players)
 report = {
+    "async_rollout": args.async_rollout,
+    "engine_workers": engine_workers,
     "player_count": args.players,
     "chance_win_rate": 1 / args.players,
     "deal_offset": args.deal_offset,

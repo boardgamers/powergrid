@@ -4952,5 +4952,33 @@
                 "job_id": "6abd6a43fbc85ba68235ca70"
             }
         ]
+    },
+    "async_arena_pilot": {
+        "job_id": "6abd6b1c404719ba376143cb",
+        "run": "multiplayer-hard-e10-search48-search_geo-2p-async-pilot",
+        "source_bundle": {
+            "archive": "strong-source-v28.tgz",
+            "revision": "1632ae68aabb62fb924a6e119b7704f10dd3da4a",
+            "base_revision": "fe12e7a6b1fec2e04b749765af73477d39ded699",
+            "changed_files": [
+                "ai/strong/evaluate.py",
+                "ai/strong/arena-job.py",
+                "ai/strong/verify-final.py"
+            ],
+            "archive_sha256": "e553912b0329cabc1b385ed70d49a7826a35f125ebc389aa81d81bb7ca4be848"
+        },
+        "candidate_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",
+        "seed": "multiplayer-search-strong-probe-v1-2p",
+        "deal_offset": 0,
+        "games": 32,
+        "players": 2,
+        "opponent": "search_geo",
+        "samples": 48,
+        "geographic": true,
+        "async_rollout": true,
+        "workers": 32,
+        "purpose": "Timing/protocol pilot reusing already evaluated deals. Must not be counted as new independent strength evidence. Compare full terminal records with synchronous 24-worker completed shard.",
+        "local_validation": "Eight real paired 2p games, all four rule/auction combinations, sync8 vs async8: every terminal record exactly equal including final state, outcome, move counts and search counts. One search sample used for local protocol check; no local training.",
+        "local_timing_caveat": "Both local runs executed concurrently; their18.43s and9.93s are not isolated benchmarks. Await HF full-budget timing."
     }
 }

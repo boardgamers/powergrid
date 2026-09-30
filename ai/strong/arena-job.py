@@ -33,6 +33,8 @@ command = [
     "--output",
     "evaluation.json",
 ]
+if os.getenv("ASYNC_ARENA") == "1":
+    command.append("--async-rollout")
 if os.getenv("DISABLE_SEARCH_PROPOSAL") == "1":
     command.append("--disable-search-proposal")
 if os.getenv("GEOGRAPHY") == "1":

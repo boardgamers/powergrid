@@ -8435,6 +8435,26 @@
                 "games_per_cell": 15,
                 "validation_games": 48,
                 "training_games": 192
+            },
+            "5": {
+                "revision": "07541431146ccf6c4a8c5beabeb6f68e262d61ac",
+                "version": "multiplayer-teacher-v2-strong",
+                "shard": 3,
+                "player_count": 5,
+                "validated": true,
+                "counts": {
+                    "games": 240,
+                    "positions": 25986,
+                    "truncated": 0,
+                    "teacher_rollouts": 3030432,
+                    "teacher_truncated": 0,
+                    "opponent_rollouts": 3935536,
+                    "opponent_truncated": 0
+                },
+                "seat_rule_cells": 20,
+                "games_per_cell": 12,
+                "validation_games": 40,
+                "training_games": 200
             }
         }
     },

@@ -1284,7 +1284,7 @@
                 "id": "6abd5022404719ba37614022",
                 "flavor": "h200",
                 "status": {
-                    "stage": "RUNNING"
+                    "stage": "COMPLETED"
                 }
             }
         },
@@ -1300,6 +1300,19 @@
                 5,
                 6
             ]
+        },
+        "hard_completion": {
+            "repository_revision": "8ffdf35738a0f6b68114febb3b375a78106c0e8c",
+            "best_epoch": 10,
+            "best_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
+            "selection_scores": {
+                "0": 0.22111111111111112,
+                "5": 0.25958333333333333,
+                "10": 0.44916666666666666,
+                "15": 0.3884722222222222,
+                "20": 0.2668055555555556
+            },
+            "interpretation": "Later epochs lower training loss but worsen small-sample game selection score; retain epoch 10 pending broad independent screening."
         }
     },
     "multiplayer_pipeline_completion": {
@@ -1469,6 +1482,91 @@
             "a260_3p": 480
         },
         "independent_deals": 40,
-        "scope": "Development seeds shared with pooled baseline for comparison, separate from teacher data and reserved final seeds."
+        "scope": "Development seeds shared with pooled baseline for comparison, separate from teacher data and reserved final seeds.",
+        "amd8840u_benchmark": {
+            "hostname": "coyotte508-4X4-BOX-8840U",
+            "processor_model": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+            "python_version": "3.12.3",
+            "positions": 2553,
+            "by_player_count": {
+                "2": {
+                    "positions": 349,
+                    "p95_ms": 3.95037000416778
+                },
+                "3": {
+                    "positions": 427,
+                    "p95_ms": 3.4167905934737064
+                },
+                "4": {
+                    "positions": 527,
+                    "p95_ms": 4.352853006275836
+                },
+                "5": {
+                    "positions": 609,
+                    "p95_ms": 4.413062802632339
+                },
+                "6": {
+                    "positions": 641,
+                    "p95_ms": 5.718704996979795
+                }
+            },
+            "model_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
+            "all_moves_legal": true,
+            "search_samples": 0,
+            "search_scope": "all",
+            "geographic_search": false,
+            "cold_start_ms": 171.4546720031649,
+            "warm_roundtrip_p50_ms": 2.072249502816703,
+            "warm_roundtrip_p95_ms": 4.7730467063956885,
+            "worker_p95_ms": 2.8293874551309264,
+            "max_roundtrip_ms": 171.4546720031649,
+            "search_decisions": 0,
+            "search_evaluations": 0,
+            "search_truncated_rollouts": 0,
+            "search_roundtrip_p50_ms": null,
+            "search_roundtrip_p95_ms": null,
+            "by_phase": {
+                "Auction": {
+                    "positions": 840,
+                    "p50_ms": 2.002690998779144,
+                    "p95_ms": 4.439569146052236,
+                    "max_ms": 171.4546720031649
+                },
+                "Resources": {
+                    "positions": 755,
+                    "p50_ms": 2.045212997472845,
+                    "p95_ms": 4.881730204215273,
+                    "max_ms": 7.542260995251127
+                },
+                "Building": {
+                    "positions": 491,
+                    "p50_ms": 2.3341699998127297,
+                    "p95_ms": 5.320301999745425,
+                    "max_ms": 7.003602993790992
+                },
+                "Bureaucracy": {
+                    "positions": 467,
+                    "p50_ms": 2.047267000307329,
+                    "p95_ms": 4.796132692717947,
+                    "max_ms": 7.277851007529534
+                }
+            }
+        },
+        "package_verification": {
+            "all_hashes_match": true,
+            "files_verified": 1203,
+            "positions_verified": 80,
+            "player_counts": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "all_moves_legal": true,
+            "model_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c"
+        },
+        "remote_research_directory": "~/powergrid-ai-multiplayer-hard-e10",
+        "deployment_status": "Research benchmark only; no production routing changed"
     }
 }

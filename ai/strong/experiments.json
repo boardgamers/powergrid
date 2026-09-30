@@ -717,7 +717,7 @@
         "failed_attempt": "soft launcher failed resolving Hugging Face during whoami, before job submission",
         "network_permission_request": "returned no network grant",
         "existing_pipeline_job": "6abd41d2404719ba37613e0f",
-        "existing_pipeline_status": "RUNNING, revalidated after network restoration",
+        "existing_pipeline_status": "COMPLETED",
         "offline_preflight": {
             "purpose": "Offline CPU preflight only; no training",
             "shards": 5,
@@ -1266,7 +1266,7 @@
         }
     },
     "multiplayer_distillation_v2": {
-        "status": "submitted",
+        "status": "active",
         "architecture": "multiplayer_ordered",
         "source_archive": "strong-source-v20.tgz",
         "source_revision": "c259cc1664fe39565bdbdd5d64789c9825a62692",
@@ -1274,13 +1274,148 @@
         "jobs": {
             "soft": {
                 "id": "6abd5021fbc85ba68235c463",
-                "flavor": "l4x1"
+                "flavor": "l4x1",
+                "status": {
+                    "stage": "SCHEDULING",
+                    "message": "Waiting for requested hardware to become available"
+                }
             },
             "hard": {
                 "id": "6abd5022404719ba37614022",
-                "flavor": "h200"
+                "flavor": "h200",
+                "status": {
+                    "stage": "RUNNING"
+                }
             }
         },
-        "supersedes": "Both v1 runs were verified canceled while queued; no v1 teacher model was trained."
+        "supersedes": "Both v1 runs were verified canceled while queued; no v1 teacher model was trained.",
+        "checked_at": "2026-09-30T18:15:28.274201+00:00",
+        "hard_data_loaded": {
+            "training_positions": 115144,
+            "validation_positions": 27660,
+            "player_counts": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ]
+        }
+    },
+    "multiplayer_pipeline_completion": {
+        "job_id": "6abd41d2404719ba37613e0f",
+        "status": {
+            "stage": "COMPLETED"
+        },
+        "model_repository_revision": "a0b9535d1b5aed4b5210272c22e0018b21e32e0d",
+        "training_updates": 10,
+        "episodes": 1200,
+        "truncated": 0,
+        "last_selection_evaluation": {
+            "update": 9,
+            "results": {
+                "2p/economic": {
+                    "games": 16,
+                    "win": 0.5,
+                    "truncated": 0
+                },
+                "2p/heuristic": {
+                    "games": 16,
+                    "win": 0.6875,
+                    "truncated": 0
+                },
+                "2p/rush": {
+                    "games": 16,
+                    "win": 0.75,
+                    "truncated": 0
+                },
+                "2p/legacy": {
+                    "games": 16,
+                    "win": 0.875,
+                    "truncated": 0
+                },
+                "3p/economic": {
+                    "games": 24,
+                    "win": 0.625,
+                    "truncated": 0
+                },
+                "3p/heuristic": {
+                    "games": 24,
+                    "win": 0.8333333333333334,
+                    "truncated": 0
+                },
+                "3p/rush": {
+                    "games": 24,
+                    "win": 0.3333333333333333,
+                    "truncated": 0
+                },
+                "3p/legacy": {
+                    "games": 24,
+                    "win": 0.9166666666666666,
+                    "truncated": 0
+                },
+                "4p/economic": {
+                    "games": 32,
+                    "win": 0.5,
+                    "truncated": 0
+                },
+                "4p/heuristic": {
+                    "games": 32,
+                    "win": 0.9375,
+                    "truncated": 0
+                },
+                "4p/rush": {
+                    "games": 32,
+                    "win": 0.4375,
+                    "truncated": 0
+                },
+                "4p/legacy": {
+                    "games": 32,
+                    "win": 0.875,
+                    "truncated": 0
+                },
+                "5p/economic": {
+                    "games": 40,
+                    "win": 0.4,
+                    "truncated": 0
+                },
+                "5p/heuristic": {
+                    "games": 40,
+                    "win": 0.825,
+                    "truncated": 0
+                },
+                "5p/rush": {
+                    "games": 40,
+                    "win": 0.65,
+                    "truncated": 0
+                },
+                "5p/legacy": {
+                    "games": 40,
+                    "win": 0.925,
+                    "truncated": 0
+                },
+                "6p/economic": {
+                    "games": 48,
+                    "win": 0.3958333333333333,
+                    "truncated": 0
+                },
+                "6p/heuristic": {
+                    "games": 48,
+                    "win": 0.8541666666666666,
+                    "truncated": 0
+                },
+                "6p/rush": {
+                    "games": 48,
+                    "win": 0.3958333333333333,
+                    "truncated": 0
+                },
+                "6p/legacy": {
+                    "games": 48,
+                    "win": 0.8958333333333334,
+                    "truncated": 0
+                }
+            }
+        },
+        "scope": "Short pooled-architecture baseline. Selection evaluations have only two independent deals per count; not strength qualification."
     }
 }

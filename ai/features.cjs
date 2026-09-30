@@ -1,4 +1,4 @@
-const c = require('./core.cjs'),
+const c = require('./core-v2.cjs'),
     readline = require('node:readline');
 (async () => {
     for await (const line of readline.createInterface({ input: process.stdin })) {

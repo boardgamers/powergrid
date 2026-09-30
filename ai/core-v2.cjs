@@ -105,7 +105,7 @@ function actionFeatures(g, seat, a) {
             : a.name === 'UsePowerPlant'
             ? p.powerPlants.find((x) => x.number === d.powerPlant)
             : g.chosenPowerPlant;
-    const cost = a.name === 'Bid' ? d : a.name === 'BuyResource' ? resourcePrice(g, d.resource) : d?.price || 0;
+    const cost = a.name === 'Bid' ? d : d?.price || 0;
     return [
         ...onehot(a.name, TYPES),
         cost / 500,
@@ -117,11 +117,6 @@ function actionFeatures(g, seat, a) {
         ...RES.map((r) => (d?.resourcesSpent || []).filter((x) => x === r).length / 4),
     ];
 }
-function resourcePrice(g, resource, offset = 0) {
-    const prices = g[resource + 'Prices'];
-    const count = g[resource + 'Market'];
-    return prices && count > offset ? prices[prices.length - count + offset] : 20;
-}
 function fuelDemand(g, p) {
     const target = Math.min(Math.max(p.cities.length, Math.min(3, capacity(p))), capacity(p));
     let powered = 0;
@@ -131,7 +126,7 @@ function fuelDemand(g, p) {
         if (powered >= target) break;
         powered += pp.citiesPowered;
         let resource = RES[pp.type];
-        if (pp.type === 4) resource = resourcePrice(g, 'coal') <= resourcePrice(g, 'oil') ? 'coal' : 'oil';
+        if (pp.type === 4) resource = (g.coalPrices[0] || 8) <= (g.oilPrices[0] || 8) ? 'coal' : 'oil';
         if (resource) need[resource] += pp.cost;
     }
     return need;
@@ -139,11 +134,7 @@ function fuelDemand(g, p) {
 function fuelCost(g, pp) {
     return (
         pp.cost *
-        (pp.type === 4
-            ? Math.min(resourcePrice(g, 'coal'), resourcePrice(g, 'oil'))
-            : RES[pp.type]
-            ? resourcePrice(g, RES[pp.type])
-            : 0)
+        (pp.type === 4 ? Math.min(g.coalPrices[0] || 8, g.oilPrices[0] || 8) : g[RES[pp.type] + 'Prices']?.[0] || 0)
     );
 }
 const capacity = (p) => p.powerPlants.reduce((n, x) => n + x.citiesPowered, 0);
@@ -177,10 +168,10 @@ function heuristicScore(g, seat, a) {
         case 'DiscardResources':
             return 10 + (p[d + 'Left'] || 0);
         case 'BuyResource': {
-            const need = fuelDemand(g, p),
-                price = resourcePrice(g, d.resource);
-            return p[d.resource + 'Left'] < need[d.resource] && p.money - price >= Math.max(0, p.cities.length ? 0 : 12)
-                ? 20 - price
+            const need = fuelDemand(g, p);
+            return p[d.resource + 'Left'] < need[d.resource] &&
+                p.money - d.price >= Math.max(0, p.cities.length ? 0 : 12)
+                ? 20 - d.price
                 : -100;
         }
         case 'Build': {
@@ -192,7 +183,9 @@ function heuristicScore(g, seat, a) {
         }
         case 'UsePowerPlant':
             return (
-                40 + (d.citiesPowered || 0) * 5 - (d.resourcesSpent || []).reduce((n, r) => n + resourcePrice(g, r), 0)
+                40 +
+                (d.citiesPowered || 0) * 5 -
+                (d.resourcesSpent || []).reduce((n, r) => n + (g[r + 'Prices']?.[0] || 8), 0)
             );
         case 'Pass':
             return 0;
@@ -243,8 +236,4 @@ module.exports = {
     outcome,
     start,
     seedrandom,
-    resourcePrice,
-    fuelDemand,
-    fuelCost,
-    capacity,
 };

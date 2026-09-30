@@ -7,11 +7,11 @@ from concurrent.futures import ThreadPoolExecutor
 
 
 class EnginePool:
-    def __init__(self, workers=1, seed="rollout-v1"):
+    def __init__(self, workers=1, seed="rollout-v1", script="ai/bridge.cjs"):
         self.executor = ThreadPoolExecutor(workers)
         self.processes = [
             subprocess.Popen(
-                ["node", "ai/bridge.cjs"],
+                ["node", script],
                 stdin=subprocess.PIPE,
                 stdout=subprocess.PIPE,
                 text=True,
@@ -39,7 +39,7 @@ class EnginePool:
             if n < workers:
                 raise ValueError("Need at least one environment per worker")
             self.sizes = [n // workers + (i < n % workers) for i in range(workers)]
-            requests = [{"op": "reset", "n": n} for n in self.sizes]
+            requests = [{**request, "n": n} for n in self.sizes]
         else:
             requests = []
             offset = 0

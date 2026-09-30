@@ -79,3 +79,24 @@ test('Recharged replacement cities have distinct action features', () => {
         );
     }
 });
+
+test('fuel purchase teacher uses actual market price and buys required fuel', () => {
+    let g = c.start('fuel-regression'),
+        rng = c.seedrandom('fuel');
+    while (g.phase !== c.E.Phase.Resources) {
+        const p = g.currentPlayers[0];
+        g = c.E.move(g, c.heuristic(g, p, rng).action, p);
+    }
+    const p = g.currentPlayers[0],
+        candidate = c.candidates(g, p).find((a) => a.name === 'BuyResource');
+    assert.ok(candidate, 'a fuel-burning plant must need resources');
+    assert.equal(candidate.data.price, undefined, 'engine deliberately omits price');
+    assert.equal(c.heuristic(g, p, rng).action.name, 'BuyResource');
+    const before = g.players[p].money,
+        price = c.resourcePrice(g, candidate.data.resource);
+    assert.ok(Number.isFinite(price) && price > 0);
+    assert.equal(c.actionFeatures(g, p, candidate)[10], price / 500);
+    g = c.E.move(g, candidate, p);
+    assert.equal(before - g.players[p].money, price);
+    assert.equal(c.resourcePrice(g, 'uranium'), 14);
+});

@@ -1,0 +1,22 @@
+{
+    "goal": "Strong play beyond the default bot; ongoing",
+    "source_archive": "strong-source-v3.tgz",
+    "source_dataset_commit": "d43f77890c221bdcf232d06e14fe02ec8f59cf54",
+    "model_repo": "coyotte508/powergrid-ai-germany-v1",
+    "jobs": {
+        "strong-smoke-v1": "6abd11a4fbc85ba68235b126",
+        "strong-league-v2-a": "6abd15cafbc85ba68235b345",
+        "strong-league-v2-b": "6abd146afbc85ba68235b28d",
+        "strong-league-v2-c": "6abd15cafbc85ba68235b347",
+        "strong-league-v2-d": "6abd15ca404719ba376134e5",
+        "search-reference-v1": "6abd1314404719ba376133b5"
+    },
+    "cancelled_while_queued": [
+        "6abd128efbc85ba68235b1a6",
+        "6abd146b404719ba37613448",
+        "6abd146bfbc85ba68235b291",
+        "6abd146bfbc85ba68235b28f"
+    ],
+    "heldout_final_seed_prefix": "strong-final-reserved-v1",
+    "final_seed_prefix_used": false
+}

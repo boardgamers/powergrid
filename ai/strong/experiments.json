@@ -52,7 +52,17 @@
         "geo-screen-v2-soft16-2": "6abd2a83404719ba3761390c",
         "geo-screen-v2-soft16-3": "6abd2a84404719ba3761390e",
         "a260-economic-screen": "6abd2b6efbc85ba68235ba0b",
-        "refine30-economic-screen": "6abd2b6e404719ba37613961"
+        "refine30-economic-screen": "6abd2b6e404719ba37613961",
+        "geo-screen-v2-a26048-0": "6abd2c19fbc85ba68235ba32",
+        "geo-screen-v2-a26048-1": "6abd2c1afbc85ba68235ba34",
+        "geo-screen-v2-a26048-2": "6abd2c1b404719ba3761397e",
+        "geo-screen-v2-a26048-3": "6abd2c1cfbc85ba68235ba36",
+        "geo-screen-v2-a260raw-0": "6abd2c1cfbc85ba68235ba38",
+        "geo-screen-v2-a260raw-1": "6abd2c1dfbc85ba68235ba3a",
+        "geo-screen-v2-a260raw-2": "6abd2c1efbc85ba68235ba3c",
+        "geo-screen-v2-a260raw-3": "6abd2c1f404719ba37613980",
+        "a260-vs-b160-screen": "6abd2c3bfbc85ba68235ba4c",
+        "strong-refine-a260-v1": "6abd2cbbfbc85ba68235ba6b"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -74,10 +84,7 @@
         "archive": "strong-source-v6.tgz",
         "commit": "cc79acffc12ad4cc1daffbad20b024d2e1f4fe98"
     },
-    "stopped_for_sustained_regression": [
-        "6abd15cafbc85ba68235b347",
-        "6abd15ca404719ba376134e5"
-    ],
+    "stopped_for_sustained_regression": ["6abd15cafbc85ba68235b347", "6abd15ca404719ba376134e5"],
     "all_phase_distillation_source": {
         "archive": "strong-source-v7.tgz",
         "commit": "0862207a0f62cb75edfd0e6ecbc472cdc190bcd0"
@@ -107,8 +114,11 @@
         "commit": "49c872954eaf7761a3ac3453acbf737f569849b2"
     },
     "new_candidate_revision": "b38515c29e57826de05b55b645c29591e4a886bf",
-    "cancelled_wrong_screening_seed": [
-        "6abd2b51404719ba37613954",
-        "6abd2b51404719ba37613956"
-    ]
+    "cancelled_wrong_screening_seed": ["6abd2b51404719ba37613954", "6abd2b51404719ba37613956"],
+    "a260_refinement_source": {
+        "archive": "strong-source-v12.tgz",
+        "commit": "7cc340b37ee051af51346800a15d285cebfb1a39",
+        "initial_revision": "b38515c29e57826de05b55b645c29591e4a886bf",
+        "feature_transfer": "explicit 3.0 to 3.1-uranium39, baseline evaluated before any gradient"
+    }
 }

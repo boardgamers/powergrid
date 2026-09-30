@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 # name model-path revision opponent samples geography games seed
+extra_env=()
+if [[ -n "${OPPONENT_MODEL_PATH:-}" ]]; then
+  extra_env+=(--env "OPPONENT_MODEL_PATH=$OPPONENT_MODEL_PATH" --env "OPPONENT_MODEL_REVISION=${OPPONENT_MODEL_REVISION:?pin opponent revision}")
+fi
 hf jobs run --detach --flavor cpu-performance --timeout 3h \
-  --secrets HF_TOKEN \
+  --secrets HF_TOKEN "${extra_env[@]}" \
   --env HF_MODEL_REPO=coyotte508/powergrid-ai-germany-v1 \
   --env RUN_NAME="${1:?name}" --env MODEL_PATH="${2:?model path}" --env MODEL_REVISION="${3:?revision}" \
   --env OPPONENT="${4:?opponent}" --env SEARCH_SAMPLES="${5:?samples}" --env GEOGRAPHY="${6:?geography}" \

@@ -34,9 +34,32 @@ if initial_checkpoint:
         map_location="cpu",
         weights_only=True,
     )
-    if checkpoint.get("feature_revision", "3.0") != FEATURE_REVISION:
-        raise ValueError("Initial checkpoint requires a different feature encoder")
-strategic_only = os.getenv("STRATEGIC_ONLY", "0") == "1"
+    initial_feature_revision = checkpoint.get("feature_revision", "3.0")
+    if initial_feature_revision != FEATURE_REVISION:
+        allowed_transfer = (
+            os.getenv("ALLOW_URANIUM39_TRANSFER") == "1"
+            and initial_feature_revision == "3.0"
+            and FEATURE_REVISION == "3.1-uranium39"
+        )
+        if not allowed_transfer:
+            raise ValueError("Initial checkpoint requires a different feature encoder")
+        print(
+            json.dumps(
+                {
+                    "stage": "explicit_feature_transfer",
+                    "from": initial_feature_revision,
+                    "to": FEATURE_REVISION,
+                }
+            ),
+            flush=True,
+        )
+strategic_only = (
+    os.getenv(
+        "STRATEGIC_ONLY",
+        "1" if checkpoint and checkpoint.get("strategic_only", False) else "0",
+    )
+    == "1"
+)
 net = Policy(strategic_only=strategic_only).to(device)
 if checkpoint:
     net.load_state_dict(checkpoint["state_dict"])
@@ -73,6 +96,9 @@ def save(name, export=False):
             "update": update,
             "initial_checkpoint": initial_checkpoint,
             "initial_revision": initial_revision,
+            "initial_feature_revision": checkpoint.get("feature_revision", "3.0")
+            if checkpoint
+            else None,
             "state_dict": {k: v.detach().cpu() for k, v in net.state_dict().items()},
         },
         out / (name + ".pt"),
@@ -115,6 +141,9 @@ def save(name, export=False):
                 "seed": seed,
                 "initial_checkpoint": initial_checkpoint,
                 "initial_revision": initial_revision,
+                "initial_feature_revision": checkpoint.get("feature_revision", "3.0")
+                if checkpoint
+                else None,
                 "strategic_only": strategic_only,
             }
         )

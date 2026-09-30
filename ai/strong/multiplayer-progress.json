@@ -1,0 +1,44 @@
+{
+  "status": "implementation; not trained or strength-qualified",
+  "feature_revision": "4.0-multiplayer",
+  "scope": {
+    "map": "Germany",
+    "players": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "variants": [
+      "original",
+      "recharged"
+    ],
+    "auctions": [
+      "open",
+      "sealed"
+    ],
+    "setup": "automatic"
+  },
+  "representation": {
+    "state": 1149,
+    "action": 98,
+    "player_slots": 6,
+    "player_width": 74,
+    "value": "six slots with inactive players masked to zero"
+  },
+  "verified": {
+    "complete_games": 20,
+    "encoded_decisions": 9363,
+    "hidden_information_invariance": true,
+    "cpu_model_forward_all_counts": true
+  },
+  "pending": [
+    "Generalize bridge seat rotation, roles, terminal vectors and episode cap without changing schema 3 behavior",
+    "Generalize PPO value targets and league checkpoint routing",
+    "Balanced HF teacher generation and HF training across counts and rules",
+    "Count-specific paired held-out evaluation and strength gates; old three-player final protocol is insufficient",
+    "ONNX export and AMD 8840U benchmark across all supported counts"
+  ],
+  "preserved_baseline": "Schema 3 encoders and three-player checkpoint architecture unchanged; final seeds remain unused"
+}

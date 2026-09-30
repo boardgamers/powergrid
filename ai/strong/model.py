@@ -69,7 +69,11 @@ class RuleSpecialists(nn.Module):
 
 def policy_from_checkpoint(checkpoint):
     architecture = checkpoint.get("architecture", "policy")
-    if architecture == "rule_specialists":
+    if architecture == "multiplayer":
+        from model_v4 import MultiplayerPolicy
+
+        net = MultiplayerPolicy(**checkpoint.get("model_args", {}))
+    elif architecture == "rule_specialists":
         net = RuleSpecialists(**checkpoint["model_args"])
     elif architecture == "policy":
         net = Policy(strategic_only=checkpoint.get("strategic_only", False))

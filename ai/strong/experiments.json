@@ -13958,5 +13958,66 @@
         "source_revision": "508bc42027cae5bfeea01228b48069c8287b332a",
         "initial_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",
         "scope": "HF GPU replay distillation; evaluate trained exports independently before promotion"
+    },
+    "strong_teacher_replay_epoch5_export_diagnostic": {
+        "status": "STRICT_NUMERIC_PARITY_FAILED_ACTIONS_MATCH",
+        "checkpoint": {
+            "revision": "7b5d9573b692a76de8c3a524db1dc194107311bc",
+            "run": "multiplayer-distillation-strong-replay-v1-hard",
+            "epoch": 5,
+            "hashes": {
+                "best.pt": "752d16ef176e122d9dcff86b436477b1321174b663fbd7a4cd0d57501e05a0be",
+                "best.onnx": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
+                "latest.pt": "25580dd7db237fa68d955670f5c6c1b0f496cbe25c0c02f97d721ed223e4aa93",
+                "latest.onnx": "7684e4c6f7e36bdf93a1cdb2568c50f0ef8d10adb5a45649f8808617c5b25eb7",
+                "metrics.json": "c0dc58b781765161635030e3c73d57ce19f02492c8af0c75b0d21034ff1308bb",
+                "schema.json": "2e4de1e5f243e5b03f2035a8c166e2cd94d1ed0f2e74d3a905be6c909d8d297f"
+            }
+        },
+        "default_runtime": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "7684e4c6f7e36bdf93a1cdb2568c50f0ef8d10adb5a45649f8808617c5b25eb7",
+            "max_logit_error": 4.1961669921875e-05,
+            "max_value_error": 1.9669532775878906e-06,
+            "all_actions_match": true,
+            "action_mismatches": 0,
+            "tolerance_violation_positions": [
+                1,
+                0
+            ],
+            "specialist_route_counts": {}
+        },
+        "unoptimized_runtime": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "7684e4c6f7e36bdf93a1cdb2568c50f0ef8d10adb5a45649f8808617c5b25eb7",
+            "max_logit_error": 4.1961669921875e-05,
+            "max_value_error": 1.9669532775878906e-06,
+            "all_actions_match": true,
+            "action_mismatches": 0,
+            "tolerance_violation_positions": [
+                1,
+                0
+            ],
+            "specialist_route_counts": {}
+        },
+        "decision": "One of 2553 positions exceeds existing near-zero logit tolerance (1.5258789e-5 at logit approximately 0.03033). All legal action selections match, values pass, inactive values remain zero. Disabling ONNX graph optimization does not change result. Do not mark strict parity passed; investigate numeric cancellation or re-export and retain independent validation before promotion."
     }
 }

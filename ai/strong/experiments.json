@@ -4807,6 +4807,100 @@
                         }
                     }
                 }
+            },
+            "multiplayer-hard-e10-search48-search_geo-4p-probe-0": {
+                "result_revision": "d79a2cdafda691bf40fd3187e53de0ebf3eb1d5f",
+                "report": {
+                    "player_count": 4,
+                    "chance_win_rate": 0.25,
+                    "deal_offset": 0,
+                    "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/ab34dd266010ded1c9a6c818c721e5505dd1ddeb/runs/multiplayer-distillation-v2-hard/best.onnx",
+                    "model_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
+                    "model_feature_revision": "4.0-multiplayer",
+                    "encoder_feature_revision": "4.0-multiplayer",
+                    "opponent": "search_geo",
+                    "opponent_sha256": null,
+                    "opponent_feature_revision": null,
+                    "paired_seats": true,
+                    "candidate_search_samples": 48,
+                    "candidate_search_scope": "all",
+                    "candidate_geographic_search": true,
+                    "candidate_search_model_proposal": true,
+                    "seed": "multiplayer-search-strong-probe-v1-4p",
+                    "games": 64,
+                    "win_rate": 0.296875,
+                    "truncated": 0,
+                    "seconds": 2632.4126521050002,
+                    "inference_p95_ms": 0.4395009998916062,
+                    "by_rules": [
+                        {
+                            "variant": "original",
+                            "sealed": false,
+                            "games": 16,
+                            "win_rate": 0.25,
+                            "independent_seeds": 4,
+                            "truncated": 0,
+                            "seed_bootstrap_95_interval": [
+                                0.0625,
+                                0.4375
+                            ]
+                        },
+                        {
+                            "variant": "original",
+                            "sealed": true,
+                            "games": 16,
+                            "win_rate": 0.25,
+                            "independent_seeds": 4,
+                            "truncated": 0,
+                            "seed_bootstrap_95_interval": [
+                                0.0,
+                                0.5625
+                            ]
+                        },
+                        {
+                            "variant": "recharged",
+                            "sealed": false,
+                            "games": 16,
+                            "win_rate": 0.375,
+                            "independent_seeds": 4,
+                            "truncated": 0,
+                            "seed_bootstrap_95_interval": [
+                                0.25,
+                                0.5
+                            ]
+                        },
+                        {
+                            "variant": "recharged",
+                            "sealed": true,
+                            "games": 16,
+                            "win_rate": 0.3125,
+                            "independent_seeds": 4,
+                            "truncated": 0,
+                            "seed_bootstrap_95_interval": [
+                                0.125,
+                                0.5
+                            ]
+                        }
+                    ],
+                    "independent_seeds": 4,
+                    "seed_bootstrap_95_interval": [
+                        0.1875,
+                        0.421875
+                    ],
+                    "search_rollouts_reported": true,
+                    "search_stats": {
+                        "search_geo": {
+                            "decisions": 10286,
+                            "evaluations": 842912,
+                            "truncated": 0
+                        },
+                        "learner": {
+                            "decisions": 3461,
+                            "evaluations": 855168,
+                            "truncated": 0
+                        }
+                    }
+                }
             }
         },
         "combined_3p_search_geo": {

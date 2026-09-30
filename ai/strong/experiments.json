@@ -1417,5 +1417,19 @@
             }
         },
         "scope": "Short pooled-architecture baseline. Selection evaluations have only two independent deals per count; not strength qualification."
+    },
+    "multiplayer_refinement_preparation": {
+        "launcher": "ai/strong/launch-multiplayer-refine-v1.sh",
+        "status": "prepared, not submitted",
+        "source_revision": "c259cc1664fe39565bdbdd5d64789c9825a62692",
+        "architecture": "multiplayer_ordered",
+        "mixed_player_counts": true,
+        "envs": 240,
+        "workers": 16,
+        "updates": 80,
+        "opponent_mode": "mixed_search",
+        "anchor_policy": "initial",
+        "selection_requirement": "Pin independently screened teacher checkpoint before dispatch",
+        "compute_rationale": "Prior six-player rollouts took about 648 seconds versus about 8 seconds optimization. Prefer CPU capacity and parallel environments; GPU memory occupancy is not the optimization target."
     }
 }

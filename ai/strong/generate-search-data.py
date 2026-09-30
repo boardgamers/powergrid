@@ -19,6 +19,8 @@ counts = {
     "truncated": 0,
     "search_rollouts": 0,
     "search_rollouts_truncated": 0,
+    "opponent_search_rollouts": 0,
+    "opponent_search_rollouts_truncated": 0,
 }
 
 
@@ -43,6 +45,12 @@ with concurrent.futures.ThreadPoolExecutor(
             counts["truncated"] += game["truncated"]
             counts["search_rollouts"] += game["searchStats"]["evaluations"]
             counts["search_rollouts_truncated"] += game["searchStats"]["truncated"]
+            counts["opponent_search_rollouts"] += game.get(
+                "opponentSearchStats", {}
+            ).get("evaluations", 0)
+            counts["opponent_search_rollouts_truncated"] += game.get(
+                "opponentSearchStats", {}
+            ).get("truncated", 0)
             # Keep truncated metadata, but never turn incomplete outcomes into targets.
             if game["truncated"]:
                 game["rows"] = []

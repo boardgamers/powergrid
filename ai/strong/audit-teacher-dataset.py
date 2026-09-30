@@ -53,7 +53,9 @@ for shard, n in enumerate(range(2, 7)):
             seat = game["rows"][0]["seat"]
             win = game["value"][seat]
             stats["teacher_win_credit"] += win
-            opponent = ["economic", "heuristic", "rush"][game["id"] // (4 * n) % 3]
+            opponent = game.get(
+                "opponent", ["economic", "heuristic", "rush"][game["id"] // (4 * n) % 3]
+            )
             opp = opponents.setdefault(opponent, dict(games=0, win_credit=0.0))
             opp["games"] += 1
             opp["win_credit"] += win

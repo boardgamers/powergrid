@@ -7983,5 +7983,31 @@
             ]
         },
         "three_player_search_decision": "40-deal expansion:44.375% over480games, overallCI40.938..47.917 abovechance33.333 and point above40% floor. Original/sealedCI31.667..47.917 stillincludeschance. This is development screening, not reserved final qualification. Does not resolve2p/4p weaknesses; continue stronger-league training."
+    },
+    "strong_opponent_teacher_pilot": {
+        "job_id": "6abd73cbfbc85ba68235ccca",
+        "version": "multiplayer-teacher-v2-strong-pilot",
+        "shard": 1,
+        "players": 3,
+        "games": 24,
+        "teacher_samples": 48,
+        "opponent": "search_geo",
+        "opponent_samples": 16,
+        "workers": 24,
+        "source_bundle": {
+            "archive": "strong-source-v29.tgz",
+            "revision": "a30fdb26474d2d78a4803f396c8888f9d974a371",
+            "base_revision": "1632ae68aabb62fb924a6e119b7704f10dd3da4a",
+            "changed_files": [
+                "ai/strong/search-teacher.cjs",
+                "ai/strong/generate-search-data.py",
+                "ai/strong/audit-teacher-dataset.py"
+            ],
+            "archive_sha256": "be0a6acaf6d7432c90bf1a447e60f1517486a34c582e84a1a99801d091f82714"
+        },
+        "purpose": "Generate fresh supervised examples under strong opponent resource/city pressure; existing teacher data uses only economic/heuristic/rush opponents. Pilot before scaling across2\u20136players. Existing PPO jobs unchanged.",
+        "local_validation": "One complete3p game with one sample per search:118 valid schema4 positions,450 opponent rollouts, no game/teacher/opponent truncation; value rotations and candidate targets validated. No local optimization.",
+        "acceptance": "Require all24 complete games, every seat/rule cell exactly twice, zero teacher/opponent rollout truncation, valid targets and outcomes, and measurable teacher performance before dataset scaling. Do not treat training-data win rate as held-out strength evidence.",
+        "status": "SUBMITTED"
     }
 }

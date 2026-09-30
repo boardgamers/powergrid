@@ -21,6 +21,14 @@ const id = Number(process.argv[2] || 0),
     rng = c.seedrandom(seed + '-choices'),
     samples = Number(process.env.SEARCH_SAMPLES || 4),
     rows = [];
+const opponentModes = (process.env.TEACHER_OPPONENTS || 'economic,heuristic,rush').split(',');
+if (!opponentModes.length || opponentModes.some((x) => !['economic', 'heuristic', 'rush', 'search_geo'].includes(x)))
+    throw Error('Invalid teacher opponent mixture');
+const opponent = opponentModes[Math.floor(id / (4 * playerCount)) % opponentModes.length];
+const opponentSamples = Number(process.env.OPPONENT_SEARCH_SAMPLES || 16);
+if (![samples, opponentSamples].every((x) => Number.isInteger(x) && x >= 1 && x <= 64))
+    throw Error('Invalid search sample count');
+const opponentSearchStats = { decisions: 0, evaluations: 0, truncated: 0 };
 let steps = 0;
 const searchStats = { decisions: 0, evaluations: 0, truncated: 0 };
 while (!c.E.ended(g) && steps < 1600) {
@@ -52,12 +60,22 @@ while (!c.E.ended(g) && steps < 1600) {
                 seat,
             });
         }
+    } else if (p !== seat && strategic && opponent === 'search_geo') {
+        const result = search.choose(g, p, {
+            samples: opponentSamples,
+            candidates: 6,
+            geography: true,
+            seed: seed + '-opponent-' + steps,
+        });
+        action = result.action;
+        opponentSearchStats.decisions++;
+        opponentSearchStats.evaluations += result.evaluations || 0;
+        opponentSearchStats.truncated += result.truncated || 0;
     } else {
-        const opponent = ['economic', 'heuristic', 'rush'][Math.floor(id / (4 * playerCount)) % 3];
         action =
             p !== seat && opponent === 'heuristic'
                 ? c.heuristic(g, p, rng).action
-                : eco.choose(g, p, rng, p === seat ? 'economic' : opponent).action;
+                : eco.choose(g, p, rng, p === seat || opponent === 'search_geo' ? 'economic' : opponent).action;
         if (p === seat && legal.length > 1 && process.env.INCLUDE_ALL_PHASES === '1') {
             const x = features.encode(g, p),
                 target = x.moves.findIndex((a) => JSON.stringify(a) === JSON.stringify(action));
@@ -91,6 +109,10 @@ console.log(
         variant: g.options.variant,
         sealed: !!g.options.fastBid,
         searchStats,
+        opponent,
+        opponentSearchStats,
+        teacherSearchSamples: samples,
+        opponentSearchSamples: opponent === 'search_geo' ? opponentSamples : 0,
         steps,
         truncated,
         value,

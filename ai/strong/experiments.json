@@ -8556,6 +8556,37 @@
                 "validation_games": 40,
                 "training_games": 200
             }
+        },
+        "six_player_pre_repair_audit": {
+            "revision": "23d31daa1e6d09f93d1f4d151184c8ed514fe482",
+            "version": "multiplayer-teacher-v2-strong",
+            "shard": 4,
+            "player_count": 6,
+            "validated": false,
+            "counts": {
+                "games": 240,
+                "positions": 23672,
+                "truncated": 0,
+                "teacher_rollouts": 2891760,
+                "teacher_truncated": 2,
+                "opponent_rollouts": 4725360,
+                "opponent_truncated": 0
+            },
+            "capped_games": [
+                {
+                    "id": 1051,
+                    "seed": "multiplayer-teacher-v2-strong-6p-1051",
+                    "teacher_truncated": 1,
+                    "opponent_truncated": 0
+                },
+                {
+                    "id": 1055,
+                    "seed": "multiplayer-teacher-v2-strong-6p-1055",
+                    "teacher_truncated": 1,
+                    "opponent_truncated": 0
+                }
+            ],
+            "decision": "Original data excluded from training pending selective full-game regeneration and full dataset audit"
         }
     },
     "strong_teacher_replay_preparation": {
@@ -12205,7 +12236,7 @@
         "decision": "Continue H200 training: update19 improves over update9 against economic opponents at 3-6 players and frozen A260 at 3 players with paired intervals above zero. A260 win credit 32.0833% remains below 33.3333% equal-share point reference and is not qualification. Two-player economic performance regresses versus geoleague update9 (paired -6.875pp, CI [-13.28125,-0.78125]); retain earlier candidates."
     },
     "strong_teacher_selective_repair": {
-        "status": "PREPARED_NOT_LAUNCHED",
+        "status": "LAUNCHED",
         "reason": "Six-player original teacher job reports two capped teacher rollouts at 110 games. Original job remains running; repair must wait for all five complete shards and pin their immutable input revision.",
         "source": {
             "archive": "strong-source-v33.tgz",
@@ -12218,7 +12249,9 @@
         },
         "launcher": "ai/strong/launch-teacher-repair.sh",
         "output_version": "multiplayer-teacher-v2-strong-repaired",
-        "policy": "Preserve clean games; replay only affected full games at 2400-step search horizon using original IDs/seeds. Keep originals untouched and record original capped counts. Require full strict audit before GPU training."
+        "policy": "Preserve clean games; replay only affected full games at 2400-step search horizon using original IDs/seeds. Keep originals untouched and record original capped counts. Require full strict audit before GPU training.",
+        "job_id": "6abd994c404719ba37614c46",
+        "input_revision": "23d31daa1e6d09f93d1f4d151184c8ed514fe482"
     },
     "multiplayer_geoleague_update19_screening": {
         "candidate_revision": "dd5fbfee60e7f0b5e20f09675601aeaa7ad8691b",
@@ -12928,5 +12961,71 @@
             }
         },
         "decision": "Continue training without promotion. Update19 improves over geoleague update9 at 5-6 players and against A260 with positive paired 95% intervals, but 2-player economic performance regresses. A260 32.5% remains below equal-share reference; no supported A260 difference versus H200 update19. H200 update19 is stronger in the paired 3-player economic screen. Retain earlier candidates; await stronger-teacher replay training."
+    },
+    "multiplayer_h200_update29_screening": {
+        "candidate_revision": "fbdf2bf24c968bff99ab2d7d9ff9a7d97047db2b",
+        "model_path": "runs/multiplayer-refine-hard-v1/latest.onnx",
+        "model_sha256": "d3d2ee88a0940f079a4b38879c8154dbab55951abc7b295a7db17bdf22e52c5f",
+        "training_games": 7200,
+        "training_truncated": 0,
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "d3d2ee88a0940f079a4b38879c8154dbab55951abc7b295a7db17bdf22e52c5f",
+            "max_logit_error": 4.57763671875e-05,
+            "max_value_error": 2.4437904357910156e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "jobs": [
+            {
+                "run": "multiplayer-h200-u29-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abd9984404719ba37614c55"
+            },
+            {
+                "run": "multiplayer-h200-u29-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abd9985fbc85ba68235d785"
+            },
+            {
+                "run": "multiplayer-h200-u29-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abd9986fbc85ba68235d787"
+            },
+            {
+                "run": "multiplayer-h200-u29-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abd9986404719ba37614c57"
+            },
+            {
+                "run": "multiplayer-h200-u29-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abd9987fbc85ba68235d789"
+            },
+            {
+                "run": "multiplayer-h200-u29-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abd9988404719ba37614c59"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Paired held-out development screening; not final qualification",
+        "arena_source": "37465b08df007221665d796448aea57e6828257e",
+        "search_samples": 0
     }
 }

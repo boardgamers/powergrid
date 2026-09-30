@@ -13950,14 +13950,329 @@
         "export_limit": "Uploaded artifacts are epoch0 because export cadence is five epochs. Epoch1 training and validation confirmed by terminal logs; no trained pilot export or strength claim."
     },
     "strong_teacher_replay_full": {
-        "status": "LAUNCHED",
+        "status": "COMPLETED",
         "job_id": "6abd9e17404719ba37614ceb",
         "run": "multiplayer-distillation-strong-replay-v1-hard",
         "epochs": 15,
         "data_revision": "05a750ca228595ec05bc677bac1ed730ee768bc5",
         "source_revision": "508bc42027cae5bfeea01228b48069c8287b332a",
         "initial_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",
-        "scope": "HF GPU replay distillation; evaluate trained exports independently before promotion"
+        "scope": "HF GPU replay distillation; evaluate trained exports independently before promotion",
+        "artifact_revision": "6d5ef1e77a625e4a9a7c0879ffd6a87b59a3f1ff",
+        "checkpoint": {
+            "revision": "6d5ef1e77a625e4a9a7c0879ffd6a87b59a3f1ff",
+            "run": "multiplayer-distillation-strong-replay-v1-hard",
+            "epoch": 15,
+            "hashes": {
+                "best.pt": "752d16ef176e122d9dcff86b436477b1321174b663fbd7a4cd0d57501e05a0be",
+                "best.onnx": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
+                "latest.pt": "c8c3096579a5176f90e0f19d19f483b1175dd8f41eb0a5d11ca068f573aad4e4",
+                "latest.onnx": "4a67c37825e341decd63439696a5a6b38fd060460b8c7645dee536e0ac04b28d",
+                "metrics.json": "2b2eea14f85229e80f953e5e42a76fafc01f0c66187196ce83c043e44df6651d",
+                "schema.json": "2e4de1e5f243e5b03f2035a8c166e2cd94d1ed0f2e74d3a905be6c909d8d297f"
+            }
+        },
+        "epoch15_export_diagnostic": {
+            "positions": 2553,
+            "reference_details": [
+                {
+                    "position": 2001,
+                    "output": 0,
+                    "player_count": 6,
+                    "mismatches": [
+                        {
+                            "index": [
+                                0,
+                                8
+                            ],
+                            "torch32": -0.014599084854125977,
+                            "onnx32": -0.014615535736083984,
+                            "reference64": -0.014614426088039423
+                        }
+                    ],
+                    "torch_max_error": 1.861260965441147e-05,
+                    "onnx_max_error": 1.6765666588369754e-06,
+                    "winning_margin": 3.1218458110859757
+                },
+                {
+                    "position": 2532,
+                    "output": 0,
+                    "player_count": 6,
+                    "mismatches": [
+                        {
+                            "index": [
+                                0,
+                                2
+                            ],
+                            "torch32": -0.0024939775466918945,
+                            "onnx32": -0.0025066137313842773,
+                            "reference64": -0.002503839010303155
+                        }
+                    ],
+                    "torch_max_error": 1.2344153468291097e-05,
+                    "onnx_max_error": 5.2437087401102644e-06,
+                    "winning_margin": 12.292250344758877
+                }
+            ],
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "4a67c37825e341decd63439696a5a6b38fd060460b8c7645dee536e0ac04b28d",
+            "max_logit_error": 6.103515625e-05,
+            "max_value_error": 3.159046173095703e-06,
+            "all_actions_match": true,
+            "action_mismatches": 0,
+            "tolerance_violation_positions": [
+                2,
+                0
+            ],
+            "specialist_route_counts": {}
+        },
+        "development_summaries": [
+            {
+                "epoch": 0,
+                "loss": null,
+                "validation": {
+                    "positions": 56534,
+                    "by_player_count": {
+                        "2": {
+                            "positions": 15041,
+                            "correct": 11825,
+                            "disagreements": 2401,
+                            "disagreement_correct": 333
+                        },
+                        "3": {
+                            "positions": 12140,
+                            "correct": 9686,
+                            "disagreements": 2146,
+                            "disagreement_correct": 290
+                        },
+                        "4": {
+                            "positions": 11875,
+                            "correct": 9363,
+                            "disagreements": 2169,
+                            "disagreement_correct": 296
+                        },
+                        "5": {
+                            "positions": 8296,
+                            "correct": 6629,
+                            "disagreements": 1407,
+                            "disagreement_correct": 194
+                        },
+                        "6": {
+                            "positions": 9182,
+                            "correct": 7323,
+                            "disagreements": 1559,
+                            "disagreement_correct": 246
+                        }
+                    },
+                    "accuracy": 0.7929033855732833,
+                    "search_disagreements": 9682,
+                    "disagreement_accuracy": 0.1403635612476761
+                },
+                "arena_win_rates": {
+                    "2p/economic": 0.4375,
+                    "2p/heuristic": 0.6875,
+                    "2p/rush": 0.375,
+                    "3p/economic": 0.5833333333333334,
+                    "3p/heuristic": 0.8333333333333334,
+                    "3p/rush": 0.625,
+                    "4p/economic": 0.53125,
+                    "4p/heuristic": 0.84375,
+                    "4p/rush": 0.59375,
+                    "5p/economic": 0.325,
+                    "5p/heuristic": 0.925,
+                    "5p/rush": 0.55,
+                    "6p/economic": 0.5416666666666666,
+                    "6p/heuristic": 0.9791666666666666,
+                    "6p/rush": 0.6875
+                }
+            },
+            {
+                "epoch": 5,
+                "loss": 0.7926541517663598,
+                "validation": {
+                    "positions": 56534,
+                    "by_player_count": {
+                        "2": {
+                            "positions": 15041,
+                            "correct": 11632,
+                            "disagreements": 2401,
+                            "disagreement_correct": 475
+                        },
+                        "3": {
+                            "positions": 12140,
+                            "correct": 9659,
+                            "disagreements": 2146,
+                            "disagreement_correct": 502
+                        },
+                        "4": {
+                            "positions": 11875,
+                            "correct": 9350,
+                            "disagreements": 2169,
+                            "disagreement_correct": 482
+                        },
+                        "5": {
+                            "positions": 8296,
+                            "correct": 6608,
+                            "disagreements": 1407,
+                            "disagreement_correct": 265
+                        },
+                        "6": {
+                            "positions": 9182,
+                            "correct": 7294,
+                            "disagreements": 1559,
+                            "disagreement_correct": 328
+                        }
+                    },
+                    "accuracy": 0.7878975483779672,
+                    "search_disagreements": 9682,
+                    "disagreement_accuracy": 0.21193968188390827
+                },
+                "arena_win_rates": {
+                    "2p/economic": 0.25,
+                    "2p/heuristic": 0.5625,
+                    "2p/rush": 0.375,
+                    "3p/economic": 0.4166666666666667,
+                    "3p/heuristic": 0.625,
+                    "3p/rush": 0.5,
+                    "4p/economic": 0.4375,
+                    "4p/heuristic": 0.71875,
+                    "4p/rush": 0.46875,
+                    "5p/economic": 0.375,
+                    "5p/heuristic": 0.875,
+                    "5p/rush": 0.45,
+                    "6p/economic": 0.375,
+                    "6p/heuristic": 0.8541666666666666,
+                    "6p/rush": 0.3958333333333333
+                }
+            },
+            {
+                "epoch": 10,
+                "loss": 0.7537491543544103,
+                "validation": {
+                    "positions": 56534,
+                    "by_player_count": {
+                        "2": {
+                            "positions": 15041,
+                            "correct": 11680,
+                            "disagreements": 2401,
+                            "disagreement_correct": 479
+                        },
+                        "3": {
+                            "positions": 12140,
+                            "correct": 9646,
+                            "disagreements": 2146,
+                            "disagreement_correct": 493
+                        },
+                        "4": {
+                            "positions": 11875,
+                            "correct": 9314,
+                            "disagreements": 2169,
+                            "disagreement_correct": 494
+                        },
+                        "5": {
+                            "positions": 8296,
+                            "correct": 6560,
+                            "disagreements": 1407,
+                            "disagreement_correct": 269
+                        },
+                        "6": {
+                            "positions": 9182,
+                            "correct": 7239,
+                            "disagreements": 1559,
+                            "disagreement_correct": 324
+                        }
+                    },
+                    "accuracy": 0.7860579474298652,
+                    "search_disagreements": 9682,
+                    "disagreement_accuracy": 0.21266267300144598
+                },
+                "arena_win_rates": {
+                    "2p/economic": 0.3125,
+                    "2p/heuristic": 0.5625,
+                    "2p/rush": 0.3125,
+                    "3p/economic": 0.5,
+                    "3p/heuristic": 0.75,
+                    "3p/rush": 0.5416666666666666,
+                    "4p/economic": 0.34375,
+                    "4p/heuristic": 0.75,
+                    "4p/rush": 0.3125,
+                    "5p/economic": 0.55,
+                    "5p/heuristic": 0.95,
+                    "5p/rush": 0.55,
+                    "6p/economic": 0.5208333333333334,
+                    "6p/heuristic": 0.9375,
+                    "6p/rush": 0.5625
+                }
+            },
+            {
+                "epoch": 15,
+                "loss": 0.7199630066509743,
+                "validation": {
+                    "positions": 56534,
+                    "by_player_count": {
+                        "2": {
+                            "positions": 15041,
+                            "correct": 11624,
+                            "disagreements": 2401,
+                            "disagreement_correct": 509
+                        },
+                        "3": {
+                            "positions": 12140,
+                            "correct": 9657,
+                            "disagreements": 2146,
+                            "disagreement_correct": 507
+                        },
+                        "4": {
+                            "positions": 11875,
+                            "correct": 9326,
+                            "disagreements": 2169,
+                            "disagreement_correct": 460
+                        },
+                        "5": {
+                            "positions": 8296,
+                            "correct": 6594,
+                            "disagreements": 1407,
+                            "disagreement_correct": 268
+                        },
+                        "6": {
+                            "positions": 9182,
+                            "correct": 7241,
+                            "disagreements": 1559,
+                            "disagreement_correct": 297
+                        }
+                    },
+                    "accuracy": 0.7861110128418297,
+                    "search_disagreements": 9682,
+                    "disagreement_accuracy": 0.21080355298492048
+                },
+                "arena_win_rates": {
+                    "2p/economic": 0.375,
+                    "2p/heuristic": 0.625,
+                    "2p/rush": 0.3125,
+                    "3p/economic": 0.4583333333333333,
+                    "3p/heuristic": 0.6666666666666666,
+                    "3p/rush": 0.5416666666666666,
+                    "4p/economic": 0.5625,
+                    "4p/heuristic": 0.8125,
+                    "4p/rush": 0.375,
+                    "5p/economic": 0.525,
+                    "5p/heuristic": 0.975,
+                    "5p/rush": 0.575,
+                    "6p/economic": 0.4583333333333333,
+                    "6p/heuristic": 0.9166666666666666,
+                    "6p/rush": 0.5833333333333334
+                }
+            }
+        ],
+        "decision": "Do not promote. Internal selection retains initial epoch0 model. Epoch10 passes strict export parity and independent 3680-game screen is active. Epoch15 strict parity fails at two near-zero logits although all 2553 actions match; float64 reference is closer to ONNX than Torch32 at both offending coordinates, consistent with rounding rather than semantic export mismatch. Keep strict failure recorded and assess independent play before choosing further training."
     },
     "strong_teacher_replay_epoch5_export_diagnostic": {
         "status": "STRICT_NUMERIC_PARITY_FAILED_ACTIONS_MATCH",

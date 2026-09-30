@@ -10,6 +10,47 @@ from multiplayer import ROLE_REVISIONS, rotate_outcome
 
 
 class BridgeTests(unittest.TestCase):
+    def test_stronger_mixture_retains_selfplay_and_all_opponent_families(self):
+        # Fixed independent RNG seeds exercise every league family through reset.
+        cases = [
+            (8, "economic"),
+            (2, "heuristic"),
+            (7, "rush"),
+            (1, "search_geo"),
+            (10, "learner"),
+            (3, "snapshot0"),
+            (0, "snapshot1"),
+            (9, "snapshot2"),
+        ]
+        for seed, expected in cases:
+            pool = EnginePool(
+                1, seed=f"league-mixture-{seed}", script="ai/strong/bridge.cjs"
+            )
+            try:
+                for n in range(2, 7):
+                    for mode in ["mixed_search_geo", "mixed_search"]:
+                        row = pool.call(
+                            {
+                                "op": "reset",
+                                "n": 1,
+                                "mode": mode,
+                                "playerCounts": [n],
+                                "offset": 0,
+                                "featureRevisions": ROLE_REVISIONS,
+                            }
+                        )["observations"][0]
+                        opponent = (
+                            "search"
+                            if expected == "search_geo" and mode == "mixed_search"
+                            else expected
+                        )
+                        self.assertEqual(
+                            row["roles"], ["learner"] + [opponent] * (n - 1)
+                        )
+                        self.assertEqual(row["playerCount"], n)
+            finally:
+                pool.close()
+
     def test_mixed_training_schedule_covers_every_seat_and_rule(self):
         pool = EnginePool(3, seed="mixed-count-protocol", script="ai/strong/bridge.cjs")
         seen = {n: set() for n in range(2, 7)}

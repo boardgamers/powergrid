@@ -76,6 +76,7 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}, player
         ![
             'mixed',
             'mixed_search',
+            'mixed_search_geo',
             'economic',
             'heuristic',
             'rush',
@@ -93,12 +94,12 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}, player
         seat = learnerSeat ?? Math.floor(id / 4) % playerCount,
         kind = Math.floor(c.seedrandom(seed + '-opponents-' + id)() * 8);
     const opponent =
-        mode === 'mixed' || mode === 'mixed_search'
+        mode === 'mixed' || mode === 'mixed_search' || mode === 'mixed_search_geo'
             ? [
                   'economic',
                   'heuristic',
                   'rush',
-                  mode === 'mixed_search' ? 'search' : 'legacy',
+                  mode === 'mixed_search_geo' ? 'search_geo' : mode === 'mixed_search' ? 'search' : 'legacy',
                   'selfplay',
                   'snapshot0',
                   'snapshot1',

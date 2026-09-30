@@ -7,11 +7,11 @@ run=${3:?Supply a unique refinement run name}
 [[ "$revision" =~ ^[0-9a-f]{40}$ ]]
 [[ "$checkpoint" == runs/*/best.pt ]]
 [[ "$run" =~ ^[a-zA-Z0-9_-]+$ ]]
-hf jobs run --detach --flavor "${HF_FLAVOR:-h200}" --timeout 12h \
+hf jobs run --detach --flavor "${HF_FLAVOR:-h200}" --timeout "${JOB_TIMEOUT:-12h}" \
   --secrets HF_TOKEN \
   --env HF_MODEL_REPO=coyotte508/powergrid-ai-germany-v1 \
   --env INIT_CHECKPOINT="$checkpoint" --env INIT_REVISION="$revision" --env ANCHOR_POLICY=initial \
-  --env ARCHITECTURE=multiplayer_ordered --env MIX_PLAYER_COUNTS=1 --env OPPONENT_MODE=mixed_search \
+  --env ARCHITECTURE=multiplayer_ordered --env MIX_PLAYER_COUNTS=1 --env OPPONENT_MODE="${OPPONENT_MODE:-mixed_search}" \
   --env RUN_NAME="$run" --env TRAIN_SEED="${TRAIN_SEED:-623}" \
   --env TRAIN_DEVICE="${TRAIN_DEVICE:-cuda}" --env TORCH_THREADS="${TORCH_THREADS:-2}" \
   --env LR=.00005 --env ENTROPY=.005 --env ANCHOR=.03 \
@@ -24,7 +24,7 @@ python -m pip install --quiet --timeout 120 --retries 5 huggingface_hub==2.0.0 o
 mkdir -p /workspace
 python -c "import urllib.request,tarfile; urllib.request.urlretrieve(\"https://nodejs.org/dist/v24.14.0/node-v24.14.0-linux-x64.tar.xz\",\"/tmp/node.tar.xz\");tarfile.open(\"/tmp/node.tar.xz\").extractall(\"/opt\")"
 export PATH=/opt/node-v24.14.0-linux-x64/bin:$PATH
-python -c "from huggingface_hub import hf_hub_download;import tarfile;p=hf_hub_download(\"coyotte508/powergrid-ai-training-v1\",\"strong-source-v23.tgz\",repo_type=\"dataset\",revision=\"578c024e1cbbdfafa1df11763239ea81954e1e71\");tarfile.open(p).extractall(\"/workspace\")"
+python -c "from huggingface_hub import hf_hub_download;import tarfile;p=hf_hub_download(\"coyotte508/powergrid-ai-training-v1\",\"strong-source-v24.tgz\",repo_type=\"dataset\",revision=\"0fe849528790ab616c9eddb7caf6ad1c7c2a5966\");tarfile.open(p).extractall(\"/workspace\")"
 cd /workspace
 node --test ai/test.cjs ai/strong/test.cjs
 python ai/strong/test_teacher_contract.py

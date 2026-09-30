@@ -5278,5 +5278,1038 @@
             "asynchronous_workers": 32,
             "limitation": "One exact-game batch on separate HF jobs; both scheduling and process count changed. No broad hardware-independent speed claim."
         }
+    },
+    "multiplayer_h200_update9_screening": {
+        "candidate_revision": "18832c5bd846d94b1b3376f75d1e1006bfdc8c4a",
+        "model_path": "runs/multiplayer-refine-hard-v1/best.onnx",
+        "model_sha256": "03fa2596b2069cb1936c7bea99a914485dfbb11e77d685f18ee4da60a5791c81",
+        "training_games": 2400,
+        "training_truncated": 0,
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "03fa2596b2069cb1936c7bea99a914485dfbb11e77d685f18ee4da60a5791c81",
+            "max_logit_error": 3.814697265625e-05,
+            "max_value_error": 1.7285346984863281e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "selection_evaluations": [
+            {
+                "stage": "evaluation",
+                "update": -1,
+                "2p/economic": {
+                    "player_count": 2,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 4,
+                            "win": 0.5
+                        },
+                        "original/True": {
+                            "games": 4,
+                            "win": 0.0
+                        },
+                        "recharged/False": {
+                            "games": 4,
+                            "win": 0.5
+                        },
+                        "recharged/True": {
+                            "games": 4,
+                            "win": 0.5
+                        }
+                    },
+                    "win": 0.375,
+                    "truncated": 0,
+                    "games": 16
+                },
+                "2p/heuristic": {
+                    "player_count": 2,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 4,
+                            "win": 0.0
+                        },
+                        "original/True": {
+                            "games": 4,
+                            "win": 0.25
+                        },
+                        "recharged/False": {
+                            "games": 4,
+                            "win": 0.5
+                        },
+                        "recharged/True": {
+                            "games": 4,
+                            "win": 0.5
+                        }
+                    },
+                    "win": 0.3125,
+                    "truncated": 0,
+                    "games": 16
+                },
+                "2p/rush": {
+                    "player_count": 2,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 4,
+                            "win": 0.75
+                        },
+                        "original/True": {
+                            "games": 4,
+                            "win": 0.0
+                        },
+                        "recharged/False": {
+                            "games": 4,
+                            "win": 0.25
+                        },
+                        "recharged/True": {
+                            "games": 4,
+                            "win": 0.375
+                        }
+                    },
+                    "win": 0.34375,
+                    "truncated": 0,
+                    "games": 16
+                },
+                "2p/legacy": {
+                    "player_count": 2,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 4,
+                            "win": 1.0
+                        },
+                        "original/True": {
+                            "games": 4,
+                            "win": 1.0
+                        },
+                        "recharged/False": {
+                            "games": 4,
+                            "win": 1.0
+                        },
+                        "recharged/True": {
+                            "games": 4,
+                            "win": 1.0
+                        }
+                    },
+                    "win": 1.0,
+                    "truncated": 0,
+                    "games": 16
+                },
+                "3p/economic": {
+                    "player_count": 3,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 6,
+                            "win": 0.3333333333333333
+                        },
+                        "original/True": {
+                            "games": 6,
+                            "win": 0.3333333333333333
+                        },
+                        "recharged/False": {
+                            "games": 6,
+                            "win": 0.16666666666666666
+                        },
+                        "recharged/True": {
+                            "games": 6,
+                            "win": 1.0
+                        }
+                    },
+                    "win": 0.4583333333333333,
+                    "truncated": 0,
+                    "games": 24
+                },
+                "3p/heuristic": {
+                    "player_count": 3,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 6,
+                            "win": 0.6666666666666666
+                        },
+                        "original/True": {
+                            "games": 6,
+                            "win": 0.8333333333333334
+                        },
+                        "recharged/False": {
+                            "games": 6,
+                            "win": 0.6666666666666666
+                        },
+                        "recharged/True": {
+                            "games": 6,
+                            "win": 0.5
+                        }
+                    },
+                    "win": 0.6666666666666666,
+                    "truncated": 0,
+                    "games": 24
+                },
+                "3p/rush": {
+                    "player_count": 3,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 6,
+                            "win": 0.16666666666666666
+                        },
+                        "original/True": {
+                            "games": 6,
+                            "win": 0.5
+                        },
+                        "recharged/False": {
+                            "games": 6,
+                            "win": 0.5
+                        },
+                        "recharged/True": {
+                            "games": 6,
+                            "win": 0.6666666666666666
+                        }
+                    },
+                    "win": 0.4583333333333333,
+                    "truncated": 0,
+                    "games": 24
+                },
+                "3p/legacy": {
+                    "player_count": 3,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 6,
+                            "win": 0.8333333333333334
+                        },
+                        "original/True": {
+                            "games": 6,
+                            "win": 1.0
+                        },
+                        "recharged/False": {
+                            "games": 6,
+                            "win": 0.8333333333333334
+                        },
+                        "recharged/True": {
+                            "games": 6,
+                            "win": 1.0
+                        }
+                    },
+                    "win": 0.9166666666666666,
+                    "truncated": 0,
+                    "games": 24
+                },
+                "4p/economic": {
+                    "player_count": 4,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 8,
+                            "win": 0.375
+                        },
+                        "original/True": {
+                            "games": 8,
+                            "win": 0.75
+                        },
+                        "recharged/False": {
+                            "games": 8,
+                            "win": 0.625
+                        },
+                        "recharged/True": {
+                            "games": 8,
+                            "win": 0.75
+                        }
+                    },
+                    "win": 0.625,
+                    "truncated": 0,
+                    "games": 32
+                },
+                "4p/heuristic": {
+                    "player_count": 4,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 8,
+                            "win": 1.0
+                        },
+                        "original/True": {
+                            "games": 8,
+                            "win": 1.0
+                        },
+                        "recharged/False": {
+                            "games": 8,
+                            "win": 1.0
+                        },
+                        "recharged/True": {
+                            "games": 8,
+                            "win": 1.0
+                        }
+                    },
+                    "win": 1.0,
+                    "truncated": 0,
+                    "games": 32
+                },
+                "4p/rush": {
+                    "player_count": 4,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 8,
+                            "win": 0.25
+                        },
+                        "original/True": {
+                            "games": 8,
+                            "win": 0.5
+                        },
+                        "recharged/False": {
+                            "games": 8,
+                            "win": 0.875
+                        },
+                        "recharged/True": {
+                            "games": 8,
+                            "win": 0.75
+                        }
+                    },
+                    "win": 0.59375,
+                    "truncated": 0,
+                    "games": 32
+                },
+                "4p/legacy": {
+                    "player_count": 4,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 8,
+                            "win": 0.875
+                        },
+                        "original/True": {
+                            "games": 8,
+                            "win": 0.75
+                        },
+                        "recharged/False": {
+                            "games": 8,
+                            "win": 1.0
+                        },
+                        "recharged/True": {
+                            "games": 8,
+                            "win": 0.75
+                        }
+                    },
+                    "win": 0.84375,
+                    "truncated": 0,
+                    "games": 32
+                },
+                "5p/economic": {
+                    "player_count": 5,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 10,
+                            "win": 0.6
+                        },
+                        "original/True": {
+                            "games": 10,
+                            "win": 0.2
+                        },
+                        "recharged/False": {
+                            "games": 10,
+                            "win": 0.5
+                        },
+                        "recharged/True": {
+                            "games": 10,
+                            "win": 0.4
+                        }
+                    },
+                    "win": 0.425,
+                    "truncated": 0,
+                    "games": 40
+                },
+                "5p/heuristic": {
+                    "player_count": 5,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 10,
+                            "win": 0.9
+                        },
+                        "original/True": {
+                            "games": 10,
+                            "win": 1.0
+                        },
+                        "recharged/False": {
+                            "games": 10,
+                            "win": 0.9
+                        },
+                        "recharged/True": {
+                            "games": 10,
+                            "win": 0.9
+                        }
+                    },
+                    "win": 0.925,
+                    "truncated": 0,
+                    "games": 40
+                },
+                "5p/rush": {
+                    "player_count": 5,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 10,
+                            "win": 0.4
+                        },
+                        "original/True": {
+                            "games": 10,
+                            "win": 0.3
+                        },
+                        "recharged/False": {
+                            "games": 10,
+                            "win": 0.6
+                        },
+                        "recharged/True": {
+                            "games": 10,
+                            "win": 0.5
+                        }
+                    },
+                    "win": 0.45,
+                    "truncated": 0,
+                    "games": 40
+                },
+                "5p/legacy": {
+                    "player_count": 5,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 10,
+                            "win": 1.0
+                        },
+                        "original/True": {
+                            "games": 10,
+                            "win": 1.0
+                        },
+                        "recharged/False": {
+                            "games": 10,
+                            "win": 1.0
+                        },
+                        "recharged/True": {
+                            "games": 10,
+                            "win": 0.9
+                        }
+                    },
+                    "win": 0.975,
+                    "truncated": 0,
+                    "games": 40
+                },
+                "6p/economic": {
+                    "player_count": 6,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 12,
+                            "win": 0.08333333333333333
+                        },
+                        "original/True": {
+                            "games": 12,
+                            "win": 0.4166666666666667
+                        },
+                        "recharged/False": {
+                            "games": 12,
+                            "win": 0.16666666666666666
+                        },
+                        "recharged/True": {
+                            "games": 12,
+                            "win": 0.5
+                        }
+                    },
+                    "win": 0.2916666666666667,
+                    "truncated": 0,
+                    "games": 48
+                },
+                "6p/heuristic": {
+                    "player_count": 6,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 12,
+                            "win": 0.9166666666666666
+                        },
+                        "original/True": {
+                            "games": 12,
+                            "win": 0.5833333333333334
+                        },
+                        "recharged/False": {
+                            "games": 12,
+                            "win": 1.0
+                        },
+                        "recharged/True": {
+                            "games": 12,
+                            "win": 1.0
+                        }
+                    },
+                    "win": 0.875,
+                    "truncated": 0,
+                    "games": 48
+                },
+                "6p/rush": {
+                    "player_count": 6,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 12,
+                            "win": 0.3333333333333333
+                        },
+                        "original/True": {
+                            "games": 12,
+                            "win": 0.25
+                        },
+                        "recharged/False": {
+                            "games": 12,
+                            "win": 0.5
+                        },
+                        "recharged/True": {
+                            "games": 12,
+                            "win": 0.4166666666666667
+                        }
+                    },
+                    "win": 0.375,
+                    "truncated": 0,
+                    "games": 48
+                },
+                "6p/legacy": {
+                    "player_count": 6,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 12,
+                            "win": 1.0
+                        },
+                        "original/True": {
+                            "games": 12,
+                            "win": 1.0
+                        },
+                        "recharged/False": {
+                            "games": 12,
+                            "win": 0.9166666666666666
+                        },
+                        "recharged/True": {
+                            "games": 12,
+                            "win": 1.0
+                        }
+                    },
+                    "win": 0.9791666666666666,
+                    "truncated": 0,
+                    "games": 48
+                }
+            },
+            {
+                "stage": "evaluation",
+                "update": 9,
+                "2p/economic": {
+                    "player_count": 2,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 4,
+                            "win": 0.5
+                        },
+                        "original/True": {
+                            "games": 4,
+                            "win": 0.5
+                        },
+                        "recharged/False": {
+                            "games": 4,
+                            "win": 0.5
+                        },
+                        "recharged/True": {
+                            "games": 4,
+                            "win": 0.75
+                        }
+                    },
+                    "win": 0.5625,
+                    "truncated": 0,
+                    "games": 16
+                },
+                "2p/heuristic": {
+                    "player_count": 2,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 4,
+                            "win": 0.0
+                        },
+                        "original/True": {
+                            "games": 4,
+                            "win": 0.5
+                        },
+                        "recharged/False": {
+                            "games": 4,
+                            "win": 0.5
+                        },
+                        "recharged/True": {
+                            "games": 4,
+                            "win": 0.5
+                        }
+                    },
+                    "win": 0.375,
+                    "truncated": 0,
+                    "games": 16
+                },
+                "2p/rush": {
+                    "player_count": 2,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 4,
+                            "win": 0.0
+                        },
+                        "original/True": {
+                            "games": 4,
+                            "win": 0.25
+                        },
+                        "recharged/False": {
+                            "games": 4,
+                            "win": 0.5
+                        },
+                        "recharged/True": {
+                            "games": 4,
+                            "win": 0.75
+                        }
+                    },
+                    "win": 0.375,
+                    "truncated": 0,
+                    "games": 16
+                },
+                "2p/legacy": {
+                    "player_count": 2,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 4,
+                            "win": 1.0
+                        },
+                        "original/True": {
+                            "games": 4,
+                            "win": 1.0
+                        },
+                        "recharged/False": {
+                            "games": 4,
+                            "win": 0.5
+                        },
+                        "recharged/True": {
+                            "games": 4,
+                            "win": 1.0
+                        }
+                    },
+                    "win": 0.875,
+                    "truncated": 0,
+                    "games": 16
+                },
+                "3p/economic": {
+                    "player_count": 3,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 6,
+                            "win": 0.3333333333333333
+                        },
+                        "original/True": {
+                            "games": 6,
+                            "win": 0.6666666666666666
+                        },
+                        "recharged/False": {
+                            "games": 6,
+                            "win": 0.3333333333333333
+                        },
+                        "recharged/True": {
+                            "games": 6,
+                            "win": 0.6666666666666666
+                        }
+                    },
+                    "win": 0.5,
+                    "truncated": 0,
+                    "games": 24
+                },
+                "3p/heuristic": {
+                    "player_count": 3,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 6,
+                            "win": 0.6666666666666666
+                        },
+                        "original/True": {
+                            "games": 6,
+                            "win": 0.5
+                        },
+                        "recharged/False": {
+                            "games": 6,
+                            "win": 1.0
+                        },
+                        "recharged/True": {
+                            "games": 6,
+                            "win": 0.6666666666666666
+                        }
+                    },
+                    "win": 0.7083333333333334,
+                    "truncated": 0,
+                    "games": 24
+                },
+                "3p/rush": {
+                    "player_count": 3,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 6,
+                            "win": 0.0
+                        },
+                        "original/True": {
+                            "games": 6,
+                            "win": 0.16666666666666666
+                        },
+                        "recharged/False": {
+                            "games": 6,
+                            "win": 0.5
+                        },
+                        "recharged/True": {
+                            "games": 6,
+                            "win": 0.6666666666666666
+                        }
+                    },
+                    "win": 0.3333333333333333,
+                    "truncated": 0,
+                    "games": 24
+                },
+                "3p/legacy": {
+                    "player_count": 3,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 6,
+                            "win": 0.3333333333333333
+                        },
+                        "original/True": {
+                            "games": 6,
+                            "win": 0.6666666666666666
+                        },
+                        "recharged/False": {
+                            "games": 6,
+                            "win": 1.0
+                        },
+                        "recharged/True": {
+                            "games": 6,
+                            "win": 1.0
+                        }
+                    },
+                    "win": 0.75,
+                    "truncated": 0,
+                    "games": 24
+                },
+                "4p/economic": {
+                    "player_count": 4,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 8,
+                            "win": 0.25
+                        },
+                        "original/True": {
+                            "games": 8,
+                            "win": 0.375
+                        },
+                        "recharged/False": {
+                            "games": 8,
+                            "win": 0.625
+                        },
+                        "recharged/True": {
+                            "games": 8,
+                            "win": 0.375
+                        }
+                    },
+                    "win": 0.40625,
+                    "truncated": 0,
+                    "games": 32
+                },
+                "4p/heuristic": {
+                    "player_count": 4,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 8,
+                            "win": 1.0
+                        },
+                        "original/True": {
+                            "games": 8,
+                            "win": 1.0
+                        },
+                        "recharged/False": {
+                            "games": 8,
+                            "win": 1.0
+                        },
+                        "recharged/True": {
+                            "games": 8,
+                            "win": 1.0
+                        }
+                    },
+                    "win": 1.0,
+                    "truncated": 0,
+                    "games": 32
+                },
+                "4p/rush": {
+                    "player_count": 4,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 8,
+                            "win": 0.5
+                        },
+                        "original/True": {
+                            "games": 8,
+                            "win": 0.375
+                        },
+                        "recharged/False": {
+                            "games": 8,
+                            "win": 0.75
+                        },
+                        "recharged/True": {
+                            "games": 8,
+                            "win": 0.625
+                        }
+                    },
+                    "win": 0.5625,
+                    "truncated": 0,
+                    "games": 32
+                },
+                "4p/legacy": {
+                    "player_count": 4,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 8,
+                            "win": 1.0
+                        },
+                        "original/True": {
+                            "games": 8,
+                            "win": 0.625
+                        },
+                        "recharged/False": {
+                            "games": 8,
+                            "win": 0.625
+                        },
+                        "recharged/True": {
+                            "games": 8,
+                            "win": 0.875
+                        }
+                    },
+                    "win": 0.78125,
+                    "truncated": 0,
+                    "games": 32
+                },
+                "5p/economic": {
+                    "player_count": 5,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 10,
+                            "win": 0.5
+                        },
+                        "original/True": {
+                            "games": 10,
+                            "win": 0.3
+                        },
+                        "recharged/False": {
+                            "games": 10,
+                            "win": 0.8
+                        },
+                        "recharged/True": {
+                            "games": 10,
+                            "win": 0.6
+                        }
+                    },
+                    "win": 0.55,
+                    "truncated": 0,
+                    "games": 40
+                },
+                "5p/heuristic": {
+                    "player_count": 5,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 10,
+                            "win": 1.0
+                        },
+                        "original/True": {
+                            "games": 10,
+                            "win": 1.0
+                        },
+                        "recharged/False": {
+                            "games": 10,
+                            "win": 1.0
+                        },
+                        "recharged/True": {
+                            "games": 10,
+                            "win": 1.0
+                        }
+                    },
+                    "win": 1.0,
+                    "truncated": 0,
+                    "games": 40
+                },
+                "5p/rush": {
+                    "player_count": 5,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 10,
+                            "win": 0.6
+                        },
+                        "original/True": {
+                            "games": 10,
+                            "win": 0.5
+                        },
+                        "recharged/False": {
+                            "games": 10,
+                            "win": 0.8
+                        },
+                        "recharged/True": {
+                            "games": 10,
+                            "win": 0.6
+                        }
+                    },
+                    "win": 0.625,
+                    "truncated": 0,
+                    "games": 40
+                },
+                "5p/legacy": {
+                    "player_count": 5,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 10,
+                            "win": 0.8
+                        },
+                        "original/True": {
+                            "games": 10,
+                            "win": 0.7
+                        },
+                        "recharged/False": {
+                            "games": 10,
+                            "win": 0.9
+                        },
+                        "recharged/True": {
+                            "games": 10,
+                            "win": 1.0
+                        }
+                    },
+                    "win": 0.85,
+                    "truncated": 0,
+                    "games": 40
+                },
+                "6p/economic": {
+                    "player_count": 6,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 12,
+                            "win": 0.4166666666666667
+                        },
+                        "original/True": {
+                            "games": 12,
+                            "win": 0.25
+                        },
+                        "recharged/False": {
+                            "games": 12,
+                            "win": 0.5833333333333334
+                        },
+                        "recharged/True": {
+                            "games": 12,
+                            "win": 0.5
+                        }
+                    },
+                    "win": 0.4375,
+                    "truncated": 0,
+                    "games": 48
+                },
+                "6p/heuristic": {
+                    "player_count": 6,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 12,
+                            "win": 1.0
+                        },
+                        "original/True": {
+                            "games": 12,
+                            "win": 0.9166666666666666
+                        },
+                        "recharged/False": {
+                            "games": 12,
+                            "win": 0.8333333333333334
+                        },
+                        "recharged/True": {
+                            "games": 12,
+                            "win": 1.0
+                        }
+                    },
+                    "win": 0.9375,
+                    "truncated": 0,
+                    "games": 48
+                },
+                "6p/rush": {
+                    "player_count": 6,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 12,
+                            "win": 0.3333333333333333
+                        },
+                        "original/True": {
+                            "games": 12,
+                            "win": 0.75
+                        },
+                        "recharged/False": {
+                            "games": 12,
+                            "win": 0.5
+                        },
+                        "recharged/True": {
+                            "games": 12,
+                            "win": 0.5
+                        }
+                    },
+                    "win": 0.5208333333333334,
+                    "truncated": 0,
+                    "games": 48
+                },
+                "6p/legacy": {
+                    "player_count": 6,
+                    "by_rule": {
+                        "original/False": {
+                            "games": 12,
+                            "win": 0.9166666666666666
+                        },
+                        "original/True": {
+                            "games": 12,
+                            "win": 1.0
+                        },
+                        "recharged/False": {
+                            "games": 12,
+                            "win": 0.8333333333333334
+                        },
+                        "recharged/True": {
+                            "games": 12,
+                            "win": 1.0
+                        }
+                    },
+                    "win": 0.9375,
+                    "truncated": 0,
+                    "games": 48
+                }
+            }
+        ],
+        "purpose": "Same paired independent development seeds as hard/soft teacher screens. Raw neural policy, no search. Full40deal batches use24 synchronous workers to avoid up to960 simultaneous engine processes.",
+        "jobs": [
+            {
+                "run": "multiplayer-h200-u9-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abd7064404719ba37614498"
+            },
+            {
+                "run": "multiplayer-h200-u9-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abd7065404719ba3761449a"
+            },
+            {
+                "run": "multiplayer-h200-u9-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abd7066404719ba3761449c"
+            },
+            {
+                "run": "multiplayer-h200-u9-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abd7066fbc85ba68235cc1a"
+            },
+            {
+                "run": "multiplayer-h200-u9-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abd7067fbc85ba68235cc1c"
+            },
+            {
+                "run": "multiplayer-h200-u9-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abd7068404719ba3761449e"
+            }
+        ]
     }
 }

@@ -2807,6 +2807,33 @@
             "scope": "One fixed two-player auction search, 48 samples, alternating four process runs per implementation; local CPU only."
         },
         "tests": "node --test ai/strong/test.cjs passed",
-        "deployment": "Local source only; running HF jobs retain pinned source v20/v18."
+        "deployment": "Future multiplayer arena and refinement launchers pin v21. Existing jobs retain their original source. AMD benchmark used a separate injected module; frozen package untouched.",
+        "amd8840u_single_search_benchmark": {
+            "baseline": [
+                2.907086548002553,
+                2.924952880013734,
+                2.9167694200004917,
+                2.9271296079969034
+            ],
+            "optimized": [
+                2.252641618993948,
+                2.2491685319982935,
+                2.266650090998155,
+                2.246913505005068
+            ],
+            "median_speedup": 1.297638528520945,
+            "identical_full_search_results": true,
+            "scope": "AMD8840U single fixed two-player auction; 48 samples; four alternating runs per version"
+        },
+        "source_bundle": {
+            "archive": "strong-source-v21.tgz",
+            "revision": "29c6621fa5884a182129ff0ef053a45ad9a76156",
+            "base_archive": "strong-source-v20.tgz",
+            "base_revision": "c259cc1664fe39565bdbdd5d64789c9825a62692",
+            "only_replaced_file": "ai/strong/economics.cjs",
+            "economics_sha256": "6c90230112d9b20aaa54a1c981a5355dd10952f32c920353483962e8d4e11025",
+            "archive_sha256": "0c01de0eb3d12a7ac7d69ae7214180e6f9b2dce3b4dc1fd721bb1e6567e2d162",
+            "git_revision": "d989a9f"
+        }
     }
 }

@@ -82,6 +82,10 @@ for path in a.reports:
         == candidate.get("search_scope", "all"),
         f"{name}: wrong search scope",
     )
+    require(
+        report.get("candidate_search_model_proposal", True) is True,
+        f"{name}: search proposal ablation is not the deployment configuration",
+    )
     rows = report["results"]
     require(
         len(rows) == report["games"] == spec["games"], f"{name}: incomplete game count"

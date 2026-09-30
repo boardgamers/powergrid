@@ -24,7 +24,10 @@ keys = [
 for report in reports:
     report.setdefault("candidate_search_scope", "all")
     report.setdefault("player_count", 3)
-keys.extend(["candidate_search_scope", "player_count"])
+    report.setdefault("candidate_search_model_proposal", True)
+keys.extend(
+    ["candidate_search_scope", "player_count", "candidate_search_model_proposal"]
+)
 config = {k: reports[0][k] for k in keys}
 rows = []
 seen = set()

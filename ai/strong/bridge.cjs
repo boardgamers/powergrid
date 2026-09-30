@@ -174,7 +174,7 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}, player
                             ? searchMove(e, seat, {
                                   samples: choice.searchSamples,
                                   candidates: 6,
-                                  extraCandidates: [index],
+                                  extraCandidates: choice.disableSearchProposal ? [] : [index],
                                   geography: !!choice.geography,
                                   seed: 'arena-guided-' + e.id + '-' + e.steps,
                               })

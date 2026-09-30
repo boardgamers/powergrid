@@ -25,6 +25,11 @@ p.add_argument("--opponent-model", help="Frozen ONNX policy in every opponent se
 p.add_argument("--workers", type=int, default=4)
 p.add_argument("--geographic-search", action="store_true")
 p.add_argument(
+    "--disable-search-proposal",
+    action="store_true",
+    help="Ablation: omit the model candidate from search; keep model actions outside search",
+)
+p.add_argument(
     "--search-samples",
     type=int,
     default=0,
@@ -41,6 +46,8 @@ p.add_argument(
 args = p.parse_args()
 if not 0 <= args.search_samples <= 64:
     p.error("--search-samples must be 0..64")
+if args.disable_search_proposal and not args.search_samples:
+    p.error("--disable-search-proposal requires positive --search-samples")
 if args.geographic_search and not args.search_samples:
     p.error("--geographic-search requires positive --search-samples")
 model = Model(args.model)
@@ -107,6 +114,7 @@ try:
                     "proposal": a,
                     "searchSamples": args.search_samples,
                     "geography": args.geographic_search,
+                    "disableSearchProposal": args.disable_search_proposal,
                 }
                 if actor is model
                 and args.search_samples
@@ -160,6 +168,7 @@ report = {
     "candidate_search_samples": args.search_samples,
     "candidate_search_scope": args.search_scope,
     "candidate_geographic_search": args.geographic_search,
+    "candidate_search_model_proposal": not args.disable_search_proposal,
     "seed": args.seed,
     "games": len(rows),
     "win_rate": float(np.mean([r["win"] for r in rows])),

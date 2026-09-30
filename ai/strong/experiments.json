@@ -3724,7 +3724,7 @@
         "async_rollout": true,
         "opponent_mode": "mixed_search_geo",
         "timeout": "24h",
-        "status": "SUBMITTED",
+        "status": "RUNNING",
         "purpose": "Scale verified asynchronous full-game collection against geographic-search league; preserve original teacher warm start for clear comparison."
     },
     "multiplayer_search_strong_probe": {
@@ -3764,5 +3764,37 @@
                 "job_id": "6abd63cdfbc85ba68235c8df"
             }
         ]
+    },
+    "multiplayer_search_proposal_ablation": {
+        "job_id": "6abd64b7404719ba376142d8",
+        "run": "multiplayer-hard-e10-search48-no-proposal-2p",
+        "source_bundle": {
+            "archive": "strong-source-v27.tgz",
+            "revision": "fe12e7a6b1fec2e04b749765af73477d39ded699",
+            "base_revision": "80fcc719b64b13fe1592e206712b68f94ef19951",
+            "changed_files": [
+                "ai/strong/bridge.cjs",
+                "ai/strong/evaluate.py",
+                "ai/strong/arena-job.py",
+                "ai/strong/combine-arenas.py"
+            ],
+            "archive_sha256": "727a876c342853535ce14ecb4dfad1ca5f0876cb0e66e4a5acd0cf362ad43a7e"
+        },
+        "candidate_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",
+        "seed": "multiplayer-search-recovery-v1-2p",
+        "games": 160,
+        "independent_deals": 20,
+        "players": 2,
+        "samples": 48,
+        "geographic": true,
+        "model_proposal": false,
+        "opponent": "economic",
+        "interpretation": "Only omit model action from strategic search candidate set. Non-search moves still use model, so this is not a pure heuristic-search baseline. Compare paired completed model-proposal arm (92.5%).",
+        "validation": [
+            "8 complete real games covering both seats and four rules, zero game or rollout truncation",
+            "Combiner rejects mixing enabled/disabled proposal reports",
+            "Final verifier rejects ablation reports as deployment evidence"
+        ],
+        "status": "SUBMITTED"
     }
 }

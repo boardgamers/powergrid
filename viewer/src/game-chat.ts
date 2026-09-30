@@ -67,6 +67,7 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
     let players: { id: number; name: string; color?: string; faction?: string }[] = [];
     let localPlayer: number | undefined;
     let chatVisible = false;
+    let chatNotifications = true;
     let analysis = false;
     const shortcut = document.createElement('button');
     shortcut.type = 'button';
@@ -149,7 +150,7 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
         const count = chat.unread;
         const label = count ? `Chat · ${count} unread` : 'Chat';
         shortcutCount.textContent = String(count);
-        shortcut.hidden = analysis || chatVisible || !count;
+        shortcut.hidden = !chatNotifications || analysis || chatVisible || !count;
         shortcut.setAttribute('aria-label', `Open ${label}`);
         chatTab.textContent = label;
         positionShortcut();
@@ -161,6 +162,7 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
     const dispose = [
         detach,
         emitter.on('preferences', (preferences) => {
+            chatNotifications = preferences.chatNotifications !== false;
             analysis = preferences.analysis === true;
             slot.hidden = analysis;
             tabs.style.display = analysis ? 'none' : '';

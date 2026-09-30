@@ -173,6 +173,16 @@ try {
             'history refresh preserves known unread'
         );
         await page.waitForFunction(() => !document.querySelector('.chat-shortcut').hidden);
+        await page.evaluate(() => host.emit('preferences', { sound: false, chatNotifications: false }));
+        await page.waitForFunction(() => document.querySelector('.chat-shortcut').hidden);
+        assert.match(
+            await panel.locator('summary').textContent(),
+            /1 unread/,
+            'sidebar visibility keeps messages unread'
+        );
+        await page.evaluate(() => host.emit('preferences', { sound: false, chatNotifications: true }));
+        await page.waitForFunction(() => !document.querySelector('.chat-shortcut').hidden);
+
         assert.match(await shortcut.textContent(), /Chat\s*1$/, 'shortcut shows the unread count');
         const shortcutBox = await shortcut.boundingBox();
         assert.equal(

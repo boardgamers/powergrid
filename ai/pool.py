@@ -39,7 +39,11 @@ class EnginePool:
             if n < workers:
                 raise ValueError("Need at least one environment per worker")
             self.sizes = [n // workers + (i < n % workers) for i in range(workers)]
-            requests = [{**request, "n": n} for n in self.sizes]
+            requests = []
+            offset = 0
+            for n in self.sizes:
+                requests.append({**request, "n": n, "offset": offset})
+                offset += n
         else:
             requests = []
             offset = 0

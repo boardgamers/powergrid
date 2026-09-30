@@ -9,7 +9,22 @@
         "strong-league-v2-b": "6abd146afbc85ba68235b28d",
         "strong-league-v2-c": "6abd15cafbc85ba68235b347",
         "strong-league-v2-d": "6abd15ca404719ba376134e5",
-        "search-reference-v1": "6abd1314404719ba376133b5"
+        "search-reference-v1": "6abd1314404719ba376133b5",
+        "search-teacher-v1-0": "6abd187efbc85ba68235b480",
+        "search-teacher-v1-1": "6abd187ffbc85ba68235b482",
+        "search-teacher-v1-2": "6abd187f404719ba376135cd",
+        "search-teacher-v1-3": "6abd1880404719ba376135cf",
+        "b20-search-screening": "6abd18bb404719ba376135d8",
+        "search-distillation-v1": "6abd1992404719ba376135ec",
+        "search-teacher-v2-0": "6abd1c1a404719ba3761362b",
+        "search-teacher-v2-1": "6abd1c1b404719ba3761362d",
+        "search-teacher-v2-2": "6abd1c1cfbc85ba68235b51d",
+        "search-teacher-v2-3": "6abd1c1dfbc85ba68235b51f",
+        "search-teacher-v2-4": "6abd1c1d404719ba3761362f",
+        "search-teacher-v2-5": "6abd1c1e404719ba37613631",
+        "search-teacher-v2-6": "6abd1c1f404719ba37613633",
+        "search-teacher-v2-7": "6abd1c20404719ba37613635",
+        "b20-guided-search-screening": "6abd1c21fbc85ba68235b521"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -18,5 +33,25 @@
         "6abd146bfbc85ba68235b28f"
     ],
     "heldout_final_seed_prefix": "strong-final-reserved-v1",
-    "final_seed_prefix_used": false
+    "final_seed_prefix_used": false,
+    "search_teacher_source": {
+        "archive": "strong-source-v4.tgz",
+        "commit": "76d8631d933163a9731319a59341e9e4251dfd2d"
+    },
+    "distillation_source": {
+        "archive": "strong-source-v5.tgz",
+        "commit": "ab52f6ec30783174b97882b24fe61063f8fbf116"
+    },
+    "expanded_teacher_source": {
+        "archive": "strong-source-v6.tgz",
+        "commit": "cc79acffc12ad4cc1daffbad20b024d2e1f4fe98"
+    },
+    "stopped_for_sustained_regression": [
+        "6abd15cafbc85ba68235b347",
+        "6abd15ca404719ba376134e5"
+    ],
+    "all_phase_distillation_source": {
+        "archive": "strong-source-v7.tgz",
+        "commit": "0862207a0f62cb75edfd0e6ecbc472cdc190bcd0"
+    }
 }

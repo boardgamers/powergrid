@@ -68,14 +68,22 @@ test('search choices do not change with hidden deck order or sealed bid amounts'
     let p = g.currentPlayers[0];
     c.E.move(g, c.candidates(g, p)[0], p);
     p = g.currentPlayers[0];
-    const first = search.choose(g, p, { samples: 2, candidates: 3, seed: 'same-belief', maxSteps: 700 });
+    const options = {
+        samples: 2,
+        candidates: 3,
+        seed: 'same-belief',
+        maxSteps: 700,
+        extraCandidates: [c.candidates(g, p).length - 1],
+    };
+    const first = search.choose(g, p, options);
     g.powerPlantsDeck.reverse();
+    g.seed = 'different-private-seed';
     g.players.forEach((x, i) => {
         if (i !== p) x.bid = 123;
     });
     g.currentBid = 456;
     g.hiddenLog = [{ secret: 'not observable' }];
-    const second = search.choose(g, p, { samples: 2, candidates: 3, seed: 'same-belief', maxSteps: 700 });
+    const second = search.choose(g, p, options);
     assert.equal(first.index, second.index);
     assert.deepEqual(first.values, second.values);
 });

@@ -7,23 +7,42 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np
 from infer import Model
 from pool import EnginePool
+from arena_statistics import win_summary
 
 p = argparse.ArgumentParser()
 p.add_argument("model")
 p.add_argument(
     "--opponent",
     default="economic",
-    choices=["economic", "heuristic", "rush", "legacy"],
+    choices=["economic", "heuristic", "rush", "legacy", "search"],
+)
+p.add_argument("--opponent-model", help="Frozen ONNX policy in both opponent seats")
+p.add_argument("--workers", type=int, default=4)
+p.add_argument(
+    "--search-samples",
+    type=int,
+    default=0,
+    help="Public-belief search guided by the candidate model",
 )
 p.add_argument("--games", type=int, default=480)
 p.add_argument("--seed", default="strong-screening-v1")
 p.add_argument("--output", required=True)
 args = p.parse_args()
+if not 0 <= args.search_samples <= 64:
+    p.error("--search-samples must be 0..64")
 model = Model(args.model)
-pool = EnginePool(4, seed=args.seed, script="ai/strong/bridge.cjs")
-current = pool.call({"op": "reset", "n": args.games, "mode": args.opponent})[
-    "observations"
-]
+if args.games < 12 or args.games % 12:
+    p.error("--games must be a positive multiple of 12 for paired rules and seats")
+opponent_model = Model(args.opponent_model) if args.opponent_model else None
+pool = EnginePool(args.workers, seed=args.seed, script="ai/strong/bridge.cjs")
+current = pool.call(
+    {
+        "op": "reset",
+        "n": args.games,
+        "mode": "snapshot0" if opponent_model else args.opponent,
+        "arenaSeed": args.seed,
+    }
+)["observations"]
 rows = []
 latency = []
 start = time.perf_counter()
@@ -35,9 +54,15 @@ try:
                 actions.append(None)
                 continue
             t = time.perf_counter()
-            a, _ = model.predict(x["state"], x["actions"])
-            latency.append(1000 * (time.perf_counter() - t))
-            actions.append(a)
+            actor = model if x["roles"][x["seat"]] == "learner" else opponent_model
+            a, _ = actor.predict(x["state"], x["actions"])
+            if actor is model:
+                latency.append(1000 * (time.perf_counter() - t))
+            actions.append(
+                {"proposal": a, "searchSamples": args.search_samples}
+                if actor is model and args.search_samples
+                else a
+            )
         r = pool.call({"op": "step", "actions": actions})
         current = r["observations"]
         for e in r["ended"]:
@@ -56,7 +81,10 @@ finally:
 report = {
     "model": args.model,
     "model_sha256": model.sha256,
-    "opponent": args.opponent,
+    "opponent": args.opponent_model or args.opponent,
+    "opponent_sha256": opponent_model.sha256 if opponent_model else None,
+    "paired_seats": True,
+    "candidate_search_samples": args.search_samples,
     "seed": args.seed,
     "games": len(rows),
     "win_rate": float(np.mean([r["win"] for r in rows])),
@@ -79,5 +107,16 @@ report = {
     ],
     "results": rows,
 }
+report.update(win_summary(rows))
+for group in report["by_rules"]:
+    group.update(
+        win_summary(
+            [
+                r
+                for r in rows
+                if r["variant"] == group["variant"] and r["sealed"] == group["sealed"]
+            ]
+        )
+    )
 Path(args.output).write_text(json.dumps(report, indent=2))
 print(json.dumps({k: v for k, v in report.items() if k != "results"}))

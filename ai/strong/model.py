@@ -4,8 +4,9 @@ from torch import nn
 
 
 class Policy(nn.Module):
-    def __init__(self, sd=738, ad=96, width=384):
+    def __init__(self, sd=738, ad=96, width=384, strategic_only=False):
         super().__init__()
+        self.strategic_only = strategic_only
         self.state = nn.Sequential(
             nn.Linear(sd, width),
             nn.LayerNorm(width),
@@ -27,6 +28,11 @@ class Policy(nn.Module):
         residual = self.score(
             torch.cat((s[:, None, :].expand(-1, a.shape[1], -1), a), -1)
         ).squeeze(-1)
+        if self.strategic_only:
+            strategic = (
+                (actions[:, :, 0] + actions[:, :, 1] + actions[:, :, 5]) > 0
+            ) & mask
+            residual = residual * strategic.any(dim=1, keepdim=True)
         # Start from a competent public-information policy; learn corrections.
         logits = actions[:, :, 74] * 2 + residual
         return logits.masked_fill(~mask, -1e9), self.value(s).softmax(-1)

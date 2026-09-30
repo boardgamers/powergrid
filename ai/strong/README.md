@@ -24,6 +24,14 @@ PPO collects complete episodes against a mixture of fixed bots, self-play and fr
 
 A separate rollout-search opponent uses the engine's public-information scenario sampler and evaluates counterfactual actions across sampled unknown decks and sealed bids. Its choices are tested for invariance to the actual hidden deck and bids. The initial search benchmark is held separately from training.
 
+The search reference scored 64.8% against the economic bot and 76.3% against the corrected heuristic, 240 games each with no truncations. Bootstrap 95% intervals, clustered by the 20 independent deals, were [57.9%, 71.7%] and [70.8%, 81.3%]. The B learner's update-20 checkpoint scored 42.2% against the economic bot on 480 fresh paired games (40 deals; interval [38.1%, 46.3%]). These are development/screening results, not a final strength claim; the comparison also uses different deals.
+
+Four HF CPU jobs generated a separate search-teacher dataset: 512 games, 25,268 strategic positions, 6,769 disagreements with the economic teacher, zero truncated games. `distill.py` trains on HF GPUs, splitting whole games for validation and selecting checkpoints using actual arena performance. Its seeds do not overlap the reference benchmark, screening, or reserved final test.
+
+The first distillation run deteriorated after epoch 5. Its epoch-30 model scored 8.6% against the economic bot on 480 screening games. Restricting its learned corrections to auction/build decisions raised that to 22.3% on exactly the same deals, still worse than the economic prior. This isolates harmful changes in unsupervised phases as one contributor, not a complete explanation. The next dataset covers every phase and uses 12 search samples instead of four. Hard labels and distributions over counterfactual action values are separate experiments; no improvement is assumed in advance.
+
+The high-exploration league runs C and D were stopped after sustained regression around updates 60–80, retaining their best checkpoints. A and B continue. The neural B20 checkpoint scored 23.8% against two search opponents over 240 paired screening games (20 deals; 95% interval [17.1%, 30.4%]). Thus it has not passed the strength gate.
+
 ## Evidence required before declaring strength
 
 -   Robust gains over the economic, corrected-heuristic, rush, and frozen neural opponents—not just the default bot.
@@ -37,3 +45,9 @@ A separate rollout-search opponent uses the engine's public-information scenario
 The initial whole-engine JavaScript simulation benchmark was already fast. Repeated economic and regional feature calculations were a larger bottleneck. Hoisting them out of candidate-action loops made the feature benchmark 2.2× faster while preserving the exact output hash across 1,786 positions. A Rust rewrite remains an option if later profiling warrants it.
 
 `infer.py` serves schema 3 over persistent JSONL; it preserves the same revision-validation obligation as the baseline worker. `evaluate.py` runs independent CPU matches. The current policies are research artifacts, not routed into production bot moves.
+
+The arena supports `--opponent search` and `--opponent-model frozen.onnx`. Every deal is repeated across three candidate seats and four rule combinations. Results retain the deal identifier; confidence intervals resample deals, not correlated seat repeats. A same-checkpoint-in-all-seats test yields exactly 1/3 for every rule combination, including with uneven worker batches.
+
+`serving-fixtures.cjs` and `benchmark-serving.py` check full JSONL round trips, legal responses, request/revision preservation and latency across all phases. The update-20 B model's ONNX logits matched PyTorch within 4.1e-6 on 39 search positions, with all argmax actions identical. CPU serving is still a research installation and its value outputs are uncalibrated.
+
+On the 8840U, all 427 fixture requests returned legal moves: warm round-trip median 1.78 ms, p95 3.80 ms, cold start 167 ms. Optional 16-sample public-belief search, guided by the model's proposed move, had a p95 of 704 ms on 43 sampled requests, all legal. The guided variant is under independent arena evaluation; runtime feasibility alone is not evidence of strength. The isolated research installation is `~/powergrid-ai-strong` and has no production routing.

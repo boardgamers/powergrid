@@ -15,9 +15,15 @@ function shortlist(g, seat, limit = 5) {
     if (bids.length > 4) chosen.add(bids[Math.floor(bids.length / 2)]);
     return [...chosen].slice(0, limit);
 }
-function choose(g, seat, { samples = 6, candidates = 5, seed = 'public-search', maxSteps = 1200 } = {}) {
+function choose(
+    g,
+    seat,
+    { samples = 6, candidates = 5, seed = 'public-search', maxSteps = 1200, extraCandidates = [] } = {}
+) {
     const actions = c.candidates(g, seat),
-        options = shortlist(g, seat, candidates);
+        options = [...new Set([...shortlist(g, seat, candidates), ...extraCandidates])];
+    if (options.some((i) => !Number.isInteger(i) || i < 0 || i >= actions.length))
+        throw Error('Invalid search proposal');
     if (options.length === 1) return { index: options[0], action: actions[options[0]], evaluations: 0 };
     const totals = Object.fromEntries(options.map((i) => [i, 0]));
     let evaluations = 0,

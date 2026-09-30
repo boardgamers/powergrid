@@ -15,6 +15,20 @@ function applyBot(e, p) {
         } finally {
             Math.random = old;
         }
+    } else if (role === 'search') {
+        const legal = c.candidates(e.g, p),
+            strategic = legal.length > 1 && legal.some((a) => ['ChoosePowerPlant', 'Bid', 'Build'].includes(a.name));
+        c.E.move(
+            e.g,
+            strategic
+                ? require('./search.cjs').choose(e.g, p, {
+                      samples: 4,
+                      candidates: 5,
+                      seed: 'arena-search-' + e.g.round + '-' + p + '-' + Math.floor(e.rng() * 1e9),
+                  }).action
+                : eco.choose(e.g, p, e.rng).action,
+            p
+        );
     } else
         c.E.move(
             e.g,
@@ -38,8 +52,8 @@ function observation(e) {
     delete x.moves;
     return { ...x, episode: e.id, roles: e.roles, round: e.g.round };
 }
-function reset(mode = 'mixed') {
-    const id = sequence++,
+function reset(mode = 'mixed', arenaSeed, arenaId) {
+    const id = arenaSeed === undefined ? sequence++ : arenaId,
         seat = Math.floor(id / 4) % 3,
         kind = Math.floor(c.seedrandom(seed + '-opponents-' + id)() * 8);
     const opponent =
@@ -50,11 +64,13 @@ function reset(mode = 'mixed') {
         opponent === 'selfplay'
             ? ['learner', 'learner', 'learner']
             : Array.from({ length: 3 }, (_, i) => (i === seat ? 'learner' : opponent));
+    const gameSeed = arenaSeed === undefined ? seed + '-' + id : arenaSeed + '-' + Math.floor(id / 12);
     const e = {
         id,
-        g: c.start(seed + '-' + id, id % 2 ? 'recharged' : 'original', id % 4 < 2),
+        gameSeed,
+        g: c.start(gameSeed, id % 2 ? 'recharged' : 'original', id % 4 < 2),
         roles,
-        rng: c.seedrandom(seed + '-bot-' + id),
+        rng: c.seedrandom(arenaSeed === undefined ? seed + '-bot-' + id : gameSeed + '-bot'),
         steps: 0,
     };
     advance(e);
@@ -65,19 +81,35 @@ function reset(mode = 'mixed') {
         try {
             const q = JSON.parse(line),
                 ended = [];
-            if (q.op === 'reset') envs = Array.from({ length: q.n }, () => reset(q.mode));
+            if (q.op === 'reset')
+                envs = Array.from({ length: q.n }, (_, i) => reset(q.mode, q.arenaSeed, (q.offset || 0) + i));
             else if (q.op === 'step')
                 for (let i = 0; i < envs.length; i++) {
                     const e = envs[i];
                     if (q.actions[i] === null) continue;
                     const seat = e.g.currentPlayers[0];
-                    c.E.move(e.g, c.candidates(e.g, seat)[q.actions[i]], seat);
+                    const legal = c.candidates(e.g, seat),
+                        choice = q.actions[i];
+                    const strategic =
+                        legal.length > 1 && legal.some((a) => ['ChoosePowerPlant', 'Bid', 'Build'].includes(a.name));
+                    const index = typeof choice === 'object' ? choice.proposal : choice;
+                    const action =
+                        typeof choice === 'object' && strategic
+                            ? require('./search.cjs').choose(e.g, seat, {
+                                  samples: choice.searchSamples,
+                                  candidates: 6,
+                                  extraCandidates: [index],
+                                  seed: 'arena-guided-' + e.id + '-' + e.steps,
+                              }).action
+                            : legal[index];
+                    c.E.move(e.g, action, seat);
                     e.steps++;
                     advance(e);
                     if (c.E.ended(e.g) || e.steps >= 1600)
                         ended.push({
                             env: i,
                             episode: e.id,
+                            gameSeed: e.gameSeed,
                             truncated: !c.E.ended(e.g),
                             value: c.E.ended(e.g) ? c.outcome(e.g) : [0, 0, 0],
                             steps: e.steps,

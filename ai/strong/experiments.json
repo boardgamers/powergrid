@@ -3813,5 +3813,82 @@
         },
         "status": "CANCELED",
         "checkpoint_note": "Stopped after first logged batch; no newly trained checkpoint saved at the 10-update checkpoint interval. Original teacher warm start remains pinned."
+    },
+    "multiplayer_search_strong_wide_probe": {
+        "candidate_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",
+        "source_bundle": {
+            "archive": "strong-source-v27.tgz",
+            "revision": "fe12e7a6b1fec2e04b749765af73477d39ded699",
+            "base_revision": "80fcc719b64b13fe1592e206712b68f94ef19951",
+            "changed_files": [
+                "ai/strong/bridge.cjs",
+                "ai/strong/evaluate.py",
+                "ai/strong/arena-job.py",
+                "ai/strong/combine-arenas.py"
+            ],
+            "archive_sha256": "727a876c342853535ce14ecb4dfad1ca5f0876cb0e66e4a5acd0cf362ad43a7e"
+        },
+        "samples": 48,
+        "geographic": true,
+        "deals_per_count": 8,
+        "purpose": "Development screen at 4\u20136 players against all geographic-search opponents; both variants, both auction modes, every learner seat. Not final qualification.",
+        "jobs": [
+            {
+                "run": "multiplayer-hard-e10-search48-search_geo-4p-probe-0",
+                "offset": 0,
+                "players": 4,
+                "opponent": "search_geo",
+                "job_id": "6abd6513404719ba376142e8"
+            },
+            {
+                "run": "multiplayer-hard-e10-search48-search_geo-4p-probe-4",
+                "offset": 4,
+                "players": 4,
+                "opponent": "search_geo",
+                "job_id": "6abd6514404719ba376142ea"
+            },
+            {
+                "run": "multiplayer-hard-e10-search48-search_geo-5p-probe-0",
+                "offset": 0,
+                "players": 5,
+                "opponent": "search_geo",
+                "job_id": "6abd6515404719ba376142ec"
+            },
+            {
+                "run": "multiplayer-hard-e10-search48-search_geo-5p-probe-4",
+                "offset": 4,
+                "players": 5,
+                "opponent": "search_geo",
+                "job_id": "6abd6516404719ba376142ee"
+            },
+            {
+                "run": "multiplayer-hard-e10-search48-search_geo-6p-probe-0",
+                "offset": 0,
+                "players": 6,
+                "opponent": "search_geo",
+                "job_id": "6abd6516404719ba376142f0"
+            },
+            {
+                "run": "multiplayer-hard-e10-search48-search_geo-6p-probe-4",
+                "offset": 4,
+                "players": 6,
+                "opponent": "search_geo",
+                "job_id": "6abd6517404719ba376142f4"
+            },
+            {
+                "run": "multiplayer-hard-e10-search48-search_geo-3p-probe-0",
+                "offset": 0,
+                "players": 3,
+                "opponent": "search_geo",
+                "job_id": "6abd6529404719ba376142f7"
+            },
+            {
+                "run": "multiplayer-hard-e10-search48-search_geo-3p-probe-4",
+                "offset": 4,
+                "players": 3,
+                "opponent": "search_geo",
+                "job_id": "6abd652afbc85ba68235c940"
+            }
+        ]
     }
 }

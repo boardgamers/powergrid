@@ -5,6 +5,15 @@ const c = require('../core.cjs'),
 let envs = [],
     sequence = 0;
 const seed = process.env.SEED || 'strong-train';
+function searchMove(e, seat, options) {
+    const result = require('./search.cjs').choose(e.g, seat, options);
+    const role = e.roles[seat];
+    const stats = (e.searchStats[role] ||= { decisions: 0, evaluations: 0, truncated: 0 });
+    stats.decisions++;
+    stats.evaluations += result.evaluations || 0;
+    stats.truncated += result.truncated || 0;
+    return result.action;
+}
 function applyBot(e, p) {
     const role = e.roles[p];
     if (role === 'legacy') {
@@ -21,12 +30,12 @@ function applyBot(e, p) {
         c.E.move(
             e.g,
             strategic
-                ? require('./search.cjs').choose(e.g, p, {
+                ? searchMove(e, p, {
                       samples: role === 'search_geo' ? 16 : 4,
                       candidates: role === 'search_geo' ? 6 : 5,
                       geography: role === 'search_geo',
                       seed: 'arena-search-' + e.g.round + '-' + p + '-' + Math.floor(e.rng() * 1e9),
-                  }).action
+                  })
                 : eco.choose(e.g, p, e.rng).action,
             p
         );
@@ -100,6 +109,7 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}) {
         rng: c.seedrandom(arenaSeed === undefined ? seed + '-bot-' + id : gameSeed + '-bot'),
         steps: 0,
         policyMoves: {},
+        searchStats: {},
         featureRevisions,
     };
     advance(e);
@@ -126,13 +136,13 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}) {
                     const index = typeof choice === 'object' ? choice.proposal : choice;
                     const action =
                         typeof choice === 'object' && strategic
-                            ? require('./search.cjs').choose(e.g, seat, {
+                            ? searchMove(e, seat, {
                                   samples: choice.searchSamples,
                                   candidates: 6,
                                   extraCandidates: [index],
                                   geography: !!choice.geography,
                                   seed: 'arena-guided-' + e.id + '-' + e.steps,
-                              }).action
+                              })
                             : legal[index];
                     c.E.move(e.g, action, seat);
                     if (e.roles[seat] === 'learner') e.policyMoves[action.name] = (e.policyMoves[action.name] || 0) + 1;
@@ -148,6 +158,7 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}) {
                             steps: e.steps,
                             roles: e.roles,
                             policyMoves: e.policyMoves,
+                            searchStats: e.searchStats,
                             final: {
                                 round: e.g.round,
                                 players: e.g.players.map((p) => ({

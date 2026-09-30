@@ -3,7 +3,7 @@
 import argparse
 import json
 from pathlib import Path
-from arena_statistics import win_summary
+from arena_statistics import win_summary, search_summary
 
 p = argparse.ArgumentParser()
 p.add_argument("reports", nargs="+")
@@ -38,6 +38,7 @@ result = {
     **config,
     "sources": a.reports,
     **win_summary(rows),
+    **search_summary(rows),
     "by_rules": [],
     "results": rows,
 }

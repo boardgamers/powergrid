@@ -32,6 +32,8 @@ worker = subprocess.Popen(
 )
 latencies, inner = [], []
 search_latencies = []
+search_evaluations = 0
+search_truncations = 0
 by_phase = {}
 sha = None
 try:
@@ -59,6 +61,8 @@ try:
             by_phase.setdefault(str(request["state"]["phase"]), []).append(
                 latencies[-1]
             )
+            search_evaluations += (result.get("search") or {}).get("evaluations", 0)
+            search_truncations += (result.get("search") or {}).get("truncated", 0)
             if (result.get("search") or {}).get("evaluations", 0):
                 search_latencies.append(latencies[-1])
 finally:
@@ -77,6 +81,8 @@ report = {
     "worker_p95_ms": float(np.percentile(inner[1:], 95)),
     "max_roundtrip_ms": max(latencies),
     "search_decisions": len(search_latencies),
+    "search_evaluations": search_evaluations,
+    "search_truncated_rollouts": search_truncations,
     "search_roundtrip_p50_ms": float(np.percentile(search_latencies, 50))
     if search_latencies
     else None,

@@ -25,3 +25,17 @@ def win_summary(rows, key="gameSeed"):
     else:
         result["seed_bootstrap_95_interval"] = None
     return result
+
+
+def search_summary(rows):
+    if not all("searchStats" in row for row in rows):
+        return {"search_rollouts_reported": False}
+    totals = {}
+    for row in rows:
+        for role, stats in row["searchStats"].items():
+            target = totals.setdefault(
+                role, {"decisions": 0, "evaluations": 0, "truncated": 0}
+            )
+            for key in target:
+                target[key] += stats[key]
+    return {"search_rollouts_reported": True, "search_stats": totals}

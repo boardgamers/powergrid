@@ -7,7 +7,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np
 from infer import Model
 from pool import EnginePool
-from arena_statistics import win_summary
+from arena_statistics import win_summary, search_summary
 from feature_contract import FEATURE_REVISION, check_revision, model_revision
 
 p = argparse.ArgumentParser()
@@ -143,6 +143,7 @@ report = {
     "results": rows,
 }
 report.update(win_summary(rows))
+report.update(search_summary(rows))
 for group in report["by_rules"]:
     group.update(
         win_summary(

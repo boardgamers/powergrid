@@ -408,14 +408,18 @@ try:
                             "completed_games": len(endings),
                             "requested_games": nenv,
                             "decisions": decisions,
-                            "active_games": len(active),
-                            "active_round_min": min(
+                            "unfinished_games": nenv - len(endings),
+                            "ready_games": len(active),
+                            "in_flight_games": nenv - len(endings) - len(active),
+                            "ready_round_min": min(
                                 (r["round"] for r in active), default=None
                             ),
-                            "active_round_max": max(
+                            "ready_round_max": max(
                                 (r["round"] for r in active), default=None
                             ),
                             "engine_seconds": engine_seconds,
+                            "engine_timing": "blocking_call_wall_time",
+                            "async_rollout": async_rollout,
                             "policy_seconds": policy_seconds,
                             "seconds": time.perf_counter() - start,
                         }
@@ -512,6 +516,8 @@ try:
             "samples": len(batch),
             "rollout_seconds": rollout_seconds,
             "engine_seconds": engine_seconds,
+            "engine_timing": "blocking_call_wall_time",
+            "async_rollout": async_rollout,
             "policy_seconds": policy_seconds,
             "seconds": time.perf_counter() - start,
             "loss": float(np.mean(losses)),

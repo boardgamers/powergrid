@@ -3499,5 +3499,16 @@
         "status": {
             "stage": "RUNNING"
         }
+    },
+    "async_training_batch_guard": {
+        "source_bundle": {
+            "archive": "strong-source-v26.tgz",
+            "revision": "80fcc719b64b13fe1592e206712b68f94ef19951",
+            "base_revision": "a8fa4ea6213c46f978dd3c25735296049df22571",
+            "only_replaced_file": "ai/strong/train.py",
+            "archive_sha256": "03348439ae91b3e3ccbc6061d885c4c443721cc2b2d6d7fad3fd57bb5b3c1e2f"
+        },
+        "invariant": "Before optimization, exactly ENVS terminal records with unique environment indices covering 0..ENVS-1.",
+        "telemetry": "Ready games are distinct from unfinished/in-flight games; engine timing is blocking-call wall time, not aggregate background CPU work."
     }
 }

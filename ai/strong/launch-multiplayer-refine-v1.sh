@@ -24,7 +24,7 @@ python -m pip install --quiet --timeout 120 --retries 5 huggingface_hub==2.0.0 o
 mkdir -p /workspace
 python -c "import urllib.request,tarfile; urllib.request.urlretrieve(\"https://nodejs.org/dist/v24.14.0/node-v24.14.0-linux-x64.tar.xz\",\"/tmp/node.tar.xz\");tarfile.open(\"/tmp/node.tar.xz\").extractall(\"/opt\")"
 export PATH=/opt/node-v24.14.0-linux-x64/bin:$PATH
-python -c "from huggingface_hub import hf_hub_download;import tarfile;p=hf_hub_download(\"coyotte508/powergrid-ai-training-v1\",\"strong-source-v25.tgz\",repo_type=\"dataset\",revision=\"a8fa4ea6213c46f978dd3c25735296049df22571\");tarfile.open(p).extractall(\"/workspace\")"
+python -c "from huggingface_hub import hf_hub_download;import tarfile;p=hf_hub_download(\"coyotte508/powergrid-ai-training-v1\",\"strong-source-v26.tgz\",repo_type=\"dataset\",revision=\"80fcc719b64b13fe1592e206712b68f94ef19951\");tarfile.open(p).extractall(\"/workspace\")"
 cd /workspace
 node --test ai/test.cjs ai/strong/test.cjs
 python ai/strong/test_teacher_contract.py

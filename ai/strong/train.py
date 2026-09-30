@@ -428,6 +428,8 @@ try:
                 )
                 last_progress = time.perf_counter()
         rollout_seconds = time.perf_counter() - start
+        if len(endings) != nenv or {e["env"] for e in endings} != set(range(nenv)):
+            raise RuntimeError("Every training environment must finish exactly once")
         if not batch:
             raise RuntimeError("No completed training episodes")
         advantages = np.array([r["advantage"] for r in batch])

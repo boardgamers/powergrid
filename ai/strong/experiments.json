@@ -3890,5 +3890,96 @@
                 "job_id": "6abd652afbc85ba68235c940"
             }
         ]
+    },
+    "synchronous_240_worker_completed": {
+        "job_id": "6abd5f0afbc85ba68235c7b1",
+        "result_revision": "1f1df3af2b8ee82289e6848c2559aea7f92019ed",
+        "training_result": {
+            "stage": "train",
+            "run": "multiplayer-geoleague-envworkers-pilot-v1",
+            "update": 0,
+            "episodes": 240,
+            "player_count": "mixed",
+            "by_player_count": {
+                "2": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 8755
+                },
+                "3": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 6939
+                },
+                "4": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 10299
+                },
+                "5": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 6139
+                },
+                "6": {
+                    "episodes": 48,
+                    "truncated": 0,
+                    "samples": 8228
+                }
+            },
+            "truncated": 0,
+            "samples": 40360,
+            "rollout_seconds": 1391.270637919195,
+            "engine_seconds": 1373.6085159713402,
+            "policy_seconds": 16.895370207726955,
+            "seconds": 1453.1871870215982,
+            "loss": 0.06967934356269992,
+            "training_opponents": {
+                "search_geo": {
+                    "games": 29,
+                    "wins": 0,
+                    "truncated": 0
+                },
+                "rush": {
+                    "games": 28,
+                    "wins": 6,
+                    "truncated": 0
+                },
+                "heuristic": {
+                    "games": 30,
+                    "wins": 17,
+                    "truncated": 0
+                },
+                "economic": {
+                    "games": 30,
+                    "wins": 8,
+                    "truncated": 0
+                },
+                "snapshot2": {
+                    "games": 29,
+                    "wins": 2,
+                    "truncated": 0
+                },
+                "snapshot1": {
+                    "games": 30,
+                    "wins": 3,
+                    "truncated": 0
+                },
+                "snapshot0": {
+                    "games": 35,
+                    "wins": 5,
+                    "truncated": 0
+                }
+            },
+            "search_rollouts_reported": true,
+            "search_stats": {
+                "search_geo": {
+                    "decisions": 4292,
+                    "evaluations": 347936,
+                    "truncated": 0
+                }
+            }
+        },
+        "comparison": "Async pilot rollout447.53s versus this synchronous pilot. Same 240 workers, but readiness-dependent policy sampling differs; not exact trajectory match."
     }
 }

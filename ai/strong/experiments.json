@@ -10803,6 +10803,101 @@
                     }
                 },
                 "artifact_revision": "4b33148d3d1c97651faea14887d4634f2d1fd9bf"
+            },
+            "28": {
+                "async_rollout": true,
+                "engine_workers": 96,
+                "player_count": 6,
+                "chance_win_rate": 0.16666666666666666,
+                "deal_offset": 28,
+                "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/ab34dd266010ded1c9a6c818c721e5505dd1ddeb/runs/multiplayer-distillation-v2-hard/best.onnx",
+                "model_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
+                "model_feature_revision": "4.0-multiplayer",
+                "encoder_feature_revision": "4.0-multiplayer",
+                "opponent": "search_geo",
+                "opponent_sha256": null,
+                "opponent_feature_revision": null,
+                "paired_seats": true,
+                "candidate_search_samples": 48,
+                "search_max_steps": 2400,
+                "candidate_search_scope": "all",
+                "candidate_geographic_search": true,
+                "candidate_search_model_proposal": true,
+                "seed": "multiplayer-search-strong-probe-v1-6p",
+                "games": 96,
+                "win_rate": 0.2604166666666667,
+                "truncated": 0,
+                "seconds": 3342.786648026,
+                "inference_p95_ms": 1.3454255501301304,
+                "by_rules": [
+                    {
+                        "variant": "original",
+                        "sealed": false,
+                        "games": 24,
+                        "win_rate": 0.25,
+                        "independent_seeds": 4,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.08333333333333333,
+                            0.4166666666666667
+                        ]
+                    },
+                    {
+                        "variant": "original",
+                        "sealed": true,
+                        "games": 24,
+                        "win_rate": 0.2916666666666667,
+                        "independent_seeds": 4,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.16666666666666666,
+                            0.4166666666666667
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": false,
+                        "games": 24,
+                        "win_rate": 0.3333333333333333,
+                        "independent_seeds": 4,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.3333333333333333,
+                            0.3333333333333333
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": true,
+                        "games": 24,
+                        "win_rate": 0.16666666666666666,
+                        "independent_seeds": 4,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.041666666666666664,
+                            0.2916666666666667
+                        ]
+                    }
+                ],
+                "independent_seeds": 4,
+                "seed_bootstrap_95_interval": [
+                    0.16666666666666666,
+                    0.3645833333333333
+                ],
+                "search_rollouts_reported": true,
+                "search_stats": {
+                    "learner": {
+                        "decisions": 4646,
+                        "evaluations": 1139328,
+                        "truncated": 0
+                    },
+                    "search_geo": {
+                        "decisions": 23157,
+                        "evaluations": 1887152,
+                        "truncated": 0
+                    }
+                },
+                "artifact_revision": "0f2629f492c183dee3205330c0e675b80c5fab9c"
             }
         },
         "old_horizon_paired_comparison": {

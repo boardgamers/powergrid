@@ -96,7 +96,9 @@
         "multiplayer-teacher-v1-1": "6abd4259404719ba37613e1f",
         "multiplayer-teacher-v1-2": "6abd4259fbc85ba68235c124",
         "multiplayer-teacher-v1-3": "6abd425a404719ba37613e21",
-        "multiplayer-teacher-v1-4": "6abd425b404719ba37613e23"
+        "multiplayer-teacher-v1-4": "6abd425b404719ba37613e23",
+        "multiplayer-distillation-v1-soft": "6abd4d17404719ba37613fb6",
+        "multiplayer-distillation-v1-hard": "6abd4d17fbc85ba68235c391"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -230,8 +232,9 @@
         "samples": 16,
         "geography": true,
         "all_phases": true,
-        "status": "submitted",
-        "validation_split_requirement": "Use deterministic seed hash or stratification; id modulo 5 confounds seat/rules at five players."
+        "status": "all five shards completed and validated",
+        "validation_split_requirement": "Use deterministic seed hash or stratification; id modulo 5 confounds seat/rules at five players.",
+        "dataset_revision": "082ca1456736940ee32c96db3ad1bc4e4d0b206b"
     },
     "specialists_remaining_results": {
         "specialists-legacy-screen": {
@@ -517,5 +520,223 @@
         "seed_prefix": "strong-multiplayer-final-reserved-v1",
         "launched": false,
         "negative_test": "Rejected development candidate, development seeds, missing counts/opponents, insufficient sample size and weak results"
+    },
+    "multiplayer_teacher_complete_audit": {
+        "revision": "082ca1456736940ee32c96db3ad1bc4e4d0b206b",
+        "version": "multiplayer-teacher-v1",
+        "counts": {
+            "2": {
+                "games": 240,
+                "positions": 36462,
+                "truncated": 0,
+                "search_rollouts": 1069792,
+                "search_rollouts_truncated": 0,
+                "teacher_win_credit": 196.0,
+                "disagreements": 5626,
+                "seat_rule_cells": 8,
+                "phases": {
+                    "Auction": 8736,
+                    "Resources": 14208,
+                    "Building": 6017,
+                    "Bureaucracy": 7501
+                },
+                "opponents": {
+                    "rush": {
+                        "games": 80,
+                        "win_credit": 57.0
+                    },
+                    "heuristic": {
+                        "games": 80,
+                        "win_credit": 63.0
+                    },
+                    "economic": {
+                        "games": 80,
+                        "win_credit": 76.0
+                    }
+                },
+                "validation_games": 48,
+                "training_games": 192
+            },
+            "3": {
+                "games": 240,
+                "positions": 29897,
+                "truncated": 0,
+                "search_rollouts": 961984,
+                "search_rollouts_truncated": 0,
+                "teacher_win_credit": 213.0,
+                "disagreements": 4471,
+                "seat_rule_cells": 12,
+                "phases": {
+                    "Auction": 7998,
+                    "Resources": 11549,
+                    "Building": 4926,
+                    "Bureaucracy": 5424
+                },
+                "opponents": {
+                    "rush": {
+                        "games": 84,
+                        "win_credit": 73.0
+                    },
+                    "economic": {
+                        "games": 84,
+                        "win_credit": 72.0
+                    },
+                    "heuristic": {
+                        "games": 72,
+                        "win_credit": 68.0
+                    }
+                },
+                "validation_games": 48,
+                "training_games": 192
+            },
+            "4": {
+                "games": 240,
+                "positions": 28800,
+                "truncated": 0,
+                "search_rollouts": 976624,
+                "search_rollouts_truncated": 0,
+                "teacher_win_credit": 205.0,
+                "disagreements": 4229,
+                "seat_rule_cells": 16,
+                "phases": {
+                    "Auction": 7951,
+                    "Resources": 10958,
+                    "Building": 4841,
+                    "Bureaucracy": 5050
+                },
+                "opponents": {
+                    "heuristic": {
+                        "games": 80,
+                        "win_credit": 77.0
+                    },
+                    "economic": {
+                        "games": 80,
+                        "win_credit": 66.0
+                    },
+                    "rush": {
+                        "games": 80,
+                        "win_credit": 62.0
+                    }
+                },
+                "validation_games": 48,
+                "training_games": 192
+            },
+            "5": {
+                "games": 240,
+                "positions": 24903,
+                "truncated": 0,
+                "search_rollouts": 902032,
+                "search_rollouts_truncated": 0,
+                "teacher_win_credit": 219.0,
+                "disagreements": 3639,
+                "seat_rule_cells": 20,
+                "phases": {
+                    "Auction": 7405,
+                    "Resources": 9121,
+                    "Building": 4239,
+                    "Bureaucracy": 4138
+                },
+                "opponents": {
+                    "economic": {
+                        "games": 80,
+                        "win_credit": 72.0
+                    },
+                    "heuristic": {
+                        "games": 80,
+                        "win_credit": 78.0
+                    },
+                    "rush": {
+                        "games": 80,
+                        "win_credit": 69.0
+                    }
+                },
+                "validation_games": 40,
+                "training_games": 200
+            },
+            "6": {
+                "games": 240,
+                "positions": 22742,
+                "truncated": 0,
+                "search_rollouts": 836032,
+                "search_rollouts_truncated": 0,
+                "teacher_win_credit": 202.0,
+                "disagreements": 3579,
+                "seat_rule_cells": 24,
+                "phases": {
+                    "Auction": 6946,
+                    "Resources": 8201,
+                    "Building": 3822,
+                    "Bureaucracy": 3773
+                },
+                "opponents": {
+                    "heuristic": {
+                        "games": 96,
+                        "win_credit": 92.0
+                    },
+                    "rush": {
+                        "games": 72,
+                        "win_credit": 57.0
+                    },
+                    "economic": {
+                        "games": 72,
+                        "win_credit": 53.0
+                    }
+                },
+                "validation_games": 48,
+                "training_games": 192
+            }
+        },
+        "unique_games": 1200,
+        "validated": true,
+        "scope": "Teacher-generated development data; not held-out strength evidence"
+    },
+    "multiplayer_mixed_training": {
+        "source_archive": "strong-source-v19.tgz",
+        "source_revision": "082ca1456736940ee32c96db3ad1bc4e4d0b206b",
+        "git_revision": "3b9de20",
+        "enabled_by": "MIX_PLAYER_COUNTS=1",
+        "verified": "every count/seat/rule reached; 100 complete protocol games; per-count loss mass equal"
+    },
+    "multiplayer_distillation_dispatch": {
+        "status": "submitted after network restoration",
+        "dataset_revision": "082ca1456736940ee32c96db3ad1bc4e4d0b206b",
+        "planned_modes": [
+            "soft",
+            "hard"
+        ],
+        "failed_attempt": "soft launcher failed resolving Hugging Face during whoami, before job submission",
+        "network_permission_request": "returned no network grant",
+        "existing_pipeline_job": "6abd41d2404719ba37613e0f",
+        "existing_pipeline_status": "RUNNING, revalidated after network restoration",
+        "offline_preflight": {
+            "purpose": "Offline CPU preflight only; no training",
+            "shards": 5,
+            "positions": 403,
+            "counts": {
+                "5": 80,
+                "6": 80,
+                "3": 82,
+                "4": 81,
+                "2": 80
+            },
+            "seat_rule_phase_action_cells": 202,
+            "hard_soft_targets_valid": true,
+            "inactive_values_zero": true,
+            "mean_initial_cross_entropy": {
+                "hard": 1.3058999043965747,
+                "soft": 1.3987828060399936
+            }
+        },
+        "consecutive_network_blocked_goal_turns": 0,
+        "latest_connectivity_check": {
+            "operation": "inspect existing job and submit both distillation jobs",
+            "result": "success"
+        },
+        "submitted_jobs": {
+            "soft": "6abd4d17404719ba37613fb6",
+            "hard": "6abd4d17fbc85ba68235c391"
+        },
+        "source_archive": "strong-source-v18.tgz",
+        "source_revision": "49cc1bb94678e6ede37b606ae1ce9a8cb2018c1d"
     }
 }

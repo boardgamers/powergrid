@@ -1,5 +1,5 @@
 {
-  "status": "HF pipeline training and teacher jobs launched; not strength-qualified",
+  "status": "network restored; soft and hard multiplayer distillation submitted to HF",
   "feature_revision": "4.0-multiplayer",
   "scope": {
     "map": "Germany",
@@ -39,7 +39,12 @@
     "amd_8840u_legal_positions": 2553,
     "amd_8840u_prototype_p95_ms": 4.688831949897575,
     "standalone_verified_files": 1203,
-    "standalone_positions": 80
+    "standalone_positions": 80,
+    "teacher_games": 1200,
+    "teacher_positions": 142804,
+    "teacher_search_rollouts": 4746464,
+    "teacher_truncated_games": 0,
+    "teacher_truncated_rollouts": 0
   },
   "pending": [
     "Complete HF pipeline run and inspect count-specific learning stability",

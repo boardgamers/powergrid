@@ -31,6 +31,8 @@ worker = subprocess.Popen(
     bufsize=1,
 )
 latencies, inner = [], []
+search_latencies = []
+by_phase = {}
 sha = None
 try:
     with open(args.fixtures) as source:
@@ -54,6 +56,11 @@ try:
             assert sha is None or sha == result["modelSha256"]
             sha = result["modelSha256"]
             inner.append(result["elapsedMs"])
+            by_phase.setdefault(str(request["state"]["phase"]), []).append(
+                latencies[-1]
+            )
+            if (result.get("search") or {}).get("evaluations", 0):
+                search_latencies.append(latencies[-1])
 finally:
     worker.stdin.close()
     worker.wait(timeout=10)
@@ -68,6 +75,23 @@ report = {
     "warm_roundtrip_p50_ms": float(np.percentile(latencies[1:], 50)),
     "warm_roundtrip_p95_ms": float(np.percentile(latencies[1:], 95)),
     "worker_p95_ms": float(np.percentile(inner[1:], 95)),
+    "max_roundtrip_ms": max(latencies),
+    "search_decisions": len(search_latencies),
+    "search_roundtrip_p50_ms": float(np.percentile(search_latencies, 50))
+    if search_latencies
+    else None,
+    "search_roundtrip_p95_ms": float(np.percentile(search_latencies, 95))
+    if search_latencies
+    else None,
+    "by_phase": {
+        phase: {
+            "positions": len(times),
+            "p50_ms": float(np.percentile(times, 50)),
+            "p95_ms": float(np.percentile(times, 95)),
+            "max_ms": max(times),
+        }
+        for phase, times in by_phase.items()
+    },
 }
 Path(args.output).write_text(json.dumps(report, indent=2))
 print(json.dumps(report))

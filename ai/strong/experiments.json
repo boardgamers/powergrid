@@ -2835,5 +2835,72 @@
             "archive_sha256": "0c01de0eb3d12a7ac7d69ae7214180e6f9b2dce3b4dc1fd721bb1e6567e2d162",
             "git_revision": "d989a9f"
         }
+    },
+    "rollout_purchase_cost_optimization": {
+        "change": "Hoist resource key, market count, held fuel and price array out of per-unit purchase cost loop; preserve exact summation order and fallback. Includes prior unused-replacement-cost optimization.",
+        "fixture_equivalence": {
+            "positions": 2553,
+            "scores_identical": true,
+            "plan_modes_per_position": 4
+        },
+        "search_equivalence": {
+            "searches": 6,
+            "counts": [
+                2,
+                3,
+                6
+            ],
+            "phases": [
+                "Auction",
+                "Building"
+            ],
+            "minimum_round": 5,
+            "identical_results": true,
+            "evaluations": 264
+        },
+        "local_timing": {
+            "baseline": [
+                3.7346250519999558,
+                3.717656344000261,
+                3.945521218000067,
+                4.057125717999952
+            ],
+            "optimized": [
+                2.53055489999997,
+                2.676548421999996,
+                2.9400776590000532,
+                3.200367819999883
+            ],
+            "median_speedup": 1.3673949732884052,
+            "identical_full_search_results": true
+        },
+        "amd8840u_timing": {
+            "baseline": [
+                2.9023294590006117,
+                2.9474724769970635,
+                2.9103795530099887,
+                2.961018548012362
+            ],
+            "optimized": [
+                2.0889377550047357,
+                2.110661614991841,
+                2.1198867430066457,
+                2.1356612500094343
+            ],
+            "median_speedup": 1.3846554948206429,
+            "identical_full_search_results": true,
+            "scope": "AMD8840U single fixed two-player auction; 48 samples; four alternating runs per version"
+        },
+        "source_bundle": {
+            "archive": "strong-source-v22.tgz",
+            "revision": "bcea005fb81ee05c662600b3238cba10d529abc5",
+            "base_archive": "strong-source-v20.tgz",
+            "base_revision": "c259cc1664fe39565bdbdd5d64789c9825a62692",
+            "only_replaced_file": "ai/strong/economics.cjs",
+            "economics_sha256": "9ce50e386ea39a2e5e09237d6f35a990ae2b51fed8b5649157d1e8c474bff6ba",
+            "archive_sha256": "7da9575da9f3e2dacc9889ec15d539e923b6324f10e61f4ab2f40a24e42e8213"
+        },
+        "tests": "node --test ai/strong/test.cjs passed",
+        "scope": "Timing is one fixed 2p auction search; no general latency or strength claim. Existing jobs unchanged."
     }
 }

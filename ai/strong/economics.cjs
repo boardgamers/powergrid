@@ -35,11 +35,16 @@ function plans(g, p, unused = false) {
 }
 function purchaseCost(g, p, used) {
     let cost = 0;
-    for (let i = 0; i < 4; i++)
-        for (let k = 0; k < Math.max(0, used[i] - p[c.RES[i] + 'Left']); k++) {
-            if (k >= g[c.RES[i] + 'Market']) return Infinity;
-            cost += c.resourcePrice(g, c.RES[i], k);
+    for (let i = 0; i < 4; i++) {
+        const resource = c.RES[i],
+            needed = Math.max(0, used[i] - p[resource + 'Left']),
+            count = g[resource + 'Market'],
+            prices = g[resource + 'Prices'];
+        for (let k = 0; k < needed; k++) {
+            if (k >= count) return Infinity;
+            cost += prices && count > k ? prices[prices.length - count + k] : 20;
         }
+    }
     return cost;
 }
 function plan(g, p, target = p.cities.length, { buy = true, unused = false, budget = p.money, endgame = false } = {}) {

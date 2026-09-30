@@ -25,7 +25,7 @@ python -m pip install --quiet --timeout 120 --retries 5 huggingface_hub==2.0.0 o
 mkdir -p /workspace
 python -c "import urllib.request,tarfile; urllib.request.urlretrieve(\"https://nodejs.org/dist/v24.14.0/node-v24.14.0-linux-x64.tar.xz\",\"/tmp/node.tar.xz\");tarfile.open(\"/tmp/node.tar.xz\").extractall(\"/opt\")"
 export PATH=/opt/node-v24.14.0-linux-x64/bin:$PATH
-python -c "from huggingface_hub import hf_hub_download;import tarfile;p=hf_hub_download(\"coyotte508/powergrid-ai-training-v1\",\"strong-source-v28.tgz\",repo_type=\"dataset\", revision=\"1632ae68aabb62fb924a6e119b7704f10dd3da4a\");tarfile.open(p).extractall(\"/workspace\")"
+python -c "from huggingface_hub import hf_hub_download;import tarfile;p=hf_hub_download(\"coyotte508/powergrid-ai-training-v1\",\"strong-source-v32.tgz\",repo_type=\"dataset\", revision=\"37465b08df007221665d796448aea57e6828257e\");tarfile.open(p).extractall(\"/workspace\")"
 cd /workspace
 python -u ai/strong/arena-job.py
 '

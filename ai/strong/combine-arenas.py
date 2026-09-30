@@ -20,9 +20,11 @@ keys = [
     "paired_seats",
     "candidate_search_samples",
     "candidate_geographic_search",
+    "search_max_steps",
 ]
 for report in reports:
     report.setdefault("candidate_search_scope", "all")
+    report.setdefault("search_max_steps", 1200)
     report.setdefault("player_count", 3)
     report.setdefault("candidate_search_model_proposal", True)
 keys.extend(

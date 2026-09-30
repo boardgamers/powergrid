@@ -1,6 +1,7 @@
 """Independent CPU arena, with reserved seeds and per-rule results."""
 
 import sys, argparse, json, time
+import subprocess
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -56,6 +57,16 @@ if args.disable_search_proposal and not args.search_samples:
     p.error("--disable-search-proposal requires positive --search-samples")
 if args.geographic_search and not args.search_samples:
     p.error("--geographic-search requires positive --search-samples")
+search_max_steps = int(
+    subprocess.check_output(
+        [
+            "node",
+            "-e",
+            "console.log(require('./ai/strong/search.cjs').DEFAULT_MAX_STEPS)",
+        ],
+        text=True,
+    )
+)
 model = Model(args.model)
 paired_size = 4 * args.players
 if args.games < paired_size or args.games % paired_size:
@@ -174,6 +185,7 @@ report = {
     else None,
     "paired_seats": True,
     "candidate_search_samples": args.search_samples,
+    "search_max_steps": search_max_steps,
     "candidate_search_scope": args.search_scope,
     "candidate_geographic_search": args.geographic_search,
     "candidate_search_model_proposal": not args.disable_search_proposal,

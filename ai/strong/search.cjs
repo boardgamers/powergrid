@@ -2,6 +2,7 @@
 const c = require('../core.cjs'),
     eco = require('./economics.cjs');
 const { createAnalysisScenario } = require('../../engine/dist/src/analysis.js');
+const DEFAULT_MAX_STEPS = 2400;
 function shortlist(g, seat, limit = 5, geography = false) {
     const a = c.candidates(g, seat),
         v = eco.scores(g, seat, a),
@@ -43,7 +44,7 @@ function choose(
         samples = 6,
         candidates = 5,
         seed = 'public-search',
-        maxSteps = 1200,
+        maxSteps = DEFAULT_MAX_STEPS,
         extraCandidates = [],
         geography = false,
     } = {}
@@ -84,4 +85,4 @@ function choose(
         values: totals,
     };
 }
-module.exports = { choose, shortlist };
+module.exports = { choose, shortlist, DEFAULT_MAX_STEPS };

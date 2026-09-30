@@ -9995,7 +9995,7 @@
         }
     },
     "six_player_search_horizon_investigation": {
-        "status": "DIAGNOSTIC_SUBMITTED",
+        "status": "FIXED_LOCAL_REGRESSION_VERIFIED",
         "current_default_max_steps": 1200,
         "affected_match": {
             "seed": "multiplayer-search-strong-probe-v1-6p-5",
@@ -10005,19 +10005,277 @@
         },
         "truncated_learner_rollouts": 1,
         "total_learner_rollouts": 2327280,
-        "next_action": "Reproduce affected match with diagnostic capture of the capped simulation. Check whether extending that same simulation terminates, then verify outcome parity for unaffected cases before changing defaults. Retain the original report and do not erase truncated counts.",
+        "next_action": "Run new held-out six-player searches with source32, retaining old 1200-step results separately. Final candidate must explicitly specify search_max_steps=2400 when selecting this runtime.",
         "job": "6abd8041404719ba37614703",
         "source": {
-            "archive": "strong-source-v31.tgz",
-            "revision": "9752cbc31db834b8c07b62504997fc0134a8e0ee",
-            "base_revision": "508bc42027cae5bfeea01228b48069c8287b332a",
+            "archive": "strong-source-v32.tgz",
+            "revision": "37465b08df007221665d796448aea57e6828257e",
+            "base_revision": "9752cbc31db834b8c07b62504997fc0134a8e0ee",
             "changed_files": [
-                "ai/strong/diagnose-search-horizon.py",
-                "ai/strong/diagnose-search-horizon.cjs"
+                "ai/strong/search.cjs",
+                "ai/strong/evaluate.py",
+                "ai/strong/combine-arenas.py",
+                "ai/strong/verify-final.py",
+                "ai/strong/diagnose-search-horizon.cjs",
+                "ai/strong/test-search-horizon.cjs",
+                "ai/strong/fixtures/search-horizon-six-player.json"
             ],
-            "archive_sha256": "7aec51dcc2f2af636965c0496705850ed2d2d6b3dee89021d494e26dc6820cb7",
-            "report_revision": "6f9442ff21521c460e5c6abc14ba06efb3a4dd25"
+            "archive_sha256": "b95ab1d8bc8f2bae42e7428d8f7d80e727083c3e48f8c0075d64e6ae16144bfc"
         },
-        "actual_policy": "Original 1200-move cap; diagnostic retry does not change decisions"
+        "actual_policy": "Original 1200-move cap; diagnostic retry does not change decisions",
+        "artifact_revision": "849cea0ecdd648946529d7c4b2769011317d280d",
+        "report": {
+            "exact_terminal_replay": true,
+            "original": {
+                "env": 0,
+                "episode": 127,
+                "gameSeed": "multiplayer-search-strong-probe-v1-6p-5",
+                "truncated": false,
+                "value": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "playerCount": 6,
+                "variant": "recharged",
+                "sealed": false,
+                "steps": 721,
+                "roles": [
+                    "search_geo",
+                    "learner",
+                    "search_geo",
+                    "search_geo",
+                    "search_geo",
+                    "search_geo"
+                ],
+                "policyMoves": {
+                    "Bid": 40,
+                    "Pass": 43,
+                    "BuyResource": 24,
+                    "Build": 10,
+                    "UsePowerPlant": 9,
+                    "ChoosePowerPlant": 8,
+                    "DiscardPowerPlant": 2
+                },
+                "searchStats": {
+                    "search_geo": {
+                        "decisions": 276,
+                        "evaluations": 22400,
+                        "truncated": 0
+                    },
+                    "learner": {
+                        "decisions": 76,
+                        "evaluations": 18768,
+                        "truncated": 1
+                    }
+                },
+                "final": {
+                    "round": 9,
+                    "players": [
+                        {
+                            "cities": 14,
+                            "powered": 14,
+                            "money": 28,
+                            "capacity": 16,
+                            "plants": [
+                                26,
+                                33,
+                                46
+                            ]
+                        },
+                        {
+                            "cities": 10,
+                            "powered": 10,
+                            "money": 19,
+                            "capacity": 18,
+                            "plants": [
+                                31,
+                                34,
+                                36
+                            ]
+                        },
+                        {
+                            "cities": 6,
+                            "powered": 6,
+                            "money": 18,
+                            "capacity": 16,
+                            "plants": [
+                                20,
+                                21,
+                                38
+                            ]
+                        },
+                        {
+                            "cities": 11,
+                            "powered": 11,
+                            "money": 18,
+                            "capacity": 13,
+                            "plants": [
+                                24,
+                                35,
+                                28
+                            ]
+                        },
+                        {
+                            "cities": 13,
+                            "powered": 13,
+                            "money": 6,
+                            "capacity": 15,
+                            "plants": [
+                                27,
+                                32,
+                                42
+                            ]
+                        },
+                        {
+                            "cities": 14,
+                            "powered": 14,
+                            "money": 7,
+                            "capacity": 15,
+                            "plants": [
+                                25,
+                                29,
+                                40
+                            ]
+                        }
+                    ]
+                }
+            },
+            "captures": [
+                {
+                    "seat": 1,
+                    "options": {
+                        "samples": 48,
+                        "candidates": 6,
+                        "extraCandidates": [
+                            39
+                        ],
+                        "geography": true,
+                        "seed": "arena-guided-127-8"
+                    },
+                    "original": {
+                        "index": 0,
+                        "action": {
+                            "name": "Bid",
+                            "data": 12
+                        },
+                        "evaluations": 240,
+                        "truncated": 1,
+                        "winEstimate": 0.16666666666666666,
+                        "values": {
+                            "0": 8,
+                            "1": 6,
+                            "2": 7,
+                            "19": 0,
+                            "39": 6
+                        }
+                    },
+                    "extended": {
+                        "index": 0,
+                        "action": {
+                            "name": "Bid",
+                            "data": 12
+                        },
+                        "evaluations": 240,
+                        "truncated": 0,
+                        "winEstimate": 0.16666666666666666,
+                        "values": {
+                            "0": 8,
+                            "1": 6,
+                            "2": 8,
+                            "19": 0,
+                            "39": 6
+                        }
+                    }
+                }
+            ],
+            "seconds": 774.4660142880166
+        },
+        "new_default_max_steps": 2400,
+        "validation": {
+            "exact_full_game_replay": true,
+            "captured_search_2400_truncated": 0,
+            "chosen_action_unchanged": true,
+            "unaffected_search_parity_player_counts": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "mixed_horizon_combination_rejected": true
+        }
+    },
+    "multiplayer_6p_horizon2400_screen": {
+        "source_revision": "37465b08df007221665d796448aea57e6828257e",
+        "search_max_steps": 2400,
+        "independent_deals": 40,
+        "seed": "multiplayer-search-strong-probe-v1-6p",
+        "jobs": [
+            {
+                "job": "6abd8431fbc85ba68235d111",
+                "run": "multiplayer-hard-e10-search48-h2400-search_geo-6p-0",
+                "deal_offset": 0,
+                "games": 96
+            },
+            {
+                "job": "6abd8432404719ba376147b8",
+                "run": "multiplayer-hard-e10-search48-h2400-search_geo-6p-4",
+                "deal_offset": 4,
+                "games": 96
+            },
+            {
+                "job": "6abd8433fbc85ba68235d113",
+                "run": "multiplayer-hard-e10-search48-h2400-search_geo-6p-8",
+                "deal_offset": 8,
+                "games": 96
+            },
+            {
+                "job": "6abd8434404719ba376147ba",
+                "run": "multiplayer-hard-e10-search48-h2400-search_geo-6p-12",
+                "deal_offset": 12,
+                "games": 96
+            },
+            {
+                "job": "6abd8435fbc85ba68235d115",
+                "run": "multiplayer-hard-e10-search48-h2400-search_geo-6p-16",
+                "deal_offset": 16,
+                "games": 96
+            },
+            {
+                "job": "6abd8436404719ba376147bc",
+                "run": "multiplayer-hard-e10-search48-h2400-search_geo-6p-20",
+                "deal_offset": 20,
+                "games": 96
+            },
+            {
+                "job": "6abd8437fbc85ba68235d117",
+                "run": "multiplayer-hard-e10-search48-h2400-search_geo-6p-24",
+                "deal_offset": 24,
+                "games": 96
+            },
+            {
+                "job": "6abd8438fbc85ba68235d119",
+                "run": "multiplayer-hard-e10-search48-h2400-search_geo-6p-28",
+                "deal_offset": 28,
+                "games": 96
+            },
+            {
+                "job": "6abd843afbc85ba68235d11b",
+                "run": "multiplayer-hard-e10-search48-h2400-search_geo-6p-32",
+                "deal_offset": 32,
+                "games": 96
+            },
+            {
+                "job": "6abd843b404719ba376147be",
+                "run": "multiplayer-hard-e10-search48-h2400-search_geo-6p-36",
+                "deal_offset": 36,
+                "games": 96
+            }
+        ],
+        "scope": "Development screen; old 1200-step reports must not be combined with these"
     }
 }

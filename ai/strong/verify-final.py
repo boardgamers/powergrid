@@ -74,6 +74,10 @@ for path in a.reports:
         f"{name}: wrong search budget",
     )
     require(
+        report.get("search_max_steps", 1200) == candidate.get("search_max_steps", 1200),
+        f"{name}: wrong search simulation horizon",
+    )
+    require(
         report["candidate_geographic_search"] == candidate["geographic_search"],
         f"{name}: wrong geographic search setting",
     )

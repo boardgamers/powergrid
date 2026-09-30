@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const search = require('./search.cjs');
 const choose = search.choose;
 search.choose = function (g, seat, options) {
-    const original = choose(g, seat, options);
+    const original = choose(g, seat, { ...options, maxSteps: 1200 });
     if (original.truncated) {
         const extended = choose(g, seat, { ...options, maxSteps: 2400 });
         const record = { seat, options, original, extended, state: g };

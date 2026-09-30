@@ -90,7 +90,8 @@
         "specialists-heuristic-screen": "6abd39e2fbc85ba68235be7a",
         "specialists-rush-screen": "6abd39e2404719ba37613c5c",
         "specialists-legacy-screen": "6abd39e3fbc85ba68235be7c",
-        "specialists-frozen-a260-screen": "6abd39e4404719ba37613c5e"
+        "specialists-frozen-a260-screen": "6abd39e4404719ba37613c5e",
+        "multiplayer-pipeline-v1": "6abd41d2404719ba37613e0f"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -112,7 +113,10 @@
         "archive": "strong-source-v6.tgz",
         "commit": "cc79acffc12ad4cc1daffbad20b024d2e1f4fe98"
     },
-    "stopped_for_sustained_regression": ["6abd15cafbc85ba68235b347", "6abd15ca404719ba376134e5"],
+    "stopped_for_sustained_regression": [
+        "6abd15cafbc85ba68235b347",
+        "6abd15ca404719ba376134e5"
+    ],
     "all_phase_distillation_source": {
         "archive": "strong-source-v7.tgz",
         "commit": "0862207a0f62cb75edfd0e6ecbc472cdc190bcd0"
@@ -142,7 +146,10 @@
         "commit": "49c872954eaf7761a3ac3453acbf737f569849b2"
     },
     "new_candidate_revision": "b38515c29e57826de05b55b645c29591e4a886bf",
-    "cancelled_wrong_screening_seed": ["6abd2b51404719ba37613954", "6abd2b51404719ba37613956"],
+    "cancelled_wrong_screening_seed": [
+        "6abd2b51404719ba37613954",
+        "6abd2b51404719ba37613956"
+    ],
     "a260_refinement_source": {
         "archive": "strong-source-v12.tgz",
         "commit": "7cc340b37ee051af51346800a15d285cebfb1a39",
@@ -161,7 +168,10 @@
         "strong-refine-v1-search": {
             "job": "6abd2783404719ba37613860",
             "best_evaluation_update": 10,
-            "later_evaluations": [20, 30],
+            "later_evaluations": [
+                20,
+                30
+            ],
             "reason": "Mean economic/heuristic/rush win share declined from 0.5764 at update 10 to 0.5660 at 20 and 0.5347 at 30; every update-30 opponent result was below update 20. Best checkpoint retained; corrected A260 refinement is substantially stronger."
         }
     },
@@ -181,5 +191,23 @@
             "replacement_id": "6abd3b59fbc85ba68235beee",
             "reason": "Terminal ERROR during pip dependency download: files.pythonhosted.org read timeout; no games started. Identical checkpoint, source, scope and seed retried."
         }
-    ]
+    ],
+    "multiplayer_pipeline": {
+        "source_archive": "strong-source-v16.tgz",
+        "source_revision": "6064b1683379153e0a5dbca24903d41a972cbe0a",
+        "git_revision": "6967682",
+        "architecture": "multiplayer",
+        "feature_revision": "4.0-multiplayer",
+        "players": [
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
+        "updates": 10,
+        "envs": 120,
+        "opponent_mode": "mixed_search",
+        "status": "submitted; no strength claim"
+    }
 }

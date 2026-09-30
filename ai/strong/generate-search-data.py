@@ -12,7 +12,14 @@ shard = int(os.environ["SHARD"])
 games = int(os.getenv("GAMES", "128"))
 version = os.getenv("DATA_VERSION", "search-teacher-v1")
 output = Path(f"{version}-{shard}.jsonl.gz")
-counts = {"games": 0, "positions": 0, "teacher_disagreements": 0, "truncated": 0}
+counts = {
+    "games": 0,
+    "positions": 0,
+    "teacher_disagreements": 0,
+    "truncated": 0,
+    "search_rollouts": 0,
+    "search_rollouts_truncated": 0,
+}
 
 
 def generate(game):
@@ -34,6 +41,8 @@ with concurrent.futures.ThreadPoolExecutor(
             game = future.result()
             counts["games"] += 1
             counts["truncated"] += game["truncated"]
+            counts["search_rollouts"] += game["searchStats"]["evaluations"]
+            counts["search_rollouts_truncated"] += game["searchStats"]["truncated"]
             # Keep truncated metadata, but never turn incomplete outcomes into targets.
             if game["truncated"]:
                 game["rows"] = []
@@ -54,6 +63,14 @@ api.upload_file(
 api.upload_file(
     repo_id=repo,
     repo_type="dataset",
-    path_or_fileobj=json.dumps({"shard": shard, "schema": 3, **counts}).encode(),
+    path_or_fileobj=json.dumps(
+        {
+            "shard": shard,
+            "schema": 4 if os.getenv("FEATURE_REVISION") == "4.0-multiplayer" else 3,
+            "feature_revision": os.getenv("FEATURE_REVISION", "3.1-uranium39"),
+            "player_count": int(os.getenv("PLAYER_COUNT", "3")),
+            **counts,
+        }
+    ).encode(),
     path_in_repo=f"{version}/shard-{shard}-metrics.json",
 )

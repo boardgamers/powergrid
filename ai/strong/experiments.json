@@ -8095,5 +8095,22 @@
                 "job_id": "6abd756a404719ba3761453d"
             }
         ]
+    },
+    "strong_teacher_replay_preparation": {
+        "status": "IMPLEMENTED_NOT_TRAINED",
+        "purpose": "Warm-start same architecture/feature contract; retain original teacher examples while learning new hard-state data. Equal base weight for each source/player-count cell; disagreement weights remain additional policy supervision weights.",
+        "data_controls": [
+            "Immutable replay revision required",
+            "Duplicate game seeds rejected across sources",
+            "Whole-game validation split separately within each source, count, seat and rule",
+            "Each source must cover every player count in train and validation"
+        ],
+        "validation": [
+            "Four pure unit tests for source/count balance, legacy balance equivalence, incomplete-source rejection and warm-start contract rejection",
+            "Three existing teacher-contract tests passed",
+            "Actual H200update9checkpoint strict-loaded onCPU without optimization",
+            "Python compile and Ruff checks passed"
+        ],
+        "next_gate": "Package and run HF preflight after all stronger teacher shards pass the audit; no local gradients and no new distillation job yet."
     }
 }

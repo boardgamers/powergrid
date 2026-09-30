@@ -18,6 +18,7 @@ from model import Policy, tensors
 from model_v4 import MultiplayerPolicy
 from teacher_contract import validate_game, validation_seeds
 from distillation_targets import policy_targets
+from distill_data import source_count_weights, validate_initial_checkpoint
 from feature_contract import FEATURE_REVISION, embed_revision
 
 architecture = os.getenv("ARCHITECTURE", "policy")
@@ -43,6 +44,26 @@ device = "cuda"
 net = (
     MultiplayerPolicy(ordered_players=ordered_players) if multiplayer else Policy()
 ).to(device)
+initial_checkpoint = os.getenv("INIT_CHECKPOINT")
+initial_revision = os.getenv("INIT_REVISION")
+if bool(initial_checkpoint) != bool(initial_revision):
+    raise ValueError("Pin both INIT_CHECKPOINT and INIT_REVISION")
+if initial_checkpoint:
+    if len(initial_revision) != 40 or any(
+        c not in "0123456789abcdef" for c in initial_revision
+    ):
+        raise ValueError("INIT_REVISION must be an immutable commit")
+    checkpoint = torch.load(
+        hf_hub_download(
+            os.environ["HF_MODEL_REPO"], initial_checkpoint, revision=initial_revision
+        ),
+        map_location="cpu",
+        weights_only=True,
+    )
+    validate_initial_checkpoint(
+        checkpoint, architecture, FEATURE_REVISION, state_dim, action_dim
+    )
+    net.load_state_dict(checkpoint["state_dict"])
 train, validation = [], []
 dataset_revisions = []
 seen_games = set()
@@ -50,37 +71,64 @@ complete_games = []
 version = os.getenv("DATA_VERSION", "search-teacher-v1")
 target_mode = os.getenv("TARGET_MODE", "hard")
 assert target_mode in ["hard", "soft"]
-for shard in range(int(os.getenv("SHARDS", "4"))):
-    path = hf_hub_download(
-        os.environ["HF_DATA_REPO"],
-        f"{version}/{version}-{shard}.jsonl.gz",
-        repo_type="dataset",
-        revision=os.getenv("DATA_REVISION"),
-    )
-    dataset_revisions.append({"shard": shard, "revision": Path(path).parents[1].name})
-    with gzip.open(path, "rt") as source:
-        for line in source:
-            game = json.loads(line)
-            if game.get("featureRevision", "3.0") != FEATURE_REVISION:
-                raise ValueError(
-                    "Dataset uses a different feature revision; use its archived encoder or regenerate"
-                )
-            if multiplayer:
-                validate_game(game)
-                if game["seed"] in seen_games:
-                    raise ValueError("Duplicate teacher game")
-                seen_games.add(game["seed"])
-            if game["truncated"]:
-                continue
-            for row in game["rows"]:
-                row["player_count"] = game.get("playerCount", 3)
-                row["variant"] = game.get("variant")
-                row["sealed"] = game.get("sealed")
-                row["state"] = np.asarray(row["state"], np.float32)
-                row["actions"] = np.asarray(row["actions"], np.float32)
-            complete_games.append(game)
+sources = [(version, os.getenv("DATA_REVISION"))]
+replay_version, replay_revision = (
+    os.getenv("REPLAY_DATA_VERSION"),
+    os.getenv("REPLAY_DATA_REVISION"),
+)
+if bool(replay_version) != bool(replay_revision):
+    raise ValueError("Pin both replay dataset version and revision")
+if replay_version:
+    if len(replay_revision) != 40 or any(
+        c not in "0123456789abcdef" for c in replay_revision
+    ):
+        raise ValueError("Replay revision must be an immutable commit")
+    sources.append((replay_version, replay_revision))
+for source_index, (source_version, source_revision) in enumerate(sources):
+    for shard in range(int(os.getenv("SHARDS", "4"))):
+        path = hf_hub_download(
+            os.environ["HF_DATA_REPO"],
+            f"{source_version}/{source_version}-{shard}.jsonl.gz",
+            repo_type="dataset",
+            revision=source_revision,
+        )
+        dataset_revisions.append(
+            {
+                "version": source_version,
+                "shard": shard,
+                "revision": Path(path).parents[1].name,
+            }
+        )
+        with gzip.open(path, "rt") as source:
+            for line in source:
+                game = json.loads(line)
+                if game.get("featureRevision", "3.0") != FEATURE_REVISION:
+                    raise ValueError(
+                        "Dataset uses a different feature revision; use its archived encoder or regenerate"
+                    )
+                if multiplayer:
+                    validate_game(game)
+                    if game["seed"] in seen_games:
+                        raise ValueError("Duplicate teacher game")
+                    seen_games.add(game["seed"])
+                if game["truncated"]:
+                    continue
+                game["dataset_source"] = source_index
+                for row in game["rows"]:
+                    row["dataset_source"] = source_index
+                    row["player_count"] = game.get("playerCount", 3)
+                    row["variant"] = game.get("variant")
+                    row["sealed"] = game.get("sealed")
+                    row["state"] = np.asarray(row["state"], np.float32)
+                    row["actions"] = np.asarray(row["actions"], np.float32)
+                complete_games.append(game)
 held_out = (
-    validation_seeds(complete_games)
+    set().union(
+        *(
+            validation_seeds([g for g in complete_games if g["dataset_source"] == i])
+            for i in range(len(sources))
+        )
+    )
     if multiplayer
     else {g["seed"] for g in complete_games if g["id"] % 5 == 0}
 )
@@ -94,12 +142,25 @@ if multiplayer and (
     or set(validation_sizes) != set(player_counts)
 ):
     raise ValueError("Every player count must appear in training and validation")
+balance_weights = source_count_weights(train, player_counts)
+source_count_weights(validation, player_counts)
+for row in train:
+    row["balance_weight"] = balance_weights[
+        (row["dataset_source"], row["player_count"])
+    ]
 print(
     json.dumps(
         {
             "stage": "dataset_loaded",
             "train_counts": dict(count_sizes),
             "validation_counts": dict(validation_sizes),
+            "teacher_sources": dataset_revisions,
+            "train_source_counts": {
+                f"{source}/{n}": count
+                for (source, n), count in Counter(
+                    (r["dataset_source"], r["player_count"]) for r in train
+                ).items()
+            },
         }
     ),
     flush=True,
@@ -118,6 +179,9 @@ def export(name):
             "schema": 4 if multiplayer else 3,
             "architecture": architecture if multiplayer else "policy",
             "feature_revision": FEATURE_REVISION,
+            "initial_checkpoint": initial_checkpoint,
+            "initial_revision": initial_revision,
+            "teacher_sources": dataset_revisions,
             "state_dim": state_dim,
             "action_dim": action_dim,
             "state_dict": {k: v.detach().cpu() for k, v in net.state_dict().items()},
@@ -197,12 +261,7 @@ for epoch in range(int(os.getenv("EPOCHS", "30")) + 1):
                         if r["teacherAgrees"]
                         else float(os.getenv("DISAGREEMENT_WEIGHT", "3"))
                     )
-                    * (
-                        len(train)
-                        / (len(player_counts) * count_sizes[r["player_count"]])
-                        if multiplayer
-                        else 1.0
-                    )
+                    * (r["balance_weight"])
                     for r in rows
                 ],
                 device=device,
@@ -213,12 +272,7 @@ for epoch in range(int(os.getenv("EPOCHS", "30")) + 1):
                 [r["player_count"] for r in rows], device=device
             )
             balance = torch.tensor(
-                [
-                    len(train) / (len(player_counts) * count_sizes[r["player_count"]])
-                    if multiplayer
-                    else 1.0
-                    for r in rows
-                ],
+                [r["balance_weight"] for r in rows],
                 device=device,
             )
             loss = (ce * weights).sum() / weights.sum() + 0.2 * (

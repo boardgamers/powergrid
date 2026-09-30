@@ -1276,7 +1276,7 @@
                 "id": "6abd53d4404719ba37614088",
                 "flavor": "h200",
                 "status": {
-                    "stage": "submitted"
+                    "stage": "RUNNING"
                 }
             },
             "hard": {
@@ -2184,5 +2184,77 @@
         "opponent_mode": "mixed_search",
         "anchor_policy": "initial",
         "rationale": "Independent screening shows higher-count improvement but inadequate 2p and frozen 3p performance. Test terminal-reward refinement while preserving teacher model for comparison; not a promoted candidate."
+    },
+    "multiplayer_search_recovery_2p": {
+        "candidate_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",
+        "model_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
+        "opponent": "economic",
+        "games_per_arm": 160,
+        "independent_deals": 20,
+        "seed": "multiplayer-search-recovery-v1-2p",
+        "jobs": {
+            "search48_geographic": "6abd54b8404719ba3761409e",
+            "raw_control": "6abd54c3fbc85ba68235c558"
+        },
+        "purpose": "Paired development experiment on whether runtime search recovers two-player weakness; separate strength/latency tradeoff, not final qualification.",
+        "raw_result": {
+            "games": 160,
+            "win_rate": 0.49375,
+            "truncated": 0,
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 40,
+                    "win_rate": 0.55,
+                    "independent_seeds": 20,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.4,
+                        0.7
+                    ]
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 40,
+                    "win_rate": 0.45,
+                    "independent_seeds": 20,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.3,
+                        0.6
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 40,
+                    "win_rate": 0.575,
+                    "independent_seeds": 20,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.425,
+                        0.725
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 40,
+                    "win_rate": 0.4,
+                    "independent_seeds": 20,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.225,
+                        0.575
+                    ]
+                }
+            ],
+            "seed_bootstrap_95_interval": [
+                0.40625,
+                0.5875
+            ]
+        }
     }
 }

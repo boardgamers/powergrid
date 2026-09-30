@@ -74,6 +74,11 @@ with tempfile.TemporaryDirectory() as tmp:
         "runtime_git_revision": subprocess.check_output(
             ["git", "rev-parse", "HEAD"], cwd=root, text=True
         ).strip(),
+        "runtime_git_dirty": bool(
+            subprocess.check_output(
+                ["git", "status", "--porcelain"], cwd=root, text=True
+            ).strip()
+        ),
         "search_samples": a.search_samples,
         "search_scope": a.search_scope,
         "geographic_search": a.geographic_search,

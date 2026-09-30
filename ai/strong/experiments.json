@@ -2902,5 +2902,27 @@
         },
         "tests": "node --test ai/strong/test.cjs passed",
         "scope": "Timing is one fixed 2p auction search; no general latency or strength claim. Existing jobs unchanged."
+    },
+    "multiplayer_cpu_training_pilot": {
+        "job_id": "6abd5a79fbc85ba68235c670",
+        "flavor": "cpu-performance",
+        "device": "cpu",
+        "torch_threads": 4,
+        "workers": 16,
+        "envs": 240,
+        "updates": 2,
+        "mixed_player_counts": true,
+        "source_bundle": {
+            "archive": "strong-source-v23.tgz",
+            "revision": "578c024e1cbbdfafa1df11763239ea81954e1e71",
+            "base_archive": "strong-source-v22.tgz",
+            "base_revision": "bcea005fb81ee05c662600b3238cba10d529abc5",
+            "only_replaced_file": "ai/strong/train.py",
+            "archive_sha256": "c6e89a74cb79334e38dca4036db148fd7146316374f2553a7c788851ee53816b"
+        },
+        "initial_checkpoint": "runs/multiplayer-distillation-v2-hard/best.pt",
+        "initial_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",
+        "run": "multiplayer-refine-cpu-pilot-v1",
+        "purpose": "Measure whether HF CPU training is viable while GPU capacity is queued; all optimization remains on HF Jobs. Short pilot is not strength qualification."
     }
 }

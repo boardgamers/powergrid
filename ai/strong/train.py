@@ -31,9 +31,12 @@ seed = int(os.getenv("TRAIN_SEED", "101"))
 random.seed(seed)
 np.random.seed(seed)
 torch.manual_seed(seed)
-torch.set_num_threads(2)
-device = "cuda"
-assert torch.cuda.is_available(), "Training must run on a GPU HF Job"
+torch.set_num_threads(int(os.getenv("TORCH_THREADS", "2")))
+device = os.getenv("TRAIN_DEVICE", "cuda")
+if device not in ["cuda", "cpu"]:
+    raise ValueError("TRAIN_DEVICE must be cuda or cpu")
+if device == "cuda":
+    assert torch.cuda.is_available(), "CUDA training requires a GPU HF Job"
 initial_checkpoint = os.getenv("INIT_CHECKPOINT")
 initial_revision = os.getenv("INIT_REVISION")
 checkpoint = None
@@ -115,6 +118,7 @@ def save(name, export=False):
             "strategic_only": strategic_only,
             "update": update,
             "mixed_player_counts": mix_player_counts,
+            "training_device": device,
             "initial_checkpoint": initial_checkpoint,
             "initial_revision": initial_revision,
             "initial_feature_revision": checkpoint.get("feature_revision", "3.0")
@@ -282,7 +286,9 @@ try:
                 "parameters": sum(p.numel() for p in net.parameters()),
                 "workers": workers,
                 "envs": nenv,
-                "gpu": torch.cuda.get_device_name(),
+                "device": device,
+                "torch_threads": torch.get_num_threads(),
+                "gpu": torch.cuda.get_device_name() if device == "cuda" else None,
             }
         ),
         flush=True,

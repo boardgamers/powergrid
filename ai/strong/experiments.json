@@ -8271,5 +8271,69 @@
         ],
         "source_revision": "1632ae68aabb62fb924a6e119b7704f10dd3da4a",
         "async_arena": true
+    },
+    "multiplayer_geoleague_update9_screening": {
+        "candidate_revision": "aeca4188cbb8a0513c36f201350e7f68b87cb30e",
+        "model_path": "runs/multiplayer-refine-geoleague-async-v1/latest.onnx",
+        "model_sha256": "a70a0957bd5c4d9e32b4ee5aecaa9285451c406e3830a904a3f218f13cfced09",
+        "training_games": 2400,
+        "training_truncated": 0,
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "a70a0957bd5c4d9e32b4ee5aecaa9285451c406e3830a904a3f218f13cfced09",
+            "max_logit_error": 4.57763671875e-05,
+            "max_value_error": 1.6093254089355469e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "jobs": [
+            {
+                "run": "multiplayer-geoleague-u9-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abd79de404719ba376145d3"
+            },
+            {
+                "run": "multiplayer-geoleague-u9-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abd79dffbc85ba68235ce35"
+            },
+            {
+                "run": "multiplayer-geoleague-u9-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abd79e0fbc85ba68235ce37"
+            },
+            {
+                "run": "multiplayer-geoleague-u9-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abd79e0404719ba376145d5"
+            },
+            {
+                "run": "multiplayer-geoleague-u9-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abd79e1404719ba376145d7"
+            },
+            {
+                "run": "multiplayer-geoleague-u9-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abd79e2fbc85ba68235ce39"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Development screening on paired held-out seeds; not final qualification"
     }
 }

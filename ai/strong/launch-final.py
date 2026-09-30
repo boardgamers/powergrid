@@ -108,6 +108,9 @@ for item in plan:
     env.pop("OPPONENT_MODEL_PATH", None)
     env.pop("OPPONENT_MODEL_REVISION", None)
     env["SEARCH_SCOPE"] = candidate.get("search_scope", "all")
+    env["DISABLE_SEARCH_PROPOSAL"] = "0"
+    if multiplayer:
+        env["ASYNC_ARENA"] = "1"
     env["PLAYER_COUNT"] = str(item["player_count"])
     env["DEAL_OFFSET"] = str(item["deal_offset"])
     if "model_path" in opponent:

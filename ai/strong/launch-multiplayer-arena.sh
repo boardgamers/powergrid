@@ -11,7 +11,7 @@ if [[ -n "${OPPONENT_MODEL_PATH:-}" ]]; then
 fi
 hf jobs run --detach --flavor cpu-performance --timeout 3h \
   --secrets HF_TOKEN "${extra_env[@]}" \
-  --env ASYNC_ARENA="${ASYNC_ARENA:-0}" \
+  --env ASYNC_ARENA="${ASYNC_ARENA:-1}" \
   --env DISABLE_SEARCH_PROPOSAL="${DISABLE_SEARCH_PROPOSAL:-0}" \
   --env HF_MODEL_REPO=coyotte508/powergrid-ai-germany-v1 --env SEARCH_SCOPE="${SEARCH_SCOPE:-all}" \
   --env RUN_NAME="${1:?name}" --env MODEL_PATH="${2:?model path}" --env MODEL_REVISION="${3:?revision}" \

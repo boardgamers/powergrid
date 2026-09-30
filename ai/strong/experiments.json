@@ -2697,7 +2697,77 @@
                     0.096875
                 ],
                 "win_rate_delta": 0.040625
+            },
+            "economic_6p": {
+                "games": 960,
+                "independent_seeds": 40,
+                "truncated": 0,
+                "seed_bootstrap_95_interval": [
+                    -0.06980468749999999,
+                    0.018229166666666668
+                ],
+                "win_rate_delta": -0.026041666666666668
             }
-        }
+        },
+        "economic_6p_result": {
+            "games": 960,
+            "win_rate": 0.428125,
+            "truncated": 0,
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 240,
+                    "win_rate": 0.3854166666666667,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.325,
+                        0.4479166666666667
+                    ]
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 240,
+                    "win_rate": 0.38125,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.32083333333333336,
+                        0.44583333333333336
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 240,
+                    "win_rate": 0.44166666666666665,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.375,
+                        0.5041666666666667
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 240,
+                    "win_rate": 0.5041666666666667,
+                    "independent_seeds": 40,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.43333333333333335,
+                        0.575
+                    ]
+                }
+            ],
+            "seed_bootstrap_95_interval": [
+                0.3890625,
+                0.4671875
+            ]
+        },
+        "status": "all screening completed"
     }
 }

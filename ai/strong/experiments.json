@@ -17299,7 +17299,7 @@
                 "search_max_steps": 2400,
                 "async_arena": true,
                 "job_id": "6abdac2efbc85ba68235de89",
-                "observed_stage": "RUNNING",
+                "observed_stage": "COMPLETED",
                 "candidate_geographic_search": false
             },
             "multiplayer-h200-u29-raw-search-geo-h2400-3p-v2": {
@@ -17315,7 +17315,7 @@
                 "search_max_steps": 2400,
                 "async_arena": true,
                 "job_id": "6abdac2efbc85ba68235de8b",
-                "observed_stage": "SCHEDULING",
+                "observed_stage": "RUNNING",
                 "candidate_geographic_search": false
             },
             "multiplayer-h200-u29-raw-search-geo-h2400-4p-v2": {
@@ -17331,7 +17331,7 @@
                 "search_max_steps": 2400,
                 "async_arena": true,
                 "job_id": "6abdac2f404719ba37615150",
-                "observed_stage": "SCHEDULING",
+                "observed_stage": "RUNNING",
                 "candidate_geographic_search": false
             },
             "multiplayer-h200-u29-raw-search-geo-h2400-5p-v2": {
@@ -17347,7 +17347,7 @@
                 "search_max_steps": 2400,
                 "async_arena": true,
                 "job_id": "6abdac30fbc85ba68235de8d",
-                "observed_stage": "SCHEDULING",
+                "observed_stage": "RUNNING",
                 "candidate_geographic_search": false
             },
             "multiplayer-h200-u29-raw-search-geo-h2400-6p-v2": {
@@ -17363,7 +17363,7 @@
                 "search_max_steps": 2400,
                 "async_arena": true,
                 "job_id": "6abdac30fbc85ba68235de8f",
-                "observed_stage": "SCHEDULING",
+                "observed_stage": "RUNNING",
                 "candidate_geographic_search": false
             },
             "multiplayer-hard-e10-raw-search-geo-h2400-2p-v2": {
@@ -17379,7 +17379,7 @@
                 "search_max_steps": 2400,
                 "async_arena": true,
                 "job_id": "6abdac31fbc85ba68235de91",
-                "observed_stage": "SCHEDULING",
+                "observed_stage": "RUNNING",
                 "candidate_geographic_search": false
             },
             "multiplayer-hard-e10-raw-search-geo-h2400-3p-v2": {
@@ -17395,7 +17395,7 @@
                 "search_max_steps": 2400,
                 "async_arena": true,
                 "job_id": "6abdac32404719ba37615152",
-                "observed_stage": "SCHEDULING",
+                "observed_stage": "RUNNING",
                 "candidate_geographic_search": false
             },
             "multiplayer-hard-e10-raw-search-geo-h2400-4p-v2": {
@@ -17411,7 +17411,7 @@
                 "search_max_steps": 2400,
                 "async_arena": true,
                 "job_id": "6abdac32fbc85ba68235de93",
-                "observed_stage": "SCHEDULING",
+                "observed_stage": "RUNNING",
                 "candidate_geographic_search": false
             },
             "multiplayer-hard-e10-raw-search-geo-h2400-5p-v2": {
@@ -17427,7 +17427,7 @@
                 "search_max_steps": 2400,
                 "async_arena": true,
                 "job_id": "6abdac33404719ba37615157",
-                "observed_stage": "SCHEDULING",
+                "observed_stage": "RUNNING",
                 "candidate_geographic_search": false
             },
             "multiplayer-hard-e10-raw-search-geo-h2400-6p-v2": {
@@ -17443,7 +17443,7 @@
                 "search_max_steps": 2400,
                 "async_arena": true,
                 "job_id": "6abdac34404719ba37615159",
-                "observed_stage": "SCHEDULING",
+                "observed_stage": "RUNNING",
                 "candidate_geographic_search": false
             }
         },
@@ -17608,6 +17608,100 @@
                     "observed_stage": "ERROR"
                 }
             }
-        }
+        },
+        "reports": {
+            "multiplayer-h200-u29-raw-search-geo-h2400-2p-v2": {
+                "async_rollout": true,
+                "engine_workers": 64,
+                "player_count": 2,
+                "chance_win_rate": 0.5,
+                "deal_offset": 0,
+                "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/fbdf2bf24c968bff99ab2d7d9ff9a7d97047db2b/runs/multiplayer-refine-hard-v1/latest.onnx",
+                "model_sha256": "d3d2ee88a0940f079a4b38879c8154dbab55951abc7b295a7db17bdf22e52c5f",
+                "model_feature_revision": "4.0-multiplayer",
+                "encoder_feature_revision": "4.0-multiplayer",
+                "opponent": "search_geo",
+                "opponent_sha256": null,
+                "opponent_feature_revision": null,
+                "paired_seats": true,
+                "candidate_search_samples": 0,
+                "search_max_steps": 2400,
+                "candidate_search_scope": "all",
+                "candidate_geographic_search": false,
+                "candidate_search_model_proposal": true,
+                "seed": "multiplayer-raw-search-transfer-v1-2p",
+                "games": 64,
+                "win_rate": 0.28125,
+                "truncated": 0,
+                "seconds": 221.72314867470413,
+                "inference_p95_ms": 1.0433310642838478,
+                "by_rules": [
+                    {
+                        "variant": "original",
+                        "sealed": false,
+                        "games": 16,
+                        "win_rate": 0.125,
+                        "independent_seeds": 8,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.0,
+                            0.3125
+                        ]
+                    },
+                    {
+                        "variant": "original",
+                        "sealed": true,
+                        "games": 16,
+                        "win_rate": 0.3125,
+                        "independent_seeds": 8,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.125,
+                            0.4375
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": false,
+                        "games": 16,
+                        "win_rate": 0.375,
+                        "independent_seeds": 8,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.1875,
+                            0.5
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": true,
+                        "games": 16,
+                        "win_rate": 0.3125,
+                        "independent_seeds": 8,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.0625,
+                            0.5625
+                        ]
+                    }
+                ],
+                "independent_seeds": 8,
+                "seed_bootstrap_95_interval": [
+                    0.1875,
+                    0.390625
+                ],
+                "search_rollouts_reported": true,
+                "search_stats": {
+                    "search_geo": {
+                        "decisions": 3337,
+                        "evaluations": 270832,
+                        "truncated": 0
+                    }
+                },
+                "artifact_revision": "8fcda890c08b9e8b03de86304d3b47a4e8ad588e"
+            }
+        },
+        "paired_against_warm_start": {},
+        "interim_decision": "Retained raw H200 update29 is not a viable universal candidate: 2p versus search_geo is 28.125% on 64 games/8 deals, seed-cluster 95% interval [18.75%,39.0625%], below equal-share 50%. All games and 270832 opponent search rollouts finish without truncation. Warm-start paired result and counts3-6 pending; do not infer training regression or transfer gain yet. Preserve unchanged qualification requirements."
     }
 }

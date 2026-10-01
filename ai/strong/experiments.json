@@ -128,7 +128,13 @@
         "multiplayer-hard-e10-raw-search-geo-h2400-3p-v2": "6abdac32404719ba37615152",
         "multiplayer-hard-e10-raw-search-geo-h2400-4p-v2": "6abdac32fbc85ba68235de93",
         "multiplayer-hard-e10-raw-search-geo-h2400-5p-v2": "6abdac33404719ba37615157",
-        "multiplayer-hard-e10-raw-search-geo-h2400-6p-v2": "6abdac34404719ba37615159"
+        "multiplayer-hard-e10-raw-search-geo-h2400-6p-v2": "6abdac34404719ba37615159",
+        "multiplayer-h200-u49-economic-2p": "6abdb6b7fbc85ba68235e18e",
+        "multiplayer-h200-u49-economic-3p": "6abdb6b7fbc85ba68235e190",
+        "multiplayer-h200-u49-economic-4p": "6abdb6b8fbc85ba68235e193",
+        "multiplayer-h200-u49-economic-5p": "6abdb6b9404719ba37615331",
+        "multiplayer-h200-u49-economic-6p": "6abdb6b9404719ba37615333",
+        "multiplayer-h200-u49-a260-3p": "6abdb6bafbc85ba68235e195"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -18422,5 +18428,78 @@
         "interim_decision": "Paired2-5p complete. Supported overall gains at3-5p, uncertain at2p; no universal raw-model qualification. Five-player original/sealed remains weak and its paired gain is uncertain. Await6p and remaining authorized training checkpoints; final reserved seeds unused.",
         "four_player_interim_decision": "Paired4p comparison complete: retained H200 update29 wins19.53125% versus warm-start3.125%, each128games/8deals. Gain16.40625pp has paired seed-cluster95%CI[7.8125,25.0], supporting transfer improvement on these development deals. Retained-policy interval[12.5%,26.5625%] includes equal-share25%, and point estimate remains below32.5% qualification floor. Both reports pass pairing, hash and zero actual/search truncation checks. Improvement from the weak warm start does not qualify the model. Counts5-6 pending.",
         "five_player_interim_decision": "Paired5p complete: retained H200 update29 wins33.75% versus warm-start5%, gain28.75pp paired95%CI[19.375,36.875],160games/8deals each. Per-rule paired gains: original/open40pp CI[12.5,60], original/sealed5pp CI[-5,15], recharged/open47.5pp CI[30,65], recharged/sealed22.5pp CI[15,30]. Original sealed remains the key unresolved training transfer gap: retained7.5% own95%CI[2.5,15] remains below20% equal share. Recharged sealed improves from zero but superiority over20% is unproven. No promotion despite aggregate gains; next diagnosis should trace original sealed auction decisions and outcome timing. All completed reports have verified hashes/pairings and zero game/search truncation. Both6p and training checkpoints pending."
+    },
+    "multiplayer_h200_update49_screening": {
+        "candidate_revision": "d6adef40b2b836108cd4c3d2e384eefb67a133a0",
+        "model_path": "runs/multiplayer-refine-hard-v1/latest.onnx",
+        "model_sha256": "4191bfe42ccd9c0719e27a76f8f82d3d1289bb93702ba2d4f68873111cb1143e",
+        "training_games": 12000,
+        "training_truncated": 0,
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "4191bfe42ccd9c0719e27a76f8f82d3d1289bb93702ba2d4f68873111cb1143e",
+            "max_logit_error": 4.57763671875e-05,
+            "max_value_error": 2.4139881134033203e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "jobs": [
+            {
+                "run": "multiplayer-h200-u49-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abdb6b7fbc85ba68235e18e",
+                "observed_stage": "RUNNING"
+            },
+            {
+                "run": "multiplayer-h200-u49-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abdb6b7fbc85ba68235e190",
+                "observed_stage": "RUNNING"
+            },
+            {
+                "run": "multiplayer-h200-u49-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abdb6b8fbc85ba68235e193",
+                "observed_stage": "RUNNING"
+            },
+            {
+                "run": "multiplayer-h200-u49-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abdb6b9404719ba37615331",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "multiplayer-h200-u49-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abdb6b9404719ba37615333",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "multiplayer-h200-u49-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abdb6bafbc85ba68235e195",
+                "observed_stage": "SCHEDULING"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Paired held-out development screening; not final qualification",
+        "arena_source": "37465b08df007221665d796448aea57e6828257e",
+        "search_samples": 0,
+        "decision": "Await six complete paired screens; retain update29 until supported improvement. Internal best remains update39; screen new latest update49 explicitly."
     }
 }

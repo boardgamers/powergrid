@@ -149,7 +149,13 @@
         "multiplayer-h200-u49-raw-search-geo-6p-d8": "6abdc7cefbc85ba68235e6ba",
         "multiplayer-h200-u49-raw-search-geo-6p-d16": "6abdc7ce404719ba376156a8",
         "multiplayer-h200-u49-raw-search-geo-6p-d24": "6abdc7cf404719ba376156aa",
-        "multiplayer-h200-u49-raw-search-geo-6p-d32": "6abdc7d0404719ba376156ac"
+        "multiplayer-h200-u49-raw-search-geo-6p-d32": "6abdc7d0404719ba376156ac",
+        "multiplayer-h200-u59-economic-2p": "6abdc8e1404719ba376156be",
+        "multiplayer-h200-u59-economic-3p": "6abdc8e2fbc85ba68235e6e4",
+        "multiplayer-h200-u59-economic-4p": "6abdc8e3404719ba376156c0",
+        "multiplayer-h200-u59-economic-5p": "6abdc8e4404719ba376156c2",
+        "multiplayer-h200-u59-economic-6p": "6abdc8e4404719ba376156c4",
+        "multiplayer-h200-u59-a260-3p": "6abdc8e5404719ba376156c6"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -22385,7 +22391,7 @@
                 "deal_offset": 24,
                 "games": 192,
                 "player_count": 6,
-                "observed_stage": "SCHEDULING"
+                "observed_stage": "RUNNING"
             },
             {
                 "run": "multiplayer-h200-u29-raw-search-geo-6p-d32",
@@ -22394,7 +22400,7 @@
                 "deal_offset": 32,
                 "games": 192,
                 "player_count": 6,
-                "observed_stage": "SCHEDULING"
+                "observed_stage": "RUNNING"
             },
             {
                 "run": "multiplayer-h200-u49-raw-search-geo-6p-d8",
@@ -22403,7 +22409,7 @@
                 "deal_offset": 8,
                 "games": 192,
                 "player_count": 6,
-                "observed_stage": "SCHEDULING"
+                "observed_stage": "RUNNING"
             },
             {
                 "run": "multiplayer-h200-u49-raw-search-geo-6p-d16",
@@ -22412,7 +22418,7 @@
                 "deal_offset": 16,
                 "games": 192,
                 "player_count": 6,
-                "observed_stage": "SCHEDULING"
+                "observed_stage": "RUNNING"
             },
             {
                 "run": "multiplayer-h200-u49-raw-search-geo-6p-d24",
@@ -22421,7 +22427,7 @@
                 "deal_offset": 24,
                 "games": 192,
                 "player_count": 6,
-                "observed_stage": "SCHEDULING"
+                "observed_stage": "RUNNING"
             },
             {
                 "run": "multiplayer-h200-u49-raw-search-geo-6p-d32",
@@ -22430,9 +22436,76 @@
                 "deal_offset": 32,
                 "games": 192,
                 "player_count": 6,
-                "observed_stage": "SCHEDULING"
+                "observed_stage": "RUNNING"
             }
         ],
         "reports": {}
+    },
+    "multiplayer_h200_update59_screening": {
+        "candidate_revision": "053f0bc2f6d8604a8662c2df9a49e2c959b8f28a",
+        "model_path": "runs/multiplayer-refine-hard-v1/latest.onnx",
+        "model_sha256": "139167d592d01db43e2e5f2d18569b751c6c751e65acd4197fe37a3dc0f44d1c",
+        "training_games": 14400,
+        "training_truncated": 0,
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "139167d592d01db43e2e5f2d18569b751c6c751e65acd4197fe37a3dc0f44d1c",
+            "max_logit_error": 4.57763671875e-05,
+            "max_value_error": 3.3080577850341797e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "jobs": [
+            {
+                "run": "multiplayer-h200-u59-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abdc8e1404719ba376156be"
+            },
+            {
+                "run": "multiplayer-h200-u59-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abdc8e2fbc85ba68235e6e4"
+            },
+            {
+                "run": "multiplayer-h200-u59-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abdc8e3404719ba376156c0"
+            },
+            {
+                "run": "multiplayer-h200-u59-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abdc8e4404719ba376156c2"
+            },
+            {
+                "run": "multiplayer-h200-u59-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abdc8e4404719ba376156c4"
+            },
+            {
+                "run": "multiplayer-h200-u59-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abdc8e5404719ba376156c6"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Paired held-out development screening; not final qualification",
+        "arena_source": "37465b08df007221665d796448aea57e6828257e",
+        "search_samples": 0,
+        "decision": "Await six complete paired screens; retain update29 until supported improvement. Internal best remains update39; screen new latest update59 explicitly."
     }
 }

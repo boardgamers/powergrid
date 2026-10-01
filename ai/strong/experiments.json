@@ -16808,5 +16808,443 @@
             }
         },
         "decision": "No promotion. No paired 95% interval versus update29 excludes zero in the positive direction across any of the six screens. Frozen A260 point result declines from 35.5208% to 31.6667%, with uncertain difference; original/open, original/sealed and recharged/sealed remain weak. Retain update29 and other earlier checkpoints. Continue the current authorized training horizon, but do not infer progress from internal checkpoint selection."
+    },
+    "multiplayer_league_selection_audit": {
+        "artifact_revision": "b8898b3086c0dbf196855eefb87b8a35d822a17b",
+        "selection_opponents": [
+            "economic",
+            "heuristic",
+            "rush"
+        ],
+        "independent_deals_per_count": 2,
+        "excluded_from_selection": [
+            "legacy",
+            "search",
+            "search_geo",
+            "frozen_neural_opponents"
+        ],
+        "runs": {
+            "multiplayer-refine-hard-v1": {
+                "metrics_sha256": "64e7154a9b394d389637ccd08321c892dbd3de7ad98ca73226b687bd4f7f543b",
+                "selection_history": [
+                    {
+                        "update": -1,
+                        "selection_score": 0.3097222222222222,
+                        "new_best": true,
+                        "snapshot_update_by_index": [
+                            -1
+                        ]
+                    },
+                    {
+                        "update": 9,
+                        "selection_score": 0.3804166666666667,
+                        "new_best": true,
+                        "snapshot_update_by_index": [
+                            -1,
+                            9
+                        ]
+                    },
+                    {
+                        "update": 19,
+                        "selection_score": 0.4604166666666666,
+                        "new_best": true,
+                        "snapshot_update_by_index": [
+                            -1,
+                            9,
+                            19
+                        ]
+                    },
+                    {
+                        "update": 29,
+                        "selection_score": 0.5116666666666666,
+                        "new_best": true,
+                        "snapshot_update_by_index": [
+                            9,
+                            19,
+                            29
+                        ]
+                    },
+                    {
+                        "update": 39,
+                        "selection_score": 0.5781944444444443,
+                        "new_best": true,
+                        "snapshot_update_by_index": [
+                            19,
+                            29,
+                            39
+                        ]
+                    }
+                ],
+                "training_windows": [
+                    {
+                        "updates": [
+                            0,
+                            9
+                        ],
+                        "opponents": {
+                            "search": {
+                                "games": 309,
+                                "wins": 61,
+                                "truncated": 0
+                            },
+                            "economic": {
+                                "games": 313,
+                                "wins": 85,
+                                "truncated": 0
+                            },
+                            "heuristic": {
+                                "games": 294,
+                                "wins": 169,
+                                "truncated": 0
+                            },
+                            "rush": {
+                                "games": 293,
+                                "wins": 90,
+                                "truncated": 0
+                            },
+                            "snapshot2": {
+                                "games": 285,
+                                "wins": 34,
+                                "truncated": 0
+                            },
+                            "snapshot1": {
+                                "games": 295,
+                                "wins": 39,
+                                "truncated": 0
+                            },
+                            "snapshot0": {
+                                "games": 302,
+                                "wins": 42,
+                                "truncated": 0
+                            }
+                        }
+                    },
+                    {
+                        "updates": [
+                            10,
+                            19
+                        ],
+                        "opponents": {
+                            "economic": {
+                                "games": 300,
+                                "wins": 86,
+                                "truncated": 0
+                            },
+                            "heuristic": {
+                                "games": 308,
+                                "wins": 214,
+                                "truncated": 0
+                            },
+                            "search": {
+                                "games": 307,
+                                "wins": 85.5,
+                                "truncated": 0
+                            },
+                            "rush": {
+                                "games": 307,
+                                "wins": 101,
+                                "truncated": 0
+                            },
+                            "snapshot2": {
+                                "games": 297,
+                                "wins": 49,
+                                "truncated": 0
+                            },
+                            "snapshot0": {
+                                "games": 292,
+                                "wins": 59,
+                                "truncated": 0
+                            },
+                            "snapshot1": {
+                                "games": 286,
+                                "wins": 41,
+                                "truncated": 0
+                            }
+                        }
+                    },
+                    {
+                        "updates": [
+                            20,
+                            29
+                        ],
+                        "opponents": {
+                            "economic": {
+                                "games": 317,
+                                "wins": 110,
+                                "truncated": 0
+                            },
+                            "heuristic": {
+                                "games": 292,
+                                "wins": 208,
+                                "truncated": 0
+                            },
+                            "rush": {
+                                "games": 311,
+                                "wins": 128,
+                                "truncated": 0
+                            },
+                            "search": {
+                                "games": 282,
+                                "wins": 103,
+                                "truncated": 0
+                            },
+                            "snapshot0": {
+                                "games": 303,
+                                "wins": 67,
+                                "truncated": 0
+                            },
+                            "snapshot1": {
+                                "games": 275,
+                                "wins": 46,
+                                "truncated": 0
+                            },
+                            "snapshot2": {
+                                "games": 295,
+                                "wins": 40,
+                                "truncated": 0
+                            }
+                        }
+                    },
+                    {
+                        "updates": [
+                            30,
+                            39
+                        ],
+                        "opponents": {
+                            "rush": {
+                                "games": 300,
+                                "wins": 124,
+                                "truncated": 0
+                            },
+                            "search": {
+                                "games": 294,
+                                "wins": 130,
+                                "truncated": 0
+                            },
+                            "heuristic": {
+                                "games": 300,
+                                "wins": 228,
+                                "truncated": 0
+                            },
+                            "economic": {
+                                "games": 323,
+                                "wins": 124,
+                                "truncated": 0
+                            },
+                            "snapshot0": {
+                                "games": 320,
+                                "wins": 58,
+                                "truncated": 0
+                            },
+                            "snapshot2": {
+                                "games": 287,
+                                "wins": 49,
+                                "truncated": 0
+                            },
+                            "snapshot1": {
+                                "games": 291,
+                                "wins": 50.5,
+                                "truncated": 0
+                            }
+                        }
+                    }
+                ]
+            },
+            "multiplayer-refine-geoleague-async-v1": {
+                "metrics_sha256": "830e1295640f18acad3dc20918e8a84a2c9716f19e9438dc574fde8fd85100a4",
+                "selection_history": [
+                    {
+                        "update": -1,
+                        "selection_score": 0.3097222222222222,
+                        "new_best": true,
+                        "snapshot_update_by_index": [
+                            -1
+                        ]
+                    },
+                    {
+                        "update": 9,
+                        "selection_score": 0.4645833333333333,
+                        "new_best": true,
+                        "snapshot_update_by_index": [
+                            -1,
+                            9
+                        ]
+                    },
+                    {
+                        "update": 19,
+                        "selection_score": 0.5069444444444444,
+                        "new_best": true,
+                        "snapshot_update_by_index": [
+                            -1,
+                            9,
+                            19
+                        ]
+                    },
+                    {
+                        "update": 29,
+                        "selection_score": 0.45749999999999996,
+                        "new_best": false,
+                        "snapshot_update_by_index": [
+                            -1,
+                            9,
+                            19
+                        ]
+                    }
+                ],
+                "training_windows": [
+                    {
+                        "updates": [
+                            0,
+                            9
+                        ],
+                        "opponents": {
+                            "rush": {
+                                "games": 327,
+                                "wins": 87,
+                                "truncated": 0
+                            },
+                            "economic": {
+                                "games": 315,
+                                "wins": 79.5,
+                                "truncated": 0
+                            },
+                            "heuristic": {
+                                "games": 286,
+                                "wins": 167,
+                                "truncated": 0
+                            },
+                            "snapshot2": {
+                                "games": 300,
+                                "wins": 45.5,
+                                "truncated": 0
+                            },
+                            "snapshot1": {
+                                "games": 297,
+                                "wins": 45,
+                                "truncated": 0
+                            },
+                            "snapshot0": {
+                                "games": 283,
+                                "wins": 38,
+                                "truncated": 0
+                            },
+                            "search_geo": {
+                                "games": 298,
+                                "wins": 12,
+                                "truncated": 0
+                            }
+                        }
+                    },
+                    {
+                        "updates": [
+                            10,
+                            19
+                        ],
+                        "opponents": {
+                            "rush": {
+                                "games": 322,
+                                "wins": 114,
+                                "truncated": 0
+                            },
+                            "economic": {
+                                "games": 286,
+                                "wins": 90,
+                                "truncated": 0
+                            },
+                            "heuristic": {
+                                "games": 273,
+                                "wins": 183,
+                                "truncated": 0
+                            },
+                            "snapshot2": {
+                                "games": 277,
+                                "wins": 44,
+                                "truncated": 0
+                            },
+                            "snapshot0": {
+                                "games": 301,
+                                "wins": 49,
+                                "truncated": 0
+                            },
+                            "snapshot1": {
+                                "games": 316,
+                                "wins": 40,
+                                "truncated": 0
+                            },
+                            "search_geo": {
+                                "games": 301,
+                                "wins": 26,
+                                "truncated": 0
+                            }
+                        }
+                    },
+                    {
+                        "updates": [
+                            20,
+                            29
+                        ],
+                        "opponents": {
+                            "rush": {
+                                "games": 328,
+                                "wins": 111,
+                                "truncated": 0
+                            },
+                            "heuristic": {
+                                "games": 296,
+                                "wins": 206,
+                                "truncated": 0
+                            },
+                            "economic": {
+                                "games": 293,
+                                "wins": 102,
+                                "truncated": 0
+                            },
+                            "snapshot2": {
+                                "games": 314,
+                                "wins": 26,
+                                "truncated": 0
+                            },
+                            "snapshot0": {
+                                "games": 296,
+                                "wins": 56,
+                                "truncated": 0
+                            },
+                            "snapshot1": {
+                                "games": 272,
+                                "wins": 43,
+                                "truncated": 0
+                            },
+                            "search_geo": {
+                                "games": 297,
+                                "wins": 28,
+                                "truncated": 0
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "limitations": [
+            "Training opponent summaries pool player counts and rule variants, omit all-learner self-play, and use stochastic learner moves; these are not independent strength estimates.",
+            "Snapshot selection reconstructed from pinned metrics and train.py semantics; checkpoint files do not persist the snapshot pool.",
+            "No causal claim that selection explains the independent screening plateau."
+        ],
+        "next_experiment_constraints": [
+            "Finish the current fixed 80-update runs without changing their configuration.",
+            "If another refinement is needed, separate opponent-pool admission from the two-deal heuristic selection score, retain diverse historical opponents, and validate with stronger held-out opponents.",
+            "Keep final reserved seeds unused until candidate selection and all existing strength gates remain unchanged."
+        ],
+        "status": "COMPLETED_DIAGNOSTIC",
+        "source_commit": "b2697f8",
+        "source_locations": [
+            "ai/strong/train.py:evaluate,selection_score,snapshot admission",
+            "ai/strong/bridge.cjs:reset arena seed mapping",
+            "ai/pool.py:EnginePool reset offsets"
+        ],
+        "independent_evidence": {
+            "multiplayer_h200_update39_screening": "Internal score increased from 0.5116666666666666 to 0.5781944444444443 and admitted update39, but none of six paired 95% intervals against update29 supports a gain.",
+            "multiplayer_geoleague_update29_screening": "Internal score declined and update29 was not admitted; none of six paired comparisons supports improvement over update19."
+        },
+        "decision": "Do not promote using internal best or training win rates. Complete current runs and keep independent checkpoint screening. Future league redesign should decouple opponent admission from this sparse heuristic-only selection and measure whether a diverse retained pool improves held-out strength."
     }
 }

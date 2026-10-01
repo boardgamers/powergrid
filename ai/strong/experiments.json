@@ -25746,5 +25746,92 @@
             }
         },
         "interpretation": "All 3680 screening games completed with zero truncations. Economic 2\u20136p win rates: 59.0625%,62.083333%,62.34375%,79.875%,75.989583%. Frozen A260 3p:39.791667%, below40% floor. Paired improvement versus update49 is supported only at2p and4p; versus update59 only5p and A260 (marginal exploratory intervals). No universal promotion: A260 floor and strict export gate fail. Preserve current80-update horizons; await final H200 checkpoint before additional expensive search comparisons. Existing update49 six-player search result remains the supported raw-policy reference."
+    },
+    "multiplayer_h200_update69_precise_export_probe": {
+        "status": "COMPLETED",
+        "source_checkpoint": {
+            "revision": "1e81a160989c529ce6eaf3bba5b9e955dd07b113",
+            "run": "multiplayer-refine-hard-v1",
+            "update": 69,
+            "hashes": {
+                "latest.onnx": "a2602c3912d75ba3c6568666eb35bbf9d4a8b1e63fa323e4a1d16b4814c30ebb",
+                "latest.pt": "703f1a302a0a9f1df8d4be375087b54f8e64037a3021aa8d7ac0e0520db0f0f9",
+                "best.onnx": "5645ba36ee0aea48f0fd2c00b3499fac13c8df2ecf1270e70b98b24c14e3dcfb",
+                "best.pt": "4f3b589441f24939b52b68ed0fca2688a73adf6b662083ae13d9db04d5cd203c",
+                "metrics.json": "b3402eb5f42fdcbe154d596b5dfe1152fbae0c7d69a338236e00486be839512e",
+                "schema.json": "d3eb65a65cd3bbdfb2e09fc6caff0dc6e0953c1a939dc8ceeeb5c800c491eff6"
+            }
+        },
+        "scope": "Local CPU-only conversion and inference; no gradient training or production changes.",
+        "unoptimized_float32_diagnostic": {
+            "positions": 2553,
+            "reference_details": [
+                {
+                    "position": 2115,
+                    "output": 0,
+                    "player_count": 6,
+                    "mismatches": [
+                        {
+                            "index": [
+                                0,
+                                37
+                            ],
+                            "torch32": -0.0003528594970703125,
+                            "onnx32": -0.0003643035888671875,
+                            "reference64": -0.0003580369047426757
+                        }
+                    ],
+                    "torch_max_error": 6.727506551840179e-06,
+                    "onnx_max_error": 1.3391253787631285e-05,
+                    "winning_margin": 7.573301454443381
+                }
+            ],
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "a2602c3912d75ba3c6568666eb35bbf9d4a8b1e63fa323e4a1d16b4814c30ebb",
+            "max_logit_error": 4.57763671875e-05,
+            "max_value_error": 3.3676624298095703e-06,
+            "all_actions_match": true,
+            "action_mismatches": 0,
+            "tolerance_violation_positions": [
+                1,
+                0
+            ],
+            "specialist_route_counts": {}
+        },
+        "precise_export_parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "1a895ef99ca3a9e66a1c887b97ac185dabf4feac27944874393a74d736725403",
+            "max_logit_error": 3.0517578125e-05,
+            "max_value_error": 1.430511474609375e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "onnx_graph_optimization": "ORT_DISABLE_ALL",
+        "internal_dtype": "float64",
+        "interface_dtype": "float32",
+        "default_runtime_result": "Default ORT optimization produces unsupported double QuickGelu CPU fusion; cannot load with the current default serving settings.",
+        "interpretation": "Higher-precision internal arithmetic with graph optimizations disabled passes the unchanged strict tolerance on all2553 fixtures and preserves every action. This is a distinct export hash, not retroactive qualification of the screened float32 artifact. Requires full serving configuration integration, AMD latency/compatibility validation, and strength qualification before use. Current screened candidate remains unqualified.",
+        "prototype_hashes": {
+            "export-double.py": "1faf4b2fb70fbdb8aee7355e342eef5b8b576fd999cba56b533b392f7629338f",
+            "check-unoptimized.py": "79959c238dd279a0c49c32df3e0e0d3c18eb0dfb9803ceb1ba0dcc6f2f252e48",
+            "precise.onnx": "1a895ef99ca3a9e66a1c887b97ac185dabf4feac27944874393a74d736725403"
+        }
     }
 }

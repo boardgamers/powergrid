@@ -26843,6 +26843,15 @@
         "arena_source": "37465b08df007221665d796448aea57e6828257e",
         "search_samples": 0,
         "decision": "Await six complete paired screens. Latest and internal best both update79; internal selection does not establish external strength.",
-        "reports": {}
+        "reports": {},
+        "training_job_completion": {
+            "job_id": "6abd57b1fbc85ba68235c5fb",
+            "observed_stage": "COMPLETED",
+            "updates": 80,
+            "training_games": 19200,
+            "training_truncated": 0,
+            "checkpoint_revision": "0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a",
+            "note": "Training endpoint complete; six external screens still scheduling. No strength qualification implied."
+        }
     }
 }

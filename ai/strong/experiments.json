@@ -19370,5 +19370,165 @@
         "finding": "This trajectory buys plant26 for42 in round5, leaving16 before resources and10 at building end, with3cities versus9capacity. Round6 adds plant12 for12 and ends with4cities versus10capacity. Final13cities/15capacity loses to15powered. Illustrates early generation spending preceding delayed city growth; it does not prove the purchases were inferior or a universal bidding bug.",
         "next_diagnostic": "Controlled replay alternatives at round5 purchase and building choices, with complete continuations and unchanged public-information constraints; test more trajectories before changing training rewards or policy.",
         "artifact_revision": "0861fa682f9cd0dfae45db4557d1f716b398daea"
+    },
+    "multiplayer_original_sealed_counterfactual_v1": {
+        "status": "COMPLETED_SINGLE_TRAJECTORY_DIAGNOSTIC",
+        "source_replay_revision": "0861fa682f9cd0dfae45db4557d1f716b398daea",
+        "exact_prefix_replay": true,
+        "intervention_index": 218,
+        "intervention": {
+            "requested": {
+                "name": "Bid",
+                "data": 50
+            },
+            "action": {
+                "name": "Bid",
+                "data": 26
+            }
+        },
+        "baseline_terminal": {
+            "round": 10,
+            "players": [
+                {
+                    "cities": 13,
+                    "powered": 13,
+                    "money": 15,
+                    "capacity": 15,
+                    "plants": [
+                        26,
+                        29,
+                        50
+                    ]
+                },
+                {
+                    "cities": 12,
+                    "powered": 12,
+                    "money": 13,
+                    "capacity": 18,
+                    "plants": [
+                        34,
+                        39,
+                        46
+                    ]
+                },
+                {
+                    "cities": 12,
+                    "powered": 12,
+                    "money": 4,
+                    "capacity": 14,
+                    "plants": [
+                        25,
+                        37,
+                        35
+                    ]
+                },
+                {
+                    "cities": 15,
+                    "powered": 15,
+                    "money": 12,
+                    "capacity": 16,
+                    "plants": [
+                        27,
+                        31,
+                        38
+                    ]
+                },
+                {
+                    "cities": 15,
+                    "powered": 15,
+                    "money": 20,
+                    "capacity": 15,
+                    "plants": [
+                        24,
+                        33,
+                        36
+                    ]
+                }
+            ]
+        },
+        "alternative_terminal": {
+            "round": 10,
+            "players": [
+                {
+                    "cities": 15,
+                    "powered": 14,
+                    "money": 36,
+                    "capacity": 14,
+                    "plants": [
+                        24,
+                        21,
+                        39
+                    ]
+                },
+                {
+                    "cities": 13,
+                    "powered": 13,
+                    "money": 12,
+                    "capacity": 15,
+                    "plants": [
+                        26,
+                        27,
+                        36
+                    ]
+                },
+                {
+                    "cities": 13,
+                    "powered": 13,
+                    "money": 10,
+                    "capacity": 15,
+                    "plants": [
+                        25,
+                        33,
+                        50
+                    ]
+                },
+                {
+                    "cities": 13,
+                    "powered": 13,
+                    "money": 3,
+                    "capacity": 17,
+                    "plants": [
+                        31,
+                        34,
+                        30
+                    ]
+                },
+                {
+                    "cities": 15,
+                    "powered": 15,
+                    "money": 0,
+                    "capacity": 16,
+                    "plants": [
+                        20,
+                        29,
+                        38
+                    ]
+                }
+            ]
+        },
+        "baseline_win": 0,
+        "alternative_win": 0,
+        "actual_truncated": false,
+        "search_stats": {
+            "search_geo": {
+                "decisions": 178,
+                "evaluations": 14944,
+                "truncated": 0
+            }
+        },
+        "trace_sha256": "186834b06e8b85c6d7eee70da2ec73789debcfa2136b74bb4079d1e5bfed6805",
+        "pass_branch": {
+            "status": "REJECTED_ILLEGAL_ALTERNATIVE",
+            "reason": "No Pass action in legal candidate set at round5 Bid for nominated plant26; no terminal outcome was generated.",
+            "next_legal_location": "An earlier auction nomination decision would need separate legality validation and replay."
+        },
+        "limitations": [
+            "One selected losing trajectory, not an independent strength estimate.",
+            "Single bid changed from50 to26; subsequent unchanged policies and random streams evolve with the changed game.",
+            "Result remains a loss; higher final powered/city count does not establish better expected win probability.",
+            "Bridge policyMoves counts the requested Bid at the overridden move; executed action is recorded in trace."
+        ],
+        "decision": "The lower bid yields15cities/14powered/36cash versus baseline13cities/13powered/15cash, but both lose. Do not hardcode a bid cap or infer causality across sealed games. Further legal counterfactuals and repeated public-belief continuations are required before training changes.",
+        "artifact_revision": "3878b0883aca1cefa9eca9ca242141bbca260d9e"
     }
 }

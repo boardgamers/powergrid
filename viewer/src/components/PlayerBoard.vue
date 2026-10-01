@@ -13,10 +13,10 @@
         <image
             v-if="supporterBadge"
             :href="supporterBadge.url"
-            x="-33"
-            y="-8"
-            width="13"
-            height="13"
+            x="5"
+            y="4"
+            width="17"
+            height="17"
             :aria-label="supporterBadge.label"
         >
             <title>{{ supporterBadge.label }}</title>
@@ -25,7 +25,7 @@
             :data-bgs-player="owner"
             style="pointer-events: all"
             tabindex="0"
-            x="5"
+            :x="supporterBadge ? 27 : 5"
             y="13"
             font-weight="600"
             :fill="colorText(color)"

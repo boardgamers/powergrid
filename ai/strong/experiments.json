@@ -173,7 +173,13 @@
         "multiplayer-geoleague-u59-economic-4p": "6abde94efbc85ba68235f3cd",
         "multiplayer-geoleague-u59-economic-5p": "6abde94ffbc85ba68235f3cf",
         "multiplayer-geoleague-u59-economic-6p": "6abde94f404719ba37615fc7",
-        "multiplayer-geoleague-u59-a260-3p": "6abde950404719ba37615fc9"
+        "multiplayer-geoleague-u59-a260-3p": "6abde950404719ba37615fc9",
+        "multiplayer-h200-u79-economic-2p": "6abded98fbc85ba68235f5be",
+        "multiplayer-h200-u79-economic-3p": "6abded99fbc85ba68235f5c0",
+        "multiplayer-h200-u79-economic-4p": "6abded9afbc85ba68235f5c2",
+        "multiplayer-h200-u79-economic-5p": "6abded9b404719ba3761615b",
+        "multiplayer-h200-u79-economic-6p": "6abded9bfbc85ba68235f5c4",
+        "multiplayer-h200-u79-a260-3p": "6abded9c404719ba3761615d"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -26764,5 +26770,79 @@
             }
         },
         "interpretation": "All3680 screening games completed with zero actual/search truncations. Economic2\u20136p:57.03125%,56.875%,44.0625%,62.8125%,56.197917%; frozenA2603p34.479167%, below40% floor. Versus geographic19, supported regressions at4p(-12.34375pp,95% paired interval -17.34375 to -7.34375),5p(-5.5625pp,-10.375 to -1),6p(-5.729167pp,-10.416667 to -0.9375); other comparisons with geographic19 uncertain. No promotion or expensive search screening. Preserve existing80-update horizon; checkpoint59 fails strength and strict float32 export gates."
+    },
+    "multiplayer_h200_update79_screening": {
+        "candidate_revision": "0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a",
+        "model_path": "runs/multiplayer-refine-hard-v1/latest.onnx",
+        "model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+        "training_games": 19200,
+        "training_truncated": 0,
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+            "max_logit_error": 6.103515625e-05,
+            "max_value_error": 3.1888484954833984e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "jobs": [
+            {
+                "run": "multiplayer-h200-u79-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abded98fbc85ba68235f5be",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "multiplayer-h200-u79-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abded99fbc85ba68235f5c0",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "multiplayer-h200-u79-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abded9afbc85ba68235f5c2",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "multiplayer-h200-u79-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abded9b404719ba3761615b",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "multiplayer-h200-u79-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abded9bfbc85ba68235f5c4",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "multiplayer-h200-u79-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abded9c404719ba3761615d",
+                "observed_stage": "SCHEDULING"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Paired held-out development screening; not final qualification",
+        "arena_source": "37465b08df007221665d796448aea57e6828257e",
+        "search_samples": 0,
+        "decision": "Await six complete paired screens. Latest and internal best both update79; internal selection does not establish external strength.",
+        "reports": {}
     }
 }

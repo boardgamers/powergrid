@@ -21772,5 +21772,390 @@
             },
             "interpretation": "Concrete feasible extra powered city: buying one uranium still permits every recorded later build. This is a fixed-action continuation, not rerunning neural/search policies after intervention, and not an increase in win probability: winner remains17 powered. Do not turn this single losing-deal score improvement into a claim of general strength or automatically alter reward."
         }
+    },
+    "multiplayer_original_sealed_second_deal_nominations_v1": {
+        "scope": "Exhaust all five legal nomination choices at round4/index186 of second distinct original/sealed5p losing deal. Same frozen model and search_geo16 opponents; exact prefix verified on every intervention. One fixed hidden-world deal, not public-belief expected value or a policy strength evaluation.",
+        "model_revision": "fbdf2bf24c968bff99ab2d7d9ff9a7d97047db2b",
+        "model_sha256": "d3d2ee88a0940f079a4b38879c8154dbab55951abc7b295a7db17bdf22e52c5f",
+        "reports": {
+            "14": {
+                "exact_prefix_replay": true,
+                "intervention_index": 186,
+                "intervention": {
+                    "requested": {
+                        "name": "ChoosePowerPlant",
+                        "data": 37
+                    },
+                    "action": {
+                        "name": "ChoosePowerPlant",
+                        "data": 14
+                    }
+                },
+                "terminal": {
+                    "env": 0,
+                    "episode": 20,
+                    "gameSeed": "multiplayer-raw-search-transfer-v1-5p-1",
+                    "truncated": false,
+                    "value": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        1
+                    ],
+                    "playerCount": 5,
+                    "variant": "original",
+                    "sealed": true,
+                    "steps": 534,
+                    "roles": [
+                        "learner",
+                        "search_geo",
+                        "search_geo",
+                        "search_geo",
+                        "search_geo"
+                    ],
+                    "policyMoves": {
+                        "ChoosePowerPlant": 12,
+                        "Bid": 14,
+                        "BuyResource": 34,
+                        "Pass": 36,
+                        "Build": 11,
+                        "UsePowerPlant": 12,
+                        "DiscardPowerPlant": 3
+                    },
+                    "searchStats": {
+                        "search_geo": {
+                            "decisions": 149,
+                            "evaluations": 12720,
+                            "truncated": 0
+                        }
+                    },
+                    "final": {
+                        "round": 9,
+                        "players": [
+                            {
+                                "cities": 11,
+                                "powered": 11,
+                                "money": 8,
+                                "capacity": 15,
+                                "plants": [
+                                    31,
+                                    29,
+                                    34
+                                ]
+                            },
+                            {
+                                "cities": 8,
+                                "powered": 8,
+                                "money": 21,
+                                "capacity": 16,
+                                "plants": [
+                                    32,
+                                    24,
+                                    50
+                                ]
+                            },
+                            {
+                                "cities": 12,
+                                "powered": 12,
+                                "money": 19,
+                                "capacity": 17,
+                                "plants": [
+                                    26,
+                                    30,
+                                    39
+                                ]
+                            },
+                            {
+                                "cities": 12,
+                                "powered": 12,
+                                "money": 9,
+                                "capacity": 14,
+                                "plants": [
+                                    28,
+                                    27,
+                                    46
+                                ]
+                            },
+                            {
+                                "cities": 16,
+                                "powered": 16,
+                                "money": 21,
+                                "capacity": 19,
+                                "plants": [
+                                    25,
+                                    36,
+                                    38
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "counter_limitation": "bridge policyMoves counts the requested action at the single overridden move; trace contains actual executed action",
+                "selection": "First original/sealed loss by seat on second distinct losing deal; single-trajectory diagnostic, not representative sampling.",
+                "gameSeed": "multiplayer-raw-search-transfer-v1-5p-1",
+                "seat": 0,
+                "episode": 20,
+                "actions_logged": 534,
+                "seconds": 120.92460491699967,
+                "trace_sha256": "bfb27aba711fbe23a7dfdcfd75ce1dc171fe9d2c5bd47afc4375f9b62d575304"
+            },
+            "23": {
+                "exact_prefix_replay": true,
+                "intervention_index": 186,
+                "intervention": {
+                    "requested": {
+                        "name": "ChoosePowerPlant",
+                        "data": 37
+                    },
+                    "action": {
+                        "name": "ChoosePowerPlant",
+                        "data": 23
+                    }
+                },
+                "terminal": {
+                    "env": 0,
+                    "episode": 20,
+                    "gameSeed": "multiplayer-raw-search-transfer-v1-5p-1",
+                    "truncated": false,
+                    "value": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        1
+                    ],
+                    "playerCount": 5,
+                    "variant": "original",
+                    "sealed": true,
+                    "steps": 538,
+                    "roles": [
+                        "learner",
+                        "search_geo",
+                        "search_geo",
+                        "search_geo",
+                        "search_geo"
+                    ],
+                    "policyMoves": {
+                        "ChoosePowerPlant": 11,
+                        "Bid": 12,
+                        "BuyResource": 31,
+                        "Pass": 38,
+                        "Build": 13,
+                        "UsePowerPlant": 13,
+                        "DiscardPowerPlant": 2
+                    },
+                    "searchStats": {
+                        "search_geo": {
+                            "decisions": 150,
+                            "evaluations": 12768,
+                            "truncated": 0
+                        }
+                    },
+                    "final": {
+                        "round": 9,
+                        "players": [
+                            {
+                                "cities": 13,
+                                "powered": 13,
+                                "money": 0,
+                                "capacity": 13,
+                                "plants": [
+                                    23,
+                                    31,
+                                    21
+                                ]
+                            },
+                            {
+                                "cities": 11,
+                                "powered": 11,
+                                "money": 12,
+                                "capacity": 15,
+                                "plants": [
+                                    20,
+                                    32,
+                                    33
+                                ]
+                            },
+                            {
+                                "cities": 11,
+                                "powered": 11,
+                                "money": 41,
+                                "capacity": 11,
+                                "plants": [
+                                    24,
+                                    15,
+                                    29
+                                ]
+                            },
+                            {
+                                "cities": 12,
+                                "powered": 12,
+                                "money": 49,
+                                "capacity": 12,
+                                "plants": [
+                                    28,
+                                    27,
+                                    26
+                                ]
+                            },
+                            {
+                                "cities": 15,
+                                "powered": 15,
+                                "money": 7,
+                                "capacity": 18,
+                                "plants": [
+                                    25,
+                                    36,
+                                    30
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "counter_limitation": "bridge policyMoves counts the requested action at the single overridden move; trace contains actual executed action",
+                "selection": "First original/sealed loss by seat on second distinct losing deal; single-trajectory diagnostic, not representative sampling.",
+                "gameSeed": "multiplayer-raw-search-transfer-v1-5p-1",
+                "seat": 0,
+                "episode": 20,
+                "actions_logged": 538,
+                "seconds": 125.83779679100189,
+                "trace_sha256": "ee6a044665e214748034f93c0283e88d83f751af0500ea8667494a8eca1f9d4e"
+            },
+            "24": {
+                "exact_prefix_replay": true,
+                "intervention_index": 186,
+                "intervention": {
+                    "requested": {
+                        "name": "ChoosePowerPlant",
+                        "data": 37
+                    },
+                    "action": {
+                        "name": "ChoosePowerPlant",
+                        "data": 24
+                    }
+                },
+                "terminal": {
+                    "env": 0,
+                    "episode": 20,
+                    "gameSeed": "multiplayer-raw-search-transfer-v1-5p-1",
+                    "truncated": false,
+                    "value": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        1
+                    ],
+                    "playerCount": 5,
+                    "variant": "original",
+                    "sealed": true,
+                    "steps": 534,
+                    "roles": [
+                        "learner",
+                        "search_geo",
+                        "search_geo",
+                        "search_geo",
+                        "search_geo"
+                    ],
+                    "policyMoves": {
+                        "ChoosePowerPlant": 11,
+                        "Bid": 12,
+                        "BuyResource": 19,
+                        "Pass": 42,
+                        "Build": 8,
+                        "UsePowerPlant": 9,
+                        "DiscardPowerPlant": 2
+                    },
+                    "searchStats": {
+                        "search_geo": {
+                            "decisions": 155,
+                            "evaluations": 13248,
+                            "truncated": 0
+                        }
+                    },
+                    "final": {
+                        "round": 9,
+                        "players": [
+                            {
+                                "cities": 8,
+                                "powered": 8,
+                                "money": 13,
+                                "capacity": 15,
+                                "plants": [
+                                    24,
+                                    36,
+                                    33
+                                ]
+                            },
+                            {
+                                "cities": 9,
+                                "powered": 9,
+                                "money": 20,
+                                "capacity": 17,
+                                "plants": [
+                                    20,
+                                    32,
+                                    39
+                                ]
+                            },
+                            {
+                                "cities": 12,
+                                "powered": 12,
+                                "money": 23,
+                                "capacity": 16,
+                                "plants": [
+                                    26,
+                                    21,
+                                    38
+                                ]
+                            },
+                            {
+                                "cities": 12,
+                                "powered": 12,
+                                "money": 16,
+                                "capacity": 17,
+                                "plants": [
+                                    28,
+                                    31,
+                                    46
+                                ]
+                            },
+                            {
+                                "cities": 15,
+                                "powered": 15,
+                                "money": 59,
+                                "capacity": 15,
+                                "plants": [
+                                    25,
+                                    29,
+                                    30
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "counter_limitation": "bridge policyMoves counts the requested action at the single overridden move; trace contains actual executed action",
+                "selection": "First original/sealed loss by seat on second distinct losing deal; single-trajectory diagnostic, not representative sampling.",
+                "gameSeed": "multiplayer-raw-search-transfer-v1-5p-1",
+                "seat": 0,
+                "episode": 20,
+                "actions_logged": 534,
+                "seconds": 129.30454191899844,
+                "trace_sha256": "55627fc60f2dc7c6d01183f38543f6bc22b794fd0c5671b032e2b349afda4478"
+            }
+        },
+        "final_powered_by_choice": {
+            "37_baseline": 14,
+            "pass": 12,
+            "14": 11,
+            "23": 13,
+            "24": 8
+        },
+        "all_outcomes_loss": true,
+        "decision": "The original plant37 nomination produces the highest final powered count among all five legal choices on this fixed deal with frozen continuation policies; none wins. Reject the proposed local explanation that simply passing or choosing a cheaper plant would repair this loss. Excess generation capacity is a symptom, not proof of this nomination being wrong. Further work should assess earlier network/purchase sequence and more public-consistent worlds, while independent checkpoint strength screens remain the promotion authority.",
+        "artifact_revision": "6b2e9215953296958387f2a80789a38e4a6b54e0",
+        "artifact_path": "runs/original-sealed-second-deal-nominations-v1",
+        "training_performed": false
     }
 }

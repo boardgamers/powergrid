@@ -167,7 +167,13 @@
         "multiplayer-h200-u69-economic-4p": "6abdda3f404719ba37615a0b",
         "multiplayer-h200-u69-economic-5p": "6abdda3f404719ba37615a0d",
         "multiplayer-h200-u69-economic-6p": "6abdda40fbc85ba68235ec1c",
-        "multiplayer-h200-u69-a260-3p": "6abdda41404719ba37615a0f"
+        "multiplayer-h200-u69-a260-3p": "6abdda41404719ba37615a0f",
+        "multiplayer-geoleague-u59-economic-2p": "6abde94dfbc85ba68235f3cb",
+        "multiplayer-geoleague-u59-economic-3p": "6abde94d404719ba37615fc5",
+        "multiplayer-geoleague-u59-economic-4p": "6abde94efbc85ba68235f3cd",
+        "multiplayer-geoleague-u59-economic-5p": "6abde94ffbc85ba68235f3cf",
+        "multiplayer-geoleague-u59-economic-6p": "6abde94f404719ba37615fc7",
+        "multiplayer-geoleague-u59-a260-3p": "6abde950404719ba37615fc9"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -25858,5 +25864,107 @@
             "script_sha256": "bd6a6eb4b5895bc7a6b835d41bf8c14ad93f6f1528ce0470d943f0080d6664fc",
             "interpretation": "Same-position alternating execution on actual8840U, oneCPUthread,25warmups/model. Higher-precision median0.410ms versus0.101ms float32; p95 0.681ms versus0.182ms. Compatible and sub-millisecond for this kernel workload; excludes feature encoding/IPC/search and is not an end-to-end serving or browser benchmark. Does not qualify model strength."
         }
+    },
+    "multiplayer_geoleague_update59_screening": {
+        "candidate_revision": "4fa8935876c0b0c327877dba5b1d7090a600ec1d",
+        "model_path": "runs/multiplayer-refine-geoleague-async-v1/latest.onnx",
+        "model_sha256": "75e0b4698b675d5d063c42f97c0b84b97eed5578d808048ac3d4da97cc4d4797",
+        "training_games": 14400,
+        "training_truncated": 0,
+        "export_diagnostic": {
+            "positions": 2553,
+            "reference_details": [
+                {
+                    "position": 1204,
+                    "output": 0,
+                    "player_count": 4,
+                    "mismatches": [
+                        {
+                            "index": [
+                                0,
+                                13
+                            ],
+                            "torch32": -0.026157379150390625,
+                            "onnx32": -0.026170730590820312,
+                            "reference64": -0.026163796804880235
+                        }
+                    ],
+                    "torch_max_error": 6.4176544896099585e-06,
+                    "onnx_max_error": 1.0946535489608777e-05,
+                    "winning_margin": 1.4176275627726511
+                }
+            ],
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "75e0b4698b675d5d063c42f97c0b84b97eed5578d808048ac3d4da97cc4d4797",
+            "max_logit_error": 4.57763671875e-05,
+            "max_value_error": 3.546476364135742e-06,
+            "all_actions_match": true,
+            "action_mismatches": 0,
+            "tolerance_violation_positions": [
+                1,
+                0
+            ],
+            "specialist_route_counts": {}
+        },
+        "strict_export_parity_passed": false,
+        "qualification_eligible": false,
+        "jobs": [
+            {
+                "run": "multiplayer-geoleague-u59-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abde94dfbc85ba68235f3cb",
+                "observed_stage": "RUNNING"
+            },
+            {
+                "run": "multiplayer-geoleague-u59-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abde94d404719ba37615fc5",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "multiplayer-geoleague-u59-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abde94efbc85ba68235f3cd",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "multiplayer-geoleague-u59-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abde94ffbc85ba68235f3cf",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "multiplayer-geoleague-u59-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abde94f404719ba37615fc7",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "multiplayer-geoleague-u59-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abde950404719ba37615fc9",
+                "observed_stage": "SCHEDULING"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Paired held-out development screening; not final qualification",
+        "arena_source": "37465b08df007221665d796448aea57e6828257e",
+        "search_samples": 0,
+        "decision": "Research-only screening of immutable export: all2553 actions match, but strict numerical parity fails one near-zero logit. Not eligible for qualification. Latest update59 is distinct from internal best update49; screen this immutable candidate explicitly.",
+        "reports": {}
     }
 }

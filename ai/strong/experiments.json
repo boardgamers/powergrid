@@ -187,7 +187,13 @@
         "multiplayer-geoleague-u69-economic-4p": "6abdfe49404719ba376165c6",
         "multiplayer-geoleague-u69-economic-5p": "6abdfe4a404719ba376165c8",
         "multiplayer-geoleague-u69-economic-6p": "6abdfe4bfbc85ba68235fbc5",
-        "multiplayer-geoleague-u69-a260-3p": "6abdfe4b404719ba376165ca"
+        "multiplayer-geoleague-u69-a260-3p": "6abdfe4b404719ba376165ca",
+        "league-admission-periodic-anchor-u9-economic-2p": "6abe04affbc85ba68235fe25",
+        "league-admission-periodic-anchor-u9-economic-3p": "6abe04b0404719ba37616786",
+        "league-admission-periodic-anchor-u9-economic-4p": "6abe04b1fbc85ba68235fe27",
+        "league-admission-periodic-anchor-u9-economic-5p": "6abe04b2fbc85ba68235fe29",
+        "league-admission-periodic-anchor-u9-economic-6p": "6abe04b2404719ba3761678a",
+        "league-admission-periodic-anchor-u9-a260-3p": "6abe04b3fbc85ba68235fe2b"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -27713,7 +27719,10 @@
             "search_evaluations": 446160,
             "search_truncated": 0,
             "interpretation": "Actual training batch used initial and update4 frozen opponents, verifying periodic admission. No external strength inference."
-        }
+        },
+        "screening_keys": [
+            "multiplayer_league_admission_periodic_anchor_update9_screening"
+        ]
     },
     "multiplayer_geoleague_update69_screening": {
         "candidate_revision": "69a52c109a03d4ad3a490587a2094cc7e1f430c0",
@@ -28594,6 +28603,184 @@
                 "Versus H20069 and79: supported economic deficits at4\u20136 players;2p/3p intervals include zero."
             ],
             "uncertainty": "Development-screen seed-cluster intervals are marginal exploratory intervals, not simultaneous guarantees; repeated use of these development deals is not final qualification."
+        }
+    },
+    "multiplayer_league_admission_periodic_anchor_update9_screening": {
+        "candidate_revision": "783e5bf3692bcbd4ea7691385810ba70c892d966",
+        "model_path": "runs/multiplayer-league-admission-v1-periodic-anchor/latest.onnx",
+        "model_sha256": "9f01ca60e2d9a0e0668be7c890836942708d82c57c078e0d814c4919fe181d14",
+        "training_games": 2400,
+        "training_truncated": 0,
+        "training_search_truncated": 0,
+        "snapshot_updates": [
+            -1,
+            4,
+            9
+        ],
+        "arm": "periodic_anchor",
+        "update": 9,
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "9f01ca60e2d9a0e0668be7c890836942708d82c57c078e0d814c4919fe181d14",
+            "max_logit_error": 5.340576171875e-05,
+            "max_value_error": 2.384185791015625e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "jobs": [
+            {
+                "run": "league-admission-periodic-anchor-u9-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abe04affbc85ba68235fe25",
+                "observed_stage": "COMPLETED"
+            },
+            {
+                "run": "league-admission-periodic-anchor-u9-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abe04b0404719ba37616786",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "league-admission-periodic-anchor-u9-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abe04b1fbc85ba68235fe27",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "league-admission-periodic-anchor-u9-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abe04b2fbc85ba68235fe29",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "league-admission-periodic-anchor-u9-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abe04b2404719ba3761678a",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "league-admission-periodic-anchor-u9-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abe04b3fbc85ba68235fe2b",
+                "observed_stage": "SCHEDULING"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Scheduled paired development screen; not final qualification",
+        "protocol": "ai/strong/league-admission-protocol-v1.json",
+        "arena_source": "37465b08df007221665d796448aea57e6828257e",
+        "search_samples": 0,
+        "decision": "Await all six screens and matched opposite arm; do not infer admission benefit from this arm alone.",
+        "reports": {
+            "league-admission-periodic-anchor-u9-economic-2p": {
+                "async_rollout": false,
+                "engine_workers": 24,
+                "player_count": 2,
+                "chance_win_rate": 0.5,
+                "deal_offset": 0,
+                "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/783e5bf3692bcbd4ea7691385810ba70c892d966/runs/multiplayer-league-admission-v1-periodic-anchor/latest.onnx",
+                "model_sha256": "9f01ca60e2d9a0e0668be7c890836942708d82c57c078e0d814c4919fe181d14",
+                "model_feature_revision": "4.0-multiplayer",
+                "encoder_feature_revision": "4.0-multiplayer",
+                "opponent": "economic",
+                "opponent_sha256": null,
+                "opponent_feature_revision": null,
+                "paired_seats": true,
+                "candidate_search_samples": 0,
+                "search_max_steps": 2400,
+                "candidate_search_scope": "all",
+                "candidate_geographic_search": false,
+                "candidate_search_model_proposal": true,
+                "seed": "multiplayer-screening-paired-v1-2p",
+                "games": 320,
+                "win_rate": 0.5765625,
+                "truncated": 0,
+                "seconds": 23.301419578999685,
+                "inference_p95_ms": 0.3577050001695169,
+                "by_rules": [
+                    {
+                        "variant": "original",
+                        "sealed": false,
+                        "games": 80,
+                        "win_rate": 0.5125,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.425,
+                            0.6
+                        ]
+                    },
+                    {
+                        "variant": "original",
+                        "sealed": true,
+                        "games": 80,
+                        "win_rate": 0.5,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.4,
+                            0.6
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": false,
+                        "games": 80,
+                        "win_rate": 0.65625,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.54375,
+                            0.7625
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": true,
+                        "games": 80,
+                        "win_rate": 0.6375,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.5375,
+                            0.7375
+                        ]
+                    }
+                ],
+                "independent_seeds": 40,
+                "seed_bootstrap_95_interval": [
+                    0.51875,
+                    0.6328125
+                ],
+                "search_rollouts_reported": true,
+                "search_stats": {},
+                "artifact_revision": "aa27550c9e337ec4c3fda89f3249e16663dd70a1"
+            }
+        },
+        "paired_against_starting_h200_u29": {
+            "league-admission-periodic-anchor-u9-economic-2p": {
+                "independent_deals": 40,
+                "difference": 0.0421875,
+                "paired_seed_bootstrap_95_interval": [
+                    -0.0296875,
+                    0.1125
+                ]
+            }
         }
     }
 }

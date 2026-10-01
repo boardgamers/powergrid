@@ -17347,7 +17347,7 @@
                 "search_max_steps": 2400,
                 "async_arena": true,
                 "job_id": "6abdac30fbc85ba68235de8d",
-                "observed_stage": "RUNNING",
+                "observed_stage": "COMPLETED",
                 "candidate_geographic_search": false
             },
             "multiplayer-h200-u29-raw-search-geo-h2400-6p-v2": {
@@ -18149,6 +18149,96 @@
                     }
                 },
                 "artifact_revision": "c0adc00b8ea3fe5f447d226c5340ce3ad52a7386"
+            },
+            "multiplayer-h200-u29-raw-search-geo-h2400-5p-v2": {
+                "async_rollout": true,
+                "engine_workers": 160,
+                "player_count": 5,
+                "chance_win_rate": 0.2,
+                "deal_offset": 0,
+                "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/fbdf2bf24c968bff99ab2d7d9ff9a7d97047db2b/runs/multiplayer-refine-hard-v1/latest.onnx",
+                "model_sha256": "d3d2ee88a0940f079a4b38879c8154dbab55951abc7b295a7db17bdf22e52c5f",
+                "model_feature_revision": "4.0-multiplayer",
+                "encoder_feature_revision": "4.0-multiplayer",
+                "opponent": "search_geo",
+                "opponent_sha256": null,
+                "opponent_feature_revision": null,
+                "paired_seats": true,
+                "candidate_search_samples": 0,
+                "search_max_steps": 2400,
+                "candidate_search_scope": "all",
+                "candidate_geographic_search": false,
+                "candidate_search_model_proposal": true,
+                "seed": "multiplayer-raw-search-transfer-v1-5p",
+                "games": 160,
+                "win_rate": 0.3375,
+                "truncated": 0,
+                "seconds": 2414.599975093,
+                "inference_p95_ms": 1.2528380000020434,
+                "by_rules": [
+                    {
+                        "variant": "original",
+                        "sealed": false,
+                        "games": 40,
+                        "win_rate": 0.475,
+                        "independent_seeds": 8,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.275,
+                            0.65
+                        ]
+                    },
+                    {
+                        "variant": "original",
+                        "sealed": true,
+                        "games": 40,
+                        "win_rate": 0.075,
+                        "independent_seeds": 8,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.025,
+                            0.15
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": false,
+                        "games": 40,
+                        "win_rate": 0.575,
+                        "independent_seeds": 8,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.425,
+                            0.75
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": true,
+                        "games": 40,
+                        "win_rate": 0.225,
+                        "independent_seeds": 8,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.15,
+                            0.3
+                        ]
+                    }
+                ],
+                "independent_seeds": 8,
+                "seed_bootstrap_95_interval": [
+                    0.28125,
+                    0.3875
+                ],
+                "search_rollouts_reported": true,
+                "search_stats": {
+                    "search_geo": {
+                        "decisions": 30021,
+                        "evaluations": 2470800,
+                        "truncated": 0
+                    }
+                },
+                "artifact_revision": "afc522c0c8e47c103b2f7085e68a7d1284cffd39"
             }
         },
         "paired_against_warm_start": {
@@ -18178,6 +18268,7 @@
             }
         },
         "interim_decision": "Paired2-4p results complete. Training gains against search_geo are supported at3p and4p on eight development deals each, uncertain at2p. Neither raw policy meets the corresponding strength gates. Await5-6p and remaining authorized training checkpoints; final reserved seeds remain unused.",
-        "four_player_interim_decision": "Paired4p comparison complete: retained H200 update29 wins19.53125% versus warm-start3.125%, each128games/8deals. Gain16.40625pp has paired seed-cluster95%CI[7.8125,25.0], supporting transfer improvement on these development deals. Retained-policy interval[12.5%,26.5625%] includes equal-share25%, and point estimate remains below32.5% qualification floor. Both reports pass pairing, hash and zero actual/search truncation checks. Improvement from the weak warm start does not qualify the model. Counts5-6 pending."
+        "four_player_interim_decision": "Paired4p comparison complete: retained H200 update29 wins19.53125% versus warm-start3.125%, each128games/8deals. Gain16.40625pp has paired seed-cluster95%CI[7.8125,25.0], supporting transfer improvement on these development deals. Retained-policy interval[12.5%,26.5625%] includes equal-share25%, and point estimate remains below32.5% qualification floor. Both reports pass pairing, hash and zero actual/search truncation checks. Improvement from the weak warm start does not qualify the model. Counts5-6 pending.",
+        "five_player_interim_decision": "Retained H200 update29 scores33.75% overall on160games/8deals, CI[28.125%,38.75%], above20% equal share. However original/open47.5%, original/sealed7.5% CI[2.5%,15%], recharged/open57.5%, recharged/sealed22.5% CI[15%,30%]. Original sealed has a supported deficit; recharged sealed superiority is unproven. Overall strength hides major sealed-auction weakness, so no qualification or aggregate-only promotion. All160games and2470800 opponent rollouts complete without truncation. Paired warm-start5p and both6p reports remain pending. Prioritize rule-specific sealed-auction diagnosis after the fixed cohort rather than infer universal strength from aggregate gains."
     }
 }

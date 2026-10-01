@@ -822,7 +822,7 @@ import { PhasePlan, PremoveCommand, canQueuePhases } from 'powergrid-engine/src/
 import { completedPhases } from '../util/round-plan';
 import Resources from './boards/Resources.vue';
 import { LogMove } from 'powergrid-engine/src/log';
-import { Phase, playerTimeUsed, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
+import { isUraniumMine, Phase, playerTimeUsed, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
 import { City } from 'powergrid-engine/src/maps';
 import { formatDuration } from '../util/time';
 import { playerOrderForDisplay } from '../util/player-order';
@@ -2216,6 +2216,11 @@ export default class Game extends Vue {
         let uraniumUsed = 0;
         let hybridUsed = 0;
         for (const powerPlant of player.powerPlants) {
+            // Australia: uranium mines never power cities, so they need no fuel
+            // (there isn't even a uranium row in the main market to buy it from).
+            if (this.G && isUraniumMine(this.G, powerPlant)) {
+                continue;
+            }
             switch (powerPlant.type) {
                 case PowerPlantType.Coal:
                     coalUsed += powerPlant.cost;

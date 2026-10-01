@@ -27692,6 +27692,21 @@
                 "search_evaluations": 337600
             },
             "interpretation": "End-to-end HF optimization verified for both arms; training outcomes are not held-out strength evidence. First planned external comparison is update9."
+        },
+        "periodic_admission_verified": {
+            "job_id": "6abdef76fbc85ba68235f6a0",
+            "evidence": "HF completed train-stage log for update5",
+            "update": 5,
+            "snapshot_updates": [
+                -1,
+                4
+            ],
+            "episodes": 240,
+            "episodes_per_count": 48,
+            "truncated": 0,
+            "search_evaluations": 446160,
+            "search_truncated": 0,
+            "interpretation": "Actual training batch used initial and update4 frozen opponents, verifying periodic admission. No external strength inference."
         }
     }
 }

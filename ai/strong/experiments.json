@@ -19223,5 +19223,152 @@
         "artifact_revision": "afc522c0c8e47c103b2f7085e68a7d1284cffd39",
         "status": "COMPLETED_DESCRIPTIVE_AUDIT",
         "decision": "Trace building timing and auction spending jointly in original/sealed replays. In37losses,28 finish with fewer cities than winner powered count,13 with insufficient generation capacity, and only1 below their own city/capacity output ceiling. The rule split does not by itself establish bidding as the cause; avoid a fuel-only or bidding-only fix without trajectory evidence."
+    },
+    "multiplayer_original_sealed_replay_v1": {
+        "exact_terminal_replay": true,
+        "selection": "First original/sealed loss in sorted gameSeed,seat order; illustrative, not representative sampling.",
+        "gameSeed": "multiplayer-raw-search-transfer-v1-5p-0",
+        "seat": 0,
+        "episode": 0,
+        "actions_logged": 602,
+        "seconds": 124.73933792800017,
+        "ledger": [
+            {
+                "round": 1,
+                "kind": "plant_purchase",
+                "plants": [
+                    3
+                ],
+                "money_before": 50,
+                "money_after": 47,
+                "paid": 3
+            },
+            {
+                "round": 1,
+                "kind": "building_finished",
+                "money": 13,
+                "cities": 2,
+                "capacity": 1
+            },
+            {
+                "round": 2,
+                "kind": "building_finished",
+                "money": 29,
+                "cities": 2,
+                "capacity": 1
+            },
+            {
+                "round": 3,
+                "kind": "plant_purchase",
+                "plants": [
+                    23
+                ],
+                "money_before": 51,
+                "money_after": 23,
+                "paid": 28
+            },
+            {
+                "round": 3,
+                "kind": "building_finished",
+                "money": 8,
+                "cities": 2,
+                "capacity": 4
+            },
+            {
+                "round": 4,
+                "kind": "building_finished",
+                "money": 14,
+                "cities": 3,
+                "capacity": 4
+            },
+            {
+                "round": 5,
+                "kind": "plant_purchase",
+                "plants": [
+                    26
+                ],
+                "money_before": 58,
+                "money_after": 16,
+                "paid": 42
+            },
+            {
+                "round": 5,
+                "kind": "building_finished",
+                "money": 10,
+                "cities": 3,
+                "capacity": 9
+            },
+            {
+                "round": 6,
+                "kind": "plant_purchase",
+                "plants": [
+                    12
+                ],
+                "money_before": 54,
+                "money_after": 42,
+                "paid": 12
+            },
+            {
+                "round": 6,
+                "kind": "building_finished",
+                "money": 15,
+                "cities": 4,
+                "capacity": 10
+            },
+            {
+                "round": 7,
+                "kind": "building_finished",
+                "money": 16,
+                "cities": 6,
+                "capacity": 10
+            },
+            {
+                "round": 8,
+                "kind": "plant_purchase",
+                "plants": [
+                    29
+                ],
+                "money_before": 89,
+                "money_after": 59,
+                "paid": 30
+            },
+            {
+                "round": 8,
+                "kind": "building_finished",
+                "money": 10,
+                "cities": 8,
+                "capacity": 12
+            },
+            {
+                "round": 9,
+                "kind": "building_finished",
+                "money": 23,
+                "cities": 11,
+                "capacity": 12
+            },
+            {
+                "round": 10,
+                "kind": "plant_purchase",
+                "plants": [
+                    50
+                ],
+                "money_before": 135,
+                "money_after": 78,
+                "paid": 57
+            },
+            {
+                "round": 10,
+                "kind": "building_finished",
+                "money": 15,
+                "cities": 13,
+                "capacity": 15
+            }
+        ],
+        "trace_sha256": "073371fe900b47197c15b2e1b7d9c5a41bc91b823ccc21e51ffcb38ef742c252",
+        "model_revision": "fbdf2bf24c968bff99ab2d7d9ff9a7d97047db2b",
+        "model_sha256": "d3d2ee88a0940f079a4b38879c8154dbab55951abc7b295a7db17bdf22e52c5f",
+        "finding": "This trajectory buys plant26 for42 in round5, leaving16 before resources and10 at building end, with3cities versus9capacity. Round6 adds plant12 for12 and ends with4cities versus10capacity. Final13cities/15capacity loses to15powered. Illustrates early generation spending preceding delayed city growth; it does not prove the purchases were inferior or a universal bidding bug.",
+        "next_diagnostic": "Controlled replay alternatives at round5 purchase and building choices, with complete continuations and unchanged public-information constraints; test more trajectories before changing training rewards or policy.",
+        "artifact_revision": "0861fa682f9cd0dfae45db4557d1f716b398daea"
     }
 }

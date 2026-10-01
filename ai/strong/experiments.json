@@ -21490,5 +21490,250 @@
             },
             "finding": "All 537 root moves are legal and every captured before/after state matches direct engine replay. Round4 building Pass is the sole legal action at23 cash: no voluntary refusal of an affordable city. At index186 with60 cash the learner instead has legal nomination choices14,23,24,37 and Pass. Plant37 is acquired at face value37, so reducing its bid is not an available intervention. The next controlled alternative should be Pass at nomination, with exact prefix and complete continuation. This does not yet show that passing improves outcome."
         }
+    },
+    "multiplayer_original_sealed_second_deal_pass_v1": {
+        "exact_prefix_replay": true,
+        "intervention_index": 186,
+        "intervention": {
+            "requested": {
+                "name": "ChoosePowerPlant",
+                "data": 37
+            },
+            "action": {
+                "name": "Pass",
+                "data": true
+            }
+        },
+        "terminal": {
+            "env": 0,
+            "episode": 20,
+            "gameSeed": "multiplayer-raw-search-transfer-v1-5p-1",
+            "truncated": false,
+            "value": [
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "playerCount": 5,
+            "variant": "original",
+            "sealed": true,
+            "steps": 539,
+            "roles": [
+                "learner",
+                "search_geo",
+                "search_geo",
+                "search_geo",
+                "search_geo"
+            ],
+            "policyMoves": {
+                "ChoosePowerPlant": 10,
+                "Bid": 14,
+                "BuyResource": 30,
+                "Pass": 37,
+                "Build": 13,
+                "UsePowerPlant": 11,
+                "DiscardPowerPlant": 2
+            },
+            "searchStats": {
+                "search_geo": {
+                    "decisions": 156,
+                    "evaluations": 13232,
+                    "truncated": 0
+                }
+            },
+            "final": {
+                "round": 9,
+                "players": [
+                    {
+                        "cities": 13,
+                        "powered": 12,
+                        "money": 4,
+                        "capacity": 15,
+                        "plants": [
+                            23,
+                            30,
+                            31
+                        ]
+                    },
+                    {
+                        "cities": 8,
+                        "powered": 8,
+                        "money": 23,
+                        "capacity": 16,
+                        "plants": [
+                            32,
+                            29,
+                            50
+                        ]
+                    },
+                    {
+                        "cities": 11,
+                        "powered": 11,
+                        "money": 26,
+                        "capacity": 16,
+                        "plants": [
+                            26,
+                            21,
+                            38
+                        ]
+                    },
+                    {
+                        "cities": 13,
+                        "powered": 13,
+                        "money": 19,
+                        "capacity": 15,
+                        "plants": [
+                            28,
+                            24,
+                            46
+                        ]
+                    },
+                    {
+                        "cities": 17,
+                        "powered": 17,
+                        "money": 4,
+                        "capacity": 18,
+                        "plants": [
+                            25,
+                            36,
+                            39
+                        ]
+                    }
+                ]
+            }
+        },
+        "counter_limitation": "bridge policyMoves counts the requested action at the single overridden move; trace contains actual executed action",
+        "selection": "First original/sealed loss by seat on second distinct losing deal; single-trajectory diagnostic, not representative sampling.",
+        "gameSeed": "multiplayer-raw-search-transfer-v1-5p-1",
+        "seat": 0,
+        "episode": 20,
+        "actions_logged": 539,
+        "seconds": 106.28592136299994,
+        "baseline_final": {
+            "round": 9,
+            "players": [
+                {
+                    "cities": 14,
+                    "powered": 14,
+                    "money": 4,
+                    "capacity": 15,
+                    "plants": [
+                        37,
+                        21,
+                        38
+                    ]
+                },
+                {
+                    "cities": 10,
+                    "powered": 10,
+                    "money": 25,
+                    "capacity": 16,
+                    "plants": [
+                        20,
+                        32,
+                        34
+                    ]
+                },
+                {
+                    "cities": 11,
+                    "powered": 11,
+                    "money": 28,
+                    "capacity": 16,
+                    "plants": [
+                        26,
+                        29,
+                        36
+                    ]
+                },
+                {
+                    "cities": 13,
+                    "powered": 13,
+                    "money": 17,
+                    "capacity": 13,
+                    "plants": [
+                        28,
+                        27,
+                        31
+                    ]
+                },
+                {
+                    "cities": 15,
+                    "powered": 15,
+                    "money": 60,
+                    "capacity": 15,
+                    "plants": [
+                        25,
+                        30,
+                        33
+                    ]
+                }
+            ]
+        },
+        "building_ledger": [
+            {
+                "round": 1,
+                "cities": 2,
+                "money": 5,
+                "capacity": 2
+            },
+            {
+                "round": 2,
+                "cities": 2,
+                "money": 3,
+                "capacity": 4
+            },
+            {
+                "round": 3,
+                "cities": 2,
+                "money": 27,
+                "capacity": 4
+            },
+            {
+                "round": 4,
+                "cities": 4,
+                "money": 5,
+                "capacity": 4
+            },
+            {
+                "round": 5,
+                "cities": 4,
+                "money": 16,
+                "capacity": 7
+            },
+            {
+                "round": 6,
+                "cities": 5,
+                "money": 10,
+                "capacity": 11
+            },
+            {
+                "round": 7,
+                "cities": 6,
+                "money": 15,
+                "capacity": 15
+            },
+            {
+                "round": 8,
+                "cities": 9,
+                "money": 18,
+                "capacity": 15
+            },
+            {
+                "round": 9,
+                "cities": 13,
+                "money": 4,
+                "capacity": 15
+            }
+        ],
+        "trace_sha256": "ce0863e246c07fd7aee4fd4408fb1c20538ac06f3cc251a963411831b2da2f53",
+        "model_revision": "fbdf2bf24c968bff99ab2d7d9ff9a7d97047db2b",
+        "model_sha256": "d3d2ee88a0940f079a4b38879c8154dbab55951abc7b295a7db17bdf22e52c5f",
+        "finding": "Passing instead of nominating plant37 does not rescue this deal: learner ends with13 cities/12 powered versus baseline14/14; winner improves from15 to17 powered. Both lose. Exact prefix at action186, complete539-move continuation and13232 opponent search rollouts without truncation. Early spare generation capacity alone does not justify a rule to avoid buying. Full trajectories diverge after intervention; this single fixed hidden-world comparison is not an estimate of public-information expected value.",
+        "next_diagnostic": "Compare cheaper legal plant choices and inspect why alternative ends with12 powered despite13 cities and15 capacity; use multiple public-consistent continuations before general policy changes.",
+        "artifact_revision": "b793353f1ac5a6d07aa2a43461500c36cb76b330",
+        "artifact_path": "runs/original-sealed-second-deal-pass-v1",
+        "training_performed": false
     }
 }

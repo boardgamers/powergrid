@@ -16229,9 +16229,584 @@
                 "job_id": "6abda6bc404719ba37614fe4"
             }
         ],
-        "status": "RUNNING",
+        "status": "COMPLETED",
         "scope": "Paired held-out development screening; not final qualification",
         "arena_source": "37465b08df007221665d796448aea57e6828257e",
-        "search_samples": 0
+        "search_samples": 0,
+        "reports": {
+            "2p/economic": {
+                "async_rollout": false,
+                "engine_workers": 24,
+                "player_count": 2,
+                "chance_win_rate": 0.5,
+                "deal_offset": 0,
+                "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/8796a350f9c9eef1d327c0b965abc98b2716cfb9/runs/multiplayer-refine-hard-v1/latest.onnx",
+                "model_sha256": "5645ba36ee0aea48f0fd2c00b3499fac13c8df2ecf1270e70b98b24c14e3dcfb",
+                "model_feature_revision": "4.0-multiplayer",
+                "encoder_feature_revision": "4.0-multiplayer",
+                "opponent": "economic",
+                "opponent_sha256": null,
+                "opponent_feature_revision": null,
+                "paired_seats": true,
+                "candidate_search_samples": 0,
+                "search_max_steps": 2400,
+                "candidate_search_scope": "all",
+                "candidate_geographic_search": false,
+                "candidate_search_model_proposal": true,
+                "seed": "multiplayer-screening-paired-v1-2p",
+                "games": 320,
+                "win_rate": 0.5484375,
+                "truncated": 0,
+                "seconds": 23.362376932000018,
+                "inference_p95_ms": 0.3619089999915559,
+                "by_rules": [
+                    {
+                        "variant": "original",
+                        "sealed": false,
+                        "games": 80,
+                        "win_rate": 0.50625,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.4,
+                            0.6125
+                        ]
+                    },
+                    {
+                        "variant": "original",
+                        "sealed": true,
+                        "games": 80,
+                        "win_rate": 0.475,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.375,
+                            0.575
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": false,
+                        "games": 80,
+                        "win_rate": 0.6375,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.5125,
+                            0.7625
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": true,
+                        "games": 80,
+                        "win_rate": 0.575,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.4625,
+                            0.6875
+                        ]
+                    }
+                ],
+                "independent_seeds": 40,
+                "seed_bootstrap_95_interval": [
+                    0.4890625,
+                    0.6078125
+                ],
+                "search_rollouts_reported": true,
+                "search_stats": {},
+                "artifact_revision": "da2646da6e15de37f97c377c42e992119856c265"
+            },
+            "3p/economic": {
+                "async_rollout": false,
+                "engine_workers": 24,
+                "player_count": 3,
+                "chance_win_rate": 0.3333333333333333,
+                "deal_offset": 0,
+                "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/8796a350f9c9eef1d327c0b965abc98b2716cfb9/runs/multiplayer-refine-hard-v1/latest.onnx",
+                "model_sha256": "5645ba36ee0aea48f0fd2c00b3499fac13c8df2ecf1270e70b98b24c14e3dcfb",
+                "model_feature_revision": "4.0-multiplayer",
+                "encoder_feature_revision": "4.0-multiplayer",
+                "opponent": "economic",
+                "opponent_sha256": null,
+                "opponent_feature_revision": null,
+                "paired_seats": true,
+                "candidate_search_samples": 0,
+                "search_max_steps": 2400,
+                "candidate_search_scope": "all",
+                "candidate_geographic_search": false,
+                "candidate_search_model_proposal": true,
+                "seed": "multiplayer-screening-paired-v1-3p",
+                "games": 480,
+                "win_rate": 0.596875,
+                "truncated": 0,
+                "seconds": 29.373136950000003,
+                "inference_p95_ms": 0.40471579998211377,
+                "by_rules": [
+                    {
+                        "variant": "original",
+                        "sealed": false,
+                        "games": 120,
+                        "win_rate": 0.5333333333333333,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.44166666666666665,
+                            0.6166666666666667
+                        ]
+                    },
+                    {
+                        "variant": "original",
+                        "sealed": true,
+                        "games": 120,
+                        "win_rate": 0.5166666666666667,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.43333333333333335,
+                            0.5916666666666667
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": false,
+                        "games": 120,
+                        "win_rate": 0.7333333333333333,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.65,
+                            0.8083333333333333
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": true,
+                        "games": 120,
+                        "win_rate": 0.6041666666666666,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.5,
+                            0.7083333333333334
+                        ]
+                    }
+                ],
+                "independent_seeds": 40,
+                "seed_bootstrap_95_interval": [
+                    0.5479166666666667,
+                    0.6447916666666667
+                ],
+                "search_rollouts_reported": true,
+                "search_stats": {},
+                "artifact_revision": "da2646da6e15de37f97c377c42e992119856c265"
+            },
+            "4p/economic": {
+                "async_rollout": false,
+                "engine_workers": 24,
+                "player_count": 4,
+                "chance_win_rate": 0.25,
+                "deal_offset": 0,
+                "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/8796a350f9c9eef1d327c0b965abc98b2716cfb9/runs/multiplayer-refine-hard-v1/latest.onnx",
+                "model_sha256": "5645ba36ee0aea48f0fd2c00b3499fac13c8df2ecf1270e70b98b24c14e3dcfb",
+                "model_feature_revision": "4.0-multiplayer",
+                "encoder_feature_revision": "4.0-multiplayer",
+                "opponent": "economic",
+                "opponent_sha256": null,
+                "opponent_feature_revision": null,
+                "paired_seats": true,
+                "candidate_search_samples": 0,
+                "search_max_steps": 2400,
+                "candidate_search_scope": "all",
+                "candidate_geographic_search": false,
+                "candidate_search_model_proposal": true,
+                "seed": "multiplayer-screening-paired-v1-4p",
+                "games": 640,
+                "win_rate": 0.56875,
+                "truncated": 0,
+                "seconds": 39.914446182999995,
+                "inference_p95_ms": 0.4112304999836168,
+                "by_rules": [
+                    {
+                        "variant": "original",
+                        "sealed": false,
+                        "games": 160,
+                        "win_rate": 0.525,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.4375,
+                            0.6125
+                        ]
+                    },
+                    {
+                        "variant": "original",
+                        "sealed": true,
+                        "games": 160,
+                        "win_rate": 0.421875,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.3375,
+                            0.50625
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": false,
+                        "games": 160,
+                        "win_rate": 0.696875,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.6249218750000001,
+                            0.771875
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": true,
+                        "games": 160,
+                        "win_rate": 0.63125,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.54375,
+                            0.71875
+                        ]
+                    }
+                ],
+                "independent_seeds": 40,
+                "seed_bootstrap_95_interval": [
+                    0.5296875,
+                    0.60703125
+                ],
+                "search_rollouts_reported": true,
+                "search_stats": {},
+                "artifact_revision": "da2646da6e15de37f97c377c42e992119856c265"
+            },
+            "5p/economic": {
+                "async_rollout": false,
+                "engine_workers": 24,
+                "player_count": 5,
+                "chance_win_rate": 0.2,
+                "deal_offset": 0,
+                "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/8796a350f9c9eef1d327c0b965abc98b2716cfb9/runs/multiplayer-refine-hard-v1/latest.onnx",
+                "model_sha256": "5645ba36ee0aea48f0fd2c00b3499fac13c8df2ecf1270e70b98b24c14e3dcfb",
+                "model_feature_revision": "4.0-multiplayer",
+                "encoder_feature_revision": "4.0-multiplayer",
+                "opponent": "economic",
+                "opponent_sha256": null,
+                "opponent_feature_revision": null,
+                "paired_seats": true,
+                "candidate_search_samples": 0,
+                "search_max_steps": 2400,
+                "candidate_search_scope": "all",
+                "candidate_geographic_search": false,
+                "candidate_search_model_proposal": true,
+                "seed": "multiplayer-screening-paired-v1-5p",
+                "games": 800,
+                "win_rate": 0.7425,
+                "truncated": 0,
+                "seconds": 46.13328969599996,
+                "inference_p95_ms": 0.4221394499978715,
+                "by_rules": [
+                    {
+                        "variant": "original",
+                        "sealed": false,
+                        "games": 200,
+                        "win_rate": 0.69,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.61,
+                            0.765
+                        ]
+                    },
+                    {
+                        "variant": "original",
+                        "sealed": true,
+                        "games": 200,
+                        "win_rate": 0.695,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.635,
+                            0.755
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": false,
+                        "games": 200,
+                        "win_rate": 0.835,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.775,
+                            0.89
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": true,
+                        "games": 200,
+                        "win_rate": 0.75,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.69,
+                            0.81
+                        ]
+                    }
+                ],
+                "independent_seeds": 40,
+                "seed_bootstrap_95_interval": [
+                    0.7075,
+                    0.775
+                ],
+                "search_rollouts_reported": true,
+                "search_stats": {},
+                "artifact_revision": "da2646da6e15de37f97c377c42e992119856c265"
+            },
+            "6p/economic": {
+                "async_rollout": false,
+                "engine_workers": 24,
+                "player_count": 6,
+                "chance_win_rate": 0.16666666666666666,
+                "deal_offset": 0,
+                "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/8796a350f9c9eef1d327c0b965abc98b2716cfb9/runs/multiplayer-refine-hard-v1/latest.onnx",
+                "model_sha256": "5645ba36ee0aea48f0fd2c00b3499fac13c8df2ecf1270e70b98b24c14e3dcfb",
+                "model_feature_revision": "4.0-multiplayer",
+                "encoder_feature_revision": "4.0-multiplayer",
+                "opponent": "economic",
+                "opponent_sha256": null,
+                "opponent_feature_revision": null,
+                "paired_seats": true,
+                "candidate_search_samples": 0,
+                "search_max_steps": 2400,
+                "candidate_search_scope": "all",
+                "candidate_geographic_search": false,
+                "candidate_search_model_proposal": true,
+                "seed": "multiplayer-screening-paired-v1-6p",
+                "games": 960,
+                "win_rate": 0.69375,
+                "truncated": 0,
+                "seconds": 52.99550231100005,
+                "inference_p95_ms": 0.4283142499872383,
+                "by_rules": [
+                    {
+                        "variant": "original",
+                        "sealed": false,
+                        "games": 240,
+                        "win_rate": 0.7083333333333334,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.6541666666666667,
+                            0.7625
+                        ]
+                    },
+                    {
+                        "variant": "original",
+                        "sealed": true,
+                        "games": 240,
+                        "win_rate": 0.6375,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.5833333333333334,
+                            0.6916666666666667
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": false,
+                        "games": 240,
+                        "win_rate": 0.7458333333333333,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.7,
+                            0.7916666666666666
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": true,
+                        "games": 240,
+                        "win_rate": 0.6833333333333333,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.6208333333333333,
+                            0.7416666666666667
+                        ]
+                    }
+                ],
+                "independent_seeds": 40,
+                "seed_bootstrap_95_interval": [
+                    0.6645833333333333,
+                    0.721875
+                ],
+                "search_rollouts_reported": true,
+                "search_stats": {},
+                "artifact_revision": "da2646da6e15de37f97c377c42e992119856c265"
+            },
+            "3p/a260": {
+                "async_rollout": false,
+                "engine_workers": 24,
+                "player_count": 3,
+                "chance_win_rate": 0.3333333333333333,
+                "deal_offset": 0,
+                "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/8796a350f9c9eef1d327c0b965abc98b2716cfb9/runs/multiplayer-refine-hard-v1/latest.onnx",
+                "model_sha256": "5645ba36ee0aea48f0fd2c00b3499fac13c8df2ecf1270e70b98b24c14e3dcfb",
+                "model_feature_revision": "4.0-multiplayer",
+                "encoder_feature_revision": "4.0-multiplayer",
+                "opponent": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/b38515c29e57826de05b55b645c29591e4a886bf/runs/strong-league-v2-a/best.onnx",
+                "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+                "opponent_feature_revision": "3.0",
+                "paired_seats": true,
+                "candidate_search_samples": 0,
+                "search_max_steps": 2400,
+                "candidate_search_scope": "all",
+                "candidate_geographic_search": false,
+                "candidate_search_model_proposal": true,
+                "seed": "multiplayer-screening-paired-v1-3p",
+                "games": 480,
+                "win_rate": 0.31666666666666665,
+                "truncated": 0,
+                "seconds": 71.35815037100002,
+                "inference_p95_ms": 0.404631999981575,
+                "by_rules": [
+                    {
+                        "variant": "original",
+                        "sealed": false,
+                        "games": 120,
+                        "win_rate": 0.26666666666666666,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.19166666666666668,
+                            0.3416666666666667
+                        ]
+                    },
+                    {
+                        "variant": "original",
+                        "sealed": true,
+                        "games": 120,
+                        "win_rate": 0.26666666666666666,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.18333333333333332,
+                            0.35
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": false,
+                        "games": 120,
+                        "win_rate": 0.475,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.36666666666666664,
+                            0.575
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": true,
+                        "games": 120,
+                        "win_rate": 0.25833333333333336,
+                        "independent_seeds": 40,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.18333333333333332,
+                            0.3416666666666667
+                        ]
+                    }
+                ],
+                "independent_seeds": 40,
+                "seed_bootstrap_95_interval": [
+                    0.26875,
+                    0.36666666666666664
+                ],
+                "search_rollouts_reported": true,
+                "search_stats": {},
+                "artifact_revision": "b8898b3086c0dbf196855eefb87b8a35d822a17b"
+            }
+        },
+        "paired_against_h200_u29": {
+            "2p/economic": {
+                "games": 320,
+                "independent_seeds": 40,
+                "candidate_win_rate": 0.5484375,
+                "baseline_win_rate": 0.534375,
+                "paired_delta": 0.0140625,
+                "paired_seed_bootstrap_95_interval": [
+                    -0.075,
+                    0.1
+                ]
+            },
+            "3p/economic": {
+                "games": 480,
+                "independent_seeds": 40,
+                "candidate_win_rate": 0.596875,
+                "baseline_win_rate": 0.603125,
+                "paired_delta": -0.00625,
+                "paired_seed_bootstrap_95_interval": [
+                    -0.065625,
+                    0.05208333333333333
+                ]
+            },
+            "4p/economic": {
+                "games": 640,
+                "independent_seeds": 40,
+                "candidate_win_rate": 0.56875,
+                "baseline_win_rate": 0.5640625,
+                "paired_delta": 0.0046875,
+                "paired_seed_bootstrap_95_interval": [
+                    -0.0453125,
+                    0.05546875
+                ]
+            },
+            "5p/economic": {
+                "games": 800,
+                "independent_seeds": 40,
+                "candidate_win_rate": 0.7425,
+                "baseline_win_rate": 0.763125,
+                "paired_delta": -0.020625,
+                "paired_seed_bootstrap_95_interval": [
+                    -0.055625,
+                    0.015000000000000003
+                ]
+            },
+            "6p/economic": {
+                "games": 960,
+                "independent_seeds": 40,
+                "candidate_win_rate": 0.69375,
+                "baseline_win_rate": 0.6822916666666666,
+                "paired_delta": 0.011458333333333334,
+                "paired_seed_bootstrap_95_interval": [
+                    -0.028125,
+                    0.051041666666666666
+                ]
+            },
+            "3p/a260": {
+                "games": 480,
+                "independent_seeds": 40,
+                "candidate_win_rate": 0.31666666666666665,
+                "baseline_win_rate": 0.35520833333333335,
+                "paired_delta": -0.03854166666666666,
+                "paired_seed_bootstrap_95_interval": [
+                    -0.0875,
+                    0.010416666666666668
+                ]
+            }
+        },
+        "decision": "No promotion. No paired 95% interval versus update29 excludes zero in the positive direction across any of the six screens. Frozen A260 point result declines from 35.5208% to 31.6667%, with uncertain difference; original/open, original/sealed and recharged/sealed remain weak. Retain update29 and other earlier checkpoints. Continue the current authorized training horizon, but do not infer progress from internal checkpoint selection."
     }
 }

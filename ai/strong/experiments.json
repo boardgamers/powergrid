@@ -217,7 +217,8 @@
         "league-admission-periodic-anchor-u19-economic-4p": "6abe1ad0404719ba37617101",
         "league-admission-periodic-anchor-u19-economic-5p": "6abe1ad1404719ba37617103",
         "league-admission-periodic-anchor-u19-economic-6p": "6abe1ad2fbc85ba682360a72",
-        "league-admission-periodic-anchor-u19-a260-3p": "6abe1ad2404719ba37617105"
+        "league-admission-periodic-anchor-u19-a260-3p": "6abe1ad2404719ba37617105",
+        "teacher-reliability-v1": "6abe1cc8404719ba376171b1"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -32960,5 +32961,29 @@
             }
         },
         "qualification_eligible": false
+    },
+    "teacher_reliability_v1": {
+        "job_id": "6abe1cc8404719ba376171b1",
+        "status": "SCHEDULING",
+        "source_revision": "aee5febe0ea0c60988f76a937521e87956544526",
+        "source_archive": "strong-source-v35.tgz",
+        "source_sha256": "0174bfd5f2b5773eba1c260eadb99fd441d274800b7a2ff23af10b8c402168d5",
+        "base_revision": "2c273f96562d0cc2f8c05a2735d8c0492ab77fd8",
+        "changed_files": [
+            "ai/strong/search.cjs",
+            "ai/strong/test-search-samples.cjs",
+            "ai/strong/audit-search-target.cjs",
+            "ai/strong/audit-search-targets.py",
+            "ai/strong/fixtures/teacher-reliability-v1.jsonl"
+        ],
+        "fixture_sha256": "855b34ad7f07665dfcb012a673147f0780820a9e7560fda268a9a39478c60ff4",
+        "selection": "Median fixture index within each of60 count/rules/action cells; reused development fixtures, not final-test seeds.",
+        "positions": 60,
+        "samples_per_batch": 48,
+        "batches_per_position": 2,
+        "search_max_steps": 2400,
+        "workers": 24,
+        "purpose": "Measure independent-batch ranking stability, tied outcomes, and continuation-policy sensitivity before another distillation run. No gradients, no qualification claim.",
+        "tests": "Search horizon regression and detailed-sample equivalence pass; truncations retained as null outcomes."
     }
 }

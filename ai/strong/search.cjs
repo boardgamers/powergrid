@@ -47,6 +47,7 @@ function choose(
         maxSteps = DEFAULT_MAX_STEPS,
         extraCandidates = [],
         geography = false,
+        includeSamples = false,
     } = {}
 ) {
     const actions = c.candidates(g, seat),
@@ -55,6 +56,7 @@ function choose(
         throw Error('Invalid search proposal');
     if (options.length === 1) return { index: options[0], action: actions[options[0]], evaluations: 0 };
     const totals = Object.fromEntries(options.map((i) => [i, 0]));
+    const sampleOutcomes = includeSamples ? Object.fromEntries(options.map((i) => [i, []])) : null;
     let evaluations = 0,
         truncated = 0;
     for (let sample = 0; sample < samples; sample++) {
@@ -69,8 +71,14 @@ function choose(
                 const move = sample % 2 ? c.heuristic(sim, p, rng).action : eco.choose(sim, p, rng).action;
                 c.E.move(sim, move, p);
             }
-            if (c.E.ended(sim)) totals[index] += c.outcome(sim)[seat];
-            else truncated++;
+            if (c.E.ended(sim)) {
+                const value = c.outcome(sim)[seat];
+                totals[index] += value;
+                if (sampleOutcomes) sampleOutcomes[index].push(value);
+            } else {
+                truncated++;
+                if (sampleOutcomes) sampleOutcomes[index].push(null);
+            }
             evaluations++;
         }
     }
@@ -83,6 +91,7 @@ function choose(
         truncated,
         winEstimate: totals[index] / samples,
         values: totals,
+        ...(sampleOutcomes ? { sampleOutcomes } : {}),
     };
 }
 module.exports = { choose, shortlist, DEFAULT_MAX_STEPS };

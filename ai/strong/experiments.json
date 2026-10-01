@@ -155,7 +155,13 @@
         "multiplayer-h200-u59-economic-4p": "6abdc8e3404719ba376156c0",
         "multiplayer-h200-u59-economic-5p": "6abdc8e4404719ba376156c2",
         "multiplayer-h200-u59-economic-6p": "6abdc8e4404719ba376156c4",
-        "multiplayer-h200-u59-a260-3p": "6abdc8e5404719ba376156c6"
+        "multiplayer-h200-u59-a260-3p": "6abdc8e5404719ba376156c6",
+        "multiplayer-geoleague-u49-economic-2p": "6abdd2e6fbc85ba68235e907",
+        "multiplayer-geoleague-u49-economic-3p": "6abdd2e6fbc85ba68235e909",
+        "multiplayer-geoleague-u49-economic-4p": "6abdd2e7404719ba376157dd",
+        "multiplayer-geoleague-u49-economic-5p": "6abdd2e8404719ba376157df",
+        "multiplayer-geoleague-u49-economic-6p": "6abdd2e8fbc85ba68235e90b",
+        "multiplayer-geoleague-u49-a260-3p": "6abdd2e9404719ba376157e1"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -23175,5 +23181,100 @@
             "truncated": 0,
             "qualified": false
         }
+    },
+    "multiplayer_geoleague_update49_screening": {
+        "candidate_revision": "d3bd8ead55d15b4ebf53e333d617c244203ba76a",
+        "model_path": "runs/multiplayer-refine-geoleague-async-v1/latest.onnx",
+        "model_sha256": "633cbc67bb3162e0e34a666cfab58fe95390e8b5a9630bc5cdb75b86954bd3ed",
+        "training_games": 12000,
+        "training_truncated": 0,
+        "export_diagnostic": {
+            "positions": 2553,
+            "reference_details": [
+                {
+                    "position": 2270,
+                    "output": 0,
+                    "player_count": 6,
+                    "mismatches": [
+                        {
+                            "index": [
+                                0,
+                                34
+                            ],
+                            "torch32": 0.007925033569335938,
+                            "onnx32": 0.007944107055664062,
+                            "reference64": 0.007925065066011427
+                        }
+                    ],
+                    "torch_max_error": 3.7336480183114418e-06,
+                    "onnx_max_error": 1.904198965263504e-05,
+                    "winning_margin": 2.547398677808662
+                }
+            ],
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "633cbc67bb3162e0e34a666cfab58fe95390e8b5a9630bc5cdb75b86954bd3ed",
+            "max_logit_error": 6.866455078125e-05,
+            "max_value_error": 3.039836883544922e-06,
+            "all_actions_match": true,
+            "action_mismatches": 0,
+            "tolerance_violation_positions": [
+                1,
+                0
+            ],
+            "specialist_route_counts": {}
+        },
+        "strict_export_parity_passed": false,
+        "qualification_eligible": false,
+        "jobs": [
+            {
+                "run": "multiplayer-geoleague-u49-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abdd2e6fbc85ba68235e907"
+            },
+            {
+                "run": "multiplayer-geoleague-u49-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abdd2e6fbc85ba68235e909"
+            },
+            {
+                "run": "multiplayer-geoleague-u49-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abdd2e7404719ba376157dd"
+            },
+            {
+                "run": "multiplayer-geoleague-u49-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abdd2e8404719ba376157df"
+            },
+            {
+                "run": "multiplayer-geoleague-u49-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abdd2e8fbc85ba68235e90b"
+            },
+            {
+                "run": "multiplayer-geoleague-u49-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abdd2e9404719ba376157e1"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Paired held-out development screening; not final qualification",
+        "arena_source": "37465b08df007221665d796448aea57e6828257e",
+        "search_samples": 0,
+        "decision": "Research-only screening of immutable export: all2553 actions match, but strict numerical parity fails one near-zero logit. Not eligible for qualification. Latest and internal best now share the update49 ONNX hash; screen this new immutable candidate explicitly."
     }
 }

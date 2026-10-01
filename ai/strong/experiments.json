@@ -15458,5 +15458,71 @@
             }
         },
         "interpretation": "Broad movement into unevaluated actions is not supported: 67 changed-to-unevaluated predictions out of 12308 searched held-out positions. Teacher-estimate improvements are concentrated at 3-4 players while independent play does not improve; no causal diagnosis from aggregate agreement. Avoid adding shortlist masking as an assumed fix. Retain RL as current successful path and investigate teacher-policy mismatch before new distillation."
+    },
+    "multiplayer_geoleague_update29_screening": {
+        "candidate_revision": "a1211645b2ed96fd0f6fc120c3861ae1177c4ca5",
+        "model_path": "runs/multiplayer-refine-geoleague-async-v1/latest.onnx",
+        "model_sha256": "e9705a6944d06acda92a8165dc4de8700e01258801d5933f5f12b24de26a31fa",
+        "training_games": 7200,
+        "training_truncated": 0,
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "e9705a6944d06acda92a8165dc4de8700e01258801d5933f5f12b24de26a31fa",
+            "max_logit_error": 4.1961669921875e-05,
+            "max_value_error": 2.4437904357910156e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "jobs": [
+            {
+                "run": "multiplayer-geoleague-u29-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abda555fbc85ba68235dc44"
+            },
+            {
+                "run": "multiplayer-geoleague-u29-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abda556404719ba37614f72"
+            },
+            {
+                "run": "multiplayer-geoleague-u29-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abda557404719ba37614f74"
+            },
+            {
+                "run": "multiplayer-geoleague-u29-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abda557404719ba37614f76"
+            },
+            {
+                "run": "multiplayer-geoleague-u29-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abda558404719ba37614f78"
+            },
+            {
+                "run": "multiplayer-geoleague-u29-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abda559fbc85ba68235dc46"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Paired held-out development screening; not final qualification",
+        "arena_source": "37465b08df007221665d796448aea57e6828257e",
+        "search_samples": 0
     }
 }

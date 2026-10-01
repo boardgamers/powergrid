@@ -1,6 +1,7 @@
 import { ChatController, ChatMessage, chatSegments } from '@boardgamers/protocol/chat';
 import { mountChat } from '@boardgamers/protocol/chat/dom';
 import { attachChat, ViewerEmitter } from '@boardgamers/protocol/viewer';
+import { resolvePlayerColors, colorText } from './player-colors';
 import { playerColors } from 'powergrid-engine/src/gamestate';
 type ChatEmitter = Pick<ViewerEmitter<any, any>, 'on' | 'emit'>;
 export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): () => void {
@@ -64,6 +65,7 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
 
 `;
     slot.append(style);
+    let colorPreferences: Parameters<typeof resolvePlayerColors>[2];
     let players: { id: number; name: string; color?: string; faction?: string }[] = [];
     let localPlayer: number | undefined;
     let chatVisible = false;
@@ -134,6 +136,14 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
             updateShortcut();
         },
     });
+    // Keep the feed flexible while the composer stays at the bottom of the panel.
+    const panel = slot.querySelector('.bgs-game-chat')!;
+    const body = document.createElement('div');
+    body.className = 'chat-body';
+    for (const child of Array.from(panel.children)) {
+        if (child.tagName !== 'SUMMARY') body.append(child);
+    }
+    panel.append(body);
     function renderAuthor(message: ChatMessage): Node {
         const author = document.createElement('strong');
         author.textContent = message.author || 'Game';
@@ -141,8 +151,9 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
             message.playerIndex ??
             (message.author === 'You' ? localPlayer : players.find((p) => p.name === message.author)?.id);
         if (index !== undefined && playerColors[index]) {
-            author.style.backgroundColor = players.find((p) => p.id === index)?.color || playerColors[index];
-            author.style.color = author.style.backgroundColor === 'brown' ? '#fff' : '#111';
+            const color = resolvePlayerColors(playerColors, players, colorPreferences)[index];
+            author.style.backgroundColor = color;
+            author.style.color = colorText(color);
         }
         return author;
     }
@@ -162,6 +173,8 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
     const dispose = [
         detach,
         emitter.on('preferences', (preferences) => {
+            colorPreferences = preferences;
+            view.refresh();
             chatNotifications = preferences.chatNotifications !== false;
             analysis = preferences.analysis === true;
             slot.hidden = analysis;

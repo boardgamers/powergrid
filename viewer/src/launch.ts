@@ -38,6 +38,7 @@ function launch(selector: string) {
         // from a non-reactive parent — plain-object mutations (the in-game sound/help
         // toggles, platform preference pushes) would only paint on the next re-render.
         preferences: Vue.observable({
+            bgs: {},
             sound: true,
             colorBlind: false,
             disableHelp: false,
@@ -76,6 +77,7 @@ function launch(selector: string) {
         async onPreferences(data) {
             if (!(await localization.setLocale(data.locale))) return;
             Object.assign(params.preferences, data);
+            params.preferences.bgs = (data.bgs ?? {}) as NonNullable<Preferences['bgs']>;
             app.$forceUpdate();
         },
         onAvatars(data) {

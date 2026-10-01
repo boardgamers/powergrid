@@ -590,7 +590,7 @@
                         <tr>
                             <th><div>Player</div></th>
                             <th v-for="player in sortedPlayers" :key="'FS' + player.id">
-                                <div :style="'background-color: ' + playerColors[player.id]">{{ player.name }}</div>
+                                <div :style="{ backgroundColor: playerColors[player.id], color: colorText(playerColors[player.id]) }">{{ player.name }}</div>
                             </th>
                         </tr>
                         <tr v-for="(cat, i) in ['Cities Powered', 'Money', 'Total Cities']" :key="'FC_' + cat">
@@ -615,7 +615,7 @@
                         <tr>
                             <th><div>Player</div></th>
                             <th v-for="player in sortedPlayers" :key="'FS' + player.id">
-                                <div :style="'background-color: ' + playerColors[player.id]">{{ player.name }}</div>
+                                <div :style="{ backgroundColor: playerColors[player.id], color: colorText(playerColors[player.id]) }">{{ player.name }}</div>
                             </th>
                         </tr>
                         <tr v-for="row in spendingRows" :key="'FC_' + row.label">
@@ -776,6 +776,7 @@
 </template>
 <script lang="ts">
 import { isEqual } from 'lodash';
+import { resolvePlayerColors, colorText } from '../player-colors';
 import InlineLog from './InlineLog.vue';
 import { Vue, Component, Prop, Watch, Provide, ProvideReactive, Ref } from 'vue-property-decorator';
 import { MoveName, ended, playersSortedByScore, reconstructState } from 'powergrid-engine';
@@ -1017,18 +1018,14 @@ export default class Game extends Vue {
     G?: GameState | null = null;
     _futureState?: GameState;
 
+    colorText = colorText;
+
     defaultPlayerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', 'yellow', 'brown'];
 
     // Colors indexed by player id. Falls back to the default palette, but any color
     // a player drafted via the chooseColors option overrides their default entry.
     get playerColors() {
-        const colors = [...this.defaultPlayerColors];
-        if (this.G) {
-            for (const p of this.G.players) {
-                if (p.color) colors[p.id] = p.color;
-            }
-        }
-        return colors;
+        return resolvePlayerColors(this.defaultPlayerColors, this.G?.players ?? [], this.preferences);
     }
 
     animationQueue: Array<Function> = [];
@@ -3185,6 +3182,38 @@ text {
 @media (min-width: 1000px) {
     .journal-and-chat {
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+    .journal-and-chat {
+        --feed-panel-height: 280px;
+        --feed-body-height: calc(var(--feed-panel-height) - 42px);
+    }
+    .journal-and-chat .inline-game-log,
+    .journal-and-chat .bgs-game-chat {
+        padding: 10px 14px;
+    }
+    .journal-and-chat details[open] {
+        height: var(--feed-panel-height);
+    }
+    .journal-and-chat summary {
+        line-height: 20px;
+    }
+    .journal-and-chat .journal-feed {
+        height: calc(var(--feed-body-height) - 8px);
+        max-height: none;
+    }
+    .journal-and-chat .chat-body {
+        height: var(--feed-body-height);
+        display: flex;
+        flex-direction: column;
+    }
+    .journal-and-chat .chat-messages {
+        flex: 1;
+        min-height: 0;
+        max-height: none;
+    }
+    .journal-and-chat .chat-composer,
+    .journal-and-chat .chat-status {
+        flex-shrink: 0;
     }
 }
 </style>

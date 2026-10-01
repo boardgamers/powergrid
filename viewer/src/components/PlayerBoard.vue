@@ -10,6 +10,17 @@
                 style="border-radius: 50%"
             />
         </foreignObject>
+        <image
+            v-if="supporterBadge"
+            :href="supporterBadge.url"
+            x="-33"
+            y="-8"
+            width="13"
+            height="13"
+            :aria-label="supporterBadge.label"
+        >
+            <title>{{ supporterBadge.label }}</title>
+        </image>
         <text
             :data-bgs-player="owner"
             style="pointer-events: all"
@@ -17,11 +28,13 @@
             x="5"
             y="13"
             font-weight="600"
-            fill="black"
+            :fill="colorText(color)"
         >
             {{ getPlayerName() }}
         </text>
-        <text v-if="showMoney" x="250" y="13" font-weight="600" fill="black">Money: ${{ player.money }}</text>
+        <text v-if="showMoney" x="250" y="13" font-weight="600" :fill="colorText(color)"
+            >Money: ${{ player.money }}</text
+        >
 
         <Card
             v-for="(powerPlant, i) in player.powerPlants"
@@ -120,6 +133,7 @@
     </g>
 </template>
 <script lang="ts">
+import { colorText } from '../player-colors';
 import { MoveName, Player } from 'powergrid-engine';
 import { Phase, playerTimeUsed, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
 import { Vue, Component, Prop, Inject } from 'vue-property-decorator';
@@ -133,10 +147,11 @@ import { Coal, Oil, Garbage, Uranium, Card } from './pieces';
         Oil,
         Garbage,
         Uranium,
-        Card,
-    },
+        Card
+    }
 })
 export default class PlayerBoard extends Vue {
+    colorText = colorText;
     @Prop() color?: string;
     @Prop() avatar?: string;
     @Prop() player!: Player;
@@ -152,6 +167,12 @@ export default class PlayerBoard extends Vue {
     @Prop() isAustralia?: boolean;
 
     @Inject() preferences!: Preferences;
+
+    get supporterBadge() {
+        return this.owner !== undefined && this.preferences.bgs?.players?.[this.owner]?.pro
+            ? this.preferences.bgs.supporterBadge
+            : undefined;
+    }
 
     powerPlantClicked?: PowerPlant;
 
@@ -292,15 +313,15 @@ export default class PlayerBoard extends Vue {
     get canClickResources() {
         return (
             (this.player.availableMoves && this.player.availableMoves['DiscardResources']) ||
-            this.player.resourcesUsed.some((r) => r == null)
+            this.player.resourcesUsed.some(r => r == null)
         );
     }
 
     clickResource(resourceType) {
         if (this.player.availableMoves && this.player.availableMoves['DiscardResources']) {
             this.$emit('discardResource', resourceType);
-        } else if (this.player.resourcesUsed.some((r) => r == null)) {
-            const index = this.player.resourcesUsed.findIndex((r) => r == null)!;
+        } else if (this.player.resourcesUsed.some(r => r == null)) {
+            const index = this.player.resourcesUsed.findIndex(r => r == null)!;
             this.player.resourcesUsed[index] = resourceType;
 
             if (resourceType == 'coal') {
@@ -309,7 +330,7 @@ export default class PlayerBoard extends Vue {
                 this.player.oilLeft--;
             }
 
-            if (!this.player.resourcesUsed.some((r) => r == null)) {
+            if (!this.player.resourcesUsed.some(r => r == null)) {
                 this.$emit('powerPlantClick', this.powerPlantClicked);
             }
         }

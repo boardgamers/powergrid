@@ -37,6 +37,7 @@ module.exports = {
                 .tap((options) => ({
                     ...options,
                     configFile: join(__dirname, 'tsconfig.json'),
+                    ...(process.env.NODE_ENV === 'test' ? { compilerOptions: { target: 'es2019' } } : {}),
                 }));
         }
         // Webpack 4 predates package exports; resolve the published ESM entry points.

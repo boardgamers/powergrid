@@ -19129,5 +19129,99 @@
         "search_max_steps": 2400,
         "async_arena": true,
         "analysis_plan": "Validate full report and pair exact gameSeed/rule/seat sets with retained update29 and original hard epoch10 search transfer reports. Seed-cluster paired bootstrap20000 draws seed623. Eight development deals diagnostic only; preserve all strength gates and final reserved seeds."
+    },
+    "multiplayer_h200_update29_five_player_terminal_audit": {
+        "run": "multiplayer-h200-u29-raw-search-geo-h2400-5p-v2",
+        "model_sha256": "d3d2ee88a0940f079a4b38879c8154dbab55951abc7b295a7db17bdf22e52c5f",
+        "by_rules": [
+            {
+                "variant": "original",
+                "sealed": false,
+                "games": 40,
+                "losses": 21,
+                "loss_counts": {
+                    "cities_below_winner_power": 16,
+                    "capacity_below_winner_power": 5,
+                    "powered_below_city_capacity_ceiling": 1,
+                    "money_above_winner_mean": 10
+                },
+                "loss_medians": {
+                    "money": 30,
+                    "cities": 14,
+                    "capacity": 17,
+                    "powered": 14,
+                    "winner_powered": 15,
+                    "round": 10
+                }
+            },
+            {
+                "variant": "original",
+                "sealed": true,
+                "games": 40,
+                "losses": 37,
+                "loss_counts": {
+                    "cities_below_winner_power": 28,
+                    "capacity_below_winner_power": 13,
+                    "powered_below_city_capacity_ceiling": 1,
+                    "money_above_winner_mean": 18
+                },
+                "loss_medians": {
+                    "money": 19,
+                    "cities": 14,
+                    "capacity": 15,
+                    "powered": 14,
+                    "winner_powered": 16,
+                    "round": 10
+                }
+            },
+            {
+                "variant": "recharged",
+                "sealed": false,
+                "games": 40,
+                "losses": 17,
+                "loss_counts": {
+                    "cities_below_winner_power": 14,
+                    "capacity_below_winner_power": 4,
+                    "powered_below_city_capacity_ceiling": 0,
+                    "money_above_winner_mean": 11
+                },
+                "loss_medians": {
+                    "money": 27,
+                    "cities": 14,
+                    "capacity": 16,
+                    "powered": 14,
+                    "winner_powered": 15,
+                    "round": 9
+                }
+            },
+            {
+                "variant": "recharged",
+                "sealed": true,
+                "games": 40,
+                "losses": 31,
+                "loss_counts": {
+                    "cities_below_winner_power": 28,
+                    "capacity_below_winner_power": 14,
+                    "powered_below_city_capacity_ceiling": 1,
+                    "money_above_winner_mean": 13
+                },
+                "loss_medians": {
+                    "money": 17,
+                    "cities": 13,
+                    "capacity": 16,
+                    "powered": 13,
+                    "winner_powered": 16,
+                    "round": 9
+                }
+            }
+        ],
+        "limitations": [
+            "Descriptive terminal audit of the eight-deal diagnostic cohort; repeated seats/rules are correlated.",
+            "City/capacity deficits can overlap. Powered below min(cities,capacity) does not by itself establish fuel shortage or a policy bug.",
+            "Final money does not establish whether earlier bids, plants, fuel or connections were affordable; causality requires trajectories or controlled replays."
+        ],
+        "artifact_revision": "afc522c0c8e47c103b2f7085e68a7d1284cffd39",
+        "status": "COMPLETED_DESCRIPTIVE_AUDIT",
+        "decision": "Trace building timing and auction spending jointly in original/sealed replays. In37losses,28 finish with fewer cities than winner powered count,13 with insufficient generation capacity, and only1 below their own city/capacity output ceiling. The rule split does not by itself establish bidding as the cause; avoid a fuel-only or bidding-only fix without trajectory evidence."
     }
 }

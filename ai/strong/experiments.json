@@ -161,7 +161,13 @@
         "multiplayer-geoleague-u49-economic-4p": "6abdd2e7404719ba376157dd",
         "multiplayer-geoleague-u49-economic-5p": "6abdd2e8404719ba376157df",
         "multiplayer-geoleague-u49-economic-6p": "6abdd2e8fbc85ba68235e90b",
-        "multiplayer-geoleague-u49-a260-3p": "6abdd2e9404719ba376157e1"
+        "multiplayer-geoleague-u49-a260-3p": "6abdd2e9404719ba376157e1",
+        "multiplayer-h200-u69-economic-2p": "6abdda3d404719ba37615a07",
+        "multiplayer-h200-u69-economic-3p": "6abdda3e404719ba37615a09",
+        "multiplayer-h200-u69-economic-4p": "6abdda3f404719ba37615a0b",
+        "multiplayer-h200-u69-economic-5p": "6abdda3f404719ba37615a0d",
+        "multiplayer-h200-u69-economic-6p": "6abdda40fbc85ba68235ec1c",
+        "multiplayer-h200-u69-a260-3p": "6abdda41404719ba37615a0f"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -24940,5 +24946,107 @@
             "truncated": 0,
             "qualification_eligible": false
         }
+    },
+    "multiplayer_h200_update69_screening": {
+        "candidate_revision": "1e81a160989c529ce6eaf3bba5b9e955dd07b113",
+        "model_path": "runs/multiplayer-refine-hard-v1/latest.onnx",
+        "model_sha256": "a2602c3912d75ba3c6568666eb35bbf9d4a8b1e63fa323e4a1d16b4814c30ebb",
+        "training_games": 16800,
+        "training_truncated": 0,
+        "export_diagnostic": {
+            "positions": 2553,
+            "reference_details": [
+                {
+                    "position": 2115,
+                    "output": 0,
+                    "player_count": 6,
+                    "mismatches": [
+                        {
+                            "index": [
+                                0,
+                                37
+                            ],
+                            "torch32": -0.0003528594970703125,
+                            "onnx32": -0.0003643035888671875,
+                            "reference64": -0.0003580369047426757
+                        }
+                    ],
+                    "torch_max_error": 6.727506551840179e-06,
+                    "onnx_max_error": 1.3391253787631285e-05,
+                    "winning_margin": 7.573301454443381
+                }
+            ],
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "a2602c3912d75ba3c6568666eb35bbf9d4a8b1e63fa323e4a1d16b4814c30ebb",
+            "max_logit_error": 4.57763671875e-05,
+            "max_value_error": 3.3676624298095703e-06,
+            "all_actions_match": true,
+            "action_mismatches": 0,
+            "tolerance_violation_positions": [
+                1,
+                0
+            ],
+            "specialist_route_counts": {}
+        },
+        "strict_export_parity_passed": false,
+        "qualification_eligible": false,
+        "jobs": [
+            {
+                "run": "multiplayer-h200-u69-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abdda3d404719ba37615a07",
+                "observed_stage": "RUNNING"
+            },
+            {
+                "run": "multiplayer-h200-u69-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abdda3e404719ba37615a09",
+                "observed_stage": "RUNNING"
+            },
+            {
+                "run": "multiplayer-h200-u69-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abdda3f404719ba37615a0b",
+                "observed_stage": "RUNNING"
+            },
+            {
+                "run": "multiplayer-h200-u69-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abdda3f404719ba37615a0d",
+                "observed_stage": "RUNNING"
+            },
+            {
+                "run": "multiplayer-h200-u69-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abdda40fbc85ba68235ec1c",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "multiplayer-h200-u69-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abdda41404719ba37615a0f",
+                "observed_stage": "SCHEDULING"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Paired held-out development screening; not final qualification",
+        "arena_source": "37465b08df007221665d796448aea57e6828257e",
+        "search_samples": 0,
+        "decision": "Research-only screening of immutable export: all2553 actions match, but strict numerical parity fails one near-zero logit. Not eligible for qualification. Latest update69 is distinct from internal best update39; compare with updates29,49,59.",
+        "reports": {}
     }
 }

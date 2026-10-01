@@ -16167,5 +16167,71 @@
             }
         },
         "decision": "No promotion: none of the six paired comparisons against geoleague update19 supports an improvement. Frozen A260 is 30.2083%, below the 40% floor and equal-share point reference. H200 update29 is stronger at 5-6 players with paired intervals excluding zero; other cross-run differences remain uncertain. Continue the authorized training horizon and retain older checkpoints rather than assume stronger training opponents ensure stronger play."
+    },
+    "multiplayer_h200_update39_screening": {
+        "candidate_revision": "8796a350f9c9eef1d327c0b965abc98b2716cfb9",
+        "model_path": "runs/multiplayer-refine-hard-v1/latest.onnx",
+        "model_sha256": "5645ba36ee0aea48f0fd2c00b3499fac13c8df2ecf1270e70b98b24c14e3dcfb",
+        "training_games": 9600,
+        "training_truncated": 0,
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "5645ba36ee0aea48f0fd2c00b3499fac13c8df2ecf1270e70b98b24c14e3dcfb",
+            "max_logit_error": 4.9591064453125e-05,
+            "max_value_error": 3.4570693969726562e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "jobs": [
+            {
+                "run": "multiplayer-h200-u39-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abda6b9fbc85ba68235dcc3"
+            },
+            {
+                "run": "multiplayer-h200-u39-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abda6ba404719ba37614fde"
+            },
+            {
+                "run": "multiplayer-h200-u39-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abda6bafbc85ba68235dcc5"
+            },
+            {
+                "run": "multiplayer-h200-u39-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abda6bb404719ba37614fe0"
+            },
+            {
+                "run": "multiplayer-h200-u39-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abda6bcfbc85ba68235dcc7"
+            },
+            {
+                "run": "multiplayer-h200-u39-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abda6bc404719ba37614fe4"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Paired held-out development screening; not final qualification",
+        "arena_source": "37465b08df007221665d796448aea57e6828257e",
+        "search_samples": 0
     }
 }

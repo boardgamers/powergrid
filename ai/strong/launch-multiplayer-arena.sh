@@ -5,6 +5,10 @@ case "${4:?opponent}" in
   economic|heuristic|rush|legacy|search|search_geo) ;;
   *) echo "Unsupported opponent mode; use OPPONENT_MODEL_PATH for a frozen model" >&2; exit 2 ;;
 esac
+if [[ "${6:?geography}" == 1 ]] && ! [[ "${5:?samples}" =~ ^[1-9][0-9]*$ ]]; then
+  echo "Candidate geographic search requires a positive sample budget; opponent search_geo is configured separately" >&2
+  exit 2
+fi
 extra_env=()
 if [[ -n "${OPPONENT_MODEL_PATH:-}" ]]; then
   extra_env+=(--env "OPPONENT_MODEL_PATH=$OPPONENT_MODEL_PATH" --env "OPPONENT_MODEL_REVISION=${OPPONENT_MODEL_REVISION:?pin opponent revision}")

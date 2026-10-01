@@ -199,7 +199,13 @@
         "league-admission-best-u9-economic-4p": "6abe052c404719ba376167ae",
         "league-admission-best-u9-economic-5p": "6abe052dfbc85ba68235fe86",
         "league-admission-best-u9-economic-6p": "6abe052efbc85ba68235fe88",
-        "league-admission-best-u9-a260-3p": "6abe052ffbc85ba68235fe8a"
+        "league-admission-best-u9-a260-3p": "6abe052ffbc85ba68235fe8a",
+        "multiplayer-geoleague-u79-economic-2p": "6abe14eafbc85ba6823605db",
+        "multiplayer-geoleague-u79-economic-3p": "6abe14eafbc85ba6823605e3",
+        "multiplayer-geoleague-u79-economic-4p": "6abe14ebfbc85ba6823605e8",
+        "multiplayer-geoleague-u79-economic-5p": "6abe14ec404719ba37616d00",
+        "multiplayer-geoleague-u79-economic-6p": "6abe14ed404719ba37616d04",
+        "multiplayer-geoleague-u79-a260-3p": "6abe14ed404719ba37616d06"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -3815,7 +3821,7 @@
         "async_rollout": true,
         "opponent_mode": "mixed_search_geo",
         "timeout": "24h",
-        "status": "RUNNING",
+        "status": "COMPLETED",
         "purpose": "Scale verified asynchronous full-game collection against geographic-search league; preserve original teacher warm start for clear comparison.",
         "first_completed_update": {
             "stage": "train",
@@ -3905,7 +3911,101 @@
                 }
             }
         },
-        "first_update_note": "Full environment coverage guard passed before optimization; 48 games per count. Training outcomes are sampled-policy league games, not independent strength evidence."
+        "first_update_note": "Full environment coverage guard passed before optimization; 48 games per count. Training outcomes are sampled-policy league games, not independent strength evidence.",
+        "final_checkpoint": {
+            "revision": "035345f5f05bbbb55af5e0f4884d07f9087b1e32",
+            "run": "multiplayer-refine-geoleague-async-v1",
+            "update": 79,
+            "best_update": 69,
+            "hashes": {
+                "latest.pt": "18481e19e4e7b045ea088f23848aa1bb14c362271e158f47c86f38afa11ad0f9",
+                "latest.onnx": "35deffdacefdc3d3638417b1590432b84a86f3fb302958e273f5eeea9ad7ce34",
+                "best.pt": "fee196410b3396c21efb89db441ca64d3dfb8aa6ba8a0a7ed146b1bd1be5c970",
+                "best.onnx": "1144b043d544ae0f90895c6a8dc7c000978017678e635729762adad337259e35",
+                "metrics.json": "912e0deff0b86257cb2c80a577b8ef9aec783b5a99067baf5ec2f0c8961b717d",
+                "schema.json": "dbb1edc7afc35e47004487294d380b2bb8d0e5ad0e0de7c32d41d4c8ee7060cc"
+            },
+            "training_games": 19200,
+            "training_truncated": 0,
+            "training_search_truncated": 4,
+            "training_search_cap_details": [
+                {
+                    "update": 25,
+                    "opponent": "search_geo",
+                    "decisions": 2766,
+                    "evaluations": 226160,
+                    "truncated": 1
+                },
+                {
+                    "update": 39,
+                    "opponent": "search_geo",
+                    "decisions": 4896,
+                    "evaluations": 398448,
+                    "truncated": 1
+                },
+                {
+                    "update": 40,
+                    "opponent": "search_geo",
+                    "decisions": 3640,
+                    "evaluations": 295104,
+                    "truncated": 1
+                },
+                {
+                    "update": 58,
+                    "opponent": "search_geo",
+                    "decisions": 4799,
+                    "evaluations": 391504,
+                    "truncated": 1
+                }
+            ],
+            "training_search_evaluations": 29436848
+        },
+        "final_export_diagnostic": {
+            "positions": 2553,
+            "reference_details": [
+                {
+                    "position": 2113,
+                    "output": 0,
+                    "player_count": 6,
+                    "mismatches": [
+                        {
+                            "index": [
+                                0,
+                                18
+                            ],
+                            "torch32": -0.04654502868652344,
+                            "onnx32": -0.04652976989746094,
+                            "reference64": -0.04653992752699665
+                        }
+                    ],
+                    "torch_max_error": 7.481528918162894e-06,
+                    "onnx_max_error": 1.1363142196074705e-05,
+                    "winning_margin": 6.952146072055745
+                }
+            ],
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "35deffdacefdc3d3638417b1590432b84a86f3fb302958e273f5eeea9ad7ce34",
+            "max_logit_error": 4.57763671875e-05,
+            "max_value_error": 3.635883331298828e-06,
+            "all_actions_match": true,
+            "action_mismatches": 0,
+            "tolerance_violation_positions": [
+                1,
+                0
+            ],
+            "specialist_route_counts": {}
+        },
+        "strict_export_parity_passed": false,
+        "qualification_eligible": false,
+        "completion_note": "All 80 updates completed with 48 games per count per update and zero actual training truncations. Four earlier opponent-search truncations are retained in the audit. Final latest update79 differs from internal best update69. Strict export parity fails one logit; all2553 actions match. Research screening only; no qualified model."
     },
     "multiplayer_search_strong_probe": {
         "candidate_revision": "ab34dd266010ded1c9a6c818c721e5505dd1ddeb",
@@ -30278,5 +30378,132 @@
                 ]
             }
         }
+    },
+    "multiplayer_geoleague_update79_screening": {
+        "candidate_revision": "035345f5f05bbbb55af5e0f4884d07f9087b1e32",
+        "model_path": "runs/multiplayer-refine-geoleague-async-v1/latest.onnx",
+        "model_sha256": "35deffdacefdc3d3638417b1590432b84a86f3fb302958e273f5eeea9ad7ce34",
+        "training_games": 19200,
+        "training_search_truncated": 4,
+        "training_search_cap_details": [
+            {
+                "update": 25,
+                "opponent": "search_geo",
+                "decisions": 2766,
+                "evaluations": 226160,
+                "truncated": 1
+            },
+            {
+                "update": 39,
+                "opponent": "search_geo",
+                "decisions": 4896,
+                "evaluations": 398448,
+                "truncated": 1
+            },
+            {
+                "update": 40,
+                "opponent": "search_geo",
+                "decisions": 3640,
+                "evaluations": 295104,
+                "truncated": 1
+            },
+            {
+                "update": 58,
+                "opponent": "search_geo",
+                "decisions": 4799,
+                "evaluations": 391504,
+                "truncated": 1
+            }
+        ],
+        "training_search_evaluations": 29436848,
+        "training_truncated": 0,
+        "export_diagnostic": {
+            "positions": 2553,
+            "reference_details": [
+                {
+                    "position": 2113,
+                    "output": 0,
+                    "player_count": 6,
+                    "mismatches": [
+                        {
+                            "index": [
+                                0,
+                                18
+                            ],
+                            "torch32": -0.04654502868652344,
+                            "onnx32": -0.04652976989746094,
+                            "reference64": -0.04653992752699665
+                        }
+                    ],
+                    "torch_max_error": 7.481528918162894e-06,
+                    "onnx_max_error": 1.1363142196074705e-05,
+                    "winning_margin": 6.952146072055745
+                }
+            ],
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "35deffdacefdc3d3638417b1590432b84a86f3fb302958e273f5eeea9ad7ce34",
+            "max_logit_error": 4.57763671875e-05,
+            "max_value_error": 3.635883331298828e-06,
+            "all_actions_match": true,
+            "action_mismatches": 0,
+            "tolerance_violation_positions": [
+                1,
+                0
+            ],
+            "specialist_route_counts": {}
+        },
+        "strict_export_parity_passed": false,
+        "qualification_eligible": false,
+        "jobs": [
+            {
+                "run": "multiplayer-geoleague-u79-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abe14eafbc85ba6823605db"
+            },
+            {
+                "run": "multiplayer-geoleague-u79-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abe14eafbc85ba6823605e3"
+            },
+            {
+                "run": "multiplayer-geoleague-u79-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abe14ebfbc85ba6823605e8"
+            },
+            {
+                "run": "multiplayer-geoleague-u79-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abe14ec404719ba37616d00"
+            },
+            {
+                "run": "multiplayer-geoleague-u79-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abe14ed404719ba37616d04"
+            },
+            {
+                "run": "multiplayer-geoleague-u79-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abe14ed404719ba37616d06"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Paired held-out development screening; not final qualification",
+        "arena_source": "37465b08df007221665d796448aea57e6828257e",
+        "search_samples": 0,
+        "decision": "Research-only screening of final latest update79; internal best remains update69. All2553 actions match, but one logit fails strict numerical parity. Not eligible for qualification. Four earlier opponent search simulations were capped; all actual training games complete."
     }
 }

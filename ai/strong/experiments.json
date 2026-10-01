@@ -21734,6 +21734,43 @@
         "next_diagnostic": "Compare cheaper legal plant choices and inspect why alternative ends with12 powered despite13 cities and15 capacity; use multiple public-consistent continuations before general policy changes.",
         "artifact_revision": "b793353f1ac5a6d07aa2a43461500c36cb76b330",
         "artifact_path": "runs/original-sealed-second-deal-pass-v1",
-        "training_performed": false
+        "training_performed": false,
+        "final_round_fuel_audit": {
+            "artifact_revision": "04b807cb61fcdc4f491f31f2b1d1a4d411625865",
+            "artifact_path": "runs/original-sealed-second-deal-pass-v1",
+            "exact_all_states_and_legal_moves": 539,
+            "resource_pass_index": 500,
+            "cash_at_resource_pass": 102,
+            "uranium_price": 1,
+            "fuel_owned": {
+                "coal": 3,
+                "garbage": 3,
+                "uranium": 0
+            },
+            "plants": [
+                23,
+                30,
+                31
+            ],
+            "subsequent_city_costs": [
+                25,
+                23,
+                26,
+                24
+            ],
+            "fixed_suffix_intervention": {
+                "action": "Buy one uranium immediately before resource Pass",
+                "exact_prefix": true,
+                "remaining_recorded_actions_all_legal": true,
+                "terminal": true,
+                "cities": 13,
+                "powered": 13,
+                "cash": 3,
+                "baseline_powered": 12,
+                "baseline_cash": 4,
+                "outcome_unchanged_loss": true
+            },
+            "interpretation": "Concrete feasible extra powered city: buying one uranium still permits every recorded later build. This is a fixed-action continuation, not rerunning neural/search policies after intervention, and not an increase in win probability: winner remains17 powered. Do not turn this single losing-deal score improvement into a claim of general strength or automatically alter reward."
+        }
     }
 }

@@ -141,7 +141,15 @@
         "multiplayer-geoleague-u39-economic-4p": "6abdbbbdfbc85ba68235e2cf",
         "multiplayer-geoleague-u39-economic-5p": "6abdbbbdfbc85ba68235e2d1",
         "multiplayer-geoleague-u39-economic-6p": "6abdbbbefbc85ba68235e2d3",
-        "multiplayer-geoleague-u39-a260-3p": "6abdbbbffbc85ba68235e2d5"
+        "multiplayer-geoleague-u39-a260-3p": "6abdbbbffbc85ba68235e2d5",
+        "multiplayer-h200-u29-raw-search-geo-6p-d8": "6abdc7cbfbc85ba68235e6b2",
+        "multiplayer-h200-u29-raw-search-geo-6p-d16": "6abdc7ccfbc85ba68235e6b4",
+        "multiplayer-h200-u29-raw-search-geo-6p-d24": "6abdc7ccfbc85ba68235e6b6",
+        "multiplayer-h200-u29-raw-search-geo-6p-d32": "6abdc7cdfbc85ba68235e6b8",
+        "multiplayer-h200-u49-raw-search-geo-6p-d8": "6abdc7cefbc85ba68235e6ba",
+        "multiplayer-h200-u49-raw-search-geo-6p-d16": "6abdc7ce404719ba376156a8",
+        "multiplayer-h200-u49-raw-search-geo-6p-d24": "6abdc7cf404719ba376156aa",
+        "multiplayer-h200-u49-raw-search-geo-6p-d32": "6abdc7d0404719ba376156ac"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -19368,10 +19376,10 @@
         }
     },
     "multiplayer_h200_update49_six_player_search_screen": {
-        "status": "RUNNING",
+        "status": "COMPLETED",
         "run": "multiplayer-h200-u49-raw-search-geo-h2400-6p",
         "job_id": "6abdb7a0404719ba37615356",
-        "observed_stage": "RUNNING",
+        "observed_stage": "COMPLETED",
         "candidate_revision": "d6adef40b2b836108cd4c3d2e384eefb67a133a0",
         "model_path": "runs/multiplayer-refine-hard-v1/latest.onnx",
         "model_sha256": "4191bfe42ccd9c0719e27a76f8f82d3d1289bb93702ba2d4f68873111cb1143e",
@@ -19386,7 +19394,184 @@
         "candidate_geographic_search": false,
         "search_max_steps": 2400,
         "async_arena": true,
-        "analysis_plan": "Validate full report and pair exact gameSeed/rule/seat sets with retained update29 and original hard epoch10 search transfer reports. Seed-cluster paired bootstrap20000 draws seed623. Eight development deals diagnostic only; preserve all strength gates and final reserved seeds."
+        "analysis_plan": "Validate full report and pair exact gameSeed/rule/seat sets with retained update29 and original hard epoch10 search transfer reports. Seed-cluster paired bootstrap20000 draws seed623. Eight development deals diagnostic only; preserve all strength gates and final reserved seeds.",
+        "artifact_revision": "f366ea8b70c8779b2767d19cb1864cfe4eaa46f4",
+        "report": {
+            "async_rollout": true,
+            "engine_workers": 192,
+            "player_count": 6,
+            "chance_win_rate": 0.16666666666666666,
+            "deal_offset": 0,
+            "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/d6adef40b2b836108cd4c3d2e384eefb67a133a0/runs/multiplayer-refine-hard-v1/latest.onnx",
+            "model_sha256": "4191bfe42ccd9c0719e27a76f8f82d3d1289bb93702ba2d4f68873111cb1143e",
+            "model_feature_revision": "4.0-multiplayer",
+            "encoder_feature_revision": "4.0-multiplayer",
+            "opponent": "search_geo",
+            "opponent_sha256": null,
+            "opponent_feature_revision": null,
+            "paired_seats": true,
+            "candidate_search_samples": 0,
+            "search_max_steps": 2400,
+            "candidate_search_scope": "all",
+            "candidate_geographic_search": false,
+            "candidate_search_model_proposal": true,
+            "seed": "multiplayer-raw-search-transfer-v1-6p",
+            "games": 192,
+            "win_rate": 0.40625,
+            "truncated": 0,
+            "seconds": 4024.4283418610003,
+            "inference_p95_ms": 1.699805000009746,
+            "by_rules": [
+                {
+                    "variant": "original",
+                    "sealed": false,
+                    "games": 48,
+                    "win_rate": 0.5416666666666666,
+                    "independent_seeds": 8,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.4375,
+                        0.625
+                    ]
+                },
+                {
+                    "variant": "original",
+                    "sealed": true,
+                    "games": 48,
+                    "win_rate": 0.3229166666666667,
+                    "independent_seeds": 8,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.17708333333333334,
+                        0.5
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": false,
+                    "games": 48,
+                    "win_rate": 0.5416666666666666,
+                    "independent_seeds": 8,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.4583333333333333,
+                        0.6046874999999924
+                    ]
+                },
+                {
+                    "variant": "recharged",
+                    "sealed": true,
+                    "games": 48,
+                    "win_rate": 0.21875,
+                    "independent_seeds": 8,
+                    "truncated": 0,
+                    "seed_bootstrap_95_interval": [
+                        0.08333333333333333,
+                        0.34375
+                    ]
+                }
+            ],
+            "independent_seeds": 8,
+            "seed_bootstrap_95_interval": [
+                0.3333333333333333,
+                0.484375
+            ],
+            "search_rollouts_reported": true,
+            "search_stats": {
+                "search_geo": {
+                    "decisions": 43762,
+                    "evaluations": 3563552,
+                    "truncated": 0
+                }
+            }
+        },
+        "paired_comparisons": {
+            "h200-u29": {
+                "independent_deals": 8,
+                "difference": 0.03645833333333333,
+                "paired_seed_bootstrap_95_interval": [
+                    -0.04947916666666667,
+                    0.13802083333333331
+                ],
+                "by_rules": {
+                    "original/False": {
+                        "independent_deals": 8,
+                        "difference": 0.04166666666666667,
+                        "paired_seed_bootstrap_95_interval": [
+                            -0.08333333333333333,
+                            0.16666666666666666
+                        ]
+                    },
+                    "original/True": {
+                        "independent_deals": 8,
+                        "difference": 0.13541666666666669,
+                        "paired_seed_bootstrap_95_interval": [
+                            -0.031249999999999997,
+                            0.32291666666666663
+                        ]
+                    },
+                    "recharged/False": {
+                        "independent_deals": 8,
+                        "difference": 0.0,
+                        "paired_seed_bootstrap_95_interval": [
+                            -0.14583333333333334,
+                            0.14583333333333331
+                        ]
+                    },
+                    "recharged/True": {
+                        "independent_deals": 8,
+                        "difference": -0.031249999999999993,
+                        "paired_seed_bootstrap_95_interval": [
+                            -0.20833333333333331,
+                            0.15625
+                        ]
+                    }
+                }
+            },
+            "hard-e10": {
+                "independent_deals": 8,
+                "difference": 0.30208333333333337,
+                "paired_seed_bootstrap_95_interval": [
+                    0.21354166666666669,
+                    0.4010416666666667
+                ],
+                "by_rules": {
+                    "original/False": {
+                        "independent_deals": 8,
+                        "difference": 0.3958333333333333,
+                        "paired_seed_bootstrap_95_interval": [
+                            0.25,
+                            0.5416666666666666
+                        ]
+                    },
+                    "original/True": {
+                        "independent_deals": 8,
+                        "difference": 0.28125,
+                        "paired_seed_bootstrap_95_interval": [
+                            0.125,
+                            0.47916666666666663
+                        ]
+                    },
+                    "recharged/False": {
+                        "independent_deals": 8,
+                        "difference": 0.37499999999999994,
+                        "paired_seed_bootstrap_95_interval": [
+                            0.20833333333333331,
+                            0.5416666666666666
+                        ]
+                    },
+                    "recharged/True": {
+                        "independent_deals": 8,
+                        "difference": 0.15625,
+                        "paired_seed_bootstrap_95_interval": [
+                            -0.010416666666666671,
+                            0.29166666666666663
+                        ]
+                    }
+                }
+            }
+        },
+        "interpretation": "Completed192-game diagnostic:40.625% wins CI[33.333333,48.4375],3,563,552 opponent rollouts with zero truncation. Versus update29 +3.645833pp pairedCI[-4.947917,13.802083], no supported overall or per-rule improvement. Versus original hard epoch10 +30.208333pp CI[21.354167,40.104167]. Rule win rates original open54.166667%,original sealed32.291667%,Recharged open54.166667%,Recharged sealed21.875%; last below25% floor with CI including1/6chance. No qualification or universal promotion. Extend paired development comparison to40 deals before choosing between update29 and49."
     },
     "multiplayer_h200_update29_five_player_terminal_audit": {
         "run": "multiplayer-h200-u29-raw-search-geo-h2400-5p-v2",
@@ -22157,5 +22342,88 @@
         "artifact_revision": "6b2e9215953296958387f2a80789a38e4a6b54e0",
         "artifact_path": "runs/original-sealed-second-deal-nominations-v1",
         "training_performed": false
+    },
+    "multiplayer_h200_u29_u49_six_player_search_extension": {
+        "status": "RUNNING",
+        "scope": "Paired development extension to40 independent deals/model, including existing offsets0\u20137; not reserved final evaluation. Add32 deals/model at offsets8,16,24,32. Eight192-game jobs,1536 new games total. Freeze both candidates and use identical source32/search_geo16/opponent budget/horizon2400/raw policy settings.",
+        "seed": "multiplayer-raw-search-transfer-v1-6p",
+        "source_revision": "37465b08df007221665d796448aea57e6828257e",
+        "analysis_plan": "Validate all reports, model hashes, exact rule/seat pairs, no duplicate or missing seed offsets0\u201339, zero game/search truncation. Combine960games/model and compute overall and four rule-stratum paired seed bootstrap20000 seed623. Require all existing strength gates; this is diagnostic and does not consume reserved final seeds.",
+        "models": {
+            "29": {
+                "revision": "fbdf2bf24c968bff99ab2d7d9ff9a7d97047db2b",
+                "sha256": "d3d2ee88a0940f079a4b38879c8154dbab55951abc7b295a7db17bdf22e52c5f"
+            },
+            "49": {
+                "revision": "d6adef40b2b836108cd4c3d2e384eefb67a133a0",
+                "sha256": "4191bfe42ccd9c0719e27a76f8f82d3d1289bb93702ba2d4f68873111cb1143e"
+            }
+        },
+        "jobs": [
+            {
+                "run": "multiplayer-h200-u29-raw-search-geo-6p-d8",
+                "job_id": "6abdc7cbfbc85ba68235e6b2",
+                "update": 29,
+                "deal_offset": 8,
+                "games": 192,
+                "player_count": 6
+            },
+            {
+                "run": "multiplayer-h200-u29-raw-search-geo-6p-d16",
+                "job_id": "6abdc7ccfbc85ba68235e6b4",
+                "update": 29,
+                "deal_offset": 16,
+                "games": 192,
+                "player_count": 6
+            },
+            {
+                "run": "multiplayer-h200-u29-raw-search-geo-6p-d24",
+                "job_id": "6abdc7ccfbc85ba68235e6b6",
+                "update": 29,
+                "deal_offset": 24,
+                "games": 192,
+                "player_count": 6
+            },
+            {
+                "run": "multiplayer-h200-u29-raw-search-geo-6p-d32",
+                "job_id": "6abdc7cdfbc85ba68235e6b8",
+                "update": 29,
+                "deal_offset": 32,
+                "games": 192,
+                "player_count": 6
+            },
+            {
+                "run": "multiplayer-h200-u49-raw-search-geo-6p-d8",
+                "job_id": "6abdc7cefbc85ba68235e6ba",
+                "update": 49,
+                "deal_offset": 8,
+                "games": 192,
+                "player_count": 6
+            },
+            {
+                "run": "multiplayer-h200-u49-raw-search-geo-6p-d16",
+                "job_id": "6abdc7ce404719ba376156a8",
+                "update": 49,
+                "deal_offset": 16,
+                "games": 192,
+                "player_count": 6
+            },
+            {
+                "run": "multiplayer-h200-u49-raw-search-geo-6p-d24",
+                "job_id": "6abdc7cf404719ba376156aa",
+                "update": 49,
+                "deal_offset": 24,
+                "games": 192,
+                "player_count": 6
+            },
+            {
+                "run": "multiplayer-h200-u49-raw-search-geo-6p-d32",
+                "job_id": "6abdc7d0404719ba376156ac",
+                "update": 49,
+                "deal_offset": 32,
+                "games": 192,
+                "player_count": 6
+            }
+        ]
     }
 }

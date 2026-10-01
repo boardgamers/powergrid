@@ -32964,7 +32964,7 @@
     },
     "teacher_reliability_v1": {
         "job_id": "6abe1cc8404719ba376171b1",
-        "status": "SCHEDULING",
+        "status": "COMPLETED",
         "source_revision": "aee5febe0ea0c60988f76a937521e87956544526",
         "source_archive": "strong-source-v35.tgz",
         "source_sha256": "0174bfd5f2b5773eba1c260eadb99fd441d274800b7a2ff23af10b8c402168d5",
@@ -32984,6 +32984,1384 @@
         "search_max_steps": 2400,
         "workers": 24,
         "purpose": "Measure independent-batch ranking stability, tied outcomes, and continuation-policy sensitivity before another distillation run. No gradients, no qualification claim.",
-        "tests": "Search horizon regression and detailed-sample equivalence pass; truncations retained as null outcomes."
+        "tests": "Search horizon regression and detailed-sample equivalence pass; truncations retained as null outcomes.",
+        "artifact_revision": "b9fa9a33a8315442793256a0d343511d8c631016",
+        "manifest": {
+            "positions": 60,
+            "samples_per_batch": 48,
+            "batches_per_position": 2,
+            "search_max_steps": 2400,
+            "fixture_sha256": "855b34ad7f07665dfcb012a673147f0780820a9e7560fda268a9a39478c60ff4",
+            "output_sha256": "412e54fdf2de6f269a487c6bffa68373133356c3c6c9d0df84af41f8626d5db9",
+            "truncated": 0,
+            "evaluations": 30048,
+            "scope": "Reused development fixtures; diagnostic only, no strength or calibration claim."
+        },
+        "summary": {
+            "input_sha256": "412e54fdf2de6f269a487c6bffa68373133356c3c6c9d0df84af41f8626d5db9",
+            "groups": {
+                "overall": {
+                    "positions": 60,
+                    "same_selected_action": 39,
+                    "a_winner_is_b_co_winner": 40,
+                    "a_all_actions_tied": 16,
+                    "b_all_actions_tied": 16,
+                    "disjoint_continuation_policy_winner_sets": 25,
+                    "positive_discovery_gap": 30,
+                    "positive_confirmation_gap": 27,
+                    "negative_confirmation_gap": 10,
+                    "positive_confirmation_hoeffding_lower": 0
+                },
+                "players/2": {
+                    "positions": 12,
+                    "same_selected_action": 8,
+                    "a_winner_is_b_co_winner": 8,
+                    "a_all_actions_tied": 0,
+                    "b_all_actions_tied": 0,
+                    "disjoint_continuation_policy_winner_sets": 8,
+                    "positive_discovery_gap": 9,
+                    "positive_confirmation_gap": 9,
+                    "negative_confirmation_gap": 2,
+                    "positive_confirmation_hoeffding_lower": 0
+                },
+                "rules/original/sealed": {
+                    "positions": 15,
+                    "same_selected_action": 7,
+                    "a_winner_is_b_co_winner": 8,
+                    "a_all_actions_tied": 2,
+                    "b_all_actions_tied": 2,
+                    "disjoint_continuation_policy_winner_sets": 5,
+                    "positive_discovery_gap": 9,
+                    "positive_confirmation_gap": 8,
+                    "negative_confirmation_gap": 4,
+                    "positive_confirmation_hoeffding_lower": 0
+                },
+                "action/ChoosePowerPlant": {
+                    "positions": 20,
+                    "same_selected_action": 16,
+                    "a_winner_is_b_co_winner": 16,
+                    "a_all_actions_tied": 4,
+                    "b_all_actions_tied": 4,
+                    "disjoint_continuation_policy_winner_sets": 5,
+                    "positive_discovery_gap": 14,
+                    "positive_confirmation_gap": 12,
+                    "negative_confirmation_gap": 4,
+                    "positive_confirmation_hoeffding_lower": 0
+                },
+                "action/Build": {
+                    "positions": 20,
+                    "same_selected_action": 15,
+                    "a_winner_is_b_co_winner": 15,
+                    "a_all_actions_tied": 8,
+                    "b_all_actions_tied": 8,
+                    "disjoint_continuation_policy_winner_sets": 8,
+                    "positive_discovery_gap": 7,
+                    "positive_confirmation_gap": 4,
+                    "negative_confirmation_gap": 3,
+                    "positive_confirmation_hoeffding_lower": 0
+                },
+                "action/Bid": {
+                    "positions": 20,
+                    "same_selected_action": 8,
+                    "a_winner_is_b_co_winner": 9,
+                    "a_all_actions_tied": 4,
+                    "b_all_actions_tied": 4,
+                    "disjoint_continuation_policy_winner_sets": 12,
+                    "positive_discovery_gap": 9,
+                    "positive_confirmation_gap": 11,
+                    "negative_confirmation_gap": 3,
+                    "positive_confirmation_hoeffding_lower": 0
+                },
+                "rules/recharged/sealed": {
+                    "positions": 15,
+                    "same_selected_action": 11,
+                    "a_winner_is_b_co_winner": 11,
+                    "a_all_actions_tied": 3,
+                    "b_all_actions_tied": 4,
+                    "disjoint_continuation_policy_winner_sets": 4,
+                    "positive_discovery_gap": 4,
+                    "positive_confirmation_gap": 5,
+                    "negative_confirmation_gap": 3,
+                    "positive_confirmation_hoeffding_lower": 0
+                },
+                "rules/original/open": {
+                    "positions": 15,
+                    "same_selected_action": 9,
+                    "a_winner_is_b_co_winner": 9,
+                    "a_all_actions_tied": 7,
+                    "b_all_actions_tied": 6,
+                    "disjoint_continuation_policy_winner_sets": 9,
+                    "positive_discovery_gap": 7,
+                    "positive_confirmation_gap": 6,
+                    "negative_confirmation_gap": 1,
+                    "positive_confirmation_hoeffding_lower": 0
+                },
+                "rules/recharged/open": {
+                    "positions": 15,
+                    "same_selected_action": 12,
+                    "a_winner_is_b_co_winner": 12,
+                    "a_all_actions_tied": 4,
+                    "b_all_actions_tied": 4,
+                    "disjoint_continuation_policy_winner_sets": 7,
+                    "positive_discovery_gap": 10,
+                    "positive_confirmation_gap": 8,
+                    "negative_confirmation_gap": 2,
+                    "positive_confirmation_hoeffding_lower": 0
+                },
+                "players/3": {
+                    "positions": 12,
+                    "same_selected_action": 8,
+                    "a_winner_is_b_co_winner": 8,
+                    "a_all_actions_tied": 3,
+                    "b_all_actions_tied": 3,
+                    "disjoint_continuation_policy_winner_sets": 8,
+                    "positive_discovery_gap": 5,
+                    "positive_confirmation_gap": 7,
+                    "negative_confirmation_gap": 2,
+                    "positive_confirmation_hoeffding_lower": 0
+                },
+                "players/4": {
+                    "positions": 12,
+                    "same_selected_action": 6,
+                    "a_winner_is_b_co_winner": 6,
+                    "a_all_actions_tied": 6,
+                    "b_all_actions_tied": 5,
+                    "disjoint_continuation_policy_winner_sets": 3,
+                    "positive_discovery_gap": 4,
+                    "positive_confirmation_gap": 1,
+                    "negative_confirmation_gap": 4,
+                    "positive_confirmation_hoeffding_lower": 0
+                },
+                "players/5": {
+                    "positions": 12,
+                    "same_selected_action": 8,
+                    "a_winner_is_b_co_winner": 8,
+                    "a_all_actions_tied": 2,
+                    "b_all_actions_tied": 2,
+                    "disjoint_continuation_policy_winner_sets": 4,
+                    "positive_discovery_gap": 8,
+                    "positive_confirmation_gap": 7,
+                    "negative_confirmation_gap": 1,
+                    "positive_confirmation_hoeffding_lower": 0
+                },
+                "players/6": {
+                    "positions": 12,
+                    "same_selected_action": 9,
+                    "a_winner_is_b_co_winner": 10,
+                    "a_all_actions_tied": 5,
+                    "b_all_actions_tied": 6,
+                    "disjoint_continuation_policy_winner_sets": 2,
+                    "positive_discovery_gap": 4,
+                    "positive_confirmation_gap": 3,
+                    "negative_confirmation_gap": 1,
+                    "positive_confirmation_hoeffding_lower": 0
+                }
+            },
+            "positions": [
+                {
+                    "fixtureIndex": 25,
+                    "cell": [
+                        2,
+                        "original",
+                        true,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 5,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 3,
+                    "a_runner_up": 1,
+                    "discovery_gap": 0.020833333333333332,
+                    "confirmation_gap": 0.0625,
+                    "confirmation_95_hoeffding_lower": -0.2908018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 39,
+                    "cell": [
+                        2,
+                        "original",
+                        true,
+                        "Build"
+                    ],
+                    "round": 7,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 4,
+                    "a_runner_up": 2,
+                    "discovery_gap": 0.125,
+                    "confirmation_gap": 0.041666666666666664,
+                    "confirmation_95_hoeffding_lower": -0.311635156233739,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 51,
+                    "cell": [
+                        2,
+                        "original",
+                        true,
+                        "Bid"
+                    ],
+                    "round": 9,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 7,
+                    "a_runner_up": 6,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": -0.020833333333333332,
+                    "confirmation_95_hoeffding_lower": -0.374135156233739,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 109,
+                    "cell": [
+                        2,
+                        "recharged",
+                        true,
+                        "Bid"
+                    ],
+                    "round": 6,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 6,
+                    "a_runner_up": 4,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.041666666666666664,
+                    "confirmation_95_hoeffding_lower": -0.311635156233739,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 117,
+                    "cell": [
+                        2,
+                        "recharged",
+                        true,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 7,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 4,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.041666666666666664,
+                    "confirmation_gap": 0.08333333333333333,
+                    "confirmation_95_hoeffding_lower": -0.26996848956707237,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 127,
+                    "cell": [
+                        2,
+                        "recharged",
+                        true,
+                        "Build"
+                    ],
+                    "round": 8,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 6,
+                    "a_runner_up": 7,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 181,
+                    "cell": [
+                        2,
+                        "original",
+                        false,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 4,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 4,
+                    "a_runner_up": 2,
+                    "discovery_gap": 0.03125,
+                    "confirmation_gap": -0.125,
+                    "confirmation_95_hoeffding_lower": -0.4783018229004057,
+                    "disjoint_continuation_policy_winner_sets": 1
+                },
+                {
+                    "fixtureIndex": 202,
+                    "cell": [
+                        2,
+                        "original",
+                        false,
+                        "Bid"
+                    ],
+                    "round": 7,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 0,
+                    "a_runner_up": 2,
+                    "discovery_gap": 0.03125,
+                    "confirmation_gap": 0.0625,
+                    "confirmation_95_hoeffding_lower": -0.2908018229004057,
+                    "disjoint_continuation_policy_winner_sets": 2
+                },
+                {
+                    "fixtureIndex": 218,
+                    "cell": [
+                        2,
+                        "original",
+                        false,
+                        "Build"
+                    ],
+                    "round": 9,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 10,
+                    "a_runner_up": 1,
+                    "discovery_gap": 0.0625,
+                    "confirmation_gap": 0.19791666666666666,
+                    "confirmation_95_hoeffding_lower": -0.15538515623373902,
+                    "disjoint_continuation_policy_winner_sets": 2
+                },
+                {
+                    "fixtureIndex": 293,
+                    "cell": [
+                        2,
+                        "recharged",
+                        false,
+                        "Bid"
+                    ],
+                    "round": 5,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 13,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.08333333333333333,
+                    "confirmation_gap": 0.2916666666666667,
+                    "confirmation_95_hoeffding_lower": -0.061635156233739,
+                    "disjoint_continuation_policy_winner_sets": 1
+                },
+                {
+                    "fixtureIndex": 319,
+                    "cell": [
+                        2,
+                        "recharged",
+                        false,
+                        "Build"
+                    ],
+                    "round": 8,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 2,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.020833333333333332,
+                    "confirmation_gap": 0.16666666666666666,
+                    "confirmation_95_hoeffding_lower": -0.18663515623373902,
+                    "disjoint_continuation_policy_winner_sets": 2
+                },
+                {
+                    "fixtureIndex": 333,
+                    "cell": [
+                        2,
+                        "recharged",
+                        false,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 10,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 6,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.14583333333333334,
+                    "confirmation_gap": 0.10416666666666667,
+                    "confirmation_95_hoeffding_lower": -0.249135156233739,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 374,
+                    "cell": [
+                        3,
+                        "original",
+                        true,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 4,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 1,
+                    "a_runner_up": 4,
+                    "discovery_gap": 0.08333333333333333,
+                    "confirmation_gap": 0.020833333333333332,
+                    "confirmation_95_hoeffding_lower": -0.33246848956707237,
+                    "disjoint_continuation_policy_winner_sets": 1
+                },
+                {
+                    "fixtureIndex": 410,
+                    "cell": [
+                        3,
+                        "original",
+                        true,
+                        "Bid"
+                    ],
+                    "round": 8,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 0,
+                    "a_runner_up": 1,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.020833333333333332,
+                    "confirmation_95_hoeffding_lower": -0.33246848956707237,
+                    "disjoint_continuation_policy_winner_sets": 1
+                },
+                {
+                    "fixtureIndex": 415,
+                    "cell": [
+                        3,
+                        "original",
+                        true,
+                        "Build"
+                    ],
+                    "round": 8,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 1,
+                    "a_runner_up": 5,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": -0.13541666666666666,
+                    "confirmation_95_hoeffding_lower": -0.4887184895670723,
+                    "disjoint_continuation_policy_winner_sets": 1
+                },
+                {
+                    "fixtureIndex": 480,
+                    "cell": [
+                        3,
+                        "recharged",
+                        true,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 5,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 4,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": -0.020833333333333332,
+                    "confirmation_95_hoeffding_lower": -0.374135156233739,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 487,
+                    "cell": [
+                        3,
+                        "recharged",
+                        true,
+                        "Bid"
+                    ],
+                    "round": 6,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": true,
+                    "b_all_actions_tied": true,
+                    "a_winner": 7,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 508,
+                    "cell": [
+                        3,
+                        "recharged",
+                        true,
+                        "Build"
+                    ],
+                    "round": 8,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": true,
+                    "b_all_actions_tied": true,
+                    "a_winner": 0,
+                    "a_runner_up": 2,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 570,
+                    "cell": [
+                        3,
+                        "original",
+                        false,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 4,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 3,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.125,
+                    "confirmation_gap": 0.25,
+                    "confirmation_95_hoeffding_lower": -0.10330182290040568,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 600,
+                    "cell": [
+                        3,
+                        "original",
+                        false,
+                        "Bid"
+                    ],
+                    "round": 7,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 2,
+                    "a_runner_up": 3,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.020833333333333332,
+                    "confirmation_95_hoeffding_lower": -0.33246848956707237,
+                    "disjoint_continuation_policy_winner_sets": 2
+                },
+                {
+                    "fixtureIndex": 635,
+                    "cell": [
+                        3,
+                        "original",
+                        false,
+                        "Build"
+                    ],
+                    "round": 9,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 10,
+                    "a_runner_up": 9,
+                    "discovery_gap": 0.28125,
+                    "confirmation_gap": 0.20833333333333334,
+                    "confirmation_95_hoeffding_lower": -0.14496848956707234,
+                    "disjoint_continuation_policy_winner_sets": 2
+                },
+                {
+                    "fixtureIndex": 695,
+                    "cell": [
+                        3,
+                        "recharged",
+                        false,
+                        "Bid"
+                    ],
+                    "round": 3,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 1,
+                    "a_runner_up": 3,
+                    "discovery_gap": 0.13541666666666666,
+                    "confirmation_gap": 0.2916666666666667,
+                    "confirmation_95_hoeffding_lower": -0.061635156233739,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 710,
+                    "cell": [
+                        3,
+                        "recharged",
+                        false,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 5,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 4,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.25,
+                    "confirmation_gap": 0.25,
+                    "confirmation_95_hoeffding_lower": -0.10330182290040568,
+                    "disjoint_continuation_policy_winner_sets": 1
+                },
+                {
+                    "fixtureIndex": 762,
+                    "cell": [
+                        3,
+                        "recharged",
+                        false,
+                        "Build"
+                    ],
+                    "round": 10,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": true,
+                    "b_all_actions_tied": true,
+                    "a_winner": 2,
+                    "a_runner_up": 1,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 810,
+                    "cell": [
+                        4,
+                        "original",
+                        true,
+                        "Bid"
+                    ],
+                    "round": 4,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": true,
+                    "b_all_actions_tied": true,
+                    "a_winner": 8,
+                    "a_runner_up": 5,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 811,
+                    "cell": [
+                        4,
+                        "original",
+                        true,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 4,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 4,
+                    "a_runner_up": 1,
+                    "discovery_gap": 0.25,
+                    "confirmation_gap": 0.20833333333333334,
+                    "confirmation_95_hoeffding_lower": -0.14496848956707234,
+                    "disjoint_continuation_policy_winner_sets": 1
+                },
+                {
+                    "fixtureIndex": 858,
+                    "cell": [
+                        4,
+                        "original",
+                        true,
+                        "Build"
+                    ],
+                    "round": 8,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 5,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.020833333333333332,
+                    "confirmation_gap": -0.10416666666666667,
+                    "confirmation_95_hoeffding_lower": -0.45746848956707237,
+                    "disjoint_continuation_policy_winner_sets": 1
+                },
+                {
+                    "fixtureIndex": 929,
+                    "cell": [
+                        4,
+                        "recharged",
+                        true,
+                        "Bid"
+                    ],
+                    "round": 4,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 0,
+                    "a_runner_up": 3,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": -0.020833333333333332,
+                    "confirmation_95_hoeffding_lower": -0.374135156233739,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 948,
+                    "cell": [
+                        4,
+                        "recharged",
+                        true,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 6,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 4,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.020833333333333332,
+                    "confirmation_gap": -0.020833333333333332,
+                    "confirmation_95_hoeffding_lower": -0.374135156233739,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 992,
+                    "cell": [
+                        4,
+                        "recharged",
+                        true,
+                        "Build"
+                    ],
+                    "round": 9,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": true,
+                    "b_all_actions_tied": true,
+                    "a_winner": 18,
+                    "a_runner_up": 4,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1066,
+                    "cell": [
+                        4,
+                        "original",
+                        false,
+                        "Bid"
+                    ],
+                    "round": 5,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": true,
+                    "b_all_actions_tied": false,
+                    "a_winner": 0,
+                    "a_runner_up": 1,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1101,
+                    "cell": [
+                        4,
+                        "original",
+                        false,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 7,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": true,
+                    "b_all_actions_tied": true,
+                    "a_winner": 3,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1106,
+                    "cell": [
+                        4,
+                        "original",
+                        false,
+                        "Build"
+                    ],
+                    "round": 7,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": true,
+                    "b_all_actions_tied": true,
+                    "a_winner": 1,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1203,
+                    "cell": [
+                        4,
+                        "recharged",
+                        false,
+                        "Bid"
+                    ],
+                    "round": 6,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 1,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.020833333333333332,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 1
+                },
+                {
+                    "fixtureIndex": 1218,
+                    "cell": [
+                        4,
+                        "recharged",
+                        false,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 7,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 3,
+                    "a_runner_up": 2,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": -0.020833333333333332,
+                    "confirmation_95_hoeffding_lower": -0.374135156233739,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1270,
+                    "cell": [
+                        4,
+                        "recharged",
+                        false,
+                        "Build"
+                    ],
+                    "round": 9,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": true,
+                    "b_all_actions_tied": true,
+                    "a_winner": 16,
+                    "a_runner_up": 1,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1356,
+                    "cell": [
+                        5,
+                        "original",
+                        true,
+                        "Bid"
+                    ],
+                    "round": 5,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 6,
+                    "a_runner_up": 1,
+                    "discovery_gap": 0.041666666666666664,
+                    "confirmation_gap": 0.020833333333333332,
+                    "confirmation_95_hoeffding_lower": -0.33246848956707237,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1382,
+                    "cell": [
+                        5,
+                        "original",
+                        true,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 7,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 4,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.20833333333333334,
+                    "confirmation_gap": 0.16666666666666666,
+                    "confirmation_95_hoeffding_lower": -0.18663515623373902,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1407,
+                    "cell": [
+                        5,
+                        "original",
+                        true,
+                        "Build"
+                    ],
+                    "round": 8,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 6,
+                    "a_runner_up": 4,
+                    "discovery_gap": 0.020833333333333332,
+                    "confirmation_gap": -0.020833333333333332,
+                    "confirmation_95_hoeffding_lower": -0.374135156233739,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1490,
+                    "cell": [
+                        5,
+                        "recharged",
+                        true,
+                        "Bid"
+                    ],
+                    "round": 4,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 1,
+                    "a_runner_up": 6,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.020833333333333332,
+                    "confirmation_95_hoeffding_lower": -0.33246848956707237,
+                    "disjoint_continuation_policy_winner_sets": 2
+                },
+                {
+                    "fixtureIndex": 1504,
+                    "cell": [
+                        5,
+                        "recharged",
+                        true,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 5,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 4,
+                    "a_runner_up": 2,
+                    "discovery_gap": 0.041666666666666664,
+                    "confirmation_gap": 0.09375,
+                    "confirmation_95_hoeffding_lower": -0.2595518229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1551,
+                    "cell": [
+                        5,
+                        "recharged",
+                        true,
+                        "Build"
+                    ],
+                    "round": 8,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 4,
+                    "a_runner_up": 13,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1655,
+                    "cell": [
+                        5,
+                        "original",
+                        false,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 5,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": true,
+                    "b_all_actions_tied": true,
+                    "a_winner": 3,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1665,
+                    "cell": [
+                        5,
+                        "original",
+                        false,
+                        "Bid"
+                    ],
+                    "round": 6,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 1,
+                    "a_runner_up": 3,
+                    "discovery_gap": 0.020833333333333332,
+                    "confirmation_gap": 0.0625,
+                    "confirmation_95_hoeffding_lower": -0.2908018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1714,
+                    "cell": [
+                        5,
+                        "original",
+                        false,
+                        "Build"
+                    ],
+                    "round": 8,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 20,
+                    "a_runner_up": 5,
+                    "discovery_gap": 0.041666666666666664,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1805,
+                    "cell": [
+                        5,
+                        "recharged",
+                        false,
+                        "Bid"
+                    ],
+                    "round": 3,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 0,
+                    "a_runner_up": 1,
+                    "discovery_gap": 0.020833333333333332,
+                    "confirmation_gap": 0.041666666666666664,
+                    "confirmation_95_hoeffding_lower": -0.311635156233739,
+                    "disjoint_continuation_policy_winner_sets": 2
+                },
+                {
+                    "fixtureIndex": 1857,
+                    "cell": [
+                        5,
+                        "recharged",
+                        false,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 6,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 0,
+                    "a_runner_up": 3,
+                    "discovery_gap": 0.020833333333333332,
+                    "confirmation_gap": 0.0625,
+                    "confirmation_95_hoeffding_lower": -0.2908018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1877,
+                    "cell": [
+                        5,
+                        "recharged",
+                        false,
+                        "Build"
+                    ],
+                    "round": 7,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": true,
+                    "b_all_actions_tied": true,
+                    "a_winner": 1,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1951,
+                    "cell": [
+                        6,
+                        "original",
+                        true,
+                        "Bid"
+                    ],
+                    "round": 3,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 19,
+                    "a_runner_up": 6,
+                    "discovery_gap": 0.020833333333333332,
+                    "confirmation_gap": 0.020833333333333332,
+                    "confirmation_95_hoeffding_lower": -0.33246848956707237,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1966,
+                    "cell": [
+                        6,
+                        "original",
+                        true,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 4,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": true,
+                    "b_all_actions_tied": true,
+                    "a_winner": 4,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 1971,
+                    "cell": [
+                        6,
+                        "original",
+                        true,
+                        "Build"
+                    ],
+                    "round": 4,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 6,
+                    "a_runner_up": 7,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 2070,
+                    "cell": [
+                        6,
+                        "recharged",
+                        true,
+                        "Bid"
+                    ],
+                    "round": 4,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": true,
+                    "a_winner": 3,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 1
+                },
+                {
+                    "fixtureIndex": 2082,
+                    "cell": [
+                        6,
+                        "recharged",
+                        true,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 5,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 4,
+                    "a_runner_up": 3,
+                    "discovery_gap": 0.125,
+                    "confirmation_gap": 0.09375,
+                    "confirmation_95_hoeffding_lower": -0.2595518229004057,
+                    "disjoint_continuation_policy_winner_sets": 1
+                },
+                {
+                    "fixtureIndex": 2126,
+                    "cell": [
+                        6,
+                        "recharged",
+                        true,
+                        "Build"
+                    ],
+                    "round": 7,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 7,
+                    "a_runner_up": 4,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 2271,
+                    "cell": [
+                        6,
+                        "original",
+                        false,
+                        "Bid"
+                    ],
+                    "round": 5,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": true,
+                    "b_all_actions_tied": true,
+                    "a_winner": 6,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 2276,
+                    "cell": [
+                        6,
+                        "original",
+                        false,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 5,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": true,
+                    "b_all_actions_tied": true,
+                    "a_winner": 1,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 2334,
+                    "cell": [
+                        6,
+                        "original",
+                        false,
+                        "Build"
+                    ],
+                    "round": 7,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": true,
+                    "b_all_actions_tied": true,
+                    "a_winner": 8,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 2410,
+                    "cell": [
+                        6,
+                        "recharged",
+                        false,
+                        "Bid"
+                    ],
+                    "round": 3,
+                    "same_selected_action": false,
+                    "a_winner_is_b_co_winner": false,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 2,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.020833333333333332,
+                    "confirmation_gap": -0.020833333333333332,
+                    "confirmation_95_hoeffding_lower": -0.374135156233739,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 2429,
+                    "cell": [
+                        6,
+                        "recharged",
+                        false,
+                        "ChoosePowerPlant"
+                    ],
+                    "round": 4,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": false,
+                    "b_all_actions_tied": false,
+                    "a_winner": 4,
+                    "a_runner_up": 0,
+                    "discovery_gap": 0.125,
+                    "confirmation_gap": 0.08333333333333333,
+                    "confirmation_95_hoeffding_lower": -0.26996848956707237,
+                    "disjoint_continuation_policy_winner_sets": 0
+                },
+                {
+                    "fixtureIndex": 2513,
+                    "cell": [
+                        6,
+                        "recharged",
+                        false,
+                        "Build"
+                    ],
+                    "round": 8,
+                    "same_selected_action": true,
+                    "a_winner_is_b_co_winner": true,
+                    "a_all_actions_tied": true,
+                    "b_all_actions_tied": true,
+                    "a_winner": 15,
+                    "a_runner_up": 2,
+                    "discovery_gap": 0.0,
+                    "confirmation_gap": 0.0,
+                    "confirmation_95_hoeffding_lower": -0.3533018229004057,
+                    "disjoint_continuation_policy_winner_sets": 0
+                }
+            ],
+            "limitations": "One reused development position per cell; no game-strength inference. Policy-subset comparisons also vary sampled scenarios. Confirmation rival fixed using batch A; bounds marginal, not simultaneous."
+        },
+        "decision": "Target reproducibility is insufficient to assume that more hard-label distillation will improve the model: selected action agrees39/60 overall and8/20 bidding;16/60 discovery positions tie every candidate. This is a small reused-development diagnostic, not a game-strength estimate. Next compare larger sample budgets and fixed continuation policies on identical public scenarios before training more targets.",
+        "caveat": "No positive distribution-free confirmation lower bound at48 samples does not prove no useful moves; the bound is conservative. Mixed-policy subset disagreement is confounded by distinct scenario samples, so it does not identify a causal policy effect."
     }
 }

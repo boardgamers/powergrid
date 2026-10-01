@@ -21426,6 +21426,69 @@
         "artifact_revision": "6e4e29e56df04be457aa4287d9b4ce84ca5c42dc",
         "artifact_path": "runs/original-sealed-replay-second-deal-v1",
         "local_trace": "ai/runs/sealed-replay/second-deal/trace.jsonl",
-        "training_performed": false
+        "training_performed": false,
+        "legal_options_audit": {
+            "artifact_revision": "881394f491b18d12c450113b34261cb80914378e",
+            "artifact_path": "runs/original-sealed-replay-second-deal-v1/legal-options.json",
+            "exact_all_before_after_states": true,
+            "actions": 537,
+            "round4_nomination": {
+                "index": 186,
+                "round": 4,
+                "phase": "Auction",
+                "action": {
+                    "name": "ChoosePowerPlant",
+                    "data": 37
+                },
+                "money": 60,
+                "cities": [
+                    "K\u00f6ln",
+                    "Aachen"
+                ],
+                "legal": [
+                    {
+                        "name": "ChoosePowerPlant",
+                        "data": 14
+                    },
+                    {
+                        "name": "ChoosePowerPlant",
+                        "data": 23
+                    },
+                    {
+                        "name": "ChoosePowerPlant",
+                        "data": 24
+                    },
+                    {
+                        "name": "ChoosePowerPlant",
+                        "data": 37
+                    },
+                    {
+                        "name": "Pass",
+                        "data": true
+                    }
+                ]
+            },
+            "round4_building": {
+                "index": 198,
+                "round": 4,
+                "phase": "Building",
+                "action": {
+                    "name": "Pass",
+                    "data": true
+                },
+                "money": 23,
+                "cities": [
+                    "K\u00f6ln",
+                    "Aachen"
+                ],
+                "legal": [
+                    {
+                        "name": "Pass",
+                        "data": true
+                    }
+                ]
+            },
+            "finding": "All 537 root moves are legal and every captured before/after state matches direct engine replay. Round4 building Pass is the sole legal action at23 cash: no voluntary refusal of an affordable city. At index186 with60 cash the learner instead has legal nomination choices14,23,24,37 and Pass. Plant37 is acquired at face value37, so reducing its bid is not an available intervention. The next controlled alternative should be Pass at nomination, with exact prefix and complete continuation. This does not yet show that passing improves outcome."
+        }
     }
 }

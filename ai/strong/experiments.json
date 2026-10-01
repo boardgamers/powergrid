@@ -181,7 +181,13 @@
         "multiplayer-h200-u79-economic-6p": "6abded9bfbc85ba68235f5c4",
         "multiplayer-h200-u79-a260-3p": "6abded9c404719ba3761615d",
         "multiplayer-league-admission-v1-best": "6abdef75404719ba37616230",
-        "multiplayer-league-admission-v1-periodic-anchor": "6abdef76fbc85ba68235f6a0"
+        "multiplayer-league-admission-v1-periodic-anchor": "6abdef76fbc85ba68235f6a0",
+        "multiplayer-geoleague-u69-economic-2p": "6abdfe48404719ba376165c4",
+        "multiplayer-geoleague-u69-economic-3p": "6abdfe49fbc85ba68235fbc1",
+        "multiplayer-geoleague-u69-economic-4p": "6abdfe49404719ba376165c6",
+        "multiplayer-geoleague-u69-economic-5p": "6abdfe4a404719ba376165c8",
+        "multiplayer-geoleague-u69-economic-6p": "6abdfe4bfbc85ba68235fbc5",
+        "multiplayer-geoleague-u69-a260-3p": "6abdfe4b404719ba376165ca"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -27708,5 +27714,111 @@
             "search_truncated": 0,
             "interpretation": "Actual training batch used initial and update4 frozen opponents, verifying periodic admission. No external strength inference."
         }
+    },
+    "multiplayer_geoleague_update69_screening": {
+        "candidate_revision": "69a52c109a03d4ad3a490587a2094cc7e1f430c0",
+        "model_path": "runs/multiplayer-refine-geoleague-async-v1/latest.onnx",
+        "model_sha256": "1144b043d544ae0f90895c6a8dc7c000978017678e635729762adad337259e35",
+        "training_games": 16800,
+        "training_search_truncated": 4,
+        "training_search_cap_details": [
+            {
+                "update": 25,
+                "opponent": "search_geo",
+                "decisions": 2766,
+                "evaluations": 226160,
+                "truncated": 1
+            },
+            {
+                "update": 39,
+                "opponent": "search_geo",
+                "decisions": 4896,
+                "evaluations": 398448,
+                "truncated": 1
+            },
+            {
+                "update": 40,
+                "opponent": "search_geo",
+                "decisions": 3640,
+                "evaluations": 295104,
+                "truncated": 1
+            },
+            {
+                "update": 58,
+                "opponent": "search_geo",
+                "decisions": 4799,
+                "evaluations": 391504,
+                "truncated": 1
+            }
+        ],
+        "training_search_evaluations": 25549072,
+        "training_truncated": 0,
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "1144b043d544ae0f90895c6a8dc7c000978017678e635729762adad337259e35",
+            "max_logit_error": 6.103515625e-05,
+            "max_value_error": 3.2186508178710938e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "jobs": [
+            {
+                "run": "multiplayer-geoleague-u69-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abdfe48404719ba376165c4",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "multiplayer-geoleague-u69-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abdfe49fbc85ba68235fbc1",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "multiplayer-geoleague-u69-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abdfe49404719ba376165c6",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "multiplayer-geoleague-u69-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abdfe4a404719ba376165c8",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "multiplayer-geoleague-u69-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abdfe4bfbc85ba68235fbc5",
+                "observed_stage": "SCHEDULING"
+            },
+            {
+                "run": "multiplayer-geoleague-u69-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abdfe4b404719ba376165ca",
+                "observed_stage": "SCHEDULING"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Paired held-out development screening; not final qualification",
+        "arena_source": "37465b08df007221665d796448aea57e6828257e",
+        "search_samples": 0,
+        "decision": "Await six complete paired screens. Latest and internal best both update69; strict parity passes. Four earlier opponent search simulations were capped; actual training games all complete. Internal selection does not establish external strength.",
+        "reports": {}
     }
 }

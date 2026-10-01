@@ -205,7 +205,19 @@
         "multiplayer-geoleague-u79-economic-4p": "6abe14ebfbc85ba6823605e8",
         "multiplayer-geoleague-u79-economic-5p": "6abe14ec404719ba37616d00",
         "multiplayer-geoleague-u79-economic-6p": "6abe14ed404719ba37616d04",
-        "multiplayer-geoleague-u79-a260-3p": "6abe14ed404719ba37616d06"
+        "multiplayer-geoleague-u79-a260-3p": "6abe14ed404719ba37616d06",
+        "league-admission-best-u19-economic-2p": "6abe1ac1404719ba376170f2",
+        "league-admission-best-u19-economic-3p": "6abe1ac2fbc85ba682360a65",
+        "league-admission-best-u19-economic-4p": "6abe1ac2404719ba376170f7",
+        "league-admission-best-u19-economic-5p": "6abe1ac3404719ba376170f9",
+        "league-admission-best-u19-economic-6p": "6abe1ac4404719ba376170fb",
+        "league-admission-best-u19-a260-3p": "6abe1ac4404719ba376170fd",
+        "league-admission-periodic-anchor-u19-economic-2p": "6abe1acffbc85ba682360a6c",
+        "league-admission-periodic-anchor-u19-economic-3p": "6abe1ad0fbc85ba682360a6e",
+        "league-admission-periodic-anchor-u19-economic-4p": "6abe1ad0404719ba37617101",
+        "league-admission-periodic-anchor-u19-economic-5p": "6abe1ad1404719ba37617103",
+        "league-admission-periodic-anchor-u19-economic-6p": "6abe1ad2fbc85ba682360a72",
+        "league-admission-periodic-anchor-u19-a260-3p": "6abe1ad2404719ba37617105"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -27723,7 +27735,7 @@
         "interpretation": "All3680 held-out development screening games completed with zero actual/search truncations. Economic2\u20136p win rates63.4375%,60.833333%,59.6875%,77.6875%,73.28125%; frozenA2603p33.541667%, below40% floor. Final80-update training endpoint and strict export success do not qualify this model. Internal-best selection did not deliver universal external strength. Preserve earlier candidates and reserved final seeds; do not extend the same H200 recipe solely because training finished. Further work should change training/opponent coverage based on the observed sealed-auction and frozen-opponent weaknesses, while the geographic80-update run completes."
     },
     "multiplayer_league_admission_v1": {
-        "status": "RUNNING",
+        "status": "EVALUATING",
         "source": {
             "archive": "strong-source-v34.tgz",
             "revision": "2c273f96562d0cc2f8c05a2735d8c0492ab77fd8",
@@ -27754,12 +27766,54 @@
             {
                 "run": "multiplayer-league-admission-v1-best",
                 "job_id": "6abdef75404719ba37616230",
-                "admission": "best"
+                "admission": "best",
+                "observed_stage": "COMPLETED",
+                "final_checkpoint": {
+                    "run": "multiplayer-league-admission-v1-best",
+                    "update": 19,
+                    "revision": "efdb82f2712b8c6648100d7ad99b6941102f7001",
+                    "hashes": {
+                        "latest.pt": "acd9f867c91c1ce4485b816172dad80f27e6c3d340d3cdd68ed4217e28d37bfe",
+                        "latest.onnx": "691a91ae58d5946a396fe595ffba2f866b5bfba6533ec504da9e6a134c07750e",
+                        "metrics.json": "7fce6ea346c1f94eff31b1f02a01cf83c73afc07ac898ead45e0552863df172c",
+                        "schema.json": "01de9686a1838f1b44e6e766da2ccc4e08f3daf19d0531e3272943f3d5163897"
+                    },
+                    "training_games": 4800,
+                    "training_truncated": 0,
+                    "snapshot_updates": [
+                        -1,
+                        9,
+                        19
+                    ],
+                    "strict_parity": "passed",
+                    "scope": "Development comparison of snapshot admission policies; not final qualification."
+                }
             },
             {
                 "run": "multiplayer-league-admission-v1-periodic-anchor",
                 "job_id": "6abdef76fbc85ba68235f6a0",
-                "admission": "periodic_anchor"
+                "admission": "periodic_anchor",
+                "observed_stage": "COMPLETED",
+                "final_checkpoint": {
+                    "run": "multiplayer-league-admission-v1-periodic-anchor",
+                    "update": 19,
+                    "revision": "efdb82f2712b8c6648100d7ad99b6941102f7001",
+                    "hashes": {
+                        "latest.pt": "b8db0d4cfa278a37c4c38c6fae734e9375d2d543e59f41bcca128652385e092e",
+                        "latest.onnx": "08ad0042e548e9b871e9f4178626d405637fb55f3f42b0d580b2bd6979ac7f67",
+                        "metrics.json": "bef60ab198ff7847abaf4831a919bf106f01f602eafb51eee9223b8fe760a694",
+                        "schema.json": "73bb15a8a5897177174aeee6b894390951157b47fbb32cf811d9ee9489fd0304"
+                    },
+                    "training_games": 4800,
+                    "training_truncated": 0,
+                    "snapshot_updates": [
+                        -1,
+                        14,
+                        19
+                    ],
+                    "strict_parity": "passed",
+                    "scope": "Development comparison of snapshot admission policies; not final qualification."
+                }
             }
         ],
         "hypothesis": "Periodic admission with retained starting policy improves robustness versus score-gated last-three admission. Both arms share source, initial checkpoint, seed, geography-aware search opponent mix and optimizer settings.",
@@ -27828,7 +27882,9 @@
         },
         "screening_keys": [
             "multiplayer_league_admission_periodic_anchor_update9_screening",
-            "multiplayer_league_admission_best_update9_screening"
+            "multiplayer_league_admission_best_update9_screening",
+            "multiplayer_league_admission_best_update19_screening",
+            "multiplayer_league_admission_periodic_anchor_update19_screening"
         ],
         "paired_screens": {
             "9": {
@@ -28221,7 +28277,9 @@
             "starting_policy_comparison": "Periodic arm has no supported overall change versus startingH200u29 in any screen. Best-admission arm has supported economic5p/6p regressions. Evidence favors retention of starting strength, not established improvement beyond it.",
             "qualification_failures": "Both arms miss economic2p66.25% floor. PeriodicA26039.6875% misses40%; bestA26041.25% exceeds point floor but original/open and both sealed rule intervals include1/3 chance.",
             "limitations": "Single training seed; update9 is secondary; marginal exploratory confidence intervals are not simultaneous guarantees. Final reserved seeds untouched."
-        }
+        },
+        "training_status": "COMPLETED",
+        "completion_note": "Both matched arms completed 20 updates and4800 games each, balanced2\u20136players, with zero actual/search truncations and strict2553fixture parity. Primary update19 paired screens launched; qualification remains unproven."
     },
     "multiplayer_geoleague_update69_screening": {
         "candidate_revision": "69a52c109a03d4ad3a490587a2094cc7e1f430c0",
@@ -31232,5 +31290,157 @@
             "limitation": "Development screening on reused seeds; marginal exploratory intervals, not final qualification.",
             "next_action": "Complete prespecified update19 league-admission comparison. No evidence supports more of unchanged geographic training."
         }
+    },
+    "multiplayer_league_admission_best_update19_screening": {
+        "candidate_revision": "efdb82f2712b8c6648100d7ad99b6941102f7001",
+        "model_path": "runs/multiplayer-league-admission-v1-best/latest.onnx",
+        "model_sha256": "691a91ae58d5946a396fe595ffba2f866b5bfba6533ec504da9e6a134c07750e",
+        "training_games": 4800,
+        "training_truncated": 0,
+        "training_search_truncated": 0,
+        "snapshot_updates": [
+            -1,
+            9,
+            19
+        ],
+        "arm": "best",
+        "update": 19,
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "691a91ae58d5946a396fe595ffba2f866b5bfba6533ec504da9e6a134c07750e",
+            "max_logit_error": 6.866455078125e-05,
+            "max_value_error": 2.115964889526367e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "jobs": [
+            {
+                "run": "league-admission-best-u19-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abe1ac1404719ba376170f2"
+            },
+            {
+                "run": "league-admission-best-u19-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abe1ac2fbc85ba682360a65"
+            },
+            {
+                "run": "league-admission-best-u19-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abe1ac2404719ba376170f7"
+            },
+            {
+                "run": "league-admission-best-u19-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abe1ac3404719ba376170f9"
+            },
+            {
+                "run": "league-admission-best-u19-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abe1ac4404719ba376170fb"
+            },
+            {
+                "run": "league-admission-best-u19-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abe1ac4404719ba376170fd"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Scheduled paired development screen; not final qualification",
+        "protocol": "ai/strong/league-admission-protocol-v1.json",
+        "arena_source": "37465b08df007221665d796448aea57e6828257e",
+        "search_samples": 0,
+        "decision": "Await all six screens and matched opposite arm; do not infer admission benefit from this arm alone."
+    },
+    "multiplayer_league_admission_periodic_anchor_update19_screening": {
+        "candidate_revision": "efdb82f2712b8c6648100d7ad99b6941102f7001",
+        "model_path": "runs/multiplayer-league-admission-v1-periodic-anchor/latest.onnx",
+        "model_sha256": "08ad0042e548e9b871e9f4178626d405637fb55f3f42b0d580b2bd6979ac7f67",
+        "training_games": 4800,
+        "training_truncated": 0,
+        "training_search_truncated": 0,
+        "snapshot_updates": [
+            -1,
+            14,
+            19
+        ],
+        "arm": "periodic_anchor",
+        "update": 19,
+        "parity": {
+            "positions": 2553,
+            "by_player_count": {
+                "2": 349,
+                "3": 427,
+                "4": 527,
+                "5": 609,
+                "6": 641
+            },
+            "inactive_values_zero": true,
+            "feature_revision": "4.0-multiplayer",
+            "model_sha256": "08ad0042e548e9b871e9f4178626d405637fb55f3f42b0d580b2bd6979ac7f67",
+            "max_logit_error": 6.866455078125e-05,
+            "max_value_error": 2.8014183044433594e-06,
+            "all_actions_match": true,
+            "specialist_route_counts": {}
+        },
+        "jobs": [
+            {
+                "run": "league-admission-periodic-anchor-u19-economic-2p",
+                "players": 2,
+                "opponent": "economic",
+                "job_id": "6abe1acffbc85ba682360a6c"
+            },
+            {
+                "run": "league-admission-periodic-anchor-u19-economic-3p",
+                "players": 3,
+                "opponent": "economic",
+                "job_id": "6abe1ad0fbc85ba682360a6e"
+            },
+            {
+                "run": "league-admission-periodic-anchor-u19-economic-4p",
+                "players": 4,
+                "opponent": "economic",
+                "job_id": "6abe1ad0404719ba37617101"
+            },
+            {
+                "run": "league-admission-periodic-anchor-u19-economic-5p",
+                "players": 5,
+                "opponent": "economic",
+                "job_id": "6abe1ad1404719ba37617103"
+            },
+            {
+                "run": "league-admission-periodic-anchor-u19-economic-6p",
+                "players": 6,
+                "opponent": "economic",
+                "job_id": "6abe1ad2fbc85ba682360a72"
+            },
+            {
+                "run": "league-admission-periodic-anchor-u19-a260-3p",
+                "players": 3,
+                "opponent": "a260",
+                "job_id": "6abe1ad2404719ba37617105"
+            }
+        ],
+        "status": "RUNNING",
+        "scope": "Scheduled paired development screen; not final qualification",
+        "protocol": "ai/strong/league-admission-protocol-v1.json",
+        "arena_source": "37465b08df007221665d796448aea57e6828257e",
+        "search_samples": 0,
+        "decision": "Await all six screens and matched opposite arm; do not infer admission benefit from this arm alone."
     }
 }

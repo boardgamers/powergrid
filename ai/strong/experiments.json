@@ -17411,7 +17411,7 @@
                 "search_max_steps": 2400,
                 "async_arena": true,
                 "job_id": "6abdac32fbc85ba68235de93",
-                "observed_stage": "RUNNING",
+                "observed_stage": "COMPLETED",
                 "candidate_geographic_search": false
             },
             "multiplayer-hard-e10-raw-search-geo-h2400-5p-v2": {
@@ -18059,6 +18059,96 @@
                     }
                 },
                 "artifact_revision": "ff40c4dc9a0f79b5317f9100ca9ddc665a56beda"
+            },
+            "multiplayer-hard-e10-raw-search-geo-h2400-4p-v2": {
+                "async_rollout": true,
+                "engine_workers": 128,
+                "player_count": 4,
+                "chance_win_rate": 0.25,
+                "deal_offset": 0,
+                "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/ab34dd266010ded1c9a6c818c721e5505dd1ddeb/runs/multiplayer-distillation-v2-hard/best.onnx",
+                "model_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
+                "model_feature_revision": "4.0-multiplayer",
+                "encoder_feature_revision": "4.0-multiplayer",
+                "opponent": "search_geo",
+                "opponent_sha256": null,
+                "opponent_feature_revision": null,
+                "paired_seats": true,
+                "candidate_search_samples": 0,
+                "search_max_steps": 2400,
+                "candidate_search_scope": "all",
+                "candidate_geographic_search": false,
+                "candidate_search_model_proposal": true,
+                "seed": "multiplayer-raw-search-transfer-v1-4p",
+                "games": 128,
+                "win_rate": 0.03125,
+                "truncated": 0,
+                "seconds": 1300.964938827,
+                "inference_p95_ms": 1.2332318999511924,
+                "by_rules": [
+                    {
+                        "variant": "original",
+                        "sealed": false,
+                        "games": 32,
+                        "win_rate": 0.03125,
+                        "independent_seeds": 8,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.0,
+                            0.09375
+                        ]
+                    },
+                    {
+                        "variant": "original",
+                        "sealed": true,
+                        "games": 32,
+                        "win_rate": 0.0,
+                        "independent_seeds": 8,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": false,
+                        "games": 32,
+                        "win_rate": 0.0625,
+                        "independent_seeds": 8,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.0,
+                            0.15625
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": true,
+                        "games": 32,
+                        "win_rate": 0.03125,
+                        "independent_seeds": 8,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.0,
+                            0.09375
+                        ]
+                    }
+                ],
+                "independent_seeds": 8,
+                "seed_bootstrap_95_interval": [
+                    0.0078125,
+                    0.0546875
+                ],
+                "search_rollouts_reported": true,
+                "search_stats": {
+                    "search_geo": {
+                        "decisions": 20479,
+                        "evaluations": 1685184,
+                        "truncated": 0
+                    }
+                },
+                "artifact_revision": "c0adc00b8ea3fe5f447d226c5340ce3ad52a7386"
             }
         },
         "paired_against_warm_start": {
@@ -18077,9 +18167,17 @@
                     0.05208333333333333,
                     0.23958333333333331
                 ]
+            },
+            "4": {
+                "independent_deals": 8,
+                "difference": 0.1640625,
+                "paired_seed_bootstrap_95_interval": [
+                    0.078125,
+                    0.25
+                ]
             }
         },
-        "interim_decision": "Completed paired 2p and 3p screens do not qualify either raw policy. At 2p, H200 update29 28.125% versus warm start20.3125%, paired gain7.8125pp CI[-10.9375,26.5625]: uncertain. At 3p, update29 20.8333% versus warm start6.25%, paired gain14.5833pp CI[5.2083,23.9583]: evidence of transfer improvement on these eight development deals, but its own interval[12.5%,29.1667%] remains below one-third equal share. Four reports have complete seat/rule pairing, correct model hashes and zero game/search truncations. Counts4-6 pending; no promotion or final-seed use. Improvement from a weak starting point is not sufficient strength.",
-        "four_player_interim_decision": "Retained raw H200 update29 scores19.53125% on128games/8deals against search_geo, seed-cluster95%CI[12.5%,26.5625%]. Equal-share25% is inside the interval, so do not assert a statistically supported deficit; there is no supported superiority and the point estimate is below the32.5% qualification floor. Actual games and search rollouts all finish without truncation. Warm-start paired4p result pending; do not infer a training effect yet."
+        "interim_decision": "Paired2-4p results complete. Training gains against search_geo are supported at3p and4p on eight development deals each, uncertain at2p. Neither raw policy meets the corresponding strength gates. Await5-6p and remaining authorized training checkpoints; final reserved seeds remain unused.",
+        "four_player_interim_decision": "Paired4p comparison complete: retained H200 update29 wins19.53125% versus warm-start3.125%, each128games/8deals. Gain16.40625pp has paired seed-cluster95%CI[7.8125,25.0], supporting transfer improvement on these development deals. Retained-policy interval[12.5%,26.5625%] includes equal-share25%, and point estimate remains below32.5% qualification floor. Both reports pass pairing, hash and zero actual/search truncation checks. Improvement from the weak warm start does not qualify the model. Counts5-6 pending."
     }
 }

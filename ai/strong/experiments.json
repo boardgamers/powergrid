@@ -17281,7 +17281,7 @@
         "decision": "Do not promote using internal best or training win rates. Complete current runs and keep independent checkpoint screening. Future league redesign should decouple opponent admission from this sparse heuristic-only selection and measure whether a diverse retained pool improves held-out strength."
     },
     "multiplayer_h200_update29_strong_opponent_transfer_screen": {
-        "status": "RUNNING",
+        "status": "COMPLETED",
         "purpose": "Test whether raw-policy PPO improvements over its warm start transfer to a stronger independent geographic search baseline across all counts. Neither learner uses online search.",
         "source": {
             "archive": "strong-source-v32.tgz",
@@ -17456,7 +17456,7 @@
                 "search_max_steps": 2400,
                 "async_arena": true,
                 "job_id": "6abdac34404719ba37615159",
-                "observed_stage": "RUNNING",
+                "observed_stage": "COMPLETED",
                 "candidate_geographic_search": false
             }
         },
@@ -18432,6 +18432,96 @@
                     }
                 },
                 "artifact_revision": "41df7f2afd3bab0a2c2bad8cb5d707c22ea25007"
+            },
+            "multiplayer-hard-e10-raw-search-geo-h2400-6p-v2": {
+                "async_rollout": true,
+                "engine_workers": 192,
+                "player_count": 6,
+                "chance_win_rate": 0.16666666666666666,
+                "deal_offset": 0,
+                "model": "/root/.cache/huggingface/hub/models--coyotte508--powergrid-ai-germany-v1/snapshots/ab34dd266010ded1c9a6c818c721e5505dd1ddeb/runs/multiplayer-distillation-v2-hard/best.onnx",
+                "model_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
+                "model_feature_revision": "4.0-multiplayer",
+                "encoder_feature_revision": "4.0-multiplayer",
+                "opponent": "search_geo",
+                "opponent_sha256": null,
+                "opponent_feature_revision": null,
+                "paired_seats": true,
+                "candidate_search_samples": 0,
+                "search_max_steps": 2400,
+                "candidate_search_scope": "all",
+                "candidate_geographic_search": false,
+                "candidate_search_model_proposal": true,
+                "seed": "multiplayer-raw-search-transfer-v1-6p",
+                "games": 192,
+                "win_rate": 0.10416666666666667,
+                "truncated": 0,
+                "seconds": 3985.7409409320003,
+                "inference_p95_ms": 1.1848322999924221,
+                "by_rules": [
+                    {
+                        "variant": "original",
+                        "sealed": false,
+                        "games": 48,
+                        "win_rate": 0.14583333333333334,
+                        "independent_seeds": 8,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.0625,
+                            0.22916666666666666
+                        ]
+                    },
+                    {
+                        "variant": "original",
+                        "sealed": true,
+                        "games": 48,
+                        "win_rate": 0.041666666666666664,
+                        "independent_seeds": 8,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.0,
+                            0.10416666666666667
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": false,
+                        "games": 48,
+                        "win_rate": 0.16666666666666666,
+                        "independent_seeds": 8,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.041666666666666664,
+                            0.2916666666666667
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": true,
+                        "games": 48,
+                        "win_rate": 0.0625,
+                        "independent_seeds": 8,
+                        "truncated": 0,
+                        "seed_bootstrap_95_interval": [
+                            0.0,
+                            0.14583333333333334
+                        ]
+                    }
+                ],
+                "independent_seeds": 8,
+                "seed_bootstrap_95_interval": [
+                    0.0625,
+                    0.140625
+                ],
+                "search_rollouts_reported": true,
+                "search_stats": {
+                    "search_geo": {
+                        "decisions": 45384,
+                        "evaluations": 3700784,
+                        "truncated": 0
+                    }
+                },
+                "artifact_revision": "6d022ff3ff13c1622651a1c2aa9cb4a8c5943f18"
             }
         },
         "paired_against_warm_start": {
@@ -18520,12 +18610,83 @@
                         ]
                     }
                 ]
+            },
+            "6": {
+                "independent_deals": 8,
+                "difference": 0.265625,
+                "paired_seed_bootstrap_95_interval": [
+                    0.19791666666666669,
+                    0.3385416666666667
+                ],
+                "by_rules": [
+                    {
+                        "variant": "original",
+                        "sealed": false,
+                        "games_per_candidate": 48,
+                        "independent_deals": 8,
+                        "candidate_win_rate": 0.5,
+                        "warm_start_win_rate": 0.14583333333333334,
+                        "difference": 0.35416666666666663,
+                        "paired_seed_bootstrap_95_interval": [
+                            0.22916666666666666,
+                            0.47916666666666663
+                        ]
+                    },
+                    {
+                        "variant": "original",
+                        "sealed": true,
+                        "games_per_candidate": 48,
+                        "independent_deals": 8,
+                        "candidate_win_rate": 0.1875,
+                        "warm_start_win_rate": 0.041666666666666664,
+                        "difference": 0.14583333333333331,
+                        "paired_seed_bootstrap_95_interval": [
+                            0.08333333333333333,
+                            0.20833333333333331
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": false,
+                        "games_per_candidate": 48,
+                        "independent_deals": 8,
+                        "candidate_win_rate": 0.5416666666666666,
+                        "warm_start_win_rate": 0.16666666666666666,
+                        "difference": 0.375,
+                        "paired_seed_bootstrap_95_interval": [
+                            0.14583333333333334,
+                            0.5833333333333334
+                        ]
+                    },
+                    {
+                        "variant": "recharged",
+                        "sealed": true,
+                        "games_per_candidate": 48,
+                        "independent_deals": 8,
+                        "candidate_win_rate": 0.25,
+                        "warm_start_win_rate": 0.0625,
+                        "difference": 0.1875,
+                        "paired_seed_bootstrap_95_interval": [
+                            0.020833333333333332,
+                            0.375
+                        ]
+                    }
+                ]
             }
         },
-        "interim_decision": "Paired2-5p complete. Supported overall gains at3-5p, uncertain at2p; no universal raw-model qualification. Five-player original/sealed remains weak and its paired gain is uncertain. Await6p and remaining authorized training checkpoints; final reserved seeds unused.",
+        "interim_decision": "Completed all1280games/10reports. H200 update29 versus original hard epoch10 shows supported paired gains on8development deals/count at3p(+14.5833pp),4p(+16.40625pp),5p(+28.75pp),6p(+26.5625pp CI[19.791667,33.854167]);2p gain uncertain. Overall search-reference point rates28.125%,20.8333%,19.53125%,33.75%,36.979167% at2-6p. No universal qualification:2-4p fail strength floors and5-6p have unresolved sealed-rule weaknesses. Preserve these as evidence of PPO transfer, not expert strength. Continue fixed training horizons and update49 six-player search comparison; diagnose original sealed decisions before next training design. Reserved final seeds remain unused.",
         "four_player_interim_decision": "Paired4p comparison complete: retained H200 update29 wins19.53125% versus warm-start3.125%, each128games/8deals. Gain16.40625pp has paired seed-cluster95%CI[7.8125,25.0], supporting transfer improvement on these development deals. Retained-policy interval[12.5%,26.5625%] includes equal-share25%, and point estimate remains below32.5% qualification floor. Both reports pass pairing, hash and zero actual/search truncation checks. Improvement from the weak warm start does not qualify the model. Counts5-6 pending.",
         "five_player_interim_decision": "Paired5p complete: retained H200 update29 wins33.75% versus warm-start5%, gain28.75pp paired95%CI[19.375,36.875],160games/8deals each. Per-rule paired gains: original/open40pp CI[12.5,60], original/sealed5pp CI[-5,15], recharged/open47.5pp CI[30,65], recharged/sealed22.5pp CI[15,30]. Original sealed remains the key unresolved training transfer gap: retained7.5% own95%CI[2.5,15] remains below20% equal share. Recharged sealed improves from zero but superiority over20% is unproven. No promotion despite aggregate gains; next diagnosis should trace original sealed auction decisions and outcome timing. All completed reports have verified hashes/pairings and zero game/search truncation. Both6p and training checkpoints pending.",
-        "six_player_interim_decision": "Retained raw H200 update29 completed192games/8deals against search_geo:36.979167% CI[31.25%,42.708333%]. Open rules50%/54.166667% show gains over16.6667% equal share; original sealed18.75% CI[12.5%,25%] and recharged sealed25% CI[12.5%,39.583333%] do not establish superiority. Original sealed point below25% floor. All games and3575856 opponent rollouts untruncated. Aggregate advantage is promising but no qualification; paired warm start pending and update49 comparison running."
+        "six_player_interim_decision": "Completed paired6p:36.979167% versus10.416667%, gain26.5625pp CI[19.791667,33.854167]. All384paired games and search rollouts untruncated. Retained original/sealed18.75% and recharged/sealed25% have intervals including equal share; original sealed point misses25% floor. No qualification despite aggregate advantage.",
+        "completion_audit": {
+            "games": 1280,
+            "reports": 10,
+            "search_rollouts": 17742848,
+            "game_truncations": 0,
+            "search_truncations": 0,
+            "paired_model_hashes_checked": true,
+            "exact_seat_rule_seed_pairs_checked": true
+        }
     },
     "multiplayer_h200_update49_screening": {
         "candidate_revision": "d6adef40b2b836108cd4c3d2e384eefb67a133a0",
@@ -19699,28 +19860,28 @@
                 "players": 4,
                 "opponent": "economic",
                 "job_id": "6abdbbbdfbc85ba68235e2cf",
-                "observed_stage": "SCHEDULING"
+                "observed_stage": "RUNNING"
             },
             {
                 "run": "multiplayer-geoleague-u39-economic-5p",
                 "players": 5,
                 "opponent": "economic",
                 "job_id": "6abdbbbdfbc85ba68235e2d1",
-                "observed_stage": "SCHEDULING"
+                "observed_stage": "RUNNING"
             },
             {
                 "run": "multiplayer-geoleague-u39-economic-6p",
                 "players": 6,
                 "opponent": "economic",
                 "job_id": "6abdbbbefbc85ba68235e2d3",
-                "observed_stage": "SCHEDULING"
+                "observed_stage": "RUNNING"
             },
             {
                 "run": "multiplayer-geoleague-u39-a260-3p",
                 "players": 3,
                 "opponent": "a260",
                 "job_id": "6abdbbbffbc85ba68235e2d5",
-                "observed_stage": "SCHEDULING"
+                "observed_stage": "RUNNING"
             }
         ],
         "status": "RUNNING",

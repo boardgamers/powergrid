@@ -48,8 +48,10 @@ function choose(
         extraCandidates = [],
         geography = false,
         includeSamples = false,
+        continuation = 'mixed',
     } = {}
 ) {
+    if (!['mixed', 'heuristic', 'economic'].includes(continuation)) throw Error('Invalid continuation policy');
     const actions = c.candidates(g, seat),
         options = [...new Set([...shortlist(g, seat, candidates, geography), ...extraCandidates])];
     if (options.some((i) => !Number.isInteger(i) || i < 0 || i >= actions.length))
@@ -68,7 +70,8 @@ function choose(
             let step = 0;
             while (!c.E.ended(sim) && step++ < maxSteps) {
                 const p = sim.currentPlayers[0];
-                const move = sample % 2 ? c.heuristic(sim, p, rng).action : eco.choose(sim, p, rng).action;
+                const useHeuristic = continuation === 'heuristic' || (continuation === 'mixed' && sample % 2);
+                const move = useHeuristic ? c.heuristic(sim, p, rng).action : eco.choose(sim, p, rng).action;
                 c.E.move(sim, move, p);
             }
             if (c.E.ended(sim)) {

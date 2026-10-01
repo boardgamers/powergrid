@@ -24,3 +24,15 @@ test('optional paired outcomes preserve decisions and distinguish capped continu
         assert.equal(capped, maxSteps === 1200 ? 1 : 0);
     }
 });
+
+test('fixed continuation policies share scenarios and reproduce mixed-policy samples', () => {
+    const options = { ...fixture.options, samples: 2, maxSteps: 2400, includeSamples: true };
+    const mixed = search.choose(fixture.state, fixture.seat, options);
+    const economic = search.choose(fixture.state, fixture.seat, { ...options, continuation: 'economic' });
+    const heuristic = search.choose(fixture.state, fixture.seat, { ...options, continuation: 'heuristic' });
+    for (const k of Object.keys(mixed.sampleOutcomes)) {
+        assert.equal(mixed.sampleOutcomes[k][0], economic.sampleOutcomes[k][0]);
+        assert.equal(mixed.sampleOutcomes[k][1], heuristic.sampleOutcomes[k][1]);
+    }
+    assert.throws(() => search.choose(fixture.state, fixture.seat, { continuation: 'unknown' }), /Invalid continuation/);
+});

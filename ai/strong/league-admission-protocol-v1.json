@@ -1,0 +1,154 @@
+{
+  "purpose": "Development comparison of snapshot admission policies; not final qualification.",
+  "training_source_revision": "2c273f96562d0cc2f8c05a2735d8c0492ab77fd8",
+  "arms": {
+    "best": {
+      "run": "multiplayer-league-admission-v1-best",
+      "job_id": "6abdef75404719ba37616230"
+    },
+    "periodic_anchor": {
+      "run": "multiplayer-league-admission-v1-periodic-anchor",
+      "job_id": "6abdef76fbc85ba68235f6a0"
+    }
+  },
+  "checkpoint_updates": [
+    9,
+    19
+  ],
+  "primary_checkpoint_update": 19,
+  "checkpoint_selection": "Use latest at each scheduled update, never internal best. Pin the immutable repository revision and checkpoint/export hashes before launching each screen.",
+  "scope": {
+    "map": "Germany",
+    "players": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "variants": [
+      "original",
+      "recharged"
+    ],
+    "auctions": [
+      "open",
+      "sealed"
+    ]
+  },
+  "arena_source_revision": "37465b08df007221665d796448aea57e6828257e",
+  "candidate_search_samples": 0,
+  "candidate_geography": 0,
+  "search_max_steps": 2400,
+  "seed_template": "multiplayer-screening-paired-v1-{players}p",
+  "deal_offsets": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+  ],
+  "matches_per_deal": "All candidate seats and all four rule combinations.",
+  "screens": [
+    {
+      "players": 2,
+      "opponent": "economic",
+      "games": 320
+    },
+    {
+      "players": 3,
+      "opponent": "economic",
+      "games": 480
+    },
+    {
+      "players": 4,
+      "opponent": "economic",
+      "games": 640
+    },
+    {
+      "players": 5,
+      "opponent": "economic",
+      "games": 800
+    },
+    {
+      "players": 6,
+      "opponent": "economic",
+      "games": 960
+    },
+    {
+      "players": 3,
+      "opponent": "a260",
+      "games": 480,
+      "model_path": "runs/strong-league-v2-a/best.onnx",
+      "revision": "b38515c29e57826de05b55b645c29591e4a886bf",
+      "sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd"
+    }
+  ],
+  "total_games": 14720,
+  "validation": [
+    "2553-fixture checkpoint/export comparison, including strict numerical tolerances; record failures and do not qualify failing exports.",
+    "Exact candidate and opponent hashes, counts, seed sets, unique seat/rule/deal keys and paired completeness.",
+    "Zero actual-game truncations, illegal actions and search truncations; explicit search diagnostics.",
+    "Inspect training metrics for both arms: completed games, truncation, admission mode and actual snapshot updates."
+  ],
+  "comparisons": {
+    "primary": "periodic_anchor minus best at update19, separately for each opponent/player count; no pooled win rate across counts.",
+    "secondary": [
+      "Same comparison at update9.",
+      "Each arm versus starting H200 update29 on the same held-out deals.",
+      "Separate original/open, original/sealed, recharged/open and recharged/sealed results for every count/opponent."
+    ],
+    "pairing_key": [
+      "gameSeed",
+      "variant",
+      "sealed",
+      "seat"
+    ],
+    "bootstrap_unit": "gameSeed, retaining all seats and rule repeats",
+    "bootstrap_replicates": 20000,
+    "bootstrap_seed": 623,
+    "interval": 0.95
+  },
+  "interpretation": [
+    "A single training seed is a pilot and cannot establish robustness across training randomness.",
+    "Async scheduling does not guarantee identical training trajectories despite matched configuration.",
+    "Intervals are marginal exploratory intervals, not simultaneous family-wide confidence bounds.",
+    "These development seeds have been used for previous checkpoint screening; they are not the reserved final test.",
+    "Report all scheduled checkpoints and comparisons, including regressions. Do not silently select the best subgroup.",
+    "No automatic promotion or deployment. Final strength, serving and export gates remain unchanged. Strong search-opponent follow-up requires evidence from these screens."
+  ]
+}

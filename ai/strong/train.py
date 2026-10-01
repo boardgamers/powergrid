@@ -14,6 +14,7 @@ from model_v4 import MultiplayerPolicy
 from multiplayer import ROLE_REVISIONS, rotate_outcome, balance_training_rows
 from pool import EnginePool
 from arena_statistics import search_summary
+from snapshot_league import SnapshotLeague
 from huggingface_hub import HfApi, hf_hub_download
 from feature_contract import FEATURE_REVISION, embed_revision
 
@@ -106,10 +107,14 @@ if async_rollout:
     if workers != nenv:
         raise ValueError("Async rollout requires WORKERS == ENVS")
     rollout_class = AsyncEnginePool
+league = SnapshotLeague(
+    net,
+    os.getenv("SNAPSHOT_ADMISSION", "best"),
+    int(os.getenv("SNAPSHOT_INTERVAL", "10")),
+)
 rollout = rollout_class(
     workers, seed=f"strong-train-{seed}", script="ai/strong/bridge.cjs"
 )
-snapshots = [copy.deepcopy(net).eval()]
 metrics = []
 best = -1
 update = -1
@@ -128,6 +133,9 @@ def save(name, export=False):
             "mixed_player_counts": mix_player_counts,
             "training_device": device,
             "async_rollout": async_rollout,
+            "snapshot_admission": league.admission,
+            "snapshot_interval": league.interval,
+            "snapshot_updates": league.updates,
             "initial_checkpoint": initial_checkpoint,
             "initial_revision": initial_revision,
             "initial_feature_revision": checkpoint.get("feature_revision", "3.0")
@@ -349,7 +357,7 @@ try:
                 actor = (
                     net
                     if role == "learner"
-                    else snapshots[int(role[-1]) % len(snapshots)]
+                    else league.actors[int(role[-1]) % len(league.actors)]
                 )
                 with torch.no_grad():
                     logits, vs = actor(*tensors([rows[j] for j in indices], device))
@@ -536,6 +544,9 @@ try:
             group["wins"] += ending["value"][ending["roles"].index("learner")]
             group["truncated"] += ending["truncated"]
         metric["training_opponents"] = opponent_outcomes
+        metric["snapshot_updates"] = list(league.updates)
+        if league.admission == "periodic_anchor":
+            league.admit(net, update)
         metric.update(search_summary(endings))
         metrics.append(metric)
         print(json.dumps(metric), flush=True)
@@ -548,8 +559,8 @@ try:
             score = selection_score(evaluation)
             if score > best:
                 best = score
-                snapshots.append(copy.deepcopy(net).eval())
-                snapshots = snapshots[-3:]
+                if league.admission == "best":
+                    league.admit(net, update, improved=True)
                 save("best", export=True)
             save("latest", export=True)
 finally:

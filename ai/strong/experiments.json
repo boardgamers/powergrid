@@ -21234,5 +21234,198 @@
             }
         },
         "decision": "Exploratory evidence concentrates the open/sealed performance gap at higher player counts. Retained H200 update29 has sealed deficits in both variants at 5p and 6p with marginal paired intervals excluding zero, and in Recharged 4p. Training-gain contrasts must be read separately: low baseline performance can conceal an existing weakness. Two and three player gap intervals include zero; general strength there is inadequate rather than a proven sealed-specific failure. Prioritize multi-trajectory auction/build-budget diagnosis for higher counts before changing rewards or bid rules. No candidate promotion, final qualification, or causal claim follows from this eight-deal audit."
+    },
+    "multiplayer_original_sealed_replay_second_deal_v1": {
+        "exact_terminal_replay": true,
+        "selection": "First original/sealed loss by seat on the second distinct losing deal in sorted gameSeed order; illustrative, not representative sampling.",
+        "gameSeed": "multiplayer-raw-search-transfer-v1-5p-1",
+        "seat": 0,
+        "episode": 20,
+        "actions_logged": 537,
+        "seconds": 124.00193229800061,
+        "ledger": [
+            {
+                "round": 1,
+                "kind": "plant_purchase",
+                "plants": [
+                    10
+                ],
+                "money_before": 50,
+                "money_after": 40,
+                "paid": 10
+            },
+            {
+                "round": 1,
+                "kind": "building_finished",
+                "money": 5,
+                "cities": 2,
+                "capacity": 2
+            },
+            {
+                "round": 2,
+                "kind": "plant_purchase",
+                "plants": [
+                    12
+                ],
+                "money_before": 38,
+                "money_after": 20,
+                "paid": 18
+            },
+            {
+                "round": 2,
+                "kind": "building_finished",
+                "money": 3,
+                "cities": 2,
+                "capacity": 4
+            },
+            {
+                "round": 3,
+                "kind": "building_finished",
+                "money": 27,
+                "cities": 2,
+                "capacity": 4
+            },
+            {
+                "round": 4,
+                "kind": "plant_purchase",
+                "plants": [
+                    37
+                ],
+                "money_before": 60,
+                "money_after": 23,
+                "paid": 37
+            },
+            {
+                "round": 4,
+                "kind": "building_finished",
+                "money": 23,
+                "cities": 2,
+                "capacity": 8
+            },
+            {
+                "round": 5,
+                "kind": "building_finished",
+                "money": 6,
+                "cities": 4,
+                "capacity": 8
+            },
+            {
+                "round": 6,
+                "kind": "building_finished",
+                "money": 18,
+                "cities": 6,
+                "capacity": 8
+            },
+            {
+                "round": 7,
+                "kind": "building_finished",
+                "money": 22,
+                "cities": 9,
+                "capacity": 8
+            },
+            {
+                "round": 8,
+                "kind": "plant_purchase",
+                "plants": [
+                    21
+                ],
+                "money_before": 112,
+                "money_after": 88,
+                "paid": 24
+            },
+            {
+                "round": 8,
+                "kind": "building_finished",
+                "money": 24,
+                "cities": 11,
+                "capacity": 10
+            },
+            {
+                "round": 9,
+                "kind": "plant_purchase",
+                "plants": [
+                    38
+                ],
+                "money_before": 129,
+                "money_after": 79,
+                "paid": 50
+            },
+            {
+                "round": 9,
+                "kind": "building_finished",
+                "money": 4,
+                "cities": 14,
+                "capacity": 15
+            }
+        ],
+        "final": {
+            "round": 9,
+            "players": [
+                {
+                    "cities": 14,
+                    "powered": 14,
+                    "money": 4,
+                    "capacity": 15,
+                    "plants": [
+                        37,
+                        21,
+                        38
+                    ]
+                },
+                {
+                    "cities": 10,
+                    "powered": 10,
+                    "money": 25,
+                    "capacity": 16,
+                    "plants": [
+                        20,
+                        32,
+                        34
+                    ]
+                },
+                {
+                    "cities": 11,
+                    "powered": 11,
+                    "money": 28,
+                    "capacity": 16,
+                    "plants": [
+                        26,
+                        29,
+                        36
+                    ]
+                },
+                {
+                    "cities": 13,
+                    "powered": 13,
+                    "money": 17,
+                    "capacity": 13,
+                    "plants": [
+                        28,
+                        27,
+                        31
+                    ]
+                },
+                {
+                    "cities": 15,
+                    "powered": 15,
+                    "money": 60,
+                    "capacity": 15,
+                    "plants": [
+                        25,
+                        30,
+                        33
+                    ]
+                }
+            ]
+        },
+        "trace_sha256": "8a43e942b3444c4c0c716cd6b85d45a49d86f68d00160ce27630ded7dcbf48fc",
+        "model_revision": "fbdf2bf24c968bff99ab2d7d9ff9a7d97047db2b",
+        "model_sha256": "d3d2ee88a0940f079a4b38879c8154dbab55951abc7b295a7db17bdf22e52c5f",
+        "finding": "Second distinct deal reproduces all 537 moves and exact terminal/search outcomes. At round4 the learner buys plant37 for37, leaving23 cash, ends building with2 cities versus8 capacity, and reaches4 cities next round. It finishes round9 with14 cities powered versus a winner at15, despite15 capacity. This repeats generation capacity running ahead of city growth in an independently selected deal; it does not prove the purchase or build choice was inferior. Building connectivity costs and future income must be evaluated before intervention.",
+        "next_diagnostic": "Compare legal alternatives before the round4 plant37 nomination/purchase, and actual affordable building choices. Use complete continuations and avoid treating a lower bid as equivalent to avoiding purchase.",
+        "artifact_revision": "6e4e29e56df04be457aa4287d9b4ce84ca5c42dc",
+        "artifact_path": "runs/original-sealed-replay-second-deal-v1",
+        "local_trace": "ai/runs/sealed-replay/second-deal/trace.jsonl",
+        "training_performed": false
     }
 }

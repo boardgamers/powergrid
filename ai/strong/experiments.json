@@ -27661,6 +27661,37 @@
             "requested_games_per_arm": 240,
             "duplicate_jobs_created": false
         },
-        "evaluation_protocol": "ai/strong/league-admission-protocol-v1.json"
+        "evaluation_protocol": "ai/strong/league-admission-protocol-v1.json",
+        "first_completed_update": {
+            "update": 0,
+            "evidence": "HF job train-stage logs for the recorded job IDs",
+            "episodes_per_arm": 240,
+            "episodes_per_player_count_per_arm": 48,
+            "player_counts": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "actual_game_truncations": 0,
+            "search_truncations": 0,
+            "snapshot_updates": [
+                -1
+            ],
+            "best": {
+                "samples": 49106,
+                "seconds": 540.6222335770001,
+                "rollout_seconds": 464.76690957000005,
+                "search_evaluations": 348832
+            },
+            "periodic_anchor": {
+                "samples": 49176,
+                "seconds": 549.7875984519999,
+                "rollout_seconds": 475.584707041,
+                "search_evaluations": 337600
+            },
+            "interpretation": "End-to-end HF optimization verified for both arms; training outcomes are not held-out strength evidence. First planned external comparison is update9."
+        }
     }
 }

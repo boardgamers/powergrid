@@ -119,6 +119,7 @@ export function toSave(G: GameState): GameState | undefined {
     return G.newTurn === false ? undefined : G;
 }
 
+export { createAnalysisScenario } from './src/analysis';
 export { ended, scores, stripSecret } from './src/engine';
 
 /**
@@ -206,6 +207,7 @@ export function replay(G: GameState, { to = Infinity }: { to?: number } = {}): G
     // Queue edits are private operational state, not game moves. Preserve them only
     // for a full reconstruction; historical replay positions have no future queue.
     if (to >= oldG.log.length && oldG.automation) G.automation = JSON.parse(JSON.stringify(oldG.automation));
+    delete G.pendingMessages;
     return G;
 }
 
@@ -263,8 +265,10 @@ export function currentPlayer(G: GameState): number[] {
 }
 
 export function messages(G: GameState) {
+    const messages = G.pendingMessages ?? [];
+    delete G.pendingMessages;
     return {
-        messages: [],
+        messages,
         data: G,
     };
 }
@@ -321,5 +325,3 @@ export async function analysisMove(data: GameState, input: Move | Move[], player
     delete result.automation;
     return result;
 }
-
-export { createAnalysisScenario } from './src/analysis';

@@ -582,6 +582,7 @@ export function stripSecret(G: GameState, player?: number): GameState {
     return {
         ...G,
         seed: 'secret',
+        pendingMessages: undefined,
         automation: {
             version: 1,
             plans: player != undefined && G.automation?.plans[player] ? { [player]: G.automation.plans[player] } : {},
@@ -969,11 +970,7 @@ export function move(
                                 G.map.name != 'Manhattan'
                             ) {
                                 const powerPlant = G.actualMarket.shift()!;
-                                G.log.push({
-                                    type: 'event',
-                                    event: `Starting Step 2, Power Plant ${powerPlant?.number} discarded.`,
-                                });
-                                G.step = 2;
+                                startStep(G, 2, `Starting Step 2, Power Plant ${powerPlant?.number} discarded.`);
 
                                 // Spain & Portugal: put plants 18, 22 and 27 on top
                                 if (G.map.name == 'Spain & Portugal') {
@@ -1061,7 +1058,7 @@ export function move(
                                 // Manhattan never advances to Step 3 — its empty future
                                 // market is the all-buyable endgame stage, handled by the
                                 // market lifecycle, not a step change.
-                                G.step = 3;
+                                startStep(G, 3);
                                 applyAustraliaStep3Shift(G);
                             }
                         }
@@ -1345,7 +1342,7 @@ export function move(
                             G.phase = Phase.Auction;
 
                             if (G.futureMarket.length == 0 && G.map.name != 'China' && G.map.name != 'Manhattan') {
-                                G.step = 3;
+                                startStep(G, 3);
                                 applyAustraliaStep3Shift(G);
                             }
 
@@ -2040,6 +2037,7 @@ export function reconstructState(gameState: GameState, to?: number, forcePublicD
         }
     }
 
+    delete G.pendingMessages;
     return G;
 }
 
@@ -2145,7 +2143,7 @@ export function addPowerPlant(G: GameState): void {
             if (G.powerPlantDeckAfterStep3) {
                 G.powerPlantsDeck = G.powerPlantDeckAfterStep3;
             } else if (G.map.name == 'China') {
-                G.step = 3;
+                startStep(G, 3);
             } else {
                 G.powerPlantsDeck = shuffle(G.powerPlantsDeck, G.seed);
             }
@@ -2164,11 +2162,7 @@ export function addPowerPlant(G: GameState): void {
                         // UK&I: Step 3 sits 3rd from last in the deck, so it can
                         // surface before any player hits citiesToStep2. Fire Step
                         // 2 here so its rules register before Step 3 takes over.
-                        G.log.push({
-                            type: 'event',
-                            event: 'Starting Step 2 (Step 3 card drawn before Step 2 threshold).',
-                        });
-                        G.step = 2;
+                        startStep(G, 2, 'Starting Step 2 (Step 3 card drawn before Step 2 threshold).');
                     }
                     const powerPlantDiscarded = G.actualMarket.shift();
                     G.log.push({
@@ -2436,6 +2430,13 @@ function removePlantsForMiddleEastStep1(G: GameState) {
     }
 }
 
+function startStep(G: GameState, step: 2 | 3, event = `Starting Step ${step}.`) {
+    if (G.step === step) return;
+    G.step = step;
+    G.log.push({ type: 'event', event });
+    (G.pendingMessages ??= []).push(`Starting Step ${step}.`);
+}
+
 function enterStepTwoMiddleEast(G: GameState) {
     // Shuffle deck of remaining power plants and put step 3 card back underneath.
     const step3 = G.futureMarket.pop()!;
@@ -2446,11 +2447,7 @@ function enterStepTwoMiddleEast(G: GameState) {
     addPowerPlant(G);
 
     // Discard two lowest power plants from current market.
-    G.log.push({
-        type: 'event',
-        event: 'Step 2 will begin next phase, discarding two power plants.',
-    });
-    G.step = 2;
+    startStep(G, 2, 'Step 2 will begin next phase, discarding two power plants.');
 
     const powerPlantDiscarded1 = G.actualMarket.shift();
     if (powerPlantDiscarded1) {
@@ -2759,11 +2756,7 @@ function toResourcesPhase(G: GameState) {
         } else {
             const powerPlantDiscarded = G.actualMarket.shift();
             G.futureMarket.pop();
-            G.log.push({
-                type: 'event',
-                event: `Starting Step 3, Power Plant ${powerPlantDiscarded?.number} discarded.`,
-            });
-            G.step = 3;
+            startStep(G, 3, `Starting Step 3, Power Plant ${powerPlantDiscarded?.number} discarded.`);
             applyAustraliaStep3Shift(G);
 
             G.actualMarket = [...G.actualMarket, ...G.futureMarket];

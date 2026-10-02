@@ -142,6 +142,7 @@ export enum Phase {
 }
 
 export interface GameState {
+    pendingMessages?: string[];
     automation?: AutomationState;
     map: GameMap;
     players: Player[];

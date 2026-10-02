@@ -41,6 +41,7 @@ module.exports = {
                 }));
         }
         // Webpack 4 predates package exports; resolve the published ESM entry points.
+        config.resolve.alias.set('@boardgamers/protocol/player-symbols$', join(protocolDist, 'player-symbols.js'));
         config.resolve.alias.set('@boardgamers/protocol/viewer', join(protocolDist, 'viewer.js'));
         config.resolve.alias.set('@boardgamers/protocol/chat/dom$', join(protocolDist, 'chat-dom.js'));
         config.resolve.alias.set('@boardgamers/protocol/chat$', join(protocolDist, 'chat.js'));

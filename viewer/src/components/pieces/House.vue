@@ -30,13 +30,14 @@
                 text-anchor="middle"
                 dominant-baseline="central"
                 style="font: bold 255px sans-serif; fill: #17251d"
-                >{{ owner + 1 }}</text
+                >{{ ownerSymbol }}</text
             >
         </g>
         <title>{{ houseTitle }}</title>
     </g>
 </template>
 <script lang="ts">
+import { playerSymbol } from '../../player-colors';
 import { PieceType, Preferences } from './../../types/ui-data';
 import { Component, Inject, InjectReactive, Mixins, Prop } from 'vue-property-decorator';
 import Piece from './Piece.vue';
@@ -63,6 +64,8 @@ export default class House extends Mixins(Piece) {
 
     @Prop()
     ownerName?: string;
+
+    get ownerSymbol() { return playerSymbol(this.owner!, this.preferences); }
 
     get houseTitle() {
         if (this.owner !== undefined && this.owner === this.player) return 'Your House';

@@ -133,6 +133,7 @@
     </g>
 </template>
 <script lang="ts">
+import { playerSymbol } from "../player-colors";
 import { colorText } from '../player-colors';
 import { MoveName, Player } from 'powergrid-engine';
 import { Phase, playerTimeUsed, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
@@ -217,7 +218,7 @@ export default class PlayerBoard extends Vue {
             name += '• ';
         }
 
-        if (this.preferences.colorBlind && this.owner !== undefined) name += `${this.owner + 1} · `;
+        if (this.preferences.colorBlind && this.owner !== undefined) name += `${playerSymbol(this.owner, this.preferences)} · `;
         name += this.player.name;
 
         if (this.ended) {

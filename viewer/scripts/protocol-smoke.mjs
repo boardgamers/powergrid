@@ -354,6 +354,23 @@ try {
         const owners = await page.locator('.house-owner text').allTextContents();
         assert.deepEqual([...new Set(owners.map((t) => t.trim()))].sort(), ['1', '2', '3']);
         assert.match(await page.locator('.player-board [data-bgs-player="1"]').textContent(), /2 · Ada Lovelace/);
+        await page.evaluate(() =>
+            host.emit('preferences', {
+                sound: false,
+                colorBlind: true,
+                bgs: { players: [], playerColors: [], playerSymbols: ['star', 'hexagon', 'cross'] },
+            })
+        );
+        await page.waitForFunction(() => document.querySelector('.house-owner text')?.textContent.includes('★'));
+        assert.match(await page.locator('.player-board [data-bgs-player="1"]').textContent(), /⬢ · Ada Lovelace/);
+        await page.evaluate(() =>
+            host.emit('preferences', {
+                sound: false,
+                colorBlind: true,
+                bgs: { players: [], playerColors: [], playerSymbols: ['diamond', 'hexagon', 'cross'] },
+            })
+        );
+        await page.waitForFunction(() => document.querySelector('.house-owner text')?.textContent.includes('◆'));
         const regions = await page.locator('.region-border').evaluateAll((elements) =>
             elements.map((element) => ({
                 region: element.dataset.region,

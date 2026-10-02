@@ -5,7 +5,12 @@ export interface UIData {
 }
 
 export type Preferences = {
-    bgs?: { playerColors?: string[]; players?: { pro: boolean }[]; supporterBadge?: { url: string; label: string } };
+    bgs?: {
+        playerSymbols?: string[];
+        playerColors?: string[];
+        players?: { pro: boolean }[];
+        supporterBadge?: { url: string; label: string };
+    };
     analysis?: boolean;
     sound: boolean;
     colorBlind: boolean;
@@ -52,5 +57,5 @@ export enum PieceType {
     Oil,
     Garbage,
     Uranium,
-    Hybrid
+    Hybrid,
 }

@@ -152,6 +152,17 @@
                 <line :x1="48 + 85 * (index - 1)" y1="92" :x2="48 + 85 * (index - 1)" y2="120" stroke="goldenrod" />
                 <line :x1="72 + 85 * (index - 1)" y1="92" :x2="72 + 85 * (index - 1)" y2="120" stroke="goldenrod" />
             </g>
+            <g
+                v-if="isAustraliaMarket"
+                :key="'australiaSlots' + index"
+                :transform="`translate(${25 + 85 * (index - 1)}, 45)`"
+                class="resource-slots"
+                fill="none"
+                stroke="goldenrod"
+                pointer-events="none"
+            >
+                <path d="M0,23 H70 M0,47 H70 M23.333,0 V70 M46.667,0 V70" />
+            </g>
             <g :key="'lines' + index" v-if="isIndiaResourceMarket">
                 <line :x1="25 + 85 * (index - 1)" y1="68" :x2="95 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
                 <line :x1="25 + 85 * (index - 1)" y1="92" :x2="95 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
@@ -472,9 +483,10 @@ export default class Resources extends Vue {
         });
 
         const pieces: Piece[] = [];
-        // Width within a price space across which cubes are distributed. Bigger
-        // value → cubes within the same price space appear farther apart.
-        const cubeAreaW = 64;
+        // Match the 70-unit price boxes. The resource SVGs draw to the right of
+        // their origin, so place that origin to the left of each slot's centre.
+        const cubeAreaW = 70;
+        const iconCentreX = idPrefix.startsWith('coal') ? 10.876 : 10;
         groups.forEach((g) => {
             const psCenter = 60 + 85 * (g.price - 1);
             for (let s = 0; s < g.slots; s++) {
@@ -484,7 +496,7 @@ export default class Resources extends Vue {
                     : psCenter - cubeAreaW / 2 + (cubeAreaW * (s + 0.5)) / g.slots;
                 pieces.push({
                     id: `${idPrefix}_${i}`,
-                    x,
+                    x: x - iconCentreX,
                     y,
                     transparent: i < (prices.length - market),
                     ghostRank: (prices.length - market) - i,

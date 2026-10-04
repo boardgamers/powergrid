@@ -1,4 +1,5 @@
 export { availableMoves, AvailableMoves } from './src/available-moves';
+export * from './src/choice-revisions';
 export {
     currentPlayers,
     ended,

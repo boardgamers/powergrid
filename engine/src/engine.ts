@@ -2,6 +2,7 @@ import assert from 'assert';
 import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
 import { availableMoves, coalOilOverCapacity, computeRegionGraph, regionPickable } from './available-moves';
+import { canReviseChoice, rememberPowering, restorePowering } from './choice-revisions';
 import {
     countHeldPowerPlants,
     GameOptions,
@@ -582,6 +583,8 @@ export function stripSecret(G: GameState, player?: number): GameState {
     return {
         ...G,
         seed: 'secret',
+        poweringChoices:
+            player !== undefined && G.poweringChoices?.[player] ? { [player]: G.poweringChoices[player] } : {},
         pendingMessages: undefined,
         automation: {
             version: 1,
@@ -618,17 +621,49 @@ export function move(
     { updateBuildingMarket = true }: { updateBuildingMarket?: boolean } = {}
 ): GameState {
     const player = G.players[playerNumber];
-    const available = player.availableMoves?.[move.name];
+    const revision = move.revision !== undefined || move.name === MoveName.ReopenPowering;
+    if (revision) assert(canReviseChoice(G, move, playerNumber), 'This choice can no longer be changed.');
+    if (move.name === MoveName.ReopenPowering) {
+        restorePowering(G, playerNumber);
+        player.lastMove = move;
+        G.log.push({
+            type: 'move',
+            player: playerNumber,
+            move,
+            simple: `${player.name} changes their powered plants.`,
+            pretty: `${playerNameHTML(player)} changes their powered plants.`,
+        });
+        updateClocks(G, move.serverTime ?? move.time);
+        G.currentPlayers.forEach((p) => (G.players[p].availableMoves = availableMoves(G, G.players[p])));
+        G.newTurn = true;
+        return G;
+    }
+    const available = revision ? availableMoves(G, player)[move.name] : player.availableMoves?.[move.name];
 
     updateGameState(G);
 
-    assert(G.currentPlayers.includes(playerNumber), 'It is not your turn!');
+    assert(revision || G.currentPlayers.includes(playerNumber), 'It is not your turn!');
     assert(available, 'You are not allowed to run the command ' + move.name);
     assert(
         available.some((x) => isEqual(x, move.data)),
         'Wrong argument for the command ' + move.name
     );
 
+    rememberPowering(G, playerNumber);
+    const { revision: ignoredRevision, ...recordedMove } = move;
+    const replaceHiddenBid = () => {
+        if (!revision) return;
+        const index = G.hiddenLog.findIndex((entry) => entry.type === 'move' && entry.player === playerNumber);
+        if (index >= 0 && index < G.hiddenLog.length - 1) {
+            const previous = G.hiddenLog[index];
+            const replacement = G.hiddenLog.pop()!;
+            if (previous.type === 'move' && replacement.type === 'move') {
+                replacement.move.time = previous.move.time;
+                replacement.move.serverTime = previous.move.serverTime;
+            }
+            G.hiddenLog[index] = replacement;
+        }
+    };
     switch (move.name) {
         case MoveName.ChoosePowerPlant: {
             asserts<Moves.MoveChoosePowerPlant>(move);
@@ -716,11 +751,12 @@ export function move(
                 G.hiddenLog.push({
                     type: 'move',
                     player: playerNumber,
-                    move,
+                    move: recordedMove,
                     simple: `${player.name} bids $${move.data}.`,
                     pretty: `${playerNameHTML(player)} bids <span style="color: green">$${move.data}</span>.`,
                 });
 
+                replaceHiddenBid();
                 fastAuction(G, player, move.data);
             } else {
                 G.currentBid = player.bid = move.data;
@@ -861,11 +897,12 @@ export function move(
                             G.hiddenLog.push({
                                 type: 'move',
                                 player: playerNumber,
-                                move,
+                                move: recordedMove,
                                 simple: `${player.name} passes.`,
                                 pretty: `${playerNameHTML(player)} passes.`,
                             });
 
+                            replaceHiddenBid();
                             fastAuction(G, player, 0);
                         } else {
                             player.passed = true;
@@ -1754,7 +1791,13 @@ export function move(
 
     player.availableMoves = null;
 
-    player.lastMove = move;
+    player.lastMove = revision
+        ? (
+              G.hiddenLog.find(
+                  (entry) => entry.type === 'move' && entry.player === playerNumber
+              ) as import('./log').LogMove
+          )?.move ?? move
+        : move;
 
     G.cardsLeft = G.powerPlantsDeck.length;
     G.nextCardWeak = G.options.variant == 'recharged' && G.cardsLeft > 0 && G.powerPlantsDeck[0].number <= 15;

@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import { cloneDeep } from 'lodash';
 import 'mocha';
 import * as wrapper from '../wrapper';
+import { bidRevision, canReopenPowering } from './choice-revisions';
 import { setup } from './engine';
 import { GameState, Phase, PowerPlantType, ResourceType } from './gamestate';
 import { Move, MoveName } from './move';
@@ -380,6 +381,70 @@ describe('wrapper (tentative turns)', () => {
         expect((await platform.send([pass], C)).saved).to.be.true;
         expect(platform.saved.hiddenLog).to.have.length(0);
         expect(platform.saved.players[B].powerPlants, 'the higher bidder wins').to.have.length(1);
+    });
+
+    it('replaces hidden fast bids without extra time, including changing a pass into a bid', async () => {
+        const platform = new Platform(3, 'revisable-bid', { fastBid: true });
+        const A = platform.saved.currentPlayers[0];
+        const choose = cheapestChoosable(platform, A);
+        await platform.send([choose, openingBid(choose)], A);
+        const keyA = bidRevision(platform.saved, A)!;
+        const increments = [...wrapper.timeIncrements(platform.saved)];
+        const changed: Move = { name: MoveName.Bid, data: Number(choose.data) + 5, revision: keyA };
+        expect(wrapper.canMoveOutOfTurn(platform.saved, changed, A)).to.equal(true);
+        expect(wrapper.canMoveOutOfTurn(platform.saved, { ...pass, revision: keyA }, A)).to.equal(false);
+        now += 10000;
+        await platform.send(changed, A);
+        expect(wrapper.isLiveUpdate(platform.saved)).to.equal(true);
+        expect(wrapper.timeIncrements(platform.saved)).to.deep.equal(increments);
+        expect(platform.saved.players[A].clockStartedAt).to.equal(undefined);
+        expect(platform.saved.hiddenLog).to.have.length(1);
+        const B = platform.saved.currentPlayers[0];
+        await platform.send(pass, B);
+        const keyB = bidRevision(platform.saved, B)!;
+        await platform.send({ name: MoveName.Bid, data: Number(choose.data) + 6, revision: keyB }, B);
+        expect(platform.saved.currentPlayers).to.have.length(1);
+        expect(wrapper.replay(platform.saved).players[B].bid).to.equal(Number(choose.data) + 6);
+        expect(wrapper.replay(platform.saved).players.map((p) => p.totalTimeUsed)).to.deep.equal(
+            platform.saved.players.map((p) => p.totalTimeUsed)
+        );
+        const C = platform.saved.currentPlayers[0];
+        await platform.send(pass, C);
+        expect(platform.saved.players[B].powerPlants).to.have.length(1);
+        expect(wrapper.canMoveOutOfTurn(platform.saved, changed, A)).to.equal(false);
+    });
+
+    it('reopens only the requester’s powering and never grants a second increment on confirmation', async () => {
+        const platform = new Platform(2, 'revisable-power');
+        const { A, B } = await playToBureaucracy(platform);
+        const before = cloneDeep(platform.saved);
+        const use: Move = { name: MoveName.UsePowerPlant, data: platform.available(A)[MoveName.UsePowerPlant]![0] };
+        await platform.send([use, pass], A);
+        const increments = [...wrapper.timeIncrements(platform.saved)];
+        const reopen: Move = { name: MoveName.ReopenPowering, data: platform.saved.round };
+        expect(canReopenPowering(platform.saved, A)).to.equal(true);
+        expect(wrapper.canMoveOutOfTurn(platform.saved, reopen, B)).to.equal(false);
+        now += 10000;
+        await platform.send(reopen, A);
+        expect(wrapper.isLiveUpdate(platform.saved)).to.equal(true);
+        expect(wrapper.timeIncrements(platform.saved)).to.deep.equal(increments);
+        expect(platform.saved.currentPlayers).to.have.members([A, B]);
+        expect(platform.saved.players[A].money).to.equal(before.players[A].money);
+        for (const field of ['coalLeft', 'oilLeft', 'garbageLeft', 'uraniumLeft', 'powerPlantsNotUsed'])
+            expect(platform.saved.players[A][field]).to.deep.equal(before.players[A][field]);
+        expect(platform.saved.players[B]).to.deep.equal(before.players[B]);
+        expect(wrapper.stripSecret(platform.saved, B).poweringChoices?.[A]).to.equal(undefined);
+        expect(wrapper.replay(platform.saved).players[A].money).to.equal(before.players[A].money);
+        await platform.send(pass, A);
+        expect(wrapper.timeIncrements(platform.saved)).to.deep.equal(increments);
+        await platform.send(reopen, A);
+        await platform.send([use, pass], A);
+        expect(wrapper.timeIncrements(platform.saved)).to.deep.equal(increments);
+        await platform.send(pass, B);
+        expect(canReopenPowering(platform.saved, A)).to.equal(false);
+        expect(wrapper.canMoveOutOfTurn(platform.saved, reopen, A)).to.equal(false);
+        expect(wrapper.timeIncrements(platform.saved)[B]).to.equal(increments[B] + 1);
+        expect(wrapper.replay(platform.saved).players[A].money).to.equal(platform.saved.players[A].money);
     });
 
     it('should drive the per-player clocks from the server clock, immune to client skew', async () => {

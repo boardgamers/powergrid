@@ -4,6 +4,29 @@
             <div class="statusBar">
                 <span class="status-message">{{ getStatusMessage() }}</span>
             </div>
+            <div v-if="revisableBid || canChangePowering" class="choice-revision">
+                <template v-if="revisableBid">
+                    <form v-if="editingBid === revisableBid" @submit.prevent="replaceBid(false)">
+                        <label
+                            >Your bid
+                            <input
+                                v-model.number="replacementBid"
+                                type="number"
+                                :min="revisionBids[0]"
+                                :max="revisionBids[revisionBids.length - 1]"
+                                step="1"
+                                required
+                        /></label>
+                        <button type="submit" :disabled="!revisionBids.includes(replacementBid)">Save bid</button>
+                        <button v-if="player !== G.auctioningPlayer" type="button" @click="replaceBid(true)">
+                            Pass
+                        </button>
+                        <button type="button" @click="editingBid = null">Cancel</button>
+                    </form>
+                    <button v-else type="button" @click="editBid">Change bid</button>
+                </template>
+                <button v-if="canChangePowering" type="button" @click="reopenPowering">Change powered plants</button>
+            </div>
             <RoundPlanner
                 v-if="!tutorialMove && !paused && hasPlanPanel"
                 :plan="roundPlan"
@@ -921,11 +944,20 @@ import { completedPhases } from '../util/round-plan';
 import Resources from './boards/Resources.vue';
 import ResupplyBadge from './boards/ResupplyBadge.vue';
 import { LogMove } from 'powergrid-engine/src/log';
-import { isUraniumMine, Phase, playerTimeUsed, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
+import {
+    isUraniumMine,
+    Phase,
+    playerTimeUsed,
+    PowerPlant,
+    PowerPlantType,
+    ResourceType,
+} from 'powergrid-engine/src/gamestate';
 import { City } from 'powergrid-engine/src/maps';
 import { formatDuration } from '../util/time';
 import { playerOrderForDisplay } from '../util/player-order';
 import { freePlantMoves, canAutoFinishPowering, poweredCities } from '../util/powering';
+import { bidRevision, canReopenPowering } from 'powergrid-engine/src/choice-revisions';
+import { availableMoves } from 'powergrid-engine/src/available-moves';
 import { powerIncome } from 'powergrid-engine/src/engine';
 import { inactiveMapNetwork } from '../util/inactive-map';
 import { desktopBoardLayout } from '../util/board-layout';
@@ -1164,8 +1196,12 @@ export default class Game extends Vue {
     private automaticPoweringRound = '';
 
     get poweringPlayer() {
-        return this.G?.phase === Phase.Bureaucracy && this.player !== undefined && !this.paused &&
-            !this.tutorialMove && !this.preferences.analysis && !this.roundPlan
+        return this.G?.phase === Phase.Bureaucracy &&
+            this.player !== undefined &&
+            !this.paused &&
+            !this.tutorialMove &&
+            !this.preferences.analysis &&
+            !this.roundPlan
             ? this.G.players[this.player]
             : null;
     }
@@ -1181,9 +1217,16 @@ export default class Game extends Vue {
         return this.G?.phase === Phase.Bureaucracy && this.turnMoves.some((move) => move.name === MoveName.Pass);
     }
     get automaticPoweringKey() {
-        return this.poweringPlayer && this.canMove() && !this.paused && !this.tutorialMove &&
-            !this.preferences.analysis && !this.roundPlan && this.committedState && !this.poweringSubmitting
-            ? `${this.G!.round}:${this.player}` : '';
+        return this.poweringPlayer &&
+            this.canMove() &&
+            !this.paused &&
+            !this.tutorialMove &&
+            !this.preferences.analysis &&
+            !this.roundPlan &&
+            this.committedState &&
+            !this.poweringSubmitting
+            ? `${this.G!.round}:${this.player}`
+            : '';
     }
     @Watch('automaticPoweringKey')
     startAutomaticPowering(key: string) {
@@ -1194,14 +1237,21 @@ export default class Game extends Vue {
         else if (activated) this.emitter.emit('move', [...this.turnMoves]);
     }
     activateFreePlants(submit = true) {
-        if (!this.G || this.player === undefined || this.paused || this.tutorialMove || this.preferences.analysis || this.roundPlan) return;
+        if (
+            !this.G ||
+            this.player === undefined ||
+            this.paused ||
+            this.tutorialMove ||
+            this.preferences.analysis ||
+            this.roundPlan
+        )
+            return;
         const before = this.turnMoves.length;
         for (const move of freePlantMoves(this.G, this.player)) this.sendMove(move, false);
         const activated = this.turnMoves.length > before;
         if (activated && submit) this.emitter.emit('move', [...this.turnMoves]);
         return activated;
     }
-
 
     @Ref() powerPlantMarket!: PowerPlantMarket;
     @Ref() playerOrder!: PlayerOrder;
@@ -1220,6 +1270,52 @@ export default class Game extends Vue {
     // Last committed state received from the platform. Undo replays the shortened
     // turn buffer from this state; when the buffer empties, the preview resets to it
     // without any server call (the platform's saved state IS the turn start).
+    editingBid: string | null = null;
+    replacementBid = 0;
+    get revisableBid(): string | undefined {
+        return !this.paused && !this.interactionDisabled && !this.roundPlan && this.G && this.player !== undefined
+            ? bidRevision(this.G, this.player)
+            : undefined;
+    }
+    get revisionBids(): number[] {
+        return this.revisableBid ? availableMoves(this.G!, this.G!.players[this.player!])[MoveName.Bid] || [] : [];
+    }
+    get canChangePowering(): boolean {
+        return !!(
+            !this.paused &&
+            !this.interactionDisabled &&
+            !this.roundPlan &&
+            this.G &&
+            this.player !== undefined &&
+            canReopenPowering(this.G, this.player)
+        );
+    }
+    editBid() {
+        this.editingBid = this.revisableBid || null;
+        this.replacementBid = Math.max(this.revisionBids[0] || 0, this.G!.players[this.player!].bid);
+    }
+    replaceBid(pass: boolean) {
+        if (
+            !this.revisableBid ||
+            this.editingBid !== this.revisableBid ||
+            (!pass && !this.revisionBids.includes(this.replacementBid))
+        )
+            return;
+        this.emitter.emit('move', [
+            {
+                name: pass ? MoveName.Pass : MoveName.Bid,
+                data: pass ? true : this.replacementBid,
+                revision: this.revisableBid,
+                time: Date.now(),
+            },
+        ]);
+        this.editingBid = null;
+    }
+    reopenPowering() {
+        if (this.canChangePowering)
+            this.emitter.emit('move', [{ name: MoveName.ReopenPowering, data: this.G!.round, time: Date.now() }]);
+    }
+
     committedState: GameState | null = null;
 
     roundPlan: RoundPlan | null = null;
@@ -2175,7 +2271,9 @@ export default class Game extends Vue {
         if (this.poweringSubmitting) return false;
         // Free activations are restored by Undo; only fuel choices are undoable here.
         if (this.G?.phase === Phase.Bureaucracy && !this.tutorialMove && !this.preferences.analysis) {
-            return this.turnMoves.some((move) => move.name === MoveName.UsePowerPlant && move.data.resourcesSpent.length > 0);
+            return this.turnMoves.some(
+                (move) => move.name === MoveName.UsePowerPlant && move.data.resourcesSpent.length > 0
+            );
         }
         return this.turnMoves.length > 0;
     }
@@ -2770,8 +2868,10 @@ export default class Game extends Vue {
         }
 
         this.portraitViewport = this.isPortraitViewport();
-        const columns = !this.shouldStack() && (this.G?.players.length || 0) >= 5 &&
-            window.innerWidth / window.innerHeight > 1.7 ? 2 : 1;
+        const columns =
+            !this.shouldStack() && (this.G?.players.length || 0) >= 5 && window.innerWidth / window.innerHeight > 1.7
+                ? 2
+                : 1;
         if (columns !== this.playerBoardColumns) {
             this.playerBoardColumns = columns;
             this.scheduleRelayout();
@@ -2787,9 +2887,16 @@ export default class Game extends Vue {
             const el = this.$refs[slotRef(name)] as SVGGraphicsElement | undefined;
             if (!el || typeof el.getBBox !== 'function') continue;
             try {
-                const bb = measureBoardBox(el, !this.shouldStack() ?
-                    name === 'cityCount' ? '.city-income-legend' : name === 'resources' ? '.resupply-strip' : undefined
-                    : undefined);
+                const bb = measureBoardBox(
+                    el,
+                    !this.shouldStack()
+                        ? name === 'cityCount'
+                            ? '.city-income-legend'
+                            : name === 'resources'
+                            ? '.resupply-strip'
+                            : undefined
+                        : undefined
+                );
                 if (bb.width > 0 && bb.height > 0) {
                     boxes[name] = bb;
                 }
@@ -2811,14 +2918,16 @@ export default class Game extends Vue {
             const width = this.$el.clientWidth || window.innerWidth;
             const top = scene.getBoundingClientRect().top + window.scrollY;
             const availableHeight = Math.max(240, window.innerHeight - top - 8);
-            const layout = desktopBoardLayout(boxes, STACK_WIDTH, STACK_WIDTH * availableHeight / width, {
+            const layout = desktopBoardLayout(boxes, STACK_WIDTH, (STACK_WIDTH * availableHeight) / width, {
                 pixelsPerUnit: width / STACK_WIDTH,
                 // Circular city markers have a 25-unit radius. Bremen's larger
                 // district tiles do not need this compact-controls adjustment.
                 cityDiameter: this.G?.map.cities.some((city) => city.connectionCost == null) ? 50 : 0,
             });
             this.desktopHeight = layout.height;
-            this.slotTransforms = Object.fromEntries(Object.entries(layout.placements).map(([name, slot]) => [name, slot.transform]));
+            this.slotTransforms = Object.fromEntries(
+                Object.entries(layout.placements).map(([name, slot]) => [name, slot.transform])
+            );
             return;
         }
 
@@ -3012,6 +3121,38 @@ export default class Game extends Vue {
 }
 </script>
 <style lang="scss">
+.choice-revision {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 0.4rem 0.8rem;
+}
+.choice-revision form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.choice-revision button,
+.choice-revision input {
+    font: inherit;
+    color: inherit;
+    background: var(--pg-panel-bg, #f5f1e5);
+    border: 1px solid currentColor;
+    border-radius: 0.4rem;
+    padding: 0.35rem 0.65rem;
+}
+.choice-revision button {
+    cursor: pointer;
+}
+.choice-revision input {
+    width: 6rem;
+}
+.choice-revision button:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+
 ul {
     margin-block-start: 0;
 }

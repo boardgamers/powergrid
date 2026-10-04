@@ -1,4 +1,5 @@
 import type { GameState } from './index';
+import { alreadyCreditedPowering, canReviseChoice } from './src/choice-revisions';
 import * as engine from './src/engine';
 import { playersSortedByScore } from './src/engine';
 import { GameOptions } from './src/gamestate';
@@ -57,6 +58,8 @@ export async function move(
         return runPremoves(G, Date.now());
     }
     const initialPhase = G.phase;
+    const initialRound = G.round;
+    const revision = canReviseChoice(G, move, player);
     const moves: Move[] = move == null ? [] : Array.isArray(move) ? move : [move];
 
     if (moves.length === 0) {
@@ -94,15 +97,16 @@ export async function move(
     }
 
     if (G.newTurn !== false) {
-        automation(G).increments[player]++;
+        if (revision) automation(G).liveUpdate = true;
+        else if (!alreadyCreditedPowering(G, player, initialPhase, initialRound)) automation(G).increments[player]++;
         reconcileManualPlan(G, player, initialPhase);
-        G = runPremoves(G, now);
+        if (!revision) G = runPremoves(G, now);
     }
     return G;
 }
 
 export function canMoveOutOfTurn(G: GameState, move: unknown, player: number): boolean {
-    return isPremoveCommand(move) && canManagePremoves(G, player);
+    return canReviseChoice(G, move, player) || (isPremoveCommand(move) && canManagePremoves(G, player));
 }
 export function isLiveUpdate(G: GameState): boolean {
     return G.automation?.liveUpdate === true;
@@ -130,11 +134,13 @@ export { ended, scores, stripSecret } from './src/engine';
  */
 export function moveAI(G: GameState, player: number): GameState {
     automation(G).liveUpdate = false;
+    const initialPhase = G.phase;
+    const initialRound = G.round;
     for (let i = 0; i < 500 && !engine.ended(G) && G.currentPlayers.includes(player); i++) {
         G = engine.moveAI(G, player);
 
         if (G.newTurn !== false) {
-            automation(G).increments[player]++;
+            if (!alreadyCreditedPowering(G, player, initialPhase, initialRound)) automation(G).increments[player]++;
             return runPremoves(G, Date.now());
         }
     }

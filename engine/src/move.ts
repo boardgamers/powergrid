@@ -88,11 +88,13 @@ export declare namespace Moves {
 // would otherwise charge that skew to itself on every turn — inflating its timer toward
 // the whole game's elapsed time. A single server clock removes the skew.
 export interface MoveMeta {
+    revision?: string;
     time?: number;
     serverTime?: number;
 }
 
 export type Move = (
+    | { name: MoveName.ReopenPowering; data: number }
     | Moves.MoveChoosePowerPlant
     | Moves.MoveBid
     | Moves.MoveDiscardPowerPlant
@@ -117,4 +119,5 @@ export enum MoveName {
     ChooseRegion = 'ChooseRegion',
     ChooseColor = 'ChooseColor',
     Pass = 'Pass',
+    ReopenPowering = 'ReopenPowering',
 }

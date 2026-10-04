@@ -142,6 +142,8 @@ export enum Phase {
 }
 
 export interface GameState {
+    poweringChoices?: Record<number, import('./choice-revisions').PoweringChoice>;
+    revisedPowering?: Record<number, number>;
     pendingMessages?: string[];
     automation?: AutomationState;
     map: GameMap;

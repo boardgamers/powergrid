@@ -15,6 +15,7 @@ import prices from './prices';
 import { minBy } from './utils';
 
 export interface AvailableMoves {
+    [MoveName.ReopenPowering]?: number[];
     [MoveName.ChoosePowerPlant]?: number[];
     [MoveName.Bid]?: number[];
     [MoveName.DiscardPowerPlant]?: number[];

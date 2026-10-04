@@ -28740,15 +28740,8 @@
         "fixture_sha256": "855b34ad7f07665dfcb012a673147f0780820a9e7560fda268a9a39478c60ff4",
         "positions": 60,
         "samples_per_batch": 384,
-        "batches": [
-            "a",
-            "b"
-        ],
-        "continuations": [
-            "mixed",
-            "economic",
-            "heuristic"
-        ],
+        "batches": ["a", "b"],
+        "continuations": ["mixed", "economic", "heuristic"],
         "search_max_steps": 2400,
         "workers_per_job": 24,
         "jobs": [

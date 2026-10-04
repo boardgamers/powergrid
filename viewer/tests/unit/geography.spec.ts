@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { setup } from 'powergrid-engine';
-import { maps, mapsRecharged, GameMap } from 'powergrid-engine/src/maps';
+import { GameMap, maps, mapsRecharged } from 'powergrid-engine/src/maps';
 import { geographyForMap, loadGeographies } from '../../src/geography';
 
 const catalog = require('../../src/geography/names.json');
@@ -11,7 +11,7 @@ describe('geographic backgrounds', () => {
         expect(Object.keys(catalog)).to.have.length(maps.length);
         for (const authored of [...maps, ...mapsRecharged]) {
             const [rx, ry] = authored.adjustRatio || [1, 1];
-            const map = { ...authored, cities: authored.cities.map(c => ({ ...c, x: c.x * rx, y: c.y * ry })) };
+            const map = { ...authored, cities: authored.cities.map((c) => ({ ...c, x: c.x * rx, y: c.y * ry })) };
             const before = JSON.stringify(map);
             const geography = geographyForMap(map);
             expect(geography, authored.name).not.to.equal(undefined);
@@ -22,7 +22,7 @@ describe('geographic backgrounds', () => {
     });
     it('recognizes real region subsets for both editions and different player counts', () => {
         for (const variant of ['original', 'recharged'] as const) {
-            for (const authored of (variant === 'original' ? maps : mapsRecharged)) {
+            for (const authored of variant === 'original' ? maps : mapsRecharged) {
                 for (const count of [3, 4]) {
                     const state = setup(count, { map: authored.name as any, variant }, 'geography');
                     expect(geographyForMap(state.map), `${authored.name}/${variant}/${count}`).not.to.equal(undefined);

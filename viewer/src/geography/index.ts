@@ -15,8 +15,13 @@ export function loadGeography(name: string): Promise<void> {
     if (!key) return Promise.resolve();
     if (!pending[key]) {
         pending[key] = geographyLoaders[key]()
-            .then(module => { byName[name] = module.default as unknown as MapGeography; })
-            .catch(error => { delete pending[key]; throw error; });
+            .then((module) => {
+                byName[name] = module.default as unknown as MapGeography;
+            })
+            .catch((error) => {
+                delete pending[key];
+                throw error;
+            });
     }
     return pending[key]!;
 }
@@ -32,8 +37,14 @@ export function geographyForMap(map?: GameMap): MapGeography | undefined {
     const geography = byName[map.name];
     if (!geography) return;
     const [rx, ry] = map.adjustRatio || [1, 1];
-    if (!map.cities.every((city) => geography.cities.some(([name, x, y]) =>
-        name === city.name && Math.abs(city.x - x * rx) < 0.01 && Math.abs(city.y - y * ry) < 0.01
-    ))) return;
+    if (
+        !map.cities.every((city) =>
+            geography.cities.some(
+                ([name, x, y]) =>
+                    name === city.name && Math.abs(city.x - x * rx) < 0.01 && Math.abs(city.y - y * ry) < 0.01
+            )
+        )
+    )
+        return;
     return geography;
 }

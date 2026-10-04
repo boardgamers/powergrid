@@ -35,19 +35,19 @@ multi-map support based on feature encoding alone.
 
 ## Where everything lives
 
-| Material | Location |
-| --- | --- |
-| Canonical source | [boardgamers/powergrid](https://github.com/boardgamers/powergrid), `ai/` and `ai/strong/` |
-| Complete experiment ledger | [strong/experiments.json](strong/experiments.json): source/model revisions, job IDs, reports, counterexamples and decisions |
-| Strong-policy background | [strong/README.md](strong/README.md), historical and partly stale |
-| Baseline background | [README.md](README.md) |
+| Material                                             | Location                                                                                                                         |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Canonical source                                     | [boardgamers/powergrid](https://github.com/boardgamers/powergrid), `ai/` and `ai/strong/`                                        |
+| Complete experiment ledger                           | [strong/experiments.json](strong/experiments.json): source/model revisions, job IDs, reports, counterexamples and decisions      |
+| Strong-policy background                             | [strong/README.md](strong/README.md), historical and partly stale                                                                |
+| Baseline background                                  | [README.md](README.md)                                                                                                           |
 | Private checkpoints, ONNX, reports, serving archives | [coyotte508/powergrid-ai-germany-v1](https://huggingface.co/coyotte508/powergrid-ai-germany-v1) (name predates multiplayer work) |
-| Private immutable source bundles and data | [coyotte508/powergrid-ai-training-v1](https://huggingface.co/datasets/coyotte508/powergrid-ai-training-v1) |
-| Multiplayer final gate | [strong/final-protocol-multiplayer.json](strong/final-protocol-multiplayer.json) |
-| Earlier 3p gate | [strong/final-protocol.json](strong/final-protocol.json) |
-| Latest admission comparison protocol | [strong/league-admission-protocol-v1.json](strong/league-admission-protocol-v1.json) |
-| Collected diagnostic summary | [strong/handoff/teacher-reliability-v2-summary.json](strong/handoff/teacher-reliability-v2-summary.json) |
-| Sanitized resume manifest | [strong/handoff/status-2026-10-04.json](strong/handoff/status-2026-10-04.json) |
+| Private immutable source bundles and data            | [coyotte508/powergrid-ai-training-v1](https://huggingface.co/datasets/coyotte508/powergrid-ai-training-v1)                       |
+| Multiplayer final gate                               | [strong/final-protocol-multiplayer.json](strong/final-protocol-multiplayer.json)                                                 |
+| Earlier 3p gate                                      | [strong/final-protocol.json](strong/final-protocol.json)                                                                         |
+| Latest admission comparison protocol                 | [strong/league-admission-protocol-v1.json](strong/league-admission-protocol-v1.json)                                             |
+| Collected diagnostic summary                         | [strong/handoff/teacher-reliability-v2-summary.json](strong/handoff/teacher-reliability-v2-summary.json)                         |
+| Sanitized resume manifest                            | [strong/handoff/status-2026-10-04.json](strong/handoff/status-2026-10-04.json)                                                   |
 
 Local canonical checkout: `/home/eliheros/code/powergrid`. Source before this
 handoff was `face347f258a057c2ed3fb4e4606fce2003ab4c1`; AI research was integrated
@@ -116,12 +116,12 @@ plus frozen A260 at 3p (480). Full rule-level breakdowns and deal-cluster interv
 are in each corresponding ledger entry. Aggregate rates cannot override a weak
 rule cell. Search is off for these candidates.
 
-| Candidate | Econ 2p | 3p | 4p | 5p | 6p | Frozen A260 3p |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| H200 update 79 | 63.44 | 60.83 | 59.69 | 77.69 | 73.28 | 33.54 |
-| Geographic league update 79 | 52.34 | 59.90 | 54.53 | 71.44 | 65.99 | 33.33 |
-| Admission “best” update 19 | 52.81 | 56.67 | 57.66 | 79.19 | 74.58 | 39.58 |
-| Admission periodic-anchor update 19 | 60.31 | 57.40 | 61.72 | 74.94 | 70.16 | 36.04 |
+| Candidate                           | Econ 2p |    3p |    4p |    5p |    6p | Frozen A260 3p |
+| ----------------------------------- | ------: | ----: | ----: | ----: | ----: | -------------: |
+| H200 update 79                      |   63.44 | 60.83 | 59.69 | 77.69 | 73.28 |          33.54 |
+| Geographic league update 79         |   52.34 | 59.90 | 54.53 | 71.44 | 65.99 |          33.33 |
+| Admission “best” update 19          |   52.81 | 56.67 | 57.66 | 79.19 | 74.58 |          39.58 |
+| Admission periodic-anchor update 19 |   60.31 | 57.40 | 61.72 | 74.94 | 70.16 |          36.04 |
 
 None passes the 66.25% economic/2p and 40% A260/3p floors together. Geographic
 update 79 also fails the strict export tolerance on one logit (although all
@@ -132,13 +132,13 @@ external-strength selector; admission comparison had one training seed.
 
 Pinned checkpoints in the private model repo:
 
-| Candidate | HF revision | File | SHA256 |
-| --- | --- | --- | --- |
-| H200 u79 | `0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a` | `runs/multiplayer-refine-hard-v1/latest.onnx` | `2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927` |
-| Geographic u79 | `035345f5f05bbbb55af5e0f4884d07f9087b1e32` | `runs/multiplayer-refine-geoleague-async-v1/latest.onnx` | `35deffdacefdc3d3638417b1590432b84a86f3fb302958e273f5eeea9ad7ce34` |
-| Admission best u19 | `efdb82f2712b8c6648100d7ad99b6941102f7001` | `runs/multiplayer-league-admission-v1-best/latest.onnx` | `691a91ae58d5946a396fe595ffba2f866b5bfba6533ec504da9e6a134c07750e` |
-| Periodic-anchor u19 | `efdb82f2712b8c6648100d7ad99b6941102f7001` | `runs/multiplayer-league-admission-v1-periodic-anchor/latest.onnx` | `08ad0042e548e9b871e9f4178626d405637fb55f3f42b0d580b2bd6979ac7f67` |
-| Frozen 3p A260 opponent | `b38515c29e57826de05b55b645c29591e4a886bf` | `runs/strong-league-v2-a/best.onnx` | `9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd` |
+| Candidate               | HF revision                                | File                                                               | SHA256                                                             |
+| ----------------------- | ------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| H200 u79                | `0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a` | `runs/multiplayer-refine-hard-v1/latest.onnx`                      | `2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927` |
+| Geographic u79          | `035345f5f05bbbb55af5e0f4884d07f9087b1e32` | `runs/multiplayer-refine-geoleague-async-v1/latest.onnx`           | `35deffdacefdc3d3638417b1590432b84a86f3fb302958e273f5eeea9ad7ce34` |
+| Admission best u19      | `efdb82f2712b8c6648100d7ad99b6941102f7001` | `runs/multiplayer-league-admission-v1-best/latest.onnx`            | `691a91ae58d5946a396fe595ffba2f866b5bfba6533ec504da9e6a134c07750e` |
+| Periodic-anchor u19     | `efdb82f2712b8c6648100d7ad99b6941102f7001` | `runs/multiplayer-league-admission-v1-periodic-anchor/latest.onnx` | `08ad0042e548e9b871e9f4178626d405637fb55f3f42b0d580b2bd6979ac7f67` |
+| Frozen 3p A260 opponent | `b38515c29e57826de05b55b645c29591e4a886bf` | `runs/strong-league-v2-a/best.onnx`                                | `9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd` |
 
 Earlier H200 update 29 (revision
 `fbdf2bf24c968bff99ab2d7d9ff9a7d97047db2b`, same hard-refinement model path,
@@ -155,13 +155,13 @@ about the whole policy.
 
 Jobs `teacher-reliability-v2-{2..6}p`, CPU-performance, submitted 1 October:
 
-| Players | Completed job |
-| --- | --- |
-| 2 | [6abe1df0fbc85ba682360bd8](https://huggingface.co/jobs/coyotte508/6abe1df0fbc85ba682360bd8) |
-| 3 | [6abe1df1404719ba3761721e](https://huggingface.co/jobs/coyotte508/6abe1df1404719ba3761721e) |
-| 4 | [6abe1df2fbc85ba682360bda](https://huggingface.co/jobs/coyotte508/6abe1df2fbc85ba682360bda) |
-| 5 | [6abe1df2fbc85ba682360bdc](https://huggingface.co/jobs/coyotte508/6abe1df2fbc85ba682360bdc) |
-| 6 | [6abe1df3fbc85ba682360be0](https://huggingface.co/jobs/coyotte508/6abe1df3fbc85ba682360be0) |
+| Players | Completed job                                                                               |
+| ------- | ------------------------------------------------------------------------------------------- |
+| 2       | [6abe1df0fbc85ba682360bd8](https://huggingface.co/jobs/coyotte508/6abe1df0fbc85ba682360bd8) |
+| 3       | [6abe1df1404719ba3761721e](https://huggingface.co/jobs/coyotte508/6abe1df1404719ba3761721e) |
+| 4       | [6abe1df2fbc85ba682360bda](https://huggingface.co/jobs/coyotte508/6abe1df2fbc85ba682360bda) |
+| 5       | [6abe1df2fbc85ba682360bdc](https://huggingface.co/jobs/coyotte508/6abe1df2fbc85ba682360bdc) |
+| 6       | [6abe1df3fbc85ba682360be0](https://huggingface.co/jobs/coyotte508/6abe1df3fbc85ba682360be0) |
 
 Immutable source: dataset revision `d07e072058ee877112d609280980fc806ee8ce28`,
 `strong-source-v36.tgz`, SHA256

@@ -72,7 +72,10 @@ export function poweringPosition(scenario = 'choice') {
     G.powerPlantsDeck = G.powerPlantsDeck.filter((p) => !held.has(p.number));
     G.log.push({
         type: 'event',
-        event: scenario === 'discard' ? 'Choose which Power Plant to discard.' : 'Round 6: power your cities and collect income.',
+        event:
+            scenario === 'discard'
+                ? 'Choose which Power Plant to discard.'
+                : 'Round 6: power your cities and collect income.',
     });
     G.newTurn = true;
     return G;

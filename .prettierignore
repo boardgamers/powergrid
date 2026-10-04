@@ -5,3 +5,10 @@ viewer/package.json
 engine/package.json
 .pnpm-store/
 **/dist/
+
+# Generated reports and geographic data preserve the generators' formatting.
+ai/strong/handoff/*.json
+viewer/scripts/geography/*.json
+viewer/src/geography/assets/*.json
+viewer/src/geography/names.json
+viewer/src/geography/loaders.ts

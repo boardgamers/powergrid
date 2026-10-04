@@ -35,16 +35,16 @@ No geography contributes to
 layout measurements. Map-only preview keeps its original network clip plus 24
 units of decorative padding.
 
-- Desktop retains the authored `map.viewBox`.
-- Portrait keeps measuring the original city/network SVG, so selected regions
-  retain the previous framing and zoom behaviour.
-- Map-only preview measures that same network before copying any background;
-  geography does not expand its viewBox either.
-- The background has no pointer hit testing and does not change city positions,
-  connections, rules, move legality or region selection.
-- Unknown layouts and randomized city coordinates receive no geographic layer.
-  Recognition checks authored city names and scaled coordinates, allowing region
-  subsets and the Original/Recharged variants.
+-   Desktop retains the authored `map.viewBox`.
+-   Portrait keeps measuring the original city/network SVG, so selected regions
+    retain the previous framing and zoom behaviour.
+-   Map-only preview measures that same network before copying any background;
+    geography does not expand its viewBox either.
+-   The background has no pointer hit testing and does not change city positions,
+    connections, rules, move legality or region selection.
+-   Unknown layouts and randomized city coordinates receive no geographic layer.
+    Recognition checks authored city names and scaled coordinates, allowing region
+    subsets and the Original/Recharged variants.
 
 ## Sources and attribution
 
@@ -55,14 +55,14 @@ and UK/Ireland Natural Earth landmark inputs remain in
 `natural-earth-source.json`; the initial two-map output `outlines.json` is
 historical and is no longer loaded by the preview or viewer.
 
-- [Natural Earth](https://www.naturalearthdata.com/about/terms-of-use/), public
-  domain: 1:50m country boundaries and lakes; 1:10m populated places and province
-  boundaries. Git revision `ca96624a56bd078437bca8184e78163e5039ad19`.
-- [GeoNames](https://www.geonames.org/),
-  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): city coordinates
-  from `cities500.zip` and Bremen districts from `DE.zip` (2026-10-04).
-- [NYC Open Data Borough Boundaries 26b](https://data.cityofnewyork.us/d/gthc-hcne):
-  Manhattan and neighbouring borough geometries, under NYC Open Data terms.
+-   [Natural Earth](https://www.naturalearthdata.com/about/terms-of-use/), public
+    domain: 1:50m country boundaries and lakes; 1:10m populated places and province
+    boundaries. Git revision `ca96624a56bd078437bca8184e78163e5039ad19`.
+-   [GeoNames](https://www.geonames.org/),
+    [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): city coordinates
+    from `cities500.zip` and Bremen districts from `DE.zip` (2026-10-04).
+-   [NYC Open Data Borough Boundaries 26b](https://data.cityofnewyork.us/d/gthc-hcne):
+    Manhattan and neighbouring borough geometries, under NYC Open Data terms.
 
 These data have been cropped, merged, warped to the schematic game boards,
 buffered and simplified. The browser receives SVG paths only, in a separately
@@ -101,16 +101,16 @@ taller portrait layout.
 
 Special schematic fits:
 
-- Britain and Ireland are fitted independently. A western Scotland clearance
-  envelope preserves a sea gap despite the compressed board layout.
-- Manhattan's anonymous M1–M83 spaces cannot be geocoded. Its real coastline is
-  aligned with the island's long axis and fitted to the grid envelope. The
-  northern edge continues beyond the viewport; it is not an invented coast.
-- Duplicate Paris/London/Melbourne spaces and expanded Montreal suburbs make
-  exact geographic correspondence impossible. This is a gameplay backdrop,
-  not an accurate geographic projection.
-- Foreign-country spaces on South Africa and transregional cities on
-  Baden-Württemberg intentionally fall outside the lighter active area.
+-   Britain and Ireland are fitted independently. A western Scotland clearance
+    envelope preserves a sea gap despite the compressed board layout.
+-   Manhattan's anonymous M1–M83 spaces cannot be geocoded. Its real coastline is
+    aligned with the island's long axis and fitted to the grid envelope. The
+    northern edge continues beyond the viewport; it is not an invented coast.
+-   Duplicate Paris/London/Melbourne spaces and expanded Montreal suburbs make
+    exact geographic correspondence impossible. This is a gameplay backdrop,
+    not an accurate geographic projection.
+-   Foreign-country spaces on South Africa and transregional cities on
+    Baden-Württemberg intentionally fall outside the lighter active area.
 
 `fit-report.json` records anchor errors, polygon repairs and city centres outside
 active land. Outside entries include legitimate neighbouring territories and a

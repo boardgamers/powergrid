@@ -216,6 +216,7 @@
                     "
                     :buyableResources="buyableResources()"
                     :coalStorage="G.coalStorage"
+                    :uraniumMineRemoval="uraniumMineRemoval"
                     :resourceResupply="getResourceResupply()"
                     :resourceResupplyNorth="getResourceResupplyNorth()"
                     :bufferedBuys="bufferedBuys"
@@ -225,7 +226,7 @@
             </g>
 
             <!-- Australia: the same uranium-mine selling table laid on its side for
-                 portrait. A 104x430 strip is the worst possible shape for a full-width
+                 portrait. A 104x396 strip is the worst possible shape for a full-width
                  row — it can only grow until its HEIGHT fills the row, so it ends up a
                  sliver with the whole width beside it empty. Turned through 90° the six
                  prices run left to right in the same order they run top to bottom, and
@@ -235,10 +236,17 @@
                 ref="slotUraniumMines"
                 :transform="slotT('uraniumMines') || 'translate(15, 112)'"
             >
-                <rect x="0" y="0" width="620" height="146" rx="6" fill="#8aa84a" stroke="#4d6322" stroke-width="3" />
+                <rect x="0" y="0" width="620" height="104" rx="6" fill="#8aa84a" stroke="#4d6322" stroke-width="3" />
                 <text x="310" y="26" text-anchor="middle" font-weight="700" fill="black" style="font-size: 22px">
                     Uranium mine market
                 </text>
+                <ResupplyBadge
+                    v-if="!showResourceTrack && uraniumMineRemoval != null"
+                    transform="translate(514, 8) scale(1.2)"
+                    resource="uranium"
+                    :amount="uraniumMineRemoval"
+                    :removal="true"
+                />
                 <g v-for="col in 6" :key="'uraniumCol' + col" :transform="`translate(${10 + (col - 1) * 100}, 0)`">
                     <text x="50" y="56" text-anchor="middle" font-weight="700" fill="black" style="font-size: 20px">
                         ${{ 8 - col }}
@@ -282,10 +290,6 @@
                         stroke-width="2"
                     />
                 </g>
-                <line x1="10" y1="108" x2="610" y2="108" stroke="#4d6322" stroke-width="1" />
-                <text x="310" y="132" text-anchor="middle" font-weight="700" fill="#22340f" style="font-size: 18px">
-                    refill −{{ G.map.uraniumMineResupply[G.players.length - 2][G.step - 1] }}/rnd
-                </text>
             </g>
 
             <!-- Australia: uranium-mine selling table. Six price rows $7 (top) →
@@ -298,7 +302,7 @@
                 ref="slotUraniumMines"
                 :transform="slotT('uraniumMines') || 'translate(15, 112)'"
             >
-                <rect x="0" y="0" width="104" height="430" rx="6" fill="#8aa84a" stroke="#4d6322" stroke-width="3" />
+                <rect x="0" y="0" width="104" height="396" rx="6" fill="#8aa84a" stroke="#4d6322" stroke-width="3" />
                 <text x="52" y="22" text-anchor="middle" font-weight="700" fill="black" style="font-size: 15px">
                     Uranium
                 </text>
@@ -348,11 +352,6 @@
                         stroke-width="2"
                     />
                 </g>
-                <!-- Removal rate: tokens taken from the cheapest slots each refill (current step). -->
-                <line x1="10" y1="402" x2="94" y2="402" stroke="#4d6322" stroke-width="1" />
-                <text x="52" y="420" text-anchor="middle" font-weight="700" fill="#22340f" style="font-size: 12px">
-                    refill −{{ G.map.uraniumMineResupply[G.players.length - 2][G.step - 1] }}/rnd
-                </text>
             </g>
 
             <g
@@ -850,6 +849,7 @@ import {
 import { PhasePlan, PremoveCommand, canQueuePhases } from 'powergrid-engine/src/premoves';
 import { completedPhases } from '../util/round-plan';
 import Resources from './boards/Resources.vue';
+import ResupplyBadge from './boards/ResupplyBadge.vue';
 import { LogMove } from 'powergrid-engine/src/log';
 import { isUraniumMine, Phase, playerTimeUsed, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
 import { City } from 'powergrid-engine/src/maps';
@@ -1004,6 +1004,7 @@ const round = (n: number, digits = 2) => Number(n.toFixed(digits));
         Map,
         Resources,
         ResourceBoxes,
+        ResupplyBadge,
     },
 })
 export default class Game extends Vue {
@@ -2866,6 +2867,11 @@ export default class Game extends Vue {
 
     get adjustedPlayerOrder() {
         return playerOrderForDisplay(this.G, this.preferences.adjustPlayerOrder);
+    }
+
+    get uraniumMineRemoval(): number | undefined {
+        if (!this.G || !this.G.uraniumMineMarket || !this.G.map.uraniumMineResupply) return undefined;
+        return this.G.map.uraniumMineResupply[this.G.players.length - 2][this.G.step - 1];
     }
 
     getResourceResupply() {

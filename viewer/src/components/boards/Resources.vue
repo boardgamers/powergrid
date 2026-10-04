@@ -94,6 +94,14 @@
                 :resource="resource"
                 :amount="resourceResupply[index]"
             />
+            <!-- Australia exports uranium: this rate removes tokens, freeing selling slots. -->
+            <ResupplyBadge
+                v-if="uraniumMineRemoval != null"
+                transform="translate(278, -6)"
+                resource="uranium"
+                :amount="uraniumMineRemoval"
+                :removal="true"
+            />
         </g>
 
         <rect
@@ -408,6 +416,7 @@ import { buySourceKey } from '../../util/turn-buffer';
 export default class Resources extends Vue {
     @Prop() resourceResupply?: number[];
     @Prop() resourceResupplyNorth?: number[];
+    @Prop() uraniumMineRemoval?: number;
     @Prop() isUsaRecharged?: boolean;
     @Prop() isMiddleEast?: boolean;
     @Prop() isIndiaResourceMarket?: boolean;

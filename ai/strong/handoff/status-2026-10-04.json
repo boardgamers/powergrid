@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-04",
+  "status": "paused",
+  "no_qualified_model": true,
+  "final_seeds_used": false,
+  "active_hf_jobs_at_check": 0,
+  "model_repo": "coyotte508/powergrid-ai-germany-v1",
+  "model_snapshot_revision": "daef30ae69d6a96f21e46abd8a30909689682364",
+  "dataset_repo": "coyotte508/powergrid-ai-training-v1",
+  "dataset_revision": "d07e072058ee877112d609280980fc806ee8ce28",
+  "diagnostic": {
+    "status": "COMPLETED",
+    "source_revision": "d07e072058ee877112d609280980fc806ee8ce28",
+    "source_archive": "strong-source-v36.tgz",
+    "source_sha256": "6c4170317a74a5148c2a576ad93d1170441e0d8e791a7e6c23197c51dad69109",
+    "base_revision": "aee5febe0ea0c60988f76a937521e87956544526",
+    "changed_files": [
+      "ai/strong/search.cjs",
+      "ai/strong/test-search-samples.cjs",
+      "ai/strong/audit-search-budget.cjs",
+      "ai/strong/audit-search-budgets.py"
+    ],
+    "fixture_sha256": "855b34ad7f07665dfcb012a673147f0780820a9e7560fda268a9a39478c60ff4",
+    "positions": 60,
+    "samples_per_batch": 384,
+    "batches": [
+      "a",
+      "b"
+    ],
+    "continuations": [
+      "mixed",
+      "economic",
+      "heuristic"
+    ],
+    "search_max_steps": 2400,
+    "workers_per_job": 24,
+    "jobs": [
+      {
+        "run": "teacher-reliability-v2-2p",
+        "players": 2,
+        "job_id": "6abe1df0fbc85ba682360bd8",
+        "observed_stage": "COMPLETED"
+      },
+      {
+        "run": "teacher-reliability-v2-3p",
+        "players": 3,
+        "job_id": "6abe1df1404719ba3761721e",
+        "observed_stage": "COMPLETED"
+      },
+      {
+        "run": "teacher-reliability-v2-4p",
+        "players": 4,
+        "job_id": "6abe1df2fbc85ba682360bda",
+        "observed_stage": "COMPLETED"
+      },
+      {
+        "run": "teacher-reliability-v2-5p",
+        "players": 5,
+        "job_id": "6abe1df2fbc85ba682360bdc",
+        "observed_stage": "COMPLETED"
+      },
+      {
+        "run": "teacher-reliability-v2-6p",
+        "players": 6,
+        "job_id": "6abe1df3fbc85ba682360be0",
+        "observed_stage": "COMPLETED"
+      }
+    ],
+    "purpose": "Separate finite-sample instability from dependence on continuation policy using nested budgets and shared public scenarios. Diagnostic only; no gradients and no strength claim.",
+    "tests": "3 search regression tests pass, including preservation of defaults and identical fixed-policy samples.",
+    "artifact_revision": "daef30ae69d6a96f21e46abd8a30909689682364",
+    "artifact_path": "runs/teacher-reliability-v2",
+    "summary_path": "ai/strong/handoff/teacher-reliability-v2-summary.json",
+    "audit_date": "2026-10-04",
+    "evaluations": 721152,
+    "truncated": 0,
+    "decision": "Research remains paused. Archive audit: 47/60 mixed-policy selected actions agree at384 samples versus39/60 at48;14/60 positions have opposite fixed-policy confirmation preferences. Descriptive reused-development diagnostics, not strength evidence; no new jobs or gradients."
+  },
+  "artifact_sha256": {
+    "2": "b24c3c463dd6735374996033eaf0d6d507abdc140730ff610ab720a317838fb9",
+    "3": "d4bcef77002d4a77e2019a108fb0bb245579af43dff43e8dfefa27761977e5cd",
+    "4": "795a431a4a9f2f3be3d95bf380e43bd7cece0caaa1d65ae1aecef3460073fc8d",
+    "5": "cb90571dcb3e6f31048b7ea3e2064d11af594e0a898b564d507062c1417b7e38",
+    "6": "8d2c85e69f4851451d76583f7a83f47b9f9e52161ee3fbcc291501dfc9116a09"
+  }
+}

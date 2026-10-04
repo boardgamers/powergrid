@@ -1,5 +1,7 @@
 # Powergrid AI — first executable baseline
 
+> Research paused. Start with the [4 October 2026 handoff](RESUME.md) for current status, pinned artifacts and resumption instructions.
+
 This is an experimental training/serving pipeline, **not a replacement for the current production bot**. The trained self-play model beats the new simple heuristic but loses heavily to the engine's existing bot. No BGS bot routing has been changed.
 
 ## Scope and information

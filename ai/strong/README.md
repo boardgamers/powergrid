@@ -1,5 +1,7 @@
 # Strong-policy research (active)
 
+> Research paused. Start with the [4 October 2026 handoff](../RESUME.md) for current status, pinned artifacts and resumption instructions.
+
 The target is substantially stronger play, not merely beating the engine's default bot. No strength claim is made from the first prototype. Training runs on HF Jobs; CPU inference and correctness checks run locally and on the 8840U.
 
 ## Critical diagnosis

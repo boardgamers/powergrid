@@ -3,6 +3,8 @@ export interface BoardBox {
     y: number;
     width: number;
     height: number;
+    /** Occupied areas in the same coordinates as the box; omitted means solid. */
+    parts?: BoardBox[];
 }
 
 export interface BoardPlacement extends BoardBox {
@@ -58,17 +60,17 @@ export function desktopBoardLayout(boxes: Record<string, BoardBox>, width: numbe
             )})`,
         };
     }
-    function placeRow(names: string[], y: number, scale: number) {
+    function placeRow(names: string[], y: number, scale: number, alignTop = false) {
         const height = rowHeight(names, scale);
         const occupied = names.reduce((n, name) => n + boxes[name].width * scale, 0);
         const gap = names.length > 1 ? (usable - occupied) / (names.length - 1) : 0;
         let x = PAD;
         for (const name of names) {
-            place(name, x, y + (height - boxes[name].height * scale) / 2, scale);
+            place(name, x, y + (alignTop ? 0 : (height - boxes[name].height * scale) / 2), scale);
             x += boxes[name].width * scale + gap;
         }
     }
-    placeRow(header, PAD, headerScale);
+    placeRow(header, PAD, headerScale, true);
 
     const sidebarWidth = Math.min(
         usable * (boxes.playerBoards?.width > 600 ? 0.43 : 0.28),
@@ -110,5 +112,71 @@ export function desktopBoardLayout(boxes: Record<string, BoardBox>, width: numbe
     }
     const footerTop = bodyTop + bodyHeight + GAP;
     placeRow(footer, footerTop, footerScale);
+    // A market to the right, or a short label at the left, must not reserve an
+    // empty band across the map. Keep the controls fixed and fit the network in
+    // the remaining space, with the same clearance around every occupied area.
+    if (boxes.map) {
+        const obstacles = Object.entries(placements)
+            .filter(([name]) => name !== 'map')
+            .flatMap(([name, slot]) =>
+                (boxes[name].parts || [boxes[name]]).map((part) => ({
+                    x: slot.x + (part.x - boxes[name].x) * slot.scale,
+                    y: slot.y + (part.y - boxes[name].y) * slot.scale,
+                    width: part.width * slot.scale,
+                    height: part.height * slot.scale,
+                }))
+            );
+        const bounds = { x: mapX, y: PAD, width: mapWidth, height: footerTop + footerHeight - PAD };
+        const fitted = fitMap(boxes.map, bounds, obstacles);
+        if (fitted) place('map', fitted.x, fitted.y, fitted.scale);
+    }
     return { width, height: Math.ceil(footerTop + footerHeight + PAD), placements };
+}
+
+/** Largest uniform map scale that clears the controls, preferring a centred map. */
+function fitMap(map: BoardBox, bounds: BoardBox, obstacles: BoardBox[]) {
+    function atScale(scale: number) {
+        const w = map.width * scale,
+            h = map.height * scale;
+        const centre = bounds.x + (bounds.width - w) / 2;
+        const xs = [
+            centre,
+            bounds.x,
+            bounds.x + bounds.width - w,
+            ...obstacles.flatMap((box) => [box.x + box.width + GAP, box.x - GAP - w]),
+        ]
+            .filter((x) => x >= bounds.x && x + w <= bounds.x + bounds.width + 0.001)
+            .sort((a, b) => Math.abs(a - centre) - Math.abs(b - centre));
+        const ys = [bounds.y, ...obstacles.map((box) => box.y + box.height + GAP)]
+            .filter((y) => y >= bounds.y && y + h <= bounds.y + bounds.height + 0.001)
+            .sort((a, b) => a - b);
+        for (const x of xs)
+            for (const y of ys) {
+                if (
+                    obstacles.every(
+                        (box) =>
+                            x + w <= box.x - GAP + 0.001 ||
+                            x >= box.x + box.width + GAP - 0.001 ||
+                            y + h <= box.y - GAP + 0.001 ||
+                            y >= box.y + box.height + GAP - 0.001
+                    )
+                ) {
+                    return { x, y, scale };
+                }
+            }
+        return null;
+    }
+    let low = 0,
+        high = Math.min(1, bounds.width / map.width, bounds.height / map.height);
+    let best = atScale(high);
+    if (best) return best;
+    for (let i = 0; i < 20; i++) {
+        const scale = (low + high) / 2;
+        const candidate = atScale(scale);
+        if (candidate) {
+            low = scale;
+            best = candidate;
+        } else high = scale;
+    }
+    return best;
 }

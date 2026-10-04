@@ -68,4 +68,49 @@ describe('desktop board layout', () => {
         expect(tx + shifted.map.x * scale).to.be.closeTo(b.x, 0.3);
         expect(ty + shifted.map.y * scale).to.be.closeTo(b.y, 0.1);
     });
+
+    it('uses the clear space beside short income and refill labels for a tall map', () => {
+        const boxes = {
+            ...base,
+            cityCount: { ...box(735, 90), parts: [box(735, 68), box(260, 16, 0, 74)] },
+            resources: { ...box(750, 135), parts: [box(335, 28), box(750, 80, 0, 55)] },
+            playerBoards: box(780, 330),
+            map: box(660, 900),
+        };
+        const result = desktopBoardLayout(boxes, 1465, 650);
+        const slots = result.placements;
+        expect(slots.cityCount.y).to.equal(16);
+        expect(slots.map.y).to.be.lessThan(slots.powerPlantMarket.y + slots.powerPlantMarket.height);
+        expect(slots.map.y + slots.map.height).to.be.greaterThan(slots.resources.y);
+        // The previous full-width bands left only 308 units for this network.
+        expect(slots.map.height).to.be.greaterThan(400);
+        for (const name of ['cityCount', 'resources'] as const) {
+            for (const part of boxes[name].parts) {
+                const slot = slots[name];
+                const x = slot.x + part.x * slot.scale,
+                    y = slot.y + part.y * slot.scale;
+                const m = slots.map;
+                expect(
+                    m.x + m.width <= x ||
+                        m.x >= x + part.width * slot.scale ||
+                        m.y + m.height <= y ||
+                        m.y >= y + part.height * slot.scale,
+                    `map overlaps ${name} content`
+                ).to.equal(true);
+            }
+        }
+    });
+
+    it('reserves the actual width of longer translated labels', () => {
+        const resources = { ...box(750, 135), parts: [box(335, 28), box(750, 80, 0, 55)] };
+        const short = desktopBoardLayout({ ...base, resources }, 1465, 650);
+        const long = desktopBoardLayout(
+            { ...base, resources: { ...resources, parts: [box(750, 28), box(750, 80, 0, 55)] } },
+            1465,
+            650
+        );
+        expect(long.placements.map.scale).to.be.at.most(short.placements.map.scale);
+        const map = long.placements.map;
+        expect(map.y + map.height).to.be.at.most(long.placements.resources.y - 19.99);
+    });
 });

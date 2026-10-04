@@ -929,6 +929,8 @@ import { freePlantMoves, canAutoFinishPowering, poweredCities } from '../util/po
 import { powerIncome } from 'powergrid-engine/src/engine';
 import { inactiveMapNetwork } from '../util/inactive-map';
 import { desktopBoardLayout } from '../util/board-layout';
+import { measureBoardBox } from '../util/measure-board';
+import type { BoardBox } from '../util/board-layout';
 
 // Portrait layout: the rows the scene is broken into, top to bottom. Slots on
 // the same row sit side by side and share one scale. Names map to the `slotX`
@@ -2780,14 +2782,16 @@ export default class Game extends Vue {
         // own transform is applied — so measuring is safe even while a previous
         // stacked transform is in place, and a re-layout never feeds on its own
         // output.
-        const boxes: Record<string, { x: number; y: number; width: number; height: number }> = {};
+        const boxes: Record<string, BoardBox> = {};
         for (const name of STACK_ROWS.flat()) {
             const el = this.$refs[slotRef(name)] as SVGGraphicsElement | undefined;
             if (!el || typeof el.getBBox !== 'function') continue;
             try {
-                const bb = el.getBBox();
+                const bb = measureBoardBox(el, !this.shouldStack() ?
+                    name === 'cityCount' ? '.city-income-legend' : name === 'resources' ? '.resupply-strip' : undefined
+                    : undefined);
                 if (bb.width > 0 && bb.height > 0) {
-                    boxes[name] = { x: bb.x, y: bb.y, width: bb.width, height: bb.height };
+                    boxes[name] = bb;
                 }
             } catch {
                 // Not rendered yet (or detached) — skip; the next relayout catches it.

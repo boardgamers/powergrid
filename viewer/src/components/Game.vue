@@ -26,13 +26,13 @@
             :style="{ width: '100%', aspectRatio: sceneViewBox.split(' ').slice(2).join(' / ') }"
             preserveAspectRatio="xMidYMin meet"
         >
-            <rect width="100%" height="100%" x="0" y="0" fill="yellowgreen" />
+            <rect class="board-surface" width="100%" height="100%" x="0" y="0" :fill="boardSurface" />
 
             <!-- Decorative sibling, deliberately OUTSIDE slotMap: its getBBox()
                  must continue to measure only the original playable network. -->
             <g data-geography-layer :transform="slotT('map')" pointer-events="none" aria-hidden="true">
                 <g :transform="mapTransform">
-                    <GeographicBackground :map="G.map" :bounds="geographyBounds" :appearance="preferences.geographicBackground || 'terrain'" />
+                    <GeographicBackground :map="G.map" :bounds="geographyBounds" :full-board="true" @availability="geographyReady = $event" :appearance="preferences.geographicBackground || 'terrain'" />
                 </g>
             </g>
 
@@ -233,7 +233,7 @@
             <g
                 v-if="stacked && G.map.name === 'Australia' && G.uraniumMineMarket"
                 ref="slotUraniumMines"
-                :transform="slotT('uraniumMines') || 'translate(15, 70)'"
+                :transform="slotT('uraniumMines') || 'translate(15, 112)'"
             >
                 <rect x="0" y="0" width="620" height="146" rx="6" fill="#8aa84a" stroke="#4d6322" stroke-width="3" />
                 <text x="310" y="26" text-anchor="middle" font-weight="700" fill="black" style="font-size: 22px">
@@ -291,11 +291,12 @@
             <!-- Australia: uranium-mine selling table. Six price rows $7 (top) →
                  $2 (bottom), two token slots each. Sellers place one token per mine
                  on the highest empty slot; the resource refill removes from the
-                 cheap (bottom) end. Lives in the clear upper-left margin. -->
+                 cheap (bottom) end. Below the income track and its legend (y=87),
+                 with space for text ascenders and a visible gap. -->
             <g
                 v-if="!stacked && G.map.name === 'Australia' && G.uraniumMineMarket"
                 ref="slotUraniumMines"
-                :transform="slotT('uraniumMines') || 'translate(15, 70)'"
+                :transform="slotT('uraniumMines') || 'translate(15, 112)'"
             >
                 <rect x="0" y="0" width="104" height="430" rx="6" fill="#8aa84a" stroke="#4d6322" stroke-width="3" />
                 <text x="52" y="22" text-anchor="middle" font-weight="700" fill="black" style="font-size: 15px">
@@ -2554,6 +2555,7 @@ export default class Game extends Vue {
     /** True while the portrait row layout is in effect. */
     stacked = false;
     geographyBounds: MapBounds | null = null;
+    geographyReady = false;
     /**
      * True when the viewport is one the row layout applies to, whether or not the
      * player has it switched on. Kept separate from `stacked` so the toggle stays
@@ -2569,6 +2571,13 @@ export default class Game extends Vue {
     stackHeight = STACK_WIDTH;
     /** Wrapper transform per slot; empty means "render as authored". */
     slotTransforms: Record<string, string> = {};
+
+    get boardSurface() {
+        // Geography extends behind the controls, clipped by the existing scene.
+        return (this.preferences.geographicBackground || 'terrain') === 'terrain' && this.geographyReady
+            ? '#96bcc5'
+            : 'yellowgreen';
+    }
 
     get sceneViewBox() {
         if (this.stacked) {

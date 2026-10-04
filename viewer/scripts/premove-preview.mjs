@@ -91,6 +91,10 @@ export function premovePreviewServer() {
             seat = Number(url.searchParams.get('seat') || 0);
         try {
             res.setHeader('Cache-Control', 'no-store');
+            if (/^\/powergrid-viewer\.umd\.min\.geography-[a-z-]+\.js$/.test(url.pathname)) {
+                res.setHeader('Content-Type', 'text/javascript');
+                return res.end(await readFile(new URL('../dist' + url.pathname, import.meta.url)));
+            }
             if (url.pathname === '/' || files[url.pathname]) {
                 res.setHeader(
                     'Content-Type',

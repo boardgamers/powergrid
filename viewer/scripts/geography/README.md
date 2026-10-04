@@ -1,7 +1,8 @@
 # Geographic backgrounds
 
 Preview branch: `codex/geographic-outlines-preview`. No BGS publication has been
-performed. The viewer-native background now covers all 24 authored maps.
+performed. Full-board preview URLs can include `&view=full`. The viewer-native
+background now covers all 24 authored maps.
 
 Build the engine and viewer, then start the local preview:
 
@@ -27,8 +28,11 @@ comparison. Different game regions retain their original city colours.
 
 `GeographicBackground.vue` is a decorative sibling **outside** the measured
 `slotMap` group. It receives the exact same position, rotation and portrait slot
-transform as the network. Its clip is the existing network bounds plus 24 units
-of decorative padding; that padding is never measured for layout.
+transform as the network. The full board draws the larger geographic area behind
+the controls and is
+cropped only by the original root SVG viewport. No geography contributes to
+layout measurements. Map-only preview keeps its original network clip plus 24
+units of decorative padding.
 
 - Desktop retains the authored `map.viewBox`.
 - Portrait keeps measuring the original city/network SVG, so selected regions
@@ -60,8 +64,13 @@ historical and is no longer loaded by the preview or viewer.
   Manhattan and neighbouring borough geometries, under NYC Open Data terms.
 
 These data have been cropped, merged, warped to the schematic game boards,
-buffered and simplified. The browser receives SVG paths only; it downloads no
-GIS library or external geographic data. Credits also accompany the SVG layer
+buffered and simplified. The browser receives SVG paths only, in a separately
+loaded chunk for the current map;
+it downloads no GIS library or external geographic data. If the optional chunk
+fails, the playable board retains its original green surface. Include all
+generated geography chunks
+alongside locale chunks when eventually publishing (see
+`docs/viewer-publishing.md`). Credits also accompany the SVG layer
 and the local preview. No board-game artwork was traced or copied.
 
 ## Regenerating the assets
@@ -72,14 +81,22 @@ Python, NumPy and Shapely >= 2 are **asset generation dependencies only**:
 python3 viewer/scripts/geography/build-outlines.py
 ```
 
-The script writes `viewer/src/geography/maps.json` and `fit-report.json`.
+The script writes `viewer/src/geography/assets/*.json`, `names.json`,
+`loaders.ts` and `fit-report.json`.
 Thin-plate splines fit geographic city anchors to the unchanged board positions.
 Country unions preserve outer coastlines without adding internal political or
 game-region divisions. Bremen, Baden-Württemberg and Quebec use provincial
 boundaries. Lakes are retained where the source geometry and simplification
 allow them. Land is slightly expanded around coastal cities, then simplified to
 about 1.7 board pixels. Integer raw coordinates add at most 0.875 board pixels
-of rounding error. The runtime catalog is about 144 KB uncompressed / 59 KB gzip.
+of rounding error. Only the current map is downloaded: about 1–45 KB gzip
+depending on the map
+(Australia 16 KB, USA 34 KB). The initial viewer entry remains below its existing
+byte limits. Neighbouring geographic data extends well beyond the city network;
+country/province shapes are not cropped at the old network rectangle. The
+export window includes the entire authored board for every possible rotation
+pivot within the selected-city envelope, with an additional margin for the much
+taller portrait layout.
 
 Special schematic fits:
 
@@ -107,4 +124,12 @@ size limits. All 24 asset fits have been visually reviewed. Native desktop and
 portrait comparisons check that background on/off leaves the network bounds,
 slot transforms, rendered city positions and root viewBox unchanged. The 96
 comparisons (24 maps × 2 region modes × 2 viewport sizes) are recorded in
-`viewport-checks.json`; all passed. The viewer unit suite has 39 passing tests.
+`viewport-checks.json`; all passed for the initial clipped preview. The continuous
+background is still outside all measured slots; follow-up native checks cover
+cold loading, desktop/portrait framing, rotated maps and Australia’s mine-panel
+clearance. Results for 24 follow-up comparisons are in `extended-checks.json`.
+The viewer unit suite has 39 passing tests.
+
+Australia's desktop uranium mine market begins at y=112, below the income track
+and legend; its portrait row still uses the existing stacked layout. This is a
+control-spacing fix and does not move or resize the playable network.

@@ -1,11 +1,12 @@
 import { expect } from 'chai';
 import { setup } from 'powergrid-engine';
 import { maps, mapsRecharged, GameMap } from 'powergrid-engine/src/maps';
-import { geographyForMap } from '../../src/geography';
+import { geographyForMap, loadGeographies } from '../../src/geography';
 
-const catalog = require('../../src/geography/maps.json');
+const catalog = require('../../src/geography/names.json');
 
 describe('geographic backgrounds', () => {
+    before(() => loadGeographies());
     it('covers every authored map in both editions without changing its data', () => {
         expect(Object.keys(catalog)).to.have.length(maps.length);
         for (const authored of [...maps, ...mapsRecharged]) {

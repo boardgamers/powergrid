@@ -23,7 +23,7 @@ export function previewServer() {
                 res.writeHead(204).end();
                 return;
             }
-            const file = files[path];
+            const file = files[path] || (/^\/powergrid-viewer\.umd\.min\.geography-[a-z-]+\.js$/.test(path) ? fileURLToPath(new URL('../dist' + path, import.meta.url)) : undefined);
             if (path !== '/' && !file) {
                 res.writeHead(404).end();
                 return;

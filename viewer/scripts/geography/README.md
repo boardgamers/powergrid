@@ -1,8 +1,8 @@
 # Geographic backgrounds
 
-Preview branch: `codex/geographic-outlines-preview`. No BGS publication has been
-performed. Full-board preview URLs can include `&view=full`. The viewer-native
-background now covers all 24 authored maps.
+The viewer-native background covers all 24 authored maps. Development history is
+on `codex/geographic-outlines-preview`; the release is included in viewer 2.2.0.
+Full-board preview URLs can include `&view=full`.
 
 Build the engine and viewer, then start the local preview:
 

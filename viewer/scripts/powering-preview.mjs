@@ -42,6 +42,12 @@ export function poweringPosition(scenario = 'choice') {
         p.cities = G.map.cities.slice(i * 8, i * 8 + 8).map((city) => ({ name: city.name, position: 0 }));
     });
     const p = G.players[0];
+    if (scenario === 'discard') {
+        G.phase = engine.Phase.Auction;
+        G.currentPlayers = [0];
+        G.auctioningPlayer = 0;
+        p.powerPlants.push(plant(35));
+    }
     if (scenario === 'covered') p.cities = p.cities.slice(0, 3);
     if (scenario === 'only-free') p.powerPlants = [18, 27, 33].map(plant);
     if (scenario === 'no-fuel') p.coalLeft = 0;
@@ -64,11 +70,14 @@ export function poweringPosition(scenario = 'choice') {
     }
     const held = new Set(G.players.flatMap((p) => p.powerPlants.map((p) => p.number)));
     G.powerPlantsDeck = G.powerPlantsDeck.filter((p) => !held.has(p.number));
-    G.log.push({ type: 'event', event: 'Round 6: power your cities and collect income.' });
+    G.log.push({
+        type: 'event',
+        event: scenario === 'discard' ? 'Choose which Power Plant to discard.' : 'Round 6: power your cities and collect income.',
+    });
     G.newTurn = true;
     return G;
 }
-const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Powergrid · Plant activation preview</title><link rel="stylesheet" href="/powergrid-viewer.css"><style>.preview{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:#101d27;color:#eff5f8;padding:12px 16px;font:13px/1.4 system-ui}.preview strong{margin-right:auto}.preview small{color:#b7c8cf}.preview select,.preview button{font:inherit;padding:7px 9px;border:1px solid #6d858b;border-radius:5px;background:#253943;color:#fff}.preview label{display:flex;gap:6px;align-items:center}#error:empty{display:none}#error{background:#fee;color:#900;padding:12px}</style></head><body><header class="preview"><strong>Plant activation <small>Local preview · not published</small></strong><label>Scenario <select id="scenario"><option value="choice">Choose fuel</option><option value="covered">Free plants cover every city</option><option value="only-free">Only free plants</option><option value="no-fuel">No fuel for other plants</option><option value="empty">No usable plants</option><option value="hybrid">Hybrid fuel choice</option><option value="australia">Australia + uranium mine</option><option value="india">India · must power the maximum</option></select></label><button id="reset">Reset</button><button id="theme">Light mode</button><button id="opponent">Finish next opponent</button></header><div id="error" role="alert"></div><div id="app"></div><script src="/vue.js"></script><script src="/powergrid-viewer.umd.min.js"></script><script>
+const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Powergrid · Plant activation preview</title><link rel="stylesheet" href="/powergrid-viewer.css"><style>.preview{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:#101d27;color:#eff5f8;padding:12px 16px;font:13px/1.4 system-ui}.preview strong{margin-right:auto}.preview small{color:#b7c8cf}.preview select,.preview button{font:inherit;padding:7px 9px;border:1px solid #6d858b;border-radius:5px;background:#253943;color:#fff}.preview label{display:flex;gap:6px;align-items:center}#error:empty{display:none}#error{background:#fee;color:#900;padding:12px}</style></head><body><header class="preview"><strong>Plant activation <small>Local preview · not published</small></strong><label>Scenario <select id="scenario"><option value="choice">Choose fuel</option><option value="discard">Discard a plant</option><option value="covered">Free plants cover every city</option><option value="only-free">Only free plants</option><option value="no-fuel">No fuel for other plants</option><option value="empty">No usable plants</option><option value="hybrid">Hybrid fuel choice</option><option value="australia">Australia + uranium mine</option><option value="india">India · must power the maximum</option></select></label><button id="reset">Reset</button><button id="theme">Light mode</button><button id="opponent">Finish next opponent</button></header><div id="error" role="alert"></div><div id="app"></div><script src="/vue.js"></script><script src="/powergrid-viewer.umd.min.js"></script><script>
 const params=new URLSearchParams(location.search), scenario=params.get('scenario')||'choice', session=crypto.randomUUID();
 const host=window.host=powergrid.launch('#app');let dark=true,pending=Promise.resolve();window.sentMoves=[];
 const suffix='?scenario='+scenario+'&session='+session;

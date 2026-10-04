@@ -86,7 +86,7 @@
                     width="60"
                     height="40"
                     fill="none"
-                    stroke="blue"
+                    :stroke="player.availableMoves && player.availableMoves.DiscardPowerPlant ? '#c62828' : 'blue'"
                     stroke-width="4px"
                     rx="2px"
                 />

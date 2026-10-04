@@ -30,7 +30,8 @@ comparison. Different game regions retain their original city colours.
 `slotMap` group. It receives the exact same position, rotation and portrait slot
 transform as the network. The full board draws the larger geographic area behind
 the controls and is
-cropped only by the original root SVG viewport. No geography contributes to
+clipped to the original scene viewBox, including fit-to-screen letterbox margins.
+No geography contributes to
 layout measurements. Map-only preview keeps its original network clip plus 24
 units of decorative padding.
 

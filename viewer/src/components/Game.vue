@@ -27,12 +27,21 @@
             preserveAspectRatio="xMidYMin meet"
         >
             <rect class="board-surface" width="100%" height="100%" x="0" y="0" :fill="boardSurface" />
+            <defs>
+                <clipPath :id="geographyClipId" clipPathUnits="userSpaceOnUse">
+                    <rect x="0" y="0" :width="sceneViewBox.split(' ')[2]" :height="sceneViewBox.split(' ')[3]" />
+                </clipPath>
+            </defs>
 
             <!-- Decorative sibling, deliberately OUTSIDE slotMap: its getBBox()
-                 must continue to measure only the original playable network. -->
-            <g data-geography-layer :transform="slotT('map')" pointer-events="none" aria-hidden="true">
-                <g :transform="mapTransform">
-                    <GeographicBackground :map="G.map" :bounds="geographyBounds" :full-board="true" @availability="geographyReady = $event" :appearance="preferences.geographicBackground || 'terrain'" />
+                 must continue to measure only the original playable network.
+                 Clip to scene coordinates, including when fit-to-screen leaves
+                 letterbox margins inside the SVG's wider CSS viewport. -->
+            <g data-geography-layer :clip-path="`url(#${geographyClipId})`" pointer-events="none" aria-hidden="true">
+                <g :transform="slotT('map')">
+                    <g :transform="mapTransform">
+                        <GeographicBackground :map="G.map" :bounds="geographyBounds" :full-board="true" @availability="geographyReady = $event" :appearance="preferences.geographicBackground || 'terrain'" />
+                    </g>
                 </g>
             </g>
 
@@ -928,6 +937,7 @@ const STANDARD_DECK_BUILD: Record<string, string> = {
 
 const slotRef = (name: string) => `slot${name[0].toUpperCase()}${name.slice(1)}`;
 const round = (n: number, digits = 2) => Number(n.toFixed(digits));
+let nextGeographyClipId = 0;
 
 @Component({
     created(this: Game) {
@@ -2548,6 +2558,7 @@ export default class Game extends Vue {
      * the choice would disappear along with the layout.
      */
     portraitViewport = false;
+    geographyClipId = `powergrid-board-geography-${nextGeographyClipId++}`;
 
     /** Viewport the board was last laid out against, as `WxH` — see onViewportResize. */
     private lastViewport = '';

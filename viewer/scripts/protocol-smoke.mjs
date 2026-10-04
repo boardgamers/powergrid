@@ -1,4 +1,5 @@
 import { checkHostPresentation } from './host-presentation-smoke.mjs';
+import { checkMiddleEastReplay } from './replay-smoke.mjs';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createServer } from 'node:http';
@@ -392,6 +393,7 @@ try {
         assert.doesNotMatch(await page.locator('.player-board [data-bgs-player="1"]').textContent(), /2 ·/);
         assert.deepEqual(await page.evaluate(() => preferenceUpdates), [{ name: 'colorBlind', value: false }]);
         await checkHostPresentation(page, 'host', `/tmp/powergrid-board-thumbnail-${width}.png`);
+        if (width === 1400) await checkMiddleEastReplay(page);
         assert.deepEqual(errors, []);
         await page.close();
         console.log(`${game} ${width}px: protocol/chat smoke passed`);

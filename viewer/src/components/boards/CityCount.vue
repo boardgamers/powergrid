@@ -9,6 +9,8 @@
             :key="count"
             :transform="`translate(${cellX(count)}, ${cellY(count)})`"
         >
+            <rect v-if="count === poweredCities" class="powered-city-marker" x="11" y="12" width="32" height="64" rx="3" fill="none" stroke="#183b32" stroke-width="3" />
+            <rect v-if="count === poweredCities" x="13" y="57" width="28" height="17" rx="2" fill="#d6ed87" />
             <title>
                 {{
                     `Cities supplied: ${count}. Income: $${income} before map penalties. Houses show connected cities.`
@@ -41,7 +43,8 @@
                 y="66"
                 text-anchor="middle"
                 style="font-size: 15px; dominant-baseline: central"
-                fill="#fff3cf"
+                :fill="count === poweredCities ? '#183b32' : '#fff3cf'"
+                :font-weight="count === poweredCities ? 'bold' : 'normal'"
             >
                 {{ income }}
             </text>
@@ -63,9 +66,10 @@
         </g>
         <g class="city-income-legend" :transform="`translate(0, ${compact ? 157 : 87})`">
             <circle cx="21" cy="0" r="7" fill="#365343" />
-            <text x="21" text-anchor="middle" font-size="11" fill="#fff3cf">$</text>
+            <text x="21" text-anchor="middle" font-size="11" fill="#fff3cf">{{ poweredCities !== undefined ? 'ϟ' : '$' }}</text>
             <text x="33" y="0" style="font-size: 13px; dominant-baseline: central" fill="#29432e">
-                Total income for powered cities
+                <template v-if="poweredCities !== undefined">{{ poweredCities }} / {{ ownedCities }} cities powered · ${{ poweringIncome }}</template>
+                <template v-else>Total income for powered cities</template>
             </text>
         </g>
     </g>
@@ -97,6 +101,9 @@ export default class CityCount extends Vue {
     @Prop() playerColors?: string[];
     @Prop({ required: true }) paymentTable!: number[];
     @Prop({ default: false }) compact!: boolean;
+    @Prop() poweredCities?: number;
+    @Prop() ownedCities?: number;
+    @Prop() poweringIncome?: number;
 
     houses: (Piece & { cityCount: number })[] = [];
 

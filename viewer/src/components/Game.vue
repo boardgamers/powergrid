@@ -42,6 +42,9 @@
                     :transform="`translate(${G.map.cityCountPosition[0]}, ${G.map.cityCountPosition[1]})`"
                     :playerColors="playerColors"
                     :paymentTable="G.paymentTable"
+                    :poweredCities="poweringCount"
+                    :ownedCities="poweringPlayer ? poweringPlayer.cities.length : undefined"
+                    :poweringIncome="poweringIncome"
                     :compact="stacked"
                     :citiesToEndGame="G.citiesToEndGame"
                     :citiesToStep2="G.map.name === 'Manhattan' ? undefined : G.citiesToStep2"
@@ -451,7 +454,7 @@
                         :color="playerColors[playerIndex]"
                         :avatar="avatars[playerIndex]"
                         :owner="playerIndex"
-                        :isCurrentPlayer="isCurrentPlayer(playerIndex)"
+                        :isCurrentPlayer="isCurrentPlayer(playerIndex) && !poweringSubmitting"
                         :ended="gameEnded(G)"
                         :isPlayer="player == playerIndex"
                         :ranking="sortedPlayers.findIndex((x) => x.id == G.players[playerIndex].id) + 1"
@@ -590,7 +593,14 @@
                         <tr>
                             <th><div>Player</div></th>
                             <th v-for="player in sortedPlayers" :key="'FS' + player.id">
-                                <div :style="{ backgroundColor: playerColors[player.id], color: colorText(playerColors[player.id]) }">{{ player.name }}</div>
+                                <div
+                                    :style="{
+                                        backgroundColor: playerColors[player.id],
+                                        color: colorText(playerColors[player.id]),
+                                    }"
+                                >
+                                    {{ player.name }}
+                                </div>
                             </th>
                         </tr>
                         <tr v-for="(cat, i) in ['Cities Powered', 'Money', 'Total Cities']" :key="'FC_' + cat">
@@ -615,7 +625,14 @@
                         <tr>
                             <th><div>Player</div></th>
                             <th v-for="player in sortedPlayers" :key="'FS' + player.id">
-                                <div :style="{ backgroundColor: playerColors[player.id], color: colorText(playerColors[player.id]) }">{{ player.name }}</div>
+                                <div
+                                    :style="{
+                                        backgroundColor: playerColors[player.id],
+                                        color: colorText(playerColors[player.id]),
+                                    }"
+                                >
+                                    {{ player.name }}
+                                </div>
                             </th>
                         </tr>
                         <tr v-for="row in spendingRows" :key="'FC_' + row.label">
@@ -827,6 +844,8 @@ import { isUraniumMine, Phase, playerTimeUsed, PowerPlant, PowerPlantType, Resou
 import { City } from 'powergrid-engine/src/maps';
 import { formatDuration } from '../util/time';
 import { playerOrderForDisplay } from '../util/player-order';
+import { freePlantMoves, canAutoFinishPowering, poweredCities } from '../util/powering';
+import { powerIncome } from 'powergrid-engine/src/engine';
 
 // Portrait layout: the rows the scene is broken into, top to bottom. Slots on
 // the same row sit side by side and share one scale. Names map to the `slotX`
@@ -930,7 +949,10 @@ const round = (n: number, digits = 2) => Number(n.toFixed(digits));
             const log = this._futureState!.log.map((l, i) => ({ index: i, ...l })).filter((l) => l.type == 'move');
             to = log[to - 1].index;
 
-            this.replaceState(reconstructState(this._futureState!, to + 1), false);
+            // Middle East reshuffles at Step 2: replay the recorded draws so the
+            // Step 3 card cannot be drawn repeatedly from a reconstructed deck.
+            const recordedDraws = this._futureState!.map.name === 'Middle East';
+            this.replaceState(reconstructState(this._futureState!, to + 1, recordedDraws), false);
 
             this.emitter.emit('replay:info', {
                 start: 1,
@@ -1052,6 +1074,47 @@ export default class Game extends Vue {
     soleBuyerPlant: PowerPlant | null = null;
 
     disablePass: boolean = false;
+    private automaticPoweringRound = '';
+
+    get poweringPlayer() {
+        return this.G?.phase === Phase.Bureaucracy && this.player !== undefined && !this.paused &&
+            !this.tutorialMove && !this.preferences.analysis && !this.roundPlan
+            ? this.G.players[this.player]
+            : null;
+    }
+    get poweringCount() {
+        return this.poweringPlayer ? poweredCities(this.G!, this.poweringPlayer) : undefined;
+    }
+    get poweringIncome() {
+        return this.poweringPlayer
+            ? powerIncome(this.G!, { ...this.poweringPlayer, citiesPowered: this.poweringCount! })
+            : undefined;
+    }
+    get poweringSubmitting() {
+        return this.G?.phase === Phase.Bureaucracy && this.turnMoves.some((move) => move.name === MoveName.Pass);
+    }
+    get automaticPoweringKey() {
+        return this.poweringPlayer && this.canMove() && !this.paused && !this.tutorialMove &&
+            !this.preferences.analysis && !this.roundPlan && this.committedState && !this.poweringSubmitting
+            ? `${this.G!.round}:${this.player}` : '';
+    }
+    @Watch('automaticPoweringKey')
+    startAutomaticPowering(key: string) {
+        if (!key || key === this.automaticPoweringRound) return;
+        this.automaticPoweringRound = key;
+        const activated = this.activateFreePlants(false);
+        if (canAutoFinishPowering(this.G!, this.player!)) this.pass();
+        else if (activated) this.emitter.emit('move', [...this.turnMoves]);
+    }
+    activateFreePlants(submit = true) {
+        if (!this.G || this.player === undefined || this.paused || this.tutorialMove || this.preferences.analysis || this.roundPlan) return;
+        const before = this.turnMoves.length;
+        for (const move of freePlantMoves(this.G, this.player)) this.sendMove(move, false);
+        const activated = this.turnMoves.length > before;
+        if (activated && submit) this.emitter.emit('move', [...this.turnMoves]);
+        return activated;
+    }
+
 
     @Ref() powerPlantMarket!: PowerPlantMarket;
     @Ref() playerOrder!: PlayerOrder;
@@ -1487,6 +1550,7 @@ export default class Game extends Vue {
             // turn, so the last committed state IS the turn start.
             this.replaceState(this.committedState, false);
         }
+        this.activateFreePlants();
     }
 
     choosePowerPlant(powerPlant: PowerPlant) {
@@ -1874,7 +1938,7 @@ export default class Game extends Vue {
         });
     }
 
-    sendMove(move) {
+    sendMove(move, submit = true) {
         if (this.paused || this.interactionDisabled) {
             return;
         }
@@ -1957,7 +2021,7 @@ export default class Game extends Vue {
 
         // Send the WHOLE turn so far: the platform is stateless between calls and
         // replays the buffer from the last committed (saved) state.
-        this.emitter.emit('move', [...this.turnMoves]);
+        if (submit) this.emitter.emit('move', [...this.turnMoves]);
 
         // Only adopt a preview that is still TENTATIVE. A committing move (Pass, a bid
         // that ends an auction) replays hidden outcomes — deck draws, upkeep — on a
@@ -2009,7 +2073,7 @@ export default class Game extends Vue {
     canPass() {
         if (!this.canMove()) return false;
 
-        if (this.disablePass) return false;
+        if (this.disablePass || this.poweringSubmitting) return false;
 
         const currentPlayer = this.G!.players[this.player!];
         const availableMoves = currentPlayer.availableMoves!;
@@ -2021,7 +2085,11 @@ export default class Game extends Vue {
         if (this.roundPlan) return this.roundPlan.entries.length > 0;
         if (!this.canMove()) return false;
 
-        // Undo scope = the current tentative turn: anything still in the buffer
+        if (this.poweringSubmitting) return false;
+        // Free activations are restored by Undo; only fuel choices are undoable here.
+        if (this.G?.phase === Phase.Bureaucracy && !this.tutorialMove && !this.preferences.analysis) {
+            return this.turnMoves.some((move) => move.name === MoveName.UsePowerPlant && move.data.resourcesSpent.length > 0);
+        }
         return this.turnMoves.length > 0;
     }
 
@@ -2883,9 +2951,23 @@ ul {
     }
 }
 
+html {
+    --powergrid-page-background: #e7ebda;
+}
+
+html[data-powergrid-theme='dark'] {
+    --powergrid-page-background: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+    html:not([data-powergrid-theme]) {
+        --powergrid-page-background: #171717;
+    }
+}
+
 body,
 html {
-    background: #e7ebda;
+    background: var(--powergrid-page-background);
     color: #263521;
     height: 100%;
     width: 100%;

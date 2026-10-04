@@ -84,6 +84,9 @@ function launch(selector: string) {
             params.avatars = data;
             app.$forceUpdate();
         },
+        onTheme({ dark }) {
+            target.ownerDocument.documentElement.dataset.powergridTheme = dark ? 'dark' : 'light';
+        },
         onUpdate() {
             if (!replaying) viewer.fetchState();
         },
@@ -127,6 +130,7 @@ function launch(selector: string) {
         thumbnail.destroy();
         removeChat();
         viewer.destroy();
+        delete target.ownerDocument.documentElement.dataset.powergridTheme;
         params.emitter.removeAllListeners();
     });
     dispose = () => {

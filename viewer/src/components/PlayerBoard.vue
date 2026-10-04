@@ -43,6 +43,8 @@
             :owner="owner"
             :powerPlant="powerPlant"
             :canClick="canUse(powerPlant)"
+            :activationState="activationState(powerPlant)"
+            :data-plant-number="powerPlant.number"
             @click="powerPlantClick(powerPlant)"
         />
 
@@ -249,44 +251,21 @@ export default class PlayerBoard extends Vue {
         return name;
     }
 
-    canUse(powerPlant) {
+    activationState(plant: PowerPlant) {
+        if (!this.isPlayer || this.phase !== Phase.Bureaucracy || this.isMine(plant)) return undefined;
+        if (!this.player.powerPlantsNotUsed.includes(plant.number)) return 'used';
+        const fuel = [this.player.coalLeft, this.player.oilLeft, this.player.garbageLeft,
+            this.player.uraniumLeft, this.player.coalLeft + this.player.oilLeft];
+        if (plant.cost > 0 && fuel[plant.type] < plant.cost) return 'unavailable';
+        return this.canUse(plant) ? 'ready' : 'idle';
+    }
+
+    canUse(powerPlant: PowerPlant) {
         if (!this.isCurrentPlayer) return false;
-
-        if (this.player.availableMoves?.[MoveName.DiscardPowerPlant]) {
-            return powerPlant.number !== this.player.powerPlants[this.player.powerPlants.length - 1].number;
-        } else {
-            if (!this.player.availableMoves?.[MoveName.UsePowerPlant]) return false;
-
-            if (!this.player.powerPlantsNotUsed.includes(powerPlant.number) || this.player.resourcesUsed.length > 0) {
-                return false;
-            }
-
-            switch (powerPlant.type) {
-                case PowerPlantType.Coal: {
-                    return this.player.coalLeft >= powerPlant.cost;
-                }
-
-                case PowerPlantType.Oil: {
-                    return this.player.oilLeft >= powerPlant.cost;
-                }
-
-                case PowerPlantType.Garbage: {
-                    return this.player.garbageLeft >= powerPlant.cost;
-                }
-
-                case PowerPlantType.Uranium: {
-                    return this.player.uraniumLeft >= powerPlant.cost;
-                }
-
-                case PowerPlantType.Hybrid: {
-                    return this.player.coalLeft + this.player.oilLeft >= powerPlant.cost;
-                }
-
-                case PowerPlantType.Wind:
-                case PowerPlantType.Nuclear:
-                    return this.player.coalLeft + this.player.oilLeft >= powerPlant.cost;
-            }
-        }
+        const moves = this.player.availableMoves;
+        if (moves?.DiscardPowerPlant) return moves.DiscardPowerPlant.includes(powerPlant.number);
+        return this.player.resourcesUsed.length === 0 &&
+            !!moves?.UsePowerPlant?.some((move) => move.powerPlant === powerPlant.number);
     }
 
     powerPlantClick(powerPlant: PowerPlant) {

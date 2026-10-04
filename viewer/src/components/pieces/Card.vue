@@ -6,10 +6,12 @@
     <g
         v-else
         :id="elId"
-        :class="[{ canClick: canClick }]"
+        :class="[{ canClick: canClick }, activationState && 'plant-' + activationState]"
+        :data-activation="activationState"
         :transform="`translate(${currentX}, ${currentY})`"
         @click="canClick && $emit('click')"
     >
+        <title v-if="activationState">{{ activationLabel }}</title>
         <rect
             width="60"
             height="40"
@@ -65,6 +67,17 @@
             <path d="M0,3 L8,3 L8,0 L14,6 L8,12 L8,9 L0,9Z" fill="white" />
         </g>
 
+        <g v-if="activationState === 'used'" class="plant-activation-badge" pointer-events="none">
+            <circle cx="56" cy="3" r="8" fill="#183b32" stroke="#e0f2b9" stroke-width="1.5" />
+            <path
+                d="M52 3 L55 6 L60 0"
+                fill="none"
+                stroke="#e0f2b9"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+        </g>
         <defs>
             <linearGradient id="hybrid" x1="0" y1="0" x2="100%" y2="100%">
                 <stop offset="50%" stop-color="#8b4513" />
@@ -97,6 +110,15 @@ export default class Card extends Mixins(Piece) {
     @Prop({ default: false })
     hasDiscount?: boolean;
 
+    @Prop()
+    activationState?: 'used' | 'unavailable' | 'ready' | 'idle';
+
+    get activationLabel() {
+        return this.activationState === 'used' ? 'Activated' :
+            this.activationState === 'unavailable' ? 'Not enough fuel' :
+            this.activationState === 'ready' ? 'Ready to activate' : 'Not activated';
+    }
+
     getColor() {
         switch (this.powerPlant?.type) {
             case PowerPlantType.Coal: return '#8b4513';
@@ -125,6 +147,10 @@ export default class Card extends Mixins(Piece) {
 }
 </script>
 <style lang="scss">
+.plant-used > rect:first-of-type {
+    stroke: #183b32;
+    stroke-width: 3px;
+}
 .canClick {
     cursor: pointer;
 }

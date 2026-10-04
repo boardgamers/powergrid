@@ -47,6 +47,7 @@ function launch(selector: string) {
             fitToScreen: true,
             stackOnPortrait: true,
             portraitResourceTrack: false,
+            geographicBackground: 'terrain',
         }),
         avatars: [],
     };

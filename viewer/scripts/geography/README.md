@@ -1,71 +1,110 @@
-# Geographic outline exploration
+# Geographic backgrounds
 
-Local preview only. No production viewer, rules, city coordinates, links, or BGS
-assets changed. Germany and UK/Ireland are the first two examples.
+Preview branch: `codex/geographic-outlines-preview`. No BGS publication has been
+performed. The viewer-native background now covers all 24 authored maps.
 
-From the repository root, after building the engine and viewer normally:
+Build the engine and viewer, then start the local preview:
 
 ```sh
+pnpm --dir engine build
+NODE_OPTIONS=--openssl-legacy-provider pnpm --dir viewer package
 node viewer/scripts/geographic-preview.mjs
 ```
 
-Open <http://127.0.0.1:5209/>. Compare soft land + outline, outline only, and off.
-The map selector, all/selected regions, full-board view, and light/dark page theme
-are local preview controls, not proposed additions to the game's toolbar. All
-regions is an illustrative display using the authored full map; selected regions
-uses a real seeded three-player setup. The preview has no move endpoint.
+Open <http://127.0.0.1:5209/?map=ukireland&style=terrain&regions=selected>.
+The map/rules selectors, backdrop treatments, all/selected regions, full-board
+view and page theme are local preview controls, not new game toolbar controls.
+Full-region view is illustrative; selected regions uses a seeded three-player
+setup. There is no move endpoint. `/gallery?page=0` through `3` provide a compact
+review of all generated assets with the authored city network.
 
-The preview uses the existing built viewer to draw the network. Its map-only
-view copies that SVG; the full-board view places the background behind all game
-UI, so the income track and controls stay on top. No external assets or GIS
-libraries are downloaded by the browser. The generated path data is ~7 KB.
+The default treatment uses muted blue water, darker green neighbouring land,
+and lighter green land belonging to the named map. `wash`, `line` and `none`
+remain available through the viewer's `geographicBackground` preference for
+comparison. Different game regions retain their original city colours.
 
-## Data and fitting
+## Unchanged framing and gameplay
 
-[Natural Earth](https://www.naturalearthdata.com/about/terms-of-use/) is public
-domain. `natural-earth-source.json` contains a small subset of its 1:50m country
-outlines and 1:10m populated-place coordinates. Exact upstream URLs, Git revision
-and full-file hashes are recorded in that file. No copyrighted board image was
-used. The input subset and generated output are checked in for offline use.
+`GeographicBackground.vue` is a decorative sibling **outside** the measured
+`slotMap` group. It receives the exact same position, rotation and portrait slot
+transform as the network. Its clip is the existing network bounds plus 24 units
+of decorative padding; that padding is never measured for layout.
 
-`build-outlines.py` requires NumPy and Shapely 2.x, **for asset generation only**:
+- Desktop retains the authored `map.viewBox`.
+- Portrait keeps measuring the original city/network SVG, so selected regions
+  retain the previous framing and zoom behaviour.
+- Map-only preview measures that same network before copying any background;
+  geography does not expand its viewBox either.
+- The background has no pointer hit testing and does not change city positions,
+  connections, rules, move legality or region selection.
+- Unknown layouts and randomized city coordinates receive no geographic layer.
+  Recognition checks authored city names and scaled coordinates, allowing region
+  subsets and the Original/Recharged variants.
+
+## Sources and attribution
+
+`source.json` is the curated offline generator input. It records source URLs,
+SHA-256 hashes, downloaded dates where appropriate, geographic geometries,
+GeoNames landmark IDs and raw authored board coordinates. The initial Germany
+and UK/Ireland Natural Earth landmark inputs remain in
+`natural-earth-source.json`; the initial two-map output `outlines.json` is
+historical and is no longer loaded by the preview or viewer.
+
+- [Natural Earth](https://www.naturalearthdata.com/about/terms-of-use/), public
+  domain: 1:50m country boundaries and lakes; 1:10m populated places and province
+  boundaries. Git revision `ca96624a56bd078437bca8184e78163e5039ad19`.
+- [GeoNames](https://www.geonames.org/),
+  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): city coordinates
+  from `cities500.zip` and Bremen districts from `DE.zip` (2026-10-04).
+- [NYC Open Data Borough Boundaries 26b](https://data.cityofnewyork.us/d/gthc-hcne):
+  Manhattan and neighbouring borough geometries, under NYC Open Data terms.
+
+These data have been cropped, merged, warped to the schematic game boards,
+buffered and simplified. The browser receives SVG paths only; it downloads no
+GIS library or external geographic data. Credits also accompany the SVG layer
+and the local preview. No board-game artwork was traced or copied.
+
+## Regenerating the assets
+
+Python, NumPy and Shapely >= 2 are **asset generation dependencies only**:
 
 ```sh
 python3 viewer/scripts/geography/build-outlines.py
 ```
 
-The generator fits thin-plate splines using 33 city anchors for Germany and 32
-for UK/Ireland. It warps geography to the existing board, never the other way
-around. England's duplicate London nodes share one geographic location; only
-London 1 is used as an anchor. Britain and Ireland are fitted independently.
-Small offshore islands and distant territories are omitted. Country polygons
-are merged into the two islands, so the background does not introduce internal
-political/game-region boundaries. The land receives ten board units of clearance
-for the large city discs and generalized coastline, then is simplified.
+The script writes `viewer/src/geography/maps.json` and `fit-report.json`.
+Thin-plate splines fit geographic city anchors to the unchanged board positions.
+Country unions preserve outer coastlines without adding internal political or
+game-region divisions. Bremen, Baden-Württemberg and Quebec use provincial
+boundaries. Lakes are retained where the source geometry and simplification
+allow them. Land is slightly expanded around coastal cities, then simplified to
+about 1.7 board pixels. Integer raw coordinates add at most 0.875 board pixels
+of rounding error. The runtime catalog is about 144 KB uncompressed / 59 KB gzip.
 
-The schematic UK map leaves too little sea for a literal coastline. Its western
-Scottish coast therefore has an explicit, editable clearance envelope in the
-generator. That preserves the visible sea gap without moving any cities. This
-is a geographic backdrop fitted for gameplay, not a geospatially exact map.
+Special schematic fits:
 
-Generation checks valid polygons, two separate UK/Ireland islands and a sea gap
-above 12 board units. All 65 matched city-anchor centres are covered by the land. A separate check
-confirmed that all 82 authored city centres (including unmatched cities) are
-inside the generated outlines.
-The first prototype was also checked against the source maps: all displayed city
-coordinates and connection data are unchanged, for both full and selected views.
+- Britain and Ireland are fitted independently. A western Scotland clearance
+  envelope preserves a sea gap despite the compressed board layout.
+- Manhattan's anonymous M1–M83 spaces cannot be geocoded. Its real coastline is
+  aligned with the island's long axis and fitted to the grid envelope. The
+  northern edge continues beyond the viewport; it is not an invented coast.
+- Duplicate Paris/London/Melbourne spaces and expanded Montreal suburbs make
+  exact geographic correspondence impossible. This is a gameplay backdrop,
+  not an accurate geographic projection.
+- Foreign-country spaces on South Africa and transregional cities on
+  Baden-Württemberg intentionally fall outside the lighter active area.
 
-## Before production or expanding the map list
+`fit-report.json` records anchor errors, polygon repairs and city centres outside
+active land. Outside entries include legitimate neighbouring territories and a
+few generalized coastal edge cases; they do not alter gameplay.
 
-- Get visual feedback on the soft fill versus outline-only treatment.
-- Add each map deliberately with suitable landmarks; a single global bounding-box
-  stretch is not sufficient for the schematic layouts, islands and rotations.
-- Move approved paths into a viewer-native SVG background layer. Keep it beneath
-  UI and out of pointer hit testing, account for map rotation/adjustRatio and
-  stacked portrait measurements, and test historical states and region drafts.
-- Decide how much unused geography to show when only some regions are in play.
-  This prototype retains the whole country/islands for orientation.
-- Audit edge clipping in authored full-board layouts. UK/Ireland and Germany
-  currently have little spare board space; map-only view includes complete bounds.
+## Verification
 
-No publication has been performed.
+The viewer unit suite covers every authored map in both editions, real region
+subsets with three and four players, and fallback for unknown/random layouts.
+The standard viewer package build enforces the existing entry-point and gzip
+size limits. All 24 asset fits have been visually reviewed. Native desktop and
+portrait comparisons check that background on/off leaves the network bounds,
+slot transforms, rendered city positions and root viewBox unchanged. The 96
+comparisons (24 maps × 2 region modes × 2 viewport sizes) are recorded in
+`viewport-checks.json`; all passed. The viewer unit suite has 39 passing tests.

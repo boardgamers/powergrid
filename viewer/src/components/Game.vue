@@ -28,6 +28,14 @@
         >
             <rect width="100%" height="100%" x="0" y="0" fill="yellowgreen" />
 
+            <!-- Decorative sibling, deliberately OUTSIDE slotMap: its getBBox()
+                 must continue to measure only the original playable network. -->
+            <g data-geography-layer :transform="slotT('map')" pointer-events="none" aria-hidden="true">
+                <g :transform="mapTransform">
+                    <GeographicBackground :map="G.map" :bounds="geographyBounds" :appearance="preferences.geographicBackground || 'terrain'" />
+                </g>
+            </g>
+
             <g ref="slotPlayerOrder" :transform="slotT('playerOrder')">
                 <PlayerOrder
                     ref="playerOrder"
@@ -826,6 +834,8 @@ import PowerPlantMarket from './boards/PowerPlantMarket.vue';
 import PlayerOrder from './boards/PlayerOrder.vue';
 import CityCount from './boards/CityCount.vue';
 import Map from './boards/Map.vue';
+import GeographicBackground from './boards/GeographicBackground.vue';
+import type { MapBounds } from '../geography';
 import ResourceBoxes from './boards/ResourceBoxes.vue';
 import RoundPlanner from './RoundPlanner.vue';
 import {
@@ -967,6 +977,7 @@ const round = (n: number, digits = 2) => Number(n.toFixed(digits));
         });
     },
     components: {
+        GeographicBackground,
         InlineLog,
         PlayerBoard,
         Card,
@@ -2542,6 +2553,7 @@ export default class Game extends Vue {
 
     /** True while the portrait row layout is in effect. */
     stacked = false;
+    geographyBounds: MapBounds | null = null;
     /**
      * True when the viewport is one the row layout applies to, whether or not the
      * player has it switched on. Kept separate from `stacked` so the toggle stays
@@ -2654,6 +2666,16 @@ export default class Game extends Vue {
         if (!this.viewportIsMeasurable()) {
             // Still hidden. Whoever reveals us triggers the observer below.
             return;
+        }
+
+        // Read the original Map component only. Background geometry can neither
+        // change the desktop viewBox nor enlarge a portrait layout measurement.
+        const network = this.map?.$el as SVGGraphicsElement | undefined;
+        if (network && typeof network.getBBox === 'function') {
+            const b = network.getBBox();
+            // Decorative padding only; never included in the layout boxes below.
+            const next = { x: b.x - 24, y: b.y - 24, width: b.width + 48, height: b.height + 48 };
+            if (JSON.stringify(next) !== JSON.stringify(this.geographyBounds)) this.geographyBounds = next;
         }
 
         this.portraitViewport = this.isPortraitViewport();

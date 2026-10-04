@@ -271,23 +271,15 @@
                         stroke="#4d6322"
                         stroke-width="1.5"
                     />
-                    <circle
+                    <Uranium
                         v-if="(G.uraniumMineMarket[6 - col] || 0) >= 1"
-                        cx="34"
-                        cy="79"
-                        r="10"
-                        fill="#46c655"
-                        stroke="#1f5c25"
-                        stroke-width="2"
+                        :pieceId="'uraniumMine_' + col + '_0'"
+                        :targetState="{ x: 24, y: 71 }"
                     />
-                    <circle
+                    <Uranium
                         v-if="(G.uraniumMineMarket[6 - col] || 0) >= 2"
-                        cx="66"
-                        cy="79"
-                        r="10"
-                        fill="#46c655"
-                        stroke="#1f5c25"
-                        stroke-width="2"
+                        :pieceId="'uraniumMine_' + col + '_1'"
+                        :targetState="{ x: 56, y: 71 }"
                     />
                 </g>
             </g>
@@ -333,23 +325,15 @@
                         stroke="#4d6322"
                         stroke-width="1.5"
                     />
-                    <circle
+                    <Uranium
                         v-if="(G.uraniumMineMarket[6 - row] || 0) >= 1"
-                        cx="49"
-                        cy="27"
-                        r="10"
-                        fill="#46c655"
-                        stroke="#1f5c25"
-                        stroke-width="2"
+                        :pieceId="'uraniumMine_' + row + '_0'"
+                        :targetState="{ x: 39, y: 19 }"
                     />
-                    <circle
+                    <Uranium
                         v-if="(G.uraniumMineMarket[6 - row] || 0) >= 2"
-                        cx="81"
-                        cy="27"
-                        r="10"
-                        fill="#46c655"
-                        stroke="#1f5c25"
-                        stroke-width="2"
+                        :pieceId="'uraniumMine_' + row + '_1'"
+                        :targetState="{ x: 71, y: 19 }"
                     />
                 </g>
             </g>

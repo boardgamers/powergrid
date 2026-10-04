@@ -63,16 +63,11 @@
                     stroke-width="3px"
                     rx="3px"
                 />
-                <circle :cx="cardX(i) + 51" cy="37" r="8" fill="#46c655" stroke="#1f5c25" stroke-width="1.5" />
-                <text
-                    :x="cardX(i) + 51"
-                    y="40"
-                    text-anchor="middle"
-                    fill="white"
-                    style="font-size: 9px; font-weight: 700"
-                >
-                    U
-                </text>
+                <rect :x="cardX(i) + 42" y="28" width="18" height="19" rx="3" fill="#f4e5a8" stroke="#806b28" />
+                <Uranium
+                    :pieceId="'uraniumMineBadge_' + powerPlant.number"
+                    :targetState="{ x: cardX(i) + 41, y: 29 }"
+                />
             </g>
         </template>
 

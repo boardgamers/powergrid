@@ -1,9 +1,8 @@
 <template>
     <g>
-        <!-- Korea: North resource market (above the standard market block).
-             The South market re-uses the existing rendering below; Korea-specific
-             cube positions are populated in createPieces. -->
-        <template v-if="isKorea">
+        <!-- Korea: keep both markets side by side on desktop, vertically on phones.
+             Group transforms preserve resource identities and local click targets. -->
+        <g v-if="isKorea" :transform="parallelMarkets ? 'translate(0, 145)' : undefined">
             <g v-if="resourceResupplyNorth" class="resupply-strip">
                 <ResupplyBadge
                     v-for="(resource, index) in ['coal', 'oil', 'garbage']"
@@ -81,311 +80,8 @@
                     @click="clickResource('garbage', garbage)"
                 />
             </template>
-            <text x="20" y="35" font-weight="700" fill="black" style="font-size: 22px">South Market</text>
-        </template>
-
-        <g v-if="resourceResupply" class="resupply-strip">
-            <ResupplyBadge
-                v-for="(resource, index) in isAustraliaMarket || isBremenMarket
-                    ? ['coal', 'oil', 'garbage']
-                    : ['coal', 'oil', 'garbage', 'uranium']"
-                :key="resource"
-                :transform="`translate(${20 + index * 86}, -6)`"
-                :resource="resource"
-                :amount="resourceResupply[index]"
-            />
-            <!-- Australia exports uranium: this rate removes tokens, freeing selling slots. -->
-            <ResupplyBadge
-                v-if="uraniumMineRemoval != null"
-                transform="translate(278, -6)"
-                resource="uranium"
-                :amount="uraniumMineRemoval"
-                :removal="true"
-            />
-        </g>
-
-        <rect
-            v-if="!isIndiaResourceMarket && !isNinePriceMarket && !isAustraliaMarket"
-            width="760"
-            height="80"
-            x="20"
-            y="40"
-            rx="3"
-            fill="goldenrod"
-        />
-        <rect v-if="isNinePriceMarket" width="780" height="80" x="20" y="40" rx="3" fill="goldenrod" />
-        <rect v-if="isAustraliaMarket" width="870" height="80" x="20" y="40" rx="3" fill="goldenrod" />
-        <rect v-if="isIndiaResourceMarket" width="680" height="80" x="20" y="40" rx="3" fill="goldenrod" />
-        <template v-for="index in isNinePriceMarket ? 9 : isAustraliaMarket ? 10 : 8">
             <rect
-                :key="'resources' + index"
-                width="70"
-                height="70"
-                :x="25 + 85 * (index - 1)"
-                y="45"
-                rx="2"
-                fill="darkgoldenrod"
-            />
-            <circle :key="'resourcesCircle' + index" r="10" :cx="92 + 85 * (index - 1)" cy="48" fill="yellow" />
-            <text
-                :key="'resourcesText' + index"
-                text-anchor="middle"
-                style="font-size: 16px; font-family: monospace"
-                :x="92 + 85 * (index - 1)"
-                y="48"
-                fill="darkgoldenrod"
-            >
-                {{ index }}
-            </text>
-            <g
-                :key="'lines' + index"
-                v-if="!isIndiaResourceMarket && !isNinePriceMarket && !isAustraliaMarket && !isBremenMarket"
-            >
-                <line :x1="25 + 85 * (index - 1)" y1="68" :x2="95 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
-                <line :x1="25 + 85 * (index - 1)" y1="92" :x2="95 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
-
-                <line :x1="48 + 85 * (index - 1)" y1="40" :x2="48 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
-                <line :x1="72 + 85 * (index - 1)" y1="40" :x2="72 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
-                <line :x1="42 + 85 * (index - 1)" y1="68" :x2="42 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
-                <line :x1="58 + 85 * (index - 1)" y1="68" :x2="58 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
-                <line :x1="74 + 85 * (index - 1)" y1="68" :x2="74 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
-                <line :x1="48 + 85 * (index - 1)" y1="92" :x2="48 + 85 * (index - 1)" y2="120" stroke="goldenrod" />
-                <line :x1="72 + 85 * (index - 1)" y1="92" :x2="72 + 85 * (index - 1)" y2="120" stroke="goldenrod" />
-            </g>
-            <g
-                v-if="isAustraliaMarket"
-                :key="'australiaSlots' + index"
-                :transform="`translate(${25 + 85 * (index - 1)}, 45)`"
-                class="resource-slots"
-                fill="none"
-                stroke="goldenrod"
-                pointer-events="none"
-            >
-                <path d="M0,23 H70 M0,47 H70 M23.333,0 V70 M46.667,0 V70" />
-            </g>
-            <g :key="'lines' + index" v-if="isIndiaResourceMarket">
-                <line :x1="25 + 85 * (index - 1)" y1="68" :x2="95 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
-                <line :x1="25 + 85 * (index - 1)" y1="92" :x2="95 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
-
-                <line :x1="42 + 85 * (index - 1)" y1="40" :x2="42 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
-                <line :x1="59 + 85 * (index - 1)" y1="40" :x2="59 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
-                <line :x1="76 + 85 * (index - 1)" y1="40" :x2="76 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
-                <line :x1="42 + 85 * (index - 1)" y1="68" :x2="42 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
-                <line :x1="58 + 85 * (index - 1)" y1="68" :x2="58 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
-                <line :x1="74 + 85 * (index - 1)" y1="68" :x2="74 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
-                <line :x1="42 + 85 * (index - 1)" y1="92" :x2="42 + 85 * (index - 1)" y2="120" stroke="goldenrod" />
-                <line :x1="59 + 85 * (index - 1)" y1="92" :x2="59 + 85 * (index - 1)" y2="120" stroke="goldenrod" />
-                <line :x1="76 + 85 * (index - 1)" y1="92" :x2="76 + 85 * (index - 1)" y2="120" stroke="goldenrod" />
-            </g>
-        </template>
-
-        <!-- Australia: the $1 and $2 spaces close once the Step 3 CO2 tax fires. -->
-        <template v-if="isAustraliaMarket && co2TaxActive">
-            <rect width="160" height="70" x="24" y="45" rx="2" fill="black" opacity="0.55" />
-            <text
-                text-anchor="middle"
-                style="font-size: 12px; font-family: monospace; font-weight: 700"
-                x="104"
-                y="84"
-                fill="white"
-            >
-                CO₂ closed
-            </text>
-        </template>
-
-        <template v-if="isIndiaResourceMarket">
-            <g :key="'separators'">
-                <line x1="275" y1="40" x2="275" y2="140" stroke="red" />
-                <line x1="445" y1="40" x2="445" y2="140" stroke="red" />
-
-                <text x="220" y="130" stroke="red">Step 1</text>
-                <text x="390" y="130" stroke="red">Step 2</text>
-            </g>
-        </template>
-
-        <template v-if="!isIndiaResourceMarket && !isNinePriceMarket && !isAustraliaMarket && !isBremenMarket">
-            <rect width="30" height="30" x="705" y="45" rx="2" fill="darkgoldenrod" />
-            <circle r="10" cx="732" cy="48" fill="yellow" />
-            <text
-                text-anchor="middle"
-                style="font-size: 12px; font-family: monospace"
-                x="732"
-                y="48"
-                fill="darkgoldenrod"
-            >
-                10
-            </text>
-
-            <rect width="30" height="30" x="745" y="45" rx="2" fill="darkgoldenrod" />
-            <circle r="10" cx="772" cy="48" fill="yellow" />
-            <text
-                text-anchor="middle"
-                style="font-size: 12px; font-family: monospace"
-                x="772"
-                y="48"
-                fill="darkgoldenrod"
-            >
-                12
-            </text>
-
-            <rect width="30" height="30" x="705" y="85" rx="2" fill="darkgoldenrod" />
-            <circle r="10" cx="732" cy="88" fill="yellow" />
-            <text
-                text-anchor="middle"
-                style="font-size: 12px; font-family: monospace"
-                x="732"
-                y="88"
-                fill="darkgoldenrod"
-            >
-                14
-            </text>
-
-            <rect width="30" height="30" x="745" y="85" rx="2" fill="darkgoldenrod" />
-            <circle r="10" cx="772" cy="88" fill="yellow" />
-            <text
-                text-anchor="middle"
-                style="font-size: 12px; font-family: monospace"
-                x="772"
-                y="88"
-                fill="darkgoldenrod"
-            >
-                16
-            </text>
-        </template>
-
-        <template v-if="isUsaRecharged">
-            <rect
-                width="180"
-                height="70"
-                x="795"
-                y="45"
-                rx="2"
-                fill="chocolate"
-                stroke="sandybrown"
-                stroke-width="4px"
-            />
-            <circle r="10" cx="973" cy="45" fill="yellow" />
-            <text
-                text-anchor="middle"
-                style="font-size: 16px; font-family: monospace"
-                x="973"
-                y="45"
-                fill="darkgoldenrod"
-            >
-                8
-            </text>
-            <Coal :pieceId="-1" :targetState="{ x: 858, y: 57 }" :canClick="false" :transparent="true" :scale="0.2" />
-        </template>
-
-        <!-- South Africa: coal storage pool below the market. Always-available $8
-             flat buy. Used coal returns here; market refills draw from here first. -->
-        <template v-if="coalStorage !== undefined">
-            <rect
-                width="180"
-                height="70"
-                x="795"
-                y="45"
-                rx="2"
-                fill="chocolate"
-                stroke="sandybrown"
-                stroke-width="4px"
-            />
-            <circle r="10" cx="973" cy="45" fill="yellow" />
-            <text
-                text-anchor="middle"
-                style="font-size: 16px; font-family: monospace"
-                x="973"
-                y="45"
-                fill="darkgoldenrod"
-            >
-                8
-            </text>
-            <text text-anchor="start" style="font-size: 11px; font-family: monospace" x="800" y="42" fill="black">
-                Coal storage
-            </text>
-        </template>
-
-        <template v-for="coal in coals">
-            <Coal
-                :key="coal.id"
-                :pieceId="coal.id"
-                :targetState="{ x: coal.x, y: coal.y }"
-                :canClick="
-                    coal.transparent ? canUnbuy('coal', coal) : canBuyResource('coal', coal.side, coal.fromStorage)
-                "
-                :transparent="coal.transparent"
-                :restorable="canUnbuy('coal', coal)"
-                :scale="isIndiaResourceMarket ? 0.06 : 0.08"
-                @click="clickResource('coal', coal)"
-            />
-        </template>
-
-        <template v-for="oil in oils">
-            <Oil
-                :key="oil.id"
-                :pieceId="oil.id"
-                :targetState="{ x: oil.x, y: oil.y }"
-                :canClick="oil.transparent ? canUnbuy('oil', oil) : canBuyResource('oil', oil.side)"
-                :transparent="oil.transparent"
-                :restorable="canUnbuy('oil', oil)"
-                @click="clickResource('oil', oil)"
-            />
-        </template>
-
-        <template v-for="garbage in garbages">
-            <Garbage
-                :key="garbage.id"
-                :pieceId="garbage.id"
-                :targetState="{ x: garbage.x, y: garbage.y }"
-                :canClick="garbage.transparent ? canUnbuy('garbage', garbage) : canBuyResource('garbage', garbage.side)"
-                :transparent="garbage.transparent"
-                :restorable="canUnbuy('garbage', garbage)"
-                :scale="isIndiaResourceMarket ? 0.8 : 1"
-                @click="clickResource('garbage', garbage)"
-            />
-        </template>
-
-        <template v-for="uranium in uraniums">
-            <Uranium
-                :key="uranium.id"
-                :pieceId="uranium.id"
-                :targetState="{ x: uranium.x, y: uranium.y }"
-                :canClick="uranium.transparent ? canUnbuy('uranium', uranium) : canBuyResource('uranium', uranium.side)"
-                :transparent="uranium.transparent"
-                :restorable="canUnbuy('uranium', uranium)"
-                @click="clickResource('uranium', uranium)"
-            />
-        </template>
-
-        <template v-if="isMiddleEast">
-            <rect width="80" height="50" x="20" y="70" rx="2" fill="gray" stroke="darkgray" stroke-width="4px" />
-            <Oil
-                :pieceId="-1"
-                :targetState="{ x: 35, y: 80 }"
-                :scale="1.5"
-                :canClick="availableSurplusOil > 0 && canBuyResource('oil')"
-                :transparent="availableSurplusOil == 0"
-                @click="buyResource('oil')"
-            />
-            <text text-anchor="middle" style="font-size: 16px; font-family: monospace" x="70" y="93.5">
-                x{{ availableSurplusOil }}
-            </text>
-        </template>
-
-        <template v-if="!preferences.disableHelp">
-            <rect
-                v-if="!isKorea && buyableResources.length > 0"
-                x="15"
-                y="35"
-                :width="isAustraliaMarket ? 880 : 770"
-                height="90"
-                rx="2"
-                fill="none"
-                stroke="blue"
-                stroke-width="2px"
-            />
-            <rect
-                v-if="isKorea && hasBuyableNorth"
+                v-if="hasBuyableNorth"
                 x="15"
                 y="-105"
                 width="770"
@@ -395,18 +91,335 @@
                 stroke="blue"
                 stroke-width="2px"
             />
+        </g>
+
+        <g :transform="isKorea && parallelMarkets ? 'translate(780, 0)' : undefined">
+            <text v-if="isKorea" x="20" y="35" font-weight="700" fill="black" style="font-size: 22px"
+                >South Market</text
+            >
+            <g v-if="resourceResupply" class="resupply-strip">
+                <ResupplyBadge
+                    v-for="(resource, index) in isAustraliaMarket || isBremenMarket
+                        ? ['coal', 'oil', 'garbage']
+                        : ['coal', 'oil', 'garbage', 'uranium']"
+                    :key="resource"
+                    :transform="`translate(${20 + index * 86}, -6)`"
+                    :resource="resource"
+                    :amount="resourceResupply[index]"
+                />
+                <!-- Australia exports uranium: this rate removes tokens, freeing selling slots. -->
+                <ResupplyBadge
+                    v-if="uraniumMineRemoval != null"
+                    transform="translate(278, -6)"
+                    resource="uranium"
+                    :amount="uraniumMineRemoval"
+                    :removal="true"
+                />
+            </g>
+
             <rect
-                v-if="isKorea && hasBuyableSouth"
-                x="15"
-                y="35"
-                width="770"
-                height="90"
-                rx="2"
-                fill="none"
-                stroke="blue"
-                stroke-width="2px"
+                v-if="!isIndiaResourceMarket && !isNinePriceMarket && !isAustraliaMarket"
+                width="760"
+                height="80"
+                x="20"
+                y="40"
+                rx="3"
+                fill="goldenrod"
             />
-        </template>
+            <rect v-if="isNinePriceMarket" width="780" height="80" x="20" y="40" rx="3" fill="goldenrod" />
+            <rect v-if="isAustraliaMarket" width="870" height="80" x="20" y="40" rx="3" fill="goldenrod" />
+            <rect v-if="isIndiaResourceMarket" width="680" height="80" x="20" y="40" rx="3" fill="goldenrod" />
+            <template v-for="index in isNinePriceMarket ? 9 : isAustraliaMarket ? 10 : 8">
+                <rect
+                    :key="'resources' + index"
+                    width="70"
+                    height="70"
+                    :x="25 + 85 * (index - 1)"
+                    y="45"
+                    rx="2"
+                    fill="darkgoldenrod"
+                />
+                <circle :key="'resourcesCircle' + index" r="10" :cx="92 + 85 * (index - 1)" cy="48" fill="yellow" />
+                <text
+                    :key="'resourcesText' + index"
+                    text-anchor="middle"
+                    style="font-size: 16px; font-family: monospace"
+                    :x="92 + 85 * (index - 1)"
+                    y="48"
+                    fill="darkgoldenrod"
+                >
+                    {{ index }}
+                </text>
+                <g
+                    :key="'lines' + index"
+                    v-if="!isIndiaResourceMarket && !isNinePriceMarket && !isAustraliaMarket && !isBremenMarket"
+                >
+                    <line :x1="25 + 85 * (index - 1)" y1="68" :x2="95 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
+                    <line :x1="25 + 85 * (index - 1)" y1="92" :x2="95 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
+
+                    <line :x1="48 + 85 * (index - 1)" y1="40" :x2="48 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
+                    <line :x1="72 + 85 * (index - 1)" y1="40" :x2="72 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
+                    <line :x1="42 + 85 * (index - 1)" y1="68" :x2="42 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
+                    <line :x1="58 + 85 * (index - 1)" y1="68" :x2="58 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
+                    <line :x1="74 + 85 * (index - 1)" y1="68" :x2="74 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
+                    <line :x1="48 + 85 * (index - 1)" y1="92" :x2="48 + 85 * (index - 1)" y2="120" stroke="goldenrod" />
+                    <line :x1="72 + 85 * (index - 1)" y1="92" :x2="72 + 85 * (index - 1)" y2="120" stroke="goldenrod" />
+                </g>
+                <g
+                    v-if="isAustraliaMarket"
+                    :key="'australiaSlots' + index"
+                    :transform="`translate(${25 + 85 * (index - 1)}, 45)`"
+                    class="resource-slots"
+                    fill="none"
+                    stroke="goldenrod"
+                    pointer-events="none"
+                >
+                    <path d="M0,23 H70 M0,47 H70 M23.333,0 V70 M46.667,0 V70" />
+                </g>
+                <g :key="'lines' + index" v-if="isIndiaResourceMarket">
+                    <line :x1="25 + 85 * (index - 1)" y1="68" :x2="95 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
+                    <line :x1="25 + 85 * (index - 1)" y1="92" :x2="95 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
+
+                    <line :x1="42 + 85 * (index - 1)" y1="40" :x2="42 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
+                    <line :x1="59 + 85 * (index - 1)" y1="40" :x2="59 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
+                    <line :x1="76 + 85 * (index - 1)" y1="40" :x2="76 + 85 * (index - 1)" y2="68" stroke="goldenrod" />
+                    <line :x1="42 + 85 * (index - 1)" y1="68" :x2="42 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
+                    <line :x1="58 + 85 * (index - 1)" y1="68" :x2="58 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
+                    <line :x1="74 + 85 * (index - 1)" y1="68" :x2="74 + 85 * (index - 1)" y2="92" stroke="goldenrod" />
+                    <line :x1="42 + 85 * (index - 1)" y1="92" :x2="42 + 85 * (index - 1)" y2="120" stroke="goldenrod" />
+                    <line :x1="59 + 85 * (index - 1)" y1="92" :x2="59 + 85 * (index - 1)" y2="120" stroke="goldenrod" />
+                    <line :x1="76 + 85 * (index - 1)" y1="92" :x2="76 + 85 * (index - 1)" y2="120" stroke="goldenrod" />
+                </g>
+            </template>
+
+            <!-- Australia: the $1 and $2 spaces close once the Step 3 CO2 tax fires. -->
+            <template v-if="isAustraliaMarket && co2TaxActive">
+                <rect width="160" height="70" x="24" y="45" rx="2" fill="black" opacity="0.55" />
+                <text
+                    text-anchor="middle"
+                    style="font-size: 12px; font-family: monospace; font-weight: 700"
+                    x="104"
+                    y="84"
+                    fill="white"
+                >
+                    CO₂ closed
+                </text>
+            </template>
+
+            <template v-if="isIndiaResourceMarket">
+                <g :key="'separators'">
+                    <line x1="275" y1="40" x2="275" y2="140" stroke="red" />
+                    <line x1="445" y1="40" x2="445" y2="140" stroke="red" />
+
+                    <text x="220" y="130" stroke="red">Step 1</text>
+                    <text x="390" y="130" stroke="red">Step 2</text>
+                </g>
+            </template>
+
+            <template v-if="!isIndiaResourceMarket && !isNinePriceMarket && !isAustraliaMarket && !isBremenMarket">
+                <rect width="30" height="30" x="705" y="45" rx="2" fill="darkgoldenrod" />
+                <circle r="10" cx="732" cy="48" fill="yellow" />
+                <text
+                    text-anchor="middle"
+                    style="font-size: 12px; font-family: monospace"
+                    x="732"
+                    y="48"
+                    fill="darkgoldenrod"
+                >
+                    10
+                </text>
+
+                <rect width="30" height="30" x="745" y="45" rx="2" fill="darkgoldenrod" />
+                <circle r="10" cx="772" cy="48" fill="yellow" />
+                <text
+                    text-anchor="middle"
+                    style="font-size: 12px; font-family: monospace"
+                    x="772"
+                    y="48"
+                    fill="darkgoldenrod"
+                >
+                    12
+                </text>
+
+                <rect width="30" height="30" x="705" y="85" rx="2" fill="darkgoldenrod" />
+                <circle r="10" cx="732" cy="88" fill="yellow" />
+                <text
+                    text-anchor="middle"
+                    style="font-size: 12px; font-family: monospace"
+                    x="732"
+                    y="88"
+                    fill="darkgoldenrod"
+                >
+                    14
+                </text>
+
+                <rect width="30" height="30" x="745" y="85" rx="2" fill="darkgoldenrod" />
+                <circle r="10" cx="772" cy="88" fill="yellow" />
+                <text
+                    text-anchor="middle"
+                    style="font-size: 12px; font-family: monospace"
+                    x="772"
+                    y="88"
+                    fill="darkgoldenrod"
+                >
+                    16
+                </text>
+            </template>
+
+            <template v-if="isUsaRecharged">
+                <rect
+                    width="180"
+                    height="70"
+                    x="795"
+                    y="45"
+                    rx="2"
+                    fill="chocolate"
+                    stroke="sandybrown"
+                    stroke-width="4px"
+                />
+                <circle r="10" cx="973" cy="45" fill="yellow" />
+                <text
+                    text-anchor="middle"
+                    style="font-size: 16px; font-family: monospace"
+                    x="973"
+                    y="45"
+                    fill="darkgoldenrod"
+                >
+                    8
+                </text>
+                <Coal
+                    :pieceId="-1"
+                    :targetState="{ x: 858, y: 57 }"
+                    :canClick="false"
+                    :transparent="true"
+                    :scale="0.2"
+                />
+            </template>
+
+            <!-- South Africa: coal storage pool below the market. Always-available $8
+             flat buy. Used coal returns here; market refills draw from here first. -->
+            <template v-if="coalStorage !== undefined">
+                <rect
+                    width="180"
+                    height="70"
+                    x="795"
+                    y="45"
+                    rx="2"
+                    fill="chocolate"
+                    stroke="sandybrown"
+                    stroke-width="4px"
+                />
+                <circle r="10" cx="973" cy="45" fill="yellow" />
+                <text
+                    text-anchor="middle"
+                    style="font-size: 16px; font-family: monospace"
+                    x="973"
+                    y="45"
+                    fill="darkgoldenrod"
+                >
+                    8
+                </text>
+                <text text-anchor="start" style="font-size: 11px; font-family: monospace" x="800" y="42" fill="black">
+                    Coal storage
+                </text>
+            </template>
+
+            <template v-for="coal in coals">
+                <Coal
+                    :key="coal.id"
+                    :pieceId="coal.id"
+                    :targetState="{ x: coal.x, y: coal.y }"
+                    :canClick="
+                        coal.transparent ? canUnbuy('coal', coal) : canBuyResource('coal', coal.side, coal.fromStorage)
+                    "
+                    :transparent="coal.transparent"
+                    :restorable="canUnbuy('coal', coal)"
+                    :scale="isIndiaResourceMarket ? 0.06 : 0.08"
+                    @click="clickResource('coal', coal)"
+                />
+            </template>
+
+            <template v-for="oil in oils">
+                <Oil
+                    :key="oil.id"
+                    :pieceId="oil.id"
+                    :targetState="{ x: oil.x, y: oil.y }"
+                    :canClick="oil.transparent ? canUnbuy('oil', oil) : canBuyResource('oil', oil.side)"
+                    :transparent="oil.transparent"
+                    :restorable="canUnbuy('oil', oil)"
+                    @click="clickResource('oil', oil)"
+                />
+            </template>
+
+            <template v-for="garbage in garbages">
+                <Garbage
+                    :key="garbage.id"
+                    :pieceId="garbage.id"
+                    :targetState="{ x: garbage.x, y: garbage.y }"
+                    :canClick="
+                        garbage.transparent ? canUnbuy('garbage', garbage) : canBuyResource('garbage', garbage.side)
+                    "
+                    :transparent="garbage.transparent"
+                    :restorable="canUnbuy('garbage', garbage)"
+                    :scale="isIndiaResourceMarket ? 0.8 : 1"
+                    @click="clickResource('garbage', garbage)"
+                />
+            </template>
+
+            <template v-for="uranium in uraniums">
+                <Uranium
+                    :key="uranium.id"
+                    :pieceId="uranium.id"
+                    :targetState="{ x: uranium.x, y: uranium.y }"
+                    :canClick="
+                        uranium.transparent ? canUnbuy('uranium', uranium) : canBuyResource('uranium', uranium.side)
+                    "
+                    :transparent="uranium.transparent"
+                    :restorable="canUnbuy('uranium', uranium)"
+                    @click="clickResource('uranium', uranium)"
+                />
+            </template>
+
+            <template v-if="isMiddleEast">
+                <rect width="80" height="50" x="20" y="70" rx="2" fill="gray" stroke="darkgray" stroke-width="4px" />
+                <Oil
+                    :pieceId="-1"
+                    :targetState="{ x: 35, y: 80 }"
+                    :scale="1.5"
+                    :canClick="availableSurplusOil > 0 && canBuyResource('oil')"
+                    :transparent="availableSurplusOil == 0"
+                    @click="buyResource('oil')"
+                />
+                <text text-anchor="middle" style="font-size: 16px; font-family: monospace" x="70" y="93.5">
+                    x{{ availableSurplusOil }}
+                </text>
+            </template>
+
+            <template>
+                <rect
+                    v-if="!isKorea && buyableResources.length > 0"
+                    x="15"
+                    y="35"
+                    :width="isAustraliaMarket ? 880 : 770"
+                    height="90"
+                    rx="2"
+                    fill="none"
+                    stroke="blue"
+                    stroke-width="2px"
+                />
+                <rect
+                    v-if="isKorea && hasBuyableSouth"
+                    x="15"
+                    y="35"
+                    width="770"
+                    height="90"
+                    rx="2"
+                    fill="none"
+                    stroke="blue"
+                    stroke-width="2px"
+                />
+            </template>
+        </g>
     </g>
 </template>
 
@@ -425,6 +438,7 @@ import { buySourceKey } from '../../util/turn-buffer';
     },
 })
 export default class Resources extends Vue {
+    @Prop({ default: false }) parallelMarkets!: boolean;
     @Prop() resourceResupply?: number[];
     @Prop() resourceResupplyNorth?: number[];
     @Prop() uraniumMineRemoval?: number;

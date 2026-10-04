@@ -9,3 +9,10 @@ BGS compresses JS, CSS, JSON and WASM automatically during upload. Send the orig
 The BGS admin's **Upload folder** control handles multi-file builds. For scripted releases, use BGS's `scripts/publish-viewer.mjs` with `--dir`, `--entry` and `--style`; it verifies every uploaded file, records the previous viewer, and activates only with `--apply --activate`. The full command and API contract are in the [BGS viewer documentation](https://docs.boardgamers.space/guide/viewer-api#publishing-a-viewer-with-multiple-files).
 
 English needs no language download; other languages load when selected. Geographic SVG data loads as an optional chunk for the current map. Test a cold load, geographic backdrop, and a language change after publishing. Also check the browser Network panel for missing relative assets.
+
+The adaptive board viewer replaces the help toggle with `showUnselectedRegions`.
+When deploying it, replace the obsolete `disableHelp` entry in the BGS game-version
+preferences with `{ "name": "showUnselectedRegions", "label": "Show unselected regions", "type": "checkbox", "default": true }`.
+Preserve the other preferences. BGS only persists declared preference names, so
+this metadata change must accompany the viewer release. Old saved `disableHelp`
+values are ignored by the viewer; move indicators are always enabled.

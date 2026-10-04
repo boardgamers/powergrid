@@ -15,7 +15,9 @@ export type Preferences = {
     analysis?: boolean;
     sound: boolean;
     colorBlind: boolean;
-    disableHelp: boolean;
+    /** Legacy host preference; help indicators are now always visible. */
+    disableHelp?: boolean;
+    showUnselectedRegions?: boolean;
     adjustPlayerOrder: boolean;
     undoWholeTurn: boolean;
     fitToScreen: boolean;

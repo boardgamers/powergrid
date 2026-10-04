@@ -71,7 +71,7 @@
             </g>
         </template>
 
-        <template v-if="!preferences.disableHelp">
+        <template>
             <template v-for="(powerPlant, i) in player.powerPlants">
                 <rect
                     v-if="canUse(powerPlant)"

@@ -11,16 +11,6 @@
             :opacity="devBackdrop.opacity != null ? devBackdrop.opacity : 0.5"
         />
 
-        <!-- <template v-for="polygon in polygons">
-            <polygon
-                :key="'pol_ ' + polygon.region"
-                :points="polygon.points.map((p) => `${p[0]},${p[1]}`).join(' ')"
-                :fill="polygon.region"
-                opacity="0.8"
-                stroke="black"
-            ></polygon>
-        </template> -->
-
         <template v-for="city in cities">
             <circle
                 v-if="city.connectionCost == null"
@@ -374,7 +364,7 @@
             </template>
         </template>
 
-        <template v-if="!preferences.disableHelp">
+        <template>
             <template v-for="city in cities">
                 <circle
                     v-if="canBuild(city)"

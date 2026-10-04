@@ -35,13 +35,13 @@ function launch(selector: string) {
         emitter: new EventEmitter(),
         // Observable so preference changes update the UI immediately: Game receives
         // this object as a prop, and Vue 2 does not deep-observe prop values coming
-        // from a non-reactive parent — plain-object mutations (the in-game sound/help
+        // from a non-reactive parent — plain-object mutations (the in-game sound/map
         // toggles, platform preference pushes) would only paint on the next re-render.
         preferences: Vue.observable({
             bgs: {},
             sound: true,
             colorBlind: false,
-            disableHelp: false,
+            showUnselectedRegions: true,
             adjustPlayerOrder: false,
             undoWholeTurn: true,
             fitToScreen: true,

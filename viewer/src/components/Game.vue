@@ -33,19 +33,64 @@
                 </clipPath>
             </defs>
 
-            <!-- Decorative sibling, deliberately OUTSIDE slotMap: its getBBox()
-                 must continue to measure only the original playable network.
-                 Clip to scene coordinates, including when fit-to-screen leaves
-                 letterbox margins inside the SVG's wider CSS viewport. -->
+            <!-- Geography and faded regions stay outside the measured map and
+                 behind every game component. Toggling them never changes the
+                 playable network's bounds, scale or position. -->
             <g data-geography-layer :clip-path="`url(#${geographyClipId})`" pointer-events="none" aria-hidden="true">
                 <g :transform="slotT('map')">
                     <g :transform="mapTransform">
-                        <GeographicBackground :map="G.map" :bounds="geographyBounds" :full-board="true" @availability="geographyReady = $event" :appearance="preferences.geographicBackground || 'terrain'" />
+                        <GeographicBackground
+                            :map="G.map"
+                            :bounds="geographyBounds"
+                            :full-board="true"
+                            @availability="geographyReady = $event"
+                            :appearance="preferences.geographicBackground || 'terrain'"
+                        />
+                        <g
+                            v-if="preferences.showUnselectedRegions !== false"
+                            data-unselected-regions
+                            pointer-events="none"
+                            opacity="0.3"
+                        >
+                            <line
+                                v-for="(link, i) in unselectedNetwork.links"
+                                :key="'inactive-link-' + i"
+                                :x1="link.from.x"
+                                :y1="link.from.y"
+                                :x2="link.to.x"
+                                :y2="link.to.y"
+                                stroke="#59675c"
+                                stroke-width="7"
+                            />
+                            <g v-for="city in unselectedNetwork.cities" :key="'inactive-' + city.name">
+                                <circle
+                                    v-if="city.connectionCost == null"
+                                    :cx="city.x"
+                                    :cy="city.y"
+                                    r="23"
+                                    fill="#b5beb1"
+                                    :stroke="city.region"
+                                    stroke-width="5"
+                                />
+                                <rect
+                                    v-else
+                                    :x="city.x - 20"
+                                    :y="city.y - 20"
+                                    width="40"
+                                    height="40"
+                                    rx="5"
+                                    :transform="`rotate(45, ${city.x}, ${city.y})`"
+                                    fill="#b5beb1"
+                                    :stroke="city.region"
+                                    stroke-width="4"
+                                />
+                            </g>
+                        </g>
                     </g>
                 </g>
             </g>
 
-            <g ref="slotPlayerOrder" :transform="slotT('playerOrder')">
+            <g ref="slotPlayerOrder" data-board-slot="playerOrder" :transform="slotT('playerOrder')">
                 <PlayerOrder
                     ref="playerOrder"
                     :transform="`translate(${G.map.playerOrderPosition[0]}, ${G.map.playerOrderPosition[1]})`"
@@ -53,7 +98,7 @@
                 />
             </g>
 
-            <g ref="slotCityCount" :transform="slotT('cityCount')">
+            <g ref="slotCityCount" data-board-slot="cityCount" :transform="slotT('cityCount')">
                 <CityCount
                     ref="cityCount"
                     :transform="`translate(${G.map.cityCountPosition[0]}, ${G.map.cityCountPosition[1]})`"
@@ -73,6 +118,7 @@
                  the portrait layout can move it off the market's row. -->
             <g
                 ref="slotPowerPlantDeck"
+                data-board-slot="powerPlantDeck"
                 :transform="
                     slotT('powerPlantDeck') ||
                     `translate(${G.map.powerPlantMarketPosition[0]}, ${G.map.powerPlantMarketPosition[1]})`
@@ -113,7 +159,12 @@
                 </template>
             </g>
 
-            <g ref="slotPowerPlantMarket" data-tutorial="plants" :transform="slotT('powerPlantMarket')">
+            <g
+                ref="slotPowerPlantMarket"
+                data-board-slot="powerPlantMarket"
+                data-tutorial="plants"
+                :transform="slotT('powerPlantMarket')"
+            >
                 <PowerPlantMarket
                     ref="powerPlantMarket"
                     :transform="`translate(${G.map.powerPlantMarketPosition[0]}, ${G.map.powerPlantMarketPosition[1]})`"
@@ -130,7 +181,7 @@
                 />
             </g>
 
-            <g ref="slotMap" data-tutorial="map" :transform="slotT('map')">
+            <g ref="slotMap" data-board-slot="map" data-tutorial="map" :transform="slotT('map')">
                 <Map
                     ref="map"
                     :transform="mapTransform"
@@ -152,7 +203,12 @@
             </g>
 
             <!-- Japan: Free Jump indicator -->
-            <g v-if="G.map.name === 'Japan'" ref="slotFreeJump" :transform="slotT('freeJump')">
+            <g
+                v-if="G.map.name === 'Japan'"
+                ref="slotFreeJump"
+                data-board-slot="freeJump"
+                :transform="slotT('freeJump')"
+            >
                 <text x="330" y="93" font-size="20" font-weight="bold" fill="black">Free Jump:</text>
                 <template v-for="(fjPlayer, i) in G.players">
                     <g
@@ -185,11 +241,16 @@
                 </template>
             </g>
 
-            <g v-if="stacked" ref="slotResourceView" :transform="slotT('resourceView')">
+            <g v-if="stacked" ref="slotResourceView" data-board-slot="resourceView" :transform="slotT('resourceView')">
                 <ResourceViewButton :showTrack="showResourceTrack" @select="setResourceView($event)" />
             </g>
 
-            <g ref="slotResources" data-tutorial="resources" :transform="slotT('resources')">
+            <g
+                ref="slotResources"
+                data-board-slot="resources"
+                data-tutorial="resources"
+                :transform="slotT('resources')"
+            >
                 <!-- On a phone the printed price track is a strip of unreadable
                      columns, so the stacked layout defaults to one box per buyable
                      source. It is still only a default: the switch above this row
@@ -214,6 +275,7 @@
                 <Resources
                     v-else
                     ref="resources"
+                    :parallelMarkets="!stacked"
                     :transform="`translate(${G.map.supplyPosition[0]}, ${G.map.supplyPosition[1]})`"
                     :isUsaRecharged="G.options.variant == 'recharged' && G.map.name == 'USA'"
                     :isMiddleEast="G.map.name == 'Middle East'"
@@ -243,6 +305,7 @@
             <g
                 v-if="stacked && G.map.name === 'Australia' && G.uraniumMineMarket"
                 ref="slotUraniumMines"
+                data-board-slot="uraniumMines"
                 :transform="slotT('uraniumMines') || 'translate(15, 112)'"
             >
                 <rect x="0" y="0" width="620" height="104" rx="6" fill="#8aa84a" stroke="#4d6322" stroke-width="3" />
@@ -301,6 +364,7 @@
             <g
                 v-if="!stacked && G.map.name === 'Australia' && G.uraniumMineMarket"
                 ref="slotUraniumMines"
+                data-board-slot="uraniumMines"
                 :transform="slotT('uraniumMines') || 'translate(15, 112)'"
             >
                 <rect x="0" y="0" width="104" height="396" rx="6" fill="#8aa84a" stroke="#4d6322" stroke-width="3" />
@@ -349,6 +413,7 @@
 
             <g
                 ref="slotRoundInfo"
+                data-board-slot="roundInfo"
                 :transform="
                     slotT('roundInfo') || `translate(${G.map.roundInfoPosition[0]}, ${G.map.roundInfoPosition[1]})`
                 "
@@ -382,26 +447,27 @@
 
             <g
                 ref="slotButtons"
+                data-board-slot="buttons"
                 data-tutorial="turn"
                 :transform="slotT('buttons') || `translate(${G.map.buttonsPosition[0]}, ${G.map.buttonsPosition[1]})`"
             >
                 <PassButton
                     transform="translate(15, 15)"
                     :enabled="canPass()"
-                    :highlightButton="canPass() && !preferences.disableHelp"
+                    :highlightButton="canPass()"
                     :text="tutorialMove || roundPlan || canUndo() ? 'Done' : 'Pass'"
                     @click="checkPass()"
                 />
                 <UndoButton
                     transform="translate(15, 56)"
                     :enabled="canUndo()"
-                    :highlightButton="canUndo() && !preferences.disableHelp"
+                    :highlightButton="canUndo()"
                     @click="undo()"
                 />
                 <BoardOption
                     transform="translate(15, 97)"
                     control="color-blind"
-                    icon="eye"
+                    icon="shapes"
                     label="Color-blind mode"
                     :active="!!preferences.colorBlind"
                     @click="toggleColorBlind()"
@@ -429,7 +495,14 @@
                     "
                 />
                 <SoundButton :transform="iconButton(0)" :isOn="preferences.sound" @click="toggleSound()" />
-                <HelpButton :transform="iconButton(1)" :isOn="!preferences.disableHelp" @click="toggleHelp()" />
+                <BoardOption
+                    :transform="iconButton(1)"
+                    control="unselected-regions"
+                    icon="regions"
+                    label="Show unselected regions"
+                    :active="preferences.showUnselectedRegions !== false"
+                    @click="toggleUnselectedRegions()"
+                />
                 <RulesButton :transform="iconButton(2)" @click="rulesVisible = true" />
                 <!-- Only offered where it means something. Shown whenever the
                      viewport is portrait — not only while stacking is active — so
@@ -444,12 +517,17 @@
                 />
             </g>
 
-            <g ref="slotPlayerBoards" data-tutorial="players" :transform="slotT('playerBoards')">
+            <g
+                ref="slotPlayerBoards"
+                data-board-slot="playerBoards"
+                data-tutorial="players"
+                :transform="slotT('playerBoards')"
+            >
                 <template v-for="(playerIndex, i) in adjustedPlayerOrder">
                     <PlayerBoard
                         :key="'B' + playerIndex"
-                        :transform="`translate(${G.map.playerBoardsPosition[0]}, ${
-                            G.map.playerBoardsPosition[1] + 110 * i
+                        :transform="`translate(${G.map.playerBoardsPosition[0] + (i % playerBoardColumns) * 400}, ${
+                            G.map.playerBoardsPosition[1] + 110 * Math.floor(i / playerBoardColumns)
                         })`"
                         :player="G.players[playerIndex]"
                         :color="playerColors[playerIndex]"
@@ -816,7 +894,6 @@ import {
     UndoButton,
     BoardOption,
     SoundButton,
-    HelpButton,
     RulesButton,
     LayoutButton,
     ResourceViewButton,
@@ -850,6 +927,8 @@ import { formatDuration } from '../util/time';
 import { playerOrderForDisplay } from '../util/player-order';
 import { freePlantMoves, canAutoFinishPowering, poweredCities } from '../util/powering';
 import { powerIncome } from 'powergrid-engine/src/engine';
+import { inactiveMapNetwork } from '../util/inactive-map';
+import { desktopBoardLayout } from '../util/board-layout';
 
 // Portrait layout: the rows the scene is broken into, top to bottom. Slots on
 // the same row sit side by side and share one scale. Names map to the `slotX`
@@ -985,7 +1064,6 @@ let nextGeographyClipId = 0;
         UndoButton,
         BoardOption,
         SoundButton,
-        HelpButton,
         RulesButton,
         LayoutButton,
         ResourceViewButton,
@@ -2355,11 +2433,14 @@ export default class Game extends Vue {
         this.preferences.sound = newSound;
     }
 
-    toggleHelp() {
-        const newVal = !this.preferences.disableHelp;
+    toggleUnselectedRegions() {
+        const value = this.preferences.showUnselectedRegions === false;
+        this.$set(this.preferences, 'showUnselectedRegions', value);
+        this.emitter.emit('update:preference', { name: 'showUnselectedRegions', value });
+    }
 
-        this.emitter.emit('update:preference', { name: 'disableHelp', value: newVal });
-        this.preferences.disableHelp = newVal;
+    get unselectedNetwork() {
+        return inactiveMapNetwork(this.G?.map, this.G?.options.variant);
     }
 
     getStatusMessage() {
@@ -2544,11 +2625,12 @@ export default class Game extends Vue {
     // Rather than author a second set of coordinates for 24 maps, we re-use the
     // ones we already have: each group is measured with getBBox() and mapped
     // onto a full-width row by a single transform on its wrapper <g>. Nothing
-    // inside the components changes, and on a landscape/desktop viewport no
-    // transform is emitted at all, so those layouts render exactly as before.
+    // inside the components changes. Desktop uses the same measurements to keep
+    // the network clear of the track, markets and player boards.
 
     /** True while the portrait row layout is in effect. */
     stacked = false;
+    playerBoardColumns = 1;
     geographyBounds: MapBounds | null = null;
     geographyReady = false;
     /**
@@ -2565,6 +2647,7 @@ export default class Game extends Vue {
     private viewportObserver: ResizeObserver | null = null;
     /** Height of the stacked canvas, in scene units. */
     stackHeight = STACK_WIDTH;
+    desktopHeight: number | null = null;
     /** Wrapper transform per slot; empty means "render as authored". */
     slotTransforms: Record<string, string> = {};
 
@@ -2579,6 +2662,7 @@ export default class Game extends Vue {
         if (this.stacked) {
             return `0 0 ${STACK_WIDTH} ${this.stackHeight}`;
         }
+        if (this.desktopHeight !== null) return `0 0 ${STACK_WIDTH} ${this.desktopHeight}`;
         return this.G?.map?.viewBox ? `0 0 ${this.G.map.viewBox[0]} ${this.G.map.viewBox[1]}` : '0 0 1500 800';
     }
 
@@ -2673,8 +2757,8 @@ export default class Game extends Vue {
             return;
         }
 
-        // Read the original Map component only. Background geometry can neither
-        // change the desktop viewBox nor enlarge a portrait layout measurement.
+        // Measure only playable cities and connections. Background geography and
+        // faded regions cannot enlarge either layout.
         const network = this.map?.$el as SVGGraphicsElement | undefined;
         if (network && typeof network.getBBox === 'function') {
             const b = network.getBBox();
@@ -2684,12 +2768,11 @@ export default class Game extends Vue {
         }
 
         this.portraitViewport = this.isPortraitViewport();
-
-        if (!this.shouldStack()) {
-            if (this.stacked) {
-                this.stacked = false;
-                this.slotTransforms = {};
-            }
+        const columns = !this.shouldStack() && (this.G?.players.length || 0) >= 5 &&
+            window.innerWidth / window.innerHeight > 1.7 ? 2 : 1;
+        if (columns !== this.playerBoardColumns) {
+            this.playerBoardColumns = columns;
+            this.scheduleRelayout();
             return;
         }
 
@@ -2709,6 +2792,25 @@ export default class Game extends Vue {
             } catch {
                 // Not rendered yet (or detached) — skip; the next relayout catches it.
             }
+        }
+
+        if (!this.shouldStack()) {
+            if (this.stacked) {
+                // Let the desktop resource track and vertical mine market mount
+                // before measuring them; the stacked watcher schedules that pass.
+                this.stacked = false;
+                this.slotTransforms = {};
+                return;
+            }
+            if (!boxes.map || !boxes.resources) return;
+            const scene = this.$el.querySelector('#scene') as SVGSVGElement;
+            const width = this.$el.clientWidth || window.innerWidth;
+            const top = scene.getBoundingClientRect().top + window.scrollY;
+            const availableHeight = Math.max(240, window.innerHeight - top - 8);
+            const layout = desktopBoardLayout(boxes, STACK_WIDTH, STACK_WIDTH * availableHeight / width);
+            this.desktopHeight = layout.height;
+            this.slotTransforms = Object.fromEntries(Object.entries(layout.placements).map(([name, slot]) => [name, slot.transform]));
+            return;
         }
 
         // A row of `h` scene units renders at h * (innerWidth / STACK_WIDTH) css px,
@@ -2778,6 +2880,7 @@ export default class Game extends Vue {
         }
 
         this.stackHeight = Math.round(y + STACK_PAD - STACK_GAP);
+        this.desktopHeight = null;
         this.slotTransforms = transforms;
         this.stacked = true;
     }
@@ -2853,9 +2956,19 @@ export default class Game extends Vue {
         }
     }
 
+    // A decorative visibility toggle must not even trigger a new measurement:
+    // getBBox can vary fractionally as fonts and animations settle.
+    get layoutPreferencesKey() {
+        const preferences = { ...this.preferences };
+        delete preferences.showUnselectedRegions;
+        return JSON.stringify(preferences);
+    }
+
     // Boards grow as players buy plants, so the row heights are re-derived on
     // every state change rather than measured once at mount.
     @Watch('G')
+    @Watch('layoutPreferencesKey')
+    @Watch('hasPlanPanel')
     onSceneContentChanged() {
         this.scheduleRelayout();
     }

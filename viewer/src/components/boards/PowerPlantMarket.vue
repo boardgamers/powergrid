@@ -41,7 +41,7 @@
             />
         </template>
 
-        <template v-if="!preferences.disableHelp">
+        <template>
             <g v-if="canChoose">
                 <rect
                     v-if="futureMarketCards.length > 0"

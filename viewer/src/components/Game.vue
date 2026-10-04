@@ -2811,7 +2811,12 @@ export default class Game extends Vue {
             const width = this.$el.clientWidth || window.innerWidth;
             const top = scene.getBoundingClientRect().top + window.scrollY;
             const availableHeight = Math.max(240, window.innerHeight - top - 8);
-            const layout = desktopBoardLayout(boxes, STACK_WIDTH, STACK_WIDTH * availableHeight / width);
+            const layout = desktopBoardLayout(boxes, STACK_WIDTH, STACK_WIDTH * availableHeight / width, {
+                pixelsPerUnit: width / STACK_WIDTH,
+                // Circular city markers have a 25-unit radius. Bremen's larger
+                // district tiles do not need this compact-controls adjustment.
+                cityDiameter: this.G?.map.cities.some((city) => city.connectionCost == null) ? 50 : 0,
+            });
             this.desktopHeight = layout.height;
             this.slotTransforms = Object.fromEntries(Object.entries(layout.placements).map(([name, slot]) => [name, slot.transform]));
             return;

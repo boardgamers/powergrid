@@ -14,10 +14,45 @@ export interface BoardPlacement extends BoardBox {
 
 const PAD = 16;
 const GAP = 20;
+// The network needs stroke clearance, not the wider spacing between UI panels.
+const MAP_GAP = 8;
 const rounded = (n: number) => Number(n.toFixed(4));
 
+/** Prioritise readable cities on wide, short screens, while keeping the UI's
+ * smallest text at least as large as it is on a typical laptop display. */
+export function desktopBoardLayout(
+    boxes: Record<string, BoardBox>,
+    width: number,
+    targetHeight: number,
+    display?: { pixelsPerUnit: number; cityDiameter: number }
+) {
+    const normal = packDesktopBoard(boxes, width, targetHeight, 1);
+    if (!display || display.cityDiameter <= 0 || display.pixelsPerUnit <= 0 || !normal.placements.map) return normal;
+    const cityPixels = (layout: typeof normal) =>
+        layout.placements.map.scale * display.cityDiameter * display.pixelsPerUnit;
+    const target = 36;
+    if (cityPixels(normal) >= target) return normal;
+    // Do not deliberately shrink 15-unit income text below 11.25 CSS pixels
+    // (existing row-width limits still apply), or reduce controls by over 35%.
+    let low = Math.min(1, Math.max(0.65, 0.75 / display.pixelsPerUnit)),
+        high = 1;
+    let best = packDesktopBoard(boxes, width, targetHeight, low);
+    if (cityPixels(best) <= cityPixels(normal) * 1.01) return normal;
+    if (cityPixels(best) < target) return best;
+    // Use the largest controls that still meet the city-size target.
+    for (let i = 0; i < 8; i++) {
+        const ceiling = (low + high) / 2;
+        const layout = packDesktopBoard(boxes, width, targetHeight, ceiling);
+        if (cityPixels(layout) >= target) {
+            low = ceiling;
+            best = layout;
+        } else high = ceiling;
+    }
+    return best;
+}
+
 /** Pack measured game components; decorative geography never participates. */
-export function desktopBoardLayout(boxes: Record<string, BoardBox>, width: number, targetHeight: number) {
+function packDesktopBoard(boxes: Record<string, BoardBox>, width: number, targetHeight: number, chromeCeiling: number) {
     const placements: Record<string, BoardPlacement> = {};
     const present = (names: string[]) =>
         names.filter((name) => boxes[name] && boxes[name].width > 0 && boxes[name].height > 0);
@@ -39,7 +74,10 @@ export function desktopBoardLayout(boxes: Record<string, BoardBox>, width: numbe
     const fixedHeight = rowHeight(header, rowScale(header, 1)) + rowHeight(footer, rowScale(footer, 1));
     // On short landscape screens, keep some room for the map instead of letting
     // the header and a two-market resource track consume the entire viewport.
-    const chrome = Math.min(1, Math.max(0.6, (targetHeight - 180 - PAD * 2 - GAP * 2) / Math.max(1, fixedHeight)));
+    const chrome = Math.min(
+        chromeCeiling,
+        Math.max(0.6, (targetHeight - 180 - PAD * 2 - GAP * 2) / Math.max(1, fixedHeight))
+    );
     const headerScale = rowScale(header, chrome);
     const footerScale = rowScale(footer, chrome);
     const headerHeight = rowHeight(header, headerScale);
@@ -143,11 +181,11 @@ function fitMap(map: BoardBox, bounds: BoardBox, obstacles: BoardBox[]) {
             centre,
             bounds.x,
             bounds.x + bounds.width - w,
-            ...obstacles.flatMap((box) => [box.x + box.width + GAP, box.x - GAP - w]),
+            ...obstacles.flatMap((box) => [box.x + box.width + MAP_GAP, box.x - MAP_GAP - w]),
         ]
             .filter((x) => x >= bounds.x && x + w <= bounds.x + bounds.width + 0.001)
             .sort((a, b) => Math.abs(a - centre) - Math.abs(b - centre));
-        const ys = [bounds.y, ...obstacles.map((box) => box.y + box.height + GAP)]
+        const ys = [bounds.y, ...obstacles.map((box) => box.y + box.height + MAP_GAP)]
             .filter((y) => y >= bounds.y && y + h <= bounds.y + bounds.height + 0.001)
             .sort((a, b) => a - b);
         for (const x of xs)
@@ -155,10 +193,10 @@ function fitMap(map: BoardBox, bounds: BoardBox, obstacles: BoardBox[]) {
                 if (
                     obstacles.every(
                         (box) =>
-                            x + w <= box.x - GAP + 0.001 ||
-                            x >= box.x + box.width + GAP - 0.001 ||
-                            y + h <= box.y - GAP + 0.001 ||
-                            y >= box.y + box.height + GAP - 0.001
+                            x + w <= box.x - MAP_GAP + 0.001 ||
+                            x >= box.x + box.width + MAP_GAP - 0.001 ||
+                            y + h <= box.y - MAP_GAP + 0.001 ||
+                            y >= box.y + box.height + MAP_GAP - 0.001
                     )
                 ) {
                     return { x, y, scale };

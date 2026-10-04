@@ -111,6 +111,28 @@ describe('desktop board layout', () => {
         );
         expect(long.placements.map.scale).to.be.at.most(short.placements.map.scale);
         const map = long.placements.map;
-        expect(map.y + map.height).to.be.at.most(long.placements.resources.y - 19.99);
+        expect(map.y + map.height).to.be.at.most(long.placements.resources.y - 7.99);
+    });
+
+    it('compacts oversized controls when a tall map has small cities on a wide screen', () => {
+        const boxes = { ...base, map: box(844, 1145), playerBoards: box(780, 330) };
+        const normal = desktopBoardLayout(boxes, 1465, 681);
+        const compact = desktopBoardLayout(boxes, 1465, 681, { pixelsPerUnit: 1.2, cityDiameter: 50 });
+        expect(compact.placements.map.scale).to.be.greaterThan(normal.placements.map.scale * 1.12);
+        expect(compact.placements.cityCount.scale).to.be.lessThan(normal.placements.cityCount.scale);
+        expect(compact.placements.cityCount.scale * 1.2 * 15).to.be.at.least(11.25);
+        expect(compact.height).to.be.at.most(681);
+    });
+
+    it('keeps full-size controls when cities are already readable or are district tiles', () => {
+        const normal = desktopBoardLayout(base, 1465, 1040);
+        expect(desktopBoardLayout(base, 1465, 1040, { pixelsPerUnit: 1.2, cityDiameter: 50 })).to.deep.equal(normal);
+        expect(desktopBoardLayout(base, 1465, 1040, { pixelsPerUnit: 1.2, cityDiameter: 0 })).to.deep.equal(normal);
+    });
+
+    it('does not keep shrinking controls that are already small in CSS pixels', () => {
+        const smallScreen = desktopBoardLayout(base, 1465, 681, { pixelsPerUnit: 0.8, cityDiameter: 50 });
+        expect(smallScreen.placements.cityCount.scale * 0.8 * 15).to.be.at.least(11.25);
+        expect(smallScreen.placements.resources.scale * 0.8 * 15).to.be.at.least(11.25);
     });
 });

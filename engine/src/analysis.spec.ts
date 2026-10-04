@@ -1,9 +1,9 @@
 import { expect } from 'chai';
 import 'mocha';
 import { createAnalysisScenario } from './analysis';
-import { setup, moveAI, ended } from './engine';
-import { maps } from './maps';
+import { ended, moveAI, setup } from './engine';
 import { GameState } from './gamestate';
+import { maps } from './maps';
 const clone = (s: GameState): GameState => JSON.parse(JSON.stringify(s));
 describe('ongoing analysis scenarios', function () {
     this.timeout(120000);

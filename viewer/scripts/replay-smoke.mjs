@@ -13,9 +13,15 @@ export async function checkMiddleEastReplay(page) {
         window.replayReady = false;
         window.replaySource = state;
         window.replaySourceBefore = JSON.stringify(state);
-        host.on('ready', () => { window.replayReady = true; });
-        host.on('replay:info', (info) => { window.replayInfo = info; });
-        host.on('move', (move) => { window.replayMoves.push(move); });
+        host.on('ready', () => {
+            window.replayReady = true;
+        });
+        host.on('replay:info', (info) => {
+            window.replayInfo = info;
+        });
+        host.on('move', (move) => {
+            window.replayMoves.push(move);
+        });
         host.emit('preferences', { sound: false, locale: 'en' });
         host.emit('player', {});
         host.emit('state', state);
@@ -38,13 +44,23 @@ export async function checkMiddleEastReplay(page) {
 
     // Scrub across the boundary more than once: no recorded draw may be consumed
     // from the saved source state by an earlier reconstruction.
-    for (const [current, round, step] of [[330, 6, 1], [331, 7, 2], [end, 9, 2], [1, 1, 1], [331, 7, 2], [end, 9, 2]]) {
+    for (const [current, round, step] of [
+        [330, 6, 1],
+        [331, 7, 2],
+        [end, 9, 2],
+        [1, 1, 1],
+        [331, 7, 2],
+        [end, 9, 2],
+    ]) {
         await page.evaluate((current) => host.emit('replay:to', current), current);
         assert.deepEqual(await page.evaluate(() => replayInfo), { start: 1, current, end });
-        await page.waitForFunction(({ round, step }) => {
-            const text = document.querySelector('#scene')?.textContent;
-            return text?.includes(`Round: ${round}`) && text.includes(`Step: ${step}`);
-        }, { round, step });
+        await page.waitForFunction(
+            ({ round, step }) => {
+                const text = document.querySelector('#scene')?.textContent;
+                return text?.includes(`Round: ${round}`) && text.includes(`Step: ${step}`);
+            },
+            { round, step }
+        );
     }
     assert.deepEqual(await page.evaluate(() => replayMoves), [], 'replay never submits game moves');
     assert.equal(await page.evaluate(() => JSON.stringify(replaySource) === replaySourceBefore), true);

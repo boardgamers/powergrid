@@ -1840,6 +1840,24 @@ describe('Engine', () => {
         expect(() => moveAI(G, 0)).to.not.throw();
     });
 
+    it('should respect mandatory powering when autoplaying an India analysis seat', () => {
+        const G = setup(3, { map: 'India', variant: 'recharged' }, 'india-mandatory-power');
+        G.phase = Phase.Bureaucracy;
+        G.currentPlayers = [0, 1];
+        const player = G.players[0];
+        player.isAI = false;
+        player.cities = [];
+        player.citiesPowered = 0;
+        player.targetCitiesPowered = 1;
+        player.powerPlants = [getPowerPlant(13)];
+        player.powerPlantsNotUsed = [13];
+        player.availableMoves = availableMoves(G, player);
+        expect(player.availableMoves.Pass).to.be.undefined;
+        expect(player.availableMoves.UsePowerPlant).to.have.length(1);
+        const after = moveAI(G, 0);
+        expect(after.players[0].powerPlantsNotUsed).not.to.include(13);
+    });
+
     it('should not reorder the stored available moves when moveAI picks one', () => {
         // availableMoves lives on the game state and is served to clients; sorting it in
         // place to find the cheapest option silently rewrote what players are shown.

@@ -1,6 +1,6 @@
 import seedrandom from 'seedrandom';
 import { availableMoves } from './available-moves';
-import { reconstructState, stripSecret, setup, defaultSetupDeck } from './engine';
+import { defaultSetupDeck, reconstructState, setup, stripSecret } from './engine';
 import { GameState, PowerPlant, PowerPlantType } from './gamestate';
 import { indiaPowerPlants, powerPlants } from './powerPlants';
 import { shuffle } from './utils';

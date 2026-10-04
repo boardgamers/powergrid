@@ -1,0 +1,35 @@
+{
+    "status": "prepared; candidate not selected; final seeds unused",
+    "seed_prefix": "strong-final-reserved-v1",
+    "scope": "Germany, three players, automatic setup, original/Recharged, open/sealed",
+    "pairing": "Each independent deal is repeated across all three candidate seats and all four rule combinations.",
+    "intervals": "95% bootstrap intervals resample independent deals, retaining correlated seat and rule repeats. Intervals are per comparison, not a simultaneous family-wide confidence claim.",
+    "requirements": {
+        "all_games_complete": true,
+        "no_illegal_moves": true,
+        "no_missing_or_duplicate_paired_matches": true,
+        "overall_interval_lower_bound_above": 0.3333333333333333,
+        "each_rule_interval_lower_bound_above": 0.3333333333333333,
+        "report_search_rollout_truncations": true,
+        "export_action_parity": "All 427 fixture positions must agree with the training checkpoint.",
+        "cpu_serving": "All 427 fixtures must return legal moves on the AMD 8840U; report cold, warm, search-only and phase-specific latency.",
+        "package": "Verify file hashes and legal responses from the extracted standalone archive."
+    },
+    "opponents": [
+        { "name": "legacy", "games": 480, "minimum_win_rate": 0.9 },
+        { "name": "heuristic", "games": 480, "minimum_win_rate": 0.7 },
+        { "name": "economic", "games": 480, "minimum_win_rate": 0.55 },
+        { "name": "rush", "games": 480, "minimum_win_rate": 0.5 },
+        { "name": "search_geo", "games": 960, "minimum_win_rate": 0.4 },
+        {
+            "name": "frozen_a260",
+            "games": 960,
+            "minimum_win_rate": 0.4,
+            "model_path": "runs/strong-league-v2-a/best.onnx",
+            "model_revision": "b38515c29e57826de05b55b645c29591e4a886bf",
+            "model_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd"
+        }
+    ],
+    "failure_policy": "A failed gate is reported as a failure; do not weaken thresholds after seeing final results. Any subsequent model selection uses new development evidence and a new final seed prefix.",
+    "claim_limits": "These gates establish strength against the measured opponent suite, not expert-human strength, other maps/player counts, or calibrated analysis values."
+}

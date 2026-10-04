@@ -9,7 +9,18 @@
             :key="count"
             :transform="`translate(${cellX(count)}, ${cellY(count)})`"
         >
-            <rect v-if="count === poweredCities" class="powered-city-marker" x="11" y="12" width="32" height="64" rx="3" fill="none" stroke="#183b32" stroke-width="3" />
+            <rect
+                v-if="count === poweredCities"
+                class="powered-city-marker"
+                x="11"
+                y="12"
+                width="32"
+                height="64"
+                rx="3"
+                fill="none"
+                stroke="#183b32"
+                stroke-width="3"
+            />
             <rect v-if="count === poweredCities" x="13" y="57" width="28" height="17" rx="2" fill="#d6ed87" />
             <title>
                 {{
@@ -66,9 +77,13 @@
         </g>
         <g class="city-income-legend" :transform="`translate(0, ${compact ? 157 : 87})`">
             <circle cx="21" cy="0" r="7" fill="#365343" />
-            <text x="21" text-anchor="middle" font-size="11" fill="#fff3cf">{{ poweredCities !== undefined ? 'ϟ' : '$' }}</text>
+            <text x="21" text-anchor="middle" font-size="11" fill="#fff3cf">{{
+                poweredCities !== undefined ? 'ϟ' : '$'
+            }}</text>
             <text x="33" y="0" style="font-size: 13px; dominant-baseline: central" fill="#29432e">
-                <template v-if="poweredCities !== undefined">{{ poweredCities }} / {{ ownedCities }} cities powered · ${{ poweringIncome }}</template>
+                <template v-if="poweredCities !== undefined"
+                    >{{ poweredCities }} / {{ ownedCities }} cities powered · ${{ poweringIncome }}</template
+                >
                 <template v-else>Total income for powered cities</template>
             </text>
         </g>

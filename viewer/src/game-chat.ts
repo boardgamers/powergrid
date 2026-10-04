@@ -1,8 +1,8 @@
 import { ChatController, ChatMessage, chatSegments } from '@boardgamers/protocol/chat';
 import { mountChat } from '@boardgamers/protocol/chat/dom';
 import { attachChat, ViewerEmitter } from '@boardgamers/protocol/viewer';
-import { resolvePlayerColors, colorText } from './player-colors';
 import { playerColors } from 'powergrid-engine/src/gamestate';
+import { colorText, resolvePlayerColors } from './player-colors';
 type ChatEmitter = Pick<ViewerEmitter<any, any>, 'on' | 'emit'>;
 export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): () => void {
     const chat = new ChatController();

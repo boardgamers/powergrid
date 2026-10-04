@@ -1,0 +1,48 @@
+{
+    "status": "ordered-opponent architecture verified; v2 teacher distillation submitted on L4/H200",
+    "feature_revision": "4.0-multiplayer",
+    "scope": {
+        "map": "Germany",
+        "players": [2, 3, 4, 5, 6],
+        "variants": ["original", "recharged"],
+        "auctions": ["open", "sealed"],
+        "setup": "automatic"
+    },
+    "representation": {
+        "state": 1149,
+        "action": 98,
+        "player_slots": 6,
+        "player_width": 74,
+        "value": "six slots with inactive players masked to zero",
+        "architecture": "multiplayer_ordered",
+        "parameters": 983682
+    },
+    "verified": {
+        "complete_games": 20,
+        "encoded_decisions": 9363,
+        "hidden_information_invariance": true,
+        "cpu_model_forward_all_counts": true,
+        "training_protocol_complete_games": 80,
+        "initial_hf_evaluation_games": 640,
+        "initial_hf_evaluation_truncated": 0,
+        "onnx_parity_positions": 2553,
+        "amd_8840u_legal_positions": 2553,
+        "amd_8840u_prototype_p95_ms": 4.688831949897575,
+        "standalone_verified_files": 1203,
+        "standalone_positions": 80,
+        "teacher_games": 1200,
+        "teacher_positions": 142804,
+        "teacher_search_rollouts": 4746464,
+        "teacher_truncated_games": 0,
+        "teacher_truncated_rollouts": 0
+    },
+    "pending": [
+        "Collect original pooled-architecture pipeline completion as a development baseline",
+        "Collect and validate all 1200 HF teacher games; pin immutable dataset revision",
+        "Run prepared multiplayer distillation with whole-game stratified validation on HF",
+        "Refine distilled policy against strong opponents and self-play on HF",
+        "Independent held-out strength testing at every count/rule combination",
+        "Re-run ONNX parity and AMD 8840U benchmark with the eventual selected model and search configuration"
+    ],
+    "preserved_baseline": "Schema 3 encoders and three-player checkpoint architecture unchanged; final seeds remain unused"
+}

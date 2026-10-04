@@ -1930,7 +1930,10 @@ export function moveAI(G: GameState, playerNumber: number): GameState {
         }
 
         case Phase.Bureaucracy: {
-            if (availableMoves?.UsePowerPlant && player.cities.length > player.citiesPowered) {
+            if (
+                availableMoves?.UsePowerPlant &&
+                (!availableMoves.Pass || player.cities.length > player.citiesPowered)
+            ) {
                 chosenMove = {
                     name: MoveName.UsePowerPlant,
                     // Sorted on a copy, for the same reason as Build above.

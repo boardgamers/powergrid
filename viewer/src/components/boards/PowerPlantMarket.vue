@@ -33,10 +33,11 @@
                  instance would keep displaying the previous auction's bid floor. -->
             <Calculator
                 v-if="canBid"
-                :key="'calc' + chosenPowerPlant.powerPlant.number"
+                :key="'calc' + chosenPowerPlant.powerPlant.number + (editingBid ? '-edit' : '')"
                 :transform="`translate(${actualMarketWidth}, 80)`"
                 :minValue="minBid"
                 :maxValue="maxBid"
+                :initialValue="initialBid"
                 @bid="bid($event)"
             />
         </template>
@@ -94,6 +95,8 @@ export default class PowerPlantMarket extends Vue {
     @Prop() chooseablePowerPlants?: number[];
     @Prop() minBid?: number;
     @Prop() maxBid?: number;
+    @Prop() initialBid?: number;
+    @Prop() editingBid?: boolean;
 
     @Inject() preferences!: Preferences;
 

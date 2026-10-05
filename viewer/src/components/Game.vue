@@ -4,29 +4,6 @@
             <div class="statusBar">
                 <span class="status-message">{{ getStatusMessage() }}</span>
             </div>
-            <div v-if="revisableBid || canChangePowering" class="choice-revision">
-                <template v-if="revisableBid">
-                    <form v-if="editingBid === revisableBid" @submit.prevent="replaceBid(false)">
-                        <label
-                            >Your bid
-                            <input
-                                v-model.number="replacementBid"
-                                type="number"
-                                :min="revisionBids[0]"
-                                :max="revisionBids[revisionBids.length - 1]"
-                                step="1"
-                                required
-                        /></label>
-                        <button type="submit" :disabled="!revisionBids.includes(replacementBid)">Save bid</button>
-                        <button v-if="player !== G.auctioningPlayer" type="button" @click="replaceBid(true)">
-                            Pass
-                        </button>
-                        <button type="button" @click="editingBid = null">Cancel</button>
-                    </form>
-                    <button v-else type="button" @click="editBid">Change bid</button>
-                </template>
-                <button v-if="canChangePowering" type="button" @click="reopenPowering">Change powered plants</button>
-            </div>
             <RoundPlanner
                 v-if="!tutorialMove && !paused && hasPlanPanel"
                 :plan="roundPlan"
@@ -195,7 +172,9 @@
                     :canChoose="canChoose()"
                     :chooseablePowerPlants="getChooseablePowerPlants()"
                     :cardsLeft="G.cardsLeft"
-                    :minBid="G.currentBid + 1 || G.minimunBid"
+                    :minBid="changingBid ? revisionBids[0] : G.currentBid + 1 || G.minimunBid"
+                    :initialBid="changingBid ? replacementBid : undefined"
+                    :editingBid="changingBid"
                     :maxBid="G.players[player] ? G.players[player].money : 0"
                     :nextCardWeak="G.nextCardWeak"
                     :plantDiscountActive="G.plantDiscountActive"
@@ -476,16 +455,18 @@
             >
                 <PassButton
                     transform="translate(15, 15)"
-                    :enabled="canPass()"
-                    :highlightButton="canPass()"
-                    :text="tutorialMove || roundPlan || canUndo() ? 'Done' : 'Pass'"
-                    @click="checkPass()"
+                    :enabled="canUsePhaseButton"
+                    :highlightButton="canUsePhaseButton"
+                    :text="phaseButtonText"
+                    :icon="phaseButtonIcon"
+                    @click="usePhaseButton"
                 />
                 <UndoButton
                     transform="translate(15, 56)"
-                    :enabled="canUndo()"
-                    :highlightButton="canUndo()"
-                    @click="undo()"
+                    :enabled="changingBid || canUndo()"
+                    :highlightButton="changingBid || canUndo()"
+                    :text="changingBid ? 'Cancel bid edit' : 'Undo last move'"
+                    @click="changingBid ? (editingBid = null) : undo()"
                 />
                 <BoardOption
                     transform="translate(15, 97)"
@@ -1277,6 +1258,9 @@ export default class Game extends Vue {
             ? bidRevision(this.G, this.player)
             : undefined;
     }
+    get changingBid(): boolean {
+        return !!this.editingBid && this.editingBid === this.revisableBid;
+    }
     get revisionBids(): number[] {
         return this.revisableBid ? availableMoves(this.G!, this.G!.players[this.player!])[MoveName.Bid] || [] : [];
     }
@@ -1310,6 +1294,40 @@ export default class Game extends Vue {
             },
         ]);
         this.editingBid = null;
+    }
+    get canUsePhaseButton(): boolean {
+        if (this.changingBid) return this.player !== this.G!.auctioningPlayer;
+        return !!this.revisableBid || this.canChangePowering || this.canPass();
+    }
+    get phaseButtonText(): string {
+        if (this.changingBid) return 'Pass bid';
+        if (this.revisableBid) return 'Edit bid';
+        if (this.canChangePowering) return 'Edit powering';
+        if (this.tutorialMove || this.roundPlan) return 'Done';
+        switch (this.G?.phase) {
+            case Phase.Auction: return this.G?.chosenPowerPlant ? 'Pass bid' : 'Skip auction';
+            case Phase.Resources: return 'Finish buying';
+            case Phase.Building: return 'Finish building';
+            case Phase.Bureaucracy: return 'Finish powering';
+            default: return 'Done';
+        }
+    }
+    get phaseButtonIcon(): string {
+        if (this.revisableBid && !this.changingBid || this.canChangePowering) return 'edit';
+        switch (this.G?.phase) {
+            case Phase.Auction: return 'auction';
+            case Phase.Resources: return 'resources';
+            case Phase.Building: return 'building';
+            case Phase.Bureaucracy: return 'powering';
+            default: return 'done';
+        }
+    }
+    usePhaseButton() {
+        if (!this.canUsePhaseButton) return;
+        if (this.changingBid) this.replaceBid(true);
+        else if (this.revisableBid) this.editBid();
+        else if (this.canChangePowering) this.reopenPowering();
+        else this.checkPass();
     }
     reopenPowering() {
         if (this.canChangePowering)
@@ -1859,6 +1877,11 @@ export default class Game extends Vue {
     }
 
     bid(bid: number) {
+        if (this.changingBid) {
+            this.replacementBid = bid;
+            this.replaceBid(false);
+            return;
+        }
         this.sendMove({ name: MoveName.Bid, data: bid });
     }
 
@@ -2279,6 +2302,7 @@ export default class Game extends Vue {
     }
 
     canBid() {
+        if (this.changingBid) return this.revisionBids.length > 0;
         if (!this.canMove()) return false;
 
         const currentPlayer = this.G!.players[this.player!];
@@ -3121,38 +3145,6 @@ export default class Game extends Vue {
 }
 </script>
 <style lang="scss">
-.choice-revision {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    padding: 0.4rem 0.8rem;
-}
-.choice-revision form {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-.choice-revision button,
-.choice-revision input {
-    font: inherit;
-    color: inherit;
-    background: var(--pg-panel-bg, #f5f1e5);
-    border: 1px solid currentColor;
-    border-radius: 0.4rem;
-    padding: 0.35rem 0.65rem;
-}
-.choice-revision button {
-    cursor: pointer;
-}
-.choice-revision input {
-    width: 6rem;
-}
-.choice-revision button:disabled {
-    opacity: 0.45;
-    cursor: default;
-}
-
 ul {
     margin-block-start: 0;
 }

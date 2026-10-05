@@ -391,6 +391,8 @@ try {
             0,
             'symbols have no white disc'
         );
+        assert.equal(await page.locator('.house-owner circle').count(), 0, 'all house markers use outlines');
+        assert.equal(await page.locator('[data-board-slot="cityCount"] .house-owner path').count(), 3);
         const symbols = await page.locator('.house-owner path').evaluateAll((paths) =>
             paths.map((path) => {
                 const box = path.getBBox();

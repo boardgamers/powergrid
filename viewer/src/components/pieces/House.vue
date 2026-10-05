@@ -23,9 +23,8 @@
             stroke-miterlimit="10"
         />
         <g v-if="preferences.colorBlind && owner !== undefined" class="house-owner" pointer-events="none">
-            <circle v-if="!mapSymbol" cx="200" cy="285" r="143" fill="#fffbe9" stroke="#17251d" stroke-width="18" />
             <path
-                v-if="mapSymbol && ownerSymbolPath"
+                v-if="ownerSymbolPath"
                 :d="ownerSymbolPath"
                 transform="translate(-40, -5) scale(20)"
                 fill="#17251d"
@@ -37,14 +36,14 @@
             <text
                 v-else
                 x="200"
-                :y="mapSymbol ? 235 : 288"
+                y="235"
                 text-anchor="middle"
                 dominant-baseline="central"
-                :stroke="mapSymbol ? 'white' : undefined"
-                :stroke-width="mapSymbol ? 18 : undefined"
+                stroke="white"
+                stroke-width="18"
                 stroke-linejoin="round"
                 paint-order="stroke fill"
-                :style="`font: bold ${mapSymbol ? 480 : 255}px sans-serif; fill: #17251d`"
+                style="font: bold 480px sans-serif; fill: #17251d"
                 >{{ ownerSymbol }}</text
             >
         </g>
@@ -80,9 +79,6 @@ export default class House extends Mixins(Piece) {
 
     @Prop()
     ownerName?: string;
-
-    @Prop({ default: false })
-    mapSymbol!: boolean;
 
     get ownerSymbol() {
         return playerSymbol(this.owner!, this.preferences);

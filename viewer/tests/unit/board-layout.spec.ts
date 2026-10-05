@@ -121,7 +121,7 @@ describe('desktop board layout', () => {
         expect(compact.placements.map.scale).to.be.greaterThan(normal.placements.map.scale * 1.12);
         expect(compact.placements.cityCount.scale).to.be.lessThan(normal.placements.cityCount.scale);
         expect(compact.placements.cityCount.scale * 1.2 * 15).to.be.at.least(11.25);
-        expect(compact.height).to.be.at.most(681);
+        expect(compact.placements.map.scale * 1.2 * 50).to.be.at.least(36);
     });
 
     it('keeps full-size controls when cities are already readable or are district tiles', () => {
@@ -134,5 +134,23 @@ describe('desktop board layout', () => {
         const smallScreen = desktopBoardLayout(base, 1465, 681, { pixelsPerUnit: 0.8, cityDiameter: 50 });
         expect(smallScreen.placements.cityCount.scale * 0.8 * 15).to.be.at.least(11.25);
         expect(smallScreen.placements.resources.scale * 0.8 * 15).to.be.at.least(11.25);
+    });
+
+    it('grows beyond the viewport to keep cities readable on short desktops', () => {
+        const result = desktopBoardLayout(base, 1465, 400, { pixelsPerUnit: 1, cityDiameter: 50 });
+        expect(result.height).to.be.greaterThan(400);
+        expect(result.placements.map.scale * 50).to.be.at.least(36);
+        const map = result.placements.map;
+        expect(map.y + map.height).to.be.at.most(result.height);
+        for (const [name, slot] of Object.entries(result.placements)) {
+            if (name === 'map') continue;
+            expect(
+                map.x + map.width <= slot.x ||
+                    map.x >= slot.x + slot.width ||
+                    map.y + map.height <= slot.y ||
+                    map.y >= slot.y + slot.height,
+                `map overlaps ${name}`
+            ).to.equal(true);
+        }
     });
 });

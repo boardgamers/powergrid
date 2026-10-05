@@ -37,8 +37,25 @@ export function desktopBoardLayout(
     let low = Math.min(1, Math.max(0.65, 0.75 / display.pixelsPerUnit)),
         high = 1;
     let best = packDesktopBoard(boxes, width, targetHeight, low);
+    if (cityPixels(best) < target) {
+        // Height is a preference, not a readability limit. Grow the scene when
+        // compacting controls cannot produce 36 CSS-pixel cities. Width still
+        // limits the map, so very narrow desktops use the largest size that fits.
+        let minHeight = targetHeight;
+        let maxHeight = targetHeight + Object.values(boxes).reduce((sum, box) => sum + box.height + GAP, 0);
+        best = packDesktopBoard(boxes, width, maxHeight, low);
+        const attainable = Math.min(target, cityPixels(best));
+        for (let i = 0; i < 16; i++) {
+            const height = (minHeight + maxHeight) / 2;
+            const layout = packDesktopBoard(boxes, width, height, low);
+            if (cityPixels(layout) >= attainable) {
+                maxHeight = height;
+                best = layout;
+            } else minHeight = height;
+        }
+        return best;
+    }
     if (cityPixels(best) <= cityPixels(normal) * 1.01) return normal;
-    if (cityPixels(best) < target) return best;
     // Use the largest controls that still meet the city-size target.
     for (let i = 0; i < 8; i++) {
         const ceiling = (low + high) / 2;

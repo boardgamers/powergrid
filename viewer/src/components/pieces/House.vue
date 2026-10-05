@@ -23,13 +23,28 @@
             stroke-miterlimit="10"
         />
         <g v-if="preferences.colorBlind && owner !== undefined" class="house-owner" pointer-events="none">
-            <circle cx="200" cy="285" r="143" fill="#fffbe9" stroke="#17251d" stroke-width="18" />
+            <circle v-if="!mapSymbol" cx="200" cy="285" r="143" fill="#fffbe9" stroke="#17251d" stroke-width="18" />
+            <path
+                v-if="mapSymbol && ownerSymbolPath"
+                :d="ownerSymbolPath"
+                transform="translate(-40, -5) scale(20)"
+                fill="#17251d"
+                stroke="white"
+                stroke-width="1.4"
+                stroke-linejoin="round"
+                paint-order="stroke fill"
+            />
             <text
+                v-else
                 x="200"
-                y="288"
+                :y="mapSymbol ? 235 : 288"
                 text-anchor="middle"
                 dominant-baseline="central"
-                style="font: bold 255px sans-serif; fill: #17251d"
+                :stroke="mapSymbol ? 'white' : undefined"
+                :stroke-width="mapSymbol ? 18 : undefined"
+                stroke-linejoin="round"
+                paint-order="stroke fill"
+                :style="`font: bold ${mapSymbol ? 480 : 255}px sans-serif; fill: #17251d`"
                 >{{ ownerSymbol }}</text
             >
         </g>
@@ -38,6 +53,7 @@
 </template>
 <script lang="ts">
 import { playerSymbol } from '../../player-colors';
+import { isPlayerSymbol, PLAYER_SYMBOLS } from '@boardgamers/protocol/player-symbols';
 import { PieceType, Preferences } from './../../types/ui-data';
 import { Component, Inject, InjectReactive, Mixins, Prop } from 'vue-property-decorator';
 import Piece from './Piece.vue';
@@ -45,7 +61,7 @@ import Piece from './Piece.vue';
 @Component({
     created(this: House) {
         this.pieceType = PieceType.House;
-    }
+    },
 })
 export default class House extends Mixins(Piece) {
     @Inject() readonly preferences!: Preferences;
@@ -65,7 +81,17 @@ export default class House extends Mixins(Piece) {
     @Prop()
     ownerName?: string;
 
-    get ownerSymbol() { return playerSymbol(this.owner!, this.preferences); }
+    @Prop({ default: false })
+    mapSymbol!: boolean;
+
+    get ownerSymbol() {
+        return playerSymbol(this.owner!, this.preferences);
+    }
+
+    get ownerSymbolPath() {
+        const symbol = this.preferences.bgs?.playerSymbols?.[this.owner!];
+        return isPlayerSymbol(symbol) ? PLAYER_SYMBOLS[symbol].path : undefined;
+    }
 
     get houseTitle() {
         if (this.owner !== undefined && this.owner === this.player) return 'Your House';

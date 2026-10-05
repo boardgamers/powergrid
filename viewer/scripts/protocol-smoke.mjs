@@ -344,6 +344,14 @@ try {
             /unread/,
             'opening chat clears restored unread'
         );
+        await page.evaluate((state) => {
+            const occupied = structuredClone(state);
+            occupied.players.forEach((player, index) => {
+                player.cities = [{ name: occupied.map.cities[index].name, position: 0 }];
+            });
+            host.emit('state', occupied);
+            host.emit('state:updated');
+        }, state);
         await page.evaluate(() => {
             window.preferenceUpdates = [];
             host.on('update:preference', (value) => preferenceUpdates.push(value));
@@ -362,7 +370,11 @@ try {
                 bgs: { players: [], playerColors: [], playerSymbols: ['star', 'hexagon', 'cross'] },
             })
         );
-        await page.waitForFunction(() => document.querySelector('.house-owner text')?.textContent.includes('★'));
+        await page.waitForFunction(
+            () =>
+                document.querySelector('.house-owner path')?.getAttribute('d') ===
+                'M12 1 15 8 23 9 17 15 19 23 12 19 5 23 7 15 1 9 9 8Z'
+        );
         assert.match(await page.locator('.player-board [data-bgs-player="1"]').textContent(), /⬢ · Ada Lovelace/);
         await page.evaluate(() =>
             host.emit('preferences', {
@@ -371,7 +383,28 @@ try {
                 bgs: { players: [], playerColors: [], playerSymbols: ['diamond', 'hexagon', 'cross'] },
             })
         );
-        await page.waitForFunction(() => document.querySelector('.house-owner text')?.textContent.includes('◆'));
+        await page.waitForFunction(
+            () => document.querySelector('.house-owner path')?.getAttribute('d') === 'M12 1 23 12 12 23 1 12Z'
+        );
+        assert.equal(
+            await page.locator('[data-board-slot="map"] .house-owner circle').count(),
+            0,
+            'symbols have no white disc'
+        );
+        const symbols = await page.locator('.house-owner path').evaluateAll((paths) =>
+            paths.map((path) => {
+                const box = path.getBBox();
+                const matrix = path.transform.baseVal.consolidate().matrix;
+                const centre = new DOMPoint(box.x + box.width / 2, box.y + box.height / 2).matrixTransform(matrix);
+                return { x: centre.x, y: centre.y, width: box.width * matrix.a, stroke: path.getAttribute('stroke') };
+            })
+        );
+        for (const symbol of symbols) {
+            assert.equal(symbol.x, 200);
+            assert.equal(symbol.y, 235);
+            assert.ok(symbol.width >= 440, 'symbols fill the house');
+            assert.equal(symbol.stroke, 'white');
+        }
         const regions = await page.locator('.region-border').evaluateAll((elements) =>
             elements.map((element) => ({
                 region: element.dataset.region,

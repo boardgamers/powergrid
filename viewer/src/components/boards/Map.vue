@@ -264,6 +264,7 @@
                 :ownerName="house.ownerName"
                 :color="house.color"
                 :scale="house.scale"
+                :mapSymbol="true"
             />
         </template>
 

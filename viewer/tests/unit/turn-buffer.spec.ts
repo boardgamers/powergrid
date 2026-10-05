@@ -171,6 +171,32 @@ describe('turn-buffer', () => {
         expect(rebaseTurnBuffer(committed, next.log, foreignBuffer, other)).to.deep.equal([]);
     });
 
+    it('preserves another player’s tentative powering when a submitted choice is reopened', () => {
+        let base = setup(2, {}, 'rebase-powering');
+        for (let i = 0; base.phase !== Phase.Bureaucracy && i < 200; i++) base = moveAI(base, base.currentPlayers[0]);
+        expect(base.phase).to.equal(Phase.Bureaucracy);
+        const [A, B] = base.currentPlayers;
+        const completed = engineMove(clone(base), { name: MoveName.Pass, data: true, time: 1000 }, A);
+        const buffer: Move[] = [
+            {
+                name: MoveName.UsePowerPlant,
+                data: completed.players[B].availableMoves![MoveName.UsePowerPlant]![0],
+                time: 2000,
+            },
+        ];
+        expect(buffer[0].data).not.to.equal(undefined);
+        const reopened = engineMove(
+            clone(completed),
+            { name: MoveName.ReopenPowering, data: base.round, time: 3000 },
+            A
+        );
+        expect(reopened.log.length).to.be.lessThan(completed.log.length);
+        const rebased = rebaseTurnBuffer(reopened, completed.log, buffer, B);
+        expect(rebased).to.deep.equal(buffer);
+        expect(replayTurnBuffer(stripSecret(clone(reopened), B), rebased, B).failure).to.equal(undefined);
+        expect(rebaseTurnBuffer(reopened, completed.log, buffer, A)).to.deep.equal([]);
+    });
+
     it('replayTurnBuffer previews the buffer and drops a now-illegal tail gracefully', () => {
         const { committed, player, choose, bid } = fixture();
 

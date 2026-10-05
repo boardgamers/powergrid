@@ -2,7 +2,13 @@ import assert from 'assert';
 import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
 import { availableMoves, coalOilOverCapacity, computeRegionGraph, regionPickable } from './available-moves';
-import { canReviseChoice, rememberPowering, restorePowering } from './choice-revisions';
+import {
+    canReviseChoice,
+    finishPoweringLog,
+    rememberPowering,
+    replacePoweringLog,
+    restorePowering,
+} from './choice-revisions';
 import {
     countHeldPowerPlants,
     GameOptions,
@@ -621,18 +627,14 @@ export function move(
     { updateBuildingMarket = true }: { updateBuildingMarket?: boolean } = {}
 ): GameState {
     const player = G.players[playerNumber];
+    const initialPhase = G.phase;
+    const initialRound = G.round;
     const revision = move.revision !== undefined || move.name === MoveName.ReopenPowering;
     if (revision) assert(canReviseChoice(G, move, playerNumber), 'This choice can no longer be changed.');
     if (move.name === MoveName.ReopenPowering) {
+        replacePoweringLog(G, playerNumber);
         restorePowering(G, playerNumber);
         player.lastMove = move;
-        G.log.push({
-            type: 'move',
-            player: playerNumber,
-            move,
-            simple: `${player.name} changes their powered plants.`,
-            pretty: `${playerNameHTML(player)} changes their powered plants.`,
-        });
         updateClocks(G, move.serverTime ?? move.time);
         G.currentPlayers.forEach((p) => (G.players[p].availableMoves = availableMoves(G, G.players[p])));
         G.newTurn = true;
@@ -1802,7 +1804,12 @@ export function move(
     G.cardsLeft = G.powerPlantsDeck.length;
     G.nextCardWeak = G.options.variant == 'recharged' && G.cardsLeft > 0 && G.powerPlantsDeck[0].number <= 15;
 
-    updateClocks(G, move.serverTime ?? move.time);
+    updateClocks(G, move.poweringClock?.at ?? move.serverTime ?? move.time);
+    if (move.poweringClock) {
+        player.totalTimeUsed = move.poweringClock.totalTimeUsed;
+        player.clockStartedAt = move.poweringClock.clockStartedAt;
+    }
+    if (initialPhase === Phase.Bureaucracy) finishPoweringLog(G, playerNumber, initialRound, move);
 
     G.currentPlayers.forEach((p) => (G.players[p].availableMoves = availableMoves(G, G.players[p])));
 

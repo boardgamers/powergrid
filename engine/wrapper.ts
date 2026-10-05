@@ -61,6 +61,10 @@ export async function move(
     const initialRound = G.round;
     const revision = canReviseChoice(G, move, player);
     const moves: Move[] = move == null ? [] : Array.isArray(move) ? move : [move];
+    // Saved choices from before history compaction have no block boundary. A
+    // deterministic replay derives it without guessing from unrelated earlier Passes.
+    if (revision && moves[0]?.name === MoveName.ReopenPowering && G.poweringChoices?.[player]?.logStart === undefined)
+        G = replay(G);
 
     if (moves.length === 0) {
         // Nothing to apply — flag the result as tentative so nothing gets persisted
@@ -81,7 +85,9 @@ export async function move(
     const now = Date.now();
 
     for (let i = 0; i < moves.length; i++) {
-        G = engine.move(G, { ...moves[i], serverTime: now }, player);
+        const input = { ...moves[i] };
+        delete input.poweringClock;
+        G = engine.move(G, { ...input, serverTime: now }, player);
 
         // The buffer must describe at most ONE turn: committing is what grants the
         // mover their per-turn time increment. Without this guard a buffer like
@@ -213,6 +219,23 @@ export function replay(G: GameState, { to = Infinity }: { to?: number } = {}): G
     // Queue edits are private operational state, not game moves. Preserve them only
     // for a full reconstruction; historical replay positions have no future queue.
     if (to >= oldG.log.length && oldG.automation) G.automation = JSON.parse(JSON.stringify(oldG.automation));
+    if (to >= oldG.log.length) {
+        // Reopening is operational state, like a premove queue: the superseded
+        // powering actions are gone, so a full replay needs only this bounded state.
+        // Completed choices carry their exact clock accounting on the final Pass.
+        for (const [seat, choice] of Object.entries(oldG.poweringChoices ?? {})) {
+            if (choice.logStart === undefined) continue;
+            (G.poweringChoices ??= {})[Number(seat)] = JSON.parse(JSON.stringify(choice));
+            if (choice.round === G.round && choice.reopened) {
+                const player = G.players[Number(seat)];
+                const saved = oldPlayers[Number(seat)];
+                player.totalTimeUsed = saved.totalTimeUsed;
+                player.clockStartedAt = saved.clockStartedAt;
+                player.lastMove = saved.lastMove;
+            }
+        }
+        if (oldG.revisedPowering) G.revisedPowering = { ...oldG.revisedPowering };
+    }
     delete G.pendingMessages;
     return G;
 }

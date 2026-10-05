@@ -1,10 +1,11 @@
 import { expect } from 'chai';
 import { cloneDeep } from 'lodash';
 import 'mocha';
+import seedrandom from 'seedrandom';
 import * as wrapper from '../wrapper';
 import { bidRevision, canReopenPowering } from './choice-revisions';
 import { setup } from './engine';
-import { GameState, Phase, PowerPlantType, ResourceType } from './gamestate';
+import { GameState, Phase, playerTimeUsed, PowerPlantType, ResourceType } from './gamestate';
 import { Move, MoveName } from './move';
 
 const pass: Move = { name: MoveName.Pass, data: true };
@@ -17,13 +18,16 @@ describe('wrapper (tentative turns)', () => {
     // a buffer replayed twice yields byte-identical states; a test that cares about elapsed
     // time advances the clock by mutating `now`. Restored after each test.
     const realNow = Date.now;
+    const realRandom = Math.random;
     let now = 1_000_000;
     beforeEach(() => {
         now = 1_000_000;
         Date.now = () => now;
+        Math.random = seedrandom('wrapper-test-choices');
     });
     afterEach(() => {
         Date.now = realNow;
+        Math.random = realRandom;
     });
 
     /**
@@ -445,6 +449,160 @@ describe('wrapper (tentative turns)', () => {
         expect(wrapper.canMoveOutOfTurn(platform.saved, reopen, A)).to.equal(false);
         expect(wrapper.timeIncrements(platform.saved)[B]).to.equal(increments[B] + 1);
         expect(wrapper.replay(platform.saved).players[A].money).to.equal(platform.saved.players[A].money);
+    });
+
+    it('compacts repeated powering revisions and replays their fuel, income, and elapsed time exactly', async () => {
+        const platform = new Platform(2, 'compact-power', { trackTotalSpent: true });
+        const { A, B } = await playToBureaucracy(platform);
+        const before = cloneDeep(platform.saved);
+        const baseLength = before.log.length;
+        const use: Move = {
+            name: MoveName.UsePowerPlant,
+            data: platform.available(A)[MoveName.UsePowerPlant]![0],
+            time: 42,
+        };
+        now += 5_000;
+        await platform.send([use, { ...pass, time: 43 }], A);
+        const first = cloneDeep(platform.saved);
+        const increments = [...wrapper.timeIncrements(first)];
+        const firstStamps = first.log
+            .slice(baseLength)
+            .map((entry) => (entry.type === 'move' ? [entry.move.time, entry.move.serverTime] : []));
+        const reopen: Move = { name: MoveName.ReopenPowering, data: before.round };
+        for (let i = 0; i < 12; i++) {
+            now += 10_000;
+            await platform.send(reopen, A);
+            expect(platform.saved.log).to.have.length(baseLength);
+            expect(platform.saved.players[A].money).to.equal(before.players[A].money);
+            expect(platform.saved.coalSupply).to.equal(before.coalSupply);
+            expect(platform.saved.oilSupply).to.equal(before.oilSupply);
+            expect(json(wrapper.replay(json(platform.saved)))).to.deep.equal(json(platform.saved));
+            now += 2_000;
+            await platform.send([use, pass], A);
+            expect(platform.saved.log).to.have.length(baseLength + 2);
+            expect(platform.saved.players[A].money).to.equal(first.players[A].money);
+            expect(platform.saved.players[A].totalIncome).to.equal(first.players[A].totalIncome);
+            expect(platform.saved.players[A].coalLeft).to.equal(first.players[A].coalLeft);
+            expect(platform.saved.players[A].oilLeft).to.equal(first.players[A].oilLeft);
+            expect(platform.saved.players[A].totalTimeUsed).to.equal(5_000 + (i + 1) * 2_000);
+            expect(wrapper.timeIncrements(platform.saved)).to.deep.equal(increments);
+            expect(
+                platform.saved.log
+                    .slice(baseLength)
+                    .map((entry) => (entry.type === 'move' ? [entry.move.time, entry.move.serverTime] : []))
+            ).to.deep.equal(firstStamps);
+            expect(json(wrapper.replay(json(platform.saved)))).to.deep.equal(json(platform.saved));
+        }
+        now += 1_000;
+        await platform.send(pass, B);
+        expect(platform.saved.round).to.equal(before.round + 1);
+        expect(json(wrapper.replay(json(platform.saved)))).to.deep.equal(json(platform.saved));
+        expect(wrapper.canMoveOutOfTurn(platform.saved, reopen, A)).to.equal(false);
+    });
+
+    it('replays when the revised confirmation itself resolves Bureaucracy', async () => {
+        const platform = new Platform(2, 'compact-last-reconfirmation');
+        const { A, B } = await playToBureaucracy(platform);
+        const round = platform.saved.round;
+        now += 3_000;
+        await platform.send(pass, A);
+        now += 10_000;
+        await platform.send({ name: MoveName.ReopenPowering, data: round }, A);
+        now += 2_000;
+        await platform.send(pass, B);
+        expect(platform.saved.currentPlayers).to.deep.equal([A]);
+        const increments = [...wrapper.timeIncrements(platform.saved)];
+        now += 4_000;
+        await platform.send(pass, A);
+        expect(platform.saved.round).to.equal(round + 1);
+        expect(wrapper.timeIncrements(platform.saved)).to.deep.equal(increments);
+        expect(platform.saved.players[A].totalTimeUsed).to.equal(9_000);
+        expect(json(wrapper.replay(json(platform.saved)))).to.deep.equal(json(platform.saved));
+        for (let i = 0; platform.saved.round < round + 2 && i < 100; i++) {
+            now += 1_000;
+            platform.saved = wrapper.moveAI(platform.saved, platform.saved.currentPlayers[0]);
+        }
+        expect(platform.saved.round).to.equal(round + 2);
+        expect(json(wrapper.replay(json(platform.saved)))).to.deep.equal(json(platform.saved));
+    });
+
+    for (const map of ['South Africa', 'Australia', 'India']) {
+        it(`keeps ${map} fuel/income rules correct when a revised choice resolves upkeep`, async () => {
+            const platform = new Platform(3, `compact-${map}`, { map, variant: 'recharged' });
+            for (let i = 0; platform.saved.phase !== Phase.Bureaucracy && i < 200; i++)
+                platform.saved = wrapper.moveAI(platform.saved, platform.saved.currentPlayers[0]);
+            expect(platform.saved.phase).to.equal(Phase.Bureaucracy);
+            const base = cloneDeep(platform.saved);
+            const A = base.currentPlayers[0];
+            now += 2_000;
+            platform.saved = wrapper.moveAI(platform.saved, A);
+            const choiceMoves = platform.saved.log
+                .slice(base.log.length)
+                .filter((entry) => entry.type === 'move')
+                .map((entry) => (entry as import('./log').LogMove).move);
+            const chosen = cloneDeep(platform.saved);
+            now += 3_000;
+            await platform.send({ name: MoveName.ReopenPowering, data: base.round }, A);
+            for (const field of ['coalSupply', 'coalStorage', 'oilSupply', 'garbageSupply', 'uraniumSupply'])
+                expect(platform.saved[field]).to.equal(base[field]);
+            expect(platform.saved.players[A].money).to.equal(base.players[A].money);
+            expect(platform.saved.players[A].targetCitiesPowered).to.equal(base.players[A].targetCitiesPowered);
+            for (const B of base.currentPlayers.filter((seat) => seat !== A)) {
+                now += 1_000;
+                platform.saved = wrapper.moveAI(platform.saved, B);
+            }
+            now += 1_000;
+            await platform.send(choiceMoves, A);
+            expect(platform.saved.round).to.equal(base.round + 1);
+            expect(wrapper.timeIncrements(platform.saved)[A]).to.equal(wrapper.timeIncrements(chosen)[A]);
+            expect(json(wrapper.replay(json(platform.saved)))).to.deep.equal(json(platform.saved));
+        });
+    }
+
+    it('keeps interleaved players’ powering choices, supports fewer plants, and migrates old snapshots', async () => {
+        const platform = new Platform(3, 'compact-interleaved');
+        for (let i = 0; platform.saved.phase !== Phase.Bureaucracy && i < 100; i++) {
+            platform.saved = wrapper.moveAI(platform.saved, platform.saved.currentPlayers[0]);
+        }
+        expect(platform.saved.phase).to.equal(Phase.Bureaucracy);
+        const [A, B, C] = platform.saved.currentPlayers;
+        const before = cloneDeep(platform.saved);
+        const baseLength = before.log.length;
+        const use: Move = { name: MoveName.UsePowerPlant, data: platform.available(A)[MoveName.UsePowerPlant]![0] };
+        expect(use.data).not.to.equal(undefined);
+        now += 1_000;
+        await platform.send([use, pass], A);
+        now += 1_000;
+        await platform.send(pass, B);
+        const increments = [...wrapper.timeIncrements(platform.saved)];
+        const savedB = cloneDeep(platform.saved.players[B]);
+        const reopen: Move = { name: MoveName.ReopenPowering, data: before.round };
+        // Simulate a save made by 2.0.12, before the first powering-log boundary existed.
+        delete platform.saved.poweringChoices![A].logStart;
+        delete platform.saved.poweringChoices![B].logStart;
+        now += 1_000;
+        await platform.send(reopen, A);
+        expect(platform.saved.log).to.have.length(baseLength + 1);
+        expect(json(platform.saved.players[B])).to.deep.equal(json(savedB));
+        now += 1_000;
+        await platform.send(reopen, B);
+        expect(platform.saved.log).to.have.length(baseLength);
+        expect(json(wrapper.replay(json(platform.saved)))).to.deep.equal(json(platform.saved));
+        now += 1_000;
+        await platform.send(pass, A);
+        now += 1_000;
+        await platform.send(pass, B);
+        expect(platform.saved.log).to.have.length(baseLength + 2);
+        expect(wrapper.timeIncrements(platform.saved)).to.deep.equal(increments);
+        expect(platform.saved.players[A].powerPlantsNotUsed).to.deep.equal(before.players[A].powerPlantsNotUsed);
+        expect(platform.saved.coalSupply).to.equal(before.coalSupply);
+        expect(platform.saved.oilSupply).to.equal(before.oilSupply);
+        expect(json(wrapper.replay(json(platform.saved)))).to.deep.equal(json(platform.saved));
+        now += 1_000;
+        await platform.send({ ...pass, poweringClock: { at: 0, totalTimeUsed: 0 } }, C);
+        expect(playerTimeUsed(platform.saved.players[C], now)).to.be.at.least(7_000);
+        expect(platform.saved.round).to.equal(before.round + 1);
+        expect(json(wrapper.replay(json(platform.saved)))).to.deep.equal(json(platform.saved));
     });
 
     it('should drive the per-player clocks from the server clock, immune to client skew', async () => {

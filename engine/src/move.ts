@@ -88,6 +88,9 @@ export declare namespace Moves {
 // would otherwise charge that skew to itself on every turn — inflating its timer toward
 // the whole game's elapsed time. A single server clock removes the skew.
 export interface MoveMeta {
+    // Engine-owned accounting for a compacted powering choice. The public log
+    // retains the first submission stamps, while clocks use the final completion.
+    poweringClock?: { at?: number; totalTimeUsed: number; clockStartedAt?: number };
     revision?: string;
     time?: number;
     serverTime?: number;

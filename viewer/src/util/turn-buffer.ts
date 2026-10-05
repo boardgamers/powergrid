@@ -1,6 +1,6 @@
 import { isEqual } from 'lodash';
 import type { GameState, LogItem, LogMove, Move } from 'powergrid-engine';
-import { move as engineMove, MoveName } from 'powergrid-engine';
+import { move as engineMove, MoveName, Phase } from 'powergrid-engine';
 
 /**
  * Pure helpers for the viewer's tentative-turn buffer.
@@ -92,8 +92,25 @@ export function rebaseTurnBuffer(
     turnMoves: Move[],
     player: number | undefined
 ): Move[] {
-    if (!previousLog || committed.log.length < previousLog.length) {
+    if (!previousLog) {
         return [];
+    }
+
+    const rewritten = !previousLog.every((entry, index) => isEqual(entry, committed.log[index]));
+    if (rewritten) {
+        // Reopening removes that player's superseded powering block. It must not
+        // discard another still-active player's tentative plant selection, even
+        // when the removed block was interleaved with that player's earlier log.
+        const ownMoves = (log: LogItem[]) => log.filter((item) => item.type === 'move' && item.player === player);
+        const poweringRevision =
+            committed.phase === Phase.Bureaucracy &&
+            Object.values(committed.revisedPowering || {}).includes(committed.round);
+        return poweringRevision &&
+            player !== undefined &&
+            committed.currentPlayers.includes(player) &&
+            isEqual(ownMoves(previousLog), ownMoves(committed.log))
+            ? turnMoves
+            : [];
     }
 
     const appendedOurs = committed.log

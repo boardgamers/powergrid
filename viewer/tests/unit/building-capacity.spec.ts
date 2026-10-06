@@ -7,16 +7,20 @@ import CityCount from '@/components/boards/CityCount.vue';
 const capacity = (context: any) => (Game as any).options.computed.buildingPowerCapacity.get.call(context);
 
 describe('building power capacity', () => {
-    it('shows the viewing player’s total plant output only during building', () => {
+    it('shows the viewing player’s total plant output only on their building turn', () => {
         const G = {
             phase: Phase.Building,
+            currentPlayers: [0],
             players: [
                 { powerPlants: [{ citiesPowered: 2 }, { citiesPowered: 4 }, { citiesPowered: 6 }] },
                 { powerPlants: [{ citiesPowered: 3 }] },
             ],
         };
         expect(capacity({ G, player: 0 })).to.equal(12);
-        expect(capacity({ G, player: 1 })).to.equal(3);
+        expect(capacity({ G, player: 1 })).to.equal(undefined);
+        expect(capacity({ G: { ...G, currentPlayers: [1] }, player: 1 })).to.equal(3);
+        expect(capacity({ G: { ...G, currentPlayers: [1] }, player: 0 })).to.equal(undefined);
+        expect(capacity({ G: { ...G, currentPlayers: [] }, player: 0 })).to.equal(undefined);
         expect(capacity({ G, player: undefined })).to.equal(undefined);
         expect(capacity({ G, player: -1 })).to.equal(undefined);
         expect(capacity({ G: { ...G, phase: Phase.Bureaucracy }, player: 0 })).to.equal(undefined);

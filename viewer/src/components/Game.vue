@@ -1178,7 +1178,8 @@ export default class Game extends Vue {
     private automaticPoweringRound = '';
 
     get buildingPowerCapacity() {
-        if (this.G?.phase !== Phase.Building || this.player === undefined) return undefined;
+        if (this.G?.phase !== Phase.Building || this.player === undefined || !this.G.currentPlayers.includes(this.player))
+            return undefined;
         return this.G.players[this.player]?.powerPlants.reduce((total, plant) => total + plant.citiesPowered, 0);
     }
 

@@ -105,6 +105,7 @@
                     :playerColors="playerColors"
                     :paymentTable="G.paymentTable"
                     :poweredCities="poweringCount"
+                    :powerCapacity="buildingPowerCapacity"
                     :ownedCities="poweringPlayer ? poweringPlayer.cities.length : undefined"
                     :poweringIncome="poweringIncome"
                     :compact="stacked"
@@ -1175,6 +1176,11 @@ export default class Game extends Vue {
 
     disablePass: boolean = false;
     private automaticPoweringRound = '';
+
+    get buildingPowerCapacity() {
+        if (this.G?.phase !== Phase.Building || this.player === undefined) return undefined;
+        return this.G.players[this.player]?.powerPlants.reduce((total, plant) => total + plant.citiesPowered, 0);
+    }
 
     get poweringPlayer() {
         return this.G?.phase === Phase.Bureaucracy &&

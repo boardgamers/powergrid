@@ -38,7 +38,9 @@ export type Variant = 'original' | 'recharged';
 
 export interface GameOptions {
     fastBid?: boolean;
-    map?: MapName;
+    // 'Random' picks one of the maps available for the variant at setup; the
+    // resolved map name is what gets stored in the game state's options.
+    map?: MapName | 'Random';
     variant?: Variant;
     showMoney?: boolean;
     useNewRechargedSetup?: boolean;

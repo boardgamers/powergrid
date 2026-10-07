@@ -14,6 +14,7 @@ import {
     GameOptions,
     GameState,
     isUraniumMine,
+    MapName,
     Phase,
     Player,
     playerColors,
@@ -127,8 +128,13 @@ export function setup(
     seed = seed ?? Math.random().toString();
     const rng = seedrandom(seed);
 
-    const chosenMapRaw =
-        variant == 'original' ? maps.find((m) => m.name == map) : mapsRecharged.find((m) => m.name == map);
+    const variantMaps = variant == 'original' ? maps : mapsRecharged;
+    if (map == 'Random') {
+        // Dedicated rng so the pick doesn't shift the rest of the setup's draws.
+        const mapRng = seedrandom(seed + '-map');
+        map = variantMaps[Math.floor(mapRng() * variantMaps.length)].name as MapName;
+    }
+    const chosenMapRaw = variantMaps.find((m) => m.name == map);
     if (!chosenMapRaw) {
         throw new Error(`Map "${map}" not found for variant "${variant}"`);
     }

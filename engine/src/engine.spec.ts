@@ -45,6 +45,20 @@ describe('Engine', () => {
         expect(ended(G)).to.false;
     });
 
+    it('should pick a random map deterministically from the seed', () => {
+        const picked = new Set<string>();
+        for (const variant of ['original', 'recharged'] as const) {
+            for (let i = 0; i < 20; i++) {
+                const G = setup(4, { map: 'Random', variant }, `random-${i}`);
+                expect(G.options.map).to.not.equal('Random');
+                expect(G.options.map).to.equal(G.map.name);
+                expect(setup(4, { map: 'Random', variant }, `random-${i}`).map.name).to.equal(G.map.name);
+                picked.add(G.map.name);
+            }
+        }
+        expect(picked.size).to.be.greaterThan(1);
+    });
+
     it('should play full game Germany recharged', () => {
         const game = GermanyRecharged;
         const options: GameOptions = {

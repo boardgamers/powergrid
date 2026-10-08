@@ -30,10 +30,11 @@
                 :powerPlant="chosenPowerPlant.powerPlant"
             />
             <!-- Keyed per plant so every auction gets a fresh calculator: a reused
-                 instance would keep displaying the previous auction's bid floor. -->
+                 instance would keep displaying the previous auction's bid floor. The
+                 draft key also resets a bid dialled before the game was rewound. -->
             <Calculator
                 v-if="canBid"
-                :key="'calc' + chosenPowerPlant.powerPlant.number + (editingBid ? '-edit' : '')"
+                :key="'calc' + chosenPowerPlant.powerPlant.number + (editingBid ? '-edit' : '') + '-' + draftKey"
                 :transform="`translate(${actualMarketWidth}, 80)`"
                 :minValue="minBid"
                 :maxValue="maxBid"
@@ -97,6 +98,7 @@ export default class PowerPlantMarket extends Vue {
     @Prop() maxBid?: number;
     @Prop() initialBid?: number;
     @Prop() editingBid?: boolean;
+    @Prop({ default: 0 }) draftKey!: number;
 
     @Inject() preferences!: Preferences;
 

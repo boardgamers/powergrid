@@ -30,6 +30,7 @@ function launch(selector: string) {
         emitter: EventEmitter;
         preferences: Preferences;
         avatars: string[];
+        undoAvailable: boolean;
     } = {
         state: null,
         emitter: new EventEmitter(),
@@ -50,6 +51,7 @@ function launch(selector: string) {
             geographicBackground: 'terrain',
         }),
         avatars: [],
+        undoAvailable: false,
     };
 
     const app = new Vue({
@@ -83,6 +85,11 @@ function launch(selector: string) {
         },
         onAvatars(data) {
             params.avatars = data;
+            app.$forceUpdate();
+        },
+        // Games against bots: BGS can take back the player's last saved move.
+        onUndoAvailable(available) {
+            params.undoAvailable = available;
             app.$forceUpdate();
         },
         onTheme({ dark }) {
@@ -122,6 +129,7 @@ function launch(selector: string) {
     params.emitter.on('replaceLog', (data: string[]) => viewer.replaceLog(data));
     params.emitter.on('replay:info', (info) => viewer.setReplayInfo(info));
     params.emitter.on('update:preference', ({ name, value }) => viewer.updatePreference(name, value));
+    params.emitter.on('undo', () => viewer.undo());
     installActionSounds(item);
     const removeCards = installPlayerCards(app.$el, viewer);
     const removeChat = mountGameChat(item, app.$el);

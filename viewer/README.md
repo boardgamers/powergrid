@@ -56,6 +56,10 @@ Lessons live in `src/tutorial/lessons.ts`. Keep their IDs stable and increase a 
 
 See the [desktop and mobile screenshots](docs/tutorials/README.md) for examples of the tutorial UI.
 
+## Undo against bots
+
+When the only human of a game plays against bots, BGS can take back their last saved move (protocol 0.10.0 `undo:available` / `undo`). The board's Undo button then becomes "Undo my move" once the turn in progress has nothing left to undo locally. It stays hidden during replays, analyses and round planning, for spectators, and while a move is on its way. BGS answers with the earlier state, and the viewer drops the turn buffer, open dialogs and the bid being dialled. The development sandbox (`npm run serve`) offers the same undo against its bots.
+
 ## Shared accessibility preference
 
 The viewer accepts BGS's `colorBlind` boolean preference (default `false`). The eye button on the board changes it through `update:preference`, so BGS saves the setting across games. It also works locally in tutorials.

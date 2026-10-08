@@ -1,6 +1,6 @@
 import { cloneDeep } from 'lodash';
 import { Move, Phase, setup, stripSecret } from 'powergrid-engine';
-import type { MapName, Variant } from 'powergrid-engine/src/gamestate';
+import type { GameState, MapName, Variant } from 'powergrid-engine/src/gamestate';
 import type { PremoveCommand } from 'powergrid-engine/src/premoves';
 import { move as wrapperMove, moveAI as wrapperAI } from 'powergrid-engine/wrapper';
 import { installLocalChat } from './game-chat';
@@ -61,6 +61,19 @@ function launchSelfContained(selector = '#app') {
         if (player.id != playerIndex) player.isAI = true;
     }
 
+    // Mimic BGS's "Undo my move" in a game against bots: every committed move of the
+    // human records the state before it, and undo goes back to the latest of these,
+    // dropping the bots' replies.
+    const undoPoints: GameState[] = [];
+    const offerUndo = () => emitter.emit('undo:available', undoPoints.length > 0);
+    emitter.on('undo', () => {
+        const previous = undoPoints.pop();
+        if (!previous) return;
+        gameState = previous;
+        emitter.emit('state', cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState));
+        offerUndo();
+    });
+
     emitter.on('move', async (moves: Move[] | PremoveCommand) => {
         setTimeout(async () => {
             console.log('moves received', moves);
@@ -76,8 +89,10 @@ function launchSelfContained(selector = '#app') {
                 return;
             }
 
+            undoPoints.push(gameState);
             gameState = newState;
             emitter.emit('state', cloneDeep(strip ? stripSecret(gameState, playerIndex) : gameState));
+            offerUndo();
 
             let delay = delayBase;
             const moveAIAux = () => {

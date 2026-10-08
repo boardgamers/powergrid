@@ -138,6 +138,32 @@ export function rebaseTurnBuffer(
 }
 
 /**
+ * Does an incoming COMMITTED state take back moves this player had already committed?
+ *
+ * That is what BGS's "Undo my move" does in a game against bots: it replays the game to
+ * the position before the player's last saved move, dropping the bots' replies, and
+ * sends that earlier state. Whatever the viewer prepared on the newer position (turn
+ * buffer, dialogs, a dialled bid) no longer applies. Another player reopening their
+ * powering only removes THEIR moves, and an ordinary update only appends, so neither
+ * counts.
+ */
+export function takesBackOwnMoves(
+    previousLog: LogItem[] | null,
+    committed: GameState,
+    player: number | undefined
+): boolean {
+    if (!previousLog || player === undefined) {
+        return false;
+    }
+
+    const ownMoves = (log: LogItem[]) =>
+        log.filter((item): item is LogMove => item.type === 'move' && item.player === player);
+    const kept = ownMoves(committed.log);
+
+    return ownMoves(previousLog).some((item, i) => !kept[i] || !isEqual(item.move, kept[i].move));
+}
+
+/**
  * Replays the turn buffer on the last committed state, truncating it at the first
  * move the engine rejects (possible after a rebase), and returns the preview plus the
  * moves that survived. Tentative moves never touch the power-plant deck or the seed —

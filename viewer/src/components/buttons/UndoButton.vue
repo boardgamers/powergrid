@@ -1,7 +1,7 @@
 <template>
     <g
         :class="['button', { enabled, highlightButton }]"
-        data-board-control="undo"
+        :data-board-control="control"
         role="button"
         :aria-label="text"
         :tabindex="enabled ? 0 : -1"
@@ -12,7 +12,7 @@
     >
         <rect width="80" height="26" fill="gainsboro" stroke="black" rx="2" />
         <image
-            v-if="text === 'Undo last move'"
+            v-if="icon === 'undo'"
             x="30"
             y="3"
             width="20"
@@ -39,5 +39,7 @@ export default class UndoButton extends Vue {
     @Prop({ default: 'Undo last move' }) text!: string;
     @Prop() enabled!: boolean;
     @Prop() highlightButton!: boolean;
+    @Prop({ default: 'undo' }) control!: string;
+    @Prop({ default: 'undo' }) icon!: 'undo' | 'cancel';
 }
 </script>

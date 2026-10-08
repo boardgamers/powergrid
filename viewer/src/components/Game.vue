@@ -176,6 +176,7 @@
                     :minBid="changingBid ? revisionBids[0] : G.currentBid + 1 || G.minimunBid"
                     :initialBid="changingBid ? replacementBid : undefined"
                     :editingBid="changingBid"
+                    :draftKey="draftKey"
                     :maxBid="G.players[player] ? G.players[player].money : 0"
                     :nextCardWeak="G.nextCardWeak"
                     :plantDiscountActive="G.plantDiscountActive"
@@ -462,12 +463,28 @@
                     :icon="phaseButtonIcon"
                     @click="usePhaseButton"
                 />
+                <!-- BGS's "Undo my move" (games against bots) takes this button's
+                     place once nothing is left to take back locally, so undo stays in
+                     one place and the authored layout needs no new space. -->
                 <UndoButton
+                    v-if="canUndoMove()"
+                    key="undo-move"
+                    transform="translate(15, 56)"
+                    control="undo-move"
+                    text="Undo my move"
+                    :enabled="true"
+                    :highlightButton="true"
+                    @click="undoMove()"
+                />
+                <UndoButton
+                    v-else
+                    key="undo"
                     transform="translate(15, 56)"
                     :enabled="changingBid || canUndo()"
                     :highlightButton="changingBid || canUndo()"
+                    :icon="changingBid ? 'cancel' : 'undo'"
                     :text="changingBid ? 'Cancel bid edit' : 'Undo last move'"
-                    @click="changingBid ? (editingBid = null) : undo()"
+                    @click="useUndoButton()"
                 />
                 <BoardOption
                     transform="translate(15, 97)"
@@ -890,6 +907,7 @@ import {
     matchesTurnBuffer,
     rebaseTurnBuffer,
     replayTurnBuffer as replayBuffer,
+    takesBackOwnMoves,
 } from '../util/turn-buffer';
 import { UIData, Preferences } from '../types/ui-data';
 import { Card, House, Coal, Oil, Garbage, Uranium } from './pieces';
@@ -1117,6 +1135,10 @@ export default class Game extends Vue {
 
     @Prop()
     avatars!: string[];
+
+    /** BGS can take back this player's last saved move (protocol `undo:available`). */
+    @Prop({ default: false })
+    undoAvailable!: boolean;
 
     @Prop()
     @ProvideReactive()
@@ -1514,6 +1536,14 @@ export default class Game extends Vue {
             this.replaceState(state);
             return;
         }
+        if (state && state.newTurn !== false) {
+            // BGS answers "Undo my move" with the earlier committed state.
+            this.undoRequested = false;
+            if (this.undoRequestTimer) clearTimeout(this.undoRequestTimer);
+            if (takesBackOwnMoves(this.committedState ? this.committedState.log : null, state, this.player)) {
+                this.abandonLocalTurn();
+            }
+        }
         if (
             state &&
             state.newTurn !== false &&
@@ -1759,6 +1789,81 @@ export default class Game extends Vue {
             this.replaceState(this.committedState, false);
         }
         this.activateFreePlants();
+    }
+
+    /** The board's Undo button: cancels a bid edit, or takes back buffered moves. */
+    useUndoButton() {
+        // Either can leave nothing to undo locally, and "Undo my move" then takes the
+        // button's place at once: the second click of a double click must not reach it.
+        this.recentLocalUndo = true;
+        if (this.recentLocalUndoTimer) clearTimeout(this.recentLocalUndoTimer);
+        this.recentLocalUndoTimer = setTimeout(() => (this.recentLocalUndo = false), 1000);
+        if (this.changingBid) this.editingBid = null;
+        else this.undo();
+    }
+
+    // An "Undo my move" request is on its way to BGS.
+    undoRequested = false;
+    private undoRequestTimer: ReturnType<typeof setTimeout> | undefined;
+    // The board's Undo was just used, see `useUndoButton`.
+    recentLocalUndo = false;
+    private recentLocalUndoTimer: ReturnType<typeof setTimeout> | undefined;
+    // Changing it remounts drafts kept in child components (the bid calculator).
+    draftKey = 0;
+
+    /**
+     * BGS's "Undo my move", in games against bots: BGS takes back the player's last SAVED
+     * move, with the bots' replies, and sends the earlier state. The turn in progress only
+     * lives in this viewer's buffer and the board's Undo takes it back, so BGS's undo is
+     * offered in that button's place once nothing is left to undo locally. Never while
+     * replaying, analysing, planning or spectating, nor while a move, premove or undo
+     * request is on its way. A method, like the other checks: preferences such as
+     * `analysis` arrive as plain properties that a cached computed would not see change.
+     */
+    canUndoMove(): boolean {
+        return (
+            this.undoAvailable &&
+            !!this.G &&
+            this.player != undefined &&
+            !!this.G.players[this.player] &&
+            !this.paused &&
+            !this.interactionDisabled &&
+            !this.tutorialMove &&
+            !this.preferences.analysis &&
+            !this.roundPlan &&
+            !this.pendingPlanId &&
+            !this.changingBid &&
+            !this.poweringSubmitting &&
+            !this.undoRequested &&
+            !this.recentLocalUndo &&
+            !this.canUndo()
+        );
+    }
+
+    undoMove() {
+        if (!this.canUndoMove()) return;
+        this.undoRequested = true;
+        if (this.undoRequestTimer) clearTimeout(this.undoRequestTimer);
+        // BGS answers with the earlier state; offer the control again if it never does.
+        this.undoRequestTimer = setTimeout(() => (this.undoRequested = false), 10000);
+        this.emitter.emit('undo');
+    }
+
+    /**
+     * Forget what was prepared on a position that no longer exists: the turn buffer, a bid
+     * being edited, open choice dialogs, a hybrid plant's fuel choice (kept in G, see
+     * `replaceState`) and the bid dialled into the calculator.
+     */
+    abandonLocalTurn() {
+        this.turnMoves = [];
+        this.editingBid = null;
+        this.confirmVisible = this.discardVisible = this.freeJumpVisible = false;
+        this.discardedPowerPlant = null;
+        this.freeJumpCity = null;
+        this.soleBuyerPlant = null;
+        this.draftKey++;
+        // A round plan keeps showing its own board; the live one is rebuilt on return.
+        if (!this.roundPlan) this.G = null;
     }
 
     choosePowerPlant(powerPlant: PowerPlant) {
@@ -3091,6 +3196,8 @@ export default class Game extends Vue {
 
     beforeDestroy() {
         if (this.pendingPlanTimer) clearTimeout(this.pendingPlanTimer);
+        if (this.undoRequestTimer) clearTimeout(this.undoRequestTimer);
+        if (this.recentLocalUndoTimer) clearTimeout(this.recentLocalUndoTimer);
         window.removeEventListener('resize', this.onViewportResize);
         window.removeEventListener('orientationchange', this.onViewportResize);
         window.removeEventListener('load', this.onViewportResize);

@@ -1,8 +1,8 @@
+import PassButton from '@/components/buttons/PassButton.vue';
+import Calculator from '@/components/Calculator.vue';
+import Game from '@/components/Game.vue';
 import { mount } from '@vue/test-utils';
 import { expect } from 'chai';
-import Game from '@/components/Game.vue';
-import Calculator from '@/components/Calculator.vue';
-import PassButton from '@/components/buttons/PassButton.vue';
 import { Phase } from 'powergrid-engine';
 
 const options = (Game as any).options;

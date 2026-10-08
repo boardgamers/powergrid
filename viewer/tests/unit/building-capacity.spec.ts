@@ -1,8 +1,8 @@
+import CityCount from '@/components/boards/CityCount.vue';
+import Game from '@/components/Game.vue';
 import { mount } from '@vue/test-utils';
 import { expect } from 'chai';
 import { Phase } from 'powergrid-engine';
-import Game from '@/components/Game.vue';
-import CityCount from '@/components/boards/CityCount.vue';
 
 const capacity = (context: any) => (Game as any).options.computed.buildingPowerCapacity.get.call(context);
 

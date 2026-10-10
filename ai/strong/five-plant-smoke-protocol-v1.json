@@ -1,0 +1,52 @@
+{
+  "purpose": "One-update HF-only correctness check; not candidate selection or strength evidence",
+  "qualification_eligible": false,
+  "env": {
+    "HF_MODEL_REPO": "coyotte508/powergrid-ai-germany-v1",
+    "INIT_CHECKPOINT": "runs/five-plant-transfer-v1/initial.pt",
+    "INIT_REVISION": "bbbbd1ac091651f8854386a476cb42617d9c095a",
+    "INIT_SHA256": "5bd9cef9b6a419c39f2d461d549393c5f046bb8b084ddd7d92221090a279d227",
+    "FROZEN_OPPONENTS": "ai/strong/population-opponents-v1.json",
+    "ARCHITECTURE": "multiplayer_ordered_plants",
+    "MIX_PLAYER_COUNTS": "1",
+    "OPPONENT_MODE": "population_heterogeneous",
+    "TRAIN_SEED": "10101",
+    "PYTHONHASHSEED": "0",
+    "ASYNC_ROLLOUT": "1",
+    "TORCH_THREADS": "4",
+    "SNAPSHOT_ADMISSION": "periodic_anchor",
+    "SNAPSHOT_INTERVAL": "1",
+    "LR": ".00005",
+    "ENTROPY": ".005",
+    "ANCHOR": ".03",
+    "ANCHOR_POLICY": "initial",
+    "UPDATES": "1",
+    "EVAL_EVERY": "1",
+    "ENVS": "80",
+    "WORKERS": "80",
+    "BATCH_SIZE": "512",
+    "TRAIN_DEVICE": "cuda",
+    "RUN_NAME": "five-plant-gradient-smoke-v1"
+  },
+  "required": {
+    "complete_games": 80,
+    "games_per_player_count": 16,
+    "truncations": 0,
+    "new_parameter_norms_positive": true,
+    "strict_export_fixtures": 2553,
+    "old_frozen_opponents": true
+  },
+  "initial_artifacts": {
+    "repository": "coyotte508/powergrid-ai-germany-v1",
+    "prefix": "runs/five-plant-transfer-v1",
+    "revision": "bbbbd1ac091651f8854386a476cb42617d9c095a",
+    "files": {
+      "initial.pt": "5bd9cef9b6a419c39f2d461d549393c5f046bb8b084ddd7d92221090a279d227",
+      "initial.onnx": "ded16c0977cea50049df0cea58d238b96655d32eddb1766ab849ad284055b11b",
+      "transfer-check.json": "abd7d22eb983c8992da7fcb3a313ae2e45c291bbb9d8933c4b5b5dd1f705c575",
+      "export-check.json": "a6467c942dfd7390153f12662f8f3e39d84f86c5febdfa9e2c892cfeb1c5ff4f",
+      "feature-check.json": "facb779081c00df8c86f202b83960f40c04eee40cd218e8a838a958de1999b76"
+    },
+    "qualification_eligible": false
+  }
+}

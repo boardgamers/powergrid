@@ -1,0 +1,152 @@
+{
+  "feature_revision": "4.1-five-plants",
+  "qualification_eligible": false,
+  "feature_check": {
+    "positions": 2553,
+    "by_player_count": {
+      "2": 349,
+      "3": 427,
+      "4": 527,
+      "5": 609,
+      "6": 641
+    },
+    "five_plant_positions": 8,
+    "three_plant_two_player_positions": 27,
+    "changed_action_cue_positions": 8,
+    "hidden_information_invariant": true,
+    "legacy_prefix_exact": true,
+    "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+    "encoded_sha256": "a372eaef66058af684fcf18f9d270fb8234a79098e8fb5e79cb89bbdb8b1251b"
+  },
+  "transfer_check": {
+    "positions": 2553,
+    "position_checks": 5106,
+    "batch_sizes": [
+      1,
+      16
+    ],
+    "transferred_torch_outputs_exact": true,
+    "all_actions_match": true,
+    "max_onnx_logit_error": 4.57763671875e-05,
+    "max_onnx_value_error": 2.8908252716064453e-06,
+    "parameters": 985346,
+    "additional_parameters": 1664,
+    "hashes": {
+      "parent": "477022b0e83a61b32b4808ca29b79a618c9bab76d5205f0bf7501ed8a0ed0efb",
+      "checkpoint": "5bd9cef9b6a419c39f2d461d549393c5f046bb8b084ddd7d92221090a279d227",
+      "onnx": "ded16c0977cea50049df0cea58d238b96655d32eddb1766ab849ad284055b11b",
+      "fixtures": "a372eaef66058af684fcf18f9d270fb8234a79098e8fb5e79cb89bbdb8b1251b"
+    }
+  },
+  "export_check": {
+    "positions": 2553,
+    "by_player_count": {
+      "2": 349,
+      "3": 427,
+      "4": 527,
+      "5": 609,
+      "6": 641
+    },
+    "inactive_values_zero": true,
+    "feature_revision": "4.1-five-plants",
+    "model_sha256": "ded16c0977cea50049df0cea58d238b96655d32eddb1766ab849ad284055b11b",
+    "max_logit_error": 4.57763671875e-05,
+    "max_value_error": 2.8908252716064453e-06,
+    "all_actions_match": true,
+    "specialist_route_counts": {}
+  },
+  "serving_check": {
+    "hostname": "Mint-FW-13",
+    "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+    "python_version": "3.11.15",
+    "positions": 2553,
+    "by_player_count": {
+      "2": {
+        "positions": 349,
+        "p95_ms": 7.825811601651365
+      },
+      "3": {
+        "positions": 427,
+        "p95_ms": 7.897814204625319
+      },
+      "4": {
+        "positions": 527,
+        "p95_ms": 9.412386600888567
+      },
+      "5": {
+        "positions": 609,
+        "p95_ms": 5.064837996906135
+      },
+      "6": {
+        "positions": 641,
+        "p95_ms": 5.87389399879612
+      }
+    },
+    "model_sha256": "ded16c0977cea50049df0cea58d238b96655d32eddb1766ab849ad284055b11b",
+    "all_moves_legal": true,
+    "search_samples": 0,
+    "search_scope": "all",
+    "geographic_search": false,
+    "cold_start_ms": 319.99185500171734,
+    "warm_roundtrip_p50_ms": 3.1320029993366916,
+    "warm_roundtrip_p95_ms": 7.608268646072246,
+    "worker_p95_ms": 4.212711651052813,
+    "max_roundtrip_ms": 319.99185500171734,
+    "search_decisions": 0,
+    "search_evaluations": 0,
+    "search_truncated_rollouts": 0,
+    "search_roundtrip_p50_ms": null,
+    "search_roundtrip_p95_ms": null,
+    "by_phase": {
+      "Auction": {
+        "positions": 840,
+        "p50_ms": 2.946996497485088,
+        "p95_ms": 7.361249148743809,
+        "max_ms": 319.99185500171734
+      },
+      "Resources": {
+        "positions": 755,
+        "p50_ms": 3.1572849984513596,
+        "p95_ms": 7.822792501974616,
+        "max_ms": 19.39929000218399
+      },
+      "Building": {
+        "positions": 491,
+        "p50_ms": 3.4636609998415224,
+        "p95_ms": 8.324608999828342,
+        "max_ms": 14.303144998848438
+      },
+      "Bureaucracy": {
+        "positions": 467,
+        "p50_ms": 3.0970429943408817,
+        "p95_ms": 7.071965000068302,
+        "max_ms": 12.18392800365109
+      }
+    }
+  },
+  "package_check": {
+    "all_hashes_match": true,
+    "files_verified": 1205,
+    "positions_verified": 80,
+    "player_counts": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "all_moves_legal": true,
+    "model_sha256": "ded16c0977cea50049df0cea58d238b96655d32eddb1766ab849ad284055b11b"
+  },
+  "tests": {
+    "python_model_tests": 6,
+    "mixed_revision_games": 80,
+    "mixed_revision_truncated": 0,
+    "node_information_population_tests": 10
+  },
+  "limitations": [
+    "Inference/representation correctness is not playing strength.",
+    "Local timings are on HX 370, not the target AMD 8840U, and concurrent verification adds contention.",
+    "HF gradients are isolated in a one-update smoke job; not candidate selection."
+  ]
+}

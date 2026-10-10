@@ -26,9 +26,9 @@ root = Path(__file__).resolve().parents[2]
 model = Path(a.model).resolve()
 session = ort.InferenceSession(str(model), providers=["CPUExecutionProvider"])
 revision = session.get_modelmeta().custom_metadata_map.get(METADATA_KEY, "3.0")
-if revision not in ["3.0", "3.1-uranium39", "4.0-multiplayer"]:
+if revision not in ["3.0", "3.1-uranium39", "4.0-multiplayer", "4.1-five-plants"]:
     raise ValueError("Unknown feature revision")
-multiplayer = revision == "4.0-multiplayer"
+multiplayer = revision in ["4.0-multiplayer", "4.1-five-plants"]
 out = Path(a.output).resolve()
 out.mkdir(parents=True, exist_ok=False)
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
@@ -45,8 +45,10 @@ with tempfile.TemporaryDirectory() as tmp:
         "features.cjs",
         "features-v3_0.cjs",
         "features-v4.cjs",
+        "features-v4_1.cjs",
         "economics.cjs",
         "economics-v3_0.cjs",
+        "economics-v4_1.cjs",
         "spatial.cjs",
         "public-graph.cjs",
         "geographic-proposals.cjs",

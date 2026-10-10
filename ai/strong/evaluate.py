@@ -76,10 +76,11 @@ if args.games < paired_size or args.games % paired_size:
 if args.deal_offset < 0:
     p.error("--deal-offset cannot be negative")
 opponent_model = Model(args.opponent_model) if args.opponent_model else None
+multiplayer_revisions = {"4.0-multiplayer", "4.1-five-plants"}
 for actor in [model, opponent_model]:
-    if actor and args.players != 3 and model_revision(actor) != "4.0-multiplayer":
+    if actor and args.players != 3 and model_revision(actor) not in multiplayer_revisions:
         p.error("Non-three-player evaluation requires schema 4 for every model")
-if args.allow_feature_transfer and model_revision(model) == "4.0-multiplayer":
+if args.allow_feature_transfer and any(actor and model_revision(actor) in multiplayer_revisions for actor in [model, opponent_model]):
     p.error("Schema 4 cannot be transferred to a schema 3 encoder")
 pool_class = AsyncEnginePool if args.async_rollout else EnginePool
 engine_workers = args.games if args.async_rollout else min(args.workers, args.games)

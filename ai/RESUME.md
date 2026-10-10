@@ -4,12 +4,80 @@
 final-test seeds remain unused.** The separate UI redesign was reverted.
 
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
-`ai/germany-baseline`. The previous goal turn made concrete progress by verifying
-the first population screen and both throughput probes. This turn diagnosed
-two-player rule/representation assumptions with exact replays. Do not repeat
-completed probes or launch duplicate jobs.
+`ai/germany-baseline`. The previous AI goal turn made concrete progress by
+replaying the two-player losses. The UI-only intervening turn verified its revert.
+This goal turn implemented and validated an append-only five-plant revision and
+submitted one HF gradient integration check. No strength gate has been relaxed.
 
-## Next implementation: versioned two-player plant context
+## Current next step: inspect the five-plant HF smoke and population comparisons
+
+HF smoke job **`6aca192dfee2c900701863fd`**, H200, run
+`five-plant-gradient-smoke-v1`: one update / 80 complete games (16 per count),
+heterogeneous retained opponents, schema4.1 learner/snapshots with schema4.0 frozen
+opponents. `strong/five-plant-smoke-status-v1.json` is only a timestamped last
+observation. Inspect this exact job before doing anything; do not duplicate or
+restart on a polling timeout. This checks optimizer/routing/export correctness,
+**not strength or candidate selection**. The wrapper requires nonzero new input
+weights, finite parameters, balanced complete games, all frozen roles, no caps,
+and all 2,553 strict ONNX export checks. It uploads `smoke-check.json` and raw
+checkpoints/metrics. Independently collect and verify those before claiming it
+passed. No local gradients ran.
+
+Schema **4.1-five-plants** is implemented as `features-v4_1.cjs` and
+`model_v4_1.py`; the architecture is `multiplayer_ordered_plants`. State/action
+sizes are **1215/100**: unchanged old 1149/98 prefixes plus six fifth-plant slots
+and two capacity-aware economic action cues. Extra cues are learned inputs;
+old residual prior and teacher index remain unchanged. Pure `economics-v4_1.cjs`
+uses the four-plant limit for two-player purchase valuations. Old encoders,
+network code, economic/search opponents and running experiments remain unchanged.
+Trainer, model loader, evaluator and package builder support the new revision;
+old/new neural opponents keep their own encoders. The explicit CPU transfer adds
+1,664 zero-initialized parameters, preserving old weights and matrix shapes.
+Contiguous legacy input slices are necessary for exact CPU transfer numerics.
+
+Verified local evidence is in `strong/five-plant-validation-v1.json`:
+
+- All 2,553 fixtures preserve every old feature exactly; fifth plants are explicit
+  in the 8 relevant discard states; 8 positions have changed added auction cues.
+  Deck order, sealed bids, seed and injected queued plans do not affect inputs.
+- Parent and transferred PyTorch outputs match **exactly** on all 2,553 positions
+  at batch sizes 1 and 16 (5,106 comparisons); strict ONNX tolerances and all
+  decisions match. Six model-contract unit tests pass.
+- Eighty complete mixed-revision games cover every count/rule/learner seat with
+  zero truncations. Ten existing information/population Node tests pass.
+- All 2,553 real serving requests return legal moves. The extracted package works
+  from `/`, passes all 1,205 file hashes and 80 count/phase/rule cases. Local
+  latency is a contended HX370 diagnostic, **not an AMD8840U qualification**.
+
+Diagnostic transfer parent is heterogeneous update9, pinned by the prior audit;
+this is not selection of the next full-training parent. Initial artifact revision
+**`bbbbd1ac091651f8854386a476cb42617d9c095a`**, under
+`runs/five-plant-transfer-v1` in the model repo. Initial PT SHA
+`5bd9cef9b6a419c39f2d461d549393c5f046bb8b084ddd7d92221090a279d227`;
+ONNX SHA `ded16c0977cea50049df0cea58d238b96655d32eddb1766ab849ad284055b11b`.
+See `strong/five-plant-transfer-artifacts-v1.json` for further validation revision
+and exact package/report hashes. Local outputs are `ai/runs/five-plant-transfer-v1`
+and `ai/runs/five-plant-fixtures-v1.jsonl`.
+
+Immutable source: `strong-source-five-plants-20261010-v1.tgz`, dataset revision
+**`9691971d63d556b542647137291d19cfce750808`**, SHA
+`877a58929a6eb2141f46cc96ba5ebb7b20f7078bbc51aad5d652b8f6cacf9055`.
+`strong/five-plant-source-v1.json` lists all overlays and unchanged base provenance;
+`strong/five-plant-smoke-protocol-v1.json` freezes exact job settings.
+Use the actual update19 population comparison to choose the next parent/recipe;
+require controlled strength evaluation of this feature change. Preserve all
+existing baseline identities/gates and add a separately named capacity-aware
+reference when evaluating two-player strength. No new expert hard labels.
+
+At 10:54 UTC, all three population trainers and coordinator were confirmed
+RUNNING. Heterogeneous was on update17, homogeneous update11, control completed
+update9. Coordinator owns every scheduled screen and had launched control-u9.
+Its state was pinned at `bdbd57a81517231658d791f0c984d7cbb95d123e`, copied to
+`ai/runs/population-coordinator-observed-state-v1.json` (wrapper with `revision`
+and `state`). Inspect live jobs and refreshed state before collecting results;
+never manually duplicate its screens. Reserved final seeds remain untouched.
+
+## Diagnostic rationale for the new two-player plant context
 
 Two-player terminal audit (`strong/two-player-terminal-audit-v1.json`): the first
 population screen has 187 wins and 133 strict losses. Among losses, 29 are
@@ -42,27 +110,12 @@ Confirmed issues:
   Do not call the fifth plant completely invisible. This is a confirmed input
   limitation; its strength impact still needs a controlled experiment.
 
-**Do not silently modify schema4 or the current training/evaluation runtimes.**
-The next safe implementation is an explicit append-only feature revision and
-transfer, retaining old encoders and model loading. Suggested layout: preserve
-the old 1,149 state features, append six fifth-plant slots of 11 features each
-(new total **1,215**), and append capacity-aware scoring cues after the old 98
-action features. Keep every old prefix exactly unchanged. A zero-initialized
-extra-player/action projection can add new signals while preserving the parent
-network's original matrix shapes and initial predictions; do not merely expand
-old Linear inputs and assume numerical parity. Require full 2,553-fixture
-prefix, transfer, export and action checks, including mixed old/new opponent
-encoders. The existing fixtures contain 8 two-player five-plant positions and
-27 two-player three-plant positions; add focused invariance/rule tests as needed.
-
-The diagnostic capacity-aware function in `audit-two-player-plants.cjs` is a
-read-only reference inside a preload hook, **not a production helper**. Build a
-separate pure helper for the new revision. Preserve old economic/search baseline
-identities and add a separately named corrected two-player reference when
-evaluating the change. No new teacher hard labels, gradient run, feature contract
-change, baseline replacement or candidate promotion has happened for this fix.
-The current population cohort and coordinator continue unchanged. Use the
-primary update19 comparisons when choosing the next training parent/recipe.
+Schema4.0 and the current cohort are immutable. The append-only implementation
+and its validation are described above. The diagnostic helper in
+`audit-two-player-plants.cjs` remains a read-only preload hook, not a production
+module. The separate `economics-v4_1.cjs` is the new pure helper. Corrected
+heuristic values still need playing-strength evaluation; input correctness and
+exact transfer do not establish strategy improvement.
 
 ## First population checkpoint — verified intermediate result
 

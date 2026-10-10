@@ -1,0 +1,32 @@
+{
+  "archive": "strong-source-five-plants-20261010-v1.tgz",
+  "sha256": "877a58929a6eb2141f46cc96ba5ebb7b20f7078bbc51aad5d652b8f6cacf9055",
+  "bytes": 13545681,
+  "base": {
+    "archive": "strong-source-full-throughput-20261010-v1.tgz",
+    "revision": "13aaf16eb754b17fd6a4efb4c84b14d248c2b82e",
+    "sha256": "21465581480d69571fcc61a5af77dddc9e112508bca9e8d882b6415f8bd57c50"
+  },
+  "overlays": {
+    "ai/strong/economics-v4_1.cjs": "df683f93db43ec7f303f2ce0b93f101c4eb4193815b4eee33660e55c832623d4",
+    "ai/strong/features-v4_1.cjs": "15495373356b6e776cb9ad1b6859406ade7295ec4a8564406a353621aff0f26f",
+    "ai/strong/model_v4_1.py": "0d041566b5ecec81bf5689d00c91f53fef615bafd32de97853f70a5786689b35",
+    "ai/strong/encoders.cjs": "1e46fcc50184c3fed451489bd9400392cb4c4f5bbedc755cebdb932cfbfa7718",
+    "ai/strong/model.py": "2e88ee22504ee3a7526065d8ce4bd862c1b5d3bcf1bf2a2a0491027c7b28f2af",
+    "ai/strong/train.py": "e6f73425ef0f2e0b9819f157bbd12f9797afa071ed10d99db104cbed4004c25a",
+    "ai/strong/evaluate.py": "1578161e18d533a589e64615d24711968aaee20af089c51d43ffe7ae58000555",
+    "ai/strong/package-serving.py": "dc0de85f21d26cd77e1366021b35f79fa0e6ad1ec61246508fdd1f6583c1c646",
+    "ai/strong/transfer-five-plants.py": "fc5746357d8da5f2618df3ec8d31d64a61bfaacbcbf0bfa774e438b47651126e",
+    "ai/strong/verify-five-plant-features.cjs": "95c28b230a6a7bd757eb2e4de33dc9b8d047961726f23f887dd8c44ed1fa6bf2",
+    "ai/strong/check-five-plant-transfer.py": "24d001b8c346d2af7c2049bc202607729239225b01382c24d31c5bae03105ce9",
+    "ai/strong/test_model_v4_1.py": "3c86a262f3a36da364eff83bf43c244a9f64a2459c65a1fff111d32e03c35af2",
+    "ai/strong/test_five_plant_bridge.py": "633baccfeb5d3d2384668798e88841a1327ebb70f59bff4bd9422b925a17c6f7",
+    "ai/strong/smoke-five-plants.py": "79366d93cd67960c824702da1ec01baa738eaa0d1d83e75e117ccbf341585c67",
+    "ai/strong/launch-five-plant-smoke-v1.py": "04be44b416b40ef196e6d1aa809556f7955b4edfdd1dd5a7ef1bcaf082c656cc",
+    "ai/strong/five-plant-smoke-protocol-v1.json": "3cb673a7039d6df780f68e5c648675507c8c3e92e282cc6605ab378b1986d306",
+    "ai/strong/five-plant-contract-v1.json": "99eecf08a82209a3164d8168df0d93388249bf1b4f045fa2e69eee7377147e6e"
+  },
+  "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+  "purpose": "One-update HF-only correctness check; not candidate selection or strength evidence",
+  "revision": "9691971d63d556b542647137291d19cfce750808"
+}

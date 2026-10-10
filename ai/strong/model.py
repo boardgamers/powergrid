@@ -76,6 +76,13 @@ def policy_from_checkpoint(checkpoint):
         if architecture == "multiplayer_ordered":
             args["ordered_players"] = True
         net = MultiplayerPolicy(**args)
+    elif architecture == "multiplayer_ordered_plants":
+        from model_v4_1 import FivePlantPolicy, FEATURE_REVISION, STATE_DIM, ACTION_DIM
+
+        if (checkpoint.get("feature_revision") != FEATURE_REVISION
+                or checkpoint.get("state_dim") != STATE_DIM or checkpoint.get("action_dim") != ACTION_DIM):
+            raise ValueError("Five-plant checkpoint feature contract mismatch")
+        net = FivePlantPolicy(**checkpoint.get("model_args", {}))
     elif architecture == "rule_specialists":
         net = RuleSpecialists(**checkpoint["model_args"])
     elif architecture == "policy":

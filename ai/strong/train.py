@@ -11,6 +11,7 @@ import torch
 from torch.distributions import Categorical
 from model import Policy, tensors
 from model_v4 import MultiplayerPolicy
+from model_v4_1 import FivePlantPolicy
 from multiplayer import ROLE_REVISIONS, rotate_outcome, balance_training_rows
 from pool import EnginePool
 from arena_statistics import search_summary
@@ -20,13 +21,19 @@ from huggingface_hub import HfApi, hf_hub_download
 from feature_contract import FEATURE_REVISION, embed_revision
 
 architecture = os.getenv("ARCHITECTURE", "policy")
-multiplayer = architecture in ["multiplayer", "multiplayer_ordered"]
+five_plants = architecture == "multiplayer_ordered_plants"
+multiplayer = five_plants or architecture in ["multiplayer", "multiplayer_ordered"]
 ordered_players = architecture == "multiplayer_ordered"
 if multiplayer:
     FEATURE_REVISION = "4.0-multiplayer"
 state_dim, action_dim = (1149, 98) if multiplayer else (738, 96)
+if five_plants:
+    FEATURE_REVISION = "4.1-five-plants"
+    state_dim, action_dim = 1215, 100
 player_counts = [2, 3, 4, 5, 6] if multiplayer else [3]
 feature_revisions = dict(ROLE_REVISIONS) if multiplayer else {}
+if five_plants:
+    feature_revisions = {role: FEATURE_REVISION for role in ROLE_REVISIONS}
 mix_player_counts = multiplayer and os.getenv("MIX_PLAYER_COUNTS") == "1"
 
 seed = int(os.getenv("TRAIN_SEED", "101"))
@@ -85,11 +92,14 @@ strategic_only = (
 if multiplayer and strategic_only:
     raise ValueError("Strategic-only schema-3 routing cannot be used with schema 4")
 net = (
-    MultiplayerPolicy(ordered_players=ordered_players)
+    FivePlantPolicy() if five_plants else MultiplayerPolicy(ordered_players=ordered_players)
     if multiplayer
     else Policy(strategic_only=strategic_only)
 ).to(device)
 if checkpoint:
+    if five_plants and (checkpoint.get("architecture") != architecture
+                       or checkpoint.get("state_dim") != state_dim or checkpoint.get("action_dim") != action_dim):
+        raise ValueError("Use an explicitly transferred five-plant checkpoint")
     net.load_state_dict(checkpoint["state_dict"])
 population_config = os.getenv('FROZEN_OPPONENTS')
 population_mode = os.getenv('OPPONENT_MODE', 'mixed') in ['population_homogeneous', 'population_heterogeneous']
@@ -152,6 +162,7 @@ def save(name, export=False):
             "initial_checkpoint": initial_checkpoint,
             "initial_revision": initial_revision,
             "initial_sha256": initial_sha256,
+            "initial_transfer": checkpoint.get("transfer") if checkpoint else None,
             "initial_feature_revision": checkpoint.get("feature_revision", "3.0")
             if checkpoint
             else None,

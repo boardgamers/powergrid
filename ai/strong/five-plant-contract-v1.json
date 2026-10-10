@@ -1,0 +1,69 @@
+{
+  "feature_revision": "4.1-five-plants",
+  "schema": 4,
+  "architecture": "multiplayer_ordered_plants",
+  "scope": {
+    "map": "Germany",
+    "players": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "variants": [
+      "original",
+      "recharged"
+    ],
+    "auctions": [
+      "open",
+      "sealed"
+    ]
+  },
+  "state_dim": 1215,
+  "action_dim": 100,
+  "legacy_prefix": {
+    "state": 1149,
+    "action": 98,
+    "prior_teacher_moves_unchanged": true
+  },
+  "extra_state": {
+    "offset": 1149,
+    "relative_player_slots": 6,
+    "width": 11,
+    "meaning": "Fifth held plant, in the same relative seat order as the original four slots; zero for absent plants and inactive players",
+    "fields": [
+      "number/50",
+      "cost/4",
+      "citiesPowered/8",
+      "type==0",
+      "type==1",
+      "type==2",
+      "type==3",
+      "type==4",
+      "type==5",
+      "type==6",
+      "unused"
+    ]
+  },
+  "extra_actions": {
+    "offset": 98,
+    "fields": [
+      "capacity-aware economic score / 10, clipped to [-10,10]",
+      "equals maximum raw capacity-aware score"
+    ],
+    "change": "Only two-player auction portfolios with three held plants use addition instead of replacement",
+    "use": "Learned cues only; original residual prior and teacher index remain unchanged"
+  },
+  "transfer": {
+    "parent_architecture": "multiplayer_ordered",
+    "parent_revision": "4.0-multiplayer",
+    "new_parameters": 1664,
+    "initialization": "Zero extra player (11x128) and action (2x128) projections; all old tensors, matrix shapes and contiguous input layouts retained"
+  },
+  "limitations": [
+    "No playing-strength claim; next training recipe and parent await the prescribed population comparison.",
+    "Capacity-aware cues are heuristic estimates, not expert labels.",
+    "No current experiment or established baseline is modified."
+  ]
+}

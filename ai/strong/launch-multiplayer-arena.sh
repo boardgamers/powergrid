@@ -12,9 +12,16 @@ fi
 extra_env=()
 if [[ -n "${OPPONENT_MODEL_PATH:-}" ]]; then
   extra_env+=(--env "OPPONENT_MODEL_PATH=$OPPONENT_MODEL_PATH" --env "OPPONENT_MODEL_REVISION=${OPPONENT_MODEL_REVISION:?pin opponent revision}")
+  if [[ -n "${OPPONENT_MODEL_SHA256:-}" ]]; then extra_env+=(--env "OPPONENT_MODEL_SHA256=$OPPONENT_MODEL_SHA256"); fi
 fi
-hf jobs run --detach --flavor cpu-performance --timeout 3h \
+if [[ -n "${SOURCE_ARCHIVE:-}" ]]; then
+  : "${SOURCE_REVISION:?pin runtime revision}" "${SOURCE_SHA256:?pin runtime hash}"
+fi
+hf jobs run --detach --flavor cpu-performance --timeout "${TIMEOUT_HOURS:-3}h" \
   --secrets HF_TOKEN "${extra_env[@]}" \
+  --env SOURCE_ARCHIVE="${SOURCE_ARCHIVE:-strong-source-v32.tgz}" \
+  --env SOURCE_REVISION="${SOURCE_REVISION:-37465b08df007221665d796448aea57e6828257e}" \
+  --env SOURCE_SHA256="${SOURCE_SHA256:-}" --env MODEL_SHA256="${MODEL_SHA256:-}" \
   --env ASYNC_ARENA="${ASYNC_ARENA:-1}" \
   --env DISABLE_SEARCH_PROPOSAL="${DISABLE_SEARCH_PROPOSAL:-0}" \
   --env HF_MODEL_REPO=coyotte508/powergrid-ai-germany-v1 --env SEARCH_SCOPE="${SEARCH_SCOPE:-all}" \
@@ -29,7 +36,7 @@ python -m pip install --quiet --timeout 120 --retries 5 huggingface_hub==2.0.0 o
 mkdir -p /workspace
 python -c "import urllib.request,tarfile; urllib.request.urlretrieve(\"https://nodejs.org/dist/v24.14.0/node-v24.14.0-linux-x64.tar.xz\",\"/tmp/node.tar.xz\");tarfile.open(\"/tmp/node.tar.xz\").extractall(\"/opt\")"
 export PATH=/opt/node-v24.14.0-linux-x64/bin:$PATH
-python -c "from huggingface_hub import hf_hub_download;import tarfile;p=hf_hub_download(\"coyotte508/powergrid-ai-training-v1\",\"strong-source-v32.tgz\",repo_type=\"dataset\", revision=\"37465b08df007221665d796448aea57e6828257e\");tarfile.open(p).extractall(\"/workspace\")"
+python -c "from huggingface_hub import hf_hub_download;import tarfile,os,hashlib;from pathlib import Path;p=hf_hub_download(\"coyotte508/powergrid-ai-training-v1\",os.environ[\"SOURCE_ARCHIVE\"],repo_type=\"dataset\",revision=os.environ[\"SOURCE_REVISION\"]);expected=os.environ[\"SOURCE_SHA256\"];assert not expected or hashlib.sha256(Path(p).read_bytes()).hexdigest()==expected;tarfile.open(p).extractall(\"/workspace\",filter=\"data\")"
 cd /workspace
 python -u ai/strong/arena-job.py
 '

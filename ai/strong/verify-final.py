@@ -61,6 +61,24 @@ for path in a.reports:
         continue
     n = spec["player_count"]
     name = f"{spec['name']}/{n}p" if multiplayer else spec["name"]
+    if multiplayer:
+        source = candidate.get("source") or {}
+        require(
+            all(source.get(k) for k in ["archive", "revision", "sha256"])
+            and report.get("source") == {k: source.get(k) for k in ["archive", "revision", "sha256"]},
+            f"{name}: wrong or missing frozen runtime provenance",
+        )
+        require(
+            bool(candidate.get("arena_runner_sha256"))
+            and report.get("arena_runner_sha256") == candidate["arena_runner_sha256"],
+            f"{name}: wrong arena runner",
+        )
+        require(report.get("model_repository_revision") == candidate.get("model_revision"), f"{name}: wrong model repository revision")
+        require(report.get("opponent_repository_revision") == spec.get("model_revision"), f"{name}: wrong opponent repository revision")
+        require(candidate.get("async_rollout") is False and report.get("async_rollout") is False,
+                f"{name}: scheduling differs from the verified runtime")
+        require(report.get("seed") == f"{protocol['seed_prefix']}-{n}p", f"{name}: wrong reserved seed namespace")
+        require(report.get("deal_offset") == 0, f"{name}: aggregate must cover deals starting at zero")
     require(name not in audited, f"{name}: duplicate opponent report")
     require(report["model_sha256"] == sha, f"{name}: wrong checkpoint")
     require(
@@ -101,6 +119,13 @@ for path in a.reports:
     pairs = set()
     deals = {}
     for row in rows:
+        if multiplayer:
+            e = row.get("episode", -1)
+            require(isinstance(e, int) and e >= 0
+                    and row["gameSeed"] == f"{protocol['seed_prefix']}-{n}p-{e//(4*n)}"
+                    and row["seat"] == (e//4) % n
+                    and row["variant"] == ("recharged" if e % 2 else "original")
+                    and row["sealed"] == (e % 4 < 2), f"{name}: episode pairing metadata mismatch")
         require(
             row["gameSeed"].startswith(protocol["seed_prefix"] + "-"),
             f"{name}: non-final seed {row['gameSeed']}",
@@ -139,6 +164,11 @@ for path in a.reports:
     require(
         len(deals) == spec["games"] // (4 * n), f"{name}: wrong independent-deal count"
     )
+    if multiplayer:
+        require(set(deals) == {f"{protocol['seed_prefix']}-{n}p-{i}" for i in range(spec['games']//(4*n))},
+                f"{name}: wrong exact reserved deal set")
+        require({r.get("episode") for r in rows} == set(range(spec['games'])),
+                f"{name}: wrong exact episode set")
     summary = win_summary(rows)
     require(
         summary["win_rate"] >= spec["minimum_win_rate"],
@@ -184,6 +214,12 @@ for path in a.reports:
         search["search_rollouts_reported"],
         f"{name}: search rollout diagnostics missing",
     )
+    stats = search.get("search_stats", {})
+    require(all(v["truncated"] == 0 for v in stats.values()), f"{name}: truncated search rollouts")
+    if candidate["search_samples"]:
+        require(stats.get("learner", {}).get("evaluations", 0) > 0, f"{name}: candidate search was not executed")
+    if spec["name"] == "search_geo":
+        require(stats.get("search_geo", {}).get("evaluations", 0) > 0, f"{name}: independent search was not executed")
     audited[name] = {"source": path, **summary, **search, "by_rules": groups}
 require(set(audited) == set(expected), "Missing required opponent evaluations")
 parity, cpu, package = read(a.parity), read(a.cpu), read(a.package)
@@ -199,6 +235,7 @@ require(
     "CPU worker did not pass all legal fixtures",
 )
 require("8840U" in cpu.get("processor_model", ""), "CPU benchmark was not on the 8840U")
+require(cpu.get("search_truncated_rollouts", 0) == 0, "CPU benchmark truncated search rollouts")
 require(
     cpu["search_samples"] == candidate["search_samples"]
     and cpu.get("search_scope", "all") == candidate.get("search_scope", "all")

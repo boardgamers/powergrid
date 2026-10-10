@@ -1,0 +1,18 @@
+{
+  "archive": "strong-source-final-runtime-20261010-v1.tgz",
+  "revision": "9e0f1e957512c8dfa9bdb5edd7caf1671c197de4",
+  "sha256": "07c635937b08a6e37adfed6c94f6f4cc63a24e8e0572da78a1717b743b873571",
+  "base": {
+    "archive": "strong-source-multiplayer-search-transfer-20261010-v1.tgz",
+    "revision": "a96a04f0914a34f4a86bcac0948db0e4777fa83d",
+    "sha256": "98fd31d794e96f0e4598db484cb074e899fe3af465b4c911d7c2abea6f15bbe2"
+  },
+  "overlays": {
+    "ai/strong/arena-job.py": "dab09f587cb1ad0f4ac11c8e68c146228f35ccfc821a3a287eba118053d4d0af"
+  },
+  "old_runner_sha256": "cdffaa6213c8e0fe25b7a4adcb2df879b66a42a55f9538db57d4895a280a0195",
+  "arena_runner_sha256": "dab09f587cb1ad0f4ac11c8e68c146228f35ccfc821a3a287eba118053d4d0af",
+  "unchanged_base_file_count": 1377,
+  "scope": "Arena wrapper checks supplied model hashes and records pinned runtime/model provenance; all engine, model inference, search, features and arena evaluation bytes unchanged. No reserved games or model selection.",
+  "qualification_eligible": false
+}

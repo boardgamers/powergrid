@@ -6,7 +6,98 @@ final-test seeds remain unused.** The separate UI redesign was reverted.
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
 `ai/germany-baseline`. No UI work or publication is part of this AI continuation.
 
-## Latest: search improves A260 results; 3–6p search probes launched
+## Latest: raw 2–5p verified; all search probes passed; full 3–5p running
+
+The preceding AI goal turn was **progress** (verified the first search-transfer
+suite and launched multiplayer probes). This continuation is **progress**:
+verified 9,408 raw-policy opponent games, all four 3–6p probes, and dispatched
+nine full search comparisons. Final-evaluation compatibility and evidence checks
+were repaired and tested, without playing any reserved games. No new gradients,
+selection, promotion or deployment. The intervening UI revert remains complete.
+
+**Raw-policy 5p results are complete**, 1,120 games per model (3,360 new games).
+Parent raw artifact revision: `8372a23b6fa130a6549cd0783e1116ce293af4c0`.
+Both correction artifacts: `bbaca62cad80b0a3a01f715f2e3cc01f8cf42898`.
+Local verified directories: `ai/runs/discard-opponents-verified-v1/{key}-5p`.
+All 2–5p results are in `strong/discard-opponents-results-v1.json`, with zero
+actual-game/search truncations and `all_shards_verified: false` (6p pending).
+
+| 5p opponent | Parent | 10101 | 10102 |
+| --- | ---: | ---: | ---: |
+| legacy | 92.8125% | 91.5625% | 92.1875% |
+| heuristic | 97.8125% | 97.8125% | 97.8125% |
+| rush | 75.625% | 75.625% | 75.625% |
+| search_geo | 35% | 33.75% | 33.75% |
+
+The 160 search games/model represent only eight independent deals. Corrected
+aggregate interval [28.75,38.75]%; parent [31.25,38.75]%. The correction is
+-1.25 points versus parent, paired interval [-3.125,0]. Corrected rule shares
+(original/open, original/sealed, Recharged/open, Recharged/sealed):
+45/15/52.5/22.5%. Original/sealed interval [7.5,20]% fails to establish advantage
+over 20% chance; Recharged/sealed [10,35]% also does not establish it. Thus the
+aggregate passing the 28% point floor is insufficient. Preserve the sealed
+weakness and correction regression when choosing a candidate.
+Immutable complete 2–5p evidence: `01e02f69e85a21cf20967b373fb1fe3acf477a96`,
+`runs/discard-opponents-2p5p-completed-evidence-v1`. Pin:
+`strong/discard-opponents-2p5p-evidence-v1.json`.
+
+**All 3–6p search runtime probes are independently verified:** 72 complete games,
+1,993,808 search rollouts, zero truncations. Probes are execution evidence only.
+Profiles `strong/multiplayer-search-transfer-{3,4,5,6}p-runtime-v1.json` admit
+4/5/7/10h jobs respectively, retaining the prescribed conservative margins.
+Probe revisions: 3p `8372a23b6fa130a6549cd0783e1116ce293af4c0`,
+4p `bbaca62cad80b0a3a01f715f2e3cc01f8cf42898`,
+5p `739545765dae4b33853c3156f6237d6014e79059`,
+6p `e4e5ccc4b649fd1df18dd6394d4aae3613a6aa9f`.
+Evidence: `b546cd8337c0e659e0ca9fceda5da5f020269c6b`, prefix
+`runs/multiplayer-search-transfer-runtime-evidence-v1`.
+
+**Nine full search jobs are dispatched, 1,152 new paired games**:
+
+| Count / games per model | Parent | 10101 | 10102 |
+| --- | --- | --- | --- |
+| 3p / 96 | `6aca6497fee2c90070189d0d` | `6aca649a095c5780893143dc` | `6aca649b095c5780893143de` |
+| 4p / 128 | `6aca65b1095c57808931448b` | `6aca65b2fee2c90070189dea` | `6aca65b5095c57808931448d` |
+| 5p / 160 | `6aca67e4095c57808931461f` | `6aca67e6095c578089314626` | `6aca67e8095c578089314628` |
+
+All nine were RUNNING at the saved status check. Three full 6p jobs (576 games)
+remain to launch: runtime is admitted, but their pinned raw-policy baselines
+must finish and be independently collected first. Those existing raw6p handles
+are parent `6aca55e9095c578089313ace`, 10101 `6aca55edfee2c900701891ef`,
+10102 `6aca55ef095c578089313adb`, all confirmed RUNNING. Do not duplicate them.
+Use status files and exclusive launch guards; do not relaunch on a log timeout.
+
+**Final harness repaired, not qualification:** the launcher now accepts the
+current4.2 models, requires frozen runtime/model hashes, preserves individual
+submission intents, and locks concurrent ledger access. The arena wrapper
+records actual source/model/runner identities. Verification rejects wrong exact
+deals/episode pairings, wrong runtime or truncated searches. New
+`merge-arena-reports.py` verifies disjoint contiguous shards and recomputes
+statistics from raw games; it never averages confidence intervals/percentiles.
+Nine isolated contract tests pass, using mock submissions and temporary metadata
+around existing development rows. They do not execute final games or qualify a
+model. Frozen source `strong/final-runtime-source-v1.json`:
+`9e0f1e957512c8dfa9bdb5edd7caf1671c197de4`, archive
+`strong-source-final-runtime-20261010-v1.tgz`, SHA256
+`07c635937b08a6e37adfed6c94f6f4cc63a24e8e0572da78a1717b743b873571`.
+Only the arena provenance wrapper changed;1,377 other files are unchanged.
+A real8-game HF development smoke is running: `6aca67f3fee2c90070189ff5`,
+seed `final-runtime-smoke-development-v1-2p`. Record:
+`strong/final-runtime-smoke-v1.json`. Collect on completion with
+`ai/.venv/bin/python ai/strong/collect-final-runtime-smoke.py IMMUTABLE_REV`.
+This smoke measures plumbing only; its seed is not reserved. Source package is
+already built/uploaded: do not rerun the exclusive builder.
+
+**Next:** collect the exact live jobs on completion. Independently verify raw6p,
+then launch its three already specified guided matchups with the existing
+manager. Collect full search3–5p results and compare by count/rule against their
+pinned raw baselines. Keep regressions visible; don’t select on aggregate wins.
+Inspect the real harness smoke, preserve its artifact evidence, and keep the
+reserved final prefix unused until a complete candidate is justified. Future
+phase ablations/teacher training should follow these results. The nine full
+search jobs are work in flight, not qualified results.
+
+## Earlier: search improves A260 results; 3–6p search probes launched
 
 The preceding goal turn was **progress**: verified raw 2–4p, all two-player
 search comparisons, and the actual 8840U benchmark. This turn is **progress**:

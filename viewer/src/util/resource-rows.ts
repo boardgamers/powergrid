@@ -13,6 +13,13 @@ import type { GameState } from 'powergrid-engine';
 
 export type BuyMove = { resource: string; side?: 'north' | 'south'; fromStorage?: boolean };
 
+export interface PriceTier {
+    price: number;
+    cubes: number;
+    capacity: number;
+    capped: boolean;
+}
+
 export interface ResourceRow {
     label: string;
     color: string;
@@ -27,6 +34,8 @@ export interface ResourceRow {
     /** Cubes left in this source altogether. */
     cubes: number;
     buyable: boolean;
+    /** All price points, including depleted slots, for an expandable breakdown. */
+    tiers: PriceTier[];
     /** On the board but above the per-step price cap, so nobody may buy it yet. */
     capped: boolean;
     /** A flat-price pool with no track behind it: every cube costs the same. */
@@ -134,6 +143,19 @@ function marketRow(G: GameState, resource: string, north: boolean, opts: RowOpti
         }
     }
 
+    const discount = north ? 0 : wienDiscount(G, resource, opts.player);
+    const tiers: PriceTier[] = [];
+    prices.forEach((printedPrice, i) => {
+        const price = printedPrice - discount;
+        let tier = tiers.find((t) => t.price === price);
+        if (!tier) {
+            tier = { price, cubes: 0, capacity: 0, capped: price > maxPrice(G) };
+            tiers.push(tier);
+        }
+        tier.capacity++;
+        if (i >= idx && cubes > 0) tier.cubes++;
+    });
+
     const move: BuyMove = isKorea(G) ? { resource, side: north ? 'north' : 'south' } : { resource };
 
     return {
@@ -144,6 +166,7 @@ function marketRow(G: GameState, resource: string, north: boolean, opts: RowOpti
         next,
         atPrice,
         cubes,
+        tiers,
         buyable: !!opts.buyable && opts.buyable.some((b) => sameMove(b, move)),
         capped: price !== null && price > maxPrice(G),
         flat: false,
@@ -165,6 +188,7 @@ function flatRow(G: GameState, cubes: number, fromStorage: boolean, label: strin
         next: null,
         atPrice: 0,
         cubes,
+        tiers: [{ price: FLAT_POOL_PRICE, cubes, capacity: cubes, capped: FLAT_POOL_PRICE > maxPrice(G) }],
         buyable: !!opts.buyable && opts.buyable.some((b) => sameMove(b, move)),
         capped: cubes > 0 && FLAT_POOL_PRICE > maxPrice(G),
         flat: true,

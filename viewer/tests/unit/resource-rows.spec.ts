@@ -80,6 +80,16 @@ describe('resource-rows', () => {
 
             for (const block of blocks) {
                 for (const row of block.rows) {
+                    expect(
+                        row.tiers.reduce((sum, tier) => sum + tier.cubes, 0),
+                        `${map}: price breakdown accounts for the whole market`
+                    ).to.equal(row.cubes);
+                    const stocked = row.tiers.filter((tier) => tier.cubes > 0);
+                    expect(
+                        stocked.length ? stocked[0].price : null,
+                        `${map}: first stocked price matches the buy price`
+                    ).to.equal(row.price);
+                    if (!row.flat && stocked.length) expect(stocked[0].cubes).to.equal(row.atPrice);
                     if (!row.buyable) continue;
                     const before = G!.players[seat].money;
                     const after = engineMove(
@@ -188,6 +198,26 @@ describe('resource-rows', () => {
         expect(uranium.price! > 3, 'the next cube is above the cap').to.be.true;
         expect(uranium.capped).to.be.true;
         expect(uranium.buyable, 'nobody may buy it yet').to.be.false;
+    });
+
+    it('shows depleted price points, partial stock and India caps in the breakdown', () => {
+        const G = setup(4, { map: 'Germany', variant: 'recharged' } as never, '5');
+        G.coalMarket = 11;
+        const coal = resourceBlocks(G)[0].rows[0];
+        expect(coal.tiers.map((t) => [t.price, t.cubes])).to.deep.equal([
+            [1, 0],
+            [2, 0],
+            [3, 0],
+            [4, 0],
+            [5, 2],
+            [6, 3],
+            [7, 3],
+            [8, 3],
+        ]);
+        const india = setup(4, { map: 'India', variant: 'recharged' } as never, '7');
+        for (const row of resourceBlocks(india)[0].rows) {
+            for (const tier of row.tiers) expect(tier.capped).to.equal(tier.price > 3);
+        }
     });
 
     it('an empty market reads as out rather than as free', () => {

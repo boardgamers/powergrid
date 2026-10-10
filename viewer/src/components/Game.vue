@@ -245,33 +245,23 @@
                 </template>
             </g>
 
-            <g v-if="stacked" ref="slotResourceView" data-board-slot="resourceView" :transform="slotT('resourceView')">
-                <ResourceViewButton :showTrack="showResourceTrack" @select="setResourceView($event)" />
-            </g>
-
             <g
                 ref="slotResources"
                 data-board-slot="resources"
                 data-tutorial="resources"
                 :transform="slotT('resources')"
             >
-                <!-- On a phone the printed price track is a strip of unreadable
-                     columns, so the stacked layout defaults to one box per buyable
-                     source. It is still only a default: the switch above this row
-                     puts the printed track back, because the boxes deliberately
-                     throw away the price ladder and that ladder is most of what
-                     there is to know about uranium. Landscape and desktop keep the
-                     printed board exactly as it was — an either/or, never an
-                     overlay. -->
+                <!-- Mobile cards keep buying separate from the expandable price
+                     breakdown and show all three refill rates. -->
                 <ResourceBoxes
-                    v-if="stacked && !showResourceTrack"
+                    v-if="stacked"
                     :transform="`translate(${G.map.supplyPosition[0]}, ${G.map.supplyPosition[1]})`"
                     :gameState="G"
                     :player="player"
                     :isUsaRecharged="G.options.variant == 'recharged' && G.map.name == 'USA'"
                     :buyableResources="buyableResources()"
-                    :resourceResupply="getResourceResupply()"
-                    :resourceResupplyNorth="getResourceResupplyNorth()"
+                    :currentStep="G.step"
+                    @resize="scheduleRelayout()"
                     :bufferedBuys="bufferedBuys"
                     @buyResource="buyResource($event)"
                     @unbuyResource="unbuyResource($event)"
@@ -294,6 +284,9 @@
                     :uraniumMineRemoval="uraniumMineRemoval"
                     :resourceResupply="getResourceResupply()"
                     :resourceResupplyNorth="getResourceResupplyNorth()"
+                    :resupplyStep="displayedResupplyStep"
+                    :currentStep="G.step"
+                    @previewResupplyStep="resupplyPreviewStep = $event"
                     :bufferedBuys="bufferedBuys"
                     @buyResource="buyResource($event)"
                     @unbuyResource="unbuyResource($event)"
@@ -317,7 +310,7 @@
                     Uranium mine market
                 </text>
                 <ResupplyBadge
-                    v-if="!showResourceTrack && uraniumMineRemoval != null"
+                    v-if="uraniumMineRemoval != null"
                     transform="translate(514, 8) scale(1.2)"
                     resource="uranium"
                     :amount="uraniumMineRemoval"
@@ -518,6 +511,7 @@
                 />
                 <SoundButton :transform="iconButton(0)" :isOn="preferences.sound" @click="toggleSound()" />
                 <BoardOption
+                    v-if="hasUnselectedRegions"
                     :transform="iconButton(1)"
                     control="unselected-regions"
                     icon="regions"
@@ -525,18 +519,7 @@
                     :active="preferences.showUnselectedRegions !== false"
                     @click="toggleUnselectedRegions()"
                 />
-                <RulesButton :transform="iconButton(2)" @click="rulesVisible = true" />
-                <!-- Only offered where it means something. Shown whenever the
-                     viewport is portrait — not only while stacking is active — so
-                     it can undo its own effect. Sits under Rules rather than under
-                     the options: the left column's next slot overlaps the turn-order table
-                     on the authored board. -->
-                <LayoutButton
-                    v-if="portraitViewport"
-                    :transform="iconButton(3)"
-                    :isOn="stacked"
-                    @click="toggleStackLayout()"
-                />
+                <RulesButton :transform="iconButton(hasUnselectedRegions ? 2 : 1)" @click="rulesVisible = true" />
             </g>
 
             <g
@@ -918,8 +901,6 @@ import {
     BoardOption,
     SoundButton,
     RulesButton,
-    LayoutButton,
-    ResourceViewButton,
 } from './buttons';
 import PlayerBoard from './PlayerBoard.vue';
 import Calculator from './Calculator.vue';
@@ -977,9 +958,6 @@ const STACK_ROWS: string[][] = [
     // the draw pile and the round readout are things you glance at.
     ['buttons', 'roundInfo', 'powerPlantDeck'],
     ['powerPlantMarket'],
-    // The resource-display switch sits between the two markets rather than in the
-    // icon column: it belongs to the row it changes, and reads as that row's header.
-    ['resourceView'],
     ['resources'],
     ['uraniumMines'],
     ['freeJump'],
@@ -1023,9 +1001,6 @@ const STACK_SLOT_MAX_WIDTH: Record<string, number> = {
     // The box market is one tall stack of full-width buttons; run edge to edge it
     // reads as though it had been cropped rather than laid out.
     resources: 0.94,
-    // Matched to `resources` on purpose: equal budgets render equal widths, so the
-    // switch and the market below it line up instead of nearly lining up.
-    resourceView: 0.94,
 };
 
 /**
@@ -1099,8 +1074,6 @@ let nextGeographyClipId = 0;
         BoardOption,
         SoundButton,
         RulesButton,
-        LayoutButton,
-        ResourceViewButton,
         Button,
         Calculator,
         RoundPlanner,
@@ -2679,6 +2652,10 @@ export default class Game extends Vue {
         return inactiveMapNetwork(this.G?.map, this.G?.options.variant);
     }
 
+    get hasUnselectedRegions(): boolean {
+        return this.unselectedNetwork.cities.length > 0;
+    }
+
     getStatusMessage() {
         if (this.roundPlan)
             return this.roundPlan.finished
@@ -2869,12 +2846,7 @@ export default class Game extends Vue {
     playerBoardColumns = 1;
     geographyBounds: MapBounds | null = null;
     geographyReady = false;
-    /**
-     * True when the viewport is one the row layout applies to, whether or not the
-     * player has it switched on. Kept separate from `stacked` so the toggle stays
-     * visible after someone turns stacking off — otherwise the button that undoes
-     * the choice would disappear along with the layout.
-     */
+    /** Whether the viewport needs the compact portrait controls. */
     portraitViewport = false;
     geographyClipId = `powergrid-board-geography-${nextGeographyClipId++}`;
 
@@ -2906,14 +2878,7 @@ export default class Game extends Vue {
         return this.slotTransforms[name];
     }
 
-    /**
-     * Placement of the icon column beside Pass / Undo / board options. On a portrait viewport
-     * that column gains a fourth button — the layout toggle — in a space authored for
-     * three, and at the authored pitch the fourth one hung 41 units below everything
-     * else and crowded the market row beneath it. On portrait the icons shrink to the
-     * 26-unit height of the text buttons next to them and re-pitch so all four end
-     * level with the board options. Landscape and desktop keep the authored positions exactly.
-     */
+    /** Align portrait icons with the compact action buttons; retain desktop spacing. */
     iconButton(index: number): string {
         if (!this.portraitViewport) return `translate(110, ${13 + 41 * index})`;
         return `translate(110, ${13 + 30 * index}) scale(${round(26 / 30, 4)})`;
@@ -2939,52 +2904,7 @@ export default class Game extends Vue {
     }
 
     private shouldStack(): boolean {
-        return this.isPortraitViewport() && this.preferences.stackOnPortrait !== false;
-    }
-
-    toggleStackLayout() {
-        const newVal = !this.stacked;
-
-        this.emitter.emit('update:preference', { name: 'stackOnPortrait', value: newVal });
-        this.preferences.stackOnPortrait = newVal;
-        this.relayout();
-    }
-
-    /**
-     * Only ever consulted inside the stacked layout — landscape and desktop draw the
-     * printed board regardless, so this preference cannot reach them.
-     */
-    get showResourceTrack(): boolean {
-        return this.preferences.portraitResourceTrack === true;
-    }
-
-    setResourceView(showTrack: boolean) {
-        if (showTrack === this.showResourceTrack) {
-            return;
-        }
-
-        this.emitter.emit('update:preference', { name: 'portraitResourceTrack', value: showTrack });
-        this.preferences.portraitResourceTrack = showTrack;
-    }
-
-    /**
-     * The two resource displays are different shapes, so switching between them
-     * invalidates the row heights the last layout solved for — the same trap as
-     * entering the stacked layout at all. Measure again once the swap has landed.
-     */
-    @Watch('showResourceTrack')
-    onResourceViewChanged() {
-        this.$nextTick(() => {
-            // The printed track fills itself imperatively and `createPieces` only ever
-            // runs on a state update, so a track switched on mid-turn would draw an
-            // EMPTY market until the next move landed — a display that lies. Fill it
-            // before measuring: the cubes are what give the group its size.
-            if (this.G) {
-                this.resources?.createPieces(this.G);
-            }
-
-            this.scheduleRelayout();
-        });
+        return this.isPortraitViewport();
     }
 
     relayout() {
@@ -3235,12 +3155,22 @@ export default class Game extends Vue {
 
     get uraniumMineRemoval(): number | undefined {
         if (!this.G || !this.G.uraniumMineMarket || !this.G.map.uraniumMineResupply) return undefined;
-        return this.G.map.uraniumMineResupply[this.G.players.length - 2][this.G.step - 1];
+        const step = this.stacked ? this.G.step : this.displayedResupplyStep;
+        return this.G.map.uraniumMineResupply[this.G.players.length - 2][step - 1];
+    }
+
+    resupplyPreviewStep: number | null = null;
+    get displayedResupplyStep() {
+        return this.resupplyPreviewStep ?? this.G?.step ?? 1;
+    }
+    @Watch('G.step')
+    resetResupplyPreview() {
+        this.resupplyPreviewStep = null;
     }
 
     getResourceResupply() {
         if (this.G) {
-            let str = this.G.resourceResupply[this.G.step - 1];
+            let str = this.G.resourceResupply[this.displayedResupplyStep - 1];
             str = str.substr(1, str.length - 2);
             return str.split(',');
         }
@@ -3250,7 +3180,7 @@ export default class Game extends Vue {
 
     getResourceResupplyNorth() {
         if (this.G && this.G.resourceResupplyNorth) {
-            let str = this.G.resourceResupplyNorth[this.G.step - 1];
+            let str = this.G.resourceResupplyNorth[this.displayedResupplyStep - 1];
             str = str.substr(1, str.length - 2);
             return str.split(',');
         }

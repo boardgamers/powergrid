@@ -46,8 +46,6 @@ function launch(selector: string) {
             adjustPlayerOrder: false,
             undoWholeTurn: true,
             fitToScreen: true,
-            stackOnPortrait: true,
-            portraitResourceTrack: false,
             geographicBackground: 'terrain',
         }),
         avatars: [],

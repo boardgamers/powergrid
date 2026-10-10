@@ -22,17 +22,27 @@ function position(scenario) {
     G.players.forEach((p, i) => {
         p.name = ['You', 'Ada', 'Leo'][i];
         p.money = 70;
-        p.powerPlants = [
-            [4, 13],
-            [8, 18],
-            [20, 22],
-        ][i].map(getPowerPlant);
+        p.powerPlants = (
+            i === 0 && scenario === 'mobile-resources'
+                ? [21, 24, 23]
+                : [
+                      [4, 13],
+                      [8, 18],
+                      [20, 22],
+                  ][i]
+        ).map(getPowerPlant);
         p.coalCapacity = i === 0 ? 4 : 6;
         p.coalLeft = i === 0 ? 2 : 3;
         p.powerPlantsNotUsed = p.powerPlants.map((plant) => plant.number);
         p.passed = i === 0;
         p.skipAuction = false;
         p.availableMoves = null;
+        if (i === 0 && scenario === 'mobile-resources') {
+            p.coalCapacity = 0;
+            p.hybridCapacity = 4;
+            p.garbageCapacity = 4;
+            p.uraniumCapacity = 2;
+        }
     });
     G.actualMarket = [3, 5, 6, 7].map(getPowerPlant);
     G.futureMarket = [9, 10, 11, 12].map(getPowerPlant);
@@ -47,7 +57,7 @@ function position(scenario) {
         G.players[0].passed = false;
         G.currentPlayers = [0];
     }
-    if (scenario === 'resources') {
+    if (scenario === 'resources' || scenario === 'mobile-resources') {
         G.players[0].passed = false;
         G.currentPlayers = [0];
         G.players[0].coalLeft = 0;
@@ -76,6 +86,7 @@ const states = new Map();
 let revision = 0;
 const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Powergrid · Round planning</title><link rel="stylesheet" href="/bundle.css"><style>body{margin:0;background:#fafbf6;font-family:system-ui}.preview{display:flex;gap:16px;align-items:center;flex-wrap:wrap;background:#174132;color:#fff;padding:12px 18px;font-size:13px}.preview a{color:#d7edc5}.preview button,.preview select{font:inherit;padding:6px;border-radius:4px}#error:empty{display:none}#error{background:#fee;padding:12px;color:#900}</style></head><body><header class="preview"><strong>Powergrid · Local preview</strong><label>Position <select id="scenario"><option value="after-resources">After buying resources</option><option value="powering">After building cities</option><option value="auction">Consider a plant</option><option value="resources">Buy resources</option></select></label><button id="opponent">Finish next opponent phase</button><button id="reset">Reset position</button><a id="other">Other player’s view</a></header><div id="error" role="status"></div><div id="app"></div><script src="/vue.js"></script><script src="/bundle.js"></script><script>
 const params=new URLSearchParams(location.search),scenario=params.get('scenario')||'after-resources',seat=Number(params.get('seat')||0);
+if(params.has('device')) document.querySelector('header.preview').style.display='none';
 const host=window.powergrid.launch('#app');let revision=-1;
 document.querySelector('#scenario').value=scenario;document.querySelector('#scenario').onchange=e=>location.search='?scenario='+e.target.value;
 document.querySelector('#other').href='?scenario='+scenario+'&seat='+((seat+1)%3);
@@ -91,6 +102,12 @@ export function premovePreviewServer() {
             seat = Number(url.searchParams.get('seat') || 0);
         try {
             res.setHeader('Cache-Control', 'no-store');
+            if (url.pathname === '/mobile') {
+                res.setHeader('Content-Type', 'text/html');
+                return res.end(
+                    `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Powergrid · Try resource buying</title><style>*{box-sizing:border-box}body{margin:0;background:#202620;color:#e8eddf;font:14px system-ui;display:flex;flex-direction:column;align-items:center}header{display:flex;align-items:center;gap:16px;padding:14px}button{font:inherit;background:#394637;color:#e8eddf;border:1px solid #71826a;border-radius:6px;padding:8px 12px;cursor:pointer}iframe{width:390px;max-width:100%;height:min(844px,calc(100dvh - 76px));min-height:420px;border:1px solid #51604b;border-radius:8px}</style></head><body><header>Try resource buying <button id="restart">Reset</button></header><iframe title="Interactive mobile resource buying" src="/?scenario=mobile-resources&device=phone"></iframe><script>const frame=document.querySelector('iframe');document.querySelector('#restart').onclick=()=>frame.contentDocument.querySelector('#reset').click();frame.addEventListener('load',()=>{let tries=40;const timer=setInterval(()=>{const el=frame.contentDocument.querySelector('[data-tutorial="resources"]');if(el&&el.getBoundingClientRect().height>0){frame.contentWindow.scrollTo(0,frame.contentWindow.scrollY+el.getBoundingClientRect().top-130);clearInterval(timer);}else if(!--tries)clearInterval(timer);},150);});</script></body></html>`
+                );
+            }
             if (/^\/powergrid-viewer\.umd\.min\.geography-[a-z-]+\.js$/.test(url.pathname)) {
                 res.setHeader('Content-Type', 'text/javascript');
                 return res.end(await readFile(new URL('../dist' + url.pathname, import.meta.url)));

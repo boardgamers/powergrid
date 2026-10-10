@@ -4,6 +4,12 @@
              Group transforms preserve resource identities and local click targets. -->
         <g v-if="isKorea" :transform="parallelMarkets ? 'translate(0, 145)' : undefined">
             <g v-if="resourceResupplyNorth" class="resupply-strip">
+                <ResupplySteps
+                    transform="translate(278, -151)"
+                    :selected="resupplyStep"
+                    :current="currentStep"
+                    @select="$emit('previewResupplyStep', $event)"
+                />
                 <ResupplyBadge
                     v-for="(resource, index) in ['coal', 'oil', 'garbage']"
                     :key="resource"
@@ -98,6 +104,12 @@
                 >South Market</text
             >
             <g v-if="resourceResupply" class="resupply-strip">
+                <ResupplySteps
+                    :transform="`translate(${isBremenMarket ? 278 : 364}, -6)`"
+                    :selected="resupplyStep"
+                    :current="currentStep"
+                    @select="$emit('previewResupplyStep', $event)"
+                />
                 <ResupplyBadge
                     v-for="(resource, index) in isAustraliaMarket || isBremenMarket
                         ? ['coal', 'oil', 'garbage']
@@ -425,6 +437,7 @@
 
 <script lang="ts">
 import ResupplyBadge from './ResupplyBadge.vue';
+import ResupplySteps from './ResupplySteps.vue';
 import type { GameState } from 'powergrid-engine';
 import { Vue, Component, Prop, Inject } from 'vue-property-decorator';
 import { Coal, Garbage, Oil, Uranium } from '../pieces';
@@ -434,10 +447,12 @@ import { buySourceKey } from '../../util/turn-buffer';
 
 @Component({
     components: {
-        Coal, Oil, Garbage, Uranium, ResupplyBadge
+        Coal, Oil, Garbage, Uranium, ResupplyBadge, ResupplySteps
     },
 })
 export default class Resources extends Vue {
+    @Prop({ default: 1 }) resupplyStep!: number;
+    @Prop({ default: 1 }) currentStep!: number;
     @Prop({ default: false }) parallelMarkets!: boolean;
     @Prop() resourceResupply?: number[];
     @Prop() resourceResupplyNorth?: number[];

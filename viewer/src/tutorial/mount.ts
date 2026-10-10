@@ -40,8 +40,6 @@ export const mountTutorial: TutorialMount = async (target, { chapter, onProgress
             adjustPlayerOrder: false,
             undoWholeTurn: true,
             fitToScreen: true,
-            stackOnPortrait: true,
-            portraitResourceTrack: false,
         }),
         interactionDisabled: false,
         tutorialMove: (move) => {

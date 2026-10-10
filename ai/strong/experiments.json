@@ -36136,7 +36136,7 @@
         "decision": "Two-player economic floor still fails (55.31%; original/sealed48.75%); A260 gain is retained but insufficient for qualification."
     },
     "five_plant_ablation_v1": {
-        "status": "Four HF H200 jobs RUNNING; parent CPU evaluation submitted",
+        "status": "Four HF H200 trainers running; parent4000-game screen complete and independently verified; final-only CPU coordinator live",
         "protocol": "five-plant-ablation-protocol-v1.json",
         "training_status": "five-plant-ablation-status-v1.json",
         "source": "five-plant-ablation-source-v1.json",
@@ -36150,7 +36150,23 @@
         ],
         "games_per_screen": 4000,
         "qualification_eligible": false,
-        "next": "Inspect actual jobs; collect original population primary results. Launch final-only new ablation screens after complete training; preserve all count/rule/reference cells and both seed contrasts. Old coordinator does not own ablation screens.",
-        "numeric_limitation": "Original u79 and full transfer share one strict batch16 ONNX logit mismatch; all choices agree and all2553 single-request checks pass. Exact PyTorch transfer at batch1 and16. No tolerance changes."
+        "next": "Inspect both coordinators and exact trainer handles; do not manually launch duplicate final screens. Collect all seed/count/rule contrasts when ready, preserving failed cells and no final qualification.",
+        "numeric_limitation": "Original u79 and full transfer share one strict batch16 ONNX logit mismatch; all choices agree and all2553 single-request checks pass. Exact PyTorch transfer at batch1 and16. No tolerance changes.",
+        "parent_results": "five-plant-parent-screen-v1.json",
+        "coordinator_status": "five-plant-coordinator-status-v1.json",
+        "coordinator_job_id": "6aca236f095c578089311e41"
+    },
+    "bid_candidate_audit_v1": {
+        "status": "Read-only fixed-fixture coverage and frozen-parent inference audit complete; no game outcomes or training",
+        "results": "bid-candidate-audit-v1.json",
+        "artifact_revision": "4b8c97343d4be022d003002e5781bdfdca527041",
+        "positions": 2553,
+        "bid_positions": 564,
+        "pruned_positions": 142,
+        "pruned_sealed_positions": 42,
+        "changed_neural_choices": 13,
+        "neural_chose_omitted_bid": 12,
+        "qualification_eligible": false,
+        "next": "A separately versioned controlled full-legal sealed-bid experiment may be justified. Preserve active ablation and old opponents; create separate all-engine-legal fixtures with identical requests instead of weakening existing tests."
     }
 }

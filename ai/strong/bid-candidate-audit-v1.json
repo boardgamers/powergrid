@@ -1,0 +1,381 @@
+{
+  "artifact_revision": "4b8c97343d4be022d003002e5781bdfdca527041",
+  "prefix": "runs/bid-candidate-audit-v1",
+  "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+  "runtime_source_revision": "8349b1348a9d6d7fd9efe4382d77619d75fcc14d",
+  "runtime_matches_training_archive": true,
+  "runtime_sha256": {
+    "../core.cjs": "606a398158e936fd0543c3a758293a66f84213ab8d913970d4e55ddc53fb413e",
+    "./economics.cjs": "7265923548a15940a33f24d70b2d6419119ef8d759fca1637640f4ff6e9aef58",
+    "./economics-v4_1.cjs": "4033d2a3f64751a2f57b9b1f847a0d6e3066b3b4a1a91ddf0dd862eabd270a03"
+  },
+  "model_revision": "0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a",
+  "model_path": "runs/multiplayer-refine-hard-v1/latest.onnx",
+  "model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+  "qualification_eligible": false,
+  "trained": false,
+  "game_outcomes_evaluated": false,
+  "files": {
+    "coverage.json": "d60c4be55b9ecc652b0d3431c226dd86ed4aebf1d07d048e077204132302ffe8",
+    "inference.json": "79331917f1f599d0c4dd5b8561f9c793efa7da7f428fc1fc99db2f3221d77ada",
+    "encoded.jsonl": "eacf8c2c60ec0299c8908f1f8b091d5c1562bde901b42a9a7a83f15f5ac0a31b",
+    "audit-bid-candidates.cjs": "9540343e899d79681982c280343852884310e9ba687913112314bd9c9f09d1da",
+    "encode-full-bid-audit.cjs": "7909ed34c0adb66803c50f9de8def28132689544f75b14e7beaa2049743c9257",
+    "check-full-bid-audit.py": "2ab0080aac526606e9b8cbe07b19ba2182cd73abbae73c360de05d189c906c50"
+  },
+  "positions": 2553,
+  "bid_positions": 564,
+  "pruned_positions": 142,
+  "pruned_sealed_positions": 42,
+  "heuristic_preferred_bids_all_omitted": 14,
+  "changed_neural_choices": 13,
+  "neural_omitted_bid_selected": 12,
+  "coverage_cells": {
+    "2p/original/sealed": {
+      "positions": 5,
+      "pruned_positions": 4,
+      "legal_bids": 572,
+      "omitted_bids": 453,
+      "old_best_all_omitted": 3,
+      "corrected_best_all_omitted": 3
+    },
+    "2p/recharged/sealed": {
+      "positions": 4,
+      "pruned_positions": 2,
+      "legal_bids": 219,
+      "omitted_bids": 135,
+      "old_best_all_omitted": 2,
+      "corrected_best_all_omitted": 2
+    },
+    "2p/original/open": {
+      "positions": 20,
+      "pruned_positions": 14,
+      "legal_bids": 1951,
+      "omitted_bids": 1474,
+      "old_best_all_omitted": 0,
+      "corrected_best_all_omitted": 0
+    },
+    "2p/recharged/open": {
+      "positions": 21,
+      "pruned_positions": 13,
+      "legal_bids": 1186,
+      "omitted_bids": 719,
+      "old_best_all_omitted": 0,
+      "corrected_best_all_omitted": 0
+    },
+    "3p/original/sealed": {
+      "positions": 7,
+      "pruned_positions": 6,
+      "legal_bids": 583,
+      "omitted_bids": 438,
+      "old_best_all_omitted": 2,
+      "corrected_best_all_omitted": 2
+    },
+    "3p/recharged/sealed": {
+      "positions": 8,
+      "pruned_positions": 2,
+      "legal_bids": 267,
+      "omitted_bids": 108,
+      "old_best_all_omitted": 0,
+      "corrected_best_all_omitted": 0
+    },
+    "3p/original/open": {
+      "positions": 27,
+      "pruned_positions": 14,
+      "legal_bids": 1470,
+      "omitted_bids": 827,
+      "old_best_all_omitted": 0,
+      "corrected_best_all_omitted": 0
+    },
+    "3p/recharged/open": {
+      "positions": 20,
+      "pruned_positions": 2,
+      "legal_bids": 689,
+      "omitted_bids": 134,
+      "old_best_all_omitted": 0,
+      "corrected_best_all_omitted": 0
+    },
+    "4p/original/sealed": {
+      "positions": 14,
+      "pruned_positions": 5,
+      "legal_bids": 677,
+      "omitted_bids": 332,
+      "old_best_all_omitted": 1,
+      "corrected_best_all_omitted": 1
+    },
+    "4p/recharged/sealed": {
+      "positions": 17,
+      "pruned_positions": 5,
+      "legal_bids": 788,
+      "omitted_bids": 336,
+      "old_best_all_omitted": 1,
+      "corrected_best_all_omitted": 1
+    },
+    "4p/original/open": {
+      "positions": 40,
+      "pruned_positions": 6,
+      "legal_bids": 1607,
+      "omitted_bids": 362,
+      "old_best_all_omitted": 0,
+      "corrected_best_all_omitted": 0
+    },
+    "4p/recharged/open": {
+      "positions": 53,
+      "pruned_positions": 26,
+      "legal_bids": 3522,
+      "omitted_bids": 2307,
+      "old_best_all_omitted": 0,
+      "corrected_best_all_omitted": 0
+    },
+    "5p/original/sealed": {
+      "positions": 24,
+      "pruned_positions": 7,
+      "legal_bids": 1164,
+      "omitted_bids": 547,
+      "old_best_all_omitted": 2,
+      "corrected_best_all_omitted": 2
+    },
+    "5p/recharged/sealed": {
+      "positions": 23,
+      "pruned_positions": 5,
+      "legal_bids": 889,
+      "omitted_bids": 350,
+      "old_best_all_omitted": 2,
+      "corrected_best_all_omitted": 2
+    },
+    "5p/original/open": {
+      "positions": 46,
+      "pruned_positions": 15,
+      "legal_bids": 1952,
+      "omitted_bids": 890,
+      "old_best_all_omitted": 0,
+      "corrected_best_all_omitted": 0
+    },
+    "5p/recharged/open": {
+      "positions": 51,
+      "pruned_positions": 5,
+      "legal_bids": 1394,
+      "omitted_bids": 215,
+      "old_best_all_omitted": 0,
+      "corrected_best_all_omitted": 0
+    },
+    "6p/original/sealed": {
+      "positions": 29,
+      "pruned_positions": 1,
+      "legal_bids": 668,
+      "omitted_bids": 44,
+      "old_best_all_omitted": 0,
+      "corrected_best_all_omitted": 0
+    },
+    "6p/recharged/sealed": {
+      "positions": 29,
+      "pruned_positions": 5,
+      "legal_bids": 919,
+      "omitted_bids": 259,
+      "old_best_all_omitted": 1,
+      "corrected_best_all_omitted": 1
+    },
+    "6p/original/open": {
+      "positions": 70,
+      "pruned_positions": 1,
+      "legal_bids": 1958,
+      "omitted_bids": 48,
+      "old_best_all_omitted": 0,
+      "corrected_best_all_omitted": 0
+    },
+    "6p/recharged/open": {
+      "positions": 56,
+      "pruned_positions": 4,
+      "legal_bids": 1434,
+      "omitted_bids": 195,
+      "old_best_all_omitted": 0,
+      "corrected_best_all_omitted": 0
+    }
+  },
+  "neural_cells": {
+    "2p/original/sealed": {
+      "positions": 4,
+      "changed_choices": 3,
+      "chose_omitted_bid": 2,
+      "changed_to_retained_move": 1,
+      "original_actions": 87,
+      "expanded_actions": 540
+    },
+    "2p/recharged/sealed": {
+      "positions": 2,
+      "changed_choices": 2,
+      "chose_omitted_bid": 2,
+      "changed_to_retained_move": 0,
+      "original_actions": 35,
+      "expanded_actions": 170
+    },
+    "2p/original/open": {
+      "positions": 14,
+      "changed_choices": 0,
+      "chose_omitted_bid": 0,
+      "changed_to_retained_move": 0,
+      "original_actions": 300,
+      "expanded_actions": 1774
+    },
+    "2p/recharged/open": {
+      "positions": 13,
+      "changed_choices": 0,
+      "chose_omitted_bid": 0,
+      "changed_to_retained_move": 0,
+      "original_actions": 210,
+      "expanded_actions": 929
+    },
+    "3p/original/sealed": {
+      "positions": 6,
+      "changed_choices": 1,
+      "chose_omitted_bid": 1,
+      "changed_to_retained_move": 0,
+      "original_actions": 106,
+      "expanded_actions": 544
+    },
+    "3p/recharged/sealed": {
+      "positions": 2,
+      "changed_choices": 0,
+      "chose_omitted_bid": 0,
+      "changed_to_retained_move": 0,
+      "original_actions": 30,
+      "expanded_actions": 138
+    },
+    "3p/original/open": {
+      "positions": 14,
+      "changed_choices": 0,
+      "chose_omitted_bid": 0,
+      "changed_to_retained_move": 0,
+      "original_actions": 227,
+      "expanded_actions": 1054
+    },
+    "3p/recharged/open": {
+      "positions": 2,
+      "changed_choices": 0,
+      "chose_omitted_bid": 0,
+      "changed_to_retained_move": 0,
+      "original_actions": 33,
+      "expanded_actions": 167
+    },
+    "4p/original/sealed": {
+      "positions": 5,
+      "changed_choices": 1,
+      "chose_omitted_bid": 1,
+      "changed_to_retained_move": 0,
+      "original_actions": 83,
+      "expanded_actions": 415
+    },
+    "4p/recharged/sealed": {
+      "positions": 5,
+      "changed_choices": 1,
+      "chose_omitted_bid": 1,
+      "changed_to_retained_move": 0,
+      "original_actions": 86,
+      "expanded_actions": 422
+    },
+    "4p/original/open": {
+      "positions": 6,
+      "changed_choices": 0,
+      "chose_omitted_bid": 0,
+      "changed_to_retained_move": 0,
+      "original_actions": 99,
+      "expanded_actions": 461
+    },
+    "4p/recharged/open": {
+      "positions": 26,
+      "changed_choices": 0,
+      "chose_omitted_bid": 0,
+      "changed_to_retained_move": 0,
+      "original_actions": 510,
+      "expanded_actions": 2817
+    },
+    "5p/original/sealed": {
+      "positions": 7,
+      "changed_choices": 2,
+      "chose_omitted_bid": 2,
+      "changed_to_retained_move": 0,
+      "original_actions": 129,
+      "expanded_actions": 676
+    },
+    "5p/recharged/sealed": {
+      "positions": 5,
+      "changed_choices": 2,
+      "chose_omitted_bid": 2,
+      "changed_to_retained_move": 0,
+      "original_actions": 88,
+      "expanded_actions": 438
+    },
+    "5p/original/open": {
+      "positions": 15,
+      "changed_choices": 0,
+      "chose_omitted_bid": 0,
+      "changed_to_retained_move": 0,
+      "original_actions": 243,
+      "expanded_actions": 1133
+    },
+    "5p/recharged/open": {
+      "positions": 5,
+      "changed_choices": 0,
+      "chose_omitted_bid": 0,
+      "changed_to_retained_move": 0,
+      "original_actions": 73,
+      "expanded_actions": 288
+    },
+    "6p/original/sealed": {
+      "positions": 1,
+      "changed_choices": 0,
+      "chose_omitted_bid": 0,
+      "changed_to_retained_move": 0,
+      "original_actions": 14,
+      "expanded_actions": 58
+    },
+    "6p/recharged/sealed": {
+      "positions": 5,
+      "changed_choices": 1,
+      "chose_omitted_bid": 1,
+      "changed_to_retained_move": 0,
+      "original_actions": 77,
+      "expanded_actions": 336
+    },
+    "6p/original/open": {
+      "positions": 1,
+      "changed_choices": 0,
+      "chose_omitted_bid": 0,
+      "changed_to_retained_move": 0,
+      "original_actions": 15,
+      "expanded_actions": 63
+    },
+    "6p/recharged/open": {
+      "positions": 4,
+      "changed_choices": 0,
+      "chose_omitted_bid": 0,
+      "changed_to_retained_move": 0,
+      "original_actions": 61,
+      "expanded_actions": 256
+    }
+  },
+  "parity": {
+    "original": {
+      "positions": 142,
+      "strict_failures": [],
+      "decision_mismatches": [],
+      "max_logit_error": 2.288818359375e-05,
+      "max_value_error": 7.748603820800781e-07
+    },
+    "expanded": {
+      "positions": 142,
+      "strict_failures": [],
+      "decision_mismatches": [],
+      "max_logit_error": 2.6702880859375e-05,
+      "max_value_error": 7.748603820800781e-07
+    }
+  },
+  "limitations": [
+    "Saved serving fixtures are stratified coverage, not a representative prevalence estimate.",
+    "Heuristic or frozen-model preference does not prove action quality; no game outcomes or causal strength gains measured.",
+    "Expanding the menu also changes menu-relative best-heuristic flag at action index75; all other existing features and full state verified exact.",
+    "Current fixture legal lists use c.candidates, a pruned subset of engine legality. Any future full-menu experiment needs a separate fixture manifest with exact engine allLegal lists and identical requests; do not alter current experiment or relabel archived evidence.",
+    "Diagnostic candidate override is single-process and restored exactly. A real experiment requires a versioned per-actor encoder/menu so retained opponents keep their original behavior."
+  ],
+  "next": "Consider separately frozen full-legal sealed-bid inference experiment with unchanged weights and paired development games, keeping all existing baselines and adding appropriate unpruned reference opposition. Do not change running input ablation."
+}

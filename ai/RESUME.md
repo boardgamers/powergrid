@@ -4,14 +4,104 @@
 final-test seeds remain unused.** The separate UI redesign was reverted.
 
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
-`ai/germany-baseline`. The previous goal turn made concrete progress by freezing
-and launching a matched,
-two-seed five-plant input ablation. This turn collected the heterogeneous final
-checkpoint, verified its 3,680 development games, and launched the parent reference
-for the new controlled comparison. Both turns are **progress**, not an unchanged
-wait. No candidate is qualified; there is no external blocker.
+`ai/germany-baseline`. The previous goal turn made concrete progress by collecting the final heterogeneous
+result and launching the new parent evaluation. This turn completed its independent
+4,000-game verification, started a durable final-only coordinator for the four
+training runs, and audited a concrete sealed-bid candidate limitation. Both turns
+are **progress**. No candidate is qualified and there is no external blocker.
 
-## Current work: final population result and two-seed input ablation (11:29 UTC)
+## Latest: parent reference complete, automatic final evaluations, bid-menu audit
+
+The parent screen **COMPLETED**, HF job `6aca2110095c578089311b47`. Independent
+collection at model revision **`616b253875d3219667a3041ae192a2d46f2fbb92`** verified
+all artifact/source/protocol hashes, all 2,553 strict export and legal serving
+checks, and all 4,000 game outcomes with zero truncations. Exact 40 deals, every
+seat and all four rules in each of seven cells; final reserved seeds unused.
+`strong/five-plant-parent-screen-v1.json` contains all count/rule cells and
+20,000-bootstrap whole-deal intervals. Raw local data is
+`ai/runs/five-plant-comparison-v1/parent`.
+
+| Parent on fresh ablation deals | Econ 2p | 3p | 4p | 5p | 6p | Corrected econ 2p | A260 3p |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Win share (%) | 54.06 | 62.81 | 56.56 | 75.75 | 73.70 | 50.63 | 38.96 |
+
+The original/open 2p subgroup against economic is 38.75%. These are different
+fresh deals from prior screens, not a change in the frozen parent. Compare each
+new model against these same paired deals; never compare unpaired percentages
+across seed sets as a training effect. This is an unqualified reference, not a
+new candidate or evidence the two-player gap has closed.
+
+### Evaluation ownership: do not manually duplicate any new ablation screen
+
+New CPU-basic coordinator **`6aca236f095c578089311e41`** is RUNNING (confirmed
+11:38–11:39 UTC). It has collected the existing parent without starting any new
+parent games. It owns **all four final update19 ablation evaluations**. It waits
+for each named trainer to be authoritatively COMPLETED, validates the final
+wrapper/checkpoint/metrics, pins an immutable model revision, and launches one
+CPU-performance screen per final model. Intermediate checkpoints/internal best
+are never selected. It independently collects the seven cells and compares
+both training seeds after all five reference/candidate screens are verified.
+
+- State: model repo `runs/five-plant-coordinator-v1/state.json` (pin a repo revision).
+- Config/source/status: `strong/five-plant-coordinator-{config,source,status}-v1.json`.
+- Source archive: `strong-source-five-plant-coordinator-20261010-v1.tgz`.
+- Dataset revision: **`f9097a2f61eeeef636b13f9f92a9320149c1ff64`**.
+- Source SHA: `aad13711f2ebfdeb27b9f5ed089a28ef23a7dc56a6793b83530534f64d7fdba1`.
+- Persistent launch intent: `ai/runs/five-plant-coordinator-launch-v1.json`.
+- Four local screen intents are reserved as `coordinator_owned` under
+  `ai/runs/five-plant-screen-launches-v1`; do not delete or bypass these guards.
+
+It persists intents before submission, never retries an ambiguous POST, keeps
+observing the same handle after a read timeout, and only treats explicit HF
+terminal stages as terminal. Failures do not abandon live peers. State-only
+recovery rehydrates exact pinned artifacts before comparison. Ten focused
+failure/recovery tests pass; the five screen-validation tests and existing
+80-game mixed-revision integration test also pass (16 tests total). Its startup
+tests passed on HF, then parent collection succeeded. Final learner collection
+is still pending and must not be inferred from parent success.
+
+The old population coordinator `6aca0d29095c578089310fca` separately retains
+ownership of homogeneous/control update19 and all-arm comparisons. Do not mix
+their states or manually duplicate either coordinator's work.
+
+### Confirmed action-menu limitation; diagnostic only, not a strength result
+
+`ai/core.cjs::candidates` prunes bids when more than 48 are legal: first 8,
+multiples of 10, and maximum. The exact current runtime was checked against the
+immutable training source. Audited all 2,553 serving fixtures: 564 bid positions,
+142 pruned (100 open,42 sealed), all non-bid legal moves preserved. In 14 sealed
+positions, all bids preferred by the economic heuristic were omitted. Both
+original and capacity-aware heuristic preferences had the same omission counts.
+This is a stratified fixture corpus, **not a prevalence estimate**.
+
+A separate read-only encoding/inference audit evaluated all legal bids on those
+142 positions using frozen original u79 weights. State and all existing action
+features except the menu-relative best-heuristic flag (index 75) remained exact;
+the temporary candidate override was restored exactly and no game state changed.
+The model changed 13 sealed choices, 12 to bids absent from its original menu
+(4 of these were in 2p). All 100 pruned open-auction choices stayed unchanged.
+PyTorch/ONNX strict single-request logits/values and chosen actions agreed on
+both original and expanded sets of 142 positions. Example changes 40→48 or 8→9 are model
+preferences, **not proof of better play**. No games or gradients ran for this
+audit, and no production encoder/baseline/training job was changed.
+
+Raw coverage, per-position choices, encoded pairs and runnable audit scripts are
+persistent in model repo `runs/bid-candidate-audit-v1`, revision
+**`4b8c97343d4be022d003002e5781bdfdca527041`**. Tracked summary/provenance:
+`strong/bid-candidate-audit-v1.json`. It supports a future separately frozen
+full-legal sealed-bid experiment with unchanged weights, paired outcomes, all
+existing baselines plus appropriate unpruned opposition. Do not alter the
+running two-seed input ablation or call this a demonstrated strength gain.
+
+**Fixture caveat for that future experiment:** existing fixture `legal` lists
+are `c.candidates`, a pruned subset of engine legality. An expanded-menu encoder
+needs a separate fixture manifest built from exact engine `allLegal` lists and
+identical requests, plus a versioned per-actor action-menu/encoder contract.
+Do not weaken current checks, mutate existing fixtures, apply a global override
+in actual games, or silently change retained opponents. The diagnostic override
+in `encode-full-bid-audit.cjs` is for isolated read-only inference only.
+
+## Previous: final population result and two-seed input ablation (11:29 UTC)
 
 The original **heterogeneous update19** trainer has COMPLETED. Its prescribed
 final development screen is independently verified: 3,680 complete games, all
@@ -81,9 +171,9 @@ and legal serving checks. Initializers are not deployment candidates.
 ### New development evaluation and next steps
 
 `strong/five_plant_screen.py` validates all final artifact hashes, initialization,
-frozen opponents, all20 balanced batches, game/search caps, snapshot admission,
+frozen opponents, all 20 balanced batches, game/search caps, snapshot admission,
 finite weights and zero/nonzero extra projections. It then runs strict parity and
-legal serving on all2,553 fixtures before seven independent evaluation cells.
+legal serving on all 2,553 fixtures before seven independent evaluation cells.
 Each final candidate and original parent gets **4,000 games**: economic2–6,
 capacity-aware economic2p, frozenA2603p, on the same40 fresh development deals per
 count (`five-plant-ablation-screen-v1-{players}p`), all seats/rules. No search added
@@ -104,19 +194,17 @@ Five evidence-rejection tests pass (wrong encoder/model/opponent, missing paired
 seat/rule/deal, actual/search caps, repeated deals). All six old final population
 cell verifications reproduce unchanged after optional encoder-tag support.
 
-When each trainer COMPLETES, locate an immutable model revision containing its
-complete `ablation-check.json` and update19 artifacts; launch one
-`launch-five-plant-screen.py KEY REV`. Persistent local intents prevent duplicates.
-**There is no coordinator for these four new screens yet.** The old population
-coordinator does not own this experiment. Do not use its u9 checkpoint discovery.
-After each screen completes, pin result revision and independently collect with
+The new coordinator described above now owns every final screen. Do not manually
+launch `launch-five-plant-screen.py` while it is live, and never bypass recorded
+intents after observation timeouts. Only reconcile recovery against authoritative
+job state and persisted remote intent/job IDs. Its collector pins each completed result revision and runs
 `collect-five-plant-screen.py KEY REV ai/runs/five-plant-comparison-v1/KEY`.
 The collector verifies source/protocol provenance, retraces all training artifact
 hashes and rechecks all raw outcomes. Preserve all seven cells and rule subgroups.
 Once parent plus four finals are collected, run `compare-five-plant-screens.py
 ai/runs/five-plant-comparison-v1 --output PATH`. It reports full-minus-control
-separately for both training seeds and against parent, using20,000 whole-deal
-bootstrap draws with seed10031. Reused40 deals do **not** become80 independent
+separately for both training seeds and against parent, using 20,000 whole-deal
+bootstrap draws with seed10031. Reused 40 deals do **not** become 80 independent
 deals across training seeds. Assess consistent two-player gains and regressions
 in both seeds, references and every other count; do not select a convenient cell.
 

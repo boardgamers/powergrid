@@ -1,0 +1,13 @@
+{
+  "training_jobs": {
+    "control-s10031": "6aca1efa095c578089311a40",
+    "full-s10031": "6aca1efa095c578089311a42",
+    "control-s10032": "6aca1efb095c578089311a44",
+    "full-s10032": "6aca1efcfee2c90070186af2"
+  },
+  "parent_job": "6aca2110095c578089311b47",
+  "output_prefix": "runs/five-plant-coordinator-v1",
+  "poll_seconds": 120,
+  "max_hours": 11.5,
+  "purpose": "Own only final update19 five-plant ablation evaluations, collect existing parent, compare both seeds. No intermediate checkpoint selection, new training, altered protocol or final reserved seeds."
+}

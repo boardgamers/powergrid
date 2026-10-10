@@ -1,0 +1,22 @@
+{
+  "archive": "strong-source-five-plant-coordinator-20261010-v1.tgz",
+  "sha256": "aad13711f2ebfdeb27b9f5ed089a28ef23a7dc56a6793b83530534f64d7fdba1",
+  "bytes": 13573635,
+  "base": {
+    "archive": "strong-source-five-plant-screen-20261010-v1.tgz",
+    "revision": "79480a2c32e9ecdffce00440e1150cb857c18d1e",
+    "sha256": "2540dd5ccaee671baf47467c9e184dd7dda602de98cf07b898fff15f7ccc96b0"
+  },
+  "overlays": {
+    "ai/strong/five_plant_coordinator.py": "128ea6e2ecbe7b78d9061799a61f8abd0ab2d23cbdee3880348b37d43416a23d",
+    "ai/strong/test_five_plant_coordinator.py": "52ca66b3447edd16f36e7b5106fe31e6abfeb3cf3688a270641a4848a0e76874",
+    "ai/strong/five-plant-coordinator-config-v1.json": "34a34f24f8170cfc813b33d76abddc86d5736ffa16fd5413558b66d58ec9a0d8",
+    "ai/strong/five-plant-screen-source-v1.json": "b47bf93644230f17a3eabc8d4bde9f3763c562190b40d2614e60dd3b5cf8022a",
+    "ai/strong/population-coordinator.py": "bb1b2a9f087e92ef14a77960ba44d42bf2f5acecfe7d5202d4039674d2d5a918",
+    "ai/strong/compare-population-screens.py": "b74bac5c403d5a96e79fddf43b4dcd9b715d5124e9c2681983ad519e2177d887",
+    "ai/strong/compare-five-plant-screens.py": "371478e6df14cc4855fe36f285928da667d8a079ca284dc03a672abeccd1b3a8",
+    "ai/strong/launch-five-plant-coordinator-v1.sh": "c56c60a188e817c391a15e5238d7e27f5ffc5f2da96b2795859db7b441fd1901"
+  },
+  "scope": "Only observe fixed four trainers, collect existing parent, launch one final screen per completed trainer and compare two seeds. No new training or final qualification.",
+  "revision": "f9097a2f61eeeef636b13f9f92a9320149c1ff64"
+}

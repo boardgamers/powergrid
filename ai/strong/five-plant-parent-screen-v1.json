@@ -1,0 +1,378 @@
+{
+  "verified": {
+    "key": "parent",
+    "revision": "616b253875d3219667a3041ae192a2d46f2fbb92",
+    "verified": true,
+    "screen_report_sha256": "c9315e67bc7741c42309506672232188642acfad0036eb502331c609467ca21c",
+    "games": 4000,
+    "truncations": 0,
+    "qualification_eligible": false
+  },
+  "summary": {
+    "checkpoint": {
+      "key": "parent",
+      "revision": "0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a",
+      "path": "runs/multiplayer-refine-hard-v1",
+      "feature_revision": "4.0-multiplayer",
+      "hashes": {
+        "latest.pt": "1f9d1c89908ab036f6e6a54facba94b352bbae005e1ac042d88c60067e895224",
+        "latest.onnx": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+        "metrics.json": "96d519130a8ef7adef2e628b03d6cee1a281ee67f27b5c529226f6682dd7faa5",
+        "schema.json": "d3eb65a65cd3bbdfb2e09fc6caff0dc6e0953c1a939dc8ceeeb5c800c491eff6"
+      },
+      "training": {
+        "scope": "Frozen original parent; not trained in this experiment"
+      },
+      "qualification_eligible": false
+    },
+    "cells": {
+      "economic/2p": {
+        "games": 320,
+        "independent_deals": 40,
+        "win_rate": 0.540625,
+        "deal_bootstrap_95_interval": [
+          0.478125,
+          0.603125
+        ],
+        "artifact_sha256": "98c781feb79c29e6a3dd75781854534f50fec18d316ef9fe348cc7d8065f5e6f",
+        "truncations": 0,
+        "by_rules": {
+          "original/open": {
+            "games": 80,
+            "independent_deals": 40,
+            "win_rate": 0.3875,
+            "deal_bootstrap_95_interval": [
+              0.275,
+              0.5125
+            ]
+          },
+          "original/sealed": {
+            "games": 80,
+            "independent_deals": 40,
+            "win_rate": 0.5375,
+            "deal_bootstrap_95_interval": [
+              0.425,
+              0.65
+            ]
+          },
+          "recharged/open": {
+            "games": 80,
+            "independent_deals": 40,
+            "win_rate": 0.65,
+            "deal_bootstrap_95_interval": [
+              0.5375,
+              0.75
+            ]
+          },
+          "recharged/sealed": {
+            "games": 80,
+            "independent_deals": 40,
+            "win_rate": 0.5875,
+            "deal_bootstrap_95_interval": [
+              0.4875,
+              0.6875
+            ]
+          }
+        }
+      },
+      "economic/3p": {
+        "games": 480,
+        "independent_deals": 40,
+        "win_rate": 0.628125,
+        "deal_bootstrap_95_interval": [
+          0.5760416666666667,
+          0.6802083333333334
+        ],
+        "artifact_sha256": "11d5d2ec4558d6c3d0fb27d6381174f24cec499d78af23effe58288fed88db53",
+        "truncations": 0,
+        "by_rules": {
+          "original/open": {
+            "games": 120,
+            "independent_deals": 40,
+            "win_rate": 0.525,
+            "deal_bootstrap_95_interval": [
+              0.4416666666666666,
+              0.6083333333333333
+            ]
+          },
+          "original/sealed": {
+            "games": 120,
+            "independent_deals": 40,
+            "win_rate": 0.5375,
+            "deal_bootstrap_95_interval": [
+              0.45,
+              0.625
+            ]
+          },
+          "recharged/open": {
+            "games": 120,
+            "independent_deals": 40,
+            "win_rate": 0.7833333333333333,
+            "deal_bootstrap_95_interval": [
+              0.7,
+              0.8583333333333332
+            ]
+          },
+          "recharged/sealed": {
+            "games": 120,
+            "independent_deals": 40,
+            "win_rate": 0.6666666666666666,
+            "deal_bootstrap_95_interval": [
+              0.5583333333333333,
+              0.7666666666666666
+            ]
+          }
+        }
+      },
+      "economic/4p": {
+        "games": 640,
+        "independent_deals": 40,
+        "win_rate": 0.565625,
+        "deal_bootstrap_95_interval": [
+          0.525,
+          0.60625
+        ],
+        "artifact_sha256": "fb75d7f10561b96abf95c7bdc83ee1a3c8222295d2fc85fb8d399fb071ebee87",
+        "truncations": 0,
+        "by_rules": {
+          "original/open": {
+            "games": 160,
+            "independent_deals": 40,
+            "win_rate": 0.45,
+            "deal_bootstrap_95_interval": [
+              0.3625,
+              0.5375
+            ]
+          },
+          "original/sealed": {
+            "games": 160,
+            "independent_deals": 40,
+            "win_rate": 0.425,
+            "deal_bootstrap_95_interval": [
+              0.34375,
+              0.50625
+            ]
+          },
+          "recharged/open": {
+            "games": 160,
+            "independent_deals": 40,
+            "win_rate": 0.73125,
+            "deal_bootstrap_95_interval": [
+              0.65625,
+              0.80625
+            ]
+          },
+          "recharged/sealed": {
+            "games": 160,
+            "independent_deals": 40,
+            "win_rate": 0.65625,
+            "deal_bootstrap_95_interval": [
+              0.575,
+              0.7375
+            ]
+          }
+        }
+      },
+      "economic/5p": {
+        "games": 800,
+        "independent_deals": 40,
+        "win_rate": 0.7575000000000001,
+        "deal_bootstrap_95_interval": [
+          0.7275,
+          0.7862500000000001
+        ],
+        "artifact_sha256": "bb7a2b22f79fbee74ae81ca911e85156354dc67c5f2147f709a8457a832e6f83",
+        "truncations": 0,
+        "by_rules": {
+          "original/open": {
+            "games": 200,
+            "independent_deals": 40,
+            "win_rate": 0.6849999999999999,
+            "deal_bootstrap_95_interval": [
+              0.615,
+              0.7549999999999999
+            ]
+          },
+          "original/sealed": {
+            "games": 200,
+            "independent_deals": 40,
+            "win_rate": 0.665,
+            "deal_bootstrap_95_interval": [
+              0.5900000000000001,
+              0.735
+            ]
+          },
+          "recharged/open": {
+            "games": 200,
+            "independent_deals": 40,
+            "win_rate": 0.89,
+            "deal_bootstrap_95_interval": [
+              0.845,
+              0.93
+            ]
+          },
+          "recharged/sealed": {
+            "games": 200,
+            "independent_deals": 40,
+            "win_rate": 0.79,
+            "deal_bootstrap_95_interval": [
+              0.7300000000000001,
+              0.85
+            ]
+          }
+        }
+      },
+      "economic/6p": {
+        "games": 960,
+        "independent_deals": 40,
+        "win_rate": 0.7369791666666666,
+        "deal_bootstrap_95_interval": [
+          0.7119791666666666,
+          0.7625
+        ],
+        "artifact_sha256": "a9019328010ba83fa68f6ee1776b9d31f42d029eea51102b77be9fb1c4a6c27e",
+        "truncations": 0,
+        "by_rules": {
+          "original/open": {
+            "games": 240,
+            "independent_deals": 40,
+            "win_rate": 0.7333333333333333,
+            "deal_bootstrap_95_interval": [
+              0.675,
+              0.7916666666666667
+            ]
+          },
+          "original/sealed": {
+            "games": 240,
+            "independent_deals": 40,
+            "win_rate": 0.6458333333333333,
+            "deal_bootstrap_95_interval": [
+              0.5875,
+              0.7041666666666666
+            ]
+          },
+          "recharged/open": {
+            "games": 240,
+            "independent_deals": 40,
+            "win_rate": 0.8270833333333332,
+            "deal_bootstrap_95_interval": [
+              0.775,
+              0.875
+            ]
+          },
+          "recharged/sealed": {
+            "games": 240,
+            "independent_deals": 40,
+            "win_rate": 0.7416666666666666,
+            "deal_bootstrap_95_interval": [
+              0.6958333333333333,
+              0.7875
+            ]
+          }
+        }
+      },
+      "economic_capacity_v1/2p": {
+        "games": 320,
+        "independent_deals": 40,
+        "win_rate": 0.50625,
+        "deal_bootstrap_95_interval": [
+          0.465625,
+          0.55
+        ],
+        "artifact_sha256": "3c1fb7c9f6a37a4e9debd660e78525d3ef9f5331f2fd4d47a5dbedc6c1821dc6",
+        "truncations": 0,
+        "by_rules": {
+          "original/open": {
+            "games": 80,
+            "independent_deals": 40,
+            "win_rate": 0.3625,
+            "deal_bootstrap_95_interval": [
+              0.2625,
+              0.4625
+            ]
+          },
+          "original/sealed": {
+            "games": 80,
+            "independent_deals": 40,
+            "win_rate": 0.4625,
+            "deal_bootstrap_95_interval": [
+              0.35,
+              0.575
+            ]
+          },
+          "recharged/open": {
+            "games": 80,
+            "independent_deals": 40,
+            "win_rate": 0.6125,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              0.7125
+            ]
+          },
+          "recharged/sealed": {
+            "games": 80,
+            "independent_deals": 40,
+            "win_rate": 0.5875,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              0.675
+            ]
+          }
+        }
+      },
+      "a260/3p": {
+        "games": 480,
+        "independent_deals": 40,
+        "win_rate": 0.38958333333333334,
+        "deal_bootstrap_95_interval": [
+          0.3416666666666667,
+          0.4375
+        ],
+        "artifact_sha256": "29afa67ff6167065c4416f33627365463e80eb0ce19c67660c442f1ddfb28569",
+        "truncations": 0,
+        "by_rules": {
+          "original/open": {
+            "games": 120,
+            "independent_deals": 40,
+            "win_rate": 0.3833333333333333,
+            "deal_bootstrap_95_interval": [
+              0.275,
+              0.5
+            ]
+          },
+          "original/sealed": {
+            "games": 120,
+            "independent_deals": 40,
+            "win_rate": 0.29166666666666663,
+            "deal_bootstrap_95_interval": [
+              0.20833333333333331,
+              0.375
+            ]
+          },
+          "recharged/open": {
+            "games": 120,
+            "independent_deals": 40,
+            "win_rate": 0.5166666666666666,
+            "deal_bootstrap_95_interval": [
+              0.41666666666666663,
+              0.6166666666666666
+            ]
+          },
+          "recharged/sealed": {
+            "games": 120,
+            "independent_deals": 40,
+            "win_rate": 0.36666666666666664,
+            "deal_bootstrap_95_interval": [
+              0.2833333333333333,
+              0.45
+            ]
+          }
+        }
+      }
+    },
+    "qualification_eligible": false,
+    "scope": "Predeclared development seeds; no final qualification",
+    "bootstrap_replicates": 20000,
+    "bootstrap_seed": 10031
+  }
+}

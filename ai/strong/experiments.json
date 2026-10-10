@@ -1278,7 +1278,7 @@
                 ]
             }
         },
-        "assessment": "All counts show overall advantage versus economic baseline, but none meets the required economic win-rate floor; original/sealed near chance at 2\u20134 players.",
+        "assessment": "All counts show overall advantage versus economic baseline, but none meets the required economic win-rate floor; original/sealed near chance at 2–4 players.",
         "a260_3p_result": {
             "games": 480,
             "win_rate": 0.13541666666666666,
@@ -3605,7 +3605,7 @@
             "all_actions_match": true,
             "specialist_route_counts": {}
         },
-        "conclusion": "Two complete updates, 480 games, exactly 96/count, no game or search-rollout truncations. About 7 minutes/update including 60\u201373 seconds optimization. CPU training/export viable; tiny gameplay selection sample shows no reliable strength improvement after two updates."
+        "conclusion": "Two complete updates, 480 games, exactly 96/count, no game or search-rollout truncations. About 7 minutes/update including 60–73 seconds optimization. CPU training/export viable; tiny gameplay selection sample shows no reliable strength improvement after two updates."
     },
     "multiplayer_geoleague_cpu_v1": {
         "job_id": "6abd5cb4fbc85ba68235c728",
@@ -4520,7 +4520,7 @@
                 }
             ]
         },
-        "two_player_decision": "53.125% on 64 games / 8 independent deals; seed-cluster 95% interval 40.625\u201365.625%. Does not establish superiority or meet final strength gate. Continue refinement and other-count diagnosis; do not promote solely on 92.5% economic result.",
+        "two_player_decision": "53.125% on 64 games / 8 independent deals; seed-cluster 95% interval 40.625–65.625%. Does not establish superiority or meet final strength gate. Continue refinement and other-count diagnosis; do not promote solely on 92.5% economic result.",
         "combined_3p_a260": {
             "model_sha256": "b0521ab8dd978833658f4bc3bef05b6ab7e6f10bf17966700c6834d25012f62c",
             "model_feature_revision": "4.0-multiplayer",
@@ -4605,7 +4605,7 @@
                 }
             ]
         },
-        "three_player_a260_decision": "45.833% on 96 games / 8 independent deals; seed-cluster95% interval29.167\u201361.458%, includes33.333% chance. Promising point estimate but not verified superiority. Continue refinement and search-bot screens before expensive final qualification."
+        "three_player_a260_decision": "45.833% on 96 games / 8 independent deals; seed-cluster95% interval29.167–61.458%, includes33.333% chance. Promising point estimate but not verified superiority. Continue refinement and search-bot screens before expensive final qualification."
     },
     "multiplayer_search_proposal_ablation": {
         "job_id": "6abd64b7404719ba376142d8",
@@ -4773,7 +4773,7 @@
         "samples": 48,
         "geographic": true,
         "deals_per_count": 8,
-        "purpose": "Development screen at 4\u20136 players against all geographic-search opponents; both variants, both auction modes, every learner seat. Not final qualification.",
+        "purpose": "Development screen at 4–6 players against all geographic-search opponents; both variants, both auction modes, every learner seat. Not final qualification.",
         "jobs": [
             {
                 "run": "multiplayer-hard-e10-search48-search_geo-4p-probe-0",
@@ -8598,7 +8598,7 @@
             ],
             "archive_sha256": "be0a6acaf6d7432c90bf1a447e60f1517486a34c582e84a1a99801d091f82714"
         },
-        "purpose": "Generate fresh supervised examples under strong opponent resource/city pressure; existing teacher data uses only economic/heuristic/rush opponents. Pilot before scaling across2\u20136players. Existing PPO jobs unchanged.",
+        "purpose": "Generate fresh supervised examples under strong opponent resource/city pressure; existing teacher data uses only economic/heuristic/rush opponents. Pilot before scaling across2–6players. Existing PPO jobs unchanged.",
         "local_validation": "One complete3p game with one sample per search:118 valid schema4 positions,450 opponent rollouts, no game/teacher/opponent truncation; value rotations and candidate targets validated. No local optimization.",
         "acceptance": "Require all24 complete games, every seat/rule cell exactly twice, zero teacher/opponent rollout truncation, valid targets and outcomes, and measurable teacher performance before dataset scaling. Do not treat training-data win rate as held-out strength evidence.",
         "status": "COMPLETED",
@@ -20245,7 +20245,7 @@
         "scope": "Paired held-out development screening; not final qualification",
         "arena_source": "37465b08df007221665d796448aea57e6828257e",
         "search_samples": 0,
-        "decision": "Completed research-only screen: 3680 games, 40 independent deals per player count, exact model hashes and seat/rule pairs verified, zero actual-game or search truncation. Economic win rates for 2\u20136 players: 55.78125%, 55.416667%, 52.34375%, 63.875%, 57.916667%; A260 3p: 29.583333%. All six paired intervals against geographic update19 include zero: no supported improvement. Against geographic update29, 4p regresses by 6.09375 percentage points (95% paired seed interval -11.25 to -0.78125); other differences uncertain. Against H200 update49, supported deficits at 5p (-12.625 points), 6p (-15.833333 points), and A260 3p (-8.541667 points). Do not promote. Strict export parity also remains failed on one near-zero logit despite all 2553 matching actions. Preserve existing training horizons and reserved final seeds.",
+        "decision": "Completed research-only screen: 3680 games, 40 independent deals per player count, exact model hashes and seat/rule pairs verified, zero actual-game or search truncation. Economic win rates for 2–6 players: 55.78125%, 55.416667%, 52.34375%, 63.875%, 57.916667%; A260 3p: 29.583333%. All six paired intervals against geographic update19 include zero: no supported improvement. Against geographic update29, 4p regresses by 6.09375 percentage points (95% paired seed interval -11.25 to -0.78125); other differences uncertain. Against H200 update49, supported deficits at 5p (-12.625 points), 6p (-15.833333 points), and A260 3p (-8.541667 points). Do not promote. Strict export parity also remains failed on one near-zero logit despite all 2553 matching actions. Preserve existing training horizons and reserved final seeds.",
         "qualification_eligible": false,
         "reports": {
             "multiplayer-geoleague-u39-economic-2p": {
@@ -20911,7 +20911,7 @@
         }
     },
     "multiplayer_raw_search_auction_gap_audit": {
-        "scope": "Existing eight development deals per count, raw models against search_geo16, Germany 2\u20136 players. Exploratory paired rule contrasts; no new games or reserved final seeds. Intervals are marginal, not multiplicity-adjusted. Rule changes alter trajectories, so this is not a causal auction-only effect.",
+        "scope": "Existing eight development deals per count, raw models against search_geo16, Germany 2–6 players. Exploratory paired rule contrasts; no new games or reserved final seeds. Intervals are marginal, not multiplicity-adjusted. Rule changes alter trajectories, so this is not a causal auction-only effect.",
         "models": {
             "h200-u29": {
                 "2": {
@@ -21799,7 +21799,7 @@
                 },
                 "money": 60,
                 "cities": [
-                    "K\u00f6ln",
+                    "Köln",
                     "Aachen"
                 ],
                 "legal": [
@@ -21835,7 +21835,7 @@
                 },
                 "money": 23,
                 "cities": [
-                    "K\u00f6ln",
+                    "Köln",
                     "Aachen"
                 ],
                 "legal": [
@@ -22517,10 +22517,10 @@
     },
     "multiplayer_h200_u29_u49_six_player_search_extension": {
         "status": "COMPLETED",
-        "scope": "Paired development extension to40 independent deals/model, including existing offsets0\u20137; not reserved final evaluation. Add32 deals/model at offsets8,16,24,32. Eight192-game jobs,1536 new games total. Freeze both candidates and use identical source32/search_geo16/opponent budget/horizon2400/raw policy settings.",
+        "scope": "Paired development extension to40 independent deals/model, including existing offsets0–7; not reserved final evaluation. Add32 deals/model at offsets8,16,24,32. Eight192-game jobs,1536 new games total. Freeze both candidates and use identical source32/search_geo16/opponent budget/horizon2400/raw policy settings.",
         "seed": "multiplayer-raw-search-transfer-v1-6p",
         "source_revision": "37465b08df007221665d796448aea57e6828257e",
-        "analysis_plan": "Validate all reports, model hashes, exact rule/seat pairs, no duplicate or missing seed offsets0\u201339, zero game/search truncation. Combine960games/model and compute overall and four rule-stratum paired seed bootstrap20000 seed623. Require all existing strength gates; this is diagnostic and does not consume reserved final seeds.",
+        "analysis_plan": "Validate all reports, model hashes, exact rule/seat pairs, no duplicate or missing seed offsets0–39, zero game/search truncation. Combine960games/model and compute overall and four rule-stratum paired seed bootstrap20000 seed623. Require all existing strength gates; this is diagnostic and does not consume reserved final seeds.",
         "models": {
             "29": {
                 "revision": "fbdf2bf24c968bff99ab2d7d9ff9a7d97047db2b",
@@ -23574,7 +23574,7 @@
         "scope": "Paired held-out development screening; not final qualification",
         "arena_source": "37465b08df007221665d796448aea57e6828257e",
         "search_samples": 0,
-        "decision": "Completed3680-game paired development screen with40 independent deals/count, verified hashes and complete seats/rules, zero actual-game and reported search truncation. Economic2\u20136p win rates54.375%,59.375%,60.9375%,75.25%,75.208333%;A2603p32.291667%. Against update49 all six paired95% seed intervals include zero: no supported improvement and no promotion. Versus update29 supported6p economic gain6.979167pp CI[2.5,11.458333];4p gain4.53125pp interval[0,9.140625] does not strictly exclude zero. A260 original sealed20.833333% CI[13.333333,29.166667] is below chance1/3; overall A260 fails40% point floor. Preserve update29/update49 strong-opponent extension and current80-update training horizons; do not launch redundant update59 search screen based only on uncertain economic gains. Await next checkpoints or substantively different training after current horizons.",
+        "decision": "Completed3680-game paired development screen with40 independent deals/count, verified hashes and complete seats/rules, zero actual-game and reported search truncation. Economic2–6p win rates54.375%,59.375%,60.9375%,75.25%,75.208333%;A2603p32.291667%. Against update49 all six paired95% seed intervals include zero: no supported improvement and no promotion. Versus update29 supported6p economic gain6.979167pp CI[2.5,11.458333];4p gain4.53125pp interval[0,9.140625] does not strictly exclude zero. A260 original sealed20.833333% CI[13.333333,29.166667] is below chance1/3; overall A260 fails40% point floor. Preserve update29/update49 strong-opponent extension and current80-update training horizons; do not launch redundant update59 search screen based only on uncertain economic gains. Await next checkpoints or substantively different training after current horizons.",
         "reports": {
             "multiplayer-h200-u59-economic-2p": {
                 "async_rollout": false,
@@ -24337,7 +24337,7 @@
         "scope": "Paired held-out development screening; not final qualification",
         "arena_source": "37465b08df007221665d796448aea57e6828257e",
         "search_samples": 0,
-        "decision": "Completed research-only3680-game screen,40 independent deals/count, verified hashes and exact seat/rule pairs, zero actual-game and reported search truncation. Economic2\u20136p win rates51.5625%,57.5%,57.96875%,68.625%,59.895833%;A2603p36.875%. All six paired intervals against geographic update19 include zero: no supported advance over that retained checkpoint. Versus geographic update39, supported recovery in4p(+5.625pp),5p(+4.75pp),A260(+7.291667pp); this does not establish progress beyond update19. Versus H200 update49, supported deficits in5p(-7.875pp CI[-11.625,-4.125]) and6p(-13.854167pp CI[-18.229167,-9.583333]); other comparisons uncertain. A260 overall fails40% floor; original sealed26.666667% CI[18.333333,35.833333] does not exclude chance. No promotion or new stronger-opponent screen justified. Qualification remains ineligible owing to one strict numerical export violation despite2553 matching actions. Preserve current80-update horizons and reserved final seeds.",
+        "decision": "Completed research-only3680-game screen,40 independent deals/count, verified hashes and exact seat/rule pairs, zero actual-game and reported search truncation. Economic2–6p win rates51.5625%,57.5%,57.96875%,68.625%,59.895833%;A2603p36.875%. All six paired intervals against geographic update19 include zero: no supported advance over that retained checkpoint. Versus geographic update39, supported recovery in4p(+5.625pp),5p(+4.75pp),A260(+7.291667pp); this does not establish progress beyond update19. Versus H200 update49, supported deficits in5p(-7.875pp CI[-11.625,-4.125]) and6p(-13.854167pp CI[-18.229167,-9.583333]); other comparisons uncertain. A260 overall fails40% floor; original sealed26.666667% CI[18.333333,35.833333] does not exclude chance. No promotion or new stronger-opponent screen justified. Qualification remains ineligible owing to one strict numerical export violation despite2553 matching actions. Preserve current80-update horizons and reserved final seeds.",
         "reports": {
             "multiplayer-geoleague-u49-economic-2p": {
                 "async_rollout": false,
@@ -25899,7 +25899,7 @@
                 ]
             }
         },
-        "interpretation": "All 3680 screening games completed with zero truncations. Economic 2\u20136p win rates: 59.0625%,62.083333%,62.34375%,79.875%,75.989583%. Frozen A260 3p:39.791667%, below40% floor. Paired improvement versus update49 is supported only at2p and4p; versus update59 only5p and A260 (marginal exploratory intervals). No universal promotion: A260 floor and strict export gate fail. Preserve current80-update horizons; await final H200 checkpoint before additional expensive search comparisons. Existing update49 six-player search result remains the supported raw-policy reference."
+        "interpretation": "All 3680 screening games completed with zero truncations. Economic 2–6p win rates: 59.0625%,62.083333%,62.34375%,79.875%,75.989583%. Frozen A260 3p:39.791667%, below40% floor. Paired improvement versus update49 is supported only at2p and4p; versus update59 only5p and A260 (marginal exploratory intervals). No universal promotion: A260 floor and strict export gate fail. Preserve current80-update horizons; await final H200 checkpoint before additional expensive search comparisons. Existing update49 six-player search result remains the supported raw-policy reference."
     },
     "multiplayer_h200_update69_precise_export_probe": {
         "status": "COMPLETED",
@@ -26911,7 +26911,7 @@
                 ]
             }
         },
-        "interpretation": "All3680 screening games completed with zero actual/search truncations. Economic2\u20136p:57.03125%,56.875%,44.0625%,62.8125%,56.197917%; frozenA2603p34.479167%, below40% floor. Versus geographic19, supported regressions at4p(-12.34375pp,95% paired interval -17.34375 to -7.34375),5p(-5.5625pp,-10.375 to -1),6p(-5.729167pp,-10.416667 to -0.9375); other comparisons with geographic19 uncertain. No promotion or expensive search screening. Preserve existing80-update horizon; checkpoint59 fails strength and strict float32 export gates."
+        "interpretation": "All3680 screening games completed with zero actual/search truncations. Economic2–6p:57.03125%,56.875%,44.0625%,62.8125%,56.197917%; frozenA2603p34.479167%, below40% floor. Versus geographic19, supported regressions at4p(-12.34375pp,95% paired interval -17.34375 to -7.34375),5p(-5.5625pp,-10.375 to -1),6p(-5.729167pp,-10.416667 to -0.9375); other comparisons with geographic19 uncertain. No promotion or expensive search screening. Preserve existing80-update horizon; checkpoint59 fails strength and strict float32 export gates."
     },
     "multiplayer_h200_update79_screening": {
         "candidate_revision": "0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a",
@@ -27742,7 +27742,7 @@
                 ]
             }
         },
-        "interpretation": "All3680 held-out development screening games completed with zero actual/search truncations. Economic2\u20136p win rates63.4375%,60.833333%,59.6875%,77.6875%,73.28125%; frozenA2603p33.541667%, below40% floor. Final80-update training endpoint and strict export success do not qualify this model. Internal-best selection did not deliver universal external strength. Preserve earlier candidates and reserved final seeds; do not extend the same H200 recipe solely because training finished. Further work should change training/opponent coverage based on the observed sealed-auction and frozen-opponent weaknesses, while the geographic80-update run completes."
+        "interpretation": "All3680 held-out development screening games completed with zero actual/search truncations. Economic2–6p win rates63.4375%,60.833333%,59.6875%,77.6875%,73.28125%; frozenA2603p33.541667%, below40% floor. Final80-update training endpoint and strict export success do not qualify this model. Internal-best selection did not deliver universal external strength. Preserve earlier candidates and reserved final seeds; do not extend the same H200 recipe solely because training finished. Further work should change training/opponent coverage based on the observed sealed-auction and frozen-opponent weaknesses, while the geographic80-update run completes."
     },
     "multiplayer_league_admission_v1": {
         "status": "COMPLETED",
@@ -27828,7 +27828,7 @@
         ],
         "hypothesis": "Periodic admission with retained starting policy improves robustness versus score-gated last-three admission. Both arms share source, initial checkpoint, seed, geography-aware search opponent mix and optimizer settings.",
         "limitations": "Single training seed pilot. Async scheduling may change stochastic trajectories; configuration matching does not imply identical rollout RNG. Need paired held-out external screens before strength claims; final reserved seeds remain unused.",
-        "evaluation_plan": "Evaluate published updates9 and19 versus economic across2\u20136 and frozenA2603p, then select additional search screens only if supported. Neither arm trains against frozenA260.",
+        "evaluation_plan": "Evaluate published updates9 and19 versus economic across2–6 and frozenA2603p, then select additional search screens only if supported. Neither arm trains against frozenA260.",
         "training_location": "HF Jobs only",
         "startup_verified": {
             "checked_at": "2026-10-01T05:33:52.157124+00:00",
@@ -28652,7 +28652,7 @@
             "limitations": "Single training seed; update9 is secondary; marginal exploratory confidence intervals are not simultaneous guarantees. Final reserved seeds untouched."
         },
         "training_status": "COMPLETED",
-        "completion_note": "Both matched arms completed 20 updates and4800 games each, balanced2\u20136players, with zero actual/search truncations and strict2553fixture parity. Primary update19 paired screens launched; qualification remains unproven.",
+        "completion_note": "Both matched arms completed 20 updates and4800 games each, balanced2–6players, with zero actual/search truncations and strict2553fixture parity. Primary update19 paired screens launched; qualification remains unproven.",
         "qualification_eligible": false,
         "update19_interpretation": {
             "games": 7360,
@@ -29556,10 +29556,10 @@
             },
             "a260_win_rate": 0.39791666666666664,
             "paired_findings": [
-                "Versus geographic59: supported economic recovery at4\u20136 players.",
+                "Versus geographic59: supported economic recovery at4–6 players.",
                 "Versus geographic19: supported gains at economic6p and A2603p; other intervals include zero.",
                 "Versus geographic49: supported economic4p regression and6p improvement; other economic intervals include zero.",
-                "Versus H20069 and79: supported economic deficits at4\u20136 players;2p/3p intervals include zero."
+                "Versus H20069 and79: supported economic deficits at4–6 players;2p/3p intervals include zero."
             ],
             "uncertainty": "Development-screen seed-cluster intervals are marginal exploratory intervals, not simultaneous guarantees; repeated use of these development deals is not final qualification."
         }
@@ -34487,7 +34487,7 @@
         "qualification_eligible": false,
         "artifact_revision": "577ecd7d834c64741db9cda715bd1db3c3dddbd9",
         "summary_file": "neural-continuation-summary-v1.json",
-        "decision": "Do not use these as new hard labels. Continuation-policy dependence persists across counts. In 4\u20136p, 24/36 discovery positions tie every shortlisted action, limiting evidence. Proceed with a controlled full-game PPO population experiment; no qualification claim.",
+        "decision": "Do not use these as new hard labels. Continuation-policy dependence persists across counts. In 4–6p, 24/36 discovery positions tie every shortlisted action, limiting evidence. Proceed with a controlled full-game PPO population experiment; no qualification claim.",
         "rollouts": 30048,
         "truncated": 0
     },
@@ -36470,7 +36470,7 @@
         "games_planned": 960,
         "training": false,
         "qualification_eligible": false,
-        "scope": "Focused fresh complete-game causal development test, all seats and four rule cells. Does not replace the full2\u20136p independent-opponent/reserved strength gate."
+        "scope": "Focused fresh complete-game causal development test, all seats and four rule cells. Does not replace the full2–6p independent-opponent/reserved strength gate."
     },
     "discard_training_verified_v1": {
         "intervention": {
@@ -36731,7 +36731,7 @@
             "next_teacher": {
                 "continuation": "economic",
                 "rationale": "Both interventions beat unchanged parent in2p economic-opponent development games; no supported neural-versus-economic improvement. Economic rollout timing39.16s versus767.55s for the same72192 searches. Use the cheaper measured teacher for the first learned correction; broader counts/opponents and all-eligible serving remain unproven.",
-                "training_data": "Fresh disjoint collection across2\u20136p, four opponent families and all rules/seats. No evaluated roots recycled; no labels or gradients yet."
+                "training_data": "Fresh disjoint collection across2–6p, four opponent families and all rules/seats. No evaluated roots recycled; no labels or gradients yet."
             },
             "evidence": {
                 "revision": "6c48f461d31ee25ca95798aec1a1522974831096",
@@ -37982,7 +37982,7 @@
             "game_truncations": 0,
             "search_truncations": 0
         },
-        "stage": "All13440 raw-policy independent-opponent games across2\u20136p verified,zero caps. Aggregate6p strength does not resolve sealed weakness or3\u20134p failures.",
+        "stage": "All13440 raw-policy independent-opponent games across2–6p verified,zero caps. Aggregate6p strength does not resolve sealed weakness or3–4p failures.",
         "qualification_eligible": false,
         "status": {
             "checked_at": "2026-10-10T16:45:00.393424+00:00",
@@ -38480,7 +38480,7 @@
             "qualification_eligible": false
         },
         "status": {
-            "checked_at": "2026-10-10T18:03:06.284577+00:00",
+            "checked_at": "2026-10-10T18:38:44.834301+00:00",
             "jobs": {
                 "smoke-10102-3p": {
                     "job_id": "6aca61e3fee2c90070189b3e",
@@ -38578,7 +38578,7 @@
         "planned_full_games": 1728,
         "probe_games": 72,
         "full_jobs_launched": 0,
-        "stage": "3\u20135p guided arenas verified;6p pending. 5p aggregate gain uncertain; original/sealed improves but Recharged/open regresses25 points. No qualification.",
+        "stage": "3–5p guided arenas verified;6p pending. 5p aggregate gain uncertain; original/sealed improves but Recharged/open regresses25 points. No qualification.",
         "qualification_eligible": false,
         "runtime_evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
@@ -39109,7 +39109,7 @@
             "root.pendingMessages",
             "log event text starting with Starting Step2/3"
         ],
-        "scope": "Germany original/Recharged, open/sealed,2\u20136p; ordinary current-player decisions only. No pending choice revisions, wrapper scheduling or platform transport tested. No strength qualification.",
+        "scope": "Germany original/Recharged, open/sealed,2–6p; ordinary current-player decisions only. No pending choice revisions, wrapper scheduling or platform transport tested. No strength qualification.",
         "qualification_eligible": false,
         "passed": true,
         "repo": "coyotte508/powergrid-ai-germany-v1",
@@ -39445,7 +39445,7 @@
         "trained": false,
         "labels_generated": false,
         "qualification_eligible": false,
-        "stage": "2880 full games and147417 roots verified;all15 probes verified.12 disjoint4\u20136p search collection slices RUNNING. Full-case merge remains pending.",
+        "stage": "PAUSED at user request. 2880 full games /147417 roots verified. Snapshot: one collection piece completed awaiting independent collection, eleven running. Strict full-case merger implemented and checked on128 existing games/7283 roots; no actual4–6p merges yet.",
         "verified_full_unique_games": 2880,
         "verified_full_roots": 147417,
         "verified_full_shards": [
@@ -40637,7 +40637,7 @@
                     "end": 4,
                     "timeout_hours": 4,
                     "job_id": "6aca7ca3fee2c9007018af5c",
-                    "status": "RUNNING"
+                    "status": "COMPLETED"
                 },
                 "4p-search_geo-8-12": {
                     "players": 4,
@@ -40740,7 +40740,7 @@
                 }
             },
             "qualification_eligible": false,
-            "checked_at": "2026-10-10T18:28:19.150769+00:00"
+            "checked_at": "2026-10-10T18:38:44.834301+00:00"
         },
         "slices_evidence": {
             "revision": "c523c30e320a357f38573b647e018a4e7dbd748a",
@@ -40754,6 +40754,37 @@
             "prefix": "runs/strategic-runtime-completed-probes-evidence-v1",
             "manifest_sha256": "1f105f50c3339b110dc875c980a0fe43891e816f07bfce9d71ee6a4611d5d0d4",
             "file_count": 14,
+            "qualification_eligible": false
+        },
+        "combined_results_file": "ai/strong/strategic-training-collection-combined-results-v1.json",
+        "merge_preflight": {
+            "passed": true,
+            "original_verified_sha256": "21176b4f32a30f147950e7cb86950056d671d86627c44a3ff6aaa3e0199c4c5c",
+            "summary": {
+                "games": 128,
+                "engine_game_runs": 256,
+                "roots": 7283,
+                "public_model_proposals_reproduced": 7283,
+                "root_counts": {
+                    "auction": {
+                        "train": 3150,
+                        "validation": 987
+                    },
+                    "building": {
+                        "train": 2351,
+                        "validation": 795
+                    }
+                },
+                "games_with_roots": 128,
+                "game_truncations": 0,
+                "search_truncations": 0,
+                "all_source_games_and_roots_preserved": true,
+                "source_root_index_preserved": true,
+                "qualification_eligible": false
+            },
+            "gaps_overlaps_bad_ranges_rejected": true,
+            "existing_output_preserved": true,
+            "scope": "Repartition/reconstruction of existing verified128 games only; not new training data.",
             "qualification_eligible": false
         }
     },
@@ -40799,7 +40830,7 @@
                 "all_actions_match_serial": true,
                 "scope": "Inference batching parity only; no gradients or strength claim."
             },
-            "contract_tests": "\u2714 neural and mixed controls reproduce the historical rollout worker (381.39574ms)\n\u2714 opponent routing retains the neural focal player; offsets do not change trajectories (28.869482ms)\n\u2714 hidden live deck, private seed and sealed bids cannot affect paired continuations (39.886944ms)\n\u2714 nested search uses the full reference budget and exposes every inner cap (37.492923ms)\n\u2139 tests 4\n\u2139 suites 0\n\u2139 pass 4\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 551.46894\n",
+            "contract_tests": "✔ neural and mixed controls reproduce the historical rollout worker (381.39574ms)\n✔ opponent routing retains the neural focal player; offsets do not change trajectories (28.869482ms)\n✔ hidden live deck, private seed and sealed bids cannot affect paired continuations (39.886944ms)\n✔ nested search uses the full reference budget and exposes every inner cap (37.492923ms)\nℹ tests 4\nℹ suites 0\nℹ pass 4\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 551.46894\n",
             "scope": "Control trajectory equality, public-information boundary, opponent routing, cap accounting, and batched inference parity. No training or strength claim.",
             "qualification_eligible": false
         },
@@ -41790,7 +41821,7 @@
                     "deal_end": 2,
                     "timeout_hours": 4,
                     "job_id": "6aca7e0d095c5780893154c3",
-                    "status": "RUNNING"
+                    "status": "COMPLETED"
                 },
                 "3p-snapshot0-neural-0-2": {
                     "players": 3,
@@ -41800,7 +41831,7 @@
                     "deal_end": 2,
                     "timeout_hours": 4,
                     "job_id": "6aca7e0ffee2c9007018b087",
-                    "status": "RUNNING"
+                    "status": "COMPLETED"
                 },
                 "2p-economic-neural_economic-0-2": {
                     "players": 2,
@@ -41983,7 +42014,7 @@
                 }
             },
             "qualification_eligible": false,
-            "checked_at": "2026-10-10T18:32:28.307241+00:00"
+            "checked_at": "2026-10-10T18:38:44.834301+00:00"
         },
         "launch_evidence": {
             "revision": "8e86b1336d1ef0a80bd8373f545700933afa193e",
@@ -42081,51 +42112,51 @@
         "first_wave_effective_jobs": 20,
         "original_image_pull_failures": 3,
         "full_design_shards": 160,
-        "independently_verified_label_shards": 12,
+        "independently_verified_label_shards": 13,
         "gradients_started": false,
         "qualification_eligible": false,
-        "stage": "12/20 first-wave shards independently verified;137856 paired rollouts.8 neural shards RUNNING. Full design still160 shards;remaining140 guarded until all20 pilot results verify. No gradients yet.",
+        "stage": "PAUSED at user request. Snapshot 2026-10-10T18:38:44Z: 13/20 pilot shards independently verified, 149472 paired rollouts; one completed awaiting collection, six running. Remaining 140 chunks unlaunched. No strategic-correction gradients.",
         "results": {
-            "verified_shards": 12,
+            "verified_shards": 13,
             "expected_shards": 160,
             "all_shards_verified": false,
-            "first_wave_verified": 12,
+            "first_wave_verified": 13,
             "first_wave_complete": false,
             "positions_by_mode": {
-                "neural": 48,
+                "neural": 72,
                 "neural_economic": 240
             },
-            "complete_mixture_roots": 48,
-            "evaluations": 137856,
+            "complete_mixture_roots": 72,
+            "evaluations": 149472,
             "paired_mixture_diagnostic": {
                 "train": {
-                    "roots": 24,
+                    "roots": 36,
                     "all": {
                         "all": {
-                            "roots": 24,
-                            "a_selected_b_advantage": 0.08203125,
-                            "b_selected_a_advantage": 0.09440104166666667,
-                            "same_choice_fraction": 0.5833333333333334
+                            "roots": 36,
+                            "a_selected_b_advantage": 0.06278935185185185,
+                            "b_selected_a_advantage": 0.06727430555555555,
+                            "same_choice_fraction": 0.6666666666666666
                         }
                     },
                     "decision": {
                         "bid": {
-                            "roots": 8,
-                            "a_selected_b_advantage": 0.009765625,
-                            "b_selected_a_advantage": 0.05208333333333333,
-                            "same_choice_fraction": 0.75
+                            "roots": 12,
+                            "a_selected_b_advantage": 0.006510416666666667,
+                            "b_selected_a_advantage": 0.03472222222222222,
+                            "same_choice_fraction": 0.8333333333333334
                         },
                         "building": {
-                            "roots": 8,
-                            "a_selected_b_advantage": 0.18815104166666669,
-                            "b_selected_a_advantage": 0.201171875,
-                            "same_choice_fraction": 0.75
+                            "roots": 12,
+                            "a_selected_b_advantage": 0.1254340277777778,
+                            "b_selected_a_advantage": 0.13411458333333334,
+                            "same_choice_fraction": 0.6666666666666666
                         },
                         "nomination": {
-                            "roots": 8,
-                            "a_selected_b_advantage": 0.048177083333333336,
-                            "b_selected_a_advantage": 0.02994791666666667,
-                            "same_choice_fraction": 0.25
+                            "roots": 12,
+                            "a_selected_b_advantage": 0.05642361111111111,
+                            "b_selected_a_advantage": 0.03298611111111111,
+                            "same_choice_fraction": 0.5
                         }
                     },
                     "players": {
@@ -42134,63 +42165,69 @@
                             "a_selected_b_advantage": 0.08203125,
                             "b_selected_a_advantage": 0.09440104166666667,
                             "same_choice_fraction": 0.5833333333333334
+                        },
+                        "3": {
+                            "roots": 12,
+                            "a_selected_b_advantage": 0.024305555555555556,
+                            "b_selected_a_advantage": 0.013020833333333334,
+                            "same_choice_fraction": 0.8333333333333334
                         }
                     },
                     "rules": {
                         "original/open": {
-                            "roots": 6,
-                            "a_selected_b_advantage": 0.17100694444444445,
-                            "b_selected_a_advantage": 0.20746527777777776,
-                            "same_choice_fraction": 0.6666666666666666
+                            "roots": 9,
+                            "a_selected_b_advantage": 0.11400462962962964,
+                            "b_selected_a_advantage": 0.13831018518518517,
+                            "same_choice_fraction": 0.7777777777777778
                         },
                         "original/sealed": {
-                            "roots": 6,
-                            "a_selected_b_advantage": 0.012152777777777776,
-                            "b_selected_a_advantage": -0.008680555555555556,
-                            "same_choice_fraction": 0.3333333333333333
+                            "roots": 9,
+                            "a_selected_b_advantage": 0.040509259259259266,
+                            "b_selected_a_advantage": 0.011574074074074075,
+                            "same_choice_fraction": 0.5555555555555556
                         },
                         "recharged/open": {
-                            "roots": 6,
-                            "a_selected_b_advantage": 0.008680555555555552,
-                            "b_selected_a_advantage": 0.022569444444444444,
+                            "roots": 9,
+                            "a_selected_b_advantage": 0.005787037037037035,
+                            "b_selected_a_advantage": 0.015046296296296295,
                             "same_choice_fraction": 0.6666666666666666
                         },
                         "recharged/sealed": {
-                            "roots": 6,
-                            "a_selected_b_advantage": 0.1362847222222222,
-                            "b_selected_a_advantage": 0.15625,
+                            "roots": 9,
+                            "a_selected_b_advantage": 0.09085648148148147,
+                            "b_selected_a_advantage": 0.10416666666666667,
                             "same_choice_fraction": 0.6666666666666666
                         }
                     }
                 },
                 "validation": {
-                    "roots": 24,
+                    "roots": 36,
                     "all": {
                         "all": {
-                            "roots": 24,
-                            "a_selected_b_advantage": 0.08875868055555557,
-                            "b_selected_a_advantage": 0.07530381944444445,
-                            "same_choice_fraction": 0.6666666666666666
+                            "roots": 36,
+                            "a_selected_b_advantage": 0.08159722222222222,
+                            "b_selected_a_advantage": 0.07262731481481483,
+                            "same_choice_fraction": 0.6111111111111112
                         }
                     },
                     "decision": {
                         "bid": {
-                            "roots": 8,
-                            "a_selected_b_advantage": 0.166015625,
-                            "b_selected_a_advantage": 0.16731770833333331,
-                            "same_choice_fraction": 0.75
+                            "roots": 12,
+                            "a_selected_b_advantage": 0.10546875,
+                            "b_selected_a_advantage": 0.10720486111111109,
+                            "same_choice_fraction": 0.5833333333333334
                         },
                         "building": {
-                            "roots": 8,
-                            "a_selected_b_advantage": 0.04361979166666667,
-                            "b_selected_a_advantage": 0.020833333333333336,
-                            "same_choice_fraction": 0.625
+                            "roots": 12,
+                            "a_selected_b_advantage": 0.07421875,
+                            "b_selected_a_advantage": 0.05164930555555556,
+                            "same_choice_fraction": 0.5833333333333334
                         },
                         "nomination": {
-                            "roots": 8,
-                            "a_selected_b_advantage": 0.05664062499999999,
-                            "b_selected_a_advantage": 0.037760416666666664,
-                            "same_choice_fraction": 0.625
+                            "roots": 12,
+                            "a_selected_b_advantage": 0.06510416666666666,
+                            "b_selected_a_advantage": 0.05902777777777778,
+                            "same_choice_fraction": 0.6666666666666666
                         }
                     },
                     "players": {
@@ -42199,32 +42236,38 @@
                             "a_selected_b_advantage": 0.08875868055555557,
                             "b_selected_a_advantage": 0.07530381944444445,
                             "same_choice_fraction": 0.6666666666666666
+                        },
+                        "3": {
+                            "roots": 12,
+                            "a_selected_b_advantage": 0.06727430555555555,
+                            "b_selected_a_advantage": 0.06727430555555557,
+                            "same_choice_fraction": 0.5
                         }
                     },
                     "rules": {
                         "original/open": {
-                            "roots": 6,
-                            "a_selected_b_advantage": 0.030381944444444444,
-                            "b_selected_a_advantage": 0.020833333333333332,
-                            "same_choice_fraction": 0.5
+                            "roots": 9,
+                            "a_selected_b_advantage": 0.07233796296296297,
+                            "b_selected_a_advantage": 0.08333333333333333,
+                            "same_choice_fraction": 0.5555555555555556
                         },
                         "original/sealed": {
-                            "roots": 6,
-                            "a_selected_b_advantage": 0.09375,
-                            "b_selected_a_advantage": 0.05121527777777778,
-                            "same_choice_fraction": 0.5
+                            "roots": 9,
+                            "a_selected_b_advantage": 0.08043981481481481,
+                            "b_selected_a_advantage": 0.0462962962962963,
+                            "same_choice_fraction": 0.4444444444444444
                         },
                         "recharged/open": {
-                            "roots": 6,
-                            "a_selected_b_advantage": 0.171875,
-                            "b_selected_a_advantage": 0.15104166666666666,
+                            "roots": 9,
+                            "a_selected_b_advantage": 0.11458333333333333,
+                            "b_selected_a_advantage": 0.09606481481481483,
                             "same_choice_fraction": 0.6666666666666666
                         },
                         "recharged/sealed": {
-                            "roots": 6,
-                            "a_selected_b_advantage": 0.05902777777777777,
-                            "b_selected_a_advantage": 0.078125,
-                            "same_choice_fraction": 1.0
+                            "roots": 9,
+                            "a_selected_b_advantage": 0.059027777777777776,
+                            "b_selected_a_advantage": 0.06481481481481483,
+                            "same_choice_fraction": 0.7777777777777778
                         }
                     }
                 }
@@ -42357,6 +42400,38 @@
                         "label-check.json": "a30d24612e771634bc8eecf2eafc85d08e7530189b08c3db26ed7ac0e37ca6a0"
                     },
                     "verified_sha256": "19c0beb7e15bc09fac151bd9be99995135811ad9ac496d84a4fe6df1312b1ffd"
+                },
+                "3p-economic-neural-0-2": {
+                    "players": 3,
+                    "source_mode": "economic",
+                    "mode": "neural",
+                    "deal_start": 0,
+                    "deal_end": 2,
+                    "positions": 24,
+                    "searches": 48,
+                    "samples": 48,
+                    "evaluations": 11616,
+                    "root_splits": {
+                        "validation": 12,
+                        "train": 12
+                    },
+                    "game_truncations": 0,
+                    "nested_truncations": 0,
+                    "engine_seconds": 472.4355261240011,
+                    "policy_seconds": 1020.1583208319962,
+                    "seconds": 1537.9776534110001,
+                    "a_selected_b_mean_advantage": {
+                        "train": 0.024305555555555556,
+                        "validation": 0.0625
+                    },
+                    "scope": "Conditional simulation targets and independent-batch diagnostic, not whole-game playing strength.",
+                    "revision": "44ea71ff87cef3d3772caaa5fcfa514f580d00d0",
+                    "prefix": "runs/strategic-teacher-training-v1-3p-economic-neural-0-2",
+                    "artifacts": {
+                        "labels.jsonl.gz": "394ef3a9a7fb608d9376957cf96576af389ba56cdaf83a5ad7d59e5a1193b3d7",
+                        "label-check.json": "f80f84a4b4ecc183d488d7ec930c2e6e33517ae76080c2329b2629d446516c25"
+                    },
+                    "verified_sha256": "0fb7740d671c1e8307bef06f6b34da1798dbdf2bf2f11bcc60336f6c180b61ae"
                 },
                 "3p-economic-neural_economic-0-2": {
                     "players": 3,
@@ -42644,7 +42719,6 @@
                 "2p-snapshot0-neural_economic-12-14",
                 "2p-snapshot0-neural-14-16",
                 "2p-snapshot0-neural_economic-14-16",
-                "3p-economic-neural-0-2",
                 "3p-economic-neural-2-4",
                 "3p-economic-neural_economic-2-4",
                 "3p-economic-neural-4-6",
@@ -42829,7 +42903,7 @@
             "training_device": "CUDA on HF Jobs only",
             "tf32": false,
             "export": "Unchanged stored float32 weights;float64-exp-div-silu-v1 arithmetic, strict2553-position native/ONNX/serving checks plus strategic target scope.",
-            "acceptance": "Fresh held-out complete-game comparisons to raw parent and independent baselines across2\u20136p/four rules before any final candidate. Explicitly retain5p Recharged/open regression diagnostic. Untouched reserved final gate and actual8840U exact-config benchmark still required.",
+            "acceptance": "Fresh held-out complete-game comparisons to raw parent and independent baselines across2–6p/four rules before any final candidate. Explicitly retain5p Recharged/open regression diagnostic. Untouched reserved final gate and actual8840U exact-config benchmark still required.",
             "gradients_started": false,
             "qualification_eligible": false
         },
@@ -42888,5 +42962,23 @@
         "source_frozen": false,
         "qualification_eligible": false,
         "stage": "97473-parameter frozen-parent correction implemented;feature/source/export/serving checks passed on2553positions. Full-grid loader and HF-only training code compiled;not executed on full labels. Freeze full data manifest and source before a gradient job."
+    },
+    "pause_2026_10_10": {
+        "checked_at": "2026-10-10T18:38:44.834301+00:00",
+        "goal_status": "paused",
+        "user_request": "Pause work, prepare another handoff, do not start more jobs.",
+        "handoff_file": "ai/HANDOFF-2026-10-10-PAUSED.md",
+        "snapshot_file": "ai/strong/paused-handoff-state-2026-10-10.json",
+        "new_jobs_authorized": false,
+        "existing_jobs_cancelled": false,
+        "running_at_snapshot": 20,
+        "completed_awaiting_collection": [
+            "3p-snapshot0-neural-0-2",
+            "4p-search_geo-0-4"
+        ],
+        "model_repo_revision_at_pause": "b9ac766f397ce5ca5a0943bc8f2fbb0c4f6a543f",
+        "qualification_eligible": false,
+        "final_reserved_seeds_used": false,
+        "resume_requirement": "Explicit user instruction; inspect and collect existing handles before considering any new launches."
     }
 }

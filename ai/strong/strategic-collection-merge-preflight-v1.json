@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "original_verified_sha256": "21176b4f32a30f147950e7cb86950056d671d86627c44a3ff6aaa3e0199c4c5c",
+  "summary": {
+    "games": 128,
+    "engine_game_runs": 256,
+    "roots": 7283,
+    "public_model_proposals_reproduced": 7283,
+    "root_counts": {
+      "auction": {
+        "train": 3150,
+        "validation": 987
+      },
+      "building": {
+        "train": 2351,
+        "validation": 795
+      }
+    },
+    "games_with_roots": 128,
+    "game_truncations": 0,
+    "search_truncations": 0,
+    "all_source_games_and_roots_preserved": true,
+    "source_root_index_preserved": true,
+    "qualification_eligible": false
+  },
+  "gaps_overlaps_bad_ranges_rejected": true,
+  "existing_output_preserved": true,
+  "scope": "Repartition/reconstruction of existing verified128 games only; not new training data.",
+  "qualification_eligible": false
+}

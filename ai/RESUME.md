@@ -1,4 +1,25 @@
-# Power Grid AI — active continuation, 10 October 2026
+# Power Grid AI — PAUSED, 10 October 2026
+
+**Start with [the new standalone handoff](HANDOFF-2026-10-10-PAUSED.md).**
+The user explicitly paused research and prohibited new jobs. The Codex goal is
+paused. No jobs or retries may be launched until the user resumes. Existing HF
+jobs were left running and terminate on completion, failure or timeout.
+
+At 18:38:44 UTC: 20 jobs running (6 label, 11 collection, 3 arena); two completed
+cases awaiting independent verification. Labels: 13 pilot shards / 149,472
+rollouts verified; 72 roots have both modes. Collection: 2,880 full games /
+147,417 roots verified. The strict collection merger is now implemented and
+preflight-checked on existing data, but no full 4–6p case has been merged.
+The new strategic correction is implemented and untrained. No model is qualified,
+no AI is deployed, and the reserved final seeds remain unused.
+
+The handoff includes exact handles, timeouts, immutable pins, progress since the
+beginning and the ordered recovery procedure. Its snapshot supersedes all older
+active/pending/next instructions below. Those sections are preserved as history.
+
+---
+
+# Historical continuation notes — 10 October 2026
 
 **No candidate has passed the full strength gate. Nothing is deployed. Reserved
 final-test seeds remain unused.** The separate UI redesign was reverted.

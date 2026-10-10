@@ -1,44 +1,44 @@
 {
-  "verified_shards": 12,
+  "verified_shards": 13,
   "expected_shards": 160,
   "all_shards_verified": false,
-  "first_wave_verified": 12,
+  "first_wave_verified": 13,
   "first_wave_complete": false,
   "positions_by_mode": {
-    "neural": 48,
+    "neural": 72,
     "neural_economic": 240
   },
-  "complete_mixture_roots": 48,
-  "evaluations": 137856,
+  "complete_mixture_roots": 72,
+  "evaluations": 149472,
   "paired_mixture_diagnostic": {
     "train": {
-      "roots": 24,
+      "roots": 36,
       "all": {
         "all": {
-          "roots": 24,
-          "a_selected_b_advantage": 0.08203125,
-          "b_selected_a_advantage": 0.09440104166666667,
-          "same_choice_fraction": 0.5833333333333334
+          "roots": 36,
+          "a_selected_b_advantage": 0.06278935185185185,
+          "b_selected_a_advantage": 0.06727430555555555,
+          "same_choice_fraction": 0.6666666666666666
         }
       },
       "decision": {
         "bid": {
-          "roots": 8,
-          "a_selected_b_advantage": 0.009765625,
-          "b_selected_a_advantage": 0.05208333333333333,
-          "same_choice_fraction": 0.75
+          "roots": 12,
+          "a_selected_b_advantage": 0.006510416666666667,
+          "b_selected_a_advantage": 0.03472222222222222,
+          "same_choice_fraction": 0.8333333333333334
         },
         "building": {
-          "roots": 8,
-          "a_selected_b_advantage": 0.18815104166666669,
-          "b_selected_a_advantage": 0.201171875,
-          "same_choice_fraction": 0.75
+          "roots": 12,
+          "a_selected_b_advantage": 0.1254340277777778,
+          "b_selected_a_advantage": 0.13411458333333334,
+          "same_choice_fraction": 0.6666666666666666
         },
         "nomination": {
-          "roots": 8,
-          "a_selected_b_advantage": 0.048177083333333336,
-          "b_selected_a_advantage": 0.02994791666666667,
-          "same_choice_fraction": 0.25
+          "roots": 12,
+          "a_selected_b_advantage": 0.05642361111111111,
+          "b_selected_a_advantage": 0.03298611111111111,
+          "same_choice_fraction": 0.5
         }
       },
       "players": {
@@ -47,63 +47,69 @@
           "a_selected_b_advantage": 0.08203125,
           "b_selected_a_advantage": 0.09440104166666667,
           "same_choice_fraction": 0.5833333333333334
+        },
+        "3": {
+          "roots": 12,
+          "a_selected_b_advantage": 0.024305555555555556,
+          "b_selected_a_advantage": 0.013020833333333334,
+          "same_choice_fraction": 0.8333333333333334
         }
       },
       "rules": {
         "original/open": {
-          "roots": 6,
-          "a_selected_b_advantage": 0.17100694444444445,
-          "b_selected_a_advantage": 0.20746527777777776,
-          "same_choice_fraction": 0.6666666666666666
+          "roots": 9,
+          "a_selected_b_advantage": 0.11400462962962964,
+          "b_selected_a_advantage": 0.13831018518518517,
+          "same_choice_fraction": 0.7777777777777778
         },
         "original/sealed": {
-          "roots": 6,
-          "a_selected_b_advantage": 0.012152777777777776,
-          "b_selected_a_advantage": -0.008680555555555556,
-          "same_choice_fraction": 0.3333333333333333
+          "roots": 9,
+          "a_selected_b_advantage": 0.040509259259259266,
+          "b_selected_a_advantage": 0.011574074074074075,
+          "same_choice_fraction": 0.5555555555555556
         },
         "recharged/open": {
-          "roots": 6,
-          "a_selected_b_advantage": 0.008680555555555552,
-          "b_selected_a_advantage": 0.022569444444444444,
+          "roots": 9,
+          "a_selected_b_advantage": 0.005787037037037035,
+          "b_selected_a_advantage": 0.015046296296296295,
           "same_choice_fraction": 0.6666666666666666
         },
         "recharged/sealed": {
-          "roots": 6,
-          "a_selected_b_advantage": 0.1362847222222222,
-          "b_selected_a_advantage": 0.15625,
+          "roots": 9,
+          "a_selected_b_advantage": 0.09085648148148147,
+          "b_selected_a_advantage": 0.10416666666666667,
           "same_choice_fraction": 0.6666666666666666
         }
       }
     },
     "validation": {
-      "roots": 24,
+      "roots": 36,
       "all": {
         "all": {
-          "roots": 24,
-          "a_selected_b_advantage": 0.08875868055555557,
-          "b_selected_a_advantage": 0.07530381944444445,
-          "same_choice_fraction": 0.6666666666666666
+          "roots": 36,
+          "a_selected_b_advantage": 0.08159722222222222,
+          "b_selected_a_advantage": 0.07262731481481483,
+          "same_choice_fraction": 0.6111111111111112
         }
       },
       "decision": {
         "bid": {
-          "roots": 8,
-          "a_selected_b_advantage": 0.166015625,
-          "b_selected_a_advantage": 0.16731770833333331,
-          "same_choice_fraction": 0.75
+          "roots": 12,
+          "a_selected_b_advantage": 0.10546875,
+          "b_selected_a_advantage": 0.10720486111111109,
+          "same_choice_fraction": 0.5833333333333334
         },
         "building": {
-          "roots": 8,
-          "a_selected_b_advantage": 0.04361979166666667,
-          "b_selected_a_advantage": 0.020833333333333336,
-          "same_choice_fraction": 0.625
+          "roots": 12,
+          "a_selected_b_advantage": 0.07421875,
+          "b_selected_a_advantage": 0.05164930555555556,
+          "same_choice_fraction": 0.5833333333333334
         },
         "nomination": {
-          "roots": 8,
-          "a_selected_b_advantage": 0.05664062499999999,
-          "b_selected_a_advantage": 0.037760416666666664,
-          "same_choice_fraction": 0.625
+          "roots": 12,
+          "a_selected_b_advantage": 0.06510416666666666,
+          "b_selected_a_advantage": 0.05902777777777778,
+          "same_choice_fraction": 0.6666666666666666
         }
       },
       "players": {
@@ -112,32 +118,38 @@
           "a_selected_b_advantage": 0.08875868055555557,
           "b_selected_a_advantage": 0.07530381944444445,
           "same_choice_fraction": 0.6666666666666666
+        },
+        "3": {
+          "roots": 12,
+          "a_selected_b_advantage": 0.06727430555555555,
+          "b_selected_a_advantage": 0.06727430555555557,
+          "same_choice_fraction": 0.5
         }
       },
       "rules": {
         "original/open": {
-          "roots": 6,
-          "a_selected_b_advantage": 0.030381944444444444,
-          "b_selected_a_advantage": 0.020833333333333332,
-          "same_choice_fraction": 0.5
+          "roots": 9,
+          "a_selected_b_advantage": 0.07233796296296297,
+          "b_selected_a_advantage": 0.08333333333333333,
+          "same_choice_fraction": 0.5555555555555556
         },
         "original/sealed": {
-          "roots": 6,
-          "a_selected_b_advantage": 0.09375,
-          "b_selected_a_advantage": 0.05121527777777778,
-          "same_choice_fraction": 0.5
+          "roots": 9,
+          "a_selected_b_advantage": 0.08043981481481481,
+          "b_selected_a_advantage": 0.0462962962962963,
+          "same_choice_fraction": 0.4444444444444444
         },
         "recharged/open": {
-          "roots": 6,
-          "a_selected_b_advantage": 0.171875,
-          "b_selected_a_advantage": 0.15104166666666666,
+          "roots": 9,
+          "a_selected_b_advantage": 0.11458333333333333,
+          "b_selected_a_advantage": 0.09606481481481483,
           "same_choice_fraction": 0.6666666666666666
         },
         "recharged/sealed": {
-          "roots": 6,
-          "a_selected_b_advantage": 0.05902777777777777,
-          "b_selected_a_advantage": 0.078125,
-          "same_choice_fraction": 1.0
+          "roots": 9,
+          "a_selected_b_advantage": 0.059027777777777776,
+          "b_selected_a_advantage": 0.06481481481481483,
+          "same_choice_fraction": 0.7777777777777778
         }
       }
     }
@@ -270,6 +282,38 @@
         "label-check.json": "a30d24612e771634bc8eecf2eafc85d08e7530189b08c3db26ed7ac0e37ca6a0"
       },
       "verified_sha256": "19c0beb7e15bc09fac151bd9be99995135811ad9ac496d84a4fe6df1312b1ffd"
+    },
+    "3p-economic-neural-0-2": {
+      "players": 3,
+      "source_mode": "economic",
+      "mode": "neural",
+      "deal_start": 0,
+      "deal_end": 2,
+      "positions": 24,
+      "searches": 48,
+      "samples": 48,
+      "evaluations": 11616,
+      "root_splits": {
+        "validation": 12,
+        "train": 12
+      },
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "engine_seconds": 472.4355261240011,
+      "policy_seconds": 1020.1583208319962,
+      "seconds": 1537.9776534110001,
+      "a_selected_b_mean_advantage": {
+        "train": 0.024305555555555556,
+        "validation": 0.0625
+      },
+      "scope": "Conditional simulation targets and independent-batch diagnostic, not whole-game playing strength.",
+      "revision": "44ea71ff87cef3d3772caaa5fcfa514f580d00d0",
+      "prefix": "runs/strategic-teacher-training-v1-3p-economic-neural-0-2",
+      "artifacts": {
+        "labels.jsonl.gz": "394ef3a9a7fb608d9376957cf96576af389ba56cdaf83a5ad7d59e5a1193b3d7",
+        "label-check.json": "f80f84a4b4ecc183d488d7ec930c2e6e33517ae76080c2329b2629d446516c25"
+      },
+      "verified_sha256": "0fb7740d671c1e8307bef06f6b34da1798dbdf2bf2f11bcc60336f6c180b61ae"
     },
     "3p-economic-neural_economic-0-2": {
       "players": 3,
@@ -557,7 +601,6 @@
     "2p-snapshot0-neural_economic-12-14",
     "2p-snapshot0-neural-14-16",
     "2p-snapshot0-neural_economic-14-16",
-    "3p-economic-neural-0-2",
     "3p-economic-neural-2-4",
     "3p-economic-neural_economic-2-4",
     "3p-economic-neural-4-6",

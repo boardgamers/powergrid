@@ -1,0 +1,34 @@
+{
+  "purpose": "Fresh independent-opponent development extension for both learned discard corrections and the parent; no final qualification.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "models": [
+    "parent",
+    "10101",
+    "10102"
+  ],
+  "players": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "seed_template": "discard-opponents-games-v1-{players}p",
+  "smoke_seed_template": "discard-opponents-smoke-v1-{players}p",
+  "opponents": {
+    "legacy": 16,
+    "heuristic": 16,
+    "rush": 16,
+    "search_geo": 8
+  },
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 9031,
+  "workers": 24,
+  "max_steps": 2400,
+  "search_reference": "Unchanged search_geo:16 samples,6 candidates,geographic proposals,2400 horizon. Candidate search remains off.",
+  "analysis": "Keep seed contrasts separate; pair complete seat/rule repetitions by whole deal. Report every player-count/rule cell and adverse result. Marginal exploratory intervals, not simultaneous confidence.",
+  "planned_games": 13440,
+  "smoke": "One independent deal per opponent, used only to verify runtime/caps and size HF shards. Disjoint from development/final deals.",
+  "qualification_eligible": false,
+  "remaining_gate": "Unchanged final-protocol-multiplayer.json and actual8840U benchmark; A260 deficit still unresolved."
+}

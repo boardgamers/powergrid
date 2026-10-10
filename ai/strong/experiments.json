@@ -37924,24 +37924,103 @@
             "10102": 10
         },
         "screens": {
-            "checked_at": "2026-10-10T14:32:58.318778+00:00",
+            "checked_at": "2026-10-10T14:41:34.620230+00:00",
             "jobs": {
                 "10101": {
                     "job_id": "6aca4c51fee2c90070188a1c",
-                    "status": "SCHEDULING"
+                    "status": "COMPLETED"
                 },
                 "10102": {
                     "job_id": "6aca4c51fee2c90070188a1e",
-                    "status": "SCHEDULING"
+                    "status": "COMPLETED"
                 },
                 "parent": {
                     "job_id": "6aca4c50095c578089313476",
-                    "status": "RUNNING"
+                    "status": "COMPLETED"
                 }
             },
             "qualification_eligible": false
         },
         "screen_protocol_file": "ai/strong/discard-correction-screen-protocol-v1.json",
-        "qualification_eligible": false
+        "qualification_eligible": false,
+        "screen_evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "d278ad42e2213dd3b4a4fcb1991f40b4572046bb",
+            "prefix": "runs/discard-correction-screen-completed-evidence-v1",
+            "raw_revision": "d6bbd10b729231bc574ad1037065c25d7fb0b61e",
+            "qualification_eligible": false
+        },
+        "screen_results_file": "ai/strong/discard-correction-screen-results-v1.json",
+        "screen_decision": "All4800 games independently verified, caps0. Both seeds improve2p and4p economic;6p slips. BothA26036.1979% below40%floor andparent37.2396%; no promotion. Keep separate seeds for broader opponents."
+    },
+    "discard_opponents_v1": {
+        "protocol_file": "ai/strong/discard-opponents-protocol-v1.json",
+        "source": {
+            "archive": "strong-source-discard-opponents-20261010-v1.tgz",
+            "revision": "e44812ae307ae3e8a2b62306511d55b61d34720f",
+            "sha256": "b40efa0c88e8b8a148bf44f955a50b1aa20804cc7e9eb09bd0f4f15efe31a880",
+            "overlays": {
+                "ai/strong/discard_opponents_screen.py": "a924eba0aada22f3b6be7fd1564b7b23fb6d285cb877e32b010b420518d91bb6",
+                "ai/strong/discard-opponents-protocol-v1.json": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c"
+            },
+            "base": {
+                "archive": "strong-source-discard-correction-screen-20261010-v1.tgz",
+                "revision": "63db2c7e4b870bf019436a6338c9385f3bad82a6",
+                "sha256": "2ee290d6a7c5863fcfea9ebefa1b00515776be8174e22662870e86e547a04d4d"
+            },
+            "unchanged_base_file_count": 1370,
+            "protocol_sha256": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c",
+            "models_sha256": "f3c3362712179d0af1796b5419215ac3e8f69f886126a35c105c1c96b0354a6a",
+            "qualification_eligible": false
+        },
+        "status_file": "ai/strong/discard-opponents-status-v1.json",
+        "planned_games": 13440,
+        "smoke_2p_verified": {
+            "revision": "d26b848916e6c360cec6f332cd01d5b6a0e837c4",
+            "games": 32,
+            "search_rollouts": 34704,
+            "game_truncations": 0,
+            "search_truncations": 0
+        },
+        "stage": "Three full2p shards launched after verified same-count runtime admission;6p probe remains live. Other12shards await measured admission.",
+        "qualification_eligible": false,
+        "status": {
+            "checked_at": "2026-10-10T15:00:58.024508+00:00",
+            "jobs": {
+                "10101-2p": {
+                    "job_id": "6aca529ffee2c90070188f0f",
+                    "status": "RUNNING"
+                },
+                "10102-2p": {
+                    "job_id": "6aca52a0095c57808931387c",
+                    "status": "RUNNING"
+                },
+                "parent-2p": {
+                    "job_id": "6aca529e095c578089313879",
+                    "status": "RUNNING"
+                },
+                "smoke-10102-2p": {
+                    "job_id": "6aca4fce095c57808931369e",
+                    "status": "COMPLETED"
+                },
+                "smoke-10102-6p": {
+                    "job_id": "6aca4fcf095c5780893136a4",
+                    "status": "RUNNING"
+                }
+            },
+            "qualification_eligible": false
+        },
+        "runtime_profile_file": "ai/strong/discard-opponents-runtime-profile-v1.json",
+        "full_2p_games_launched": 1344,
+        "runtime_evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "505379fca4e2c6091f96cd59af43fafc76ef8ea2",
+            "prefix": "runs/discard-opponents-runtime-evidence-v1",
+            "games_verified": 32,
+            "verified_players": [
+                2
+            ],
+            "qualification_eligible": false
+        }
     }
 }

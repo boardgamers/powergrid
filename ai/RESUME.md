@@ -6,13 +6,121 @@ final-test seeds remain unused.** The separate UI redesign was reverted.
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
 `ai/germany-baseline`. No UI work or publication is part of this AI continuation.
 
-## Latest: learned discard corrections verified; 4,800 complete-game comparisons launched
+## Latest: 4,800 complete games verified; broader opponents under runtime profiling
 
-The preceding AI goal turn was **progress** (complete-game intervention and fresh
-training collection). This turn is also **progress**: independently verified all
-five labeling shards, trained and independently verified both learned corrections,
-and launched paired complete-game development screens. No blocker; no
-qualification, deployment or reserved final seeds.
+The preceding AI goal turn was **progress**: independently verified all three
+learned-discard complete-game screens and started two HF runtime probes. This
+continuation is also **progress**: independently collected the 2p runtime probe,
+prepared a combined raw-artifact verifier, launched the three full 2p opponent
+shards on their measured runtime, and preserved all positive and negative results. No qualification, deployment or reserved final
+seeds. The UI remains at the published version.
+
+All three correction-screen jobs are **COMPLETED**, with all 4,800 games
+independently verified and zero actual-game or search truncations. Raw model-repo
+revision `d6bbd10b729231bc574ad1037065c25d7fb0b61e`; local collection
+`ai/runs/discard-correction-screen-verified-v1`. Summary:
+`strong/discard-correction-screen-results-v1.json`. Durable combined evidence:
+`d278ad42e2213dd3b4a4fcb1991f40b4572046bb`, prefix
+`runs/discard-correction-screen-completed-evidence-v1` in
+`coyotte508/powergrid-ai-germany-v1`.
+
+| Opponent / count | Parent | Seed 10101 | Seed 10102 |
+| --- | ---: | ---: | ---: |
+| economic 2p | 55.47% | 69.53% | 70.31% |
+| economic 3p | 58.85% | 61.46% | 60.94% |
+| economic 4p | 60.55% | 64.06% | 63.28% |
+| economic 5p | 71.88% | 71.56% | 71.88% |
+| economic 6p | 72.79% | 72.01% | 72.27% |
+| capacity-economic 2p | 58.59% | 75.00% | 75.00% |
+| A260 3p | 37.24% | 36.20% | 36.20% |
+
+These are actual complete-game win shares on 16 independent deals per cell,
+all seats and four rule combinations. Both seeds improve economic 2p (+14.06 /
++14.84 points, paired whole-deal 95% intervals [+7.03,+21.09] /
+[+8.59,+21.09]) and capacity-economic 2p (+16.41 points each,
+[+10.94,+21.88]). Economic 4p gains are smaller but both intervals are positive.
+Economic 6p slips by 0.78 / 0.52 points. Both A260 results are below the 40%
+point floor and 1.04 points below the parent; the paired interval includes zero.
+Keep both seeds; no winner or strong-model claim. All rule-cell estimates and
+contrasts are in the report. These are marginal exploratory intervals, not
+simultaneous confidence or the reserved final evaluation.
+
+`strong/discard-parent-loss-profile-v1.json` describes overlapping terminal-loss
+conditions, not causal move labels. Against A260, 83 of 120 parent losses have
+nominal capacity below the winner's powered cities; 27 have too few cities
+despite enough nominal capacity; 10 lose a powered-city tie on cash. At 6p
+against economic, the larger category is insufficient cities (63/104), compared
+with capacity shortfall (26/104). Unused nominal capacity can mean missing fuel;
+it is not evidence of a plant-activation bug.
+
+**Broader opponent extension.** Predeclared 13,440 fresh development games:
+parent and both learned seeds, counts 2–6, all four rule cells and every seat,
+versus legacy/heuristic/rush (16 deals each) and unchanged search_geo (8 deals).
+No candidate search. Independent search_geo remains 16 samples, 6 candidates,
+geographic proposals and horizon 2400. Actual-game hard cap remains 1600;
+either cap invalidates a result. No engine or opponent changes.
+Protocol `strong/discard-opponents-protocol-v1.json`, SHA
+`191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c`.
+Frozen source dataset revision `e44812ae307ae3e8a2b62306511d55b61d34720f`,
+archive `strong-source-discard-opponents-20261010-v1.tgz`, SHA
+`b40efa0c88e8b8a148bf44f955a50b1aa20804cc7e9eb09bd0f4f15efe31a880`.
+All 1,370 base files are unchanged. Fresh main seed prefix
+`discard-opponents-games-v1-{players}p`; separate smoke prefix
+`discard-opponents-smoke-v1-{players}p`. Same pinned model manifest as above.
+
+HF CPU-performance 4h probes launched 14:46 UTC:
+- 2p seed10102: `6aca4fce095c57808931369e`, COMPLETED and independently verified
+  at raw revision `d26b848916e6c360cec6f332cd01d5b6a0e837c4`.
+  All 32 games pass; search_geo takes 108.33s and 34,704 rollouts, zero caps.
+  Simpler opponents take 1.66–1.77s each.
+- 6p seed10102: `6aca4fcf095c5780893136a4`, last observed RUNNING at
+  14:54:38 UTC. Re-inspect this exact handle, never relaunch on log timeout.
+
+Independent collector `strong/collect-discard-opponents.py` downloads immutable
+raw artifacts, checks hashes/contracts/outcomes and recomputes every summary.
+`strong/compare-discard-opponents.py` revalidates saved artifacts and compares
+all three policies, retaining complete counts and every rule cell. It can mark
+a complete-count subset explicitly partial; it never treats missing shards as
+losses or successes. Runtime report builder `strong/profile-discard-opponents.py`
+uses independently verified 2p and 6p smoke collections in
+`ai/runs/discard-opponents-smoke-verified-v1/{2,6}p`.
+
+**Full 2p shards launched at 14:58 UTC**, 448 games each (1,344 total):
+- parent: `6aca529e095c578089313879`
+- 10101: `6aca529ffee2c90070188f0f`
+- 10102: `6aca52a0095c57808931387c`
+
+The verified same-count smoke projects 2,019.53 seconds including the doubled
+runtime margin and setup, below the existing 3h admission limit. The profiler
+now admits counts independently: `--players 2` admits only 2p. Other counts
+require their own probe or both endpoints; no unmeasured 6p work was launched.
+No frozen runner, evaluation seed, model, opponent, game count or cutoff changed.
+Each launch intent preserves the runtime basis and profile hash. Current profile:
+`strong/discard-opponents-runtime-profile-v1.json` (only 2p verified so far).
+
+Last authoritative check at **15:00:58 UTC**: all three full 2p jobs and the
+6p smoke are RUNNING; the 2p smoke is COMPLETED. Statuses live in
+`strong/discard-opponents-status-v1.json`. Verified 2p probe, collectors, runtime
+profile and launch records are also durable in HF revision
+`505379fca4e2c6091f96cd59af43fafc76ef8ea2`, prefix
+`runs/discard-opponents-runtime-evidence-v1` (explicitly partial, only 2p).
+Local real-artifact admission tests pass, including rejection of altered search
+caps, wrong model/count, missing games and treating a smoke as a full shard.
+The combined full-shard comparison awaits actual completed outputs.
+
+**Next:** re-inspect the exact 6p smoke and three full 2p handles. Collect completed
+full shards into `ai/runs/discard-opponents-verified-v1/KEY-Np`, then compare with
+`ai/.venv/bin/python ai/strong/compare-discard-opponents.py ai/runs/discard-opponents-verified-v1 ai/strong/discard-opponents-results-v1.json --players 2`.
+This explicitly marks the broader suite partial. On 6p probe completion,
+independently collect it and rebuild the profile with both endpoints. Use measured
+runtime to admit or split the remaining 12 planned shards. The launcher's 3h
+planning limit and 4h execution limit remain unchanged. If too slow, shard the
+workload without weakening opponents or cutting prescribed games. Full launch
+intents live in `ai/runs/discard-opponents-launches-v1`; inspect before any retry.
+The A260 deficit remains unresolved. The unchanged full multiplayer gate and
+exact-model benchmark on the actual AMD 8840U are still required.
+
+## Earlier: learned corrections trained, exported and verified
 
 **Actual complete-game intervention, all960 games verified.** The fixed parent
 wins50.3125%, economic-guided discards73.75%, neural-guided discards73.125% in320
@@ -134,21 +242,8 @@ all models at2p/6p plus mixed-schema A2603p, zero game/search truncations.
 | 10101 | `6aca4c51fee2c90070188a1c` |
 | 10102 | `6aca4c51fee2c90070188a1e` |
 
-Last authoritative14:32:58UTC status:parent RUNNING, both candidates SCHEDULING.
-Re-inspect these exact handles; do not duplicate a queued job. Status file:
-`strong/discard-correction-screen-status-v1.json`. Output prefixes:
-`runs/discard-correction-screen-v1-KEY` in the model repo.
-
-**Next:** inspect the three jobs, then pin their combined output revision and run
-`ai/.venv/bin/python ai/strong/collect-discard-correction-screen.py REVISION ai/runs/discard-correction-screen-verified-v1`.
-The collector checks every raw game, pins, seats/rules/deals/caps and three paired
-contrasts. It is prepared and syntax-checked, not yet run on completed screens.
-If changes help, extend to independent legacy/heuristic/rush/search_geo coverage;
-if they regress, use the adverse cells to direct the next correction/training.
-The unchanged full multiplayer gate still applies. No final-test seeds until
-development warrants a frozen candidate; actual8840U benchmark must use the
-exact eventually-qualified checkpoint/config. No candidate is promoted. UI stays
-reverted.
+All three jobs subsequently completed and all games were independently verified;
+see the latest section above. Do not relaunch these completed jobs.
 
 ## Earlier: all 34,720 precision reruns verified; discard audit and intervention setup
 

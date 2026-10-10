@@ -1,0 +1,56 @@
+{
+  "revision": "8b49ef4ab9b4e5123d4c70a1d60da89bf1958bbc",
+  "cells": {
+    "a260-3p": {
+      "losses": 120,
+      "capacity_short": 83,
+      "cities_short_with_adequate_capacity": 27,
+      "powered_tie_lost_cash": 10,
+      "unused_nominal_capacity": 1
+    },
+    "economic-2p": {
+      "losses": 57,
+      "capacity_short": 38,
+      "cities_short_with_adequate_capacity": 9,
+      "powered_tie_lost_cash": 10,
+      "unused_nominal_capacity": 0
+    },
+    "economic-3p": {
+      "losses": 79,
+      "capacity_short": 53,
+      "cities_short_with_adequate_capacity": 10,
+      "powered_tie_lost_cash": 15,
+      "unused_nominal_capacity": 1
+    },
+    "economic-4p": {
+      "losses": 101,
+      "capacity_short": 79,
+      "cities_short_with_adequate_capacity": 12,
+      "powered_tie_lost_cash": 10,
+      "unused_nominal_capacity": 2
+    },
+    "economic-5p": {
+      "losses": 90,
+      "capacity_short": 43,
+      "cities_short_with_adequate_capacity": 36,
+      "powered_tie_lost_cash": 11,
+      "unused_nominal_capacity": 4
+    },
+    "economic-6p": {
+      "losses": 104,
+      "capacity_short": 26,
+      "cities_short_with_adequate_capacity": 63,
+      "powered_tie_lost_cash": 12,
+      "unused_nominal_capacity": 7
+    },
+    "economic_capacity_v1-2p": {
+      "losses": 53,
+      "capacity_short": 40,
+      "cities_short_with_adequate_capacity": 2,
+      "powered_tie_lost_cash": 11,
+      "unused_nominal_capacity": 0
+    }
+  },
+  "interpretation": "Descriptive overlapping terminal deficits, not causal errors or move-level labels. Capacity is nominal and not necessarily fueled; unused capacity may reflect fuel shortage, not an activation bug.",
+  "qualification_eligible": false
+}

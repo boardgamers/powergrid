@@ -1,0 +1,17 @@
+{
+  "source_revision": "e44812ae307ae3e8a2b62306511d55b61d34720f",
+  "source_sha256": "b40efa0c88e8b8a148bf44f955a50b1aa20804cc7e9eb09bd0f4f15efe31a880",
+  "import_and_admission_checks_passed": true,
+  "real_games_revalidated_in_frozen_package": 128,
+  "variable_deal_counts_tested": [
+    8,
+    16
+  ],
+  "rejected": [
+    "caps",
+    "wrong seed",
+    "wrong model hash",
+    "missing game"
+  ],
+  "qualification_eligible": false
+}

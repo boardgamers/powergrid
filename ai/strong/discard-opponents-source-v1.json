@@ -1,0 +1,18 @@
+{
+  "archive": "strong-source-discard-opponents-20261010-v1.tgz",
+  "revision": "e44812ae307ae3e8a2b62306511d55b61d34720f",
+  "sha256": "b40efa0c88e8b8a148bf44f955a50b1aa20804cc7e9eb09bd0f4f15efe31a880",
+  "overlays": {
+    "ai/strong/discard_opponents_screen.py": "a924eba0aada22f3b6be7fd1564b7b23fb6d285cb877e32b010b420518d91bb6",
+    "ai/strong/discard-opponents-protocol-v1.json": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c"
+  },
+  "base": {
+    "archive": "strong-source-discard-correction-screen-20261010-v1.tgz",
+    "revision": "63db2c7e4b870bf019436a6338c9385f3bad82a6",
+    "sha256": "2ee290d6a7c5863fcfea9ebefa1b00515776be8174e22662870e86e547a04d4d"
+  },
+  "unchanged_base_file_count": 1370,
+  "protocol_sha256": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c",
+  "models_sha256": "f3c3362712179d0af1796b5419215ac3e8f69f886126a35c105c1c96b0354a6a",
+  "qualification_eligible": false
+}

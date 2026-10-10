@@ -1,0 +1,35 @@
+{
+  "source_revision": "e44812ae307ae3e8a2b62306511d55b61d34720f",
+  "source_sha256": "b40efa0c88e8b8a148bf44f955a50b1aa20804cc7e9eb09bd0f4f15efe31a880",
+  "profiles": {
+    "2": {
+      "revision": "d26b848916e6c360cec6f332cd01d5b6a0e837c4",
+      "games": 32,
+      "seconds_by_opponent": {
+        "legacy": 1.7697547809999605,
+        "heuristic": 1.6603016330000173,
+        "rush": 1.7641227950000484,
+        "search_geo": 108.33235373000002
+      },
+      "linear_full_shard_seconds": 949.7656971840006,
+      "search_rollouts": 34704
+    }
+  },
+  "verified_players": [
+    2
+  ],
+  "both_endpoints_verified": false,
+  "admission": {
+    "2": {
+      "projected_shard_seconds": 2019.5313943680012,
+      "basis": "Measured same-count smoke, doubled linear projection plus120s setup"
+    }
+  },
+  "games": 32,
+  "game_truncations": 0,
+  "search_truncations": 0,
+  "verified": true,
+  "max_projected_shard_seconds": 2019.5313943680012,
+  "interpretation": "Conservative planning estimate: two times the worse endpoint linear projection plus120s setup. Smoke2p has only8 concurrent games versus24 in full shards, so scaling should improve; counts3-5 and deal variation remain uncertain. Actual jobs have4h limits; preserve caps/timeouts rather than calling them losses.",
+  "qualification_eligible": false
+}

@@ -24,14 +24,17 @@ def same_summary(actual, stored):
 
 
 def main():
-    p=argparse.ArgumentParser(__doc__);p.add_argument('revision');p.add_argument('output',type=Path);a=p.parse_args()
+    p=argparse.ArgumentParser(__doc__);p.add_argument('revision');p.add_argument('output',type=Path)
+    p.add_argument('--models',nargs='+',choices=['parent','10101','10102'],help='Verify a completed subset, explicitly marked partial')
+    a=p.parse_args()
     assert re.fullmatch('[a-f0-9]{40}',a.revision)
     protocol_path=ROOT/'ai/strong/discard-correction-screen-protocol-v1.json'
     protocol=read(protocol_path);source=read(ROOT/'ai/strong/discard-correction-screen-source-v1.json')
+    keys=a.models or protocol['models'];assert len(set(keys))==len(keys) and 'parent' in keys
     models_path=ROOT/'ai/strong/discard-correction-screen-models-v1.json';models=read(models_path)
     out=a.output.resolve();out.mkdir(parents=True,exist_ok=False)
     arms,raw={},{}
-    for key in protocol['models']:
+    for key in keys:
         target=out/key;target.mkdir();prefix='runs/discard-correction-screen-v1-'+key
         def fetch(name):
             assert Path(name).name==name
@@ -62,6 +65,7 @@ def main():
             raw[key][f'{opponent}/{n}p']=rows
     contrasts={}
     for left,right in [('10101','parent'),('10102','parent'),('10102','10101')]:
+        if left not in raw or right not in raw:continue
         comparisons={}
         for cell,left_rows in raw[left].items():
             right_rows=raw[right][cell]
@@ -74,11 +78,13 @@ def main():
             comparisons[cell]={'overall':compare(left_rows,right_rows),'rules':rules}
         contrasts[left+'-minus-'+right]=comparisons
     result={'revision':a.revision,'protocol_sha256':digest(protocol_path),'models_sha256':digest(models_path),
-        'source_revision':source['revision'],'games':4800,'game_truncations':0,'search_truncations':0,
+        'source_revision':source['revision'],'games':1600*len(keys),'game_truncations':0,'search_truncations':0,
+        'prescribed_models':protocol['models'],'verified_models':keys,'all_models_verified':set(keys)==set(protocol['models']),
         'arms':arms,'contrasts':contrasts,'qualification_eligible':False,
         'scope':'Fresh complete-game development comparison, all counts/rules. Limited opponent scope and16 deals/cell; full strength gate remains required. Marginal exploratory intervals, no multiplicity adjustment.'}
     write(out/'verified.json',result)
-    print({'games':4800,'contrasts':{k:{cell:v['overall'] for cell,v in cells.items()} for k,cells in contrasts.items()}})
+    print({'games':result['games'],'verified_models':keys,'all_models_verified':result['all_models_verified'],
+        'contrasts':{k:{cell:v['overall'] for cell,v in cells.items()} for k,cells in contrasts.items()}})
 
 
 if __name__=='__main__':main()

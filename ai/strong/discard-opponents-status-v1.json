@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-10-10T15:00:58.024508+00:00",
+  "jobs": {
+    "10101-2p": {
+      "job_id": "6aca529ffee2c90070188f0f",
+      "status": "RUNNING"
+    },
+    "10102-2p": {
+      "job_id": "6aca52a0095c57808931387c",
+      "status": "RUNNING"
+    },
+    "parent-2p": {
+      "job_id": "6aca529e095c578089313879",
+      "status": "RUNNING"
+    },
+    "smoke-10102-2p": {
+      "job_id": "6aca4fce095c57808931369e",
+      "status": "COMPLETED"
+    },
+    "smoke-10102-6p": {
+      "job_id": "6aca4fcf095c5780893136a4",
+      "status": "RUNNING"
+    }
+  },
+  "qualification_eligible": false
+}

@@ -1,10 +1,14 @@
 {
   "repo": "coyotte508/powergrid-ai-germany-v1",
-  "revision": "505379fca4e2c6091f96cd59af43fafc76ef8ea2",
-  "prefix": "runs/discard-opponents-runtime-evidence-v1",
-  "games_verified": 32,
+  "revision": "3e79eccc2e5219b9a543c32a0fadcd9ee0ad219e",
+  "prefix": "runs/discard-opponents-runtime-completed-evidence-v1",
+  "games_verified": 128,
   "verified_players": [
-    2
+    2,
+    6
   ],
+  "search_rollouts": 483520,
+  "game_truncations": 0,
+  "search_truncations": 0,
   "qualification_eligible": false
 }

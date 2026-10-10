@@ -16,22 +16,26 @@ source=read(ROOT/'ai/strong/discard-opponents-source-v1.json')
 assert all(sha(ROOT/k)==v for k,v in source['overlays'].items())
 preflight=read(ROOT/'ai/strong/discard-opponents-local-preflight-v1.json')
 assert preflight['source_revision']==source['revision'] and preflight['import_and_admission_checks_passed']
+timeout_hours=4
 if not a.smoke:
     profile=read(ROOT/'ai/strong/discard-opponents-runtime-profile-v1.json')
     assert profile['source_revision']==source['revision'] and profile['verified']
     assert profile['game_truncations']==profile['search_truncations']==0
     assert str(a.players) in profile['admission'], 'No verified runtime basis for this count'
-    assert profile['admission'][str(a.players)]['projected_shard_seconds']<3*3600
+    admission=profile['admission'][str(a.players)]
+    timeout_hours=admission['timeout_hours']
+    assert admission['admitted'] and 4<=timeout_hours<=12
+    assert admission['projected_shard_seconds']<=.75*timeout_hours*3600
 suffix=('smoke-' if a.smoke else '')+a.key+f'-{a.players}p'
 directory=ROOT/'ai/runs/discard-opponents-launches-v1';directory.mkdir(exist_ok=True);path=directory/(suffix+'.json')
-record={'key':a.key,'players':a.players,'smoke':a.smoke,'stage':'launch_intent',
+record={'key':a.key,'players':a.players,'smoke':a.smoke,'stage':'launch_intent','timeout_hours':timeout_hours,
     'created_at':datetime.now(timezone.utc).isoformat(),'source_revision':source['revision'],'source_sha256':source['sha256'],
     'protocol_sha256':source['protocol_sha256'],'models_sha256':source['models_sha256'],'qualification_eligible':False}
 if not a.smoke:
     record['runtime_admission']=profile['admission'][str(a.players)]
     record['runtime_profile_sha256']=sha(ROOT/'ai/strong/discard-opponents-runtime-profile-v1.json')
 with path.open('x') as f:json.dump(record,f,indent=2)
-command=['hf','jobs','run','--detach','--flavor','cpu-performance','--timeout','4h','--secrets','HF_TOKEN',
+command=['hf','jobs','run','--detach','--flavor','cpu-performance','--timeout',f'{timeout_hours}h','--secrets','HF_TOKEN',
     '--label','project=powergrid-ai','--label','stage=discard-opponents-v1-'+suffix]
 for k,v in {'MODEL_KEY':a.key,'PLAYERS':str(a.players),'SMOKE':'1' if a.smoke else '0',
     'SOURCE_ARCHIVE':source['archive'],'SOURCE_REVISION':source['revision'],'SOURCE_SHA256':source['sha256'],

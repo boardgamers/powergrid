@@ -13,23 +13,67 @@
       },
       "linear_full_shard_seconds": 949.7656971840006,
       "search_rollouts": 34704
+    },
+    "6": {
+      "revision": "029d32c11af9310383d942c748202b32719cf487",
+      "games": 96,
+      "seconds_by_opponent": {
+        "legacy": 3.851424105465412,
+        "heuristic": 3.6331030689179897,
+        "rush": 3.608654604293406,
+        "search_geo": 1418.2716509271413
+      },
+      "linear_full_shard_seconds": 11523.66411587596,
+      "search_rollouts": 448816
     }
   },
   "verified_players": [
-    2
+    2,
+    6
   ],
-  "both_endpoints_verified": false,
+  "both_endpoints_verified": true,
   "admission": {
     "2": {
       "projected_shard_seconds": 2019.5313943680012,
-      "basis": "Measured same-count smoke, doubled linear projection plus120s setup"
+      "basis": "Measured same-count smoke, doubled linear projection plus120s setup",
+      "timeout_hours": 4,
+      "admitted": true,
+      "execution_budget_basis": "Keep25% timeout headroom beyond the doubled-runtime planning estimate; require partitioning if more than12h is needed. No game/search cutoff or evaluation scope changes."
+    },
+    "6": {
+      "projected_shard_seconds": 23167.32823175192,
+      "basis": "Measured same-count smoke, doubled linear projection plus120s setup",
+      "timeout_hours": 9,
+      "admitted": true,
+      "execution_budget_basis": "Keep25% timeout headroom beyond the doubled-runtime planning estimate; require partitioning if more than12h is needed. No game/search cutoff or evaluation scope changes."
+    },
+    "3": {
+      "projected_shard_seconds": 23167.32823175192,
+      "basis": "Conservative endpoint planning estimate; not a same-count runtime measurement",
+      "timeout_hours": 9,
+      "admitted": true,
+      "execution_budget_basis": "Keep25% timeout headroom beyond the doubled-runtime planning estimate; require partitioning if more than12h is needed. No game/search cutoff or evaluation scope changes."
+    },
+    "4": {
+      "projected_shard_seconds": 23167.32823175192,
+      "basis": "Conservative endpoint planning estimate; not a same-count runtime measurement",
+      "timeout_hours": 9,
+      "admitted": true,
+      "execution_budget_basis": "Keep25% timeout headroom beyond the doubled-runtime planning estimate; require partitioning if more than12h is needed. No game/search cutoff or evaluation scope changes."
+    },
+    "5": {
+      "projected_shard_seconds": 23167.32823175192,
+      "basis": "Conservative endpoint planning estimate; not a same-count runtime measurement",
+      "timeout_hours": 9,
+      "admitted": true,
+      "execution_budget_basis": "Keep25% timeout headroom beyond the doubled-runtime planning estimate; require partitioning if more than12h is needed. No game/search cutoff or evaluation scope changes."
     }
   },
-  "games": 32,
+  "games": 128,
   "game_truncations": 0,
   "search_truncations": 0,
   "verified": true,
-  "max_projected_shard_seconds": 2019.5313943680012,
-  "interpretation": "Conservative planning estimate: two times the worse endpoint linear projection plus120s setup. Smoke2p has only8 concurrent games versus24 in full shards, so scaling should improve; counts3-5 and deal variation remain uncertain. Actual jobs have4h limits; preserve caps/timeouts rather than calling them losses.",
+  "max_projected_shard_seconds": 23167.32823175192,
+  "interpretation": "Same-count planning where measured, otherwise use the worse endpoint: double linear runtime plus120s setup. Smoke2p has only8 concurrent games versus24 in full shards, so scaling should improve; counts3-5 and deal variation remain uncertain. Allocate4-12h HF execution budgets with25% headroom; larger work must be partitioned. Preserve caps/timeouts rather than calling them losses.",
   "qualification_eligible": false
 }

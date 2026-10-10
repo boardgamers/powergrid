@@ -1,5 +1,6 @@
 """Use available verified HF endpoint timings for count-specific admission."""
 import argparse
+import math
 from pathlib import Path
 from five_plant_screen import ROOT,read,write
 
@@ -24,10 +25,16 @@ if set(profiles)=={'2','6'}:
     for n in [3,4,5]:admission[str(n)]={
         'projected_shard_seconds':max(r['projected_shard_seconds'] for r in admission.values()),
         'basis':'Conservative endpoint planning estimate; not a same-count runtime measurement'}
+for row in admission.values():
+    projected=row['projected_shard_seconds']
+    assert math.isfinite(projected) and projected>0
+    row['timeout_hours']=max(4,math.ceil(projected/(.75*3600)))
+    row['admitted']=row['timeout_hours']<=12
+    row['execution_budget_basis']='Keep25% timeout headroom beyond the doubled-runtime planning estimate; require partitioning if more than12h is needed. No game/search cutoff or evaluation scope changes.'
 result={'source_revision':source['revision'],'source_sha256':source['sha256'],'profiles':profiles,
     'verified_players':a.players,'both_endpoints_verified':set(a.players)=={2,6},'admission':admission,
     'games':sum(v['games'] for v in profiles.values()),'game_truncations':0,'search_truncations':0,'verified':True,
     'max_projected_shard_seconds':120+2*max(v['linear_full_shard_seconds'] for v in profiles.values()),
-    'interpretation':'Conservative planning estimate: two times the worse endpoint linear projection plus120s setup. Smoke2p has only8 concurrent games versus24 in full shards, so scaling should improve; counts3-5 and deal variation remain uncertain. Actual jobs have4h limits; preserve caps/timeouts rather than calling them losses.',
+    'interpretation':'Same-count planning where measured, otherwise use the worse endpoint: double linear runtime plus120s setup. Smoke2p has only8 concurrent games versus24 in full shards, so scaling should improve; counts3-5 and deal variation remain uncertain. Allocate4-12h HF execution budgets with25% headroom; larger work must be partitioned. Preserve caps/timeouts rather than calling them losses.',
     'qualification_eligible':False}
 write(ROOT/'ai/strong/discard-opponents-runtime-profile-v1.json',result);print(result)

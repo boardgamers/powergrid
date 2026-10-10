@@ -37982,30 +37982,95 @@
             "game_truncations": 0,
             "search_truncations": 0
         },
-        "stage": "Three full2p shards launched after verified same-count runtime admission;6p probe remains live. Other12shards await measured admission.",
+        "stage": "All1344 full2p games independently verified. Both128-game endpoint probes independently verified;all12remaining3-6p shards launched,12096games,9hCPU-performance each.",
         "qualification_eligible": false,
         "status": {
-            "checked_at": "2026-10-10T15:00:58.024508+00:00",
+            "checked_at": "2026-10-10T15:13:46.766149+00:00",
             "jobs": {
-                "10101-2p": {
-                    "job_id": "6aca529ffee2c90070188f0f",
-                    "status": "RUNNING"
+                "10101-5p": {
+                    "job_id": "6aca55ecfee2c900701891ed",
+                    "status": "SCHEDULING",
+                    "timeout_hours": 9
                 },
-                "10102-2p": {
-                    "job_id": "6aca52a0095c57808931387c",
-                    "status": "RUNNING"
+                "parent-3p": {
+                    "job_id": "6aca55e6fee2c900701891e0",
+                    "status": "RUNNING",
+                    "timeout_hours": 9
                 },
-                "parent-2p": {
-                    "job_id": "6aca529e095c578089313879",
-                    "status": "RUNNING"
+                "10101-4p": {
+                    "job_id": "6aca55ebfee2c900701891eb",
+                    "status": "SCHEDULING",
+                    "timeout_hours": 9
+                },
+                "10101-6p": {
+                    "job_id": "6aca55edfee2c900701891ef",
+                    "status": "SCHEDULING",
+                    "timeout_hours": 9
                 },
                 "smoke-10102-2p": {
                     "job_id": "6aca4fce095c57808931369e",
-                    "status": "COMPLETED"
+                    "status": "COMPLETED",
+                    "timeout_hours": 4
+                },
+                "10101-3p": {
+                    "job_id": "6aca55eafee2c900701891e9",
+                    "status": "SCHEDULING",
+                    "timeout_hours": 9
+                },
+                "parent-4p": {
+                    "job_id": "6aca55e6095c578089313acc",
+                    "status": "RUNNING",
+                    "timeout_hours": 9
+                },
+                "10102-5p": {
+                    "job_id": "6aca55ef095c578089313ad9",
+                    "status": "SCHEDULING",
+                    "timeout_hours": 9
                 },
                 "smoke-10102-6p": {
                     "job_id": "6aca4fcf095c5780893136a4",
-                    "status": "RUNNING"
+                    "status": "COMPLETED",
+                    "timeout_hours": 4
+                },
+                "10102-3p": {
+                    "job_id": "6aca55ed095c578089313ad4",
+                    "status": "SCHEDULING",
+                    "timeout_hours": 9
+                },
+                "parent-2p": {
+                    "job_id": "6aca529e095c578089313879",
+                    "status": "COMPLETED",
+                    "timeout_hours": 4
+                },
+                "10102-4p": {
+                    "job_id": "6aca55ee095c578089313ad7",
+                    "status": "SCHEDULING",
+                    "timeout_hours": 9
+                },
+                "10101-2p": {
+                    "job_id": "6aca529ffee2c90070188f0f",
+                    "status": "COMPLETED",
+                    "timeout_hours": 4
+                },
+                "10102-6p": {
+                    "job_id": "6aca55ef095c578089313adb",
+                    "status": "SCHEDULING",
+                    "timeout_hours": 9
+                },
+                "parent-5p": {
+                    "job_id": "6aca55e7fee2c900701891e4",
+                    "status": "RUNNING",
+                    "timeout_hours": 9
+                },
+                "parent-6p": {
+                    "job_id": "6aca55e9095c578089313ace",
+                    "status": "RUNNING",
+                    "timeout_hours": 9
+                },
+                "10102-2p": {
+                    "job_id": "6aca52a0095c57808931387c",
+                    "status": "COMPLETED",
+                    "timeout_hours": 4
                 }
             },
             "qualification_eligible": false
@@ -38014,13 +38079,48 @@
         "full_2p_games_launched": 1344,
         "runtime_evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
-            "revision": "505379fca4e2c6091f96cd59af43fafc76ef8ea2",
-            "prefix": "runs/discard-opponents-runtime-evidence-v1",
-            "games_verified": 32,
+            "revision": "3e79eccc2e5219b9a543c32a0fadcd9ee0ad219e",
+            "prefix": "runs/discard-opponents-runtime-completed-evidence-v1",
+            "games_verified": 128,
+            "verified_players": [
+                2,
+                6
+            ],
+            "search_rollouts": 483520,
+            "game_truncations": 0,
+            "search_truncations": 0,
+            "qualification_eligible": false
+        },
+        "two_player_results_file": "ai/strong/discard-opponents-results-v1.json",
+        "two_player_evidence_file": "ai/strong/discard-opponents-2p-evidence-v1.json",
+        "two_player_decision": "Both learned seeds improve heuristic,rush,search opponents on paired deals. Search50% vsparent23.4375% (+26.5625pp CI15.625..39.0625;8deals), but candidate CIincludes50% and heuristic/search pointfloors missed. No qualification. Remaining Rechargedsealed search31.25% retained.",
+        "execution_budget_update": "Allocate4-12h from completed verified runtime, preserving2x projection plus120s setup and25% headroom; larger work requires partitioning. No game/search horizons or evaluation scope altered.",
+        "two_player_evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "029d32c11af9310383d942c748202b32719cf487",
+            "prefix": "runs/discard-opponents-2p-completed-evidence-v1",
+            "games_verified": 1344,
             "verified_players": [
                 2
             ],
+            "all_counts_verified": false,
             "qualification_eligible": false
+        },
+        "full_games_launched": 13440,
+        "full_games_verified": 1344,
+        "six_player_smoke_verified": {
+            "games": 96,
+            "search_rollouts": 448816,
+            "search_seconds": 1418.2716509271413,
+            "game_truncations": 0,
+            "search_truncations": 0
+        },
+        "further_search_transfer_proposal": {
+            "protocol_file": "ai/strong/search-transfer-protocol-v1.json",
+            "status": "Prepared only;wrapper,compatibility/runtime admission andlaunch still required",
+            "planned_games": 1152,
+            "qualification_eligible": false,
+            "baseline_check_file": "ai/strong/search-transfer-plan-check-v1.json"
         }
     }
 }

@@ -6,7 +6,113 @@ final-test seeds remain unused.** The separate UI redesign was reverted.
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
 `ai/germany-baseline`. No UI work or publication is part of this AI continuation.
 
-## Latest: 4,800 complete games verified; broader opponents under runtime profiling
+## Latest: learned discard gains transfer to independent 2p opponents
+
+The preceding goal turn was **progress**: verified the runtime probe and launched
+three complete 2p opponent evaluations. This turn is **progress**: all 1,344 games
+are independently verified, with every raw artifact, model/source pin,
+seat/rule/deal, outcome credit, search diagnostic and aggregate checked. The
+combined collector has now run successfully on the complete 2p subset. Both
+runtime probes are verified and all remaining full shards are launched. Zero
+actual-game/search truncations. No final seeds or model promotion.
+
+| Opponent (2p) | Parent | Seed 10101 | Seed 10102 |
+| --- | ---: | ---: | ---: |
+| legacy | 92.97% | 95.31% | 95.31% |
+| heuristic | 63.28% | 71.09% | 71.09% |
+| rush | 53.91% | 71.09% | 71.09% |
+| search_geo | 23.44% | 50.00% | 50.00% |
+
+Both training seeds have identical per-game win credits on this subset (not a
+claim that trajectories or final states are identical). Against search_geo,
+the paired gain is +26.5625 percentage points, whole-deal bootstrap 95% interval
+[+15.625,+39.0625]. Candidate win-share interval is [37.5%,60.9375%]: this does
+not establish an advantage over chance. Only eight independent search deals
+(64 games/model). The other opponents have 16 deals each (128 games/model).
+Heuristic gain +7.8125 points, interval [+3.90625,+12.5]; rush gain +17.1875,
+[+10.9375,+23.4375]; legacy gain +2.34375, [0,+6.25]. All are marginal,
+exploratory development intervals. Search and heuristic remain below their
+55% and77.5% 2p point floors; the earlier A260 gap also remains.
+
+Search_geo rule-cell win shares (original/open, original/sealed,
+Recharged/open, Recharged/sealed): parent 12.5/31.25/31.25/18.75%; both
+corrections 56.25/50/62.5/31.25%. Do not hide the remaining Recharged sealed
+weakness. Both seeds remain candidates for further development, not deployment.
+
+Raw immutable revisions: parent `6798691ac954c9c95702fea5476920062b61631e`;
+10101/10102 `c378cd1437fc6bd3fc340c94aca20142d5de5c73`. Local collections:
+`ai/runs/discard-opponents-verified-v1/{parent,10101,10102}-2p`.
+Summary `strong/discard-opponents-results-v1.json` explicitly records only 2p
+and `all_shards_verified: false`. All three full 2p HF jobs are COMPLETED;
+do not relaunch. Durable combined evidence is pinned in
+`strong/discard-opponents-2p-evidence-v1.json`.
+
+**Both runtime probes completed and independently verified.** The 6p probe
+`6aca4fcf095c5780893136a4` completed before15:11:04 UTC. All96 games verify at
+raw revision `029d32c11af9310383d942c748202b32719cf487`; search_geo took
+1,418.27s (23.64min),448,816 rollouts,zero caps. Combined endpoints:128 games,
+483,520 search rollouts,zero caps. Both probes are complete; do not relaunch.
+Durable runtime/launch evidence is revision
+`3e79eccc2e5219b9a543c32a0fadcd9ee0ad219e`, prefix
+`runs/discard-opponents-runtime-completed-evidence-v1`. Earlier partial evidence
+remains immutable at its old revision. Full2p evidence is revision
+`029d32c11af9310383d942c748202b32719cf487`, prefix
+`runs/discard-opponents-2p-completed-evidence-v1`.
+
+**All12 remaining 3–6p shards launched**, 12,096 games, completing dispatch of
+all13,440 prescribed games. The 6p linear projection is3.20h; doubling it and
+adding120s setup gives6.44h. A9h HF timeout preserves25% extra execution
+headroom. Counts3–5 conservatively use this endpoint estimate; their runtime
+was not directly measured. These are scheduling budgets; actual-game1600 and
+search2400 cutoffs, frozen source, opponents, models and seeds are unchanged.
+2p jobs used4h. Jobs needing more than12h under this rule must be partitioned.
+No strength criteria were relaxed.
+
+Authoritative status at15:13:46 UTC:4 new jobs RUNNING,8 SCHEDULING. Every
+new job is CPU-performance,9h; no duplicate launches. Exact handles:
+
+| Shard | HF job | Last status |
+| --- | --- | --- |
+| 10101-3p | `6aca55eafee2c900701891e9` | SCHEDULING |
+| 10101-4p | `6aca55ebfee2c900701891eb` | SCHEDULING |
+| 10101-5p | `6aca55ecfee2c900701891ed` | SCHEDULING |
+| 10101-6p | `6aca55edfee2c900701891ef` | SCHEDULING |
+| 10102-3p | `6aca55ed095c578089313ad4` | SCHEDULING |
+| 10102-4p | `6aca55ee095c578089313ad7` | SCHEDULING |
+| 10102-5p | `6aca55ef095c578089313ad9` | SCHEDULING |
+| 10102-6p | `6aca55ef095c578089313adb` | SCHEDULING |
+| parent-3p | `6aca55e6fee2c900701891e0` | RUNNING |
+| parent-4p | `6aca55e6095c578089313acc` | RUNNING |
+| parent-5p | `6aca55e7fee2c900701891e4` | RUNNING |
+| parent-6p | `6aca55e9095c578089313ace` | RUNNING |
+
+Launch guards are in `ai/runs/discard-opponents-launches-v1`. Collect only
+completed outputs at immutable model-repo revisions using
+`collect-discard-opponents.py KEY N REV ai/runs/discard-opponents-verified-v1/KEY-Np`.
+The comparison script can report a complete-count subset while clearly marking
+the suite partial. Do not duplicate or restart queued/live jobs after an
+observation timeout. No candidate is promoted and reserved final seeds are unused.
+
+**Independent next work while these jobs run.** A development-only proposal is
+saved in `strong/search-transfer-protocol-v1.json`, not implemented or launched.
+It pins allthree current models and exact raw baseline artifacts for2p heuristic,
+2p search_geo, and3p A260. Test fixed public search48 with geographic proposals
+and the model proposal, all existing strategic phases. This would be1,152 new
+complete games on intentionally reused paired development deals, keeping each
+seed and every adverse rule cell separate. Before any launch, freeze its wrapper,
+verify schema4.2 search/menu compatibility and retained discard behavior, and
+measure HF search48 runtime. The nine pinned raw baseline files (1,152 games)
+were independently rechecked; `strong/search-transfer-plan-check-v1.json`
+explicitly marks compatibility, runtime, packaging and launch as still unproved.
+Do not derive new hard labels from mixed-policy
+winners without evidence: prior continuation audits showed policy dependence.
+Historical search48 on the older b052 model achieved42.08% againstA260 over480
+games but failed some rule-cell confidence requirements; that does not establish
+performance for the current weights. The full2–6p strength gate and exact-config
+AMD8840U benchmark remain unchanged. No new gradients occurred this turn.
+
+## Earlier: 4,800 complete games verified; broader opponents profiled
+
 
 The preceding AI goal turn was **progress**: independently verified all three
 learned-discard complete-game screens and started two HF runtime probes. This

@@ -95,7 +95,9 @@ def summarize(neural_dir, control_dir, counts):
     groups = defaultdict(list)
     for row in details:
         n, variant, sealed, action = row['cell']
-        for k in ['overall', f'players/{n}', f'action/{action}', f'rules/{variant}/{"sealed" if sealed else "open"}']:
+        rule = f'{variant}/{"sealed" if sealed else "open"}'
+        for k in ['overall', f'players/{n}', f'action/{action}', f'rules/{rule}',
+                  f'players/{n}/rules/{rule}', f'players/{n}/action/{action}']:
             groups[k].append(row)
     aggregate = {}
     for key, rows in groups.items():

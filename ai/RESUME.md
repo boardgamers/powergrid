@@ -30,7 +30,9 @@ check all passed. The two-player HF shard completed all 6,240 rollouts without t
 12 positions had disjoint A/B neural winner sets in 4 cases. Neural-selected
 actions had a small positive confirmation gap under neural continuation but
 negative gaps under each heuristic continuation; do not promote the teacher.
-The 3–6p shards were confirmed RUNNING at the latest recorded observation.
+The 3p shard also completed and reproduced the continuation-dependent pattern
+(3/12 disjoint A/B winner sets). Its artifact revision is recorded in the status
+file. The 4–6p shards were confirmed RUNNING at the latest observation.
 In the first batches about 62% of wall time was engine/IPC work and about 35% model inference;
 CPU-performance workers are used pending the full timing report. These tiny
 runtime samples do not establish throughput for every player count.

@@ -1,5 +1,5 @@
 {
-  "status": "active diagnostic cohort",
+  "status": "2p and3p collected;4p through6p running at last observation",
   "jobs": [
     {
       "players": 2,
@@ -33,7 +33,7 @@
           "ai/strong/audit-neural-continuations.py"
         ]
       },
-      "observed_stage": "RUNNING",
+      "observed_stage": "COMPLETED",
       "observed_at": "2026-10-10T08:59:07.538289+00:00",
       "url": "https://huggingface.co/jobs/coyotte508/6ac9fceefee2c900701852fc"
     },
@@ -391,6 +391,58 @@
         }
       },
       "decision": "Do not promote or use as new hard labels. Only12 reused positions; neural A/B winners disjoint on4/12. Neural-selected actions have a small positive average held-out-scenario gap under neural continuation but regress under every heuristic continuation. Complete all counts before designing a broader opponent mixture."
+    },
+    "3p": {
+      "artifact_revision": "436a6770c9b468a653cc6f553278ef0354549c2c",
+      "manifest": {
+        "players": 3,
+        "positions": 12,
+        "searches": 24,
+        "samples": 48,
+        "max_steps": 2400,
+        "workers": 24,
+        "model_sha256": "d3d2ee88a0940f079a4b38879c8154dbab55951abc7b295a7db17bdf22e52c5f",
+        "model_revision": "fbdf2bf24c968bff99ab2d7d9ff9a7d97047db2b",
+        "fixture_sha256": "855b34ad7f07665dfcb012a673147f0780820a9e7560fda268a9a39478c60ff4",
+        "output_sha256": "5ff99302e8b3adb0daa7ff2bf9963571e0c11616d80c329f0792f52924f2b137",
+        "evaluations": 5952,
+        "truncated": 0,
+        "engine_seconds": 179.9302806690002,
+        "policy_seconds": 99.84222963100254,
+        "scope": "Reused development positions, fixed reference shortlist and scenarios; no strength claim.",
+        "changes": "Only continuation policy changes. Root model proposals are recorded, not added to the reference shortlist."
+      },
+      "summary": {
+        "positions": 12,
+        "disjoint_neural_winner_sets": 3,
+        "same_unique_neural_winner": 5,
+        "all_neural_actions_tied_a": 3,
+        "root_proposal_in_shortlist": 12,
+        "different_discovery_choices": 6,
+        "confirmation": {
+          "neural": {
+            "mean_gap": 0.03298611111111111,
+            "positive_positions": 4,
+            "negative_positions": 1
+          },
+          "mixed": {
+            "mean_gap": -0.03559027777777778,
+            "positive_positions": 2,
+            "negative_positions": 4
+          },
+          "economic": {
+            "mean_gap": -0.030381944444444444,
+            "positive_positions": 3,
+            "negative_positions": 2
+          },
+          "heuristic": {
+            "mean_gap": -0.019097222222222224,
+            "positive_positions": 4,
+            "negative_positions": 2
+          }
+        }
+      },
+      "decision": "Same continuation-dependent pattern as2p; no teacher promotion. Await all counts."
     }
   }
 }

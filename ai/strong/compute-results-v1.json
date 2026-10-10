@@ -1,0 +1,1205 @@
+{
+  "artifact_revision": "f6a3a7e98ee55501190c1acc4371eb85494557df",
+  "artifacts": {
+    "cpu-performance": {
+      "revision": "f6a3a7e98ee55501190c1acc4371eb85494557df",
+      "sha256": "2c76a0693e1bc628c20320026653486a74cfcce994e2df5fae4e36df07aad096"
+    },
+    "h200": {
+      "revision": "f6a3a7e98ee55501190c1acc4371eb85494557df",
+      "sha256": "c1ff34feb688c6ee3556bd7740226f74e183b38a25a06f2f844584013f151550"
+    }
+  },
+  "reports": {
+    "cpu-performance": {
+      "device": "cpu",
+      "flavor": "cpu-performance",
+      "processor": "AMD EPYC 7R13 Processor",
+      "logical_cpus": 32,
+      "torch_version": "2.6.0+cu124",
+      "gpu": null,
+      "model_sha256": "1f9d1c89908ab036f6e6a54facba94b352bbae005e1ac042d88c60067e895224",
+      "fixtures_sha256": "b83be87dddc4b151977031ac7baa8bd34a0861f3bdf1a627ede5191c530c5f6d",
+      "positions": 2553,
+      "inference_only": false,
+      "tf32": false,
+      "results": [
+        {
+          "threads": 1,
+          "batch_size": 8,
+          "batch_indices_sha256": "bcb1b6f040fdc14a7c9276737a66d7ed91acebde0e2079530b838b3090af68a2",
+          "max_candidates_per_batch": [
+            15,
+            45,
+            7,
+            19,
+            11,
+            26,
+            38,
+            32,
+            24,
+            19,
+            13,
+            5,
+            21,
+            43,
+            17
+          ],
+          "valid_actions": [
+            34,
+            78,
+            34,
+            51,
+            36,
+            47,
+            66,
+            54,
+            81,
+            49,
+            34,
+            22,
+            49,
+            115,
+            42
+          ],
+          "tensorize": {
+            "repeats": 15,
+            "p50_ms": 0.41840599999432015,
+            "p95_ms": 0.5518869000184166,
+            "mean_ms": 0.4341806666767904
+          },
+          "forward_only": {
+            "repeats": 15,
+            "p50_ms": 1.455442000064977,
+            "p95_ms": 1.9415975999891086,
+            "mean_ms": 1.4421267333470194
+          },
+          "rollout_with_tensorize_and_cpu_results": {
+            "repeats": 15,
+            "p50_ms": 2.0265410000774864,
+            "p95_ms": 2.8068122999457046,
+            "mean_ms": 2.128997933353579
+          }
+        },
+        {
+          "threads": 1,
+          "batch_size": 32,
+          "batch_indices_sha256": "b23af816454044bb0f493ab91817bf8ebbf7ebf050d8ff3d99f973673489b69e",
+          "max_candidates_per_batch": [
+            37,
+            47,
+            45,
+            48,
+            14,
+            45,
+            43,
+            43,
+            45,
+            36,
+            43,
+            45,
+            49,
+            46,
+            38
+          ],
+          "valid_actions": [
+            241,
+            311,
+            448,
+            443,
+            133,
+            347,
+            281,
+            289,
+            276,
+            308,
+            369,
+            259,
+            360,
+            331,
+            200
+          ],
+          "tensorize": {
+            "repeats": 15,
+            "p50_ms": 1.977430000010827,
+            "p95_ms": 2.3971219999680216,
+            "mean_ms": 1.9817790666669073
+          },
+          "forward_only": {
+            "repeats": 15,
+            "p50_ms": 6.082722999963153,
+            "p95_ms": 6.461098600016157,
+            "mean_ms": 5.77184200000526
+          },
+          "rollout_with_tensorize_and_cpu_results": {
+            "repeats": 15,
+            "p50_ms": 8.233895999978813,
+            "p95_ms": 9.073957600037375,
+            "mean_ms": 8.037536733339342
+          }
+        },
+        {
+          "threads": 1,
+          "batch_size": 128,
+          "batch_indices_sha256": "0d154600ac03eb8c1eb79029b01ee1aed684af3c647a91555418011a735710f7",
+          "max_candidates_per_batch": [
+            48,
+            48,
+            43,
+            48,
+            49,
+            49,
+            48,
+            47,
+            43,
+            49,
+            48,
+            49,
+            49,
+            48,
+            45
+          ],
+          "valid_actions": [
+            1244,
+            1247,
+            919,
+            1184,
+            1131,
+            1013,
+            1187,
+            1078,
+            1239,
+            1378,
+            1330,
+            966,
+            1099,
+            973,
+            1087
+          ],
+          "tensorize": {
+            "repeats": 15,
+            "p50_ms": 7.594767000000502,
+            "p95_ms": 8.291328300038003,
+            "mean_ms": 7.671790466664182
+          },
+          "forward_only": {
+            "repeats": 15,
+            "p50_ms": 25.500481000108266,
+            "p95_ms": 25.81647189998648,
+            "mean_ms": 25.09930066666281
+          },
+          "rollout_with_tensorize_and_cpu_results": {
+            "repeats": 15,
+            "p50_ms": 40.1099850000719,
+            "p95_ms": 47.92351859999826,
+            "mean_ms": 40.78169346666982
+          }
+        },
+        {
+          "threads": 1,
+          "batch_size": 512,
+          "batch_indices_sha256": "64f27ad6e1e76f610bfa054529f17d71943448025aff7c11ac5b658ed3d34dc5",
+          "max_candidates_per_batch": [
+            49,
+            49,
+            49,
+            48,
+            49,
+            48,
+            48,
+            48,
+            49,
+            48,
+            49,
+            46,
+            48,
+            45,
+            49
+          ],
+          "valid_actions": [
+            4456,
+            5028,
+            5005,
+            4293,
+            4356,
+            4246,
+            4405,
+            4378,
+            5016,
+            4673,
+            4674,
+            4598,
+            4730,
+            4672,
+            4478
+          ],
+          "tensorize": {
+            "repeats": 15,
+            "p50_ms": 31.09644699998171,
+            "p95_ms": 33.200618299997586,
+            "mean_ms": 31.132844133351984
+          },
+          "forward_only": {
+            "repeats": 15,
+            "p50_ms": 147.81486900005802,
+            "p95_ms": 166.1111275000053,
+            "mean_ms": 143.3229244000131
+          },
+          "rollout_with_tensorize_and_cpu_results": {
+            "repeats": 15,
+            "p50_ms": 185.33311500004856,
+            "p95_ms": 196.00761769999053,
+            "mean_ms": 187.99217099998864
+          },
+          "optimization_step_with_tensorize": {
+            "repeats": 15,
+            "p50_ms": 506.4497000000756,
+            "p95_ms": 533.6748556000089,
+            "mean_ms": 500.9263751333492
+          }
+        },
+        {
+          "threads": 4,
+          "batch_size": 8,
+          "batch_indices_sha256": "bcb1b6f040fdc14a7c9276737a66d7ed91acebde0e2079530b838b3090af68a2",
+          "max_candidates_per_batch": [
+            15,
+            45,
+            7,
+            19,
+            11,
+            26,
+            38,
+            32,
+            24,
+            19,
+            13,
+            5,
+            21,
+            43,
+            17
+          ],
+          "valid_actions": [
+            34,
+            78,
+            34,
+            51,
+            36,
+            47,
+            66,
+            54,
+            81,
+            49,
+            34,
+            22,
+            49,
+            115,
+            42
+          ],
+          "tensorize": {
+            "repeats": 15,
+            "p50_ms": 0.4259259999344067,
+            "p95_ms": 0.5512162999934843,
+            "mean_ms": 0.44181340000856534
+          },
+          "forward_only": {
+            "repeats": 15,
+            "p50_ms": 0.9239239999487836,
+            "p95_ms": 1.2181940000232316,
+            "mean_ms": 0.953305199997582
+          },
+          "rollout_with_tensorize_and_cpu_results": {
+            "repeats": 15,
+            "p50_ms": 1.5767150000556285,
+            "p95_ms": 2.004275299998426,
+            "mean_ms": 1.6335285333298089
+          }
+        },
+        {
+          "threads": 4,
+          "batch_size": 32,
+          "batch_indices_sha256": "b23af816454044bb0f493ab91817bf8ebbf7ebf050d8ff3d99f973673489b69e",
+          "max_candidates_per_batch": [
+            37,
+            47,
+            45,
+            48,
+            14,
+            45,
+            43,
+            43,
+            45,
+            36,
+            43,
+            45,
+            49,
+            46,
+            38
+          ],
+          "valid_actions": [
+            241,
+            311,
+            448,
+            443,
+            133,
+            347,
+            281,
+            289,
+            276,
+            308,
+            369,
+            259,
+            360,
+            331,
+            200
+          ],
+          "tensorize": {
+            "repeats": 15,
+            "p50_ms": 2.084921999994549,
+            "p95_ms": 2.95233020000296,
+            "mean_ms": 2.223680000012488
+          },
+          "forward_only": {
+            "repeats": 15,
+            "p50_ms": 3.4356319999915286,
+            "p95_ms": 3.813917600075456,
+            "mean_ms": 3.3188481333581876
+          },
+          "rollout_with_tensorize_and_cpu_results": {
+            "repeats": 15,
+            "p50_ms": 5.967161000057786,
+            "p95_ms": 6.352551600002698,
+            "mean_ms": 5.804144799988838
+          }
+        },
+        {
+          "threads": 4,
+          "batch_size": 128,
+          "batch_indices_sha256": "0d154600ac03eb8c1eb79029b01ee1aed684af3c647a91555418011a735710f7",
+          "max_candidates_per_batch": [
+            48,
+            48,
+            43,
+            48,
+            49,
+            49,
+            48,
+            47,
+            43,
+            49,
+            48,
+            49,
+            49,
+            48,
+            45
+          ],
+          "valid_actions": [
+            1244,
+            1247,
+            919,
+            1184,
+            1131,
+            1013,
+            1187,
+            1078,
+            1239,
+            1378,
+            1330,
+            966,
+            1099,
+            973,
+            1087
+          ],
+          "tensorize": {
+            "repeats": 15,
+            "p50_ms": 8.131414999979825,
+            "p95_ms": 8.535499900017385,
+            "mean_ms": 7.9983977333313305
+          },
+          "forward_only": {
+            "repeats": 15,
+            "p50_ms": 12.336408999999549,
+            "p95_ms": 12.597422299995742,
+            "mean_ms": 12.17237706667523
+          },
+          "rollout_with_tensorize_and_cpu_results": {
+            "repeats": 15,
+            "p50_ms": 20.69058600000062,
+            "p95_ms": 21.988518600051066,
+            "mean_ms": 20.921235600008004
+          }
+        },
+        {
+          "threads": 4,
+          "batch_size": 512,
+          "batch_indices_sha256": "64f27ad6e1e76f610bfa054529f17d71943448025aff7c11ac5b658ed3d34dc5",
+          "max_candidates_per_batch": [
+            49,
+            49,
+            49,
+            48,
+            49,
+            48,
+            48,
+            48,
+            49,
+            48,
+            49,
+            46,
+            48,
+            45,
+            49
+          ],
+          "valid_actions": [
+            4456,
+            5028,
+            5005,
+            4293,
+            4356,
+            4246,
+            4405,
+            4378,
+            5016,
+            4673,
+            4674,
+            4598,
+            4730,
+            4672,
+            4478
+          ],
+          "tensorize": {
+            "repeats": 15,
+            "p50_ms": 31.473431999984314,
+            "p95_ms": 32.608986900049786,
+            "mean_ms": 31.615613800014824
+          },
+          "forward_only": {
+            "repeats": 15,
+            "p50_ms": 57.37426799998957,
+            "p95_ms": 61.43855700004223,
+            "mean_ms": 55.55558353332799
+          },
+          "rollout_with_tensorize_and_cpu_results": {
+            "repeats": 15,
+            "p50_ms": 90.31736199995066,
+            "p95_ms": 92.46950179998521,
+            "mean_ms": 90.27278566664639
+          },
+          "optimization_step_with_tensorize": {
+            "repeats": 15,
+            "p50_ms": 254.87768100003905,
+            "p95_ms": 313.58241430002624,
+            "mean_ms": 259.94213439999686
+          }
+        }
+      ],
+      "limitations": [
+        "Isolated kernels and tensor conversion, without concurrent engine workers or search stragglers.",
+        "Serving fixtures are real positions but their mixture need not match new self-play trajectories.",
+        "Synthetic optimization targets are for timing only; all modified weights discarded.",
+        "Thread and accelerator comparisons use the same indices but run on different hosts. No end-to-end speed claim."
+      ]
+    },
+    "h200": {
+      "device": "cuda",
+      "flavor": "h200",
+      "processor": "INTEL(R) XEON(R) PLATINUM 8581C CPU @ 2.10GHz",
+      "logical_cpus": 224,
+      "torch_version": "2.6.0+cu124",
+      "gpu": "NVIDIA H200",
+      "model_sha256": "1f9d1c89908ab036f6e6a54facba94b352bbae005e1ac042d88c60067e895224",
+      "fixtures_sha256": "b83be87dddc4b151977031ac7baa8bd34a0861f3bdf1a627ede5191c530c5f6d",
+      "positions": 2553,
+      "inference_only": false,
+      "tf32": false,
+      "results": [
+        {
+          "threads": 1,
+          "batch_size": 8,
+          "batch_indices_sha256": "bcb1b6f040fdc14a7c9276737a66d7ed91acebde0e2079530b838b3090af68a2",
+          "max_candidates_per_batch": [
+            15,
+            45,
+            7,
+            19,
+            11,
+            26,
+            38,
+            32,
+            24,
+            19,
+            13,
+            5,
+            21,
+            43,
+            17
+          ],
+          "valid_actions": [
+            34,
+            78,
+            34,
+            51,
+            36,
+            47,
+            66,
+            54,
+            81,
+            49,
+            34,
+            22,
+            49,
+            115,
+            42
+          ],
+          "tensorize": {
+            "repeats": 15,
+            "p50_ms": 0.44240703573450446,
+            "p95_ms": 0.5596658971626309,
+            "mean_ms": 0.44957679929211736
+          },
+          "forward_only": {
+            "repeats": 15,
+            "p50_ms": 0.6190320127643645,
+            "p95_ms": 0.6877658946905284,
+            "mean_ms": 0.6076555349864066
+          },
+          "rollout_with_tensorize_and_cpu_results": {
+            "repeats": 15,
+            "p50_ms": 1.6350370133295655,
+            "p95_ms": 1.7847541079390792,
+            "mean_ms": 1.6214352023477356
+          }
+        },
+        {
+          "threads": 1,
+          "batch_size": 32,
+          "batch_indices_sha256": "b23af816454044bb0f493ab91817bf8ebbf7ebf050d8ff3d99f973673489b69e",
+          "max_candidates_per_batch": [
+            37,
+            47,
+            45,
+            48,
+            14,
+            45,
+            43,
+            43,
+            45,
+            36,
+            43,
+            45,
+            49,
+            46,
+            38
+          ],
+          "valid_actions": [
+            241,
+            311,
+            448,
+            443,
+            133,
+            347,
+            281,
+            289,
+            276,
+            308,
+            369,
+            259,
+            360,
+            331,
+            200
+          ],
+          "tensorize": {
+            "repeats": 15,
+            "p50_ms": 1.9949430134147406,
+            "p95_ms": 2.39904680638574,
+            "mean_ms": 1.9823760764362912
+          },
+          "forward_only": {
+            "repeats": 15,
+            "p50_ms": 0.5537249962799251,
+            "p95_ms": 0.6001262285280973,
+            "mean_ms": 0.5503376014530659
+          },
+          "rollout_with_tensorize_and_cpu_results": {
+            "repeats": 15,
+            "p50_ms": 2.9382490320131183,
+            "p95_ms": 3.1518309144303203,
+            "mean_ms": 2.8429646083774665
+          }
+        },
+        {
+          "threads": 1,
+          "batch_size": 128,
+          "batch_indices_sha256": "0d154600ac03eb8c1eb79029b01ee1aed684af3c647a91555418011a735710f7",
+          "max_candidates_per_batch": [
+            48,
+            48,
+            43,
+            48,
+            49,
+            49,
+            48,
+            47,
+            43,
+            49,
+            48,
+            49,
+            49,
+            48,
+            45
+          ],
+          "valid_actions": [
+            1244,
+            1247,
+            919,
+            1184,
+            1131,
+            1013,
+            1187,
+            1078,
+            1239,
+            1378,
+            1330,
+            966,
+            1099,
+            973,
+            1087
+          ],
+          "tensorize": {
+            "repeats": 15,
+            "p50_ms": 5.849478009622544,
+            "p95_ms": 6.568210100522265,
+            "mean_ms": 5.99649832972015
+          },
+          "forward_only": {
+            "repeats": 15,
+            "p50_ms": 0.6080680177547038,
+            "p95_ms": 0.6661872030235827,
+            "mean_ms": 0.6093320009919504
+          },
+          "rollout_with_tensorize_and_cpu_results": {
+            "repeats": 15,
+            "p50_ms": 7.288435997907072,
+            "p95_ms": 9.266261011362076,
+            "mean_ms": 7.757411132721852
+          }
+        },
+        {
+          "threads": 1,
+          "batch_size": 512,
+          "batch_indices_sha256": "64f27ad6e1e76f610bfa054529f17d71943448025aff7c11ac5b658ed3d34dc5",
+          "max_candidates_per_batch": [
+            49,
+            49,
+            49,
+            48,
+            49,
+            48,
+            48,
+            48,
+            49,
+            48,
+            49,
+            46,
+            48,
+            45,
+            49
+          ],
+          "valid_actions": [
+            4456,
+            5028,
+            5005,
+            4293,
+            4356,
+            4246,
+            4405,
+            4378,
+            5016,
+            4673,
+            4674,
+            4598,
+            4730,
+            4672,
+            4478
+          ],
+          "tensorize": {
+            "repeats": 15,
+            "p50_ms": 24.02322500711307,
+            "p95_ms": 25.79047579783946,
+            "mean_ms": 23.907700409957517
+          },
+          "forward_only": {
+            "repeats": 15,
+            "p50_ms": 0.6256380002014339,
+            "p95_ms": 0.6579370819963515,
+            "mean_ms": 0.6313305969039599
+          },
+          "rollout_with_tensorize_and_cpu_results": {
+            "repeats": 15,
+            "p50_ms": 25.4863960435614,
+            "p95_ms": 27.136724622687325,
+            "mean_ms": 25.327192006322246
+          },
+          "optimization_step_with_tensorize": {
+            "repeats": 15,
+            "p50_ms": 29.76064500398934,
+            "p95_ms": 32.54905519424938,
+            "mean_ms": 29.78544399763147
+          }
+        },
+        {
+          "threads": 4,
+          "batch_size": 8,
+          "batch_indices_sha256": "bcb1b6f040fdc14a7c9276737a66d7ed91acebde0e2079530b838b3090af68a2",
+          "max_candidates_per_batch": [
+            15,
+            45,
+            7,
+            19,
+            11,
+            26,
+            38,
+            32,
+            24,
+            19,
+            13,
+            5,
+            21,
+            43,
+            17
+          ],
+          "valid_actions": [
+            34,
+            78,
+            34,
+            51,
+            36,
+            47,
+            66,
+            54,
+            81,
+            49,
+            34,
+            22,
+            49,
+            115,
+            42
+          ],
+          "tensorize": {
+            "repeats": 15,
+            "p50_ms": 0.4227549652568996,
+            "p95_ms": 0.5290207976941017,
+            "mean_ms": 0.42090920032933354
+          },
+          "forward_only": {
+            "repeats": 15,
+            "p50_ms": 0.6304680136963725,
+            "p95_ms": 0.6768709979951382,
+            "mean_ms": 0.601548666600138
+          },
+          "rollout_with_tensorize_and_cpu_results": {
+            "repeats": 15,
+            "p50_ms": 1.5106400242075324,
+            "p95_ms": 1.614252314902842,
+            "mean_ms": 1.5074445982463658
+          }
+        },
+        {
+          "threads": 4,
+          "batch_size": 32,
+          "batch_indices_sha256": "b23af816454044bb0f493ab91817bf8ebbf7ebf050d8ff3d99f973673489b69e",
+          "max_candidates_per_batch": [
+            37,
+            47,
+            45,
+            48,
+            14,
+            45,
+            43,
+            43,
+            45,
+            36,
+            43,
+            45,
+            49,
+            46,
+            38
+          ],
+          "valid_actions": [
+            241,
+            311,
+            448,
+            443,
+            133,
+            347,
+            281,
+            289,
+            276,
+            308,
+            369,
+            259,
+            360,
+            331,
+            200
+          ],
+          "tensorize": {
+            "repeats": 15,
+            "p50_ms": 1.8165410147048533,
+            "p95_ms": 2.426278725033626,
+            "mean_ms": 1.8343285308219492
+          },
+          "forward_only": {
+            "repeats": 15,
+            "p50_ms": 0.5485329893417656,
+            "p95_ms": 0.6082397943828255,
+            "mean_ms": 0.5481237157558402
+          },
+          "rollout_with_tensorize_and_cpu_results": {
+            "repeats": 15,
+            "p50_ms": 2.9434310272336006,
+            "p95_ms": 3.2963258970994502,
+            "mean_ms": 2.9153158655390143
+          }
+        },
+        {
+          "threads": 4,
+          "batch_size": 128,
+          "batch_indices_sha256": "0d154600ac03eb8c1eb79029b01ee1aed684af3c647a91555418011a735710f7",
+          "max_candidates_per_batch": [
+            48,
+            48,
+            43,
+            48,
+            49,
+            49,
+            48,
+            47,
+            43,
+            49,
+            48,
+            49,
+            49,
+            48,
+            45
+          ],
+          "valid_actions": [
+            1244,
+            1247,
+            919,
+            1184,
+            1131,
+            1013,
+            1187,
+            1078,
+            1239,
+            1378,
+            1330,
+            966,
+            1099,
+            973,
+            1087
+          ],
+          "tensorize": {
+            "repeats": 15,
+            "p50_ms": 5.851819994859397,
+            "p95_ms": 6.793573667528108,
+            "mean_ms": 6.010713793026905
+          },
+          "forward_only": {
+            "repeats": 15,
+            "p50_ms": 0.5598959978669882,
+            "p95_ms": 0.6123477884102613,
+            "mean_ms": 0.5579382608023783
+          },
+          "rollout_with_tensorize_and_cpu_results": {
+            "repeats": 15,
+            "p50_ms": 7.089935010299087,
+            "p95_ms": 8.475792774697766,
+            "mean_ms": 7.3724720743484795
+          }
+        },
+        {
+          "threads": 4,
+          "batch_size": 512,
+          "batch_indices_sha256": "64f27ad6e1e76f610bfa054529f17d71943448025aff7c11ac5b658ed3d34dc5",
+          "max_candidates_per_batch": [
+            49,
+            49,
+            49,
+            48,
+            49,
+            48,
+            48,
+            48,
+            49,
+            48,
+            49,
+            46,
+            48,
+            45,
+            49
+          ],
+          "valid_actions": [
+            4456,
+            5028,
+            5005,
+            4293,
+            4356,
+            4246,
+            4405,
+            4378,
+            5016,
+            4673,
+            4674,
+            4598,
+            4730,
+            4672,
+            4478
+          ],
+          "tensorize": {
+            "repeats": 15,
+            "p50_ms": 23.70965899899602,
+            "p95_ms": 26.45733918179758,
+            "mean_ms": 24.193868196258943
+          },
+          "forward_only": {
+            "repeats": 15,
+            "p50_ms": 0.6520739989355206,
+            "p95_ms": 0.6843641807790846,
+            "mean_ms": 0.6471813345948855
+          },
+          "rollout_with_tensorize_and_cpu_results": {
+            "repeats": 15,
+            "p50_ms": 24.77485203417018,
+            "p95_ms": 26.93738341331482,
+            "mean_ms": 24.964230934468407
+          },
+          "optimization_step_with_tensorize": {
+            "repeats": 15,
+            "p50_ms": 28.69867702247575,
+            "p95_ms": 30.820903705898672,
+            "mean_ms": 28.68357094315191
+          }
+        }
+      ],
+      "limitations": [
+        "Isolated kernels and tensor conversion, without concurrent engine workers or search stragglers.",
+        "Serving fixtures are real positions but their mixture need not match new self-play trajectories.",
+        "Synthetic optimization targets are for timing only; all modified weights discarded.",
+        "Thread and accelerator comparisons use the same indices but run on different hosts. No end-to-end speed claim."
+      ]
+    }
+  },
+  "comparisons": [
+    {
+      "threads": 1,
+      "batch_size": 8,
+      "stage": "tensorize",
+      "cpu_p50_ms": 0.41840599999432015,
+      "h200_p50_ms": 0.44240703573450446,
+      "observed_speed_ratio": 0.9457489736790992
+    },
+    {
+      "threads": 1,
+      "batch_size": 8,
+      "stage": "forward_only",
+      "cpu_p50_ms": 1.455442000064977,
+      "h200_p50_ms": 0.6190320127643645,
+      "observed_speed_ratio": 2.3511578885323225
+    },
+    {
+      "threads": 1,
+      "batch_size": 8,
+      "stage": "rollout_with_tensorize_and_cpu_results",
+      "cpu_p50_ms": 2.0265410000774864,
+      "h200_p50_ms": 1.6350370133295655,
+      "observed_speed_ratio": 1.2394465590419068
+    },
+    {
+      "threads": 1,
+      "batch_size": 32,
+      "stage": "tensorize",
+      "cpu_p50_ms": 1.977430000010827,
+      "h200_p50_ms": 1.9949430134147406,
+      "observed_speed_ratio": 0.991221296404885
+    },
+    {
+      "threads": 1,
+      "batch_size": 32,
+      "stage": "forward_only",
+      "cpu_p50_ms": 6.082722999963153,
+      "h200_p50_ms": 0.5537249962799251,
+      "observed_speed_ratio": 10.985097369323288
+    },
+    {
+      "threads": 1,
+      "batch_size": 32,
+      "stage": "rollout_with_tensorize_and_cpu_results",
+      "cpu_p50_ms": 8.233895999978813,
+      "h200_p50_ms": 2.9382490320131183,
+      "observed_speed_ratio": 2.8023138645730867
+    },
+    {
+      "threads": 1,
+      "batch_size": 128,
+      "stage": "tensorize",
+      "cpu_p50_ms": 7.594767000000502,
+      "h200_p50_ms": 5.849478009622544,
+      "observed_speed_ratio": 1.298366621347565
+    },
+    {
+      "threads": 1,
+      "batch_size": 128,
+      "stage": "forward_only",
+      "cpu_p50_ms": 25.500481000108266,
+      "h200_p50_ms": 0.6080680177547038,
+      "observed_speed_ratio": 41.93688905768964
+    },
+    {
+      "threads": 1,
+      "batch_size": 128,
+      "stage": "rollout_with_tensorize_and_cpu_results",
+      "cpu_p50_ms": 40.1099850000719,
+      "h200_p50_ms": 7.288435997907072,
+      "observed_speed_ratio": 5.50323622401154
+    },
+    {
+      "threads": 1,
+      "batch_size": 512,
+      "stage": "tensorize",
+      "cpu_p50_ms": 31.09644699998171,
+      "h200_p50_ms": 24.02322500711307,
+      "observed_speed_ratio": 1.2944326580121661
+    },
+    {
+      "threads": 1,
+      "batch_size": 512,
+      "stage": "forward_only",
+      "cpu_p50_ms": 147.81486900005802,
+      "h200_p50_ms": 0.6256380002014339,
+      "observed_speed_ratio": 236.2626134481389
+    },
+    {
+      "threads": 1,
+      "batch_size": 512,
+      "stage": "rollout_with_tensorize_and_cpu_results",
+      "cpu_p50_ms": 185.33311500004856,
+      "h200_p50_ms": 25.4863960435614,
+      "observed_speed_ratio": 7.271844739573098
+    },
+    {
+      "threads": 1,
+      "batch_size": 512,
+      "stage": "optimization_step_with_tensorize",
+      "cpu_p50_ms": 506.4497000000756,
+      "h200_p50_ms": 29.76064500398934,
+      "observed_speed_ratio": 17.01743023150833
+    },
+    {
+      "threads": 4,
+      "batch_size": 8,
+      "stage": "tensorize",
+      "cpu_p50_ms": 0.4259259999344067,
+      "h200_p50_ms": 0.4227549652568996,
+      "observed_speed_ratio": 1.007500880978607
+    },
+    {
+      "threads": 4,
+      "batch_size": 8,
+      "stage": "forward_only",
+      "cpu_p50_ms": 0.9239239999487836,
+      "h200_p50_ms": 0.6304680136963725,
+      "observed_speed_ratio": 1.4654573743272197
+    },
+    {
+      "threads": 4,
+      "batch_size": 8,
+      "stage": "rollout_with_tensorize_and_cpu_results",
+      "cpu_p50_ms": 1.5767150000556285,
+      "h200_p50_ms": 1.5106400242075324,
+      "observed_speed_ratio": 1.0437397227594034
+    },
+    {
+      "threads": 4,
+      "batch_size": 32,
+      "stage": "tensorize",
+      "cpu_p50_ms": 2.084921999994549,
+      "h200_p50_ms": 1.8165410147048533,
+      "observed_speed_ratio": 1.1477428712686135
+    },
+    {
+      "threads": 4,
+      "batch_size": 32,
+      "stage": "forward_only",
+      "cpu_p50_ms": 3.4356319999915286,
+      "h200_p50_ms": 0.5485329893417656,
+      "observed_speed_ratio": 6.263309712902143
+    },
+    {
+      "threads": 4,
+      "batch_size": 32,
+      "stage": "rollout_with_tensorize_and_cpu_results",
+      "cpu_p50_ms": 5.967161000057786,
+      "h200_p50_ms": 2.9434310272336006,
+      "observed_speed_ratio": 2.027280729477821
+    },
+    {
+      "threads": 4,
+      "batch_size": 128,
+      "stage": "tensorize",
+      "cpu_p50_ms": 8.131414999979825,
+      "h200_p50_ms": 5.851819994859397,
+      "observed_speed_ratio": 1.3895531658736882
+    },
+    {
+      "threads": 4,
+      "batch_size": 128,
+      "stage": "forward_only",
+      "cpu_p50_ms": 12.336408999999549,
+      "h200_p50_ms": 0.5598959978669882,
+      "observed_speed_ratio": 22.033393785626327
+    },
+    {
+      "threads": 4,
+      "batch_size": 128,
+      "stage": "rollout_with_tensorize_and_cpu_results",
+      "cpu_p50_ms": 20.69058600000062,
+      "h200_p50_ms": 7.089935010299087,
+      "observed_speed_ratio": 2.918304042271862
+    },
+    {
+      "threads": 4,
+      "batch_size": 512,
+      "stage": "tensorize",
+      "cpu_p50_ms": 31.473431999984314,
+      "h200_p50_ms": 23.70965899899602,
+      "observed_speed_ratio": 1.3274519047834914
+    },
+    {
+      "threads": 4,
+      "batch_size": 512,
+      "stage": "forward_only",
+      "cpu_p50_ms": 57.37426799998957,
+      "h200_p50_ms": 0.6520739989355206,
+      "observed_speed_ratio": 87.98735740675184
+    },
+    {
+      "threads": 4,
+      "batch_size": 512,
+      "stage": "rollout_with_tensorize_and_cpu_results",
+      "cpu_p50_ms": 90.31736199995066,
+      "h200_p50_ms": 24.77485203417018,
+      "observed_speed_ratio": 3.6455257886255947
+    },
+    {
+      "threads": 4,
+      "batch_size": 512,
+      "stage": "optimization_step_with_tensorize",
+      "cpu_p50_ms": 254.87768100003905,
+      "h200_p50_ms": 28.69867702247575,
+      "observed_speed_ratio": 8.881164828623572
+    }
+  ],
+  "qualification_eligible": false,
+  "interpretation": "Isolated timings only. Both model calls and long search stragglers contribute to actual training. No current training-cohort changes or end-to-end speed claim."
+}

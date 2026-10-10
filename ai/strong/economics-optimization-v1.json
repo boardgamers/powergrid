@@ -1,0 +1,207 @@
+{
+  "purpose": "Behavior-preserving economics speed optimization for future training runtimes. Current cohort remains pinned to original source.",
+  "node_version": "v24.14.0",
+  "baseline_source": "population-source-v1.json",
+  "candidate_economics_sha256": "7265923548a15940a33f24d70b2d6419119ef8d759fca1637640f4ff6e9aef58",
+  "profile": {
+    "positions": 60,
+    "rollouts": 1252,
+    "truncated": 0,
+    "top_self_time": [
+      {
+        "function": "purchaseCost",
+        "path": "ai/strong/economics.cjs",
+        "line": 36,
+        "sampled_self_percent": 28.01322359404892
+      },
+      {
+        "function": "dijkstra",
+        "path": "engine/dist/src/available-moves.js",
+        "line": 677,
+        "sampled_self_percent": 10.456374318047631
+      },
+      {
+        "function": "resourcePrice",
+        "path": "ai/core.cjs",
+        "line": 120,
+        "sampled_self_percent": 6.394173479124819
+      },
+      {
+        "function": "plan",
+        "path": "ai/strong/economics.cjs",
+        "line": 50,
+        "sampled_self_percent": 5.552699367493514
+      },
+      {
+        "function": "choose",
+        "path": "ai/strong/search.cjs",
+        "line": 40,
+        "sampled_self_percent": 4.325231351233025
+      },
+      {
+        "function": "availableMoves",
+        "path": "engine/dist/src/available-moves.js",
+        "line": 40,
+        "sampled_self_percent": 3.7362048685888003
+      },
+      {
+        "function": "plans",
+        "path": "ai/strong/economics.cjs",
+        "line": 20,
+        "sampled_self_percent": 3.6498383663049623
+      },
+      {
+        "function": "(garbage collector)",
+        "path": "",
+        "line": 0,
+        "sampled_self_percent": 3.080513158077291
+      },
+      {
+        "function": "",
+        "path": "engine/dist/src/available-moves.js",
+        "line": 358,
+        "sampled_self_percent": 2.8353802823849334
+      },
+      {
+        "function": "move",
+        "path": "engine/dist/src/engine.js",
+        "line": 534,
+        "sampled_self_percent": 2.290512094393461
+      },
+      {
+        "function": "fuelVariants",
+        "path": "ai/strong/economics.cjs",
+        "line": 14,
+        "sampled_self_percent": 2.1486567523112
+      },
+      {
+        "function": "",
+        "path": "ai/strong/economics.cjs",
+        "line": 53,
+        "sampled_self_percent": 2.120746613554415
+      },
+      {
+        "function": "plantValue",
+        "path": "ai/strong/economics.cjs",
+        "line": 83,
+        "sampled_self_percent": 2.022086084394833
+      },
+      {
+        "function": "",
+        "path": "engine/dist/src/available-moves.js",
+        "line": 692,
+        "sampled_self_percent": 1.9810417626936792
+      },
+      {
+        "function": "structuredClone",
+        "path": "node:internal/worker/js_transferable",
+        "line": 112,
+        "sampled_self_percent": 1.884354444117289
+      },
+      {
+        "function": "baseClone",
+        "path": "engine/node_modules/lodash/lodash.js",
+        "line": 2662,
+        "sampled_self_percent": 1.1882119166503518
+      },
+      {
+        "function": "createAnalysisScenario",
+        "path": "engine/dist/src/analysis.js",
+        "line": 14,
+        "sampled_self_percent": 1.0752687343241523
+      },
+      {
+        "function": "context",
+        "path": "ai/strong/economics.cjs",
+        "line": 71,
+        "sampled_self_percent": 0.9233006880030339
+      },
+      {
+        "function": "allLegal",
+        "path": "ai/core.cjs",
+        "line": 83,
+        "sampled_self_percent": 0.8821407484942707
+      },
+      {
+        "function": "scores",
+        "path": "ai/strong/economics.cjs",
+        "line": 102,
+        "sampled_self_percent": 0.8485961685800129
+      }
+    ]
+  },
+  "equivalence": {
+    "stage": "verified",
+    "plans": 5760,
+    "games": 40,
+    "decisions": 20705,
+    "positions": 60,
+    "exact_search_outcomes": true,
+    "timings": [
+      {
+        "repeat": 0,
+        "label": "baseline",
+        "seconds": 9.920769408,
+        "rollouts": 1252
+      },
+      {
+        "repeat": 0,
+        "label": "candidate",
+        "seconds": 6.633119056,
+        "rollouts": 1252
+      },
+      {
+        "repeat": 1,
+        "label": "candidate",
+        "seconds": 5.980216050000003,
+        "rollouts": 1252
+      },
+      {
+        "repeat": 1,
+        "label": "baseline",
+        "seconds": 9.619083527000003,
+        "rollouts": 1252
+      },
+      {
+        "repeat": 2,
+        "label": "baseline",
+        "seconds": 9.548830568000005,
+        "rollouts": 1252
+      },
+      {
+        "repeat": 2,
+        "label": "candidate",
+        "seconds": 5.912686093000004,
+        "rollouts": 1252
+      }
+    ]
+  },
+  "feature_equivalence": {
+    "positions": 2553,
+    "by_players": {
+      "2": 349,
+      "3": 427,
+      "4": 527,
+      "5": 609,
+      "6": 641
+    },
+    "state_and_action_features_identical": true,
+    "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+    "candidate_economics_sha256": "7265923548a15940a33f24d70b2d6419119ef8d759fca1637640f4ff6e9aef58"
+  },
+  "timing": {
+    "baseline_median_seconds": 9.619083527000003,
+    "candidate_median_seconds": 5.980216050000003,
+    "observed_speed_ratio": 1.6084842832726751,
+    "scope": "One local host,60 reused development positions,1252 identical search continuations/pass.Three alternating paired repetitions; no end-to-end HF speed claim.",
+    "interrupted_probe": "Earlier4-pair attempt received SIGTERM before its final pair; excluded from estimate. The recorded3-pair rerun finished with exit0."
+  },
+  "checks": {
+    "node_tests_passed": 10,
+    "production_plans_identical": 5760,
+    "complete_games_identical": 40,
+    "decisions_identical": 20705,
+    "encoded_positions_identical": 2553
+  },
+  "qualification_eligible": false
+}

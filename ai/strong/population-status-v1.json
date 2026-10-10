@@ -7,7 +7,7 @@
       "launched_at": "2026-10-10T09:18:21.440059+00:00",
       "url": "https://huggingface.co/jobs/coyotte508/6aca02dd095c578089310b2b",
       "observed_stage": "RUNNING",
-      "observed_at": "2026-10-10T09:20:56.967489+00:00",
+      "observed_at": "2026-10-10T09:47:32.774032+00:00",
       "verified_startup": {
         "run": "multiplayer-population-v1-heterogeneous",
         "parameters": 983682,
@@ -51,21 +51,859 @@
       "latest_progress": {
         "stage": "rollout_progress",
         "run": "multiplayer-population-v1-heterogeneous",
-        "update": 0,
-        "completed_games": 237,
+        "update": 5,
+        "completed_games": 0,
         "requested_games": 240,
-        "decisions": 43916,
-        "unfinished_games": 3,
-        "ready_games": 1,
-        "in_flight_games": 2,
-        "ready_round_min": 9,
-        "ready_round_max": 9,
-        "engine_seconds": 99.35399849712849,
+        "decisions": 6960,
+        "unfinished_games": 240,
+        "ready_games": 55,
+        "in_flight_games": 185,
+        "ready_round_min": 1,
+        "ready_round_max": 7,
+        "engine_seconds": 1.4933550544083118,
         "engine_timing": "blocking_call_wall_time",
         "async_rollout": true,
-        "policy_seconds": 139.5389449102804,
-        "seconds": 240.4694547066465
-      }
+        "policy_seconds": 57.99309447966516,
+        "seconds": 60.340203889645636
+      },
+      "verified_complete_updates": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "first_update": {
+        "stage": "train",
+        "run": "multiplayer-population-v1-heterogeneous",
+        "update": 0,
+        "episodes": 240,
+        "player_count": "mixed",
+        "by_player_count": {
+          "2": {
+            "episodes": 48,
+            "truncated": 0,
+            "samples": 9393
+          },
+          "3": {
+            "episodes": 48,
+            "truncated": 0,
+            "samples": 8902
+          },
+          "4": {
+            "episodes": 48,
+            "truncated": 0,
+            "samples": 8514
+          },
+          "5": {
+            "episodes": 48,
+            "truncated": 0,
+            "samples": 7377
+          },
+          "6": {
+            "episodes": 48,
+            "truncated": 0,
+            "samples": 9818
+          }
+        },
+        "truncated": 0,
+        "samples": 44004,
+        "rollout_seconds": 283.6030652150512,
+        "engine_seconds": 142.08636938687414,
+        "engine_timing": "blocking_call_wall_time",
+        "async_rollout": true,
+        "policy_seconds": 139.92561649810523,
+        "seconds": 351.4786062948406,
+        "loss": 0.06035748867133259,
+        "training_opponents": {
+          "mixed:heuristic|rush": {
+            "games": 2,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:heuristic|rush|rush": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "rush": {
+            "games": 4,
+            "wins": 1,
+            "truncated": 0
+          },
+          "economic": {
+            "games": 6,
+            "wins": 1,
+            "truncated": 0
+          },
+          "heuristic": {
+            "games": 6,
+            "wins": 3,
+            "truncated": 0
+          },
+          "mixed:economic|heuristic|rush|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|economic|frozen2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|heuristic|rush|snapshot2": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:economic|economic|frozen0": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|economic|snapshot0": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:frozen0|rush": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen1|heuristic": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:rush|snapshot1": {
+            "games": 2,
+            "wins": 2,
+            "truncated": 0
+          },
+          "mixed:economic|search_geo": {
+            "games": 3,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:frozen2|rush|rush": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen0": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen1|heuristic|rush|snapshot0": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:frozen1|rush": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:economic|frozen1|heuristic": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "snapshot1": {
+            "games": 7,
+            "wins": 2,
+            "truncated": 0
+          },
+          "mixed:rush|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "snapshot0": {
+            "games": 5,
+            "wins": 2,
+            "truncated": 0
+          },
+          "snapshot2": {
+            "games": 3,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:economic|economic|frozen2|rush|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "frozen2": {
+            "games": 5,
+            "wins": 2,
+            "truncated": 0
+          },
+          "mixed:heuristic|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen2|heuristic|heuristic|snapshot0": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|economic|frozen0|snapshot0": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "frozen0": {
+            "games": 4,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen2|heuristic|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|rush|rush|snapshot0": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen2|heuristic|snapshot0": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:heuristic|rush|snapshot1|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:snapshot0|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen2": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:economic|heuristic|rush|snapshot0|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen2|heuristic|heuristic|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:rush|search_geo": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|frozen1": {
+            "games": 5,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:frozen0|snapshot0": {
+            "games": 3,
+            "wins": 1,
+            "truncated": 0
+          },
+          "frozen1": {
+            "games": 4,
+            "wins": 2,
+            "truncated": 0
+          },
+          "mixed:economic|frozen2|frozen2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|rush|search_geo": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:economic|heuristic|rush|snapshot0|snapshot0": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|heuristic|heuristic|snapshot0|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:heuristic|snapshot0|snapshot0": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|heuristic|snapshot2": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:frozen0|heuristic|rush|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen0|frozen1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen1|search_geo": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|economic|frozen0|frozen0|frozen1": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:frozen2|snapshot2": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:frozen2|rush|snapshot0|snapshot0": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:heuristic|snapshot2|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen1|snapshot0|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen1|snapshot1": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:heuristic|snapshot1|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen1|heuristic|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen2|heuristic|rush|snapshot0|snapshot0": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:rush|snapshot1|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen2|snapshot0": {
+            "games": 2,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen1|frozen2|frozen2|heuristic": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen0|frozen0|frozen1|rush": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:snapshot0|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|frozen0|frozen1|rush": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|heuristic|snapshot1": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:frozen1|frozen2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen1|rush|snapshot1|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen1|heuristic|snapshot0|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|rush|snapshot1|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen2|snapshot1": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:rush|snapshot0|snapshot1|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen1|frozen2|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen1|heuristic|rush|snapshot0|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen1|frozen2|rush": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen0|rush|snapshot1|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen1|frozen1": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:rush|snapshot0|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen0|frozen1|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|frozen2|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|snapshot0|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen1|frozen2|heuristic|snapshot0": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|heuristic|snapshot0|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:snapshot1|snapshot1|snapshot2": {
+            "games": 2,
+            "wins": 2,
+            "truncated": 0
+          },
+          "mixed:frozen2|rush|snapshot1|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen0|frozen2|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen2|heuristic|snapshot1|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|snapshot0|snapshot0": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|frozen2|heuristic|rush|snapshot0": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen1|frozen1|rush|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen1|frozen2|frozen2": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:frozen0|frozen2|frozen2|rush": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:search_geo|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|search_geo|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|frozen1|heuristic|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen2|heuristic|rush|search_geo|snapshot0": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:economic|frozen0|frozen0|snapshot0|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|rush|snapshot0|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|rush|rush|snapshot0|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen1|snapshot1|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen0|frozen2|frozen2|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen0|frozen0|frozen2|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen0|frozen1|frozen2|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|frozen2|snapshot0": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen2|snapshot1|snapshot2|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:heuristic|rush|rush|search_geo|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen2|frozen2|rush|snapshot0|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:search_geo|snapshot0|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen1|snapshot0|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:snapshot0|snapshot1|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|snapshot1|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen1|frozen2|snapshot1|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:snapshot1|snapshot1|snapshot1|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:heuristic|snapshot0|snapshot0|snapshot1|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen2|heuristic|heuristic|search_geo": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|snapshot0|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen0|frozen2|frozen2|frozen2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:snapshot1|snapshot2|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|search_geo|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen1|frozen1|frozen2|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen2|search_geo|snapshot0": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|frozen0|frozen0|frozen2|rush": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen1|search_geo": {
+            "games": 4,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:economic|frozen0|frozen2|frozen2|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|frozen0|frozen2|snapshot0": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|snapshot0|snapshot0|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|economic|search_geo": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen1|search_geo|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen1|heuristic|search_geo|snapshot1": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:economic|frozen2|search_geo|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|heuristic|search_geo|snapshot0|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:heuristic|search_geo|snapshot0|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:heuristic|search_geo|snapshot2|snapshot2": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:frozen2|rush|search_geo|snapshot2|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|frozen1|rush|search_geo|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen1|frozen2|search_geo": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|search_geo|snapshot0|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen1|search_geo|snapshot1": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen1|frozen2|search_geo": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|frozen0|rush|search_geo": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:search_geo|snapshot0|snapshot1|snapshot2": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:frozen1|heuristic|rush|search_geo|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen0|heuristic|search_geo|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:economic|frozen1|rush|search_geo": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:rush|search_geo|search_geo|snapshot0|snapshot2": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:rush|search_geo|search_geo|snapshot0": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|frozen0|rush|search_geo|search_geo": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:search_geo|search_geo|snapshot1|snapshot1": {
+            "games": 1,
+            "wins": 1,
+            "truncated": 0
+          },
+          "mixed:frozen1|frozen2|heuristic|search_geo|search_geo": {
+            "games": 2,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|frozen1|search_geo|search_geo": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          },
+          "mixed:frozen0|frozen1|frozen2|search_geo|search_geo": {
+            "games": 1,
+            "wins": 0,
+            "truncated": 0
+          }
+        },
+        "opponent_seats": {
+          "economic": 71,
+          "frozen0": 65,
+          "frozen1": 59,
+          "frozen2": 64,
+          "heuristic": 56,
+          "learner": 346,
+          "rush": 60,
+          "search_geo": 52,
+          "snapshot0": 62,
+          "snapshot1": 69,
+          "snapshot2": 56
+        },
+        "snapshot_updates": [
+          -1
+        ],
+        "search_rollouts_reported": true,
+        "search_stats": {
+          "search_geo": {
+            "decisions": 2369,
+            "evaluations": 195408,
+            "truncated": 0
+          }
+        },
+        "optimization_seconds": 67.8755410797894
+      },
+      "log_observed_at": "2026-10-10T09:38:06.244916+00:00"
     },
     "homogeneous": {
       "run": "multiplayer-population-v1-homogeneous",
@@ -73,7 +911,7 @@
       "launched_at": "2026-10-10T09:18:22.334534+00:00",
       "url": "https://huggingface.co/jobs/coyotte508/6aca02de095c578089310b2d",
       "observed_stage": "RUNNING",
-      "observed_at": "2026-10-10T09:20:57.215359+00:00",
+      "observed_at": "2026-10-10T09:47:39.055421+00:00",
       "verified_startup": {
         "run": "multiplayer-population-v1-homogeneous",
         "parameters": 983682,
@@ -113,7 +951,151 @@
         ],
         "opponent_mode": "population_homogeneous",
         "gpu": null
-      }
+      },
+      "verified_complete_updates": [
+        0,
+        1,
+        2
+      ],
+      "first_update": {
+        "stage": "train",
+        "run": "multiplayer-population-v1-homogeneous",
+        "update": 0,
+        "episodes": 240,
+        "player_count": "mixed",
+        "by_player_count": {
+          "2": {
+            "episodes": 48,
+            "truncated": 0,
+            "samples": 9463
+          },
+          "3": {
+            "episodes": 48,
+            "truncated": 0,
+            "samples": 8612
+          },
+          "4": {
+            "episodes": 48,
+            "truncated": 0,
+            "samples": 8806
+          },
+          "5": {
+            "episodes": 48,
+            "truncated": 0,
+            "samples": 7601
+          },
+          "6": {
+            "episodes": 48,
+            "truncated": 0,
+            "samples": 9786
+          }
+        },
+        "truncated": 0,
+        "samples": 44268,
+        "rollout_seconds": 312.976309198,
+        "engine_seconds": 246.3796128219986,
+        "engine_timing": "blocking_call_wall_time",
+        "async_rollout": true,
+        "policy_seconds": 65.4074468740003,
+        "seconds": 381.28614259899996,
+        "loss": 0.06352849409806674,
+        "training_opponents": {
+          "economic": {
+            "games": 20,
+            "wins": 10,
+            "truncated": 0
+          },
+          "rush": {
+            "games": 18,
+            "wins": 9,
+            "truncated": 0
+          },
+          "heuristic": {
+            "games": 20,
+            "wins": 17,
+            "truncated": 0
+          },
+          "frozen0": {
+            "games": 24,
+            "wins": 5,
+            "truncated": 0
+          },
+          "snapshot0": {
+            "games": 17,
+            "wins": 3,
+            "truncated": 0
+          },
+          "snapshot2": {
+            "games": 18,
+            "wins": 3,
+            "truncated": 0
+          },
+          "frozen2": {
+            "games": 16,
+            "wins": 1,
+            "truncated": 0
+          },
+          "snapshot1": {
+            "games": 30,
+            "wins": 5,
+            "truncated": 0
+          },
+          "frozen1": {
+            "games": 26,
+            "wins": 8,
+            "truncated": 0
+          },
+          "search_geo": {
+            "games": 14,
+            "wins": 5,
+            "truncated": 0
+          }
+        },
+        "opponent_seats": {
+          "economic": 60,
+          "frozen0": 74,
+          "frozen1": 81,
+          "frozen2": 48,
+          "heuristic": 58,
+          "learner": 346,
+          "rush": 53,
+          "search_geo": 47,
+          "snapshot0": 48,
+          "snapshot1": 86,
+          "snapshot2": 59
+        },
+        "snapshot_updates": [
+          -1
+        ],
+        "search_rollouts_reported": true,
+        "search_stats": {
+          "search_geo": {
+            "decisions": 2291,
+            "evaluations": 187392,
+            "truncated": 0
+          }
+        },
+        "optimization_seconds": 68.30983340099993
+      },
+      "latest_progress": {
+        "stage": "rollout_progress",
+        "run": "multiplayer-population-v1-homogeneous",
+        "update": 3,
+        "completed_games": 237,
+        "requested_games": 240,
+        "decisions": 44066,
+        "unfinished_games": 3,
+        "ready_games": 1,
+        "in_flight_games": 2,
+        "ready_round_min": 6,
+        "ready_round_max": 6,
+        "engine_seconds": 234.24749394899254,
+        "engine_timing": "blocking_call_wall_time",
+        "async_rollout": true,
+        "policy_seconds": 67.13340751599799,
+        "seconds": 303.16069229000004
+      },
+      "log_observed_at": "2026-10-10T09:38:06.245634+00:00"
     },
     "control": {
       "run": "multiplayer-population-v1-control",
@@ -121,7 +1103,7 @@
       "launched_at": "2026-10-10T09:18:23.206011+00:00",
       "url": "https://huggingface.co/jobs/coyotte508/6aca02dffee2c9007018574b",
       "observed_stage": "RUNNING",
-      "observed_at": "2026-10-10T09:20:57.457868+00:00",
+      "observed_at": "2026-10-10T09:47:45.300557+00:00",
       "verified_startup": {
         "run": "multiplayer-population-v1-control",
         "parameters": 983682,
@@ -137,21 +1119,128 @@
       "latest_progress": {
         "stage": "rollout_progress",
         "run": "multiplayer-population-v1-control",
-        "update": 0,
-        "completed_games": 128,
+        "update": 2,
+        "completed_games": 236,
         "requested_games": 240,
-        "decisions": 34066,
-        "unfinished_games": 112,
-        "ready_games": 36,
-        "in_flight_games": 76,
-        "ready_round_min": 6,
-        "ready_round_max": 11,
-        "engine_seconds": 7.822281536999725,
+        "decisions": 42804,
+        "unfinished_games": 4,
+        "ready_games": 1,
+        "in_flight_games": 3,
+        "ready_round_min": 8,
+        "ready_round_max": 8,
+        "engine_seconds": 288.80771971600325,
         "engine_timing": "blocking_call_wall_time",
         "async_rollout": true,
-        "policy_seconds": 111.7317420270004,
-        "seconds": 120.29999090699997
-      }
+        "policy_seconds": 131.85358702100893,
+        "seconds": 422.38205889000005
+      },
+      "verified_complete_updates": [
+        0,
+        1
+      ],
+      "first_update": {
+        "stage": "train",
+        "run": "multiplayer-population-v1-control",
+        "update": 0,
+        "episodes": 240,
+        "player_count": "mixed",
+        "by_player_count": {
+          "2": {
+            "episodes": 48,
+            "truncated": 0,
+            "samples": 8349
+          },
+          "3": {
+            "episodes": 48,
+            "truncated": 0,
+            "samples": 8213
+          },
+          "4": {
+            "episodes": 48,
+            "truncated": 0,
+            "samples": 9859
+          },
+          "5": {
+            "episodes": 48,
+            "truncated": 0,
+            "samples": 8247
+          },
+          "6": {
+            "episodes": 48,
+            "truncated": 0,
+            "samples": 8104
+          }
+        },
+        "truncated": 0,
+        "samples": 42772,
+        "rollout_seconds": 567.03415647,
+        "engine_seconds": 428.6298922009987,
+        "engine_timing": "blocking_call_wall_time",
+        "async_rollout": true,
+        "policy_seconds": 137.14489059100055,
+        "seconds": 632.430918681,
+        "loss": 0.05577444854434506,
+        "training_opponents": {
+          "rush": {
+            "games": 32,
+            "wins": 13,
+            "truncated": 0
+          },
+          "economic": {
+            "games": 29,
+            "wins": 14,
+            "truncated": 0
+          },
+          "heuristic": {
+            "games": 32,
+            "wins": 24,
+            "truncated": 0
+          },
+          "snapshot0": {
+            "games": 35,
+            "wins": 7,
+            "truncated": 0
+          },
+          "snapshot1": {
+            "games": 26,
+            "wins": 1,
+            "truncated": 0
+          },
+          "search_geo": {
+            "games": 31,
+            "wins": 4,
+            "truncated": 0
+          },
+          "snapshot2": {
+            "games": 27,
+            "wins": 2.5,
+            "truncated": 0
+          }
+        },
+        "opponent_seats": {
+          "economic": 84,
+          "heuristic": 89,
+          "learner": 326,
+          "rush": 100,
+          "search_geo": 106,
+          "snapshot0": 92,
+          "snapshot1": 80,
+          "snapshot2": 83
+        },
+        "snapshot_updates": [
+          -1
+        ],
+        "search_rollouts_reported": true,
+        "search_stats": {
+          "search_geo": {
+            "decisions": 5066,
+            "evaluations": 410864,
+            "truncated": 0
+          }
+        },
+        "optimization_seconds": 65.39676221100001
+      },
+      "log_observed_at": "2026-10-10T09:38:06.246159+00:00"
     }
   },
   "screens": {

@@ -1,0 +1,73 @@
+{
+  "purpose": "Measure fixed-batch model/tensor/optimizer throughput before choosing future training hardware. No strength claim; no candidate weights saved.",
+  "source": {
+    "archive": "strong-source-compute-20261010-v1.tgz",
+    "sha256": "d17be96942211dba2e3b648ac1427ec53f68d919e773c2b117e8d549bb32242d",
+    "bytes": 1440611,
+    "base": {
+      "archive": "strong-source-population-20261010-v1.tgz",
+      "sha256": "c12a718d18ebcec4486aa7f336051720a989260b3153f243647ff1458802ac44",
+      "bytes": 964270,
+      "base_archive": "strong-source-v36.tgz",
+      "base_revision": "d07e072058ee877112d609280980fc806ee8ce28",
+      "overlays": {
+        "ai/strong/train.py": "7f4a8e42c9096f625450bca44138052b64f9d09b6872a4b633a2bd18c2bfeeea",
+        "ai/strong/bridge.cjs": "209eef9aa211fd3a0c6acfda71b1079e817832c64ea446e4bc12ea6e26741a18",
+        "ai/strong/frozen_population.py": "ac7ba3a432a4a9645d69a6f2b1e32312db78e7ac3a7d2aa7d19ec0d99d4dd529",
+        "ai/strong/opponent-population.cjs": "127f545a273bf6fa37c5e4746d7428c19200ac324ed76a0fd7ddb5c654384f81",
+        "ai/strong/population-opponents-v1.json": "d1b4a4beb2afd236ad514da6bedd4b7544fa3adbd70185e357816144af76b5c3",
+        "ai/strong/population-training-protocol-v1.json": "121f756be1df2f73d5c45a2b16be37f566e5a89b547e7c4c32aa0f35bb1aab98",
+        "ai/strong/test_frozen_population.py": "6ac9e84c2ea8cf965b5d51f4db8908c84627bb332d519ce2a64e325bfbfb20f2",
+        "ai/strong/test-opponent-population.cjs": "1fdeb0200f512f57688aa9ab40a04495873059dace170fc688850e65320c9f31",
+        "ai/strong/test_multiplayer_bridge.py": "9e29c5609faab338b645e708fd3fc20e99faf7c91614d9f8e88da8b81905e416",
+        "ai/strong/launch-retained-population-v1.sh": "fa246678807cfa1807d6b6f403a3acff22b76e9b7ba8cb1da212bd460b403dbc"
+      },
+      "revision": "d94897276b88aa6330084e71a74b814a09c25262"
+    },
+    "overlays": {
+      "ai/strong/benchmark-training-compute.py": "6e7f2370c3adb102f6e83dae336f904d0f72d729506aadb705dfdeb03ea60791",
+      "ai/strong/compute-fixtures-v1.json": "6ad89f3e6155c90527e563d7df3787cd03995c3f2b57d195e8331a39a474cc29",
+      "ai/strong/launch-compute-benchmark-v1.sh": "f7cee075725c17f6bb1540503372ae4961dc830b2e8874bc6d2e8c84b9b0f343",
+      "ai/strong/fixtures/compute-observations-v1.jsonl.gz": "b83be87dddc4b151977031ac7baa8bd34a0861f3bdf1a627ede5191c530c5f6d"
+    },
+    "revision": "dbb290b167abe515f2684ff6b8fecd489d09815b"
+  },
+  "fixtures_manifest": "compute-fixtures-v1.json",
+  "flavors": [
+    "cpu-performance",
+    "h200"
+  ],
+  "threads": [
+    1,
+    4
+  ],
+  "batch_sizes": [
+    8,
+    32,
+    128,
+    512
+  ],
+  "optimization_batch_size": 512,
+  "repeats": 15,
+  "warmups": 3,
+  "seed": 10021,
+  "tf32": false,
+  "training_cohort_change": "None. The three ongoing population jobs keep their fixed configurations.",
+  "limitation": "No concurrent engine work; cannot claim end-to-end training speedup from kernel timings.",
+  "jobs": {
+    "cpu-performance": {
+      "job_id": "6aca060ffee2c900701859af",
+      "launched_at": "2026-10-10T09:32:00.238619+00:00",
+      "url": "https://huggingface.co/jobs/coyotte508/6aca060ffee2c900701859af",
+      "observed_stage": "COMPLETED",
+      "observed_at": "2026-10-10T09:34:20.856421+00:00"
+    },
+    "h200": {
+      "job_id": "6aca0610fee2c900701859b1",
+      "launched_at": "2026-10-10T09:32:01.244918+00:00",
+      "url": "https://huggingface.co/jobs/coyotte508/6aca0610fee2c900701859b1",
+      "observed_stage": "COMPLETED",
+      "observed_at": "2026-10-10T09:34:21.090135+00:00"
+    }
+  }
+}

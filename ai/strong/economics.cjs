@@ -47,14 +47,41 @@ function purchaseCost(g, p, used) {
     }
     return cost;
 }
+// A production plan compares many fuel combinations against unchanged holdings
+// and market prices. Reuse each required quantity's cost within this call only;
+// never retain it across engine moves, resource purchases or replenishments.
+function purchaseCosts(g, p) {
+    const left = c.RES.map((r) => p[r + 'Left']),
+        markets = c.RES.map((r) => g[r + 'Market']),
+        prices = c.RES.map((r) => g[r + 'Prices']),
+        sums = c.RES.map(() => [0]);
+    return (used) => {
+        let total = 0;
+        for (let i = 0; i < 4; i++) {
+            const needed = Math.max(0, used[i] - left[i]);
+            if (!needed) continue;
+            if (needed > markets[i]) return Infinity;
+            const cached = sums[i], price = prices[i], count = markets[i];
+            while (cached.length <= needed) {
+                const k = cached.length - 1;
+                cached.push(cached[k] + (price && count > k ? price[price.length - count + k] : 20));
+            }
+            total += cached[needed];
+        }
+        return total;
+    };
+}
 function plan(g, p, target = p.cities.length, { buy = true, unused = false, budget = p.money, endgame = false } = {}) {
     let best = { power: 0, used: [0, 0, 0, 0], plants: [], cost: 0, score: -Infinity };
+    const costOf = buy ? purchaseCosts(g, p) : null,
+        left = buy ? null : c.RES.map((r) => p[r + 'Left']),
+        replacementPrices = buy ? null : c.RES.map((r) => c.resourcePrice(g, r));
     for (const option of plans(g, p, unused)) {
-        if (!buy && option.used.some((n, i) => n > p[c.RES[i] + 'Left'])) continue;
-        const cost = buy ? purchaseCost(g, p, option.used) : 0;
+        if (!buy && option.used.some((n, i) => n > left[i])) continue;
+        const cost = buy ? costOf(option.used) : 0;
         if (cost > budget) continue;
         const powered = Math.min(target, option.power + (unused ? p.citiesPowered : 0));
-        const replacement = buy ? 0 : option.used.reduce((s, n, i) => s + n * c.resourcePrice(g, c.RES[i]), 0);
+        const replacement = buy ? 0 : option.used.reduce((s, n, i) => s + n * replacementPrices[i], 0);
         const score = (endgame ? powered * 1000 : income(g, powered)) - cost - (buy ? 0 : replacement * 0.2);
         if (score > best.score) best = { ...option, powered, cost, score };
     }
@@ -200,6 +227,7 @@ module.exports = {
     fuelVariants,
     plans,
     purchaseCost,
+    purchaseCosts,
     plan,
     demand,
     futurePressure,

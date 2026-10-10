@@ -1,80 +1,108 @@
 # Power Grid AI — active continuation, 10 October 2026
 
 **No candidate has passed the full strength gate. Nothing is deployed. Reserved
-final-test seeds remain unused.** The separate UI redesign was reverted and is
-not part of this research work.
+final-test seeds remain unused.** The separate UI redesign was reverted.
 
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
-`ai/germany-baseline`. The previous interaction was UI-only (no AI progress).
-This AI continuation verified finished audit results, added and tested retained
-neural opponents, froze the experiment and launched training plus parent screens.
+`ai/germany-baseline`. The previous goal turn made concrete progress by launching
+the controlled population pilot and verifying its parent benchmark. This turn
+verified complete training batches, measured CPU/H200 throughput, and validated
+a behavior-preserving simulation optimization. Do not repeat completed probes.
 
-## Current jobs — inspect these before launching anything
+## Current training — inspect exact jobs before taking action
 
-`strong/population-status-v1.json` records exact job IDs and their latest observed
-states. Three training jobs run `multiplayer-population-v1-{control,homogeneous,
-heterogeneous}`. Six parent-screen jobs covered economic opponents at 2–6 players
-and frozen A260 at 3 players; all six are now completed and collected. Do not duplicate jobs after a polling timeout.
-Training runs **only on HF Jobs**. The training source bundle, immutable dataset
-revision, SHA256 and per-file hashes are in `strong/population-source-v1.json`.
+`strong/population-status-v1.json` has exact job IDs, latest observed progress,
+and first complete update records. The three runs are
+`multiplayer-population-v1-{control,homogeneous,heterogeneous}`. All remain on
+their original immutable runtime. No restarts or source/hardware changes were
+made to this cohort. All observed complete batches contain 240 games, 48 per
+player count, and zero game or search truncations. Training outcomes are not
+independent strength evidence. A polling timeout is not job termination.
 
-`strong/population-training-protocol-v1.json` freezes the experiment before any
-training result: H200 update79 parent; three retained neural checkpoints; 20 PPO
-updates × 240 complete games, balanced over 2–6 players, original/Recharged and
-open/sealed; seed10021; initial-policy anchor; periodic snapshots every5 updates.
-The population arms share opponent marginals but assign either one family per
-table or a different family per opposing seat. Two-player assignments match.
-The third arm retains the prior mixture. It is a single-seed pilot, not proof of
-training robustness. Inspect timings before changing hardware or extending runs.
+`strong/population-training-protocol-v1.json` freezes: H200 update79 parent,
+three retained neural opponents, 20 PPO updates × 240 complete games, 2–6
+players, original/Recharged and open/sealed, seed 10021, initial-policy anchor,
+periodic snapshots every 5 updates. Population arms have identical opponent
+marginals, assigning either one family per table or independently per opposing
+seat. Two-player assignments match. The third arm retains the prior mixture.
+This is a single-seed pilot. Source/revision/hash are in
+`strong/population-source-v1.json`; gradients run only on HF Jobs.
 
-## Completed evidence
+## Completed evidence and runtime work
 
-All five neural-continuation jobs completed: **30,048 rollouts, zero truncated**.
-Artifacts are pinned at model revision
-`577ecd7d834c64741db9cda715bd1db3c3dddbd9`; see
-`strong/neural-continuation-status-2026-10-10.json` and
-`strong/neural-continuation-summary-v1.json` for raw hashes and subgroup results.
-Across60 reused positions,11 had disjoint A/B winner sets and27 tied every action
-in discovery. Neural-selected moves confirmed better under neural continuation
-but worse under the heuristic continuations on average. **No teacher promotion
-and no new hard labels.** This motivated the full-game population pilot, not a
-claim that population training will succeed.
-
-Checks passed:16 archived-runtime Node tests; frozen weight/hash/role isolation;
-actual inference with all three pinned models; all4 multiplayer bridge tests
-(including80 complete population games across counts); async/sync equivalence;
-model and snapshot tests. The parent passed strict checkpoint/export comparison
-on all2,553 serving fixtures before its screens were launched.
+- Parent benchmark: all 3,680 games verified at artifact revision
+  `29f232e329f05ce6a93ea92006a271d9ea292147`, 40 complete paired deals/count,
+  zero truncations. Economic win shares at 2–6 players:
+  57.34 / 60.00 / 60.08 / 76.25 / 73.13%; A260 at 3 players: 36.56%.
+  The two priority weaknesses remain. Full report and hashes:
+  `strong/population-parent-screen-v1.json`; raw reports:
+  `ai/runs/population-parent-screen-v1`. Parent export parity passed all 2,553
+  positions. Collector rejects wrong hashes/deals/opponents and missing or
+  truncated matches.
+- Neural-continuation audit: all five jobs completed, 30,048 continuations,
+  zero truncated, pinned revision `577ecd7d834c64741db9cda715bd1db3c3dddbd9`.
+  Across 60 reused positions, 11 had disjoint A/B winner sets and 27 tied every
+  action in discovery. Selection depends on continuation policy. No teacher
+  promotion or new hard labels. See `strong/neural-continuation-summary-v1.json`
+  and `strong/neural-continuation-status-2026-10-10.json`.
+- Compute probe: both HF Jobs completed; manifests and exact paired batch hashes
+  verified. `strong/compute-protocol-v1.json`, `strong/compute-results-v1.json`
+  and `strong/compute-source-v1.json` preserve everything. Artifact revision:
+  `f6a3a7e98ee55501190c1acc4371eb85494557df`. At 4 Torch threads, optimizer batch
+  512 took 254.88 ms on CPU versus 28.70 ms on H200 (8.88×). Eight-row inference
+  changed only 1.58 → 1.51 ms. These isolated timings exclude concurrent engine
+  work and search stragglers; no end-to-end training speed claim. Benchmark
+  gradient targets were synthetic timing inputs; no weights were saved.
+- Simulation profile: fuel cost calculation was the largest sampled hotspot
+  (~28% self time). `strong/economics.cjs` now caches costs only within a production
+  planning call and hoists repeated price/holding reads. **Only future runtimes
+  use this change.** Equality checks passed for 5,760 production plans, all
+  20,705 decisions and terminal states in 40 complete games, every outcome in
+  1,252 search continuations on 60 positions, and all state/action features in
+  2,553 serving positions. Ten existing Node tests passed. Three alternating
+  timing pairs gave median 9.62 → 5.98 seconds (1.61×) on this local search probe.
+  See `strong/economics-optimization-v1.json` for exact scope and provenance.
+  The first four-pair attempt ended with SIGTERM; its partial timings were
+  excluded. The recorded three-pair run finished successfully.
+- Faster future source is saved independently in HF; see
+  `strong/economics-fast-source-v1.json`. Do not overwrite the active cohort's
+  source reference with it. `strong/verify-economics-optimization.cjs` compares
+  the two extracted runtimes. Encoded public compute fixtures are inside the
+  immutable compute source; original serving fixtures remain locally in
+  `ai/runs/multiplayer-serving-fixtures.jsonl` (SHA in the reports).
 
 ## Next actions
 
-1. Inspect the three exact training jobs. Confirm startup, pinned models, initial
-   evaluation, first complete update and engine/policy/optimization timings.
-   Check all240 games finish,48 per count, and no game/search truncations. Retain
-   all arms and regressions; do not silently promote internal `best`.
-2. Parent screens are verified and saved in `strong/population-parent-screen-v1.json`
-   at artifact revision `29f232e329f05ce6a93ea92006a271d9ea292147`. All3680 games
-   completed, exact40 deals/count and all seat/rule cells, zero truncations.
-   Economic win shares2–6p:57.34/60.00/60.08/76.25/73.13%; A2603p:36.56%.
-   These new development results confirm the two priority weaknesses. The
-   collector also rejected altered hashes, seeds, opponent roles, missing and
-   truncated games. Reuse these paired raw reports when new checkpoints finish.
-3. At updates9 and19, preserve immutable model-repository revisions for each
-   training run. Run `strong/prepare-population-screen.py ARM UPDATE REV OUTPUT`
-   to verify training provenance and full2553-fixture parity, then launch its
-   `screen-plan.json`. The fresh development seeds are
-   `multiplayer-population-screen-v1-{players}p`,40 complete paired deals/count.
-   Compare all six scheduled checkpoints to the parent and each other, with
-   deal-clustered intervals and separate rule/count reporting.
-4. Only if the prescribed screens justify it, test independent stronger search
-   and mixed tables, replicate promising training, then run the unchanged final
-   strength protocol and benchmark/package on the8840U. Parent2p economic and
-   A2603p remain known weaknesses. Never replace the full gate with these screens.
-5. This comparison intentionally freezes source-v36, while screens retain
-   source-v32. Verify compatibility with the newer production engine before any
-   deployment. Existing hidden-deck, sealed-bid and queued-plan exclusions stay.
+1. Inspect the three training jobs and verify further completed batches. The
+   original control performs more search rollouts than the population arms;
+   raw update times are not a clean hardware comparison. Keep all prescribed
+   checkpoints and regressions, including runs slower than the others.
+2. At updates 9 and 19, preserve immutable model-repository revisions for every
+   run before later uploads replace `latest`. Use
+   `strong/prepare-population-screen.py ARM UPDATE REV OUTPUT` to validate
+   training provenance and full 2,553-position checkpoint/export parity, then
+   launch its `screen-plan.json`. Internal `best` is not the scheduled candidate.
+   If needed, recover update 9 from immutable repository history rather than
+   substituting a later checkpoint.
+3. Once each six-cell screen is complete, pin its artifact revision and run
+   `strong/collect-population-screen.py OUTPUT REV`. Fresh development prefix:
+   `multiplayer-population-screen-v1-{players}p`, offsets 0–39, every seat and all
+   four rule combinations. Then `strong/compare-population-screens.py` compares
+   all three arms and the parent at each scheduled update. It resamples whole
+   deals, reports every rule/count cell, and does not pool away weaknesses.
+   Sanity checks passed: identical actual reports give zero difference; missing
+   pairs fail; 400 correlated synthetic rows retain only 4 independent deals.
+4. If strength screens justify further training, consider the verified faster
+   economics runtime and H200, with a full training-throughput check and a second
+   training seed. Current source and hardware stay fixed. Only then proceed to
+   stronger independent search/mixed tables and the unchanged final strength
+   protocol, followed by export/legality/latency/package checks on the 8840U.
+5. Training still freezes source-v36; independent screens use source-v32.
+   Verify newer production-engine compatibility before any deployment. Public
+   money is allowed; hidden deck, sealed bid values, RNG seed and queued plans
+   stay excluded. Do not present value-head output as calibrated analysis.
 
-The historical October4 handoff follows; its paused status and old job snapshots
+The historical October 4 handoff follows; its paused status and old job snapshots
 are historical, not the current state.
 
 ---

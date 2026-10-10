@@ -143,10 +143,10 @@ function observe(g, seat, geometry = spatial.territories(g, seat)) {
         layout: { global: global.length, player: playerWidth, cities: cities.length, territory: territory.length },
     };
 }
-function encode(g, seat) {
+function encode(g, seat, movesOverride) {
     const geometry = spatial.territories(g, seat),
         observation = observe(g, seat, geometry);
-    const moves = c.candidates(g, seat),
+    const moves = movesOverride || c.candidates(g, seat),
         raw = eco.scores(g, seat, moves),
         best = Math.max(...raw);
     const actions = moves.map((a, i) => {

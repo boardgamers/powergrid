@@ -4,11 +4,82 @@
 final-test seeds remain unused.** The separate UI redesign was reverted.
 
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
-`ai/germany-baseline`. The previous goal turn made concrete progress by collecting the final heterogeneous
-result and launching the new parent evaluation. This turn completed its independent
-4,000-game verification, started a durable final-only coordinator for the four
-training runs, and audited a concrete sealed-bid candidate limitation. Both turns
-are **progress**. No candidate is qualified and there is no external blocker.
+`ai/germany-baseline`. The preceding AI goal turn implemented and launched the
+sealed-menu experiment below: **progress**. The intervening UI reply only confirmed
+the requested revert; it made no AI progress. This continuation recovered and
+authoritatively inspected the actual HF handles, reviewed the experiment and
+verified its saved validation hashes. No candidate is qualified and there is no
+external blocker.
+
+## Latest: frozen-weight sealed-bid experiment running
+
+HF job **`6aca28c7fee2c90070187151`** was launched successfully at 12:00 UTC,
+10 October. Inspected RUNNING at 12:03 UTC; subsequent logs reached the control
+economic 5p cell. **Do not rerun `launch-sealed-menu-pair.py`**: persistent launch
+intent is `ai/runs/sealed-menu-pair-launch-v1.json`, mirrored by
+`strong/sealed-menu-status-v1.json`. An observation timeout is not a failed job.
+
+This is an inference experiment, with **no optimizer updates**. It holds original
+H200 u79 tensors and ONNX graph fixed, and adds revision `4.0-sealed-all-bids` to
+allow every engine-legal sealed bid. The menu-relative best-heuristic flag retains
+its definition but is recomputed on the larger menu. Open menus and other model
+revisions stay unchanged. Neural actions now dispatch through the acting model's
+menu; search with the new revision is explicitly rejected because its proposal
+indices have not been adapted. The experiment does not change either running
+training cohort, older opponent identities, final gates, or published UI.
+
+Validation, saved at model revision **`42593c73c1f2d778c9eea8ec0c71bb8e408d6228`**,
+prefix `runs/sealed-menu-initial-v1`:
+
+- All 2,553 original encoder outputs and actor menus match their pre-edit
+  references exactly; hidden deck/seed/sealed bids/queued plans do not affect the
+  new encoding. All added 3,002 bids apply successfully on independent engine
+  copies. Of these fixtures, 42 sealed menus expand. This is fixture coverage,
+  not a prevalence estimate or evidence of better play.
+- Separate engine-legal fixtures preserve all requests, leaving the original
+  pruned fixture file untouched. New fixture SHA256 is
+  `0a43c0234b810253d07ef7281ee3e83c8fe7a4fa27e8aa05bd6589c024661883`.
+- 176 complete integration games, every count/rule/seat against a frozen neural
+  opponent plus new heuristic modes: no caps; 155 formerly omitted bids actually
+  played; all 40 paired open-game result records exactly identical. Records
+  include terminal player summaries and action counts, not entire trajectories
+  or the complete terminal engine state.
+- All 2,553 strict single-request export checks and engine-legal serving checks
+  pass. Saved initial files' hashes were reverified in this continuation. No
+  batch16 parity or current-model AMD8840U latency claim is made.
+
+Frozen protocol: `strong/sealed-menu-protocol-v1.json`. Each condition plays
+**7,520 fresh development games**, 40 deals/count × every seat × four rule cells:
+economic 2–6p, capacity-aware economic 2p, A260 3p, plus separately named
+full-sealed-menu economic 2–6p and capacity-aware 2p references. The latter are
+additional references, not assumed stronger or replacements for existing gates.
+Both conditions run sequentially on one CPU-performance host (24 workers, four
+hour limit) to avoid CPU-host differences in the required 3,760 paired open-game
+record identity check. Seed prefix `sealed-menu-development-v1-{players}p`;
+20,000 whole-deal bootstrap samples, seed10041. Report every count/rule/reference
+contrast and regression; intervals are exploratory and not multiplicity-adjusted.
+
+Source archive `strong-source-sealed-menu-20261010-v1.tgz`, dataset revision
+**`e571f96d453a4b148a3185b99cb047655b6a4f75`**, SHA256
+`e9de0cc444c843d5b298d5070298902f613a19aa1fab7d568093fa939871b993`.
+All source/model/fixture pins are in `strong/sealed-menu-{source,initial}-v1.json`.
+The expanded PT/ONNX carry a distinct revision tag and an explicit untrained
+transfer record. They are not a newly trained or qualified model.
+
+When complete, pin a model-repo revision and independently run
+`collect-sealed-menu-screen.py {control|expanded} REV OUTPUT`, then
+`compare-sealed-menu-screens.py CONTROL EXPANDED --output REPORT`. Compare the
+reproduced report to `runs/sealed-menu-pair-v1/comparison.json`; screen evidence
+lives at `runs/sealed-menu-screen-v1-{control,expanded}`. The pair wrapper uploads
+failure evidence too. Any open-game mismatch invalidates an isolated-menu effect
+claim and must be diagnosed before interpretation. Reserved final seeds unused.
+
+At 12:03 UTC the four H200 ablation trainers, population control trainer and both
+coordinators were all authoritatively RUNNING. Population homogeneous training
+was COMPLETED, with its six update19 screens still being collected by the old
+coordinator. Do not manually duplicate those screens. H200 logs subsequently
+showed completed updates14–15 and ongoing updates15–16; final update19 evaluation
+is still owned by `6aca236f095c578089311e41`.
 
 ## Latest: parent reference complete, automatic final evaluations, bid-menu audit
 

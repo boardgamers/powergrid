@@ -1,0 +1,78 @@
+{
+  "revision": "42593c73c1f2d778c9eea8ec0c71bb8e408d6228",
+  "prefix": "runs/sealed-menu-initial-v1",
+  "files": {
+    "serving.json": "4c67f6df748a5f1915b8c2d21357a288fafdd4d7db9bdfa6bdfa59ece760d8be",
+    "expanded.pt": "db293fc935f6c53e4a9654b586134ad091910a79e2eeb8ad69864158f6b2f7a9",
+    "integration.json": "6e309f6d161542622fab0b8780fc348917bd1f5dcf943332e352b5fb50be5e6c",
+    "expanded.onnx": "d82df27a003e156ca1c46429a2fe3b17959091a90641ec9fcb7bc12df6b01db1",
+    "transfer.json": "9db58e4af77ee8f94c218c0a435c930882503c6c268c2efc37a1d74032c3088d",
+    "encoder-check.json": "f69f5f31d03691af03db27bae8fa610e0a4bad558e5d3d6afc888e6ff7986835",
+    "parity.json": "fbcd99831db8f975fc01879c97a6481189439c02b871678cd9876f6ec36bbeb2"
+  },
+  "validation": {
+    "positions": 2553,
+    "changed_legal_lists": 142,
+    "expanded_sealed_menus": 42,
+    "omitted_actions_engine_replayed": 3002,
+    "by_player_count": {
+      "2": 349,
+      "3": 427,
+      "4": 527,
+      "5": 609,
+      "6": 641
+    },
+    "old_encoder_exact": true,
+    "old_actor_menus_exact": true,
+    "open_encoder_exact": true,
+    "hidden_information_invariant": true,
+    "identical_requests": true,
+    "original_fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+    "reference_sha256": "4c87fcbdbbd9e235ae778b729cb2d38fd8c793d606a1522d4e629825150ef2b3",
+    "engine_legal_fixture_sha256": "0a43c0234b810253d07ef7281ee3e83c8fe7a4fa27e8aa05bd6589c024661883",
+    "request_stream_sha256": "9abb87267c7a2239a24d5d443c99376f49315ab7672d883278c9520a4faf74f1"
+  },
+  "integration": {
+    "games": 176,
+    "truncations": 0,
+    "by_cell": {
+      "2p/frozen": {
+        "control_games": 8,
+        "expanded_games": 8,
+        "identical_open_games": 4
+      },
+      "3p/frozen": {
+        "control_games": 12,
+        "expanded_games": 12,
+        "identical_open_games": 6
+      },
+      "4p/frozen": {
+        "control_games": 16,
+        "expanded_games": 16,
+        "identical_open_games": 8
+      },
+      "5p/frozen": {
+        "control_games": 20,
+        "expanded_games": 20,
+        "identical_open_games": 10
+      },
+      "6p/frozen": {
+        "control_games": 24,
+        "expanded_games": 24,
+        "identical_open_games": 12
+      },
+      "2p/economic_full_sealed_v1": {
+        "expanded_games": 8
+      },
+      "2p/capacity_full_sealed_v1": {
+        "expanded_games": 8
+      }
+    },
+    "expanded_bids_actually_played": 155,
+    "identical_open_games": 40,
+    "qualification_eligible": false,
+    "scope": "Integration coverage only; no model selection"
+  },
+  "qualified": false,
+  "trained": false
+}

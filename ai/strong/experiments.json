@@ -226,7 +226,8 @@
         "teacher-reliability-v2-6p": "6abe1df3fbc85ba682360be0",
         "population-coordinator-v1": "6aca0d29095c578089310fca",
         "full-throughput-v1-cpu-performance": "6aca0ec4fee2c90070185e12",
-        "full-throughput-v1-h200": "6aca0ec5fee2c90070185e14"
+        "full-throughput-v1-h200": "6aca0ec5fee2c90070185e14",
+        "sealed-menu-pair-v1": "6aca28c7fee2c90070187151"
     },
     "cancelled_while_queued": [
         "6abd128efbc85ba68235b1a6",
@@ -36167,6 +36168,34 @@
         "changed_neural_choices": 13,
         "neural_chose_omitted_bid": 12,
         "qualification_eligible": false,
-        "next": "A separately versioned controlled full-legal sealed-bid experiment may be justified. Preserve active ablation and old opponents; create separate all-engine-legal fixtures with identical requests instead of weakening existing tests."
+        "next": "Separate frozen-weight sealed-menu experiment launched; see sealed_menu_v1. Preserve existing gates and running training cohorts."
+    },
+    "sealed_menu_v1": {
+        "status": "Launched successfully and confirmed RUNNING; paired outcomes pending",
+        "job_id": "6aca28c7fee2c90070187151",
+        "protocol": "sealed-menu-protocol-v1.json",
+        "initial": "sealed-menu-initial-v1.json",
+        "source": "sealed-menu-source-v1.json",
+        "status_file": "sealed-menu-status-v1.json",
+        "source_revision": "e571f96d453a4b148a3185b99cb047655b6a4f75",
+        "initial_revision": "42593c73c1f2d778c9eea8ec0c71bb8e408d6228",
+        "games_per_condition": 7520,
+        "conditions": [
+            "control",
+            "expanded"
+        ],
+        "trained": false,
+        "validation": {
+            "positions": 2553,
+            "strict_single_request_parity": true,
+            "legal_serving": true,
+            "integration_games": 176,
+            "integration_truncations": 0,
+            "identical_open_result_records": 40,
+            "expanded_bids_engine_applied": 3002,
+            "expanded_bids_integration_played": 155
+        },
+        "qualification_eligible": false,
+        "next": "Inspect the existing job; pin completed artifacts, independently collect both conditions and reproduce all13 cell contrasts. Require exact3760 open-game record identity. Never infer strength from menu coverage alone."
     }
 }

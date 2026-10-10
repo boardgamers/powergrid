@@ -9,6 +9,8 @@ const encoders = require('./encoders.cjs'),
             if (!Number.isInteger(p) || !g.currentPlayers.includes(p)) throw Error('Player cannot act');
             const x = encoders.forRevision(q.featureRevision).encode(g, p);
             if (q.op === 'search') {
+                if (q.featureRevision === '4.0-sealed-all-bids')
+                    throw Error('Expanded sealed menu requires a matching search implementation');
                 if (!Number.isInteger(q.proposal) || q.proposal < 0 || q.proposal >= x.moves.length)
                     throw Error('Invalid search proposal');
                 if (!Number.isInteger(q.samples) || q.samples < 1 || q.samples > 64)

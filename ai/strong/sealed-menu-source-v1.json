@@ -1,0 +1,32 @@
+{
+  "archive": "strong-source-sealed-menu-20261010-v1.tgz",
+  "sha256": "e9de0cc444c843d5b298d5070298902f613a19aa1fab7d568093fa939871b993",
+  "bytes": 25904470,
+  "base": {
+    "archive": "strong-source-five-plant-screen-20261010-v1.tgz",
+    "revision": "79480a2c32e9ecdffce00440e1150cb857c18d1e",
+    "sha256": "2540dd5ccaee671baf47467c9e184dd7dda602de98cf07b898fff15f7ccc96b0"
+  },
+  "overlays": {
+    "ai/strong/features-v4.cjs": "e5d59c062f68ebf4141e30bec1eadf7ec8ef72388fa65f122643992d91e204c2",
+    "ai/strong/features-v4_sealed.cjs": "68aec23640a8001c006ea7d18ff54e81923f6273994c72a7a83dde379464dbb5",
+    "ai/strong/encoders.cjs": "dadbe861bca20048567d39a6e3553d518c459ffe55b2304c89fb9794ed14751e",
+    "ai/strong/economics-full-sealed.cjs": "ff7ee7c909aebc545585ee7afae9c8cd997f86e1247592bddef9bc66b7d9ba7e",
+    "ai/strong/bridge.cjs": "895abd65c7d685a4b3beb6830bbe04306ddc11b1849e24db1adaf7483c25834d",
+    "ai/strong/worker.cjs": "aeb7f80bf43c00a3ab82b1067fdf60dbf1a0f17ce5b13d6a3f1d7c0903759a0b",
+    "ai/strong/evaluate.py": "28454a3a291ed9fc66a76c440966c460c163fc0a6eda2354c533ed288cb3a171",
+    "ai/strong/verify-sealed-menu.cjs": "6309d07e285296e2a34d9d0ddfddec8eea24b06e33d87fc5e1ac036f0f0c5526",
+    "ai/strong/verify-sealed-menu-games.py": "00569dd59192ffb346d17ec65b1ba9a003a8eb3b0e3fb9a32ed9c03cc6d5af8a",
+    "ai/strong/sealed_menu_screen.py": "b7fd33291911862be83e9688c293f227bd9983a734e8b6efaa91da9f5772b5bb",
+    "ai/strong/collect-sealed-menu-screen.py": "0e132e316f3a2f80b67a24f48344f136d2c508b9cdf6a524589e7503e370f38d",
+    "ai/strong/compare-sealed-menu-screens.py": "aa6c1b4b31e61cd22cb3b3b4e4d9d6b85d6df1faa98387a868ca27616762f981",
+    "ai/strong/compare-population-screens.py": "b74bac5c403d5a96e79fddf43b4dcd9b715d5124e9c2681983ad519e2177d887",
+    "ai/strong/run-sealed-menu-pair.py": "668764a789a5687d452430a76b69a3d1a9dd5393ec6589de1b181e92e9128afe",
+    "ai/strong/launch-sealed-menu-pair.py": "02ab3665d04e429d45c31942d12aaf9d15c0e27b32bb29da1c1afdbad6c87caf",
+    "ai/strong/sealed-menu-protocol-v1.json": "3ca3a198786787ca8cf323c8d825ffdb3c7b3e09ff56f5ff4c3b7f3e2c3fe2a3",
+    "ai/strong/sealed-menu-initial-v1.json": "ba6e313553b45e9f97d99f0c412c084c4036bbd80876a31881c75ff94b469bb2"
+  },
+  "fixture_sha256": "0a43c0234b810253d07ef7281ee3e83c8fe7a4fa27e8aa05bd6589c024661883",
+  "purpose": "Controlled frozen-weight test of full legal bids in sealed auctions. No training or final qualification.",
+  "revision": "e571f96d453a4b148a3185b99cb047655b6a4f75"
+}

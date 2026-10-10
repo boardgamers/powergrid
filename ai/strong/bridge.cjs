@@ -42,6 +42,9 @@ function applyBot(e, p) {
         );
     } else if (role === 'economic_capacity_v1') {
         c.E.move(e.g, require('./economics-v4_1.cjs').choose(e.g, p, e.rng).action, p);
+    } else if (role === 'economic_full_sealed_v1' || role === 'capacity_full_sealed_v1') {
+        c.E.move(e.g, require('./economics-full-sealed.cjs').choose(e.g, p, e.rng,
+            role === 'capacity_full_sealed_v1').action, p);
     } else
         c.E.move(
             e.g,
@@ -82,6 +85,8 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}, player
             'mixed_search_geo',
             'economic',
             'economic_capacity_v1',
+            'economic_full_sealed_v1',
+            'capacity_full_sealed_v1',
             'heuristic',
             'rush',
             'legacy',
@@ -172,8 +177,11 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}, player
                     const e = envs[i];
                     if (q.actions[i] === null) continue;
                     const seat = e.g.currentPlayers[0];
-                    const legal = c.candidates(e.g, seat),
+                    const revision = e.featureRevisions[e.roles[seat]],
+                        legal = encoders.candidatesForRevision(revision, e.g, seat),
                         choice = q.actions[i];
+                    if (revision === '4.0-sealed-all-bids' && typeof choice === 'object')
+                        throw Error('Expanded sealed menu requires a matching search implementation');
                     const strategic =
                         legal.length > 1 && legal.some((a) => ['ChoosePowerPlant', 'Bid', 'Build'].includes(a.name));
                     const index = typeof choice === 'object' ? choice.proposal : choice;

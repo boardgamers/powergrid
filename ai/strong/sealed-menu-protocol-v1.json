@@ -1,0 +1,178 @@
+{
+  "purpose": "Controlled frozen-weight test of full legal bids in sealed auctions. No training or final qualification.",
+  "conditions": {
+    "control": {
+      "revision": "0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a",
+      "prefix": "runs/multiplayer-refine-hard-v1",
+      "checkpoint": "latest.pt",
+      "model": "latest.onnx",
+      "checkpoint_sha256": "1f9d1c89908ab036f6e6a54facba94b352bbae005e1ac042d88c60067e895224",
+      "model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+      "feature_revision": "4.0-multiplayer"
+    },
+    "expanded": {
+      "revision": "42593c73c1f2d778c9eea8ec0c71bb8e408d6228",
+      "prefix": "runs/sealed-menu-initial-v1",
+      "checkpoint": "expanded.pt",
+      "model": "expanded.onnx",
+      "checkpoint_sha256": "db293fc935f6c53e4a9654b586134ad091910a79e2eeb8ad69864158f6b2f7a9",
+      "model_sha256": "d82df27a003e156ca1c46429a2fe3b17959091a90641ec9fcb7bc12df6b01db1",
+      "feature_revision": "4.0-sealed-all-bids"
+    }
+  },
+  "fixture_path": "ai/strong/fixtures/sealed-menu-engine-legal-v1.jsonl",
+  "fixture_sha256": "0a43c0234b810253d07ef7281ee3e83c8fe7a4fa27e8aa05bd6589c024661883",
+  "original_fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+  "request_stream_sha256": "9abb87267c7a2239a24d5d443c99376f49315ab7672d883278c9520a4faf74f1",
+  "initial_artifacts": "42593c73c1f2d778c9eea8ec0c71bb8e408d6228",
+  "weights_identical": true,
+  "onnx_graph_identical": true,
+  "changed_behavior": "Only sealed auction menus expand. Existing action feature75 is the same definition (best heuristic action), recomputed over the menu. Full references are separately named; old identities/weights/menus stay unchanged.",
+  "evaluation": {
+    "seed_template": "sealed-menu-development-v1-{players}p",
+    "deal_offsets": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39
+    ],
+    "screens": [
+      {
+        "players": 2,
+        "opponent": "economic",
+        "games": 320
+      },
+      {
+        "players": 3,
+        "opponent": "economic",
+        "games": 480
+      },
+      {
+        "players": 4,
+        "opponent": "economic",
+        "games": 640
+      },
+      {
+        "players": 5,
+        "opponent": "economic",
+        "games": 800
+      },
+      {
+        "players": 6,
+        "opponent": "economic",
+        "games": 960
+      },
+      {
+        "players": 2,
+        "opponent": "economic_capacity_v1",
+        "games": 320
+      },
+      {
+        "players": 3,
+        "opponent": "a260",
+        "games": 480,
+        "model_path": "runs/strong-league-v2-a/best.onnx",
+        "revision": "b38515c29e57826de05b55b645c29591e4a886bf",
+        "sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd"
+      },
+      {
+        "players": 2,
+        "opponent": "economic_full_sealed_v1",
+        "games": 320
+      },
+      {
+        "players": 3,
+        "opponent": "economic_full_sealed_v1",
+        "games": 480
+      },
+      {
+        "players": 4,
+        "opponent": "economic_full_sealed_v1",
+        "games": 640
+      },
+      {
+        "players": 5,
+        "opponent": "economic_full_sealed_v1",
+        "games": 800
+      },
+      {
+        "players": 6,
+        "opponent": "economic_full_sealed_v1",
+        "games": 960
+      },
+      {
+        "players": 2,
+        "opponent": "capacity_full_sealed_v1",
+        "games": 320
+      }
+    ],
+    "games_per_condition": 7520,
+    "candidate_search_samples": 0,
+    "paired_seats": true,
+    "bootstrap_replicates": 20000,
+    "bootstrap_seed": 10041,
+    "primary_contrast": "Expanded minus control per opponent/count, overall and each rule. Exact open-game identity is a required isolation check. Report all cells and regressions.",
+    "inference": "Marginal exploratory whole-deal intervals, not adjusted for multiple comparisons. Same weights, no training seed variance estimate. New full-menu opponents are not presumed stronger and do not replace existing baselines."
+  },
+  "requirements": [
+    "Strict single-request parity and legal serving on all2553 identical requests with separate engine-legal lists.",
+    "Every game complete; exact paired deal/seat/rule coverage and explicit search-cap accounting.",
+    "Exact original encoder and actor menus; no global candidate overrides in actual games.",
+    "Original and expanded inference tensors identical; source/model/fixture hashes immutable.",
+    "All open game terminal states, step and action-type counts identical per condition/reference.",
+    "No final reserved seeds, optimizer steps, production publication or qualification."
+  ],
+  "known_limitations": [
+    "Existing search proposal indices refer to pruned menus. Expanded-menu search is explicitly rejected, not silently remapped. This experiment uses raw policy only.",
+    "Existing serving fixture legal lists remain untouched; separate all-engine-legal lists include3002 additional sealed bids whose engine application was checked.",
+    "Potential bid-precision gains must survive references with full sealed menus; winning against pruned opponents alone is insufficient."
+  ],
+  "qualification_eligible": false,
+  "execution": {
+    "flavor": "cpu-performance",
+    "conditions_order": [
+      "control",
+      "expanded"
+    ],
+    "same_host": true,
+    "workers": 24,
+    "timeout": "4h",
+    "reason": "Both unchanged-weight policies run on the same CPU host to avoid host-dependent numeric differences in the required open-game identity check."
+  }
+}

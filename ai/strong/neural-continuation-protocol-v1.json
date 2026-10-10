@@ -1,0 +1,70 @@
+{
+  "purpose": "Controlled public-belief continuation-policy diagnostic; no optimization and no strength qualification.",
+  "source": {
+    "archive": "strong-source-neural-continuations-20261010-v1.tgz",
+    "sha256": "0aeab1fcade063ff6e090680e1c088eab77190b23789d2d1a1bca7f346cd9802",
+    "revision": "2cbb2c082c0ec81ca3aa631b0eecf2532ef8f65c",
+    "base_revision": "d07e072058ee877112d609280980fc806ee8ce28",
+    "changed_files": [
+      "ai/strong/continuation-rollouts.cjs",
+      "ai/strong/test-continuation-rollouts.cjs",
+      "ai/strong/audit-neural-continuations.py"
+    ]
+  },
+  "scope": {
+    "map": "Germany",
+    "players": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "variants": [
+      "original",
+      "recharged"
+    ],
+    "auctions": [
+      "open",
+      "sealed"
+    ],
+    "actions": [
+      "ChoosePowerPlant",
+      "Bid",
+      "Build"
+    ],
+    "positions": 60,
+    "selection": "One reused development position per count/rule/action cell."
+  },
+  "samples": 48,
+  "batches": [
+    "a",
+    "b"
+  ],
+  "max_steps": 2400,
+  "source_fixture_sha256": "855b34ad7f07665dfcb012a673147f0780820a9e7560fda268a9a39478c60ff4",
+  "model": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "fbdf2bf24c968bff99ab2d7d9ff9a7d97047db2b",
+    "path": "runs/multiplayer-refine-hard-v1/latest.onnx",
+    "sha256": "d3d2ee88a0940f079a4b38879c8154dbab55951abc7b295a7db17bdf22e52c5f",
+    "feature_revision": "4.0-multiplayer",
+    "choice": "Retained H200 update29 baseline; no claim it is universally strongest."
+  },
+  "control": {
+    "artifact_revision": "daef30ae69d6a96f21e46abd8a30909689682364",
+    "directory": "runs/teacher-reliability-v2",
+    "comparison": "Matched first48 samples from384-sample records; same public worlds, root actions, and continuation cap."
+  },
+  "treatment": "Frozen learned policy acts for all players after the root move. Automatic single-legal-action turns do not require inference.",
+  "fixed_root_shortlist": "Same six-proposal reference shortlist; do not add neural proposal in this causal comparison. Report its coverage separately.",
+  "analysis": [
+    "A/B winner-set stability, ties and disjoint winners.",
+    "Select neural and mixed winners in A using a fixed incumbent-then-shortlist tie break, compare their outcomes in independent B.",
+    "Report every player-count/rule/action subgroup descriptively.",
+    "Audit every hash, exact cells, both batches and every terminal continuation. Capped results cannot be silently converted to defeats.",
+    "Measure engine/IPC versus inference wall time before selecting subsequent compute."
+  ],
+  "follow_up": "Target reliability is insufficient for promotion. A policy-guided teacher must improve full held-out development matches against independent frozen opponents before large-scale retraining or final qualification.",
+  "reserved_final_seeds_used": false
+}

@@ -1,0 +1,396 @@
+{
+  "status": "active diagnostic cohort",
+  "jobs": [
+    {
+      "players": 2,
+      "job_id": "6ac9fc9cfee2c900701852e5",
+      "source": {
+        "archive": "strong-source-neural-continuations-20261010-v1.tgz",
+        "sha256": "0aeab1fcade063ff6e090680e1c088eab77190b23789d2d1a1bca7f346cd9802",
+        "revision": "2cbb2c082c0ec81ca3aa631b0eecf2532ef8f65c",
+        "base_revision": "d07e072058ee877112d609280980fc806ee8ce28",
+        "changed_files": [
+          "ai/strong/continuation-rollouts.cjs",
+          "ai/strong/test-continuation-rollouts.cjs",
+          "ai/strong/audit-neural-continuations.py"
+        ]
+      },
+      "observed_stage": "COMPLETED",
+      "observed_at": "2026-10-10T08:59:07.678191+00:00",
+      "url": "https://huggingface.co/jobs/coyotte508/6ac9fc9cfee2c900701852e5"
+    },
+    {
+      "players": 3,
+      "job_id": "6ac9fceefee2c900701852fc",
+      "source": {
+        "archive": "strong-source-neural-continuations-20261010-v1.tgz",
+        "sha256": "0aeab1fcade063ff6e090680e1c088eab77190b23789d2d1a1bca7f346cd9802",
+        "revision": "2cbb2c082c0ec81ca3aa631b0eecf2532ef8f65c",
+        "base_revision": "d07e072058ee877112d609280980fc806ee8ce28",
+        "changed_files": [
+          "ai/strong/continuation-rollouts.cjs",
+          "ai/strong/test-continuation-rollouts.cjs",
+          "ai/strong/audit-neural-continuations.py"
+        ]
+      },
+      "observed_stage": "RUNNING",
+      "observed_at": "2026-10-10T08:59:07.538289+00:00",
+      "url": "https://huggingface.co/jobs/coyotte508/6ac9fceefee2c900701852fc"
+    },
+    {
+      "players": 4,
+      "job_id": "6ac9fcef095c5780893107c2",
+      "source": {
+        "archive": "strong-source-neural-continuations-20261010-v1.tgz",
+        "sha256": "0aeab1fcade063ff6e090680e1c088eab77190b23789d2d1a1bca7f346cd9802",
+        "revision": "2cbb2c082c0ec81ca3aa631b0eecf2532ef8f65c",
+        "base_revision": "d07e072058ee877112d609280980fc806ee8ce28",
+        "changed_files": [
+          "ai/strong/continuation-rollouts.cjs",
+          "ai/strong/test-continuation-rollouts.cjs",
+          "ai/strong/audit-neural-continuations.py"
+        ]
+      },
+      "observed_stage": "RUNNING",
+      "observed_at": "2026-10-10T08:59:07.693412+00:00",
+      "url": "https://huggingface.co/jobs/coyotte508/6ac9fcef095c5780893107c2"
+    },
+    {
+      "players": 5,
+      "job_id": "6ac9fcf0fee2c900701852fe",
+      "source": {
+        "archive": "strong-source-neural-continuations-20261010-v1.tgz",
+        "sha256": "0aeab1fcade063ff6e090680e1c088eab77190b23789d2d1a1bca7f346cd9802",
+        "revision": "2cbb2c082c0ec81ca3aa631b0eecf2532ef8f65c",
+        "base_revision": "d07e072058ee877112d609280980fc806ee8ce28",
+        "changed_files": [
+          "ai/strong/continuation-rollouts.cjs",
+          "ai/strong/test-continuation-rollouts.cjs",
+          "ai/strong/audit-neural-continuations.py"
+        ]
+      },
+      "observed_stage": "RUNNING",
+      "observed_at": "2026-10-10T08:59:07.599812+00:00",
+      "url": "https://huggingface.co/jobs/coyotte508/6ac9fcf0fee2c900701852fe"
+    },
+    {
+      "players": 6,
+      "job_id": "6ac9fcf1fee2c90070185300",
+      "source": {
+        "archive": "strong-source-neural-continuations-20261010-v1.tgz",
+        "sha256": "0aeab1fcade063ff6e090680e1c088eab77190b23789d2d1a1bca7f346cd9802",
+        "revision": "2cbb2c082c0ec81ca3aa631b0eecf2532ef8f65c",
+        "base_revision": "d07e072058ee877112d609280980fc806ee8ce28",
+        "changed_files": [
+          "ai/strong/continuation-rollouts.cjs",
+          "ai/strong/test-continuation-rollouts.cjs",
+          "ai/strong/audit-neural-continuations.py"
+        ]
+      },
+      "observed_stage": "RUNNING",
+      "observed_at": "2026-10-10T08:59:07.546764+00:00",
+      "url": "https://huggingface.co/jobs/coyotte508/6ac9fcf1fee2c90070185300"
+    }
+  ],
+  "training": false,
+  "qualification_eligible": false,
+  "model_revision": "fbdf2bf24c968bff99ab2d7d9ff9a7d97047db2b",
+  "model_path": "runs/multiplayer-refine-hard-v1/latest.onnx",
+  "model_sha256": "d3d2ee88a0940f079a4b38879c8154dbab55951abc7b295a7db17bdf22e52c5f",
+  "results": {
+    "2p": {
+      "artifact_revision": "b8924a03478ad4ca8e44dd9a9c4bb30674f92b35",
+      "manifest": {
+        "players": 2,
+        "positions": 12,
+        "searches": 24,
+        "samples": 48,
+        "max_steps": 2400,
+        "workers": 24,
+        "model_sha256": "d3d2ee88a0940f079a4b38879c8154dbab55951abc7b295a7db17bdf22e52c5f",
+        "model_revision": "fbdf2bf24c968bff99ab2d7d9ff9a7d97047db2b",
+        "fixture_sha256": "855b34ad7f07665dfcb012a673147f0780820a9e7560fda268a9a39478c60ff4",
+        "output_sha256": "f81f198508afa9fac9f4059ea979d96029d2cb2b39d7da8e71ae1e7e56b9bb1e",
+        "evaluations": 6240,
+        "truncated": 0,
+        "engine_seconds": 172.4598869960755,
+        "policy_seconds": 91.36814471893013,
+        "scope": "Reused development positions, fixed reference shortlist and scenarios; no strength claim.",
+        "changes": "Only continuation policy changes. Root model proposals are recorded, not added to the reference shortlist."
+      },
+      "summary": {
+        "overall": {
+          "positions": 12,
+          "disjoint_neural_winner_sets": 4,
+          "same_unique_neural_winner": 3,
+          "all_neural_actions_tied_a": 0,
+          "root_proposal_in_shortlist": 12,
+          "different_discovery_choices": 10,
+          "confirmation": {
+            "neural": {
+              "mean_gap": 0.020833333333333332,
+              "positive_positions": 6,
+              "negative_positions": 2
+            },
+            "mixed": {
+              "mean_gap": -0.07552083333333334,
+              "positive_positions": 1,
+              "negative_positions": 6
+            },
+            "economic": {
+              "mean_gap": -0.0625,
+              "positive_positions": 1,
+              "negative_positions": 6
+            },
+            "heuristic": {
+              "mean_gap": -0.0720486111111111,
+              "positive_positions": 1,
+              "negative_positions": 5
+            }
+          }
+        },
+        "players/2": {
+          "positions": 12,
+          "disjoint_neural_winner_sets": 4,
+          "same_unique_neural_winner": 3,
+          "all_neural_actions_tied_a": 0,
+          "root_proposal_in_shortlist": 12,
+          "different_discovery_choices": 10,
+          "confirmation": {
+            "neural": {
+              "mean_gap": 0.020833333333333332,
+              "positive_positions": 6,
+              "negative_positions": 2
+            },
+            "mixed": {
+              "mean_gap": -0.07552083333333334,
+              "positive_positions": 1,
+              "negative_positions": 6
+            },
+            "economic": {
+              "mean_gap": -0.0625,
+              "positive_positions": 1,
+              "negative_positions": 6
+            },
+            "heuristic": {
+              "mean_gap": -0.0720486111111111,
+              "positive_positions": 1,
+              "negative_positions": 5
+            }
+          }
+        },
+        "action/ChoosePowerPlant": {
+          "positions": 4,
+          "disjoint_neural_winner_sets": 2,
+          "same_unique_neural_winner": 2,
+          "all_neural_actions_tied_a": 0,
+          "root_proposal_in_shortlist": 4,
+          "different_discovery_choices": 3,
+          "confirmation": {
+            "neural": {
+              "mean_gap": 0.0026041666666666713,
+              "positive_positions": 2,
+              "negative_positions": 1
+            },
+            "mixed": {
+              "mean_gap": -0.015625,
+              "positive_positions": 1,
+              "negative_positions": 2
+            },
+            "economic": {
+              "mean_gap": -0.03125,
+              "positive_positions": 1,
+              "negative_positions": 2
+            },
+            "heuristic": {
+              "mean_gap": -0.026041666666666664,
+              "positive_positions": 1,
+              "negative_positions": 1
+            }
+          }
+        },
+        "rules/original/sealed": {
+          "positions": 3,
+          "disjoint_neural_winner_sets": 1,
+          "same_unique_neural_winner": 0,
+          "all_neural_actions_tied_a": 0,
+          "root_proposal_in_shortlist": 3,
+          "different_discovery_choices": 3,
+          "confirmation": {
+            "neural": {
+              "mean_gap": -0.1076388888888889,
+              "positive_positions": 2,
+              "negative_positions": 1
+            },
+            "mixed": {
+              "mean_gap": -0.08333333333333333,
+              "positive_positions": 0,
+              "negative_positions": 2
+            },
+            "economic": {
+              "mean_gap": -0.10416666666666667,
+              "positive_positions": 0,
+              "negative_positions": 2
+            },
+            "heuristic": {
+              "mean_gap": -0.013888888888888888,
+              "positive_positions": 0,
+              "negative_positions": 1
+            }
+          }
+        },
+        "action/Build": {
+          "positions": 4,
+          "disjoint_neural_winner_sets": 2,
+          "same_unique_neural_winner": 1,
+          "all_neural_actions_tied_a": 0,
+          "root_proposal_in_shortlist": 4,
+          "different_discovery_choices": 3,
+          "confirmation": {
+            "neural": {
+              "mean_gap": 0.049479166666666664,
+              "positive_positions": 2,
+              "negative_positions": 1
+            },
+            "mixed": {
+              "mean_gap": -0.10677083333333334,
+              "positive_positions": 0,
+              "negative_positions": 2
+            },
+            "economic": {
+              "mean_gap": -0.0625,
+              "positive_positions": 0,
+              "negative_positions": 3
+            },
+            "heuristic": {
+              "mean_gap": -0.11197916666666667,
+              "positive_positions": 0,
+              "negative_positions": 2
+            }
+          }
+        },
+        "action/Bid": {
+          "positions": 4,
+          "disjoint_neural_winner_sets": 0,
+          "same_unique_neural_winner": 0,
+          "all_neural_actions_tied_a": 0,
+          "root_proposal_in_shortlist": 4,
+          "different_discovery_choices": 4,
+          "confirmation": {
+            "neural": {
+              "mean_gap": 0.010416666666666666,
+              "positive_positions": 2,
+              "negative_positions": 0
+            },
+            "mixed": {
+              "mean_gap": -0.10416666666666667,
+              "positive_positions": 0,
+              "negative_positions": 2
+            },
+            "economic": {
+              "mean_gap": -0.09375,
+              "positive_positions": 0,
+              "negative_positions": 1
+            },
+            "heuristic": {
+              "mean_gap": -0.078125,
+              "positive_positions": 0,
+              "negative_positions": 2
+            }
+          }
+        },
+        "rules/recharged/sealed": {
+          "positions": 3,
+          "disjoint_neural_winner_sets": 2,
+          "same_unique_neural_winner": 0,
+          "all_neural_actions_tied_a": 0,
+          "root_proposal_in_shortlist": 3,
+          "different_discovery_choices": 2,
+          "confirmation": {
+            "neural": {
+              "mean_gap": -0.003472222222222222,
+              "positive_positions": 0,
+              "negative_positions": 1
+            },
+            "mixed": {
+              "mean_gap": 0.0,
+              "positive_positions": 0,
+              "negative_positions": 0
+            },
+            "economic": {
+              "mean_gap": -0.013888888888888888,
+              "positive_positions": 0,
+              "negative_positions": 1
+            },
+            "heuristic": {
+              "mean_gap": 0.0,
+              "positive_positions": 0,
+              "negative_positions": 0
+            }
+          }
+        },
+        "rules/original/open": {
+          "positions": 3,
+          "disjoint_neural_winner_sets": 0,
+          "same_unique_neural_winner": 2,
+          "all_neural_actions_tied_a": 0,
+          "root_proposal_in_shortlist": 3,
+          "different_discovery_choices": 3,
+          "confirmation": {
+            "neural": {
+              "mean_gap": 0.10416666666666667,
+              "positive_positions": 2,
+              "negative_positions": 0
+            },
+            "mixed": {
+              "mean_gap": -0.08680555555555557,
+              "positive_positions": 1,
+              "negative_positions": 2
+            },
+            "economic": {
+              "mean_gap": 0.034722222222222224,
+              "positive_positions": 1,
+              "negative_positions": 1
+            },
+            "heuristic": {
+              "mean_gap": -0.14930555555555555,
+              "positive_positions": 1,
+              "negative_positions": 2
+            }
+          }
+        },
+        "rules/recharged/open": {
+          "positions": 3,
+          "disjoint_neural_winner_sets": 1,
+          "same_unique_neural_winner": 1,
+          "all_neural_actions_tied_a": 0,
+          "root_proposal_in_shortlist": 3,
+          "different_discovery_choices": 2,
+          "confirmation": {
+            "neural": {
+              "mean_gap": 0.09027777777777778,
+              "positive_positions": 2,
+              "negative_positions": 0
+            },
+            "mixed": {
+              "mean_gap": -0.13194444444444445,
+              "positive_positions": 0,
+              "negative_positions": 2
+            },
+            "economic": {
+              "mean_gap": -0.16666666666666666,
+              "positive_positions": 0,
+              "negative_positions": 2
+            },
+            "heuristic": {
+              "mean_gap": -0.125,
+              "positive_positions": 0,
+              "negative_positions": 2
+            }
+          }
+        }
+      },
+      "decision": "Do not promote or use as new hard labels. Only12 reused positions; neural A/B winners disjoint on4/12. Neural-selected actions have a small positive average held-out-scenario gap under neural continuation but regress under every heuristic continuation. Complete all counts before designing a broader opponent mixture."
+    }
+  }
+}

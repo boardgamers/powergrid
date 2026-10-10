@@ -11,7 +11,97 @@ a selected-trajectory discard diagnosis, and prepared higher-precision inference
 derivatives after real export-check failures: **progress**. No candidate is
 qualified and there is no external blocker.
 
-## Latest: numerical repair prepared; both old coordinators ended with errors
+## Latest continuation: full precision cohort verified; nine HF reruns live
+
+The preceding goal turn was **progress**: verified discard diagnosis and explicit
+numerical derivatives, pushed as`304e9c0`. This continuation completed the whole
+precision audit, repaired all three population finals, launched the two uniform
+precision comparisons, and measured their deployment cost on the actual8840U:
+**progress**. No external blocker and no qualified candidate.
+
+All **eight unique models** (parent, four five-plant finals, three population
+finals) pass all2,553 strict checkpoint/export and legal serving requests. The
+independent native-SiLU float64 reference also agrees with Exp/Div ONNX at the
+unchanged tolerance. Across each full fixture set there are **zero chosen-action
+changes** for PyTorch32→native64, ONNX32→ONNX64 and PyTorch32→ONNX32. This does not
+prove equal complete-game trajectories. Maximum native64 logit error over the
+cohort is6.053e-10. Stored weights and float32 feature inputs are unchanged; no
+gradients ran locally. Original FP32 failures remain failures.
+
+Persistent model revision **`f14d0db14edb494c8797af00a546ac56088cfa96`**,
+prefix`runs/inference64-cohort-v1`, contains all eight models, original-checkpoint
+pins, strict parity/serving/action-change reports and source. All remote model
+artifacts and original training provenance were independently checked by the
+nine-screen preflight. Tracked manifests:
+`strong/inference64-cohort-{artifacts,validation}-v1.json` and
+`strong/inference64-screen-preflight-v1.json`.
+
+**Frozen rerun protocol:** `strong/inference64-screen-protocol-v1.json`,
+SHA`a7d580e91410cdf79862e7b9928c95e59f25d70d425de0ab5005ab4ed2437176`.
+Nine candidates/screens,34,720 games: parent+four five-plant finals×4,000;
+parent+three population finals×3,680. The shared parent is evaluated on each
+cohort's separate original prescribed development deals. All2–6p, all seats,
+original/Recharged×open/sealed, exact final checkpoints, A260 pins and paired
+whole-deal bootstrap settings are retained. Never substitute old FP32 results.
+
+Each cohort inherits its **own original arena source**, with all engine,
+feature, action-menu, opponent and arena-runner files byte-identical. Only the
+explicit precision model loader and validation/orchestration tooling are
+overlaid. Source manifests include every unchanged base-file hash:
+
+- Population source revision`603440db1877c4fba2470710d5bb66c61a3e38ec`,
+  archive`strong-source-inference64-screen-20261010-v1-population.tgz`,
+  SHA`18dae821a3b69e8c70ad602be5695ec9b9c0890158744177a8445e32e3e8c42b`.
+- Five-plant source revision`8925f0986217500c4118a9997a3aa1c4adc04ccf`,
+  archive`strong-source-inference64-screen-20261010-v1-five-plant.tgz`,
+  SHA`45c8f05dd60e71dfbb9027093b14a8ecfa3a4272277b1ed96cc411feea780c1f`.
+
+HF CPU-performance jobs, launched12:45–12:46UTC; all nine confirmed **RUNNING**
+at the observation stored in`strong/inference64-screen-status-v1.json`. Every
+job has passed remote validation and completed at least its2p and3p economic
+cells; population control has also completed4p and5p. No complete-game result
+has yet been independently collected. Do not relaunch these live handles:
+
+| Cohort | Key | Job |
+| --- | --- | --- |
+| population | parent | `6aca3385095c578089312607` |
+| population | control | `6aca3376fee2c90070187915` |
+| population | homogeneous | `6aca3387fee2c9007018791d` |
+| population | heterogeneous | `6aca3389fee2c9007018791f` |
+| five-plant | parent | `6aca338a095c57808931260b` |
+| five-plant | control-s10031 | `6aca338cfee2c90070187921` |
+| five-plant | full-s10031 | `6aca338efee2c90070187923` |
+| five-plant | control-s10032 | `6aca3390095c578089312610` |
+| five-plant | full-s10032 | `6aca3392095c578089312612` |
+
+Next: inspect these exact handles. Each completed job writes
+`runs/inference64-screen-v1-COHORT-KEY/screen-check.json` and all raw evidence.
+Pin an immutable model-repo revision containing the completed screen, then run
+`collect-inference64-screen.py COHORT KEY REVISION ai/runs/inference64-comparison-v1/COHORT/KEY`.
+Once a cohort is complete, run`compare-inference64-screens.py COHORT ai/runs/inference64-comparison-v1/COHORT --output ...`.
+These collectors revalidate original training, derivative hashes, all raw
+seat/rule/deal pairs, strict numerical/serving reports and zero game/search caps.
+Keep feature-training seed contrasts separate. Use the results and the existing
+public-information discard diagnosis to decide the next training change.
+
+**Actual8840U cost measured**, in the isolated directory
+`minipc:~/powergrid-ai-inference64-probe-v1`, without changing installed routing.
+Parent FP64 median/p95 full-request latency2.709/5.235ms; full-s10031 FP64
+2.763/5.308ms. Original FP32 controls measured1.951/4.648 and2.180/4.784ms.
+Each configuration passed all2,553 legal requests. These are sequential
+engineering measurements, not a statistical speed comparison or a benchmark
+of a selected qualified winner. Source/fixture/model hashes, machine identity,
+Python3.12.3, ORT1.30.0, NumPy2.5.3 and Node24.19.0 are recorded. Persistent
+revision **`5b3e67be71ed911bcef458f6c9c0ed6a6c0c9091`**,
+`runs/inference64-8840u-probe-v1`; tracked report
+`strong/inference64-8840u-probe-v1.json`.
+
+The full independent strength gate, reserved final tests, final standalone
+package and benchmark of the eventual selected winner are still required.
+No model is deployed or qualified. The historical notes below are superseded
+where they describe pending precision audits or unlaunched reruns.
+
+## Previous continuation: numerical repair prepared; both old coordinators ended with errors
 
 Authoritative HF inspections confirm **all training jobs completed**, sealed-menu
 pair **COMPLETED**, and both old coordinators **ERROR**. Do not treat their old

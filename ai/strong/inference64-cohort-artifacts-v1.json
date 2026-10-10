@@ -1,0 +1,81 @@
+{
+  "revision": "f14d0db14edb494c8797af00a546ac56088cfa96",
+  "prefix": "runs/inference64-cohort-v1",
+  "validation_sha256": "1be0a28a9c02f600af71c739414ad9cd608f46bb4cf5c99ba4562ee4e448c1ae",
+  "models": {
+    "parent": {
+      "inference64.onnx": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a",
+      "precision-audit.json": "91f4944a2f1ffb3f3f98a9cf89a7c79ef6466f06a3bb3d7f5174414137053f74",
+      "serving.json": "c1f296ac79aaa3dd8226f8c434b461dd46f53f36d0eaebcc5e1efcc9ff54bb36",
+      "inference64.pt": "92ebfaba7329dbeadbc1e3e8fca0b41c1de94fc8249b951b328f9b11de7ee887",
+      "derivative.json": "fce1f3f3e0a8c6fddd391281aac650c6c9346b3ad358533ec2e0b672dcb7afee",
+      "original.json": "7a1e5e03a155410027ffd1995fdefc0b22324bf5f5a88d2c1a1516b04305ebe8",
+      "parity.json": "a5667d9a29a404b8c9be005f21c5c195cca11f5a4d59470123cb00cd2f9937ce"
+    },
+    "five-plant-control-s10031": {
+      "inference64.onnx": "d8db4aa7056b7592798bc99db3eb08714d937a1aa354d1f81b041fe2105fcda0",
+      "precision-audit.json": "ec980ec874c3280e600f7d9732a452ebe6c6a51549ea1e613d8b9bb6de0a1776",
+      "serving.json": "59739abaa74e541c7ff4dbb9125e88bb2a658b29b2f011a625e9850db6fe55f2",
+      "inference64.pt": "fd283e82f3befcb4ded7c834896f7e6905a04856bca8a7cd5ad0cfe6f13ba267",
+      "derivative.json": "998b146564cf685cfdee1c72216f8d8759bfce7c7e0a586c3063f4bdd357afb9",
+      "original.json": "6d272fa21a265de237c0479d9f72f7b78281bb8e1597ae47c270e4dacabaf8ea",
+      "parity.json": "2e6b11dbe596304aabc10ffcd63ab1867d8a331d744d15b5fee2f6b9ba319a0d"
+    },
+    "five-plant-full-s10031": {
+      "inference64.onnx": "ee511d5bb6a58d323b867c1c9a9f0957f1019cc57cb85982b42601a85090fdcb",
+      "precision-audit.json": "ad93b4fba7e9bc3856d3cffdd901edbb6bc80820c953850df4680f26b605837d",
+      "serving.json": "c35c22d163b52f61cc9815c33d9aca1f496da4f98af267a63ffe1611ac6ff7d0",
+      "inference64.pt": "dbc2ee96ec3cc7f9753b4677005d7cfc3f0603be4601e75fb7cfb2dd9a641b54",
+      "derivative.json": "e763d975b37d0503f6cfa3663390d49f55bd14ebed69b1dcaf13e356d144c69c",
+      "original.json": "f2fae880adc92cddfe07c8e7cfaf0255e1936e9ef36ddd912aa650f1ed958f9d",
+      "parity.json": "36fc0e91614aed809d17afaf079a5da007f591f1779ccdcd7a2db3fe54e0c0e9"
+    },
+    "five-plant-control-s10032": {
+      "inference64.onnx": "cacd377f870a7db9d352055ee9a8db9e9f3b783faab474dbcfb460022b77ec78",
+      "precision-audit.json": "5e798dd3bdf1c217654bdf79f104e5817b08dd8c6d3f98dc1ae5f75605e1b418",
+      "serving.json": "70ce83befe64f99d6289d07ae0f847954af87aa5b6f59ccbadb8a7b680096cb1",
+      "inference64.pt": "4da9ba6c711bb123bdd2e3ea7fac735084b6b563efc82d633dd0206bebab0e4f",
+      "derivative.json": "12d1fec7920a1afc99cc9c1ae730239d3d3157dfe5d048fc5e138b6749a2292c",
+      "original.json": "8240ce7110907d966ae2a5e761a979c519e7945bdfae329a6b8d8a4d4942fb27",
+      "parity.json": "bf018020a915a6eddd60c6925205a9d26adade690e64a46b292d31122817891c"
+    },
+    "five-plant-full-s10032": {
+      "inference64.onnx": "88bab4882974900915547c67fdf1176b621591a0230c85a263f2316beb0bf600",
+      "precision-audit.json": "df7430676900f1a1b16c407ebc100823b632581a34fea0d7751f0b620fa4dc80",
+      "serving.json": "40c0f3dbb34bbb0472baeb92783363f306b1c9f4139d6428007e90f20db45cc2",
+      "inference64.pt": "ccf9c13ff09287e616161edb5e1cffa9c19d234fac88bde273dd698d12ec7358",
+      "derivative.json": "13be551431668ea0aa26df0c697462a2fd5fb47b114d0c1fe0e6f44ceb0e6fa2",
+      "original.json": "512c39f5d36cb08925db6d75741eb1fec1db1adfa355824af8d8fef09849917d",
+      "parity.json": "ca55b3fa8cee5aeb7c065fecc3825abe196fea934d4ff1e009c7300f2637be24"
+    },
+    "population-control": {
+      "inference64.onnx": "6b373a0ddf6e964de110cc44ad01026b9f93fbb1a920d7fc51a00ead0517e907",
+      "precision-audit.json": "0a82031d6c92bcb6abf6339b7112aaff60fdea696a2ac37fc7c3cf1cafb1e5f7",
+      "serving.json": "80c5f7be97326585304f9ac09e02630db4f9a3c8b52173d32092d1f8db7a8023",
+      "inference64.pt": "39d3323fd452786f8bb08554ecc2a7601052462f31ac08e0dc132ced128a4c15",
+      "derivative.json": "abc8d98ecb45e76c882bcccf3b5dcbe99a6306349b47bcbe879fd993613a1ccc",
+      "original.json": "0222be8c6f91f295f8678b074f1177cd89c817f250534bb6a468bfc04444deb1",
+      "parity.json": "944c9800868f4eb8a13bde41df24812a074179be17f0492553cdffbe08e4854c"
+    },
+    "population-homogeneous": {
+      "inference64.onnx": "5bb4f777d2092d804e839ccc2447169439b6cb5b8459d5856737c4ccf4ee4544",
+      "precision-audit.json": "a8bd1167dcb327b856f40dfcad780994f85196a659e8a6a5118b10522485b852",
+      "serving.json": "6da60c214cd3162c982464009c1df306b2beed4d80ed86e90954a75e5c829129",
+      "inference64.pt": "f209acc4f1c1636218fbbf26363224a300df3028ba4859b01eb0d4a3ca87006f",
+      "derivative.json": "dbe14c7ed97b68cbe07944a2e9f77c36e0ac7ff8950903c8b7359abe24f20b9c",
+      "original.json": "f15764b17effe8a409ea5993d5a62da8c4cf0856f1c156e10a837a1ee1874f8f",
+      "parity.json": "ddcf26e5204b4e8705d2ad6c1ce6288a3e826ab7bfa99b0d83a43401e7157a31"
+    },
+    "population-heterogeneous": {
+      "inference64.onnx": "7131bf839fcdbbf5f8c6dd638deb1adcc338b201effdc225384f1f425be145d5",
+      "precision-audit.json": "6affad2e916a61d5c53f1b13be6bef0d781c601eea38086d36bfa5f64fbda773",
+      "serving.json": "9953178c904ae370c809a5cd10e1faa269bda7a5bf980023a7522fe75a213851",
+      "inference64.pt": "2d7b576b73a0fc126c80b29ba6bd3c97fde0825b51428268ceaac0915fe6a7ac",
+      "derivative.json": "d2d53aef3d528bf2ac605d7873f05324a98dbe5aa6f70cca6a4d1a98406fba04",
+      "original.json": "21ba6737e7b087460e0fb45d97ab9ef46b01988e4530873d06cdb140c78df3cd",
+      "parity.json": "12845209a7cfc4d6100432d2e670d28a6d2299a2e0b37e5c984f8aa2f3acd222"
+    }
+  },
+  "trained": false,
+  "qualification_eligible": false
+}

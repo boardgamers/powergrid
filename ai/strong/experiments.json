@@ -36230,16 +36230,19 @@
         "next": "Assess pending fifth-plant input ablation, then investigate public endgame-aware discard guidance on fresh games. Fixed-deal last-discard roots use hindsight and are not training labels or a strength estimate."
     },
     "inference64_repair_v1": {
-        "status": "Five explicit derivatives pass full strict parity and legal serving; complete-game re-evaluation not yet launched",
-        "artifacts": "five-plant-inference64-artifacts-v1.json",
-        "validation": "five-plant-inference64-validation-v1.json",
-        "revision": "309ce38ad1609d8a8f296860d8488f9681add327",
+        "status": "Eight explicit derivatives pass2553 strict parity, native64 and legal-serving checks; nine full-game HF reruns launched",
+        "artifacts": "inference64-cohort-artifacts-v1.json",
+        "validation": "inference64-cohort-validation-v1.json",
+        "revision": "f14d0db14edb494c8797af00a546ac56088cfa96",
         "models": [
             "parent",
-            "control-s10031",
-            "full-s10031",
-            "control-s10032",
-            "full-s10032"
+            "five-plant-control-s10031",
+            "five-plant-full-s10031",
+            "five-plant-control-s10032",
+            "five-plant-full-s10032",
+            "population-control",
+            "population-homogeneous",
+            "population-heterogeneous"
         ],
         "positions_each": 2553,
         "rtol": 0.0001,
@@ -36249,13 +36252,42 @@
         "inference_transform": "float64-exp-div-silu-v1",
         "trained": false,
         "qualification_eligible": false,
-        "next": "Finish precision equivalence/action-change audit; repair the population finals too; freeze new uniform precision evaluation. Old FP32 outcomes cannot substitute for new-model outcomes. No current AMD8840U or qualification claim."
+        "next": "Collect all prescribed final-checkpoint full-game reruns and paired contrasts. No FP32 outcomes substituted. Preserve original failures. Full strength gate and reserved seeds still required.",
+        "action_changes_on_fixtures": 0
     },
     "population_control_u19_export_failure": {
         "checkpoint_revision": "2c7a715f609b9d7f4d55d646191414f0245590de",
         "coordinator_snapshot": "f25045c917ea697164c3044bac4a3ea0ec72c5eb",
         "status": "Training completed, strict export failed, no final control games or all-arm primary comparison",
         "first_logit_error": 1.5258789e-05,
+        "qualification_eligible": false
+    },
+    "inference64_screen_v1": {
+        "protocol": "inference64-screen-protocol-v1.json",
+        "status_file": "inference64-screen-status-v1.json",
+        "preflight": "inference64-screen-preflight-v1.json",
+        "games_planned": 34720,
+        "models": 8,
+        "jobs": 9,
+        "source_manifests": [
+            "inference64-screen-source-v1-five-plant.json",
+            "inference64-screen-source-v1-population.json"
+        ],
+        "all_original_game_runtimes_preserved": true,
+        "training": false,
+        "qualification_eligible": false,
+        "completion": "Pending complete-game raw outcomes and independent collection; job launch does not establish strength."
+    },
+    "inference64_8840u_probe_v1": {
+        "report": "inference64-8840u-probe-v1.json",
+        "revision": "5b3e67be71ed911bcef458f6c9c0ed6a6c0c9091",
+        "positions_per_configuration": 2553,
+        "configuration_count": 4,
+        "parent64_warm_roundtrip_p50_ms": 2.708643500227481,
+        "parent64_warm_roundtrip_p95_ms": 5.234788393136114,
+        "full_s10031_64_warm_roundtrip_p50_ms": 2.7633789577521384,
+        "full_s10031_64_warm_roundtrip_p95_ms": 5.307542113587259,
+        "scope": "Actual8840U engineering cost and legality check; fixed sequential runs, not statistical performance comparison or qualified-model benchmark. No deployment.",
         "qualification_eligible": false
     }
 }

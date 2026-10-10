@@ -1,0 +1,597 @@
+{
+  "purpose": "Uniform numerical-repair rerun of both original fixed-final-checkpoint development comparisons. No gradients, candidate selection, changed game rules or strength-gate relaxation.",
+  "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+  "numerical_transform": "float64-exp-div-silu-v1",
+  "cohorts": {
+    "five-plant": {
+      "original_protocol": "ai/strong/five-plant-ablation-protocol-v1.json",
+      "original_protocol_sha256": "19bb33183345f2dd3c16019cc07ada01bd086c25688fa796f15ba266a5942e8f",
+      "evaluation": {
+        "primary_checkpoint_update": 19,
+        "checkpoint_selection": "Final latest at update19 only, never internal best. Update9 retained for recovery, not adaptive candidate selection.",
+        "seed_template": "five-plant-ablation-screen-v1-{players}p",
+        "deal_offsets": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39
+        ],
+        "screens": [
+          {
+            "players": 2,
+            "opponent": "economic",
+            "games": 320
+          },
+          {
+            "players": 3,
+            "opponent": "economic",
+            "games": 480
+          },
+          {
+            "players": 4,
+            "opponent": "economic",
+            "games": 640
+          },
+          {
+            "players": 5,
+            "opponent": "economic",
+            "games": 800
+          },
+          {
+            "players": 6,
+            "opponent": "economic",
+            "games": 960
+          },
+          {
+            "players": 2,
+            "opponent": "economic_capacity_v1",
+            "games": 320
+          },
+          {
+            "players": 3,
+            "opponent": "a260",
+            "games": 480,
+            "model_path": "runs/strong-league-v2-a/best.onnx",
+            "revision": "b38515c29e57826de05b55b645c29591e4a886bf",
+            "sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd"
+          }
+        ],
+        "games_per_candidate": 4000,
+        "candidates": "Four final condition/seed checkpoints plus the untrained original parent, each on the identical fresh development deals.",
+        "candidate_search_samples": 0,
+        "paired_seats": true,
+        "bootstrap_unit": "Whole deal retaining all seats and rule repeats; report each training seed separately. Reusing the same deal for two training seeds does not create two independent deals.",
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 10031,
+        "primary_contrast": "Full minus control at update19 separately for each seed and each opponent/count, with all rule subgroups.",
+        "success_interpretation": "Assess consistent two-player improvement across both seeds and both economic references, retaining performance against A260 and every other count. No feature strength claim from one seed or pooled counts. Existing gates unchanged; independent-search, default-bot and other baselines still required before qualification."
+      },
+      "models": {
+        "parent": {
+          "original": {
+            "key": "parent",
+            "revision": "0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a",
+            "path": "runs/multiplayer-refine-hard-v1",
+            "feature_revision": "4.0-multiplayer",
+            "hashes": {
+              "latest.pt": "1f9d1c89908ab036f6e6a54facba94b352bbae005e1ac042d88c60067e895224",
+              "latest.onnx": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+              "metrics.json": "96d519130a8ef7adef2e628b03d6cee1a281ee67f27b5c529226f6682dd7faa5",
+              "schema.json": "d3eb65a65cd3bbdfb2e09fc6caff0dc6e0953c1a939dc8ceeeb5c800c491eff6"
+            },
+            "training": {
+              "scope": "Frozen original parent; not trained in this experiment"
+            },
+            "qualification_eligible": false
+          },
+          "feature_revision": "4.0-multiplayer",
+          "derivative": {
+            "revision": "f14d0db14edb494c8797af00a546ac56088cfa96",
+            "prefix": "runs/inference64-cohort-v1/parent",
+            "files": {
+              "inference64.onnx": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a",
+              "precision-audit.json": "91f4944a2f1ffb3f3f98a9cf89a7c79ef6466f06a3bb3d7f5174414137053f74",
+              "serving.json": "c1f296ac79aaa3dd8226f8c434b461dd46f53f36d0eaebcc5e1efcc9ff54bb36",
+              "inference64.pt": "92ebfaba7329dbeadbc1e3e8fca0b41c1de94fc8249b951b328f9b11de7ee887",
+              "derivative.json": "fce1f3f3e0a8c6fddd391281aac650c6c9346b3ad358533ec2e0b672dcb7afee",
+              "original.json": "7a1e5e03a155410027ffd1995fdefc0b22324bf5f5a88d2c1a1516b04305ebe8",
+              "parity.json": "a5667d9a29a404b8c9be005f21c5c195cca11f5a4d59470123cb00cd2f9937ce"
+            }
+          }
+        },
+        "control-s10031": {
+          "original": {
+            "key": "control-s10031",
+            "revision": "f14c6a74a86cffa504e4d0e70ffbb07c48f853f0",
+            "path": "runs/five-plant-ablation-v1-control-s10031",
+            "feature_revision": "4.1-five-plants-zero-inputs",
+            "hashes": {
+              "best.pt": "de9b19c0f3fe2796a1cb43724cb51acdf8bc77bba205ec32e1c8a54319730977",
+              "best.onnx": "61d0c00761fd47a59a34e79ab461bcde690e39238778ae1e5c0cdec960bec86c",
+              "latest.onnx": "61d0c00761fd47a59a34e79ab461bcde690e39238778ae1e5c0cdec960bec86c",
+              "schema.json": "b51b3d786955f32efcc903a0e5d7d971cbc32cda76198b8cadd9366c1ac57bd3",
+              "latest.pt": "f38620b779c1018be21df604611d55ff8b59da47e07e9f18513239a8c8aad09b",
+              "metrics.json": "24eebe6dcb04d19abb27249a54ee678f0ab3e4f65ef3918b4daca137ecc52694"
+            },
+            "training": {
+              "games": 4800,
+              "game_truncations": 0,
+              "search_truncations": 0,
+              "search_rollouts": 4693584,
+              "new_parameter_norms": {
+                "extra_player.weight": 0.0,
+                "extra_action.weight": 0.0
+              }
+            },
+            "qualification_eligible": false
+          },
+          "feature_revision": "4.1-five-plants-zero-inputs",
+          "derivative": {
+            "revision": "f14d0db14edb494c8797af00a546ac56088cfa96",
+            "prefix": "runs/inference64-cohort-v1/five-plant-control-s10031",
+            "files": {
+              "inference64.onnx": "d8db4aa7056b7592798bc99db3eb08714d937a1aa354d1f81b041fe2105fcda0",
+              "precision-audit.json": "ec980ec874c3280e600f7d9732a452ebe6c6a51549ea1e613d8b9bb6de0a1776",
+              "serving.json": "59739abaa74e541c7ff4dbb9125e88bb2a658b29b2f011a625e9850db6fe55f2",
+              "inference64.pt": "fd283e82f3befcb4ded7c834896f7e6905a04856bca8a7cd5ad0cfe6f13ba267",
+              "derivative.json": "998b146564cf685cfdee1c72216f8d8759bfce7c7e0a586c3063f4bdd357afb9",
+              "original.json": "6d272fa21a265de237c0479d9f72f7b78281bb8e1597ae47c270e4dacabaf8ea",
+              "parity.json": "2e6b11dbe596304aabc10ffcd63ab1867d8a331d744d15b5fee2f6b9ba319a0d"
+            }
+          }
+        },
+        "full-s10031": {
+          "original": {
+            "key": "full-s10031",
+            "revision": "ba06dc0fe058342e0ed7622de1e42a2fc3a3c5c6",
+            "path": "runs/five-plant-ablation-v1-full-s10031",
+            "feature_revision": "4.1-five-plants",
+            "hashes": {
+              "best.pt": "ec96a6b35935d9189312193b4b1e2c48b2501ee7365468a3f09c0d3cbdd6c0df",
+              "best.onnx": "6510e1418b23cae0b34acfd6ad7800eeb743c29ab30137ccfd9726fb893bdaae",
+              "latest.onnx": "6510e1418b23cae0b34acfd6ad7800eeb743c29ab30137ccfd9726fb893bdaae",
+              "schema.json": "4fff1987e3c07181f8bb2b82e58c0304ac748cc52ccca56a491b0a1b59fac725",
+              "latest.pt": "2affd4386c2df852ad1bbce32c0d58c5594d0402e48e8f3670b54ed6fa14c09d",
+              "metrics.json": "60facd3ebd4271fc77e14ba3b3b432fd42cf3928d720163080dcb54111f7b0fb"
+            },
+            "training": {
+              "games": 4800,
+              "game_truncations": 0,
+              "search_truncations": 0,
+              "search_rollouts": 4669920,
+              "new_parameter_norms": {
+                "extra_player.weight": 0.1724902242422104,
+                "extra_action.weight": 0.0427313856780529
+              }
+            },
+            "qualification_eligible": false
+          },
+          "feature_revision": "4.1-five-plants",
+          "derivative": {
+            "revision": "f14d0db14edb494c8797af00a546ac56088cfa96",
+            "prefix": "runs/inference64-cohort-v1/five-plant-full-s10031",
+            "files": {
+              "inference64.onnx": "ee511d5bb6a58d323b867c1c9a9f0957f1019cc57cb85982b42601a85090fdcb",
+              "precision-audit.json": "ad93b4fba7e9bc3856d3cffdd901edbb6bc80820c953850df4680f26b605837d",
+              "serving.json": "c35c22d163b52f61cc9815c33d9aca1f496da4f98af267a63ffe1611ac6ff7d0",
+              "inference64.pt": "dbc2ee96ec3cc7f9753b4677005d7cfc3f0603be4601e75fb7cfb2dd9a641b54",
+              "derivative.json": "e763d975b37d0503f6cfa3663390d49f55bd14ebed69b1dcaf13e356d144c69c",
+              "original.json": "f2fae880adc92cddfe07c8e7cfaf0255e1936e9ef36ddd912aa650f1ed958f9d",
+              "parity.json": "36fc0e91614aed809d17afaf079a5da007f591f1779ccdcd7a2db3fe54e0c0e9"
+            }
+          }
+        },
+        "control-s10032": {
+          "original": {
+            "key": "control-s10032",
+            "revision": "3a2a7a398191a2260cac3c9349883f0ff944a848",
+            "path": "runs/five-plant-ablation-v1-control-s10032",
+            "feature_revision": "4.1-five-plants-zero-inputs",
+            "hashes": {
+              "best.onnx": "53265abc64c8d09be5f7fe420e3c5c946448c96a175ecaf6a7a879700de325bf",
+              "metrics.json": "407416a246da914d2b140a76ebe943fa8c5d1c6db3ba21bf41756932b1eb0cac",
+              "latest.onnx": "e190d72bed54f3d24b811d3b527013adb7dbecdf6cee25dcc0c3613fa4ae72cc",
+              "latest.pt": "914310084752ba77fc22dd8644769a100a7130e372212477df7b0b6e91d2d75f",
+              "best.pt": "7de1157a556533dd2d362a621e9785159d799f239e68ab6d45ff40c98b029627",
+              "schema.json": "ca2c9788712e4fce209d1b4594e196472be0c60d4974224d2583c01d50e1f12b"
+            },
+            "training": {
+              "games": 4800,
+              "game_truncations": 0,
+              "search_truncations": 0,
+              "search_rollouts": 4387104,
+              "new_parameter_norms": {
+                "extra_player.weight": 0.0,
+                "extra_action.weight": 0.0
+              }
+            },
+            "qualification_eligible": false
+          },
+          "feature_revision": "4.1-five-plants-zero-inputs",
+          "derivative": {
+            "revision": "f14d0db14edb494c8797af00a546ac56088cfa96",
+            "prefix": "runs/inference64-cohort-v1/five-plant-control-s10032",
+            "files": {
+              "inference64.onnx": "cacd377f870a7db9d352055ee9a8db9e9f3b783faab474dbcfb460022b77ec78",
+              "precision-audit.json": "5e798dd3bdf1c217654bdf79f104e5817b08dd8c6d3f98dc1ae5f75605e1b418",
+              "serving.json": "70ce83befe64f99d6289d07ae0f847954af87aa5b6f59ccbadb8a7b680096cb1",
+              "inference64.pt": "4da9ba6c711bb123bdd2e3ea7fac735084b6b563efc82d633dd0206bebab0e4f",
+              "derivative.json": "12d1fec7920a1afc99cc9c1ae730239d3d3157dfe5d048fc5e138b6749a2292c",
+              "original.json": "8240ce7110907d966ae2a5e761a979c519e7945bdfae329a6b8d8a4d4942fb27",
+              "parity.json": "bf018020a915a6eddd60c6925205a9d26adade690e64a46b292d31122817891c"
+            }
+          }
+        },
+        "full-s10032": {
+          "original": {
+            "key": "full-s10032",
+            "revision": "00f37843c6b8d2b64631d1baf6ccca06cde0a68c",
+            "path": "runs/five-plant-ablation-v1-full-s10032",
+            "feature_revision": "4.1-five-plants",
+            "hashes": {
+              "best.onnx": "2b937b7922340cd6b694c0117a4ba2da2ec7dd686d630320577650f5bbdf17a7",
+              "metrics.json": "3ddd7b0754f206cf840e547820fd8eeb41c135f250b12f720dbc8c9bc156c354",
+              "latest.onnx": "4856f848a27d1e03978d382ab4289d3867447b9e7463f420f956201fcf67e92c",
+              "latest.pt": "d3dec4776bc1fb4e1f2ee32821a14c40e973371010999c385f21177fd6667f4b",
+              "best.pt": "14d8fb461e928b86c01cf28c96d2425d2df1ea980984d2a17cb6cba64f3fe564",
+              "schema.json": "67cccc9cf18afd86c54c17b8c7bda82a07140e083c00248b5ff89a6192951a3e"
+            },
+            "training": {
+              "games": 4800,
+              "game_truncations": 0,
+              "search_truncations": 0,
+              "search_rollouts": 4377728,
+              "new_parameter_norms": {
+                "extra_player.weight": 0.19597437977790833,
+                "extra_action.weight": 0.050524089485406876
+              }
+            },
+            "qualification_eligible": false
+          },
+          "feature_revision": "4.1-five-plants",
+          "derivative": {
+            "revision": "f14d0db14edb494c8797af00a546ac56088cfa96",
+            "prefix": "runs/inference64-cohort-v1/five-plant-full-s10032",
+            "files": {
+              "inference64.onnx": "88bab4882974900915547c67fdf1176b621591a0230c85a263f2316beb0bf600",
+              "precision-audit.json": "df7430676900f1a1b16c407ebc100823b632581a34fea0d7751f0b620fa4dc80",
+              "serving.json": "40c0f3dbb34bbb0472baeb92783363f306b1c9f4139d6428007e90f20db45cc2",
+              "inference64.pt": "ccf9c13ff09287e616161edb5e1cffa9c19d234fac88bde273dd698d12ec7358",
+              "derivative.json": "13be551431668ea0aa26df0c697462a2fd5fb47b114d0c1fe0e6f44ceb0e6fa2",
+              "original.json": "512c39f5d36cb08925db6d75741eb1fec1db1adfa355824af8d8fef09849917d",
+              "parity.json": "ca55b3fa8cee5aeb7c065fecc3825abe196fea934d4ff1e009c7300f2637be24"
+            }
+          }
+        }
+      },
+      "contrasts": [
+        [
+          "full-s10031",
+          "control-s10031"
+        ],
+        [
+          "full-s10032",
+          "control-s10032"
+        ],
+        [
+          "control-s10031",
+          "parent"
+        ],
+        [
+          "full-s10031",
+          "parent"
+        ],
+        [
+          "control-s10032",
+          "parent"
+        ],
+        [
+          "full-s10032",
+          "parent"
+        ]
+      ]
+    },
+    "population": {
+      "original_protocol": "ai/strong/population-training-protocol-v1.json",
+      "original_protocol_sha256": "121f756be1df2f73d5c45a2b16be37f566e5a89b547e7c4c32aa0f35bb1aab98",
+      "evaluation": {
+        "source_archive": "strong-source-v32.tgz",
+        "source_revision": "37465b08df007221665d796448aea57e6828257e",
+        "candidate_search_samples": 0,
+        "candidate_geography": 0,
+        "seed_template": "multiplayer-population-screen-v1-{players}p",
+        "deal_offsets": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39
+        ],
+        "matches_per_deal": "Every candidate seat crossed with all four rule combinations.",
+        "screens": [
+          {
+            "players": 2,
+            "opponent": "economic",
+            "games": 320
+          },
+          {
+            "players": 3,
+            "opponent": "economic",
+            "games": 480
+          },
+          {
+            "players": 4,
+            "opponent": "economic",
+            "games": 640
+          },
+          {
+            "players": 5,
+            "opponent": "economic",
+            "games": 800
+          },
+          {
+            "players": 6,
+            "opponent": "economic",
+            "games": 960
+          },
+          {
+            "players": 3,
+            "opponent": "a260",
+            "games": 480,
+            "model_path": "runs/strong-league-v2-a/best.onnx",
+            "revision": "b38515c29e57826de05b55b645c29591e4a886bf",
+            "sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd"
+          }
+        ],
+        "candidates": "Starting H200 update79 plus each of the six scheduled arm/checkpoint combinations, all on identical deals.",
+        "games_per_candidate": 3680,
+        "planned_games": 25760,
+        "pairing_key": [
+          "gameSeed",
+          "variant",
+          "sealed",
+          "seat"
+        ],
+        "bootstrap_unit": "gameSeed, retaining every seat and rule repeat",
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 10021,
+        "interval": 0.95
+      },
+      "models": {
+        "parent": {
+          "original": {
+            "key": "parent",
+            "revision": "0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a",
+            "path": "runs/multiplayer-refine-hard-v1",
+            "feature_revision": "4.0-multiplayer",
+            "hashes": {
+              "latest.pt": "1f9d1c89908ab036f6e6a54facba94b352bbae005e1ac042d88c60067e895224",
+              "latest.onnx": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+              "metrics.json": "96d519130a8ef7adef2e628b03d6cee1a281ee67f27b5c529226f6682dd7faa5",
+              "schema.json": "d3eb65a65cd3bbdfb2e09fc6caff0dc6e0953c1a939dc8ceeeb5c800c491eff6"
+            },
+            "training": {
+              "scope": "Frozen original parent; not trained in this experiment"
+            },
+            "qualification_eligible": false
+          },
+          "feature_revision": "4.0-multiplayer",
+          "derivative": {
+            "revision": "f14d0db14edb494c8797af00a546ac56088cfa96",
+            "prefix": "runs/inference64-cohort-v1/parent",
+            "files": {
+              "inference64.onnx": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a",
+              "precision-audit.json": "91f4944a2f1ffb3f3f98a9cf89a7c79ef6466f06a3bb3d7f5174414137053f74",
+              "serving.json": "c1f296ac79aaa3dd8226f8c434b461dd46f53f36d0eaebcc5e1efcc9ff54bb36",
+              "inference64.pt": "92ebfaba7329dbeadbc1e3e8fca0b41c1de94fc8249b951b328f9b11de7ee887",
+              "derivative.json": "fce1f3f3e0a8c6fddd391281aac650c6c9346b3ad358533ec2e0b672dcb7afee",
+              "original.json": "7a1e5e03a155410027ffd1995fdefc0b22324bf5f5a88d2c1a1516b04305ebe8",
+              "parity.json": "a5667d9a29a404b8c9be005f21c5c195cca11f5a4d59470123cb00cd2f9937ce"
+            }
+          }
+        },
+        "control": {
+          "original": {
+            "arm": "control",
+            "update": 19,
+            "revision": "2c7a715f609b9d7f4d55d646191414f0245590de",
+            "path": "runs/multiplayer-population-v1-control",
+            "hashes": {
+              "latest.pt": "95e437fd5cb5aa2bee8e808cddaef7896404d9a2f8f48456cf33355b9b05bf97",
+              "latest.onnx": "a58064a0a37f4e200a503da3b51fcc444a4612c8558f4dd3a05daef6e6d78cb4",
+              "metrics.json": "5c2d3ba2436567be46c48399eea06a953bdcbb98a8c1afb21a8d1909fa0f644a",
+              "schema.json": "3622ac56df4f2b3860ed5b3169c3881632d3e1be9bf6228f2f578a67cad69a05"
+            },
+            "training_validated": true,
+            "strict_parity": "original not passed or not repeated here",
+            "qualification_eligible": false
+          },
+          "feature_revision": "4.0-multiplayer",
+          "derivative": {
+            "revision": "f14d0db14edb494c8797af00a546ac56088cfa96",
+            "prefix": "runs/inference64-cohort-v1/population-control",
+            "files": {
+              "inference64.onnx": "6b373a0ddf6e964de110cc44ad01026b9f93fbb1a920d7fc51a00ead0517e907",
+              "precision-audit.json": "0a82031d6c92bcb6abf6339b7112aaff60fdea696a2ac37fc7c3cf1cafb1e5f7",
+              "serving.json": "80c5f7be97326585304f9ac09e02630db4f9a3c8b52173d32092d1f8db7a8023",
+              "inference64.pt": "39d3323fd452786f8bb08554ecc2a7601052462f31ac08e0dc132ced128a4c15",
+              "derivative.json": "abc8d98ecb45e76c882bcccf3b5dcbe99a6306349b47bcbe879fd993613a1ccc",
+              "original.json": "0222be8c6f91f295f8678b074f1177cd89c817f250534bb6a468bfc04444deb1",
+              "parity.json": "944c9800868f4eb8a13bde41df24812a074179be17f0492553cdffbe08e4854c"
+            }
+          }
+        },
+        "homogeneous": {
+          "original": {
+            "arm": "homogeneous",
+            "update": 19,
+            "revision": "cc86f7a36392c829e44fd81d9dbf362cb74a0b1b",
+            "path": "runs/multiplayer-population-v1-homogeneous",
+            "hashes": {
+              "latest.pt": "0502c673dfddcc303f8293d2f985c76bcf7bfb8d28eba6042e6a213bb09e328c",
+              "latest.onnx": "8606c6902806f7df82f7c687fa92746230b63c110d2654730b7913cbc68d3258",
+              "metrics.json": "ef424e2bfc01f1a3d545cd8fc8e7defae6076c47cf82e3ca1685e55387e9cffb",
+              "schema.json": "23df7821c8e0ba8442aa833c9ce76bd660160a4960dd11ba417dbfa1b8b23da9"
+            },
+            "training_validated": true,
+            "strict_parity": "original not passed or not repeated here",
+            "qualification_eligible": false
+          },
+          "feature_revision": "4.0-multiplayer",
+          "derivative": {
+            "revision": "f14d0db14edb494c8797af00a546ac56088cfa96",
+            "prefix": "runs/inference64-cohort-v1/population-homogeneous",
+            "files": {
+              "inference64.onnx": "5bb4f777d2092d804e839ccc2447169439b6cb5b8459d5856737c4ccf4ee4544",
+              "precision-audit.json": "a8bd1167dcb327b856f40dfcad780994f85196a659e8a6a5118b10522485b852",
+              "serving.json": "6da60c214cd3162c982464009c1df306b2beed4d80ed86e90954a75e5c829129",
+              "inference64.pt": "f209acc4f1c1636218fbbf26363224a300df3028ba4859b01eb0d4a3ca87006f",
+              "derivative.json": "dbe14c7ed97b68cbe07944a2e9f77c36e0ac7ff8950903c8b7359abe24f20b9c",
+              "original.json": "f15764b17effe8a409ea5993d5a62da8c4cf0856f1c156e10a837a1ee1874f8f",
+              "parity.json": "ddcf26e5204b4e8705d2ad6c1ce6288a3e826ab7bfa99b0d83a43401e7157a31"
+            }
+          }
+        },
+        "heterogeneous": {
+          "original": {
+            "arm": "heterogeneous",
+            "update": 19,
+            "revision": "3a71c9d1d7300a2d2169e059e8d9242167e73625",
+            "path": "runs/multiplayer-population-v1-heterogeneous",
+            "hashes": {
+              "latest.pt": "e03d354f8acaed23e2e2a7749a2f9b62ed3cc242a699f49ade8a92194f1c32f3",
+              "latest.onnx": "39a2d32e4612c7c7c6bbbd1c08ad1d25a5ce0eab2923195c783b025731fc0f01",
+              "metrics.json": "a741d503af78907f990b254e32130ea5af67d33576ded6c3c0b5e5fe2c3693be",
+              "schema.json": "9be7103264d1493dea1502be5d7bdade527a0f56c51430d8d5739d4d8732fd4e"
+            },
+            "training_validated": true,
+            "strict_parity": "original not passed or not repeated here",
+            "qualification_eligible": false
+          },
+          "feature_revision": "4.0-multiplayer",
+          "derivative": {
+            "revision": "f14d0db14edb494c8797af00a546ac56088cfa96",
+            "prefix": "runs/inference64-cohort-v1/population-heterogeneous",
+            "files": {
+              "inference64.onnx": "7131bf839fcdbbf5f8c6dd638deb1adcc338b201effdc225384f1f425be145d5",
+              "precision-audit.json": "6affad2e916a61d5c53f1b13be6bef0d781c601eea38086d36bfa5f64fbda773",
+              "serving.json": "9953178c904ae370c809a5cd10e1faa269bda7a5bf980023a7522fe75a213851",
+              "inference64.pt": "2d7b576b73a0fc126c80b29ba6bd3c97fde0825b51428268ceaac0915fe6a7ac",
+              "derivative.json": "d2d53aef3d528bf2ac605d7873f05324a98dbe5aa6f70cca6a4d1a98406fba04",
+              "original.json": "21ba6737e7b087460e0fb45d97ab9ef46b01988e4530873d06cdb140c78df3cd",
+              "parity.json": "12845209a7cfc4d6100432d2e670d28a6d2299a2e0b37e5c984f8aa2f3acd222"
+            }
+          }
+        }
+      },
+      "contrasts": [
+        [
+          "heterogeneous",
+          "homogeneous"
+        ],
+        [
+          "heterogeneous",
+          "control"
+        ],
+        [
+          "homogeneous",
+          "control"
+        ],
+        [
+          "control",
+          "parent"
+        ],
+        [
+          "homogeneous",
+          "parent"
+        ],
+        [
+          "heterogeneous",
+          "parent"
+        ]
+      ]
+    }
+  },
+  "evaluation_rules": [
+    "Preserve original final update19 checkpoints and fixed update79 parent; never select an earlier checkpoint.",
+    "Candidate network alone uses float64 arithmetic with unchanged stored weights and float32 feature inputs. Independent A260 remains its original pinned model.",
+    "Keep each cohorts original engine, features, action menus, opponent code, seeds, all seats and four rule combinations.",
+    "Repeat all2553 strict export, legal serving and native64/FP32 action audits on the HF runtime before complete games.",
+    "Do not reuse original FP32 game results as derivative results. Original failed screens remain failed.",
+    "Intervals are paired whole-deal bootstraps; feature seed contrasts separate. No reserved final seeds or qualification."
+  ],
+  "qualification_eligible": false,
+  "planned_games": 34720,
+  "trained": false
+}

@@ -1,0 +1,321 @@
+{
+  "machine": {
+    "hostname": "coyotte508-4X4-BOX-8840U",
+    "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+    "python": "3.12.3 (main, Mar  3 2026, 12:15:18) [GCC 13.3.0]",
+    "numpy": "2.5.3",
+    "onnxruntime": "1.30.0",
+    "node": "v24.19.0",
+    "load_before": [
+      0.3916015625,
+      0.29931640625,
+      0.41015625
+    ]
+  },
+  "models": {
+    "parent-fp32": {
+      "hostname": "coyotte508-4X4-BOX-8840U",
+      "processor_model": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+      "python_version": "3.12.3",
+      "positions": 2553,
+      "by_player_count": {
+        "2": {
+          "positions": 349,
+          "p95_ms": 3.7954370258376002
+        },
+        "3": {
+          "positions": 427,
+          "p95_ms": 3.612335550133139
+        },
+        "4": {
+          "positions": 527,
+          "p95_ms": 4.3787667294964185
+        },
+        "5": {
+          "positions": 609,
+          "p95_ms": 4.4901564018800855
+        },
+        "6": {
+          "positions": 641,
+          "p95_ms": 5.43496198952198
+        }
+      },
+      "model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+      "all_moves_legal": true,
+      "search_samples": 0,
+      "search_scope": "all",
+      "geographic_search": false,
+      "cold_start_ms": 167.58370399475098,
+      "warm_roundtrip_p50_ms": 1.9510010024532676,
+      "warm_roundtrip_p95_ms": 4.648014291888103,
+      "worker_p95_ms": 2.711874427041039,
+      "max_roundtrip_ms": 167.58370399475098,
+      "search_decisions": 0,
+      "search_evaluations": 0,
+      "search_truncated_rollouts": 0,
+      "search_roundtrip_p50_ms": null,
+      "search_roundtrip_p95_ms": null,
+      "by_phase": {
+        "Auction": {
+          "positions": 840,
+          "p50_ms": 1.8743134569376707,
+          "p95_ms": 4.33363783522509,
+          "max_ms": 167.58370399475098
+        },
+        "Resources": {
+          "positions": 755,
+          "p50_ms": 1.9755539251491427,
+          "p95_ms": 4.729892639443276,
+          "max_ms": 7.424151990562677
+        },
+        "Building": {
+          "positions": 491,
+          "p50_ms": 2.1557019790634513,
+          "p95_ms": 5.329637497197837,
+          "max_ms": 7.900451077148318
+        },
+        "Bureaucracy": {
+          "positions": 467,
+          "p50_ms": 1.9151769811287522,
+          "p95_ms": 4.468853631988168,
+          "max_ms": 8.294942090287805
+        }
+      }
+    },
+    "parent-fp64": {
+      "hostname": "coyotte508-4X4-BOX-8840U",
+      "processor_model": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+      "python_version": "3.12.3",
+      "positions": 2553,
+      "by_player_count": {
+        "2": {
+          "positions": 349,
+          "p95_ms": 4.219549149274825
+        },
+        "3": {
+          "positions": 427,
+          "p95_ms": 4.349558241665363
+        },
+        "4": {
+          "positions": 527,
+          "p95_ms": 4.908384429290891
+        },
+        "5": {
+          "positions": 609,
+          "p95_ms": 5.770831950940192
+        },
+        "6": {
+          "positions": 641,
+          "p95_ms": 5.629596998915076
+        }
+      },
+      "model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a",
+      "all_moves_legal": true,
+      "search_samples": 0,
+      "search_scope": "all",
+      "geographic_search": false,
+      "cold_start_ms": 174.29985594935715,
+      "warm_roundtrip_p50_ms": 2.708643500227481,
+      "warm_roundtrip_p95_ms": 5.234788393136114,
+      "worker_p95_ms": 3.253427008166909,
+      "max_roundtrip_ms": 174.29985594935715,
+      "search_decisions": 0,
+      "search_evaluations": 0,
+      "search_truncated_rollouts": 0,
+      "search_roundtrip_p50_ms": null,
+      "search_roundtrip_p95_ms": null,
+      "by_phase": {
+        "Auction": {
+          "positions": 840,
+          "p50_ms": 2.64638353837654,
+          "p95_ms": 4.915078316116704,
+          "max_ms": 174.29985594935715
+        },
+        "Resources": {
+          "positions": 755,
+          "p50_ms": 2.707005012780428,
+          "p95_ms": 5.3288340219296515,
+          "max_ms": 8.659065002575517
+        },
+        "Building": {
+          "positions": 491,
+          "p50_ms": 2.855782979167998,
+          "p95_ms": 5.922121985349804,
+          "max_ms": 8.985715918242931
+        },
+        "Bureaucracy": {
+          "positions": 467,
+          "p50_ms": 2.659162972122431,
+          "p95_ms": 5.055859475396573,
+          "max_ms": 9.466913994401693
+        }
+      }
+    },
+    "full-s10031-fp32": {
+      "hostname": "coyotte508-4X4-BOX-8840U",
+      "processor_model": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+      "python_version": "3.12.3",
+      "positions": 2553,
+      "by_player_count": {
+        "2": {
+          "positions": 349,
+          "p95_ms": 3.4180039772763826
+        },
+        "3": {
+          "positions": 427,
+          "p95_ms": 3.957971278578042
+        },
+        "4": {
+          "positions": 527,
+          "p95_ms": 4.315070773009211
+        },
+        "5": {
+          "positions": 609,
+          "p95_ms": 4.894127789884807
+        },
+        "6": {
+          "positions": 641,
+          "p95_ms": 5.229264032095671
+        }
+      },
+      "model_sha256": "6510e1418b23cae0b34acfd6ad7800eeb743c29ab30137ccfd9726fb893bdaae",
+      "all_moves_legal": true,
+      "search_samples": 0,
+      "search_scope": "all",
+      "geographic_search": false,
+      "cold_start_ms": 172.85414203070104,
+      "warm_roundtrip_p50_ms": 2.180308976676315,
+      "warm_roundtrip_p95_ms": 4.783573915483428,
+      "worker_p95_ms": 2.8681173804216074,
+      "max_roundtrip_ms": 172.85414203070104,
+      "search_decisions": 0,
+      "search_evaluations": 0,
+      "search_truncated_rollouts": 0,
+      "search_roundtrip_p50_ms": null,
+      "search_roundtrip_p95_ms": null,
+      "by_phase": {
+        "Auction": {
+          "positions": 840,
+          "p50_ms": 2.0362005452625453,
+          "p95_ms": 4.445916350232437,
+          "max_ms": 172.85414203070104
+        },
+        "Resources": {
+          "positions": 755,
+          "p50_ms": 2.169067971408367,
+          "p95_ms": 4.740677378140389,
+          "max_ms": 7.669835933484137
+        },
+        "Building": {
+          "positions": 491,
+          "p50_ms": 2.421354060061276,
+          "p95_ms": 5.55685197468847,
+          "max_ms": 9.005713975057006
+        },
+        "Bureaucracy": {
+          "positions": 467,
+          "p50_ms": 2.197180991061032,
+          "p95_ms": 4.6443089726381,
+          "max_ms": 8.40570603031665
+        }
+      }
+    },
+    "full-s10031-fp64": {
+      "hostname": "coyotte508-4X4-BOX-8840U",
+      "processor_model": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+      "python_version": "3.12.3",
+      "positions": 2553,
+      "by_player_count": {
+        "2": {
+          "positions": 349,
+          "p95_ms": 4.156138026155529
+        },
+        "3": {
+          "positions": 427,
+          "p95_ms": 4.395468649454415
+        },
+        "4": {
+          "positions": 527,
+          "p95_ms": 5.192883184645324
+        },
+        "5": {
+          "positions": 609,
+          "p95_ms": 5.21866399794817
+        },
+        "6": {
+          "positions": 641,
+          "p95_ms": 5.829273024573922
+        }
+      },
+      "model_sha256": "ee511d5bb6a58d323b867c1c9a9f0957f1019cc57cb85982b42601a85090fdcb",
+      "all_moves_legal": true,
+      "search_samples": 0,
+      "search_scope": "all",
+      "geographic_search": false,
+      "cold_start_ms": 178.87833795975894,
+      "warm_roundtrip_p50_ms": 2.7633789577521384,
+      "warm_roundtrip_p95_ms": 5.307542113587259,
+      "worker_p95_ms": 3.392293356591835,
+      "max_roundtrip_ms": 178.87833795975894,
+      "search_decisions": 0,
+      "search_evaluations": 0,
+      "search_truncated_rollouts": 0,
+      "search_roundtrip_p50_ms": null,
+      "search_roundtrip_p95_ms": null,
+      "by_phase": {
+        "Auction": {
+          "positions": 840,
+          "p50_ms": 2.7274249587208033,
+          "p95_ms": 5.022023088531566,
+          "max_ms": 178.87833795975894
+        },
+        "Resources": {
+          "positions": 755,
+          "p50_ms": 2.7098599821329117,
+          "p95_ms": 5.244838283397256,
+          "max_ms": 9.934475994668901
+        },
+        "Building": {
+          "positions": 491,
+          "p50_ms": 3.026191028766334,
+          "p95_ms": 5.852773028891534,
+          "max_ms": 9.09745111130178
+        },
+        "Bureaucracy": {
+          "positions": 467,
+          "p50_ms": 2.7374440105631948,
+          "p95_ms": 5.1888505928218365,
+          "max_ms": 8.771831984631717
+        }
+      }
+    }
+  },
+  "source": {
+    "archive": "strong-source-inference64-screen-20261010-v1-five-plant.tgz",
+    "revision": "8925f0986217500c4118a9997a3aa1c4adc04ccf",
+    "sha256": "45c8f05dd60e71dfbb9027093b14a8ecfa3a4272277b1ed96cc411feea780c1f"
+  },
+  "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+  "scope": "Engineering cost of precision repair on actual AMD8840U. Two predetermined architectures; neither is a qualified winner. No strength or production deployment claim.",
+  "qualification_eligible": false,
+  "interpretation": "All4 configurations served all2553 legal requests on actual AMD8840U. Fixed sequential diagnostic timing, no statistical latency claim or winner selection. Fresh complete-game strength results remain pending.",
+  "artifacts": {
+    "revision": "5b3e67be71ed911bcef458f6c9c0ed6a6c0c9091",
+    "prefix": "runs/inference64-8840u-probe-v1",
+    "validation_sha256": "804a6b7dd2d886f9b65b45e5a5b640d7dd110c7ba55d939fe2bff621a2121bde",
+    "files": {
+      "parent-fp64.json": "55bbce3dea8e57ae74dc0abb279567df2f8617e5b69c8c7523aa587ccda9c7f7",
+      "run.py": "d86d1aa6a3a652aa98f6336dcbe247a5fbe471d7240e695563902d2b135355b9",
+      "validation.json": "804a6b7dd2d886f9b65b45e5a5b640d7dd110c7ba55d939fe2bff621a2121bde",
+      "parent-fp64.log": "910b4f088e562bf19b7d7f76419fc3e94207acf374d14d9d4e46f48758f3f10c",
+      "full-s10031-fp32.log": "f53ec0a79b90f63ccc0f67d6dfe490c026f51c145f1df9ae0212d725843d70ea",
+      "parent-fp32.log": "c06b898c3c07a9cd5ad298aea2f3088483bf7395dca054d78a9406313a0b28c0",
+      "machine.json": "12dbf0e677e7ceb7610c78dddd239fddfacdd39844dc376b62abdba0c3955545",
+      "full-s10031-fp64.log": "ccb38692c47a9999438bd1d832b3b72831a95721e75e488aaf3ca129dfa0b4d9",
+      "parent-fp32.json": "b3ed543c6a869da3796dc8f63210be9f5654fd8f16ec067f7f69552818cf7be0",
+      "full-s10031-fp64.json": "04b8316594390134932af5a65e41ba02cc42aea61a78e2f99dbe5678feaaa921",
+      "manifest.json": "22d361c36cf1403fb1c4f505a6dea79cc354fdb05c5d4a5680945a198943749f",
+      "full-s10031-fp32.json": "dbf9adf3df80bd4d65bff49fd385426565be8b47d91f95274d9db51da579b789"
+    }
+  }
+}

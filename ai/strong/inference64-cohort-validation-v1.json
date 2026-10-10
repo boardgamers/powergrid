@@ -1,0 +1,1301 @@
+{
+  "models": {
+    "parent": {
+      "original": {
+        "key": "parent",
+        "revision": "0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a",
+        "path": "runs/multiplayer-refine-hard-v1",
+        "feature_revision": "4.0-multiplayer",
+        "hashes": {
+          "latest.pt": "1f9d1c89908ab036f6e6a54facba94b352bbae005e1ac042d88c60067e895224",
+          "latest.onnx": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+          "metrics.json": "96d519130a8ef7adef2e628b03d6cee1a281ee67f27b5c529226f6682dd7faa5",
+          "schema.json": "d3eb65a65cd3bbdfb2e09fc6caff0dc6e0953c1a939dc8ceeeb5c800c491eff6"
+        },
+        "training": {
+          "scope": "Frozen original parent; not trained in this experiment"
+        },
+        "qualification_eligible": false
+      },
+      "feature_revision": "4.0-multiplayer",
+      "files": {
+        "inference64.onnx": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a",
+        "precision-audit.json": "91f4944a2f1ffb3f3f98a9cf89a7c79ef6466f06a3bb3d7f5174414137053f74",
+        "serving.json": "c1f296ac79aaa3dd8226f8c434b461dd46f53f36d0eaebcc5e1efcc9ff54bb36",
+        "inference64.pt": "92ebfaba7329dbeadbc1e3e8fca0b41c1de94fc8249b951b328f9b11de7ee887",
+        "derivative.json": "fce1f3f3e0a8c6fddd391281aac650c6c9346b3ad358533ec2e0b672dcb7afee",
+        "original.json": "7a1e5e03a155410027ffd1995fdefc0b22324bf5f5a88d2c1a1516b04305ebe8",
+        "parity.json": "a5667d9a29a404b8c9be005f21c5c195cca11f5a4d59470123cb00cd2f9937ce"
+      },
+      "precision_audit": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "by_rules": {
+          "original/sealed": 555,
+          "recharged/sealed": 589,
+          "original/open": 703,
+          "recharged/open": 706
+        },
+        "source_checkpoint_sha256": "1f9d1c89908ab036f6e6a54facba94b352bbae005e1ac042d88c60067e895224",
+        "source_onnx_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+        "derivative_checkpoint_sha256": "92ebfaba7329dbeadbc1e3e8fca0b41c1de94fc8249b951b328f9b11de7ee887",
+        "derivative_onnx_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a",
+        "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+        "feature_revision": "4.0-multiplayer",
+        "rtol": 0.0001,
+        "atol": 1e-05,
+        "native64_max_errors": [
+          4.746354420603893e-10,
+          1.0236478331648868e-11
+        ],
+        "native64_strict_pass": true,
+        "stored_weights_identical": true,
+        "action_changes": {
+          "pytorch32_to_native64": [],
+          "onnx32_to_onnx64": [],
+          "pytorch32_to_onnx32": []
+        },
+        "trained": false,
+        "qualification_eligible": false,
+        "scope": "Every serving fixture, single request. Action equivalence here does not prove identical complete-game trajectories.",
+        "action_change_counts": {
+          "pytorch32_to_native64": 0,
+          "onnx32_to_onnx64": 0,
+          "pytorch32_to_onnx32": 0
+        }
+      },
+      "parity": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "inactive_values_zero": true,
+        "feature_revision": "4.0-multiplayer",
+        "model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a",
+        "max_logit_error": 4.746425474877469e-10,
+        "max_value_error": 1.0236589353951331e-11,
+        "all_actions_match": true,
+        "specialist_route_counts": {}
+      },
+      "serving": {
+        "hostname": "Mint-FW-13",
+        "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "python_version": "3.11.15",
+        "positions": 2553,
+        "by_player_count": {
+          "2": {
+            "positions": 349,
+            "p95_ms": 8.737912803189827
+          },
+          "3": {
+            "positions": 427,
+            "p95_ms": 9.459509505541062
+          },
+          "4": {
+            "positions": 527,
+            "p95_ms": 7.073682395275681
+          },
+          "5": {
+            "positions": 609,
+            "p95_ms": 8.63902020209935
+          },
+          "6": {
+            "positions": 641,
+            "p95_ms": 13.274871991598047
+          }
+        },
+        "model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a",
+        "all_moves_legal": true,
+        "search_samples": 0,
+        "search_scope": "all",
+        "geographic_search": false,
+        "cold_start_ms": 254.07502600864973,
+        "warm_roundtrip_p50_ms": 4.347872993093915,
+        "warm_roundtrip_p95_ms": 9.965642055612987,
+        "worker_p95_ms": 5.8366990000649785,
+        "max_roundtrip_ms": 254.07502600864973,
+        "search_decisions": 0,
+        "search_evaluations": 0,
+        "search_truncated_rollouts": 0,
+        "search_roundtrip_p50_ms": null,
+        "search_roundtrip_p95_ms": null,
+        "by_phase": {
+          "Auction": {
+            "positions": 840,
+            "p50_ms": 4.0825889955158345,
+            "p95_ms": 9.347668440022968,
+            "max_ms": 254.07502600864973
+          },
+          "Resources": {
+            "positions": 755,
+            "p50_ms": 4.245961012202315,
+            "p95_ms": 11.530018899065896,
+            "max_ms": 38.010285992641
+          },
+          "Building": {
+            "positions": 491,
+            "p50_ms": 4.718930009403266,
+            "p95_ms": 10.477849500603043,
+            "max_ms": 27.884073002496734
+          },
+          "Bureaucracy": {
+            "positions": 467,
+            "p50_ms": 4.394058996695094,
+            "p95_ms": 9.74191129062092,
+            "max_ms": 25.38708900101483
+          }
+        }
+      }
+    },
+    "five-plant-control-s10031": {
+      "original": {
+        "key": "control-s10031",
+        "revision": "f14c6a74a86cffa504e4d0e70ffbb07c48f853f0",
+        "path": "runs/five-plant-ablation-v1-control-s10031",
+        "feature_revision": "4.1-five-plants-zero-inputs",
+        "hashes": {
+          "best.pt": "de9b19c0f3fe2796a1cb43724cb51acdf8bc77bba205ec32e1c8a54319730977",
+          "best.onnx": "61d0c00761fd47a59a34e79ab461bcde690e39238778ae1e5c0cdec960bec86c",
+          "latest.onnx": "61d0c00761fd47a59a34e79ab461bcde690e39238778ae1e5c0cdec960bec86c",
+          "schema.json": "b51b3d786955f32efcc903a0e5d7d971cbc32cda76198b8cadd9366c1ac57bd3",
+          "latest.pt": "f38620b779c1018be21df604611d55ff8b59da47e07e9f18513239a8c8aad09b",
+          "metrics.json": "24eebe6dcb04d19abb27249a54ee678f0ab3e4f65ef3918b4daca137ecc52694"
+        },
+        "training": {
+          "games": 4800,
+          "game_truncations": 0,
+          "search_truncations": 0,
+          "search_rollouts": 4693584,
+          "new_parameter_norms": {
+            "extra_player.weight": 0.0,
+            "extra_action.weight": 0.0
+          }
+        },
+        "qualification_eligible": false
+      },
+      "feature_revision": "4.1-five-plants-zero-inputs",
+      "files": {
+        "inference64.onnx": "d8db4aa7056b7592798bc99db3eb08714d937a1aa354d1f81b041fe2105fcda0",
+        "precision-audit.json": "ec980ec874c3280e600f7d9732a452ebe6c6a51549ea1e613d8b9bb6de0a1776",
+        "serving.json": "59739abaa74e541c7ff4dbb9125e88bb2a658b29b2f011a625e9850db6fe55f2",
+        "inference64.pt": "fd283e82f3befcb4ded7c834896f7e6905a04856bca8a7cd5ad0cfe6f13ba267",
+        "derivative.json": "998b146564cf685cfdee1c72216f8d8759bfce7c7e0a586c3063f4bdd357afb9",
+        "original.json": "6d272fa21a265de237c0479d9f72f7b78281bb8e1597ae47c270e4dacabaf8ea",
+        "parity.json": "2e6b11dbe596304aabc10ffcd63ab1867d8a331d744d15b5fee2f6b9ba319a0d"
+      },
+      "precision_audit": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "by_rules": {
+          "original/sealed": 555,
+          "recharged/sealed": 589,
+          "original/open": 703,
+          "recharged/open": 706
+        },
+        "source_checkpoint_sha256": "f38620b779c1018be21df604611d55ff8b59da47e07e9f18513239a8c8aad09b",
+        "source_onnx_sha256": "61d0c00761fd47a59a34e79ab461bcde690e39238778ae1e5c0cdec960bec86c",
+        "derivative_checkpoint_sha256": "fd283e82f3befcb4ded7c834896f7e6905a04856bca8a7cd5ad0cfe6f13ba267",
+        "derivative_onnx_sha256": "d8db4aa7056b7592798bc99db3eb08714d937a1aa354d1f81b041fe2105fcda0",
+        "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+        "feature_revision": "4.1-five-plants-zero-inputs",
+        "rtol": 0.0001,
+        "atol": 1e-05,
+        "native64_max_errors": [
+          4.440749989953474e-10,
+          8.678058271982536e-12
+        ],
+        "native64_strict_pass": true,
+        "stored_weights_identical": true,
+        "action_changes": {
+          "pytorch32_to_native64": [],
+          "onnx32_to_onnx64": [],
+          "pytorch32_to_onnx32": []
+        },
+        "trained": false,
+        "qualification_eligible": false,
+        "scope": "Every serving fixture, single request. Action equivalence here does not prove identical complete-game trajectories.",
+        "action_change_counts": {
+          "pytorch32_to_native64": 0,
+          "onnx32_to_onnx64": 0,
+          "pytorch32_to_onnx32": 0
+        }
+      },
+      "parity": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "inactive_values_zero": true,
+        "feature_revision": "4.1-five-plants-zero-inputs",
+        "model_sha256": "d8db4aa7056b7592798bc99db3eb08714d937a1aa354d1f81b041fe2105fcda0",
+        "max_logit_error": 4.440678935679898e-10,
+        "max_value_error": 8.677558671621455e-12,
+        "all_actions_match": true,
+        "specialist_route_counts": {}
+      },
+      "serving": {
+        "hostname": "Mint-FW-13",
+        "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "python_version": "3.11.15",
+        "positions": 2553,
+        "by_player_count": {
+          "2": {
+            "positions": 349,
+            "p95_ms": 10.299663795740344
+          },
+          "3": {
+            "positions": 427,
+            "p95_ms": 10.517929002526216
+          },
+          "4": {
+            "positions": 527,
+            "p95_ms": 10.860036496887915
+          },
+          "5": {
+            "positions": 609,
+            "p95_ms": 13.228872400941327
+          },
+          "6": {
+            "positions": 641,
+            "p95_ms": 11.136853994685225
+          }
+        },
+        "model_sha256": "d8db4aa7056b7592798bc99db3eb08714d937a1aa354d1f81b041fe2105fcda0",
+        "all_moves_legal": true,
+        "search_samples": 0,
+        "search_scope": "all",
+        "geographic_search": false,
+        "cold_start_ms": 411.27088099892717,
+        "warm_roundtrip_p50_ms": 5.0158430021838285,
+        "warm_roundtrip_p95_ms": 11.295984091702842,
+        "worker_p95_ms": 6.620285708049775,
+        "max_roundtrip_ms": 411.27088099892717,
+        "search_decisions": 0,
+        "search_evaluations": 0,
+        "search_truncated_rollouts": 0,
+        "search_roundtrip_p50_ms": null,
+        "search_roundtrip_p95_ms": null,
+        "by_phase": {
+          "Auction": {
+            "positions": 840,
+            "p50_ms": 4.940566504956223,
+            "p95_ms": 11.231907195178774,
+            "max_ms": 411.27088099892717
+          },
+          "Resources": {
+            "positions": 755,
+            "p50_ms": 4.955323995091021,
+            "p95_ms": 11.217151103483047,
+            "max_ms": 30.75909700419288
+          },
+          "Building": {
+            "positions": 491,
+            "p50_ms": 5.34195099317003,
+            "p95_ms": 12.016411492368206,
+            "max_ms": 34.360896999714896
+          },
+          "Bureaucracy": {
+            "positions": 467,
+            "p50_ms": 4.904549001366831,
+            "p95_ms": 10.45843800966395,
+            "max_ms": 17.23462500376627
+          }
+        }
+      }
+    },
+    "five-plant-full-s10031": {
+      "original": {
+        "key": "full-s10031",
+        "revision": "ba06dc0fe058342e0ed7622de1e42a2fc3a3c5c6",
+        "path": "runs/five-plant-ablation-v1-full-s10031",
+        "feature_revision": "4.1-five-plants",
+        "hashes": {
+          "best.pt": "ec96a6b35935d9189312193b4b1e2c48b2501ee7365468a3f09c0d3cbdd6c0df",
+          "best.onnx": "6510e1418b23cae0b34acfd6ad7800eeb743c29ab30137ccfd9726fb893bdaae",
+          "latest.onnx": "6510e1418b23cae0b34acfd6ad7800eeb743c29ab30137ccfd9726fb893bdaae",
+          "schema.json": "4fff1987e3c07181f8bb2b82e58c0304ac748cc52ccca56a491b0a1b59fac725",
+          "latest.pt": "2affd4386c2df852ad1bbce32c0d58c5594d0402e48e8f3670b54ed6fa14c09d",
+          "metrics.json": "60facd3ebd4271fc77e14ba3b3b432fd42cf3928d720163080dcb54111f7b0fb"
+        },
+        "training": {
+          "games": 4800,
+          "game_truncations": 0,
+          "search_truncations": 0,
+          "search_rollouts": 4669920,
+          "new_parameter_norms": {
+            "extra_player.weight": 0.1724902242422104,
+            "extra_action.weight": 0.0427313856780529
+          }
+        },
+        "qualification_eligible": false
+      },
+      "feature_revision": "4.1-five-plants",
+      "files": {
+        "inference64.onnx": "ee511d5bb6a58d323b867c1c9a9f0957f1019cc57cb85982b42601a85090fdcb",
+        "precision-audit.json": "ad93b4fba7e9bc3856d3cffdd901edbb6bc80820c953850df4680f26b605837d",
+        "serving.json": "c35c22d163b52f61cc9815c33d9aca1f496da4f98af267a63ffe1611ac6ff7d0",
+        "inference64.pt": "dbc2ee96ec3cc7f9753b4677005d7cfc3f0603be4601e75fb7cfb2dd9a641b54",
+        "derivative.json": "e763d975b37d0503f6cfa3663390d49f55bd14ebed69b1dcaf13e356d144c69c",
+        "original.json": "f2fae880adc92cddfe07c8e7cfaf0255e1936e9ef36ddd912aa650f1ed958f9d",
+        "parity.json": "36fc0e91614aed809d17afaf079a5da007f591f1779ccdcd7a2db3fe54e0c0e9"
+      },
+      "precision_audit": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "by_rules": {
+          "original/sealed": 555,
+          "recharged/sealed": 589,
+          "original/open": 703,
+          "recharged/open": 706
+        },
+        "source_checkpoint_sha256": "2affd4386c2df852ad1bbce32c0d58c5594d0402e48e8f3670b54ed6fa14c09d",
+        "source_onnx_sha256": "6510e1418b23cae0b34acfd6ad7800eeb743c29ab30137ccfd9726fb893bdaae",
+        "derivative_checkpoint_sha256": "dbc2ee96ec3cc7f9753b4677005d7cfc3f0603be4601e75fb7cfb2dd9a641b54",
+        "derivative_onnx_sha256": "ee511d5bb6a58d323b867c1c9a9f0957f1019cc57cb85982b42601a85090fdcb",
+        "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+        "feature_revision": "4.1-five-plants",
+        "rtol": 0.0001,
+        "atol": 1e-05,
+        "native64_max_errors": [
+          5.893667776035727e-10,
+          7.838119042702374e-12
+        ],
+        "native64_strict_pass": true,
+        "stored_weights_identical": true,
+        "action_changes": {
+          "pytorch32_to_native64": [],
+          "onnx32_to_onnx64": [],
+          "pytorch32_to_onnx32": []
+        },
+        "trained": false,
+        "qualification_eligible": false,
+        "scope": "Every serving fixture, single request. Action equivalence here does not prove identical complete-game trajectories.",
+        "action_change_counts": {
+          "pytorch32_to_native64": 0,
+          "onnx32_to_onnx64": 0,
+          "pytorch32_to_onnx32": 0
+        }
+      },
+      "parity": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "inactive_values_zero": true,
+        "feature_revision": "4.1-five-plants",
+        "model_sha256": "ee511d5bb6a58d323b867c1c9a9f0957f1019cc57cb85982b42601a85090fdcb",
+        "max_logit_error": 5.893596721762151e-10,
+        "max_value_error": 7.837563931190061e-12,
+        "all_actions_match": true,
+        "specialist_route_counts": {}
+      },
+      "serving": {
+        "hostname": "Mint-FW-13",
+        "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "python_version": "3.11.15",
+        "positions": 2553,
+        "by_player_count": {
+          "2": {
+            "positions": 349,
+            "p95_ms": 8.468740206444634
+          },
+          "3": {
+            "positions": 427,
+            "p95_ms": 5.978508903353941
+          },
+          "4": {
+            "positions": 527,
+            "p95_ms": 7.127181804389693
+          },
+          "5": {
+            "positions": 609,
+            "p95_ms": 7.545172199024819
+          },
+          "6": {
+            "positions": 641,
+            "p95_ms": 10.774252994451672
+          }
+        },
+        "model_sha256": "ee511d5bb6a58d323b867c1c9a9f0957f1019cc57cb85982b42601a85090fdcb",
+        "all_moves_legal": true,
+        "search_samples": 0,
+        "search_scope": "all",
+        "geographic_search": false,
+        "cold_start_ms": 267.86906500637997,
+        "warm_roundtrip_p50_ms": 3.7804459934704937,
+        "warm_roundtrip_p95_ms": 8.64042489847633,
+        "worker_p95_ms": 5.010471303830855,
+        "max_roundtrip_ms": 267.86906500637997,
+        "search_decisions": 0,
+        "search_evaluations": 0,
+        "search_truncated_rollouts": 0,
+        "search_roundtrip_p50_ms": null,
+        "search_roundtrip_p95_ms": null,
+        "by_phase": {
+          "Auction": {
+            "positions": 840,
+            "p50_ms": 3.7434510013554245,
+            "p95_ms": 8.340533349110046,
+            "max_ms": 267.86906500637997
+          },
+          "Resources": {
+            "positions": 755,
+            "p50_ms": 3.622188000008464,
+            "p95_ms": 8.51699600316351,
+            "max_ms": 13.821330008795485
+          },
+          "Building": {
+            "positions": 491,
+            "p50_ms": 4.1313959955004975,
+            "p95_ms": 9.861957507382613,
+            "max_ms": 20.00918099656701
+          },
+          "Bureaucracy": {
+            "positions": 467,
+            "p50_ms": 3.7579439958790317,
+            "p95_ms": 8.838679094333202,
+            "max_ms": 12.820878997445107
+          }
+        }
+      }
+    },
+    "five-plant-control-s10032": {
+      "original": {
+        "key": "control-s10032",
+        "revision": "3a2a7a398191a2260cac3c9349883f0ff944a848",
+        "path": "runs/five-plant-ablation-v1-control-s10032",
+        "feature_revision": "4.1-five-plants-zero-inputs",
+        "hashes": {
+          "best.onnx": "53265abc64c8d09be5f7fe420e3c5c946448c96a175ecaf6a7a879700de325bf",
+          "metrics.json": "407416a246da914d2b140a76ebe943fa8c5d1c6db3ba21bf41756932b1eb0cac",
+          "latest.onnx": "e190d72bed54f3d24b811d3b527013adb7dbecdf6cee25dcc0c3613fa4ae72cc",
+          "latest.pt": "914310084752ba77fc22dd8644769a100a7130e372212477df7b0b6e91d2d75f",
+          "best.pt": "7de1157a556533dd2d362a621e9785159d799f239e68ab6d45ff40c98b029627",
+          "schema.json": "ca2c9788712e4fce209d1b4594e196472be0c60d4974224d2583c01d50e1f12b"
+        },
+        "training": {
+          "games": 4800,
+          "game_truncations": 0,
+          "search_truncations": 0,
+          "search_rollouts": 4387104,
+          "new_parameter_norms": {
+            "extra_player.weight": 0.0,
+            "extra_action.weight": 0.0
+          }
+        },
+        "qualification_eligible": false
+      },
+      "feature_revision": "4.1-five-plants-zero-inputs",
+      "files": {
+        "inference64.onnx": "cacd377f870a7db9d352055ee9a8db9e9f3b783faab474dbcfb460022b77ec78",
+        "precision-audit.json": "5e798dd3bdf1c217654bdf79f104e5817b08dd8c6d3f98dc1ae5f75605e1b418",
+        "serving.json": "70ce83befe64f99d6289d07ae0f847954af87aa5b6f59ccbadb8a7b680096cb1",
+        "inference64.pt": "4da9ba6c711bb123bdd2e3ea7fac735084b6b563efc82d633dd0206bebab0e4f",
+        "derivative.json": "12d1fec7920a1afc99cc9c1ae730239d3d3157dfe5d048fc5e138b6749a2292c",
+        "original.json": "8240ce7110907d966ae2a5e761a979c519e7945bdfae329a6b8d8a4d4942fb27",
+        "parity.json": "bf018020a915a6eddd60c6925205a9d26adade690e64a46b292d31122817891c"
+      },
+      "precision_audit": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "by_rules": {
+          "original/sealed": 555,
+          "recharged/sealed": 589,
+          "original/open": 703,
+          "recharged/open": 706
+        },
+        "source_checkpoint_sha256": "914310084752ba77fc22dd8644769a100a7130e372212477df7b0b6e91d2d75f",
+        "source_onnx_sha256": "e190d72bed54f3d24b811d3b527013adb7dbecdf6cee25dcc0c3613fa4ae72cc",
+        "derivative_checkpoint_sha256": "4da9ba6c711bb123bdd2e3ea7fac735084b6b563efc82d633dd0206bebab0e4f",
+        "derivative_onnx_sha256": "cacd377f870a7db9d352055ee9a8db9e9f3b783faab474dbcfb460022b77ec78",
+        "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+        "feature_revision": "4.1-five-plants-zero-inputs",
+        "rtol": 0.0001,
+        "atol": 1e-05,
+        "native64_max_errors": [
+          5.244444878371723e-10,
+          7.589817663244958e-12
+        ],
+        "native64_strict_pass": true,
+        "stored_weights_identical": true,
+        "action_changes": {
+          "pytorch32_to_native64": [],
+          "onnx32_to_onnx64": [],
+          "pytorch32_to_onnx32": []
+        },
+        "trained": false,
+        "qualification_eligible": false,
+        "scope": "Every serving fixture, single request. Action equivalence here does not prove identical complete-game trajectories.",
+        "action_change_counts": {
+          "pytorch32_to_native64": 0,
+          "onnx32_to_onnx64": 0,
+          "pytorch32_to_onnx32": 0
+        }
+      },
+      "parity": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "inactive_values_zero": true,
+        "feature_revision": "4.1-five-plants-zero-inputs",
+        "model_sha256": "cacd377f870a7db9d352055ee9a8db9e9f3b783faab474dbcfb460022b77ec78",
+        "max_logit_error": 5.244444878371723e-10,
+        "max_value_error": 7.58992868554742e-12,
+        "all_actions_match": true,
+        "specialist_route_counts": {}
+      },
+      "serving": {
+        "hostname": "Mint-FW-13",
+        "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "python_version": "3.11.15",
+        "positions": 2553,
+        "by_player_count": {
+          "2": {
+            "positions": 349,
+            "p95_ms": 4.755715403007343
+          },
+          "3": {
+            "positions": 427,
+            "p95_ms": 6.703579396707936
+          },
+          "4": {
+            "positions": 527,
+            "p95_ms": 10.459511500084773
+          },
+          "5": {
+            "positions": 609,
+            "p95_ms": 11.985729399020785
+          },
+          "6": {
+            "positions": 641,
+            "p95_ms": 11.473837002995424
+          }
+        },
+        "model_sha256": "cacd377f870a7db9d352055ee9a8db9e9f3b783faab474dbcfb460022b77ec78",
+        "all_moves_legal": true,
+        "search_samples": 0,
+        "search_scope": "all",
+        "geographic_search": false,
+        "cold_start_ms": 353.5067360062385,
+        "warm_roundtrip_p50_ms": 3.8113589980639517,
+        "warm_roundtrip_p95_ms": 9.841048451926326,
+        "worker_p95_ms": 5.450495553668587,
+        "max_roundtrip_ms": 353.5067360062385,
+        "search_decisions": 0,
+        "search_evaluations": 0,
+        "search_truncated_rollouts": 0,
+        "search_roundtrip_p50_ms": null,
+        "search_roundtrip_p95_ms": null,
+        "by_phase": {
+          "Auction": {
+            "positions": 840,
+            "p50_ms": 3.7124084992683493,
+            "p95_ms": 8.90826220493181,
+            "max_ms": 353.5067360062385
+          },
+          "Resources": {
+            "positions": 755,
+            "p50_ms": 3.799672005698085,
+            "p95_ms": 10.380493199045297,
+            "max_ms": 17.348398992908187
+          },
+          "Building": {
+            "positions": 491,
+            "p50_ms": 4.1255249961977825,
+            "p95_ms": 11.485764502140228,
+            "max_ms": 20.120781002333388
+          },
+          "Bureaucracy": {
+            "positions": 467,
+            "p50_ms": 3.6919389967806637,
+            "p95_ms": 8.49997930054087,
+            "max_ms": 18.845703001716174
+          }
+        }
+      }
+    },
+    "five-plant-full-s10032": {
+      "original": {
+        "key": "full-s10032",
+        "revision": "00f37843c6b8d2b64631d1baf6ccca06cde0a68c",
+        "path": "runs/five-plant-ablation-v1-full-s10032",
+        "feature_revision": "4.1-five-plants",
+        "hashes": {
+          "best.onnx": "2b937b7922340cd6b694c0117a4ba2da2ec7dd686d630320577650f5bbdf17a7",
+          "metrics.json": "3ddd7b0754f206cf840e547820fd8eeb41c135f250b12f720dbc8c9bc156c354",
+          "latest.onnx": "4856f848a27d1e03978d382ab4289d3867447b9e7463f420f956201fcf67e92c",
+          "latest.pt": "d3dec4776bc1fb4e1f2ee32821a14c40e973371010999c385f21177fd6667f4b",
+          "best.pt": "14d8fb461e928b86c01cf28c96d2425d2df1ea980984d2a17cb6cba64f3fe564",
+          "schema.json": "67cccc9cf18afd86c54c17b8c7bda82a07140e083c00248b5ff89a6192951a3e"
+        },
+        "training": {
+          "games": 4800,
+          "game_truncations": 0,
+          "search_truncations": 0,
+          "search_rollouts": 4377728,
+          "new_parameter_norms": {
+            "extra_player.weight": 0.19597437977790833,
+            "extra_action.weight": 0.050524089485406876
+          }
+        },
+        "qualification_eligible": false
+      },
+      "feature_revision": "4.1-five-plants",
+      "files": {
+        "inference64.onnx": "88bab4882974900915547c67fdf1176b621591a0230c85a263f2316beb0bf600",
+        "precision-audit.json": "df7430676900f1a1b16c407ebc100823b632581a34fea0d7751f0b620fa4dc80",
+        "serving.json": "40c0f3dbb34bbb0472baeb92783363f306b1c9f4139d6428007e90f20db45cc2",
+        "inference64.pt": "ccf9c13ff09287e616161edb5e1cffa9c19d234fac88bde273dd698d12ec7358",
+        "derivative.json": "13be551431668ea0aa26df0c697462a2fd5fb47b114d0c1fe0e6f44ceb0e6fa2",
+        "original.json": "512c39f5d36cb08925db6d75741eb1fec1db1adfa355824af8d8fef09849917d",
+        "parity.json": "ca55b3fa8cee5aeb7c065fecc3825abe196fea934d4ff1e009c7300f2637be24"
+      },
+      "precision_audit": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "by_rules": {
+          "original/sealed": 555,
+          "recharged/sealed": 589,
+          "original/open": 703,
+          "recharged/open": 706
+        },
+        "source_checkpoint_sha256": "d3dec4776bc1fb4e1f2ee32821a14c40e973371010999c385f21177fd6667f4b",
+        "source_onnx_sha256": "4856f848a27d1e03978d382ab4289d3867447b9e7463f420f956201fcf67e92c",
+        "derivative_checkpoint_sha256": "ccf9c13ff09287e616161edb5e1cffa9c19d234fac88bde273dd698d12ec7358",
+        "derivative_onnx_sha256": "88bab4882974900915547c67fdf1176b621591a0230c85a263f2316beb0bf600",
+        "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+        "feature_revision": "4.1-five-plants",
+        "rtol": 0.0001,
+        "atol": 1e-05,
+        "native64_max_errors": [
+          4.177849177722237e-10,
+          9.614642415556318e-12
+        ],
+        "native64_strict_pass": true,
+        "stored_weights_identical": true,
+        "action_changes": {
+          "pytorch32_to_native64": [],
+          "onnx32_to_onnx64": [],
+          "pytorch32_to_onnx32": []
+        },
+        "trained": false,
+        "qualification_eligible": false,
+        "scope": "Every serving fixture, single request. Action equivalence here does not prove identical complete-game trajectories.",
+        "action_change_counts": {
+          "pytorch32_to_native64": 0,
+          "onnx32_to_onnx64": 0,
+          "pytorch32_to_onnx32": 0
+        }
+      },
+      "parity": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "inactive_values_zero": true,
+        "feature_revision": "4.1-five-plants",
+        "model_sha256": "88bab4882974900915547c67fdf1176b621591a0230c85a263f2316beb0bf600",
+        "max_logit_error": 4.177778123448661e-10,
+        "max_value_error": 9.6151420159174e-12,
+        "all_actions_match": true,
+        "specialist_route_counts": {}
+      },
+      "serving": {
+        "hostname": "Mint-FW-13",
+        "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "python_version": "3.11.15",
+        "positions": 2553,
+        "by_player_count": {
+          "2": {
+            "positions": 349,
+            "p95_ms": 4.479706796701066
+          },
+          "3": {
+            "positions": 427,
+            "p95_ms": 4.128246195614338
+          },
+          "4": {
+            "positions": 527,
+            "p95_ms": 4.289544202038086
+          },
+          "5": {
+            "positions": 609,
+            "p95_ms": 5.2657219901448125
+          },
+          "6": {
+            "positions": 641,
+            "p95_ms": 6.546215008711442
+          }
+        },
+        "model_sha256": "88bab4882974900915547c67fdf1176b621591a0230c85a263f2316beb0bf600",
+        "all_moves_legal": true,
+        "search_samples": 0,
+        "search_scope": "all",
+        "geographic_search": false,
+        "cold_start_ms": 227.13447800197173,
+        "warm_roundtrip_p50_ms": 2.880699496017769,
+        "warm_roundtrip_p95_ms": 5.28727329074172,
+        "worker_p95_ms": 3.1624412025848865,
+        "max_roundtrip_ms": 227.13447800197173,
+        "search_decisions": 0,
+        "search_evaluations": 0,
+        "search_truncated_rollouts": 0,
+        "search_roundtrip_p50_ms": null,
+        "search_roundtrip_p95_ms": null,
+        "by_phase": {
+          "Auction": {
+            "positions": 840,
+            "p50_ms": 2.7583194969338365,
+            "p95_ms": 4.99786900327308,
+            "max_ms": 227.13447800197173
+          },
+          "Resources": {
+            "positions": 755,
+            "p50_ms": 2.889751995098777,
+            "p95_ms": 5.066818100749515,
+            "max_ms": 11.865663007483818
+          },
+          "Building": {
+            "positions": 491,
+            "p50_ms": 3.0932950030546635,
+            "p95_ms": 5.7764735029195435,
+            "max_ms": 12.883246992714703
+          },
+          "Bureaucracy": {
+            "positions": 467,
+            "p50_ms": 2.845799011993222,
+            "p95_ms": 5.063259803864639,
+            "max_ms": 12.638717002118938
+          }
+        }
+      }
+    },
+    "population-control": {
+      "original": {
+        "arm": "control",
+        "update": 19,
+        "revision": "2c7a715f609b9d7f4d55d646191414f0245590de",
+        "path": "runs/multiplayer-population-v1-control",
+        "hashes": {
+          "latest.pt": "95e437fd5cb5aa2bee8e808cddaef7896404d9a2f8f48456cf33355b9b05bf97",
+          "latest.onnx": "a58064a0a37f4e200a503da3b51fcc444a4612c8558f4dd3a05daef6e6d78cb4",
+          "metrics.json": "5c2d3ba2436567be46c48399eea06a953bdcbb98a8c1afb21a8d1909fa0f644a",
+          "schema.json": "3622ac56df4f2b3860ed5b3169c3881632d3e1be9bf6228f2f578a67cad69a05"
+        },
+        "training_validated": true,
+        "strict_parity": "original not passed or not repeated here",
+        "qualification_eligible": false
+      },
+      "feature_revision": "4.0-multiplayer",
+      "files": {
+        "inference64.onnx": "6b373a0ddf6e964de110cc44ad01026b9f93fbb1a920d7fc51a00ead0517e907",
+        "precision-audit.json": "0a82031d6c92bcb6abf6339b7112aaff60fdea696a2ac37fc7c3cf1cafb1e5f7",
+        "serving.json": "80c5f7be97326585304f9ac09e02630db4f9a3c8b52173d32092d1f8db7a8023",
+        "inference64.pt": "39d3323fd452786f8bb08554ecc2a7601052462f31ac08e0dc132ced128a4c15",
+        "derivative.json": "abc8d98ecb45e76c882bcccf3b5dcbe99a6306349b47bcbe879fd993613a1ccc",
+        "original.json": "0222be8c6f91f295f8678b074f1177cd89c817f250534bb6a468bfc04444deb1",
+        "parity.json": "944c9800868f4eb8a13bde41df24812a074179be17f0492553cdffbe08e4854c"
+      },
+      "precision_audit": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "by_rules": {
+          "original/sealed": 555,
+          "recharged/sealed": 589,
+          "original/open": 703,
+          "recharged/open": 706
+        },
+        "source_checkpoint_sha256": "95e437fd5cb5aa2bee8e808cddaef7896404d9a2f8f48456cf33355b9b05bf97",
+        "source_onnx_sha256": "a58064a0a37f4e200a503da3b51fcc444a4612c8558f4dd3a05daef6e6d78cb4",
+        "derivative_checkpoint_sha256": "39d3323fd452786f8bb08554ecc2a7601052462f31ac08e0dc132ced128a4c15",
+        "derivative_onnx_sha256": "6b373a0ddf6e964de110cc44ad01026b9f93fbb1a920d7fc51a00ead0517e907",
+        "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+        "feature_revision": "4.0-multiplayer",
+        "rtol": 0.0001,
+        "atol": 1e-05,
+        "native64_max_errors": [
+          4.623501581590972e-10,
+          1.4082013333194254e-11
+        ],
+        "native64_strict_pass": true,
+        "stored_weights_identical": true,
+        "action_changes": {
+          "pytorch32_to_native64": [],
+          "onnx32_to_onnx64": [],
+          "pytorch32_to_onnx32": []
+        },
+        "trained": false,
+        "qualification_eligible": false,
+        "scope": "Every serving fixture, single request. Action equivalence here does not prove identical complete-game trajectories.",
+        "action_change_counts": {
+          "pytorch32_to_native64": 0,
+          "onnx32_to_onnx64": 0,
+          "pytorch32_to_onnx32": 0
+        }
+      },
+      "parity": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "inactive_values_zero": true,
+        "feature_revision": "4.0-multiplayer",
+        "model_sha256": "6b373a0ddf6e964de110cc44ad01026b9f93fbb1a920d7fc51a00ead0517e907",
+        "max_logit_error": 4.623501581590972e-10,
+        "max_value_error": 1.4081902310891792e-11,
+        "all_actions_match": true,
+        "specialist_route_counts": {}
+      },
+      "serving": {
+        "hostname": "Mint-FW-13",
+        "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "python_version": "3.11.15",
+        "positions": 2553,
+        "by_player_count": {
+          "2": {
+            "positions": 349,
+            "p95_ms": 8.823065797332672
+          },
+          "3": {
+            "positions": 427,
+            "p95_ms": 8.359298598952591
+          },
+          "4": {
+            "positions": 527,
+            "p95_ms": 11.613269096415024
+          },
+          "5": {
+            "positions": 609,
+            "p95_ms": 11.838469607755542
+          },
+          "6": {
+            "positions": 641,
+            "p95_ms": 11.911830006283708
+          }
+        },
+        "model_sha256": "6b373a0ddf6e964de110cc44ad01026b9f93fbb1a920d7fc51a00ead0517e907",
+        "all_moves_legal": true,
+        "search_samples": 0,
+        "search_scope": "all",
+        "geographic_search": false,
+        "cold_start_ms": 291.52130099828355,
+        "warm_roundtrip_p50_ms": 4.515501503192354,
+        "warm_roundtrip_p95_ms": 11.11528974943212,
+        "worker_p95_ms": 6.510326598072421,
+        "max_roundtrip_ms": 291.52130099828355,
+        "search_decisions": 0,
+        "search_evaluations": 0,
+        "search_truncated_rollouts": 0,
+        "search_roundtrip_p50_ms": null,
+        "search_roundtrip_p95_ms": null,
+        "by_phase": {
+          "Auction": {
+            "positions": 840,
+            "p50_ms": 4.38355950609548,
+            "p95_ms": 10.433837943855902,
+            "max_ms": 291.52130099828355
+          },
+          "Resources": {
+            "positions": 755,
+            "p50_ms": 4.623433997039683,
+            "p95_ms": 11.872545903315766,
+            "max_ms": 21.67544700205326
+          },
+          "Building": {
+            "positions": 491,
+            "p50_ms": 4.777813999680802,
+            "p95_ms": 12.143339001340792,
+            "max_ms": 24.278743003378622
+          },
+          "Bureaucracy": {
+            "positions": 467,
+            "p50_ms": 4.16299000789877,
+            "p95_ms": 10.104725501150824,
+            "max_ms": 15.083598991623148
+          }
+        }
+      }
+    },
+    "population-homogeneous": {
+      "original": {
+        "arm": "homogeneous",
+        "update": 19,
+        "revision": "cc86f7a36392c829e44fd81d9dbf362cb74a0b1b",
+        "path": "runs/multiplayer-population-v1-homogeneous",
+        "hashes": {
+          "latest.pt": "0502c673dfddcc303f8293d2f985c76bcf7bfb8d28eba6042e6a213bb09e328c",
+          "latest.onnx": "8606c6902806f7df82f7c687fa92746230b63c110d2654730b7913cbc68d3258",
+          "metrics.json": "ef424e2bfc01f1a3d545cd8fc8e7defae6076c47cf82e3ca1685e55387e9cffb",
+          "schema.json": "23df7821c8e0ba8442aa833c9ce76bd660160a4960dd11ba417dbfa1b8b23da9"
+        },
+        "training_validated": true,
+        "strict_parity": "original not passed or not repeated here",
+        "qualification_eligible": false
+      },
+      "feature_revision": "4.0-multiplayer",
+      "files": {
+        "inference64.onnx": "5bb4f777d2092d804e839ccc2447169439b6cb5b8459d5856737c4ccf4ee4544",
+        "precision-audit.json": "a8bd1167dcb327b856f40dfcad780994f85196a659e8a6a5118b10522485b852",
+        "serving.json": "6da60c214cd3162c982464009c1df306b2beed4d80ed86e90954a75e5c829129",
+        "inference64.pt": "f209acc4f1c1636218fbbf26363224a300df3028ba4859b01eb0d4a3ca87006f",
+        "derivative.json": "dbe14c7ed97b68cbe07944a2e9f77c36e0ac7ff8950903c8b7359abe24f20b9c",
+        "original.json": "f15764b17effe8a409ea5993d5a62da8c4cf0856f1c156e10a837a1ee1874f8f",
+        "parity.json": "ddcf26e5204b4e8705d2ad6c1ce6288a3e826ab7bfa99b0d83a43401e7157a31"
+      },
+      "precision_audit": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "by_rules": {
+          "original/sealed": 555,
+          "recharged/sealed": 589,
+          "original/open": 703,
+          "recharged/open": 706
+        },
+        "source_checkpoint_sha256": "0502c673dfddcc303f8293d2f985c76bcf7bfb8d28eba6042e6a213bb09e328c",
+        "source_onnx_sha256": "8606c6902806f7df82f7c687fa92746230b63c110d2654730b7913cbc68d3258",
+        "derivative_checkpoint_sha256": "f209acc4f1c1636218fbbf26363224a300df3028ba4859b01eb0d4a3ca87006f",
+        "derivative_onnx_sha256": "5bb4f777d2092d804e839ccc2447169439b6cb5b8459d5856737c4ccf4ee4544",
+        "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+        "feature_revision": "4.0-multiplayer",
+        "rtol": 0.0001,
+        "atol": 1e-05,
+        "native64_max_errors": [
+          6.052758294572413e-10,
+          8.570366638593896e-12
+        ],
+        "native64_strict_pass": true,
+        "stored_weights_identical": true,
+        "action_changes": {
+          "pytorch32_to_native64": [],
+          "onnx32_to_onnx64": [],
+          "pytorch32_to_onnx32": []
+        },
+        "trained": false,
+        "qualification_eligible": false,
+        "scope": "Every serving fixture, single request. Action equivalence here does not prove identical complete-game trajectories.",
+        "action_change_counts": {
+          "pytorch32_to_native64": 0,
+          "onnx32_to_onnx64": 0,
+          "pytorch32_to_onnx32": 0
+        }
+      },
+      "parity": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "inactive_values_zero": true,
+        "feature_revision": "4.0-multiplayer",
+        "model_sha256": "5bb4f777d2092d804e839ccc2447169439b6cb5b8459d5856737c4ccf4ee4544",
+        "max_logit_error": 6.052758294572413e-10,
+        "max_value_error": 8.570477660896358e-12,
+        "all_actions_match": true,
+        "specialist_route_counts": {}
+      },
+      "serving": {
+        "hostname": "Mint-FW-13",
+        "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "python_version": "3.11.15",
+        "positions": 2553,
+        "by_player_count": {
+          "2": {
+            "positions": 349,
+            "p95_ms": 10.79023600032087
+          },
+          "3": {
+            "positions": 427,
+            "p95_ms": 9.171086792775895
+          },
+          "4": {
+            "positions": 527,
+            "p95_ms": 11.907429606071672
+          },
+          "5": {
+            "positions": 609,
+            "p95_ms": 10.411163393291645
+          },
+          "6": {
+            "positions": 641,
+            "p95_ms": 13.704302997211926
+          }
+        },
+        "model_sha256": "5bb4f777d2092d804e839ccc2447169439b6cb5b8459d5856737c4ccf4ee4544",
+        "all_moves_legal": true,
+        "search_samples": 0,
+        "search_scope": "all",
+        "geographic_search": false,
+        "cold_start_ms": 506.97726900398266,
+        "warm_roundtrip_p50_ms": 4.679915502492804,
+        "warm_roundtrip_p95_ms": 11.662231201626128,
+        "worker_p95_ms": 6.841067045024826,
+        "max_roundtrip_ms": 506.97726900398266,
+        "search_decisions": 0,
+        "search_evaluations": 0,
+        "search_truncated_rollouts": 0,
+        "search_roundtrip_p50_ms": null,
+        "search_roundtrip_p95_ms": null,
+        "by_phase": {
+          "Auction": {
+            "positions": 840,
+            "p50_ms": 4.552436505036894,
+            "p95_ms": 11.573737895378143,
+            "max_ms": 506.97726900398266
+          },
+          "Resources": {
+            "positions": 755,
+            "p50_ms": 4.651908006053418,
+            "p95_ms": 11.417122499551622,
+            "max_ms": 22.180504995048977
+          },
+          "Building": {
+            "positions": 491,
+            "p50_ms": 4.9599349877098575,
+            "p95_ms": 12.971142008609604,
+            "max_ms": 27.181098994333297
+          },
+          "Bureaucracy": {
+            "positions": 467,
+            "p50_ms": 4.640416009351611,
+            "p95_ms": 10.861415399995167,
+            "max_ms": 22.084255004301667
+          }
+        }
+      }
+    },
+    "population-heterogeneous": {
+      "original": {
+        "arm": "heterogeneous",
+        "update": 19,
+        "revision": "3a71c9d1d7300a2d2169e059e8d9242167e73625",
+        "path": "runs/multiplayer-population-v1-heterogeneous",
+        "hashes": {
+          "latest.pt": "e03d354f8acaed23e2e2a7749a2f9b62ed3cc242a699f49ade8a92194f1c32f3",
+          "latest.onnx": "39a2d32e4612c7c7c6bbbd1c08ad1d25a5ce0eab2923195c783b025731fc0f01",
+          "metrics.json": "a741d503af78907f990b254e32130ea5af67d33576ded6c3c0b5e5fe2c3693be",
+          "schema.json": "9be7103264d1493dea1502be5d7bdade527a0f56c51430d8d5739d4d8732fd4e"
+        },
+        "training_validated": true,
+        "strict_parity": "original not passed or not repeated here",
+        "qualification_eligible": false
+      },
+      "feature_revision": "4.0-multiplayer",
+      "files": {
+        "inference64.onnx": "7131bf839fcdbbf5f8c6dd638deb1adcc338b201effdc225384f1f425be145d5",
+        "precision-audit.json": "6affad2e916a61d5c53f1b13be6bef0d781c601eea38086d36bfa5f64fbda773",
+        "serving.json": "9953178c904ae370c809a5cd10e1faa269bda7a5bf980023a7522fe75a213851",
+        "inference64.pt": "2d7b576b73a0fc126c80b29ba6bd3c97fde0825b51428268ceaac0915fe6a7ac",
+        "derivative.json": "d2d53aef3d528bf2ac605d7873f05324a98dbe5aa6f70cca6a4d1a98406fba04",
+        "original.json": "21ba6737e7b087460e0fb45d97ab9ef46b01988e4530873d06cdb140c78df3cd",
+        "parity.json": "12845209a7cfc4d6100432d2e670d28a6d2299a2e0b37e5c984f8aa2f3acd222"
+      },
+      "precision_audit": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "by_rules": {
+          "original/sealed": 555,
+          "recharged/sealed": 589,
+          "original/open": 703,
+          "recharged/open": 706
+        },
+        "source_checkpoint_sha256": "e03d354f8acaed23e2e2a7749a2f9b62ed3cc242a699f49ade8a92194f1c32f3",
+        "source_onnx_sha256": "39a2d32e4612c7c7c6bbbd1c08ad1d25a5ce0eab2923195c783b025731fc0f01",
+        "derivative_checkpoint_sha256": "2d7b576b73a0fc126c80b29ba6bd3c97fde0825b51428268ceaac0915fe6a7ac",
+        "derivative_onnx_sha256": "7131bf839fcdbbf5f8c6dd638deb1adcc338b201effdc225384f1f425be145d5",
+        "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+        "feature_revision": "4.0-multiplayer",
+        "rtol": 0.0001,
+        "atol": 1e-05,
+        "native64_max_errors": [
+          5.180282869332586e-10,
+          8.32783841886453e-12
+        ],
+        "native64_strict_pass": true,
+        "stored_weights_identical": true,
+        "action_changes": {
+          "pytorch32_to_native64": [],
+          "onnx32_to_onnx64": [],
+          "pytorch32_to_onnx32": []
+        },
+        "trained": false,
+        "qualification_eligible": false,
+        "scope": "Every serving fixture, single request. Action equivalence here does not prove identical complete-game trajectories.",
+        "action_change_counts": {
+          "pytorch32_to_native64": 0,
+          "onnx32_to_onnx64": 0,
+          "pytorch32_to_onnx32": 0
+        }
+      },
+      "parity": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "inactive_values_zero": true,
+        "feature_revision": "4.0-multiplayer",
+        "model_sha256": "7131bf839fcdbbf5f8c6dd638deb1adcc338b201effdc225384f1f425be145d5",
+        "max_logit_error": 5.180282869332586e-10,
+        "max_value_error": 8.327616374259605e-12,
+        "all_actions_match": true,
+        "specialist_route_counts": {}
+      },
+      "serving": {
+        "hostname": "Mint-FW-13",
+        "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "python_version": "3.11.15",
+        "positions": 2553,
+        "by_player_count": {
+          "2": {
+            "positions": 349,
+            "p95_ms": 10.333048994652923
+          },
+          "3": {
+            "positions": 427,
+            "p95_ms": 8.974550901621114
+          },
+          "4": {
+            "positions": 527,
+            "p95_ms": 10.442814002453813
+          },
+          "5": {
+            "positions": 609,
+            "p95_ms": 9.209196403389797
+          },
+          "6": {
+            "positions": 641,
+            "p95_ms": 11.914553993847221
+          }
+        },
+        "model_sha256": "7131bf839fcdbbf5f8c6dd638deb1adcc338b201effdc225384f1f425be145d5",
+        "all_moves_legal": true,
+        "search_samples": 0,
+        "search_scope": "all",
+        "geographic_search": false,
+        "cold_start_ms": 382.8927080030553,
+        "warm_roundtrip_p50_ms": 4.759338997246232,
+        "warm_roundtrip_p95_ms": 10.479408043465808,
+        "worker_p95_ms": 6.1661399515287485,
+        "max_roundtrip_ms": 382.8927080030553,
+        "search_decisions": 0,
+        "search_evaluations": 0,
+        "search_truncated_rollouts": 0,
+        "search_roundtrip_p50_ms": null,
+        "search_roundtrip_p95_ms": null,
+        "by_phase": {
+          "Auction": {
+            "positions": 840,
+            "p50_ms": 4.613751494616736,
+            "p95_ms": 10.387285044998857,
+            "max_ms": 382.8927080030553
+          },
+          "Resources": {
+            "positions": 755,
+            "p50_ms": 4.824572009965777,
+            "p95_ms": 10.6854045036016,
+            "max_ms": 15.390415996080264
+          },
+          "Building": {
+            "positions": 491,
+            "p50_ms": 5.044984995038249,
+            "p95_ms": 10.358320003433619,
+            "max_ms": 18.383371003437787
+          },
+          "Bureaucracy": {
+            "positions": 467,
+            "p50_ms": 4.635317003703676,
+            "p95_ms": 9.79431749728974,
+            "max_ms": 17.18891999917105
+          }
+        }
+      }
+    }
+  },
+  "source_files": {
+    "model.py": "a2fe18290dcab07c9f1dff5526375ddcce2e43087722c0f4821c956a69dcf2d8",
+    "export-inference64.py": "8b557608db2e319dc1620c114e05b5050524f1bfdaedecb5684cbb0aced8558e",
+    "audit-inference64.py": "f33a0294f0bd0b2210f57d778051cb67077f46e75d286c01da74884866df5602"
+  },
+  "trained": false,
+  "qualification_eligible": false,
+  "scope": "8 unique pinned numerical derivatives; full 2553 fixture strict parity, legal serving and FP32/native64/ONNX64 comparison. No whole-game equivalence or strength claim. Local timing is HX370, not AMD8840U."
+}

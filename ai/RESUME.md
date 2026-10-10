@@ -6,7 +6,99 @@ final-test seeds remain unused.** The separate UI redesign was reverted.
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
 `ai/germany-baseline`. No UI work or publication is part of this AI continuation.
 
-## Latest addendum: complete three-player search comparison verified
+## Latest: all raw counts verified; phase diagnosis probes dispatched
+
+The previous goal turn was **progress** (verified three-player search gains and
+the real final-harness smoke). This turn is **progress**: the entire 13,440-game
+raw opponent suite is independently verified, the three full six-player guided
+jobs are dispatched, and a frozen auction/building phase ablation has nine HF
+probes in flight. No new gradients, candidate selection, reserved seeds or
+production deployment. UI remains at the previously reverted version.
+
+**All raw-policy 2–6p comparisons are complete**, 15 jobs and 13,440 games.
+`strong/discard-opponents-results-v1.json` now has `all_shards_verified: true`.
+Every raw game and search rollout passed the prescribed completion checks.
+New six-player raw artifacts are pinned at
+`b0444707a202113269df5c2a9a332d86be587c76`; local verified directories:
+`ai/runs/discard-opponents-verified-v1/{parent,10101,10102}-6p`.
+Immutable complete evidence: `3faadbc32dfdb6e1c1490f9ea6ade911bb68d9c4`,
+`runs/discard-opponents-completed-evidence-v1`, pin
+`strong/discard-opponents-completed-evidence-v1.json`. Earlier partial snapshots
+are preserved historical evidence, superseded by this full comparison.
+
+| 6p opponent | Parent | 10101 | 10102 |
+| --- | ---: | ---: | ---: |
+| legacy | 94.0104% | 94.0104% | 94.2708% |
+| heuristic | 99.2188% | 99.2188% | 99.2188% |
+| rush | 75.1302% | 75.3906% | 75.3906% |
+| search_geo | 38.5417% | 38.0208% | 38.5417% |
+
+Search has 192 games/model but only eight independent deals. Parent/10102
+interval is [31.25,46.3672]%; their credits are identical. The10101 point
+regression is 0.5208 percentage points. Parent/10102 rule shares are
+50/18.75/58.3333/27.0833% for original/open, original/sealed,
+Recharged/open, Recharged/sealed. Both sealed intervals include 1/6 chance:
+[8.3333,29.1667]% and [14.5833,41.6667]%. The favorable aggregate is not a
+qualification result. The earlier weak 3–4p and 5p sealed findings remain.
+
+**All 12 full 3–6p search jobs are dispatched**, 1,728 new guided games planned.
+Three 3p jobs/288 games are already independently verified; the other nine
+4–6p jobs are live or scheduling in the saved status file. Newly launched 6p:
+parent `6aca6ba9fee2c9007018a204`,10101 `6aca6babfee2c9007018a206`,
+10102 `6aca6bad095c5780893147f0`, 192 games each, CPU-performance10h.
+Their admission reverified the matching complete raw baseline and the measured
+6p runtime probe. No duplicated or restarted jobs.
+
+**New phase ablation is frozen**, using10102 and the exact same search settings,
+models, opponents and existing development deals. It compares auction-only and
+building-only search against the already pinned raw and all-search controls:
+search_geo2p (64 games/arm),search_geo3p (96),A2603p (192),704 new full games.
+This diagnoses phase contributions before choosing new teacher training; it
+cannot qualify a model. Report all rule cells and regressions, not just winners.
+
+Source `strong-source-phase-search-ablation-20261010-v1.tgz`, dataset revision
+`a597aed2089a746b2884083b6fea3ab4e9d774af`, SHA256
+`564543f80271af6bd26fc364e23e3fd107b7598742813119db7cd99fd71e607c`.
+Protocol SHA256 `facc2c51a8ef7af5e61283764dcb117cb7531e516bbf67a4d2d8b60436884c32`.
+All 1,378 base runtime files are byte-identical. Five added files attach a public
+phase tag, filter only learner search requests, count routing per game, and
+validate it. Local frozen-package checks cover 5,533 encodings on all2,553
+fixtures with unchanged features/legal moves/game state, plus routing checks
+preserving opponent and excluded-phase choices. Those are engineering checks;
+complete-game replay parity still requires the HF controls.
+
+Nine 4h HF probes, 96 games total, are dispatched:
+
+| Arm | search_geo2p | search_geo3p | A2603p |
+| --- | --- | --- | --- |
+| all control | `6aca6b8cfee2c9007018a1df` | `6aca6b8e095c5780893147d6` | `6aca6b90fee2c9007018a1e1` |
+| auction | `6aca6b92fee2c9007018a1e3` | `6aca6b93095c5780893147d9` | `6aca6b95095c5780893147dd` |
+| building | `6aca6b97fee2c9007018a1e5` | `6aca6b99095c5780893147df` | `6aca6b9a095c5780893147e4` |
+
+All-control probes replay one existing deal/case and must match every original
+game row exactly (apart from new routing counters). Phase probes use separate
+fresh runtime seeds. Do not use probe win rates as strength evidence. Full
+phase jobs have NOT launched yet. Independent collection and same-case control
+parity plus same-arm runtime admission are mandatory before full launch.
+Full admission uses120s+2×probe duration×deals,25% timeout headroom,max12h.
+If above the limit, split the work without weakening horizons.
+
+Manager: `ai/.venv/bin/python ai/strong/manage-phase-search-ablation.py`:
+`collect ARM CASE REV --smoke`, `profile ARM CASE`, then `launch ARM CASE`
+when admitted. ARM is `all` (controls only), `auction` or `building`; CASE is
+`search_geo-2p`, `search_geo-3p` or `a260-3p`. Full collection omits `--smoke`.
+`compare --cases ...` requires both phase arms for every requested case and
+explicitly marks incomplete case subsets. Launch guards are exclusive under
+`ai/runs/phase-search-ablation-launches-v1`. Preserve them on observation errors.
+Launch/preflight evidence pin: `strong/phase-search-ablation-launch-evidence-v1.json`.
+
+**Next:** collect finished phase probes and full4–6p guided arenas from their
+exact handles, verify outputs, admit full phase comparisons as justified, and
+use complete paired/rule evidence to choose the next teacher/student change.
+Current policy values remain uncalibrated for live player-score analysis.
+The original final strength gate and reserved prefix are unchanged and unused.
+
+## Earlier: complete three-player search comparison verified
 
 All three full3p jobs have now **COMPLETED**,288 new complete games with288
 paired raw baselines,zero game/search truncations. `strong/multiplayer-search-transfer-results-v1.json`

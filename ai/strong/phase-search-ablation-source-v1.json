@@ -1,0 +1,20 @@
+{
+  "archive": "strong-source-phase-search-ablation-20261010-v1.tgz",
+  "revision": "a597aed2089a746b2884083b6fea3ab4e9d774af",
+  "sha256": "564543f80271af6bd26fc364e23e3fd107b7598742813119db7cd99fd71e607c",
+  "overlays": {
+    "ai/strong/capture-search-phase.cjs": "85d2b4d64eb86cc1651352cd9571bf7273839dd78fceed0167b00d81fe75897e",
+    "ai/strong/test-capture-search-phase.cjs": "3c53d1392a063b1d0ceaf268dd473a10359467758f1fcc42a233b15955357add",
+    "ai/strong/phase_search_ablation.py": "84fa6226cac15774c16189c36af3f613a07f5a2d826e4cf485711efa459df16d",
+    "ai/strong/test_phase_search_ablation.py": "317d43e8031dedde20a02c0bb8a570d84c96aadf1fc404bbd94b7ba7fea5718c",
+    "ai/strong/phase-search-ablation-protocol-v1.json": "facc2c51a8ef7af5e61283764dcb117cb7531e516bbf67a4d2d8b60436884c32"
+  },
+  "base": {
+    "archive": "strong-source-multiplayer-search-transfer-20261010-v1.tgz",
+    "revision": "a96a04f0914a34f4a86bcac0948db0e4777fa83d",
+    "sha256": "98fd31d794e96f0e4598db484cb074e899fe3af465b4c911d7c2abea6f15bbe2"
+  },
+  "unchanged_base_file_count": 1378,
+  "protocol_sha256": "facc2c51a8ef7af5e61283764dcb117cb7531e516bbf67a4d2d8b60436884c32",
+  "qualification_eligible": false
+}

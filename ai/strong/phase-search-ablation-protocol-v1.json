@@ -1,0 +1,150 @@
+{
+  "purpose": "Factorial auction/building public-search ablation on reused development deals, to locate useful interventions before new teacher training. No qualification or model selection.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "models": {
+    "10102": {
+      "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+      "prefix": "runs/discard-correction-v1/10102/derivative",
+      "files": {
+        "inference64.onnx": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+        "inference64.pt": "25e9995c3998cc9f09e1dafb40f0328ae09e616f791c10e793eaad42cfa5e473"
+      },
+      "feature_revision": "4.2-discard-correction",
+      "selected_epoch": 10
+    }
+  },
+  "frozen_opponent": {
+    "revision": "b38515c29e57826de05b55b645c29591e4a886bf",
+    "path": "runs/strong-league-v2-a/best.onnx",
+    "sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+    "feature_revision": "3.0"
+  },
+  "cases": [
+    {
+      "id": "search_geo-2p",
+      "players": 2,
+      "opponent": "search_geo",
+      "deals": 8,
+      "games": 64,
+      "seed": "discard-opponents-games-v1-2p",
+      "baselines": {
+        "raw": {
+          "revision": "c378cd1437fc6bd3fc340c94aca20142d5de5c73",
+          "path": "runs/discard-opponents-v1-10102-2p/search_geo.json",
+          "sha256": "b307054c1b3a86c73c037f8e54d7ebb46d7bc5b28c113f092867f8a16657717f"
+        },
+        "all": {
+          "revision": "7512fc2d33fb1d7653be0e8a3717d9fe0e594a20",
+          "path": "runs/search-transfer-v1-10102-search_geo-2p/search.json",
+          "sha256": "3ae5ede39d95d335b3d2433e7d01df4abf3ac47de02718d2c6cfb7e6e6c795bc"
+        }
+      },
+      "verified_baseline_record_sha256": "ffbdd5ee2ba7fa10b4c9f08e57181e287be82dcd02d42ba1bb903298e084c934"
+    },
+    {
+      "id": "search_geo-3p",
+      "players": 3,
+      "opponent": "search_geo",
+      "deals": 8,
+      "games": 96,
+      "seed": "discard-opponents-games-v1-3p",
+      "baselines": {
+        "raw": {
+          "revision": "96a899ef266439f72f50f2dbcfe8d5060985a543",
+          "path": "runs/discard-opponents-v1-10102-3p/search_geo.json",
+          "sha256": "4a9969ff2b2ee9cc1a1b11a80a234171c2d38a4af460e0578721f409389a7eb6"
+        },
+        "all": {
+          "revision": "363e2b5aab88c0be17ee2ab36c0a61421d419fb8",
+          "path": "runs/multiplayer-search-transfer-v1-10102-3p/search.json",
+          "sha256": "cb8fdd7565d791a3f6e3c8e8f88f6c746feb08499ba2e0c5edb8740506c511df"
+        }
+      },
+      "verified_baseline_record_sha256": "155a69cf247a7dcc0c7b23b338192d657feec519ccbac7de2acc70c940cbc42b"
+    },
+    {
+      "id": "a260-3p",
+      "players": 3,
+      "opponent": "a260",
+      "deals": 16,
+      "games": 192,
+      "seed": "discard-correction-games-v1-3p",
+      "baselines": {
+        "raw": {
+          "revision": "d6bbd10b729231bc574ad1037065c25d7fb0b61e",
+          "path": "runs/discard-correction-screen-v1-10102/a260-3p.json",
+          "sha256": "9df71ab8ec57cdb4ea0c7e49bd9783fe00f482cd04de8a7e94aad5087a67dee1"
+        },
+        "all": {
+          "revision": "5f229b534da876c6455740631c2012e3152138b5",
+          "path": "runs/search-transfer-v1-10102-a260-3p/search.json",
+          "sha256": "ce3621b38a9983150b59383923b878cf3f235b23d827c5c9f490b499723ac857"
+        }
+      },
+      "verified_baseline_record_sha256": "c35f78b4d01ff7add59ae07815d2aeb13961664386fcd55d498a88b6b545c17a"
+    }
+  ],
+  "arms": [
+    "auction",
+    "building"
+  ],
+  "control_arm": "all",
+  "candidate_search": {
+    "samples": 48,
+    "geography": true,
+    "scope": "all",
+    "include_model_proposal": true,
+    "search_max_steps": 2400,
+    "actual_game_max_steps": 1600
+  },
+  "smoke": {
+    "seed_template": "phase-search-ablation-smoke-v1-{case}",
+    "control": "One existing deal/case, exact per-game replay of pinned all-search reference. Phase probes use separate fresh seeds."
+  },
+  "planned_new_full_games": 704,
+  "planned_probe_games": 96,
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 8501,
+  "workers": 24,
+  "admission": "Require same-case exact all-search replay plus independently verified same-arm/case probe. Use120s+2*probe_seconds*deals,25%timeoutheadroom,max12h. Split if too long,never weaken horizons.",
+  "analysis": "Compare each phase arm against both pinned raw and all-search controls, plus between arms, by whole paired deals and each rule. Report all cases; marginal exploratory95% intervals,not multiplicity-adjusted. Reused developmental seeds cannot qualify a candidate.",
+  "baseline_sources": {
+    "first_search": {
+      "archive": "strong-source-search-transfer-20261010-v1.tgz",
+      "revision": "1ef629c51282936c0bd2be9e7b584ce985e91d03",
+      "sha256": "e35e93d6d410ccb34bfb59a2840a7e4ed3b67e950a429968adcdf383ec53ef55",
+      "overlays": {
+        "ai/strong/search_transfer.py": "4ed3cd491666c9e99e481d807979dbed95245183818740350cbe83ab95cdebf4",
+        "ai/strong/search-transfer-protocol-v1.json": "5c0d303a3ea15c69c29c841f022a3c7a80379d97f1e14cf7901ce371df3b5d1c",
+        "ai/strong/check-search-transfer.cjs": "e4c256d2214ec6a89fb5e88cc50fc04f3d2196e95928759a9157ced9c8f80d93",
+        "ai/strong/compare-population-screens.py": "b74bac5c403d5a96e79fddf43b4dcd9b715d5124e9c2681983ad519e2177d887"
+      },
+      "base": {
+        "archive": "strong-source-discard-opponents-20261010-v1.tgz",
+        "revision": "e44812ae307ae3e8a2b62306511d55b61d34720f",
+        "sha256": "b40efa0c88e8b8a148bf44f955a50b1aa20804cc7e9eb09bd0f4f15efe31a880"
+      },
+      "unchanged_base_file_count": 1372,
+      "protocol_sha256": "5c0d303a3ea15c69c29c841f022a3c7a80379d97f1e14cf7901ce371df3b5d1c",
+      "qualification_eligible": false
+    },
+    "multiplayer_search": {
+      "archive": "strong-source-multiplayer-search-transfer-20261010-v1.tgz",
+      "revision": "a96a04f0914a34f4a86bcac0948db0e4777fa83d",
+      "sha256": "98fd31d794e96f0e4598db484cb074e899fe3af465b4c911d7c2abea6f15bbe2",
+      "overlays": {
+        "ai/strong/multiplayer_search_transfer.py": "35c899284bad1365cd8eeddfc4d2fae970b98fb1910d7f85a902a8da28e5c073",
+        "ai/strong/multiplayer-search-transfer-protocol-v1.json": "9f6606955ac2aa3ebd46168bce0d983cd4aaed5b9d1d4feda21890d07fff5dda"
+      },
+      "base": {
+        "archive": "strong-source-search-transfer-20261010-v1.tgz",
+        "revision": "1ef629c51282936c0bd2be9e7b584ce985e91d03",
+        "sha256": "e35e93d6d410ccb34bfb59a2840a7e4ed3b67e950a429968adcdf383ec53ef55"
+      },
+      "unchanged_base_file_count": 1376,
+      "protocol_sha256": "9f6606955ac2aa3ebd46168bce0d983cd4aaed5b9d1d4feda21890d07fff5dda",
+      "qualification_eligible": false
+    }
+  },
+  "qualification_eligible": false
+}

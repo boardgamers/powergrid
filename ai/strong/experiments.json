@@ -37982,10 +37982,10 @@
             "game_truncations": 0,
             "search_truncations": 0
         },
-        "stage": "All 9408 raw-policy2\u20135p games verified, zero caps; three6p jobs remain live. Five-player sealed results and correction regression prevent qualification.",
+        "stage": "All13440 raw-policy independent-opponent games across2\u20136p verified,zero caps. Aggregate6p strength does not resolve sealed weakness or3\u20134p failures.",
         "qualification_eligible": false,
         "status": {
-            "checked_at": "2026-10-10T16:33:20.907261+00:00",
+            "checked_at": "2026-10-10T16:45:00.393424+00:00",
             "jobs": {
                 "10101-2p": {
                     "job_id": "6aca529ffee2c90070188f0f",
@@ -38009,7 +38009,7 @@
                 },
                 "10101-6p": {
                     "job_id": "6aca55edfee2c900701891ef",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 9
                 },
                 "10102-2p": {
@@ -38034,7 +38034,7 @@
                 },
                 "10102-6p": {
                     "job_id": "6aca55ef095c578089313adb",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 9
                 },
                 "parent-2p": {
@@ -38059,7 +38059,7 @@
                 },
                 "parent-6p": {
                     "job_id": "6aca55e9095c578089313ace",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 9
                 },
                 "smoke-10102-2p": {
@@ -38141,9 +38141,10 @@
             2,
             3,
             4,
-            5
+            5,
+            6
         ],
-        "games_verified": 9408,
+        "games_verified": 13440,
         "evidence_2p5p": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
             "revision": "01e02f69e85a21cf20967b373fb1fe3acf477a96",
@@ -38155,6 +38156,21 @@
                 4,
                 5
             ],
+            "qualification_eligible": false
+        },
+        "evidence_complete": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "3faadbc32dfdb6e1c1490f9ea6ade911bb68d9c4",
+            "prefix": "runs/discard-opponents-completed-evidence-v1",
+            "games_verified": 13440,
+            "verified_players": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "all_counts_verified": true,
             "qualification_eligible": false
         }
     },
@@ -38464,7 +38480,7 @@
             "qualification_eligible": false
         },
         "status": {
-            "checked_at": "2026-10-10T16:38:26.362948+00:00",
+            "checked_at": "2026-10-10T16:49:09.311914+00:00",
             "jobs": {
                 "smoke-10102-3p": {
                     "job_id": "6aca61e3fee2c90070189b3e",
@@ -38527,6 +38543,21 @@
                     "job_id": "6aca67e4095c57808931461f",
                     "status": "RUNNING",
                     "timeout_hours": 7
+                },
+                "10101-6p": {
+                    "job_id": "6aca6babfee2c9007018a206",
+                    "status": "RUNNING",
+                    "timeout_hours": 10
+                },
+                "10102-6p": {
+                    "job_id": "6aca6bad095c5780893147f0",
+                    "status": "RUNNING",
+                    "timeout_hours": 10
+                },
+                "parent-6p": {
+                    "job_id": "6aca6ba9fee2c9007018a204",
+                    "status": "RUNNING",
+                    "timeout_hours": 10
                 }
             },
             "qualification_eligible": false
@@ -38547,7 +38578,7 @@
         "planned_full_games": 1728,
         "probe_games": 72,
         "full_jobs_launched": 0,
-        "stage": "All three3p guided arms verified,288 games,zero caps. Corrected41.67% versus20.83% raw,paired gain20.83 points,CI[15.625,26.0417]. Rule intervals include chance;4\u20135p jobs live;6p awaits raw baselines.",
+        "stage": "All12 full3\u20136p guided jobs dispatched;3p verified,4\u20136p live/scheduling. Raw baselines complete. No qualification.",
         "qualification_eligible": false,
         "runtime_evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
@@ -38614,7 +38645,7 @@
                 "protocol_sha256": "9f6606955ac2aa3ebd46168bce0d983cd4aaed5b9d1d4feda21890d07fff5dda"
             }
         },
-        "full_games_launched": 1152,
+        "full_games_launched": 1728,
         "results_file": "ai/strong/multiplayer-search-transfer-results-v1.json",
         "evidence_3p": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
@@ -38754,5 +38785,119 @@
         },
         "qualification_eligible": false,
         "stage": "Real HF development runtime verified:8 games,108096 rollouts,0caps; source/model/runner and raw outcomes independently checked. No reserved seeds or qualification."
+    },
+    "phase_search_ablation_v1": {
+        "protocol_file": "ai/strong/phase-search-ablation-protocol-v1.json",
+        "source": {
+            "archive": "strong-source-phase-search-ablation-20261010-v1.tgz",
+            "revision": "a597aed2089a746b2884083b6fea3ab4e9d774af",
+            "sha256": "564543f80271af6bd26fc364e23e3fd107b7598742813119db7cd99fd71e607c",
+            "overlays": {
+                "ai/strong/capture-search-phase.cjs": "85d2b4d64eb86cc1651352cd9571bf7273839dd78fceed0167b00d81fe75897e",
+                "ai/strong/test-capture-search-phase.cjs": "3c53d1392a063b1d0ceaf268dd473a10359467758f1fcc42a233b15955357add",
+                "ai/strong/phase_search_ablation.py": "84fa6226cac15774c16189c36af3f613a07f5a2d826e4cf485711efa459df16d",
+                "ai/strong/test_phase_search_ablation.py": "317d43e8031dedde20a02c0bb8a570d84c96aadf1fc404bbd94b7ba7fea5718c",
+                "ai/strong/phase-search-ablation-protocol-v1.json": "facc2c51a8ef7af5e61283764dcb117cb7531e516bbf67a4d2d8b60436884c32"
+            },
+            "base": {
+                "archive": "strong-source-multiplayer-search-transfer-20261010-v1.tgz",
+                "revision": "a96a04f0914a34f4a86bcac0948db0e4777fa83d",
+                "sha256": "98fd31d794e96f0e4598db484cb074e899fe3af465b4c911d7c2abea6f15bbe2"
+            },
+            "unchanged_base_file_count": 1378,
+            "protocol_sha256": "facc2c51a8ef7af5e61283764dcb117cb7531e516bbf67a4d2d8b60436884c32",
+            "qualification_eligible": false
+        },
+        "preflight": {
+            "source_revision": "a597aed2089a746b2884083b6fea3ab4e9d774af",
+            "source_sha256": "564543f80271af6bd26fc364e23e3fd107b7598742813119db7cd99fd71e607c",
+            "protocol_sha256": "facc2c51a8ef7af5e61283764dcb117cb7531e516bbf67a4d2d8b60436884c32",
+            "frozen_package_passed": true,
+            "fixture_checks": {
+                "positions": 2553,
+                "checks": 5533,
+                "phases": {
+                    "auction": 1659,
+                    "other": 3180,
+                    "building": 694
+                },
+                "players": {
+                    "2": 349,
+                    "3": 427,
+                    "4": 527,
+                    "5": 609,
+                    "6": 641
+                },
+                "observations_unchanged": true,
+                "scope": "Read-only classification and unchanged features; no strength claim"
+            },
+            "routing_tests": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK",
+            "complete_game_control_parity": "pending HF probes",
+            "qualification_eligible": false
+        },
+        "status": {
+            "jobs": {
+                "smoke-building-a260-3p": {
+                    "job_id": "6aca6b9a095c5780893147e4",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                },
+                "smoke-all-search_geo-2p": {
+                    "job_id": "6aca6b8cfee2c9007018a1df",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                },
+                "smoke-all-a260-3p": {
+                    "job_id": "6aca6b90fee2c9007018a1e1",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                },
+                "smoke-building-search_geo-3p": {
+                    "job_id": "6aca6b99095c5780893147df",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                },
+                "smoke-auction-search_geo-3p": {
+                    "job_id": "6aca6b93095c5780893147d9",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                },
+                "smoke-auction-a260-3p": {
+                    "job_id": "6aca6b95095c5780893147dd",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                },
+                "smoke-building-search_geo-2p": {
+                    "job_id": "6aca6b97fee2c9007018a1e5",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                },
+                "smoke-all-search_geo-3p": {
+                    "job_id": "6aca6b8e095c5780893147d6",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                },
+                "smoke-auction-search_geo-2p": {
+                    "job_id": "6aca6b92fee2c9007018a1e3",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                }
+            },
+            "qualification_eligible": false,
+            "checked_at": "2026-10-10T16:49:09.802196+00:00"
+        },
+        "launch_evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "f2f2ab14aaeab900eaf16654b35de796881e084e",
+            "prefix": "runs/phase-search-ablation-launch-evidence-v1",
+            "probe_games_dispatched": 96,
+            "full_games_dispatched": 0,
+            "qualification_eligible": false
+        },
+        "planned_new_full_games": 704,
+        "probe_games_launched": 96,
+        "full_games_launched": 0,
+        "qualification_eligible": false,
+        "stage": "Nine HF replay/runtime probes dispatched. Preserve exact all-control parity and same-arm/case runtime before full launch. No new training or phase-strength conclusions yet."
     }
 }

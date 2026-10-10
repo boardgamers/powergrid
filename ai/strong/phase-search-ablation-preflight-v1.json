@@ -1,0 +1,27 @@
+{
+  "source_revision": "a597aed2089a746b2884083b6fea3ab4e9d774af",
+  "source_sha256": "564543f80271af6bd26fc364e23e3fd107b7598742813119db7cd99fd71e607c",
+  "protocol_sha256": "facc2c51a8ef7af5e61283764dcb117cb7531e516bbf67a4d2d8b60436884c32",
+  "frozen_package_passed": true,
+  "fixture_checks": {
+    "positions": 2553,
+    "checks": 5533,
+    "phases": {
+      "auction": 1659,
+      "other": 3180,
+      "building": 694
+    },
+    "players": {
+      "2": 349,
+      "3": 427,
+      "4": 527,
+      "5": 609,
+      "6": 641
+    },
+    "observations_unchanged": true,
+    "scope": "Read-only classification and unchanged features; no strength claim"
+  },
+  "routing_tests": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK",
+  "complete_game_control_parity": "pending HF probes",
+  "qualification_eligible": false
+}

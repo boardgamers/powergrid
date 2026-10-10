@@ -1,0 +1,15 @@
+{
+  "training_jobs": {
+    "heterogeneous": "6aca02dd095c578089310b2b",
+    "homogeneous": "6aca02de095c578089310b2d",
+    "control": "6aca02dffee2c9007018574b"
+  },
+  "earliest_commit": "2026-10-10T09:18:00+00:00",
+  "poll_seconds": 120,
+  "max_hours": 11.5,
+  "output_prefix": "runs/population-coordinator-v1",
+  "fixture_path": "ai/strong/fixtures/multiplayer-serving-v1.jsonl",
+  "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+  "parent_path": "ai/coordinator/parent",
+  "purpose": "Execute only the already-frozen population update9/update19 development screens. No training changes or final qualification."
+}

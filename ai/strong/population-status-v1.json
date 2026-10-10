@@ -7,7 +7,7 @@
       "launched_at": "2026-10-10T09:18:21.440059+00:00",
       "url": "https://huggingface.co/jobs/coyotte508/6aca02dd095c578089310b2b",
       "observed_stage": "RUNNING",
-      "observed_at": "2026-10-10T09:47:32.774032+00:00",
+      "observed_at": "2026-10-10T10:01:46.676583+00:00",
       "verified_startup": {
         "run": "multiplayer-population-v1-heterogeneous",
         "parameters": 983682,
@@ -51,27 +51,29 @@
       "latest_progress": {
         "stage": "rollout_progress",
         "run": "multiplayer-population-v1-heterogeneous",
-        "update": 5,
-        "completed_games": 0,
+        "update": 7,
+        "completed_games": 237,
         "requested_games": 240,
-        "decisions": 6960,
-        "unfinished_games": 240,
-        "ready_games": 55,
-        "in_flight_games": 185,
-        "ready_round_min": 1,
-        "ready_round_max": 7,
-        "engine_seconds": 1.4933550544083118,
+        "decisions": 42479,
+        "unfinished_games": 3,
+        "ready_games": 1,
+        "in_flight_games": 2,
+        "ready_round_min": 9,
+        "ready_round_max": 9,
+        "engine_seconds": 43.57753665372729,
         "engine_timing": "blocking_call_wall_time",
         "async_rollout": true,
-        "policy_seconds": 57.99309447966516,
-        "seconds": 60.340203889645636
+        "policy_seconds": 194.67192750051618,
+        "seconds": 240.3731373567134
       },
       "verified_complete_updates": [
         0,
         1,
         2,
         3,
-        4
+        4,
+        5,
+        6
       ],
       "first_update": {
         "stage": "train",
@@ -911,7 +913,7 @@
       "launched_at": "2026-10-10T09:18:22.334534+00:00",
       "url": "https://huggingface.co/jobs/coyotte508/6aca02de095c578089310b2d",
       "observed_stage": "RUNNING",
-      "observed_at": "2026-10-10T09:47:39.055421+00:00",
+      "observed_at": "2026-10-10T10:01:52.230285+00:00",
       "verified_startup": {
         "run": "multiplayer-population-v1-homogeneous",
         "parameters": 983682,
@@ -955,7 +957,9 @@
       "verified_complete_updates": [
         0,
         1,
-        2
+        2,
+        3,
+        4
       ],
       "first_update": {
         "stage": "train",
@@ -1080,20 +1084,20 @@
       "latest_progress": {
         "stage": "rollout_progress",
         "run": "multiplayer-population-v1-homogeneous",
-        "update": 3,
-        "completed_games": 237,
+        "update": 5,
+        "completed_games": 203,
         "requested_games": 240,
-        "decisions": 44066,
-        "unfinished_games": 3,
-        "ready_games": 1,
-        "in_flight_games": 2,
-        "ready_round_min": 6,
-        "ready_round_max": 6,
-        "engine_seconds": 234.24749394899254,
+        "decisions": 39728,
+        "unfinished_games": 37,
+        "ready_games": 8,
+        "in_flight_games": 29,
+        "ready_round_min": 9,
+        "ready_round_max": 11,
+        "engine_seconds": 7.218452816003264,
         "engine_timing": "blocking_call_wall_time",
         "async_rollout": true,
-        "policy_seconds": 67.13340751599799,
-        "seconds": 303.16069229000004
+        "policy_seconds": 110.46456587299963,
+        "seconds": 120.06853160899982
       },
       "log_observed_at": "2026-10-10T09:38:06.245634+00:00"
     },
@@ -1103,7 +1107,7 @@
       "launched_at": "2026-10-10T09:18:23.206011+00:00",
       "url": "https://huggingface.co/jobs/coyotte508/6aca02dffee2c9007018574b",
       "observed_stage": "RUNNING",
-      "observed_at": "2026-10-10T09:47:45.300557+00:00",
+      "observed_at": "2026-10-10T10:01:57.766088+00:00",
       "verified_startup": {
         "run": "multiplayer-population-v1-control",
         "parameters": 983682,
@@ -1119,24 +1123,26 @@
       "latest_progress": {
         "stage": "rollout_progress",
         "run": "multiplayer-population-v1-control",
-        "update": 2,
-        "completed_games": 236,
+        "update": 4,
+        "completed_games": 229,
         "requested_games": 240,
-        "decisions": 42804,
-        "unfinished_games": 4,
+        "decisions": 47100,
+        "unfinished_games": 11,
         "ready_games": 1,
-        "in_flight_games": 3,
-        "ready_round_min": 8,
-        "ready_round_max": 8,
-        "engine_seconds": 288.80771971600325,
+        "in_flight_games": 10,
+        "ready_round_min": 6,
+        "ready_round_max": 6,
+        "engine_seconds": 144.8364339349937,
         "engine_timing": "blocking_call_wall_time",
         "async_rollout": true,
-        "policy_seconds": 131.85358702100893,
-        "seconds": 422.38205889000005
+        "policy_seconds": 94.42767518099208,
+        "seconds": 240.90699239900005
       },
       "verified_complete_updates": [
         0,
-        1
+        1,
+        2,
+        3
       ],
       "first_update": {
         "stage": "train",

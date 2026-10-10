@@ -4,10 +4,42 @@
 final-test seeds remain unused.** The separate UI redesign was reverted.
 
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
-`ai/germany-baseline`. The previous goal turn made concrete progress by launching
-the controlled population pilot and verifying its parent benchmark. This turn
-verified complete training batches, measured CPU/H200 throughput, and validated
-a behavior-preserving simulation optimization. Do not repeat completed probes.
+`ai/germany-baseline`. The previous goal turn made concrete progress with verified
+CPU/H200 measurements and a behavior-preserving simulation optimization. The
+current turn added and launched a durable HF checkpoint evaluator and verified
+further training batches. Do not repeat completed probes.
+
+## Automatic checkpoint evaluation — inspect before any manual launch
+
+Coordinator job: `6aca0d29095c578089310fca` (CPU-basic, 12-hour timeout),
+verified RUNNING with all startup tests passed at 10:03 UTC on October 10.
+Inspect its actual status and `strong/population-coordinator-status-v1.json`.
+It owns **all six scheduled candidate screens** (three arms × updates 9 and 19).
+Do not launch duplicate screens while it is active. It does not train, change
+the population experiment, use final-test seeds, or promote any model.
+
+Remote state and reports live in model repo `coyotte508/powergrid-ai-germany-v1`,
+under `runs/population-coordinator-v1/`. Pin the current repository revision
+before reading `state.json`, candidate folders, or `comparison-u9/u19.json`.
+Child screen job IDs are recorded there. A waiting checkpoint has no strength
+result yet. On any failure, inspect its exact validation/launch/collection log;
+never restart a job solely because observation timed out. An unresolved launch
+intent means its POST may have succeeded and requires reconciliation first.
+
+Frozen coordinator source: `strong-source-population-coordinator-20261010-v1.tgz`,
+training dataset revision `68ac8b3a6dbc9706f69206df84ac4e98c25b551e`.
+Exact hashes are in `strong/population-coordinator-source-v1.json`. It packages
+the original population runtime, all 2,553 raw export fixtures, and all six
+verified parent reports. Eleven failure/recovery tests passed locally and again on HF at startup. Packaged parent reports were independently
+rechecked: 3,680 complete paired games and matching artifact hashes.
+
+The coordinator waits for matching metrics/latest checkpoint updates, recovers
+missed update 9 from immutable history, requires full strict export parity,
+then runs the prescribed six cells. It records launch intent before POST and
+never automatically retries an ambiguous launch. Failed trainers or screens do
+not cause it to abandon already-running peer screens. After all three arms for
+an update are collected, it produces the paired comparisons. Terminal failures
+give a nonzero exit; they are evidence to inspect, not successful qualification.
 
 ## Current training — inspect exact jobs before taking action
 
@@ -77,8 +109,8 @@ This is a single-seed pilot. Source/revision/hash are in
    original control performs more search rollouts than the population arms;
    raw update times are not a clean hardware comparison. Keep all prescribed
    checkpoints and regressions, including runs slower than the others.
-2. At updates 9 and 19, preserve immutable model-repository revisions for every
-   run before later uploads replace `latest`. Use
+2. Let the coordinator preserve immutable model-repository revisions at updates
+   9 and 19 before later uploads replace `latest`. Its underlying tools are
    `strong/prepare-population-screen.py ARM UPDATE REV OUTPUT` to validate
    training provenance and full 2,553-position checkpoint/export parity, then
    launch its `screen-plan.json`. Internal `best` is not the scheduled candidate.

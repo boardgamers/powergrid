@@ -36102,7 +36102,7 @@
         "source_revision": "9691971d63d556b542647137291d19cfce750808",
         "initial_artifact_revision": "bbbbd1ac091651f8854386a476cb42617d9c095a",
         "qualification_eligible": false,
-        "next": "Collect prescribed population update9/update19 comparisons; choose next parent/recipe and controlled strength experiment. Do not repeat completed smoke.",
+        "next": "Follow frozen five-plant-ablation-protocol-v1.json; smoke is complete and should not be repeated.",
         "results": "five-plant-smoke-results-v1.json",
         "smoke_artifact_revision": "4669fed94f8882e55eac3e3ff7bfb186c92ad36c"
     },
@@ -36124,5 +36124,33 @@
         "truncations": 0,
         "qualification_eligible": false,
         "decision": "Keep old baseline and add corrected reference; no clear heuristic superiority, fresh 2p regression of heterogeneous u9 vs parent. No gradients."
+    },
+    "population_heterogeneous_u19": {
+        "status": "Final scheduled checkpoint independently verified; all-arm primary comparison pending",
+        "results": "population-heterogeneous-u19-screen-v1.json",
+        "games": 3680,
+        "truncations": 0,
+        "checkpoint_revision": "3a71c9d1d7300a2d2169e059e8d9242167e73625",
+        "result_revision": "7055d120f9e503694fd58575d0e91e118e18dfa3",
+        "qualification_eligible": false,
+        "decision": "Two-player economic floor still fails (55.31%; original/sealed48.75%); A260 gain is retained but insufficient for qualification."
+    },
+    "five_plant_ablation_v1": {
+        "status": "Four HF H200 jobs RUNNING; parent CPU evaluation submitted",
+        "protocol": "five-plant-ablation-protocol-v1.json",
+        "training_status": "five-plant-ablation-status-v1.json",
+        "source": "five-plant-ablation-source-v1.json",
+        "initial": "five-plant-ablation-initial-v1.json",
+        "screen_source": "five-plant-screen-source-v1.json",
+        "screen_status": "five-plant-screen-status-v1.json",
+        "games_per_training_run": 4800,
+        "training_seeds": [
+            10031,
+            10032
+        ],
+        "games_per_screen": 4000,
+        "qualification_eligible": false,
+        "next": "Inspect actual jobs; collect original population primary results. Launch final-only new ablation screens after complete training; preserve all count/rule/reference cells and both seed contrasts. Old coordinator does not own ablation screens.",
+        "numeric_limitation": "Original u79 and full transfer share one strict batch16 ONNX logit mismatch; all choices agree and all2553 single-request checks pass. Exact PyTorch transfer at batch1 and16. No tolerance changes."
     }
 }

@@ -25,6 +25,8 @@ def main():
     parser.add_argument('revision')
     parser.add_argument('update', type=int, choices=[9, 19])
     parser.add_argument('output', type=Path)
+    parser.add_argument('--arm', choices=['control', 'homogeneous', 'heterogeneous'],
+                        help='Collect one completed checkpoint while other prescribed arms are still running')
     parser.add_argument('--parent', type=Path, default=ROOT / 'ai/runs/population-parent-screen-v1')
     args = parser.parse_args()
     out = args.output.resolve()
@@ -39,11 +41,12 @@ def main():
 
     state_bytes = download(prefix + '/state.json')
     state = json.loads(state_bytes)
-    assert str(args.update) in state['comparisons'], 'Comparison not ready'
+    if not args.arm:
+        assert str(args.update) in state['comparisons'], 'Comparison not ready'
     assert state['protocol_sha256'] == hashlib.sha256((ROOT / 'ai/strong/population-training-protocol-v1.json').read_bytes()).hexdigest()
     (out / 'coordinator-state.json').write_bytes(state_bytes)
     manifests = {}
-    for arm in protocol['arms']:
+    for arm in ([args.arm] if args.arm else protocol['arms']):
         key = f'{arm}-u{args.update}'
         entry = state['checkpoints'][key]
         assert entry['phase'] == 'collected'
@@ -71,6 +74,15 @@ def main():
         assert json.loads((directory / 'summary.json').read_text()) == original
         manifests[arm] = {'checkpoint': pin, 'result_revision': entry['result_revision'],
                           'screen_jobs': {k: v['job_id'] for k, v in entry['screens'].items()}}
+    if args.arm:
+        report = {'coordinator_revision': args.revision, 'update': args.update, 'verified': True,
+                  'qualification_eligible': False, 'primary_checkpoint': args.update == protocol['primary_checkpoint_update'],
+                  'all_arm_comparison_ready': False,
+                  'candidate_games': sum(s['games'] for s in protocol['evaluation']['screens']),
+                  'truncations': 0, 'arms': manifests}
+        (out / 'verified.json').write_text(json.dumps(report, indent=2) + '\n')
+        print(json.dumps({k: v for k, v in report.items() if k != 'arms'}))
+        return
     comparison = out / f'comparison-u{args.update}.json'
     command = [sys.executable, str(ROOT / 'ai/strong/compare-population-screens.py'),
                '--parent', str(args.parent.resolve()), '--update', str(args.update), '--output', str(comparison)]

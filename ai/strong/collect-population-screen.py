@@ -11,13 +11,13 @@ from arena_statistics import validate_pairs, win_summary, search_summary
 ROOT = Path(__file__).resolve().parents[2]
 
 
-def verify_report(report, screen, checkpoint, evaluation):
+def verify_report(report, screen, checkpoint, evaluation, feature_revision='4.0-multiplayer'):
     n = screen['players']
     expected_seed = evaluation['seed_template'].format(players=n)
     expected = {
         'model_sha256': checkpoint['hashes']['latest.onnx'],
-        'model_feature_revision': '4.0-multiplayer',
-        'encoder_feature_revision': '4.0-multiplayer',
+        'model_feature_revision': feature_revision,
+        'encoder_feature_revision': feature_revision,
         'player_count': n, 'games': screen['games'], 'paired_seats': True,
         'candidate_search_samples': 0, 'candidate_geographic_search': False,
         'candidate_search_scope': 'all', 'candidate_search_model_proposal': True,

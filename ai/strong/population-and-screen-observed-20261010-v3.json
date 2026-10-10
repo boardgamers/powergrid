@@ -1,0 +1,89 @@
+[
+  {
+    "key": "homogeneous",
+    "job_id": "6aca02de095c578089310b2d",
+    "observed_stage": "RUNNING",
+    "observed_at": "2026-10-10T11:29:53.794336+00:00",
+    "recent": [
+      {
+        "stage": "train",
+        "update": 15,
+        "episodes": 240,
+        "truncated": 0
+      },
+      {
+        "stage": "rollout_progress",
+        "update": 16,
+        "completed_games": 176
+      },
+      {
+        "stage": "rollout_progress",
+        "update": 16,
+        "completed_games": 233
+      }
+    ]
+  },
+  {
+    "key": "control",
+    "job_id": "6aca02dffee2c9007018574b",
+    "observed_stage": "RUNNING",
+    "observed_at": "2026-10-10T11:29:53.766099+00:00",
+    "recent": [
+      {
+        "stage": "rollout_progress",
+        "update": 14,
+        "completed_games": 216
+      },
+      {
+        "stage": "rollout_progress",
+        "update": 14,
+        "completed_games": 223
+      },
+      {
+        "stage": "rollout_progress",
+        "update": 14,
+        "completed_games": 228
+      }
+    ]
+  },
+  {
+    "key": "coordinator",
+    "job_id": "6aca0d29095c578089310fca",
+    "observed_stage": "RUNNING",
+    "observed_at": "2026-10-10T11:29:53.801887+00:00",
+    "recent": [
+      {
+        "stage": "waiting"
+      },
+      {
+        "stage": "waiting"
+      },
+      {
+        "stage": "waiting"
+      }
+    ]
+  },
+  {
+    "key": "ablation_parent",
+    "job_id": "6aca2110095c578089311b47",
+    "observed_stage": "RUNNING",
+    "observed_at": "2026-10-10T11:29:53.749227+00:00",
+    "recent": [
+      {
+        "stage": "cell_complete",
+        "cell": "economic-2p.json",
+        "key": "parent"
+      },
+      {
+        "stage": "cell_complete",
+        "cell": "economic-3p.json",
+        "key": "parent"
+      },
+      {
+        "stage": "cell_complete",
+        "cell": "economic-4p.json",
+        "key": "parent"
+      }
+    ]
+  }
+]

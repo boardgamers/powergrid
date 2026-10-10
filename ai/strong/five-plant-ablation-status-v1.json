@@ -1,0 +1,126 @@
+{
+  "control-s10031": {
+    "key": "control-s10031",
+    "stage": "launched",
+    "created_at": "2026-10-10T11:18:17.656013+00:00",
+    "source_revision": "8349b1348a9d6d7fd9efe4382d77619d75fcc14d",
+    "source_sha256": "aeaf45968ec6054009a546ff22a01cb4ae32487c3be3b43025530284aabfc104",
+    "job_id": "6aca1efa095c578089311a40",
+    "observed_stage": "RUNNING",
+    "observed_at": "2026-10-10T11:27:11.637266+00:00",
+    "progress": [
+      {
+        "stage": "rollout_progress",
+        "update": 1,
+        "completed_games": 233,
+        "seconds": 120.04085417097667
+      },
+      {
+        "stage": "train",
+        "update": 1,
+        "episodes": 240,
+        "truncated": 0,
+        "seconds": 154.28475129394792
+      },
+      {
+        "stage": "rollout_progress",
+        "update": 2,
+        "completed_games": 37,
+        "seconds": 60.0610709139728
+      }
+    ]
+  },
+  "full-s10031": {
+    "key": "full-s10031",
+    "stage": "launched",
+    "created_at": "2026-10-10T11:18:18.460650+00:00",
+    "source_revision": "8349b1348a9d6d7fd9efe4382d77619d75fcc14d",
+    "source_sha256": "aeaf45968ec6054009a546ff22a01cb4ae32487c3be3b43025530284aabfc104",
+    "job_id": "6aca1efa095c578089311a42",
+    "observed_stage": "RUNNING",
+    "observed_at": "2026-10-10T11:27:11.636960+00:00",
+    "progress": [
+      {
+        "stage": "train",
+        "update": 1,
+        "episodes": 240,
+        "truncated": 0,
+        "seconds": 158.41530370299006
+      },
+      {
+        "stage": "rollout_progress",
+        "update": 2,
+        "completed_games": 44,
+        "seconds": 60.07217582402518
+      },
+      {
+        "stage": "rollout_progress",
+        "update": 2,
+        "completed_games": 228,
+        "seconds": 120.1067010909901
+      }
+    ]
+  },
+  "control-s10032": {
+    "key": "control-s10032",
+    "stage": "launched",
+    "created_at": "2026-10-10T11:18:19.189496+00:00",
+    "source_revision": "8349b1348a9d6d7fd9efe4382d77619d75fcc14d",
+    "source_sha256": "aeaf45968ec6054009a546ff22a01cb4ae32487c3be3b43025530284aabfc104",
+    "job_id": "6aca1efb095c578089311a44",
+    "observed_stage": "RUNNING",
+    "observed_at": "2026-10-10T11:27:11.636565+00:00",
+    "progress": [
+      {
+        "stage": "rollout_progress",
+        "update": 2,
+        "completed_games": 41,
+        "seconds": 61.36882313300157
+      },
+      {
+        "stage": "rollout_progress",
+        "update": 2,
+        "completed_games": 229,
+        "seconds": 121.37134611100191
+      },
+      {
+        "stage": "train",
+        "update": 2,
+        "episodes": 240,
+        "truncated": 0,
+        "seconds": 177.8703192640096
+      }
+    ]
+  },
+  "full-s10032": {
+    "key": "full-s10032",
+    "stage": "launched",
+    "created_at": "2026-10-10T11:18:19.959907+00:00",
+    "source_revision": "8349b1348a9d6d7fd9efe4382d77619d75fcc14d",
+    "source_sha256": "aeaf45968ec6054009a546ff22a01cb4ae32487c3be3b43025530284aabfc104",
+    "job_id": "6aca1efcfee2c90070186af2",
+    "observed_stage": "RUNNING",
+    "observed_at": "2026-10-10T11:27:11.639998+00:00",
+    "progress": [
+      {
+        "stage": "train",
+        "update": 1,
+        "episodes": 240,
+        "truncated": 0,
+        "seconds": 178.9837505259784
+      },
+      {
+        "stage": "rollout_progress",
+        "update": 2,
+        "completed_games": 31,
+        "seconds": 60.07061292196158
+      },
+      {
+        "stage": "rollout_progress",
+        "update": 2,
+        "completed_games": 230,
+        "seconds": 120.07242682395736
+      }
+    ]
+  }
+}

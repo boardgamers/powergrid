@@ -1,0 +1,31 @@
+{
+  "parent": {
+    "key": "parent",
+    "model_revision": "0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a",
+    "stage": "launched",
+    "created_at": "2026-10-10T11:27:11.563574+00:00",
+    "source_revision": "79480a2c32e9ecdffce00440e1150cb857c18d1e",
+    "source_sha256": "2540dd5ccaee671baf47467c9e184dd7dda602de98cf07b898fff15f7ccc96b0",
+    "job_id": "6aca2110095c578089311b47",
+    "observed_stage": "RUNNING",
+    "observed_at": "2026-10-10T11:29:53.749227+00:00",
+    "recent": [
+      {
+        "stage": "cell_complete",
+        "cell": "economic-2p.json",
+        "key": "parent"
+      },
+      {
+        "stage": "cell_complete",
+        "cell": "economic-3p.json",
+        "key": "parent"
+      },
+      {
+        "stage": "cell_complete",
+        "cell": "economic-4p.json",
+        "key": "parent"
+      }
+    ],
+    "parity_and_serving_positions": 2553
+  }
+}

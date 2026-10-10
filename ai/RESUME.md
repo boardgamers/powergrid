@@ -4,12 +4,128 @@
 final-test seeds remain unused.** The separate UI redesign was reverted.
 
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
-`ai/germany-baseline`. The previous goal turn made concrete progress by validating
-schema4.1 and an HF-only gradient smoke. This turn independently collected all
-three update9 arms and added a versioned capacity-aware economic reference,
-completing 1,600 further paired development games. No candidate is qualified.
+`ai/germany-baseline`. The previous goal turn made concrete progress by freezing
+and launching a matched,
+two-seed five-plant input ablation. This turn collected the heterogeneous final
+checkpoint, verified its 3,680 development games, and launched the parent reference
+for the new controlled comparison. Both turns are **progress**, not an unchanged
+wait. No candidate is qualified; there is no external blocker.
 
-## Latest comparison and two-player reference (11:06 UTC)
+## Current work: final population result and two-seed input ablation (11:29 UTC)
+
+The original **heterogeneous update19** trainer has COMPLETED. Its prescribed
+final development screen is independently verified: 3,680 complete games, all
+40 deals × every seat × four rules, no caps, all 2,553 strict export checks.
+Checkpoint revision **`3a71c9d1d7300a2d2169e059e8d9242167e73625`**; result revision
+**`7055d120f9e503694fd58575d0e91e118e18dfa3`**. Local raw data:
+`ai/runs/population-heterogeneous-u19-v1/heterogeneous-u19`. Source/metrics/export
+hashes are in its `checkpoint.json`, with independent evidence in the parent
+`verified.json`. `strong/population-heterogeneous-u19-screen-v1.json` preserves
+all absolute cells and paired comparisons against both original parent and u9,
+including every rule subgroup.
+
+| Final heterogeneous | Econ 2p | 3p | 4p | 5p | 6p | A260 3p |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Win share (%) | 55.31 | 63.85 | 63.75 | 75.75 | 74.17 | 44.48 |
+
+Against parent: A260 +7.92 pp [2.50,13.33], economic4p +3.67 pp [0.16,7.19],
+but economic2p -2.03 pp [-8.44,4.38]. These are marginal exploratory paired-deal
+intervals, one training seed, not multiplicity-adjusted. Original/sealed economic2p
+is **48.75%**, and overall two-player performance misses the unchanged 66.25%
+floor. Do not promote this model or select u9 instead based on these outcomes.
+All-arm primary comparison is still pending; the original coordinator owns it.
+At 11:22 UTC the other two original trainers and coordinator were confirmed
+RUNNING. At 11:27 the coordinator snapshot (`528bf019eee9f0aa9d16ae59e72f65327d381d38`)
+still had only heterogeneous-u19 collected; all u9 arms are complete. Inspect
+actual job states before any recovery. Never duplicate coordinator-owned screens.
+
+### Four independent H200 training jobs, final checkpoints only
+
+`strong/five-plant-ablation-protocol-v1.json` is immutable and authoritative.
+Both conditions start from **identical weights transferred from original H200u79**,
+not an unfinished population winner. Same 985,346-parameter architecture, full
+encoder work, optimizer, retained opponent mixture, seeds and schedules; the
+control masks only the appended 66 state and 2 action inputs. Existing feature
+prefixes, priors and teacher labels are unchanged. Two seeds (10031,10032),
+20 updates × 240 complete games, 48/count/update: **4,800 games/run**, 19,200 total.
+Four independent H200 learners (not four GPUs on one learner); measured full-update
+speedup over optimized CPU is 1.39×. All gradients remain on HF Jobs.
+
+| Run key | HF job |
+| --- | --- |
+| control-s10031 | `6aca1efa095c578089311a40` |
+| full-s10031 | `6aca1efa095c578089311a42` |
+| control-s10032 | `6aca1efb095c578089311a44` |
+| full-s10032 | `6aca1efcfee2c90070186af2` |
+
+All four confirmed RUNNING at 11:27 UTC, update2 in progress or just completed,
+with no caps in the observed completed batches. Full final validation is pending.
+`strong/five-plant-ablation-status-v1.json` records launch intents and observations;
+`ai/runs/five-plant-ablation-launches-v1` holds local no-duplicate launch guards.
+Do not rerun launchers. Training source is `strong-source-five-plant-ablation-20261010-v1.tgz`,
+dataset revision **`8349b1348a9d6d7fd9efe4382d77619d75fcc14d`**, SHA
+`aeaf45968ec6054009a546ff22a01cb4ae32487c3be3b43025530284aabfc104`.
+Initial weights and audit files: model revision
+**`22fe3c03faaae01225cab24e9ecedda654df835b`**, `runs/five-plant-ablation-initial-v1`.
+Exact hashes are in `strong/five-plant-ablation-initial-v1.json`.
+
+**Inherited numerical limitation:** original u79 and its full-input transfer both
+fail strict ONNX batch16 tolerance on the same one logit; all actions agree.
+All 2,553 strict single-request checks pass for original/full/control. PyTorch
+transfer is exact at both batch1 and16; training uses PyTorch. No tolerance was
+weakened. Preserve `initial-numerical-audit.json`; do not claim all batched export
+checks passed. The earlier u9 diagnostic transfer passed both batch sizes, a
+different checkpoint. New final candidates must pass strict single-request export
+and legal serving checks. Initializers are not deployment candidates.
+
+### New development evaluation and next steps
+
+`strong/five_plant_screen.py` validates all final artifact hashes, initialization,
+frozen opponents, all20 balanced batches, game/search caps, snapshot admission,
+finite weights and zero/nonzero extra projections. It then runs strict parity and
+legal serving on all2,553 fixtures before seven independent evaluation cells.
+Each final candidate and original parent gets **4,000 games**: economic2–6,
+capacity-aware economic2p, frozenA2603p, on the same40 fresh development deals per
+count (`five-plant-ablation-screen-v1-{players}p`), all seats/rules. No search added
+to candidate. Only final latest update19 is compared; update9 is recovery-only.
+Original economic remains a separate baseline; corrected economic is evaluation-only.
+
+The parent's evaluation is RUNNING as CPU-performance job
+**`6aca2110095c578089311b47`**, run `five-plant-screen-v1-parent`. At 11:29 UTC
+all 2,553 strict export and legal serving checks had passed; economic2p/3p/4p
+game cells completed, remaining cells running. No aggregate result collected yet.
+The original homogeneous/control trainers were at updates16/14 and coordinator
+RUNNING (see `strong/population-and-screen-observed-20261010-v3.json`). Check actual
+status; `strong/five-plant-screen-status-v1.json` is only the last observation.
+Immutable evaluator source `strong-source-five-plant-screen-20261010-v1.tgz`,
+dataset revision **`79480a2c32e9ecdffce00440e1150cb857c18d1e`**, SHA
+`2540dd5ccaee671baf47467c9e184dd7dda602de98cf07b898fff15f7ccc96b0`.
+Five evidence-rejection tests pass (wrong encoder/model/opponent, missing paired
+seat/rule/deal, actual/search caps, repeated deals). All six old final population
+cell verifications reproduce unchanged after optional encoder-tag support.
+
+When each trainer COMPLETES, locate an immutable model revision containing its
+complete `ablation-check.json` and update19 artifacts; launch one
+`launch-five-plant-screen.py KEY REV`. Persistent local intents prevent duplicates.
+**There is no coordinator for these four new screens yet.** The old population
+coordinator does not own this experiment. Do not use its u9 checkpoint discovery.
+After each screen completes, pin result revision and independently collect with
+`collect-five-plant-screen.py KEY REV ai/runs/five-plant-comparison-v1/KEY`.
+The collector verifies source/protocol provenance, retraces all training artifact
+hashes and rechecks all raw outcomes. Preserve all seven cells and rule subgroups.
+Once parent plus four finals are collected, run `compare-five-plant-screens.py
+ai/runs/five-plant-comparison-v1 --output PATH`. It reports full-minus-control
+separately for both training seeds and against parent, using20,000 whole-deal
+bootstrap draws with seed10031. Reused40 deals do **not** become80 independent
+deals across training seeds. Assess consistent two-player gains and regressions
+in both seeds, references and every other count; do not select a convenient cell.
+
+Final reserved seeds remain unused. Default-bot, heuristic, rush, independent
+search, retained neural opposition, serving package, engine compatibility and
+actual AMD8840U delivery remain required for eventual qualification. This ablation
+is a development experiment, not a replacement for the full strength gate.
+
+## Earlier completed evidence (11:06 UTC)
 
 All **three update9 arms** are now collected and independently reverified:
 11,040 candidate games plus 3,680 previously pinned parent outcomes, exact
@@ -103,9 +219,9 @@ and export report. See `strong/five-plant-smoke-results-v1.json` and local raw
 files `ai/runs/five-plant-smoke-collected-v1`. Trained PT SHA
 `f7c4771038a0470b30680f7c8325f62969f2e4e0a22c0724bc5f39cef77f28cc`;
 ONNX SHA `574ad0af7e3c9df95bb9c28c6bb99ed1ac6a2f9e1eee5d069461db45d1eb42a2`.
-Retain this smoke as integration evidence; choose the next actual training
-parent/recipe from the prescribed population comparison, then test the feature
-change against a matched control without changing strength gates.
+Retain this smoke as integration evidence. The later fixed-parent two-seed
+ablation above supersedes the earlier plan to wait for population recipe
+selection; the original population experiment and strength gates are unchanged.
 
 Schema **4.1-five-plants** is implemented as `features-v4_1.cjs` and
 `model_v4_1.py`; the architecture is `multiplayer_ordered_plants`. State/action

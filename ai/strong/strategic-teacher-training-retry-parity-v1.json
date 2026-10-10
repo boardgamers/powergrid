@@ -1,0 +1,79 @@
+{
+  "verified": {
+    "6p-economic-neural_economic-0-2.retry-image-pull-1": {
+      "revision": "2ada43251d67a64a8b4f28e0fa9fbb3b1fc5f99b",
+      "path": "runs/strategic-teacher-training-retry-v1/6p-economic-neural_economic-0-2/serving-parity.json",
+      "sha256": "2535b56c4cdb2e0f12f4c7fb84c952be422b527c42ef47a76cd950421a079d7a",
+      "result": {
+        "positions": 2553,
+        "feature_revision": "4.2-discard-correction",
+        "model_sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+        "batch_sizes": [
+          1,
+          17,
+          64
+        ],
+        "reverse_order_passed": true,
+        "all_actions_match_serial": true,
+        "scope": "Inference batching parity only; no gradients or strength claim.",
+        "runtime": {
+          "python": "3.11.17",
+          "onnxruntime": "1.30.0",
+          "numpy": "2.4.6",
+          "image": "python:3.11-slim-bookworm"
+        }
+      }
+    },
+    "4p-economic-neural_economic-0-2.retry-image-pull-1": {
+      "revision": "2ada43251d67a64a8b4f28e0fa9fbb3b1fc5f99b",
+      "path": "runs/strategic-teacher-training-retry-v1/4p-economic-neural_economic-0-2/serving-parity.json",
+      "sha256": "2535b56c4cdb2e0f12f4c7fb84c952be422b527c42ef47a76cd950421a079d7a",
+      "result": {
+        "positions": 2553,
+        "feature_revision": "4.2-discard-correction",
+        "model_sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+        "batch_sizes": [
+          1,
+          17,
+          64
+        ],
+        "reverse_order_passed": true,
+        "all_actions_match_serial": true,
+        "scope": "Inference batching parity only; no gradients or strength claim.",
+        "runtime": {
+          "python": "3.11.17",
+          "onnxruntime": "1.30.0",
+          "numpy": "2.4.6",
+          "image": "python:3.11-slim-bookworm"
+        }
+      }
+    },
+    "3p-snapshot0-neural_economic-0-2.retry-image-pull-1": {
+      "revision": "2ada43251d67a64a8b4f28e0fa9fbb3b1fc5f99b",
+      "path": "runs/strategic-teacher-training-retry-v1/3p-snapshot0-neural_economic-0-2/serving-parity.json",
+      "sha256": "2535b56c4cdb2e0f12f4c7fb84c952be422b527c42ef47a76cd950421a079d7a",
+      "result": {
+        "positions": 2553,
+        "feature_revision": "4.2-discard-correction",
+        "model_sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+        "batch_sizes": [
+          1,
+          17,
+          64
+        ],
+        "reverse_order_passed": true,
+        "all_actions_match_serial": true,
+        "scope": "Inference batching parity only; no gradients or strength claim.",
+        "runtime": {
+          "python": "3.11.17",
+          "onnxruntime": "1.30.0",
+          "numpy": "2.4.6",
+          "image": "python:3.11-slim-bookworm"
+        }
+      }
+    }
+  },
+  "pending": [],
+  "all_retries_parity_verified": true,
+  "qualification_eligible": false
+}

@@ -1,0 +1,44 @@
+{
+  "stage": "split_plan",
+  "players": 4,
+  "mode": "search_geo",
+  "smoke": false,
+  "created_at": "2026-10-10T17:57:54.175536+00:00",
+  "pieces": [
+    {
+      "start": 0,
+      "end": 4,
+      "timeout_hours": 4
+    },
+    {
+      "start": 4,
+      "end": 8,
+      "timeout_hours": 4
+    },
+    {
+      "start": 8,
+      "end": 12,
+      "timeout_hours": 4
+    },
+    {
+      "start": 12,
+      "end": 16,
+      "timeout_hours": 4
+    }
+  ],
+  "original_admission": {
+    "players": 4,
+    "mode": "search_geo",
+    "probe_revision": "d9e2b049e525f7778f10e23e0d34de52b8d96a91",
+    "verified_sha256": "2e98ea37a50fa7687b13b2751256bedf5e38f2d5af3de555e3cd13f3e1ac448e",
+    "probe_seconds": 1230.9908928569998,
+    "projected_seconds": 39511.708571423995,
+    "timeout_hours": 15,
+    "admitted": false
+  },
+  "source_revision": "00e833da8dca00fdc26cf7e07b320a8276ad27f3",
+  "source_sha256": "bb0498e19106fb233239af59ced62ffddbad056f71c6500ba15d46ec56e7a842",
+  "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+  "qualification_eligible": false,
+  "scope": "All original16 deals, seats and rules; no shorter horizons or changed model."
+}

@@ -1,0 +1,145 @@
+{
+  "positions": 1920,
+  "root_splits": {
+    "validation": 480,
+    "train": 1440
+  },
+  "file": "ai/strong/fixtures/strategic-teacher-training-roots-v1.jsonl.gz",
+  "local_file": "ai/runs/strategic-teacher-training-roots-v1.jsonl.gz",
+  "sha256": "f0fd62b4dd75c6b6c0936adeb1ffc75a2747cb2c62debe6b5d0aba60dbb4a091",
+  "collection_pins": {
+    "2p-economic": {
+      "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+      "prefix": "runs/strategic-training-collection-v1-2p-economic",
+      "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+      "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+      "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+      "artifacts": {
+        "roots.jsonl.gz": "720e140cd31bed2d760e61ccecb22005e0d96e8ee4386107f9232d22b12be65c",
+        "collection-check.json": "256466956a9a351ebde44a676edec3fa717420b10842b920cdf2f88061f56dc3",
+        "games.json": "1dc4ce3dcc79c4368f0ff3f92e756a3cc21c42fd93a2cf4211cbe02aed2bbbe1"
+      }
+    },
+    "2p-snapshot0": {
+      "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+      "prefix": "runs/strategic-training-collection-v1-2p-snapshot0",
+      "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+      "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+      "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+      "artifacts": {
+        "roots.jsonl.gz": "e81c54179af4ae8fef820914b4c57cb115715445641bdcb6dd596320498b10e8",
+        "collection-check.json": "16b53c5f953004fc20f6f3ca372d82e07366661b88f53949c1fda8bdbc28e1e8",
+        "games.json": "d8c1f9177182db6233ce9bdfdca88ed8f207163f452d074be26912ac52d26bee"
+      }
+    },
+    "3p-economic": {
+      "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+      "prefix": "runs/strategic-training-collection-v1-3p-economic",
+      "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+      "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+      "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+      "artifacts": {
+        "roots.jsonl.gz": "010826fb3fd7b57350cfebffcf8d2c9cc69b7f2b24c0b0cb987b257f9d96e056",
+        "collection-check.json": "6e194f2b6f5aa3e25d80a73d3d18527ce8c6d0e15f18fca8bd6a84a10def2a4b",
+        "games.json": "dd87747d51eae35b3f8fc7c5fbfe7150f77bc439eb916cf839c8af21079e93be"
+      }
+    },
+    "3p-snapshot0": {
+      "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+      "prefix": "runs/strategic-training-collection-v1-3p-snapshot0",
+      "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+      "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+      "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+      "artifacts": {
+        "roots.jsonl.gz": "7750ae2274ad60387dc842b94de2267cbca5da0f7680b8bc905fa0974bef7a57",
+        "collection-check.json": "23cfe853f1eb5367d13f47cdc44cb931b71d3182afdfedb7975fc259a27c679b",
+        "games.json": "4d3197068f8825b876ed68f74fdc017b6f82b6c1d3ad68a8487d539da6c2335e"
+      }
+    },
+    "4p-economic": {
+      "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+      "prefix": "runs/strategic-training-collection-v1-4p-economic",
+      "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+      "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+      "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+      "artifacts": {
+        "roots.jsonl.gz": "8aacac0394fe8e316479f8dab73dd9ef68bd87f641d8bc72426ca20910aeeb02",
+        "collection-check.json": "f01dc6002020f32323605861603146c4184ffba8cd04a4ccac28f74dd1d93787",
+        "games.json": "2c1a40fabad0b6f38a43ba1c13a4fb5fcaf8e6eb58f1e921da1a14ee5367801c"
+      }
+    },
+    "4p-snapshot0": {
+      "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+      "prefix": "runs/strategic-training-collection-v1-4p-snapshot0",
+      "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+      "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+      "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+      "artifacts": {
+        "roots.jsonl.gz": "ece72970cb93d4bfe23f79f8903e27de1611d06013fe0919e1b06fbea0b7718c",
+        "collection-check.json": "1281b719491e9fb093ec4c311415a2f67a5ae07dc6ecc472980651b610da6a9f",
+        "games.json": "e7d466663bf24a0ed48b9c3aa517c9c024bf00e5ca4ad6002fb867ce0847e823"
+      }
+    },
+    "5p-economic": {
+      "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+      "prefix": "runs/strategic-training-collection-v1-5p-economic",
+      "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+      "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+      "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+      "artifacts": {
+        "roots.jsonl.gz": "4435521c8ef48f45958db47a873db00c19c278d648fad31cab2e430a8bd6cb22",
+        "collection-check.json": "41500a69cd2e5760e7ab2f4fbfa70663eb694b8324c1697e68aa15e7f0017c88",
+        "games.json": "4c0c621f290748f7e136dcc1492c7388145948c96921fb0984ab2246a320d8ca"
+      }
+    },
+    "5p-snapshot0": {
+      "revision": "5b79e4b65d2bd73de1cae8e918d9949622ee99d0",
+      "prefix": "runs/strategic-training-collection-v1-5p-snapshot0",
+      "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+      "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+      "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+      "artifacts": {
+        "roots.jsonl.gz": "33e2e81dfcc792e9c02d3fe4da3e41c1af959ede4cfd59559bf231ad348e9fdc",
+        "collection-check.json": "16196a1c02325ca1c1c1668200faaaaa3131407aa96df2f9c1b88b5e11a36671",
+        "games.json": "0c54c97a989263ad26e6829effcfda0c87c6bf1919c2634f4e663888a4d476d6"
+      }
+    },
+    "6p-economic": {
+      "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+      "prefix": "runs/strategic-training-collection-v1-6p-economic",
+      "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+      "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+      "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+      "artifacts": {
+        "roots.jsonl.gz": "02e4f10cd97937be5e8e94628910505457127c4dfa9c5e2e9ae3a74bc35e1afd",
+        "collection-check.json": "eb096ab0ba13b3e74b4e247e72ce641ece2e51af7262681de0e6b311bd5aeadf",
+        "games.json": "18e75863e0d6767a8271ce2d7ef3116799d36a7e4508ef1a20f37eba1cbaec13"
+      }
+    },
+    "6p-snapshot0": {
+      "revision": "4786b5cc52fc1ffd51fb7415aa41552bdb4035d6",
+      "prefix": "runs/strategic-training-collection-v1-6p-snapshot0",
+      "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+      "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+      "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+      "artifacts": {
+        "roots.jsonl.gz": "90ceeb30dc94eedb4f6f22467d9df59019e1cc20057c262d355807c26312a4a7",
+        "collection-check.json": "184dace741133014d5909508ba05926c6c4418863469d61bcec693ebb20da6c3",
+        "games.json": "fd404b4425dbad88418010225266ec424c91dfef350e2736a2de0adb2ff7afdf"
+      }
+    }
+  },
+  "selection": "Lowest fixed rootId hash within count/source/deal/rule/decision among12 distinct-state candidates; validation fixed first; training skips identical validation public states. No outcomes used; runtime-probe roots excluded.",
+  "cross_split_collision_candidates_skipped": 1,
+  "decision_counts": {
+    "bid": 640,
+    "building": 640,
+    "nomination": 640
+  },
+  "scope": "Economic and frozen-self-play pilot roots; search-opponent collection remains separately active. Every count, rule and decision covered.",
+  "no_whole_deal_split_leakage": true,
+  "no_identical_public_root_crosses_splits": true,
+  "qualification_eligible": false,
+  "labels_generated": false,
+  "trained": false
+}

@@ -41,6 +41,246 @@
         "probe-check.json": "3aab54af7636e009dbb15188e11581a620fc8425fe3cf9b50760403cdd999767"
       }
     },
+    "2p-neural_search": {
+      "players": 2,
+      "mode": "neural_search",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 44,
+      "nested_evaluations": 131712,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 322.0622732009999,
+      "engine_seconds": 317.72774215200184,
+      "policy_seconds": 2.717350941004952,
+      "revision": "f00229fad716d924d753e5d2512789973abcbea4",
+      "prefix": "runs/strategic-teacher-probe-v1-2p-neural_search",
+      "verified_sha256": "517cf70b96e7b368b4af0ba40727762a9d9acbd9a9c911c81ed5e9344673415a",
+      "artifacts": {
+        "rollouts.jsonl": "bf874b425b7d10c9d22370b52c62fd090fb9006d0467ba0fabeae89f6f07e841",
+        "probe-check.json": "71518dd83a8168cd37b235e5ee39997473ac72da35c1ea61ca23aa17ddfe5c10"
+      }
+    },
+    "2p-mixed_control": {
+      "players": 2,
+      "mode": "mixed_control",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 44,
+      "nested_evaluations": 0,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 0.9468115260000047,
+      "engine_seconds": 0.5582845879999638,
+      "policy_seconds": 0.0,
+      "revision": "d9e2b049e525f7778f10e23e0d34de52b8d96a91",
+      "prefix": "runs/strategic-teacher-probe-v1-2p-mixed_control",
+      "verified_sha256": "054a5888a5fa8eb037a14f6ab82ca3ef46d49e03f718ce3eff811062caf40b57",
+      "artifacts": {
+        "rollouts.jsonl": "9a64be2493e87539995ca65d261da828ed6d579eab1f4a88bcdfb678044a217f",
+        "probe-check.json": "3c6bfd7544c2b7349f8d61a9d6148cc65d478a66423d845686f6cc4e15cb59e1"
+      }
+    },
+    "3p-neural": {
+      "players": 3,
+      "mode": "neural",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 36,
+      "nested_evaluations": 0,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 8.334433499999989,
+      "engine_seconds": 3.5922752060007497,
+      "policy_seconds": 4.234230722000916,
+      "revision": "d9e2b049e525f7778f10e23e0d34de52b8d96a91",
+      "prefix": "runs/strategic-teacher-probe-v1-3p-neural",
+      "verified_sha256": "f73a4229679feab949f78742b8dea0638d6d4db8e318b77c8c5e977a39f39966",
+      "artifacts": {
+        "rollouts.jsonl": "aa9e84bb1a488cefc6c57f7e79a36335f15ff09b61385f61b8c929af600e68a3",
+        "probe-check.json": "c4e8a0d0563c036e2b88b77884ebc187da8b071038a8feb52b3251d19bfb7a61"
+      }
+    },
+    "3p-neural_economic": {
+      "players": 3,
+      "mode": "neural_economic",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 36,
+      "nested_evaluations": 0,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 3.8736131930000113,
+      "engine_seconds": 1.7029999199998826,
+      "policy_seconds": 1.7513077290003025,
+      "revision": "d9e2b049e525f7778f10e23e0d34de52b8d96a91",
+      "prefix": "runs/strategic-teacher-probe-v1-3p-neural_economic",
+      "verified_sha256": "d8c9988b8042cdc26918aeaec7838441023c8174fa459c9c20eb7da55c4937dc",
+      "artifacts": {
+        "rollouts.jsonl": "904386c29ecfec044533bfbcd851c8fed4f3f9697926906cdbb0f0852044dd90",
+        "probe-check.json": "2f8336ea89a4706fbc262cb884cd1dadd2e63dcc8f207bc20853ad44e4f79126"
+      }
+    },
+    "3p-neural_search": {
+      "players": 3,
+      "mode": "neural_search",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 36,
+      "nested_evaluations": 199504,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 380.700262257,
+      "engine_seconds": 377.4408250300003,
+      "policy_seconds": 1.9305546699999923,
+      "revision": "f00229fad716d924d753e5d2512789973abcbea4",
+      "prefix": "runs/strategic-teacher-probe-v1-3p-neural_search",
+      "verified_sha256": "182593cb2cf779cc394e56c5a63c1b00caae2b3dcfd2198685e9e3d46db6370c",
+      "artifacts": {
+        "rollouts.jsonl": "2a681f651217405a6ae0a326a73dc25b73b0e6a9d812a4e65da126ab6bcacc92",
+        "probe-check.json": "8990b3962615bd256ab56d1a0b7eb2e4f63502ef05aca8d50272f3417d7482b1"
+      }
+    },
+    "3p-mixed_control": {
+      "players": 3,
+      "mode": "mixed_control",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 36,
+      "nested_evaluations": 0,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 0.8204148139999745,
+      "engine_seconds": 0.5112794009999675,
+      "policy_seconds": 0.0,
+      "revision": "d9e2b049e525f7778f10e23e0d34de52b8d96a91",
+      "prefix": "runs/strategic-teacher-probe-v1-3p-mixed_control",
+      "verified_sha256": "7099f93d5c35122d9135fed91d46cb53259f702d193620e82e704be132462456",
+      "artifacts": {
+        "rollouts.jsonl": "5022a938bb4f15f794a9204aaf3ab8c3571525431e4042d31792ddf2c771586b",
+        "probe-check.json": "ee2480f89e9f25c8d66def265895f3cd83b7d8b329a40290495cdbd9b6bc2eb0"
+      }
+    },
+    "4p-neural": {
+      "players": 4,
+      "mode": "neural",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 44,
+      "nested_evaluations": 0,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 14.302205731999976,
+      "engine_seconds": 5.954377681999404,
+      "policy_seconds": 7.6594425029986155,
+      "revision": "d9e2b049e525f7778f10e23e0d34de52b8d96a91",
+      "prefix": "runs/strategic-teacher-probe-v1-4p-neural",
+      "verified_sha256": "3c6970e087db8d702709e638a4dd30a5c340cfad5bfac035db07ef92004bb4c3",
+      "artifacts": {
+        "rollouts.jsonl": "6e35977d9f0eb5874fca2c7e0e21bb3c6277bb044a86fa29b1839cc714c0403c",
+        "probe-check.json": "86f9531c2832cf0e9a79336bf2a80386abe37d222a7b965707cf2676146fbdcd"
+      }
+    },
+    "4p-neural_economic": {
+      "players": 4,
+      "mode": "neural_economic",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 44,
+      "nested_evaluations": 0,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 4.585915715999988,
+      "engine_seconds": 2.0958649639998725,
+      "policy_seconds": 1.9742671710000366,
+      "revision": "d9e2b049e525f7778f10e23e0d34de52b8d96a91",
+      "prefix": "runs/strategic-teacher-probe-v1-4p-neural_economic",
+      "verified_sha256": "ffaf846aee9628d0f22c73e2f5b0b261a071642b45d17cdc54b6011b337d0dc4",
+      "artifacts": {
+        "rollouts.jsonl": "330e768bc34507d9d4ada29762723150da691ebecdb65a23d99e7990547b562e",
+        "probe-check.json": "c9112f6c2eba7f5f5c7d1d800f74d786756a76173c032631c955360249dd3984"
+      }
+    },
+    "4p-mixed_control": {
+      "players": 4,
+      "mode": "mixed_control",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 44,
+      "nested_evaluations": 0,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 1.034695486000004,
+      "engine_seconds": 0.6007943320000209,
+      "policy_seconds": 0.0,
+      "revision": "d9e2b049e525f7778f10e23e0d34de52b8d96a91",
+      "prefix": "runs/strategic-teacher-probe-v1-4p-mixed_control",
+      "verified_sha256": "003ffa6db6de0abdc9809f09ed03a674300ca6de53749d5cad2e044a019b3cf6",
+      "artifacts": {
+        "rollouts.jsonl": "55cc9aedfac9d5ebc1945bc583dba424fe0da9086bfc4f0d347dc21f6dd40364",
+        "probe-check.json": "df8d0b481c3bd4972f2c67b0f0ef410cde27783bdce285bf63bfd9ffce2eeed1"
+      }
+    },
+    "5p-neural": {
+      "players": 5,
+      "mode": "neural",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 44,
+      "nested_evaluations": 0,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 8.160910435000005,
+      "engine_seconds": 3.524073446998756,
+      "policy_seconds": 4.053522780999856,
+      "revision": "d9e2b049e525f7778f10e23e0d34de52b8d96a91",
+      "prefix": "runs/strategic-teacher-probe-v1-5p-neural",
+      "verified_sha256": "4e15ec92abb0de3c96110321b2d2039e6e2b0c6bcb59662b7dd923d68353ff73",
+      "artifacts": {
+        "rollouts.jsonl": "ad4a8e0d8d1e5118c4ad068d81afe6f3dc50baece7edf219ab4c7a2e10d1365a",
+        "probe-check.json": "9361b96a10ea4f42d6c40a7b0ba20a45015bddd571b2f51850775331f76864f3"
+      }
+    },
+    "5p-neural_economic": {
+      "players": 5,
+      "mode": "neural_economic",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 44,
+      "nested_evaluations": 0,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 3.1486310189999926,
+      "engine_seconds": 1.5750205799999435,
+      "policy_seconds": 1.0779421450000086,
+      "revision": "d9e2b049e525f7778f10e23e0d34de52b8d96a91",
+      "prefix": "runs/strategic-teacher-probe-v1-5p-neural_economic",
+      "verified_sha256": "8a3a876a6c3f0674fa94f84bc4b01431bd37d628000bf2e1ceaba9b86a80ecef",
+      "artifacts": {
+        "rollouts.jsonl": "f20275cd22e929fce97f653b0913b528225ead38b230661f97c52782ffd6b381",
+        "probe-check.json": "b3c0ff6be177c53239f310b312a3feae3cdd71faad811c438edebc22a3701be2"
+      }
+    },
+    "5p-neural_search": {
+      "players": 5,
+      "mode": "neural_search",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 44,
+      "nested_evaluations": 256576,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 669.2858333920001,
+      "engine_seconds": 666.6064210579995,
+      "policy_seconds": 1.1181514679998372,
+      "revision": "468eb0c35822897c190e3ff8b41d2413dc31911c",
+      "prefix": "runs/strategic-teacher-probe-v1-5p-neural_search",
+      "verified_sha256": "d956dfd8e85132009eb8eef6392f88c4cf5de1fba77ba822be0e7504edf00d80",
+      "artifacts": {
+        "rollouts.jsonl": "83830e3833554b403bb1a13319b01588fb8afe4aa79a171358b1ac5fd8d45f08",
+        "probe-check.json": "0f760d063cbedc623585d64926d4092abb06ff086d892ec0738d5131a1b2c0ac"
+      }
+    },
     "5p-mixed_control": {
       "players": 5,
       "mode": "mixed_control",
@@ -59,6 +299,26 @@
       "artifacts": {
         "rollouts.jsonl": "ea361a3a44548cb6e3a987ced749bb3c421b4081723b602d188bab121f8dff71",
         "probe-check.json": "f74e1cf520311bb1995135d17a879810d15ec3c3c2f127a13f3bc6266d1d3cb2"
+      }
+    },
+    "6p-neural": {
+      "players": 6,
+      "mode": "neural",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 40,
+      "nested_evaluations": 0,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 11.008943371,
+      "engine_seconds": 4.438810854000209,
+      "policy_seconds": 5.986446686999614,
+      "revision": "d9e2b049e525f7778f10e23e0d34de52b8d96a91",
+      "prefix": "runs/strategic-teacher-probe-v1-6p-neural",
+      "verified_sha256": "d0fac7434f725b7245600fcbbacd9008943ecc8c917f00a10cae440beb126792",
+      "artifacts": {
+        "rollouts.jsonl": "2dfec614ac6895b7d86dbf1ac6fb0a0f2f58843b030ae4629f6a0e29aa3a5744",
+        "probe-check.json": "c8f2d36f57748eee04a4c7bec23a3e78ff451b85fde14689c8e671d98e223cce"
       }
     },
     "6p-neural_economic": {
@@ -80,28 +340,53 @@
         "rollouts.jsonl": "7839b68e72bcb5ef025697b211da8a2adc41f671474556adf8ffe85c69cffe99",
         "probe-check.json": "0ac14b1df98519cf3633ce8a8d1f70fc6db94e9bb903c279fda254c806a630f4"
       }
+    },
+    "6p-neural_search": {
+      "players": 6,
+      "mode": "neural_search",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 40,
+      "nested_evaluations": 382192,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 1094.196666351,
+      "engine_seconds": 1091.990860300997,
+      "policy_seconds": 0.9891184939988307,
+      "revision": "1c01d3d4b13e9df7a9fb043a542a98a42f620f87",
+      "prefix": "runs/strategic-teacher-probe-v1-6p-neural_search",
+      "verified_sha256": "f9f1d2958597bc12aeabd2399abd40f9f399907a7a40cdb59abe5058eac267cb",
+      "artifacts": {
+        "rollouts.jsonl": "d4246b2f951194a33bebbe066d700152954ed7382d685ffcdbc3c3ff84254fcc",
+        "probe-check.json": "3588f74ab7bab2ceb4384900a8fd75951b1f2a0e636b5627d6d649f01a4c6301"
+      }
+    },
+    "6p-mixed_control": {
+      "players": 6,
+      "mode": "mixed_control",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 40,
+      "nested_evaluations": 0,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 0.9919680109999973,
+      "engine_seconds": 0.627821756000003,
+      "policy_seconds": 0.0,
+      "revision": "d9e2b049e525f7778f10e23e0d34de52b8d96a91",
+      "prefix": "runs/strategic-teacher-probe-v1-6p-mixed_control",
+      "verified_sha256": "fb1e2a76d56fde5f84f417c70a77253ad22c56730a2203ecae68f90ec40452f6",
+      "artifacts": {
+        "rollouts.jsonl": "3b16854d8ea22e8705e575c783b27a7bd30e0b3a10fb6d6824f52de2d6e06526",
+        "probe-check.json": "8ad0856e264528fcd7d23e741bd957bc9f495d71c5b9f62a959dc2ac7c56037b"
+      }
     }
   },
   "pending_cases": [
-    "2p-neural_search",
-    "2p-mixed_control",
-    "3p-neural",
-    "3p-neural_economic",
-    "3p-neural_search",
-    "3p-mixed_control",
-    "4p-neural",
-    "4p-neural_economic",
-    "4p-neural_search",
-    "4p-mixed_control",
-    "5p-neural",
-    "5p-neural_economic",
-    "5p-neural_search",
-    "6p-neural",
-    "6p-neural_search",
-    "6p-mixed_control"
+    "4p-neural_search"
   ],
-  "evaluations": 172,
-  "nested_evaluations": 0,
+  "evaluations": 788,
+  "nested_evaluations": 969984,
   "source_revision": "ca3be3ff81cc259135daa50e9bdf41590b6552ff",
   "source_sha256": "c4a700ef7fb6c83c5e85060c52bc49b8eea94ff1c65c62b0bbcc39f0905b91fd",
   "protocol_sha256": "f19085fef326bfba66895648d2a33309b2be929615ed85ffa3b021be661a21dd",

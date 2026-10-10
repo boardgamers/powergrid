@@ -6,7 +6,133 @@ final-test seeds remain unused.** The separate UI redesign was reverted.
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
 `ai/germany-baseline`. No UI work or publication is part of this AI continuation.
 
-## Latest: 2,560 fresh games verified; neural continuation probes running
+## Latest: balanced teacher labels running; five-player search exposes a regression
+
+Previous goal turn: **progress** (2,560 full collection games verified and
+continuation probes dispatched). This turn: **progress**:480 guided5p games and
+another128 full collection games verified, a balanced1,920-root teacher dataset
+frozen,20 HF label jobs dispatched, and4–5p collection split into disjoint deals
+without altering the games. No new gradient training or qualified candidate yet.
+
+**Five-player guided search is not a universal improvement.** All three jobs
+COMPLETED and independently verified,160 games/model, eight paired development
+deals, all seats and four rule combinations, no game/search caps. Parent/10101/
+10102 search win shares35.0/34.375/35.0%; raw35.0/33.75/33.75%.10102 gains only
+1.25 percentage points overall, paired95% deal interval[-3.75,6.875].
+Its four rule shares are37.5/35/27.5/40% (original/open,original/sealed,
+Recharged/open,Recharged/sealed). Original/sealed improves20 points[10,32.5],
+but Recharged/open loses25 points[-42.5,-10]. The latter search interval
+[12.5,40]% includes20% chance. These exploratory eight-deal results neither
+qualify a model nor justify picking a per-rule switch from the evaluation data.
+Keep both the sealed improvement and open regression visible in fresh acceptance
+checks for the learned correction.
+
+Raw5p revision `468eb0c35822897c190e3ff8b41d2413dc31911c`; verified directories
+`ai/runs/multiplayer-search-transfer-verified-v1/{parent,10101,10102}-5p`.
+Result file now verifies3–5p:1,152 guided games plus1,152 paired raw games;
+6p remains pending on the three original live handles. Immutable5p evidence:
+revision `d542f9713ab11d3db6cc5930113e3c745cdfb655`, prefix
+`runs/multiplayer-search-transfer-5p-evidence-v1`.
+
+**Collection now verified:**2,688 unique games /5,376 twin executions and136,966
+public roots (all economic/self-play cases plus2p/search).2p/search raw revision
+`d9e2b049e525f7778f10e23e0d34de52b8d96a91`. Fourteen runtime probes verified:
+216 games /10,944 roots;6p/search probe remains live.3p/search full job remains
+live.4p and5p search probes measured1,230.991s and2,053.539s; projected unsplit
+jobs required15h/25h, beyond admission. They were **not** launched unsplit.
+
+A new range runner preserves all original16 deals, full seat/rule grids,
+serial model decisions, root selection, split assignments and horizons. Actual
+nonzero-offset parity matched8 previously verified games and448 public roots
+exactly (only worker-local terminal index and root file order index differ).
+All base1,383 files unchanged. Slice source: dataset revision
+`00e833da8dca00fdc26cf7e07b320a8276ad27f3`, archive
+`strong-source-strategic-training-collection-slices-20261010-v1.tgz`, SHA256
+`bb0498e19106fb233239af59ced62ffddbad056f71c6500ba15d46ec56e7a842`.
+Each of4p/5p now has four jobs for[0,4),[4,8),[8,12),[12,16), admitted4h/7h.
+Exact handles: `strong/strategic-training-collection-slices-status-v1.json`.
+The original whole-job guards for4p/5p now have `stage: split_plan`, **no job_id**;
+skip those when inspecting jobs. They reserve the slot against accidental whole-
+shard duplication. Never remove these guards. Slice launch/evidence revision
+`c523c30e320a357f38573b647e018a4e7dbd748a`, prefix
+`runs/strategic-training-collection-slices-launch-evidence-v1`.
+Use `manage-strategic-collection-slices.py collect N START END REV` for completed
+pieces. A strict full-case merge still needs implementation after all pieces
+verify; retain individual source pins and reject overlap/missing deals. The old
+collection summarizer intentionally continues listing incomplete cases as pending.
+
+**Continuation probes:**19 of20 independently verified,788 outer rollouts and
+969,984 nested search rollouts,0 caps. Only4p/neural_search remains pending.
+Two/three/five/six-player neural_search probes took322.062/380.700/669.286/
+1,094.197s for two roots, versus3–14s for neural/economic continuations.
+Nested search is overwhelmingly engine-bound. Raw pins:2p/3p neural_search
+`f00229fad716d924d753e5d2512789973abcbea4`;5p at
+`468eb0c35822897c190e3ff8b41d2413dc31911c`;6p at
+`1c01d3d4b13e9df7a9fb043a542a98a42f620f87`.
+Partial evidence: `9f665e252d84e196486ae5e822f52941716587db`, prefix
+`runs/strategic-teacher-probe-partial-evidence-v1`. These two-sample probes do
+not establish teacher reliability; the neural-search branches remain diagnostic.
+
+**Balanced teacher pilot frozen:**1,920 fresh roots,1,440 train /480 validation;
+640 each nominations,bids,building. Every2–6p ×economic/self-play source ×16 deals
+×four rules ×three decision types appears once. Selection used fixed rootId
+hashes and no outcomes. Whole count/source/deal units stay in one split. The
+first preparation correctly rejected one identical public input crossing splits;
+validation was fixed first and training used its next hash-ranked distinct input.
+The final selection has no identical public-state overlap; runtime-probe roots
+are excluded. Actual first/last chunk grids and eight model proposals passed
+in the frozen source. No selection or loss was based on the held-out final seeds.
+
+The first wave is20 HF jobs:five counts ×two source families ×two continuation
+modes (neural self-play and neural focal player versus economic opponents).
+Each job labels deals[0,2),24 roots, with48 worlds in each independent batch A/B,
+full2400-step continuations and shortlist plus parent proposal. All individual
+outcomes and paired advantages are retained. This is a counterfactual-label
+pilot, **not gradient training**. Full design160 shards; the remaining140 are
+not admitted until first-wave results and runtime verify. Label jobs using actual
+search opponents are not part of this initial bulk pilot due their measured cost;
+independent strong-opponent full games remain required for acceptance.
+
+Teacher source: dataset revision `837d94e14272163c33e5e55fa9c24b24686a28ae`,
+archive `strong-source-strategic-teacher-training-20261010-v1.tgz`, SHA256
+`a011f9ee4b8116b99220913a7db9d00849e9e593137cdb7e435e116fcafdd6c3`.
+Protocol SHA256 `3c39786cc6c44a3838d3c4183c312c94a26563222b2720572010b76bbdd62a76`.
+Root gzip SHA256 `f0fd62b4dd75c6b6c0936adeb1ffc75a2747cb2c62debe6b5d0aba60dbb4a091`;
+local `ai/runs/strategic-teacher-training-roots-v1.jsonl.gz`, packaged at
+`ai/strong/fixtures/strategic-teacher-training-roots-v1.jsonl.gz`. Recover it from
+the pinned source if needed; do not rerun the exclusive selector/builder.
+Five overlays in the source record are frozen; all1,391 prior files unchanged.
+Launch evidence: revision `8e86b1336d1ef0a80bd8373f545700933afa193e`, prefix
+`runs/strategic-teacher-training-launch-evidence-v1`.
+
+**Three original jobs failed before program execution with ErrImagePull registry
+response timeouts.** They were authoritatively ERROR with no result artifact,
+then retried once using `python:3.11-slim-bookworm` and CPU libraries. All three
+retries passed2,553-position serial/batched/reversed inference parity before
+labeling. Exact parity artifacts pinned at model revision
+`2ada43251d67a64a8b4f28e0fa9fbb3b1fc5f99b`; details and runtime versions in
+`strong/strategic-teacher-training-retry-parity-v1.json`.
+Replacement handles:3p/self-play/neural_economic `6aca7fb3fee2c9007018b207`,
+4p/economic/neural_economic `6aca7fb5fee2c9007018b209`,
+6p/economic/neural_economic `6aca7fb7fee2c9007018b20d`.
+**All20 effective label jobs were confirmed RUNNING** at the saved status time;
+three original ERROR records remain as history, not three unhandled cases.
+The exclusive `.retry-image-pull-1.json` guards retain each original handle.
+Retry evidence revision `6a4fb8a59d7cc52f7dd34276752d9a4a7eb275cb`, prefix
+`runs/strategic-teacher-training-retry-evidence-v1`.
+
+**Next:** collect finished label shards using `collect-strategic-teacher-training.py
+N SOURCE_MODE MODE START END IMMUTABLE_REV`; it checks the complete cells, all
+samples/roles/credits/caps, exact public proposals and independent-batch advantage
+accounting. No finished label shard has yet been independently collected. Verify
+retry parity for any retry results, then size/launch remaining chunks using actual
+first-wave runtime. Freeze a conservative uncertainty-aware correction loss and
+train it on HF, with the parent fixed and fresh full-game evaluations required.
+Also finish6p arenas,4p neural-search probe and6p collection probe; split6p work
+if its measured admission requires it. Do not shorten horizons, reuse reserved
+final seeds, or treat label fit as strength. Goal remains unachieved.
+
+## Earlier: 2,560 fresh games verified; neural continuation probes running
 
 Previous goal turn: **progress** (collector frozen and probes dispatched; verified
 initial probes and launched full shards). This turn: **progress** (full public-root

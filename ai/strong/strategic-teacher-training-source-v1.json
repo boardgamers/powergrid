@@ -1,0 +1,20 @@
+{
+  "archive": "strong-source-strategic-teacher-training-20261010-v1.tgz",
+  "revision": "837d94e14272163c33e5e55fa9c24b24686a28ae",
+  "sha256": "a011f9ee4b8116b99220913a7db9d00849e9e593137cdb7e435e116fcafdd6c3",
+  "overlays": {
+    "ai/strong/strategic_training_labels.py": "4d2c1f6f0c6e262ec1d8f72e6be66dcc4d5c7a4efefa116f446e04809872b901",
+    "ai/strong/check-strategic-teacher-training.py": "b41ac7a830d2ef65f8ef98ac6be7636ad90a75cc3395360e29ae56c7f68d849c",
+    "ai/strong/strategic-teacher-training-protocol-v1.json": "3c39786cc6c44a3838d3c4183c312c94a26563222b2720572010b76bbdd62a76",
+    "ai/strong/strategic-teacher-training-roots-v1.json": "de9aa17427cc90231835da8e8ec823cc70f33bb7735daa717283e75435340687",
+    "ai/strong/fixtures/strategic-teacher-training-roots-v1.jsonl.gz": "f0fd62b4dd75c6b6c0936adeb1ffc75a2747cb2c62debe6b5d0aba60dbb4a091"
+  },
+  "base": {
+    "archive": "strong-source-strategic-teacher-probe-20261010-v1.tgz",
+    "revision": "ca3be3ff81cc259135daa50e9bdf41590b6552ff",
+    "sha256": "c4a700ef7fb6c83c5e85060c52bc49b8eea94ff1c65c62b0bbcc39f0905b91fd"
+  },
+  "unchanged_base_file_count": 1391,
+  "protocol_sha256": "3c39786cc6c44a3838d3c4183c312c94a26563222b2720572010b76bbdd62a76",
+  "qualification_eligible": false
+}

@@ -3,6 +3,7 @@
   "all_shards_verified": false,
   "verified_shards": [
     "2p-economic",
+    "2p-search_geo",
     "2p-snapshot0",
     "3p-economic",
     "3p-snapshot0",
@@ -14,15 +15,14 @@
     "6p-snapshot0"
   ],
   "pending_shards": [
-    "2p-search_geo",
     "3p-search_geo",
     "4p-search_geo",
     "5p-search_geo",
     "6p-search_geo"
   ],
-  "unique_games": 2560,
-  "engine_game_runs": 5120,
-  "roots": 129588,
+  "unique_games": 2688,
+  "engine_game_runs": 5376,
+  "roots": 136966,
   "shards": {
     "2p-economic": {
       "games": 128,
@@ -85,6 +85,69 @@
         "roots.jsonl.gz": "720e140cd31bed2d760e61ccecb22005e0d96e8ee4386107f9232d22b12be65c",
         "collection-check.json": "256466956a9a351ebde44a676edec3fa717420b10842b920cdf2f88061f56dc3",
         "games.json": "1dc4ce3dcc79c4368f0ff3f92e756a3cc21c42fd93a2cf4211cbe02aed2bbbe1"
+      }
+    },
+    "2p-search_geo": {
+      "games": 128,
+      "roots": 7378,
+      "public_model_proposals_reproduced": 7378,
+      "root_counts": {
+        "auction": {
+          "train": 3171,
+          "validation": 989
+        },
+        "building": {
+          "train": 2431,
+          "validation": 787
+        }
+      },
+      "coverage": {
+        "auction/train/original/False/0": 517,
+        "auction/train/original/False/1": 515,
+        "auction/train/original/True/0": 334,
+        "auction/train/original/True/1": 296,
+        "auction/train/recharged/False/0": 483,
+        "auction/train/recharged/False/1": 460,
+        "auction/train/recharged/True/0": 290,
+        "auction/train/recharged/True/1": 276,
+        "auction/validation/original/False/0": 153,
+        "auction/validation/original/False/1": 143,
+        "auction/validation/original/True/0": 107,
+        "auction/validation/original/True/1": 101,
+        "auction/validation/recharged/False/0": 158,
+        "auction/validation/recharged/False/1": 143,
+        "auction/validation/recharged/True/0": 96,
+        "auction/validation/recharged/True/1": 88,
+        "building/train/original/False/0": 317,
+        "building/train/original/False/1": 328,
+        "building/train/original/True/0": 302,
+        "building/train/original/True/1": 308,
+        "building/train/recharged/False/0": 305,
+        "building/train/recharged/False/1": 299,
+        "building/train/recharged/True/0": 279,
+        "building/train/recharged/True/1": 293,
+        "building/validation/original/False/0": 108,
+        "building/validation/original/False/1": 104,
+        "building/validation/original/True/0": 95,
+        "building/validation/original/True/1": 108,
+        "building/validation/recharged/False/0": 94,
+        "building/validation/recharged/False/1": 89,
+        "building/validation/recharged/True/0": 94,
+        "building/validation/recharged/True/1": 95
+      },
+      "seconds": 928.5053577770001,
+      "engine_seconds": 887.8312439150005,
+      "policy_seconds": 17.03187973399895,
+      "game_truncations": 0,
+      "search_truncations": 0,
+      "qualification_eligible": false,
+      "revision": "d9e2b049e525f7778f10e23e0d34de52b8d96a91",
+      "prefix": "runs/strategic-training-collection-v1-2p-search_geo",
+      "verified_sha256": "1772f3ca80ac032829c879924517af780a4fa9656f1bcae76cbc6bea6cd1890d",
+      "artifacts": {
+        "roots.jsonl.gz": "63d9a3ac64609229568814dd27895f1a4802d8a39fcfa1c28fd4e4820b75819d",
+        "collection-check.json": "b5b3216a720fed6b4b79396dd552d5b9a32d629c42ed6ece4cb36542b2f200ad",
+        "games.json": "b108fd871f4509311cebd2799d82295cd455bce022899376743b8a0dd70fb136"
       }
     },
     "2p-snapshot0": {

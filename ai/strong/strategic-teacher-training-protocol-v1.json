@@ -1,0 +1,58 @@
+{
+  "purpose": "Paired counterfactual labels for a frozen-parent strategic correction pilot; no hard winner labels.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "model": {
+    "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+    "path": "runs/discard-correction-v1/10102/derivative/inference64.onnx",
+    "sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+    "feature_revision": "4.2-discard-correction",
+    "selection": "Fixed10102 used throughout phase diagnostics; not a new model selected from these games."
+  },
+  "ort_threads": 1,
+  "workers": 24,
+  "players": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "source_modes": [
+    "economic",
+    "snapshot0"
+  ],
+  "modes": [
+    "neural",
+    "neural_economic"
+  ],
+  "samples": 48,
+  "batches": [
+    "a",
+    "b"
+  ],
+  "max_steps": 2400,
+  "roots_sha256": "f0fd62b4dd75c6b6c0936adeb1ffc75a2747cb2c62debe6b5d0aba60dbb4a091",
+  "positions": 1920,
+  "root_splits": {
+    "validation": 480,
+    "train": 1440
+  },
+  "deals": 16,
+  "deals_per_initial_shard": 2,
+  "roots_per_initial_shard": 24,
+  "first_shard": [
+    0,
+    2
+  ],
+  "expected_complete_shards": 160,
+  "expected_first_wave_shards": 20,
+  "options": "Unchanged6-proposal geographic/economic shortlist plus exact frozen-model proposal.",
+  "selection": "Every count/source/deal/rule/nomination-bid-building stratum, independently hash-selected before labels.",
+  "split": "Entire count/source/deal units; all rule cells, decisions and continuation modes stay together.",
+  "training_targets": "Preserve every sample outcome and advantage paired against the parent proposal, separately by continuation and batch. Do not convert noisy winning moves into hard labels.",
+  "future_loss": "Equal continuation mixture, count/rule/decision/deal-balanced weights and paired-sample uncertainty. Freeze actual loss before gradients.",
+  "runtime_admission": "First wave only uses verified matching two-sample probes, worst root time, linear48/2 scaling and2x time margin. Remaining shards require verified first-wave runtime. Never shorten horizons to fit.",
+  "scope": "Initial economic/self-play teacher pilot. Search-opponent continuations remain an independent expensive diagnostic; no results here qualify a model.",
+  "trained": false,
+  "qualification_eligible": false
+}

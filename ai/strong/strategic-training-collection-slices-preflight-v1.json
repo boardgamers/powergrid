@@ -1,0 +1,23 @@
+{
+  "source_revision": "00e833da8dca00fdc26cf7e07b320a8276ad27f3",
+  "source_sha256": "bb0498e19106fb233239af59ced62ffddbad056f71c6500ba15d46ec56e7a842",
+  "passed": true,
+  "parity": {
+    "games": 8,
+    "roots": 448,
+    "deal_start": 8,
+    "deal_end": 9,
+    "exact_game_rows_match_unsliced": true,
+    "exact_public_roots_and_proposals_match_unsliced": true,
+    "ignored_fields": [
+      "terminal worker-local env index",
+      "root file order index"
+    ],
+    "twin_controls_match": true,
+    "bad_ranges_and_missing_duplicate_games_rejected": true,
+    "qualification_eligible": false,
+    "scope": "Local scheduling parity only; not new training data or playing strength."
+  },
+  "scope": "Actual nonzero-offset scheduling parity with verified unsliced games; unchanged base engine and inference code.",
+  "qualification_eligible": false
+}

@@ -7,9 +7,43 @@ Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, bran
 `ai/germany-baseline`. The preceding AI goal turn implemented and launched the
 sealed-menu experiment below: **progress**. The intervening UI reply only confirmed
 the requested revert; it made no AI progress. This continuation recovered and
-authoritatively inspected the actual HF handles, reviewed the experiment and
-verified its saved validation hashes. No candidate is qualified and there is no
-external blocker.
+authoritatively inspected the actual HF handles, reviewed the experiment,
+verified its saved validation hashes, and independently collected another
+3,680-game final-checkpoint screen. This turn is **progress**. No candidate is
+qualified and there is no external blocker.
+
+## New result: homogeneous final checkpoint, primary pair available
+
+Independent collection from coordinator snapshot
+**`0935d49415181c52eb30e8d3da4ab2fa62e96f53`** verifies homogeneous update19:
+all training/checkpoint hashes and provenance, 2,553 strict parity requests,
+six complete arena cells, **3,680 games with zero truncations**. Checkpoint
+revision **`cc86f7a36392c829e44fd81d9dbf362cb74a0b1b`**; raw result revision
+**`af1a3e2cda076beee87483d0a38178e045dceffe`**. Local artifacts are under
+`ai/runs/population-homogeneous-u19-v1`; tracked full count/rule results and all
+paired contrasts are `strong/population-homogeneous-u19-screen-v1.json`.
+
+| Final homogeneous win share | Econ 2p | 3p | 4p | 5p | 6p | A260 3p |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| % | 61.875 | 61.25 | 60.156 | 75.75 | 74.896 | 41.667 |
+
+Two-player rule cells are original/open65%, original/sealed60%,
+Recharged/open67.5%, Recharged/sealed55%. The two-player economic floor66.25%
+still fails. Against the same parent/deals, overall gains of4.53pp in2p
+([-2.34,11.41]) and5.10pp againstA260 ([-1.88,12.29]) are inconclusive.
+
+The predeclared primary **heterogeneous-minus-homogeneous update19** pair is now
+available: economic2–6p differences are -6.56,+2.60,+3.59,0,-0.73pp; A2603p
+is+2.81pp. **All six overall95% whole-deal intervals include zero.** In2p the
+interval is[-14.06,+0.94]pp, and A260[-3.23,+8.96]pp. This is one training-seed
+pilot with exploratory marginal intervals; do not claim a clear superior
+population recipe, pool player counts, or select update9 in place of prescribed
+update19. All rule strata and regressions are retained in the report.
+
+Population control update19 and the full three-arm comparison remain pending;
+the existing population coordinator owns their evaluation. The four H200 runs
+are a separate paired input ablation with heterogeneous opponents fixed in both
+conditions, not evidence that heterogeneous training has won this comparison.
 
 ## Latest: frozen-weight sealed-bid experiment running
 

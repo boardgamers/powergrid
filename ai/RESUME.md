@@ -4,10 +4,65 @@
 final-test seeds remain unused.** The separate UI redesign was reverted.
 
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
-`ai/germany-baseline`. The previous goal turn made concrete progress by launching
-matched full-training throughput probes. This turn verified both probes and the
-first scheduled population checkpoint with all 3,680 independent screening
-games. Do not repeat completed probes or launch duplicate jobs.
+`ai/germany-baseline`. The previous goal turn made concrete progress by verifying
+the first population screen and both throughput probes. This turn diagnosed
+two-player rule/representation assumptions with exact replays. Do not repeat
+completed probes or launch duplicate jobs.
+
+## Next implementation: versioned two-player plant context
+
+Two-player terminal audit (`strong/two-player-terminal-audit-v1.json`): the first
+population screen has 187 wins and 133 strict losses. Among losses, 29 are
+tiebreaks; 63 have both cities and rated capacity below the winner's powered
+total; 28 have enough cities but insufficient capacity; 10 have insufficient
+cities despite sufficient capacity; 3 have both but lower actual powered count.
+These are terminal constraints, not proof of earlier causal mistakes.
+
+Sixteen preselected wins/losses (one each per rule/seat cell, first numeric deal)
+replayed exactly with the frozen v32 arena engine and the pinned heterogeneous
+update9 model. The public move traces remained byte-identical after adding the
+plant diagnostics. See `strong/two-player-replay-selection-v1.json`,
+`strong/two-player-plant-audit-v1.json` and
+`strong/two-player-plant-audit-source-v1.json`. Full traces, reports and diagnostic
+source are persistent in HF model repo under `runs/two-player-plant-audit-v1`,
+revision **`f06dc7d6e26646ec92f9afeef6ba69df54f02b59`**.
+
+Confirmed issues:
+
+- `economics.cjs::plantValue` assumes replacement at three held plants. Germany
+  two-player games allow four. Changing only the portfolio limit changes 151
+  of 172 observed valuation queries (both players; queries are not independent
+  games), by -14 to +10. The direction is not uniformly beneficial: these are
+  heuristic values, not true action values. A corrected helper still needs
+  strategic evaluation.
+- Schema4 has four explicit plant slots per player. All 192 observed discard
+  states held five plants and had `chosenPowerPlant` cleared. Aggregate capacity
+  and the fifth plant's own discard action row retain partial information, but
+  other candidate scores and the state-only value head lack a fifth plant slot.
+  Do not call the fifth plant completely invisible. This is a confirmed input
+  limitation; its strength impact still needs a controlled experiment.
+
+**Do not silently modify schema4 or the current training/evaluation runtimes.**
+The next safe implementation is an explicit append-only feature revision and
+transfer, retaining old encoders and model loading. Suggested layout: preserve
+the old 1,149 state features, append six fifth-plant slots of 11 features each
+(new total **1,215**), and append capacity-aware scoring cues after the old 98
+action features. Keep every old prefix exactly unchanged. A zero-initialized
+extra-player/action projection can add new signals while preserving the parent
+network's original matrix shapes and initial predictions; do not merely expand
+old Linear inputs and assume numerical parity. Require full 2,553-fixture
+prefix, transfer, export and action checks, including mixed old/new opponent
+encoders. The existing fixtures contain 8 two-player five-plant positions and
+27 two-player three-plant positions; add focused invariance/rule tests as needed.
+
+The diagnostic capacity-aware function in `audit-two-player-plants.cjs` is a
+read-only reference inside a preload hook, **not a production helper**. Build a
+separate pure helper for the new revision. Preserve old economic/search baseline
+identities and add a separately named corrected two-player reference when
+evaluating the change. No new teacher hard labels, gradient run, feature contract
+change, baseline replacement or candidate promotion has happened for this fix.
+The current population cohort and coordinator continue unchanged. Use the
+primary update19 comparisons when choosing the next training parent/recipe.
 
 ## First population checkpoint — verified intermediate result
 

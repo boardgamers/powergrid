@@ -1,0 +1,17 @@
+{
+  "games": 320,
+  "strict_losses": 133,
+  "strict_wins": 187,
+  "draws": 0,
+  "loss_categories": {
+    "cities_below_winner_with_sufficient_rated_capacity": 10,
+    "both_cities_and_rated_capacity_below_winner": 63,
+    "tiebreak": 29,
+    "enough_cities_and_rated_capacity_but_lower_powered": 3,
+    "rated_capacity_below_winner_with_sufficient_cities": 28
+  },
+  "interpretation": "Terminal constraints only; rated capacity does not imply available fuel or prove which earlier actions were wrong. Money/city tiebreaks are kept separately.",
+  "source_report_revision": "116032eed805e92e1c30a7d1f1192c2704e8f8f6",
+  "source_report_sha256": "b7a073f204d0538ea338be740d4a8deff942e3a6a01b0976e9b504081f82428a",
+  "qualification_eligible": false
+}

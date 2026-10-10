@@ -1,0 +1,955 @@
+{
+  "scope": "First numeric deal with a strict loss and strict win in each rules/seat cell. Diagnostic matched strata, not representative outcome sampling or new strength evaluation.",
+  "seed": "multiplayer-population-screen-v1-2p",
+  "model_sha256": "9e52c10f3bc219f54761df584c33f2c0db60f762c49f03f758bb651cc46cc8a2",
+  "model_revision": "3f56f692fc5204140257538099e1ec50a2b4fb09",
+  "source_report_sha256": "b7a073f204d0538ea338be740d4a8deff942e3a6a01b0976e9b504081f82428a",
+  "source_report_revision": "116032eed805e92e1c30a7d1f1192c2704e8f8f6",
+  "selection_frozen_before_replay": true,
+  "matches": [
+    {
+      "env": 42,
+      "episode": 42,
+      "gameSeed": "multiplayer-population-screen-v1-2p-5",
+      "truncated": false,
+      "value": [
+        0,
+        1
+      ],
+      "playerCount": 2,
+      "variant": "original",
+      "sealed": false,
+      "steps": 373,
+      "roles": [
+        "learner",
+        "economic"
+      ],
+      "policyMoves": {
+        "ChoosePowerPlant": 16,
+        "Bid": 24,
+        "BuyResource": 47,
+        "Pass": 44,
+        "Build": 19,
+        "UsePowerPlant": 32,
+        "DiscardPowerPlant": 8
+      },
+      "searchStats": {},
+      "final": {
+        "round": 12,
+        "players": [
+          {
+            "cities": 19,
+            "powered": 19,
+            "money": 79,
+            "capacity": 19,
+            "plants": [
+              18,
+              33,
+              38,
+              40
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 15,
+            "capacity": 24,
+            "plants": [
+              36,
+              44,
+              39,
+              30
+            ]
+          }
+        ]
+      },
+      "seat": 0,
+      "win": 0
+    },
+    {
+      "env": 2,
+      "episode": 2,
+      "gameSeed": "multiplayer-population-screen-v1-2p-0",
+      "truncated": false,
+      "value": [
+        1,
+        0
+      ],
+      "playerCount": 2,
+      "variant": "original",
+      "sealed": false,
+      "steps": 383,
+      "roles": [
+        "learner",
+        "economic"
+      ],
+      "policyMoves": {
+        "ChoosePowerPlant": 15,
+        "Bid": 26,
+        "Pass": 44,
+        "BuyResource": 72,
+        "Build": 21,
+        "UsePowerPlant": 30,
+        "DiscardPowerPlant": 7
+      },
+      "searchStats": {},
+      "final": {
+        "round": 13,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 90,
+            "capacity": 24,
+            "plants": [
+              25,
+              34,
+              46,
+              38
+            ]
+          },
+          {
+            "cities": 19,
+            "powered": 18,
+            "money": 120,
+            "capacity": 18,
+            "plants": [
+              18,
+              39,
+              37,
+              40
+            ]
+          }
+        ]
+      },
+      "seat": 0,
+      "win": 1
+    },
+    {
+      "env": 30,
+      "episode": 30,
+      "gameSeed": "multiplayer-population-screen-v1-2p-3",
+      "truncated": false,
+      "value": [
+        1,
+        0
+      ],
+      "playerCount": 2,
+      "variant": "original",
+      "sealed": false,
+      "steps": 319,
+      "roles": [
+        "economic",
+        "learner"
+      ],
+      "policyMoves": {
+        "Bid": 15,
+        "Pass": 37,
+        "ChoosePowerPlant": 12,
+        "BuyResource": 53,
+        "Build": 21,
+        "UsePowerPlant": 24,
+        "DiscardPowerPlant": 6
+      },
+      "searchStats": {},
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 20,
+            "powered": 20,
+            "money": 106,
+            "capacity": 20,
+            "plants": [
+              25,
+              28,
+              39,
+              34
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 20,
+            "money": 41,
+            "capacity": 20,
+            "plants": [
+              27,
+              15,
+              46,
+              38
+            ]
+          }
+        ]
+      },
+      "seat": 1,
+      "win": 0
+    },
+    {
+      "env": 6,
+      "episode": 6,
+      "gameSeed": "multiplayer-population-screen-v1-2p-0",
+      "truncated": false,
+      "value": [
+        0,
+        1
+      ],
+      "playerCount": 2,
+      "variant": "original",
+      "sealed": false,
+      "steps": 384,
+      "roles": [
+        "economic",
+        "learner"
+      ],
+      "policyMoves": {
+        "Bid": 21,
+        "Pass": 44,
+        "ChoosePowerPlant": 11,
+        "BuyResource": 62,
+        "Build": 21,
+        "UsePowerPlant": 28,
+        "DiscardPowerPlant": 9
+      },
+      "searchStats": {},
+      "final": {
+        "round": 13,
+        "players": [
+          {
+            "cities": 20,
+            "powered": 20,
+            "money": 30,
+            "capacity": 21,
+            "plants": [
+              18,
+              30,
+              39,
+              36
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 36,
+            "capacity": 22,
+            "plants": [
+              40,
+              38,
+              35,
+              37
+            ]
+          }
+        ]
+      },
+      "seat": 1,
+      "win": 1
+    },
+    {
+      "env": 0,
+      "episode": 0,
+      "gameSeed": "multiplayer-population-screen-v1-2p-0",
+      "truncated": false,
+      "value": [
+        0,
+        1
+      ],
+      "playerCount": 2,
+      "variant": "original",
+      "sealed": true,
+      "steps": 356,
+      "roles": [
+        "learner",
+        "economic"
+      ],
+      "policyMoves": {
+        "ChoosePowerPlant": 15,
+        "Bid": 10,
+        "BuyResource": 74,
+        "Pass": 41,
+        "Build": 20,
+        "UsePowerPlant": 31,
+        "DiscardPowerPlant": 7
+      },
+      "searchStats": {},
+      "final": {
+        "round": 13,
+        "players": [
+          {
+            "cities": 20,
+            "powered": 18,
+            "money": 115,
+            "capacity": 18,
+            "plants": [
+              26,
+              11,
+              38,
+              37
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 92,
+            "capacity": 22,
+            "plants": [
+              29,
+              33,
+              36,
+              46
+            ]
+          }
+        ]
+      },
+      "seat": 0,
+      "win": 0
+    },
+    {
+      "env": 8,
+      "episode": 8,
+      "gameSeed": "multiplayer-population-screen-v1-2p-1",
+      "truncated": false,
+      "value": [
+        1,
+        0
+      ],
+      "playerCount": 2,
+      "variant": "original",
+      "sealed": true,
+      "steps": 284,
+      "roles": [
+        "learner",
+        "economic"
+      ],
+      "policyMoves": {
+        "ChoosePowerPlant": 12,
+        "Bid": 10,
+        "BuyResource": 53,
+        "Pass": 33,
+        "Build": 21,
+        "UsePowerPlant": 28,
+        "DiscardPowerPlant": 6
+      },
+      "searchStats": {},
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 11,
+            "capacity": 21,
+            "plants": [
+              27,
+              31,
+              25,
+              46
+            ]
+          },
+          {
+            "cities": 19,
+            "powered": 19,
+            "money": 17,
+            "capacity": 21,
+            "plants": [
+              21,
+              29,
+              50,
+              36
+            ]
+          }
+        ]
+      },
+      "seat": 0,
+      "win": 1
+    },
+    {
+      "env": 4,
+      "episode": 4,
+      "gameSeed": "multiplayer-population-screen-v1-2p-0",
+      "truncated": false,
+      "value": [
+        1,
+        0
+      ],
+      "playerCount": 2,
+      "variant": "original",
+      "sealed": true,
+      "steps": 321,
+      "roles": [
+        "economic",
+        "learner"
+      ],
+      "policyMoves": {
+        "Bid": 9,
+        "BuyResource": 63,
+        "Pass": 37,
+        "Build": 21,
+        "UsePowerPlant": 27,
+        "ChoosePowerPlant": 12,
+        "DiscardPowerPlant": 6
+      },
+      "searchStats": {},
+      "final": {
+        "round": 12,
+        "players": [
+          {
+            "cities": 19,
+            "powered": 19,
+            "money": 17,
+            "capacity": 20,
+            "plants": [
+              18,
+              30,
+              34,
+              36
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 17,
+            "money": 41,
+            "capacity": 22,
+            "plants": [
+              20,
+              25,
+              40,
+              39
+            ]
+          }
+        ]
+      },
+      "seat": 1,
+      "win": 0
+    },
+    {
+      "env": 28,
+      "episode": 28,
+      "gameSeed": "multiplayer-population-screen-v1-2p-3",
+      "truncated": false,
+      "value": [
+        0,
+        1
+      ],
+      "playerCount": 2,
+      "variant": "original",
+      "sealed": true,
+      "steps": 251,
+      "roles": [
+        "economic",
+        "learner"
+      ],
+      "policyMoves": {
+        "Bid": 9,
+        "BuyResource": 37,
+        "Pass": 30,
+        "Build": 21,
+        "UsePowerPlant": 25,
+        "ChoosePowerPlant": 9,
+        "DiscardPowerPlant": 5
+      },
+      "searchStats": {},
+      "final": {
+        "round": 10,
+        "players": [
+          {
+            "cities": 18,
+            "powered": 17,
+            "money": 22,
+            "capacity": 21,
+            "plants": [
+              21,
+              25,
+              50,
+              32
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 70,
+            "capacity": 21,
+            "plants": [
+              27,
+              29,
+              46,
+              38
+            ]
+          }
+        ]
+      },
+      "seat": 1,
+      "win": 1
+    },
+    {
+      "env": 27,
+      "episode": 27,
+      "gameSeed": "multiplayer-population-screen-v1-2p-3",
+      "truncated": false,
+      "value": [
+        0,
+        1
+      ],
+      "playerCount": 2,
+      "variant": "recharged",
+      "sealed": false,
+      "steps": 330,
+      "roles": [
+        "learner",
+        "economic"
+      ],
+      "policyMoves": {
+        "ChoosePowerPlant": 16,
+        "Bid": 10,
+        "Pass": 39,
+        "BuyResource": 52,
+        "Build": 21,
+        "UsePowerPlant": 29,
+        "DiscardPowerPlant": 7
+      },
+      "searchStats": {},
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 19,
+            "money": 107,
+            "capacity": 19,
+            "plants": [
+              24,
+              26,
+              29,
+              50
+            ]
+          },
+          {
+            "cities": 20,
+            "powered": 20,
+            "money": 113,
+            "capacity": 20,
+            "plants": [
+              21,
+              25,
+              28,
+              46
+            ]
+          }
+        ]
+      },
+      "seat": 0,
+      "win": 0
+    },
+    {
+      "env": 3,
+      "episode": 3,
+      "gameSeed": "multiplayer-population-screen-v1-2p-0",
+      "truncated": false,
+      "value": [
+        1,
+        0
+      ],
+      "playerCount": 2,
+      "variant": "recharged",
+      "sealed": false,
+      "steps": 313,
+      "roles": [
+        "learner",
+        "economic"
+      ],
+      "policyMoves": {
+        "ChoosePowerPlant": 12,
+        "Bid": 40,
+        "BuyResource": 37,
+        "Pass": 34,
+        "Build": 21,
+        "UsePowerPlant": 24,
+        "DiscardPowerPlant": 5
+      },
+      "searchStats": {},
+      "final": {
+        "round": 10,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 48,
+            "capacity": 21,
+            "plants": [
+              27,
+              26,
+              36,
+              32
+            ]
+          },
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 17,
+            "capacity": 22,
+            "plants": [
+              25,
+              21,
+              38,
+              39
+            ]
+          }
+        ]
+      },
+      "seat": 0,
+      "win": 1
+    },
+    {
+      "env": 15,
+      "episode": 15,
+      "gameSeed": "multiplayer-population-screen-v1-2p-1",
+      "truncated": false,
+      "value": [
+        1,
+        0
+      ],
+      "playerCount": 2,
+      "variant": "recharged",
+      "sealed": false,
+      "steps": 306,
+      "roles": [
+        "economic",
+        "learner"
+      ],
+      "policyMoves": {
+        "Bid": 15,
+        "Pass": 38,
+        "ChoosePowerPlant": 9,
+        "BuyResource": 48,
+        "Build": 20,
+        "UsePowerPlant": 23,
+        "DiscardPowerPlant": 5
+      },
+      "searchStats": {},
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 15,
+            "capacity": 21,
+            "plants": [
+              26,
+              31,
+              27,
+              36
+            ]
+          },
+          {
+            "cities": 20,
+            "powered": 20,
+            "money": 16,
+            "capacity": 20,
+            "plants": [
+              22,
+              20,
+              39,
+              46
+            ]
+          }
+        ]
+      },
+      "seat": 1,
+      "win": 0
+    },
+    {
+      "env": 7,
+      "episode": 7,
+      "gameSeed": "multiplayer-population-screen-v1-2p-0",
+      "truncated": false,
+      "value": [
+        0,
+        1
+      ],
+      "playerCount": 2,
+      "variant": "recharged",
+      "sealed": false,
+      "steps": 320,
+      "roles": [
+        "economic",
+        "learner"
+      ],
+      "policyMoves": {
+        "Bid": 23,
+        "Pass": 38,
+        "ChoosePowerPlant": 12,
+        "BuyResource": 42,
+        "Build": 21,
+        "UsePowerPlant": 28,
+        "DiscardPowerPlant": 6
+      },
+      "searchStats": {},
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 18,
+            "powered": 18,
+            "money": 98,
+            "capacity": 18,
+            "plants": [
+              15,
+              25,
+              28,
+              50
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 144,
+            "capacity": 22,
+            "plants": [
+              27,
+              26,
+              38,
+              46
+            ]
+          }
+        ]
+      },
+      "seat": 1,
+      "win": 1
+    },
+    {
+      "env": 1,
+      "episode": 1,
+      "gameSeed": "multiplayer-population-screen-v1-2p-0",
+      "truncated": false,
+      "value": [
+        0,
+        1
+      ],
+      "playerCount": 2,
+      "variant": "recharged",
+      "sealed": true,
+      "steps": 284,
+      "roles": [
+        "learner",
+        "economic"
+      ],
+      "policyMoves": {
+        "ChoosePowerPlant": 9,
+        "Bid": 6,
+        "BuyResource": 43,
+        "Pass": 36,
+        "Build": 17,
+        "UsePowerPlant": 21,
+        "DiscardPowerPlant": 5
+      },
+      "searchStats": {},
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 17,
+            "powered": 17,
+            "money": 60,
+            "capacity": 17,
+            "plants": [
+              22,
+              21,
+              44,
+              39
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 48,
+            "capacity": 23,
+            "plants": [
+              25,
+              26,
+              50,
+              46
+            ]
+          }
+        ]
+      },
+      "seat": 0,
+      "win": 0
+    },
+    {
+      "env": 9,
+      "episode": 9,
+      "gameSeed": "multiplayer-population-screen-v1-2p-1",
+      "truncated": false,
+      "value": [
+        1,
+        0
+      ],
+      "playerCount": 2,
+      "variant": "recharged",
+      "sealed": true,
+      "steps": 310,
+      "roles": [
+        "learner",
+        "economic"
+      ],
+      "policyMoves": {
+        "ChoosePowerPlant": 11,
+        "Bid": 7,
+        "BuyResource": 44,
+        "Pass": 40,
+        "Build": 21,
+        "UsePowerPlant": 25,
+        "DiscardPowerPlant": 4
+      },
+      "searchStats": {},
+      "final": {
+        "round": 12,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 74,
+            "capacity": 21,
+            "plants": [
+              26,
+              27,
+              39,
+              46
+            ]
+          },
+          {
+            "cities": 18,
+            "powered": 18,
+            "money": 55,
+            "capacity": 18,
+            "plants": [
+              23,
+              22,
+              36,
+              50
+            ]
+          }
+        ]
+      },
+      "seat": 0,
+      "win": 1
+    },
+    {
+      "env": 21,
+      "episode": 21,
+      "gameSeed": "multiplayer-population-screen-v1-2p-2",
+      "truncated": false,
+      "value": [
+        1,
+        0
+      ],
+      "playerCount": 2,
+      "variant": "recharged",
+      "sealed": true,
+      "steps": 299,
+      "roles": [
+        "economic",
+        "learner"
+      ],
+      "policyMoves": {
+        "Bid": 8,
+        "BuyResource": 37,
+        "Pass": 36,
+        "Build": 19,
+        "UsePowerPlant": 22,
+        "ChoosePowerPlant": 4,
+        "DiscardPowerPlant": 6
+      },
+      "searchStats": {},
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 111,
+            "capacity": 22,
+            "plants": [
+              30,
+              36,
+              34,
+              37
+            ]
+          },
+          {
+            "cities": 19,
+            "powered": 19,
+            "money": 115,
+            "capacity": 19,
+            "plants": [
+              22,
+              50,
+              39,
+              35
+            ]
+          }
+        ]
+      },
+      "seat": 1,
+      "win": 0
+    },
+    {
+      "env": 5,
+      "episode": 5,
+      "gameSeed": "multiplayer-population-screen-v1-2p-0",
+      "truncated": false,
+      "value": [
+        0,
+        1
+      ],
+      "playerCount": 2,
+      "variant": "recharged",
+      "sealed": true,
+      "steps": 272,
+      "roles": [
+        "economic",
+        "learner"
+      ],
+      "policyMoves": {
+        "Bid": 9,
+        "ChoosePowerPlant": 10,
+        "BuyResource": 54,
+        "Pass": 34,
+        "Build": 21,
+        "UsePowerPlant": 25,
+        "DiscardPowerPlant": 5
+      },
+      "searchStats": {},
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 18,
+            "powered": 18,
+            "money": 7,
+            "capacity": 20,
+            "plants": [
+              25,
+              29,
+              44,
+              39
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 71,
+            "capacity": 21,
+            "plants": [
+              27,
+              26,
+              50,
+              36
+            ]
+          }
+        ]
+      },
+      "seat": 1,
+      "win": 1
+    }
+  ]
+}

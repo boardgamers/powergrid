@@ -36068,5 +36068,27 @@
         },
         "interpretation": "A260 improved by 8.96 points with marginal paired interval [2.91,15.00]. Two-player economic win share58.44% remains below66.25%. Other arms and primary update19 pending; no heterogeneous-vs-homogeneous causal claim.",
         "qualification_eligible": false
+    },
+    "two_player_plant_context_audit_v1": {
+        "status": "Confirmed plant-limit heuristic mismatch and incomplete explicit fifth-plant context; no model/runtime change.",
+        "terminal_file": "two-player-terminal-audit-v1.json",
+        "selection_file": "two-player-replay-selection-v1.json",
+        "audit_file": "two-player-plant-audit-v1.json",
+        "source_file": "two-player-plant-audit-source-v1.json",
+        "artifact_revision": "f06dc7d6e26646ec92f9afeef6ba69df54f02b59",
+        "exact_replay_matches": 16,
+        "actions_logged": 5105,
+        "valuation_queries": 172,
+        "changed_valuations": 151,
+        "five_plant_discard_states": 192,
+        "terminal_loss_categories": {
+            "cities_below_winner_with_sufficient_rated_capacity": 10,
+            "both_cities_and_rated_capacity_below_winner": 63,
+            "tiebreak": 29,
+            "enough_cities_and_rated_capacity_but_lower_powered": 3,
+            "rated_capacity_below_winner_with_sufficient_cities": 28
+        },
+        "next": "Develop an explicit append-only feature revision with fifth-plant context and capacity-aware cues, preserving old encoder behavior and validating zero-initialized transfer before any new training. Do not change current cohort or reinterpret old checkpoints.",
+        "qualification_eligible": false
     }
 }

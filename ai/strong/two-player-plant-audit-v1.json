@@ -1,0 +1,142 @@
+{
+  "scope": "Read-only diagnostics on16 preselected economic-opponent development matches, exact terminal and complete action-trace parity before/after instrumentation. No policy change or optimizer.",
+  "matches": 16,
+  "actions_logged": 5105,
+  "fourth_plant_valuation_queries": 172,
+  "changed_valuations": 151,
+  "value_delta_range": [
+    -14,
+    10.0
+  ],
+  "discard_states": 192,
+  "five_plant_discard_states": 192,
+  "chosen_plant_absent": 192,
+  "examples": {
+    "valuation": [
+      {
+        "kind": "fourth_plant_value",
+        "round": 4,
+        "seat": 1,
+        "action": {
+          "name": "ChoosePowerPlant",
+          "data": 11
+        },
+        "money": 55,
+        "cities": 4,
+        "held": [
+          4,
+          7,
+          10
+        ],
+        "offered": 6,
+        "original_value": 7.300000000000001,
+        "capacity_aware_value": 1.3000000000000007
+      },
+      {
+        "kind": "fourth_plant_value",
+        "round": 4,
+        "seat": 1,
+        "action": {
+          "name": "ChoosePowerPlant",
+          "data": 11
+        },
+        "money": 55,
+        "cities": 4,
+        "held": [
+          4,
+          7,
+          10
+        ],
+        "offered": 9,
+        "original_value": 12.95,
+        "capacity_aware_value": 4.949999999999999
+      },
+      {
+        "kind": "fourth_plant_value",
+        "round": 4,
+        "seat": 1,
+        "action": {
+          "name": "ChoosePowerPlant",
+          "data": 11
+        },
+        "money": 55,
+        "cities": 4,
+        "held": [
+          4,
+          7,
+          10
+        ],
+        "offered": 11,
+        "original_value": 16.05,
+        "capacity_aware_value": 10.05
+      },
+      {
+        "kind": "fourth_plant_value",
+        "round": 4,
+        "seat": 1,
+        "action": {
+          "name": "ChoosePowerPlant",
+          "data": 11
+        },
+        "money": 55,
+        "cities": 4,
+        "held": [
+          4,
+          7,
+          10
+        ],
+        "offered": 14,
+        "original_value": 9.700000000000001,
+        "capacity_aware_value": 3.700000000000003
+      }
+    ],
+    "discard": {
+      "kind": "discard_observation",
+      "round": 11,
+      "seat": 1,
+      "action": {
+        "name": "DiscardPowerPlant",
+        "data": 38
+      },
+      "state_dimension": 1149,
+      "owned_count": 5,
+      "represented_slots": [
+        27,
+        26,
+        38,
+        50
+      ],
+      "extra_plants": [
+        {
+          "number": 36,
+          "type": 0,
+          "cost": 3,
+          "citiesPowered": 7
+        }
+      ],
+      "chosen_plant": null,
+      "selected_capacity": 7,
+      "smallest_capacity": 3,
+      "held_fuel": {
+        "coal": 0,
+        "oil": 0,
+        "garbage": 0,
+        "uranium": 0
+      },
+      "remaining_capacity": 21
+    }
+  },
+  "audit_sha256": "6ca55ea9cf7c718c848ee4bfddd66d065b852618ea86253cceefe4587030687d",
+  "selection_file": "two-player-replay-selection-v1.json",
+  "findings": [
+    "plantValue assumes replacement at three held plants; Germany2p permits four. Reference calculation changes only that plant-limit rule.",
+    "Schema4 explicitly represents only the first four plants per player. During these five-plant discard decisions chosenPowerPlant is already cleared. Fifth-plant information is partial: its own discard action row and aggregate capacity/fuel statistics exist, but other candidate scores/value head do not receive a fifth plant slot."
+  ],
+  "limitations": [
+    "Diagnostic selection is stratified illustrative wins/losses, not a representative sample or strength estimate.",
+    "Valuation deltas compare two heuristics, not true action values or proven winning alternatives.",
+    "These defects do not by themselves prove the causes of the observed losses.",
+    "Never silently change schema4 features for existing checkpoints. Use a new explicit feature contract and validated transfer; keep current experiment and historical baselines fixed."
+  ],
+  "qualification_eligible": false
+}

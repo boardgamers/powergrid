@@ -1,0 +1,2056 @@
+{
+  "purpose": "Read-only causal diagnostic in selected fixed development trajectories; enumerate every legal discard at each selected game's last learner discard, then resume unchanged policies on the same actual deal. This hindsight root selection is not a deployable policy, public-belief teacher, strength evaluation or training dataset.",
+  "selection_sha256": "3efb343228790f283a1598a65f236e30aa061a9e17c649fa12a1883a793bff99",
+  "cases": [
+    {
+      "episode": 50,
+      "seat": 0,
+      "round": 11,
+      "original_discard": 20,
+      "alternatives": [
+        18,
+        20,
+        28,
+        38
+      ],
+      "observation": {
+        "round": 11,
+        "seat": 0,
+        "action": {
+          "name": "DiscardPowerPlant",
+          "data": 20
+        },
+        "sealed": false,
+        "money": 115,
+        "cities": 18,
+        "capacity": 24,
+        "owned": [
+          {
+            "number": 18,
+            "type": 5,
+            "cost": 0,
+            "capacity": 2
+          },
+          {
+            "number": 28,
+            "type": 3,
+            "cost": 1,
+            "capacity": 4
+          },
+          {
+            "number": 20,
+            "type": 0,
+            "cost": 3,
+            "capacity": 5
+          },
+          {
+            "number": 38,
+            "type": 2,
+            "cost": 3,
+            "capacity": 7
+          },
+          {
+            "number": 32,
+            "type": 1,
+            "cost": 3,
+            "capacity": 6
+          }
+        ],
+        "market": [
+          {
+            "number": 29,
+            "type": 4,
+            "cost": 1,
+            "capacity": 4
+          },
+          {
+            "number": 33,
+            "type": 5,
+            "cost": 0,
+            "capacity": 4
+          },
+          {
+            "number": 34,
+            "type": 3,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 35,
+            "type": 1,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 36,
+            "type": 0,
+            "cost": 3,
+            "capacity": 7
+          }
+        ],
+        "minimumLegalBid": null,
+        "maximumLegalBid": null,
+        "legalBidCount": 0,
+        "legalNominations": [],
+        "legalDiscards": [
+          18,
+          28,
+          20,
+          38
+        ],
+        "opponents": [
+          {
+            "id": 1,
+            "money": 107,
+            "cities": 19,
+            "capacity": 21,
+            "plants": [
+              {
+                "number": 26,
+                "type": 1,
+                "cost": 2,
+                "capacity": 5
+              },
+              {
+                "number": 27,
+                "type": 5,
+                "cost": 0,
+                "capacity": 3
+              },
+              {
+                "number": 39,
+                "type": 3,
+                "cost": 1,
+                "capacity": 6
+              },
+              {
+                "number": 46,
+                "type": 4,
+                "cost": 3,
+                "capacity": 7
+              }
+            ]
+          }
+        ]
+      },
+      "auction_trace_sha256": "212303bef1f9e833c64ede7a08b9606fe46f5dec756da21b26ce2d5a38c428f9"
+    },
+    {
+      "episode": 2,
+      "seat": 0,
+      "round": 12,
+      "original_discard": 25,
+      "alternatives": [
+        25,
+        29,
+        33,
+        36
+      ],
+      "observation": {
+        "round": 12,
+        "seat": 0,
+        "action": {
+          "name": "DiscardPowerPlant",
+          "data": 25
+        },
+        "sealed": false,
+        "money": 118,
+        "cities": 20,
+        "capacity": 27,
+        "owned": [
+          {
+            "number": 25,
+            "type": 0,
+            "cost": 2,
+            "capacity": 5
+          },
+          {
+            "number": 29,
+            "type": 4,
+            "cost": 1,
+            "capacity": 4
+          },
+          {
+            "number": 33,
+            "type": 5,
+            "cost": 0,
+            "capacity": 4
+          },
+          {
+            "number": 36,
+            "type": 0,
+            "cost": 3,
+            "capacity": 7
+          },
+          {
+            "number": 38,
+            "type": 2,
+            "cost": 3,
+            "capacity": 7
+          }
+        ],
+        "market": [
+          {
+            "number": 34,
+            "type": 3,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 35,
+            "type": 1,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 37,
+            "type": 5,
+            "cost": 0,
+            "capacity": 4
+          },
+          {
+            "number": 42,
+            "type": 0,
+            "cost": 2,
+            "capacity": 6
+          },
+          {
+            "number": 46,
+            "type": 4,
+            "cost": 3,
+            "capacity": 7
+          }
+        ],
+        "minimumLegalBid": null,
+        "maximumLegalBid": null,
+        "legalBidCount": 0,
+        "legalNominations": [],
+        "legalDiscards": [
+          25,
+          29,
+          33,
+          36
+        ],
+        "opponents": [
+          {
+            "id": 1,
+            "money": 155,
+            "cities": 18,
+            "capacity": 20,
+            "plants": [
+              {
+                "number": 18,
+                "type": 5,
+                "cost": 0,
+                "capacity": 2
+              },
+              {
+                "number": 30,
+                "type": 2,
+                "cost": 3,
+                "capacity": 6
+              },
+              {
+                "number": 40,
+                "type": 1,
+                "cost": 2,
+                "capacity": 6
+              },
+              {
+                "number": 39,
+                "type": 3,
+                "cost": 1,
+                "capacity": 6
+              }
+            ]
+          }
+        ]
+      },
+      "auction_trace_sha256": "8167c688147c8bd9c1f3a820226cf8b606184d54784d695dc36d463d3e398a08"
+    },
+    {
+      "episode": 6,
+      "seat": 1,
+      "round": 13,
+      "original_discard": 25,
+      "alternatives": [
+        18,
+        25,
+        34,
+        39
+      ],
+      "observation": {
+        "round": 13,
+        "seat": 1,
+        "action": {
+          "name": "DiscardPowerPlant",
+          "data": 25
+        },
+        "sealed": false,
+        "money": 219,
+        "cities": 19,
+        "capacity": 25,
+        "owned": [
+          {
+            "number": 18,
+            "type": 5,
+            "cost": 0,
+            "capacity": 2
+          },
+          {
+            "number": 25,
+            "type": 0,
+            "cost": 2,
+            "capacity": 5
+          },
+          {
+            "number": 34,
+            "type": 3,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 39,
+            "type": 3,
+            "cost": 1,
+            "capacity": 6
+          },
+          {
+            "number": 36,
+            "type": 0,
+            "cost": 3,
+            "capacity": 7
+          }
+        ],
+        "market": [
+          {
+            "number": 37,
+            "type": 5,
+            "cost": 0,
+            "capacity": 4
+          },
+          {
+            "number": 40,
+            "type": 1,
+            "cost": 2,
+            "capacity": 6
+          },
+          {
+            "number": 42,
+            "type": 0,
+            "cost": 2,
+            "capacity": 6
+          },
+          {
+            "number": 46,
+            "type": 4,
+            "cost": 3,
+            "capacity": 7
+          }
+        ],
+        "minimumLegalBid": null,
+        "maximumLegalBid": null,
+        "legalBidCount": 0,
+        "legalNominations": [],
+        "legalDiscards": [
+          18,
+          25,
+          34,
+          39
+        ],
+        "opponents": [
+          {
+            "id": 0,
+            "money": 217,
+            "cities": 19,
+            "capacity": 19,
+            "plants": [
+              {
+                "number": 11,
+                "type": 3,
+                "cost": 1,
+                "capacity": 2
+              },
+              {
+                "number": 29,
+                "type": 4,
+                "cost": 1,
+                "capacity": 4
+              },
+              {
+                "number": 30,
+                "type": 2,
+                "cost": 3,
+                "capacity": 6
+              },
+              {
+                "number": 38,
+                "type": 2,
+                "cost": 3,
+                "capacity": 7
+              }
+            ]
+          }
+        ]
+      },
+      "auction_trace_sha256": "eea21d0e6c11f8af7459f72cf082418f79d57389a2cb153ffdfee966018617ab"
+    },
+    {
+      "episode": 14,
+      "seat": 1,
+      "round": 11,
+      "original_discard": 28,
+      "alternatives": [
+        25,
+        27,
+        28,
+        32
+      ],
+      "observation": {
+        "round": 11,
+        "seat": 1,
+        "action": {
+          "name": "DiscardPowerPlant",
+          "data": 28
+        },
+        "sealed": false,
+        "money": 117,
+        "cities": 18,
+        "capacity": 25,
+        "owned": [
+          {
+            "number": 27,
+            "type": 5,
+            "cost": 0,
+            "capacity": 3
+          },
+          {
+            "number": 28,
+            "type": 3,
+            "cost": 1,
+            "capacity": 4
+          },
+          {
+            "number": 25,
+            "type": 0,
+            "cost": 2,
+            "capacity": 5
+          },
+          {
+            "number": 32,
+            "type": 1,
+            "cost": 3,
+            "capacity": 6
+          },
+          {
+            "number": 38,
+            "type": 2,
+            "cost": 3,
+            "capacity": 7
+          }
+        ],
+        "market": [
+          {
+            "number": 33,
+            "type": 5,
+            "cost": 0,
+            "capacity": 4
+          },
+          {
+            "number": 34,
+            "type": 3,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 36,
+            "type": 0,
+            "cost": 3,
+            "capacity": 7
+          },
+          {
+            "number": 37,
+            "type": 5,
+            "cost": 0,
+            "capacity": 4
+          },
+          {
+            "number": 46,
+            "type": 4,
+            "cost": 3,
+            "capacity": 7
+          }
+        ],
+        "minimumLegalBid": null,
+        "maximumLegalBid": null,
+        "legalBidCount": 0,
+        "legalNominations": [],
+        "legalDiscards": [
+          27,
+          28,
+          25,
+          32
+        ],
+        "opponents": [
+          {
+            "id": 0,
+            "money": 148,
+            "cities": 14,
+            "capacity": 16,
+            "plants": [
+              {
+                "number": 22,
+                "type": 5,
+                "cost": 0,
+                "capacity": 2
+              },
+              {
+                "number": 21,
+                "type": 4,
+                "cost": 2,
+                "capacity": 4
+              },
+              {
+                "number": 31,
+                "type": 0,
+                "cost": 3,
+                "capacity": 6
+              },
+              {
+                "number": 29,
+                "type": 4,
+                "cost": 1,
+                "capacity": 4
+              }
+            ]
+          }
+        ]
+      },
+      "auction_trace_sha256": "9f49a4b4b44814a2812abc2a74e9dd1162a09f9e55e583513e829baddfddc171"
+    },
+    {
+      "episode": 128,
+      "seat": 0,
+      "round": 11,
+      "original_discard": 31,
+      "alternatives": [
+        18,
+        26,
+        31,
+        42
+      ],
+      "observation": {
+        "round": 11,
+        "seat": 0,
+        "action": {
+          "name": "DiscardPowerPlant",
+          "data": 31
+        },
+        "sealed": true,
+        "money": 113,
+        "cities": 18,
+        "capacity": 25,
+        "owned": [
+          {
+            "number": 18,
+            "type": 5,
+            "cost": 0,
+            "capacity": 2
+          },
+          {
+            "number": 26,
+            "type": 1,
+            "cost": 2,
+            "capacity": 5
+          },
+          {
+            "number": 31,
+            "type": 0,
+            "cost": 3,
+            "capacity": 6
+          },
+          {
+            "number": 42,
+            "type": 0,
+            "cost": 2,
+            "capacity": 6
+          },
+          {
+            "number": 39,
+            "type": 3,
+            "cost": 1,
+            "capacity": 6
+          }
+        ],
+        "market": [
+          {
+            "number": 24,
+            "type": 2,
+            "cost": 2,
+            "capacity": 4
+          },
+          {
+            "number": 28,
+            "type": 3,
+            "cost": 1,
+            "capacity": 4
+          },
+          {
+            "number": 35,
+            "type": 1,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 37,
+            "type": 5,
+            "cost": 0,
+            "capacity": 4
+          },
+          {
+            "number": 44,
+            "type": 5,
+            "cost": 0,
+            "capacity": 5
+          }
+        ],
+        "minimumLegalBid": null,
+        "maximumLegalBid": null,
+        "legalBidCount": 0,
+        "legalNominations": [],
+        "legalDiscards": [
+          18,
+          26,
+          31,
+          42
+        ],
+        "opponents": [
+          {
+            "id": 1,
+            "money": 126,
+            "cities": 19,
+            "capacity": 22,
+            "plants": [
+              {
+                "number": 27,
+                "type": 5,
+                "cost": 0,
+                "capacity": 3
+              },
+              {
+                "number": 34,
+                "type": 3,
+                "cost": 1,
+                "capacity": 5
+              },
+              {
+                "number": 46,
+                "type": 4,
+                "cost": 3,
+                "capacity": 7
+              },
+              {
+                "number": 38,
+                "type": 2,
+                "cost": 3,
+                "capacity": 7
+              }
+            ]
+          }
+        ]
+      },
+      "auction_trace_sha256": "4d9240d0c2c42cef72f67a97fa9bd8168182114e7e82964a6b9b17d2f7753d06"
+    },
+    {
+      "episode": 0,
+      "seat": 0,
+      "round": 11,
+      "original_discard": 25,
+      "alternatives": [
+        25,
+        29,
+        34,
+        39
+      ],
+      "observation": {
+        "round": 11,
+        "seat": 0,
+        "action": {
+          "name": "DiscardPowerPlant",
+          "data": 25
+        },
+        "sealed": true,
+        "money": 133,
+        "cities": 20,
+        "capacity": 27,
+        "owned": [
+          {
+            "number": 25,
+            "type": 0,
+            "cost": 2,
+            "capacity": 5
+          },
+          {
+            "number": 29,
+            "type": 4,
+            "cost": 1,
+            "capacity": 4
+          },
+          {
+            "number": 34,
+            "type": 3,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 39,
+            "type": 3,
+            "cost": 1,
+            "capacity": 6
+          },
+          {
+            "number": 46,
+            "type": 4,
+            "cost": 3,
+            "capacity": 7
+          }
+        ],
+        "market": [
+          {
+            "number": 32,
+            "type": 1,
+            "cost": 3,
+            "capacity": 6
+          },
+          {
+            "number": 33,
+            "type": 5,
+            "cost": 0,
+            "capacity": 4
+          },
+          {
+            "number": 35,
+            "type": 1,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 37,
+            "type": 5,
+            "cost": 0,
+            "capacity": 4
+          },
+          {
+            "number": 42,
+            "type": 0,
+            "cost": 2,
+            "capacity": 6
+          }
+        ],
+        "minimumLegalBid": null,
+        "maximumLegalBid": null,
+        "legalBidCount": 0,
+        "legalNominations": [],
+        "legalDiscards": [
+          25,
+          29,
+          34,
+          39
+        ],
+        "opponents": [
+          {
+            "id": 1,
+            "money": 68,
+            "cities": 9,
+            "capacity": 21,
+            "plants": [
+              {
+                "number": 13,
+                "type": 5,
+                "cost": 0,
+                "capacity": 1
+              },
+              {
+                "number": 40,
+                "type": 1,
+                "cost": 2,
+                "capacity": 6
+              },
+              {
+                "number": 36,
+                "type": 0,
+                "cost": 3,
+                "capacity": 7
+              },
+              {
+                "number": 38,
+                "type": 2,
+                "cost": 3,
+                "capacity": 7
+              }
+            ]
+          }
+        ]
+      },
+      "auction_trace_sha256": "ff99856028e94c9fc2df533b358ff6f09fe8e390afee173cf9e18650af5cfb60"
+    },
+    {
+      "episode": 44,
+      "seat": 1,
+      "round": 13,
+      "original_discard": 32,
+      "alternatives": [
+        22,
+        32,
+        33,
+        39
+      ],
+      "observation": {
+        "round": 13,
+        "seat": 1,
+        "action": {
+          "name": "DiscardPowerPlant",
+          "data": 32
+        },
+        "sealed": true,
+        "money": 231,
+        "cities": 18,
+        "capacity": 24,
+        "owned": [
+          {
+            "number": 22,
+            "type": 5,
+            "cost": 0,
+            "capacity": 2
+          },
+          {
+            "number": 39,
+            "type": 3,
+            "cost": 1,
+            "capacity": 6
+          },
+          {
+            "number": 32,
+            "type": 1,
+            "cost": 3,
+            "capacity": 6
+          },
+          {
+            "number": 33,
+            "type": 5,
+            "cost": 0,
+            "capacity": 4
+          },
+          {
+            "number": 40,
+            "type": 1,
+            "cost": 2,
+            "capacity": 6
+          }
+        ],
+        "market": [
+          {
+            "number": 34,
+            "type": 3,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 37,
+            "type": 5,
+            "cost": 0,
+            "capacity": 4
+          }
+        ],
+        "minimumLegalBid": null,
+        "maximumLegalBid": null,
+        "legalBidCount": 0,
+        "legalNominations": [],
+        "legalDiscards": [
+          22,
+          39,
+          32,
+          33
+        ],
+        "opponents": [
+          {
+            "id": 0,
+            "money": 78,
+            "cities": 19,
+            "capacity": 20,
+            "plants": [
+              {
+                "number": 13,
+                "type": 5,
+                "cost": 0,
+                "capacity": 1
+              },
+              {
+                "number": 44,
+                "type": 5,
+                "cost": 0,
+                "capacity": 5
+              },
+              {
+                "number": 46,
+                "type": 4,
+                "cost": 3,
+                "capacity": 7
+              },
+              {
+                "number": 36,
+                "type": 0,
+                "cost": 3,
+                "capacity": 7
+              }
+            ]
+          }
+        ]
+      },
+      "auction_trace_sha256": "5f1c5777a408071bcd0c6685f0e646b0876dfe045e5846368a359f0d99f6bc34"
+    },
+    {
+      "episode": 4,
+      "seat": 1,
+      "round": 11,
+      "original_discard": 25,
+      "alternatives": [
+        18,
+        25,
+        39,
+        40
+      ],
+      "observation": {
+        "round": 11,
+        "seat": 1,
+        "action": {
+          "name": "DiscardPowerPlant",
+          "data": 25
+        },
+        "sealed": true,
+        "money": 156,
+        "cities": 19,
+        "capacity": 26,
+        "owned": [
+          {
+            "number": 18,
+            "type": 5,
+            "cost": 0,
+            "capacity": 2
+          },
+          {
+            "number": 25,
+            "type": 0,
+            "cost": 2,
+            "capacity": 5
+          },
+          {
+            "number": 40,
+            "type": 1,
+            "cost": 2,
+            "capacity": 6
+          },
+          {
+            "number": 39,
+            "type": 3,
+            "cost": 1,
+            "capacity": 6
+          },
+          {
+            "number": 36,
+            "type": 0,
+            "cost": 3,
+            "capacity": 7
+          }
+        ],
+        "market": [
+          {
+            "number": 35,
+            "type": 1,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 37,
+            "type": 5,
+            "cost": 0,
+            "capacity": 4
+          },
+          {
+            "number": 42,
+            "type": 0,
+            "cost": 2,
+            "capacity": 6
+          },
+          {
+            "number": 46,
+            "type": 4,
+            "cost": 3,
+            "capacity": 7
+          }
+        ],
+        "minimumLegalBid": null,
+        "maximumLegalBid": null,
+        "legalBidCount": 0,
+        "legalNominations": [],
+        "legalDiscards": [
+          18,
+          25,
+          40,
+          39
+        ],
+        "opponents": [
+          {
+            "id": 0,
+            "money": 157,
+            "cities": 15,
+            "capacity": 21,
+            "plants": [
+              {
+                "number": 26,
+                "type": 1,
+                "cost": 2,
+                "capacity": 5
+              },
+              {
+                "number": 29,
+                "type": 4,
+                "cost": 1,
+                "capacity": 4
+              },
+              {
+                "number": 34,
+                "type": 3,
+                "cost": 1,
+                "capacity": 5
+              },
+              {
+                "number": 38,
+                "type": 2,
+                "cost": 3,
+                "capacity": 7
+              }
+            ]
+          }
+        ]
+      },
+      "auction_trace_sha256": "700372b225cd48a71c8a66a1cdec59aaf0f4625b83e86f0313432b95ce535a1a"
+    },
+    {
+      "episode": 35,
+      "seat": 0,
+      "round": 11,
+      "original_discard": 31,
+      "alternatives": [
+        13,
+        31,
+        40,
+        50
+      ],
+      "observation": {
+        "round": 11,
+        "seat": 0,
+        "action": {
+          "name": "DiscardPowerPlant",
+          "data": 31
+        },
+        "sealed": false,
+        "money": 225,
+        "cities": 19,
+        "capacity": 24,
+        "owned": [
+          {
+            "number": 13,
+            "type": 5,
+            "cost": 0,
+            "capacity": 1
+          },
+          {
+            "number": 31,
+            "type": 0,
+            "cost": 3,
+            "capacity": 6
+          },
+          {
+            "number": 40,
+            "type": 1,
+            "cost": 2,
+            "capacity": 6
+          },
+          {
+            "number": 50,
+            "type": 6,
+            "cost": 0,
+            "capacity": 6
+          },
+          {
+            "number": 44,
+            "type": 5,
+            "cost": 0,
+            "capacity": 5
+          }
+        ],
+        "market": [
+          {
+            "number": 34,
+            "type": 3,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 35,
+            "type": 1,
+            "cost": 1,
+            "capacity": 5
+          }
+        ],
+        "minimumLegalBid": null,
+        "maximumLegalBid": null,
+        "legalBidCount": 0,
+        "legalNominations": [],
+        "legalDiscards": [
+          13,
+          31,
+          40,
+          50
+        ],
+        "opponents": [
+          {
+            "id": 1,
+            "money": 130,
+            "cities": 20,
+            "capacity": 20,
+            "plants": [
+              {
+                "number": 29,
+                "type": 4,
+                "cost": 1,
+                "capacity": 4
+              },
+              {
+                "number": 27,
+                "type": 5,
+                "cost": 0,
+                "capacity": 3
+              },
+              {
+                "number": 39,
+                "type": 3,
+                "cost": 1,
+                "capacity": 6
+              },
+              {
+                "number": 46,
+                "type": 4,
+                "cost": 3,
+                "capacity": 7
+              }
+            ]
+          }
+        ]
+      },
+      "auction_trace_sha256": "37f74c0ebfa824c5fa4122c132f869d965fc8e035067ecc5dfc1e5e553f47833"
+    },
+    {
+      "episode": 3,
+      "seat": 0,
+      "round": 10,
+      "original_discard": 21,
+      "alternatives": [
+        21,
+        26,
+        27,
+        38
+      ],
+      "observation": {
+        "round": 10,
+        "seat": 0,
+        "action": {
+          "name": "DiscardPowerPlant",
+          "data": 21
+        },
+        "sealed": false,
+        "money": 111,
+        "cities": 19,
+        "capacity": 26,
+        "owned": [
+          {
+            "number": 27,
+            "type": 5,
+            "cost": 0,
+            "capacity": 3
+          },
+          {
+            "number": 21,
+            "type": 4,
+            "cost": 2,
+            "capacity": 4
+          },
+          {
+            "number": 26,
+            "type": 1,
+            "cost": 2,
+            "capacity": 5
+          },
+          {
+            "number": 38,
+            "type": 2,
+            "cost": 3,
+            "capacity": 7
+          },
+          {
+            "number": 36,
+            "type": 0,
+            "cost": 3,
+            "capacity": 7
+          }
+        ],
+        "market": [
+          {
+            "number": 32,
+            "type": 1,
+            "cost": 3,
+            "capacity": 6
+          },
+          {
+            "number": 33,
+            "type": 5,
+            "cost": 0,
+            "capacity": 4
+          },
+          {
+            "number": 34,
+            "type": 3,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 42,
+            "type": 0,
+            "cost": 2,
+            "capacity": 6
+          },
+          {
+            "number": 50,
+            "type": 6,
+            "cost": 0,
+            "capacity": 6
+          }
+        ],
+        "minimumLegalBid": null,
+        "maximumLegalBid": null,
+        "legalBidCount": 0,
+        "legalNominations": [],
+        "legalDiscards": [
+          27,
+          21,
+          26,
+          38
+        ],
+        "opponents": [
+          {
+            "id": 1,
+            "money": 115,
+            "cities": 10,
+            "capacity": 19,
+            "plants": [
+              {
+                "number": 20,
+                "type": 0,
+                "cost": 3,
+                "capacity": 5
+              },
+              {
+                "number": 25,
+                "type": 0,
+                "cost": 2,
+                "capacity": 5
+              },
+              {
+                "number": 29,
+                "type": 4,
+                "cost": 1,
+                "capacity": 4
+              },
+              {
+                "number": 44,
+                "type": 5,
+                "cost": 0,
+                "capacity": 5
+              }
+            ]
+          }
+        ]
+      },
+      "auction_trace_sha256": "6440e881942b2804297ccf3a72874cc877b19dcad094b052575ecabd64a09f39"
+    },
+    {
+      "episode": 31,
+      "seat": 1,
+      "round": 10,
+      "original_discard": 24,
+      "alternatives": [
+        24,
+        27,
+        28,
+        35
+      ],
+      "observation": {
+        "round": 10,
+        "seat": 1,
+        "action": {
+          "name": "DiscardPowerPlant",
+          "data": 24
+        },
+        "sealed": false,
+        "money": 138,
+        "cities": 18,
+        "capacity": 22,
+        "owned": [
+          {
+            "number": 24,
+            "type": 2,
+            "cost": 2,
+            "capacity": 4
+          },
+          {
+            "number": 27,
+            "type": 5,
+            "cost": 0,
+            "capacity": 3
+          },
+          {
+            "number": 28,
+            "type": 3,
+            "cost": 1,
+            "capacity": 4
+          },
+          {
+            "number": 35,
+            "type": 1,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 50,
+            "type": 6,
+            "cost": 0,
+            "capacity": 6
+          }
+        ],
+        "market": [
+          {
+            "number": 31,
+            "type": 0,
+            "cost": 3,
+            "capacity": 6
+          },
+          {
+            "number": 33,
+            "type": 5,
+            "cost": 0,
+            "capacity": 4
+          },
+          {
+            "number": 37,
+            "type": 5,
+            "cost": 0,
+            "capacity": 4
+          },
+          {
+            "number": 38,
+            "type": 2,
+            "cost": 3,
+            "capacity": 7
+          },
+          {
+            "number": 46,
+            "type": 4,
+            "cost": 3,
+            "capacity": 7
+          }
+        ],
+        "minimumLegalBid": null,
+        "maximumLegalBid": null,
+        "legalBidCount": 0,
+        "legalNominations": [],
+        "legalDiscards": [
+          24,
+          27,
+          28,
+          35
+        ],
+        "opponents": [
+          {
+            "id": 0,
+            "money": 118,
+            "cities": 20,
+            "capacity": 23,
+            "plants": [
+              {
+                "number": 25,
+                "type": 0,
+                "cost": 2,
+                "capacity": 5
+              },
+              {
+                "number": 26,
+                "type": 1,
+                "cost": 2,
+                "capacity": 5
+              },
+              {
+                "number": 39,
+                "type": 3,
+                "cost": 1,
+                "capacity": 6
+              },
+              {
+                "number": 36,
+                "type": 0,
+                "cost": 3,
+                "capacity": 7
+              }
+            ]
+          }
+        ]
+      },
+      "auction_trace_sha256": "7999e42e987c587ff8b7ad89dcdb187a5af168771e845382fcd49e9cbb9cfeab"
+    },
+    {
+      "episode": 7,
+      "seat": 1,
+      "round": 10,
+      "original_discard": 36,
+      "alternatives": [
+        21,
+        25,
+        26,
+        36
+      ],
+      "observation": {
+        "round": 10,
+        "seat": 1,
+        "action": {
+          "name": "DiscardPowerPlant",
+          "data": 36
+        },
+        "sealed": false,
+        "money": 123,
+        "cities": 19,
+        "capacity": 28,
+        "owned": [
+          {
+            "number": 25,
+            "type": 0,
+            "cost": 2,
+            "capacity": 5
+          },
+          {
+            "number": 21,
+            "type": 4,
+            "cost": 2,
+            "capacity": 4
+          },
+          {
+            "number": 26,
+            "type": 1,
+            "cost": 2,
+            "capacity": 5
+          },
+          {
+            "number": 36,
+            "type": 0,
+            "cost": 3,
+            "capacity": 7
+          },
+          {
+            "number": 38,
+            "type": 2,
+            "cost": 3,
+            "capacity": 7
+          }
+        ],
+        "market": [
+          {
+            "number": 32,
+            "type": 1,
+            "cost": 3,
+            "capacity": 6
+          },
+          {
+            "number": 33,
+            "type": 5,
+            "cost": 0,
+            "capacity": 4
+          },
+          {
+            "number": 34,
+            "type": 3,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 42,
+            "type": 0,
+            "cost": 2,
+            "capacity": 6
+          },
+          {
+            "number": 50,
+            "type": 6,
+            "cost": 0,
+            "capacity": 6
+          }
+        ],
+        "minimumLegalBid": null,
+        "maximumLegalBid": null,
+        "legalBidCount": 0,
+        "legalNominations": [],
+        "legalDiscards": [
+          25,
+          21,
+          26,
+          36
+        ],
+        "opponents": [
+          {
+            "id": 0,
+            "money": 85,
+            "cities": 5,
+            "capacity": 17,
+            "plants": [
+              {
+                "number": 16,
+                "type": 1,
+                "cost": 2,
+                "capacity": 3
+              },
+              {
+                "number": 20,
+                "type": 0,
+                "cost": 3,
+                "capacity": 5
+              },
+              {
+                "number": 29,
+                "type": 4,
+                "cost": 1,
+                "capacity": 4
+              },
+              {
+                "number": 44,
+                "type": 5,
+                "cost": 0,
+                "capacity": 5
+              }
+            ]
+          }
+        ]
+      },
+      "auction_trace_sha256": "8182143141f1385572b6dd63c31362690feb2d299cf6c0d894080f60aacd41db"
+    },
+    {
+      "episode": 17,
+      "seat": 0,
+      "round": 11,
+      "original_discard": 36,
+      "alternatives": [
+        27,
+        29,
+        36,
+        39
+      ],
+      "observation": {
+        "round": 11,
+        "seat": 0,
+        "action": {
+          "name": "DiscardPowerPlant",
+          "data": 36
+        },
+        "sealed": true,
+        "money": 193,
+        "cities": 20,
+        "capacity": 27,
+        "owned": [
+          {
+            "number": 29,
+            "type": 4,
+            "cost": 1,
+            "capacity": 4
+          },
+          {
+            "number": 27,
+            "type": 5,
+            "cost": 0,
+            "capacity": 3
+          },
+          {
+            "number": 36,
+            "type": 0,
+            "cost": 3,
+            "capacity": 7
+          },
+          {
+            "number": 39,
+            "type": 3,
+            "cost": 1,
+            "capacity": 6
+          },
+          {
+            "number": 38,
+            "type": 2,
+            "cost": 3,
+            "capacity": 7
+          }
+        ],
+        "market": [
+          {
+            "number": 40,
+            "type": 1,
+            "cost": 2,
+            "capacity": 6
+          },
+          {
+            "number": 42,
+            "type": 0,
+            "cost": 2,
+            "capacity": 6
+          },
+          {
+            "number": 46,
+            "type": 4,
+            "cost": 3,
+            "capacity": 7
+          }
+        ],
+        "minimumLegalBid": null,
+        "maximumLegalBid": null,
+        "legalBidCount": 0,
+        "legalNominations": [],
+        "legalDiscards": [
+          29,
+          27,
+          36,
+          39
+        ],
+        "opponents": [
+          {
+            "id": 1,
+            "money": 143,
+            "cities": 17,
+            "capacity": 23,
+            "plants": [
+              {
+                "number": 31,
+                "type": 0,
+                "cost": 3,
+                "capacity": 6
+              },
+              {
+                "number": 32,
+                "type": 1,
+                "cost": 3,
+                "capacity": 6
+              },
+              {
+                "number": 50,
+                "type": 6,
+                "cost": 0,
+                "capacity": 6
+              },
+              {
+                "number": 35,
+                "type": 1,
+                "cost": 1,
+                "capacity": 5
+              }
+            ]
+          }
+        ]
+      },
+      "auction_trace_sha256": "a65c5c3570abada4deb29b116dd54672e3c0835152809adee738dcb91d27525b"
+    },
+    {
+      "episode": 1,
+      "seat": 0,
+      "round": 11,
+      "original_discard": 29,
+      "alternatives": [
+        21,
+        25,
+        29,
+        38
+      ],
+      "observation": {
+        "round": 11,
+        "seat": 0,
+        "action": {
+          "name": "DiscardPowerPlant",
+          "data": 29
+        },
+        "sealed": true,
+        "money": 86,
+        "cities": 20,
+        "capacity": 26,
+        "owned": [
+          {
+            "number": 25,
+            "type": 0,
+            "cost": 2,
+            "capacity": 5
+          },
+          {
+            "number": 29,
+            "type": 4,
+            "cost": 1,
+            "capacity": 4
+          },
+          {
+            "number": 21,
+            "type": 4,
+            "cost": 2,
+            "capacity": 4
+          },
+          {
+            "number": 38,
+            "type": 2,
+            "cost": 3,
+            "capacity": 7
+          },
+          {
+            "number": 50,
+            "type": 6,
+            "cost": 0,
+            "capacity": 6
+          }
+        ],
+        "market": [
+          {
+            "number": 30,
+            "type": 2,
+            "cost": 3,
+            "capacity": 6
+          },
+          {
+            "number": 34,
+            "type": 3,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 39,
+            "type": 3,
+            "cost": 1,
+            "capacity": 6
+          },
+          {
+            "number": 42,
+            "type": 0,
+            "cost": 2,
+            "capacity": 6
+          },
+          {
+            "number": 44,
+            "type": 5,
+            "cost": 0,
+            "capacity": 5
+          }
+        ],
+        "minimumLegalBid": null,
+        "maximumLegalBid": null,
+        "legalBidCount": 0,
+        "legalNominations": [],
+        "legalDiscards": [
+          25,
+          29,
+          21,
+          38
+        ],
+        "opponents": [
+          {
+            "id": 1,
+            "money": 169,
+            "cities": 18,
+            "capacity": 19,
+            "plants": [
+              {
+                "number": 27,
+                "type": 5,
+                "cost": 0,
+                "capacity": 3
+              },
+              {
+                "number": 28,
+                "type": 3,
+                "cost": 1,
+                "capacity": 4
+              },
+              {
+                "number": 26,
+                "type": 1,
+                "cost": 2,
+                "capacity": 5
+              },
+              {
+                "number": 36,
+                "type": 0,
+                "cost": 3,
+                "capacity": 7
+              }
+            ]
+          }
+        ]
+      },
+      "auction_trace_sha256": "b183ec48083c09b316ed4221e397fa32ab40d5cb48a67110e49f66b65cb4132b"
+    },
+    {
+      "episode": 21,
+      "seat": 1,
+      "round": 11,
+      "original_discard": 30,
+      "alternatives": [
+        13,
+        30,
+        31,
+        50
+      ],
+      "observation": {
+        "round": 11,
+        "seat": 1,
+        "action": {
+          "name": "DiscardPowerPlant",
+          "data": 30
+        },
+        "sealed": true,
+        "money": 187,
+        "cities": 19,
+        "capacity": 25,
+        "owned": [
+          {
+            "number": 13,
+            "type": 5,
+            "cost": 0,
+            "capacity": 1
+          },
+          {
+            "number": 30,
+            "type": 2,
+            "cost": 3,
+            "capacity": 6
+          },
+          {
+            "number": 31,
+            "type": 0,
+            "cost": 3,
+            "capacity": 6
+          },
+          {
+            "number": 50,
+            "type": 6,
+            "cost": 0,
+            "capacity": 6
+          },
+          {
+            "number": 39,
+            "type": 3,
+            "cost": 1,
+            "capacity": 6
+          }
+        ],
+        "market": [
+          {
+            "number": 34,
+            "type": 3,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 35,
+            "type": 1,
+            "cost": 1,
+            "capacity": 5
+          },
+          {
+            "number": 37,
+            "type": 5,
+            "cost": 0,
+            "capacity": 4
+          },
+          {
+            "number": 38,
+            "type": 2,
+            "cost": 3,
+            "capacity": 7
+          },
+          {
+            "number": 40,
+            "type": 1,
+            "cost": 2,
+            "capacity": 6
+          }
+        ],
+        "minimumLegalBid": null,
+        "maximumLegalBid": null,
+        "legalBidCount": 0,
+        "legalNominations": [],
+        "legalDiscards": [
+          13,
+          30,
+          31,
+          50
+        ],
+        "opponents": [
+          {
+            "id": 0,
+            "money": 243,
+            "cities": 20,
+            "capacity": 20,
+            "plants": [
+              {
+                "number": 29,
+                "type": 4,
+                "cost": 1,
+                "capacity": 4
+              },
+              {
+                "number": 26,
+                "type": 1,
+                "cost": 2,
+                "capacity": 5
+              },
+              {
+                "number": 28,
+                "type": 3,
+                "cost": 1,
+                "capacity": 4
+              },
+              {
+                "number": 36,
+                "type": 0,
+                "cost": 3,
+                "capacity": 7
+              }
+            ]
+          }
+        ]
+      },
+      "auction_trace_sha256": "3f7fe672c99dc9d35a6c4e9c6bfb1105fbf631c6c6c272ca98f7459ccb945601"
+    },
+    {
+      "episode": 5,
+      "seat": 1,
+      "round": 12,
+      "original_discard": 26,
+      "alternatives": [
+        26,
+        27,
+        38,
+        44
+      ],
+      "observation": {
+        "round": 12,
+        "seat": 1,
+        "action": {
+          "name": "DiscardPowerPlant",
+          "data": 26
+        },
+        "sealed": true,
+        "money": 269,
+        "cities": 20,
+        "capacity": 26,
+        "owned": [
+          {
+            "number": 27,
+            "type": 5,
+            "cost": 0,
+            "capacity": 3
+          },
+          {
+            "number": 26,
+            "type": 1,
+            "cost": 2,
+            "capacity": 5
+          },
+          {
+            "number": 38,
+            "type": 2,
+            "cost": 3,
+            "capacity": 7
+          },
+          {
+            "number": 44,
+            "type": 5,
+            "cost": 0,
+            "capacity": 5
+          },
+          {
+            "number": 40,
+            "type": 1,
+            "cost": 2,
+            "capacity": 6
+          }
+        ],
+        "market": [
+          {
+            "number": 42,
+            "type": 0,
+            "cost": 2,
+            "capacity": 6
+          }
+        ],
+        "minimumLegalBid": null,
+        "maximumLegalBid": null,
+        "legalBidCount": 0,
+        "legalNominations": [],
+        "legalDiscards": [
+          27,
+          26,
+          38,
+          44
+        ],
+        "opponents": [
+          {
+            "id": 0,
+            "money": 97,
+            "cities": 20,
+            "capacity": 21,
+            "plants": [
+              {
+                "number": 28,
+                "type": 3,
+                "cost": 1,
+                "capacity": 4
+              },
+              {
+                "number": 29,
+                "type": 4,
+                "cost": 1,
+                "capacity": 4
+              },
+              {
+                "number": 50,
+                "type": 6,
+                "cost": 0,
+                "capacity": 6
+              },
+              {
+                "number": 46,
+                "type": 4,
+                "cost": 3,
+                "capacity": 7
+              }
+            ]
+          }
+        ]
+      },
+      "auction_trace_sha256": "5d45f1a90bfba0c027c513b1e3abc67f5d59f97e4fe8d42175813b6d8e6271fb"
+    }
+  ],
+  "branch_games": 64,
+  "frozen_before_branch_outcomes": true,
+  "correction": {
+    "superseded_protocol_sha256": "1acc8c2decc93e0d0c377e3224642efe4443fe4643481ea9ad558df2ffa952c0",
+    "reason": "Initial draft incorrectly enumerated all five held plants. The authoritative engine forbids discarding the newly bought plant. The first branch stopped at exact legal-set validation; no branch results were analyzed. This revision preserves all16 selected roots and enumerates the four exact engine-legal choices per root. Failed evidence retained under runs/two-player-discard-counterfactual-v1."
+  }
+}

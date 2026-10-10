@@ -67,6 +67,8 @@ if initial_checkpoint:
         map_location="cpu",
         weights_only=True,
     )
+    if checkpoint.get("inference_only"):
+        raise ValueError("Resume training from the source checkpoint, not an inference-only derivative")
     initial_feature_revision = checkpoint.get("feature_revision", "3.0")
     if initial_feature_revision != FEATURE_REVISION:
         allowed_transfer = (

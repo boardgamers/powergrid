@@ -1,0 +1,178 @@
+{
+  "original_screen_snapshot": "de70c5cbd57bcdf34a5b906b4dea92ffcb693a38",
+  "population_coordinator_snapshot": "f25045c917ea697164c3044bac4a3ea0ec72c5eb",
+  "fp32_optimizer_audit": {
+    "model_sha256": "6510e1418b23cae0b34acfd6ad7800eeb743c29ab30137ccfd9726fb893bdaae",
+    "checkpoint_sha256": "2affd4386c2df852ad1bbce32c0d58c5594d0402e48e8f3670b54ed6fa14c09d",
+    "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+    "feature_revision": "4.1-five-plants",
+    "by_player_count": {
+      "2": 349,
+      "3": 427,
+      "4": 527,
+      "5": 609,
+      "6": 641
+    },
+    "rtol": 0.0001,
+    "atol": 1e-05,
+    "results": {
+      "all": {
+        "positions": 2553,
+        "failed_logit_positions": 1,
+        "failed_value_positions": 0,
+        "different_actions": 0,
+        "max_logit_error": 7.62939453125e-05,
+        "max_value_error": 3.546476364135742e-06,
+        "failing_examples": [
+          {
+            "fixture_index": 2326,
+            "players": 6,
+            "component": "logit",
+            "actual": [
+              -0.00433349609375
+            ],
+            "expected": [
+              -0.004344940185546875
+            ]
+          }
+        ],
+        "inference_seconds": 0.6022320276824757
+      },
+      "extended": {
+        "positions": 2553,
+        "failed_logit_positions": 1,
+        "failed_value_positions": 0,
+        "different_actions": 0,
+        "max_logit_error": 7.62939453125e-05,
+        "max_value_error": 3.546476364135742e-06,
+        "failing_examples": [
+          {
+            "fixture_index": 2326,
+            "players": 6,
+            "component": "logit",
+            "actual": [
+              -0.00433349609375
+            ],
+            "expected": [
+              -0.004344940185546875
+            ]
+          }
+        ],
+        "inference_seconds": 0.4972117590077687
+      },
+      "basic": {
+        "positions": 2553,
+        "failed_logit_positions": 1,
+        "failed_value_positions": 0,
+        "different_actions": 0,
+        "max_logit_error": 7.62939453125e-05,
+        "max_value_error": 3.546476364135742e-06,
+        "failing_examples": [
+          {
+            "fixture_index": 2326,
+            "players": 6,
+            "component": "logit",
+            "actual": [
+              -0.00433349609375
+            ],
+            "expected": [
+              -0.004344940185546875
+            ]
+          }
+        ],
+        "inference_seconds": 0.5090106400166405
+      },
+      "disabled": {
+        "positions": 2553,
+        "failed_logit_positions": 1,
+        "failed_value_positions": 0,
+        "different_actions": 0,
+        "max_logit_error": 7.62939453125e-05,
+        "max_value_error": 3.546476364135742e-06,
+        "failing_examples": [
+          {
+            "fixture_index": 2326,
+            "players": 6,
+            "component": "logit",
+            "actual": [
+              -0.00433349609375
+            ],
+            "expected": [
+              -0.004344940185546875
+            ]
+          }
+        ],
+        "inference_seconds": 0.518324904711335
+      }
+    },
+    "runtime": {
+      "torch": "2.6.0+cpu",
+      "onnxruntime": "1.30.0",
+      "numpy": "2.4.6",
+      "machine": "x86_64"
+    },
+    "scope": "Local export diagnosis only. No change to model, production runtime, tolerance or qualification."
+  },
+  "native64_silu_reference_vs_exp_div_onnx": {
+    "reference_checkpoint_sha256": "6ae1fc9d80fe9fb2d8d7a3a64f973ce2682e1ef25570d05a8c0e152e900afb53",
+    "report": {
+      "positions": 2553,
+      "by_player_count": {
+        "2": 349,
+        "3": 427,
+        "4": 527,
+        "5": 609,
+        "6": 641
+      },
+      "inactive_values_zero": true,
+      "feature_revision": "4.1-five-plants",
+      "model_sha256": "ee511d5bb6a58d323b867c1c9a9f0957f1019cc57cb85982b42601a85090fdcb",
+      "max_logit_error": 5.893667776035727e-10,
+      "max_value_error": 7.838119042702374e-12,
+      "all_actions_match": true,
+      "specialist_route_counts": {}
+    },
+    "scope": "All2553 fixtures for full-s10031 only; not yet a whole-cohort FP32-versus-FP64 action-change audit."
+  },
+  "initial_native64_export_error": "ONNX Runtime fused SiLU to com.microsoft.QuickGelu, which has no CPU double kernel. Exp/Div expression avoids unsupported fusion. Original failed artifact/log preserved.",
+  "derivative_artifacts": {
+    "revision": "309ce38ad1609d8a8f296860d8488f9681add327",
+    "prefix": "runs/five-plant-inference64-v1",
+    "validation_sha256": "f2f8dd4d12b1f0be27f504cf6cb264af66164906d4a2c0369e91e0c6747b98d8",
+    "source_files": {
+      "model.py": "a2fe18290dcab07c9f1dff5526375ddcce2e43087722c0f4821c956a69dcf2d8",
+      "export-inference64.py": "8b557608db2e319dc1620c114e05b5050524f1bfdaedecb5684cbb0aced8558e",
+      "audit-onnx-numerics.py": "88f5cf335acd634c54dcf3952a6ada6963b1e9c7cf79074a25faf0d1ef597b90"
+    },
+    "trained": false,
+    "qualification_eligible": false
+  },
+  "trained": false,
+  "qualification_eligible": false,
+  "files": {
+    "five-plant-screen-failures-v1/control-s10031/screen-check.json": "b9223cc854064c2f1c3604ead36460e50b4e1661226ca67b1191d8a68b577a6e",
+    "five-plant-screen-failures-v1/control-s10031/job-tail.log": "1f0c50984fa4a2b6d7f468e0fea573093f00419ec16e9975f2239b7089d32a9d",
+    "five-plant-screen-failures-v1/control-s10031/parity.json.log": "3b1b2a6dc74fabe5fa61f49b18cc32936a7eb33c80af482142b559af129c2798",
+    "five-plant-screen-failures-v1/full-s10032/screen-check.json": "28b8940c0ebf3b0ff72c0101b59a51528a590253e9b5e1c98ee9cd77b1b2860c",
+    "five-plant-screen-failures-v1/full-s10032/job-tail.log": "9f83ea0fa93938c6697d4757dd5705e1c5a1095edb9077f6ccc122730b470537",
+    "five-plant-screen-failures-v1/full-s10032/parity.json.log": "add18d246ed2bf702476ea31a33a0f0d74796d2ba55289d0f56c60d953fa0f26",
+    "five-plant-screen-failures-v1/full-s10031/screen-check.json": "6ccb52c7a2dd78a882192f514c41eae6a07f0ceddd0e56cc206dbb64415d94df",
+    "five-plant-screen-failures-v1/full-s10031/job-tail.log": "63c09c2cba7d0a345338bd8fd711896434054a76d09e07cbf9b8fcfffe42c168",
+    "five-plant-screen-failures-v1/full-s10031/parity.json.log": "f9bc9a0d84e81da5dea5daf2b43e2db2ec2505f7309957d6b89d52ca24c9b03a",
+    "full-s10031/audit.json": "edbfe09b5e6d9f16e2a46fac1fb5e49d1a0bdf208f63180aacd9cab171fec542",
+    "full-s10031/audit.log": "0296d76a520be17a7a11f2aa1c5fde2807cc279e3b6a513181780716ca14b4c1",
+    "full-s10031/native-silu-parity.json": "090230640607a1d100dce93ec476363e40deb7108f2a5dfdad8f2c32a4e862a0",
+    "full-s10031/native-silu-parity.log": "d861043b7e478c1ae347e580b996ec75935a38a5970cabd144bcafb015881cc4",
+    "full-s10031/float64/inference64.pt": "6ae1fc9d80fe9fb2d8d7a3a64f973ce2682e1ef25570d05a8c0e152e900afb53",
+    "full-s10031/float64/inference64.onnx": "2e0b179f71cc7a91e16692f3c563e479a66cbc6cb07d52e49ffa32fb12caf39d",
+    "full-s10031/float64/derivative.json": "ae25ce69bdabd120015b0e63449d82b3a15954a84e0c68088cb582bae45099e5",
+    "full-s10031/float64/parity.log": "634fef1ad7ed0e6a19806f9be5484849288fc9d3717d8b57330a649aafe3df3c",
+    "population-control-u19-validation-failure.log": "76ff1631153f8023e5170fa4902c1f3a55d66fb3322ae9de828b6a5da2a024e1",
+    "population-control-u19-prepare-failure.log": "098937daa486ce3c51486997c97b1059423f24e204b546ac44136bcc88a3df52",
+    "population-control-u19-parity-failure.log": "09743b00c5a8811b649fb7bfe81002844d374e4125f7442790c7077fcb9bd5c1",
+    "two-player-discard-runtime-check.json": "df441d8c028842ec2487ede94ac4b4b2fb9e54a29078611ae3a7307e18328753"
+  },
+  "evidence_sha256": "8dfcbdd846946f3987a23d70ef1e12e275c8f12b8a698a121ba578ad489366d7",
+  "artifact_revision": "13e956d360fc2a0f8545d9a9900873f281e5895f",
+  "artifact_prefix": "runs/export-numerics-investigation-v1"
+}

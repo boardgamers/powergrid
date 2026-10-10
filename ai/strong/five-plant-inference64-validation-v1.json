@@ -1,0 +1,729 @@
+{
+  "scope": "Explicit inference-only float64 derivatives; original float32 feature inputs and stored parameter values preserved. No gradients. Same strictrtol1e-4/atol1e-5, no offset or relaxed comparison. Fresh uniform-precision game screens still required.",
+  "base_runtime": {
+    "archive": "strong-source-sealed-menu-20261010-v1.tgz",
+    "sha256": "e9de0cc444c843d5b298d5070298902f613a19aa1fab7d568093fa939871b993",
+    "bytes": 25904470,
+    "base": {
+      "archive": "strong-source-five-plant-screen-20261010-v1.tgz",
+      "revision": "79480a2c32e9ecdffce00440e1150cb857c18d1e",
+      "sha256": "2540dd5ccaee671baf47467c9e184dd7dda602de98cf07b898fff15f7ccc96b0"
+    },
+    "overlays": {
+      "ai/strong/features-v4.cjs": "e5d59c062f68ebf4141e30bec1eadf7ec8ef72388fa65f122643992d91e204c2",
+      "ai/strong/features-v4_sealed.cjs": "68aec23640a8001c006ea7d18ff54e81923f6273994c72a7a83dde379464dbb5",
+      "ai/strong/encoders.cjs": "dadbe861bca20048567d39a6e3553d518c459ffe55b2304c89fb9794ed14751e",
+      "ai/strong/economics-full-sealed.cjs": "ff7ee7c909aebc545585ee7afae9c8cd997f86e1247592bddef9bc66b7d9ba7e",
+      "ai/strong/bridge.cjs": "895abd65c7d685a4b3beb6830bbe04306ddc11b1849e24db1adaf7483c25834d",
+      "ai/strong/worker.cjs": "aeb7f80bf43c00a3ab82b1067fdf60dbf1a0f17ce5b13d6a3f1d7c0903759a0b",
+      "ai/strong/evaluate.py": "28454a3a291ed9fc66a76c440966c460c163fc0a6eda2354c533ed288cb3a171",
+      "ai/strong/verify-sealed-menu.cjs": "6309d07e285296e2a34d9d0ddfddec8eea24b06e33d87fc5e1ac036f0f0c5526",
+      "ai/strong/verify-sealed-menu-games.py": "00569dd59192ffb346d17ec65b1ba9a003a8eb3b0e3fb9a32ed9c03cc6d5af8a",
+      "ai/strong/sealed_menu_screen.py": "b7fd33291911862be83e9688c293f227bd9983a734e8b6efaa91da9f5772b5bb",
+      "ai/strong/collect-sealed-menu-screen.py": "0e132e316f3a2f80b67a24f48344f136d2c508b9cdf6a524589e7503e370f38d",
+      "ai/strong/compare-sealed-menu-screens.py": "aa6c1b4b31e61cd22cb3b3b4e4d9d6b85d6df1faa98387a868ca27616762f981",
+      "ai/strong/compare-population-screens.py": "b74bac5c403d5a96e79fddf43b4dcd9b715d5124e9c2681983ad519e2177d887",
+      "ai/strong/run-sealed-menu-pair.py": "668764a789a5687d452430a76b69a3d1a9dd5393ec6589de1b181e92e9128afe",
+      "ai/strong/launch-sealed-menu-pair.py": "02ab3665d04e429d45c31942d12aaf9d15c0e27b32bb29da1c1afdbad6c87caf",
+      "ai/strong/sealed-menu-protocol-v1.json": "3ca3a198786787ca8cf323c8d825ffdb3c7b3e09ff56f5ff4c3b7f3e2c3fe2a3",
+      "ai/strong/sealed-menu-initial-v1.json": "ba6e313553b45e9f97d99f0c412c084c4036bbd80876a31881c75ff94b469bb2"
+    },
+    "fixture_sha256": "0a43c0234b810253d07ef7281ee3e83c8fe7a4fa27e8aa05bd6589c024661883",
+    "purpose": "Controlled frozen-weight test of full legal bids in sealed auctions. No training or final qualification.",
+    "revision": "e571f96d453a4b148a3185b99cb047655b6a4f75"
+  },
+  "trained": false,
+  "qualification_eligible": false,
+  "models": {
+    "parent": {
+      "derivative": {
+        "source_checkpoint_sha256": "1f9d1c89908ab036f6e6a54facba94b352bbae005e1ac042d88c60067e895224",
+        "trained": false,
+        "stored_weights_unchanged": true,
+        "input_contract": "Float32 feature values, then cast to float64 for all network arithmetic.",
+        "feature_revision": "4.0-multiplayer",
+        "inference_precision": "float64",
+        "torch": "2.6.0+cpu",
+        "inference_transform": "float64-exp-div-silu-v1",
+        "files": {
+          "inference64.pt": "92ebfaba7329dbeadbc1e3e8fca0b41c1de94fc8249b951b328f9b11de7ee887",
+          "inference64.onnx": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a"
+        },
+        "qualification_eligible": false,
+        "scope": "Numerical repair candidate; requires independent strict parity, legal serving, fresh evaluation and actual8840U benchmark."
+      },
+      "parity": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "inactive_values_zero": true,
+        "feature_revision": "4.0-multiplayer",
+        "model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a",
+        "max_logit_error": 4.746425474877469e-10,
+        "max_value_error": 1.0236589353951331e-11,
+        "all_actions_match": true,
+        "specialist_route_counts": {}
+      },
+      "serving": {
+        "hostname": "Mint-FW-13",
+        "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "python_version": "3.11.15",
+        "positions": 2553,
+        "by_player_count": {
+          "2": {
+            "positions": 349,
+            "p95_ms": 8.737912803189827
+          },
+          "3": {
+            "positions": 427,
+            "p95_ms": 9.459509505541062
+          },
+          "4": {
+            "positions": 527,
+            "p95_ms": 7.073682395275681
+          },
+          "5": {
+            "positions": 609,
+            "p95_ms": 8.63902020209935
+          },
+          "6": {
+            "positions": 641,
+            "p95_ms": 13.274871991598047
+          }
+        },
+        "model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a",
+        "all_moves_legal": true,
+        "search_samples": 0,
+        "search_scope": "all",
+        "geographic_search": false,
+        "cold_start_ms": 254.07502600864973,
+        "warm_roundtrip_p50_ms": 4.347872993093915,
+        "warm_roundtrip_p95_ms": 9.965642055612987,
+        "worker_p95_ms": 5.8366990000649785,
+        "max_roundtrip_ms": 254.07502600864973,
+        "search_decisions": 0,
+        "search_evaluations": 0,
+        "search_truncated_rollouts": 0,
+        "search_roundtrip_p50_ms": null,
+        "search_roundtrip_p95_ms": null,
+        "by_phase": {
+          "Auction": {
+            "positions": 840,
+            "p50_ms": 4.0825889955158345,
+            "p95_ms": 9.347668440022968,
+            "max_ms": 254.07502600864973
+          },
+          "Resources": {
+            "positions": 755,
+            "p50_ms": 4.245961012202315,
+            "p95_ms": 11.530018899065896,
+            "max_ms": 38.010285992641
+          },
+          "Building": {
+            "positions": 491,
+            "p50_ms": 4.718930009403266,
+            "p95_ms": 10.477849500603043,
+            "max_ms": 27.884073002496734
+          },
+          "Bureaucracy": {
+            "positions": 467,
+            "p50_ms": 4.394058996695094,
+            "p95_ms": 9.74191129062092,
+            "max_ms": 25.38708900101483
+          }
+        }
+      },
+      "source": {
+        "key": "parent",
+        "revision": "0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a",
+        "path": "runs/multiplayer-refine-hard-v1",
+        "feature_revision": "4.0-multiplayer",
+        "hashes": {
+          "latest.pt": "1f9d1c89908ab036f6e6a54facba94b352bbae005e1ac042d88c60067e895224",
+          "latest.onnx": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+          "metrics.json": "96d519130a8ef7adef2e628b03d6cee1a281ee67f27b5c529226f6682dd7faa5",
+          "schema.json": "d3eb65a65cd3bbdfb2e09fc6caff0dc6e0953c1a939dc8ceeeb5c800c491eff6"
+        },
+        "training": {
+          "scope": "Frozen original parent; not trained in this experiment"
+        },
+        "qualification_eligible": false
+      },
+      "artifact_hashes": {
+        "inference64.onnx": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a",
+        "serving.json": "c1f296ac79aaa3dd8226f8c434b461dd46f53f36d0eaebcc5e1efcc9ff54bb36",
+        "inference64.pt": "92ebfaba7329dbeadbc1e3e8fca0b41c1de94fc8249b951b328f9b11de7ee887",
+        "derivative.json": "fce1f3f3e0a8c6fddd391281aac650c6c9346b3ad358533ec2e0b672dcb7afee",
+        "export.log": "21a567fc9fb8b7cef9eb1eb2c796a808e581558172e305b76d7a5c706497793f",
+        "serving.log": "3d6f5e1df8cccf99812035cda9796abb2d77586384a8f0027639d5032962a1a9",
+        "parity.log": "e013c949d92c61496ae4faf2ce182b4323ac3f9404f864a243ba4f784e076567",
+        "parity.json": "a5667d9a29a404b8c9be005f21c5c195cca11f5a4d59470123cb00cd2f9937ce"
+      }
+    },
+    "control-s10031": {
+      "derivative": {
+        "source_checkpoint_sha256": "f38620b779c1018be21df604611d55ff8b59da47e07e9f18513239a8c8aad09b",
+        "trained": false,
+        "stored_weights_unchanged": true,
+        "input_contract": "Float32 feature values, then cast to float64 for all network arithmetic.",
+        "feature_revision": "4.1-five-plants-zero-inputs",
+        "inference_precision": "float64",
+        "torch": "2.6.0+cpu",
+        "inference_transform": "float64-exp-div-silu-v1",
+        "files": {
+          "inference64.pt": "fd283e82f3befcb4ded7c834896f7e6905a04856bca8a7cd5ad0cfe6f13ba267",
+          "inference64.onnx": "d8db4aa7056b7592798bc99db3eb08714d937a1aa354d1f81b041fe2105fcda0"
+        },
+        "qualification_eligible": false,
+        "scope": "Numerical repair candidate; requires independent strict parity, legal serving, fresh evaluation and actual8840U benchmark."
+      },
+      "parity": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "inactive_values_zero": true,
+        "feature_revision": "4.1-five-plants-zero-inputs",
+        "model_sha256": "d8db4aa7056b7592798bc99db3eb08714d937a1aa354d1f81b041fe2105fcda0",
+        "max_logit_error": 4.440678935679898e-10,
+        "max_value_error": 8.677558671621455e-12,
+        "all_actions_match": true,
+        "specialist_route_counts": {}
+      },
+      "serving": {
+        "hostname": "Mint-FW-13",
+        "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "python_version": "3.11.15",
+        "positions": 2553,
+        "by_player_count": {
+          "2": {
+            "positions": 349,
+            "p95_ms": 10.299663795740344
+          },
+          "3": {
+            "positions": 427,
+            "p95_ms": 10.517929002526216
+          },
+          "4": {
+            "positions": 527,
+            "p95_ms": 10.860036496887915
+          },
+          "5": {
+            "positions": 609,
+            "p95_ms": 13.228872400941327
+          },
+          "6": {
+            "positions": 641,
+            "p95_ms": 11.136853994685225
+          }
+        },
+        "model_sha256": "d8db4aa7056b7592798bc99db3eb08714d937a1aa354d1f81b041fe2105fcda0",
+        "all_moves_legal": true,
+        "search_samples": 0,
+        "search_scope": "all",
+        "geographic_search": false,
+        "cold_start_ms": 411.27088099892717,
+        "warm_roundtrip_p50_ms": 5.0158430021838285,
+        "warm_roundtrip_p95_ms": 11.295984091702842,
+        "worker_p95_ms": 6.620285708049775,
+        "max_roundtrip_ms": 411.27088099892717,
+        "search_decisions": 0,
+        "search_evaluations": 0,
+        "search_truncated_rollouts": 0,
+        "search_roundtrip_p50_ms": null,
+        "search_roundtrip_p95_ms": null,
+        "by_phase": {
+          "Auction": {
+            "positions": 840,
+            "p50_ms": 4.940566504956223,
+            "p95_ms": 11.231907195178774,
+            "max_ms": 411.27088099892717
+          },
+          "Resources": {
+            "positions": 755,
+            "p50_ms": 4.955323995091021,
+            "p95_ms": 11.217151103483047,
+            "max_ms": 30.75909700419288
+          },
+          "Building": {
+            "positions": 491,
+            "p50_ms": 5.34195099317003,
+            "p95_ms": 12.016411492368206,
+            "max_ms": 34.360896999714896
+          },
+          "Bureaucracy": {
+            "positions": 467,
+            "p50_ms": 4.904549001366831,
+            "p95_ms": 10.45843800966395,
+            "max_ms": 17.23462500376627
+          }
+        }
+      },
+      "source": {
+        "key": "control-s10031",
+        "revision": "f14c6a74a86cffa504e4d0e70ffbb07c48f853f0",
+        "path": "runs/five-plant-ablation-v1-control-s10031",
+        "feature_revision": "4.1-five-plants-zero-inputs",
+        "hashes": {
+          "best.pt": "de9b19c0f3fe2796a1cb43724cb51acdf8bc77bba205ec32e1c8a54319730977",
+          "best.onnx": "61d0c00761fd47a59a34e79ab461bcde690e39238778ae1e5c0cdec960bec86c",
+          "latest.onnx": "61d0c00761fd47a59a34e79ab461bcde690e39238778ae1e5c0cdec960bec86c",
+          "schema.json": "b51b3d786955f32efcc903a0e5d7d971cbc32cda76198b8cadd9366c1ac57bd3",
+          "latest.pt": "f38620b779c1018be21df604611d55ff8b59da47e07e9f18513239a8c8aad09b",
+          "metrics.json": "24eebe6dcb04d19abb27249a54ee678f0ab3e4f65ef3918b4daca137ecc52694"
+        },
+        "training": {
+          "games": 4800,
+          "game_truncations": 0,
+          "search_truncations": 0,
+          "search_rollouts": 4693584,
+          "new_parameter_norms": {
+            "extra_player.weight": 0.0,
+            "extra_action.weight": 0.0
+          }
+        },
+        "qualification_eligible": false
+      },
+      "artifact_hashes": {
+        "inference64.onnx": "d8db4aa7056b7592798bc99db3eb08714d937a1aa354d1f81b041fe2105fcda0",
+        "serving.json": "59739abaa74e541c7ff4dbb9125e88bb2a658b29b2f011a625e9850db6fe55f2",
+        "inference64.pt": "fd283e82f3befcb4ded7c834896f7e6905a04856bca8a7cd5ad0cfe6f13ba267",
+        "derivative.json": "998b146564cf685cfdee1c72216f8d8759bfce7c7e0a586c3063f4bdd357afb9",
+        "export.log": "08f2240a8de2a689d56abfaac7f49c7ac0c55da5130090a2d7427e3d0d95fb0c",
+        "serving.log": "653d6c7c13de856739ba85cd3873fc64f822c007b2e0b3a0a951db8b59cdb6cf",
+        "parity.log": "ddf752ad31b960001264a220ff7ef091e86af4daffcc0d48cae7818aa6beb951",
+        "parity.json": "2e6b11dbe596304aabc10ffcd63ab1867d8a331d744d15b5fee2f6b9ba319a0d"
+      }
+    },
+    "full-s10031": {
+      "derivative": {
+        "source_checkpoint_sha256": "2affd4386c2df852ad1bbce32c0d58c5594d0402e48e8f3670b54ed6fa14c09d",
+        "trained": false,
+        "stored_weights_unchanged": true,
+        "input_contract": "Float32 feature values, then cast to float64 for all network arithmetic.",
+        "feature_revision": "4.1-five-plants",
+        "inference_precision": "float64",
+        "torch": "2.6.0+cpu",
+        "inference_transform": "float64-exp-div-silu-v1",
+        "files": {
+          "inference64.pt": "dbc2ee96ec3cc7f9753b4677005d7cfc3f0603be4601e75fb7cfb2dd9a641b54",
+          "inference64.onnx": "ee511d5bb6a58d323b867c1c9a9f0957f1019cc57cb85982b42601a85090fdcb"
+        },
+        "qualification_eligible": false,
+        "scope": "Numerical repair candidate; requires independent strict parity, legal serving, fresh evaluation and actual8840U benchmark."
+      },
+      "parity": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "inactive_values_zero": true,
+        "feature_revision": "4.1-five-plants",
+        "model_sha256": "ee511d5bb6a58d323b867c1c9a9f0957f1019cc57cb85982b42601a85090fdcb",
+        "max_logit_error": 5.893596721762151e-10,
+        "max_value_error": 7.837563931190061e-12,
+        "all_actions_match": true,
+        "specialist_route_counts": {}
+      },
+      "serving": {
+        "hostname": "Mint-FW-13",
+        "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "python_version": "3.11.15",
+        "positions": 2553,
+        "by_player_count": {
+          "2": {
+            "positions": 349,
+            "p95_ms": 8.468740206444634
+          },
+          "3": {
+            "positions": 427,
+            "p95_ms": 5.978508903353941
+          },
+          "4": {
+            "positions": 527,
+            "p95_ms": 7.127181804389693
+          },
+          "5": {
+            "positions": 609,
+            "p95_ms": 7.545172199024819
+          },
+          "6": {
+            "positions": 641,
+            "p95_ms": 10.774252994451672
+          }
+        },
+        "model_sha256": "ee511d5bb6a58d323b867c1c9a9f0957f1019cc57cb85982b42601a85090fdcb",
+        "all_moves_legal": true,
+        "search_samples": 0,
+        "search_scope": "all",
+        "geographic_search": false,
+        "cold_start_ms": 267.86906500637997,
+        "warm_roundtrip_p50_ms": 3.7804459934704937,
+        "warm_roundtrip_p95_ms": 8.64042489847633,
+        "worker_p95_ms": 5.010471303830855,
+        "max_roundtrip_ms": 267.86906500637997,
+        "search_decisions": 0,
+        "search_evaluations": 0,
+        "search_truncated_rollouts": 0,
+        "search_roundtrip_p50_ms": null,
+        "search_roundtrip_p95_ms": null,
+        "by_phase": {
+          "Auction": {
+            "positions": 840,
+            "p50_ms": 3.7434510013554245,
+            "p95_ms": 8.340533349110046,
+            "max_ms": 267.86906500637997
+          },
+          "Resources": {
+            "positions": 755,
+            "p50_ms": 3.622188000008464,
+            "p95_ms": 8.51699600316351,
+            "max_ms": 13.821330008795485
+          },
+          "Building": {
+            "positions": 491,
+            "p50_ms": 4.1313959955004975,
+            "p95_ms": 9.861957507382613,
+            "max_ms": 20.00918099656701
+          },
+          "Bureaucracy": {
+            "positions": 467,
+            "p50_ms": 3.7579439958790317,
+            "p95_ms": 8.838679094333202,
+            "max_ms": 12.820878997445107
+          }
+        }
+      },
+      "source": {
+        "key": "full-s10031",
+        "revision": "ba06dc0fe058342e0ed7622de1e42a2fc3a3c5c6",
+        "path": "runs/five-plant-ablation-v1-full-s10031",
+        "feature_revision": "4.1-five-plants",
+        "hashes": {
+          "best.pt": "ec96a6b35935d9189312193b4b1e2c48b2501ee7365468a3f09c0d3cbdd6c0df",
+          "best.onnx": "6510e1418b23cae0b34acfd6ad7800eeb743c29ab30137ccfd9726fb893bdaae",
+          "latest.onnx": "6510e1418b23cae0b34acfd6ad7800eeb743c29ab30137ccfd9726fb893bdaae",
+          "schema.json": "4fff1987e3c07181f8bb2b82e58c0304ac748cc52ccca56a491b0a1b59fac725",
+          "latest.pt": "2affd4386c2df852ad1bbce32c0d58c5594d0402e48e8f3670b54ed6fa14c09d",
+          "metrics.json": "60facd3ebd4271fc77e14ba3b3b432fd42cf3928d720163080dcb54111f7b0fb"
+        },
+        "training": {
+          "games": 4800,
+          "game_truncations": 0,
+          "search_truncations": 0,
+          "search_rollouts": 4669920,
+          "new_parameter_norms": {
+            "extra_player.weight": 0.1724902242422104,
+            "extra_action.weight": 0.0427313856780529
+          }
+        },
+        "qualification_eligible": false
+      },
+      "artifact_hashes": {
+        "inference64.onnx": "ee511d5bb6a58d323b867c1c9a9f0957f1019cc57cb85982b42601a85090fdcb",
+        "serving.json": "c35c22d163b52f61cc9815c33d9aca1f496da4f98af267a63ffe1611ac6ff7d0",
+        "inference64.pt": "dbc2ee96ec3cc7f9753b4677005d7cfc3f0603be4601e75fb7cfb2dd9a641b54",
+        "derivative.json": "e763d975b37d0503f6cfa3663390d49f55bd14ebed69b1dcaf13e356d144c69c",
+        "serving.log": "b12f31edca915076c98ff6dcb7f93e376cd382f706484035c51ab77693befb6f",
+        "parity.json": "36fc0e91614aed809d17afaf079a5da007f591f1779ccdcd7a2db3fe54e0c0e9"
+      }
+    },
+    "control-s10032": {
+      "derivative": {
+        "source_checkpoint_sha256": "914310084752ba77fc22dd8644769a100a7130e372212477df7b0b6e91d2d75f",
+        "trained": false,
+        "stored_weights_unchanged": true,
+        "input_contract": "Float32 feature values, then cast to float64 for all network arithmetic.",
+        "feature_revision": "4.1-five-plants-zero-inputs",
+        "inference_precision": "float64",
+        "torch": "2.6.0+cpu",
+        "inference_transform": "float64-exp-div-silu-v1",
+        "files": {
+          "inference64.pt": "4da9ba6c711bb123bdd2e3ea7fac735084b6b563efc82d633dd0206bebab0e4f",
+          "inference64.onnx": "cacd377f870a7db9d352055ee9a8db9e9f3b783faab474dbcfb460022b77ec78"
+        },
+        "qualification_eligible": false,
+        "scope": "Numerical repair candidate; requires independent strict parity, legal serving, fresh evaluation and actual8840U benchmark."
+      },
+      "parity": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "inactive_values_zero": true,
+        "feature_revision": "4.1-five-plants-zero-inputs",
+        "model_sha256": "cacd377f870a7db9d352055ee9a8db9e9f3b783faab474dbcfb460022b77ec78",
+        "max_logit_error": 5.244444878371723e-10,
+        "max_value_error": 7.58992868554742e-12,
+        "all_actions_match": true,
+        "specialist_route_counts": {}
+      },
+      "serving": {
+        "hostname": "Mint-FW-13",
+        "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "python_version": "3.11.15",
+        "positions": 2553,
+        "by_player_count": {
+          "2": {
+            "positions": 349,
+            "p95_ms": 4.755715403007343
+          },
+          "3": {
+            "positions": 427,
+            "p95_ms": 6.703579396707936
+          },
+          "4": {
+            "positions": 527,
+            "p95_ms": 10.459511500084773
+          },
+          "5": {
+            "positions": 609,
+            "p95_ms": 11.985729399020785
+          },
+          "6": {
+            "positions": 641,
+            "p95_ms": 11.473837002995424
+          }
+        },
+        "model_sha256": "cacd377f870a7db9d352055ee9a8db9e9f3b783faab474dbcfb460022b77ec78",
+        "all_moves_legal": true,
+        "search_samples": 0,
+        "search_scope": "all",
+        "geographic_search": false,
+        "cold_start_ms": 353.5067360062385,
+        "warm_roundtrip_p50_ms": 3.8113589980639517,
+        "warm_roundtrip_p95_ms": 9.841048451926326,
+        "worker_p95_ms": 5.450495553668587,
+        "max_roundtrip_ms": 353.5067360062385,
+        "search_decisions": 0,
+        "search_evaluations": 0,
+        "search_truncated_rollouts": 0,
+        "search_roundtrip_p50_ms": null,
+        "search_roundtrip_p95_ms": null,
+        "by_phase": {
+          "Auction": {
+            "positions": 840,
+            "p50_ms": 3.7124084992683493,
+            "p95_ms": 8.90826220493181,
+            "max_ms": 353.5067360062385
+          },
+          "Resources": {
+            "positions": 755,
+            "p50_ms": 3.799672005698085,
+            "p95_ms": 10.380493199045297,
+            "max_ms": 17.348398992908187
+          },
+          "Building": {
+            "positions": 491,
+            "p50_ms": 4.1255249961977825,
+            "p95_ms": 11.485764502140228,
+            "max_ms": 20.120781002333388
+          },
+          "Bureaucracy": {
+            "positions": 467,
+            "p50_ms": 3.6919389967806637,
+            "p95_ms": 8.49997930054087,
+            "max_ms": 18.845703001716174
+          }
+        }
+      },
+      "source": {
+        "key": "control-s10032",
+        "revision": "3a2a7a398191a2260cac3c9349883f0ff944a848",
+        "path": "runs/five-plant-ablation-v1-control-s10032",
+        "feature_revision": "4.1-five-plants-zero-inputs",
+        "hashes": {
+          "best.onnx": "53265abc64c8d09be5f7fe420e3c5c946448c96a175ecaf6a7a879700de325bf",
+          "metrics.json": "407416a246da914d2b140a76ebe943fa8c5d1c6db3ba21bf41756932b1eb0cac",
+          "latest.onnx": "e190d72bed54f3d24b811d3b527013adb7dbecdf6cee25dcc0c3613fa4ae72cc",
+          "latest.pt": "914310084752ba77fc22dd8644769a100a7130e372212477df7b0b6e91d2d75f",
+          "best.pt": "7de1157a556533dd2d362a621e9785159d799f239e68ab6d45ff40c98b029627",
+          "schema.json": "ca2c9788712e4fce209d1b4594e196472be0c60d4974224d2583c01d50e1f12b"
+        },
+        "training": {
+          "games": 4800,
+          "game_truncations": 0,
+          "search_truncations": 0,
+          "search_rollouts": 4387104,
+          "new_parameter_norms": {
+            "extra_player.weight": 0.0,
+            "extra_action.weight": 0.0
+          }
+        },
+        "qualification_eligible": false
+      },
+      "artifact_hashes": {
+        "inference64.onnx": "cacd377f870a7db9d352055ee9a8db9e9f3b783faab474dbcfb460022b77ec78",
+        "serving.json": "70ce83befe64f99d6289d07ae0f847954af87aa5b6f59ccbadb8a7b680096cb1",
+        "inference64.pt": "4da9ba6c711bb123bdd2e3ea7fac735084b6b563efc82d633dd0206bebab0e4f",
+        "derivative.json": "12d1fec7920a1afc99cc9c1ae730239d3d3157dfe5d048fc5e138b6749a2292c",
+        "export.log": "f3ce6e4648025f8e586660fc1cbf6131df2761a1b374822ffa4872adf1381414",
+        "serving.log": "4205327ab75c3de634319a6f2e25c38b39b26e7ebcc5c66a2f22a6cafa511fa2",
+        "parity.log": "9dc3086a38280479934d2e8f39e60a2fd43bdc8516ddfd719641bc93d64fc2cf",
+        "parity.json": "bf018020a915a6eddd60c6925205a9d26adade690e64a46b292d31122817891c"
+      }
+    },
+    "full-s10032": {
+      "derivative": {
+        "source_checkpoint_sha256": "d3dec4776bc1fb4e1f2ee32821a14c40e973371010999c385f21177fd6667f4b",
+        "trained": false,
+        "stored_weights_unchanged": true,
+        "input_contract": "Float32 feature values, then cast to float64 for all network arithmetic.",
+        "feature_revision": "4.1-five-plants",
+        "inference_precision": "float64",
+        "torch": "2.6.0+cpu",
+        "inference_transform": "float64-exp-div-silu-v1",
+        "files": {
+          "inference64.pt": "ccf9c13ff09287e616161edb5e1cffa9c19d234fac88bde273dd698d12ec7358",
+          "inference64.onnx": "88bab4882974900915547c67fdf1176b621591a0230c85a263f2316beb0bf600"
+        },
+        "qualification_eligible": false,
+        "scope": "Numerical repair candidate; requires independent strict parity, legal serving, fresh evaluation and actual8840U benchmark."
+      },
+      "parity": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "inactive_values_zero": true,
+        "feature_revision": "4.1-five-plants",
+        "model_sha256": "88bab4882974900915547c67fdf1176b621591a0230c85a263f2316beb0bf600",
+        "max_logit_error": 4.177778123448661e-10,
+        "max_value_error": 9.6151420159174e-12,
+        "all_actions_match": true,
+        "specialist_route_counts": {}
+      },
+      "serving": {
+        "hostname": "Mint-FW-13",
+        "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "python_version": "3.11.15",
+        "positions": 2553,
+        "by_player_count": {
+          "2": {
+            "positions": 349,
+            "p95_ms": 4.479706796701066
+          },
+          "3": {
+            "positions": 427,
+            "p95_ms": 4.128246195614338
+          },
+          "4": {
+            "positions": 527,
+            "p95_ms": 4.289544202038086
+          },
+          "5": {
+            "positions": 609,
+            "p95_ms": 5.2657219901448125
+          },
+          "6": {
+            "positions": 641,
+            "p95_ms": 6.546215008711442
+          }
+        },
+        "model_sha256": "88bab4882974900915547c67fdf1176b621591a0230c85a263f2316beb0bf600",
+        "all_moves_legal": true,
+        "search_samples": 0,
+        "search_scope": "all",
+        "geographic_search": false,
+        "cold_start_ms": 227.13447800197173,
+        "warm_roundtrip_p50_ms": 2.880699496017769,
+        "warm_roundtrip_p95_ms": 5.28727329074172,
+        "worker_p95_ms": 3.1624412025848865,
+        "max_roundtrip_ms": 227.13447800197173,
+        "search_decisions": 0,
+        "search_evaluations": 0,
+        "search_truncated_rollouts": 0,
+        "search_roundtrip_p50_ms": null,
+        "search_roundtrip_p95_ms": null,
+        "by_phase": {
+          "Auction": {
+            "positions": 840,
+            "p50_ms": 2.7583194969338365,
+            "p95_ms": 4.99786900327308,
+            "max_ms": 227.13447800197173
+          },
+          "Resources": {
+            "positions": 755,
+            "p50_ms": 2.889751995098777,
+            "p95_ms": 5.066818100749515,
+            "max_ms": 11.865663007483818
+          },
+          "Building": {
+            "positions": 491,
+            "p50_ms": 3.0932950030546635,
+            "p95_ms": 5.7764735029195435,
+            "max_ms": 12.883246992714703
+          },
+          "Bureaucracy": {
+            "positions": 467,
+            "p50_ms": 2.845799011993222,
+            "p95_ms": 5.063259803864639,
+            "max_ms": 12.638717002118938
+          }
+        }
+      },
+      "source": {
+        "key": "full-s10032",
+        "revision": "00f37843c6b8d2b64631d1baf6ccca06cde0a68c",
+        "path": "runs/five-plant-ablation-v1-full-s10032",
+        "feature_revision": "4.1-five-plants",
+        "hashes": {
+          "best.onnx": "2b937b7922340cd6b694c0117a4ba2da2ec7dd686d630320577650f5bbdf17a7",
+          "metrics.json": "3ddd7b0754f206cf840e547820fd8eeb41c135f250b12f720dbc8c9bc156c354",
+          "latest.onnx": "4856f848a27d1e03978d382ab4289d3867447b9e7463f420f956201fcf67e92c",
+          "latest.pt": "d3dec4776bc1fb4e1f2ee32821a14c40e973371010999c385f21177fd6667f4b",
+          "best.pt": "14d8fb461e928b86c01cf28c96d2425d2df1ea980984d2a17cb6cba64f3fe564",
+          "schema.json": "67cccc9cf18afd86c54c17b8c7bda82a07140e083c00248b5ff89a6192951a3e"
+        },
+        "training": {
+          "games": 4800,
+          "game_truncations": 0,
+          "search_truncations": 0,
+          "search_rollouts": 4377728,
+          "new_parameter_norms": {
+            "extra_player.weight": 0.19597437977790833,
+            "extra_action.weight": 0.050524089485406876
+          }
+        },
+        "qualification_eligible": false
+      },
+      "artifact_hashes": {
+        "inference64.onnx": "88bab4882974900915547c67fdf1176b621591a0230c85a263f2316beb0bf600",
+        "serving.json": "40c0f3dbb34bbb0472baeb92783363f306b1c9f4139d6428007e90f20db45cc2",
+        "inference64.pt": "ccf9c13ff09287e616161edb5e1cffa9c19d234fac88bde273dd698d12ec7358",
+        "derivative.json": "13be551431668ea0aa26df0c697462a2fd5fb47b114d0c1fe0e6f44ceb0e6fa2",
+        "export.log": "3c41817e72d87b3edc061d4566aa25408201d3fbc4b719a5eee895d8b28c5bd0",
+        "serving.log": "d16afcf3a2c15ebc7f8ed70bfae2812d4e9756e163d4aa0e7ae311f1836a0e9d",
+        "parity.log": "f87c5384af49aabb3fd5c330d9c46f39a026ceff959e37a758396da46c4ad5e3",
+        "parity.json": "ca55b3fa8cee5aeb7c065fecc3825abe196fea934d4ff1e009c7300f2637be24"
+      }
+    }
+  },
+  "next": "Compare native64 and Exp/Div SiLU on full fixtures and record FP32-to-FP64 action changes; freeze a new numerical-repair evaluation protocol and source, then evaluate every candidate and parent uniformly. Preserve original failed screens and do not reuse FP32 game outcomes as FP64 results. Actual8840U latency remains pending.",
+  "source_files": {
+    "model.py": "a2fe18290dcab07c9f1dff5526375ddcce2e43087722c0f4821c956a69dcf2d8",
+    "export-inference64.py": "8b557608db2e319dc1620c114e05b5050524f1bfdaedecb5684cbb0aced8558e",
+    "audit-onnx-numerics.py": "88f5cf335acd634c54dcf3952a6ada6963b1e9c7cf79074a25faf0d1ef597b90"
+  }
+}

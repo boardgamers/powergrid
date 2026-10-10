@@ -1,0 +1,3007 @@
+{
+  "verification": {
+    "games": 64,
+    "selected_trajectories": 16,
+    "original_traces_identical": 16,
+    "all_prefixes_identical": true,
+    "truncations": 0,
+    "protocol_sha256": "88fccc04353b611c397e43b2a81473080d25e51b104fbf464120d7126f9e5252",
+    "selection_sha256": "3efb343228790f283a1598a65f236e30aa061a9e17c649fa12a1883a793bff99",
+    "model_sha256": "8606c6902806f7df82f7c687fa92746230b63c110d2654730b7913cbc68d3258",
+    "branches_sha256": "fed6668c6887fd1bb028ec8cba3d8530edafe3b68982bdc40a95b787e399f16d",
+    "scope": "Read-only causal diagnostic in selected fixed development trajectories; enumerate every legal discard at each selected game's last learner discard, then resume unchanged policies on the same actual deal. This hindsight root selection is not a deployable policy, public-belief teacher, strength evaluation or training dataset.",
+    "qualification_eligible": false,
+    "trained": false
+  },
+  "selection": {
+    "scope": "Read-only diagnosis: first numeric development deal in each rule/seat cell with a strict loss, rated capacity below opponent powered count, and at least50 final money, plus first strict win. This is selected outcome sampling, not new strength evidence or causal proof.",
+    "eligible_losses": 69,
+    "selected_losses": 8,
+    "selected_wins": 8,
+    "selection_sha256": "3efb343228790f283a1598a65f236e30aa061a9e17c649fa12a1883a793bff99"
+  },
+  "cases": [
+    {
+      "episode": 50,
+      "variant": "original",
+      "sealed": false,
+      "seat": 0,
+      "round": 11,
+      "terminal_round": 11,
+      "money_at_discard": 115,
+      "original_discard": 20,
+      "original_win": 0,
+      "original_final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 19,
+            "powered": 19,
+            "money": 63,
+            "capacity": 19,
+            "plants": [
+              18,
+              28,
+              38,
+              32
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 22,
+            "capacity": 21,
+            "plants": [
+              26,
+              27,
+              39,
+              46
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "discard": 18,
+          "win": 0,
+          "trace_sha256": "15ed16e3bf80e9f8125e5d3d49e4b3e5e55ee6144acf5dfa16c553e3063d7a8b",
+          "intervention_sha256": "ef2f401c03bf0853f2357ae5dd3f34036f5699d9ae40f09a05ade897c9342fb0",
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 89,
+                "capacity": 20,
+                "plants": [
+                  28,
+                  20,
+                  32,
+                  44
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 93,
+                "capacity": 21,
+                "plants": [
+                  26,
+                  27,
+                  39,
+                  36
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 20,
+          "win": 0,
+          "trace_sha256": "1b5a0bbff8f45fc179d4110f8ef642e0d6b551682e30f985cf7da1632bbbe770",
+          "intervention_sha256": "fc6a981052e5f7a14482382f5281ebae26f583de9fd839327c2f98c1b08232ec",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 19,
+                "powered": 19,
+                "money": 63,
+                "capacity": 19,
+                "plants": [
+                  18,
+                  28,
+                  38,
+                  32
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 22,
+                "capacity": 21,
+                "plants": [
+                  26,
+                  27,
+                  39,
+                  46
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 28,
+          "win": 0,
+          "trace_sha256": "71c17fc2be59477070051827a982890be975887868d70bdb6d3061fbb34d448f",
+          "intervention_sha256": "206f5a6485a50e9b759d72caf12adb72bd8f6b1a4f5b767e2eb947309e0bdd14",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 20,
+                "capacity": 20,
+                "plants": [
+                  18,
+                  20,
+                  38,
+                  32
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 22,
+                "capacity": 21,
+                "plants": [
+                  26,
+                  27,
+                  39,
+                  46
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 38,
+          "win": 0,
+          "trace_sha256": "10f3d519d3c1ba862624dc1aa0a038cb2d01a92735347688dbf053058309b6db",
+          "intervention_sha256": "3de23af960ae9d440fbc78ce4ab5b5428ef7116b7305b1e597d011a91183a367",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 18,
+                "powered": 17,
+                "money": 88,
+                "capacity": 17,
+                "plants": [
+                  18,
+                  28,
+                  20,
+                  32
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 21,
+                "capacity": 21,
+                "plants": [
+                  26,
+                  27,
+                  39,
+                  46
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "loss_flipped": false
+    },
+    {
+      "episode": 2,
+      "variant": "original",
+      "sealed": false,
+      "seat": 0,
+      "round": 12,
+      "terminal_round": 12,
+      "money_at_discard": 118,
+      "original_discard": 25,
+      "original_win": 1,
+      "original_final": {
+        "round": 12,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 61,
+            "capacity": 22,
+            "plants": [
+              29,
+              33,
+              36,
+              38
+            ]
+          },
+          {
+            "cities": 20,
+            "powered": 20,
+            "money": 24,
+            "capacity": 21,
+            "plants": [
+              18,
+              40,
+              39,
+              46
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "discard": 25,
+          "win": 1,
+          "trace_sha256": "b783656bd7c69326d95687cf711d4cb694502cfb958cb419ac84188dbbf00e01",
+          "intervention_sha256": "5add5542d1566eb46552356f1394f905aa9e0460b66835c4daa39aae595b5472",
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 61,
+                "capacity": 22,
+                "plants": [
+                  29,
+                  33,
+                  36,
+                  38
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 24,
+                "capacity": 21,
+                "plants": [
+                  18,
+                  40,
+                  39,
+                  46
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 29,
+          "win": 1,
+          "trace_sha256": "181298c6d79506ba3f80d28af5ca8d4cedbd1cbe7262ec4e9d6a65262e252d3e",
+          "intervention_sha256": "c68d2a891c6dc0e7df5c673b2b24b19102876658a0d1832615f0bab1ed5b1480",
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 54,
+                "capacity": 23,
+                "plants": [
+                  25,
+                  33,
+                  36,
+                  38
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 24,
+                "capacity": 21,
+                "plants": [
+                  18,
+                  40,
+                  39,
+                  46
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 33,
+          "win": 1,
+          "trace_sha256": "37dd9cfc0cf01f2d61549ae02a8c38f1ff7de97f1b020d574c38ffa15feabd97",
+          "intervention_sha256": "ca2c31481b7306ceb7cd1f55b4d9aa57be5d54d62a3c59cca6a04b7f5f01d045",
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 49,
+                "capacity": 23,
+                "plants": [
+                  25,
+                  29,
+                  36,
+                  38
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 24,
+                "capacity": 21,
+                "plants": [
+                  18,
+                  40,
+                  39,
+                  46
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 36,
+          "win": 1,
+          "trace_sha256": "6a2fd23f9b1a14e823ff43a9b5a58bfd9cfcb5a2e8e7bdfc6af686ab4bcd9a8e",
+          "intervention_sha256": "aa2aac5dbf2f8ce8f8dcf7d41e8dd9563ba6288b6c0ce03e18ab00227cf4228b",
+          "final": {
+            "round": 13,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 150,
+                "capacity": 21,
+                "plants": [
+                  29,
+                  33,
+                  38,
+                  42
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 114,
+                "capacity": 20,
+                "plants": [
+                  18,
+                  39,
+                  46,
+                  35
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "loss_flipped": false
+    },
+    {
+      "episode": 6,
+      "variant": "original",
+      "sealed": false,
+      "seat": 1,
+      "round": 13,
+      "terminal_round": 13,
+      "money_at_discard": 219,
+      "original_discard": 25,
+      "original_win": 0,
+      "original_final": {
+        "round": 13,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 78,
+            "capacity": 23,
+            "plants": [
+              29,
+              30,
+              38,
+              40
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 20,
+            "money": 132,
+            "capacity": 20,
+            "plants": [
+              18,
+              34,
+              39,
+              36
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "discard": 18,
+          "win": 1,
+          "trace_sha256": "8c64f8a0e39ebc67051555f1087efc797e296c0ce6726ae8cb6ce599d9c7da31",
+          "intervention_sha256": "4813afa83392b16ccbf36772b546f444e4ac9a879291f8a8664366ecda7dcffc",
+          "final": {
+            "round": 13,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 78,
+                "capacity": 23,
+                "plants": [
+                  29,
+                  30,
+                  38,
+                  40
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 118,
+                "capacity": 23,
+                "plants": [
+                  25,
+                  34,
+                  39,
+                  36
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 25,
+          "win": 0,
+          "trace_sha256": "dea46cfa2d0aa89b8c052ef3ab498affa13ca6f80b82ffece32cf2b57b24753c",
+          "intervention_sha256": "cd58204571c5c930e7a17b6c39c32fdc4ad6fd3aabbf1936ba381a10d45ee5d7",
+          "final": {
+            "round": 13,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 78,
+                "capacity": 23,
+                "plants": [
+                  29,
+                  30,
+                  38,
+                  40
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 20,
+                "money": 132,
+                "capacity": 20,
+                "plants": [
+                  18,
+                  34,
+                  39,
+                  36
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 34,
+          "win": 0,
+          "trace_sha256": "a7003b63cd7b57c0766f5b60117bcd7f6408ef2f8f5098ef6088ee5c2dffa08e",
+          "intervention_sha256": "f7643ef094dea3907f3ea2d66311e0dfbb796b05251f3fb648ded390ed266dd6",
+          "final": {
+            "round": 13,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 78,
+                "capacity": 23,
+                "plants": [
+                  29,
+                  30,
+                  38,
+                  40
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 20,
+                "money": 126,
+                "capacity": 20,
+                "plants": [
+                  18,
+                  25,
+                  39,
+                  36
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 39,
+          "win": 0,
+          "trace_sha256": "ff4c7f5629dc6677c6f6519e1071fa779e092838e099bfedb54b31c18a73a0d0",
+          "intervention_sha256": "b5915afa4fc63489659aa975ca22049e9546affef4e9ce3b762289b6faf97b1b",
+          "final": {
+            "round": 13,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 78,
+                "capacity": 23,
+                "plants": [
+                  29,
+                  30,
+                  38,
+                  40
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 19,
+                "money": 126,
+                "capacity": 19,
+                "plants": [
+                  18,
+                  25,
+                  34,
+                  36
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "loss_flipped": true
+    },
+    {
+      "episode": 14,
+      "variant": "original",
+      "sealed": false,
+      "seat": 1,
+      "round": 11,
+      "terminal_round": 11,
+      "money_at_discard": 117,
+      "original_discard": 28,
+      "original_win": 1,
+      "original_final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 17,
+            "powered": 17,
+            "money": 19,
+            "capacity": 21,
+            "plants": [
+              21,
+              31,
+              29,
+              46
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 18,
+            "capacity": 21,
+            "plants": [
+              27,
+              25,
+              32,
+              38
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "discard": 25,
+          "win": 1,
+          "trace_sha256": "4556bc0c11f2ae25f2844bea411e3de73fac58436a0b4a870905c49872ebe490",
+          "intervention_sha256": "1b5d2de7ce15dc71b57ace2a6f4b888db87f7c3fd3f33e9d737c4b895700edc5",
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 10,
+                "capacity": 21,
+                "plants": [
+                  21,
+                  29,
+                  46,
+                  42
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 94,
+                "capacity": 21,
+                "plants": [
+                  27,
+                  28,
+                  38,
+                  36
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 27,
+          "win": 1,
+          "trace_sha256": "b660f7f5b98a29e4d115feda53419c9533e777691e7c430fbcaa828aef312edc",
+          "intervention_sha256": "347cc454b4305bb611d08247f34deba7810c82b491b1ba4861dfc55907207641",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 17,
+                "powered": 17,
+                "money": 19,
+                "capacity": 21,
+                "plants": [
+                  21,
+                  31,
+                  29,
+                  46
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 12,
+                "capacity": 22,
+                "plants": [
+                  28,
+                  25,
+                  32,
+                  38
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 28,
+          "win": 1,
+          "trace_sha256": "9ffdc2588f50c08eccd29be01152e4c86c54bd01cc95597d909c6252f4730da4",
+          "intervention_sha256": "aa1130147cd069688eba12bf98ff28fb40dade19079068427cd473a7ee2441cf",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 17,
+                "powered": 17,
+                "money": 19,
+                "capacity": 21,
+                "plants": [
+                  21,
+                  31,
+                  29,
+                  46
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 18,
+                "capacity": 21,
+                "plants": [
+                  27,
+                  25,
+                  32,
+                  38
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 32,
+          "win": 1,
+          "trace_sha256": "5c4bdf053167b7d6950ca3de2d76975b5f4a04d6eb3fa3407ce1d1985ba273f9",
+          "intervention_sha256": "fc4986ae51106aa11b30c98cdf620d745205d07b6fb1253da0e52f72278a6e17",
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 15,
+                "capacity": 21,
+                "plants": [
+                  21,
+                  31,
+                  29,
+                  36
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 100,
+                "capacity": 21,
+                "plants": [
+                  27,
+                  25,
+                  38,
+                  50
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "loss_flipped": false
+    },
+    {
+      "episode": 128,
+      "variant": "original",
+      "sealed": true,
+      "seat": 0,
+      "round": 11,
+      "terminal_round": 11,
+      "money_at_discard": 113,
+      "original_discard": 31,
+      "original_win": 0,
+      "original_final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 19,
+            "powered": 19,
+            "money": 72,
+            "capacity": 19,
+            "plants": [
+              18,
+              26,
+              42,
+              39
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 62,
+            "capacity": 22,
+            "plants": [
+              27,
+              34,
+              46,
+              38
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "discard": 18,
+          "win": 1,
+          "trace_sha256": "c47b789e064d5b62936272cc7418f88faa4fd21eb4bf45990ffd54dc5b94c2b3",
+          "intervention_sha256": "48a1339ccccc9167fb6a198feee190fbddd650e7139858b4ea47cde5b5c8205d",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 3,
+                "capacity": 23,
+                "plants": [
+                  26,
+                  31,
+                  42,
+                  39
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 81,
+                "capacity": 22,
+                "plants": [
+                  27,
+                  34,
+                  46,
+                  38
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 26,
+          "win": 0,
+          "trace_sha256": "a90bf6d3dbe79248de2dde238e281cbb120044b1d6c6282c0f1dced381d83456",
+          "intervention_sha256": "1f55d89aff7b456b09497a445a25c8fb4c2e4c4f8b36707752886f74621f9e53",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 37,
+                "capacity": 20,
+                "plants": [
+                  18,
+                  31,
+                  42,
+                  39
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 64,
+                "capacity": 22,
+                "plants": [
+                  27,
+                  34,
+                  46,
+                  38
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 31,
+          "win": 0,
+          "trace_sha256": "ab77c27fb99c8b5da324f1e322c2b41677b83683742c020b84ca64f3d1663229",
+          "intervention_sha256": "f230a240d5ff1ffbdc6c5f69c64417059e53ca412e4b5639e153b6728c2ee057",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 19,
+                "powered": 19,
+                "money": 72,
+                "capacity": 19,
+                "plants": [
+                  18,
+                  26,
+                  42,
+                  39
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 62,
+                "capacity": 22,
+                "plants": [
+                  27,
+                  34,
+                  46,
+                  38
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 42,
+          "win": 0,
+          "trace_sha256": "afff1b4056cc2f2c36bee6bc884820f5693287535ff75dc61889ed2b3242fd91",
+          "intervention_sha256": "46c6ef8bb90aa0a213ad5d329a5855cf4a9daab9a57c89970d7b1df1aabc71f3",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 19,
+                "powered": 19,
+                "money": 68,
+                "capacity": 19,
+                "plants": [
+                  18,
+                  26,
+                  31,
+                  39
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 62,
+                "capacity": 22,
+                "plants": [
+                  27,
+                  34,
+                  46,
+                  38
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "loss_flipped": true
+    },
+    {
+      "episode": 0,
+      "variant": "original",
+      "sealed": true,
+      "seat": 0,
+      "round": 11,
+      "terminal_round": 11,
+      "money_at_discard": 133,
+      "original_discard": 25,
+      "original_win": 1,
+      "original_final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 82,
+            "capacity": 22,
+            "plants": [
+              29,
+              34,
+              39,
+              46
+            ]
+          },
+          {
+            "cities": 11,
+            "powered": 11,
+            "money": 0,
+            "capacity": 21,
+            "plants": [
+              13,
+              40,
+              36,
+              38
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "discard": 25,
+          "win": 1,
+          "trace_sha256": "3fd6a341afbd8b511798ebd4ef789c5926171e939689ac3795c9f8e2d82e26be",
+          "intervention_sha256": "8f2d3d251b8ebed143e684e53b0734b88e38c9ade546857079bfe16a37f88d20",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 82,
+                "capacity": 22,
+                "plants": [
+                  29,
+                  34,
+                  39,
+                  46
+                ]
+              },
+              {
+                "cities": 11,
+                "powered": 11,
+                "money": 0,
+                "capacity": 21,
+                "plants": [
+                  13,
+                  40,
+                  36,
+                  38
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 29,
+          "win": 1,
+          "trace_sha256": "db6a3f50c6233cf35379c146005c6b5366b59f33a723dedfdf65f84e23141d80",
+          "intervention_sha256": "fbcbda489d1a7aedce2fb230136ff50320e9588735421364b8681019ab237626",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 80,
+                "capacity": 23,
+                "plants": [
+                  25,
+                  34,
+                  39,
+                  46
+                ]
+              },
+              {
+                "cities": 11,
+                "powered": 11,
+                "money": 2,
+                "capacity": 21,
+                "plants": [
+                  13,
+                  40,
+                  36,
+                  38
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 34,
+          "win": 1,
+          "trace_sha256": "cd6a53fae10d286ba9b49739a701434c4ba235bc3b9ddb4ea0d7a9faf19671b6",
+          "intervention_sha256": "e2cc1fcdedd125cd814aa5ac6489fca86e180e3eefdfedb732d377c5d8d6f065",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 79,
+                "capacity": 22,
+                "plants": [
+                  25,
+                  29,
+                  39,
+                  46
+                ]
+              },
+              {
+                "cities": 11,
+                "powered": 11,
+                "money": 0,
+                "capacity": 21,
+                "plants": [
+                  13,
+                  40,
+                  36,
+                  38
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 39,
+          "win": 1,
+          "trace_sha256": "df08d95115bb5223c676b62b54b6b97f8ff3031281047368682cd0a92af04930",
+          "intervention_sha256": "65e7f3ae06b79a72d8d251abdcefe0853c7fd6b3345ff30831d9a32f7fe49c80",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 79,
+                "capacity": 21,
+                "plants": [
+                  25,
+                  29,
+                  34,
+                  46
+                ]
+              },
+              {
+                "cities": 11,
+                "powered": 11,
+                "money": 0,
+                "capacity": 21,
+                "plants": [
+                  13,
+                  40,
+                  36,
+                  38
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "loss_flipped": false
+    },
+    {
+      "episode": 44,
+      "variant": "original",
+      "sealed": true,
+      "seat": 1,
+      "round": 13,
+      "terminal_round": 13,
+      "money_at_discard": 231,
+      "original_discard": 32,
+      "original_win": 0,
+      "original_final": {
+        "round": 13,
+        "players": [
+          {
+            "cities": 20,
+            "powered": 20,
+            "money": 35,
+            "capacity": 20,
+            "plants": [
+              13,
+              44,
+              46,
+              36
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 18,
+            "money": 137,
+            "capacity": 18,
+            "plants": [
+              22,
+              39,
+              33,
+              40
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "discard": 22,
+          "win": 1,
+          "trace_sha256": "dda36d785bc6761574bee09469480242bfa738cb59379c87383be0514aa0e477",
+          "intervention_sha256": "023c713bc012b739d9792736f2d4ae59a7a3b148cea788c70c8529fb57373501",
+          "final": {
+            "round": 13,
+            "players": [
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 35,
+                "capacity": 20,
+                "plants": [
+                  13,
+                  44,
+                  46,
+                  36
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 124,
+                "capacity": 22,
+                "plants": [
+                  39,
+                  32,
+                  33,
+                  40
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 32,
+          "win": 0,
+          "trace_sha256": "d747363c1d0c3d5f34c5d0a15b970ebe88a4dd3598eb4b8faff4ccb392781a70",
+          "intervention_sha256": "f3fcdecf251c4f86c54f49d85b9bba97bc72bcd5873ecc99049a9bb14db135cb",
+          "final": {
+            "round": 13,
+            "players": [
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 35,
+                "capacity": 20,
+                "plants": [
+                  13,
+                  44,
+                  46,
+                  36
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 18,
+                "money": 137,
+                "capacity": 18,
+                "plants": [
+                  22,
+                  39,
+                  33,
+                  40
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 33,
+          "win": 1,
+          "trace_sha256": "00a259fb4a6005d0d75922828b308ec4db14fe425e8685214874ed9070bd2250",
+          "intervention_sha256": "f49a6795ac116d4d9a6cdf54e992cca464e35837fd0583e5791e011eba5110aa",
+          "final": {
+            "round": 13,
+            "players": [
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 35,
+                "capacity": 20,
+                "plants": [
+                  13,
+                  44,
+                  46,
+                  36
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 20,
+                "money": 124,
+                "capacity": 20,
+                "plants": [
+                  22,
+                  39,
+                  32,
+                  40
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 39,
+          "win": 0,
+          "trace_sha256": "20dfa1b3d4e89478e9531cfe7e7fb471452720f73a9815fed66d917aa2719d22",
+          "intervention_sha256": "1f3334737d3fc7e165436503b6a44ef97a8520a17c3f4132eb308fbdac52a24d",
+          "final": {
+            "round": 13,
+            "players": [
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 35,
+                "capacity": 20,
+                "plants": [
+                  13,
+                  44,
+                  46,
+                  36
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 18,
+                "money": 130,
+                "capacity": 18,
+                "plants": [
+                  22,
+                  32,
+                  33,
+                  40
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "loss_flipped": true
+    },
+    {
+      "episode": 4,
+      "variant": "original",
+      "sealed": true,
+      "seat": 1,
+      "round": 11,
+      "terminal_round": 11,
+      "money_at_discard": 156,
+      "original_discard": 25,
+      "original_win": 1,
+      "original_final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 19,
+            "powered": 19,
+            "money": 3,
+            "capacity": 21,
+            "plants": [
+              29,
+              34,
+              38,
+              35
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 84,
+            "capacity": 21,
+            "plants": [
+              18,
+              40,
+              39,
+              36
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "discard": 18,
+          "win": 1,
+          "trace_sha256": "a45dccd9991685e26d3933959b3a0259da37999ff520521e1b0eb58755d5f941",
+          "intervention_sha256": "c68b4323f5d8bc3a36b923a3ad150ce86c9addcb3c6de12234ef88e8abae0d8a",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 19,
+                "powered": 19,
+                "money": 3,
+                "capacity": 21,
+                "plants": [
+                  29,
+                  34,
+                  38,
+                  35
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 74,
+                "capacity": 24,
+                "plants": [
+                  25,
+                  40,
+                  39,
+                  36
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 25,
+          "win": 1,
+          "trace_sha256": "5c033029dc417fe7ab05de9f206b3fe5fd5175946f90c22501b7f60ca571b46f",
+          "intervention_sha256": "dedc30a747e5c67d1dcc7834be385ce945b9d6b41bee1479942b2f677113886d",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 19,
+                "powered": 19,
+                "money": 3,
+                "capacity": 21,
+                "plants": [
+                  29,
+                  34,
+                  38,
+                  35
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 84,
+                "capacity": 21,
+                "plants": [
+                  18,
+                  40,
+                  39,
+                  36
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 39,
+          "win": 1,
+          "trace_sha256": "eab54f87fc67abde5305ac96befad174f7c1f0fa0c31fe1457e952a8dd386315",
+          "intervention_sha256": "1745e38fef8cf54aa76a4bb0c48b54b2258b4456dd66d9d2a1ca41a1566e9da8",
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 19,
+                "capacity": 21,
+                "plants": [
+                  29,
+                  34,
+                  35,
+                  46
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 141,
+                "capacity": 21,
+                "plants": [
+                  18,
+                  40,
+                  36,
+                  42
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 40,
+          "win": 0,
+          "trace_sha256": "4761b1032dcee840f1919bbf0ccfe3adb7d18bbd60898ebcfb0448774932eb84",
+          "intervention_sha256": "22ba56fb78d44d7ff877075e4f5642f115a075fd8bf179eff8c9bcb2801ef794",
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 26,
+                "capacity": 22,
+                "plants": [
+                  29,
+                  38,
+                  35,
+                  42
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 20,
+                "money": 146,
+                "capacity": 20,
+                "plants": [
+                  18,
+                  25,
+                  39,
+                  46
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "loss_flipped": false
+    },
+    {
+      "episode": 35,
+      "variant": "recharged",
+      "sealed": false,
+      "seat": 0,
+      "round": 11,
+      "terminal_round": 11,
+      "money_at_discard": 225,
+      "original_discard": 31,
+      "original_win": 0,
+      "original_final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 18,
+            "money": 168,
+            "capacity": 18,
+            "plants": [
+              13,
+              40,
+              50,
+              44
+            ]
+          },
+          {
+            "cities": 20,
+            "powered": 20,
+            "money": 112,
+            "capacity": 20,
+            "plants": [
+              29,
+              27,
+              39,
+              46
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "discard": 13,
+          "win": 1,
+          "trace_sha256": "e0d918c01732bf7430a819ebd3cbbe280eb659c1891b971e3c8ac3dbd230c08f",
+          "intervention_sha256": "df963ea150115bec2408e18b3689200f7d31dd047f1494aa33a741a9c95981db",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 156,
+                "capacity": 23,
+                "plants": [
+                  31,
+                  40,
+                  50,
+                  44
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 112,
+                "capacity": 20,
+                "plants": [
+                  29,
+                  27,
+                  39,
+                  46
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 31,
+          "win": 0,
+          "trace_sha256": "4045772087cc24ea98997b52db321cb3dafd13f76b5f05bb24d6ae9de2594644",
+          "intervention_sha256": "d68e41056a6ebf30a4f8f3e35154736a18186ea3ba0b0c55cf896d2efcb525c4",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 18,
+                "money": 168,
+                "capacity": 18,
+                "plants": [
+                  13,
+                  40,
+                  50,
+                  44
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 112,
+                "capacity": 20,
+                "plants": [
+                  29,
+                  27,
+                  39,
+                  46
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 40,
+          "win": 0,
+          "trace_sha256": "7ec6cfd6a61e82d53c1cfc220f86bcc688649a53547049e894a9075258058c51",
+          "intervention_sha256": "46939e30f98a3baea55eaad7e3a00c07e28fb3c6c7258313d354994cd01e4177",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 18,
+                "money": 162,
+                "capacity": 18,
+                "plants": [
+                  13,
+                  31,
+                  50,
+                  44
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 114,
+                "capacity": 20,
+                "plants": [
+                  29,
+                  27,
+                  39,
+                  46
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 50,
+          "win": 0,
+          "trace_sha256": "df17a1d40a6a767d65803eb7c540fad9edd3c9c898e94540b18746751cfc377b",
+          "intervention_sha256": "23ac40f96bff5a1b53f1a126df26e5dd3acadc496ce3b87c1abaf96ecf85e5dc",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 18,
+                "money": 156,
+                "capacity": 18,
+                "plants": [
+                  13,
+                  31,
+                  40,
+                  44
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 112,
+                "capacity": 20,
+                "plants": [
+                  29,
+                  27,
+                  39,
+                  46
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "loss_flipped": true
+    },
+    {
+      "episode": 3,
+      "variant": "recharged",
+      "sealed": false,
+      "seat": 0,
+      "round": 10,
+      "terminal_round": 10,
+      "money_at_discard": 111,
+      "original_discard": 21,
+      "original_win": 1,
+      "original_final": {
+        "round": 10,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 32,
+            "capacity": 22,
+            "plants": [
+              27,
+              26,
+              38,
+              36
+            ]
+          },
+          {
+            "cities": 13,
+            "powered": 13,
+            "money": 1,
+            "capacity": 20,
+            "plants": [
+              25,
+              29,
+              44,
+              39
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "discard": 21,
+          "win": 1,
+          "trace_sha256": "4a37a3f4beb921274fad3f1fd1a5701d22e4902fa02a39c6dfb7eeb56f437dbe",
+          "intervention_sha256": "acb19466733d7e00921518c25c95462bca11d746a71e591babe88c906a67c20e",
+          "final": {
+            "round": 10,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 32,
+                "capacity": 22,
+                "plants": [
+                  27,
+                  26,
+                  38,
+                  36
+                ]
+              },
+              {
+                "cities": 13,
+                "powered": 13,
+                "money": 1,
+                "capacity": 20,
+                "plants": [
+                  25,
+                  29,
+                  44,
+                  39
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 26,
+          "win": 1,
+          "trace_sha256": "dd8cfa948d465741bdb5720784c9eabd47b2474fdc0ff67d6888c9fecfb4f9c6",
+          "intervention_sha256": "1179cd5d80beda5af753e6722c0af8d1f74f9c80aef8276eaab3e33e8fb3d93b",
+          "final": {
+            "round": 10,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 32,
+                "capacity": 21,
+                "plants": [
+                  27,
+                  21,
+                  38,
+                  36
+                ]
+              },
+              {
+                "cities": 13,
+                "powered": 13,
+                "money": 1,
+                "capacity": 20,
+                "plants": [
+                  25,
+                  29,
+                  44,
+                  39
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 27,
+          "win": 1,
+          "trace_sha256": "03fe1c3fbfd5deb427aec11ac33198dcdb3b2ba8060dc284749395ab7b62d486",
+          "intervention_sha256": "2556fea4626bcf537c513187013472d43d784eff945d0ec0acf632048ad5267f",
+          "final": {
+            "round": 10,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 25,
+                "capacity": 23,
+                "plants": [
+                  21,
+                  26,
+                  38,
+                  36
+                ]
+              },
+              {
+                "cities": 13,
+                "powered": 13,
+                "money": 1,
+                "capacity": 20,
+                "plants": [
+                  25,
+                  29,
+                  44,
+                  39
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 38,
+          "win": 1,
+          "trace_sha256": "6643726a79f8e20620df1d36e5615a62a4b861a9b7721d19c49bff96356a3bbd",
+          "intervention_sha256": "d7b57a9dc2c6dedd5c840fd4b58e6e6f8f28e75783532bf194c5c596de4ebcf7",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 114,
+                "capacity": 21,
+                "plants": [
+                  27,
+                  26,
+                  36,
+                  50
+                ]
+              },
+              {
+                "cities": 18,
+                "powered": 16,
+                "money": 5,
+                "capacity": 20,
+                "plants": [
+                  25,
+                  29,
+                  44,
+                  39
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "loss_flipped": false
+    },
+    {
+      "episode": 31,
+      "variant": "recharged",
+      "sealed": false,
+      "seat": 1,
+      "round": 10,
+      "terminal_round": 10,
+      "money_at_discard": 138,
+      "original_discard": 24,
+      "original_win": 0,
+      "original_final": {
+        "round": 10,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 66,
+            "capacity": 23,
+            "plants": [
+              25,
+              26,
+              39,
+              36
+            ]
+          },
+          {
+            "cities": 18,
+            "powered": 18,
+            "money": 129,
+            "capacity": 18,
+            "plants": [
+              27,
+              28,
+              35,
+              50
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "discard": 24,
+          "win": 0,
+          "trace_sha256": "90955058c0353e07082c2e3d8d58f1dd0f1203c04672f227614cfbcb23066ff3",
+          "intervention_sha256": "3b2bc65eefe3e4c7e7e61f8b73dc3aa8eee451402cfb52b58ee8532f21aecf28",
+          "final": {
+            "round": 10,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 66,
+                "capacity": 23,
+                "plants": [
+                  25,
+                  26,
+                  39,
+                  36
+                ]
+              },
+              {
+                "cities": 18,
+                "powered": 18,
+                "money": 129,
+                "capacity": 18,
+                "plants": [
+                  27,
+                  28,
+                  35,
+                  50
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 27,
+          "win": 0,
+          "trace_sha256": "4d3469e7143533a770a2766dd684310c93778518f760e30d946b9746547e6219",
+          "intervention_sha256": "992cf4167460fa39748ffabd4888f2be0303c26e5c0230cf411800843cef8420",
+          "final": {
+            "round": 10,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 66,
+                "capacity": 23,
+                "plants": [
+                  25,
+                  26,
+                  39,
+                  36
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 19,
+                "money": 75,
+                "capacity": 19,
+                "plants": [
+                  24,
+                  28,
+                  35,
+                  50
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 28,
+          "win": 0,
+          "trace_sha256": "298f34bde7c0352f197c3d493075fd8daba639a0e6be39ae5e8ceff22682ce91",
+          "intervention_sha256": "5dec348affd857d1fc326a0fa3724f627a0557c2aebc96b36a79d1331fd62b93",
+          "final": {
+            "round": 10,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 67,
+                "capacity": 23,
+                "plants": [
+                  25,
+                  26,
+                  39,
+                  36
+                ]
+              },
+              {
+                "cities": 18,
+                "powered": 18,
+                "money": 128,
+                "capacity": 18,
+                "plants": [
+                  24,
+                  27,
+                  35,
+                  50
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 35,
+          "win": 0,
+          "trace_sha256": "3b3543585bacdcefaa1bc06c786d3e17252bf12af92cc20239a4dc03c65c0863",
+          "intervention_sha256": "273550c4b5767cbfd363d82b8bccd8241157d68fbf343f5304a188ada69379e3",
+          "final": {
+            "round": 10,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 67,
+                "capacity": 23,
+                "plants": [
+                  25,
+                  26,
+                  39,
+                  36
+                ]
+              },
+              {
+                "cities": 18,
+                "powered": 17,
+                "money": 125,
+                "capacity": 17,
+                "plants": [
+                  24,
+                  27,
+                  28,
+                  50
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "loss_flipped": false
+    },
+    {
+      "episode": 7,
+      "variant": "recharged",
+      "sealed": false,
+      "seat": 1,
+      "round": 10,
+      "terminal_round": 10,
+      "money_at_discard": 123,
+      "original_discard": 36,
+      "original_win": 1,
+      "original_final": {
+        "round": 10,
+        "players": [
+          {
+            "cities": 7,
+            "powered": 7,
+            "money": 8,
+            "capacity": 20,
+            "plants": [
+              20,
+              29,
+              44,
+              39
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 61,
+            "capacity": 21,
+            "plants": [
+              25,
+              21,
+              26,
+              38
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "discard": 21,
+          "win": 1,
+          "trace_sha256": "c5d9a77ecf9e6b37d91701be8735b28d02923e4f1e6e8bd15b1c02555386f3fd",
+          "intervention_sha256": "2cfa8addb2c836da99ade1df55a00ccdafdb73794be25b8bacafcea36542c7cf",
+          "final": {
+            "round": 10,
+            "players": [
+              {
+                "cities": 7,
+                "powered": 7,
+                "money": 8,
+                "capacity": 20,
+                "plants": [
+                  20,
+                  29,
+                  44,
+                  39
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 57,
+                "capacity": 24,
+                "plants": [
+                  25,
+                  26,
+                  36,
+                  38
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 25,
+          "win": 1,
+          "trace_sha256": "4065a21907efef608a6f9818e38bcd2d59c52cace6b49d1fde26fc0117a8adb0",
+          "intervention_sha256": "9ed64ad3ac232f64e2f92399f6f40f50bbc34dad7d38def49ce6675f758ef559",
+          "final": {
+            "round": 10,
+            "players": [
+              {
+                "cities": 7,
+                "powered": 7,
+                "money": 8,
+                "capacity": 20,
+                "plants": [
+                  20,
+                  29,
+                  44,
+                  39
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 59,
+                "capacity": 23,
+                "plants": [
+                  21,
+                  26,
+                  36,
+                  38
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 26,
+          "win": 1,
+          "trace_sha256": "d0aafbbf2f7e2a1ce05219c1b7961520aa8d7053e7e7601ad6e6b8bd26265fe6",
+          "intervention_sha256": "6044c65f25de331a085ee34514410db36339bf13ca94b2c9896d83d33da5e753",
+          "final": {
+            "round": 10,
+            "players": [
+              {
+                "cities": 7,
+                "powered": 7,
+                "money": 8,
+                "capacity": 20,
+                "plants": [
+                  20,
+                  29,
+                  44,
+                  39
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 57,
+                "capacity": 23,
+                "plants": [
+                  25,
+                  21,
+                  36,
+                  38
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 36,
+          "win": 1,
+          "trace_sha256": "af4a060f2cace8d2d7f44a427a629cfdb3426890f4da7d6f23076617620ea160",
+          "intervention_sha256": "fce37240332662dda5142a91f11a5cc7e1ec768571b71262cfe21b20ca48b8e0",
+          "final": {
+            "round": 10,
+            "players": [
+              {
+                "cities": 7,
+                "powered": 7,
+                "money": 8,
+                "capacity": 20,
+                "plants": [
+                  20,
+                  29,
+                  44,
+                  39
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 61,
+                "capacity": 21,
+                "plants": [
+                  25,
+                  21,
+                  26,
+                  38
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "loss_flipped": false
+    },
+    {
+      "episode": 17,
+      "variant": "recharged",
+      "sealed": true,
+      "seat": 0,
+      "round": 11,
+      "terminal_round": 11,
+      "money_at_discard": 193,
+      "original_discard": 36,
+      "original_win": 0,
+      "original_final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 20,
+            "money": 145,
+            "capacity": 20,
+            "plants": [
+              29,
+              27,
+              39,
+              38
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 42,
+            "capacity": 23,
+            "plants": [
+              31,
+              32,
+              50,
+              35
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "discard": 27,
+          "win": 1,
+          "trace_sha256": "49879050bb04d3432897a68e7f9028d58e82e386559bf4f5a82472b7e9cc9cf1",
+          "intervention_sha256": "f0287711e98263151381a6c6116d10771e4ee8d717fabb5e5ae98bdc2d81e99f",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 132,
+                "capacity": 24,
+                "plants": [
+                  29,
+                  36,
+                  39,
+                  38
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 42,
+                "capacity": 23,
+                "plants": [
+                  31,
+                  32,
+                  50,
+                  35
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 29,
+          "win": 1,
+          "trace_sha256": "795c4ef4a5b63bcf15a3a3c26b4724c3ff78528eac418f0455c3c6f45359af15",
+          "intervention_sha256": "888be910a2f263a1274d00011bae7863409f39c24404751ad324837112565ff4",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 136,
+                "capacity": 23,
+                "plants": [
+                  27,
+                  36,
+                  39,
+                  38
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 42,
+                "capacity": 23,
+                "plants": [
+                  31,
+                  32,
+                  50,
+                  35
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 36,
+          "win": 0,
+          "trace_sha256": "22b89aedeb1a304bd00ac69569a893663820bffb469a9e4ac719122c5ba400f2",
+          "intervention_sha256": "c11bef6b4e98f09e1195e89099eb7a332aff714d4a9863cd315913899e37cdc7",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 20,
+                "money": 145,
+                "capacity": 20,
+                "plants": [
+                  29,
+                  27,
+                  39,
+                  38
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 42,
+                "capacity": 23,
+                "plants": [
+                  31,
+                  32,
+                  50,
+                  35
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 39,
+          "win": 1,
+          "trace_sha256": "0e141c051c4f993c2e213f23a6e82aacc7f646289acef5b2f6b16b4aff63625d",
+          "intervention_sha256": "e9dce2cedbfa8569d3c2f8203ac83c1e377863225807a289784c148e72c59b87",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 135,
+                "capacity": 21,
+                "plants": [
+                  29,
+                  27,
+                  36,
+                  38
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 42,
+                "capacity": 23,
+                "plants": [
+                  31,
+                  32,
+                  50,
+                  35
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "loss_flipped": true
+    },
+    {
+      "episode": 1,
+      "variant": "recharged",
+      "sealed": true,
+      "seat": 0,
+      "round": 11,
+      "terminal_round": 11,
+      "money_at_discard": 86,
+      "original_discard": 29,
+      "original_win": 1,
+      "original_final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 30,
+            "capacity": 22,
+            "plants": [
+              25,
+              21,
+              38,
+              50
+            ]
+          },
+          {
+            "cities": 20,
+            "powered": 20,
+            "money": 77,
+            "capacity": 21,
+            "plants": [
+              27,
+              26,
+              36,
+              30
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "discard": 21,
+          "win": 1,
+          "trace_sha256": "ea7ebc80b6c1b388b7d83f9193362ae5db8a221dd6ea03aae6f0f702d2e4b4e9",
+          "intervention_sha256": "b30dde1e7f5cdf6a19db152e4237d442fac14d4ba3fa7767c18d5a92a269fcfc",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 35,
+                "capacity": 22,
+                "plants": [
+                  25,
+                  29,
+                  38,
+                  50
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 77,
+                "capacity": 21,
+                "plants": [
+                  27,
+                  26,
+                  36,
+                  30
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 25,
+          "win": 0,
+          "trace_sha256": "cf6748fb73ebceed190c4331e5c5c646996b10751756a4b21ee3e06ffa3abef8",
+          "intervention_sha256": "feb608071be585533d230d70a1b6966fd00e963393bdf40a0f50f61dda5ea3a0",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 35,
+                "capacity": 21,
+                "plants": [
+                  29,
+                  21,
+                  38,
+                  50
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 55,
+                "capacity": 21,
+                "plants": [
+                  27,
+                  26,
+                  36,
+                  30
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 29,
+          "win": 1,
+          "trace_sha256": "b952321c1de15802ec155b01b2a2dda0dc694e728eb633d4e48e49dd58aa1e0c",
+          "intervention_sha256": "4038f50ad7b136359c675a466ccdde3042313749711655f677fab586d174630d",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 30,
+                "capacity": 22,
+                "plants": [
+                  25,
+                  21,
+                  38,
+                  50
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 77,
+                "capacity": 21,
+                "plants": [
+                  27,
+                  26,
+                  36,
+                  30
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 38,
+          "win": 0,
+          "trace_sha256": "48ef872ffecc13705f96e96b6405fb281a4583c26671d7db34f2ee71b9dd975e",
+          "intervention_sha256": "6538bc9aed5f5098d1da64e44373107d975906a39b62699ed0c3959ba89cc7e7",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 20,
+                "powered": 19,
+                "money": 62,
+                "capacity": 19,
+                "plants": [
+                  25,
+                  29,
+                  21,
+                  50
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 57,
+                "capacity": 21,
+                "plants": [
+                  27,
+                  26,
+                  36,
+                  30
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "loss_flipped": false
+    },
+    {
+      "episode": 21,
+      "variant": "recharged",
+      "sealed": true,
+      "seat": 1,
+      "round": 11,
+      "terminal_round": 11,
+      "money_at_discard": 187,
+      "original_discard": 30,
+      "original_win": 0,
+      "original_final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 142,
+            "capacity": 21,
+            "plants": [
+              29,
+              28,
+              36,
+              40
+            ]
+          },
+          {
+            "cities": 20,
+            "powered": 19,
+            "money": 139,
+            "capacity": 19,
+            "plants": [
+              13,
+              31,
+              50,
+              39
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "discard": 13,
+          "win": 0,
+          "trace_sha256": "af5189777aa169016da8c681e67dbec92cc0f6adf1eac954481ab047741aa686",
+          "intervention_sha256": "fa53500f4b155024eef2e3db90a09bb0b8953a6a328fedfd399dc69006484adb",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 142,
+                "capacity": 21,
+                "plants": [
+                  29,
+                  28,
+                  36,
+                  40
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 92,
+                "capacity": 24,
+                "plants": [
+                  30,
+                  31,
+                  50,
+                  39
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 30,
+          "win": 0,
+          "trace_sha256": "4cfa6cb2cb0e6d895807eee6e926a516e7f297f3f14cea71caa696f660070ca5",
+          "intervention_sha256": "dcc691a63eaaaa7d139822dcc706de2e5fdae70ee1196fd84c39b332abc69316",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 142,
+                "capacity": 21,
+                "plants": [
+                  29,
+                  28,
+                  36,
+                  40
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 19,
+                "money": 139,
+                "capacity": 19,
+                "plants": [
+                  13,
+                  31,
+                  50,
+                  39
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 31,
+          "win": 0,
+          "trace_sha256": "7270b03c53e9170585ecafb09442967e3307d79921ce68b998f729aec7cd4b56",
+          "intervention_sha256": "ec15765d47901c8c593ae64931b38a816e273f9b299acc3482116605df51b4fe",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 145,
+                "capacity": 21,
+                "plants": [
+                  29,
+                  28,
+                  36,
+                  40
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 19,
+                "money": 139,
+                "capacity": 19,
+                "plants": [
+                  13,
+                  30,
+                  50,
+                  39
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 50,
+          "win": 0,
+          "trace_sha256": "4caf1e15f79e97cee1d3ba456fab495fae8509f0462e1fcafd4a3972290eadbb",
+          "intervention_sha256": "f9e9978295e705f47b8defb55c9a1f145513644c15ced5b75e2fc11df4405c6e",
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 142,
+                "capacity": 21,
+                "plants": [
+                  29,
+                  28,
+                  36,
+                  40
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 19,
+                "money": 121,
+                "capacity": 19,
+                "plants": [
+                  13,
+                  30,
+                  31,
+                  39
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "loss_flipped": false
+    },
+    {
+      "episode": 5,
+      "variant": "recharged",
+      "sealed": true,
+      "seat": 1,
+      "round": 12,
+      "terminal_round": 12,
+      "money_at_discard": 269,
+      "original_discard": 26,
+      "original_win": 1,
+      "original_final": {
+        "round": 12,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 54,
+            "capacity": 21,
+            "plants": [
+              28,
+              29,
+              50,
+              46
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 229,
+            "capacity": 21,
+            "plants": [
+              27,
+              38,
+              44,
+              40
+            ]
+          }
+        ]
+      },
+      "alternatives": [
+        {
+          "discard": 26,
+          "win": 1,
+          "trace_sha256": "851abe78ecf189b7ac0789ad2ccaef80b8352fff4a3c06208bcfe52fe58e5b31",
+          "intervention_sha256": "8bd91b22c31a7a74fcc4da01115df62c887cc70da80abfefa6307269cea31d18",
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 54,
+                "capacity": 21,
+                "plants": [
+                  28,
+                  29,
+                  50,
+                  46
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 229,
+                "capacity": 21,
+                "plants": [
+                  27,
+                  38,
+                  44,
+                  40
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 27,
+          "win": 1,
+          "trace_sha256": "a5147582e4679937438e6f5b2a5356770f29e57aba833ace190dc8d24eb9606b",
+          "intervention_sha256": "f5e59ee1f6ed5c6d3c5f9791a738b596ea611780884221d546c8b62ecc9d9d8a",
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 76,
+                "capacity": 21,
+                "plants": [
+                  28,
+                  29,
+                  50,
+                  46
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 221,
+                "capacity": 23,
+                "plants": [
+                  26,
+                  38,
+                  44,
+                  40
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 38,
+          "win": 0,
+          "trace_sha256": "a4ef331732c92c11428d121537d7ac5331e51e29ec2548a514a3e144e6f17692",
+          "intervention_sha256": "52a7782c93a53e8efe5d6009013565811abf8664c4bd31ca420d8fdd3724faea",
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 54,
+                "capacity": 21,
+                "plants": [
+                  28,
+                  29,
+                  50,
+                  46
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 19,
+                "money": 226,
+                "capacity": 19,
+                "plants": [
+                  27,
+                  26,
+                  44,
+                  40
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "discard": 44,
+          "win": 1,
+          "trace_sha256": "22849290c4504fe1581551b0a4c9577bfa49d5360c9546a74662f111dc14eac5",
+          "intervention_sha256": "f6734a4a476628edff7ff8462b2d9b3c1ecd1101f8e17b68bbf1860556217dd3",
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 54,
+                "capacity": 21,
+                "plants": [
+                  28,
+                  29,
+                  50,
+                  46
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 221,
+                "capacity": 21,
+                "plants": [
+                  27,
+                  26,
+                  38,
+                  40
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "loss_flipped": false
+    }
+  ],
+  "losses_with_winning_alternative": 5,
+  "interpretation": "Five of eight deliberately selected loss trajectories can be changed to wins by a single legal last-discard intervention. Prefixes and original full action traces match exactly. Root selection uses hindsight and outcomes use the actual fixed deal; this is conditional causal diagnosis, not a prevalence estimate, public-belief teacher, deployable policy or strength evaluation. Rated capacity alone is not fuel availability. Evaluate public endgame-aware discard decisions on fresh games before using them as guidance or changing priors.",
+  "correction": {
+    "superseded_protocol_sha256": "1acc8c2decc93e0d0c377e3224642efe4443fe4643481ea9ad558df2ffa952c0",
+    "reason": "Initial draft incorrectly enumerated all five held plants. The authoritative engine forbids discarding the newly bought plant. The first branch stopped at exact legal-set validation; no branch results were analyzed. This revision preserves all16 selected roots and enumerates the four exact engine-legal choices per root. Failed evidence retained under runs/two-player-discard-counterfactual-v1."
+  },
+  "trained": false,
+  "qualification_eligible": false,
+  "source": {
+    "base_runtime": {
+      "archive": "strong-source-sealed-menu-20261010-v1.tgz",
+      "sha256": "e9de0cc444c843d5b298d5070298902f613a19aa1fab7d568093fa939871b993",
+      "bytes": 25904470,
+      "base": {
+        "archive": "strong-source-five-plant-screen-20261010-v1.tgz",
+        "revision": "79480a2c32e9ecdffce00440e1150cb857c18d1e",
+        "sha256": "2540dd5ccaee671baf47467c9e184dd7dda602de98cf07b898fff15f7ccc96b0"
+      },
+      "overlays": {
+        "ai/strong/features-v4.cjs": "e5d59c062f68ebf4141e30bec1eadf7ec8ef72388fa65f122643992d91e204c2",
+        "ai/strong/features-v4_sealed.cjs": "68aec23640a8001c006ea7d18ff54e81923f6273994c72a7a83dde379464dbb5",
+        "ai/strong/encoders.cjs": "dadbe861bca20048567d39a6e3553d518c459ffe55b2304c89fb9794ed14751e",
+        "ai/strong/economics-full-sealed.cjs": "ff7ee7c909aebc545585ee7afae9c8cd997f86e1247592bddef9bc66b7d9ba7e",
+        "ai/strong/bridge.cjs": "895abd65c7d685a4b3beb6830bbe04306ddc11b1849e24db1adaf7483c25834d",
+        "ai/strong/worker.cjs": "aeb7f80bf43c00a3ab82b1067fdf60dbf1a0f17ce5b13d6a3f1d7c0903759a0b",
+        "ai/strong/evaluate.py": "28454a3a291ed9fc66a76c440966c460c163fc0a6eda2354c533ed288cb3a171",
+        "ai/strong/verify-sealed-menu.cjs": "6309d07e285296e2a34d9d0ddfddec8eea24b06e33d87fc5e1ac036f0f0c5526",
+        "ai/strong/verify-sealed-menu-games.py": "00569dd59192ffb346d17ec65b1ba9a003a8eb3b0e3fb9a32ed9c03cc6d5af8a",
+        "ai/strong/sealed_menu_screen.py": "b7fd33291911862be83e9688c293f227bd9983a734e8b6efaa91da9f5772b5bb",
+        "ai/strong/collect-sealed-menu-screen.py": "0e132e316f3a2f80b67a24f48344f136d2c508b9cdf6a524589e7503e370f38d",
+        "ai/strong/compare-sealed-menu-screens.py": "aa6c1b4b31e61cd22cb3b3b4e4d9d6b85d6df1faa98387a868ca27616762f981",
+        "ai/strong/compare-population-screens.py": "b74bac5c403d5a96e79fddf43b4dcd9b715d5124e9c2681983ad519e2177d887",
+        "ai/strong/run-sealed-menu-pair.py": "668764a789a5687d452430a76b69a3d1a9dd5393ec6589de1b181e92e9128afe",
+        "ai/strong/launch-sealed-menu-pair.py": "02ab3665d04e429d45c31942d12aaf9d15c0e27b32bb29da1c1afdbad6c87caf",
+        "ai/strong/sealed-menu-protocol-v1.json": "3ca3a198786787ca8cf323c8d825ffdb3c7b3e09ff56f5ff4c3b7f3e2c3fe2a3",
+        "ai/strong/sealed-menu-initial-v1.json": "ba6e313553b45e9f97d99f0c412c084c4036bbd80876a31881c75ff94b469bb2"
+      },
+      "fixture_sha256": "0a43c0234b810253d07ef7281ee3e83c8fe7a4fa27e8aa05bd6589c024661883",
+      "purpose": "Controlled frozen-weight test of full legal bids in sealed auctions. No training or final qualification.",
+      "revision": "e571f96d453a4b148a3185b99cb047655b6a4f75"
+    },
+    "files": {
+      "trace-public-game.cjs": "171ec762ce37d89610056c3ebb66a7541797e46b298c60e88fd9914d830f588e",
+      "trace-auction-opportunities.cjs": "23fd3df3cb358e21c867179a83602c388b05afc03c332e497f6fc74c17715d3f",
+      "intervene-discard.cjs": "6cd3450da017fc65f826b658d2a88383bc8a082ec2272e3ffa52df30d97aabae",
+      "replay-two-player-screen.py": "0c869c455de078908f771db9457e9626cc0f4aeb308b8e6c975e53a42b596f44",
+      "replay-discard-counterfactuals.py": "d027e28f45ed8de9f550acc1fcc85e2dabfd9b28ddea3dce6ff894229995110c",
+      "two-player-upgrade-selection-v1.json": "3efb343228790f283a1598a65f236e30aa061a9e17c649fa12a1883a793bff99",
+      "two-player-discard-counterfactual-protocol-v2.json": "88fccc04353b611c397e43b2a81473080d25e51b104fbf464120d7126f9e5252"
+    },
+    "model_revision": "cc86f7a36392c829e44fd81d9dbf362cb74a0b1b",
+    "source_report_revision": "af1a3e2cda076beee87483d0a38178e045dceffe",
+    "source_report_sha256": "a9c967c0fd87b414cdb7cda6be0208b270d7a1a77d5f5ff89892479b883afe6f"
+  }
+}

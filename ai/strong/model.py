@@ -51,6 +51,34 @@ def tensors(rows, device):
     return tuple(torch.from_numpy(a).to(device) for a in [state, actions, mask])
 
 
+class Float64Silu(nn.Module):
+    def forward(self, x):
+        # ONNX Runtime's QuickGelu fusion has no CPU float64 kernel. This
+        # equivalent expression keeps supported Exp/Add/Div operators.
+        return x / (1 + torch.exp(-x))
+
+
+class Inference64Policy(nn.Module):
+    """Keep float32 feature inputs and stored weights; accumulate in float64."""
+
+    def __init__(self, policy, transform="float64-native-silu-v1"):
+        super().__init__()
+        self.policy = policy.double()
+        if transform == "float64-exp-div-silu-v1":
+            def replace(module):
+                for name, child in module.named_children():
+                    if isinstance(child, nn.SiLU):
+                        setattr(module, name, Float64Silu())
+                    else:
+                        replace(child)
+            replace(self.policy)
+        elif transform != "float64-native-silu-v1":
+            raise ValueError("Unsupported inference transform: " + transform)
+
+    def forward(self, state, actions, mask):
+        return self.policy(state.double(), actions.double(), mask)
+
+
 class RuleSpecialists(nn.Module):
     """Fixed specialists selected only by the public schema-3 rule flags."""
 
@@ -90,4 +118,11 @@ def policy_from_checkpoint(checkpoint):
     else:
         raise ValueError(f"Unsupported architecture: {architecture}")
     net.load_state_dict(checkpoint["state_dict"])
+    precision = checkpoint.get("inference_precision", "float32")
+    if precision == "float64":
+        if checkpoint.get("inference_only") is not True:
+            raise ValueError("Float64 inference derivative must be marked inference-only")
+        net = Inference64Policy(net, checkpoint.get("inference_transform", "float64-native-silu-v1"))
+    elif precision != "float32":
+        raise ValueError("Unsupported inference precision: " + str(precision))
     return net

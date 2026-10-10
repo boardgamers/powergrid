@@ -36137,7 +36137,7 @@
         "decision": "Two-player economic floor still fails (55.31%; original/sealed48.75%); A260 gain is retained but insufficient for qualification."
     },
     "five_plant_ablation_v1": {
-        "status": "Four HF H200 trainers running; parent4000-game screen complete and independently verified; final-only CPU coordinator live",
+        "status": "All trainers completed; control-s10032 FP32 screen verified4000 games; other three screens failed strict export parity. Coordinator ended ERROR.",
         "protocol": "five-plant-ablation-protocol-v1.json",
         "training_status": "five-plant-ablation-status-v1.json",
         "source": "five-plant-ablation-source-v1.json",
@@ -36151,11 +36151,13 @@
         ],
         "games_per_screen": 4000,
         "qualification_eligible": false,
-        "next": "Inspect both coordinators and exact trainer handles; do not manually launch duplicate final screens. Collect all seed/count/rule contrasts when ready, preserving failed cells and no final qualification.",
+        "next": "Use explicit uniformly validated inference64 derivatives in a new repair evaluation protocol. Preserve old failed screens and compare both training seeds; no complete ablation result yet.",
         "numeric_limitation": "Original u79 and full transfer share one strict batch16 ONNX logit mismatch; all choices agree and all2553 single-request checks pass. Exact PyTorch transfer at batch1 and16. No tolerance changes.",
         "parent_results": "five-plant-parent-screen-v1.json",
         "coordinator_status": "five-plant-coordinator-status-v1.json",
-        "coordinator_job_id": "6aca236f095c578089311e41"
+        "coordinator_job_id": "6aca236f095c578089311e41",
+        "control_s10032_results": "five-plant-control-s10032-screen-v1.json",
+        "numeric_repair": "five-plant-inference64-validation-v1.json"
     },
     "bid_candidate_audit_v1": {
         "status": "Read-only fixed-fixture coverage and frozen-parent inference audit complete; no game outcomes or training",
@@ -36171,7 +36173,7 @@
         "next": "Separate frozen-weight sealed-menu experiment launched; see sealed_menu_v1. Preserve existing gates and running training cohorts."
     },
     "sealed_menu_v1": {
-        "status": "Launched successfully and confirmed RUNNING; paired outcomes pending",
+        "status": "Complete; independently reproduced15040-game paired comparison; no robust benefit, not promoted",
         "job_id": "6aca28c7fee2c90070187151",
         "protocol": "sealed-menu-protocol-v1.json",
         "initial": "sealed-menu-initial-v1.json",
@@ -36196,7 +36198,10 @@
             "expanded_bids_integration_played": 155
         },
         "qualification_eligible": false,
-        "next": "Inspect the existing job; pin completed artifacts, independently collect both conditions and reproduce all13 cell contrasts. Require exact3760 open-game record identity. Never infer strength from menu coverage alone."
+        "next": "Retain infrastructure and all regressions; unchanged-weight expanded menus do not justify promotion or blind scaling. No final seeds used.",
+        "control_result_revision": "949d0f7f7699711953edc8278ffe6673eb4fff66",
+        "results": "sealed-menu-results-v1.json",
+        "result_revision": "de70c5cbd57bcdf34a5b906b4dea92ffcb693a38"
     },
     "population_homogeneous_u19": {
         "status": "Final scheduled checkpoint independently verified; primary heterogeneous-minus-homogeneous pair available; control pending",
@@ -36208,5 +36213,49 @@
         "result_revision": "af1a3e2cda076beee87483d0a38178e045dceffe",
         "qualification_eligible": false,
         "decision": "Two-player economic61.875% fails66.25% floor; all six overall primary heterogeneous-minus-homogeneous confidence intervals include zero. No clear winning population recipe; preserve all arms and wait for control final."
+    },
+    "two_player_discard_diagnostic_v1": {
+        "status": "Selected-trajectory causal diagnostic complete; no training or deployable policy",
+        "summary": "two-player-discard-diagnostic-v1.json",
+        "artifacts": "two-player-discard-diagnostic-artifacts-v1.json",
+        "revision": "ac6cf7294ae5d0d8aab5dadcb77f75b0c0fc2378",
+        "selected_losses": 8,
+        "selected_wins": 8,
+        "legal_branches": 64,
+        "original_traces_exact": 16,
+        "truncations": 0,
+        "selected_losses_with_winning_alternative": 5,
+        "trained": false,
+        "qualification_eligible": false,
+        "next": "Assess pending fifth-plant input ablation, then investigate public endgame-aware discard guidance on fresh games. Fixed-deal last-discard roots use hindsight and are not training labels or a strength estimate."
+    },
+    "inference64_repair_v1": {
+        "status": "Five explicit derivatives pass full strict parity and legal serving; complete-game re-evaluation not yet launched",
+        "artifacts": "five-plant-inference64-artifacts-v1.json",
+        "validation": "five-plant-inference64-validation-v1.json",
+        "revision": "309ce38ad1609d8a8f296860d8488f9681add327",
+        "models": [
+            "parent",
+            "control-s10031",
+            "full-s10031",
+            "control-s10032",
+            "full-s10032"
+        ],
+        "positions_each": 2553,
+        "rtol": 0.0001,
+        "atol": 1e-05,
+        "stored_weights_unchanged": true,
+        "float32_input_contract_preserved": true,
+        "inference_transform": "float64-exp-div-silu-v1",
+        "trained": false,
+        "qualification_eligible": false,
+        "next": "Finish precision equivalence/action-change audit; repair the population finals too; freeze new uniform precision evaluation. Old FP32 outcomes cannot substitute for new-model outcomes. No current AMD8840U or qualification claim."
+    },
+    "population_control_u19_export_failure": {
+        "checkpoint_revision": "2c7a715f609b9d7f4d55d646191414f0245590de",
+        "coordinator_snapshot": "f25045c917ea697164c3044bac4a3ea0ec72c5eb",
+        "status": "Training completed, strict export failed, no final control games or all-arm primary comparison",
+        "first_logit_error": 1.5258789e-05,
+        "qualification_eligible": false
     }
 }

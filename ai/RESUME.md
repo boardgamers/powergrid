@@ -4,13 +4,192 @@
 final-test seeds remain unused.** The separate UI redesign was reverted.
 
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
-`ai/germany-baseline`. The preceding AI goal turn implemented and launched the
-sealed-menu experiment below: **progress**. The intervening UI reply only confirmed
-the requested revert; it made no AI progress. This continuation recovered and
-authoritatively inspected the actual HF handles, reviewed the experiment,
-verified its saved validation hashes, and independently collected another
-3,680-game final-checkpoint screen. This turn is **progress**. No candidate is
+`ai/germany-baseline`. The preceding goal turn independently collected the final
+homogeneous screen and pushed the sealed-menu experiment: **progress**. This
+continuation independently verified the complete sealed-menu comparison, completed
+a selected-trajectory discard diagnosis, and prepared higher-precision inference
+derivatives after real export-check failures: **progress**. No candidate is
 qualified and there is no external blocker.
+
+## Latest: numerical repair prepared; both old coordinators ended with errors
+
+Authoritative HF inspections confirm **all training jobs completed**, sealed-menu
+pair **COMPLETED**, and both old coordinators **ERROR**. Do not treat their old
+RUNNING state snapshots below as current, or blindly restart either coordinator.
+The failures are export parity failures, not lost training checkpoints.
+
+- Five-plant control-s10032 screen completed and was independently verified at
+  revision`c23b06ec36efd1dc59bde7e43a5bdf66045d0f9a`:4,000 games, zero caps, all2,553
+  strict export and legal serving checks. Economic2–6p win shares are
+  54.688/65.625/64.297/82.125/78.542%; corrected economic2p51.25%; A2603p39.792%.
+  It still fails two-player and A260 floors. This is a masked-input control;
+  it does not establish the effect of fifth-plant inputs. Full report:
+  `strong/five-plant-control-s10032-screen-v1.json`.
+- The other three five-plant screens stopped before arena games on
+  `check-export.py`'s unchanged`rtol=1e-4, atol=1e-5`. Each first failure was one
+  small logit differing by1.1444092e-5. Reports/logs remain at
+  `runs/five-plant-screen-v1-{control-s10031,full-s10031,full-s10032}`,
+  model snapshot`de70c5cbd57bcdf34a5b906b4dea92ffcb693a38`.
+- Population control update19 also failed parity before its six arenas, at
+  checkpoint revision`2c7a715f609b9d7f4d55d646191414f0245590de`. First failing logit
+  differs by1.5258789e-5. Frozen coordinator logs are at
+  `runs/population-coordinator-v1/control-u19/{prepare,parity-check}.log`, snapshot
+  `f25045c917ea697164c3044bac4a3ea0ec72c5eb`. The all-arm update19 comparison has
+  **not** been completed. No future evaluation should claim these original
+  FP32 failures passed.
+
+For full-s10031, a complete local audit of all2,553 fixtures found one failing
+logit position and zero value/action mismatches. All four ONNX optimization
+levels (all/extended/basic/disabled) had the same failure; changing optimization
+does not fix it. `strong/audit-onnx-numerics.py` records all errors without
+loosening the assertion or treating missing checks as passing.
+
+An explicit **inference-only float64 derivative** now exists for the parent and
+all four five-plant finals. Stored checkpoint parameter values stay unchanged;
+original float32 feature inputs are cast to float64 *inside* the network.
+The model loader only enables this with explicit checkpoint metadata. Training
+rejects inference-only checkpoints; resume from their pinned original source.
+No optimizer ran. Old default inference behavior remains unchanged.
+
+Native SiLU exported to float64 hit an ONNX Runtime QuickGelu fusion with no CPU
+double kernel. The versioned derivative`float64-exp-div-silu-v1` uses the
+mathematically equivalent`x/(1+exp(-x))` expression, keeping supported operators.
+The initial unsupported export and original parity failures are preserved.
+This is a numerical derivative with a distinct model hash, not a claim that the
+original FP32 export passed or that all complete-game decisions are identical.
+
+**All five derivatives pass all2,553 strict PyTorch/ONNX checks and legal serving
+requests**, with the same unchanged tolerance. Maximum logit errors are
+4.18e-10–5.90e-10. Local serving timings are from the HX370, not AMD8840U.
+Artifacts: model revision **`309ce38ad1609d8a8f296860d8488f9681add327`**,
+`runs/five-plant-inference64-v1`; each key has`inference64.pt`, `inference64.onnx`,
+`derivative.json`, `parity.json`, `serving.json`. Source model/export scripts and
+complete hashes accompany them. Tracked provenance:
+`strong/five-plant-inference64-{validation,artifacts}-v1.json`.
+
+The five remote derivative checkpoint/model hashes were downloaded and verified.
+Additionally, full-s10031's Exp/Div ONNX passes all2,553 unchanged strict checks
+against a **native-SiLU float64 PyTorch reference** (maximum logit error5.894e-10,
+all actions match). This checks the activation rewrite independently for that
+model; the whole-cohort FP32-to-FP64 action-change audit is still pending.
+Detailed failed exports, optimization-level audit, unsupported native64 export,
+native-SiLU comparison and86-file original replay runtime check are persistent at
+model revision **`13e956d360fc2a0f8545d9a9900873f281e5895f`**,
+`runs/export-numerics-investigation-v1`. Tracked manifest:
+`strong/export-numerics-investigation-v1.json`.
+
+**Next actions:** check native64-versus-Exp/Div equivalence and record FP32-to-FP64
+chosen-action changes; prepare the missing population finals in the same explicit
+precision; freeze a new repair evaluation protocol/source and evaluate every
+candidate and parent uniformly on the original prescribed development deals.
+Use new run names and preserve original failed screens. Do not reuse FP32 game
+outcomes as FP64 outcomes, move to a convenient earlier checkpoint, relax
+tolerances, or claim the numerical repair qualifies a model. Actual8840U latency,
+the complete independent strength gate and reserved final tests remain pending.
+
+## Sealed-menu experiment complete: no robust gain, not promoted
+
+Independent verification at model revision
+**`de70c5cbd57bcdf34a5b906b4dea92ffcb693a38`** reproduces the remote comparison
+exactly:15,040 complete games, zero caps, all3,760 paired open-game records
+identical, both conditions'2,553 strict export and legal serving checks.
+Comparison SHA`87961dcb4af1f7ddb43daf1ffed20f3c8ee42230ce7b4e5c64e889a222204342`.
+All13 opponent/count cells and rule strata are retained in
+`strong/sealed-menu-results-v1.json` and local`ai/runs/sealed-menu-comparison-v1`.
+
+Expanded-minus-control economic2p is+1.875pp, paired whole-deal95% interval
+[-0.3125,4.0625]; versus full-sealed economic2p it is+0.938pp[-2.5,4.0625].
+A2603p changes only+0.208pp[-1.667,1.875]. Economic5p regresses1.375pp;
+Recharged/sealed5p regresses3pp[-6,-0.5]. Against full-sealed economic3p,
+Recharged/sealed regresses5.833pp[-10.833,-0.833]. These are marginal exploratory
+intervals, not multiplicity-adjusted; no broad improvement is established.
+Expanded two-player rates remain55–58.125%, and A26031.458%, below the gates.
+**Do not promote the full menu as a strength improvement or retrain blindly on
+this recipe.** The infrastructure may support future training, but current
+unchanged weights do not benefit reliably from it.
+
+## Earlier this turn: late discard failures isolated
+
+All four H200 input-ablation trainers are **COMPLETED** (authoritatively inspected
+at approximately12:17 UTC). The existing coordinator launched all four final
+screens; do not duplicate them:
+
+| Key | Final evaluation job |
+| --- | --- |
+| control-s10031 | `6aca2d08095c5780893122b9` |
+| full-s10031 | `6aca2d0bfee2c9007018750f` |
+| control-s10032 | `6aca2c0e095c5780893121dd` |
+| full-s10032 | `6aca2c8b095c578089312280` |
+
+The coordinator was live; its12:18 snapshot was model revision
+`538b91d2fe39f5104c10768ccd2b6bc889c7ac04`. Evaluations were pending, not verified
+model improvements. Use `runs/five-plant-coordinator-v1/state.json` and inspect
+actual screen handles. Population control training and its coordinator remain
+separate. Reserved final seeds remain unused.
+
+### Conditional discard diagnosis: five selected losses can flip
+
+Model: prescribed homogeneous update19, immutable model revision
+`cc86f7a36392c829e44fd81d9dbf362cb74a0b1b`, ONNX SHA
+`8606c6902806f7df82f7c687fa92746230b63c110d2654730b7913cbc68d3258`.
+Selection was frozen before replay: first numeric development deal in each
+rule/seat cell with a strict loss, rated capacity below the opponent's powered
+count and at least50 final cash, plus the first strict win. There are69 eligible
+losses in the320-game homogeneous2p report; only8 selected losses and8 selected
+wins are traced. This is deliberately selected outcome sampling, not prevalence.
+
+All16 original terminal records and entire public move traces replay exactly,
+both without and with read-only auction instrumentation. Then enumerate all
+**four engine-legal discards at the last learner discard** in each selected game,
+and resume unchanged greedy neural/economic policies on the same actual deal.
+All64 branches finish, every prefix before the intervention is identical, and
+all16 original-choice branches exactly reproduce the complete original traces.
+**Five of the eight selected losses have a winning alternative discard.** Every
+branch, including unchanged losses and degraded winning controls, is retained.
+For example, Recharged/open episode35 changes from a loss to a win by discarding
+the one-city free plant13 instead of six-city plant31 at the last discard.
+
+This establishes a causal effect *conditional on these selected roots, actual
+deals and continuation policies*. Choosing the last discard uses hindsight;
+it is not a deployable rule or a public-belief teacher. Do not train on these
+outcomes, extrapolate a win-rate gain, or assume every low-capacity free plant
+should be discarded. Fuel supply, money, timing and opponents still matter.
+The original economic discard prior uses an income-minus-fuel-cost plan even
+late in the game; investigate public endgame-aware discard guidance and its
+interaction with the completed fifth-plant input ablation before further
+training. New teachers/priors must be tested on fresh complete games and under
+public-information scenarios, retaining existing independent strength gates.
+
+An initial draft incorrectly enumerated all five held plants. The first branch
+stopped at the exact-legal-set assertion: the newly purchased plant cannot be
+discarded. No branch outcomes were analyzed then. Protocolv2 preserves all16
+roots and enumerates the exact four legal choices; rejected draft and failure
+log are retained. Do not describe this initial validation failure as a model
+or game-engine failure.
+
+Persistent artifacts: model repo `runs/two-player-discard-diagnostic-v1`, revision
+**`ac6cf7294ae5d0d8aab5dadcb77f75b0c0fc2378`**. `evidence.tgz` contains all public
+traces, auction ledgers,64 branch traces and intervention records, original
+controls and rejected-draft evidence. Source scripts/protocols/selection and
+hashes accompany it. Tracked files:
+`strong/two-player-discard-diagnostic{,-artifacts}-v1.json`,
+`strong/two-player-upgrade-selection-v1.json`,
+`strong/two-player-discard-counterfactual-protocol-v2.json`,
+`strong/replay-discard-counterfactuals.py`, and diagnostic preload scripts.
+No optimizer steps, production change, or final seeds were used.
+
+### Sealed-menu control independently collected; pair pending
+
+Control result revision **`949d0f7f7699711953edc8278ffe6673eb4fff66`** is independently
+verified: all13 cells /7,520 games, no caps, all2,553 strict export and legal
+serving checks, exact source/model/protocol/fixture hashes. Local artifacts:
+`ai/runs/sealed-menu-comparison-v1/control`. As an additional isolation check,
+all1,760 paired open-game records match between old and full-sealed reference
+opponents after excluding the intentionally different role names. Saved in
+`reference-open-isolation.json`. Expanded-condition results and the required
+3,760 cross-condition open-game matches are still pending at this observation;
+the paired job remains live. Do not interpret control-only percentages as a
+menu effect or compare them to different-seed population results.
 
 ## New result: homogeneous final checkpoint, primary pair available
 

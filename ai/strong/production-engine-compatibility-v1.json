@@ -1,0 +1,41 @@
+{
+  "production_commit": "aac09f231d4b024a7ea1c7e24cad0223a8c4a7ea",
+  "production_engine_version": "2.0.14",
+  "fixtures": 2553,
+  "feature_checks": 5106,
+  "legal_menu_checks": 2553,
+  "default_bot_transitions_identical": 2553,
+  "complete_games": 80,
+  "game_transitions": 41026,
+  "result_sha256": "5c8e307da6fdfe7256d24b31b59c2be6cee32e833bf70f36307749e4941b60bd",
+  "checker_sha256": "dbeadad61ab17ce7c3f3533e0225bbf0652197474108918fff9c2aa04bb75d6e",
+  "research_source": {
+    "archive": "strong-source-multiplayer-search-transfer-20261010-v1.tgz",
+    "revision": "a96a04f0914a34f4a86bcac0948db0e4777fa83d",
+    "sha256": "98fd31d794e96f0e4598db484cb074e899fe3af465b4c911d7c2abea6f15bbe2",
+    "overlays": {
+      "ai/strong/multiplayer_search_transfer.py": "35c899284bad1365cd8eeddfc4d2fae970b98fb1910d7f85a902a8da28e5c073",
+      "ai/strong/multiplayer-search-transfer-protocol-v1.json": "9f6606955ac2aa3ebd46168bce0d983cd4aaed5b9d1d4feda21890d07fff5dda"
+    },
+    "base": {
+      "archive": "strong-source-search-transfer-20261010-v1.tgz",
+      "revision": "1ef629c51282936c0bd2be9e7b584ce985e91d03",
+      "sha256": "e35e93d6d410ccb34bfb59a2840a7e4ed3b67e950a429968adcdf383ec53ef55"
+    },
+    "unchanged_base_file_count": 1376,
+    "protocol_sha256": "9f6606955ac2aa3ebd46168bce0d983cd4aaed5b9d1d4feda21890d07fff5dda",
+    "qualification_eligible": false
+  },
+  "exclusions": [
+    "root.poweringChoices",
+    "root.pendingMessages",
+    "log event text starting with Starting Step2/3"
+  ],
+  "scope": "Germany original/Recharged, open/sealed,2\u20136p; ordinary current-player decisions only. No pending choice revisions, wrapper scheduling or platform transport tested. No strength qualification.",
+  "qualification_eligible": false,
+  "passed": true,
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "107ac032692cd7effd529bd03f7e6dc319602c55",
+  "prefix": "runs/production-engine-compatibility-evidence-v1",
+  "manifest_sha256": "76f55fe952ab338e887b893714dbca096de130ffd41f16a8d4b65c66408eae1a"
+}

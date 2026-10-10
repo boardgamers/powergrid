@@ -6,7 +6,77 @@ final-test seeds remain unused.** The separate UI redesign was reverted.
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
 `ai/germany-baseline`. No UI work or publication is part of this AI continuation.
 
-## Latest: all raw counts verified; phase diagnosis probes dispatched
+## Latest: phase probes verified; full phase comparisons running
+
+The preceding AI goal work was **progress**: all 96 phase probes were verified,
+six full phase comparisons were launched, and the production-engine comparison
+completed. The intervening UI revert is finished. This continuation is
+**progress and a verified wait**: independently rechecked the probe artifacts,
+saved immutable HF evidence, and queried the exact 15 full-job handles. They
+remain RUNNING at the timestamp in the two status files. Do not restart them.
+
+**All nine phase probes passed:** 96 complete games, 780,000 learner rollouts
+and 405,328 opponent rollouts, no truncations. Search routing was checked for
+each phase and game. The 32 all-search control games exactly reproduce the
+previous game rows, including terminal money, not only winner credits.
+`test_phase_search_collect.py` passes three tests against real probe artifacts,
+including rejection of altered routing, model, seed, horizon and replay data.
+Probe win rates are not strength evidence.
+
+Immutable probe evidence: model repo `coyotte508/powergrid-ai-germany-v1`,
+revision `c0ab287bff19e1f2d807e9163fc70716c814498e`, prefix
+`runs/phase-search-ablation-probes-evidence-v1`.
+Pins and summary: `strong/phase-search-ablation-probes-evidence-v1.json` and
+`strong/phase-search-ablation-probes-results-v1.json`. Includes all collected
+artifacts, replay controls, six runtime admissions and exact launch guards.
+
+**All six full phase jobs are running**, 704 games on existing development deals:
+
+| Search arm | Case | HF job |
+| --- | --- | --- |
+| auction | search_geo 2p | `6aca6df4fee2c9007018a388` |
+| auction | search_geo 3p | `6aca6df7fee2c9007018a38c` |
+| auction | A260 3p | `6aca6dfafee2c9007018a393` |
+| building | search_geo 2p | `6aca6dfd095c578089314950` |
+| building | search_geo 3p | `6aca6e00095c578089314955` |
+| building | A260 3p | `6aca6e04fee2c9007018a399` |
+
+Every job passed matching control parity and same-arm/case runtime admission;
+all use CPU-performance with a four-hour timeout. Collect complete artifacts
+at immutable revisions with `manage-phase-search-ablation.py collect ARM CASE REV`
+(without `--smoke`). Compare only cases whose two full arms are both verified.
+The existing nine full guided 4–6p jobs also remain RUNNING. Their exact handles
+are in `strong/multiplayer-search-transfer-status-v1.json`; 3p is already verified.
+No new gradient job has been launched while these comparisons are pending.
+
+**Production-engine compatibility passed within its tested scope.** An isolated
+compile of release commit `aac09f231d4b024a7ea1c7e24cad0223a8c4a7ea`
+(engine 2.0.14) was compared with the frozen research engine (2.0.10):
+2,553 legal menus, 5,106 feature checks, 2,553 default-bot one-step transitions,
+and 80 complete Germany games / 41,026 transitions across 2–6p and all four
+rule combinations. No differences in the compared state or terminal outcomes.
+Games use alternating heuristic/economic actors; this is not learned-policy
+strength evidence. Explicit exclusions: new powering-choice snapshots, pending
+announcement queues and Step 2/3 announcement log text.
+
+Immutable compatibility evidence: model repo revision
+`107ac032692cd7effd529bd03f7e6dc319602c55`, prefix
+`runs/production-engine-compatibility-evidence-v1`, pin
+`strong/production-engine-compatibility-v1.json`. Contains the checker, full
+result, production source archive, all 40 compiled engine files, provenance,
+research-source byte check and build environment. Dependency entry-file hashes
+match; this does not claim a complete dependency-tree comparison. Pending
+choice revisions, platform scheduling/transport and other maps were not tested.
+No production source or frozen evaluation runtime was changed. Any eventual
+qualified serving package still needs its exact engine/configuration checked.
+
+**Next:** inspect the saved live job handles; independently collect completed
+full guided and phase reports; report paired differences and every rule cell;
+then choose a targeted teacher/student intervention from those results. Do not
+spend reserved final seeds or infer phase benefit from runtime probes. No model
+has qualified, and the value head remains uncalibrated for player-score analysis.
+
+## Earlier: all raw counts verified; phase diagnosis probes dispatched
 
 The previous goal turn was **progress** (verified three-player search gains and
 the real final-harness smoke). This turn is **progress**: the entire 13,440-game

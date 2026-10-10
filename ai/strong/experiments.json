@@ -38480,7 +38480,7 @@
             "qualification_eligible": false
         },
         "status": {
-            "checked_at": "2026-10-10T16:49:09.311914+00:00",
+            "checked_at": "2026-10-10T17:01:21.670556+00:00",
             "jobs": {
                 "smoke-10102-3p": {
                     "job_id": "6aca61e3fee2c90070189b3e",
@@ -38839,52 +38839,82 @@
             "jobs": {
                 "smoke-building-a260-3p": {
                     "job_id": "6aca6b9a095c5780893147e4",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 4
                 },
                 "smoke-all-search_geo-2p": {
                     "job_id": "6aca6b8cfee2c9007018a1df",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 4
                 },
                 "smoke-all-a260-3p": {
                     "job_id": "6aca6b90fee2c9007018a1e1",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 4
                 },
                 "smoke-building-search_geo-3p": {
                     "job_id": "6aca6b99095c5780893147df",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 4
                 },
                 "smoke-auction-search_geo-3p": {
                     "job_id": "6aca6b93095c5780893147d9",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 4
                 },
                 "smoke-auction-a260-3p": {
                     "job_id": "6aca6b95095c5780893147dd",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 4
                 },
                 "smoke-building-search_geo-2p": {
                     "job_id": "6aca6b97fee2c9007018a1e5",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 4
                 },
                 "smoke-all-search_geo-3p": {
                     "job_id": "6aca6b8e095c5780893147d6",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 4
                 },
                 "smoke-auction-search_geo-2p": {
                     "job_id": "6aca6b92fee2c9007018a1e3",
+                    "status": "COMPLETED",
+                    "timeout_hours": 4
+                },
+                "auction-search_geo-3p": {
+                    "job_id": "6aca6df7fee2c9007018a38c",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                },
+                "auction-search_geo-2p": {
+                    "job_id": "6aca6df4fee2c9007018a388",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                },
+                "building-search_geo-3p": {
+                    "job_id": "6aca6e00095c578089314955",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                },
+                "building-a260-3p": {
+                    "job_id": "6aca6e04fee2c9007018a399",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                },
+                "building-search_geo-2p": {
+                    "job_id": "6aca6dfd095c578089314950",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                },
+                "auction-a260-3p": {
+                    "job_id": "6aca6dfafee2c9007018a393",
                     "status": "RUNNING",
                     "timeout_hours": 4
                 }
             },
             "qualification_eligible": false,
-            "checked_at": "2026-10-10T16:49:09.802196+00:00"
+            "checked_at": "2026-10-10T17:01:23.513010+00:00"
         },
         "launch_evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
@@ -38896,8 +38926,137 @@
         },
         "planned_new_full_games": 704,
         "probe_games_launched": 96,
-        "full_games_launched": 0,
+        "full_games_launched": 704,
         "qualification_eligible": false,
-        "stage": "Nine HF replay/runtime probes dispatched. Preserve exact all-control parity and same-arm/case runtime before full launch. No new training or phase-strength conclusions yet."
+        "stage": "All nine probes independently verified, including exact all-search controls. Six admitted full phase jobs running; no phase-strength conclusions until full paired comparisons. No new training or reserved final seeds.",
+        "probe_evidence": {
+            "probe_games_verified": 96,
+            "exact_replay_games_verified": 32,
+            "full_games_dispatched": 704,
+            "qualification_eligible": false,
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "c0ab287bff19e1f2d807e9163fc70716c814498e",
+            "prefix": "runs/phase-search-ablation-probes-evidence-v1",
+            "manifest_sha256": "d0fb737d44181b54659094d48df819dede986258ada8179abdfd2f5a5cd8b65b"
+        },
+        "probe_results_file": "ai/strong/phase-search-ablation-probes-results-v1.json",
+        "probe_games_verified": 96,
+        "exact_control_games_verified": 32,
+        "full_jobs_launched": 6,
+        "runtime_profiles": {
+            "phase-search-ablation-auction-a260-3p-runtime-v1": {
+                "arm": "auction",
+                "case": "a260-3p",
+                "probe_revision": "981d53066c2cc4c7cd8d71ec995603cd04392e20",
+                "probe_verified_sha256": "f4068f7c85edd61b114bd5a6e634cb2439521a97348e61b38f412a152ee249ab",
+                "control_revision": "ae3c61880207c3a967b40106b5e4aa86b29e4028",
+                "control_verified_sha256": "ef5fd4bde0f39774201f19cef3c98b02315f8b6f5a680e7d4d128857a8723b31",
+                "probe_seconds": 234.82138235799994,
+                "projected_seconds": 7634.284235455998,
+                "timeout_hours": 4,
+                "admitted": true
+            },
+            "phase-search-ablation-auction-search_geo-2p-runtime-v1": {
+                "arm": "auction",
+                "case": "search_geo-2p",
+                "probe_revision": "981d53066c2cc4c7cd8d71ec995603cd04392e20",
+                "probe_verified_sha256": "6076eac3ecad35ae56c895c44aa91f5a894ac6ab9ed084b5e133435e9ebcdafb",
+                "control_revision": "ae3c61880207c3a967b40106b5e4aa86b29e4028",
+                "control_verified_sha256": "dbcb5b57fe074d1c1e18a45c18610c5bc92022159c4f36101eb49653d50bd331",
+                "probe_seconds": 258.1447818830002,
+                "projected_seconds": 4250.316510128003,
+                "timeout_hours": 4,
+                "admitted": true
+            },
+            "phase-search-ablation-auction-search_geo-3p-runtime-v1": {
+                "arm": "auction",
+                "case": "search_geo-3p",
+                "probe_revision": "ae3c61880207c3a967b40106b5e4aa86b29e4028",
+                "probe_verified_sha256": "4b59300b2ba7c15f7b3bf1132f2eddc316ab45bff4905852ce5d18b0c12aad3d",
+                "control_revision": "ae3c61880207c3a967b40106b5e4aa86b29e4028",
+                "control_verified_sha256": "26a5c61ee18e196f7542edfce887324dfd413581ad95ceb18a410786d1dd13fb",
+                "probe_seconds": 342.5099970450001,
+                "projected_seconds": 5600.1599527200015,
+                "timeout_hours": 4,
+                "admitted": true
+            },
+            "phase-search-ablation-building-a260-3p-runtime-v1": {
+                "arm": "building",
+                "case": "a260-3p",
+                "probe_revision": "981d53066c2cc4c7cd8d71ec995603cd04392e20",
+                "probe_verified_sha256": "93164a8b354cef9def47b2d93dc9663fc5b6412c0d90379f7b00e33f0b180084",
+                "control_revision": "ae3c61880207c3a967b40106b5e4aa86b29e4028",
+                "control_verified_sha256": "ef5fd4bde0f39774201f19cef3c98b02315f8b6f5a680e7d4d128857a8723b31",
+                "probe_seconds": 177.733521338,
+                "projected_seconds": 5807.472682816,
+                "timeout_hours": 4,
+                "admitted": true
+            },
+            "phase-search-ablation-building-search_geo-2p-runtime-v1": {
+                "arm": "building",
+                "case": "search_geo-2p",
+                "probe_revision": "ae3c61880207c3a967b40106b5e4aa86b29e4028",
+                "probe_verified_sha256": "3d922a45e618ee06618589adfe6631014de61ffcd2bce02cef9e6879b47222c9",
+                "control_revision": "ae3c61880207c3a967b40106b5e4aa86b29e4028",
+                "control_verified_sha256": "dbcb5b57fe074d1c1e18a45c18610c5bc92022159c4f36101eb49653d50bd331",
+                "probe_seconds": 227.81372742,
+                "projected_seconds": 3765.01963872,
+                "timeout_hours": 4,
+                "admitted": true
+            },
+            "phase-search-ablation-building-search_geo-3p-runtime-v1": {
+                "arm": "building",
+                "case": "search_geo-3p",
+                "probe_revision": "ae3c61880207c3a967b40106b5e4aa86b29e4028",
+                "probe_verified_sha256": "9b0738a3dba6a0dacd5dc75cbb2261626a0fa6de0f84fbb0e37edd83b62932ab",
+                "control_revision": "ae3c61880207c3a967b40106b5e4aa86b29e4028",
+                "control_verified_sha256": "26a5c61ee18e196f7542edfce887324dfd413581ad95ceb18a410786d1dd13fb",
+                "probe_seconds": 277.24082757400004,
+                "projected_seconds": 4555.853241184001,
+                "timeout_hours": 4,
+                "admitted": true
+            }
+        }
+    },
+    "production_engine_compatibility_v1": {
+        "production_commit": "aac09f231d4b024a7ea1c7e24cad0223a8c4a7ea",
+        "production_engine_version": "2.0.14",
+        "fixtures": 2553,
+        "feature_checks": 5106,
+        "legal_menu_checks": 2553,
+        "default_bot_transitions_identical": 2553,
+        "complete_games": 80,
+        "game_transitions": 41026,
+        "result_sha256": "5c8e307da6fdfe7256d24b31b59c2be6cee32e833bf70f36307749e4941b60bd",
+        "checker_sha256": "dbeadad61ab17ce7c3f3533e0225bbf0652197474108918fff9c2aa04bb75d6e",
+        "research_source": {
+            "archive": "strong-source-multiplayer-search-transfer-20261010-v1.tgz",
+            "revision": "a96a04f0914a34f4a86bcac0948db0e4777fa83d",
+            "sha256": "98fd31d794e96f0e4598db484cb074e899fe3af465b4c911d7c2abea6f15bbe2",
+            "overlays": {
+                "ai/strong/multiplayer_search_transfer.py": "35c899284bad1365cd8eeddfc4d2fae970b98fb1910d7f85a902a8da28e5c073",
+                "ai/strong/multiplayer-search-transfer-protocol-v1.json": "9f6606955ac2aa3ebd46168bce0d983cd4aaed5b9d1d4feda21890d07fff5dda"
+            },
+            "base": {
+                "archive": "strong-source-search-transfer-20261010-v1.tgz",
+                "revision": "1ef629c51282936c0bd2be9e7b584ce985e91d03",
+                "sha256": "e35e93d6d410ccb34bfb59a2840a7e4ed3b67e950a429968adcdf383ec53ef55"
+            },
+            "unchanged_base_file_count": 1376,
+            "protocol_sha256": "9f6606955ac2aa3ebd46168bce0d983cd4aaed5b9d1d4feda21890d07fff5dda",
+            "qualification_eligible": false
+        },
+        "exclusions": [
+            "root.poweringChoices",
+            "root.pendingMessages",
+            "log event text starting with Starting Step2/3"
+        ],
+        "scope": "Germany original/Recharged, open/sealed,2\u20136p; ordinary current-player decisions only. No pending choice revisions, wrapper scheduling or platform transport tested. No strength qualification.",
+        "qualification_eligible": false,
+        "passed": true,
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "107ac032692cd7effd529bd03f7e6dc319602c55",
+        "prefix": "runs/production-engine-compatibility-evidence-v1",
+        "manifest_sha256": "76f55fe952ab338e887b893714dbca096de130ffd41f16a8d4b65c66408eae1a"
     }
 }

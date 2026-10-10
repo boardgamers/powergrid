@@ -6,7 +6,84 @@ final-test seeds remain unused.** The separate UI redesign was reverted.
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
 `ai/germany-baseline`. No UI work or publication is part of this AI continuation.
 
-## Latest: two-player phase comparison verified; larger comparisons running
+## Latest: all phase comparisons and guided four-player games verified
+
+The previous goal turn was **progress** (128 verified two-player phase games).
+This turn is **progress**: 576 additional phase games and 384 four-player guided
+games independently verified, 960 new complete games total. All game/search caps
+are zero. No new gradients, final seeds, candidate selection or deployment.
+
+**The entire 704-game phase ablation is complete**, all six HF jobs COMPLETED.
+`strong/phase-search-ablation-results-v1.json` has `all_cases_verified: true`.
+The same raw/all-search baselines, public-search settings and reused development
+deals are retained. Results below are win shares; 2p/search and3p/search each
+have eight independent deals,3p/A260 has16:
+
+| Case | Raw | Auction only | Building only | Both |
+| --- | ---: | ---: | ---: | ---: |
+| search_geo2p | 50.0000% | 68.7500% | 51.5625% | 65.6250% |
+| search_geo3p | 20.8333% | 43.7500% | 38.5417% | 41.6667% |
+| A2603p | 36.1979% | 41.1458% | 41.6667% | 49.4792% |
+
+At3p/search, auction-only gains22.9167 points over raw, paired95% interval
+[9.3750,36.4583]; building-only gains17.7083 points [6.25,30.2083]. Their
+difference is uncertain: auction-minus-building5.2083 points [-11.4583,23.9583].
+The four-arm interaction is -19.7917 points [-38.5417,-1.0417], meaning the two
+gains are not additive on this scale; it does **not** prove either phase should
+be disabled, since their direct comparisons against both include zero.
+Auction-only rule shares37.5/37.5/37.5/62.5%; building-only45.8333/37.5/45.8333/25%.
+Order is original/open,original/sealed,Recharged/open,Recharged/sealed.
+
+At3p/A260, neither single-phase overall gain over raw is clear:
+auction+4.9479 points [-3.3854,13.8021], building+5.4688 [-1.8229,12.2396].
+Combined search has the higher point estimate. In original/sealed, combined
+search improves on auction-only here: auction-only29.1667% versus combined47.9167%,
+paired difference -18.75 points [-33.3333,-4.1667]. Building-only is68.75% on
+Recharged/open versus52.0833% combined, but that difference remains uncertain
+[−6.25,+37.5] points. Auction-only rule shares31.25/29.1667/52.0833/52.0833%;
+building-only25/33.3333/68.75/39.5833%. All intervals are exploratory marginal
+deal-bootstrap intervals, not multiplicity-adjusted or qualification evidence.
+
+Final phase raw pins: building search_geo3p andA2603p at
+`ea8d2d7df93fd510964035bb7ed6ea7d043a48f9`; auction search_geo3p at
+`1b23f136b7e6a79fbf44267550fa08fc8c800107`; auctionA2603p at
+`7599d61619387936824757d057d0b86609df05c0`. Two-player pins are preserved below.
+Immutable complete evidence: model repo revision
+`9ab4a39b49ac9ece8a3f26f9624fc1e2a68fc633`, prefix
+`runs/phase-search-ablation-completed-evidence-v1`, pin
+`strong/phase-search-ablation-completed-evidence-v1.json`. All six local verified
+directories already exist; do not recollect or relaunch them.
+
+**Guided4p also complete**,128 games/model, all three jobs COMPLETED; raw revision
+`1b23f136b7e6a79fbf44267550fa08fc8c800107` for parent,10101 and10102.
+Parent/10101/10102 search shares34.375/34.375/35.1563%, versus raw22.6563/24.2188/24.2188%.
+The10102 paired gain is10.9375 points [-1.5625,19.5313]; its aggregate search
+interval[27.3438,42.1875]% exceeds25% chance but rule cells remain weak.
+Its four rule shares37.5/21.875/46.875/34.375%; original/sealed is below chance
+in point estimate, with interval[12.5,31.25]%. Search-minus-raw in that cell
+is−3.125 points [−21.875,18.75]. These eight deals do not qualify the agent.
+10102 minus parent is only0.78125 points [0,2.34375].
+
+`strong/multiplayer-search-transfer-results-v1.json` now verifies players[3,4],
+672 guided games plus672 paired raw baselines, `all_counts_verified: false`.
+Immutable4p evidence: revision `0f93f5edd7e30f19f32e70aa6f6e8ee9f8ebae42`, prefix
+`runs/multiplayer-search-transfer-4p-evidence-v1`, pin
+`strong/multiplayer-search-transfer-4p-evidence-v1.json`. The six full5–6p jobs
+remain on their original live handles in the status file. Do not duplicate them.
+
+**Next training direction:** the phase evidence does not support universally
+replacing only auctions or only building. Retain both phase contexts and all
+rule/count strata in fresh teacher data. Earlier global distillation regressed
+and the continuation audit found policy-dependent rankings; do not convert
+noisy search winners directly into hard labels. The next concrete preparation
+is fresh public strategic-root collection (disjoint from these evaluations),
+followed by paired continuation targets that preserve uncertainty and a small
+frozen-parent correction experiment on HF Jobs. Record fresh full-game
+development comparisons before accepting it. Complete the six live5–6p guided
+reports alongside this work, keeping original/sealed weaknesses visible.
+No final candidate is chosen; all reserved seeds and the full gate are unchanged.
+
+## Earlier: two-player phase comparison verified; larger comparisons running
 
 The previous goal turn was **progress and a verified wait**: preserved verified
 probes and the production-engine audit, and checked all live jobs. This turn is

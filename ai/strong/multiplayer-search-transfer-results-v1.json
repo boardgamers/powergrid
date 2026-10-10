@@ -1,10 +1,11 @@
 {
   "verified_players": [
-    3
+    3,
+    4
   ],
   "all_counts_verified": false,
-  "new_games": 288,
-  "paired_baseline_games": 288,
+  "new_games": 672,
+  "paired_baseline_games": 672,
   "protocol_sha256": "9f6606955ac2aa3ebd46168bce0d983cd4aaed5b9d1d4feda21890d07fff5dda",
   "source_revision": "a96a04f0914a34f4a86bcac0948db0e4777fa83d",
   "source_sha256": "98fd31d794e96f0e4598db484cb074e899fe3af465b4c911d7c2abea6f15bbe2",
@@ -196,6 +197,197 @@
               "paired_deal_bootstrap_95_interval": [
                 0.125,
                 0.5416666666666666
+              ]
+            }
+          }
+        }
+      },
+      "4": {
+        "search": {
+          "games": 128,
+          "independent_deals": 8,
+          "win_rate": 0.34375,
+          "deal_bootstrap_95_interval": [
+            0.265625,
+            0.421875
+          ],
+          "search_stats": {
+            "learner": {
+              "decisions": 7200,
+              "evaluations": 1778688,
+              "truncated": 0
+            },
+            "search_geo": {
+              "decisions": 20957,
+              "evaluations": 1717568,
+              "truncated": 0
+            }
+          },
+          "seconds": 2983.1351208339997,
+          "rules": {
+            "original/open": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.375,
+              "deal_bootstrap_95_interval": [
+                0.25,
+                0.46875
+              ]
+            },
+            "original/sealed": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.21875,
+              "deal_bootstrap_95_interval": [
+                0.125,
+                0.3125
+              ]
+            },
+            "recharged/open": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.46875,
+              "deal_bootstrap_95_interval": [
+                0.25,
+                0.6875
+              ]
+            },
+            "recharged/sealed": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.3125,
+              "deal_bootstrap_95_interval": [
+                0.1875,
+                0.46875
+              ]
+            }
+          }
+        },
+        "baseline": {
+          "games": 128,
+          "independent_deals": 8,
+          "win_rate": 0.2265625,
+          "deal_bootstrap_95_interval": [
+            0.125,
+            0.3515625
+          ],
+          "search_stats": {
+            "search_geo": {
+              "decisions": 19848,
+              "evaluations": 1636848,
+              "truncated": 0
+            }
+          },
+          "seconds": 1909.8980739274994,
+          "rules": {
+            "original/open": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.1875,
+              "deal_bootstrap_95_interval": [
+                0.125,
+                0.25
+              ]
+            },
+            "original/sealed": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.25,
+              "deal_bootstrap_95_interval": [
+                0.125,
+                0.40625
+              ]
+            },
+            "recharged/open": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.28125,
+              "deal_bootstrap_95_interval": [
+                0.09375,
+                0.53125
+              ]
+            },
+            "recharged/sealed": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.1875,
+              "deal_bootstrap_95_interval": [
+                0.0625,
+                0.3125
+              ]
+            }
+          }
+        },
+        "baseline_provenance": {
+          "revision": "a531d4e90204005fa4e9555df599aaab8ecb933b",
+          "prefix": "runs/discard-opponents-v1-parent-4p",
+          "raw_job_id": "6aca55e6095c578089313acc",
+          "verified_sha256": "515887cc0b5e233bf0b852a28ad35dac438ae18846ac4c8c83404168ac2e028a",
+          "artifact_sha256": "121c45702f887b22b632ca0efc2243e5c4ef5ff1f61d0f5831b386ca344553d5",
+          "source": {
+            "archive": "strong-source-discard-opponents-20261010-v1.tgz",
+            "revision": "e44812ae307ae3e8a2b62306511d55b61d34720f",
+            "sha256": "b40efa0c88e8b8a148bf44f955a50b1aa20804cc7e9eb09bd0f4f15efe31a880",
+            "overlays": {
+              "ai/strong/discard_opponents_screen.py": "a924eba0aada22f3b6be7fd1564b7b23fb6d285cb877e32b010b420518d91bb6",
+              "ai/strong/discard-opponents-protocol-v1.json": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c"
+            },
+            "base": {
+              "archive": "strong-source-discard-correction-screen-20261010-v1.tgz",
+              "revision": "63db2c7e4b870bf019436a6338c9385f3bad82a6",
+              "sha256": "2ee290d6a7c5863fcfea9ebefa1b00515776be8174e22662870e86e547a04d4d"
+            },
+            "unchanged_base_file_count": 1370,
+            "protocol_sha256": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c",
+            "models_sha256": "f3c3362712179d0af1796b5419215ac3e8f69f886126a35c105c1c96b0354a6a",
+            "qualification_eligible": false
+          }
+        },
+        "search_minus_raw": {
+          "overall": {
+            "games_per_model": 128,
+            "independent_deals": 8,
+            "win_share_difference": 0.1171875,
+            "paired_deal_bootstrap_95_interval": [
+              0.0,
+              0.1953125
+            ]
+          },
+          "rules": {
+            "original/open": {
+              "games_per_model": 32,
+              "independent_deals": 8,
+              "win_share_difference": 0.1875,
+              "paired_deal_bootstrap_95_interval": [
+                0.03046875000000071,
+                0.34375
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 32,
+              "independent_deals": 8,
+              "win_share_difference": -0.03125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.21875,
+                0.1875
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 32,
+              "independent_deals": 8,
+              "win_share_difference": 0.1875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.09375,
+                0.46875
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 32,
+              "independent_deals": 8,
+              "win_share_difference": 0.125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.03125,
+                0.28125
               ]
             }
           }
@@ -393,6 +585,197 @@
             }
           }
         }
+      },
+      "4": {
+        "search": {
+          "games": 128,
+          "independent_deals": 8,
+          "win_rate": 0.34375,
+          "deal_bootstrap_95_interval": [
+            0.265625,
+            0.421875
+          ],
+          "search_stats": {
+            "learner": {
+              "decisions": 7187,
+              "evaluations": 1775376,
+              "truncated": 0
+            },
+            "search_geo": {
+              "decisions": 20943,
+              "evaluations": 1716528,
+              "truncated": 0
+            }
+          },
+          "seconds": 2933.2982138249995,
+          "rules": {
+            "original/open": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.34375,
+              "deal_bootstrap_95_interval": [
+                0.21875,
+                0.46875
+              ]
+            },
+            "original/sealed": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.21875,
+              "deal_bootstrap_95_interval": [
+                0.125,
+                0.3125
+              ]
+            },
+            "recharged/open": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.46875,
+              "deal_bootstrap_95_interval": [
+                0.25,
+                0.6875
+              ]
+            },
+            "recharged/sealed": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.34375,
+              "deal_bootstrap_95_interval": [
+                0.21875,
+                0.5
+              ]
+            }
+          }
+        },
+        "baseline": {
+          "games": 128,
+          "independent_deals": 8,
+          "win_rate": 0.2421875,
+          "deal_bootstrap_95_interval": [
+            0.15625,
+            0.3671875
+          ],
+          "search_stats": {
+            "search_geo": {
+              "decisions": 19946,
+              "evaluations": 1644480,
+              "truncated": 0
+            }
+          },
+          "seconds": 1924.858389514,
+          "rules": {
+            "original/open": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.25,
+              "deal_bootstrap_95_interval": [
+                0.15625,
+                0.34375
+              ]
+            },
+            "original/sealed": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.25,
+              "deal_bootstrap_95_interval": [
+                0.125,
+                0.40625
+              ]
+            },
+            "recharged/open": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.28125,
+              "deal_bootstrap_95_interval": [
+                0.09375,
+                0.53125
+              ]
+            },
+            "recharged/sealed": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.1875,
+              "deal_bootstrap_95_interval": [
+                0.0625,
+                0.34375
+              ]
+            }
+          }
+        },
+        "baseline_provenance": {
+          "revision": "a974ede722560313372a5b3a02329784cbf11d1f",
+          "prefix": "runs/discard-opponents-v1-10101-4p",
+          "raw_job_id": "6aca55ebfee2c900701891eb",
+          "verified_sha256": "22ef0611a1d0ba634ad7aeae380aaa61b03d87e8e7cd155ebb3d0ec9dbe820ee",
+          "artifact_sha256": "14b257f551da05e00ab96e6c45148c44643047a4508ef0309ebfcaf99bbf7d9d",
+          "source": {
+            "archive": "strong-source-discard-opponents-20261010-v1.tgz",
+            "revision": "e44812ae307ae3e8a2b62306511d55b61d34720f",
+            "sha256": "b40efa0c88e8b8a148bf44f955a50b1aa20804cc7e9eb09bd0f4f15efe31a880",
+            "overlays": {
+              "ai/strong/discard_opponents_screen.py": "a924eba0aada22f3b6be7fd1564b7b23fb6d285cb877e32b010b420518d91bb6",
+              "ai/strong/discard-opponents-protocol-v1.json": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c"
+            },
+            "base": {
+              "archive": "strong-source-discard-correction-screen-20261010-v1.tgz",
+              "revision": "63db2c7e4b870bf019436a6338c9385f3bad82a6",
+              "sha256": "2ee290d6a7c5863fcfea9ebefa1b00515776be8174e22662870e86e547a04d4d"
+            },
+            "unchanged_base_file_count": 1370,
+            "protocol_sha256": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c",
+            "models_sha256": "f3c3362712179d0af1796b5419215ac3e8f69f886126a35c105c1c96b0354a6a",
+            "qualification_eligible": false
+          }
+        },
+        "search_minus_raw": {
+          "overall": {
+            "games_per_model": 128,
+            "independent_deals": 8,
+            "win_share_difference": 0.1015625,
+            "paired_deal_bootstrap_95_interval": [
+              -0.015625,
+              0.1953125
+            ]
+          },
+          "rules": {
+            "original/open": {
+              "games_per_model": 32,
+              "independent_deals": 8,
+              "win_share_difference": 0.09375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.09375,
+                0.21875
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 32,
+              "independent_deals": 8,
+              "win_share_difference": -0.03125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.21875,
+                0.1875
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 32,
+              "independent_deals": 8,
+              "win_share_difference": 0.1875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.09375,
+                0.46875
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 32,
+              "independent_deals": 8,
+              "win_share_difference": 0.15625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.0625,
+                0.375
+              ]
+            }
+          }
+        }
       }
     },
     "10102": {
@@ -586,6 +969,197 @@
             }
           }
         }
+      },
+      "4": {
+        "search": {
+          "games": 128,
+          "independent_deals": 8,
+          "win_rate": 0.3515625,
+          "deal_bootstrap_95_interval": [
+            0.2734375,
+            0.421875
+          ],
+          "search_stats": {
+            "learner": {
+              "decisions": 7198,
+              "evaluations": 1777872,
+              "truncated": 0
+            },
+            "search_geo": {
+              "decisions": 20954,
+              "evaluations": 1717360,
+              "truncated": 0
+            }
+          },
+          "seconds": 2970.697121691,
+          "rules": {
+            "original/open": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.375,
+              "deal_bootstrap_95_interval": [
+                0.25,
+                0.46875
+              ]
+            },
+            "original/sealed": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.21875,
+              "deal_bootstrap_95_interval": [
+                0.125,
+                0.3125
+              ]
+            },
+            "recharged/open": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.46875,
+              "deal_bootstrap_95_interval": [
+                0.25,
+                0.6875
+              ]
+            },
+            "recharged/sealed": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.34375,
+              "deal_bootstrap_95_interval": [
+                0.21875,
+                0.5
+              ]
+            }
+          }
+        },
+        "baseline": {
+          "games": 128,
+          "independent_deals": 8,
+          "win_rate": 0.2421875,
+          "deal_bootstrap_95_interval": [
+            0.1484375,
+            0.3671875
+          ],
+          "search_stats": {
+            "search_geo": {
+              "decisions": 19929,
+              "evaluations": 1642880,
+              "truncated": 0
+            }
+          },
+          "seconds": 1920.3782592160003,
+          "rules": {
+            "original/open": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.21875,
+              "deal_bootstrap_95_interval": [
+                0.125,
+                0.3125
+              ]
+            },
+            "original/sealed": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.25,
+              "deal_bootstrap_95_interval": [
+                0.125,
+                0.40625
+              ]
+            },
+            "recharged/open": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.28125,
+              "deal_bootstrap_95_interval": [
+                0.09375,
+                0.53125
+              ]
+            },
+            "recharged/sealed": {
+              "games": 32,
+              "independent_deals": 8,
+              "win_rate": 0.21875,
+              "deal_bootstrap_95_interval": [
+                0.09375,
+                0.34375
+              ]
+            }
+          }
+        },
+        "baseline_provenance": {
+          "revision": "a974ede722560313372a5b3a02329784cbf11d1f",
+          "prefix": "runs/discard-opponents-v1-10102-4p",
+          "raw_job_id": "6aca55ee095c578089313ad7",
+          "verified_sha256": "8eef1baf41ff8d63cc267b467b6c8496ea6c2715cb8ff501c9c878910d9cf35e",
+          "artifact_sha256": "a00c586739bc6ba45149930b23f327a74708f9943bcd57929f6342a1e7a28747",
+          "source": {
+            "archive": "strong-source-discard-opponents-20261010-v1.tgz",
+            "revision": "e44812ae307ae3e8a2b62306511d55b61d34720f",
+            "sha256": "b40efa0c88e8b8a148bf44f955a50b1aa20804cc7e9eb09bd0f4f15efe31a880",
+            "overlays": {
+              "ai/strong/discard_opponents_screen.py": "a924eba0aada22f3b6be7fd1564b7b23fb6d285cb877e32b010b420518d91bb6",
+              "ai/strong/discard-opponents-protocol-v1.json": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c"
+            },
+            "base": {
+              "archive": "strong-source-discard-correction-screen-20261010-v1.tgz",
+              "revision": "63db2c7e4b870bf019436a6338c9385f3bad82a6",
+              "sha256": "2ee290d6a7c5863fcfea9ebefa1b00515776be8174e22662870e86e547a04d4d"
+            },
+            "unchanged_base_file_count": 1370,
+            "protocol_sha256": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c",
+            "models_sha256": "f3c3362712179d0af1796b5419215ac3e8f69f886126a35c105c1c96b0354a6a",
+            "qualification_eligible": false
+          }
+        },
+        "search_minus_raw": {
+          "overall": {
+            "games_per_model": 128,
+            "independent_deals": 8,
+            "win_share_difference": 0.109375,
+            "paired_deal_bootstrap_95_interval": [
+              -0.015625,
+              0.1953125
+            ]
+          },
+          "rules": {
+            "original/open": {
+              "games_per_model": 32,
+              "independent_deals": 8,
+              "win_share_difference": 0.15625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.0625,
+                0.34375
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 32,
+              "independent_deals": 8,
+              "win_share_difference": -0.03125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.21875,
+                0.1875
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 32,
+              "independent_deals": 8,
+              "win_share_difference": 0.1875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.09375,
+                0.46875
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 32,
+              "independent_deals": 8,
+              "win_share_difference": 0.125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.0625,
+                0.3125
+              ]
+            }
+          }
+        }
       }
     }
   },
@@ -636,6 +1210,55 @@
             "paired_deal_bootstrap_95_interval": [
               0.0,
               0.0
+            ]
+          }
+        }
+      },
+      "4": {
+        "overall": {
+          "games_per_model": 128,
+          "independent_deals": 8,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            -0.0234375,
+            0.0234375
+          ]
+        },
+        "rules": {
+          "original/open": {
+            "games_per_model": 32,
+            "independent_deals": 8,
+            "win_share_difference": -0.03125,
+            "paired_deal_bootstrap_95_interval": [
+              -0.09375,
+              0.0
+            ]
+          },
+          "original/sealed": {
+            "games_per_model": 32,
+            "independent_deals": 8,
+            "win_share_difference": 0.0,
+            "paired_deal_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "recharged/open": {
+            "games_per_model": 32,
+            "independent_deals": 8,
+            "win_share_difference": 0.0,
+            "paired_deal_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "recharged/sealed": {
+            "games_per_model": 32,
+            "independent_deals": 8,
+            "win_share_difference": 0.03125,
+            "paired_deal_bootstrap_95_interval": [
+              0.0,
+              0.09375
             ]
           }
         }
@@ -690,6 +1313,55 @@
             ]
           }
         }
+      },
+      "4": {
+        "overall": {
+          "games_per_model": 128,
+          "independent_deals": 8,
+          "win_share_difference": 0.0078125,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0234375
+          ]
+        },
+        "rules": {
+          "original/open": {
+            "games_per_model": 32,
+            "independent_deals": 8,
+            "win_share_difference": 0.0,
+            "paired_deal_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "original/sealed": {
+            "games_per_model": 32,
+            "independent_deals": 8,
+            "win_share_difference": 0.0,
+            "paired_deal_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "recharged/open": {
+            "games_per_model": 32,
+            "independent_deals": 8,
+            "win_share_difference": 0.0,
+            "paired_deal_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "recharged/sealed": {
+            "games_per_model": 32,
+            "independent_deals": 8,
+            "win_share_difference": 0.03125,
+            "paired_deal_bootstrap_95_interval": [
+              0.0,
+              0.09375
+            ]
+          }
+        }
       }
     },
     "10102-minus-10101": {
@@ -741,6 +1413,55 @@
             ]
           }
         }
+      },
+      "4": {
+        "overall": {
+          "games_per_model": 128,
+          "independent_deals": 8,
+          "win_share_difference": 0.0078125,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0234375
+          ]
+        },
+        "rules": {
+          "original/open": {
+            "games_per_model": 32,
+            "independent_deals": 8,
+            "win_share_difference": 0.03125,
+            "paired_deal_bootstrap_95_interval": [
+              0.0,
+              0.09375
+            ]
+          },
+          "original/sealed": {
+            "games_per_model": 32,
+            "independent_deals": 8,
+            "win_share_difference": 0.0,
+            "paired_deal_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "recharged/open": {
+            "games_per_model": 32,
+            "independent_deals": 8,
+            "win_share_difference": 0.0,
+            "paired_deal_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "recharged/sealed": {
+            "games_per_model": 32,
+            "independent_deals": 8,
+            "win_share_difference": 0.0,
+            "paired_deal_bootstrap_95_interval": [
+              0.0,
+              0.0
+            ]
+          }
+        }
       }
     }
   },
@@ -756,6 +1477,36 @@
           "raw_job_id": "6aca55e6fee2c900701891e0",
           "verified_sha256": "4a927188ab5f115e67a95c96f20ebb5d798bcfda1ee72178103e063dad71e4f1",
           "artifact_sha256": "621dd86acea4cf80f91192a180f5b90a2f7d7733f2564702455f3fd1a0b62864",
+          "source": {
+            "archive": "strong-source-discard-opponents-20261010-v1.tgz",
+            "revision": "e44812ae307ae3e8a2b62306511d55b61d34720f",
+            "sha256": "b40efa0c88e8b8a148bf44f955a50b1aa20804cc7e9eb09bd0f4f15efe31a880",
+            "overlays": {
+              "ai/strong/discard_opponents_screen.py": "a924eba0aada22f3b6be7fd1564b7b23fb6d285cb877e32b010b420518d91bb6",
+              "ai/strong/discard-opponents-protocol-v1.json": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c"
+            },
+            "base": {
+              "archive": "strong-source-discard-correction-screen-20261010-v1.tgz",
+              "revision": "63db2c7e4b870bf019436a6338c9385f3bad82a6",
+              "sha256": "2ee290d6a7c5863fcfea9ebefa1b00515776be8174e22662870e86e547a04d4d"
+            },
+            "unchanged_base_file_count": 1370,
+            "protocol_sha256": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c",
+            "models_sha256": "f3c3362712179d0af1796b5419215ac3e8f69f886126a35c105c1c96b0354a6a",
+            "qualification_eligible": false
+          }
+        }
+      },
+      "4": {
+        "revision": "1b23f136b7e6a79fbf44267550fa08fc8c800107",
+        "prefix": "runs/multiplayer-search-transfer-v1-parent-4p",
+        "verified_sha256": "427c5406839ead925cb26f7354c85eecfc0ecec02a52fc5aa907a372ea7d0b83",
+        "baseline": {
+          "revision": "a531d4e90204005fa4e9555df599aaab8ecb933b",
+          "prefix": "runs/discard-opponents-v1-parent-4p",
+          "raw_job_id": "6aca55e6095c578089313acc",
+          "verified_sha256": "515887cc0b5e233bf0b852a28ad35dac438ae18846ac4c8c83404168ac2e028a",
+          "artifact_sha256": "121c45702f887b22b632ca0efc2243e5c4ef5ff1f61d0f5831b386ca344553d5",
           "source": {
             "archive": "strong-source-discard-opponents-20261010-v1.tgz",
             "revision": "e44812ae307ae3e8a2b62306511d55b61d34720f",
@@ -807,6 +1558,36 @@
             "qualification_eligible": false
           }
         }
+      },
+      "4": {
+        "revision": "1b23f136b7e6a79fbf44267550fa08fc8c800107",
+        "prefix": "runs/multiplayer-search-transfer-v1-10101-4p",
+        "verified_sha256": "b5a3ff4e966f785cab97299d798299a250b5f29e5b8c76b9d53cb674d11438d3",
+        "baseline": {
+          "revision": "a974ede722560313372a5b3a02329784cbf11d1f",
+          "prefix": "runs/discard-opponents-v1-10101-4p",
+          "raw_job_id": "6aca55ebfee2c900701891eb",
+          "verified_sha256": "22ef0611a1d0ba634ad7aeae380aaa61b03d87e8e7cd155ebb3d0ec9dbe820ee",
+          "artifact_sha256": "14b257f551da05e00ab96e6c45148c44643047a4508ef0309ebfcaf99bbf7d9d",
+          "source": {
+            "archive": "strong-source-discard-opponents-20261010-v1.tgz",
+            "revision": "e44812ae307ae3e8a2b62306511d55b61d34720f",
+            "sha256": "b40efa0c88e8b8a148bf44f955a50b1aa20804cc7e9eb09bd0f4f15efe31a880",
+            "overlays": {
+              "ai/strong/discard_opponents_screen.py": "a924eba0aada22f3b6be7fd1564b7b23fb6d285cb877e32b010b420518d91bb6",
+              "ai/strong/discard-opponents-protocol-v1.json": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c"
+            },
+            "base": {
+              "archive": "strong-source-discard-correction-screen-20261010-v1.tgz",
+              "revision": "63db2c7e4b870bf019436a6338c9385f3bad82a6",
+              "sha256": "2ee290d6a7c5863fcfea9ebefa1b00515776be8174e22662870e86e547a04d4d"
+            },
+            "unchanged_base_file_count": 1370,
+            "protocol_sha256": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c",
+            "models_sha256": "f3c3362712179d0af1796b5419215ac3e8f69f886126a35c105c1c96b0354a6a",
+            "qualification_eligible": false
+          }
+        }
       }
     },
     "10102": {
@@ -820,6 +1601,36 @@
           "raw_job_id": "6aca55ed095c578089313ad4",
           "verified_sha256": "4a08451202fa367672543eb1400ddf1aa160886e3b9b21ecd77a3b2eb6b7fbfc",
           "artifact_sha256": "4a9969ff2b2ee9cc1a1b11a80a234171c2d38a4af460e0578721f409389a7eb6",
+          "source": {
+            "archive": "strong-source-discard-opponents-20261010-v1.tgz",
+            "revision": "e44812ae307ae3e8a2b62306511d55b61d34720f",
+            "sha256": "b40efa0c88e8b8a148bf44f955a50b1aa20804cc7e9eb09bd0f4f15efe31a880",
+            "overlays": {
+              "ai/strong/discard_opponents_screen.py": "a924eba0aada22f3b6be7fd1564b7b23fb6d285cb877e32b010b420518d91bb6",
+              "ai/strong/discard-opponents-protocol-v1.json": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c"
+            },
+            "base": {
+              "archive": "strong-source-discard-correction-screen-20261010-v1.tgz",
+              "revision": "63db2c7e4b870bf019436a6338c9385f3bad82a6",
+              "sha256": "2ee290d6a7c5863fcfea9ebefa1b00515776be8174e22662870e86e547a04d4d"
+            },
+            "unchanged_base_file_count": 1370,
+            "protocol_sha256": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c",
+            "models_sha256": "f3c3362712179d0af1796b5419215ac3e8f69f886126a35c105c1c96b0354a6a",
+            "qualification_eligible": false
+          }
+        }
+      },
+      "4": {
+        "revision": "1b23f136b7e6a79fbf44267550fa08fc8c800107",
+        "prefix": "runs/multiplayer-search-transfer-v1-10102-4p",
+        "verified_sha256": "9ee2d993e91a1873523f2a2b7e9a55216c00b5f76ca9df6ed7c0958ce8925275",
+        "baseline": {
+          "revision": "a974ede722560313372a5b3a02329784cbf11d1f",
+          "prefix": "runs/discard-opponents-v1-10102-4p",
+          "raw_job_id": "6aca55ee095c578089313ad7",
+          "verified_sha256": "8eef1baf41ff8d63cc267b467b6c8496ea6c2715cb8ff501c9c878910d9cf35e",
+          "artifact_sha256": "a00c586739bc6ba45149930b23f327a74708f9943bcd57929f6342a1e7a28747",
           "source": {
             "archive": "strong-source-discard-opponents-20261010-v1.tgz",
             "revision": "e44812ae307ae3e8a2b62306511d55b61d34720f",

@@ -9,6 +9,7 @@ import subprocess
 from huggingface_hub import hf_hub_download
 from phase_search_ablation import ROOT, PROTOCOL, PHASES, read, write, digest, module, verify, exact_control, case_for
 from search_transfer import verify as verify_transfer, pairs
+from phase_search_interaction import factorial
 
 SOURCE = ROOT/'ai/strong/phase-search-ablation-source-v1.json'
 checks = module('phase_summary_checks', 'collect-discard-correction-screen.py')
@@ -184,10 +185,20 @@ def compare(cases):
             out, saved, summary = verified(arm, case, False)
             arms[arm][case] = summary; rows[arm][case] = read(out/'search.json')['results']; games += saved['games']
             provenance[arm][case] = {'revision': saved['revision'], 'prefix': saved['prefix'], 'verified_sha256': digest(out/'verified.json')}
+    interactions = {}
+    for case in cases:
+        out = directory('auction', case, False)
+        four_arms = {arm: rows[arm][case] for arm in PHASES}
+        for kind in ['raw', 'all']:
+            four_arms[kind] = read(out/(kind+'-baseline.json'))['results']
+        interactions[case] = factorial(four_arms, case_for(protocol, case)['players'],
+                                       protocol['bootstrap_replicates'], protocol['bootstrap_seed'])
     complete = set(cases) == known
     if complete: assert games == protocol['planned_new_full_games']
     result = {'cases': cases, 'all_cases_verified': complete, 'new_games': games, 'arms': arms, 'provenance': provenance,
               'building_minus_auction': {c: paired(rows['building'][c], rows['auction'][c], protocol) for c in cases},
+              'four_arm_effects': interactions,
+              'interaction_analysis_sha256': digest(ROOT/'ai/strong/phase_search_interaction.py'),
               'source_revision': source['revision'], 'source_sha256': source['sha256'], 'protocol_sha256': digest(PROTOCOL),
               'game_truncations': 0, 'search_truncations': 0, 'qualification_eligible': False, 'scope': protocol['analysis']}
     write(ROOT/'ai/strong/phase-search-ablation-results-v1.json', result)

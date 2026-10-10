@@ -6,14 +6,53 @@ final-test seeds remain unused.** The separate UI redesign was reverted.
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
 `ai/germany-baseline`. No UI work or publication is part of this AI continuation.
 
-## Latest: phase probes verified; full phase comparisons running
+## Latest: two-player phase comparison verified; larger comparisons running
 
-The preceding AI goal work was **progress**: all 96 phase probes were verified,
-six full phase comparisons were launched, and the production-engine comparison
-completed. The intervening UI revert is finished. This continuation is
-**progress and a verified wait**: independently rechecked the probe artifacts,
-saved immutable HF evidence, and queried the exact 15 full-job handles. They
-remain RUNNING at the timestamp in the two status files. Do not restart them.
+The previous goal turn was **progress and a verified wait**: preserved verified
+probes and the production-engine audit, and checked all live jobs. This turn is
+**progress**: independently collected 128 complete two-player phase games,
+compared all four arms, and saved the raw and derived evidence. The UI revert
+remains finished. Four phase jobs and nine guided 4–6p jobs are still running
+at the status-file timestamps. Do not restart them.
+
+**First phase result: auction search supplies the clearer two-player gain.**
+These are the same eight development deals against the unchanged search_geo
+reference, all seats and four rule combinations, 64 games per arm:
+
+| Search phases | Win share | Paired gain over raw (95% deal interval) |
+| --- | ---: | ---: |
+| none (raw policy) | 50.0000% | — |
+| auction only | 68.7500% | +18.7500 points [4.6875,31.2500] |
+| building only | 51.5625% | +1.5625 points [-10.9375,12.5000] |
+| both (previously verified) | 65.6250% | +15.6250 points |
+
+Auction-only minus building-only is +17.1875 points [7.8125,26.5625].
+Auction-only minus both is only +3.1250 points [-9.3750,15.6250], so this does
+not establish that disabling building search improves the complete agent.
+Auction-only rule shares: original/open81.25%, original/sealed75%,
+Recharged/open50%, Recharged/sealed68.75%. Recharged/open is **12.5 points
+below raw**, interval [-37.5,12.5]. Its original/sealed gain is25 points
+[6.25,43.75]. Keep every rule result; no universal auction-label claim.
+
+Both new arms passed exact source/model, all game rows, phase-routing and
+zero-cap checks. Full raw revision `53a7b0802c5f7b680631f0c8724253c5a73e96bf`;
+local directories `ai/runs/phase-search-ablation-verified-v1/{auction,building}-search_geo-2p`.
+Immutable evidence revision `62f80c93e1bfea96c5defa07eb7c15fe18a35cfc`, prefix
+`runs/phase-search-ablation-2p-evidence-v1`; pin
+`strong/phase-search-ablation-2p-evidence-v1.json`. The results file
+`strong/phase-search-ablation-results-v1.json` is explicitly partial:
+128 new games, `all_cases_verified: false`. Do not recollect completed directories.
+
+The local comparison now reports four-arm contrasts, keeping shared deals
+together across all arms: auction with/without building, building with/without
+auction, and the joint interaction. Overall interaction is -4.6875 points
+[-23.4375,14.0625], inconclusive. This exploratory extension was added before
+reading the full phase outputs; it changes no frozen jobs or game seeds.
+Nine phase tests passed, including exact shared-arm covariance cancellation,
+cluster uncertainty, tie credits and rejection of incomplete/mismatched data.
+The four marginal effects also reproduce the separately collected pairwise
+estimates and intervals exactly on these real results. This analysis does not
+validate teacher targets or qualify the policy.
 
 **All nine phase probes passed:** 96 complete games, 780,000 learner rollouts
 and 405,328 opponent rollouts, no truncations. Search routing was checked for
@@ -30,7 +69,8 @@ Pins and summary: `strong/phase-search-ablation-probes-evidence-v1.json` and
 `strong/phase-search-ablation-probes-results-v1.json`. Includes all collected
 artifacts, replay controls, six runtime admissions and exact launch guards.
 
-**All six full phase jobs are running**, 704 games on existing development deals:
+**All six full phase jobs were dispatched**, 704 games on existing development
+deals. The two search_geo2p jobs are now complete; the four 3p jobs are running:
 
 | Search arm | Case | HF job |
 | --- | --- | --- |
@@ -70,9 +110,10 @@ choice revisions, platform scheduling/transport and other maps were not tested.
 No production source or frozen evaluation runtime was changed. Any eventual
 qualified serving package still needs its exact engine/configuration checked.
 
-**Next:** inspect the saved live job handles; independently collect completed
-full guided and phase reports; report paired differences and every rule cell;
-then choose a targeted teacher/student intervention from those results. Do not
+**Next:** collect the remaining four 3p phase reports and nine guided 4–6p
+reports from their saved live handles; report paired differences and every rule
+cell; then choose a targeted teacher/student intervention. The two-player result
+prioritizes auction investigation but does not settle Recharged/open or3p. Do not
 spend reserved final seeds or infer phase benefit from runtime probes. No model
 has qualified, and the value head remains uncalibrated for player-score analysis.
 

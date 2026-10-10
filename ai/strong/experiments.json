@@ -38480,7 +38480,7 @@
             "qualification_eligible": false
         },
         "status": {
-            "checked_at": "2026-10-10T17:01:21.670556+00:00",
+            "checked_at": "2026-10-10T17:06:52.831330+00:00",
             "jobs": {
                 "smoke-10102-3p": {
                     "job_id": "6aca61e3fee2c90070189b3e",
@@ -38889,7 +38889,7 @@
                 },
                 "auction-search_geo-2p": {
                     "job_id": "6aca6df4fee2c9007018a388",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 4
                 },
                 "building-search_geo-3p": {
@@ -38904,7 +38904,7 @@
                 },
                 "building-search_geo-2p": {
                     "job_id": "6aca6dfd095c578089314950",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 4
                 },
                 "auction-a260-3p": {
@@ -38914,7 +38914,7 @@
                 }
             },
             "qualification_eligible": false,
-            "checked_at": "2026-10-10T17:01:23.513010+00:00"
+            "checked_at": "2026-10-10T17:06:54.929853+00:00"
         },
         "launch_evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
@@ -38928,7 +38928,7 @@
         "probe_games_launched": 96,
         "full_games_launched": 704,
         "qualification_eligible": false,
-        "stage": "All nine probes independently verified, including exact all-search controls. Six admitted full phase jobs running; no phase-strength conclusions until full paired comparisons. No new training or reserved final seeds.",
+        "stage": "Two-player auction and building arms independently verified (128 new games); four 3p arms remain running. Auction-only improves over raw on these reused deals, but Recharged/open regresses in point estimate and superiority over combined search is uncertain. No training or qualification decision from this partial result.",
         "probe_evidence": {
             "probe_games_verified": 96,
             "exact_replay_games_verified": 32,
@@ -39016,6 +39016,28 @@
                 "timeout_hours": 4,
                 "admitted": true
             }
+        },
+        "results_file": "ai/strong/phase-search-ablation-results-v1.json",
+        "evidence_2p": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "62f80c93e1bfea96c5defa07eb7c15fe18a35cfc",
+            "prefix": "runs/phase-search-ablation-2p-evidence-v1",
+            "manifest_sha256": "92e13eeecc4e20f5fed6976db8d51f4d508fd3498677af2d8ec4f2170f47d7c8",
+            "cases": [
+                "search_geo-2p"
+            ],
+            "new_games_verified": 128,
+            "all_cases_verified": false,
+            "qualification_eligible": false,
+            "interaction_analysis_sha256": "4707b89037c0fe0103de0cbbfcd3be8aa12a89fe107b26e0a2e265e31edb1b52"
+        },
+        "new_full_games_verified": 128,
+        "all_cases_verified": false,
+        "interaction_analysis": {
+            "file": "ai/strong/phase_search_interaction.py",
+            "sha256": "4707b89037c0fe0103de0cbbfcd3be8aa12a89fe107b26e0a2e265e31edb1b52",
+            "scope": "Exploratory four-arm contrasts with common whole-deal bootstrap, all rules reported; no model qualification or teacher-label validation.",
+            "tests": "Nine phase tests passed; all four marginal effects and confidence intervals match the existing real pairwise results."
         }
     },
     "production_engine_compatibility_v1": {

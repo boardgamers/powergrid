@@ -1,0 +1,245 @@
+{
+  "purpose": "Controlled two-seed test of the new plant input bundle from a fixed original parent; not selection of a population winner or final qualification",
+  "rationale": "The three-way population primary comparison continues unchanged. Independently isolate feature availability from an identical, preselected H200 update79 parent; avoid selecting an unfinished arm.",
+  "common_env": {
+    "HF_MODEL_REPO": "coyotte508/powergrid-ai-germany-v1",
+    "FROZEN_OPPONENTS": "ai/strong/population-opponents-v1.json",
+    "ARCHITECTURE": "multiplayer_ordered_plants",
+    "MIX_PLAYER_COUNTS": "1",
+    "OPPONENT_MODE": "population_heterogeneous",
+    "PYTHONHASHSEED": "0",
+    "ASYNC_ROLLOUT": "1",
+    "TORCH_THREADS": "4",
+    "SNAPSHOT_ADMISSION": "periodic_anchor",
+    "SNAPSHOT_INTERVAL": "5",
+    "LR": ".00005",
+    "ENTROPY": ".005",
+    "ANCHOR": ".03",
+    "ANCHOR_POLICY": "initial",
+    "UPDATES": "20",
+    "EVAL_EVERY": "10",
+    "ENVS": "240",
+    "WORKERS": "240",
+    "BATCH_SIZE": "512",
+    "TRAIN_DEVICE": "cuda",
+    "HF_HUB_DISABLE_PROGRESS_BARS": "1"
+  },
+  "runs": {
+    "control-s10031": {
+      "condition": "control",
+      "seed": 10031,
+      "env": {
+        "RUN_NAME": "five-plant-ablation-v1-control-s10031",
+        "TRAIN_SEED": "10031",
+        "ZERO_NEW_PLANT_INPUTS": "1",
+        "INIT_CHECKPOINT": "runs/five-plant-ablation-initial-v1/control.pt",
+        "INIT_REVISION": "22fe3c03faaae01225cab24e9ecedda654df835b",
+        "INIT_SHA256": "15620941d942fa67d64da7b0a38dff16a87c7ca3ebc3788d57f6c75f7e587a69"
+      },
+      "feature_revision": "4.1-five-plants-zero-inputs"
+    },
+    "full-s10031": {
+      "condition": "full",
+      "seed": 10031,
+      "env": {
+        "RUN_NAME": "five-plant-ablation-v1-full-s10031",
+        "TRAIN_SEED": "10031",
+        "ZERO_NEW_PLANT_INPUTS": "0",
+        "INIT_CHECKPOINT": "runs/five-plant-ablation-initial-v1/initial.pt",
+        "INIT_REVISION": "22fe3c03faaae01225cab24e9ecedda654df835b",
+        "INIT_SHA256": "fae8d5c9376dbf9040ae756add39218eb962b6a47971f056b7c61ceaee1fd17a"
+      },
+      "feature_revision": "4.1-five-plants"
+    },
+    "control-s10032": {
+      "condition": "control",
+      "seed": 10032,
+      "env": {
+        "RUN_NAME": "five-plant-ablation-v1-control-s10032",
+        "TRAIN_SEED": "10032",
+        "ZERO_NEW_PLANT_INPUTS": "1",
+        "INIT_CHECKPOINT": "runs/five-plant-ablation-initial-v1/control.pt",
+        "INIT_REVISION": "22fe3c03faaae01225cab24e9ecedda654df835b",
+        "INIT_SHA256": "15620941d942fa67d64da7b0a38dff16a87c7ca3ebc3788d57f6c75f7e587a69"
+      },
+      "feature_revision": "4.1-five-plants-zero-inputs"
+    },
+    "full-s10032": {
+      "condition": "full",
+      "seed": 10032,
+      "env": {
+        "RUN_NAME": "five-plant-ablation-v1-full-s10032",
+        "TRAIN_SEED": "10032",
+        "ZERO_NEW_PLANT_INPUTS": "0",
+        "INIT_CHECKPOINT": "runs/five-plant-ablation-initial-v1/initial.pt",
+        "INIT_REVISION": "22fe3c03faaae01225cab24e9ecedda654df835b",
+        "INIT_SHA256": "fae8d5c9376dbf9040ae756add39218eb962b6a47971f056b7c61ceaee1fd17a"
+      },
+      "feature_revision": "4.1-five-plants"
+    }
+  },
+  "initial": {
+    "revision": "22fe3c03faaae01225cab24e9ecedda654df835b",
+    "prefix": "runs/five-plant-ablation-initial-v1",
+    "files": {
+      "initial.pt": "fae8d5c9376dbf9040ae756add39218eb962b6a47971f056b7c61ceaee1fd17a",
+      "initial.onnx": "4bde0c5d99aef13dd1e304ee483c0f4cd463d76e43291a1aa268c77f4f54f0f4",
+      "control.pt": "15620941d942fa67d64da7b0a38dff16a87c7ca3ebc3788d57f6c75f7e587a69",
+      "control.onnx": "357cb97a2fee07ae6216cc6160d58d5550e7fdf658438aa91c9cc4d944114c2f",
+      "export-check.json": "2cd870399fccd06433d6bba72e8639493d021fd19fee4a6f06dd61e9b51b7ca8",
+      "control-export-check.json": "bf24daff70c92b18e3c5a36c12d745f325baf11a93000f70e507b5c4dda1f4e8",
+      "initial-numerical-audit.json": "c11ab7aa8ad4b3ce376c610feb36993223e5d09333e0dec9a6872762354dd767",
+      "control-features.json": "2c06d8b0a686403de572281e4ca1ed0c77198fe569aed71eca44deec8e2cc6a3",
+      "initial-weights.json": "84e02825056e499d1efa0eff298d50256b3a8207ed7b3cd293e809be046b2920"
+    },
+    "validation": {
+      "initial_weights_identical": true,
+      "parameters": 985346,
+      "new_parameters_zero": true,
+      "parent_revision": "0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a",
+      "parent_sha256": "1f9d1c89908ab036f6e6a54facba94b352bbae005e1ac042d88c60067e895224",
+      "limitation": "The unchanged parent and transferred ONNX both fail strict batch16 tolerance on one logit; all decisions agree. All2553 single-request strict checks pass. Gradient training uses PyTorch, whose transfer is exact at both batch sizes. No thresholds were changed."
+    }
+  },
+  "runtime_sha256": {
+    "ai/strong/train.py": "2ad9556f6d8e1bb938150cbc15d4281d900ae12d0f5a7283e702856f2b72e368",
+    "ai/strong/model.py": "2980b03544c9186b72cf7706edf0493ea2ee1de5a715ba5f405c3c0e9513f30f",
+    "ai/strong/model_v4_1.py": "4f77a84ffb6fd716f6e29def56334a33c2232dbf0ae16ddcb4a92c88525aa12c",
+    "ai/strong/model_v4.py": "965469c5855ffbf8f6c152713bf48d07fd851cd94b363785820498df7fe027e0",
+    "ai/strong/features-v4_1.cjs": "15495373356b6e776cb9ad1b6859406ade7295ec4a8564406a353621aff0f26f",
+    "ai/strong/features-v4_1_control.cjs": "95258e41c497961d451419d7d64c6332058734754a9f08d1ff1bb181bdb5e0ec",
+    "ai/strong/features-v4.cjs": "dedb3b0ef5c27927c435775ffac5a9f1d5b1f76224a9e463d8e36598f65623aa",
+    "ai/strong/encoders.cjs": "7696046b0faee7b1e367674c809f067072b1738e2a8cab0a502d9eda9b86f6ae",
+    "ai/strong/bridge.cjs": "94e80715416afd1711e274a6195f3b43f28143937bce9e990b956004ba5a9b9f",
+    "ai/strong/economics.cjs": "7265923548a15940a33f24d70b2d6419119ef8d759fca1637640f4ff6e9aef58",
+    "ai/strong/economics-v4_1.cjs": "4033d2a3f64751a2f57b9b1f847a0d6e3066b3b4a1a91ddf0dd862eabd270a03",
+    "ai/strong/opponent-population.cjs": "127f545a273bf6fa37c5e4746d7428c19200ac324ed76a0fd7ddb5c654384f81"
+  },
+  "training": {
+    "hf_flavor": "h200",
+    "seeds": [
+      10031,
+      10032
+    ],
+    "updates": 20,
+    "complete_games_per_update": 240,
+    "games_per_count_per_update": 48,
+    "games_per_run": 4800,
+    "total_games": 19200,
+    "architecture": "multiplayer_ordered_plants",
+    "identical_initial_weights": true,
+    "only_condition_difference": "The control zeroes the 66 appended state and 2 appended action inputs. Both arms compute the full encoder and use identical network shapes, weights, existing features, residual prior and optimizer settings.",
+    "unchanged_opponents": "Original heterogeneous 10-family population with 1/8 selfplay. The corrected economic bot is evaluation-only in this experiment.",
+    "tf32": false,
+    "snapshot_admission": "periodic_anchor",
+    "snapshot_interval": 5
+  },
+  "evaluation": {
+    "primary_checkpoint_update": 19,
+    "checkpoint_selection": "Final latest at update19 only, never internal best. Update9 retained for recovery, not adaptive candidate selection.",
+    "seed_template": "five-plant-ablation-screen-v1-{players}p",
+    "deal_offsets": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39
+    ],
+    "screens": [
+      {
+        "players": 2,
+        "opponent": "economic",
+        "games": 320
+      },
+      {
+        "players": 3,
+        "opponent": "economic",
+        "games": 480
+      },
+      {
+        "players": 4,
+        "opponent": "economic",
+        "games": 640
+      },
+      {
+        "players": 5,
+        "opponent": "economic",
+        "games": 800
+      },
+      {
+        "players": 6,
+        "opponent": "economic",
+        "games": 960
+      },
+      {
+        "players": 2,
+        "opponent": "economic_capacity_v1",
+        "games": 320
+      },
+      {
+        "players": 3,
+        "opponent": "a260",
+        "games": 480,
+        "model_path": "runs/strong-league-v2-a/best.onnx",
+        "revision": "b38515c29e57826de05b55b645c29591e4a886bf",
+        "sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd"
+      }
+    ],
+    "games_per_candidate": 4000,
+    "candidates": "Four final condition/seed checkpoints plus the untrained original parent, each on the identical fresh development deals.",
+    "candidate_search_samples": 0,
+    "paired_seats": true,
+    "bootstrap_unit": "Whole deal retaining all seats and rule repeats; report each training seed separately. Reusing the same deal for two training seeds does not create two independent deals.",
+    "bootstrap_replicates": 20000,
+    "bootstrap_seed": 10031,
+    "primary_contrast": "Full minus control at update19 separately for each seed and each opponent/count, with all rule subgroups.",
+    "success_interpretation": "Assess consistent two-player improvement across both seeds and both economic references, retaining performance against A260 and every other count. No feature strength claim from one seed or pooled counts. Existing gates unchanged; independent-search, default-bot and other baselines still required before qualification."
+  },
+  "validation": [
+    "All2553 single-request strict checkpoint/ONNX checks and legal serving requests required for candidates.",
+    "All complete balanced batches, pinned initial/frozen weights, explicit game/search caps and snapshot provenance.",
+    "Zero control extra weights throughout; full-input new weights finite/nonzero at completion.",
+    "No final reserved seeds, local gradients or production publication."
+  ],
+  "limitations": [
+    "Async scheduling and CUDA numerics can change trajectories despite paired training seeds. Two seeds improve replication but do not estimate all training variability.",
+    "Initial parent and both transfers pass strict batch1 export; the original and full transfer both have one inherited strict batch16 logit failure, with all chosen actions unchanged. This is retained, not called a pass. Training uses PyTorch, with exact transferred outputs at both batch sizes.",
+    "No claim that heterogeneous population is the final winning recipe; its primary comparison continues separately."
+  ],
+  "qualification_eligible": false
+}

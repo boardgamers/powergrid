@@ -30,6 +30,10 @@ state_dim, action_dim = (1149, 98) if multiplayer else (738, 96)
 if five_plants:
     FEATURE_REVISION = "4.1-five-plants"
     state_dim, action_dim = 1215, 100
+if os.getenv("ZERO_NEW_PLANT_INPUTS") == "1":
+    if not five_plants:
+        raise ValueError("Input ablation requires the five-plant architecture")
+    FEATURE_REVISION = "4.1-five-plants-zero-inputs"
 player_counts = [2, 3, 4, 5, 6] if multiplayer else [3]
 feature_revisions = dict(ROLE_REVISIONS) if multiplayer else {}
 if five_plants:

@@ -1,0 +1,33 @@
+{
+  "archive": "strong-source-five-plant-ablation-20261010-v1.tgz",
+  "sha256": "aeaf45968ec6054009a546ff22a01cb4ae32487c3be3b43025530284aabfc104",
+  "bytes": 13554704,
+  "base": {
+    "archive": "strong-source-capacity-reference-20261010-v1.tgz",
+    "revision": "7c1514ddf4a8f94cd0baebe0e733275b62678cdb",
+    "sha256": "c4cf7694a5cd86a7decb9f581c7ca824a1be7741c121a652063ce0289a18af7f"
+  },
+  "overlays": {
+    "ai/strong/train.py": "2ad9556f6d8e1bb938150cbc15d4281d900ae12d0f5a7283e702856f2b72e368",
+    "ai/strong/model.py": "2980b03544c9186b72cf7706edf0493ea2ee1de5a715ba5f405c3c0e9513f30f",
+    "ai/strong/model_v4_1.py": "4f77a84ffb6fd716f6e29def56334a33c2232dbf0ae16ddcb4a92c88525aa12c",
+    "ai/strong/model_v4.py": "965469c5855ffbf8f6c152713bf48d07fd851cd94b363785820498df7fe027e0",
+    "ai/strong/features-v4_1.cjs": "15495373356b6e776cb9ad1b6859406ade7295ec4a8564406a353621aff0f26f",
+    "ai/strong/features-v4_1_control.cjs": "95258e41c497961d451419d7d64c6332058734754a9f08d1ff1bb181bdb5e0ec",
+    "ai/strong/features-v4.cjs": "dedb3b0ef5c27927c435775ffac5a9f1d5b1f76224a9e463d8e36598f65623aa",
+    "ai/strong/encoders.cjs": "7696046b0faee7b1e367674c809f067072b1738e2a8cab0a502d9eda9b86f6ae",
+    "ai/strong/bridge.cjs": "94e80715416afd1711e274a6195f3b43f28143937bce9e990b956004ba5a9b9f",
+    "ai/strong/economics.cjs": "7265923548a15940a33f24d70b2d6419119ef8d759fca1637640f4ff6e9aef58",
+    "ai/strong/economics-v4_1.cjs": "4033d2a3f64751a2f57b9b1f847a0d6e3066b3b4a1a91ddf0dd862eabd270a03",
+    "ai/strong/opponent-population.cjs": "127f545a273bf6fa37c5e4746d7428c19200ac324ed76a0fd7ddb5c654384f81",
+    "ai/strong/evaluate.py": "70240ba2e6f31fd76e17c79fcfc4675745d27d921c3b341134cda81d64c468d9",
+    "ai/strong/package-serving.py": "4d4221ba83c5670235b71c9cf867a685358affb6c768b98d765c33117251b204",
+    "ai/strong/transfer-five-plants.py": "287bb20b9d3047a52bf47f18970987115feb64522f2af28a95a09d80bfe90242",
+    "ai/strong/verify-five-plant-control.cjs": "90db1a5d883bb7ba01e071a28b63a0a7c56f1b501704aa915f38a2c9c22bc656",
+    "ai/strong/run-five-plant-ablation.py": "52991c7b67d68c411ebe73734017270b4610259571ee564ff6906392035a2a4c",
+    "ai/strong/launch-five-plant-ablation.py": "3c94bba0dec054fec898d4a3e08404230c3a5fffa76fa1cf32575b6f9c974609",
+    "ai/strong/five-plant-ablation-protocol-v1.json": "19bb33183345f2dd3c16019cc07ada01bd086c25688fa796f15ba266a5942e8f"
+  },
+  "purpose": "Controlled two-seed test of the new plant input bundle from a fixed original parent; not selection of a population winner or final qualification",
+  "revision": "8349b1348a9d6d7fd9efe4382d77619d75fcc14d"
+}

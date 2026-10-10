@@ -1,0 +1,23 @@
+{
+  "revision": "22fe3c03faaae01225cab24e9ecedda654df835b",
+  "prefix": "runs/five-plant-ablation-initial-v1",
+  "files": {
+    "initial.pt": "fae8d5c9376dbf9040ae756add39218eb962b6a47971f056b7c61ceaee1fd17a",
+    "initial.onnx": "4bde0c5d99aef13dd1e304ee483c0f4cd463d76e43291a1aa268c77f4f54f0f4",
+    "control.pt": "15620941d942fa67d64da7b0a38dff16a87c7ca3ebc3788d57f6c75f7e587a69",
+    "control.onnx": "357cb97a2fee07ae6216cc6160d58d5550e7fdf658438aa91c9cc4d944114c2f",
+    "export-check.json": "2cd870399fccd06433d6bba72e8639493d021fd19fee4a6f06dd61e9b51b7ca8",
+    "control-export-check.json": "bf24daff70c92b18e3c5a36c12d745f325baf11a93000f70e507b5c4dda1f4e8",
+    "initial-numerical-audit.json": "c11ab7aa8ad4b3ce376c610feb36993223e5d09333e0dec9a6872762354dd767",
+    "control-features.json": "2c06d8b0a686403de572281e4ca1ed0c77198fe569aed71eca44deec8e2cc6a3",
+    "initial-weights.json": "84e02825056e499d1efa0eff298d50256b3a8207ed7b3cd293e809be046b2920"
+  },
+  "validation": {
+    "initial_weights_identical": true,
+    "parameters": 985346,
+    "new_parameters_zero": true,
+    "parent_revision": "0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a",
+    "parent_sha256": "1f9d1c89908ab036f6e6a54facba94b352bbae005e1ac042d88c60067e895224",
+    "limitation": "The unchanged parent and transferred ONNX both fail strict batch16 tolerance on one logit; all decisions agree. All2553 single-request strict checks pass. Gradient training uses PyTorch, whose transfer is exact at both batch sizes. No thresholds were changed."
+  }
+}

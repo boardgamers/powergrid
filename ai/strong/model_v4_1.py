@@ -4,6 +4,7 @@ from torch import nn
 from model_v4 import MultiplayerPolicy
 
 FEATURE_REVISION = "4.1-five-plants"
+CONTROL_FEATURE_REVISION = "4.1-five-plants-zero-inputs"
 ARCHITECTURE = "multiplayer_ordered_plants"
 STATE_DIM, ACTION_DIM = 1215, 100
 

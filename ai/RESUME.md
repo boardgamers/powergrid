@@ -6,7 +6,36 @@ final-test seeds remain unused.** The separate UI redesign was reverted.
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
 `ai/germany-baseline`. No UI work or publication is part of this AI continuation.
 
-## Latest: raw 2–5p verified; all search probes passed; full 3–5p running
+## Latest addendum: complete three-player search comparison verified
+
+All three full3p jobs have now **COMPLETED**,288 new complete games with288
+paired raw baselines,zero game/search truncations. `strong/multiplayer-search-transfer-results-v1.json`
+is explicitly partial (`verified_players: [3]`, `all_counts_verified: false`).
+Parent and10101 raw outputs are pinned at
+`2fdd41a0a1b646fcb2da7f77a563771ce32b4a59`;10102 at
+`363e2b5aab88c0be17ee2ab36c0a61421d419fb8`. Local artifacts:
+`ai/runs/multiplayer-search-transfer-verified-v1/{key}-3p`.
+
+Parent raw16.67% → search40.625%,paired gain23.9583 points,
+whole-deal95% interval[16.6667,31.25]. Both corrections raw20.8333% →
+search41.6667%,gain20.8333 points,interval[15.625,26.0417]. Corrected
+search interval[34.375,48.9583]% is just above1/3 overall, but all four
+rule-cell intervals include chance. Corrected original/open45.8333%,
+original/sealed45.8333%,Recharged/open33.3333%,Recharged/sealed41.6667%.
+These are only8 independent deals; passing the40% aggregate point floor
+is not qualification. Recharged/open remains a priority diagnostic gap.
+Both correction seeds again have identical credits,not necessarily trajectories.
+
+Immutable3p paired evidence: `be8688136e9bfd5744f1751808aa33c884d36aef`, prefix
+`runs/multiplayer-search-transfer-3p-evidence-v1`, pin
+`strong/multiplayer-search-transfer-3p-evidence-v1.json`. Do not recollect
+these exclusive directories or relaunch these jobs. Six full4–5p guided jobs
+remain live; the three6p raw jobs remain live. After collecting raw6p,
+launch its three already-admitted guided jobs. Compare further counts only
+when all three models/count are independently verified. The final-harness
+real8-game development smoke is also verified,as detailed below.
+
+## Earlier this turn: raw 2–5p verified; all search probes passed; full 3–5p launched
 
 The preceding AI goal turn was **progress** (verified the first search-transfer
 suite and launched multiplayer probes). This continuation is **progress**:
@@ -81,10 +110,16 @@ model. Frozen source `strong/final-runtime-source-v1.json`:
 `strong-source-final-runtime-20261010-v1.tgz`, SHA256
 `07c635937b08a6e37adfed6c94f6f4cc63a24e8e0572da78a1717b743b873571`.
 Only the arena provenance wrapper changed;1,377 other files are unchanged.
-A real8-game HF development smoke is running: `6aca67f3fee2c90070189ff5`,
+A real8-game HF development smoke is **COMPLETED and independently verified**:
+`6aca67f3fee2c90070189ff5`,
 seed `final-runtime-smoke-development-v1-2p`. Record:
-`strong/final-runtime-smoke-v1.json`. Collect on completion with
-`ai/.venv/bin/python ai/strong/collect-final-runtime-smoke.py IMMUTABLE_REV`.
+`strong/final-runtime-smoke-v1.json`. Raw revision:
+`faf5b78910806a199599f42094a7aad902015e7e`. All8 games completed,
+108,096 learner rollouts across445 decisions,0truncations,248.829s evaluation.
+Source/model/runner hashes, all paired rules/seats and the strict shard merger
+passed independent collection. Immutable evidence: `2fdd41a0a1b646fcb2da7f77a563771ce32b4a59`,
+`runs/final-runtime-smoke-evidence-v1`. Local:
+`ai/runs/final-runtime-smoke-verified-v1`. Do not rerun its exclusive collector.
 This smoke measures plumbing only; its seed is not reserved. Source package is
 already built/uploaded: do not rerun the exclusive builder.
 
@@ -92,8 +127,8 @@ already built/uploaded: do not rerun the exclusive builder.
 then launch its three already specified guided matchups with the existing
 manager. Collect full search3–5p results and compare by count/rule against their
 pinned raw baselines. Keep regressions visible; don’t select on aggregate wins.
-Inspect the real harness smoke, preserve its artifact evidence, and keep the
-reserved final prefix unused until a complete candidate is justified. Future
+The real harness smoke is verified and preserved; keep the reserved final prefix
+unused until a complete candidate is justified. Future
 phase ablations/teacher training should follow these results. The nine full
 search jobs are work in flight, not qualified results.
 

@@ -38464,7 +38464,7 @@
             "qualification_eligible": false
         },
         "status": {
-            "checked_at": "2026-10-10T16:33:21.419536+00:00",
+            "checked_at": "2026-10-10T16:38:26.362948+00:00",
             "jobs": {
                 "smoke-10102-3p": {
                     "job_id": "6aca61e3fee2c90070189b3e",
@@ -38488,17 +38488,17 @@
                 },
                 "parent-3p": {
                     "job_id": "6aca6497fee2c90070189d0d",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 4
                 },
                 "10101-3p": {
                     "job_id": "6aca649a095c5780893143dc",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 4
                 },
                 "10102-3p": {
                     "job_id": "6aca649b095c5780893143de",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 4
                 },
                 "10101-4p": {
@@ -38547,7 +38547,7 @@
         "planned_full_games": 1728,
         "probe_games": 72,
         "full_jobs_launched": 0,
-        "stage": "All72 runtime games and1993808 rollouts verified with zero caps. Nine full3\u20135p jobs running; admitted6p full jobs await independently verified raw baselines.",
+        "stage": "All three3p guided arms verified,288 games,zero caps. Corrected41.67% versus20.83% raw,paired gain20.83 points,CI[15.625,26.0417]. Rule intervals include chance;4\u20135p jobs live;6p awaits raw baselines.",
         "qualification_eligible": false,
         "runtime_evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
@@ -38614,7 +38614,20 @@
                 "protocol_sha256": "9f6606955ac2aa3ebd46168bce0d983cd4aaed5b9d1d4feda21890d07fff5dda"
             }
         },
-        "full_games_launched": 1152
+        "full_games_launched": 1152,
+        "results_file": "ai/strong/multiplayer-search-transfer-results-v1.json",
+        "evidence_3p": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "be8688136e9bfd5744f1751808aa33c884d36aef",
+            "prefix": "runs/multiplayer-search-transfer-3p-evidence-v1",
+            "new_games_verified": 288,
+            "paired_baseline_games": 288,
+            "verified_players": [
+                3
+            ],
+            "qualification_eligible": false
+        },
+        "new_full_games_verified": 288
     },
     "final_runtime_harness_v1": {
         "source": {
@@ -38675,8 +38688,63 @@
             "timeout_hours": 4,
             "qualification_eligible": false,
             "job_id": "6aca67f3fee2c90070189ff5",
-            "hf_status": "RUNNING",
-            "checked_at": "2026-10-10T16:33:21.698928+00:00"
+            "hf_status": "COMPLETED",
+            "checked_at": "2026-10-10T16:36:40.906775+00:00",
+            "verification": {
+                "revision": "faf5b78910806a199599f42094a7aad902015e7e",
+                "job_id": "6aca67f3fee2c90070189ff5",
+                "source": {
+                    "archive": "strong-source-final-runtime-20261010-v1.tgz",
+                    "revision": "9e0f1e957512c8dfa9bdb5edd7caf1671c197de4",
+                    "sha256": "07c635937b08a6e37adfed6c94f6f4cc63a24e8e0572da78a1717b743b873571",
+                    "base": {
+                        "archive": "strong-source-multiplayer-search-transfer-20261010-v1.tgz",
+                        "revision": "a96a04f0914a34f4a86bcac0948db0e4777fa83d",
+                        "sha256": "98fd31d794e96f0e4598db484cb074e899fe3af465b4c911d7c2abea6f15bbe2"
+                    },
+                    "overlays": {
+                        "ai/strong/arena-job.py": "dab09f587cb1ad0f4ac11c8e68c146228f35ccfc821a3a287eba118053d4d0af"
+                    },
+                    "old_runner_sha256": "cdffaa6213c8e0fe25b7a4adcb2df879b66a42a55f9538db57d4895a280a0195",
+                    "arena_runner_sha256": "dab09f587cb1ad0f4ac11c8e68c146228f35ccfc821a3a287eba118053d4d0af",
+                    "unchanged_base_file_count": 1377,
+                    "scope": "Arena wrapper checks supplied model hashes and records pinned runtime/model provenance; all engine, model inference, search, features and arena evaluation bytes unchanged. No reserved games or model selection.",
+                    "qualification_eligible": false
+                },
+                "model": {
+                    "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+                    "prefix": "runs/discard-correction-v1/10102/derivative",
+                    "files": {
+                        "inference64.onnx": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+                        "inference64.pt": "25e9995c3998cc9f09e1dafb40f0328ae09e616f791c10e793eaad42cfa5e473"
+                    },
+                    "feature_revision": "4.2-discard-correction",
+                    "selected_epoch": 10
+                },
+                "games": 8,
+                "search_stats": {
+                    "learner": {
+                        "decisions": 445,
+                        "evaluations": 108096,
+                        "truncated": 0
+                    }
+                },
+                "seconds": 248.82928196299997,
+                "verified": true,
+                "qualification_eligible": false,
+                "scope": "One fresh development deal with all seats/rules; execution and provenance only, not strength.",
+                "artifacts": {
+                    "evaluation.json": "49ca0cf96d319042445264a81a6a5b1308d84675e7c4cc93d69f63b49d923085"
+                }
+            },
+            "evidence": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "2fdd41a0a1b646fcb2da7f77a563771ce32b4a59",
+                "prefix": "runs/final-runtime-smoke-evidence-v1",
+                "games_verified": 8,
+                "rollouts_verified": 108096,
+                "qualification_eligible": false
+            }
         },
         "contract_tests": {
             "command": "ai/.venv/bin/python ai/strong/test_final_contracts.py",
@@ -38685,6 +38753,6 @@
             "real_reserved_games": 0
         },
         "qualification_eligible": false,
-        "stage": "Pinned runner and strict merge/verification repaired; real development-only8-game HF smoke remains running."
+        "stage": "Real HF development runtime verified:8 games,108096 rollouts,0caps; source/model/runner and raw outcomes independently checked. No reserved seeds or qualification."
     }
 }

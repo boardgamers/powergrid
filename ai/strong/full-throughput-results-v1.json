@@ -1,0 +1,585 @@
+{
+  "artifact_revision": "1e826b625d324245d2b64a9f2979c70b2e637b3b",
+  "platforms": {
+    "cpu-performance": {
+      "job_id": "6aca0ec4fee2c90070185e12",
+      "hashes": {
+        "throughput.json": "6a5a2687fb23467d7f1874543418259378c3158badcd237b17b11d0c32ce0a61",
+        "metrics.json": "f6d021212015a0aabbe60007626f9ee34aa969032c5f42bdc817ee1c2f7ce0bc",
+        "latest.pt": "acc22a7ce9db235751138ca311905376d59c1fd1cd26ff03e7f6c0af241bf9f1",
+        "schema.json": "903444533dd16b924eedd83daed8be062edec4e016b4627ab5ea443ee9e6cde1"
+      },
+      "processor": "AMD EPYC 7R13 Processor",
+      "visible_logical_cpus": 32,
+      "gpu": null,
+      "total_seconds": 759.4836577269999,
+      "training": {
+        "complete_games": 720,
+        "updates": [
+          {
+            "update": 0,
+            "seconds": 225.18330683500005,
+            "rollout_seconds": 161.83026305300007,
+            "policy_seconds": 100.18961432900494,
+            "engine_seconds": 58.79063215100359,
+            "samples": 43613,
+            "optimization_seconds": 63.353043781999986,
+            "search_stats": {
+              "search_geo": {
+                "decisions": 2177,
+                "evaluations": 180192,
+                "truncated": 0
+              }
+            },
+            "opponent_seats": {
+              "economic": 71,
+              "frozen0": 65,
+              "frozen1": 59,
+              "frozen2": 64,
+              "heuristic": 56,
+              "learner": 346,
+              "rush": 60,
+              "search_geo": 52,
+              "snapshot0": 62,
+              "snapshot1": 69,
+              "snapshot2": 56
+            },
+            "by_player_count": {
+              "2": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 9452
+              },
+              "3": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 8520
+              },
+              "4": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 8625
+              },
+              "5": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 7338
+              },
+              "6": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 9678
+              }
+            }
+          },
+          {
+            "update": 1,
+            "seconds": 218.06395974200007,
+            "rollout_seconds": 158.33361330699995,
+            "policy_seconds": 111.6539701329998,
+            "engine_seconds": 44.66500414400116,
+            "samples": 41657,
+            "optimization_seconds": 59.730346435000115,
+            "search_stats": {
+              "search_geo": {
+                "decisions": 2466,
+                "evaluations": 202416,
+                "truncated": 0
+              }
+            },
+            "opponent_seats": {
+              "economic": 63,
+              "frozen0": 68,
+              "frozen1": 55,
+              "frozen2": 67,
+              "heuristic": 73,
+              "learner": 326,
+              "rush": 65,
+              "search_geo": 57,
+              "snapshot0": 60,
+              "snapshot1": 64,
+              "snapshot2": 62
+            },
+            "by_player_count": {
+              "2": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 9323
+              },
+              "3": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 8167
+              },
+              "4": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 8301
+              },
+              "5": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 7636
+              },
+              "6": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 8230
+              }
+            }
+          },
+          {
+            "update": 2,
+            "seconds": 236.32533283500015,
+            "rollout_seconds": 176.04086580600006,
+            "policy_seconds": 134.0811566609989,
+            "engine_seconds": 39.877785692995985,
+            "samples": 41531,
+            "optimization_seconds": 60.2844670290001,
+            "search_stats": {
+              "search_geo": {
+                "decisions": 3047,
+                "evaluations": 249440,
+                "truncated": 0
+              }
+            },
+            "opponent_seats": {
+              "economic": 68,
+              "frozen0": 61,
+              "frozen1": 64,
+              "frozen2": 63,
+              "heuristic": 60,
+              "learner": 333,
+              "rush": 53,
+              "search_geo": 71,
+              "snapshot0": 67,
+              "snapshot1": 67,
+              "snapshot2": 53
+            },
+            "by_player_count": {
+              "2": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 9065
+              },
+              "3": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 7639
+              },
+              "4": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 7440
+              },
+              "5": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 7724
+              },
+              "6": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 9663
+              }
+            }
+          }
+        ],
+        "median_update_seconds": 225.18330683500005,
+        "median_rollout_seconds": 161.83026305300007,
+        "median_optimization_seconds": 60.2844670290001,
+        "games_per_minute_during_updates": 63.5693670365444
+      },
+      "gpu_utilization_mean_percent": null,
+      "cpu_seconds_including_reaped_children": 12588.831314999998
+    },
+    "h200": {
+      "job_id": "6aca0ec5fee2c90070185e14",
+      "hashes": {
+        "throughput.json": "b0b859165f70e7599d5d9d78369132833c281daeb734d3f20e54ee4fed4c5003",
+        "metrics.json": "02e519a4d3734ba4fbf6c669c9d1e4a0c60918d72459da728e0eba5d2e2126f8",
+        "latest.pt": "31ea92520a6cbc01b9d266b9306f068377036656acf6e408719095c32226b853",
+        "schema.json": "735e7b03a5ade00bf93b25dc29750979f7ac7d4489a5e31bb7dcf63717b9cf83"
+      },
+      "processor": "INTEL(R) XEON(R) PLATINUM 8581C CPU @ 2.10GHz",
+      "visible_logical_cpus": 224,
+      "gpu": "NVIDIA H200",
+      "total_seconds": 546.5696862559998,
+      "training": {
+        "complete_games": 720,
+        "updates": [
+          {
+            "update": 0,
+            "seconds": 160.29508234700188,
+            "rollout_seconds": 151.82461305096513,
+            "policy_seconds": 69.75978181249229,
+            "engine_seconds": 80.7717767127906,
+            "samples": 43947,
+            "optimization_seconds": 8.470469296036754,
+            "search_stats": {
+              "search_geo": {
+                "decisions": 2291,
+                "evaluations": 189344,
+                "truncated": 0
+              }
+            },
+            "opponent_seats": {
+              "economic": 71,
+              "frozen0": 65,
+              "frozen1": 59,
+              "frozen2": 64,
+              "heuristic": 56,
+              "learner": 346,
+              "rush": 60,
+              "search_geo": 52,
+              "snapshot0": 62,
+              "snapshot1": 69,
+              "snapshot2": 56
+            },
+            "by_player_count": {
+              "2": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 9550
+              },
+              "3": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 8677
+              },
+              "4": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 8739
+              },
+              "5": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 7237
+              },
+              "6": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 9744
+              }
+            }
+          },
+          {
+            "update": 1,
+            "seconds": 162.78697305498645,
+            "rollout_seconds": 154.97448302200064,
+            "policy_seconds": 72.45833647879772,
+            "engine_seconds": 80.35588127694791,
+            "samples": 41452,
+            "optimization_seconds": 7.8124900329858065,
+            "search_stats": {
+              "search_geo": {
+                "decisions": 2406,
+                "evaluations": 198800,
+                "truncated": 0
+              }
+            },
+            "opponent_seats": {
+              "economic": 63,
+              "frozen0": 68,
+              "frozen1": 55,
+              "frozen2": 67,
+              "heuristic": 73,
+              "learner": 326,
+              "rush": 65,
+              "search_geo": 57,
+              "snapshot0": 60,
+              "snapshot1": 64,
+              "snapshot2": 62
+            },
+            "by_player_count": {
+              "2": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 9318
+              },
+              "3": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 7831
+              },
+              "4": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 8269
+              },
+              "5": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 7913
+              },
+              "6": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 8121
+              }
+            }
+          },
+          {
+            "update": 2,
+            "seconds": 161.9584451270057,
+            "rollout_seconds": 153.50496503699105,
+            "policy_seconds": 94.77954799006693,
+            "engine_seconds": 56.623218280496076,
+            "samples": 42677,
+            "optimization_seconds": 8.453480090014637,
+            "search_stats": {
+              "search_geo": {
+                "decisions": 3056,
+                "evaluations": 249136,
+                "truncated": 0
+              }
+            },
+            "opponent_seats": {
+              "economic": 68,
+              "frozen0": 61,
+              "frozen1": 64,
+              "frozen2": 63,
+              "heuristic": 60,
+              "learner": 333,
+              "rush": 53,
+              "search_geo": 71,
+              "snapshot0": 67,
+              "snapshot1": 67,
+              "snapshot2": 53
+            },
+            "by_player_count": {
+              "2": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 8975
+              },
+              "3": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 8281
+              },
+              "4": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 7300
+              },
+              "5": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 8124
+              },
+              "6": {
+                "episodes": 48,
+                "truncated": 0,
+                "samples": 9997
+              }
+            }
+          }
+        ],
+        "median_update_seconds": 161.9584451270057,
+        "median_rollout_seconds": 153.50496503699105,
+        "median_optimization_seconds": 8.453480090014637,
+        "games_per_minute_during_updates": 89.06472748746815
+      },
+      "gpu_utilization_mean_percent": 2.3486238532110093,
+      "cpu_seconds_including_reaped_children": 8084.5482919999995
+    }
+  },
+  "qualification_eligible": false,
+  "limitations": [
+    "Timing experiment only; no candidate selection or strength claims.",
+    "Async scheduling and GPU numerics can change action samples and game trajectories despite common seeds. Compare platform throughput and report workload differences; not pure accelerator causality.",
+    "H200 and CPU workers have different host processors and core counts.",
+    "Three updates on one host each is a throughput pilot; investigate inconsistent per-update timings before scaling.",
+    "Update timers exclude initial/final evaluation and checkpoint uploads. Overall wall time includes those operations and model downloads, but excludes container/dependency startup.",
+    "Async engine timing is blocking call wall time, not summed engine CPU time.",
+    "GPU utilization is sampled every 5 seconds across the whole process including internal evaluations.",
+    "All gradients on HF Jobs; no final-reserved seeds, current cohort modifications or deployment."
+  ],
+  "original_reference": {
+    "revision": "3f56f692fc5204140257538099e1ec50a2b4fb09",
+    "metrics_sha256": "75c8661d18f1975c10ab2615058bacabdbcd9849680e0683cde081fd8e279264",
+    "training": {
+      "complete_games": 720,
+      "updates": [
+        {
+          "update": 0,
+          "seconds": 351.4786062948406,
+          "rollout_seconds": 283.6030652150512,
+          "policy_seconds": 139.92561649810523,
+          "engine_seconds": 142.08636938687414,
+          "samples": 44004,
+          "optimization_seconds": 67.8755410797894,
+          "search_stats": {
+            "search_geo": {
+              "decisions": 2369,
+              "evaluations": 195408,
+              "truncated": 0
+            }
+          },
+          "opponent_seats": {
+            "economic": 71,
+            "frozen0": 65,
+            "frozen1": 59,
+            "frozen2": 64,
+            "heuristic": 56,
+            "learner": 346,
+            "rush": 60,
+            "search_geo": 52,
+            "snapshot0": 62,
+            "snapshot1": 69,
+            "snapshot2": 56
+          },
+          "by_player_count": {
+            "2": {
+              "episodes": 48,
+              "truncated": 0,
+              "samples": 9393
+            },
+            "3": {
+              "episodes": 48,
+              "truncated": 0,
+              "samples": 8902
+            },
+            "4": {
+              "episodes": 48,
+              "truncated": 0,
+              "samples": 8514
+            },
+            "5": {
+              "episodes": 48,
+              "truncated": 0,
+              "samples": 7377
+            },
+            "6": {
+              "episodes": 48,
+              "truncated": 0,
+              "samples": 9818
+            }
+          }
+        },
+        {
+          "update": 1,
+          "seconds": 298.8564652847126,
+          "rollout_seconds": 234.07606785092503,
+          "policy_seconds": 156.83290515933186,
+          "engine_seconds": 75.00044051371515,
+          "samples": 41709,
+          "optimization_seconds": 64.78039743378758,
+          "search_stats": {
+            "search_geo": {
+              "decisions": 2449,
+              "evaluations": 201568,
+              "truncated": 0
+            }
+          },
+          "opponent_seats": {
+            "economic": 63,
+            "frozen0": 68,
+            "frozen1": 55,
+            "frozen2": 67,
+            "heuristic": 73,
+            "learner": 326,
+            "rush": 65,
+            "search_geo": 57,
+            "snapshot0": 60,
+            "snapshot1": 64,
+            "snapshot2": 62
+          },
+          "by_player_count": {
+            "2": {
+              "episodes": 48,
+              "truncated": 0,
+              "samples": 9171
+            },
+            "3": {
+              "episodes": 48,
+              "truncated": 0,
+              "samples": 8115
+            },
+            "4": {
+              "episodes": 48,
+              "truncated": 0,
+              "samples": 8000
+            },
+            "5": {
+              "episodes": 48,
+              "truncated": 0,
+              "samples": 7809
+            },
+            "6": {
+              "episodes": 48,
+              "truncated": 0,
+              "samples": 8614
+            }
+          }
+        },
+        {
+          "update": 2,
+          "seconds": 308.33723727427423,
+          "rollout_seconds": 243.47954289987683,
+          "policy_seconds": 205.8725028866902,
+          "engine_seconds": 35.50546143576503,
+          "samples": 42550,
+          "optimization_seconds": 64.8576943743974,
+          "search_stats": {
+            "search_geo": {
+              "decisions": 3082,
+              "evaluations": 253008,
+              "truncated": 0
+            }
+          },
+          "opponent_seats": {
+            "economic": 68,
+            "frozen0": 61,
+            "frozen1": 64,
+            "frozen2": 63,
+            "heuristic": 60,
+            "learner": 333,
+            "rush": 53,
+            "search_geo": 71,
+            "snapshot0": 67,
+            "snapshot1": 67,
+            "snapshot2": 53
+          },
+          "by_player_count": {
+            "2": {
+              "episodes": 48,
+              "truncated": 0,
+              "samples": 9218
+            },
+            "3": {
+              "episodes": 48,
+              "truncated": 0,
+              "samples": 8102
+            },
+            "4": {
+              "episodes": 48,
+              "truncated": 0,
+              "samples": 7370
+            },
+            "5": {
+              "episodes": 48,
+              "truncated": 0,
+              "samples": 7784
+            },
+            "6": {
+              "episodes": 48,
+              "truncated": 0,
+              "samples": 10076
+            }
+          }
+        }
+      ],
+      "median_update_seconds": 308.33723727427423,
+      "median_rollout_seconds": 243.47954289987683,
+      "median_optimization_seconds": 64.8576943743974,
+      "games_per_minute_during_updates": 45.06232171413107
+    }
+  },
+  "observed_median_ratios": {
+    "optimized_cpu_over_h200": 1.3903770603528223,
+    "original_over_optimized_cpu": 1.3692721792215445
+  }
+}

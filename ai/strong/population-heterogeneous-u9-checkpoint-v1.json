@@ -1,0 +1,36 @@
+{
+  "artifact_revision": "16444164089d28b85159e56e5fe588e902e66489",
+  "checkpoint": {
+    "arm": "heterogeneous",
+    "run": "multiplayer-population-v1-heterogeneous",
+    "update": 9,
+    "revision": "3f56f692fc5204140257538099e1ec50a2b4fb09",
+    "hashes": {
+      "latest.pt": "477022b0e83a61b32b4808ca29b79a618c9bab76d5205f0bf7501ed8a0ed0efb",
+      "latest.onnx": "9e52c10f3bc219f54761df584c33f2c0db60f762c49f03f758bb651cc46cc8a2",
+      "metrics.json": "75c8661d18f1975c10ab2615058bacabdbcd9849680e0683cde081fd8e279264",
+      "schema.json": "9be7103264d1493dea1502be5d7bdade527a0f56c51430d8d5739d4d8732fd4e"
+    },
+    "strict_parity": "passed",
+    "qualification_eligible": false
+  },
+  "parity": {
+    "positions": 2553,
+    "by_player_count": {
+      "2": 349,
+      "3": 427,
+      "4": 527,
+      "5": 609,
+      "6": 641
+    },
+    "inactive_values_zero": true,
+    "feature_revision": "4.0-multiplayer",
+    "model_sha256": "9e52c10f3bc219f54761df584c33f2c0db60f762c49f03f758bb651cc46cc8a2",
+    "max_logit_error": 4.57763671875e-05,
+    "max_value_error": 3.993511199951172e-06,
+    "all_actions_match": true,
+    "specialist_route_counts": {}
+  },
+  "validation": "Pinned hashes, all 10 complete balanced training batches, frozen/initial policy provenance and parity report coverage independently verified.",
+  "qualification_eligible": false
+}

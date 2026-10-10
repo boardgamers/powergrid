@@ -6,8 +6,8 @@
       "launched_at": "2026-10-10T10:09:08.321668+00:00",
       "job_id": "6aca0ec4fee2c90070185e12",
       "url": "https://huggingface.co/jobs/coyotte508/6aca0ec4fee2c90070185e12",
-      "observed_stage": "RUNNING",
-      "observed_at": "2026-10-10T10:11:37.775680+00:00",
+      "observed_stage": "COMPLETED",
+      "observed_at": "2026-10-10T10:23:07.911784+00:00",
       "verified_startup": {
         "stage": "full_throughput_start",
         "flavor": "cpu-performance",
@@ -37,15 +37,26 @@
           "All gradients on HF Jobs; no final-reserved seeds, current cohort modifications or deployment."
         ]
       },
-      "complete_updates": []
+      "complete_updates": [
+        0,
+        1,
+        2
+      ],
+      "verified_complete_games": 720,
+      "verified_hashes": {
+        "throughput.json": "6a5a2687fb23467d7f1874543418259378c3158badcd237b17b11d0c32ce0a61",
+        "metrics.json": "f6d021212015a0aabbe60007626f9ee34aa969032c5f42bdc817ee1c2f7ce0bc",
+        "latest.pt": "acc22a7ce9db235751138ca311905376d59c1fd1cd26ff03e7f6c0af241bf9f1",
+        "schema.json": "903444533dd16b924eedd83daed8be062edec4e016b4627ab5ea443ee9e6cde1"
+      }
     },
     "h200": {
       "phase": "launched",
       "launched_at": "2026-10-10T10:09:09.094562+00:00",
       "job_id": "6aca0ec5fee2c90070185e14",
       "url": "https://huggingface.co/jobs/coyotte508/6aca0ec5fee2c90070185e14",
-      "observed_stage": "RUNNING",
-      "observed_at": "2026-10-10T10:11:43.377416+00:00",
+      "observed_stage": "COMPLETED",
+      "observed_at": "2026-10-10T10:23:08.157033+00:00",
       "verified_startup": {
         "stage": "full_throughput_start",
         "flavor": "h200",
@@ -75,13 +86,21 @@
           "All gradients on HF Jobs; no final-reserved seeds, current cohort modifications or deployment."
         ]
       },
-      "complete_updates": [],
-      "latest_progress": {
-        "update": 0,
-        "completed_games": 134,
-        "seconds": 60.12960872298572
+      "complete_updates": [
+        0,
+        1,
+        2
+      ],
+      "verified_complete_games": 720,
+      "verified_hashes": {
+        "throughput.json": "b0b859165f70e7599d5d9d78369132833c281daeb734d3f20e54ee4fed4c5003",
+        "metrics.json": "02e519a4d3734ba4fbf6c669c9d1e4a0c60918d72459da728e0eba5d2e2126f8",
+        "latest.pt": "31ea92520a6cbc01b9d266b9306f068377036656acf6e408719095c32226b853",
+        "schema.json": "735e7b03a5ade00bf93b25dc29750979f7ac7d4489a5e31bb7dcf63717b9cf83"
       }
     }
   },
-  "qualification_eligible": false
+  "qualification_eligible": false,
+  "verified_result_revision": "1e826b625d324245d2b64a9f2979c70b2e637b3b",
+  "results_file": "full-throughput-results-v1.json"
 }

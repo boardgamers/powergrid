@@ -6,9 +6,9 @@
   "job_id": "6aca0d29095c578089310fca",
   "url": "https://huggingface.co/jobs/coyotte508/6aca0d29095c578089310fca",
   "observed_stage": "RUNNING",
-  "observed_at": "2026-10-10T10:03:41.650705+00:00",
-  "state_revision": "54092d79ece4a45b98c6062d7134a845a5184636",
-  "state_sha256": "42db22f2b0b8625999163f9219bb7d16e37192e6832f61df7d942d5b6c2a5c20",
+  "observed_at": "2026-10-10T10:22:59.539893+00:00",
+  "state_revision": "1e826b625d324245d2b64a9f2979c70b2e637b3b",
+  "state_sha256": "1faee4c7df8a2b0f88b141a1695668e7c4fa75e0ff8bf5d360146773b0918f64",
   "remote_prefix": "runs/population-coordinator-v1",
   "startup_tests_passed": 11,
   "training_stages": {
@@ -16,6 +16,8 @@
     "homogeneous": "RUNNING",
     "control": "RUNNING"
   },
-  "checkpoints": {},
+  "checkpoints": {
+    "heterogeneous-u9": "collected"
+  },
   "qualification_eligible": false
 }

@@ -5,9 +5,37 @@ final-test seeds remain unused.** The separate UI redesign was reverted.
 
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
 `ai/germany-baseline`. The previous goal turn made concrete progress by launching
-the durable checkpoint evaluator and verifying its startup. The current turn
-launches matched full-training throughput probes on CPU/H200 while the strength
-cohort continues. Do not repeat completed probes or launch duplicate jobs.
+matched full-training throughput probes. This turn verified both probes and the
+first scheduled population checkpoint with all 3,680 independent screening
+games. Do not repeat completed probes or launch duplicate jobs.
+
+## First population checkpoint — verified intermediate result
+
+The heterogeneous arm's update 9 passed full 2,553-position export parity and
+provenance validation for its ten complete, balanced training batches. All six
+screen jobs completed and their raw outcomes were independently reverified.
+Checkpoint revision: `3f56f692fc5204140257538099e1ec50a2b4fb09`.
+Result revision: `116032eed805e92e1c30a7d1f1192c2704e8f8f6`.
+Exact hashes and details: `strong/population-heterogeneous-u9-checkpoint-v1.json`
+and `strong/population-heterogeneous-u9-screen-v1.json`. Local raw reports:
+`ai/runs/population-observed/heterogeneous-u9`; also retained by the coordinator
+in HF. No game/search truncations or missing pairs in the 3,680 outcomes.
+
+Economic win shares at 2–6 players: **58.44 / 60.42 / 64.06 / 76.06 / 73.18%**.
+Against frozen A260 at 3 players: **45.52%**, versus the starting policy's 36.56%.
+The paired whole-deal improvement is +8.96 percentage points, marginal exploratory
+95% interval [+2.91, +15.00]. All four A260 rule subgroups improved in point
+estimate; only Recharged/open's subgroup interval excludes zero. Report the
+uncertainty and all regressions: 5p economic fell by 0.19 points, and three of
+the four 2p rule subgroups fell in point estimate. The aggregate 2p gain is only
++1.09 points, interval [-5.31, +7.50], still below the 66.25% economic target.
+
+This is the prescribed intermediate checkpoint from **one arm**, not evidence
+yet for the advantage of heterogeneous tables over homogeneous/control training.
+The primary update19 comparison and other arms remain pending. The A260 point
+estimate clearing its target does not qualify this model. Keep the experiment
+unchanged until the prescribed comparisons are available; prioritize the
+remaining two-player weakness when choosing the next training change.
 
 ## Full training throughput — separate from candidate selection
 
@@ -32,12 +60,31 @@ updates 0–2, 720 complete games, balanced counts, and zero search/game caps be
 using its timing. Recompute aggregates from metrics. Benchmark checkpoints must
 not be presented as qualified candidates.
 
+**Both probes completed and were independently verified.** Artifact revision:
+`1e826b625d324245d2b64a9f2979c70b2e637b3b`. Full results and hashes are in
+`strong/full-throughput-results-v1.json`; raw files are in
+`ai/runs/full-throughput-collected-v1`. The collector
+`strong/collect-full-throughput.py REV OUTPUT` verified exact provenance,
+720 complete games/platform, updates 0–2, balanced counts, no search/game caps,
+and recomputed stored aggregates from the raw metrics. It also pinned and
+rechecked the first three original-runtime updates.
+
+Observed update times (seconds): optimized CPU 225.18 / 218.06 / 236.33;
+optimized H200 160.30 / 162.79 / 161.96. Medians: original CPU 308.34,
+optimized CPU **225.18**, optimized H200 **161.96**. The observed ratios are
+1.37× for original/optimized CPU and **1.39×** for optimized CPU/H200.
+Median optimizer portions: CPU 60.28 s, H200 8.45 s; rollout portions:
+CPU 161.83 s, H200 153.50 s. H200's sampled whole-process GPU utilization was
+2.35%; rollout work dominates total update time. This supports the optimized
+H200 runtime for a future cohort, not adding multiple GPUs to one small learner.
+Keep the existing three-arm strength experiment unchanged. Workload counts,
+processor differences, and timing limitations are retained in the report.
+
 Compare all three update times, rollout/optimization components and actual
 search/sample workloads. Also retain first three original heterogeneous updates
-as an observational reference (read them from a pinned uploaded metrics revision
-when available). Their log snapshot gave median 308.34 s/update. The local
-snapshot is `ai/runs/throughput-original-reference-v1.json`; it is not yet pinned
-as an HF metrics artifact. GPU and CPU hosts differ, and async scheduling/CUDA
+as an observational reference. Their median is 308.34 s/update; their full
+metrics are now pinned by the verified heterogeneous update9 checkpoint above.
+The collector uses that exact revision/hash. GPU and CPU hosts differ, and async scheduling/CUDA
 numerics can change trajectories. These are platform throughput measurements,
 not a pure GPU causal estimate. Isolated kernel timings alone were insufficient
 to justify a scale-up. The wrapper rejects incomplete/truncated/count-imbalanced

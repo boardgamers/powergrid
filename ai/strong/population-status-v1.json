@@ -1389,5 +1389,53 @@
       }
     ],
     "caveat": "Short sample during first rollout; not whole-run utilization. Async blocking time is not total engine CPU time."
-  }
+  },
+  "scheduled_checkpoint_observations": {
+    "heterogeneous-u9": {
+      "arm": "heterogeneous",
+      "update": 9,
+      "revision": "3f56f692fc5204140257538099e1ec50a2b4fb09",
+      "phase": "collected",
+      "screens": {
+        "population-v1-heterogeneous-u9-economic-2p": {
+          "job_id": "6aca1023fee2c90070185e8c",
+          "phase": "launched",
+          "time": "2026-10-10T10:14:59.924027+00:00",
+          "observed_stage": "COMPLETED"
+        },
+        "population-v1-heterogeneous-u9-economic-3p": {
+          "job_id": "6aca1025fee2c90070185e90",
+          "phase": "launched",
+          "time": "2026-10-10T10:15:01.185876+00:00",
+          "observed_stage": "COMPLETED"
+        },
+        "population-v1-heterogeneous-u9-economic-4p": {
+          "job_id": "6aca1026fee2c90070185e92",
+          "phase": "launched",
+          "time": "2026-10-10T10:15:02.360673+00:00",
+          "observed_stage": "COMPLETED"
+        },
+        "population-v1-heterogeneous-u9-economic-5p": {
+          "job_id": "6aca1027fee2c90070185e96",
+          "phase": "launched",
+          "time": "2026-10-10T10:15:03.660802+00:00",
+          "observed_stage": "COMPLETED"
+        },
+        "population-v1-heterogeneous-u9-economic-6p": {
+          "job_id": "6aca1029095c57808931108f",
+          "phase": "launched",
+          "time": "2026-10-10T10:15:05.171340+00:00",
+          "observed_stage": "COMPLETED"
+        },
+        "population-v1-heterogeneous-u9-a260-3p": {
+          "job_id": "6aca102afee2c90070185e9b",
+          "phase": "launched",
+          "time": "2026-10-10T10:15:06.460625+00:00",
+          "observed_stage": "COMPLETED"
+        }
+      },
+      "result_revision": "116032eed805e92e1c30a7d1f1192c2704e8f8f6"
+    }
+  },
+  "checkpoint_observation_revision": "1e826b625d324245d2b64a9f2979c70b2e637b3b"
 }

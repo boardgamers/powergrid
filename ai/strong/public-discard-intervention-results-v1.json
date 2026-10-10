@@ -1,0 +1,286 @@
+{
+  "revision": "248af172b9ebd0c5732de95903b9d64e27a6223a",
+  "protocol_sha256": "e50f6b471b0af055eb80048a127b2aea06f01034d437cedba03f1ed4d12c6b76",
+  "prescribed_arms": [
+    "parent",
+    "economic",
+    "neural"
+  ],
+  "verified_arms": [
+    "parent",
+    "economic",
+    "neural"
+  ],
+  "all_prescribed_arms_verified": true,
+  "arms": {
+    "parent": {
+      "games": 320,
+      "independent_seeds": 40,
+      "win_rate": 0.503125,
+      "truncated": 0,
+      "seed_bootstrap_95_interval": [
+        0.453125,
+        0.5546875
+      ],
+      "roots": 282,
+      "interventions": 0,
+      "search_evaluations": 0,
+      "search_caps": 0
+    },
+    "economic": {
+      "games": 320,
+      "independent_seeds": 40,
+      "win_rate": 0.7375,
+      "truncated": 0,
+      "seed_bootstrap_95_interval": [
+        0.696875,
+        0.778125
+      ],
+      "roots": 282,
+      "interventions": 119,
+      "search_evaluations": 72192,
+      "search_caps": 0
+    },
+    "neural": {
+      "games": 320,
+      "independent_seeds": 40,
+      "win_rate": 0.73125,
+      "truncated": 0,
+      "seed_bootstrap_95_interval": [
+        0.690625,
+        0.771875
+      ],
+      "roots": 282,
+      "interventions": 114,
+      "search_evaluations": 72192,
+      "search_caps": 0
+    }
+  },
+  "all_pre_intervention_public_roots_and_proposals_identical": true,
+  "contrasts": {
+    "economic-minus-parent": {
+      "overall": {
+        "games_per_model": 320,
+        "independent_deals": 40,
+        "win_share_difference": 0.234375,
+        "paired_deal_bootstrap_95_interval": [
+          0.196875,
+          0.2734375
+        ]
+      },
+      "rules": {
+        "original/open": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": 0.275,
+          "paired_deal_bootstrap_95_interval": [
+            0.1875,
+            0.375
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": 0.1875,
+          "paired_deal_bootstrap_95_interval": [
+            0.1125,
+            0.275
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": 0.25,
+          "paired_deal_bootstrap_95_interval": [
+            0.175,
+            0.325
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": 0.225,
+          "paired_deal_bootstrap_95_interval": [
+            0.125,
+            0.33125
+          ]
+        }
+      }
+    },
+    "neural-minus-parent": {
+      "overall": {
+        "games_per_model": 320,
+        "independent_deals": 40,
+        "win_share_difference": 0.228125,
+        "paired_deal_bootstrap_95_interval": [
+          0.1890625,
+          0.26875
+        ]
+      },
+      "rules": {
+        "original/open": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": 0.275,
+          "paired_deal_bootstrap_95_interval": [
+            0.1875,
+            0.375
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": 0.1875,
+          "paired_deal_bootstrap_95_interval": [
+            0.1125,
+            0.275
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": 0.25,
+          "paired_deal_bootstrap_95_interval": [
+            0.175,
+            0.325
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": 0.2,
+          "paired_deal_bootstrap_95_interval": [
+            0.1125,
+            0.29375
+          ]
+        }
+      }
+    },
+    "neural-minus-economic": {
+      "overall": {
+        "games_per_model": 320,
+        "independent_deals": 40,
+        "win_share_difference": -0.00625,
+        "paired_deal_bootstrap_95_interval": [
+          -0.01875,
+          0.00625
+        ]
+      },
+      "rules": {
+        "original/open": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            -0.0375,
+            0.0375
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": -0.025,
+          "paired_deal_bootstrap_95_interval": [
+            -0.0625,
+            0.0
+          ]
+        }
+      }
+    }
+  },
+  "trained": false,
+  "qualification_eligible": false,
+  "interpretation": "Fresh 2p economic-opponent development games, complete paired seats/rules. Marginal whole-deal bootstrap intervals. No claim for other counts, independent opponents, learned model improvement or full qualification.",
+  "verification": {
+    "revision": "248af172b9ebd0c5732de95903b9d64e27a6223a",
+    "verified": true,
+    "games": 960,
+    "verified_arms": [
+      "parent",
+      "economic",
+      "neural"
+    ],
+    "all_prescribed_arms_verified": true,
+    "model_proposals_reproduced": 846,
+    "game_caps": 0,
+    "search_caps": 0,
+    "qualification_eligible": false,
+    "sha256": {
+      "comparison.json": "023b6e6adc292482348f8662f1c967aed8d4969bead79fa23169c6a2f9302e65",
+      "economic/roots.jsonl": "e7008c10bc42a9885a1424ae652b9028cc4acf416d7f19c41fc5a1b19e25099c",
+      "economic/games.json": "9705a566cfd728eb8de680107f86b8d884f401a8df02d46f3ed97d8e9341282c",
+      "economic/intervention-check.json": "365a639234b7eb8306c50cc2b2d1a3c42eb3d80d0b5c19277254bb05a1ff80d6",
+      "parent/roots.jsonl": "d996232b13a5e0bbc4a3e76e9558849e59c2139028daab8297ba8e1076224ffc",
+      "parent/games.json": "0c24c5036e2582ae41ded81964974803a8b366742d5bf78fff1304a3604202d5",
+      "parent/intervention-check.json": "75c6296d644f157810da5542e4d357c0950d6ebbd7c7ec9b6db460a2b46c0d00",
+      "neural/roots.jsonl": "049f467bd8792147d915c30cc1b0b8027aeae5422c2ad6fdadd28d87bd81dd09",
+      "neural/games.json": "ea1640394910368aab49f73d424f196569145e37bd022a5691737a102043fd4f",
+      "neural/intervention-check.json": "5c1f4fefc028d4a1a6b8c78cfe125aa1566c756063b5ea8f6758886857986569"
+    }
+  },
+  "timings": {
+    "parent": {
+      "seconds": 31.376406198999916,
+      "search_evaluations": 0,
+      "interventions": 0
+    },
+    "economic": {
+      "seconds": 70.769174366,
+      "search_evaluations": 72192,
+      "interventions": 119
+    },
+    "neural": {
+      "seconds": 799.284570964,
+      "search_evaluations": 72192,
+      "interventions": 114
+    }
+  },
+  "next_teacher": {
+    "continuation": "economic",
+    "rationale": "Both interventions beat unchanged parent in2p economic-opponent development games; no supported neural-versus-economic improvement. Economic rollout timing39.16s versus767.55s for the same72192 searches. Use the cheaper measured teacher for the first learned correction; broader counts/opponents and all-eligible serving remain unproven.",
+    "training_data": "Fresh disjoint collection across2\u20136p, four opponent families and all rules/seats. No evaluated roots recycled; no labels or gradients yet."
+  },
+  "evidence": {
+    "revision": "6c48f461d31ee25ca95798aec1a1522974831096",
+    "prefix": "runs/public-discard-intervention-completed-evidence-v1",
+    "files": {
+      "capture-discard-training.cjs": "f3918b860763c1b182edc0a67169be84fd232246cf66ff2f5d7f5fbfe9a14260",
+      "discard-training-collection-protocol-v1.json": "db720b924de4bd8efa6ae5c8c95d42b1623874c1bab9d0ab90f592f3e4a7f2f2",
+      "test-discard-training-capture.cjs": "75a4db1b41660a0443c68f085f2b694dbc5b1b9c5a1efd4bc566f774c1aa2b56",
+      "comparison.json": "023b6e6adc292482348f8662f1c967aed8d4969bead79fa23169c6a2f9302e65",
+      "discard-training-collection-preflight-v1.json": "2464ec701945b1815d3a86232dbdcdae8c4dbce1b54cba7a6ef7d39f96e6dc4a",
+      "collect-public-discard-intervention.py": "5a257d9417ed5f914b834472384d3a9cc3f0d8c923b707d7239c387c1c759246",
+      "discard-training-batching-preflight-v1.json": "cb6a31e6d5743a6fe32d32684059d10584d221c2f919b1e6145a12c2a4e9ae06",
+      "launch-discard-training-collection.py": "eee779a7c21bf7c92f214f7339379e68396c61d022dc0660c7168e156b2daa5b",
+      "public-discard-intervention-status-v1.json": "0215d59ae2770f229f85554b8d8e25e09211a73b6a7fcf55890d2d5136c2515e",
+      "results.json": "9652c9ee423c3c2cb12df492c2f1411f9abc47db80a491abf896d44afa471cb4",
+      "collect-discard-training.py": "f562e601be1b17a8e8733f937e1797d21beb6a976bf7b93d2a173a72fa13ddf9",
+      "public-discard-intervention-source-v1.json": "a76375fdfa6366670db451fa7746cc7bafd3ef347614d405608adf0ce7ff41f7",
+      "verified.json": "0f68ffabd4b2f866d0b66d0919e5615f575ccd80342ffa3e73efe8b4ec95dbcf",
+      "discard-training-collection-source-v1.json": "3e4fd6087e821337b35ae6b61fe6f1d541aa094253d1348a4bb5e8ffbebfd3d8",
+      "verify-discard-training-collection.py": "4f31b121b231db09b71be4d4b89d6d532520594ecdc738bfba560a5832179a18",
+      "public-discard-intervention-protocol-v1.json": "e50f6b471b0af055eb80048a127b2aea06f01034d437cedba03f1ed4d12c6b76",
+      "economic/intervention-check.json": "365a639234b7eb8306c50cc2b2d1a3c42eb3d80d0b5c19277254bb05a1ff80d6",
+      "parent/intervention-check.json": "75c6296d644f157810da5542e4d357c0950d6ebbd7c7ec9b6db460a2b46c0d00",
+      "neural/intervention-check.json": "5c1f4fefc028d4a1a6b8c78cfe125aa1566c756063b5ea8f6758886857986569"
+    }
+  }
+}

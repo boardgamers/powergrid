@@ -1,0 +1,63 @@
+{
+  "frozen_source": {
+    "archive": "strong-source-discard-training-collection-20261010-v1.tgz",
+    "revision": "f09a6a028512fdcaf46e4d52f3e52a39c8291305",
+    "sha256": "2dd2f43d90d134fd9c64aed7efc5688f18cf8421bd0b0f967a61c734ae76928d",
+    "base": {
+      "archive": "strong-source-public-discard-intervention-20261010-v1.tgz",
+      "revision": "7bc8f890992d3c44faa38a7241521f6d1736d9ea",
+      "sha256": "ecc08c7b64634d83e2f1b023b3a890be1b2368c1434f985287b59950b160583c"
+    },
+    "overlays": {
+      "ai/strong/collect-discard-training.py": "f562e601be1b17a8e8733f937e1797d21beb6a976bf7b93d2a173a72fa13ddf9",
+      "ai/strong/capture-discard-training.cjs": "f3918b860763c1b182edc0a67169be84fd232246cf66ff2f5d7f5fbfe9a14260",
+      "ai/strong/test-discard-training-capture.cjs": "75a4db1b41660a0443c68f085f2b694dbc5b1b9c5a1efd4bc566f774c1aa2b56",
+      "ai/strong/discard-training-collection-protocol-v1.json": "db720b924de4bd8efa6ae5c8c95d42b1623874c1bab9d0ab90f592f3e4a7f2f2"
+    },
+    "unchanged_base_file_count": 1345,
+    "protocol_sha256": "db720b924de4bd8efa6ae5c8c95d42b1623874c1bab9d0ab90f592f3e4a7f2f2",
+    "qualification_eligible": false
+  },
+  "smokes": [
+    {
+      "players": 2,
+      "games": 32,
+      "roots": 40,
+      "exact_public_roots_and_twin_control_trajectories": true,
+      "truncations": 0
+    },
+    {
+      "players": 6,
+      "games": 96,
+      "roots": 60,
+      "exact_public_roots_and_twin_control_trajectories": true,
+      "truncations": 0
+    }
+  ],
+  "capture_hidden_information_test": {
+    "cases": 9,
+    "passed": true
+  },
+  "batched_inference": {
+    "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+    "model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a",
+    "batches": {
+      "32": {
+        "positions": 2553,
+        "action_mismatches": 0,
+        "seconds": 0.5282993349974276
+      },
+      "128": {
+        "positions": 2553,
+        "action_mismatches": 0,
+        "seconds": 0.6750797409913503
+      }
+    },
+    "total_seconds": 13.906681235996075,
+    "scope": "Local HX370 batching parity across all2553 fixtures. No gradients and no strength claim.",
+    "qualification_eligible": false
+  },
+  "trained": false,
+  "labels_generated": false,
+  "qualification_eligible": false
+}

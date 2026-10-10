@@ -26,9 +26,9 @@ root = Path(__file__).resolve().parents[2]
 model = Path(a.model).resolve()
 session = ort.InferenceSession(str(model), providers=["CPUExecutionProvider"])
 revision = session.get_modelmeta().custom_metadata_map.get(METADATA_KEY, "3.0")
-if revision not in ["3.0", "3.1-uranium39", "4.0-multiplayer", "4.1-five-plants", "4.1-five-plants-zero-inputs"]:
+if revision not in ["3.0", "3.1-uranium39", "4.0-multiplayer", "4.1-five-plants", "4.1-five-plants-zero-inputs", "4.2-discard-correction"]:
     raise ValueError("Unknown feature revision")
-multiplayer = revision in ["4.0-multiplayer", "4.1-five-plants", "4.1-five-plants-zero-inputs"]
+multiplayer = revision in ["4.0-multiplayer", "4.1-five-plants", "4.1-five-plants-zero-inputs", "4.2-discard-correction"]
 out = Path(a.output).resolve()
 out.mkdir(parents=True, exist_ok=False)
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
@@ -47,6 +47,7 @@ with tempfile.TemporaryDirectory() as tmp:
         "features-v4.cjs",
         "features-v4_1.cjs",
         "features-v4_1_control.cjs",
+        "features-v4_2.cjs",
         "economics.cjs",
         "economics-v3_0.cjs",
         "economics-v4_1.cjs",

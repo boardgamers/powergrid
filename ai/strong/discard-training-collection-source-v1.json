@@ -1,0 +1,19 @@
+{
+  "archive": "strong-source-discard-training-collection-20261010-v1.tgz",
+  "revision": "f09a6a028512fdcaf46e4d52f3e52a39c8291305",
+  "sha256": "2dd2f43d90d134fd9c64aed7efc5688f18cf8421bd0b0f967a61c734ae76928d",
+  "base": {
+    "archive": "strong-source-public-discard-intervention-20261010-v1.tgz",
+    "revision": "7bc8f890992d3c44faa38a7241521f6d1736d9ea",
+    "sha256": "ecc08c7b64634d83e2f1b023b3a890be1b2368c1434f985287b59950b160583c"
+  },
+  "overlays": {
+    "ai/strong/collect-discard-training.py": "f562e601be1b17a8e8733f937e1797d21beb6a976bf7b93d2a173a72fa13ddf9",
+    "ai/strong/capture-discard-training.cjs": "f3918b860763c1b182edc0a67169be84fd232246cf66ff2f5d7f5fbfe9a14260",
+    "ai/strong/test-discard-training-capture.cjs": "75a4db1b41660a0443c68f085f2b694dbc5b1b9c5a1efd4bc566f774c1aa2b56",
+    "ai/strong/discard-training-collection-protocol-v1.json": "db720b924de4bd8efa6ae5c8c95d42b1623874c1bab9d0ab90f592f3e4a7f2f2"
+  },
+  "unchanged_base_file_count": 1345,
+  "protocol_sha256": "db720b924de4bd8efa6ae5c8c95d42b1623874c1bab9d0ab90f592f3e4a7f2f2",
+  "qualification_eligible": false
+}

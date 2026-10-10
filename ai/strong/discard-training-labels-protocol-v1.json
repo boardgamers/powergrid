@@ -1,0 +1,61 @@
+{
+  "purpose": "Economic public-belief labels for fresh late-discard training roots; no optimizer or direct promotion.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "model": {
+    "revision": "f14d0db14edb494c8797af00a546ac56088cfa96",
+    "path": "runs/inference64-cohort-v1/parent/inference64.onnx",
+    "sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a",
+    "feature_revision": "4.0-multiplayer",
+    "selection": "Fixed original update79 parent derivative; not a winner selected from the new comparison."
+  },
+  "collection_protocol_sha256": "db720b924de4bd8efa6ae5c8c95d42b1623874c1bab9d0ab90f592f3e4a7f2f2",
+  "collection_source": {
+    "archive": "strong-source-discard-training-collection-20261010-v1.tgz",
+    "revision": "f09a6a028512fdcaf46e4d52f3e52a39c8291305",
+    "sha256": "2dd2f43d90d134fd9c64aed7efc5688f18cf8421bd0b0f967a61c734ae76928d"
+  },
+  "players": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "continuation": "economic",
+  "samples": 64,
+  "max_steps": 2400,
+  "workers": 24,
+  "ort_threads": 4,
+  "seed_prefix": "discard-training-labels-v1",
+  "seed_scope": "Independent per rootId and sample, never the actual game seed/deck. Every legal discard shares the same64 public scenarios.",
+  "feature_revision": "4.1-five-plants",
+  "state_dim": 1215,
+  "action_dim": 100,
+  "parent_feature_revision": "4.0-multiplayer",
+  "encoding_checks": "All old state/action prefixes and engine-legal candidate order must equal schema4.0. Reproduce the frozen parent proposal. Persist its logits for future retention targets, not as ground-truth value.",
+  "target": "Store every per-sample win credit, all action means and best-action ties. Do not collapse labels to a single target or use realized game outcomes.",
+  "caps": "Preserve null outcomes and flag invalid; any cap makes the label shard fail admission. Never score a cap as defeat or silently drop a row.",
+  "selection": "Every verified collected root, retaining fixed whole-deal train/validation splits and source families. No success or disagreement filtering.",
+  "evidence": {
+    "raw_intervention_revision": "248af172b9ebd0c5732de95903b9d64e27a6223a",
+    "verified_evidence_revision": "6c48f461d31ee25ca95798aec1a1522974831096",
+    "economic_vs_parent_win_shares": [
+      0.7375,
+      0.503125
+    ],
+    "paired_gain_95_interval": [
+      0.196875,
+      0.2734375
+    ],
+    "neural_minus_economic": -0.00625,
+    "neural_minus_economic_95_interval": [
+      -0.01875,
+      0.00625
+    ],
+    "economic_rollout_seconds": 39.15791823799998,
+    "neural_rollout_seconds": 767.5458250600004,
+    "scope": "First eligible discard only,2p versus economic opponents. Other counts/opponents and repeated-discard deployment still require full-game validation."
+  },
+  "trained": false,
+  "qualification_eligible": false
+}

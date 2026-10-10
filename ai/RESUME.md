@@ -6,7 +6,95 @@ final-test seeds remain unused.** The separate UI redesign was reverted.
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
 `ai/germany-baseline`. No UI work or publication is part of this AI continuation.
 
-## Latest: all 34,720 precision reruns verified; discard guidance and complete-game intervention
+## Latest: verified discard gain; all fresh labels complete; learned correction submitted
+
+The preceding AI goal turn was **progress** (complete-game intervention and fresh
+training collection). This turn is also **progress**: independently verified all
+five labeling shards, saved their evidence, and submitted the learned-head GPU
+experiment. No blocker; no qualification, deployment or reserved final seeds.
+
+**Actual complete-game intervention, all960 games verified.** The fixed parent
+wins50.3125%, economic-guided discards73.75%, neural-guided discards73.125% in320
+fresh2p games per arm (40 deals ×2 seats ×4 rule combinations). Economic minus
+parent is+23.4375 percentage points, paired whole-deal95% interval
+[+19.6875,+27.34375]. Neural minus economic is−0.625 points, interval
+[−1.875,+0.625]: no demonstrated neural advantage. All four economic-minus-parent
+rule-cell intervals are positive. Every arm has282 identical public roots and
+zero game/search caps. This intervenes at only the **first eligible discard**
+per game against unchanged economic opponents; it does not prove a learned
+policy or general multiplayer gain. Economic search took39.16s versus767.55s
+for neural on HF CPU,72,192 rollouts each. Choose the cheaper economic teacher.
+See `strong/public-discard-intervention-results-v1.json`.
+Raw model-repo revision `248af172b9ebd0c5732de95903b9d64e27a6223a`;
+combined verified evidence `6c48f461d31ee25ca95798aec1a1522974831096`,
+`runs/public-discard-intervention-completed-evidence-v1`.
+
+**Fresh training data.** All5,120 collection games and uninstrumented twins are
+verified (10,240 engine games):2–6p, every seat, original/Recharged, open/sealed,
+four opponent families. Every eligible late discard is captured, including
+repeated discards. Opponents: economic/rush/frozen parent at all counts, plus
+capacity-economic at2p or heuristic at3–6p. No result-based filtering.
+3,361 sanitized public roots:2,527 train,834 validation, separated by whole
+(count,opponent family,deal), including all seats/rules/repeated roots together.
+Root counts by players2–6:631/458/610/857/805. Every original model proposal,
+legal menu, public-state hash and twin trajectory independently reproduced;
+zero caps. See `strong/discard-training-collection-results-v1.json`.
+
+**All teacher labels independently verified.** Economic continuations,64 public
+scenarios per legal action,685,696 rollouts,zero truncations. Original private
+seed/deck and future moves are excluded. Store all per-sample outcomes and ties;
+retain all positions. Full five-plant features preserve the old prefixes/menu;
+every parent logit was recomputed with zero discrepancy. Raw labels revision
+`9b2d0a8ef63fb6da13df6961af153725c35e8c68`, prefixes
+`runs/discard-training-labels-v1-Np`. All ten collection/label jobs are COMPLETED;
+IDs/statuses live in their tracked status files. Do not relaunch them.
+Combined durable evidence in `coyotte508/powergrid-ai-germany-v1`:
+`8882fe1eda0cc0b6262e48b46daa555c4b7fb8d6`,
+`runs/discard-training-completed-evidence-v1`. Reports:
+`strong/discard-training-labels-results-v1.json`,
+`strong/discard-training-evidence-v1.json`.
+
+**Learned correction submitted, not yet a result.** HF job
+`6aca4a1b095c5780893132ed`, one L4, fixed seeds10101/10102,120 epochs each.
+Last authoritative status SCHEDULING at14:22:27UTC10October; re-inspect the same
+handle. Launch intent: `ai/runs/discard-correction-launch-v1/launch.json`.
+Protocol `strong/discard-correction-protocol-v1.json`, SHA
+`aa7bf7bc6a33ac5ea637fabf23d787a481b10496acd228b3fd2eab8504757cdb`.
+Dataset source revision `70acf6d6c9eb743aedadc48e38b143ff511803f8`, archive
+`strong-source-discard-correction-20261010-v1.tgz`, SHA
+`59bf548ea4fa49f848609179a02cd8d692a76f713ff81df83312ff1c150d0bdf`.
+Output prefix `runs/discard-correction-v1`.
+
+The parent update79 FP32 checkpoint is frozen exactly. A small head learns
+centered action win-credit means, preserving paired-scenario differences and
+all ties. Roots receive equal total weight by count, then family, then deal.
+Only public late multi-choice discards may use the head; require predicted gain
+>0.025 over the parent proposal, otherwise retain parent. This applies to every
+eligible discard, not only the first. Schema4.2 appends one public eligibility
+bit to schema4.1:state1216/action100. No hidden info or phase-history memory.
+Parent inputs are exact old1149/98 prefixes; value outputs stay the uncalibrated
+parent estimates. No forced old-economic tie fallback. Both seeds run fully;
+best checkpoint is lowest held-out label regret every5epochs, with epoch0
+parent baseline and ties retaining the earlier epoch. These are simulated
+conditional label metrics, never actual win rates. All gradients run on HF.
+
+Preflight:2,553 menus/prefixes/public eligibility checks; strict zero-head
+native64/ONNX parity over2,553 fixtures plus all3,361 labels; parent choices
+unchanged everywhere and outside-scope logits identical. Frozen package repeats
+all checks and independently re-verifies631 labels. See
+`strong/discard-correction-preflight-v1.json`. The job will rerun strict export,
+serving and all-label parity checks on each trained selected checkpoint.
+
+**Next:** inspect the live training handle; independently verify downloaded raw
+checkpoint tensors, data hashes, selected epochs, label metrics and strict
+native/ONNX/serving checks. Then test **both seeds and parent** on fresh paired
+complete-game development deals across2–6p/rules/opponents, explicitly checking
+repeated-discard deployment. Do not infer full-game gain from label fit. Keep
+strong independent opponents and the unchanged full gate below. No final-test
+seeds until development warrants a frozen candidate; actual8840U benchmark must
+use the exact eventually-qualified checkpoint/config. UI stays reverted.
+
+## Earlier: all 34,720 precision reruns verified; discard audit and intervention setup
 
 The preceding AI goal turn was **progress**: it independently verified all nine
 completed screens, exposed a gap in discard search coverage and collected fresh

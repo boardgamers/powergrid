@@ -1,0 +1,283 @@
+{
+  "players": {
+    "2": {
+      "revision": "9b2d0a8ef63fb6da13df6961af153725c35e8c68",
+      "prefix": "runs/discard-training-labels-v1-2p",
+      "players": 2,
+      "data_revision": "6c48f461d31ee25ca95798aec1a1522974831096",
+      "roots": 631,
+      "evaluations": 161536,
+      "truncated": 0,
+      "features_and_parent_logits_recomputed": 631,
+      "max_parent_logit_error": 0.0,
+      "no_deal_split_leakage": true,
+      "counts": {
+        "economic/validation": 42,
+        "economic/train": 125,
+        "economic_capacity_v1/train": 109,
+        "economic_capacity_v1/validation": 36,
+        "rush/train": 106,
+        "rush/validation": 40,
+        "snapshot0/train": 130,
+        "snapshot0/validation": 43
+      },
+      "teacher_changes": {
+        "economic/validation": 21,
+        "economic/train": 43,
+        "economic_capacity_v1/train": 31,
+        "economic_capacity_v1/validation": 13,
+        "rush/train": 40,
+        "rush/validation": 16,
+        "snapshot0/train": 68,
+        "snapshot0/validation": 18
+      },
+      "all_actions_tied": {
+        "economic/validation": 11,
+        "economic/train": 39,
+        "economic_capacity_v1/train": 43,
+        "economic_capacity_v1/validation": 14,
+        "rush/train": 36,
+        "rush/validation": 9,
+        "snapshot0/train": 31,
+        "snapshot0/validation": 13
+      },
+      "root_splits": {
+        "train": 470,
+        "validation": 161
+      },
+      "sha256": {
+        "labels-check.json": "79e72012a9b84ca13c143393f32487b148fef874dd22d27d22b19f30b329a6a4",
+        "labels.jsonl.gz": "064138502576f1f723db3b4c5c46fed86d2f709f3d5d43226204f0ac732704e4",
+        "inputs/verified.json": "5cdeb96b15a1c956e35ea17e01940f43c8f22a7b2bbc8b11df4a3ec5344e31c1"
+      },
+      "trained": false,
+      "qualification_eligible": false,
+      "interpretation": "Complete economic-continuation labels on fresh public roots; target validity is not teacher strength across every scope cell or learned-policy benefit. Preserve held-out whole deals and validate complete games."
+    },
+    "3": {
+      "revision": "9b2d0a8ef63fb6da13df6961af153725c35e8c68",
+      "prefix": "runs/discard-training-labels-v1-3p",
+      "players": 3,
+      "data_revision": "6c48f461d31ee25ca95798aec1a1522974831096",
+      "roots": 458,
+      "evaluations": 87936,
+      "truncated": 0,
+      "features_and_parent_logits_recomputed": 458,
+      "max_parent_logit_error": 0.0,
+      "no_deal_split_leakage": true,
+      "counts": {
+        "economic/train": 92,
+        "economic/validation": 25,
+        "heuristic/train": 63,
+        "heuristic/validation": 16,
+        "rush/train": 92,
+        "rush/validation": 30,
+        "snapshot0/validation": 25,
+        "snapshot0/train": 115
+      },
+      "teacher_changes": {
+        "economic/train": 18,
+        "economic/validation": 4,
+        "heuristic/train": 0,
+        "heuristic/validation": 1,
+        "rush/train": 11,
+        "rush/validation": 6,
+        "snapshot0/validation": 5,
+        "snapshot0/train": 39
+      },
+      "all_actions_tied": {
+        "economic/train": 46,
+        "economic/validation": 11,
+        "heuristic/train": 47,
+        "heuristic/validation": 6,
+        "rush/train": 56,
+        "rush/validation": 13,
+        "snapshot0/validation": 15,
+        "snapshot0/train": 48
+      },
+      "root_splits": {
+        "train": 362,
+        "validation": 96
+      },
+      "sha256": {
+        "labels-check.json": "815a2c58bbbeb4a4d99f9119b893d6d084b037489c60aedacf916be7e1335f6e",
+        "labels.jsonl.gz": "55b18dabd65eefcd2c9c72098682a5b0974e4a13955d3d28537e18834a61de33",
+        "inputs/verified.json": "7d1f94a36a1a7180fb63ec944c6a07d598774b5c50105169f8059e86aecc9f75"
+      },
+      "trained": false,
+      "qualification_eligible": false,
+      "interpretation": "Complete economic-continuation labels on fresh public roots; target validity is not teacher strength across every scope cell or learned-policy benefit. Preserve held-out whole deals and validate complete games."
+    },
+    "4": {
+      "revision": "9b2d0a8ef63fb6da13df6961af153725c35e8c68",
+      "prefix": "runs/discard-training-labels-v1-4p",
+      "players": 4,
+      "data_revision": "8669afc46f4669a5ad5c4c210823ab5b879160b0",
+      "roots": 610,
+      "evaluations": 117120,
+      "truncated": 0,
+      "features_and_parent_logits_recomputed": 610,
+      "max_parent_logit_error": 0.0,
+      "no_deal_split_leakage": true,
+      "counts": {
+        "economic/train": 141,
+        "economic/validation": 41,
+        "heuristic/validation": 26,
+        "heuristic/train": 51,
+        "rush/train": 127,
+        "rush/validation": 54,
+        "snapshot0/train": 133,
+        "snapshot0/validation": 37
+      },
+      "teacher_changes": {
+        "economic/train": 16,
+        "economic/validation": 9,
+        "heuristic/validation": 1,
+        "heuristic/train": 0,
+        "rush/train": 23,
+        "rush/validation": 14,
+        "snapshot0/train": 44,
+        "snapshot0/validation": 6
+      },
+      "all_actions_tied": {
+        "economic/train": 77,
+        "economic/validation": 22,
+        "heuristic/validation": 20,
+        "heuristic/train": 46,
+        "rush/train": 68,
+        "rush/validation": 28,
+        "snapshot0/train": 57,
+        "snapshot0/validation": 21
+      },
+      "root_splits": {
+        "train": 452,
+        "validation": 158
+      },
+      "sha256": {
+        "labels-check.json": "002ecd444a1d34fe6199fef3b18fe582f10152e95be76097c9d042471b99126d",
+        "labels.jsonl.gz": "9da65506d96b4cb382dc3ef0a64c952270387d36799a4a854de71197156fa3b4",
+        "inputs/verified.json": "621483688379d2757e0e2e8e943859bde06cc6568671755fa80c4a04eae55e71"
+      },
+      "trained": false,
+      "qualification_eligible": false,
+      "interpretation": "Complete economic-continuation labels on fresh public roots; target validity is not teacher strength across every scope cell or learned-policy benefit. Preserve held-out whole deals and validate complete games."
+    },
+    "5": {
+      "revision": "9b2d0a8ef63fb6da13df6961af153725c35e8c68",
+      "prefix": "runs/discard-training-labels-v1-5p",
+      "players": 5,
+      "data_revision": "8669afc46f4669a5ad5c4c210823ab5b879160b0",
+      "roots": 857,
+      "evaluations": 164544,
+      "truncated": 0,
+      "features_and_parent_logits_recomputed": 857,
+      "max_parent_logit_error": 0.0,
+      "no_deal_split_leakage": true,
+      "counts": {
+        "economic/train": 186,
+        "economic/validation": 67,
+        "heuristic/train": 80,
+        "heuristic/validation": 39,
+        "rush/train": 178,
+        "rush/validation": 59,
+        "snapshot0/train": 179,
+        "snapshot0/validation": 69
+      },
+      "teacher_changes": {
+        "economic/train": 19,
+        "economic/validation": 9,
+        "heuristic/train": 1,
+        "heuristic/validation": 0,
+        "rush/train": 12,
+        "rush/validation": 5,
+        "snapshot0/train": 22,
+        "snapshot0/validation": 5
+      },
+      "all_actions_tied": {
+        "economic/train": 111,
+        "economic/validation": 37,
+        "heuristic/train": 72,
+        "heuristic/validation": 38,
+        "rush/train": 122,
+        "rush/validation": 43,
+        "snapshot0/train": 109,
+        "snapshot0/validation": 49
+      },
+      "root_splits": {
+        "train": 623,
+        "validation": 234
+      },
+      "sha256": {
+        "labels-check.json": "0569ab0706f0ccade6ed425289dec1b7edd8543c1e473171a042d3baf1895f90",
+        "labels.jsonl.gz": "30ed9bce917fa13701da6a02e29c932be5b3e220586915562a2cd866beba676b",
+        "inputs/verified.json": "8cac64d60baecb7dae606eaaeb633a77b0561a989ae196d1ad3dfdf6a3e8af52"
+      },
+      "trained": false,
+      "qualification_eligible": false,
+      "interpretation": "Complete economic-continuation labels on fresh public roots; target validity is not teacher strength across every scope cell or learned-policy benefit. Preserve held-out whole deals and validate complete games."
+    },
+    "6": {
+      "revision": "9b2d0a8ef63fb6da13df6961af153725c35e8c68",
+      "prefix": "runs/discard-training-labels-v1-6p",
+      "players": 6,
+      "data_revision": "8669afc46f4669a5ad5c4c210823ab5b879160b0",
+      "roots": 805,
+      "evaluations": 154560,
+      "truncated": 0,
+      "features_and_parent_logits_recomputed": 805,
+      "max_parent_logit_error": 0.0,
+      "no_deal_split_leakage": true,
+      "counts": {
+        "economic/train": 177,
+        "economic/validation": 54,
+        "heuristic/train": 62,
+        "heuristic/validation": 16,
+        "rush/train": 176,
+        "rush/validation": 49,
+        "snapshot0/train": 205,
+        "snapshot0/validation": 66
+      },
+      "teacher_changes": {
+        "economic/train": 10,
+        "economic/validation": 2,
+        "heuristic/train": 0,
+        "heuristic/validation": 0,
+        "rush/train": 5,
+        "rush/validation": 4,
+        "snapshot0/train": 15,
+        "snapshot0/validation": 6
+      },
+      "all_actions_tied": {
+        "economic/train": 125,
+        "economic/validation": 41,
+        "heuristic/train": 60,
+        "heuristic/validation": 13,
+        "rush/train": 110,
+        "rush/validation": 28,
+        "snapshot0/train": 155,
+        "snapshot0/validation": 51
+      },
+      "root_splits": {
+        "train": 620,
+        "validation": 185
+      },
+      "sha256": {
+        "labels-check.json": "62976861945a5ad82d934dc5edda50d04147475744a8c3f5c195f864772547dc",
+        "labels.jsonl.gz": "bc346984a2892c32e7a25e2315fe1405494cb723a412a8a26a1f6fb0366c9e0d",
+        "inputs/verified.json": "a532f7c7b97faee7c1ead30ef0cf69392841fcf7398f8a1825ed4f6efd0ceae1"
+      },
+      "trained": false,
+      "qualification_eligible": false,
+      "interpretation": "Complete economic-continuation labels on fresh public roots; target validity is not teacher strength across every scope cell or learned-policy benefit. Preserve held-out whole deals and validate complete games."
+    }
+  },
+  "roots": 3361,
+  "root_splits": {
+    "train": 2527,
+    "validation": 834
+  },
+  "qualification_eligible": false,
+  "evaluations": 685696,
+  "truncated": 0,
+  "trained": false
+}

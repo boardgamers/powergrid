@@ -26,10 +26,14 @@ def main():
     p = argparse.ArgumentParser(__doc__)
     p.add_argument('revision')
     p.add_argument('output', type=Path)
+    p.add_argument('--arms', nargs='+', choices=['parent', 'economic', 'neural'],
+                   help='Verify a completed subset; the report explicitly remains partial')
     a = p.parse_args()
     assert re.fullmatch('[a-f0-9]{40}', a.revision)
     protocol_path = ROOT / 'ai/strong/public-discard-intervention-protocol-v1.json'
     protocol = read(protocol_path)
+    arms = a.arms or protocol['arms']
+    assert len(set(arms)) == len(arms) and 'parent' in arms
     source = read(ROOT / 'ai/strong/public-discard-intervention-source-v1.json')
     out = a.output.resolve()
     out.mkdir(parents=True, exist_ok=False)
@@ -39,7 +43,7 @@ def main():
     worker = Node('strong/worker.cjs')
     reports, roots_by_arm, status_by_arm = {}, {}, {}
     try:
-        for arm in protocol['arms']:
+        for arm in arms:
             target = out / arm
             target.mkdir()
             prefix = 'runs/public-discard-intervention-v1-' + arm
@@ -113,6 +117,8 @@ def main():
     finally:
         worker.close()
     summary = {'revision': a.revision, 'protocol_sha256': digest(protocol_path),
+        'prescribed_arms': protocol['arms'], 'verified_arms': arms,
+        'all_prescribed_arms_verified': set(arms) == set(protocol['arms']),
         'arms': {arm: {**r['summary'], 'roots': len(roots_by_arm[arm]), 'interventions': r['interventions'],
                       'search_evaluations': r['search_evaluations'], 'search_caps': 0} for arm, r in reports.items()},
         'all_pre_intervention_public_roots_and_proposals_identical': True, 'contrasts': {},
@@ -120,6 +126,8 @@ def main():
         'interpretation': 'Fresh 2p economic-opponent development games, complete paired seats/rules. Marginal whole-deal bootstrap intervals. No claim for other counts, independent opponents, learned model improvement or full qualification.'}
     for contrast in protocol['analysis']['contrasts']:
         left, right = contrast.split('-minus-')
+        if left not in reports or right not in reports:
+            continue
         def compare(x, y):
             return paired(x, y, repeats=protocol['analysis']['bootstrap_replicates'], seed=protocol['analysis']['bootstrap_seed'])
         result = {'overall': compare(reports[left]['results'], reports[right]['results']), 'rules': {}}
@@ -130,6 +138,7 @@ def main():
         summary['contrasts'][contrast] = result
     write(out / 'comparison.json', summary)
     write(out / 'verified.json', {'revision': a.revision, 'verified': True, 'games': sum(r['games'] for r in status_by_arm.values()),
+        'verified_arms': arms, 'all_prescribed_arms_verified': summary['all_prescribed_arms_verified'],
         'model_proposals_reproduced': sum(len(r) for r in roots_by_arm.values()),
         'game_caps': 0, 'search_caps': 0, 'qualification_eligible': False,
         'sha256': {str(p.relative_to(out)): digest(p) for p in out.rglob('*') if p.is_file()}})

@@ -1,0 +1,84 @@
+{
+  "purpose": "Fresh public training positions for learned discard correction; no evaluation roots recycled, no teacher selection or gradients in collection. Capture every eligible target-seat discard to support a stateless policy.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "model": {
+    "revision": "f14d0db14edb494c8797af00a546ac56088cfa96",
+    "path": "runs/inference64-cohort-v1/parent/inference64.onnx",
+    "sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a",
+    "feature_revision": "4.0-multiplayer",
+    "selection": "Fixed original update79 parent derivative; not a winner selected from the new comparison."
+  },
+  "players": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "deals_per_mode_count": 16,
+  "validation_deal_indices": [
+    0,
+    4,
+    8,
+    12
+  ],
+  "modes_by_players": {
+    "2": [
+      "economic",
+      "economic_capacity_v1",
+      "rush",
+      "snapshot0"
+    ],
+    "3": [
+      "economic",
+      "heuristic",
+      "rush",
+      "snapshot0"
+    ],
+    "4": [
+      "economic",
+      "heuristic",
+      "rush",
+      "snapshot0"
+    ],
+    "5": [
+      "economic",
+      "heuristic",
+      "rush",
+      "snapshot0"
+    ],
+    "6": [
+      "economic",
+      "heuristic",
+      "rush",
+      "snapshot0"
+    ]
+  },
+  "snapshot0": "Same pinned parent, greedy; the learner label marks the target observer, not a different network. All actor money visible.",
+  "seed_template": "discard-training-collection-v1-{players}p-{mode}",
+  "smoke_seed_template": "discard-training-collection-smoke-v1-{players}p-{mode}",
+  "unique_games": 5120,
+  "engine_game_runs": 10240,
+  "games_by_players": {
+    "2": 512,
+    "3": 768,
+    "4": 1024,
+    "5": 1280,
+    "6": 1536
+  },
+  "batch_size": 128,
+  "workers": 24,
+  "ort_threads": 4,
+  "pairing": "Each count/opponent-family/deal repeated across all seats and four rules. Every instrumented game runs alongside an uninstrumented control; exact observations and terminal records required.",
+  "root_selection": "Every target learner-seat multi-choice discard when max public cities >= end threshold minus3. No terminal result or subsequent moves used to select roots. No outcome rebalancing. Other seats never contribute roots even if controlled by the same frozen network.",
+  "split": "Whole count/opponent-family/deal units. Indices0,4,8,12 reserved for validation with all seats, rules and repeated roots held together. Fixed before collection. Test/intervention/audit roots excluded by disjoint seed prefixes.",
+  "sampling_policy": "Pinned parent float64 inference, batched greedy for collection. All2553 original fixture action choices match serial at batch32 and128; report is discard-training-batching-preflight-v1.json.",
+  "outputs": [
+    "Every eligible sanitized public root with original proposal, engine legal menu and per-game ordinal.",
+    "All full terminal records retained only for coverage/cap validation, not root selection or discard labels.",
+    "Per-mode/count root coverage and exact twin-control observation/action/terminal-record checks."
+  ],
+  "trained": false,
+  "qualification_eligible": false,
+  "labels": "None in this collection. Freeze a separate teacher protocol after the complete intervention comparison; labels and optimizer work run only on HF Jobs."
+}

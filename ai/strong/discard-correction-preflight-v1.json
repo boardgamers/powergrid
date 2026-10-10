@@ -1,0 +1,71 @@
+{
+  "source": {
+    "archive": "strong-source-discard-correction-20261010-v1.tgz",
+    "revision": "70acf6d6c9eb743aedadc48e38b143ff511803f8",
+    "sha256": "59bf548ea4fa49f848609179a02cd8d692a76f713ff81df83312ff1c150d0bdf",
+    "bytes": 13647230,
+    "base": {
+      "archive": "strong-source-discard-training-labels-20261010-v1.tgz",
+      "revision": "06dc14dc8614b2564e1b163769482e484d6d71e5",
+      "sha256": "ddbba5ba27557fa3fb6927b8a555044f08f6138efbae8383d6537f6d42772c6f"
+    },
+    "overlays": {
+      "ai/strong/model.py": "6ab58caa1b7e4093a2b1013ebc8a2e1c7a783dc19d5cfa41b32b2c13b032cc77",
+      "ai/strong/model_discard.py": "30481fa114c108fb7b95079741216a9435a4e9a87f2a908457a98d479c7e51d4",
+      "ai/strong/features-v4_2.cjs": "40fd236f584b28c8f9c3284a37387a3fa54277132cc46a23761e406556b27bfe",
+      "ai/strong/encoders.cjs": "9e37a02941e410c6b374265155d80bf9eb88fe58940d851163fe28dff8f7ca31",
+      "ai/strong/evaluate.py": "2b85c9ab874b4611be8d5e2a5a466e4bfce58b14fb891de13d0492d9e7a8d589",
+      "ai/strong/export-inference64.py": "23acf8e8050b0206f01390df41452a77f1c3198b571509b8da9d7164acb23c8a",
+      "ai/strong/package-serving.py": "7d0c725b9489251a66dc3624e7426239c19878ee77a393973eafac5267a289c3",
+      "ai/strong/test_model_discard.py": "339bc9b94d38f33250ec93e09d15df83ba9be16a3217f9eeb3eede58f1009236",
+      "ai/strong/test-discard-correction-features.cjs": "5805e9d5d4d55bc4395e0ccaedc299bd6c5a6135123e91e011761695eae887fa",
+      "ai/strong/discard_correction_data.py": "04bc2c8baa022c8ae48fa536cf5a3b9bef2aef957be5ccf25c9ae1c01b86102b",
+      "ai/strong/train-discard-correction.py": "5554cfdd476926b83e703159ce5be94d78443b38b5874e49e0e3826a5a9d253e",
+      "ai/strong/check-discard-correction.py": "aa1c61aa146aec1adaf54172da944aeff681d827a4450787c45fcb43d9a1116a",
+      "ai/strong/discard-correction-protocol-v1.json": "aa7bf7bc6a33ac5ea637fabf23d787a481b10496acd228b3fd2eab8504757cdb",
+      "ai/strong/verify-discard-training-labels.py": "843285b424eeb6f9b4882b415c794b85761b1be565403adafbfe4cbc0378ef7a",
+      "ai/strong/collect-public-discard-teacher.py": "4486211aeb37c4665d9b1699a67bba31485c7281fb4b3a977ac2a8a8b5503cf4",
+      "ai/strong/discard-training-labels-source-v1.json": "59367317fe316d5d17ba615b72c8c075f008447986382fe66b90f6cac0e6838f",
+      "ai/strong/discard-training-labels-results-v1.json": "31a28f66d04bb3898b5b3357c8f9d1c42c7fc3c89fa9b77630991923c42825f7"
+    },
+    "unchanged_base_file_count": 1349,
+    "protocol_sha256": "aa7bf7bc6a33ac5ea637fabf23d787a481b10496acd228b3fd2eab8504757cdb",
+    "qualification_eligible": false
+  },
+  "source_checks": 5,
+  "parity": {
+    "positions": 2553,
+    "by_player_count": {
+      "2": 349,
+      "3": 427,
+      "4": 527,
+      "5": 609,
+      "6": 641
+    },
+    "inactive_values_zero": true,
+    "feature_revision": "4.2-discard-correction",
+    "model_sha256": "e6f3d9c5cbb7e0f038cc7621fa7105c4e722062b5a22d1df66b8121eadac9d42",
+    "max_logit_error": 4.746425474877469e-10,
+    "max_value_error": 1.0236589353951331e-11,
+    "all_actions_match": true,
+    "specialist_route_counts": {}
+  },
+  "scope": {
+    "positions": 2553,
+    "eligible": 9,
+    "changed_eligible": 0,
+    "unchanged_other_actions": 2544,
+    "outside_max_logit_error": 0.0,
+    "labels_strict_parity": 3361,
+    "label_max_logit_error": 1.3353584904507443e-10,
+    "model_sha256": "e6f3d9c5cbb7e0f038cc7621fa7105c4e722062b5a22d1df66b8121eadac9d42",
+    "checkpoint_sha256": "d514026d9ee2568f1f6a3aa929f01bb51ac2a64e9d3d67a96d7e8ce00caac430",
+    "rtol": 0.0001,
+    "atol": 1e-05,
+    "qualification_eligible": false
+  },
+  "frozen_scope_identical": true,
+  "frozen_label_verification_roots": 631,
+  "trained": false,
+  "qualification_eligible": false
+}

@@ -76,7 +76,7 @@ if args.games < paired_size or args.games % paired_size:
 if args.deal_offset < 0:
     p.error("--deal-offset cannot be negative")
 opponent_model = Model(args.opponent_model) if args.opponent_model else None
-multiplayer_revisions = {"4.0-multiplayer", "4.0-sealed-all-bids", "4.1-five-plants", "4.1-five-plants-zero-inputs"}
+multiplayer_revisions = {"4.0-multiplayer", "4.0-sealed-all-bids", "4.1-five-plants", "4.1-five-plants-zero-inputs", "4.2-discard-correction"}
 if args.search_samples and model_revision(model) == "4.0-sealed-all-bids":
     p.error("Expanded sealed menu requires a matching search implementation")
 for actor in [model, opponent_model]:

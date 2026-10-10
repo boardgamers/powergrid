@@ -1,0 +1,119 @@
+{
+  "purpose": "Distill verified public-belief discard advantages into a frozen-parent policy; development only.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "seeds": [
+    10101,
+    10102
+  ],
+  "parent": {
+    "revision": "0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a",
+    "path": "runs/multiplayer-refine-hard-v1/latest.pt",
+    "sha256": "1f9d1c89908ab036f6e6a54facba94b352bbae005e1ac042d88c60067e895224",
+    "architecture": "multiplayer_ordered",
+    "update": 79
+  },
+  "data": {
+    "2": {
+      "revision": "9b2d0a8ef63fb6da13df6961af153725c35e8c68",
+      "prefix": "runs/discard-training-labels-v1-2p",
+      "roots": 631,
+      "root_splits": {
+        "train": 470,
+        "validation": 161
+      },
+      "sha256": {
+        "labels-check.json": "79e72012a9b84ca13c143393f32487b148fef874dd22d27d22b19f30b329a6a4",
+        "labels.jsonl.gz": "064138502576f1f723db3b4c5c46fed86d2f709f3d5d43226204f0ac732704e4",
+        "inputs/verified.json": "5cdeb96b15a1c956e35ea17e01940f43c8f22a7b2bbc8b11df4a3ec5344e31c1"
+      }
+    },
+    "3": {
+      "revision": "9b2d0a8ef63fb6da13df6961af153725c35e8c68",
+      "prefix": "runs/discard-training-labels-v1-3p",
+      "roots": 458,
+      "root_splits": {
+        "train": 362,
+        "validation": 96
+      },
+      "sha256": {
+        "labels-check.json": "815a2c58bbbeb4a4d99f9119b893d6d084b037489c60aedacf916be7e1335f6e",
+        "labels.jsonl.gz": "55b18dabd65eefcd2c9c72098682a5b0974e4a13955d3d28537e18834a61de33",
+        "inputs/verified.json": "7d1f94a36a1a7180fb63ec944c6a07d598774b5c50105169f8059e86aecc9f75"
+      }
+    },
+    "4": {
+      "revision": "9b2d0a8ef63fb6da13df6961af153725c35e8c68",
+      "prefix": "runs/discard-training-labels-v1-4p",
+      "roots": 610,
+      "root_splits": {
+        "train": 452,
+        "validation": 158
+      },
+      "sha256": {
+        "labels-check.json": "002ecd444a1d34fe6199fef3b18fe582f10152e95be76097c9d042471b99126d",
+        "labels.jsonl.gz": "9da65506d96b4cb382dc3ef0a64c952270387d36799a4a854de71197156fa3b4",
+        "inputs/verified.json": "621483688379d2757e0e2e8e943859bde06cc6568671755fa80c4a04eae55e71"
+      }
+    },
+    "5": {
+      "revision": "9b2d0a8ef63fb6da13df6961af153725c35e8c68",
+      "prefix": "runs/discard-training-labels-v1-5p",
+      "roots": 857,
+      "root_splits": {
+        "train": 623,
+        "validation": 234
+      },
+      "sha256": {
+        "labels-check.json": "0569ab0706f0ccade6ed425289dec1b7edd8543c1e473171a042d3baf1895f90",
+        "labels.jsonl.gz": "30ed9bce917fa13701da6a02e29c932be5b3e220586915562a2cd866beba676b",
+        "inputs/verified.json": "8cac64d60baecb7dae606eaaeb633a77b0561a989ae196d1ad3dfdf6a3e8af52"
+      }
+    },
+    "6": {
+      "revision": "9b2d0a8ef63fb6da13df6961af153725c35e8c68",
+      "prefix": "runs/discard-training-labels-v1-6p",
+      "roots": 805,
+      "root_splits": {
+        "train": 620,
+        "validation": 185
+      },
+      "sha256": {
+        "labels-check.json": "62976861945a5ad82d934dc5edda50d04147475744a8c3f5c195f864772547dc",
+        "labels.jsonl.gz": "bc346984a2892c32e7a25e2315fe1405494cb723a412a8a26a1f6fb0366c9e0d",
+        "inputs/verified.json": "a532f7c7b97faee7c1ead30ef0cf69392841fcf7398f8a1825ed4f6efd0ceae1"
+      }
+    }
+  },
+  "labels_protocol_sha256": "10d4d203f162c7bdbae8a7131e7ea2c10532b33d5c8f837a93a5a1d295e809ae",
+  "feature_revision": "4.2-discard-correction",
+  "state_dim": 1216,
+  "action_dim": 100,
+  "margin": 0.025,
+  "epochs": 120,
+  "batch_size": 256,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.001,
+  "max_grad_norm": 1.0,
+  "evaluate_every": 5,
+  "loss": "Masked MSE between per-position centered predicted utilities and all 64-scenario action mean win credits. Common-random-number action differences, including every tie. No realized game outcomes, economic-prior fallback, forced winner or label filtering.",
+  "weighting": "Equal mass per player count, then source family, then observed whole deal, then root. Train and validation weighting computed separately.",
+  "selection": "Epoch0 parent baseline and every fifth epoch. Lowest weighted validation simulated regret; ties retain earlier epoch. Both seeds undergo fresh whole-game screens; no final seeds or strength claims from label metrics.",
+  "routing": "Stateless public flag for every multi-choice discard where max public cities >= end threshold minus3. Frozen parent logits and values elsewhere; within scope use learned action only if predicted advantage over parent exceeds fixed0.025. Not first-discard-only.",
+  "device": "cuda",
+  "training_location": "HF Jobs only",
+  "precision": {
+    "training": "float32, TF32 disabled",
+    "inference": "float64-exp-div-silu-v1 derivative, unchanged stored float32 weights",
+    "parity_rtol": 0.0001,
+    "parity_atol": 1e-05
+  },
+  "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+  "checks": [
+    "independent label verifier all3361 roots",
+    "frozen parent tensors exactly equal original",
+    "2553 strict native/ONNX/serving requests",
+    "2553 root eligibility/prefix/menu checks",
+    "new held-out complete-game development screen required before promotion"
+  ],
+  "qualification_eligible": false
+}

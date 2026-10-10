@@ -97,7 +97,13 @@ class RuleSpecialists(nn.Module):
 
 def policy_from_checkpoint(checkpoint):
     architecture = checkpoint.get("architecture", "policy")
-    if architecture in ["multiplayer", "multiplayer_ordered"]:
+    if architecture == "multiplayer_discard_correction":
+        from model_discard import DiscardPolicy, FEATURE_REVISION, STATE_DIM, ACTION_DIM
+        if (checkpoint.get("feature_revision") != FEATURE_REVISION
+                or checkpoint.get("state_dim") != STATE_DIM or checkpoint.get("action_dim") != ACTION_DIM):
+            raise ValueError("Discard correction feature contract mismatch")
+        net = DiscardPolicy(**checkpoint.get("model_args", {}))
+    elif architecture in ["multiplayer", "multiplayer_ordered"]:
         from model_v4 import MultiplayerPolicy
 
         args = dict(checkpoint.get("model_args", {}))

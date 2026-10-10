@@ -1,0 +1,39 @@
+{
+  "source": {
+    "archive": "strong-source-discard-training-labels-20261010-v1.tgz",
+    "revision": "06dc14dc8614b2564e1b163769482e484d6d71e5",
+    "sha256": "ddbba5ba27557fa3fb6927b8a555044f08f6138efbae8383d6537f6d42772c6f",
+    "base": {
+      "archive": "strong-source-discard-training-collection-20261010-v1.tgz",
+      "revision": "f09a6a028512fdcaf46e4d52f3e52a39c8291305",
+      "sha256": "2dd2f43d90d134fd9c64aed7efc5688f18cf8421bd0b0f967a61c734ae76928d"
+    },
+    "overlays": {
+      "ai/strong/verify-discard-training-collection.py": "4f31b121b231db09b71be4d4b89d6d532520594ecdc738bfba560a5832179a18",
+      "ai/strong/label-discard-training.py": "03840a098a4275261fba3c38d68d6b58236c9bbaacd9165b58164704efb770bc",
+      "ai/strong/discard-training-labels-protocol-v1.json": "10d4d203f162c7bdbae8a7131e7ea2c10532b33d5c8f837a93a5a1d295e809ae",
+      "ai/strong/discard-training-collection-source-v1.json": "3e4fd6087e821337b35ae6b61fe6f1d541aa094253d1348a4bb5e8ffbebfd3d8"
+    },
+    "unchanged_base_file_count": 1349,
+    "protocol_sha256": "10d4d203f162c7bdbae8a7131e7ea2c10532b33d5c8f837a93a5a1d295e809ae",
+    "qualification_eligible": false
+  },
+  "smokes": [
+    {
+      "players": 2,
+      "roots": 4,
+      "evaluations": 32,
+      "truncated": 0,
+      "exact_features_logits_and_sample_outcomes": true
+    },
+    {
+      "players": 6,
+      "roots": 4,
+      "evaluations": 24,
+      "truncated": 0,
+      "exact_features_logits_and_sample_outcomes": true
+    }
+  ],
+  "trained": false,
+  "qualification_eligible": false
+}

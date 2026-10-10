@@ -6,6 +6,7 @@
     "2p-search_geo",
     "2p-snapshot0",
     "3p-economic",
+    "3p-search_geo",
     "3p-snapshot0",
     "4p-economic",
     "4p-snapshot0",
@@ -15,14 +16,13 @@
     "6p-snapshot0"
   ],
   "pending_shards": [
-    "3p-search_geo",
     "4p-search_geo",
     "5p-search_geo",
     "6p-search_geo"
   ],
-  "unique_games": 2688,
-  "engine_game_runs": 5376,
-  "roots": 136966,
+  "unique_games": 2880,
+  "engine_game_runs": 5760,
+  "roots": 147417,
   "shards": {
     "2p-economic": {
       "games": 128,
@@ -290,6 +290,85 @@
         "roots.jsonl.gz": "010826fb3fd7b57350cfebffcf8d2c9cc69b7f2b24c0b0cb987b257f9d96e056",
         "collection-check.json": "6e194f2b6f5aa3e25d80a73d3d18527ce8c6d0e15f18fca8bd6a84a10def2a4b",
         "games.json": "dd87747d51eae35b3f8fc7c5fbfe7150f77bc439eb916cf839c8af21079e93be"
+      }
+    },
+    "3p-search_geo": {
+      "games": 192,
+      "roots": 10451,
+      "public_model_proposals_reproduced": 10451,
+      "root_counts": {
+        "auction": {
+          "train": 4765,
+          "validation": 1615
+        },
+        "building": {
+          "train": 3025,
+          "validation": 1046
+        }
+      },
+      "coverage": {
+        "auction/train/original/False/0": 499,
+        "auction/train/original/False/1": 544,
+        "auction/train/original/False/2": 504,
+        "auction/train/original/True/0": 364,
+        "auction/train/original/True/1": 312,
+        "auction/train/original/True/2": 324,
+        "auction/train/recharged/False/0": 517,
+        "auction/train/recharged/False/1": 414,
+        "auction/train/recharged/False/2": 456,
+        "auction/train/recharged/True/0": 299,
+        "auction/train/recharged/True/1": 269,
+        "auction/train/recharged/True/2": 263,
+        "auction/validation/original/False/0": 193,
+        "auction/validation/original/False/1": 171,
+        "auction/validation/original/False/2": 163,
+        "auction/validation/original/True/0": 124,
+        "auction/validation/original/True/1": 114,
+        "auction/validation/original/True/2": 108,
+        "auction/validation/recharged/False/0": 166,
+        "auction/validation/recharged/False/1": 161,
+        "auction/validation/recharged/False/2": 131,
+        "auction/validation/recharged/True/0": 108,
+        "auction/validation/recharged/True/1": 86,
+        "auction/validation/recharged/True/2": 90,
+        "building/train/original/False/0": 278,
+        "building/train/original/False/1": 257,
+        "building/train/original/False/2": 267,
+        "building/train/original/True/0": 232,
+        "building/train/original/True/1": 258,
+        "building/train/original/True/2": 278,
+        "building/train/recharged/False/0": 241,
+        "building/train/recharged/False/1": 256,
+        "building/train/recharged/False/2": 258,
+        "building/train/recharged/True/0": 237,
+        "building/train/recharged/True/1": 243,
+        "building/train/recharged/True/2": 220,
+        "building/validation/original/False/0": 82,
+        "building/validation/original/False/1": 98,
+        "building/validation/original/False/2": 99,
+        "building/validation/original/True/0": 74,
+        "building/validation/original/True/1": 93,
+        "building/validation/original/True/2": 93,
+        "building/validation/recharged/False/0": 84,
+        "building/validation/recharged/False/1": 94,
+        "building/validation/recharged/False/2": 87,
+        "building/validation/recharged/True/0": 83,
+        "building/validation/recharged/True/1": 85,
+        "building/validation/recharged/True/2": 74
+      },
+      "seconds": 2160.710446965,
+      "engine_seconds": 2102.9071799080034,
+      "policy_seconds": 21.535220513000013,
+      "game_truncations": 0,
+      "search_truncations": 0,
+      "qualification_eligible": false,
+      "revision": "73242585764795b390c3067a74666ce056cf5ef4",
+      "prefix": "runs/strategic-training-collection-v1-3p-search_geo",
+      "verified_sha256": "4e5c606b1f5d37c5d20326331adac9f8d0e2095d251255b67f8e972ea90d3e0c",
+      "artifacts": {
+        "roots.jsonl.gz": "ca8a47242b9f6730684eb68ff34671bb6f576519e6831f3d586cb230038cf5e5",
+        "collection-check.json": "46e6670be197aa5ba195431b55ed55e6c4e72077396b8dc349eab8723fa528e7",
+        "games.json": "67866464be8aaee6167a5bae5f8dbd54b4588c4e304303f757253f44b0da7e26"
       }
     },
     "3p-snapshot0": {

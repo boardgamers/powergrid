@@ -15,7 +15,7 @@ a = p.parse_args()
 torch.set_num_threads(1)
 original = torch.load(a.checkpoint, map_location='cpu', weights_only=True)
 assert original.get('inference_precision', 'float32') == 'float32'
-assert original['architecture'] in ['multiplayer_ordered', 'multiplayer_ordered_plants', 'multiplayer_discard_correction']
+assert original['architecture'] in ['multiplayer_ordered', 'multiplayer_ordered_plants', 'multiplayer_discard_correction', 'multiplayer_strategic_correction']
 assert all(v.dtype == torch.float32 for v in original['state_dict'].values())
 derivative = {**original, 'inference_precision': 'float64', 'inference_only': True,
     'inference_transform': 'float64-exp-div-silu-v1',

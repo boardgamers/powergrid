@@ -1,6 +1,6 @@
 {
   "smoke": true,
-  "all_shards_verified": false,
+  "all_shards_verified": true,
   "verified_shards": [
     "2p-economic",
     "2p-search_geo",
@@ -15,14 +15,13 @@
     "5p-search_geo",
     "5p-snapshot0",
     "6p-economic",
+    "6p-search_geo",
     "6p-snapshot0"
   ],
-  "pending_shards": [
-    "6p-search_geo"
-  ],
-  "unique_games": 216,
-  "engine_game_runs": 432,
-  "roots": 10944,
+  "pending_shards": [],
+  "unique_games": 240,
+  "engine_game_runs": 480,
+  "roots": 12208,
   "shards": {
     "2p-economic": {
       "games": 8,
@@ -809,6 +808,85 @@
         "roots.jsonl.gz": "a78b96f10ade25e647ad99bc7eb0534777d8cc82d697a6d0683ddb9a25f3027a",
         "collection-check.json": "cb7d7411543e7922760e22b64a3982f8736a97279b2a81a1213e200c44406487",
         "games.json": "ca1ef349c782b14144cf767c2be936918ca32e62af723dfa0c1d513655a29c21"
+      }
+    },
+    "6p-search_geo": {
+      "games": 24,
+      "roots": 1264,
+      "public_model_proposals_reproduced": 1264,
+      "root_counts": {
+        "auction": {
+          "train": 0,
+          "validation": 907
+        },
+        "building": {
+          "train": 0,
+          "validation": 357
+        }
+      },
+      "coverage": {
+        "auction/validation/original/False/0": 55,
+        "auction/validation/original/False/1": 60,
+        "auction/validation/original/False/2": 49,
+        "auction/validation/original/False/3": 34,
+        "auction/validation/original/False/4": 41,
+        "auction/validation/original/False/5": 46,
+        "auction/validation/original/True/0": 37,
+        "auction/validation/original/True/1": 41,
+        "auction/validation/original/True/2": 25,
+        "auction/validation/original/True/3": 28,
+        "auction/validation/original/True/4": 25,
+        "auction/validation/original/True/5": 29,
+        "auction/validation/recharged/False/0": 58,
+        "auction/validation/recharged/False/1": 54,
+        "auction/validation/recharged/False/2": 45,
+        "auction/validation/recharged/False/3": 47,
+        "auction/validation/recharged/False/4": 35,
+        "auction/validation/recharged/False/5": 45,
+        "auction/validation/recharged/True/0": 30,
+        "auction/validation/recharged/True/1": 24,
+        "auction/validation/recharged/True/2": 25,
+        "auction/validation/recharged/True/3": 23,
+        "auction/validation/recharged/True/4": 23,
+        "auction/validation/recharged/True/5": 28,
+        "building/validation/original/False/0": 15,
+        "building/validation/original/False/1": 16,
+        "building/validation/original/False/2": 19,
+        "building/validation/original/False/3": 15,
+        "building/validation/original/False/4": 14,
+        "building/validation/original/False/5": 17,
+        "building/validation/original/True/0": 10,
+        "building/validation/original/True/1": 14,
+        "building/validation/original/True/2": 14,
+        "building/validation/original/True/3": 19,
+        "building/validation/original/True/4": 16,
+        "building/validation/original/True/5": 10,
+        "building/validation/recharged/False/0": 16,
+        "building/validation/recharged/False/1": 16,
+        "building/validation/recharged/False/2": 20,
+        "building/validation/recharged/False/3": 18,
+        "building/validation/recharged/False/4": 17,
+        "building/validation/recharged/False/5": 15,
+        "building/validation/recharged/True/0": 14,
+        "building/validation/recharged/True/1": 7,
+        "building/validation/recharged/True/2": 7,
+        "building/validation/recharged/True/3": 19,
+        "building/validation/recharged/True/4": 13,
+        "building/validation/recharged/True/5": 16
+      },
+      "seconds": 3031.437715214,
+      "engine_seconds": 3022.7126755960007,
+      "policy_seconds": 2.5666721560006636,
+      "game_truncations": 0,
+      "search_truncations": 0,
+      "qualification_eligible": false,
+      "revision": "6c1a9c14abbadd1f8051c83dc4a68885f56bb65e",
+      "prefix": "runs/strategic-training-collection-smoke-v1-6p-search_geo",
+      "verified_sha256": "89b724ab58b3a3d996b7622357d0b0d21e5428e45ce614746171000ef9e68a15",
+      "artifacts": {
+        "roots.jsonl.gz": "bfea4ea88b14ccd4204ede19a9854b2ceeca609f7282b458dc78450ddaeceb77",
+        "collection-check.json": "d628a7c368f93ba64d4520e4ac3d05ffde2d3d1669555eabdfc488919d54d674",
+        "games.json": "74e31bbfabc90ce3634cfdcc049b611406333ba2a25af149471cd7fe1771da23"
       }
     },
     "6p-snapshot0": {

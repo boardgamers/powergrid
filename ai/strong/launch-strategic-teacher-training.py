@@ -1,4 +1,4 @@
-"""First-wave HF labels, admitted from verified matching runtime probes."""
+"""HF labels admitted from matching probes, then the verified entire first wave."""
 import argparse
 from collections import defaultdict
 from datetime import datetime,timezone
@@ -29,10 +29,40 @@ def admission(n,mode,p):
         'worst_probe_root_seconds':worst,'projected_seconds':projected,'timeout_hours':hours,'admitted':hours<=12,
         'scope':'Conservative linear projection, not a guarantee; first24 roots must finish before admitting remaining chunks.'}
 
+def continuation_admission(n, family, mode, start, end, p):
+    assert start in range(2,16,2) and end == start+2
+    source=read(ROOT/'ai/strong/strategic-teacher-training-source-v1.json')
+    # Require all20 pilot shards, even if this individual continuation finished early.
+    for count in p['players']:
+        for source_mode in p['source_modes']:
+            for continuation in p['modes']:
+                folder=ROOT/f'ai/runs/strategic-teacher-training-verified-v1/{count}p-{source_mode}-{continuation}-0-2'
+                v=read(folder/'verified.json')
+                assert v['verified'] and v['source_revision']==source['revision'] and v['source_sha256']==source['sha256']
+                assert v['protocol_sha256']==source['protocol_sha256'] and v['roots_sha256']==p['roots_sha256']
+                for name,sha in v['artifacts'].items():assert Path(name).name==name and digest(folder/name)==sha
+                x=v['summary']
+                assert (x['players'],x['source_mode'],x['mode'],x['deal_start'],x['deal_end'])==(count,source_mode,continuation,0,2)
+                assert x['positions']==24 and x['searches']==48 and x['samples']==p['samples']
+                assert x['game_truncations']==x['nested_truncations']==0
+    folder=ROOT/f'ai/runs/strategic-teacher-training-verified-v1/{n}p-{family}-{mode}-0-2'
+    v=read(folder/'verified.json');seconds=defaultdict(float)
+    import gzip
+    with gzip.open(folder/'labels.jsonl.gz','rt') as f:
+        for row in map(json.loads,f):seconds[row['rootId']]+=row['timing']['seconds']
+    assert len(seconds)==24 and all(math.isfinite(x) and x>0 for x in seconds.values())
+    projected=120+2*max(seconds.values())*24
+    hours=max(4,math.ceil(projected/(.75*3600)))
+    return {'first_wave_revision':v['revision'],'first_wave_verified_sha256':digest(folder/'verified.json'),
+        'first_wave_seconds':v['summary']['seconds'],'worst_first_wave_root_seconds':max(seconds.values()),
+        'projected_seconds':projected,'timeout_hours':hours,'admitted':hours<=12,
+        'scope':'All20 pilot shards verified;2x slowest same-family/count/continuation root across24 roots,25% timeout headroom.'}
+
 def main():
     parser=argparse.ArgumentParser(__doc__);parser.add_argument('players',type=int,choices=range(2,7))
     parser.add_argument('source_mode',choices=['economic','snapshot0']);parser.add_argument('mode',choices=['neural','neural_economic'])
     parser.add_argument('--retry-image-pull',action='store_true')
+    parser.add_argument('--start',type=int,default=0);parser.add_argument('--end',type=int,default=2)
     a=parser.parse_args();source=read(ROOT/'ai/strong/strategic-teacher-training-source-v1.json')
     protocol=ROOT/'ai/strong/strategic-teacher-training-protocol-v1.json';p=read(protocol)
     assert digest(protocol)==source['protocol_sha256'];roots=read(ROOT/'ai/strong/strategic-teacher-training-roots-v1.json')
@@ -40,10 +70,14 @@ def main():
         path=ROOT/(roots['local_file'] if name==roots['file'] else name);assert digest(path)==sha
     check=read(ROOT/'ai/strong/strategic-teacher-training-preflight-v1.json')
     assert check['passed'] and check['source_sha256']==source['sha256']
-    runtime=admission(a.players,a.mode,p);assert runtime['admitted'],'Split first wave; do not lower horizons or sample count'
+    assert a.start in range(0,16,2) and a.end==a.start+2
+    runtime=admission(a.players,a.mode,p) if a.start==0 else continuation_admission(a.players,a.source_mode,a.mode,a.start,a.end,p)
+    assert runtime['admitted'],'Split first wave; do not lower horizons or sample count'
     guards=ROOT/'ai/runs/strategic-teacher-training-launches-v1';guards.mkdir(exist_ok=True)
-    key=f'{a.players}p-{a.source_mode}-{a.mode}-0-2';guard=guards/(key+'.json');retry={}
-    image='pytorch/pytorch:2.6.0-cuda12.4-cudnn9-runtime'
+    key=f'{a.players}p-{a.source_mode}-{a.mode}-{a.start}-{a.end}';guard=guards/(key+'.json');retry={}
+    small_image=a.start>0
+    image='python:3.11-slim-bookworm' if small_image else 'pytorch/pytorch:2.6.0-cuda12.4-cudnn9-runtime'
+    parity_prefix='runs/strategic-teacher-training-runtime-v1/'+key
     if a.retry_image_pull:
         old=read(guard);api=HfApi();status=api.inspect_job(job_id=old['job_id']).status
         assert status.stage=='ERROR' and 'ErrImagePull' in status.message and 'timeout awaiting response headers' in status.message
@@ -51,17 +85,19 @@ def main():
         retry={'retry_of_job_id':old['job_id'],'original_status':'ERROR',
             'reason':'Image pull timed out before program execution; authoritative terminal state confirmed.',
             'serving_parity_prefix':'runs/strategic-teacher-training-retry-v1/'+key}
-        guard=guards/(key+'.retry-image-pull-1.json');image='python:3.11-slim-bookworm'
+        guard=guards/(key+'.retry-image-pull-1.json');image='python:3.11-slim-bookworm';small_image=True
+        parity_prefix=retry['serving_parity_prefix']
     record={'stage':'launch_intent','created_at':datetime.now(timezone.utc).isoformat(),'players':a.players,
-        'source_mode':a.source_mode,'mode':a.mode,'deal_start':0,'deal_end':2,
+        'source_mode':a.source_mode,'mode':a.mode,'deal_start':a.start,'deal_end':a.end,
         'source_revision':source['revision'],'source_sha256':source['sha256'],'protocol_sha256':digest(protocol),
-        'runtime_admission':runtime,'timeout_hours':runtime['timeout_hours'],'image':image,**retry,'qualification_eligible':False}
+        'runtime_admission':runtime,'timeout_hours':runtime['timeout_hours'],'image':image,'serving_parity_prefix':parity_prefix if small_image else None,**retry,'qualification_eligible':False}
     with guard.open('x') as f:json.dump(record,f,indent=2)
     command=['hf','jobs','run','--detach','--flavor','cpu-performance','--timeout',str(runtime['timeout_hours'])+'h',
         '--secrets','HF_TOKEN','--label','project=powergrid-ai','--label','stage=strategic-teacher-training-v1-'+key]
     for k,v in {'PLAYERS':str(a.players),'SOURCE_MODE':a.source_mode,'MODE':a.mode,'SOURCE_ARCHIVE':source['archive'],
         'SOURCE_REVISION':source['revision'],'SOURCE_SHA256':source['sha256'],'HF_HUB_DISABLE_PROGRESS_BARS':'1',
-        'CPU_IMAGE_RETRY':'1' if a.retry_image_pull else '0','RUN_KEY':key}.items():command+=['--env',k+'='+v]
+        'CPU_IMAGE_RETRY':'1' if small_image else '0','RUN_KEY':key,
+        'START':str(a.start),'END':str(a.end),'PARITY_PREFIX':parity_prefix}.items():command+=['--env',k+'='+v]
     command+=['--',image,'bash','-lc','''
 set -euo pipefail
 if [ "$CPU_IMAGE_RETRY" = 1 ]; then
@@ -94,10 +130,10 @@ p=Path('ai/runs/retry-serving-parity-v1.json');r=json.loads(p.read_text())
 r['runtime']={'python':platform.python_version(),'onnxruntime':onnxruntime.__version__,'numpy':numpy.__version__,'image':'python:3.11-slim-bookworm'}
 p.write_text(json.dumps(r,indent=2)+'\\n')
 HfApi().upload_file(repo_id='coyotte508/powergrid-ai-germany-v1',path_or_fileobj=p,
- path_in_repo='runs/strategic-teacher-training-retry-v1/'+os.environ['RUN_KEY']+'/serving-parity.json')
+ path_in_repo=os.environ['PARITY_PREFIX']+'/serving-parity.json')
 PY
 fi
-python -u ai/strong/strategic_training_labels.py "$PLAYERS" "$SOURCE_MODE" "$MODE" 0 2 ai/runs/strategic-teacher-labels --upload
+python -u ai/strong/strategic_training_labels.py "$PLAYERS" "$SOURCE_MODE" "$MODE" "$START" "$END" ai/runs/strategic-teacher-labels --upload
 ''']
     try:
         result=subprocess.run(command,cwd=ROOT,capture_output=True,text=True,check=True)

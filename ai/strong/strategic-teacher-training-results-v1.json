@@ -1,0 +1,687 @@
+{
+  "verified_shards": 12,
+  "expected_shards": 160,
+  "all_shards_verified": false,
+  "first_wave_verified": 12,
+  "first_wave_complete": false,
+  "positions_by_mode": {
+    "neural": 48,
+    "neural_economic": 240
+  },
+  "complete_mixture_roots": 48,
+  "evaluations": 137856,
+  "paired_mixture_diagnostic": {
+    "train": {
+      "roots": 24,
+      "all": {
+        "all": {
+          "roots": 24,
+          "a_selected_b_advantage": 0.08203125,
+          "b_selected_a_advantage": 0.09440104166666667,
+          "same_choice_fraction": 0.5833333333333334
+        }
+      },
+      "decision": {
+        "bid": {
+          "roots": 8,
+          "a_selected_b_advantage": 0.009765625,
+          "b_selected_a_advantage": 0.05208333333333333,
+          "same_choice_fraction": 0.75
+        },
+        "building": {
+          "roots": 8,
+          "a_selected_b_advantage": 0.18815104166666669,
+          "b_selected_a_advantage": 0.201171875,
+          "same_choice_fraction": 0.75
+        },
+        "nomination": {
+          "roots": 8,
+          "a_selected_b_advantage": 0.048177083333333336,
+          "b_selected_a_advantage": 0.02994791666666667,
+          "same_choice_fraction": 0.25
+        }
+      },
+      "players": {
+        "2": {
+          "roots": 24,
+          "a_selected_b_advantage": 0.08203125,
+          "b_selected_a_advantage": 0.09440104166666667,
+          "same_choice_fraction": 0.5833333333333334
+        }
+      },
+      "rules": {
+        "original/open": {
+          "roots": 6,
+          "a_selected_b_advantage": 0.17100694444444445,
+          "b_selected_a_advantage": 0.20746527777777776,
+          "same_choice_fraction": 0.6666666666666666
+        },
+        "original/sealed": {
+          "roots": 6,
+          "a_selected_b_advantage": 0.012152777777777776,
+          "b_selected_a_advantage": -0.008680555555555556,
+          "same_choice_fraction": 0.3333333333333333
+        },
+        "recharged/open": {
+          "roots": 6,
+          "a_selected_b_advantage": 0.008680555555555552,
+          "b_selected_a_advantage": 0.022569444444444444,
+          "same_choice_fraction": 0.6666666666666666
+        },
+        "recharged/sealed": {
+          "roots": 6,
+          "a_selected_b_advantage": 0.1362847222222222,
+          "b_selected_a_advantage": 0.15625,
+          "same_choice_fraction": 0.6666666666666666
+        }
+      }
+    },
+    "validation": {
+      "roots": 24,
+      "all": {
+        "all": {
+          "roots": 24,
+          "a_selected_b_advantage": 0.08875868055555557,
+          "b_selected_a_advantage": 0.07530381944444445,
+          "same_choice_fraction": 0.6666666666666666
+        }
+      },
+      "decision": {
+        "bid": {
+          "roots": 8,
+          "a_selected_b_advantage": 0.166015625,
+          "b_selected_a_advantage": 0.16731770833333331,
+          "same_choice_fraction": 0.75
+        },
+        "building": {
+          "roots": 8,
+          "a_selected_b_advantage": 0.04361979166666667,
+          "b_selected_a_advantage": 0.020833333333333336,
+          "same_choice_fraction": 0.625
+        },
+        "nomination": {
+          "roots": 8,
+          "a_selected_b_advantage": 0.05664062499999999,
+          "b_selected_a_advantage": 0.037760416666666664,
+          "same_choice_fraction": 0.625
+        }
+      },
+      "players": {
+        "2": {
+          "roots": 24,
+          "a_selected_b_advantage": 0.08875868055555557,
+          "b_selected_a_advantage": 0.07530381944444445,
+          "same_choice_fraction": 0.6666666666666666
+        }
+      },
+      "rules": {
+        "original/open": {
+          "roots": 6,
+          "a_selected_b_advantage": 0.030381944444444444,
+          "b_selected_a_advantage": 0.020833333333333332,
+          "same_choice_fraction": 0.5
+        },
+        "original/sealed": {
+          "roots": 6,
+          "a_selected_b_advantage": 0.09375,
+          "b_selected_a_advantage": 0.05121527777777778,
+          "same_choice_fraction": 0.5
+        },
+        "recharged/open": {
+          "roots": 6,
+          "a_selected_b_advantage": 0.171875,
+          "b_selected_a_advantage": 0.15104166666666666,
+          "same_choice_fraction": 0.6666666666666666
+        },
+        "recharged/sealed": {
+          "roots": 6,
+          "a_selected_b_advantage": 0.05902777777777777,
+          "b_selected_a_advantage": 0.078125,
+          "same_choice_fraction": 1.0
+        }
+      }
+    }
+  },
+  "cases": {
+    "2p-economic-neural-0-2": {
+      "players": 2,
+      "source_mode": "economic",
+      "mode": "neural",
+      "deal_start": 0,
+      "deal_end": 2,
+      "positions": 24,
+      "searches": 48,
+      "samples": 48,
+      "evaluations": 11712,
+      "root_splits": {
+        "validation": 12,
+        "train": 12
+      },
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "engine_seconds": 355.0550423189761,
+      "policy_seconds": 733.7722743949865,
+      "seconds": 1126.0438231130001,
+      "a_selected_b_mean_advantage": {
+        "train": 0.060763888888888895,
+        "validation": 0.1171875
+      },
+      "scope": "Conditional simulation targets and independent-batch diagnostic, not whole-game playing strength.",
+      "revision": "3d67c0f4735f16f0a6c7bd70c28ff85153ab3814",
+      "prefix": "runs/strategic-teacher-training-v1-2p-economic-neural-0-2",
+      "artifacts": {
+        "labels.jsonl.gz": "1e933b433d8cc8d9921fbae612b720f5a1db302dd5b8120bbee243e461ea75d3",
+        "label-check.json": "adea2faffa6b4e14e10d949848a6ec8e422b3221fc3e5a1ea3ab536d642fdb8a"
+      },
+      "verified_sha256": "a471d0d3ce7093aef6e4935607db483987dc54f8e3f9f8d24433c4088d49fd5d"
+    },
+    "2p-economic-neural_economic-0-2": {
+      "players": 2,
+      "source_mode": "economic",
+      "mode": "neural_economic",
+      "deal_start": 0,
+      "deal_end": 2,
+      "positions": 24,
+      "searches": 48,
+      "samples": 48,
+      "evaluations": 11712,
+      "root_splits": {
+        "validation": 12,
+        "train": 12
+      },
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "engine_seconds": 200.73075471700247,
+      "policy_seconds": 404.6332281649919,
+      "seconds": 630.6996424560001,
+      "a_selected_b_mean_advantage": {
+        "train": 0.033854166666666664,
+        "validation": 0.05208333333333332
+      },
+      "scope": "Conditional simulation targets and independent-batch diagnostic, not whole-game playing strength.",
+      "revision": "73242585764795b390c3067a74666ce056cf5ef4",
+      "prefix": "runs/strategic-teacher-training-v1-2p-economic-neural_economic-0-2",
+      "artifacts": {
+        "labels.jsonl.gz": "fb5015d62136c76fa5be240bf0e9ee1c26627a38daa293081b07ab43280dc0da",
+        "label-check.json": "57ab83bb5138c8e88caae1c6090cd6f118846e9dcb40ec002807519e4a6f3255"
+      },
+      "verified_sha256": "5a87ffde0f3757c94f78ac892735bb2f18fd3e1b8eceb9a4daabb5e685c80ad8"
+    },
+    "2p-snapshot0-neural-0-2": {
+      "players": 2,
+      "source_mode": "snapshot0",
+      "mode": "neural",
+      "deal_start": 0,
+      "deal_end": 2,
+      "positions": 24,
+      "searches": 48,
+      "samples": 48,
+      "evaluations": 10848,
+      "root_splits": {
+        "validation": 12,
+        "train": 12
+      },
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "engine_seconds": 309.1924167659982,
+      "policy_seconds": 605.0783821449999,
+      "seconds": 948.083502675,
+      "a_selected_b_mean_advantage": {
+        "train": 0.10503472222222222,
+        "validation": 0.15972222222222224
+      },
+      "scope": "Conditional simulation targets and independent-batch diagnostic, not whole-game playing strength.",
+      "revision": "3d67c0f4735f16f0a6c7bd70c28ff85153ab3814",
+      "prefix": "runs/strategic-teacher-training-v1-2p-snapshot0-neural-0-2",
+      "artifacts": {
+        "labels.jsonl.gz": "67d68996411825e0489be90d66b399ae1aa5066e8ceee38d5f66d5e540bd3311",
+        "label-check.json": "225a3089446ed3d8853953ca29da228cbcd1768ab93f0c90e857f8f9991af269"
+      },
+      "verified_sha256": "ff4cc5e879873f8d0ab4955ffeffe7c889e8ff0be26af6a26a6c2cdbf99bfe11"
+    },
+    "2p-snapshot0-neural_economic-0-2": {
+      "players": 2,
+      "source_mode": "snapshot0",
+      "mode": "neural_economic",
+      "deal_start": 0,
+      "deal_end": 2,
+      "positions": 24,
+      "searches": 48,
+      "samples": 48,
+      "evaluations": 10848,
+      "root_splits": {
+        "validation": 12,
+        "train": 12
+      },
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "engine_seconds": 168.47118977599834,
+      "policy_seconds": 318.1406298430021,
+      "seconds": 509.45290356499993,
+      "a_selected_b_mean_advantage": {
+        "train": 0.13020833333333331,
+        "validation": 0.07812500000000001
+      },
+      "scope": "Conditional simulation targets and independent-batch diagnostic, not whole-game playing strength.",
+      "revision": "73242585764795b390c3067a74666ce056cf5ef4",
+      "prefix": "runs/strategic-teacher-training-v1-2p-snapshot0-neural_economic-0-2",
+      "artifacts": {
+        "labels.jsonl.gz": "8990ebe39ac6e88f8888b04b8ce6aa8f70e3a471be975fd9c1c8e2aa000cf56b",
+        "label-check.json": "a30d24612e771634bc8eecf2eafc85d08e7530189b08c3db26ed7ac0e37ca6a0"
+      },
+      "verified_sha256": "19c0beb7e15bc09fac151bd9be99995135811ad9ac496d84a4fe6df1312b1ffd"
+    },
+    "3p-economic-neural_economic-0-2": {
+      "players": 3,
+      "source_mode": "economic",
+      "mode": "neural_economic",
+      "deal_start": 0,
+      "deal_end": 2,
+      "positions": 24,
+      "searches": 48,
+      "samples": 48,
+      "evaluations": 11616,
+      "root_splits": {
+        "validation": 12,
+        "train": 12
+      },
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "engine_seconds": 179.41042359899785,
+      "policy_seconds": 363.99277566799566,
+      "seconds": 567.7266728249999,
+      "a_selected_b_mean_advantage": {
+        "train": 0.024305555555555556,
+        "validation": 0.08680555555555557
+      },
+      "scope": "Conditional simulation targets and independent-batch diagnostic, not whole-game playing strength.",
+      "revision": "73242585764795b390c3067a74666ce056cf5ef4",
+      "prefix": "runs/strategic-teacher-training-v1-3p-economic-neural_economic-0-2",
+      "artifacts": {
+        "labels.jsonl.gz": "6e49d62e0a5cad271c12e3ec96d688f6a10cc2322887c44c4903aefb1adf6ab1",
+        "label-check.json": "e10fe0c181004f6a1f8470e9f30f25986d079006b9718034acdbd03678f625c0"
+      },
+      "verified_sha256": "49385422ef66c7fb1b64ae005d8bcb036343cf35b91cad852dad68ec6a5d3604"
+    },
+    "3p-snapshot0-neural_economic-0-2": {
+      "players": 3,
+      "source_mode": "snapshot0",
+      "mode": "neural_economic",
+      "deal_start": 0,
+      "deal_end": 2,
+      "positions": 24,
+      "searches": 48,
+      "samples": 48,
+      "evaluations": 11616,
+      "root_splits": {
+        "validation": 12,
+        "train": 12
+      },
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "engine_seconds": 198.30636725599936,
+      "policy_seconds": 376.8824610010005,
+      "seconds": 600.6908535839999,
+      "a_selected_b_mean_advantage": {
+        "train": 0.030381944444444444,
+        "validation": 0.03125
+      },
+      "scope": "Conditional simulation targets and independent-batch diagnostic, not whole-game playing strength.",
+      "revision": "3d67c0f4735f16f0a6c7bd70c28ff85153ab3814",
+      "prefix": "runs/strategic-teacher-training-v1-3p-snapshot0-neural_economic-0-2",
+      "artifacts": {
+        "labels.jsonl.gz": "625504dd53685677273a343a1aadd4d66a1d09d3c15b8635e551eb275057a367",
+        "label-check.json": "0cadebfa111388810c3f29f45ac41e2fe4f0158ffdad6b9ed4d5f0b70bb64e9e"
+      },
+      "verified_sha256": "5a0e2d571021650a0fa5fe99c611604e51a18401fb8b6b5b405fbebc09e79299"
+    },
+    "4p-economic-neural_economic-0-2": {
+      "players": 4,
+      "source_mode": "economic",
+      "mode": "neural_economic",
+      "deal_start": 0,
+      "deal_end": 2,
+      "positions": 24,
+      "searches": 48,
+      "samples": 48,
+      "evaluations": 11424,
+      "root_splits": {
+        "validation": 12,
+        "train": 12
+      },
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "engine_seconds": 196.90360175399593,
+      "policy_seconds": 378.31892876700186,
+      "seconds": 599.216257087,
+      "a_selected_b_mean_advantage": {
+        "train": 0.06597222222222222,
+        "validation": 0.09288194444444446
+      },
+      "scope": "Conditional simulation targets and independent-batch diagnostic, not whole-game playing strength.",
+      "revision": "3d67c0f4735f16f0a6c7bd70c28ff85153ab3814",
+      "prefix": "runs/strategic-teacher-training-v1-4p-economic-neural_economic-0-2",
+      "artifacts": {
+        "labels.jsonl.gz": "8b8c5756b2240e123c91279f3d25ba5b2edb017cb554e29069d34aa0f9ef9aee",
+        "label-check.json": "75ce351291f09e78d70d0f081aefae9c420ca4cfdc730cd91164b8b3ecbfc0b7"
+      },
+      "verified_sha256": "8cec172a7faeb8b6b831a9835b332aefb0f6b90a6bb00ad94d1df873176af633"
+    },
+    "4p-snapshot0-neural_economic-0-2": {
+      "players": 4,
+      "source_mode": "snapshot0",
+      "mode": "neural_economic",
+      "deal_start": 0,
+      "deal_end": 2,
+      "positions": 24,
+      "searches": 48,
+      "samples": 48,
+      "evaluations": 12000,
+      "root_splits": {
+        "validation": 12,
+        "train": 12
+      },
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "engine_seconds": 195.09114036999875,
+      "policy_seconds": 374.17099087900147,
+      "seconds": 596.088807225,
+      "a_selected_b_mean_advantage": {
+        "train": 0.0017361111111111108,
+        "validation": 0.0625
+      },
+      "scope": "Conditional simulation targets and independent-batch diagnostic, not whole-game playing strength.",
+      "revision": "73242585764795b390c3067a74666ce056cf5ef4",
+      "prefix": "runs/strategic-teacher-training-v1-4p-snapshot0-neural_economic-0-2",
+      "artifacts": {
+        "labels.jsonl.gz": "0a3b59d9939ae6c8794068dd83dde32ce3bc20d9640af786e7a4a7b1e74bd352",
+        "label-check.json": "8d0cdcd187cc1eecd0185dc29d6466459e799ff9033d94594dfd4991a654c0ce"
+      },
+      "verified_sha256": "af3eaaf66181b3278f087443464d7ee258e0af3a3594a562045394d9160f6eb2"
+    },
+    "5p-economic-neural_economic-0-2": {
+      "players": 5,
+      "source_mode": "economic",
+      "mode": "neural_economic",
+      "deal_start": 0,
+      "deal_end": 2,
+      "positions": 24,
+      "searches": 48,
+      "samples": 48,
+      "evaluations": 11712,
+      "root_splits": {
+        "validation": 12,
+        "train": 12
+      },
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "engine_seconds": 181.49067415000044,
+      "policy_seconds": 339.180404520003,
+      "seconds": 545.622169019,
+      "a_selected_b_mean_advantage": {
+        "train": 0.03993055555555555,
+        "validation": 0.08159722222222222
+      },
+      "scope": "Conditional simulation targets and independent-batch diagnostic, not whole-game playing strength.",
+      "revision": "73242585764795b390c3067a74666ce056cf5ef4",
+      "prefix": "runs/strategic-teacher-training-v1-5p-economic-neural_economic-0-2",
+      "artifacts": {
+        "labels.jsonl.gz": "da10aa735eb5e4e570d0d9158242b47e2823b1e46cfed34af404b6b08a152a8a",
+        "label-check.json": "27e66bc9e975deb3167c4a8be8c7d8f321a11d46dc088600d072bb2420b11bc4"
+      },
+      "verified_sha256": "c22b87078cbed06d34a63f9aa07d5a6f74499b892eee39ec050fa969907a0f3d"
+    },
+    "5p-snapshot0-neural_economic-0-2": {
+      "players": 5,
+      "source_mode": "snapshot0",
+      "mode": "neural_economic",
+      "deal_start": 0,
+      "deal_end": 2,
+      "positions": 24,
+      "searches": 48,
+      "samples": 48,
+      "evaluations": 11904,
+      "root_splits": {
+        "validation": 12,
+        "train": 12
+      },
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "engine_seconds": 184.90332468999713,
+      "policy_seconds": 335.23186561100397,
+      "seconds": 546.596416463,
+      "a_selected_b_mean_advantage": {
+        "train": 0.07986111111111112,
+        "validation": 0.05381944444444444
+      },
+      "scope": "Conditional simulation targets and independent-batch diagnostic, not whole-game playing strength.",
+      "revision": "73242585764795b390c3067a74666ce056cf5ef4",
+      "prefix": "runs/strategic-teacher-training-v1-5p-snapshot0-neural_economic-0-2",
+      "artifacts": {
+        "labels.jsonl.gz": "a8fc90d51da5d31d11ffd5d58b8d5d4b8b7bf731805b9135d28a65c03409cfc5",
+        "label-check.json": "f6a40e686330986a123ffb4f7cd239072abe45bea5f308232d5003c11451db39"
+      },
+      "verified_sha256": "68883fc65562d9e00e27d087581bcba90020600132dd851bf2f9dfb27799b8bc"
+    },
+    "6p-economic-neural_economic-0-2": {
+      "players": 6,
+      "source_mode": "economic",
+      "mode": "neural_economic",
+      "deal_start": 0,
+      "deal_end": 2,
+      "positions": 24,
+      "searches": 48,
+      "samples": 48,
+      "evaluations": 11712,
+      "root_splits": {
+        "validation": 12,
+        "train": 12
+      },
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "engine_seconds": 197.63298506902902,
+      "policy_seconds": 361.0962007780108,
+      "seconds": 585.918358379,
+      "a_selected_b_mean_advantage": {
+        "train": 0.06944444444444445,
+        "validation": 0.11979166666666667
+      },
+      "scope": "Conditional simulation targets and independent-batch diagnostic, not whole-game playing strength.",
+      "revision": "3d67c0f4735f16f0a6c7bd70c28ff85153ab3814",
+      "prefix": "runs/strategic-teacher-training-v1-6p-economic-neural_economic-0-2",
+      "artifacts": {
+        "labels.jsonl.gz": "d32e4e4c60bfd4b0ec250a8ecfb84a0dfc572eb4cd7a8a0ebcc2c95013553122",
+        "label-check.json": "d144ad5404ca1aefbaad46478d2659fea456c1598884fa075e68f83e9ffd9e7f"
+      },
+      "verified_sha256": "5e54cf9817513199f164f413e40b5b753e5c148f23d48e53438d173655cc22ba"
+    },
+    "6p-snapshot0-neural_economic-0-2": {
+      "players": 6,
+      "source_mode": "snapshot0",
+      "mode": "neural_economic",
+      "deal_start": 0,
+      "deal_end": 2,
+      "positions": 24,
+      "searches": 48,
+      "samples": 48,
+      "evaluations": 10752,
+      "root_splits": {
+        "validation": 12,
+        "train": 12
+      },
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "engine_seconds": 178.05360472299907,
+      "policy_seconds": 345.003131423001,
+      "seconds": 548.1069048009999,
+      "a_selected_b_mean_advantage": {
+        "train": 0.031249999999999997,
+        "validation": 0.11284722222222222
+      },
+      "scope": "Conditional simulation targets and independent-batch diagnostic, not whole-game playing strength.",
+      "revision": "73242585764795b390c3067a74666ce056cf5ef4",
+      "prefix": "runs/strategic-teacher-training-v1-6p-snapshot0-neural_economic-0-2",
+      "artifacts": {
+        "labels.jsonl.gz": "00b61301aede4dbe62c32a55ed793b6dcf4c6c495421c6fe3bd7c22f22cf58a8",
+        "label-check.json": "06465f3952cd8160552221ed21531fb8e6d6aa987bb15b74102ad39d6aa3d778"
+      },
+      "verified_sha256": "57083b53ac2049bd2deeb1c2228db44079d501ba0535e1ada585de7ef1a8ab76"
+    }
+  },
+  "pending": [
+    "2p-economic-neural-2-4",
+    "2p-economic-neural_economic-2-4",
+    "2p-economic-neural-4-6",
+    "2p-economic-neural_economic-4-6",
+    "2p-economic-neural-6-8",
+    "2p-economic-neural_economic-6-8",
+    "2p-economic-neural-8-10",
+    "2p-economic-neural_economic-8-10",
+    "2p-economic-neural-10-12",
+    "2p-economic-neural_economic-10-12",
+    "2p-economic-neural-12-14",
+    "2p-economic-neural_economic-12-14",
+    "2p-economic-neural-14-16",
+    "2p-economic-neural_economic-14-16",
+    "2p-snapshot0-neural-2-4",
+    "2p-snapshot0-neural_economic-2-4",
+    "2p-snapshot0-neural-4-6",
+    "2p-snapshot0-neural_economic-4-6",
+    "2p-snapshot0-neural-6-8",
+    "2p-snapshot0-neural_economic-6-8",
+    "2p-snapshot0-neural-8-10",
+    "2p-snapshot0-neural_economic-8-10",
+    "2p-snapshot0-neural-10-12",
+    "2p-snapshot0-neural_economic-10-12",
+    "2p-snapshot0-neural-12-14",
+    "2p-snapshot0-neural_economic-12-14",
+    "2p-snapshot0-neural-14-16",
+    "2p-snapshot0-neural_economic-14-16",
+    "3p-economic-neural-0-2",
+    "3p-economic-neural-2-4",
+    "3p-economic-neural_economic-2-4",
+    "3p-economic-neural-4-6",
+    "3p-economic-neural_economic-4-6",
+    "3p-economic-neural-6-8",
+    "3p-economic-neural_economic-6-8",
+    "3p-economic-neural-8-10",
+    "3p-economic-neural_economic-8-10",
+    "3p-economic-neural-10-12",
+    "3p-economic-neural_economic-10-12",
+    "3p-economic-neural-12-14",
+    "3p-economic-neural_economic-12-14",
+    "3p-economic-neural-14-16",
+    "3p-economic-neural_economic-14-16",
+    "3p-snapshot0-neural-0-2",
+    "3p-snapshot0-neural-2-4",
+    "3p-snapshot0-neural_economic-2-4",
+    "3p-snapshot0-neural-4-6",
+    "3p-snapshot0-neural_economic-4-6",
+    "3p-snapshot0-neural-6-8",
+    "3p-snapshot0-neural_economic-6-8",
+    "3p-snapshot0-neural-8-10",
+    "3p-snapshot0-neural_economic-8-10",
+    "3p-snapshot0-neural-10-12",
+    "3p-snapshot0-neural_economic-10-12",
+    "3p-snapshot0-neural-12-14",
+    "3p-snapshot0-neural_economic-12-14",
+    "3p-snapshot0-neural-14-16",
+    "3p-snapshot0-neural_economic-14-16",
+    "4p-economic-neural-0-2",
+    "4p-economic-neural-2-4",
+    "4p-economic-neural_economic-2-4",
+    "4p-economic-neural-4-6",
+    "4p-economic-neural_economic-4-6",
+    "4p-economic-neural-6-8",
+    "4p-economic-neural_economic-6-8",
+    "4p-economic-neural-8-10",
+    "4p-economic-neural_economic-8-10",
+    "4p-economic-neural-10-12",
+    "4p-economic-neural_economic-10-12",
+    "4p-economic-neural-12-14",
+    "4p-economic-neural_economic-12-14",
+    "4p-economic-neural-14-16",
+    "4p-economic-neural_economic-14-16",
+    "4p-snapshot0-neural-0-2",
+    "4p-snapshot0-neural-2-4",
+    "4p-snapshot0-neural_economic-2-4",
+    "4p-snapshot0-neural-4-6",
+    "4p-snapshot0-neural_economic-4-6",
+    "4p-snapshot0-neural-6-8",
+    "4p-snapshot0-neural_economic-6-8",
+    "4p-snapshot0-neural-8-10",
+    "4p-snapshot0-neural_economic-8-10",
+    "4p-snapshot0-neural-10-12",
+    "4p-snapshot0-neural_economic-10-12",
+    "4p-snapshot0-neural-12-14",
+    "4p-snapshot0-neural_economic-12-14",
+    "4p-snapshot0-neural-14-16",
+    "4p-snapshot0-neural_economic-14-16",
+    "5p-economic-neural-0-2",
+    "5p-economic-neural-2-4",
+    "5p-economic-neural_economic-2-4",
+    "5p-economic-neural-4-6",
+    "5p-economic-neural_economic-4-6",
+    "5p-economic-neural-6-8",
+    "5p-economic-neural_economic-6-8",
+    "5p-economic-neural-8-10",
+    "5p-economic-neural_economic-8-10",
+    "5p-economic-neural-10-12",
+    "5p-economic-neural_economic-10-12",
+    "5p-economic-neural-12-14",
+    "5p-economic-neural_economic-12-14",
+    "5p-economic-neural-14-16",
+    "5p-economic-neural_economic-14-16",
+    "5p-snapshot0-neural-0-2",
+    "5p-snapshot0-neural-2-4",
+    "5p-snapshot0-neural_economic-2-4",
+    "5p-snapshot0-neural-4-6",
+    "5p-snapshot0-neural_economic-4-6",
+    "5p-snapshot0-neural-6-8",
+    "5p-snapshot0-neural_economic-6-8",
+    "5p-snapshot0-neural-8-10",
+    "5p-snapshot0-neural_economic-8-10",
+    "5p-snapshot0-neural-10-12",
+    "5p-snapshot0-neural_economic-10-12",
+    "5p-snapshot0-neural-12-14",
+    "5p-snapshot0-neural_economic-12-14",
+    "5p-snapshot0-neural-14-16",
+    "5p-snapshot0-neural_economic-14-16",
+    "6p-economic-neural-0-2",
+    "6p-economic-neural-2-4",
+    "6p-economic-neural_economic-2-4",
+    "6p-economic-neural-4-6",
+    "6p-economic-neural_economic-4-6",
+    "6p-economic-neural-6-8",
+    "6p-economic-neural_economic-6-8",
+    "6p-economic-neural-8-10",
+    "6p-economic-neural_economic-8-10",
+    "6p-economic-neural-10-12",
+    "6p-economic-neural_economic-10-12",
+    "6p-economic-neural-12-14",
+    "6p-economic-neural_economic-12-14",
+    "6p-economic-neural-14-16",
+    "6p-economic-neural_economic-14-16",
+    "6p-snapshot0-neural-0-2",
+    "6p-snapshot0-neural-2-4",
+    "6p-snapshot0-neural_economic-2-4",
+    "6p-snapshot0-neural-4-6",
+    "6p-snapshot0-neural_economic-4-6",
+    "6p-snapshot0-neural-6-8",
+    "6p-snapshot0-neural_economic-6-8",
+    "6p-snapshot0-neural-8-10",
+    "6p-snapshot0-neural_economic-8-10",
+    "6p-snapshot0-neural-10-12",
+    "6p-snapshot0-neural_economic-10-12",
+    "6p-snapshot0-neural-12-14",
+    "6p-snapshot0-neural_economic-12-14",
+    "6p-snapshot0-neural-14-16",
+    "6p-snapshot0-neural_economic-14-16"
+  ],
+  "scope": "Equal neural/economic continuation mixture; selection on A evaluated on B and vice versa. Descriptive simulation diagnostic only, not whole-game strength or a confidence interval.",
+  "protocol_sha256": "3c39786cc6c44a3838d3c4183c312c94a26563222b2720572010b76bbdd62a76",
+  "source_revision": "837d94e14272163c33e5e55fa9c24b24686a28ae",
+  "source_sha256": "a011f9ee4b8116b99220913a7db9d00849e9e593137cdb7e435e116fcafdd6c3",
+  "gradients_started": false,
+  "qualification_eligible": false
+}

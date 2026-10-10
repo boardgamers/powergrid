@@ -6,7 +6,111 @@ final-test seeds remain unused.** The separate UI redesign was reverted.
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
 `ai/germany-baseline`. No UI work or publication is part of this AI continuation.
 
-## Latest: balanced teacher labels running; five-player search exposes a regression
+## Latest: first teacher labels verified; frozen-parent correction preflight passes
+
+Previous goal turn: **progress** (balanced label jobs dispatched and five-player
+search regression verified). This turn: **progress**. The production UI revert
+remains complete and is separate from this work. The earlier AI work was committed
+and pushed as `22700badf23ca0cbc9f1b30825828fd4ebec0c24`.
+
+**Labels:** 12 of 20 pilot shards independently verified, 137,856 full paired
+simulations, no caps. All 10 `neural_economic` cases and both 2p `neural` cases are
+complete. The eight 3–6p `neural` jobs are authoritatively RUNNING on their original
+handles; do not relaunch them. The three historical image-pull errors already have
+completed, verified replacements. Raw revision for the original seven completed
+shards: `73242585764795b390c3067a74666ce056cf5ef4`; the remaining five were collected
+at `3d67c0f4735f16f0a6c7bd70c28ff85153ab3814`. Individual immutable pins and hashes:
+`strong/strategic-teacher-training-results-v1.json` and each local
+`runs/strategic-teacher-training-verified-v1/*/verified.json`.
+
+Both continuation modes are available for only **48 two-player roots**, 24 train
+and 24 validation. Equal-mixture choices selected on A gain 8.88 percentage points
+on B over the parent on validation; reversing A/B gives 7.53 points. Choice
+agreement is 66.7%. These are small, conditional simulation diagnostics, **not
+whole-game win rates, confidence intervals or model qualification**. All roots
+remain in the dataset, including weak/negative/uncertain labels. First partial
+label evidence: revision `c4d264577f6e6db24fea4238a5d80031046e5c04`, prefix
+`runs/strategic-teacher-training-first-partial-evidence-v1`.
+
+The label launcher now accepts `--start N --end N+2` for the remaining 140 chunks,
+but **requires all 20 independently verified pilot shards first**. It uses the
+slowest observed same-count/source/mode root, 2x margin and 25% timeout headroom.
+Invalid ranges and incomplete-pilot admission were explicitly rejected. Future
+chunks use the smaller Python CPU image and run all 2,553 serving parity checks
+before labeling. No continuation chunks have been launched yet; first-wave guards
+remain unchanged.
+
+**Collection:** 2,880 full unique games / 5,760 twin executions and 147,417 roots
+verified. The new 3p/search collection has 192 games and 10,451 roots, source raw
+revision `73242585764795b390c3067a74666ce056cf5ef4`. All 15 collection probes are
+verified (240 games / 12,208 roots). The 6p/search probe took 3,031.438s; raw revision
+`6c1a9c14abbadd1f8051c83dc4a68885f56bb65e`. The unsplit estimate exceeded admission,
+so four original-deal pieces were launched at 10h each, all confirmed RUNNING:
+
+- [0,4): `6aca8277fee2c9007018b4d9`
+- [4,8): `6aca8278fee2c9007018b4dc`
+- [8,12): `6aca8279fee2c9007018b4de`
+- [12,16): `6aca827afee2c9007018b4e0`
+
+All 12 collection pieces across 4–6p are RUNNING. Preserve the original whole-job
+`stage: split_plan` guards; they intentionally have no job_id. Strict full-case
+merge still needs implementation once pieces verify. The 6p guided evaluation
+jobs (`6aca6ba9fee2c9007018a204`, `6aca6babfee2c9007018a206`,
+`6aca6bad095c5780893147f0`) are also confirmed RUNNING; no new 6p strength result.
+
+**Continuation runtime probes:** all 20 verified, 832 outer and 1,348,096 nested
+rollouts, zero caps. The last 4p/neural_search case took 1,181.961s and used 378,112
+nested rollouts. Completed probe/collection evidence: revision
+`4d8352fba22b93a55aa1aa0a6483bbbcb2d7afaa`, prefix
+`runs/strategic-runtime-completed-probes-evidence-v1`.
+
+**Next learned correction is implemented, untrained.** Schema
+`4.3-strategic-correction` adds one public eligibility bit and one shortlist bit,
+preserving the entire 4.2 parent prefix and legal menu. It reuses the frozen
+ordered-player embeddings and adds a 97,473-parameter head. It may select only the
+teacher shortlist plus the parent proposal, and switches only above the fixed
+0.025 predicted-advantage margin. Parent values and all other decisions stay
+frozen. The complete trainable 10102 parent is pinned at revision
+`b115a2d78aae095e51fb72a5535b3507abdf90c0`, path
+`runs/discard-correction-v1/10102/best.pt`, SHA256
+`66a10b831a54843063bbca89743a542ed1f89515a16452a40483eef369c59bd8`.
+Do not initialize training from its inference-only derivative.
+
+The design/loss is recorded before gradients in
+`strong/strategic-correction-design-v1.json`. Targets average paired outcomes
+across both continuation modes **within each sampled world before estimating
+uncertainty**, then combine the independent A/B batches (96 samples). Weighted
+MSE learns soft action advantages; noisy/negative evidence is retained, no winner
+labels. All roots have equal total weight. Seeds 11101/11102, 120 epochs, validation
+selection every fifth epoch, epoch0 parent baseline. No threshold tuning from the
+small pilot metrics. The full-grid loader rejects partial coverage before downloads
+or gradients; `train-strategic-correction.py` also requires HF/CUDA and frozen source,
+design and data-manifest hashes. The loader/trainer are compiled but **have not yet
+been executed on the complete dataset**. No gradient job or frozen training source
+exists yet.
+
+Preflight evidence: feature/menu/shortlist/hidden-state invariance on all 2,553
+fixtures (1,096 eligible), two routing tests, four paired-target tests. A boolean
+scatter initially failed ONNX export; an equivalent dynamic-index equality mask
+fixed it. Failed local attempt retained at `runs/strategic-correction-preflight-v1`;
+accepted output is `runs/strategic-correction-preflight-v2`. Zero correction matches
+the actual frozen parent on all 2,553 positions, including choices/values, and
+passes native/export parity and legal serving. Local **HX370**, not the 8840U:
+median/p95 round-trip 3.916/8.217ms for the untrained prototype. Do not count this
+as the requested final hardware benchmark. Prototype evidence/code/checkpoint:
+revision `a4ff888a73e33f5b29918978f1beabac5dd437d0`, prefix
+`runs/strategic-correction-preflight-evidence-v1`.
+
+**Next:** finish the original eight label jobs; independently collect and inspect
+the complete first-wave mixture, then admit the remaining 140 label chunks. Finish
+4–6p collection and 6p arenas on their existing handles. Once all 160 labels verify,
+freeze the complete manifest/source (include the known teacher source descriptor
+and root gzip), run the HF training/export checks, independently verify outcomes
+and perform fresh full-game screens. Source bootstrap must pass `DESIGN_SHA256`
+and `DATA_MANIFEST_SHA256` to the trainer; do not attempt to put a source archive's
+own future revision/hash inside that same archive. Reserved final seeds stay unused.
+
+## Previous: balanced teacher labels running; five-player search exposes a regression
 
 Previous goal turn: **progress** (2,560 full collection games verified and
 continuation probes dispatched). This turn: **progress**:480 guided5p games and

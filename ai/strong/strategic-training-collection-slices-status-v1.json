@@ -61,7 +61,7 @@
       "end": 12,
       "timeout_hours": 7,
       "job_id": "6aca7ec7095c578089315550",
-      "status": "SCHEDULING"
+      "status": "RUNNING"
     },
     "5p-search_geo-12-16": {
       "players": 5,
@@ -70,9 +70,45 @@
       "end": 16,
       "timeout_hours": 7,
       "job_id": "6aca7ec7fee2c9007018b137",
-      "status": "SCHEDULING"
+      "status": "RUNNING"
+    },
+    "6p-search_geo-8-12": {
+      "players": 6,
+      "mode": "search_geo",
+      "start": 8,
+      "end": 12,
+      "timeout_hours": 10,
+      "job_id": "6aca8279fee2c9007018b4de",
+      "status": "RUNNING"
+    },
+    "6p-search_geo-0-4": {
+      "players": 6,
+      "mode": "search_geo",
+      "start": 0,
+      "end": 4,
+      "timeout_hours": 10,
+      "job_id": "6aca8277fee2c9007018b4d9",
+      "status": "RUNNING"
+    },
+    "6p-search_geo-12-16": {
+      "players": 6,
+      "mode": "search_geo",
+      "start": 12,
+      "end": 16,
+      "timeout_hours": 10,
+      "job_id": "6aca827afee2c9007018b4e0",
+      "status": "RUNNING"
+    },
+    "6p-search_geo-4-8": {
+      "players": 6,
+      "mode": "search_geo",
+      "start": 4,
+      "end": 8,
+      "timeout_hours": 10,
+      "job_id": "6aca8278fee2c9007018b4dc",
+      "status": "RUNNING"
     }
   },
   "qualification_eligible": false,
-  "checked_at": "2026-10-10T18:08:34.804489+00:00"
+  "checked_at": "2026-10-10T18:28:19.150769+00:00"
 }

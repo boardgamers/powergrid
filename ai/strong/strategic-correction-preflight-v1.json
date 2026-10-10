@@ -1,0 +1,33 @@
+{
+  "positions": 2553,
+  "eligible": 1096,
+  "parent": {
+    "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+    "path": "runs/discard-correction-v1/10102/best.pt",
+    "sha256": "66a10b831a54843063bbca89743a542ed1f89515a16452a40483eef369c59bd8"
+  },
+  "parent_tensors_unchanged": true,
+  "parent_actions_and_values_preserved": true,
+  "native_export_serving_parity": {
+    "positions": 2553,
+    "by_player_count": {
+      "2": 349,
+      "3": 427,
+      "4": 527,
+      "5": 609,
+      "6": 641
+    },
+    "inactive_values_zero": true,
+    "feature_revision": "4.3-strategic-correction",
+    "model_sha256": "bf08d13ad2feebbe923684d0e2c8bc5a658fe4f2aaf9b26fd67bcf7ce64100d1",
+    "max_logit_error": 4.746425474877469e-10,
+    "max_value_error": 1.0236589353951331e-11,
+    "all_actions_match": true,
+    "specialist_route_counts": {}
+  },
+  "local_output": "ai/runs/strategic-correction-preflight-v2",
+  "head_parameters": 97473,
+  "gradients": 0,
+  "scope": "Untrained zero correction only. No training, tuned threshold or strength claim.",
+  "qualification_eligible": false
+}

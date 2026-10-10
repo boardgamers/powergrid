@@ -1,5 +1,5 @@
 {
-  "all_cases_verified": false,
+  "all_cases_verified": true,
   "cases": {
     "2p-neural": {
       "players": 2,
@@ -201,6 +201,26 @@
         "probe-check.json": "c9112f6c2eba7f5f5c7d1d800f74d786756a76173c032631c955360249dd3984"
       }
     },
+    "4p-neural_search": {
+      "players": 4,
+      "mode": "neural_search",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 44,
+      "nested_evaluations": 378112,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 1181.9610033929998,
+      "engine_seconds": 1178.0384874830002,
+      "policy_seconds": 2.386313245999389,
+      "revision": "73242585764795b390c3067a74666ce056cf5ef4",
+      "prefix": "runs/strategic-teacher-probe-v1-4p-neural_search",
+      "verified_sha256": "a718b36986195f14b2c74ff602480ddd0d5d1c436c647b7aab68d84043b53c16",
+      "artifacts": {
+        "rollouts.jsonl": "9e96090d4c5c772d0efbc61794e179bac59e481eff47ce1bab5d53abaf1e4b38",
+        "probe-check.json": "3ebb46227161ad6ec97d76cca757312e62d21c32638756a738c70790adc71b3a"
+      }
+    },
     "4p-mixed_control": {
       "players": 4,
       "mode": "mixed_control",
@@ -382,11 +402,9 @@
       }
     }
   },
-  "pending_cases": [
-    "4p-neural_search"
-  ],
-  "evaluations": 788,
-  "nested_evaluations": 969984,
+  "pending_cases": [],
+  "evaluations": 832,
+  "nested_evaluations": 1348096,
   "source_revision": "ca3be3ff81cc259135daa50e9bdf41590b6552ff",
   "source_sha256": "c4a700ef7fb6c83c5e85060c52bc49b8eea94ff1c65c62b0bbcc39f0905b91fd",
   "protocol_sha256": "f19085fef326bfba66895648d2a33309b2be929615ed85ffa3b021be661a21dd",

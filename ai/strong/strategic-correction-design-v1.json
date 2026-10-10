@@ -1,0 +1,51 @@
+{
+  "stage": "design fixed before gradients; full data and job source still pending",
+  "purpose": "Learn soft paired strategic advantages while freezing the complete10102 parent.",
+  "feature_revision": "4.3-strategic-correction",
+  "state_dim": 1217,
+  "action_dim": 101,
+  "parent": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+    "path": "runs/discard-correction-v1/10102/best.pt",
+    "sha256": "66a10b831a54843063bbca89743a542ed1f89515a16452a40483eef369c59bd8",
+    "architecture": "multiplayer_discard_correction",
+    "seed": 10102,
+    "epoch": 10,
+    "inference_only": false
+  },
+  "label_protocol_sha256": "3c39786cc6c44a3838d3c4183c312c94a26563222b2720572010b76bbdd62a76",
+  "roots_sha256": "f0fd62b4dd75c6b6c0936adeb1ffc75a2747cb2c62debe6b5d0aba60dbb4a091",
+  "required_label_shards": 160,
+  "train_roots": 1440,
+  "validation_roots": 480,
+  "representation": "Frozen ordered-player context384 plus66 extra public state features; frozen action embedding128 plus100 raw action features. New97473-parameter head. No parent or value-head gradients.",
+  "loss": "Subtract predicted utility of the exact teacher parent proposal. MSE against the mean paired action advantage, no hard winner labels. Normalize uncertainty weights inside each root, then average roots equally.",
+  "continuation_mixture": "Equal neural and neural_economic. Average each paired sample across modes before estimating variance, preserving common-world covariance. Concatenate independent A/B batches into96 samples.",
+  "uncertainty": {
+    "noise_floor": 0.05,
+    "minimum_weight": 0.25,
+    "maximum_weight": 1.0,
+    "formula": "clip(noise_floor^2 / (noise_floor^2 + sample_variance/96),0.25,1). Retain negative and uncertain targets."
+  },
+  "routing": "Only multi-choice nomination/bid/build. Same6-proposal geographic/economic shortlist plus frozen parent proposal. Correct only if predicted gain exceeds fixed margin. Preserve parent logits/values elsewhere. No out-of-shortlist extrapolation.",
+  "margin": 0.025,
+  "parent_margin": 0.025,
+  "seeds": [
+    11101,
+    11102
+  ],
+  "epochs": 120,
+  "batch_size": 256,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.001,
+  "max_grad_norm": 1.0,
+  "evaluate_every": 5,
+  "validation_selection": "Epoch0 parent baseline and every fifth epoch. Lowest mean validation simulated regret, ties retain earlier epoch. No validation gradients, threshold fitting or qualification from simulation targets.",
+  "training_device": "CUDA on HF Jobs only",
+  "tf32": false,
+  "export": "Unchanged stored float32 weights;float64-exp-div-silu-v1 arithmetic, strict2553-position native/ONNX/serving checks plus strategic target scope.",
+  "acceptance": "Fresh held-out complete-game comparisons to raw parent and independent baselines across2\u20136p/four rules before any final candidate. Explicitly retain5p Recharged/open regression diagnostic. Untouched reserved final gate and actual8840U exact-config benchmark still required.",
+  "gradients_started": false,
+  "qualification_eligible": false
+}

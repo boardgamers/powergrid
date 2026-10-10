@@ -6,7 +6,79 @@ final-test seeds remain unused.** The separate UI redesign was reverted.
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
 `ai/germany-baseline`. No UI work or publication is part of this AI continuation.
 
-## Latest: all phase comparisons and guided four-player games verified
+## Latest: fresh strategic training collection frozen; HF probes dispatched
+
+Previous goal turn: **progress** (all704 phase games and384 guided4p games
+verified). This turn: **progress** (new training-data collector implemented,
+privacy/twin checks passed, immutable source and evidence saved,15 HF probes
+dispatched). No gradients or new candidate yet. Six guided5–6p jobs are still
+RUNNING; the collection probes are SCHEDULING at the saved status timestamp.
+These are existing live jobs, not a reason to restart or duplicate submissions.
+
+The phase comparisons below support retaining **both auction and building
+contexts**, with explicit player-count/rule coverage. The new collector records
+every target-seat multi-choice nomination, bid or building decision on fresh
+Germany deals; no outcome, final-round, win/loss or future-action selection.
+It uses fixed10102 float64 inference, serially, and three opponent families:
+economic, unchanged search_geo16, and the same frozen10102 policy as opponents
+(snapshot0, frozen self-play with one designated learner observer). A260 is
+excluded from collection and remains a neural development reference.
+
+Full design:15 shards (2–6 players ×3 modes),16 independent deals/shard, all
+seats and original/Recharged ×open/sealed. Total3,840 unique games and7,680
+engine executions including twins. Whole deal indices0,4,8,12 are validation;
+all seats, rules and repeated roots from a deal stay together. All full and
+smoke prefixes are disjoint from evaluations and reserved final seeds. Labels
+and teacher targets are a separate later stage. Terminal rows are retained
+only to verify completion and coverage, not used to select roots or supervise
+strategic action values.
+
+**Checks passed:** all2,553 existing fixtures retain exact model inputs and
+legal menus;1,096 strategic positions (779 auction,317 building) re-encode
+identically from their sanitized public roots. Changing hidden decks/seeds,
+sealed bids and queued plans does not change those roots. Opponent money is
+retained as requested. Three contract tests reject incomplete grids, wrong
+seeds/rules/roles, truncation, unexpected learner search and bad terminal credits.
+An eight-game local diagnostic (16 twin executions) matched every observation,
+submitted action and terminal row exactly;441 roots, no caps. It is engineering
+evidence only and is excluded from training data. No local gradients.
+
+Source dataset revision `4462dade57131375986bd1b17ee13ff292292e0a`, archive
+`strong-source-strategic-training-collection-20261010-v1.tgz`, SHA256
+`1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0`.
+Protocol SHA256 `0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a`.
+All1,378 existing base files are unchanged; five added capture/collection/test/
+protocol files are frozen. Do not edit those overlays or rerun the exclusive
+source builder. Source and preflight records:
+`strong/strategic-training-collection-{source,preflight}-v1.json`.
+
+**All15 HF probes are dispatched**, one deal/case,240 unique games /480 twin
+executions planned. Exact handles are in
+`strong/strategic-training-collection-status-v1.json` and exclusive guards in
+`ai/runs/strategic-training-collection-launches-v1`. Launch/evidence snapshot:
+model repo revision `307d2ae752a30a687457f81a2847460cd4b04dc2`, prefix
+`runs/strategic-training-collection-launch-evidence-v1`, pin
+`strong/strategic-training-collection-launch-evidence-v1.json`.
+**No full collection shard is launched yet.**
+
+Manager: `ai/.venv/bin/python ai/strong/manage-strategic-collection.py`:
+`collect N MODE REV --smoke` independently checks every game, artifact hash,
+public root, legal menu and serial model proposal; then `profile N MODE` and
+`launch N MODE` admit that full shard. MODE is economic/search_geo/snapshot0.
+Runtime admission is120s+2×matching probe seconds×16 deals,25% timeout headroom,
+min4h/max12h; split work if too slow without lowering game/search horizons.
+Full collection uses `collect N MODE REV` without `--smoke`. All output
+directories and launch intents are exclusive; recover ambiguous outcomes from
+the exact HF handles rather than resubmitting. No root labels or gradients are
+created by any of these commands.
+
+**Next:** collect/admit the fresh-data shards as their probes finish; also
+collect the six existing5–6p guided arenas when complete. Inspect count/rule/
+phase coverage and runtime before freezing paired-continuation labels. Retain
+uncertainty rather than copying noisy winners; the planned learned correction
+must earn gains in fresh full-game comparisons. No candidate has qualified.
+
+## Earlier: all phase comparisons and guided four-player games verified
 
 The previous goal turn was **progress** (128 verified two-player phase games).
 This turn is **progress**: 576 additional phase games and 384 four-player guided

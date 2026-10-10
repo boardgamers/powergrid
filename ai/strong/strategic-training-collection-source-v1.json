@@ -1,0 +1,20 @@
+{
+  "archive": "strong-source-strategic-training-collection-20261010-v1.tgz",
+  "revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+  "sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+  "overlays": {
+    "ai/strong/capture-strategic-training.cjs": "556d7c4cd873c74a2c52568a03461ad04c384a19aa222f8de088cbd6480111fe",
+    "ai/strong/test-strategic-training-capture.cjs": "9c15adef6979e477a9c1d6e6dcc6ab18c9f87a1ac1c581b83964b1bf55b3a053",
+    "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+    "ai/strong/test_strategic_collection.py": "92814bce12a830d8ecaf2e4a1328ca6cdec2057dd70e3a6eeac0c4168eb7da31",
+    "ai/strong/strategic-training-collection-protocol-v1.json": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a"
+  },
+  "base": {
+    "archive": "strong-source-multiplayer-search-transfer-20261010-v1.tgz",
+    "revision": "a96a04f0914a34f4a86bcac0948db0e4777fa83d",
+    "sha256": "98fd31d794e96f0e4598db484cb074e899fe3af465b4c911d7c2abea6f15bbe2"
+  },
+  "unchanged_base_file_count": 1378,
+  "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+  "qualification_eligible": false
+}

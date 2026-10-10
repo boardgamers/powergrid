@@ -1,0 +1,63 @@
+{
+  "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+  "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+  "frozen_package_passed": true,
+  "fixtures": {
+    "positions": 2553,
+    "auction": 779,
+    "building": 317,
+    "excluded": 1457,
+    "by_players": {
+      "2": 125,
+      "3": 161,
+      "4": 241,
+      "5": 266,
+      "6": 303
+    },
+    "observations_unchanged": true,
+    "private_data_invariant": true
+  },
+  "contract_tests": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK",
+  "local_twin_smoke": {
+    "status": "complete",
+    "players": 2,
+    "mode": "economic",
+    "smoke": true,
+    "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+    "model_sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+    "source_revision": null,
+    "source_sha256": null,
+    "trained": false,
+    "labels_generated": false,
+    "qualification_eligible": false,
+    "games": 8,
+    "engine_game_runs": 16,
+    "roots": 441,
+    "root_counts": {
+      "auction": {
+        "train": 0,
+        "validation": 256
+      },
+      "building": {
+        "train": 0,
+        "validation": 185
+      }
+    },
+    "games_with_roots": 8,
+    "all_twin_controls_match": true,
+    "trajectory_sha256": "60e3b74ec02432c3c65a776b73d69b392e8ef40c28c4aa5658a9805a9cbcf826",
+    "decisions": 1375,
+    "steps": 205,
+    "engine_seconds": 2.334444556152448,
+    "policy_seconds": 1.2358145639445866,
+    "game_truncations": 0,
+    "search_truncations": 0,
+    "seconds": 4.676509898999939,
+    "artifacts": {
+      "roots.jsonl.gz": "4e6efdd15e1e4ac34c0b4f22cdb4dce057643e007f133887cbe0d6fc357f892b",
+      "games.json": "5d8381441b8c521fdade7c6c1fd8fc2c63550f40119aba75f6bbea22162863bc"
+    }
+  },
+  "scope": "Fixture privacy/menu parity plus local eight-game capture check. Independent HF probes still required before full launch.",
+  "qualification_eligible": false
+}

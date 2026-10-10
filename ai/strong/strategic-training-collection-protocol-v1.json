@@ -1,0 +1,57 @@
+{
+  "purpose": "Fresh public auction/building training roots with exact uninstrumented twin controls; no labels or gradients. All decisions selected before outcomes.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "model": {
+    "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+    "path": "runs/discard-correction-v1/10102/derivative/inference64.onnx",
+    "sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+    "feature_revision": "4.2-discard-correction",
+    "selection": "Fixed10102 used throughout phase diagnostics; not a new model selected from these games."
+  },
+  "players": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "modes": [
+    "economic",
+    "search_geo",
+    "snapshot0"
+  ],
+  "deals_per_shard": 16,
+  "validation_deal_indices": [
+    0,
+    4,
+    8,
+    12
+  ],
+  "workers": 24,
+  "ort_threads": 1,
+  "seed_template": "strategic-training-collection-v1-{players}p-{mode}",
+  "smoke_seed_template": "strategic-training-collection-smoke-v1-{players}p-{mode}",
+  "unique_games": 3840,
+  "engine_game_runs": 7680,
+  "games_by_players": {
+    "2": 384,
+    "3": 576,
+    "4": 768,
+    "5": 960,
+    "6": 1152
+  },
+  "root_selection": "Every target-seat multi-choice ChoosePowerPlant/Bid/Build observation; no terminal-result, win/loss, final-round or future-action filtering.",
+  "split": "Whole count/mode/deal units; all seats, rule combinations and repeated roots stay together. Training/evaluation/final seed prefixes disjoint.",
+  "sampling_policy": "Exact serial float64 ONNX policy. snapshot0 opponents use the same pinned policy, giving frozen self-play with one designated observer. search_geo remains16 samples,6 proposals,2400-step search cap. Learner search disabled.",
+  "independent_neural_reference": "A260 is excluded from this collection and remains a development evaluation reference.",
+  "controls": "Every collected game has an uninstrumented twin. Compare every model observation, submitted action and terminal row exactly. Actual game cap1600; every search cap counted.",
+  "outputs": [
+    "Every public root, exact legal menu, model proposal, game/decision ordinal and split.",
+    "All terminal rows for completion/coverage only; not teacher targets.",
+    "Exact twin comparison hashes and engine/inference timing."
+  ],
+  "qualification_eligible": false,
+  "trained": false,
+  "labels_generated": false,
+  "follow_up": "Freeze a separate paired-continuation teacher protocol after collection coverage/runtime; preserve uncertainty and do not equate these positions or labels with strength."
+}

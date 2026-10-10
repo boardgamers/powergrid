@@ -38480,7 +38480,7 @@
             "qualification_eligible": false
         },
         "status": {
-            "checked_at": "2026-10-10T17:14:11.513817+00:00",
+            "checked_at": "2026-10-10T17:27:28.697783+00:00",
             "jobs": {
                 "smoke-10102-3p": {
                     "job_id": "6aca61e3fee2c90070189b3e",
@@ -39109,5 +39109,239 @@
         "revision": "107ac032692cd7effd529bd03f7e6dc319602c55",
         "prefix": "runs/production-engine-compatibility-evidence-v1",
         "manifest_sha256": "76f55fe952ab338e887b893714dbca096de130ffd41f16a8d4b65c66408eae1a"
+    },
+    "strategic_training_collection_v1": {
+        "protocol_file": "ai/strong/strategic-training-collection-protocol-v1.json",
+        "source": {
+            "archive": "strong-source-strategic-training-collection-20261010-v1.tgz",
+            "revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+            "sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+            "overlays": {
+                "ai/strong/capture-strategic-training.cjs": "556d7c4cd873c74a2c52568a03461ad04c384a19aa222f8de088cbd6480111fe",
+                "ai/strong/test-strategic-training-capture.cjs": "9c15adef6979e477a9c1d6e6dcc6ab18c9f87a1ac1c581b83964b1bf55b3a053",
+                "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+                "ai/strong/test_strategic_collection.py": "92814bce12a830d8ecaf2e4a1328ca6cdec2057dd70e3a6eeac0c4168eb7da31",
+                "ai/strong/strategic-training-collection-protocol-v1.json": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a"
+            },
+            "base": {
+                "archive": "strong-source-multiplayer-search-transfer-20261010-v1.tgz",
+                "revision": "a96a04f0914a34f4a86bcac0948db0e4777fa83d",
+                "sha256": "98fd31d794e96f0e4598db484cb074e899fe3af465b4c911d7c2abea6f15bbe2"
+            },
+            "unchanged_base_file_count": 1378,
+            "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+            "qualification_eligible": false
+        },
+        "preflight": {
+            "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+            "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+            "frozen_package_passed": true,
+            "fixtures": {
+                "positions": 2553,
+                "auction": 779,
+                "building": 317,
+                "excluded": 1457,
+                "by_players": {
+                    "2": 125,
+                    "3": 161,
+                    "4": 241,
+                    "5": 266,
+                    "6": 303
+                },
+                "observations_unchanged": true,
+                "private_data_invariant": true
+            },
+            "contract_tests": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK",
+            "local_twin_smoke": {
+                "status": "complete",
+                "players": 2,
+                "mode": "economic",
+                "smoke": true,
+                "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+                "model_sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+                "source_revision": null,
+                "source_sha256": null,
+                "trained": false,
+                "labels_generated": false,
+                "qualification_eligible": false,
+                "games": 8,
+                "engine_game_runs": 16,
+                "roots": 441,
+                "root_counts": {
+                    "auction": {
+                        "train": 0,
+                        "validation": 256
+                    },
+                    "building": {
+                        "train": 0,
+                        "validation": 185
+                    }
+                },
+                "games_with_roots": 8,
+                "all_twin_controls_match": true,
+                "trajectory_sha256": "60e3b74ec02432c3c65a776b73d69b392e8ef40c28c4aa5658a9805a9cbcf826",
+                "decisions": 1375,
+                "steps": 205,
+                "engine_seconds": 2.334444556152448,
+                "policy_seconds": 1.2358145639445866,
+                "game_truncations": 0,
+                "search_truncations": 0,
+                "seconds": 4.676509898999939,
+                "artifacts": {
+                    "roots.jsonl.gz": "4e6efdd15e1e4ac34c0b4f22cdb4dce057643e007f133887cbe0d6fc357f892b",
+                    "games.json": "5d8381441b8c521fdade7c6c1fd8fc2c63550f40119aba75f6bbea22162863bc"
+                }
+            },
+            "scope": "Fixture privacy/menu parity plus local eight-game capture check. Independent HF probes still required before full launch.",
+            "qualification_eligible": false
+        },
+        "status": {
+            "checked_at": "2026-10-10T17:27:48.170901+00:00",
+            "jobs": {
+                "smoke-2p-economic": {
+                    "job_id": "6aca7567095c578089314f12",
+                    "status": "SCHEDULING",
+                    "players": 2,
+                    "mode": "economic",
+                    "smoke": true,
+                    "timeout_hours": 4
+                },
+                "smoke-2p-search_geo": {
+                    "job_id": "6aca7568fee2c9007018aa29",
+                    "status": "SCHEDULING",
+                    "players": 2,
+                    "mode": "search_geo",
+                    "smoke": true,
+                    "timeout_hours": 4
+                },
+                "smoke-2p-snapshot0": {
+                    "job_id": "6aca756afee2c9007018aa2b",
+                    "status": "SCHEDULING",
+                    "players": 2,
+                    "mode": "snapshot0",
+                    "smoke": true,
+                    "timeout_hours": 4
+                },
+                "smoke-3p-economic": {
+                    "job_id": "6aca756bfee2c9007018aa2f",
+                    "status": "SCHEDULING",
+                    "players": 3,
+                    "mode": "economic",
+                    "smoke": true,
+                    "timeout_hours": 4
+                },
+                "smoke-3p-search_geo": {
+                    "job_id": "6aca756c095c578089314f15",
+                    "status": "SCHEDULING",
+                    "players": 3,
+                    "mode": "search_geo",
+                    "smoke": true,
+                    "timeout_hours": 4
+                },
+                "smoke-3p-snapshot0": {
+                    "job_id": "6aca756e095c578089314f17",
+                    "status": "SCHEDULING",
+                    "players": 3,
+                    "mode": "snapshot0",
+                    "smoke": true,
+                    "timeout_hours": 4
+                },
+                "smoke-4p-economic": {
+                    "job_id": "6aca756f095c578089314f19",
+                    "status": "SCHEDULING",
+                    "players": 4,
+                    "mode": "economic",
+                    "smoke": true,
+                    "timeout_hours": 4
+                },
+                "smoke-4p-search_geo": {
+                    "job_id": "6aca7570095c578089314f1b",
+                    "status": "SCHEDULING",
+                    "players": 4,
+                    "mode": "search_geo",
+                    "smoke": true,
+                    "timeout_hours": 4
+                },
+                "smoke-4p-snapshot0": {
+                    "job_id": "6aca7571095c578089314f1d",
+                    "status": "SCHEDULING",
+                    "players": 4,
+                    "mode": "snapshot0",
+                    "smoke": true,
+                    "timeout_hours": 4
+                },
+                "smoke-5p-economic": {
+                    "job_id": "6aca7572095c578089314f1f",
+                    "status": "SCHEDULING",
+                    "players": 5,
+                    "mode": "economic",
+                    "smoke": true,
+                    "timeout_hours": 4
+                },
+                "smoke-5p-search_geo": {
+                    "job_id": "6aca7573fee2c9007018aa35",
+                    "status": "SCHEDULING",
+                    "players": 5,
+                    "mode": "search_geo",
+                    "smoke": true,
+                    "timeout_hours": 4
+                },
+                "smoke-5p-snapshot0": {
+                    "job_id": "6aca7574fee2c9007018aa39",
+                    "status": "SCHEDULING",
+                    "players": 5,
+                    "mode": "snapshot0",
+                    "smoke": true,
+                    "timeout_hours": 4
+                },
+                "smoke-6p-economic": {
+                    "job_id": "6aca7575fee2c9007018aa3b",
+                    "status": "SCHEDULING",
+                    "players": 6,
+                    "mode": "economic",
+                    "smoke": true,
+                    "timeout_hours": 4
+                },
+                "smoke-6p-search_geo": {
+                    "job_id": "6aca7576095c578089314f29",
+                    "status": "SCHEDULING",
+                    "players": 6,
+                    "mode": "search_geo",
+                    "smoke": true,
+                    "timeout_hours": 4
+                },
+                "smoke-6p-snapshot0": {
+                    "job_id": "6aca7577fee2c9007018aa3d",
+                    "status": "SCHEDULING",
+                    "players": 6,
+                    "mode": "snapshot0",
+                    "smoke": true,
+                    "timeout_hours": 4
+                }
+            },
+            "qualification_eligible": false
+        },
+        "launch_evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "307d2ae752a30a687457f81a2847460cd4b04dc2",
+            "prefix": "runs/strategic-training-collection-launch-evidence-v1",
+            "manifest_sha256": "2fe33ffd701c10d901c7acc3bc3023a65bcdee7a98b603c9862d5ae8ab9fc394",
+            "probe_jobs_dispatched": 15,
+            "probe_unique_games": 240,
+            "probe_engine_game_runs": 480,
+            "full_jobs_dispatched": 0,
+            "planned_full_unique_games": 3840,
+            "planned_full_engine_game_runs": 7680,
+            "qualification_eligible": false
+        },
+        "planned_full_unique_games": 3840,
+        "planned_full_engine_game_runs": 7680,
+        "probe_jobs_launched": 15,
+        "probe_unique_games": 240,
+        "full_jobs_launched": 0,
+        "trained": false,
+        "labels_generated": false,
+        "qualification_eligible": false,
+        "stage": "Fresh public auction/building capture frozen;15 matching HF runtime/twin probes scheduling. No full shards until independent complete-game/root verification and runtime admission. Existing6 guided5-6p evaluations remain live."
     }
 }

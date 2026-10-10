@@ -2,7 +2,7 @@
 All optimization runs on HF Jobs. No unfinished episodes cross policy updates.
 """
 
-import os, sys, json, time, random, copy
+import os, sys, json, time, random, copy, hashlib
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -15,6 +15,7 @@ from multiplayer import ROLE_REVISIONS, rotate_outcome, balance_training_rows
 from pool import EnginePool
 from arena_statistics import search_summary
 from snapshot_league import SnapshotLeague
+from frozen_population import load_population, actor_for_role
 from huggingface_hub import HfApi, hf_hub_download
 from feature_contract import FEATURE_REVISION, embed_revision
 
@@ -25,7 +26,7 @@ if multiplayer:
     FEATURE_REVISION = "4.0-multiplayer"
 state_dim, action_dim = (1149, 98) if multiplayer else (738, 96)
 player_counts = [2, 3, 4, 5, 6] if multiplayer else [3]
-feature_revisions = ROLE_REVISIONS if multiplayer else {}
+feature_revisions = dict(ROLE_REVISIONS) if multiplayer else {}
 mix_player_counts = multiplayer and os.getenv("MIX_PLAYER_COUNTS") == "1"
 
 seed = int(os.getenv("TRAIN_SEED", "101"))
@@ -40,14 +41,18 @@ if device == "cuda":
     assert torch.cuda.is_available(), "CUDA training requires a GPU HF Job"
 initial_checkpoint = os.getenv("INIT_CHECKPOINT")
 initial_revision = os.getenv("INIT_REVISION")
+initial_sha256 = os.getenv("INIT_SHA256")
 checkpoint = None
 if initial_checkpoint:
     if not initial_revision:
         raise ValueError("Pin INIT_REVISION when continuing a checkpoint")
+    initial_path = hf_hub_download(
+        os.environ["HF_MODEL_REPO"], initial_checkpoint, revision=initial_revision
+    )
+    if initial_sha256 and hashlib.sha256(Path(initial_path).read_bytes()).hexdigest() != initial_sha256:
+        raise ValueError("Initial checkpoint hash mismatch")
     checkpoint = torch.load(
-        hf_hub_download(
-            os.environ["HF_MODEL_REPO"], initial_checkpoint, revision=initial_revision
-        ),
+        initial_path,
         map_location="cpu",
         weights_only=True,
     )
@@ -86,6 +91,12 @@ net = (
 ).to(device)
 if checkpoint:
     net.load_state_dict(checkpoint["state_dict"])
+population_config = os.getenv('FROZEN_OPPONENTS')
+population_mode = os.getenv('OPPONENT_MODE', 'mixed') in ['population_homogeneous', 'population_heterogeneous']
+if bool(population_config) != population_mode or (population_config and not multiplayer):
+    raise ValueError('Frozen population config requires a schema-4 population mode')
+frozen_opponents, frozen_specs = load_population(population_config, os.environ['HF_MODEL_REPO'], device)
+feature_revisions.update({spec['role']: spec['feature_revision'] for spec in frozen_specs})
 initial_anchor = (
     copy.deepcopy(net).eval() if os.getenv("ANCHOR_POLICY") == "initial" else None
 )
@@ -136,8 +147,11 @@ def save(name, export=False):
             "snapshot_admission": league.admission,
             "snapshot_interval": league.interval,
             "snapshot_updates": league.updates,
+            "frozen_opponents": frozen_specs,
+            "opponent_mode": os.getenv('OPPONENT_MODE', 'mixed'),
             "initial_checkpoint": initial_checkpoint,
             "initial_revision": initial_revision,
+            "initial_sha256": initial_sha256,
             "initial_feature_revision": checkpoint.get("feature_revision", "3.0")
             if checkpoint
             else None,
@@ -188,6 +202,8 @@ def save(name, export=False):
                 if checkpoint
                 else None,
                 "strategic_only": strategic_only,
+                "frozen_opponents": frozen_specs,
+                "opponent_mode": os.getenv('OPPONENT_MODE', 'mixed'),
             }
         )
     )
@@ -306,6 +322,8 @@ try:
                 "device": device,
                 "torch_threads": torch.get_num_threads(),
                 "async_rollout": async_rollout,
+                "frozen_opponents": frozen_specs,
+                "opponent_mode": os.getenv('OPPONENT_MODE', 'mixed'),
                 "gpu": torch.cuda.get_device_name() if device == "cuda" else None,
             }
         ),
@@ -354,11 +372,7 @@ try:
                 indices = [
                     j for j, r in enumerate(rows) if r["roles"][r["seat"]] == role
                 ]
-                actor = (
-                    net
-                    if role == "learner"
-                    else league.actors[int(role[-1]) % len(league.actors)]
-                )
+                actor = actor_for_role(role, net, league, frozen_opponents)
                 with torch.no_grad():
                     logits, vs = actor(*tensors([rows[j] for j in indices], device))
                     distribution = Categorical(logits=logits)
@@ -536,7 +550,8 @@ try:
         for ending in endings:
             if ending["roles"].count("learner") != 1:
                 continue
-            opponent = next(r for r in ending["roles"] if r != "learner")
+            opponents = [r for r in ending['roles'] if r != 'learner']
+            opponent = opponents[0] if len(set(opponents)) == 1 else 'mixed:' + '|'.join(sorted(opponents))
             group = opponent_outcomes.setdefault(
                 opponent, {"games": 0, "wins": 0, "truncated": 0}
             )
@@ -544,6 +559,8 @@ try:
             group["wins"] += ending["value"][ending["roles"].index("learner")]
             group["truncated"] += ending["truncated"]
         metric["training_opponents"] = opponent_outcomes
+        metric['opponent_seats'] = {role: sum(e['roles'].count(role) for e in endings)
+                                    for role in sorted({r for e in endings for r in e['roles']})}
         metric["snapshot_updates"] = list(league.updates)
         if league.admission == "periodic_anchor":
             league.admit(net, update)

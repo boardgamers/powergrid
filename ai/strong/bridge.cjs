@@ -2,6 +2,7 @@ const c = require('../core.cjs'),
     eco = require('./economics.cjs'),
     encoders = require('./encoders.cjs'),
     readline = require('node:readline');
+const { POPULATION_MODES, FROZEN_ROLES, isNeuralRole, populationRoles } = require('./opponent-population.cjs');
 let envs = [],
     sequence = 0;
 const seed = process.env.SEED || 'strong-train';
@@ -51,7 +52,7 @@ function advance(e) {
     while (
         !c.E.ended(e.g) &&
         e.steps < 1600 &&
-        !['learner', 'snapshot0', 'snapshot1', 'snapshot2'].includes(e.roles[e.g.currentPlayers[0]])
+        !isNeuralRole(e.roles[e.g.currentPlayers[0]])
     )
         applyBot(e, e.g.currentPlayers[0]);
 }
@@ -87,9 +88,12 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}, player
             'snapshot2',
             'search',
             'search_geo',
+            ...POPULATION_MODES,
         ].includes(mode)
     )
         throw Error('Unknown opponent mode: ' + mode);
+    if (POPULATION_MODES.includes(mode) && FROZEN_ROLES.some(role => featureRevisions[role] !== '4.0-multiplayer'))
+        throw Error('Population modes require all frozen schema-4 policies');
     const id = arenaSeed === undefined ? trainingIndex ?? sequence++ : arenaId,
         seat = learnerSeat ?? Math.floor(id / 4) % playerCount,
         kind = Math.floor(c.seedrandom(seed + '-opponents-' + id)() * 8);
@@ -106,8 +110,9 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}, player
                   'snapshot2',
               ][kind]
             : mode;
-    const roles =
-        opponent === 'selfplay'
+    const roles = POPULATION_MODES.includes(mode)
+        ? populationRoles(mode, playerCount, seat, seed, id)
+        : opponent === 'selfplay'
             ? Array(playerCount).fill('learner')
             : Array.from({ length: playerCount }, (_, i) => (i === seat ? 'learner' : opponent));
     const gameSeed = arenaSeed === undefined ? seed + '-' + id : arenaSeed + '-' + Math.floor(id / (4 * playerCount));

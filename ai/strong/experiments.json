@@ -34438,7 +34438,7 @@
         "decision": "Research remains paused. Archive audit: 47/60 mixed-policy selected actions agree at384 samples versus39/60 at48;14/60 positions have opposite fixed-policy confirmation preferences. Descriptive reused-development diagnostics, not strength evidence; no new jobs or gradients."
     },
     "neural_continuation_audit_v1": {
-        "status": "2p and3p collected;4p through6p running at last observation",
+        "status": "All five jobs completed; 30048 continuations verified, zero truncations. No teacher promotion.",
         "protocol": "neural-continuation-protocol-v1.json",
         "status_file": "neural-continuation-status-2026-10-10.json",
         "source": {
@@ -34466,20 +34466,264 @@
             {
                 "players": 4,
                 "job_id": "6ac9fcef095c5780893107c2",
-                "observed_stage": "RUNNING"
+                "observed_stage": "COMPLETED"
             },
             {
                 "players": 5,
                 "job_id": "6ac9fcf0fee2c900701852fe",
-                "observed_stage": "RUNNING"
+                "observed_stage": "COMPLETED"
             },
             {
                 "players": 6,
                 "job_id": "6ac9fcf1fee2c90070185300",
-                "observed_stage": "RUNNING"
+                "observed_stage": "COMPLETED"
             }
         ],
         "first_result": "Do not promote or use as new hard labels. Only12 reused positions; neural A/B winners disjoint on4/12. Neural-selected actions have a small positive average held-out-scenario gap under neural continuation but regress under every heuristic continuation. Complete all counts before designing a broader opponent mixture.",
-        "qualification_eligible": false
+        "qualification_eligible": false,
+        "artifact_revision": "577ecd7d834c64741db9cda715bd1db3c3dddbd9",
+        "summary_file": "neural-continuation-summary-v1.json",
+        "decision": "Do not use these as new hard labels. Continuation-policy dependence persists across counts. In 4\u20136p, 24/36 discovery positions tie every shortlisted action, limiting evidence. Proceed with a controlled full-game PPO population experiment; no qualification claim.",
+        "rollouts": 30048,
+        "truncated": 0
+    },
+    "retained_population_pilot_v1": {
+        "status": "Three training jobs running; all six parent screens complete and verified. No candidate promotion.",
+        "protocol": "population-training-protocol-v1.json",
+        "source_file": "population-source-v1.json",
+        "status_file": "population-status-v1.json",
+        "source": {
+            "archive": "strong-source-population-20261010-v1.tgz",
+            "sha256": "c12a718d18ebcec4486aa7f336051720a989260b3153f243647ff1458802ac44",
+            "bytes": 964270,
+            "base_archive": "strong-source-v36.tgz",
+            "base_revision": "d07e072058ee877112d609280980fc806ee8ce28",
+            "overlays": {
+                "ai/strong/train.py": "7f4a8e42c9096f625450bca44138052b64f9d09b6872a4b633a2bd18c2bfeeea",
+                "ai/strong/bridge.cjs": "209eef9aa211fd3a0c6acfda71b1079e817832c64ea446e4bc12ea6e26741a18",
+                "ai/strong/frozen_population.py": "ac7ba3a432a4a9645d69a6f2b1e32312db78e7ac3a7d2aa7d19ec0d99d4dd529",
+                "ai/strong/opponent-population.cjs": "127f545a273bf6fa37c5e4746d7428c19200ac324ed76a0fd7ddb5c654384f81",
+                "ai/strong/population-opponents-v1.json": "d1b4a4beb2afd236ad514da6bedd4b7544fa3adbd70185e357816144af76b5c3",
+                "ai/strong/population-training-protocol-v1.json": "121f756be1df2f73d5c45a2b16be37f566e5a89b547e7c4c32aa0f35bb1aab98",
+                "ai/strong/test_frozen_population.py": "6ac9e84c2ea8cf965b5d51f4db8908c84627bb332d519ce2a64e325bfbfb20f2",
+                "ai/strong/test-opponent-population.cjs": "1fdeb0200f512f57688aa9ab40a04495873059dace170fc688850e65320c9f31",
+                "ai/strong/test_multiplayer_bridge.py": "9e29c5609faab338b645e708fd3fc20e99faf7c91614d9f8e88da8b81905e416",
+                "ai/strong/launch-retained-population-v1.sh": "fa246678807cfa1807d6b6f403a3acff22b76e9b7ba8cb1da212bd460b403dbc"
+            },
+            "revision": "d94897276b88aa6330084e71a74b814a09c25262"
+        },
+        "training": {
+            "heterogeneous": {
+                "run": "multiplayer-population-v1-heterogeneous",
+                "job_id": "6aca02dd095c578089310b2b",
+                "launched_at": "2026-10-10T09:18:21.440059+00:00",
+                "url": "https://huggingface.co/jobs/coyotte508/6aca02dd095c578089310b2b",
+                "observed_stage": "RUNNING",
+                "observed_at": "2026-10-10T09:20:56.967489+00:00",
+                "verified_startup": {
+                    "run": "multiplayer-population-v1-heterogeneous",
+                    "parameters": 983682,
+                    "workers": 240,
+                    "envs": 240,
+                    "device": "cpu",
+                    "torch_threads": 4,
+                    "async_rollout": true,
+                    "frozen_opponents": [
+                        {
+                            "role": "frozen0",
+                            "revision": "fbdf2bf24c968bff99ab2d7d9ff9a7d97047db2b",
+                            "path": "runs/multiplayer-refine-hard-v1/latest.pt",
+                            "sha256": "b1caf9ec10a61da6860e49d45f6b385bc76e1c16e324d500ca5d9f52233a2a7f",
+                            "architecture": "multiplayer_ordered",
+                            "feature_revision": "4.0-multiplayer",
+                            "update": 29
+                        },
+                        {
+                            "role": "frozen1",
+                            "revision": "d6adef40b2b836108cd4c3d2e384eefb67a133a0",
+                            "path": "runs/multiplayer-refine-hard-v1/latest.pt",
+                            "sha256": "c64e09afb74e2953f17738247ff207fff94a25607b4425d45e69f41716718412",
+                            "architecture": "multiplayer_ordered",
+                            "feature_revision": "4.0-multiplayer",
+                            "update": 49
+                        },
+                        {
+                            "role": "frozen2",
+                            "revision": "d3bd8ead55d15b4ebf53e333d617c244203ba76a",
+                            "path": "runs/multiplayer-refine-geoleague-async-v1/latest.pt",
+                            "sha256": "4633dab4062d7158ab2cc0486118297fbc974318e49101b6d7d5c12da781937a",
+                            "architecture": "multiplayer_ordered",
+                            "feature_revision": "4.0-multiplayer",
+                            "update": 49
+                        }
+                    ],
+                    "opponent_mode": "population_heterogeneous",
+                    "gpu": null
+                },
+                "latest_progress": {
+                    "stage": "rollout_progress",
+                    "run": "multiplayer-population-v1-heterogeneous",
+                    "update": 0,
+                    "completed_games": 237,
+                    "requested_games": 240,
+                    "decisions": 43916,
+                    "unfinished_games": 3,
+                    "ready_games": 1,
+                    "in_flight_games": 2,
+                    "ready_round_min": 9,
+                    "ready_round_max": 9,
+                    "engine_seconds": 99.35399849712849,
+                    "engine_timing": "blocking_call_wall_time",
+                    "async_rollout": true,
+                    "policy_seconds": 139.5389449102804,
+                    "seconds": 240.4694547066465
+                }
+            },
+            "homogeneous": {
+                "run": "multiplayer-population-v1-homogeneous",
+                "job_id": "6aca02de095c578089310b2d",
+                "launched_at": "2026-10-10T09:18:22.334534+00:00",
+                "url": "https://huggingface.co/jobs/coyotte508/6aca02de095c578089310b2d",
+                "observed_stage": "RUNNING",
+                "observed_at": "2026-10-10T09:20:57.215359+00:00",
+                "verified_startup": {
+                    "run": "multiplayer-population-v1-homogeneous",
+                    "parameters": 983682,
+                    "workers": 240,
+                    "envs": 240,
+                    "device": "cpu",
+                    "torch_threads": 4,
+                    "async_rollout": true,
+                    "frozen_opponents": [
+                        {
+                            "role": "frozen0",
+                            "revision": "fbdf2bf24c968bff99ab2d7d9ff9a7d97047db2b",
+                            "path": "runs/multiplayer-refine-hard-v1/latest.pt",
+                            "sha256": "b1caf9ec10a61da6860e49d45f6b385bc76e1c16e324d500ca5d9f52233a2a7f",
+                            "architecture": "multiplayer_ordered",
+                            "feature_revision": "4.0-multiplayer",
+                            "update": 29
+                        },
+                        {
+                            "role": "frozen1",
+                            "revision": "d6adef40b2b836108cd4c3d2e384eefb67a133a0",
+                            "path": "runs/multiplayer-refine-hard-v1/latest.pt",
+                            "sha256": "c64e09afb74e2953f17738247ff207fff94a25607b4425d45e69f41716718412",
+                            "architecture": "multiplayer_ordered",
+                            "feature_revision": "4.0-multiplayer",
+                            "update": 49
+                        },
+                        {
+                            "role": "frozen2",
+                            "revision": "d3bd8ead55d15b4ebf53e333d617c244203ba76a",
+                            "path": "runs/multiplayer-refine-geoleague-async-v1/latest.pt",
+                            "sha256": "4633dab4062d7158ab2cc0486118297fbc974318e49101b6d7d5c12da781937a",
+                            "architecture": "multiplayer_ordered",
+                            "feature_revision": "4.0-multiplayer",
+                            "update": 49
+                        }
+                    ],
+                    "opponent_mode": "population_homogeneous",
+                    "gpu": null
+                }
+            },
+            "control": {
+                "run": "multiplayer-population-v1-control",
+                "job_id": "6aca02dffee2c9007018574b",
+                "launched_at": "2026-10-10T09:18:23.206011+00:00",
+                "url": "https://huggingface.co/jobs/coyotte508/6aca02dffee2c9007018574b",
+                "observed_stage": "RUNNING",
+                "observed_at": "2026-10-10T09:20:57.457868+00:00",
+                "verified_startup": {
+                    "run": "multiplayer-population-v1-control",
+                    "parameters": 983682,
+                    "workers": 240,
+                    "envs": 240,
+                    "device": "cpu",
+                    "torch_threads": 4,
+                    "async_rollout": true,
+                    "frozen_opponents": [],
+                    "opponent_mode": "mixed_search_geo",
+                    "gpu": null
+                },
+                "latest_progress": {
+                    "stage": "rollout_progress",
+                    "run": "multiplayer-population-v1-control",
+                    "update": 0,
+                    "completed_games": 128,
+                    "requested_games": 240,
+                    "decisions": 34066,
+                    "unfinished_games": 112,
+                    "ready_games": 36,
+                    "in_flight_games": 76,
+                    "ready_round_min": 6,
+                    "ready_round_max": 11,
+                    "engine_seconds": 7.822281536999725,
+                    "engine_timing": "blocking_call_wall_time",
+                    "async_rollout": true,
+                    "policy_seconds": 111.7317420270004,
+                    "seconds": 120.29999090699997
+                }
+            }
+        },
+        "screens": {
+            "population-v1-parent-u79-economic-2p": {
+                "job_id": "6aca02aefee2c90070185714",
+                "launched_at": "2026-10-10T09:17:34.525804+00:00",
+                "candidate": "parent-u79",
+                "url": "https://huggingface.co/jobs/coyotte508/6aca02aefee2c90070185714",
+                "observed_stage": "COMPLETED",
+                "observed_at": "2026-10-10T09:19:25.749069+00:00"
+            },
+            "population-v1-parent-u79-economic-3p": {
+                "job_id": "6aca02affee2c90070185716",
+                "launched_at": "2026-10-10T09:17:35.245150+00:00",
+                "candidate": "parent-u79",
+                "url": "https://huggingface.co/jobs/coyotte508/6aca02affee2c90070185716",
+                "observed_stage": "COMPLETED",
+                "observed_at": "2026-10-10T09:20:57.716228+00:00"
+            },
+            "population-v1-parent-u79-economic-4p": {
+                "job_id": "6aca02af095c578089310aef",
+                "launched_at": "2026-10-10T09:17:35.941804+00:00",
+                "candidate": "parent-u79",
+                "url": "https://huggingface.co/jobs/coyotte508/6aca02af095c578089310aef",
+                "observed_stage": "COMPLETED",
+                "observed_at": "2026-10-10T09:20:58.019422+00:00"
+            },
+            "population-v1-parent-u79-economic-5p": {
+                "job_id": "6aca02b0fee2c90070185719",
+                "launched_at": "2026-10-10T09:17:36.679929+00:00",
+                "candidate": "parent-u79",
+                "url": "https://huggingface.co/jobs/coyotte508/6aca02b0fee2c90070185719",
+                "observed_stage": "COMPLETED",
+                "observed_at": "2026-10-10T09:20:58.280267+00:00"
+            },
+            "population-v1-parent-u79-economic-6p": {
+                "job_id": "6aca02b1095c578089310af3",
+                "launched_at": "2026-10-10T09:17:37.360070+00:00",
+                "candidate": "parent-u79",
+                "url": "https://huggingface.co/jobs/coyotte508/6aca02b1095c578089310af3",
+                "observed_stage": "COMPLETED",
+                "observed_at": "2026-10-10T09:20:58.524531+00:00"
+            },
+            "population-v1-parent-u79-a260-3p": {
+                "job_id": "6aca02b1095c578089310af6",
+                "launched_at": "2026-10-10T09:17:38.050092+00:00",
+                "candidate": "parent-u79",
+                "url": "https://huggingface.co/jobs/coyotte508/6aca02b1095c578089310af6",
+                "observed_stage": "COMPLETED",
+                "observed_at": "2026-10-10T09:20:58.767376+00:00"
+            }
+        },
+        "qualification_eligible": false,
+        "parent_screen": {
+            "summary_file": "population-parent-screen-v1.json",
+            "artifact_revision": "29f232e329f05ce6a93ea92006a271d9ea292147",
+            "verified_games": 3680,
+            "truncated": 0,
+            "strict_parity_positions": 2553,
+            "qualification_eligible": false
+        }
     }
 }

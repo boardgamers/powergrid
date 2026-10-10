@@ -1,0 +1,2741 @@
+{
+  "groups": {
+    "overall": {
+      "positions": 60,
+      "disjoint_neural_winner_sets": 11,
+      "same_unique_neural_winner": 11,
+      "all_neural_actions_tied_a": 27,
+      "root_proposal_in_shortlist": 59,
+      "different_discovery_choices": 31,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.022222222222222216,
+          "positive_positions": 15,
+          "negative_positions": 5
+        },
+        "mixed": {
+          "mean_gap": -0.03159722222222223,
+          "positive_positions": 7,
+          "negative_positions": 17
+        },
+        "economic": {
+          "mean_gap": -0.021354166666666667,
+          "positive_positions": 11,
+          "negative_positions": 11
+        },
+        "heuristic": {
+          "mean_gap": -0.04270833333333333,
+          "positive_positions": 7,
+          "negative_positions": 15
+        }
+      }
+    },
+    "players/2": {
+      "positions": 12,
+      "disjoint_neural_winner_sets": 4,
+      "same_unique_neural_winner": 3,
+      "all_neural_actions_tied_a": 0,
+      "root_proposal_in_shortlist": 12,
+      "different_discovery_choices": 10,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.020833333333333332,
+          "positive_positions": 6,
+          "negative_positions": 2
+        },
+        "mixed": {
+          "mean_gap": -0.07552083333333334,
+          "positive_positions": 1,
+          "negative_positions": 6
+        },
+        "economic": {
+          "mean_gap": -0.0625,
+          "positive_positions": 1,
+          "negative_positions": 6
+        },
+        "heuristic": {
+          "mean_gap": -0.0720486111111111,
+          "positive_positions": 1,
+          "negative_positions": 5
+        }
+      }
+    },
+    "action/ChoosePowerPlant": {
+      "positions": 20,
+      "disjoint_neural_winner_sets": 4,
+      "same_unique_neural_winner": 6,
+      "all_neural_actions_tied_a": 6,
+      "root_proposal_in_shortlist": 20,
+      "different_discovery_choices": 10,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.03177083333333334,
+          "positive_positions": 7,
+          "negative_positions": 2
+        },
+        "mixed": {
+          "mean_gap": -0.04791666666666667,
+          "positive_positions": 2,
+          "negative_positions": 8
+        },
+        "economic": {
+          "mean_gap": -0.020833333333333336,
+          "positive_positions": 4,
+          "negative_positions": 5
+        },
+        "heuristic": {
+          "mean_gap": -0.09635416666666666,
+          "positive_positions": 2,
+          "negative_positions": 6
+        }
+      }
+    },
+    "rules/original/sealed": {
+      "positions": 15,
+      "disjoint_neural_winner_sets": 3,
+      "same_unique_neural_winner": 2,
+      "all_neural_actions_tied_a": 5,
+      "root_proposal_in_shortlist": 14,
+      "different_discovery_choices": 11,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.011805555555555554,
+          "positive_positions": 6,
+          "negative_positions": 2
+        },
+        "mixed": {
+          "mean_gap": -0.009027777777777777,
+          "positive_positions": 3,
+          "negative_positions": 5
+        },
+        "economic": {
+          "mean_gap": -0.01875,
+          "positive_positions": 3,
+          "negative_positions": 3
+        },
+        "heuristic": {
+          "mean_gap": -0.009722222222222224,
+          "positive_positions": 5,
+          "negative_positions": 2
+        }
+      }
+    },
+    "players/2/rules/original/sealed": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 1,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 0,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 3,
+      "confirmation": {
+        "neural": {
+          "mean_gap": -0.1076388888888889,
+          "positive_positions": 2,
+          "negative_positions": 1
+        },
+        "mixed": {
+          "mean_gap": -0.08333333333333333,
+          "positive_positions": 0,
+          "negative_positions": 2
+        },
+        "economic": {
+          "mean_gap": -0.10416666666666667,
+          "positive_positions": 0,
+          "negative_positions": 2
+        },
+        "heuristic": {
+          "mean_gap": -0.013888888888888888,
+          "positive_positions": 0,
+          "negative_positions": 1
+        }
+      }
+    },
+    "players/2/action/ChoosePowerPlant": {
+      "positions": 4,
+      "disjoint_neural_winner_sets": 2,
+      "same_unique_neural_winner": 2,
+      "all_neural_actions_tied_a": 0,
+      "root_proposal_in_shortlist": 4,
+      "different_discovery_choices": 3,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.0026041666666666713,
+          "positive_positions": 2,
+          "negative_positions": 1
+        },
+        "mixed": {
+          "mean_gap": -0.015625,
+          "positive_positions": 1,
+          "negative_positions": 2
+        },
+        "economic": {
+          "mean_gap": -0.03125,
+          "positive_positions": 1,
+          "negative_positions": 2
+        },
+        "heuristic": {
+          "mean_gap": -0.026041666666666664,
+          "positive_positions": 1,
+          "negative_positions": 1
+        }
+      }
+    },
+    "action/Build": {
+      "positions": 20,
+      "disjoint_neural_winner_sets": 3,
+      "same_unique_neural_winner": 3,
+      "all_neural_actions_tied_a": 12,
+      "root_proposal_in_shortlist": 20,
+      "different_discovery_choices": 7,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.0296875,
+          "positive_positions": 4,
+          "negative_positions": 1
+        },
+        "mixed": {
+          "mean_gap": -0.009375000000000003,
+          "positive_positions": 2,
+          "negative_positions": 2
+        },
+        "economic": {
+          "mean_gap": -0.0078125,
+          "positive_positions": 3,
+          "negative_positions": 3
+        },
+        "heuristic": {
+          "mean_gap": -0.011458333333333334,
+          "positive_positions": 2,
+          "negative_positions": 2
+        }
+      }
+    },
+    "players/2/action/Build": {
+      "positions": 4,
+      "disjoint_neural_winner_sets": 2,
+      "same_unique_neural_winner": 1,
+      "all_neural_actions_tied_a": 0,
+      "root_proposal_in_shortlist": 4,
+      "different_discovery_choices": 3,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.049479166666666664,
+          "positive_positions": 2,
+          "negative_positions": 1
+        },
+        "mixed": {
+          "mean_gap": -0.10677083333333334,
+          "positive_positions": 0,
+          "negative_positions": 2
+        },
+        "economic": {
+          "mean_gap": -0.0625,
+          "positive_positions": 0,
+          "negative_positions": 3
+        },
+        "heuristic": {
+          "mean_gap": -0.11197916666666667,
+          "positive_positions": 0,
+          "negative_positions": 2
+        }
+      }
+    },
+    "action/Bid": {
+      "positions": 20,
+      "disjoint_neural_winner_sets": 4,
+      "same_unique_neural_winner": 2,
+      "all_neural_actions_tied_a": 9,
+      "root_proposal_in_shortlist": 19,
+      "different_discovery_choices": 14,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.005208333333333334,
+          "positive_positions": 4,
+          "negative_positions": 2
+        },
+        "mixed": {
+          "mean_gap": -0.0375,
+          "positive_positions": 3,
+          "negative_positions": 7
+        },
+        "economic": {
+          "mean_gap": -0.035416666666666666,
+          "positive_positions": 4,
+          "negative_positions": 3
+        },
+        "heuristic": {
+          "mean_gap": -0.020312499999999997,
+          "positive_positions": 3,
+          "negative_positions": 7
+        }
+      }
+    },
+    "players/2/action/Bid": {
+      "positions": 4,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 0,
+      "root_proposal_in_shortlist": 4,
+      "different_discovery_choices": 4,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.010416666666666666,
+          "positive_positions": 2,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": -0.10416666666666667,
+          "positive_positions": 0,
+          "negative_positions": 2
+        },
+        "economic": {
+          "mean_gap": -0.09375,
+          "positive_positions": 0,
+          "negative_positions": 1
+        },
+        "heuristic": {
+          "mean_gap": -0.078125,
+          "positive_positions": 0,
+          "negative_positions": 2
+        }
+      }
+    },
+    "rules/recharged/sealed": {
+      "positions": 15,
+      "disjoint_neural_winner_sets": 3,
+      "same_unique_neural_winner": 2,
+      "all_neural_actions_tied_a": 8,
+      "root_proposal_in_shortlist": 15,
+      "different_discovery_choices": 6,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.00625,
+          "positive_positions": 2,
+          "negative_positions": 1
+        },
+        "mixed": {
+          "mean_gap": -0.01111111111111111,
+          "positive_positions": 2,
+          "negative_positions": 2
+        },
+        "economic": {
+          "mean_gap": -0.002777777777777778,
+          "positive_positions": 3,
+          "negative_positions": 2
+        },
+        "heuristic": {
+          "mean_gap": -0.029166666666666667,
+          "positive_positions": 0,
+          "negative_positions": 2
+        }
+      }
+    },
+    "players/2/rules/recharged/sealed": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 2,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 0,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 2,
+      "confirmation": {
+        "neural": {
+          "mean_gap": -0.003472222222222222,
+          "positive_positions": 0,
+          "negative_positions": 1
+        },
+        "mixed": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "economic": {
+          "mean_gap": -0.013888888888888888,
+          "positive_positions": 0,
+          "negative_positions": 1
+        },
+        "heuristic": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        }
+      }
+    },
+    "rules/original/open": {
+      "positions": 15,
+      "disjoint_neural_winner_sets": 2,
+      "same_unique_neural_winner": 4,
+      "all_neural_actions_tied_a": 8,
+      "root_proposal_in_shortlist": 15,
+      "different_discovery_choices": 6,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.025,
+          "positive_positions": 3,
+          "negative_positions": 1
+        },
+        "mixed": {
+          "mean_gap": -0.017361111111111112,
+          "positive_positions": 2,
+          "negative_positions": 3
+        },
+        "economic": {
+          "mean_gap": 0.008333333333333333,
+          "positive_positions": 3,
+          "negative_positions": 2
+        },
+        "heuristic": {
+          "mean_gap": -0.028472222222222218,
+          "positive_positions": 2,
+          "negative_positions": 3
+        }
+      }
+    },
+    "players/2/rules/original/open": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 2,
+      "all_neural_actions_tied_a": 0,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 3,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.10416666666666667,
+          "positive_positions": 2,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": -0.08680555555555557,
+          "positive_positions": 1,
+          "negative_positions": 2
+        },
+        "economic": {
+          "mean_gap": 0.034722222222222224,
+          "positive_positions": 1,
+          "negative_positions": 1
+        },
+        "heuristic": {
+          "mean_gap": -0.14930555555555555,
+          "positive_positions": 1,
+          "negative_positions": 2
+        }
+      }
+    },
+    "rules/recharged/open": {
+      "positions": 15,
+      "disjoint_neural_winner_sets": 3,
+      "same_unique_neural_winner": 3,
+      "all_neural_actions_tied_a": 6,
+      "root_proposal_in_shortlist": 15,
+      "different_discovery_choices": 8,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.04583333333333333,
+          "positive_positions": 4,
+          "negative_positions": 1
+        },
+        "mixed": {
+          "mean_gap": -0.08888888888888888,
+          "positive_positions": 0,
+          "negative_positions": 7
+        },
+        "economic": {
+          "mean_gap": -0.07222222222222222,
+          "positive_positions": 2,
+          "negative_positions": 4
+        },
+        "heuristic": {
+          "mean_gap": -0.10347222222222222,
+          "positive_positions": 0,
+          "negative_positions": 8
+        }
+      }
+    },
+    "players/2/rules/recharged/open": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 1,
+      "same_unique_neural_winner": 1,
+      "all_neural_actions_tied_a": 0,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 2,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.09027777777777778,
+          "positive_positions": 2,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": -0.13194444444444445,
+          "positive_positions": 0,
+          "negative_positions": 2
+        },
+        "economic": {
+          "mean_gap": -0.16666666666666666,
+          "positive_positions": 0,
+          "negative_positions": 2
+        },
+        "heuristic": {
+          "mean_gap": -0.125,
+          "positive_positions": 0,
+          "negative_positions": 2
+        }
+      }
+    },
+    "players/3": {
+      "positions": 12,
+      "disjoint_neural_winner_sets": 3,
+      "same_unique_neural_winner": 5,
+      "all_neural_actions_tied_a": 3,
+      "root_proposal_in_shortlist": 12,
+      "different_discovery_choices": 6,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.03298611111111111,
+          "positive_positions": 4,
+          "negative_positions": 1
+        },
+        "mixed": {
+          "mean_gap": -0.03559027777777778,
+          "positive_positions": 2,
+          "negative_positions": 4
+        },
+        "economic": {
+          "mean_gap": -0.030381944444444444,
+          "positive_positions": 3,
+          "negative_positions": 2
+        },
+        "heuristic": {
+          "mean_gap": -0.019097222222222224,
+          "positive_positions": 4,
+          "negative_positions": 2
+        }
+      }
+    },
+    "players/3/rules/original/sealed": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 1,
+      "same_unique_neural_winner": 1,
+      "all_neural_actions_tied_a": 0,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 3,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.05555555555555556,
+          "positive_positions": 2,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": 0.04513888888888889,
+          "positive_positions": 2,
+          "negative_positions": 1
+        },
+        "economic": {
+          "mean_gap": -0.010416666666666666,
+          "positive_positions": 1,
+          "negative_positions": 1
+        },
+        "heuristic": {
+          "mean_gap": 0.0625,
+          "positive_positions": 3,
+          "negative_positions": 0
+        }
+      }
+    },
+    "players/3/action/ChoosePowerPlant": {
+      "positions": 4,
+      "disjoint_neural_winner_sets": 1,
+      "same_unique_neural_winner": 2,
+      "all_neural_actions_tied_a": 0,
+      "root_proposal_in_shortlist": 4,
+      "different_discovery_choices": 2,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.07291666666666667,
+          "positive_positions": 2,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": -0.06770833333333333,
+          "positive_positions": 0,
+          "negative_positions": 2
+        },
+        "economic": {
+          "mean_gap": -0.005208333333333334,
+          "positive_positions": 1,
+          "negative_positions": 1
+        },
+        "heuristic": {
+          "mean_gap": -0.1015625,
+          "positive_positions": 1,
+          "negative_positions": 1
+        }
+      }
+    },
+    "players/3/action/Bid": {
+      "positions": 4,
+      "disjoint_neural_winner_sets": 1,
+      "same_unique_neural_winner": 2,
+      "all_neural_actions_tied_a": 1,
+      "root_proposal_in_shortlist": 4,
+      "different_discovery_choices": 3,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.026041666666666668,
+          "positive_positions": 2,
+          "negative_positions": 1
+        },
+        "mixed": {
+          "mean_gap": -0.07291666666666667,
+          "positive_positions": 1,
+          "negative_positions": 2
+        },
+        "economic": {
+          "mean_gap": -0.09375,
+          "positive_positions": 1,
+          "negative_positions": 1
+        },
+        "heuristic": {
+          "mean_gap": 0.010416666666666668,
+          "positive_positions": 2,
+          "negative_positions": 1
+        }
+      }
+    },
+    "players/3/action/Build": {
+      "positions": 4,
+      "disjoint_neural_winner_sets": 1,
+      "same_unique_neural_winner": 1,
+      "all_neural_actions_tied_a": 2,
+      "root_proposal_in_shortlist": 4,
+      "different_discovery_choices": 1,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": 0.033854166666666664,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "economic": {
+          "mean_gap": 0.0078125,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": 0.033854166666666664,
+          "positive_positions": 1,
+          "negative_positions": 0
+        }
+      }
+    },
+    "players/3/rules/recharged/sealed": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 1,
+      "all_neural_actions_tied_a": 2,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 0,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "economic": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        }
+      }
+    },
+    "players/3/rules/original/open": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 1,
+      "same_unique_neural_winner": 2,
+      "all_neural_actions_tied_a": 0,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 1,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.034722222222222224,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": -0.006944444444444444,
+          "positive_positions": 0,
+          "negative_positions": 1
+        },
+        "economic": {
+          "mean_gap": 0.006944444444444444,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": 0.013888888888888888,
+          "positive_positions": 1,
+          "negative_positions": 0
+        }
+      }
+    },
+    "players/3/rules/recharged/open": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 1,
+      "same_unique_neural_winner": 1,
+      "all_neural_actions_tied_a": 1,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 2,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.041666666666666664,
+          "positive_positions": 1,
+          "negative_positions": 1
+        },
+        "mixed": {
+          "mean_gap": -0.18055555555555558,
+          "positive_positions": 0,
+          "negative_positions": 2
+        },
+        "economic": {
+          "mean_gap": -0.11805555555555554,
+          "positive_positions": 1,
+          "negative_positions": 1
+        },
+        "heuristic": {
+          "mean_gap": -0.15277777777777776,
+          "positive_positions": 0,
+          "negative_positions": 2
+        }
+      }
+    },
+    "players/4": {
+      "positions": 12,
+      "disjoint_neural_winner_sets": 2,
+      "same_unique_neural_winner": 2,
+      "all_neural_actions_tied_a": 7,
+      "root_proposal_in_shortlist": 12,
+      "different_discovery_choices": 5,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.02777777777777778,
+          "positive_positions": 3,
+          "negative_positions": 1
+        },
+        "mixed": {
+          "mean_gap": -0.003472222222222222,
+          "positive_positions": 3,
+          "negative_positions": 2
+        },
+        "economic": {
+          "mean_gap": -0.013888888888888888,
+          "positive_positions": 4,
+          "negative_positions": 1
+        },
+        "heuristic": {
+          "mean_gap": -0.028645833333333332,
+          "positive_positions": 1,
+          "negative_positions": 2
+        }
+      }
+    },
+    "players/4/rules/original/sealed": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 1,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 1,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 2,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.0,
+          "positive_positions": 1,
+          "negative_positions": 1
+        },
+        "mixed": {
+          "mean_gap": 0.0,
+          "positive_positions": 1,
+          "negative_positions": 1
+        },
+        "economic": {
+          "mean_gap": 0.020833333333333332,
+          "positive_positions": 2,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": -0.1076388888888889,
+          "positive_positions": 1,
+          "negative_positions": 1
+        }
+      }
+    },
+    "players/4/action/Bid": {
+      "positions": 4,
+      "disjoint_neural_winner_sets": 1,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 3,
+      "root_proposal_in_shortlist": 4,
+      "different_discovery_choices": 1,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": 0.005208333333333333,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "economic": {
+          "mean_gap": 0.005208333333333333,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        }
+      }
+    },
+    "players/4/action/ChoosePowerPlant": {
+      "positions": 4,
+      "disjoint_neural_winner_sets": 1,
+      "same_unique_neural_winner": 2,
+      "all_neural_actions_tied_a": 1,
+      "root_proposal_in_shortlist": 4,
+      "different_discovery_choices": 3,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.06770833333333334,
+          "positive_positions": 2,
+          "negative_positions": 1
+        },
+        "mixed": {
+          "mean_gap": -0.04166666666666667,
+          "positive_positions": 1,
+          "negative_positions": 2
+        },
+        "economic": {
+          "mean_gap": -0.05208333333333333,
+          "positive_positions": 2,
+          "negative_positions": 1
+        },
+        "heuristic": {
+          "mean_gap": -0.10677083333333333,
+          "positive_positions": 0,
+          "negative_positions": 2
+        }
+      }
+    },
+    "players/4/action/Build": {
+      "positions": 4,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 3,
+      "root_proposal_in_shortlist": 4,
+      "different_discovery_choices": 1,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.015625,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": 0.026041666666666668,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "economic": {
+          "mean_gap": 0.005208333333333333,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": 0.020833333333333332,
+          "positive_positions": 1,
+          "negative_positions": 0
+        }
+      }
+    },
+    "players/4/rules/recharged/sealed": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 1,
+      "all_neural_actions_tied_a": 2,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 2,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.013888888888888888,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": 0.013888888888888888,
+          "positive_positions": 2,
+          "negative_positions": 0
+        },
+        "economic": {
+          "mean_gap": 0.013888888888888888,
+          "positive_positions": 2,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        }
+      }
+    },
+    "players/4/rules/original/open": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 3,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 0,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "economic": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        }
+      }
+    },
+    "players/4/rules/recharged/open": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 1,
+      "same_unique_neural_winner": 1,
+      "all_neural_actions_tied_a": 1,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 1,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.09722222222222222,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": -0.027777777777777776,
+          "positive_positions": 0,
+          "negative_positions": 1
+        },
+        "economic": {
+          "mean_gap": -0.09027777777777778,
+          "positive_positions": 0,
+          "negative_positions": 1
+        },
+        "heuristic": {
+          "mean_gap": -0.006944444444444444,
+          "positive_positions": 0,
+          "negative_positions": 1
+        }
+      }
+    },
+    "players/5": {
+      "positions": 12,
+      "disjoint_neural_winner_sets": 2,
+      "same_unique_neural_winner": 1,
+      "all_neural_actions_tied_a": 8,
+      "root_proposal_in_shortlist": 11,
+      "different_discovery_choices": 7,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.024305555555555552,
+          "positive_positions": 1,
+          "negative_positions": 1
+        },
+        "mixed": {
+          "mean_gap": -0.02951388888888889,
+          "positive_positions": 1,
+          "negative_positions": 4
+        },
+        "economic": {
+          "mean_gap": 0.001736111111111111,
+          "positive_positions": 2,
+          "negative_positions": 1
+        },
+        "heuristic": {
+          "mean_gap": -0.06076388888888889,
+          "positive_positions": 1,
+          "negative_positions": 4
+        }
+      }
+    },
+    "players/5/rules/original/sealed": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 1,
+      "all_neural_actions_tied_a": 1,
+      "root_proposal_in_shortlist": 2,
+      "different_discovery_choices": 2,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.1111111111111111,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": -0.006944444444444444,
+          "positive_positions": 0,
+          "negative_positions": 1
+        },
+        "economic": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": 0.010416666666666666,
+          "positive_positions": 1,
+          "negative_positions": 0
+        }
+      }
+    },
+    "players/5/action/Bid": {
+      "positions": 4,
+      "disjoint_neural_winner_sets": 2,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 2,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 4,
+      "confirmation": {
+        "neural": {
+          "mean_gap": -0.010416666666666666,
+          "positive_positions": 0,
+          "negative_positions": 1
+        },
+        "mixed": {
+          "mean_gap": -0.015625,
+          "positive_positions": 1,
+          "negative_positions": 3
+        },
+        "economic": {
+          "mean_gap": -0.005208333333333333,
+          "positive_positions": 1,
+          "negative_positions": 1
+        },
+        "heuristic": {
+          "mean_gap": -0.023437499999999997,
+          "positive_positions": 1,
+          "negative_positions": 3
+        }
+      }
+    },
+    "players/5/action/ChoosePowerPlant": {
+      "positions": 4,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 3,
+      "root_proposal_in_shortlist": 4,
+      "different_discovery_choices": 1,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": -0.07291666666666667,
+          "positive_positions": 0,
+          "negative_positions": 1
+        },
+        "economic": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": -0.15885416666666666,
+          "positive_positions": 0,
+          "negative_positions": 1
+        }
+      }
+    },
+    "players/5/action/Build": {
+      "positions": 4,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 1,
+      "all_neural_actions_tied_a": 3,
+      "root_proposal_in_shortlist": 4,
+      "different_discovery_choices": 2,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.08333333333333333,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "economic": {
+          "mean_gap": 0.010416666666666666,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        }
+      }
+    },
+    "players/5/rules/recharged/sealed": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 1,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 2,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 1,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": -0.013888888888888888,
+          "positive_positions": 0,
+          "negative_positions": 1
+        },
+        "economic": {
+          "mean_gap": 0.006944444444444444,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": -0.027777777777777776,
+          "positive_positions": 0,
+          "negative_positions": 1
+        }
+      }
+    },
+    "players/5/rules/original/open": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 1,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 2,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 2,
+      "confirmation": {
+        "neural": {
+          "mean_gap": -0.013888888888888888,
+          "positive_positions": 0,
+          "negative_positions": 1
+        },
+        "mixed": {
+          "mean_gap": 0.006944444444444444,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "economic": {
+          "mean_gap": 0.0,
+          "positive_positions": 1,
+          "negative_positions": 1
+        },
+        "heuristic": {
+          "mean_gap": -0.006944444444444444,
+          "positive_positions": 0,
+          "negative_positions": 1
+        }
+      }
+    },
+    "players/5/rules/recharged/open": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 3,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 2,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": -0.10416666666666667,
+          "positive_positions": 0,
+          "negative_positions": 2
+        },
+        "economic": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": -0.21875,
+          "positive_positions": 0,
+          "negative_positions": 2
+        }
+      }
+    },
+    "players/6": {
+      "positions": 12,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 9,
+      "root_proposal_in_shortlist": 12,
+      "different_discovery_choices": 3,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.005208333333333333,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": -0.013888888888888888,
+          "positive_positions": 0,
+          "negative_positions": 1
+        },
+        "economic": {
+          "mean_gap": -0.0017361111111111112,
+          "positive_positions": 1,
+          "negative_positions": 1
+        },
+        "heuristic": {
+          "mean_gap": -0.03298611111111111,
+          "positive_positions": 0,
+          "negative_positions": 2
+        }
+      }
+    },
+    "players/6/rules/original/sealed": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 3,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 1,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "economic": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        }
+      }
+    },
+    "players/6/action/Bid": {
+      "positions": 4,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 3,
+      "root_proposal_in_shortlist": 4,
+      "different_discovery_choices": 2,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "economic": {
+          "mean_gap": 0.010416666666666666,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": -0.010416666666666666,
+          "positive_positions": 0,
+          "negative_positions": 1
+        }
+      }
+    },
+    "players/6/action/ChoosePowerPlant": {
+      "positions": 4,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 2,
+      "root_proposal_in_shortlist": 4,
+      "different_discovery_choices": 1,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.015625,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": -0.041666666666666664,
+          "positive_positions": 0,
+          "negative_positions": 1
+        },
+        "economic": {
+          "mean_gap": -0.015625,
+          "positive_positions": 0,
+          "negative_positions": 1
+        },
+        "heuristic": {
+          "mean_gap": -0.08854166666666667,
+          "positive_positions": 0,
+          "negative_positions": 1
+        }
+      }
+    },
+    "players/6/action/Build": {
+      "positions": 4,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 4,
+      "root_proposal_in_shortlist": 4,
+      "different_discovery_choices": 0,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "economic": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        }
+      }
+    },
+    "players/6/rules/recharged/sealed": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 2,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 1,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.020833333333333332,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": -0.05555555555555555,
+          "positive_positions": 0,
+          "negative_positions": 1
+        },
+        "economic": {
+          "mean_gap": -0.020833333333333332,
+          "positive_positions": 0,
+          "negative_positions": 1
+        },
+        "heuristic": {
+          "mean_gap": -0.11805555555555557,
+          "positive_positions": 0,
+          "negative_positions": 1
+        }
+      }
+    },
+    "players/6/rules/original/open": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 3,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 0,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "economic": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        }
+      }
+    },
+    "players/6/rules/recharged/open": {
+      "positions": 3,
+      "disjoint_neural_winner_sets": 0,
+      "same_unique_neural_winner": 0,
+      "all_neural_actions_tied_a": 1,
+      "root_proposal_in_shortlist": 3,
+      "different_discovery_choices": 1,
+      "confirmation": {
+        "neural": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "mixed": {
+          "mean_gap": 0.0,
+          "positive_positions": 0,
+          "negative_positions": 0
+        },
+        "economic": {
+          "mean_gap": 0.013888888888888888,
+          "positive_positions": 1,
+          "negative_positions": 0
+        },
+        "heuristic": {
+          "mean_gap": -0.013888888888888888,
+          "positive_positions": 0,
+          "negative_positions": 1
+        }
+      }
+    }
+  },
+  "positions": [
+    {
+      "fixtureIndex": 25,
+      "cell": [
+        2,
+        "original",
+        true,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": true,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 4,
+      "mixed_a_choice": 3,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": -0.3645833333333333,
+        "mixed": -0.08333333333333333,
+        "economic": -0.125,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 39,
+      "cell": [
+        2,
+        "original",
+        true,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 1,
+      "mixed_a_choice": 4,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.020833333333333332,
+        "mixed": -0.16666666666666666,
+        "economic": -0.1875,
+        "heuristic": -0.041666666666666664
+      }
+    },
+    {
+      "fixtureIndex": 51,
+      "cell": [
+        2,
+        "original",
+        true,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 18,
+      "mixed_a_choice": 7,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.020833333333333332,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 109,
+      "cell": [
+        2,
+        "recharged",
+        true,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 7,
+      "mixed_a_choice": 6,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 117,
+      "cell": [
+        2,
+        "recharged",
+        true,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": true,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 4,
+      "mixed_a_choice": 4,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 127,
+      "cell": [
+        2,
+        "recharged",
+        true,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": true,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 7,
+      "mixed_a_choice": 6,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": -0.010416666666666666,
+        "mixed": 0.0,
+        "economic": -0.041666666666666664,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 181,
+      "cell": [
+        2,
+        "original",
+        false,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": true,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 2,
+      "mixed_a_choice": 4,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.125,
+        "mixed": 0.125,
+        "economic": 0.125,
+        "heuristic": 0.125
+      }
+    },
+    {
+      "fixtureIndex": 202,
+      "cell": [
+        2,
+        "original",
+        false,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 6,
+      "mixed_a_choice": 0,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": -0.125,
+        "economic": 0.0,
+        "heuristic": -0.16666666666666666
+      }
+    },
+    {
+      "fixtureIndex": 218,
+      "cell": [
+        2,
+        "original",
+        false,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": true,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 2,
+      "mixed_a_choice": 10,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.1875,
+        "mixed": -0.2604166666666667,
+        "economic": -0.020833333333333332,
+        "heuristic": -0.40625
+      }
+    },
+    {
+      "fixtureIndex": 293,
+      "cell": [
+        2,
+        "recharged",
+        false,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 1,
+      "mixed_a_choice": 13,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.020833333333333332,
+        "mixed": -0.2916666666666667,
+        "economic": -0.375,
+        "heuristic": -0.14583333333333334
+      }
+    },
+    {
+      "fixtureIndex": 319,
+      "cell": [
+        2,
+        "recharged",
+        false,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": true,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 2,
+      "mixed_a_choice": 2,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 333,
+      "cell": [
+        2,
+        "recharged",
+        false,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": true,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 0,
+      "mixed_a_choice": 6,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.25,
+        "mixed": -0.10416666666666667,
+        "economic": -0.125,
+        "heuristic": -0.22916666666666666
+      }
+    },
+    {
+      "fixtureIndex": 374,
+      "cell": [
+        3,
+        "original",
+        true,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 3,
+      "mixed_a_choice": 1,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.14583333333333334,
+        "mixed": -0.020833333333333332,
+        "economic": -0.0625,
+        "heuristic": 0.03125
+      }
+    },
+    {
+      "fixtureIndex": 410,
+      "cell": [
+        3,
+        "original",
+        true,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": true,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 2,
+      "mixed_a_choice": 18,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.020833333333333332,
+        "mixed": 0.020833333333333332,
+        "economic": 0.0,
+        "heuristic": 0.020833333333333332
+      }
+    },
+    {
+      "fixtureIndex": 415,
+      "cell": [
+        3,
+        "original",
+        true,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": true,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 5,
+      "mixed_a_choice": 1,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.13541666666666666,
+        "economic": 0.03125,
+        "heuristic": 0.13541666666666666
+      }
+    },
+    {
+      "fixtureIndex": 480,
+      "cell": [
+        3,
+        "recharged",
+        true,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": true,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 4,
+      "mixed_a_choice": 4,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 487,
+      "cell": [
+        3,
+        "recharged",
+        true,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 7,
+      "mixed_a_choice": 7,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 508,
+      "cell": [
+        3,
+        "recharged",
+        true,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 0,
+      "mixed_a_choice": 0,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 570,
+      "cell": [
+        3,
+        "original",
+        false,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": true,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 3,
+      "mixed_a_choice": 3,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 600,
+      "cell": [
+        3,
+        "original",
+        false,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": true,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 3,
+      "mixed_a_choice": 2,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.10416666666666667,
+        "mixed": -0.020833333333333332,
+        "economic": 0.020833333333333332,
+        "heuristic": 0.041666666666666664
+      }
+    },
+    {
+      "fixtureIndex": 635,
+      "cell": [
+        3,
+        "original",
+        false,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": true,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 10,
+      "mixed_a_choice": 10,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 695,
+      "cell": [
+        3,
+        "recharged",
+        false,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": true,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 3,
+      "mixed_a_choice": 1,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": -0.020833333333333332,
+        "mixed": -0.2916666666666667,
+        "economic": -0.3958333333333333,
+        "heuristic": -0.020833333333333332
+      }
+    },
+    {
+      "fixtureIndex": 710,
+      "cell": [
+        3,
+        "recharged",
+        false,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": true,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 0,
+      "mixed_a_choice": 4,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.14583333333333334,
+        "mixed": -0.25,
+        "economic": 0.041666666666666664,
+        "heuristic": -0.4375
+      }
+    },
+    {
+      "fixtureIndex": 762,
+      "cell": [
+        3,
+        "recharged",
+        false,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 2,
+      "mixed_a_choice": 2,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 810,
+      "cell": [
+        4,
+        "original",
+        true,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 8,
+      "mixed_a_choice": 8,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 811,
+      "cell": [
+        4,
+        "original",
+        true,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": true,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 0,
+      "mixed_a_choice": 4,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": -0.0625,
+        "mixed": -0.10416666666666667,
+        "economic": 0.041666666666666664,
+        "heuristic": -0.40625
+      }
+    },
+    {
+      "fixtureIndex": 858,
+      "cell": [
+        4,
+        "original",
+        true,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 2,
+      "mixed_a_choice": 5,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0625,
+        "mixed": 0.10416666666666667,
+        "economic": 0.020833333333333332,
+        "heuristic": 0.08333333333333333
+      }
+    },
+    {
+      "fixtureIndex": 929,
+      "cell": [
+        4,
+        "recharged",
+        true,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 2,
+      "mixed_a_choice": 0,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.020833333333333332,
+        "economic": 0.020833333333333332,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 948,
+      "cell": [
+        4,
+        "recharged",
+        true,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": true,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 0,
+      "mixed_a_choice": 4,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.041666666666666664,
+        "mixed": 0.020833333333333332,
+        "economic": 0.020833333333333332,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 992,
+      "cell": [
+        4,
+        "recharged",
+        true,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 18,
+      "mixed_a_choice": 18,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 1066,
+      "cell": [
+        4,
+        "original",
+        false,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 27,
+      "mixed_a_choice": 27,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 1101,
+      "cell": [
+        4,
+        "original",
+        false,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 3,
+      "mixed_a_choice": 3,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 1106,
+      "cell": [
+        4,
+        "original",
+        false,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 2,
+      "mixed_a_choice": 2,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 1203,
+      "cell": [
+        4,
+        "recharged",
+        false,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": true,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 1,
+      "mixed_a_choice": 1,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 1218,
+      "cell": [
+        4,
+        "recharged",
+        false,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": true,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 1,
+      "mixed_a_choice": 3,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.2916666666666667,
+        "mixed": -0.08333333333333333,
+        "economic": -0.2708333333333333,
+        "heuristic": -0.020833333333333332
+      }
+    },
+    {
+      "fixtureIndex": 1270,
+      "cell": [
+        4,
+        "recharged",
+        false,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 16,
+      "mixed_a_choice": 16,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 1356,
+      "cell": [
+        5,
+        "original",
+        true,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": false,
+      "neural_a_choice": 4,
+      "mixed_a_choice": 6,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": -0.020833333333333332,
+        "economic": 0.0,
+        "heuristic": 0.03125
+      }
+    },
+    {
+      "fixtureIndex": 1382,
+      "cell": [
+        5,
+        "original",
+        true,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 4,
+      "mixed_a_choice": 4,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 1407,
+      "cell": [
+        5,
+        "original",
+        true,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": true,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 8,
+      "mixed_a_choice": 6,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.3333333333333333,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 1490,
+      "cell": [
+        5,
+        "recharged",
+        true,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": true,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 3,
+      "mixed_a_choice": 1,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": -0.041666666666666664,
+        "economic": 0.020833333333333332,
+        "heuristic": -0.08333333333333333
+      }
+    },
+    {
+      "fixtureIndex": 1504,
+      "cell": [
+        5,
+        "recharged",
+        true,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 4,
+      "mixed_a_choice": 4,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 1551,
+      "cell": [
+        5,
+        "recharged",
+        true,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 4,
+      "mixed_a_choice": 4,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 1655,
+      "cell": [
+        5,
+        "original",
+        false,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 3,
+      "mixed_a_choice": 3,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 1665,
+      "cell": [
+        5,
+        "original",
+        false,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": true,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 7,
+      "mixed_a_choice": 1,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": -0.041666666666666664,
+        "mixed": 0.020833333333333332,
+        "economic": -0.041666666666666664,
+        "heuristic": -0.020833333333333332
+      }
+    },
+    {
+      "fixtureIndex": 1714,
+      "cell": [
+        5,
+        "original",
+        false,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 5,
+      "mixed_a_choice": 20,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.041666666666666664,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 1805,
+      "cell": [
+        5,
+        "recharged",
+        false,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 14,
+      "mixed_a_choice": 0,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": -0.020833333333333332,
+        "economic": 0.0,
+        "heuristic": -0.020833333333333332
+      }
+    },
+    {
+      "fixtureIndex": 1857,
+      "cell": [
+        5,
+        "recharged",
+        false,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 4,
+      "mixed_a_choice": 0,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": -0.2916666666666667,
+        "economic": 0.0,
+        "heuristic": -0.6354166666666666
+      }
+    },
+    {
+      "fixtureIndex": 1877,
+      "cell": [
+        5,
+        "recharged",
+        false,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 1,
+      "mixed_a_choice": 1,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 1951,
+      "cell": [
+        6,
+        "original",
+        true,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 10,
+      "mixed_a_choice": 19,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 1966,
+      "cell": [
+        6,
+        "original",
+        true,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 4,
+      "mixed_a_choice": 4,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 1971,
+      "cell": [
+        6,
+        "original",
+        true,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 6,
+      "mixed_a_choice": 6,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 2070,
+      "cell": [
+        6,
+        "recharged",
+        true,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 2,
+      "mixed_a_choice": 2,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 2082,
+      "cell": [
+        6,
+        "recharged",
+        true,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 1,
+      "mixed_a_choice": 4,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0625,
+        "mixed": -0.16666666666666666,
+        "economic": -0.0625,
+        "heuristic": -0.3541666666666667
+      }
+    },
+    {
+      "fixtureIndex": 2126,
+      "cell": [
+        6,
+        "recharged",
+        true,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 7,
+      "mixed_a_choice": 7,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 2271,
+      "cell": [
+        6,
+        "original",
+        false,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 6,
+      "mixed_a_choice": 6,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 2276,
+      "cell": [
+        6,
+        "original",
+        false,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 1,
+      "mixed_a_choice": 1,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 2334,
+      "cell": [
+        6,
+        "original",
+        false,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 8,
+      "mixed_a_choice": 8,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 2410,
+      "cell": [
+        6,
+        "recharged",
+        false,
+        "Bid"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 6,
+      "mixed_a_choice": 2,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.041666666666666664,
+        "heuristic": -0.041666666666666664
+      }
+    },
+    {
+      "fixtureIndex": 2429,
+      "cell": [
+        6,
+        "recharged",
+        false,
+        "ChoosePowerPlant"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": false,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 4,
+      "mixed_a_choice": 4,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    },
+    {
+      "fixtureIndex": 2513,
+      "cell": [
+        6,
+        "recharged",
+        false,
+        "Build"
+      ],
+      "disjoint_neural_winner_sets": false,
+      "same_unique_neural_winner": false,
+      "all_neural_actions_tied_a": true,
+      "root_proposal_in_shortlist": true,
+      "neural_a_choice": 15,
+      "mixed_a_choice": 15,
+      "confirmation_gap_neural_choice_minus_mixed_choice": {
+        "neural": 0.0,
+        "mixed": 0.0,
+        "economic": 0.0,
+        "heuristic": 0.0
+      }
+    }
+  ],
+  "artifact_sha256": {
+    "2": "f81f198508afa9fac9f4059ea979d96029d2cb2b39d7da8e71ae1e7e56b9bb1e",
+    "3": "5ff99302e8b3adb0daa7ff2bf9963571e0c11616d80c329f0792f52924f2b137",
+    "4": "1f11f7ef668dcd108347305008fa02794a3feb1f08431b1411603ed0079f0f86",
+    "5": "e6b2f3c366a582335be8c6f44f37e1439fd9658d3df0ae4f4fa3f316d64b3b42",
+    "6": "2f5e53a0ccbb30faf430e5052801f724f557bc63e5475925132833edf534ae88"
+  },
+  "timing": {
+    "2": {
+      "engine_seconds": 172.4598869960755,
+      "policy_seconds": 91.36814471893013,
+      "evaluations": 6240
+    },
+    "3": {
+      "engine_seconds": 179.9302806690002,
+      "policy_seconds": 99.84222963100254,
+      "evaluations": 5952
+    },
+    "4": {
+      "engine_seconds": 242.1088545449982,
+      "policy_seconds": 129.2879526219981,
+      "evaluations": 5952
+    },
+    "5": {
+      "engine_seconds": 276.4627565710001,
+      "policy_seconds": 147.53430075800082,
+      "evaluations": 5952
+    },
+    "6": {
+      "engine_seconds": 307.6295491549987,
+      "policy_seconds": 177.09223864999973,
+      "evaluations": 5952
+    }
+  },
+  "limitations": "Reused development fixtures, descriptive only. Better target stability or continuation return is not proof of actual playing strength. Continuation-policy preferences may reverse."
+}

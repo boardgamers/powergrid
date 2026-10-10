@@ -10,6 +10,36 @@ from multiplayer import ROLE_REVISIONS, rotate_outcome
 
 
 class BridgeTests(unittest.TestCase):
+    def test_population_training_completes_all_counts_with_frozen_role_observations(self):
+        revisions = {**ROLE_REVISIONS, **{f'frozen{i}': '4.0-multiplayer' for i in range(3)}}
+        for mode in ['population_homogeneous', 'population_heterogeneous']:
+            pool = EnginePool(4, seed='population-integration', script='ai/strong/bridge.cjs')
+            try:
+                current = pool.call({'op': 'reset', 'n': 40, 'mode': mode,
+                                     'playerCounts': [2, 3, 4, 5, 6],
+                                     'featureRevisions': revisions})['observations']
+                seen = set()
+                ends = []
+                for _ in range(1800):
+                    for row in current:
+                        if row:
+                            role = row['roles'][row['seat']]
+                            seen.add(role)
+                            self.assertEqual(row['featureRevision'], revisions[role])
+                            self.assertEqual(len(row['state']), 1149)
+                    reply = pool.call({'op': 'step', 'actions': [r['teacher'] if r else None for r in current]})
+                    ends.extend(reply['ended'])
+                    current = reply['observations']
+                    if not any(current):
+                        break
+                self.assertEqual(len(ends), 40)
+                self.assertFalse(any(e['truncated'] for e in ends))
+                self.assertEqual({e['playerCount'] for e in ends}, {2, 3, 4, 5, 6})
+                self.assertTrue(any(role.startswith('frozen') for role in seen))
+                self.assertTrue(all(abs(sum(e['value']) - 1) < 1e-6 for e in ends))
+            finally:
+                pool.close()
+
     def test_stronger_mixture_retains_selfplay_and_all_opponent_families(self):
         # Fixed independent RNG seeds exercise every league family through reset.
         cases = [

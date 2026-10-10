@@ -1,55 +1,81 @@
 # Power Grid AI — active continuation, 10 October 2026
 
-Research resumed following the explicit goal continuation. **No candidate has
-passed the complete strength gate. Nothing is deployed, and reserved final seeds
-remain unused.** The UI work in the canonical checkout is separate.
+**No candidate has passed the full strength gate. Nothing is deployed. Reserved
+final-test seeds remain unused.** The separate UI redesign was reverted and is
+not part of this research work.
 
-The current research checkout is
-`/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
-`ai/germany-baseline`. New continuation experiments intentionally use immutable
-source-v36 as the control runtime, not the later engine/UI revisions. The saved
-4 October handoff below remains historical context.
+Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
+`ai/germany-baseline`. The previous interaction was UI-only (no AI progress).
+This AI continuation verified finished audit results, added and tested retained
+neural opponents, froze the experiment and launched training plus parent screens.
 
-Current work: `strong/neural-continuation-protocol-v1.json` freezes a comparison
-of learned-policy continuations against the completed heuristic teacher audit.
-Job identifiers and source/model hashes are in
-`strong/neural-continuation-status-2026-10-10.json`. Inspect those actual HF jobs
-before launching anything else. The main new code is
-`strong/continuation-rollouts.cjs` and `strong/audit-neural-continuations.py`.
-There are no gradient-training jobs in this new cohort.
+## Current jobs — inspect these before launching anything
 
-The prior goal turn handled an unrelated UI revert and made no AI progress.
-This resumed turn revalidated that HF had no live jobs, checked all five old
-result files against their immutable HF revision, implemented the neural
-continuation path, and launched the new diagnostic cohort. Do not count the
-repeated historical audit as a new strength result.
+`strong/population-status-v1.json` records exact job IDs and their latest observed
+states. Three training jobs run `multiplayer-population-v1-{control,homogeneous,
+heterogeneous}`. Six parent-screen jobs covered economic opponents at 2–6 players
+and frozen A260 at 3 players; all six are now completed and collected. Do not duplicate jobs after a polling timeout.
+Training runs **only on HF Jobs**. The training source bundle, immutable dataset
+revision, SHA256 and per-file hashes are in `strong/population-source-v1.json`.
 
-New checks: exact heuristic-control reproduction, worker partition/legality/cap
-checks, hidden-deck/sealed-bid invariance, and a local 24-rollout inference smoke
-check all passed. The two-player HF shard completed all 6,240 rollouts without truncation. Its
-12 positions had disjoint A/B neural winner sets in 4 cases. Neural-selected
-actions had a small positive confirmation gap under neural continuation but
-negative gaps under each heuristic continuation; do not promote the teacher.
-The 3p shard also completed and reproduced the continuation-dependent pattern
-(3/12 disjoint A/B winner sets). Its artifact revision is recorded in the status
-file. The 4–6p shards were confirmed RUNNING at the latest observation.
-In the first batches about 62% of wall time was engine/IPC work and about 35% model inference;
-CPU-performance workers are used pending the full timing report. These tiny
-runtime samples do not establish throughput for every player count.
+`strong/population-training-protocol-v1.json` freezes the experiment before any
+training result: H200 update79 parent; three retained neural checkpoints; 20 PPO
+updates × 240 complete games, balanced over 2–6 players, original/Recharged and
+open/sealed; seed10021; initial-policy anchor; periodic snapshots every5 updates.
+The population arms share opponent marginals but assign either one family per
+table or a different family per opposing seat. Two-player assignments match.
+The third arm retains the prior mixture. It is a single-seed pilot, not proof of
+training robustness. Inspect timings before changing hardware or extending runs.
 
-Next actions:
+## Completed evidence
 
-1. Collect all five live jobs, pin their final artifact revision, verify hashes,
-   exact cells, both A/B batches, model revision, and completion counts.
-2. Compare A/B winner-set stability with matched 48-sample heuristic controls.
-   Inspect root-proposal coverage and original/sealed bidding separately.
-   Missing/capped continuations are missing evidence, never automatic losses.
-3. Only if supported, build a policy-guided teacher candidate and test full games
-   against frozen independent opponents on development deals. A reliable target
-   is not by itself a stronger policy. Preserve strong baselines and all rule/count
-   cells; this diagnostic is not evidence for final qualification or deployment.
-4. Prepare the next HF training pilot from those results, with opponent mixtures,
-   self-play and fixed independent screening. Keep the existing strength gates.
+All five neural-continuation jobs completed: **30,048 rollouts, zero truncated**.
+Artifacts are pinned at model revision
+`577ecd7d834c64741db9cda715bd1db3c3dddbd9`; see
+`strong/neural-continuation-status-2026-10-10.json` and
+`strong/neural-continuation-summary-v1.json` for raw hashes and subgroup results.
+Across60 reused positions,11 had disjoint A/B winner sets and27 tied every action
+in discovery. Neural-selected moves confirmed better under neural continuation
+but worse under the heuristic continuations on average. **No teacher promotion
+and no new hard labels.** This motivated the full-game population pilot, not a
+claim that population training will succeed.
+
+Checks passed:16 archived-runtime Node tests; frozen weight/hash/role isolation;
+actual inference with all three pinned models; all4 multiplayer bridge tests
+(including80 complete population games across counts); async/sync equivalence;
+model and snapshot tests. The parent passed strict checkpoint/export comparison
+on all2,553 serving fixtures before its screens were launched.
+
+## Next actions
+
+1. Inspect the three exact training jobs. Confirm startup, pinned models, initial
+   evaluation, first complete update and engine/policy/optimization timings.
+   Check all240 games finish,48 per count, and no game/search truncations. Retain
+   all arms and regressions; do not silently promote internal `best`.
+2. Parent screens are verified and saved in `strong/population-parent-screen-v1.json`
+   at artifact revision `29f232e329f05ce6a93ea92006a271d9ea292147`. All3680 games
+   completed, exact40 deals/count and all seat/rule cells, zero truncations.
+   Economic win shares2–6p:57.34/60.00/60.08/76.25/73.13%; A2603p:36.56%.
+   These new development results confirm the two priority weaknesses. The
+   collector also rejected altered hashes, seeds, opponent roles, missing and
+   truncated games. Reuse these paired raw reports when new checkpoints finish.
+3. At updates9 and19, preserve immutable model-repository revisions for each
+   training run. Run `strong/prepare-population-screen.py ARM UPDATE REV OUTPUT`
+   to verify training provenance and full2553-fixture parity, then launch its
+   `screen-plan.json`. The fresh development seeds are
+   `multiplayer-population-screen-v1-{players}p`,40 complete paired deals/count.
+   Compare all six scheduled checkpoints to the parent and each other, with
+   deal-clustered intervals and separate rule/count reporting.
+4. Only if the prescribed screens justify it, test independent stronger search
+   and mixed tables, replicate promising training, then run the unchanged final
+   strength protocol and benchmark/package on the8840U. Parent2p economic and
+   A2603p remain known weaknesses. Never replace the full gate with these screens.
+5. This comparison intentionally freezes source-v36, while screens retain
+   source-v32. Verify compatibility with the newer production engine before any
+   deployment. Existing hidden-deck, sealed-bid and queued-plan exclusions stay.
+
+The historical October4 handoff follows; its paused status and old job snapshots
+are historical, not the current state.
 
 ---
 

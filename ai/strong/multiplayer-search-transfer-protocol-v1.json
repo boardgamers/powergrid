@@ -1,0 +1,133 @@
+{
+  "purpose": "Development-only paired search48 transfer at3-6 players against the unchanged independent search_geo reference. No training, model selection or final qualification.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "models": {
+    "parent": {
+      "revision": "f14d0db14edb494c8797af00a546ac56088cfa96",
+      "prefix": "runs/inference64-cohort-v1/parent",
+      "files": {
+        "inference64.onnx": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a",
+        "inference64.pt": "92ebfaba7329dbeadbc1e3e8fca0b41c1de94fc8249b951b328f9b11de7ee887"
+      },
+      "feature_revision": "4.0-multiplayer"
+    },
+    "10101": {
+      "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+      "prefix": "runs/discard-correction-v1/10101/derivative",
+      "files": {
+        "inference64.onnx": "bb0790074d2df1a4929c059b61424da72ddf4fc51cf9396a91a27c031934808d",
+        "inference64.pt": "ea30240af0c3a6cafd2c3a9569090758f4754c07eb9491e905768b72831af393"
+      },
+      "feature_revision": "4.2-discard-correction",
+      "selected_epoch": 10
+    },
+    "10102": {
+      "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+      "prefix": "runs/discard-correction-v1/10102/derivative",
+      "files": {
+        "inference64.onnx": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+        "inference64.pt": "25e9995c3998cc9f09e1dafb40f0328ae09e616f791c10e793eaad42cfa5e473"
+      },
+      "feature_revision": "4.2-discard-correction",
+      "selected_epoch": 10
+    }
+  },
+  "models_manifest_sha256": "f3c3362712179d0af1796b5419215ac3e8f69f886126a35c105c1c96b0354a6a",
+  "cases": [
+    {
+      "id": "search_geo-3p",
+      "players": 3,
+      "opponent": "search_geo",
+      "deals": 8,
+      "seed": "discard-opponents-games-v1-3p",
+      "games": 96
+    },
+    {
+      "id": "search_geo-4p",
+      "players": 4,
+      "opponent": "search_geo",
+      "deals": 8,
+      "seed": "discard-opponents-games-v1-4p",
+      "games": 128
+    },
+    {
+      "id": "search_geo-5p",
+      "players": 5,
+      "opponent": "search_geo",
+      "deals": 8,
+      "seed": "discard-opponents-games-v1-5p",
+      "games": 160
+    },
+    {
+      "id": "search_geo-6p",
+      "players": 6,
+      "opponent": "search_geo",
+      "deals": 8,
+      "seed": "discard-opponents-games-v1-6p",
+      "games": 192
+    }
+  ],
+  "candidate_search": {
+    "samples": 48,
+    "geography": true,
+    "scope": "all",
+    "include_model_proposal": true,
+    "search_max_steps": 2400,
+    "actual_game_max_steps": 1600
+  },
+  "workers": 24,
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 9032,
+  "planned_new_games": 1728,
+  "qualification_eligible": false,
+  "smoke": {
+    "model": "10102",
+    "independent_deals": 1,
+    "seed_template": "multiplayer-search-transfer-smoke-v1-{case}",
+    "purpose": "Separate whole deal per count for measured runtime and legality; not a strength comparison."
+  },
+  "baseline_contract": {
+    "source": {
+      "archive": "strong-source-discard-opponents-20261010-v1.tgz",
+      "revision": "e44812ae307ae3e8a2b62306511d55b61d34720f",
+      "sha256": "b40efa0c88e8b8a148bf44f955a50b1aa20804cc7e9eb09bd0f4f15efe31a880",
+      "overlays": {
+        "ai/strong/discard_opponents_screen.py": "a924eba0aada22f3b6be7fd1564b7b23fb6d285cb877e32b010b420518d91bb6",
+        "ai/strong/discard-opponents-protocol-v1.json": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c"
+      },
+      "base": {
+        "archive": "strong-source-discard-correction-screen-20261010-v1.tgz",
+        "revision": "63db2c7e4b870bf019436a6338c9385f3bad82a6",
+        "sha256": "2ee290d6a7c5863fcfea9ebefa1b00515776be8174e22662870e86e547a04d4d"
+      },
+      "unchanged_base_file_count": 1370,
+      "protocol_sha256": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c",
+      "models_sha256": "f3c3362712179d0af1796b5419215ac3e8f69f886126a35c105c1c96b0354a6a",
+      "qualification_eligible": false
+    },
+    "protocol_sha256": "191ab3a37cd1317cff6e7edbb865f33a1644a1d8be8235493dcc4dba60668f2c",
+    "models_manifest_sha256": "f3c3362712179d0af1796b5419215ac3e8f69f886126a35c105c1c96b0354a6a",
+    "opponent": "search_geo",
+    "independent_deals": 8,
+    "seed_template": "discard-opponents-games-v1-{players}p",
+    "jobs": {
+      "parent-3p": "6aca55e6fee2c900701891e0",
+      "parent-4p": "6aca55e6095c578089313acc",
+      "parent-5p": "6aca55e7fee2c900701891e4",
+      "parent-6p": "6aca55e9095c578089313ace",
+      "10101-3p": "6aca55eafee2c900701891e9",
+      "10101-4p": "6aca55ebfee2c900701891eb",
+      "10101-5p": "6aca55ecfee2c900701891ed",
+      "10101-6p": "6aca55edfee2c900701891ef",
+      "10102-3p": "6aca55ed095c578089313ad4",
+      "10102-4p": "6aca55ee095c578089313ad7",
+      "10102-5p": "6aca55ef095c578089313ad9",
+      "10102-6p": "6aca55ef095c578089313adb"
+    },
+    "prefix_template": "runs/discard-opponents-v1-{key}-{players}p",
+    "admission": "Full jobs require independently verified matching raw baseline before launch.3p/4p already exist;5p/6p still running at protocol freeze. The frozen source/model/seed/opponent identities specify these baselines before their outcomes; pin resulting immutable revision/hash on local collection. No reruns or model changes."
+  },
+  "analysis": "Compare each model search versus its paired raw-policy baseline, all seats and every original/Recharged open/sealed cell. Retain between-model comparisons and regressions. Development cases selected after weaknesses; neither these reused deals nor one-deal probes are final-test evidence.",
+  "admission": "All source files frozen; same-count independently verified search48 smoke required before full launch. Runtime budget is twice measured linear projection plus120s, with25% timeout headroom. Split if above12h; never lower game/search horizons.",
+  "remaining_scope": "Other independent opponents, fresh held-out final gates and eventual qualified-config deployment/benchmark remain required. Existing two-player/A260 jobs continue unchanged."
+}

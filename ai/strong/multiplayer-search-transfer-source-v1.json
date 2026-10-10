@@ -1,0 +1,17 @@
+{
+  "archive": "strong-source-multiplayer-search-transfer-20261010-v1.tgz",
+  "revision": "a96a04f0914a34f4a86bcac0948db0e4777fa83d",
+  "sha256": "98fd31d794e96f0e4598db484cb074e899fe3af465b4c911d7c2abea6f15bbe2",
+  "overlays": {
+    "ai/strong/multiplayer_search_transfer.py": "35c899284bad1365cd8eeddfc4d2fae970b98fb1910d7f85a902a8da28e5c073",
+    "ai/strong/multiplayer-search-transfer-protocol-v1.json": "9f6606955ac2aa3ebd46168bce0d983cd4aaed5b9d1d4feda21890d07fff5dda"
+  },
+  "base": {
+    "archive": "strong-source-search-transfer-20261010-v1.tgz",
+    "revision": "1ef629c51282936c0bd2be9e7b584ce985e91d03",
+    "sha256": "e35e93d6d410ccb34bfb59a2840a7e4ed3b67e950a429968adcdf383ec53ef55"
+  },
+  "unchanged_base_file_count": 1376,
+  "protocol_sha256": "9f6606955ac2aa3ebd46168bce0d983cd4aaed5b9d1d4feda21890d07fff5dda",
+  "qualification_eligible": false
+}

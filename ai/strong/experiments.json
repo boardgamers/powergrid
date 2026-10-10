@@ -37985,7 +37985,7 @@
         "stage": "All6048 complete2-4p games independently verified,caps0; remaining six5-6p shards running. Search remains weak at3p/4p;no qualification.",
         "qualification_eligible": false,
         "status": {
-            "checked_at": "2026-10-10T15:56:25.192585+00:00",
+            "checked_at": "2026-10-10T16:08:15.782438+00:00",
             "jobs": {
                 "10101-2p": {
                     "job_id": "6aca529ffee2c90070188f0f",
@@ -38267,11 +38267,11 @@
             "qualification_eligible": false
         },
         "status": {
-            "checked_at": "2026-10-10T15:56:25.534375+00:00",
+            "checked_at": "2026-10-10T16:08:16.115598+00:00",
             "jobs": {
                 "10101-a260-3p": {
                     "job_id": "6aca5bbbfee2c900701896a4",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 5
                 },
                 "10101-heuristic-2p": {
@@ -38286,7 +38286,7 @@
                 },
                 "10102-a260-3p": {
                     "job_id": "6aca5bbc095c578089313ecb",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 5
                 },
                 "10102-heuristic-2p": {
@@ -38301,7 +38301,7 @@
                 },
                 "parent-a260-3p": {
                     "job_id": "6aca5bba095c578089313ec7",
-                    "status": "RUNNING",
+                    "status": "COMPLETED",
                     "timeout_hours": 5
                 },
                 "parent-heuristic-2p": {
@@ -38362,7 +38362,7 @@
             "full_jobs": 9,
             "planned_new_games": 1152
         },
-        "stage": "Allsix2p fulljobs completed;576guidedgames pluspairedrawbaselines independently verified,caps0. Bothcorrections92.96875%heuristic and65.625%search_geo; allsearchrule-cellCIs includechance. ThreeA260jobs stillrunning. No qualification.",
+        "stage": "All1152guidedgames plus1152pinnedrawbaselines independently verified,caps0. BothcorrectionsA26049.4792% versusraw36.1979%,butoriginal/openCI includeschance andRecharged/open regresses slightly. Noqualification.",
         "qualification_eligible": false,
         "hardware_probe": {
             "report_file": "ai/strong/search-transfer-8840u-probe-v1.json",
@@ -38398,19 +38398,94 @@
         "results_file": "ai/strong/search-transfer-results-v1.json",
         "completed_game_evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
-            "revision": "ebf6cdce5d571f1067082985a819d053ea16d753",
-            "prefix": "runs/search-transfer-2p-completed-evidence-v1",
-            "manifest_sha256": "171d21d96aa7e985a6cb8312dabd010a3c64234f0bd8f5c3b11722fce0f3c53f",
-            "new_games_verified": 576,
-            "paired_baseline_games": 576,
-            "complete_cases": [
-                "heuristic-2p",
-                "search_geo-2p"
-            ],
-            "all_cases_verified": false,
+            "revision": "5d574befee21c335b49b2ffe53d6d89002b83152",
+            "prefix": "runs/search-transfer-completed-evidence-v1",
+            "manifest_sha256": "1b2811683edc07a64fe9669014747868636d9eeac46f2e7096d8939eefa04fc2",
+            "new_games_verified": 1152,
+            "paired_baseline_games": 1152,
+            "all_cases_verified": true,
             "game_truncations": 0,
             "search_truncations": 0,
             "qualification_eligible": false
-        }
+        },
+        "terminal_analysis_file": "ai/strong/search-transfer-terminal-analysis-v1.json"
+    },
+    "multiplayer_search_transfer_v1": {
+        "source": {
+            "archive": "strong-source-multiplayer-search-transfer-20261010-v1.tgz",
+            "revision": "a96a04f0914a34f4a86bcac0948db0e4777fa83d",
+            "sha256": "98fd31d794e96f0e4598db484cb074e899fe3af465b4c911d7c2abea6f15bbe2",
+            "overlays": {
+                "ai/strong/multiplayer_search_transfer.py": "35c899284bad1365cd8eeddfc4d2fae970b98fb1910d7f85a902a8da28e5c073",
+                "ai/strong/multiplayer-search-transfer-protocol-v1.json": "9f6606955ac2aa3ebd46168bce0d983cd4aaed5b9d1d4feda21890d07fff5dda"
+            },
+            "base": {
+                "archive": "strong-source-search-transfer-20261010-v1.tgz",
+                "revision": "1ef629c51282936c0bd2be9e7b584ce985e91d03",
+                "sha256": "e35e93d6d410ccb34bfb59a2840a7e4ed3b67e950a429968adcdf383ec53ef55"
+            },
+            "unchanged_base_file_count": 1376,
+            "protocol_sha256": "9f6606955ac2aa3ebd46168bce0d983cd4aaed5b9d1d4feda21890d07fff5dda",
+            "qualification_eligible": false
+        },
+        "protocol_file": "ai/strong/multiplayer-search-transfer-protocol-v1.json",
+        "preflight": {
+            "source_revision": "a96a04f0914a34f4a86bcac0948db0e4777fa83d",
+            "source_sha256": "98fd31d794e96f0e4598db484cb074e899fe3af465b4c911d7c2abea6f15bbe2",
+            "protocol_sha256": "9f6606955ac2aa3ebd46168bce0d983cd4aaed5b9d1d4feda21890d07fff5dda",
+            "frozen_package_passed": true,
+            "baseline_games": 672,
+            "negative_checks": 48,
+            "verified_players": [
+                3,
+                4
+            ],
+            "scope": "Unchanged tested engine, models and search;672 real raw-baseline games verify and48 altered contracts fail. New3-6p guided HF probe results remain required.",
+            "qualification_eligible": false
+        },
+        "status": {
+            "checked_at": "2026-10-10T16:10:06.526277+00:00",
+            "jobs": {
+                "smoke-10102-3p": {
+                    "job_id": "6aca61e3fee2c90070189b3e",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                },
+                "smoke-10102-4p": {
+                    "job_id": "6aca61e5fee2c90070189b41",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                },
+                "smoke-10102-5p": {
+                    "job_id": "6aca61e6fee2c90070189b44",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                },
+                "smoke-10102-6p": {
+                    "job_id": "6aca61e8095c578089314282",
+                    "status": "RUNNING",
+                    "timeout_hours": 4
+                }
+            },
+            "qualification_eligible": false
+        },
+        "evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "2d214efc19e49d296145608a339f8aee75eeb0ed",
+            "prefix": "runs/multiplayer-search-transfer-launch-evidence-v1",
+            "manifest_sha256": "539d207f1e2a87b254a543f08fbcf9e6a9b12a0717dfffef44bcd55f935ca127",
+            "probe_jobs_launched": 4,
+            "probe_games": 72,
+            "full_jobs_launched": 0,
+            "full_games_planned": 1728,
+            "baseline_games_verified": 672,
+            "negative_checks_passed": 48,
+            "qualification_eligible": false
+        },
+        "planned_full_games": 1728,
+        "probe_games": 72,
+        "full_jobs_launched": 0,
+        "stage": "Four3-6p runtime probes launched and confirmedRUNNING;each fulljob requires independently verified same-count runtime andraw baseline. No full launch yet.",
+        "qualification_eligible": false
     }
 }

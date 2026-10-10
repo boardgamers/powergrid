@@ -1,0 +1,4218 @@
+{
+  "cases": [
+    "heuristic-2p",
+    "search_geo-2p",
+    "a260-3p"
+  ],
+  "models": {
+    "parent": {
+      "heuristic-2p": {
+        "overall": {
+          "games_per_arm": 128,
+          "independent_deals": 16,
+          "outcome_transitions": {
+            "sole_win->sole_win": 71,
+            "loss->sole_win": 43,
+            "sole_win->loss": 10,
+            "loss->loss": 4
+          },
+          "terminal_changes": {
+            "win_credit": {
+              "mean_search_minus_raw": 0.2578125,
+              "paired_deal_bootstrap_95_interval": [
+                0.1640625,
+                0.3515625
+              ]
+            },
+            "round": {
+              "mean_search_minus_raw": 0.3359375,
+              "paired_deal_bootstrap_95_interval": [
+                0.1796875,
+                0.4765625
+              ]
+            },
+            "cities": {
+              "mean_search_minus_raw": 0.2421875,
+              "paired_deal_bootstrap_95_interval": [
+                0.046875,
+                0.4453125
+              ]
+            },
+            "powered": {
+              "mean_search_minus_raw": 0.5234375,
+              "paired_deal_bootstrap_95_interval": [
+                0.234375,
+                0.796875
+              ]
+            },
+            "capacity": {
+              "mean_search_minus_raw": 0.53125,
+              "paired_deal_bootstrap_95_interval": [
+                0.234375,
+                0.8203125
+              ]
+            },
+            "cash": {
+              "mean_search_minus_raw": -10.1953125,
+              "paired_deal_bootstrap_95_interval": [
+                -23.7033203125,
+                2.21875
+              ]
+            },
+            "powered_gap": {
+              "mean_search_minus_raw": 2.2734375,
+              "paired_deal_bootstrap_95_interval": [
+                0.7890625,
+                3.750195312499997
+              ]
+            },
+            "capacity_gap": {
+              "mean_search_minus_raw": -0.2421875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.7578125,
+                0.28125
+              ]
+            },
+            "unused_nominal_potential": {
+              "mean_search_minus_raw": -0.0390625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.1875,
+                0.109375
+              ]
+            }
+          },
+          "raw_failures": {
+            "losses": 47,
+            "shared_wins": 0,
+            "sole_wins": 81,
+            "capacity_below_winner_powered": 36,
+            "cities_below_winner_powered": 31,
+            "unused_nominal_potential": 4,
+            "powered_tie_cash_loss": 1
+          },
+          "search_failures": {
+            "losses": 14,
+            "shared_wins": 0,
+            "sole_wins": 114,
+            "cities_below_winner_powered": 13,
+            "unused_nominal_potential": 4,
+            "powered_tie_cash_loss": 1,
+            "capacity_below_winner_powered": 9
+          }
+        },
+        "rules": {
+          "original/open": {
+            "games_per_arm": 32,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "sole_win->sole_win": 14,
+              "loss->sole_win": 14,
+              "sole_win->loss": 3,
+              "loss->loss": 1
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.34375,
+                "paired_deal_bootstrap_95_interval": [
+                  0.09375,
+                  0.59375
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.4375,
+                "paired_deal_bootstrap_95_interval": [
+                  0.15625,
+                  0.71875
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.34375,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.65625
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.5625,
+                "paired_deal_bootstrap_95_interval": [
+                  0.125,
+                  1.03125
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.75,
+                "paired_deal_bootstrap_95_interval": [
+                  0.21875,
+                  1.3125
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -5.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -34.00078125,
+                  23.845312499999977
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 1.59375,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.6875,
+                  4.65625
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": -0.15625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.9375,
+                  0.65625
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": 0.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.09375
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 15,
+              "shared_wins": 0,
+              "sole_wins": 17,
+              "cities_below_winner_powered": 12,
+              "capacity_below_winner_powered": 13
+            },
+            "search_failures": {
+              "losses": 4,
+              "shared_wins": 0,
+              "sole_wins": 28,
+              "capacity_below_winner_powered": 2,
+              "cities_below_winner_powered": 4,
+              "unused_nominal_potential": 1
+            }
+          },
+          "original/sealed": {
+            "games_per_arm": 32,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "loss->sole_win": 14,
+              "sole_win->sole_win": 12,
+              "loss->loss": 3,
+              "sole_win->loss": 3
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.34375,
+                "paired_deal_bootstrap_95_interval": [
+                  0.15625,
+                  0.53125
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.5,
+                "paired_deal_bootstrap_95_interval": [
+                  0.15625,
+                  0.8125
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.34375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.09375,
+                  0.8125
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.6875,
+                "paired_deal_bootstrap_95_interval": [
+                  0.03125,
+                  1.34375
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.21875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.3125,
+                  0.75
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -11.5,
+                "paired_deal_bootstrap_95_interval": [
+                  -28.71875,
+                  5.813281249999989
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 2.21875,
+                "paired_deal_bootstrap_95_interval": [
+                  0.28125,
+                  4.09375
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": -0.96875,
+                "paired_deal_bootstrap_95_interval": [
+                  -2.0,
+                  0.0
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.09375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.46875,
+                  0.3125
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 17,
+              "shared_wins": 0,
+              "sole_wins": 15,
+              "cities_below_winner_powered": 10,
+              "unused_nominal_potential": 3,
+              "powered_tie_cash_loss": 1,
+              "capacity_below_winner_powered": 12
+            },
+            "search_failures": {
+              "losses": 6,
+              "shared_wins": 0,
+              "sole_wins": 26,
+              "cities_below_winner_powered": 6,
+              "unused_nominal_potential": 2,
+              "capacity_below_winner_powered": 5
+            }
+          },
+          "recharged/open": {
+            "games_per_arm": 32,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "loss->sole_win": 6,
+              "sole_win->loss": 2,
+              "sole_win->sole_win": 24
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.25
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.3125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.03125,
+                  0.6875
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.25
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.5,
+                "paired_deal_bootstrap_95_interval": [
+                  0.125,
+                  0.875
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.5,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.96875
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -6.21875,
+                "paired_deal_bootstrap_95_interval": [
+                  -27.03125,
+                  14.657031249999989
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 2.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.03125,
+                  4.625
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": -0.09375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.9375,
+                  0.78125
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.21875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.53125,
+                  0.0
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 6,
+              "shared_wins": 0,
+              "sole_wins": 26,
+              "capacity_below_winner_powered": 5,
+              "cities_below_winner_powered": 4
+            },
+            "search_failures": {
+              "losses": 2,
+              "shared_wins": 0,
+              "sole_wins": 30,
+              "capacity_below_winner_powered": 2,
+              "cities_below_winner_powered": 2
+            }
+          },
+          "recharged/sealed": {
+            "games_per_arm": 32,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "sole_win->loss": 2,
+              "sole_win->sole_win": 21,
+              "loss->sole_win": 9
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.21875,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.4375
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.09375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.21875,
+                  0.40625
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.15625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0625,
+                  0.40625
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.34375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.375,
+                  0.90625
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.65625,
+                "paired_deal_bootstrap_95_interval": [
+                  0.21875,
+                  1.15625
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -18.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -37.15703125,
+                  3.09375
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 3.09375,
+                "paired_deal_bootstrap_95_interval": [
+                  1.21875,
+                  4.9375
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 0.25,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.5,
+                  0.9375
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.25,
+                  0.625
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 9,
+              "shared_wins": 0,
+              "sole_wins": 23,
+              "capacity_below_winner_powered": 6,
+              "cities_below_winner_powered": 5,
+              "unused_nominal_potential": 1
+            },
+            "search_failures": {
+              "losses": 2,
+              "shared_wins": 0,
+              "sole_wins": 30,
+              "cities_below_winner_powered": 1,
+              "unused_nominal_potential": 1,
+              "powered_tie_cash_loss": 1
+            }
+          }
+        }
+      },
+      "search_geo-2p": {
+        "overall": {
+          "games_per_arm": 64,
+          "independent_deals": 8,
+          "outcome_transitions": {
+            "loss->sole_win": 29,
+            "sole_win->sole_win": 11,
+            "loss->loss": 20,
+            "sole_win->loss": 4
+          },
+          "terminal_changes": {
+            "win_credit": {
+              "mean_search_minus_raw": 0.390625,
+              "paired_deal_bootstrap_95_interval": [
+                0.25,
+                0.5625
+              ]
+            },
+            "round": {
+              "mean_search_minus_raw": 0.484375,
+              "paired_deal_bootstrap_95_interval": [
+                0.234375,
+                0.71875
+              ]
+            },
+            "cities": {
+              "mean_search_minus_raw": 0.0,
+              "paired_deal_bootstrap_95_interval": [
+                -0.3125,
+                0.34375
+              ]
+            },
+            "powered": {
+              "mean_search_minus_raw": 0.6875,
+              "paired_deal_bootstrap_95_interval": [
+                0.1875,
+                1.140625
+              ]
+            },
+            "capacity": {
+              "mean_search_minus_raw": 0.890625,
+              "paired_deal_bootstrap_95_interval": [
+                0.40625,
+                1.328125
+              ]
+            },
+            "cash": {
+              "mean_search_minus_raw": -16.953125,
+              "paired_deal_bootstrap_95_interval": [
+                -28.250390625,
+                -4.0
+              ]
+            },
+            "powered_gap": {
+              "mean_search_minus_raw": 1.390625,
+              "paired_deal_bootstrap_95_interval": [
+                0.609375,
+                2.296875
+              ]
+            },
+            "capacity_gap": {
+              "mean_search_minus_raw": 0.984375,
+              "paired_deal_bootstrap_95_interval": [
+                0.3125,
+                1.625
+              ]
+            },
+            "unused_nominal_potential": {
+              "mean_search_minus_raw": -0.109375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.265625,
+                0.0
+              ]
+            }
+          },
+          "raw_failures": {
+            "losses": 49,
+            "shared_wins": 0,
+            "sole_wins": 15,
+            "powered_tie_cash_loss": 10,
+            "capacity_below_winner_powered": 34,
+            "cities_below_winner_powered": 24,
+            "unused_nominal_potential": 2
+          },
+          "search_failures": {
+            "losses": 24,
+            "shared_wins": 0,
+            "sole_wins": 40,
+            "cities_below_winner_powered": 14,
+            "powered_tie_cash_loss": 8,
+            "capacity_below_winner_powered": 7,
+            "unused_nominal_potential": 3
+          }
+        },
+        "rules": {
+          "original/open": {
+            "games_per_arm": 16,
+            "independent_deals": 8,
+            "outcome_transitions": {
+              "loss->sole_win": 9,
+              "loss->loss": 5,
+              "sole_win->loss": 1,
+              "sole_win->sole_win": 1
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.5,
+                "paired_deal_bootstrap_95_interval": [
+                  0.1875,
+                  0.75
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": -0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.6875,
+                  0.625
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": -0.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.0625,
+                  0.4375
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 1.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1875,
+                  2.125
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 1.3125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.125,
+                  2.625
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -42.3125,
+                "paired_deal_bootstrap_95_interval": [
+                  -72.3765625,
+                  -10.8125
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 2.0,
+                "paired_deal_bootstrap_95_interval": [
+                  0.75,
+                  3.3125
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 1.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.6875,
+                  2.5
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.375,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.125,
+                  0.0
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 14,
+              "shared_wins": 0,
+              "sole_wins": 2,
+              "powered_tie_cash_loss": 3,
+              "capacity_below_winner_powered": 10,
+              "cities_below_winner_powered": 5
+            },
+            "search_failures": {
+              "losses": 6,
+              "shared_wins": 0,
+              "sole_wins": 10,
+              "powered_tie_cash_loss": 3,
+              "capacity_below_winner_powered": 2,
+              "cities_below_winner_powered": 3
+            }
+          },
+          "original/sealed": {
+            "games_per_arm": 16,
+            "independent_deals": 8,
+            "outcome_transitions": {
+              "loss->sole_win": 6,
+              "sole_win->loss": 1,
+              "loss->loss": 5,
+              "sole_win->sole_win": 4
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.3125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0625,
+                  0.625
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.875,
+                "paired_deal_bootstrap_95_interval": [
+                  0.4375,
+                  1.25
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.5,
+                  0.8125
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.75,
+                  0.9375
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.3125,
+                  1.5
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -20.3125,
+                "paired_deal_bootstrap_95_interval": [
+                  -42.25,
+                  -1.25
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 1.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.25,
+                  2.9375
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 2.0,
+                "paired_deal_bootstrap_95_interval": [
+                  0.75,
+                  3.0625
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.3125
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 11,
+              "shared_wins": 0,
+              "sole_wins": 5,
+              "cities_below_winner_powered": 9,
+              "capacity_below_winner_powered": 9
+            },
+            "search_failures": {
+              "losses": 6,
+              "shared_wins": 0,
+              "sole_wins": 10,
+              "cities_below_winner_powered": 2,
+              "powered_tie_cash_loss": 2,
+              "unused_nominal_potential": 2,
+              "capacity_below_winner_powered": 1
+            }
+          },
+          "recharged/open": {
+            "games_per_arm": 16,
+            "independent_deals": 8,
+            "outcome_transitions": {
+              "loss->sole_win": 6,
+              "sole_win->loss": 2,
+              "loss->loss": 5,
+              "sole_win->sole_win": 3
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.25,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0625,
+                  0.5625
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.75,
+                "paired_deal_bootstrap_95_interval": [
+                  0.25,
+                  1.125
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": -0.375,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.3125,
+                  0.5
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.5625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.625,
+                  1.625
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1875,
+                  1.6875
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -4.375,
+                "paired_deal_bootstrap_95_interval": [
+                  -33.6875,
+                  22.001562499999977
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 0.5625,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.0625,
+                  2.0625
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 0.375,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.5,
+                  2.0625
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.375,
+                  0.0
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 11,
+              "shared_wins": 0,
+              "sole_wins": 5,
+              "capacity_below_winner_powered": 8,
+              "cities_below_winner_powered": 3,
+              "powered_tie_cash_loss": 3,
+              "unused_nominal_potential": 1
+            },
+            "search_failures": {
+              "losses": 7,
+              "shared_wins": 0,
+              "sole_wins": 9,
+              "cities_below_winner_powered": 7,
+              "capacity_below_winner_powered": 3
+            }
+          },
+          "recharged/sealed": {
+            "games_per_arm": 16,
+            "independent_deals": 8,
+            "outcome_transitions": {
+              "sole_win->sole_win": 3,
+              "loss->sole_win": 8,
+              "loss->loss": 5
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.5,
+                "paired_deal_bootstrap_95_interval": [
+                  0.25,
+                  0.75
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.125,
+                  0.8125
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0625,
+                  0.75
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 1.0,
+                "paired_deal_bootstrap_95_interval": [
+                  0.625,
+                  1.375
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.75,
+                "paired_deal_bootstrap_95_interval": [
+                  0.1875,
+                  1.25
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -0.8125,
+                "paired_deal_bootstrap_95_interval": [
+                  -34.315625,
+                  39.1875
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 1.8125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.8125,
+                  2.875
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 0.5,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.8125,
+                  1.6875
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.375,
+                  0.1875
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 13,
+              "shared_wins": 0,
+              "sole_wins": 3,
+              "powered_tie_cash_loss": 4,
+              "capacity_below_winner_powered": 7,
+              "cities_below_winner_powered": 7,
+              "unused_nominal_potential": 1
+            },
+            "search_failures": {
+              "losses": 5,
+              "shared_wins": 0,
+              "sole_wins": 11,
+              "powered_tie_cash_loss": 3,
+              "capacity_below_winner_powered": 1,
+              "cities_below_winner_powered": 2,
+              "unused_nominal_potential": 1
+            }
+          }
+        }
+      },
+      "a260-3p": {
+        "overall": {
+          "games_per_arm": 192,
+          "independent_deals": 16,
+          "outcome_transitions": {
+            "sole_win->sole_win": 42,
+            "loss->loss": 70,
+            "loss->sole_win": 50,
+            "sole_win->loss": 29,
+            "shared_win->sole_win": 1
+          },
+          "terminal_changes": {
+            "win_credit": {
+              "mean_search_minus_raw": 0.11197916666666667,
+              "paired_deal_bootstrap_95_interval": [
+                0.026041666666666668,
+                0.20312499999999997
+              ]
+            },
+            "round": {
+              "mean_search_minus_raw": -0.020833333333333346,
+              "paired_deal_bootstrap_95_interval": [
+                -0.14583333333333331,
+                0.09374999999999999
+              ]
+            },
+            "cities": {
+              "mean_search_minus_raw": -0.640625,
+              "paired_deal_bootstrap_95_interval": [
+                -1.1666666666666667,
+                -0.07812499999999996
+              ]
+            },
+            "powered": {
+              "mean_search_minus_raw": -0.15625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.6875,
+                0.4166666666666667
+              ]
+            },
+            "capacity": {
+              "mean_search_minus_raw": 0.734375,
+              "paired_deal_bootstrap_95_interval": [
+                0.34895833333333337,
+                1.09375
+              ]
+            },
+            "cash": {
+              "mean_search_minus_raw": -26.489583333333336,
+              "paired_deal_bootstrap_95_interval": [
+                -34.125,
+                -17.82799479166667
+              ]
+            },
+            "powered_gap": {
+              "mean_search_minus_raw": -0.02083333333333337,
+              "paired_deal_bootstrap_95_interval": [
+                -0.6250000000000001,
+                0.640625
+              ]
+            },
+            "capacity_gap": {
+              "mean_search_minus_raw": 0.984375,
+              "paired_deal_bootstrap_95_interval": [
+                0.5677083333333333,
+                1.4270833333333337
+              ]
+            },
+            "unused_nominal_potential": {
+              "mean_search_minus_raw": 0.010416666666666666,
+              "paired_deal_bootstrap_95_interval": [
+                -0.03125,
+                0.0625
+              ]
+            }
+          },
+          "raw_failures": {
+            "losses": 120,
+            "shared_wins": 1,
+            "sole_wins": 71,
+            "capacity_below_winner_powered": 83,
+            "cities_below_winner_powered": 97,
+            "powered_tie_cash_loss": 10,
+            "unused_nominal_potential": 1
+          },
+          "search_failures": {
+            "losses": 99,
+            "shared_wins": 0,
+            "sole_wins": 93,
+            "capacity_below_winner_powered": 45,
+            "cities_below_winner_powered": 91,
+            "unused_nominal_potential": 1,
+            "powered_tie_cash_loss": 8
+          }
+        },
+        "rules": {
+          "original/open": {
+            "games_per_arm": 48,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "sole_win->sole_win": 9,
+              "loss->sole_win": 10,
+              "sole_win->loss": 7,
+              "loss->loss": 22
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.08333333333333334,
+                  0.20833333333333334
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": -0.08333333333333331,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.35416666666666663,
+                  0.14583333333333334
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": -0.7916666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.6874999999999996,
+                  0.18749999999999994
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": -0.08333333333333331,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.1666666666666665,
+                  1.0208333333333333
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.8333333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.14583333333333331,
+                  1.7083333333333333
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -32.791666666666664,
+                "paired_deal_bootstrap_95_interval": [
+                  -50.49999999999999,
+                  -15.249999999999998
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 0.29166666666666663,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.8958333333333331,
+                  1.5833333333333333
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 0.8125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.4791666666666665,
+                  1.9791666666666663
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.041666666666666664,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.125,
+                  0.0
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 32,
+              "shared_wins": 0,
+              "sole_wins": 16,
+              "cities_below_winner_powered": 26,
+              "capacity_below_winner_powered": 22,
+              "powered_tie_cash_loss": 3,
+              "unused_nominal_potential": 1
+            },
+            "search_failures": {
+              "losses": 29,
+              "shared_wins": 0,
+              "sole_wins": 19,
+              "capacity_below_winner_powered": 15,
+              "cities_below_winner_powered": 26,
+              "powered_tie_cash_loss": 3
+            }
+          },
+          "original/sealed": {
+            "games_per_arm": 48,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "loss->loss": 19,
+              "loss->sole_win": 15,
+              "sole_win->loss": 5,
+              "sole_win->sole_win": 8,
+              "shared_win->sole_win": 1
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.21875,
+                "paired_deal_bootstrap_95_interval": [
+                  0.08333333333333333,
+                  0.3541666666666667
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.04166666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.16666666666666666,
+                  0.24999999999999997
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.8541666666666665,
+                  0.9791666666666665
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.6666666666666666,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.20833333333333337,
+                  1.5000000000000002
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.9375,
+                "paired_deal_bootstrap_95_interval": [
+                  0.22916666666666663,
+                  1.5625
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -19.75,
+                "paired_deal_bootstrap_95_interval": [
+                  -29.52135416666667,
+                  -9.687500000000002
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 0.9375,
+                "paired_deal_bootstrap_95_interval": [
+                  0.10416666666666674,
+                  1.8541666666666665
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 1.2291666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  0.5208333333333334,
+                  2.0000000000000004
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 34,
+              "shared_wins": 1,
+              "sole_wins": 13,
+              "capacity_below_winner_powered": 26,
+              "cities_below_winner_powered": 28,
+              "powered_tie_cash_loss": 3
+            },
+            "search_failures": {
+              "losses": 24,
+              "shared_wins": 0,
+              "sole_wins": 24,
+              "cities_below_winner_powered": 24,
+              "capacity_below_winner_powered": 15
+            }
+          },
+          "recharged/open": {
+            "games_per_arm": 48,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "loss->loss": 13,
+              "loss->sole_win": 8,
+              "sole_win->loss": 11,
+              "sole_win->sole_win": 16
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": -0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.22916666666666663,
+                  0.10416666666666666
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": -6.938893903907228e-18,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.20833333333333331,
+                  0.20833333333333334
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": -1.8958333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -2.9583333333333326,
+                  -0.8749999999999998
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": -1.5416666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -2.6249999999999996,
+                  -0.47916666666666674
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.20833333333333331,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.29166666666666663,
+                  0.6875
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -22.666666666666664,
+                "paired_deal_bootstrap_95_interval": [
+                  -35.27135416666667,
+                  -9.520312500000006
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": -1.9583333333333335,
+                "paired_deal_bootstrap_95_interval": [
+                  -3.4999999999999996,
+                  -0.4999999999999999
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 0.4791666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.35416666666666663,
+                  1.2916666666666667
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.1875
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 21,
+              "shared_wins": 0,
+              "sole_wins": 27,
+              "capacity_below_winner_powered": 12,
+              "cities_below_winner_powered": 16,
+              "powered_tie_cash_loss": 1
+            },
+            "search_failures": {
+              "losses": 24,
+              "shared_wins": 0,
+              "sole_wins": 24,
+              "capacity_below_winner_powered": 9,
+              "cities_below_winner_powered": 22,
+              "powered_tie_cash_loss": 2
+            }
+          },
+          "recharged/sealed": {
+            "games_per_arm": 48,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "loss->loss": 16,
+              "loss->sole_win": 17,
+              "sole_win->loss": 6,
+              "sole_win->sole_win": 9
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.22916666666666663,
+                "paired_deal_bootstrap_95_interval": [
+                  1.734723475976807e-17,
+                  0.4375
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": -0.041666666666666664,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.22916666666666669,
+                  0.12499999999999999
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.7291666666666666,
+                  0.8541666666666666
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.33333333333333337,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.4588541666666663,
+                  1.1666666666666665
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.9583333333333334,
+                "paired_deal_bootstrap_95_interval": [
+                  0.2916666666666667,
+                  1.5624999999999998
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -30.75,
+                "paired_deal_bootstrap_95_interval": [
+                  -47.45833333333333,
+                  -12.770312500000008
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 0.6458333333333334,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.41666666666666663,
+                  1.7291666666666663
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 1.4166666666666665,
+                "paired_deal_bootstrap_95_interval": [
+                  0.625,
+                  2.125
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": 0.020833333333333332,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.0625
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 33,
+              "shared_wins": 0,
+              "sole_wins": 15,
+              "capacity_below_winner_powered": 23,
+              "cities_below_winner_powered": 27,
+              "powered_tie_cash_loss": 3
+            },
+            "search_failures": {
+              "losses": 22,
+              "shared_wins": 0,
+              "sole_wins": 26,
+              "capacity_below_winner_powered": 6,
+              "cities_below_winner_powered": 19,
+              "unused_nominal_potential": 1,
+              "powered_tie_cash_loss": 3
+            }
+          }
+        }
+      }
+    },
+    "10101": {
+      "heuristic-2p": {
+        "overall": {
+          "games_per_arm": 128,
+          "independent_deals": 16,
+          "outcome_transitions": {
+            "sole_win->sole_win": 84,
+            "loss->sole_win": 35,
+            "sole_win->loss": 7,
+            "loss->loss": 2
+          },
+          "terminal_changes": {
+            "win_credit": {
+              "mean_search_minus_raw": 0.21875,
+              "paired_deal_bootstrap_95_interval": [
+                0.13261718750000018,
+                0.3203125
+              ]
+            },
+            "round": {
+              "mean_search_minus_raw": 0.484375,
+              "paired_deal_bootstrap_95_interval": [
+                0.375,
+                0.59375
+              ]
+            },
+            "cities": {
+              "mean_search_minus_raw": 0.2734375,
+              "paired_deal_bootstrap_95_interval": [
+                0.0625,
+                0.5080078124999972
+              ]
+            },
+            "powered": {
+              "mean_search_minus_raw": 0.3125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.0234375,
+                0.671875
+              ]
+            },
+            "capacity": {
+              "mean_search_minus_raw": -0.265625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.6640625,
+                0.140625
+              ]
+            },
+            "cash": {
+              "mean_search_minus_raw": 6.75,
+              "paired_deal_bootstrap_95_interval": [
+                -3.2035156249999996,
+                16.5703125
+              ]
+            },
+            "powered_gap": {
+              "mean_search_minus_raw": 1.640625,
+              "paired_deal_bootstrap_95_interval": [
+                0.109375,
+                3.1953125
+              ]
+            },
+            "capacity_gap": {
+              "mean_search_minus_raw": -1.0703125,
+              "paired_deal_bootstrap_95_interval": [
+                -1.59375,
+                -0.546875
+              ]
+            },
+            "unused_nominal_potential": {
+              "mean_search_minus_raw": -0.0546875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.1953125,
+                0.0859375
+              ]
+            }
+          },
+          "raw_failures": {
+            "losses": 37,
+            "shared_wins": 0,
+            "sole_wins": 91,
+            "capacity_below_winner_powered": 13,
+            "cities_below_winner_powered": 30,
+            "unused_nominal_potential": 5,
+            "powered_tie_cash_loss": 2
+          },
+          "search_failures": {
+            "losses": 9,
+            "shared_wins": 0,
+            "sole_wins": 119,
+            "cities_below_winner_powered": 7,
+            "unused_nominal_potential": 3,
+            "powered_tie_cash_loss": 2,
+            "capacity_below_winner_powered": 1
+          }
+        },
+        "rules": {
+          "original/open": {
+            "games_per_arm": 32,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "sole_win->sole_win": 18,
+              "loss->sole_win": 11,
+              "loss->loss": 1,
+              "sole_win->loss": 2
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.28125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.09375,
+                  0.46875
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.625,
+                "paired_deal_bootstrap_95_interval": [
+                  0.28125,
+                  0.9375
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.3125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0625,
+                  0.65625
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.3125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.09375,
+                  0.71875
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": -0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.78125,
+                  0.46875
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": 14.53125,
+                "paired_deal_bootstrap_95_interval": [
+                  -13.40625,
+                  43.21953124999999
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 1.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -2.34375,
+                  4.28125
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": -0.96875,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.875,
+                  -0.18671875000001137
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.09375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.28125,
+                  0.0
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 12,
+              "shared_wins": 0,
+              "sole_wins": 20,
+              "cities_below_winner_powered": 11,
+              "capacity_below_winner_powered": 4,
+              "unused_nominal_potential": 1
+            },
+            "search_failures": {
+              "losses": 3,
+              "shared_wins": 0,
+              "sole_wins": 29,
+              "cities_below_winner_powered": 3
+            }
+          },
+          "original/sealed": {
+            "games_per_arm": 32,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "loss->sole_win": 14,
+              "sole_win->sole_win": 14,
+              "sole_win->loss": 3,
+              "loss->loss": 1
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.34375,
+                "paired_deal_bootstrap_95_interval": [
+                  0.125,
+                  0.53125
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.5,
+                "paired_deal_bootstrap_95_interval": [
+                  0.1875,
+                  0.8125
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.4375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0625,
+                  1.0625
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.53125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.28125,
+                  1.34375
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": -0.53125,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.375,
+                  0.34375
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -10.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -27.78125,
+                  7.094531249999989
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 2.09375,
+                "paired_deal_bootstrap_95_interval": [
+                  0.15625,
+                  3.90625
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": -1.875,
+                "paired_deal_bootstrap_95_interval": [
+                  -3.0625,
+                  -0.5929687500000114
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.4375,
+                  0.40625
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 15,
+              "shared_wins": 0,
+              "sole_wins": 17,
+              "cities_below_winner_powered": 10,
+              "unused_nominal_potential": 3,
+              "capacity_below_winner_powered": 7,
+              "powered_tie_cash_loss": 2
+            },
+            "search_failures": {
+              "losses": 4,
+              "shared_wins": 0,
+              "sole_wins": 28,
+              "cities_below_winner_powered": 3,
+              "unused_nominal_potential": 2,
+              "capacity_below_winner_powered": 1,
+              "powered_tie_cash_loss": 1
+            }
+          },
+          "recharged/open": {
+            "games_per_arm": 32,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "loss->sole_win": 3,
+              "sole_win->sole_win": 29
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.09375,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.1875
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.53125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.28125,
+                  0.84375
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.03125,
+                  0.25
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.28125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.03125,
+                  0.625
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": -0.3125,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.09375,
+                  0.5
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": 19.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  1.4992187500000007,
+                  36.43828124999999
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 1.15625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.90625,
+                  3.40625
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": -0.9375,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.96875,
+                  0.125
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.21875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.53125,
+                  0.0
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 3,
+              "shared_wins": 0,
+              "sole_wins": 29,
+              "cities_below_winner_powered": 3
+            },
+            "search_failures": {
+              "losses": 0,
+              "shared_wins": 0,
+              "sole_wins": 32
+            }
+          },
+          "recharged/sealed": {
+            "games_per_arm": 32,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "sole_win->loss": 2,
+              "sole_win->sole_win": 23,
+              "loss->sole_win": 7
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.15625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.03125,
+                  0.375
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.28125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.03125,
+                  0.5625
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.21875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.03125,
+                  0.46875
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.5625,
+                  0.6875
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": -0.09375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.71875,
+                  0.5
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": 3.3125,
+                "paired_deal_bootstrap_95_interval": [
+                  -14.21953125,
+                  21.40625
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 2.28125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.5625,
+                  4.03125
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": -0.5,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.25,
+                  0.1875
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.25,
+                  0.625
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 7,
+              "shared_wins": 0,
+              "sole_wins": 25,
+              "capacity_below_winner_powered": 2,
+              "cities_below_winner_powered": 6,
+              "unused_nominal_potential": 1
+            },
+            "search_failures": {
+              "losses": 2,
+              "shared_wins": 0,
+              "sole_wins": 30,
+              "cities_below_winner_powered": 1,
+              "unused_nominal_potential": 1,
+              "powered_tie_cash_loss": 1
+            }
+          }
+        }
+      },
+      "search_geo-2p": {
+        "overall": {
+          "games_per_arm": 64,
+          "independent_deals": 8,
+          "outcome_transitions": {
+            "loss->sole_win": 21,
+            "sole_win->sole_win": 21,
+            "sole_win->loss": 11,
+            "loss->loss": 11
+          },
+          "terminal_changes": {
+            "win_credit": {
+              "mean_search_minus_raw": 0.15625,
+              "paired_deal_bootstrap_95_interval": [
+                0.015625,
+                0.3125
+              ]
+            },
+            "round": {
+              "mean_search_minus_raw": 0.625,
+              "paired_deal_bootstrap_95_interval": [
+                0.46875,
+                0.765625
+              ]
+            },
+            "cities": {
+              "mean_search_minus_raw": -0.109375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.515625,
+                0.328125
+              ]
+            },
+            "powered": {
+              "mean_search_minus_raw": 0.125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.3125,
+                0.59375
+              ]
+            },
+            "capacity": {
+              "mean_search_minus_raw": -0.453125,
+              "paired_deal_bootstrap_95_interval": [
+                -1.109375,
+                0.25
+              ]
+            },
+            "cash": {
+              "mean_search_minus_raw": 2.578125,
+              "paired_deal_bootstrap_95_interval": [
+                -10.609375,
+                16.329296874999983
+              ]
+            },
+            "powered_gap": {
+              "mean_search_minus_raw": 0.40625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.359375,
+                1.34375
+              ]
+            },
+            "capacity_gap": {
+              "mean_search_minus_raw": -0.515625,
+              "paired_deal_bootstrap_95_interval": [
+                -1.390625,
+                0.46875
+              ]
+            },
+            "unused_nominal_potential": {
+              "mean_search_minus_raw": -0.21875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.40625,
+                -0.0625
+              ]
+            }
+          },
+          "raw_failures": {
+            "losses": 32,
+            "shared_wins": 0,
+            "sole_wins": 32,
+            "cities_below_winner_powered": 22,
+            "powered_tie_cash_loss": 7,
+            "unused_nominal_potential": 4,
+            "capacity_below_winner_powered": 7
+          },
+          "search_failures": {
+            "losses": 22,
+            "shared_wins": 0,
+            "sole_wins": 42,
+            "cities_below_winner_powered": 16,
+            "powered_tie_cash_loss": 4,
+            "capacity_below_winner_powered": 4,
+            "unused_nominal_potential": 3
+          }
+        },
+        "rules": {
+          "original/open": {
+            "games_per_arm": 16,
+            "independent_deals": 8,
+            "outcome_transitions": {
+              "loss->sole_win": 5,
+              "sole_win->loss": 4,
+              "sole_win->sole_win": 5,
+              "loss->loss": 2
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1875,
+                  0.3125
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.5,
+                  0.75
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": -0.375,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.25,
+                  0.25
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.9375,
+                  1.1875
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": -0.9375,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.625,
+                  -0.25
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -26.9375,
+                "paired_deal_bootstrap_95_interval": [
+                  -49.25,
+                  -1.625
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 0.75,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.3125,
+                  1.875
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": -1.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -2.25,
+                  -0.0625
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.5,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.25,
+                  0.0
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 7,
+              "shared_wins": 0,
+              "sole_wins": 9,
+              "cities_below_winner_powered": 4,
+              "capacity_below_winner_powered": 4,
+              "unused_nominal_potential": 1,
+              "powered_tie_cash_loss": 1
+            },
+            "search_failures": {
+              "losses": 6,
+              "shared_wins": 0,
+              "sole_wins": 10,
+              "powered_tie_cash_loss": 2,
+              "capacity_below_winner_powered": 1,
+              "cities_below_winner_powered": 4
+            }
+          },
+          "original/sealed": {
+            "games_per_arm": 16,
+            "independent_deals": 8,
+            "outcome_transitions": {
+              "loss->sole_win": 6,
+              "sole_win->loss": 3,
+              "sole_win->sole_win": 5,
+              "loss->loss": 2
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1875,
+                  0.5
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.75,
+                "paired_deal_bootstrap_95_interval": [
+                  0.3125,
+                  1.125
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": -0.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.9375,
+                  0.3125
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": -0.25,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.0,
+                  0.375
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.5625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.8125,
+                  1.9375
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -14.4375,
+                "paired_deal_bootstrap_95_interval": [
+                  -39.0640625,
+                  6.8125
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 0.625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.4375,
+                  1.75
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 1.5,
+                "paired_deal_bootstrap_95_interval": [
+                  0.1875,
+                  2.875
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.3125
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 8,
+              "shared_wins": 0,
+              "sole_wins": 8,
+              "cities_below_winner_powered": 6,
+              "powered_tie_cash_loss": 1,
+              "capacity_below_winner_powered": 2
+            },
+            "search_failures": {
+              "losses": 5,
+              "shared_wins": 0,
+              "sole_wins": 11,
+              "cities_below_winner_powered": 3,
+              "unused_nominal_potential": 2
+            }
+          },
+          "recharged/open": {
+            "games_per_arm": 16,
+            "independent_deals": 8,
+            "outcome_transitions": {
+              "loss->sole_win": 4,
+              "sole_win->loss": 4,
+              "sole_win->sole_win": 6,
+              "loss->loss": 2
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.3125,
+                  0.3125
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 1.0,
+                "paired_deal_bootstrap_95_interval": [
+                  0.75,
+                  1.25
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": -0.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.1875,
+                  0.625
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": -0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.0625,
+                  0.75
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": -0.375,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.5,
+                  0.6875
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": 21.875,
+                "paired_deal_bootstrap_95_interval": [
+                  4.75,
+                  37.375
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": -0.625,
+                "paired_deal_bootstrap_95_interval": [
+                  -2.25,
+                  0.9375
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": -1.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -2.875,
+                  0.9375
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.375,
+                  0.0
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 6,
+              "shared_wins": 0,
+              "sole_wins": 10,
+              "cities_below_winner_powered": 5,
+              "capacity_below_winner_powered": 1,
+              "powered_tie_cash_loss": 1,
+              "unused_nominal_potential": 1
+            },
+            "search_failures": {
+              "losses": 6,
+              "shared_wins": 0,
+              "sole_wins": 10,
+              "cities_below_winner_powered": 6,
+              "capacity_below_winner_powered": 2
+            }
+          },
+          "recharged/sealed": {
+            "games_per_arm": 16,
+            "independent_deals": 8,
+            "outcome_transitions": {
+              "sole_win->sole_win": 5,
+              "loss->sole_win": 6,
+              "loss->loss": 5
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.375,
+                "paired_deal_bootstrap_95_interval": [
+                  0.125,
+                  0.625
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.6875,
+                "paired_deal_bootstrap_95_interval": [
+                  0.375,
+                  1.0625
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.3125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.125,
+                  0.75
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.625,
+                "paired_deal_bootstrap_95_interval": [
+                  0.125,
+                  1.0625
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": -1.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.8125,
+                  -0.375
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": 29.8125,
+                "paired_deal_bootstrap_95_interval": [
+                  5.625,
+                  62.50156249999998
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 0.875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.75,
+                  2.375
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": -1.4375,
+                "paired_deal_bootstrap_95_interval": [
+                  -3.125,
+                  0.0625
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.375,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.0625,
+                  0.125
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 11,
+              "shared_wins": 0,
+              "sole_wins": 5,
+              "cities_below_winner_powered": 7,
+              "powered_tie_cash_loss": 4,
+              "unused_nominal_potential": 2
+            },
+            "search_failures": {
+              "losses": 5,
+              "shared_wins": 0,
+              "sole_wins": 11,
+              "powered_tie_cash_loss": 2,
+              "capacity_below_winner_powered": 1,
+              "cities_below_winner_powered": 3,
+              "unused_nominal_potential": 1
+            }
+          }
+        }
+      },
+      "a260-3p": {
+        "overall": {
+          "games_per_arm": 192,
+          "independent_deals": 16,
+          "outcome_transitions": {
+            "sole_win->sole_win": 43,
+            "loss->loss": 71,
+            "loss->sole_win": 51,
+            "sole_win->loss": 26,
+            "shared_win->sole_win": 1
+          },
+          "terminal_changes": {
+            "win_credit": {
+              "mean_search_minus_raw": 0.1328125,
+              "paired_deal_bootstrap_95_interval": [
+                0.041666666666666664,
+                0.2240234374999991
+              ]
+            },
+            "round": {
+              "mean_search_minus_raw": -0.01562500000000001,
+              "paired_deal_bootstrap_95_interval": [
+                -0.14583333333333334,
+                0.10937499999999999
+              ]
+            },
+            "cities": {
+              "mean_search_minus_raw": -0.6197916666666666,
+              "paired_deal_bootstrap_95_interval": [
+                -1.140625,
+                -0.05716145833333519
+              ]
+            },
+            "powered": {
+              "mean_search_minus_raw": -0.15625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.7395833333333334,
+                0.43750000000000006
+              ]
+            },
+            "capacity": {
+              "mean_search_minus_raw": 0.6458333333333334,
+              "paired_deal_bootstrap_95_interval": [
+                0.28645833333333337,
+                0.984375
+              ]
+            },
+            "cash": {
+              "mean_search_minus_raw": -25.979166666666668,
+              "paired_deal_bootstrap_95_interval": [
+                -34.120182291666666,
+                -17.348958333333336
+              ]
+            },
+            "powered_gap": {
+              "mean_search_minus_raw": -0.026041666666666657,
+              "paired_deal_bootstrap_95_interval": [
+                -0.7031249999999999,
+                0.6720052083333315
+              ]
+            },
+            "capacity_gap": {
+              "mean_search_minus_raw": 0.8802083333333334,
+              "paired_deal_bootstrap_95_interval": [
+                0.5104166666666667,
+                1.2553385416666651
+              ]
+            },
+            "unused_nominal_potential": {
+              "mean_search_minus_raw": -0.07291666666666667,
+              "paired_deal_bootstrap_95_interval": [
+                -0.15104166666666666,
+                -0.010416666666666666
+              ]
+            }
+          },
+          "raw_failures": {
+            "losses": 122,
+            "shared_wins": 1,
+            "sole_wins": 69,
+            "cities_below_winner_powered": 95,
+            "capacity_below_winner_powered": 76,
+            "powered_tie_cash_loss": 12,
+            "unused_nominal_potential": 5
+          },
+          "search_failures": {
+            "losses": 97,
+            "shared_wins": 0,
+            "sole_wins": 95,
+            "capacity_below_winner_powered": 41,
+            "cities_below_winner_powered": 88,
+            "unused_nominal_potential": 2,
+            "powered_tie_cash_loss": 9
+          }
+        },
+        "rules": {
+          "original/open": {
+            "games_per_arm": 48,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "sole_win->sole_win": 9,
+              "loss->sole_win": 10,
+              "sole_win->loss": 6,
+              "loss->loss": 23
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.08333333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.04166666666666667,
+                  0.22916666666666663
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": -0.062499999999999986,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.3333333333333333,
+                  0.16666666666666669
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": -0.6666666666666665,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.4796874999999998,
+                  0.2916666666666668
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": -0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.9791666666666665,
+                  0.9583333333333333
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.6666666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.20833333333333334,
+                  1.4791666666666665
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -33.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -49.1875,
+                  -17.625
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 0.2083333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.8333333333333333,
+                  1.4375
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 0.6458333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.5624999999999999,
+                  1.7291666666666667
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.3333333333333333,
+                  0.0
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 33,
+              "shared_wins": 0,
+              "sole_wins": 15,
+              "cities_below_winner_powered": 26,
+              "capacity_below_winner_powered": 20,
+              "powered_tie_cash_loss": 3,
+              "unused_nominal_potential": 2
+            },
+            "search_failures": {
+              "losses": 29,
+              "shared_wins": 0,
+              "sole_wins": 19,
+              "capacity_below_winner_powered": 13,
+              "cities_below_winner_powered": 26,
+              "powered_tie_cash_loss": 3
+            }
+          },
+          "original/sealed": {
+            "games_per_arm": 48,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "loss->loss": 20,
+              "loss->sole_win": 14,
+              "sole_win->loss": 5,
+              "sole_win->sole_win": 8,
+              "shared_win->sole_win": 1
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.19791666666666669,
+                "paired_deal_bootstrap_95_interval": [
+                  0.05208333333333333,
+                  0.35416666666666663
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.02083333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.18749999999999997,
+                  0.2291666666666666
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": -0.02083333333333335,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.875,
+                  0.8124999999999999
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.5208333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.35416666666666674,
+                  1.3333333333333333
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.7916666666666665,
+                "paired_deal_bootstrap_95_interval": [
+                  0.18749999999999992,
+                  1.3749999999999998
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -18.75,
+                "paired_deal_bootstrap_95_interval": [
+                  -30.021354166666672,
+                  -8.124479166666672
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 0.75,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.08333333333333323,
+                  1.5833333333333333
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 1.0416666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  0.35416666666666663,
+                  1.7708333333333333
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.14583333333333334,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.4375,
+                  0.041666666666666664
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 34,
+              "shared_wins": 1,
+              "sole_wins": 13,
+              "capacity_below_winner_powered": 22,
+              "cities_below_winner_powered": 26,
+              "powered_tie_cash_loss": 5,
+              "unused_nominal_potential": 2
+            },
+            "search_failures": {
+              "losses": 25,
+              "shared_wins": 0,
+              "sole_wins": 23,
+              "cities_below_winner_powered": 24,
+              "capacity_below_winner_powered": 13,
+              "unused_nominal_potential": 1,
+              "powered_tie_cash_loss": 1
+            }
+          },
+          "recharged/open": {
+            "games_per_arm": 48,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "loss->loss": 13,
+              "loss->sole_win": 8,
+              "sole_win->loss": 10,
+              "sole_win->sole_win": 17
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": -0.041666666666666664,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.20833333333333334,
+                  0.125
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": -6.938893903907228e-18,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.20833333333333331,
+                  0.20833333333333334
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": -1.8333333333333335,
+                "paired_deal_bootstrap_95_interval": [
+                  -2.9166666666666665,
+                  -0.7708333333333334
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": -1.4791666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -2.5625000000000004,
+                  -0.3958333333333334
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.20833333333333331,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.27083333333333337,
+                  0.6666666666666667
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -22.854166666666668,
+                "paired_deal_bootstrap_95_interval": [
+                  -35.43802083333333,
+                  -9.832812500000006
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": -1.875,
+                "paired_deal_bootstrap_95_interval": [
+                  -3.4374999999999996,
+                  -0.375
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 0.4791666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.33333333333333337,
+                  1.2708333333333335
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.1875
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 21,
+              "shared_wins": 0,
+              "sole_wins": 27,
+              "capacity_below_winner_powered": 12,
+              "cities_below_winner_powered": 16,
+              "powered_tie_cash_loss": 1
+            },
+            "search_failures": {
+              "losses": 23,
+              "shared_wins": 0,
+              "sole_wins": 25,
+              "capacity_below_winner_powered": 9,
+              "cities_below_winner_powered": 21,
+              "powered_tie_cash_loss": 2
+            }
+          },
+          "recharged/sealed": {
+            "games_per_arm": 48,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "loss->loss": 15,
+              "loss->sole_win": 19,
+              "sole_win->loss": 5,
+              "sole_win->sole_win": 9
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.2916666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  0.06249999999999999,
+                  0.5
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": -0.02083333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.22916666666666666,
+                  0.16666666666666666
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.041666666666666685,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.75,
+                  0.8541666666666664
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.39583333333333337,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.43749999999999983,
+                  1.2291666666666665
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.9166666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  0.2708333333333333,
+                  1.5
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -29.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  -45.270833333333336,
+                  -11.479166666666668
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 0.8125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.3333333333333334,
+                  1.9791666666666663
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 1.3541666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  0.6041666666666666,
+                  2.041666666666667
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.08333333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.25,
+                  0.0
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 34,
+              "shared_wins": 0,
+              "sole_wins": 14,
+              "cities_below_winner_powered": 27,
+              "capacity_below_winner_powered": 22,
+              "powered_tie_cash_loss": 3,
+              "unused_nominal_potential": 1
+            },
+            "search_failures": {
+              "losses": 20,
+              "shared_wins": 0,
+              "sole_wins": 28,
+              "capacity_below_winner_powered": 6,
+              "cities_below_winner_powered": 17,
+              "unused_nominal_potential": 1,
+              "powered_tie_cash_loss": 3
+            }
+          }
+        }
+      }
+    },
+    "10102": {
+      "heuristic-2p": {
+        "overall": {
+          "games_per_arm": 128,
+          "independent_deals": 16,
+          "outcome_transitions": {
+            "sole_win->sole_win": 84,
+            "loss->sole_win": 35,
+            "sole_win->loss": 7,
+            "loss->loss": 2
+          },
+          "terminal_changes": {
+            "win_credit": {
+              "mean_search_minus_raw": 0.21875,
+              "paired_deal_bootstrap_95_interval": [
+                0.13261718750000018,
+                0.3203125
+              ]
+            },
+            "round": {
+              "mean_search_minus_raw": 0.46875,
+              "paired_deal_bootstrap_95_interval": [
+                0.359375,
+                0.578125
+              ]
+            },
+            "cities": {
+              "mean_search_minus_raw": 0.2734375,
+              "paired_deal_bootstrap_95_interval": [
+                0.0625,
+                0.5080078124999972
+              ]
+            },
+            "powered": {
+              "mean_search_minus_raw": 0.3125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.0234375,
+                0.671875
+              ]
+            },
+            "capacity": {
+              "mean_search_minus_raw": -0.25,
+              "paired_deal_bootstrap_95_interval": [
+                -0.609375,
+                0.125
+              ]
+            },
+            "cash": {
+              "mean_search_minus_raw": 4.625,
+              "paired_deal_bootstrap_95_interval": [
+                -5.28125,
+                13.914257812499997
+              ]
+            },
+            "powered_gap": {
+              "mean_search_minus_raw": 1.6875,
+              "paired_deal_bootstrap_95_interval": [
+                0.171875,
+                3.2265625
+              ]
+            },
+            "capacity_gap": {
+              "mean_search_minus_raw": -1.046875,
+              "paired_deal_bootstrap_95_interval": [
+                -1.53125,
+                -0.5625
+              ]
+            },
+            "unused_nominal_potential": {
+              "mean_search_minus_raw": -0.0546875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.1953125,
+                0.0859375
+              ]
+            }
+          },
+          "raw_failures": {
+            "losses": 37,
+            "shared_wins": 0,
+            "sole_wins": 91,
+            "capacity_below_winner_powered": 14,
+            "cities_below_winner_powered": 30,
+            "unused_nominal_potential": 5,
+            "powered_tie_cash_loss": 2
+          },
+          "search_failures": {
+            "losses": 9,
+            "shared_wins": 0,
+            "sole_wins": 119,
+            "cities_below_winner_powered": 7,
+            "unused_nominal_potential": 3,
+            "powered_tie_cash_loss": 2,
+            "capacity_below_winner_powered": 1
+          }
+        },
+        "rules": {
+          "original/open": {
+            "games_per_arm": 32,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "sole_win->sole_win": 18,
+              "loss->sole_win": 11,
+              "loss->loss": 1,
+              "sole_win->loss": 2
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.28125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.09375,
+                  0.46875
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.625,
+                "paired_deal_bootstrap_95_interval": [
+                  0.28125,
+                  0.9375
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.3125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0625,
+                  0.65625
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.3125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.09375,
+                  0.71875
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": -0.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.53125,
+                  0.4375
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": 14.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -14.18828125,
+                  42.96875
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 1.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -2.34375,
+                  4.28125
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": -0.875,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.625,
+                  -0.1875
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.09375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.28125,
+                  0.0
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 12,
+              "shared_wins": 0,
+              "sole_wins": 20,
+              "cities_below_winner_powered": 11,
+              "capacity_below_winner_powered": 5,
+              "unused_nominal_potential": 1
+            },
+            "search_failures": {
+              "losses": 3,
+              "shared_wins": 0,
+              "sole_wins": 29,
+              "cities_below_winner_powered": 3
+            }
+          },
+          "original/sealed": {
+            "games_per_arm": 32,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "loss->sole_win": 14,
+              "sole_win->sole_win": 14,
+              "sole_win->loss": 3,
+              "loss->loss": 1
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.34375,
+                "paired_deal_bootstrap_95_interval": [
+                  0.125,
+                  0.53125
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.46875,
+                "paired_deal_bootstrap_95_interval": [
+                  0.125,
+                  0.8125
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.4375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0625,
+                  1.0625
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.53125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.28125,
+                  1.34375
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": -0.46875,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.34375,
+                  0.375
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -15.4375,
+                "paired_deal_bootstrap_95_interval": [
+                  -32.15625,
+                  1.4070312499999886
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 2.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  0.3125,
+                  3.96875
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": -1.8125,
+                "paired_deal_bootstrap_95_interval": [
+                  -3.0,
+                  -0.59375
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.4375,
+                  0.40625
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 15,
+              "shared_wins": 0,
+              "sole_wins": 17,
+              "cities_below_winner_powered": 10,
+              "unused_nominal_potential": 3,
+              "capacity_below_winner_powered": 7,
+              "powered_tie_cash_loss": 2
+            },
+            "search_failures": {
+              "losses": 4,
+              "shared_wins": 0,
+              "sole_wins": 28,
+              "cities_below_winner_powered": 3,
+              "unused_nominal_potential": 2,
+              "capacity_below_winner_powered": 1,
+              "powered_tie_cash_loss": 1
+            }
+          },
+          "recharged/open": {
+            "games_per_arm": 32,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "loss->sole_win": 3,
+              "sole_win->sole_win": 29
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.09375,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.1875
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.5,
+                "paired_deal_bootstrap_95_interval": [
+                  0.25,
+                  0.8125
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.03125,
+                  0.25
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.28125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.03125,
+                  0.625
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": -0.4375,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.21875,
+                  0.40625
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": 16.53125,
+                "paired_deal_bootstrap_95_interval": [
+                  -2.783593749999998,
+                  35.03203124999999
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 1.25,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.71875,
+                  3.4375
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": -1.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -2.09375,
+                  0.0625
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.21875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.53125,
+                  0.0
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 3,
+              "shared_wins": 0,
+              "sole_wins": 29,
+              "cities_below_winner_powered": 3
+            },
+            "search_failures": {
+              "losses": 0,
+              "shared_wins": 0,
+              "sole_wins": 32
+            }
+          },
+          "recharged/sealed": {
+            "games_per_arm": 32,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "sole_win->loss": 2,
+              "sole_win->sole_win": 23,
+              "loss->sole_win": 7
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.15625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.03125,
+                  0.375
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.28125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.03125,
+                  0.5625
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.21875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.03125,
+                  0.46875
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.5625,
+                  0.6875
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": -0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.6875,
+                  0.53125
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": 3.40625,
+                "paired_deal_bootstrap_95_interval": [
+                  -14.1875,
+                  21.59375
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 2.28125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.5625,
+                  4.03125
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": -0.46875,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.21875,
+                  0.28125
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.25,
+                  0.625
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 7,
+              "shared_wins": 0,
+              "sole_wins": 25,
+              "capacity_below_winner_powered": 2,
+              "cities_below_winner_powered": 6,
+              "unused_nominal_potential": 1
+            },
+            "search_failures": {
+              "losses": 2,
+              "shared_wins": 0,
+              "sole_wins": 30,
+              "cities_below_winner_powered": 1,
+              "unused_nominal_potential": 1,
+              "powered_tie_cash_loss": 1
+            }
+          }
+        }
+      },
+      "search_geo-2p": {
+        "overall": {
+          "games_per_arm": 64,
+          "independent_deals": 8,
+          "outcome_transitions": {
+            "loss->sole_win": 21,
+            "sole_win->sole_win": 21,
+            "sole_win->loss": 11,
+            "loss->loss": 11
+          },
+          "terminal_changes": {
+            "win_credit": {
+              "mean_search_minus_raw": 0.15625,
+              "paired_deal_bootstrap_95_interval": [
+                0.015625,
+                0.3125
+              ]
+            },
+            "round": {
+              "mean_search_minus_raw": 0.640625,
+              "paired_deal_bootstrap_95_interval": [
+                0.484375,
+                0.796875
+              ]
+            },
+            "cities": {
+              "mean_search_minus_raw": -0.109375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.515625,
+                0.328125
+              ]
+            },
+            "powered": {
+              "mean_search_minus_raw": 0.125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.3125,
+                0.59375
+              ]
+            },
+            "capacity": {
+              "mean_search_minus_raw": -0.421875,
+              "paired_deal_bootstrap_95_interval": [
+                -1.078125,
+                0.2660156249999943
+              ]
+            },
+            "cash": {
+              "mean_search_minus_raw": 3.140625,
+              "paired_deal_bootstrap_95_interval": [
+                -9.109375,
+                16.15625
+              ]
+            },
+            "powered_gap": {
+              "mean_search_minus_raw": 0.375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.375,
+                1.3125
+              ]
+            },
+            "capacity_gap": {
+              "mean_search_minus_raw": -0.53125,
+              "paired_deal_bootstrap_95_interval": [
+                -1.453125,
+                0.484375
+              ]
+            },
+            "unused_nominal_potential": {
+              "mean_search_minus_raw": -0.21875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.40625,
+                -0.0625
+              ]
+            }
+          },
+          "raw_failures": {
+            "losses": 32,
+            "shared_wins": 0,
+            "sole_wins": 32,
+            "cities_below_winner_powered": 22,
+            "powered_tie_cash_loss": 7,
+            "unused_nominal_potential": 4,
+            "capacity_below_winner_powered": 8
+          },
+          "search_failures": {
+            "losses": 22,
+            "shared_wins": 0,
+            "sole_wins": 42,
+            "cities_below_winner_powered": 16,
+            "powered_tie_cash_loss": 4,
+            "capacity_below_winner_powered": 4,
+            "unused_nominal_potential": 3
+          }
+        },
+        "rules": {
+          "original/open": {
+            "games_per_arm": 16,
+            "independent_deals": 8,
+            "outcome_transitions": {
+              "loss->sole_win": 5,
+              "sole_win->loss": 4,
+              "sole_win->sole_win": 5,
+              "loss->loss": 2
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1875,
+                  0.3125
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.4375,
+                  0.75
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": -0.375,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.25,
+                  0.25
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.9375,
+                  1.1875
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": -0.8125,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.375,
+                  -0.1875
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -23.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -48.375,
+                  4.314062499999977
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 0.625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.5,
+                  1.8125
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": -1.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  -2.25,
+                  -0.125
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.5,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.25,
+                  0.0
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 7,
+              "shared_wins": 0,
+              "sole_wins": 9,
+              "cities_below_winner_powered": 4,
+              "capacity_below_winner_powered": 4,
+              "unused_nominal_potential": 1,
+              "powered_tie_cash_loss": 1
+            },
+            "search_failures": {
+              "losses": 6,
+              "shared_wins": 0,
+              "sole_wins": 10,
+              "powered_tie_cash_loss": 2,
+              "capacity_below_winner_powered": 1,
+              "cities_below_winner_powered": 4
+            }
+          },
+          "original/sealed": {
+            "games_per_arm": 16,
+            "independent_deals": 8,
+            "outcome_transitions": {
+              "loss->sole_win": 6,
+              "sole_win->loss": 3,
+              "sole_win->sole_win": 5,
+              "loss->loss": 2
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1875,
+                  0.5
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.75,
+                "paired_deal_bootstrap_95_interval": [
+                  0.3125,
+                  1.125
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": -0.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.9375,
+                  0.3125
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": -0.25,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.0,
+                  0.375
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.75,
+                  2.125
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -14.875,
+                "paired_deal_bootstrap_95_interval": [
+                  -39.5625,
+                  6.75
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 0.625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.4375,
+                  1.75
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 1.5625,
+                "paired_deal_bootstrap_95_interval": [
+                  0.1875,
+                  3.0
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.3125
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 8,
+              "shared_wins": 0,
+              "sole_wins": 8,
+              "cities_below_winner_powered": 6,
+              "powered_tie_cash_loss": 1,
+              "capacity_below_winner_powered": 3
+            },
+            "search_failures": {
+              "losses": 5,
+              "shared_wins": 0,
+              "sole_wins": 11,
+              "cities_below_winner_powered": 3,
+              "unused_nominal_potential": 2
+            }
+          },
+          "recharged/open": {
+            "games_per_arm": 16,
+            "independent_deals": 8,
+            "outcome_transitions": {
+              "loss->sole_win": 4,
+              "sole_win->loss": 4,
+              "sole_win->sole_win": 6,
+              "loss->loss": 2
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.3125,
+                  0.3125
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 1.0,
+                "paired_deal_bootstrap_95_interval": [
+                  0.75,
+                  1.25
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": -0.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.1875,
+                  0.625
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": -0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.0625,
+                  0.75
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": -0.375,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.5,
+                  0.6875
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": 20.3125,
+                "paired_deal_bootstrap_95_interval": [
+                  4.5,
+                  33.81406249999998
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": -0.625,
+                "paired_deal_bootstrap_95_interval": [
+                  -2.25,
+                  0.9375
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": -1.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -2.875,
+                  0.9375
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.375,
+                  0.0
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 6,
+              "shared_wins": 0,
+              "sole_wins": 10,
+              "cities_below_winner_powered": 5,
+              "capacity_below_winner_powered": 1,
+              "powered_tie_cash_loss": 1,
+              "unused_nominal_potential": 1
+            },
+            "search_failures": {
+              "losses": 6,
+              "shared_wins": 0,
+              "sole_wins": 10,
+              "cities_below_winner_powered": 6,
+              "capacity_below_winner_powered": 2
+            }
+          },
+          "recharged/sealed": {
+            "games_per_arm": 16,
+            "independent_deals": 8,
+            "outcome_transitions": {
+              "sole_win->sole_win": 5,
+              "loss->sole_win": 6,
+              "loss->loss": 5
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.375,
+                "paired_deal_bootstrap_95_interval": [
+                  0.125,
+                  0.625
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.6875,
+                "paired_deal_bootstrap_95_interval": [
+                  0.375,
+                  1.0625
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.3125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.125,
+                  0.75
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.625,
+                "paired_deal_bootstrap_95_interval": [
+                  0.125,
+                  1.0625
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": -1.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.9375,
+                  -0.375
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": 30.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  6.4375,
+                  62.62656249999998
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 0.875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.75,
+                  2.375
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": -1.5,
+                "paired_deal_bootstrap_95_interval": [
+                  -3.3125,
+                  0.0625
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.375,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.0625,
+                  0.125
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 11,
+              "shared_wins": 0,
+              "sole_wins": 5,
+              "cities_below_winner_powered": 7,
+              "powered_tie_cash_loss": 4,
+              "unused_nominal_potential": 2
+            },
+            "search_failures": {
+              "losses": 5,
+              "shared_wins": 0,
+              "sole_wins": 11,
+              "powered_tie_cash_loss": 2,
+              "capacity_below_winner_powered": 1,
+              "cities_below_winner_powered": 3,
+              "unused_nominal_potential": 1
+            }
+          }
+        }
+      },
+      "a260-3p": {
+        "overall": {
+          "games_per_arm": 192,
+          "independent_deals": 16,
+          "outcome_transitions": {
+            "sole_win->sole_win": 43,
+            "loss->loss": 71,
+            "loss->sole_win": 51,
+            "sole_win->loss": 26,
+            "shared_win->sole_win": 1
+          },
+          "terminal_changes": {
+            "win_credit": {
+              "mean_search_minus_raw": 0.1328125,
+              "paired_deal_bootstrap_95_interval": [
+                0.041666666666666664,
+                0.2240234374999991
+              ]
+            },
+            "round": {
+              "mean_search_minus_raw": -0.010416666666666678,
+              "paired_deal_bootstrap_95_interval": [
+                -0.14062500000000006,
+                0.11458333333333333
+              ]
+            },
+            "cities": {
+              "mean_search_minus_raw": -0.6041666666666667,
+              "paired_deal_bootstrap_95_interval": [
+                -1.125,
+                -0.046874999999999986
+              ]
+            },
+            "powered": {
+              "mean_search_minus_raw": -0.140625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.7239583333333334,
+                0.453125
+              ]
+            },
+            "capacity": {
+              "mean_search_minus_raw": 0.6510416666666666,
+              "paired_deal_bootstrap_95_interval": [
+                0.2916666666666666,
+                0.9947916666666666
+              ]
+            },
+            "cash": {
+              "mean_search_minus_raw": -26.192708333333332,
+              "paired_deal_bootstrap_95_interval": [
+                -34.21875,
+                -17.697526041666674
+              ]
+            },
+            "powered_gap": {
+              "mean_search_minus_raw": 1.3877787807814457e-17,
+              "paired_deal_bootstrap_95_interval": [
+                -0.666796875,
+                0.6927083333333334
+              ]
+            },
+            "capacity_gap": {
+              "mean_search_minus_raw": 0.8854166666666667,
+              "paired_deal_bootstrap_95_interval": [
+                0.5104166666666667,
+                1.265625
+              ]
+            },
+            "unused_nominal_potential": {
+              "mean_search_minus_raw": -0.07291666666666667,
+              "paired_deal_bootstrap_95_interval": [
+                -0.15104166666666666,
+                -0.010416666666666666
+              ]
+            }
+          },
+          "raw_failures": {
+            "losses": 122,
+            "shared_wins": 1,
+            "sole_wins": 69,
+            "capacity_below_winner_powered": 76,
+            "cities_below_winner_powered": 95,
+            "powered_tie_cash_loss": 12,
+            "unused_nominal_potential": 5
+          },
+          "search_failures": {
+            "losses": 97,
+            "shared_wins": 0,
+            "sole_wins": 95,
+            "capacity_below_winner_powered": 41,
+            "cities_below_winner_powered": 88,
+            "unused_nominal_potential": 2,
+            "powered_tie_cash_loss": 9
+          }
+        },
+        "rules": {
+          "original/open": {
+            "games_per_arm": 48,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "sole_win->sole_win": 9,
+              "loss->sole_win": 10,
+              "sole_win->loss": 6,
+              "loss->loss": 23
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.08333333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.04166666666666667,
+                  0.22916666666666663
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": -0.062499999999999986,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.3333333333333333,
+                  0.16666666666666669
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": -0.6666666666666665,
+                "paired_deal_bootstrap_95_interval": [
+                  -1.4796874999999998,
+                  0.2916666666666668
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": -0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.9791666666666665,
+                  0.9583333333333333
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.6666666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.20833333333333334,
+                  1.4791666666666665
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -33.02083333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -49.1875,
+                  -17.39427083333336
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 0.2083333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.8333333333333333,
+                  1.4375
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 0.6458333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.5624999999999999,
+                  1.7291666666666667
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.3333333333333333,
+                  0.0
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 33,
+              "shared_wins": 0,
+              "sole_wins": 15,
+              "cities_below_winner_powered": 26,
+              "capacity_below_winner_powered": 20,
+              "powered_tie_cash_loss": 3,
+              "unused_nominal_potential": 2
+            },
+            "search_failures": {
+              "losses": 29,
+              "shared_wins": 0,
+              "sole_wins": 19,
+              "capacity_below_winner_powered": 13,
+              "cities_below_winner_powered": 26,
+              "powered_tie_cash_loss": 3
+            }
+          },
+          "original/sealed": {
+            "games_per_arm": 48,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "loss->loss": 20,
+              "loss->sole_win": 14,
+              "sole_win->loss": 5,
+              "sole_win->sole_win": 8,
+              "shared_win->sole_win": 1
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.19791666666666669,
+                "paired_deal_bootstrap_95_interval": [
+                  0.05208333333333333,
+                  0.35416666666666663
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": 0.04166666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.16666666666666669,
+                  0.25
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": -6.938893903907228e-18,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.8333333333333334,
+                  0.8125
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.5416666666666666,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.33333333333333337,
+                  1.3541666666666663
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.8125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.1875,
+                  1.3750000000000002
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -18.458333333333332,
+                "paired_deal_bootstrap_95_interval": [
+                  -29.291666666666668,
+                  -8.145312500000006
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 0.7916666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0416666666666666,
+                  1.625
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 1.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  0.3541666666666668,
+                  1.7916666666666667
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.14583333333333334,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.4375,
+                  0.041666666666666664
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 34,
+              "shared_wins": 1,
+              "sole_wins": 13,
+              "capacity_below_winner_powered": 22,
+              "cities_below_winner_powered": 26,
+              "powered_tie_cash_loss": 5,
+              "unused_nominal_potential": 2
+            },
+            "search_failures": {
+              "losses": 25,
+              "shared_wins": 0,
+              "sole_wins": 23,
+              "cities_below_winner_powered": 24,
+              "capacity_below_winner_powered": 13,
+              "unused_nominal_potential": 1,
+              "powered_tie_cash_loss": 1
+            }
+          },
+          "recharged/open": {
+            "games_per_arm": 48,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "loss->loss": 13,
+              "loss->sole_win": 8,
+              "sole_win->loss": 10,
+              "sole_win->sole_win": 17
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": -0.041666666666666664,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.20833333333333334,
+                  0.125
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": -6.938893903907228e-18,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.20833333333333331,
+                  0.20833333333333334
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": -1.8333333333333335,
+                "paired_deal_bootstrap_95_interval": [
+                  -2.9166666666666665,
+                  -0.7708333333333334
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": -1.4791666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -2.5625000000000004,
+                  -0.3958333333333334
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.20833333333333331,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.27083333333333337,
+                  0.6666666666666667
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -23.104166666666668,
+                "paired_deal_bootstrap_95_interval": [
+                  -35.43749999999999,
+                  -10.541145833333339
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": -1.875,
+                "paired_deal_bootstrap_95_interval": [
+                  -3.4374999999999996,
+                  -0.375
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 0.4791666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.33333333333333337,
+                  1.2708333333333335
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.1875
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 21,
+              "shared_wins": 0,
+              "sole_wins": 27,
+              "capacity_below_winner_powered": 12,
+              "cities_below_winner_powered": 16,
+              "powered_tie_cash_loss": 1
+            },
+            "search_failures": {
+              "losses": 23,
+              "shared_wins": 0,
+              "sole_wins": 25,
+              "capacity_below_winner_powered": 9,
+              "cities_below_winner_powered": 21,
+              "powered_tie_cash_loss": 2
+            }
+          },
+          "recharged/sealed": {
+            "games_per_arm": 48,
+            "independent_deals": 16,
+            "outcome_transitions": {
+              "loss->loss": 15,
+              "loss->sole_win": 19,
+              "sole_win->loss": 5,
+              "sole_win->sole_win": 9
+            },
+            "terminal_changes": {
+              "win_credit": {
+                "mean_search_minus_raw": 0.2916666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  0.06249999999999999,
+                  0.5
+                ]
+              },
+              "round": {
+                "mean_search_minus_raw": -0.02083333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.22916666666666666,
+                  0.16666666666666666
+                ]
+              },
+              "cities": {
+                "mean_search_minus_raw": 0.08333333333333331,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.7083333333333334,
+                  0.8958333333333331
+                ]
+              },
+              "powered": {
+                "mean_search_minus_raw": 0.43750000000000006,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.375,
+                  1.2708333333333333
+                ]
+              },
+              "capacity": {
+                "mean_search_minus_raw": 0.9166666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  0.25,
+                  1.5208333333333333
+                ]
+              },
+              "cash": {
+                "mean_search_minus_raw": -30.187500000000004,
+                "paired_deal_bootstrap_95_interval": [
+                  -46.60416666666667,
+                  -12.229166666666668
+                ]
+              },
+              "powered_gap": {
+                "mean_search_minus_raw": 0.875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.25,
+                  2.0
+                ]
+              },
+              "capacity_gap": {
+                "mean_search_minus_raw": 1.3541666666666665,
+                "paired_deal_bootstrap_95_interval": [
+                  0.5833333333333331,
+                  2.0625
+                ]
+              },
+              "unused_nominal_potential": {
+                "mean_search_minus_raw": -0.08333333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.25,
+                  0.0
+                ]
+              }
+            },
+            "raw_failures": {
+              "losses": 34,
+              "shared_wins": 0,
+              "sole_wins": 14,
+              "capacity_below_winner_powered": 22,
+              "cities_below_winner_powered": 27,
+              "powered_tie_cash_loss": 3,
+              "unused_nominal_potential": 1
+            },
+            "search_failures": {
+              "losses": 20,
+              "shared_wins": 0,
+              "sole_wins": 28,
+              "capacity_below_winner_powered": 6,
+              "cities_below_winner_powered": 17,
+              "unused_nominal_potential": 1,
+              "powered_tie_cash_loss": 3
+            }
+          }
+        }
+      }
+    }
+  },
+  "provenance": {
+    "parent": {
+      "heuristic-2p": {
+        "revision": "0fa5c86d2550499c1ad2100b1b6d4ae6be7f1fc1",
+        "prefix": "runs/search-transfer-v1-parent-heuristic-2p",
+        "verified_sha256": "70aeeed71afd06192645dfd9f80a597a9b06f65fc0eacbba55e9f2ea5fecc3fc"
+      },
+      "search_geo-2p": {
+        "revision": "0fa5c86d2550499c1ad2100b1b6d4ae6be7f1fc1",
+        "prefix": "runs/search-transfer-v1-parent-search_geo-2p",
+        "verified_sha256": "78288a761858fd35413ec50b621c77c7b86ef1f8007f0adb5b5321f59eb61d26"
+      },
+      "a260-3p": {
+        "revision": "5f229b534da876c6455740631c2012e3152138b5",
+        "prefix": "runs/search-transfer-v1-parent-a260-3p",
+        "verified_sha256": "e00d1775419d7c71bf60038e221280e7097dd9183f591683b7985c5f89a13902"
+      }
+    },
+    "10101": {
+      "heuristic-2p": {
+        "revision": "0fa5c86d2550499c1ad2100b1b6d4ae6be7f1fc1",
+        "prefix": "runs/search-transfer-v1-10101-heuristic-2p",
+        "verified_sha256": "e465faceee3761f0e274da2e679ea1b6421e848a5e2b9272a424f0ea3b7fd309"
+      },
+      "search_geo-2p": {
+        "revision": "0fa5c86d2550499c1ad2100b1b6d4ae6be7f1fc1",
+        "prefix": "runs/search-transfer-v1-10101-search_geo-2p",
+        "verified_sha256": "0362107f096bc8eeb5b8661e54c73010b0f2679bc848e56e68fc1be1477046c8"
+      },
+      "a260-3p": {
+        "revision": "5f229b534da876c6455740631c2012e3152138b5",
+        "prefix": "runs/search-transfer-v1-10101-a260-3p",
+        "verified_sha256": "03bfea40af9ae1075e3ac3cae79026bc6f14a05884dcd6e3ea6cfc1c3b2f39c6"
+      }
+    },
+    "10102": {
+      "heuristic-2p": {
+        "revision": "0fa5c86d2550499c1ad2100b1b6d4ae6be7f1fc1",
+        "prefix": "runs/search-transfer-v1-10102-heuristic-2p",
+        "verified_sha256": "c9a8e6d66a604a565dc285880513f0c5dbc9fcc0709b07131965415e3c0c1981"
+      },
+      "search_geo-2p": {
+        "revision": "7512fc2d33fb1d7653be0e8a3717d9fe0e594a20",
+        "prefix": "runs/search-transfer-v1-10102-search_geo-2p",
+        "verified_sha256": "ffbdd5ee2ba7fa10b4c9f08e57181e287be82dcd02d42ba1bb903298e084c934"
+      },
+      "a260-3p": {
+        "revision": "5f229b534da876c6455740631c2012e3152138b5",
+        "prefix": "runs/search-transfer-v1-10102-a260-3p",
+        "verified_sha256": "c35f78b4d01ff7add59ae07815d2aeb13961664386fcd55d498a88b6b545c17a"
+      }
+    }
+  },
+  "protocol_sha256": "5c0d303a3ea15c69c29c841f022a3c7a80379d97f1e14cf7901ce371df3b5d1c",
+  "scope": "Descriptive paired terminal outcomes on reused development deals. Failure categories overlap; unused nominal potential can reflect fuel shortage. These are not causal phase diagnoses, calibrated player scores or qualification evidence. Whole-deal marginal bootstrap intervals, no multiplicity correction.",
+  "qualification_eligible": false
+}

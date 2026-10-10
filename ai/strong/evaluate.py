@@ -21,7 +21,7 @@ p.add_argument("--search-scope", choices=SCOPES, default="all")
 p.add_argument(
     "--opponent",
     default="economic",
-    choices=["economic", "heuristic", "rush", "legacy", "search", "search_geo"],
+    choices=["economic", "economic_capacity_v1", "heuristic", "rush", "legacy", "search", "search_geo"],
 )
 p.add_argument("--opponent-model", help="Frozen ONNX policy in every opponent seat")
 p.add_argument("--workers", type=int, default=4)

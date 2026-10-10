@@ -36,4 +36,13 @@ function scores(g, seat, actions = c.candidates(g, seat)) {
         return values[i];
     });
 }
-module.exports = {plantLimit, plantValue, scores};
+function choose(g, seat, rng = () => 0.5) {
+    const actions = c.candidates(g, seat), values = scores(g, seat, actions);
+    let index = 0, best = -Infinity;
+    values.forEach((value, i) => {
+        value += rng() * 0.001;
+        if (value > best) {best = value; index = i;}
+    });
+    return {index, action: actions[index]};
+}
+module.exports = {plantLimit, plantValue, scores, choose};

@@ -4,12 +4,84 @@
 final-test seeds remain unused.** The separate UI redesign was reverted.
 
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
-`ai/germany-baseline`. The previous AI goal turn made concrete progress by
-replaying the two-player losses. The UI-only intervening turn verified its revert.
-This goal turn implemented and validated an append-only five-plant revision and
-completed and independently verified one HF gradient integration check. No strength gate has been relaxed.
+`ai/germany-baseline`. The previous goal turn made concrete progress by validating
+schema4.1 and an HF-only gradient smoke. This turn independently collected all
+three update9 arms and added a versioned capacity-aware economic reference,
+completing 1,600 further paired development games. No candidate is qualified.
 
-## Current next step: collect population comparisons, design the controlled training run
+## Latest comparison and two-player reference (11:06 UTC)
+
+All **three update9 arms** are now collected and independently reverified:
+11,040 candidate games plus 3,680 previously pinned parent outcomes, exact
+40-deal/seat/rule coverage in each cell, zero caps. `strong/collect-population-comparison.py`
+rechecks checkpoint bytes/provenance, all balanced training batches, complete
+export reports, raw game reports and all six contrasts; it exactly reproduces
+the coordinator's 20,000-bootstrap whole-deal comparisons. Source snapshot:
+**`4669fed94f8882e55eac3e3ff7bfb186c92ad36c`**. Local artifacts are
+`ai/runs/population-comparison-u9-v1`; full verified results including every
+rule/count cell are in `strong/population-comparison-u9-v1.json`.
+
+| Update9 arm | Econ 2p | 3p | 4p | 5p | 6p | A260 3p |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Parent (u79) | 57.34 | 60.00 | 60.08 | 76.25 | 73.13 | 36.56 |
+| Control | 53.44 | 58.96 | 53.91 | 73.19 | 70.00 | 38.13 |
+| Homogeneous | 60.00 | 63.54 | 58.67 | 76.31 | 77.08 | 39.38 |
+| Heterogeneous | 58.44 | 60.42 | 64.06 | 76.06 | 73.18 | 45.52 |
+
+Heterogeneous minus control: economic4p +10.16 pp [5.16,15.31]; A2603p +7.40 pp
+[1.56,13.33]. Heterogeneous minus homogeneous: economic4p +5.39 pp [1.09,9.84],
+but economic6p -3.91 pp [-7.24,-0.63]. Its A260 advantage over homogeneous is
++6.15 pp [0,12.29]. These are **intermediate, marginal exploratory intervals,
+one training seed and many contrasts**; no universally best recipe is established.
+None clears the economic2p floor. Keep primary update19 comparisons unchanged.
+
+The additional opponent **`economic_capacity_v1`** is implemented and wired into
+the arena bridge/CLI. It uses the schema4.1 pure auction valuation helper, with
+four plant slots in two-player portfolios; every existing opponent identity and
+all training mixtures remain unchanged. A 16-game / 9,535-decision equivalence
+test confirms identical choices and RNG consumption at 3–6 players. A focused
+rule/information test also passes. This is a separately named reference, not a
+replacement for old economic/search opponents or a presumed stronger teacher.
+
+`strong/capacity-reference-protocol-v1.json` froze 40 new development deals,
+all seats × four rule combinations, 320 games/cell before outcomes. All five
+cells completed with no caps (1,600 total), independently verified by
+`strong/collect-capacity-reference.py`. Results:
+
+- Capacity-aware bot vs original economic: **52.50%**, whole-deal interval
+  [48.59,56.56]; not clearly stronger. 321 candidate-turn deterministic choices
+  differed. Its original/sealed subgroup was 48.13%; all subgroups are retained.
+- Parent vs original/corrected economic: **57.81 / 59.38%**.
+- Heterogeneous u9 vs original/corrected economic: **52.66 / 51.56%**.
+- Against corrected economic, heterogeneous minus parent is **-7.81 pp**,
+  paired whole-deal marginal interval [-15.00,-0.63]. Against original economic
+  it is -5.16 pp [-12.81,2.66]. Do not hide this fresh two-player regression
+  behind the A260 gain or the earlier screening seed results.
+
+These results reinforce the need for a controlled two-player repair. They do
+not establish that correcting the heuristic alone improves its strength or that
+schema4.1 learning is better (no strength test of a trained schema4.1 candidate
+has been conducted). Preserve both old and corrected reference opponents in
+future relevant evaluations. No new teacher labels or training jobs this turn.
+
+Persistent source: `strong-source-capacity-reference-20261010-v1.tgz`, dataset
+revision **`7c1514ddf4a8f94cd0baebe0e733275b62678cdb`**, SHA
+`c4cf7694a5cd86a7decb9f581c7ca824a1be7741c121a652063ce0289a18af7f`.
+Raw reports/protocol/source/summary: model repo `runs/capacity-reference-v1`,
+revision **`76e207f4ee444dd4e4f4ee13177eb460d2071125`**. See tracked
+`capacity-reference-{protocol,source,artifacts,results}-v1.json`; local raw data
+`ai/runs/capacity-reference-v1`. Local inference only, no gradients.
+
+At **11:06 UTC**, all three trainers and coordinator were confirmed RUNNING:
+heterogeneous update19 (233/240 complete), homogeneous update13 (226/240),
+control update11 (220/240). State snapshot at model revision
+`76e207f4ee444dd4e4f4ee13177eb460d2071125`; all u9 arms collected and comparison
+ready, no u19 checkpoint recorded yet. Exact job IDs/progress are in
+`strong/population-observed-status-20261010-v2.json`. Inspect live state before
+collecting later results; coordinator owns all u19 screens. Do not duplicate,
+restart, or alter the running cohort. No primary comparison yet.
+
+## Validated five-plant implementation for the next controlled training run
 
 The five-plant HF gradient smoke is **COMPLETED and independently verified**.
 Job `6aca192dfee2c900701863fd`, H200, run `five-plant-gradient-smoke-v1`;
@@ -78,7 +150,7 @@ Immutable source: `strong-source-five-plants-20261010-v1.tgz`, dataset revision
 `strong/five-plant-smoke-protocol-v1.json` freezes exact job settings.
 Use the actual update19 population comparison to choose the next parent/recipe;
 require controlled strength evaluation of this feature change. Preserve all
-existing baseline identities/gates and add a separately named capacity-aware
+existing baseline identities/gates and retain the separately named capacity-aware
 reference when evaluating two-player strength. No new expert hard labels.
 
 At 10:54 UTC, all three population trainers and coordinator were confirmed

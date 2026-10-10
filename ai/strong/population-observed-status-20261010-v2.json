@@ -1,0 +1,86 @@
+{
+  "observed_at": "2026-10-10T11:06:34.487468+00:00",
+  "jobs": {
+    "heterogeneous": {
+      "job_id": "6aca02dd095c578089310b2b",
+      "stage": "RUNNING",
+      "last": [
+        {
+          "stage": "rollout_progress",
+          "update": 19,
+          "completed_games": 84
+        },
+        {
+          "stage": "rollout_progress",
+          "update": 19,
+          "completed_games": 233
+        }
+      ]
+    },
+    "homogeneous": {
+      "job_id": "6aca02de095c578089310b2d",
+      "stage": "RUNNING",
+      "last": [
+        {
+          "stage": "rollout_progress",
+          "update": 13,
+          "completed_games": 116
+        },
+        {
+          "stage": "rollout_progress",
+          "update": 13,
+          "completed_games": 226
+        }
+      ]
+    },
+    "control": {
+      "job_id": "6aca02dffee2c9007018574b",
+      "stage": "RUNNING",
+      "last": [
+        {
+          "stage": "rollout_progress",
+          "update": 11,
+          "completed_games": 215
+        },
+        {
+          "stage": "rollout_progress",
+          "update": 11,
+          "completed_games": 220
+        }
+      ]
+    },
+    "coordinator": {
+      "job_id": "6aca0d29095c578089310fca",
+      "stage": "RUNNING",
+      "last": [
+        {
+          "stage": "waiting"
+        },
+        {
+          "stage": "waiting"
+        }
+      ]
+    }
+  },
+  "revision": "76e207f4ee444dd4e4f4ee13177eb460d2071125",
+  "checkpoints": {
+    "heterogeneous-u9": {
+      "phase": "collected",
+      "revision": "3f56f692fc5204140257538099e1ec50a2b4fb09",
+      "result_revision": "116032eed805e92e1c30a7d1f1192c2704e8f8f6"
+    },
+    "homogeneous-u9": {
+      "phase": "collected",
+      "revision": "b7f9026fc75850f9f7862499bff27be0646cfefd",
+      "result_revision": "07b6d5df87d60de9d0d81f887e5cec04c79b7463"
+    },
+    "control-u9": {
+      "phase": "collected",
+      "revision": "a69b71025bd85ba90cda509f13eacf34faa0bba5",
+      "result_revision": "26ecb073736107470dcb5ca226399a621df5d7a5"
+    }
+  },
+  "comparisons": {
+    "9": "comparison-u9.json"
+  }
+}

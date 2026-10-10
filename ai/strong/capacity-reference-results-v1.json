@@ -1,0 +1,476 @@
+{
+  "verified": true,
+  "qualification_eligible": false,
+  "protocol_sha256": "3412f58902ced4ddff2e38efcbe6943b4b82e43cc1598ad19251aa50becf9f50",
+  "total_games": 1600,
+  "truncations": 0,
+  "duel": {
+    "games": 320,
+    "independent_seeds": 40,
+    "win_rate": 0.525,
+    "truncated": 0,
+    "seed_bootstrap_95_interval": [
+      0.4859375,
+      0.565625
+    ],
+    "by_rules": {
+      "original/open": {
+        "games": 80,
+        "independent_seeds": 40,
+        "win_rate": 0.5125,
+        "truncated": 0,
+        "seed_bootstrap_95_interval": [
+          0.4375,
+          0.5875
+        ]
+      },
+      "original/sealed": {
+        "games": 80,
+        "independent_seeds": 40,
+        "win_rate": 0.48125,
+        "truncated": 0,
+        "seed_bootstrap_95_interval": [
+          0.38125,
+          0.58125
+        ]
+      },
+      "recharged/open": {
+        "games": 80,
+        "independent_seeds": 40,
+        "win_rate": 0.56875,
+        "truncated": 0,
+        "seed_bootstrap_95_interval": [
+          0.4875,
+          0.65
+        ]
+      },
+      "recharged/sealed": {
+        "games": 80,
+        "independent_seeds": 40,
+        "win_rate": 0.5375,
+        "truncated": 0,
+        "seed_bootstrap_95_interval": [
+          0.45,
+          0.625
+        ]
+      }
+    }
+  },
+  "different_deterministic_choices_in_duel": 321,
+  "model_cells": {
+    "parent-economic": {
+      "games": 320,
+      "independent_seeds": 40,
+      "win_rate": 0.578125,
+      "truncated": 0,
+      "seed_bootstrap_95_interval": [
+        0.525,
+        0.63125
+      ],
+      "by_rules": {
+        "original/open": {
+          "games": 80,
+          "independent_seeds": 40,
+          "win_rate": 0.525,
+          "truncated": 0,
+          "seed_bootstrap_95_interval": [
+            0.4125,
+            0.6375
+          ]
+        },
+        "original/sealed": {
+          "games": 80,
+          "independent_seeds": 40,
+          "win_rate": 0.575,
+          "truncated": 0,
+          "seed_bootstrap_95_interval": [
+            0.475,
+            0.675
+          ]
+        },
+        "recharged/open": {
+          "games": 80,
+          "independent_seeds": 40,
+          "win_rate": 0.65,
+          "truncated": 0,
+          "seed_bootstrap_95_interval": [
+            0.525,
+            0.7625
+          ]
+        },
+        "recharged/sealed": {
+          "games": 80,
+          "independent_seeds": 40,
+          "win_rate": 0.5625,
+          "truncated": 0,
+          "seed_bootstrap_95_interval": [
+            0.475,
+            0.65
+          ]
+        }
+      }
+    },
+    "parent-economic_capacity_v1": {
+      "games": 320,
+      "independent_seeds": 40,
+      "win_rate": 0.59375,
+      "truncated": 0,
+      "seed_bootstrap_95_interval": [
+        0.534375,
+        0.65625
+      ],
+      "by_rules": {
+        "original/open": {
+          "games": 80,
+          "independent_seeds": 40,
+          "win_rate": 0.525,
+          "truncated": 0,
+          "seed_bootstrap_95_interval": [
+            0.4,
+            0.65
+          ]
+        },
+        "original/sealed": {
+          "games": 80,
+          "independent_seeds": 40,
+          "win_rate": 0.5625,
+          "truncated": 0,
+          "seed_bootstrap_95_interval": [
+            0.4375,
+            0.6875
+          ]
+        },
+        "recharged/open": {
+          "games": 80,
+          "independent_seeds": 40,
+          "win_rate": 0.625,
+          "truncated": 0,
+          "seed_bootstrap_95_interval": [
+            0.5125,
+            0.7375
+          ]
+        },
+        "recharged/sealed": {
+          "games": 80,
+          "independent_seeds": 40,
+          "win_rate": 0.6625,
+          "truncated": 0,
+          "seed_bootstrap_95_interval": [
+            0.575,
+            0.75
+          ]
+        }
+      }
+    },
+    "heterogeneous-u9-economic": {
+      "games": 320,
+      "independent_seeds": 40,
+      "win_rate": 0.5265625,
+      "truncated": 0,
+      "seed_bootstrap_95_interval": [
+        0.478125,
+        0.575
+      ],
+      "by_rules": {
+        "original/open": {
+          "games": 80,
+          "independent_seeds": 40,
+          "win_rate": 0.575,
+          "truncated": 0,
+          "seed_bootstrap_95_interval": [
+            0.4625,
+            0.6875
+          ]
+        },
+        "original/sealed": {
+          "games": 80,
+          "independent_seeds": 40,
+          "win_rate": 0.4375,
+          "truncated": 0,
+          "seed_bootstrap_95_interval": [
+            0.325,
+            0.55
+          ]
+        },
+        "recharged/open": {
+          "games": 80,
+          "independent_seeds": 40,
+          "win_rate": 0.60625,
+          "truncated": 0,
+          "seed_bootstrap_95_interval": [
+            0.51875,
+            0.6876562499999977
+          ]
+        },
+        "recharged/sealed": {
+          "games": 80,
+          "independent_seeds": 40,
+          "win_rate": 0.4875,
+          "truncated": 0,
+          "seed_bootstrap_95_interval": [
+            0.375,
+            0.6
+          ]
+        }
+      }
+    },
+    "heterogeneous-u9-economic_capacity_v1": {
+      "games": 320,
+      "independent_seeds": 40,
+      "win_rate": 0.515625,
+      "truncated": 0,
+      "seed_bootstrap_95_interval": [
+        0.4625,
+        0.565625
+      ],
+      "by_rules": {
+        "original/open": {
+          "games": 80,
+          "independent_seeds": 40,
+          "win_rate": 0.55,
+          "truncated": 0,
+          "seed_bootstrap_95_interval": [
+            0.4375,
+            0.6625
+          ]
+        },
+        "original/sealed": {
+          "games": 80,
+          "independent_seeds": 40,
+          "win_rate": 0.4625,
+          "truncated": 0,
+          "seed_bootstrap_95_interval": [
+            0.35,
+            0.575
+          ]
+        },
+        "recharged/open": {
+          "games": 80,
+          "independent_seeds": 40,
+          "win_rate": 0.575,
+          "truncated": 0,
+          "seed_bootstrap_95_interval": [
+            0.4625,
+            0.6875
+          ]
+        },
+        "recharged/sealed": {
+          "games": 80,
+          "independent_seeds": 40,
+          "win_rate": 0.475,
+          "truncated": 0,
+          "seed_bootstrap_95_interval": [
+            0.3625,
+            0.5875
+          ]
+        }
+      }
+    }
+  },
+  "paired_contrasts": {
+    "parent:corrected-minus-old-opponent": {
+      "overall": {
+        "games_per_model": 320,
+        "independent_deals": 40,
+        "win_share_difference": 0.015625,
+        "paired_deal_bootstrap_95_interval": [
+          -0.040625,
+          0.071875
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1375,
+            0.1375
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": -0.0125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.125,
+            0.0875
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": -0.025,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1125,
+            0.0625
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": 0.1,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.2
+          ]
+        }
+      }
+    },
+    "heterogeneous-u9:corrected-minus-old-opponent": {
+      "overall": {
+        "games_per_model": 320,
+        "independent_deals": 40,
+        "win_share_difference": -0.0109375,
+        "paired_deal_bootstrap_95_interval": [
+          -0.059375,
+          0.0359375
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": -0.025,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1375,
+            0.1
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": 0.025,
+          "paired_deal_bootstrap_95_interval": [
+            -0.05,
+            0.1
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": -0.03125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.13125,
+            0.0625
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": -0.0125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.125,
+            0.0875
+          ]
+        }
+      }
+    },
+    "economic:heterogeneous-minus-parent": {
+      "overall": {
+        "games_per_model": 320,
+        "independent_deals": 40,
+        "win_share_difference": -0.0515625,
+        "paired_deal_bootstrap_95_interval": [
+          -0.128125,
+          0.0265625
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": 0.05,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1125,
+            0.2125
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": -0.1375,
+          "paired_deal_bootstrap_95_interval": [
+            -0.2875,
+            0.0125
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": -0.04375,
+          "paired_deal_bootstrap_95_interval": [
+            -0.16875,
+            0.08140624999998636
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": -0.075,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1875,
+            0.0375
+          ]
+        }
+      }
+    },
+    "economic_capacity_v1:heterogeneous-minus-parent": {
+      "overall": {
+        "games_per_model": 320,
+        "independent_deals": 40,
+        "win_share_difference": -0.078125,
+        "paired_deal_bootstrap_95_interval": [
+          -0.15,
+          -0.00625
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": 0.025,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1,
+            0.15
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": -0.1,
+          "paired_deal_bootstrap_95_interval": [
+            -0.2628124999999997,
+            0.075
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": -0.05,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1875,
+            0.0875
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 80,
+          "independent_deals": 40,
+          "win_share_difference": -0.1875,
+          "paired_deal_bootstrap_95_interval": [
+            -0.3,
+            -0.075
+          ]
+        }
+      }
+    }
+  },
+  "artifact_sha256": {
+    "duel": "7d471432b2d3e93b7b8814163187c20d8c0f8e10132de4ae69cf42e9bef1629c",
+    "parent-economic": "4ad5e018f70a5e81c7b89468266b0825bfa409b4d35bc9372a1818a3953643de",
+    "parent-economic_capacity_v1": "e6372964242e1a4f8175e07147449a29848dc5f855d6a7575d6ee762715ed435",
+    "heterogeneous-u9-economic": "2f95a869b1477551b57e73c1544f03708aef6a3f70ad118c7aea153c8f8bdd0d",
+    "heterogeneous-u9-economic_capacity_v1": "b1e6234fba73764716910620eefcde2c6324691299101cf24a4b315c139ac4ec"
+  },
+  "interpretation": "A rule-aware heuristic is not assumed stronger. Report the duel and all four model cells, including regressions. Whole-deal paired intervals; seeds are development only. No training or teacher promotion."
+}

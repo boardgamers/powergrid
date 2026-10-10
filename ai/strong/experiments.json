@@ -36105,5 +36105,24 @@
         "next": "Collect prescribed population update9/update19 comparisons; choose next parent/recipe and controlled strength experiment. Do not repeat completed smoke.",
         "results": "five-plant-smoke-results-v1.json",
         "smoke_artifact_revision": "4669fed94f8882e55eac3e3ff7bfb186c92ad36c"
+    },
+    "population_u9_complete_comparison": {
+        "status": "independently verified; intermediate only",
+        "results": "population-comparison-u9-v1.json",
+        "snapshot_revision": "4669fed94f8882e55eac3e3ff7bfb186c92ad36c",
+        "candidate_games": 11040,
+        "parent_games": 3680,
+        "qualification_eligible": false,
+        "decision": "Keep primary update19 comparison intact; heterogeneous gains A260/4p but homogeneous is stronger at 6p; all fail 2p economic floor."
+    },
+    "capacity_reference_v1": {
+        "status": "all predeclared cells complete and independently verified",
+        "protocol": "capacity-reference-protocol-v1.json",
+        "results": "capacity-reference-results-v1.json",
+        "artifacts": "capacity-reference-artifacts-v1.json",
+        "games": 1600,
+        "truncations": 0,
+        "qualification_eligible": false,
+        "decision": "Keep old baseline and add corrected reference; no clear heuristic superiority, fresh 2p regression of heterogeneous u9 vs parent. No gradients."
     }
 }

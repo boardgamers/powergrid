@@ -40,6 +40,8 @@ function applyBot(e, p) {
                 : eco.choose(e.g, p, e.rng).action,
             p
         );
+    } else if (role === 'economic_capacity_v1') {
+        c.E.move(e.g, require('./economics-v4_1.cjs').choose(e.g, p, e.rng).action, p);
     } else
         c.E.move(
             e.g,
@@ -79,6 +81,7 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}, player
             'mixed_search',
             'mixed_search_geo',
             'economic',
+            'economic_capacity_v1',
             'heuristic',
             'rush',
             'legacy',

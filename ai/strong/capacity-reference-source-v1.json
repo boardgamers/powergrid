@@ -1,0 +1,21 @@
+{
+  "archive": "strong-source-capacity-reference-20261010-v1.tgz",
+  "sha256": "c4cf7694a5cd86a7decb9f581c7ca824a1be7741c121a652063ce0289a18af7f",
+  "bytes": 13549290,
+  "base": {
+    "archive": "strong-source-five-plants-20261010-v1.tgz",
+    "revision": "9691971d63d556b542647137291d19cfce750808",
+    "sha256": "877a58929a6eb2141f46cc96ba5ebb7b20f7078bbc51aad5d652b8f6cacf9055"
+  },
+  "overlays": {
+    "ai/strong/economics-v4_1.cjs": "4033d2a3f64751a2f57b9b1f847a0d6e3066b3b4a1a91ddf0dd862eabd270a03",
+    "ai/strong/bridge.cjs": "94e80715416afd1711e274a6195f3b43f28143937bce9e990b956004ba5a9b9f",
+    "ai/strong/evaluate.py": "f9370d612611164698e603e589ceadb7390fcf68a7be85e1d6de7245055f7f35",
+    "ai/strong/test-capacity-reference.cjs": "2020cb8bf5c525b22862852a06912d23e167d1f67b2ea9cfef3c9b3ab18d1fc0",
+    "ai/strong/capacity-reference-duel.cjs": "be550cb72a7f61cdf24b4b4e06bce342d806990738affeb279ad520d6e8165a8",
+    "ai/strong/collect-capacity-reference.py": "aae6518703ee30c56a63b15db49c3803bf3504230b5ae399958e7dd266ef9d77",
+    "ai/strong/capacity-reference-protocol-v1.json": "3412f58902ced4ddff2e38efcbe6943b4b82e43cc1598ad19251aa50becf9f50"
+  },
+  "purpose": "Versioned additional economic_capacity_v1 reference; no changes to current cohort, old baseline identities or qualification gates",
+  "revision": "7c1514ddf4a8f94cd0baebe0e733275b62678cdb"
+}

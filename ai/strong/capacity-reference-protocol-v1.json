@@ -1,0 +1,121 @@
+{
+  "purpose": "Additional development reference for the two-player plant-capacity correction; preserve established economic baseline and strength gates",
+  "seed": "capacity-reference-development-v1",
+  "deal_offsets": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+  ],
+  "players": 2,
+  "paired_seats": true,
+  "variants": [
+    "original",
+    "recharged"
+  ],
+  "sealed": [
+    false,
+    true
+  ],
+  "games_per_cell": 320,
+  "candidate_search_samples": 0,
+  "steps_limit": 1600,
+  "baseline_duel": {
+    "candidate": "economic_capacity_v1",
+    "opponent": "economic"
+  },
+  "model_cells": [
+    {
+      "candidate": "parent",
+      "opponent": "economic"
+    },
+    {
+      "candidate": "parent",
+      "opponent": "economic_capacity_v1"
+    },
+    {
+      "candidate": "heterogeneous-u9",
+      "opponent": "economic"
+    },
+    {
+      "candidate": "heterogeneous-u9",
+      "opponent": "economic_capacity_v1"
+    }
+  ],
+  "models": {
+    "parent": {
+      "arm": "parent",
+      "run": "multiplayer-refine-hard-v1",
+      "update": 79,
+      "revision": "0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a",
+      "hashes": {
+        "latest.pt": "1f9d1c89908ab036f6e6a54facba94b352bbae005e1ac042d88c60067e895224",
+        "latest.onnx": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+        "metrics.json": "96d519130a8ef7adef2e628b03d6cee1a281ee67f27b5c529226f6682dd7faa5",
+        "schema.json": "d3eb65a65cd3bbdfb2e09fc6caff0dc6e0953c1a939dc8ceeeb5c800c491eff6"
+      },
+      "strict_parity": "passed",
+      "qualification_eligible": false
+    },
+    "heterogeneous-u9": {
+      "arm": "heterogeneous",
+      "run": "multiplayer-population-v1-heterogeneous",
+      "update": 9,
+      "revision": "3f56f692fc5204140257538099e1ec50a2b4fb09",
+      "hashes": {
+        "latest.pt": "477022b0e83a61b32b4808ca29b79a618c9bab76d5205f0bf7501ed8a0ed0efb",
+        "latest.onnx": "9e52c10f3bc219f54761df584c33f2c0db60f762c49f03f758bb651cc46cc8a2",
+        "metrics.json": "75c8661d18f1975c10ab2615058bacabdbcd9849680e0683cde081fd8e279264",
+        "schema.json": "9be7103264d1493dea1502be5d7bdade527a0f56c51430d8d5739d4d8732fd4e"
+      },
+      "strict_parity": "passed",
+      "qualification_eligible": false
+    }
+  },
+  "runtime_sha256": {
+    "ai/core.cjs": "606a398158e936fd0543c3a758293a66f84213ab8d913970d4e55ddc53fb413e",
+    "ai/strong/economics.cjs": "7265923548a15940a33f24d70b2d6419119ef8d759fca1637640f4ff6e9aef58",
+    "ai/strong/economics-v4_1.cjs": "4033d2a3f64751a2f57b9b1f847a0d6e3066b3b4a1a91ddf0dd862eabd270a03",
+    "ai/strong/bridge.cjs": "94e80715416afd1711e274a6195f3b43f28143937bce9e990b956004ba5a9b9f",
+    "ai/strong/evaluate.py": "f9370d612611164698e603e589ceadb7390fcf68a7be85e1d6de7245055f7f35",
+    "ai/strong/capacity-reference-duel.cjs": "be550cb72a7f61cdf24b4b4e06bce342d806990738affeb279ad520d6e8165a8"
+  },
+  "qualification_eligible": false,
+  "interpretation": "A rule-aware heuristic is not assumed stronger. Report the duel and all four model cells, including regressions. Whole-deal paired intervals; seeds are development only. No training or teacher promotion."
+}

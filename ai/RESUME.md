@@ -7,21 +7,33 @@ Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, bran
 `ai/germany-baseline`. The previous AI goal turn made concrete progress by
 replaying the two-player losses. The UI-only intervening turn verified its revert.
 This goal turn implemented and validated an append-only five-plant revision and
-submitted one HF gradient integration check. No strength gate has been relaxed.
+completed and independently verified one HF gradient integration check. No strength gate has been relaxed.
 
-## Current next step: inspect the five-plant HF smoke and population comparisons
+## Current next step: collect population comparisons, design the controlled training run
 
-HF smoke job **`6aca192dfee2c900701863fd`**, H200, run
-`five-plant-gradient-smoke-v1`: one update / 80 complete games (16 per count),
-heterogeneous retained opponents, schema4.1 learner/snapshots with schema4.0 frozen
-opponents. `strong/five-plant-smoke-status-v1.json` is only a timestamped last
-observation. Inspect this exact job before doing anything; do not duplicate or
-restart on a polling timeout. This checks optimizer/routing/export correctness,
-**not strength or candidate selection**. The wrapper requires nonzero new input
-weights, finite parameters, balanced complete games, all frozen roles, no caps,
-and all 2,553 strict ONNX export checks. It uploads `smoke-check.json` and raw
-checkpoints/metrics. Independently collect and verify those before claiming it
-passed. No local gradients ran.
+The five-plant HF gradient smoke is **COMPLETED and independently verified**.
+Job `6aca192dfee2c900701863fd`, H200, run `five-plant-gradient-smoke-v1`;
+terminal status confirmed at 10:57 UTC. One update / 80 complete games (16 per
+count), heterogeneous retained opponents, schema4.1 learner/snapshots with
+schema4.0 frozen opponents. Both new projections changed from zero (norms
+0.02661736 / 0.003502778), all parameters finite, all frozen roles present,
+zero actual-game caps and **81,872 search rollouts / zero caps**. Update took
+76.85 s. The trained ONNX passed all 2,553 strict export checks and all actions
+matched its checkpoint. **This is correctness evidence, not playing strength or
+candidate selection.** No local gradients ran. Do not launch this smoke again.
+
+Immutable model-repo result revision:
+**`4669fed94f8882e55eac3e3ff7bfb186c92ad36c`**.
+`strong/collect-five-plant-smoke.py REV OUTPUT` independently verified every
+artifact hash, source/protocol/init provenance, actual checkpoint dimensions,
+new parameter norms, balanced metrics, frozen opponent pins, snapshot admission
+and export report. See `strong/five-plant-smoke-results-v1.json` and local raw
+files `ai/runs/five-plant-smoke-collected-v1`. Trained PT SHA
+`f7c4771038a0470b30680f7c8325f62969f2e4e0a22c0724bc5f39cef77f28cc`;
+ONNX SHA `574ad0af7e3c9df95bb9c28c6bb99ed1ac6a2f9e1eee5d069461db45d1eb42a2`.
+Retain this smoke as integration evidence; choose the next actual training
+parent/recipe from the prescribed population comparison, then test the feature
+change against a matched control without changing strength gates.
 
 Schema **4.1-five-plants** is implemented as `features-v4_1.cjs` and
 `model_v4_1.py`; the architecture is `multiplayer_ordered_plants`. State/action

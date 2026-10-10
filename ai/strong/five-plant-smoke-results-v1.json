@@ -1,0 +1,49 @@
+{
+  "artifact_revision": "4669fed94f8882e55eac3e3ff7bfb186c92ad36c",
+  "smoke_report_sha256": "6901b19ace9a907040c3dd160ca31dfb57a0a6947a5e4eb309875c5f268e394d",
+  "verified": true,
+  "qualification_eligible": false,
+  "games": 80,
+  "games_per_count": 16,
+  "game_truncations": 0,
+  "search_stats": {
+    "search_geo": {
+      "decisions": 995,
+      "evaluations": 81872,
+      "truncated": 0
+    }
+  },
+  "new_parameter_norms": {
+    "extra_player.weight": 0.02661736309528351,
+    "extra_action.weight": 0.0035027782432734966
+  },
+  "update_seconds": 76.85353953001322,
+  "export": {
+    "positions": 2553,
+    "by_player_count": {
+      "2": 349,
+      "3": 427,
+      "4": 527,
+      "5": 609,
+      "6": 641
+    },
+    "inactive_values_zero": true,
+    "feature_revision": "4.1-five-plants",
+    "model_sha256": "574ad0af7e3c9df95bb9c28c6bb99ed1ac6a2f9e1eee5d069461db45d1eb42a2",
+    "max_logit_error": 5.340576171875e-05,
+    "max_value_error": 3.3676624298095703e-06,
+    "all_actions_match": true,
+    "specialist_route_counts": {}
+  },
+  "source": "9691971d63d556b542647137291d19cfce750808",
+  "initial_revision": "bbbbd1ac091651f8854386a476cb42617d9c095a",
+  "hashes": {
+    "best.pt": "e2fe1317e8667fdff2bf2477a40306e59bfc76733ccc803c1464db88b77dcd9b",
+    "latest.onnx": "574ad0af7e3c9df95bb9c28c6bb99ed1ac6a2f9e1eee5d069461db45d1eb42a2",
+    "best.onnx": "ded16c0977cea50049df0cea58d238b96655d32eddb1766ab849ad284055b11b",
+    "latest.pt": "f7c4771038a0470b30680f7c8325f62969f2e4e0a22c0724bc5f39cef77f28cc",
+    "export-check.json": "c67512a3a9db6a5aa1e7ff96cd363cab3101ee844d43a3dd62d8baf2ec7a706a",
+    "metrics.json": "f7b80d0c97859a01a14bb25c581f1d58df12a09f0fde95d87d9470c4052c0cb7",
+    "schema.json": "b3a4e8cacdf33500266c0bfca0cf2359ab025ee358b5769057d593a19fc1ca2c"
+  }
+}

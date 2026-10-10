@@ -36092,7 +36092,7 @@
         "qualification_eligible": false
     },
     "five_plant_revision_v1": {
-        "status": "implemented-and-validated; HF gradient smoke submitted, not strength-qualified",
+        "status": "implemented, inference verified, HF-only gradient smoke completed and independently collected; not strength-qualified",
         "contract": "five-plant-contract-v1.json",
         "validation": "five-plant-validation-v1.json",
         "artifacts": "five-plant-transfer-artifacts-v1.json",
@@ -36102,6 +36102,8 @@
         "source_revision": "9691971d63d556b542647137291d19cfce750808",
         "initial_artifact_revision": "bbbbd1ac091651f8854386a476cb42617d9c095a",
         "qualification_eligible": false,
-        "next": "Inspect exact HF smoke job, then primary population update19 comparisons; controlled strength evaluation still required."
+        "next": "Collect prescribed population update9/update19 comparisons; choose next parent/recipe and controlled strength experiment. Do not repeat completed smoke.",
+        "results": "five-plant-smoke-results-v1.json",
+        "smoke_artifact_revision": "4669fed94f8882e55eac3e3ff7bfb186c92ad36c"
     }
 }

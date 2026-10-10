@@ -1,0 +1,172 @@
+{
+  "positions": 10,
+  "file": "ai/strong/fixtures/strategic-teacher-probe-v1.jsonl",
+  "sha256": "a470245b0b85414c9edffde3cd01523698304e785830334c27f6c59cbb84c1c2",
+  "selection": "Lowest fixed hash of rootId per count/phase among verified economic validation roots; no outcomes used.",
+  "scope": "Ten runtime probes only; not representative reliability, training or playing-strength evidence.",
+  "roots": [
+    {
+      "rootId": "2:economic:2:8",
+      "players": 2,
+      "phase": "auction",
+      "variant": "original",
+      "sealed": false,
+      "round": 2,
+      "split": "validation",
+      "public_root_sha256": "bd99a8a6d31f18451b46909b91d358a33993f51dd3dbc87510d15108885e8583"
+    },
+    {
+      "rootId": "2:economic:98:37",
+      "players": 2,
+      "phase": "building",
+      "variant": "original",
+      "sealed": false,
+      "round": 6,
+      "split": "validation",
+      "public_root_sha256": "2cb804757fc25c4482e5a6fbed6af7fbcd9def84521f26e40895ecc00b92afff"
+    },
+    {
+      "rootId": "3:economic:98:23",
+      "players": 3,
+      "phase": "auction",
+      "variant": "original",
+      "sealed": false,
+      "round": 3,
+      "split": "validation",
+      "public_root_sha256": "3c3aa7a0e635e4c455dd5a5ee89e80c8aae57b09665f830ce1ae50e1a651cef0"
+    },
+    {
+      "rootId": "3:economic:4:21",
+      "players": 3,
+      "phase": "building",
+      "variant": "original",
+      "sealed": true,
+      "round": 7,
+      "split": "validation",
+      "public_root_sha256": "87577f06b9d732e355a40b39608121230b9ad6111e475085d92af2469afea64b"
+    },
+    {
+      "rootId": "4:economic:130:32",
+      "players": 4,
+      "phase": "auction",
+      "variant": "original",
+      "sealed": false,
+      "round": 6,
+      "split": "validation",
+      "public_root_sha256": "ac9e410dd2402760cd7151c9a196649e17869d0c398eb699792f1e515e5eeeaf"
+    },
+    {
+      "rootId": "4:economic:128:8",
+      "players": 4,
+      "phase": "building",
+      "variant": "original",
+      "sealed": true,
+      "round": 1,
+      "split": "validation",
+      "public_root_sha256": "91539a16b2e5bda7e115208a37b6df481455a9884ef810d812005916a75da6ef"
+    },
+    {
+      "rootId": "5:economic:95:31",
+      "players": 5,
+      "phase": "auction",
+      "variant": "recharged",
+      "sealed": false,
+      "round": 5,
+      "split": "validation",
+      "public_root_sha256": "2ac3c44385c8a5dd0b8f7c378bfaf61cf829d230176a83c599f65213acc1477b"
+    },
+    {
+      "rootId": "5:economic:12:31",
+      "players": 5,
+      "phase": "building",
+      "variant": "original",
+      "sealed": true,
+      "round": 7,
+      "split": "validation",
+      "public_root_sha256": "23997a846a1c3781fd51f40d7afe4925147ff1fab9d9f63d37fb4e8a2bf3f513"
+    },
+    {
+      "rootId": "6:economic:23:25",
+      "players": 6,
+      "phase": "auction",
+      "variant": "recharged",
+      "sealed": false,
+      "round": 6,
+      "split": "validation",
+      "public_root_sha256": "7d3f443f0db98d6b12eab2fed0f56d80fe902dc34e319e3943bd7b10374a2b40"
+    },
+    {
+      "rootId": "6:economic:99:41",
+      "players": 6,
+      "phase": "building",
+      "variant": "recharged",
+      "sealed": false,
+      "round": 5,
+      "split": "validation",
+      "public_root_sha256": "8f5838d3bef35a104609b454f2c8187c75a0eb79e2e8a994130fd40b0c17b0af"
+    }
+  ],
+  "collection_pins": {
+    "2": {
+      "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+      "prefix": "runs/strategic-training-collection-v1-2p-economic",
+      "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+      "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+      "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+      "artifacts": {
+        "roots.jsonl.gz": "720e140cd31bed2d760e61ccecb22005e0d96e8ee4386107f9232d22b12be65c",
+        "collection-check.json": "256466956a9a351ebde44a676edec3fa717420b10842b920cdf2f88061f56dc3",
+        "games.json": "1dc4ce3dcc79c4368f0ff3f92e756a3cc21c42fd93a2cf4211cbe02aed2bbbe1"
+      }
+    },
+    "3": {
+      "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+      "prefix": "runs/strategic-training-collection-v1-3p-economic",
+      "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+      "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+      "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+      "artifacts": {
+        "roots.jsonl.gz": "010826fb3fd7b57350cfebffcf8d2c9cc69b7f2b24c0b0cb987b257f9d96e056",
+        "collection-check.json": "6e194f2b6f5aa3e25d80a73d3d18527ce8c6d0e15f18fca8bd6a84a10def2a4b",
+        "games.json": "dd87747d51eae35b3f8fc7c5fbfe7150f77bc439eb916cf839c8af21079e93be"
+      }
+    },
+    "4": {
+      "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+      "prefix": "runs/strategic-training-collection-v1-4p-economic",
+      "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+      "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+      "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+      "artifacts": {
+        "roots.jsonl.gz": "8aacac0394fe8e316479f8dab73dd9ef68bd87f641d8bc72426ca20910aeeb02",
+        "collection-check.json": "f01dc6002020f32323605861603146c4184ffba8cd04a4ccac28f74dd1d93787",
+        "games.json": "2c1a40fabad0b6f38a43ba1c13a4fb5fcaf8e6eb58f1e921da1a14ee5367801c"
+      }
+    },
+    "5": {
+      "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+      "prefix": "runs/strategic-training-collection-v1-5p-economic",
+      "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+      "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+      "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+      "artifacts": {
+        "roots.jsonl.gz": "4435521c8ef48f45958db47a873db00c19c278d648fad31cab2e430a8bd6cb22",
+        "collection-check.json": "41500a69cd2e5760e7ab2f4fbfa70663eb694b8324c1697e68aa15e7f0017c88",
+        "games.json": "4c0c621f290748f7e136dcc1492c7388145948c96921fb0984ab2246a320d8ca"
+      }
+    },
+    "6": {
+      "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+      "prefix": "runs/strategic-training-collection-v1-6p-economic",
+      "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+      "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+      "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+      "artifacts": {
+        "roots.jsonl.gz": "02e4f10cd97937be5e8e94628910505457127c4dfa9c5e2e9ae3a74bc35e1afd",
+        "collection-check.json": "eb096ab0ba13b3e74b4e247e72ce641ece2e51af7262681de0e6b311bd5aeadf",
+        "games.json": "18e75863e0d6767a8271ce2d7ef3116799d36a7e4508ef1a20f37eba1cbaec13"
+      }
+    }
+  },
+  "qualification_eligible": false
+}

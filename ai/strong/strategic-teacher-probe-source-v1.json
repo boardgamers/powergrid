@@ -1,0 +1,23 @@
+{
+  "archive": "strong-source-strategic-teacher-probe-20261010-v1.tgz",
+  "revision": "ca3be3ff81cc259135daa50e9bdf41590b6552ff",
+  "sha256": "c4a700ef7fb6c83c5e85060c52bc49b8eea94ff1c65c62b0bbcc39f0905b91fd",
+  "overlays": {
+    "ai/strong/strategic-continuations.cjs": "77ef281def63f61c2cac9588d61df4c1a4827b794ff40c5a081b70a687feabb2",
+    "ai/strong/test-strategic-continuations.cjs": "56eb4bb33035f68da46dc19572f7a0f5791c6706cf3dcc7d58d1864065cb35e1",
+    "ai/strong/strategic_teacher.py": "e0991d702a03aa986025260d5afee5f5a8f23fac7846d4b6605397ce8d299450",
+    "ai/strong/check-strategic-teacher-batching.py": "2e72767d50cac60fb480cc98bed9487c60f8a5bd97502bcd0197eb984ca848f7",
+    "ai/strong/run-strategic-teacher-probe.py": "731900b768ac26f16273669ca0e7edd91956e702512a08ce77d2ad70f1321f4d",
+    "ai/strong/strategic-teacher-probe-protocol-v1.json": "f19085fef326bfba66895648d2a33309b2be929615ed85ffa3b021be661a21dd",
+    "ai/strong/strategic-teacher-probe-roots-v1.json": "3f2a7086469fd90be807db71731c1c3d8aecb8733e08b27c1d0e7d9748277378",
+    "ai/strong/fixtures/strategic-teacher-probe-v1.jsonl": "a470245b0b85414c9edffde3cd01523698304e785830334c27f6c59cbb84c1c2"
+  },
+  "base": {
+    "archive": "strong-source-strategic-training-collection-20261010-v1.tgz",
+    "revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+    "sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0"
+  },
+  "unchanged_base_file_count": 1383,
+  "protocol_sha256": "f19085fef326bfba66895648d2a33309b2be929615ed85ffa3b021be661a21dd",
+  "qualification_eligible": false
+}

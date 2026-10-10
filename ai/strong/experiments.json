@@ -39196,11 +39196,11 @@
             "qualification_eligible": false
         },
         "status": {
-            "checked_at": "2026-10-10T17:27:48.170901+00:00",
+            "checked_at": "2026-10-10T17:48:17.779609+00:00",
             "jobs": {
                 "smoke-2p-economic": {
                     "job_id": "6aca7567095c578089314f12",
-                    "status": "SCHEDULING",
+                    "status": "COMPLETED",
                     "players": 2,
                     "mode": "economic",
                     "smoke": true,
@@ -39208,7 +39208,7 @@
                 },
                 "smoke-2p-search_geo": {
                     "job_id": "6aca7568fee2c9007018aa29",
-                    "status": "SCHEDULING",
+                    "status": "COMPLETED",
                     "players": 2,
                     "mode": "search_geo",
                     "smoke": true,
@@ -39216,7 +39216,7 @@
                 },
                 "smoke-2p-snapshot0": {
                     "job_id": "6aca756afee2c9007018aa2b",
-                    "status": "SCHEDULING",
+                    "status": "COMPLETED",
                     "players": 2,
                     "mode": "snapshot0",
                     "smoke": true,
@@ -39224,7 +39224,7 @@
                 },
                 "smoke-3p-economic": {
                     "job_id": "6aca756bfee2c9007018aa2f",
-                    "status": "SCHEDULING",
+                    "status": "COMPLETED",
                     "players": 3,
                     "mode": "economic",
                     "smoke": true,
@@ -39232,15 +39232,15 @@
                 },
                 "smoke-3p-search_geo": {
                     "job_id": "6aca756c095c578089314f15",
-                    "status": "SCHEDULING",
                     "players": 3,
                     "mode": "search_geo",
                     "smoke": true,
-                    "timeout_hours": 4
+                    "timeout_hours": 4,
+                    "status": "COMPLETED"
                 },
                 "smoke-3p-snapshot0": {
                     "job_id": "6aca756e095c578089314f17",
-                    "status": "SCHEDULING",
+                    "status": "COMPLETED",
                     "players": 3,
                     "mode": "snapshot0",
                     "smoke": true,
@@ -39248,7 +39248,7 @@
                 },
                 "smoke-4p-economic": {
                     "job_id": "6aca756f095c578089314f19",
-                    "status": "SCHEDULING",
+                    "status": "COMPLETED",
                     "players": 4,
                     "mode": "economic",
                     "smoke": true,
@@ -39256,15 +39256,15 @@
                 },
                 "smoke-4p-search_geo": {
                     "job_id": "6aca7570095c578089314f1b",
-                    "status": "SCHEDULING",
                     "players": 4,
                     "mode": "search_geo",
+                    "timeout_hours": 4,
                     "smoke": true,
-                    "timeout_hours": 4
+                    "status": "RUNNING"
                 },
                 "smoke-4p-snapshot0": {
                     "job_id": "6aca7571095c578089314f1d",
-                    "status": "SCHEDULING",
+                    "status": "COMPLETED",
                     "players": 4,
                     "mode": "snapshot0",
                     "smoke": true,
@@ -39272,7 +39272,7 @@
                 },
                 "smoke-5p-economic": {
                     "job_id": "6aca7572095c578089314f1f",
-                    "status": "SCHEDULING",
+                    "status": "COMPLETED",
                     "players": 5,
                     "mode": "economic",
                     "smoke": true,
@@ -39280,15 +39280,15 @@
                 },
                 "smoke-5p-search_geo": {
                     "job_id": "6aca7573fee2c9007018aa35",
-                    "status": "SCHEDULING",
                     "players": 5,
                     "mode": "search_geo",
+                    "timeout_hours": 4,
                     "smoke": true,
-                    "timeout_hours": 4
+                    "status": "RUNNING"
                 },
                 "smoke-5p-snapshot0": {
                     "job_id": "6aca7574fee2c9007018aa39",
-                    "status": "SCHEDULING",
+                    "status": "COMPLETED",
                     "players": 5,
                     "mode": "snapshot0",
                     "smoke": true,
@@ -39296,7 +39296,7 @@
                 },
                 "smoke-6p-economic": {
                     "job_id": "6aca7575fee2c9007018aa3b",
-                    "status": "SCHEDULING",
+                    "status": "COMPLETED",
                     "players": 6,
                     "mode": "economic",
                     "smoke": true,
@@ -39304,19 +39304,115 @@
                 },
                 "smoke-6p-search_geo": {
                     "job_id": "6aca7576095c578089314f29",
-                    "status": "SCHEDULING",
                     "players": 6,
                     "mode": "search_geo",
+                    "timeout_hours": 4,
                     "smoke": true,
-                    "timeout_hours": 4
+                    "status": "RUNNING"
                 },
                 "smoke-6p-snapshot0": {
                     "job_id": "6aca7577fee2c9007018aa3d",
-                    "status": "SCHEDULING",
+                    "status": "COMPLETED",
                     "players": 6,
                     "mode": "snapshot0",
                     "smoke": true,
                     "timeout_hours": 4
+                },
+                "2p-economic": {
+                    "job_id": "6aca76a8095c578089315047",
+                    "status": "COMPLETED",
+                    "players": 2,
+                    "mode": "economic",
+                    "smoke": false,
+                    "timeout_hours": 4
+                },
+                "2p-snapshot0": {
+                    "job_id": "6aca76aafee2c9007018ab51",
+                    "status": "COMPLETED",
+                    "players": 2,
+                    "mode": "snapshot0",
+                    "smoke": false,
+                    "timeout_hours": 4
+                },
+                "3p-economic": {
+                    "job_id": "6aca76acfee2c9007018ab53",
+                    "status": "COMPLETED",
+                    "players": 3,
+                    "mode": "economic",
+                    "smoke": false,
+                    "timeout_hours": 4
+                },
+                "3p-snapshot0": {
+                    "job_id": "6aca76aefee2c9007018ab55",
+                    "players": 3,
+                    "mode": "snapshot0",
+                    "smoke": false,
+                    "timeout_hours": 4,
+                    "status": "COMPLETED"
+                },
+                "4p-economic": {
+                    "job_id": "6aca76af095c57808931504b",
+                    "status": "COMPLETED",
+                    "players": 4,
+                    "mode": "economic",
+                    "smoke": false,
+                    "timeout_hours": 4
+                },
+                "4p-snapshot0": {
+                    "job_id": "6aca76b0095c57808931504f",
+                    "players": 4,
+                    "mode": "snapshot0",
+                    "smoke": false,
+                    "timeout_hours": 4,
+                    "status": "COMPLETED"
+                },
+                "5p-economic": {
+                    "job_id": "6aca76b2fee2c9007018ab57",
+                    "status": "COMPLETED",
+                    "players": 5,
+                    "mode": "economic",
+                    "smoke": false,
+                    "timeout_hours": 4
+                },
+                "5p-snapshot0": {
+                    "job_id": "6aca76b3095c578089315051",
+                    "players": 5,
+                    "mode": "snapshot0",
+                    "smoke": false,
+                    "timeout_hours": 4,
+                    "status": "COMPLETED"
+                },
+                "6p-economic": {
+                    "job_id": "6aca76b4095c578089315055",
+                    "players": 6,
+                    "mode": "economic",
+                    "smoke": false,
+                    "timeout_hours": 4,
+                    "status": "COMPLETED"
+                },
+                "2p-search_geo": {
+                    "job_id": "6aca771bfee2c9007018abaf",
+                    "players": 2,
+                    "mode": "search_geo",
+                    "timeout_hours": 4,
+                    "smoke": false,
+                    "status": "RUNNING"
+                },
+                "6p-snapshot0": {
+                    "job_id": "6aca771c095c578089315099",
+                    "players": 6,
+                    "mode": "snapshot0",
+                    "smoke": false,
+                    "timeout_hours": 4,
+                    "status": "COMPLETED"
+                },
+                "3p-search_geo": {
+                    "job_id": "6aca784afee2c9007018ac7c",
+                    "players": 3,
+                    "mode": "search_geo",
+                    "timeout_hours": 6,
+                    "smoke": false,
+                    "status": "RUNNING"
                 }
             },
             "qualification_eligible": false
@@ -39338,10 +39434,1292 @@
         "planned_full_engine_game_runs": 7680,
         "probe_jobs_launched": 15,
         "probe_unique_games": 240,
-        "full_jobs_launched": 0,
+        "full_jobs_launched": 12,
         "trained": false,
         "labels_generated": false,
         "qualification_eligible": false,
-        "stage": "Fresh public auction/building capture frozen;15 matching HF runtime/twin probes scheduling. No full shards until independent complete-game/root verification and runtime admission. Existing6 guided5-6p evaluations remain live."
+        "stage": "Ten full economic/self-play shards verified across2\u20136p. Two full search shards running; three matching search probes still live. No labels or gradients.",
+        "verified_full_unique_games": 2560,
+        "verified_full_roots": 129588,
+        "verified_full_shards": [
+            "2p-economic",
+            "2p-snapshot0",
+            "3p-economic",
+            "3p-snapshot0",
+            "4p-economic",
+            "4p-snapshot0",
+            "5p-economic",
+            "5p-snapshot0",
+            "6p-economic",
+            "6p-snapshot0"
+        ],
+        "pending_full_shards": [
+            "2p-search_geo",
+            "3p-search_geo",
+            "4p-search_geo",
+            "5p-search_geo",
+            "6p-search_geo"
+        ],
+        "probe_results": {
+            "smoke": true,
+            "all_shards_verified": false,
+            "verified_shards": [
+                "2p-economic",
+                "2p-search_geo",
+                "2p-snapshot0",
+                "3p-economic",
+                "3p-search_geo",
+                "3p-snapshot0",
+                "4p-economic",
+                "4p-snapshot0",
+                "5p-economic",
+                "5p-snapshot0",
+                "6p-economic",
+                "6p-snapshot0"
+            ],
+            "pending_shards": [
+                "4p-search_geo",
+                "5p-search_geo",
+                "6p-search_geo"
+            ],
+            "unique_games": 180,
+            "engine_game_runs": 360,
+            "roots": 8903,
+            "shards": {
+                "2p-economic": {
+                    "games": 8,
+                    "roots": 441,
+                    "public_model_proposals_reproduced": 441,
+                    "root_counts": {
+                        "auction": {
+                            "train": 0,
+                            "validation": 256
+                        },
+                        "building": {
+                            "train": 0,
+                            "validation": 185
+                        }
+                    },
+                    "coverage": {
+                        "auction/validation/original/False/0": 43,
+                        "auction/validation/original/False/1": 56,
+                        "auction/validation/original/True/0": 21,
+                        "auction/validation/original/True/1": 24,
+                        "auction/validation/recharged/False/0": 36,
+                        "auction/validation/recharged/False/1": 35,
+                        "auction/validation/recharged/True/0": 22,
+                        "auction/validation/recharged/True/1": 19,
+                        "building/validation/original/False/0": 23,
+                        "building/validation/original/False/1": 24,
+                        "building/validation/original/True/0": 23,
+                        "building/validation/original/True/1": 23,
+                        "building/validation/recharged/False/0": 24,
+                        "building/validation/recharged/False/1": 24,
+                        "building/validation/recharged/True/0": 23,
+                        "building/validation/recharged/True/1": 21
+                    },
+                    "seconds": 4.365859404999995,
+                    "engine_seconds": 1.6121220429999,
+                    "policy_seconds": 1.3328113179999974,
+                    "game_truncations": 0,
+                    "search_truncations": 0,
+                    "qualification_eligible": false,
+                    "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+                    "prefix": "runs/strategic-training-collection-smoke-v1-2p-economic",
+                    "verified_sha256": "bd13ebbf79d8f03109095b952eddb37062f4fc2fde09cebee962bafdfc34e31a",
+                    "artifacts": {
+                        "roots.jsonl.gz": "2c2b8572a7529e6ee6228c513fb35b4845b1de4b79677146180871e5da029a31",
+                        "collection-check.json": "1cb7fef5c04fce57850d41ade013fe39bf991b783a254352ad69aecc6cee32b8",
+                        "games.json": "5d8381441b8c521fdade7c6c1fd8fc2c63550f40119aba75f6bbea22162863bc"
+                    }
+                },
+                "2p-search_geo": {
+                    "games": 8,
+                    "roots": 475,
+                    "public_model_proposals_reproduced": 475,
+                    "root_counts": {
+                        "auction": {
+                            "train": 0,
+                            "validation": 267
+                        },
+                        "building": {
+                            "train": 0,
+                            "validation": 208
+                        }
+                    },
+                    "coverage": {
+                        "auction/validation/original/False/0": 36,
+                        "auction/validation/original/False/1": 44,
+                        "auction/validation/original/True/0": 30,
+                        "auction/validation/original/True/1": 29,
+                        "auction/validation/recharged/False/0": 42,
+                        "auction/validation/recharged/False/1": 40,
+                        "auction/validation/recharged/True/0": 23,
+                        "auction/validation/recharged/True/1": 23,
+                        "building/validation/original/False/0": 27,
+                        "building/validation/original/False/1": 25,
+                        "building/validation/original/True/0": 24,
+                        "building/validation/original/True/1": 28,
+                        "building/validation/recharged/False/0": 27,
+                        "building/validation/recharged/False/1": 26,
+                        "building/validation/recharged/True/0": 25,
+                        "building/validation/recharged/True/1": 26
+                    },
+                    "seconds": 222.44314198300003,
+                    "engine_seconds": 219.3569302840001,
+                    "policy_seconds": 1.4435943900000296,
+                    "game_truncations": 0,
+                    "search_truncations": 0,
+                    "qualification_eligible": false,
+                    "revision": "585002bd6f6be511147bab23e68aa04d8ddf57bc",
+                    "prefix": "runs/strategic-training-collection-smoke-v1-2p-search_geo",
+                    "verified_sha256": "a53e683c09090a6538b489efef87b4a068360b411d633273dfc702a4a0cf8e26",
+                    "artifacts": {
+                        "roots.jsonl.gz": "b22a74c028c2f13a4649e38e1e0b367dc7ecbb32346fe2ae8fa9d36343e9eca4",
+                        "collection-check.json": "a7b735016bc58f907e419f6023d786218ceedb63b48cbaa7ba1c511f4aa40b44",
+                        "games.json": "def703db0e07d4bb2f22e2892ba9f5a58b70725f0ae28169a1545da8ceb022e2"
+                    }
+                },
+                "2p-snapshot0": {
+                    "games": 8,
+                    "roots": 404,
+                    "public_model_proposals_reproduced": 404,
+                    "root_counts": {
+                        "auction": {
+                            "train": 0,
+                            "validation": 223
+                        },
+                        "building": {
+                            "train": 0,
+                            "validation": 181
+                        }
+                    },
+                    "coverage": {
+                        "auction/validation/original/False/0": 28,
+                        "auction/validation/original/False/1": 19,
+                        "auction/validation/original/True/0": 23,
+                        "auction/validation/original/True/1": 19,
+                        "auction/validation/recharged/False/0": 51,
+                        "auction/validation/recharged/False/1": 45,
+                        "auction/validation/recharged/True/0": 18,
+                        "auction/validation/recharged/True/1": 20,
+                        "building/validation/original/False/0": 24,
+                        "building/validation/original/False/1": 21,
+                        "building/validation/original/True/0": 24,
+                        "building/validation/original/True/1": 20,
+                        "building/validation/recharged/False/0": 27,
+                        "building/validation/recharged/False/1": 24,
+                        "building/validation/recharged/True/0": 19,
+                        "building/validation/recharged/True/1": 22
+                    },
+                    "seconds": 6.544885533999988,
+                    "engine_seconds": 2.571267141000135,
+                    "policy_seconds": 2.366014020999984,
+                    "game_truncations": 0,
+                    "search_truncations": 0,
+                    "qualification_eligible": false,
+                    "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+                    "prefix": "runs/strategic-training-collection-smoke-v1-2p-snapshot0",
+                    "verified_sha256": "ee8d97d1dabc85e2d4523833cc11523bcd26f4b601cb1f42514643fdf70ada24",
+                    "artifacts": {
+                        "roots.jsonl.gz": "9b940ed59fecdd50f3acca326d7efd1ed50ebdcd72d633cd95d9f263aa1f8a53",
+                        "collection-check.json": "7fa520bcfcd000e948e3c2d9516da57eee9c86519e0ded34b0e282505fea704a",
+                        "games.json": "f8c6854ab3e0fc82fbcbe3a475fa90bc9532800f53090eebfc75986ea2814470"
+                    }
+                },
+                "3p-economic": {
+                    "games": 12,
+                    "roots": 605,
+                    "public_model_proposals_reproduced": 605,
+                    "root_counts": {
+                        "auction": {
+                            "train": 0,
+                            "validation": 383
+                        },
+                        "building": {
+                            "train": 0,
+                            "validation": 222
+                        }
+                    },
+                    "coverage": {
+                        "auction/validation/original/False/0": 35,
+                        "auction/validation/original/False/1": 38,
+                        "auction/validation/original/False/2": 41,
+                        "auction/validation/original/True/0": 21,
+                        "auction/validation/original/True/1": 19,
+                        "auction/validation/original/True/2": 18,
+                        "auction/validation/recharged/False/0": 44,
+                        "auction/validation/recharged/False/1": 65,
+                        "auction/validation/recharged/False/2": 38,
+                        "auction/validation/recharged/True/0": 22,
+                        "auction/validation/recharged/True/1": 20,
+                        "auction/validation/recharged/True/2": 22,
+                        "building/validation/original/False/0": 25,
+                        "building/validation/original/False/1": 17,
+                        "building/validation/original/False/2": 21,
+                        "building/validation/original/True/0": 12,
+                        "building/validation/original/True/1": 12,
+                        "building/validation/original/True/2": 18,
+                        "building/validation/recharged/False/0": 18,
+                        "building/validation/recharged/False/1": 21,
+                        "building/validation/recharged/False/2": 21,
+                        "building/validation/recharged/True/0": 17,
+                        "building/validation/recharged/True/1": 19,
+                        "building/validation/recharged/True/2": 21
+                    },
+                    "seconds": 6.03455725500001,
+                    "engine_seconds": 2.0825911809998274,
+                    "policy_seconds": 1.5583744800001114,
+                    "game_truncations": 0,
+                    "search_truncations": 0,
+                    "qualification_eligible": false,
+                    "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+                    "prefix": "runs/strategic-training-collection-smoke-v1-3p-economic",
+                    "verified_sha256": "c48dea17f15b6c772d8d4ac1911a0ff93715dcb1162508a9ac7520021f35bf22",
+                    "artifacts": {
+                        "roots.jsonl.gz": "3aef2e4474aad7a12790d130308b70fc6e336abd9cade49fec1c81cb1a6cf05b",
+                        "collection-check.json": "2afbc9dfc266bbbf177ce14d68c9c26ad1b125bbdc49afeb74a3c031fd740d30",
+                        "games.json": "21dc56c22eb864071854dc16ca63b3284aba2c10b1719de75d3d4bbd79ee5dae"
+                    }
+                },
+                "3p-search_geo": {
+                    "games": 12,
+                    "roots": 716,
+                    "public_model_proposals_reproduced": 716,
+                    "root_counts": {
+                        "auction": {
+                            "train": 0,
+                            "validation": 453
+                        },
+                        "building": {
+                            "train": 0,
+                            "validation": 263
+                        }
+                    },
+                    "coverage": {
+                        "auction/validation/original/False/0": 62,
+                        "auction/validation/original/False/1": 46,
+                        "auction/validation/original/False/2": 50,
+                        "auction/validation/original/True/0": 35,
+                        "auction/validation/original/True/1": 25,
+                        "auction/validation/original/True/2": 22,
+                        "auction/validation/recharged/False/0": 64,
+                        "auction/validation/recharged/False/1": 37,
+                        "auction/validation/recharged/False/2": 33,
+                        "auction/validation/recharged/True/0": 27,
+                        "auction/validation/recharged/True/1": 27,
+                        "auction/validation/recharged/True/2": 25,
+                        "building/validation/original/False/0": 24,
+                        "building/validation/original/False/1": 28,
+                        "building/validation/original/False/2": 24,
+                        "building/validation/original/True/0": 25,
+                        "building/validation/original/True/1": 26,
+                        "building/validation/original/True/2": 17,
+                        "building/validation/recharged/False/0": 18,
+                        "building/validation/recharged/False/1": 22,
+                        "building/validation/recharged/False/2": 21,
+                        "building/validation/recharged/True/0": 21,
+                        "building/validation/recharged/True/1": 20,
+                        "building/validation/recharged/True/2": 17
+                    },
+                    "seconds": 444.838828712,
+                    "engine_seconds": 440.25873907600055,
+                    "policy_seconds": 1.7647991529999558,
+                    "game_truncations": 0,
+                    "search_truncations": 0,
+                    "qualification_eligible": false,
+                    "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+                    "prefix": "runs/strategic-training-collection-smoke-v1-3p-search_geo",
+                    "verified_sha256": "688d414f9c8d203fcd37e8b87f394f3e5215d8f7bec095acdbc97738e6de2199",
+                    "artifacts": {
+                        "roots.jsonl.gz": "9735f8075a60b67a127eb2f90d6739288fe3eaa59e99909149e71fe5d9552fb7",
+                        "collection-check.json": "dc3e0603c7a8da297844c147af550977d07d56530331da89dec3d146d03ac52d",
+                        "games.json": "7e5f9c12fd2ea02f4e623398a03794e5ec84af9e782f7382e82d9cef1da9c02c"
+                    }
+                },
+                "3p-snapshot0": {
+                    "games": 12,
+                    "roots": 587,
+                    "public_model_proposals_reproduced": 587,
+                    "root_counts": {
+                        "auction": {
+                            "train": 0,
+                            "validation": 327
+                        },
+                        "building": {
+                            "train": 0,
+                            "validation": 260
+                        }
+                    },
+                    "coverage": {
+                        "auction/validation/original/False/0": 26,
+                        "auction/validation/original/False/1": 29,
+                        "auction/validation/original/False/2": 44,
+                        "auction/validation/original/True/0": 21,
+                        "auction/validation/original/True/1": 28,
+                        "auction/validation/original/True/2": 27,
+                        "auction/validation/recharged/False/0": 24,
+                        "auction/validation/recharged/False/1": 36,
+                        "auction/validation/recharged/False/2": 35,
+                        "auction/validation/recharged/True/0": 22,
+                        "auction/validation/recharged/True/1": 16,
+                        "auction/validation/recharged/True/2": 19,
+                        "building/validation/original/False/0": 18,
+                        "building/validation/original/False/1": 23,
+                        "building/validation/original/False/2": 27,
+                        "building/validation/original/True/0": 17,
+                        "building/validation/original/True/1": 20,
+                        "building/validation/original/True/2": 22,
+                        "building/validation/recharged/False/0": 28,
+                        "building/validation/recharged/False/1": 20,
+                        "building/validation/recharged/False/2": 29,
+                        "building/validation/recharged/True/0": 19,
+                        "building/validation/recharged/True/1": 21,
+                        "building/validation/recharged/True/2": 16
+                    },
+                    "seconds": 12.694846841000015,
+                    "engine_seconds": 5.357371417000024,
+                    "policy_seconds": 4.199725587000245,
+                    "game_truncations": 0,
+                    "search_truncations": 0,
+                    "qualification_eligible": false,
+                    "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+                    "prefix": "runs/strategic-training-collection-smoke-v1-3p-snapshot0",
+                    "verified_sha256": "4f532985d8857559a7537fdaa23a1be359d9db18c8897894fae517eb4d0c4640",
+                    "artifacts": {
+                        "roots.jsonl.gz": "f5db65512f21dde564ff53b676e128376e23461d8c8732e8398281d05b76422a",
+                        "collection-check.json": "48f944be4f1aa15adfcf61f915d61f303ac2ba24591a5d1d1e23f61ecc29920f",
+                        "games.json": "14a74f3c3d8f5311c160816938e1d814c2decf6430b82f43b6e4fa4cb3f56599"
+                    }
+                },
+                "4p-economic": {
+                    "games": 16,
+                    "roots": 837,
+                    "public_model_proposals_reproduced": 837,
+                    "root_counts": {
+                        "auction": {
+                            "train": 0,
+                            "validation": 504
+                        },
+                        "building": {
+                            "train": 0,
+                            "validation": 333
+                        }
+                    },
+                    "coverage": {
+                        "auction/validation/original/False/0": 46,
+                        "auction/validation/original/False/1": 45,
+                        "auction/validation/original/False/2": 54,
+                        "auction/validation/original/False/3": 35,
+                        "auction/validation/original/True/0": 28,
+                        "auction/validation/original/True/1": 33,
+                        "auction/validation/original/True/2": 23,
+                        "auction/validation/original/True/3": 22,
+                        "auction/validation/recharged/False/0": 40,
+                        "auction/validation/recharged/False/1": 34,
+                        "auction/validation/recharged/False/2": 37,
+                        "auction/validation/recharged/False/3": 31,
+                        "auction/validation/recharged/True/0": 20,
+                        "auction/validation/recharged/True/1": 18,
+                        "auction/validation/recharged/True/2": 20,
+                        "auction/validation/recharged/True/3": 18,
+                        "building/validation/original/False/0": 22,
+                        "building/validation/original/False/1": 24,
+                        "building/validation/original/False/2": 20,
+                        "building/validation/original/False/3": 19,
+                        "building/validation/original/True/0": 21,
+                        "building/validation/original/True/1": 20,
+                        "building/validation/original/True/2": 20,
+                        "building/validation/original/True/3": 23,
+                        "building/validation/recharged/False/0": 20,
+                        "building/validation/recharged/False/1": 22,
+                        "building/validation/recharged/False/2": 21,
+                        "building/validation/recharged/False/3": 21,
+                        "building/validation/recharged/True/0": 22,
+                        "building/validation/recharged/True/1": 20,
+                        "building/validation/recharged/True/2": 18,
+                        "building/validation/recharged/True/3": 20
+                    },
+                    "seconds": 8.329510968000022,
+                    "engine_seconds": 2.7635422260000553,
+                    "policy_seconds": 1.9420809109998345,
+                    "game_truncations": 0,
+                    "search_truncations": 0,
+                    "qualification_eligible": false,
+                    "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+                    "prefix": "runs/strategic-training-collection-smoke-v1-4p-economic",
+                    "verified_sha256": "48a8292df6fe88b89cba3eab56326657aa01cdaabfdaa495cfdd58c34111b95b",
+                    "artifacts": {
+                        "roots.jsonl.gz": "d373d0a7575c50ce744489e397e64ebaf11d58e51fb34f2012d68d1debfc0e24",
+                        "collection-check.json": "77f6a02c71932ba82b46a2482c32b669e08b970ab10fa4ff2fcfe13616b57c1e",
+                        "games.json": "b88a6723795a239cd9a1e47d1b56454a87d562336a1a39539646f8fd1cdfe0cf"
+                    }
+                },
+                "4p-snapshot0": {
+                    "games": 16,
+                    "roots": 811,
+                    "public_model_proposals_reproduced": 811,
+                    "root_counts": {
+                        "auction": {
+                            "train": 0,
+                            "validation": 502
+                        },
+                        "building": {
+                            "train": 0,
+                            "validation": 309
+                        }
+                    },
+                    "coverage": {
+                        "auction/validation/original/False/0": 54,
+                        "auction/validation/original/False/1": 30,
+                        "auction/validation/original/False/2": 42,
+                        "auction/validation/original/False/3": 41,
+                        "auction/validation/original/True/0": 26,
+                        "auction/validation/original/True/1": 26,
+                        "auction/validation/original/True/2": 28,
+                        "auction/validation/original/True/3": 24,
+                        "auction/validation/recharged/False/0": 38,
+                        "auction/validation/recharged/False/1": 35,
+                        "auction/validation/recharged/False/2": 28,
+                        "auction/validation/recharged/False/3": 29,
+                        "auction/validation/recharged/True/0": 35,
+                        "auction/validation/recharged/True/1": 21,
+                        "auction/validation/recharged/True/2": 21,
+                        "auction/validation/recharged/True/3": 24,
+                        "building/validation/original/False/0": 22,
+                        "building/validation/original/False/1": 18,
+                        "building/validation/original/False/2": 23,
+                        "building/validation/original/False/3": 24,
+                        "building/validation/original/True/0": 17,
+                        "building/validation/original/True/1": 16,
+                        "building/validation/original/True/2": 18,
+                        "building/validation/original/True/3": 21,
+                        "building/validation/recharged/False/0": 23,
+                        "building/validation/recharged/False/1": 20,
+                        "building/validation/recharged/False/2": 17,
+                        "building/validation/recharged/False/3": 20,
+                        "building/validation/recharged/True/0": 16,
+                        "building/validation/recharged/True/1": 19,
+                        "building/validation/recharged/True/2": 19,
+                        "building/validation/recharged/True/3": 16
+                    },
+                    "seconds": 23.15120521099999,
+                    "engine_seconds": 10.022390130999923,
+                    "policy_seconds": 7.662457557999801,
+                    "game_truncations": 0,
+                    "search_truncations": 0,
+                    "qualification_eligible": false,
+                    "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+                    "prefix": "runs/strategic-training-collection-smoke-v1-4p-snapshot0",
+                    "verified_sha256": "4970001ab8159ed3107e2351694a937c570b14da1ae342c90048e54477ed33fc",
+                    "artifacts": {
+                        "roots.jsonl.gz": "74a674f62545d274b5bc245bcfe05100f469528ddad6f253cd8771b9aa180ba9",
+                        "collection-check.json": "59870bfcf673c74adebb9da8ece1e46c5766b4e23aa10dc867f268f922268fed",
+                        "games.json": "57a4ffdc12220bdbfc6b40d0109006a0befc29801fac7f2c2e9b3d6f148fa828"
+                    }
+                },
+                "5p-economic": {
+                    "games": 20,
+                    "roots": 1020,
+                    "public_model_proposals_reproduced": 1020,
+                    "root_counts": {
+                        "auction": {
+                            "train": 0,
+                            "validation": 665
+                        },
+                        "building": {
+                            "train": 0,
+                            "validation": 355
+                        }
+                    },
+                    "coverage": {
+                        "auction/validation/original/False/0": 57,
+                        "auction/validation/original/False/1": 61,
+                        "auction/validation/original/False/2": 39,
+                        "auction/validation/original/False/3": 38,
+                        "auction/validation/original/False/4": 36,
+                        "auction/validation/original/True/0": 26,
+                        "auction/validation/original/True/1": 25,
+                        "auction/validation/original/True/2": 21,
+                        "auction/validation/original/True/3": 20,
+                        "auction/validation/original/True/4": 21,
+                        "auction/validation/recharged/False/0": 38,
+                        "auction/validation/recharged/False/1": 38,
+                        "auction/validation/recharged/False/2": 50,
+                        "auction/validation/recharged/False/3": 38,
+                        "auction/validation/recharged/False/4": 39,
+                        "auction/validation/recharged/True/0": 24,
+                        "auction/validation/recharged/True/1": 21,
+                        "auction/validation/recharged/True/2": 24,
+                        "auction/validation/recharged/True/3": 24,
+                        "auction/validation/recharged/True/4": 25,
+                        "building/validation/original/False/0": 19,
+                        "building/validation/original/False/1": 18,
+                        "building/validation/original/False/2": 17,
+                        "building/validation/original/False/3": 16,
+                        "building/validation/original/False/4": 18,
+                        "building/validation/original/True/0": 17,
+                        "building/validation/original/True/1": 15,
+                        "building/validation/original/True/2": 16,
+                        "building/validation/original/True/3": 14,
+                        "building/validation/original/True/4": 11,
+                        "building/validation/recharged/False/0": 20,
+                        "building/validation/recharged/False/1": 19,
+                        "building/validation/recharged/False/2": 22,
+                        "building/validation/recharged/False/3": 19,
+                        "building/validation/recharged/False/4": 18,
+                        "building/validation/recharged/True/0": 18,
+                        "building/validation/recharged/True/1": 18,
+                        "building/validation/recharged/True/2": 22,
+                        "building/validation/recharged/True/3": 19,
+                        "building/validation/recharged/True/4": 19
+                    },
+                    "seconds": 10.444779077999982,
+                    "engine_seconds": 3.424646297999857,
+                    "policy_seconds": 2.211133121000131,
+                    "game_truncations": 0,
+                    "search_truncations": 0,
+                    "qualification_eligible": false,
+                    "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+                    "prefix": "runs/strategic-training-collection-smoke-v1-5p-economic",
+                    "verified_sha256": "be539345c7c96ed3666194c77225c2c5215a92b06055bf9bcc4e3c03615c448c",
+                    "artifacts": {
+                        "roots.jsonl.gz": "a1df521198004d35b696e365b64f29325ebc30e0fe5103cb429ca6c708f87c6a",
+                        "collection-check.json": "b6da7041b23bf70fdfa582c81ada9a2a888491c2d022d9fd6180aadbe3c6a7da",
+                        "games.json": "49ca906398f231558023abc3da64932750fb107a315ab5c90d85fb599ad59ce7"
+                    }
+                },
+                "5p-snapshot0": {
+                    "games": 20,
+                    "roots": 856,
+                    "public_model_proposals_reproduced": 856,
+                    "root_counts": {
+                        "auction": {
+                            "train": 0,
+                            "validation": 552
+                        },
+                        "building": {
+                            "train": 0,
+                            "validation": 304
+                        }
+                    },
+                    "coverage": {
+                        "auction/validation/original/False/0": 29,
+                        "auction/validation/original/False/1": 24,
+                        "auction/validation/original/False/2": 29,
+                        "auction/validation/original/False/3": 19,
+                        "auction/validation/original/False/4": 20,
+                        "auction/validation/original/True/0": 31,
+                        "auction/validation/original/True/1": 20,
+                        "auction/validation/original/True/2": 24,
+                        "auction/validation/original/True/3": 18,
+                        "auction/validation/original/True/4": 20,
+                        "auction/validation/recharged/False/0": 53,
+                        "auction/validation/recharged/False/1": 44,
+                        "auction/validation/recharged/False/2": 31,
+                        "auction/validation/recharged/False/3": 26,
+                        "auction/validation/recharged/False/4": 45,
+                        "auction/validation/recharged/True/0": 31,
+                        "auction/validation/recharged/True/1": 26,
+                        "auction/validation/recharged/True/2": 22,
+                        "auction/validation/recharged/True/3": 22,
+                        "auction/validation/recharged/True/4": 18,
+                        "building/validation/original/False/0": 12,
+                        "building/validation/original/False/1": 14,
+                        "building/validation/original/False/2": 17,
+                        "building/validation/original/False/3": 12,
+                        "building/validation/original/False/4": 9,
+                        "building/validation/original/True/0": 7,
+                        "building/validation/original/True/1": 20,
+                        "building/validation/original/True/2": 14,
+                        "building/validation/original/True/3": 18,
+                        "building/validation/original/True/4": 15,
+                        "building/validation/recharged/False/0": 16,
+                        "building/validation/recharged/False/1": 16,
+                        "building/validation/recharged/False/2": 16,
+                        "building/validation/recharged/False/3": 21,
+                        "building/validation/recharged/False/4": 21,
+                        "building/validation/recharged/True/0": 16,
+                        "building/validation/recharged/True/1": 16,
+                        "building/validation/recharged/True/2": 13,
+                        "building/validation/recharged/True/3": 15,
+                        "building/validation/recharged/True/4": 16
+                    },
+                    "seconds": 28.94356063500001,
+                    "engine_seconds": 13.215415200999246,
+                    "policy_seconds": 9.173865508000262,
+                    "game_truncations": 0,
+                    "search_truncations": 0,
+                    "qualification_eligible": false,
+                    "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+                    "prefix": "runs/strategic-training-collection-smoke-v1-5p-snapshot0",
+                    "verified_sha256": "286022c9fe25216f57253b6b9a452473e933e003a0e99766a1015b07a0f70226",
+                    "artifacts": {
+                        "roots.jsonl.gz": "9b539d150069e1c64b39ab7e56af52f203695af28633b6b4bcecb5bf01e16bd4",
+                        "collection-check.json": "f1bcc335f2c0caa08c5b0add620d0dfc9ba8066d2c67de217343ffd2a81845c9",
+                        "games.json": "b8f026985e959b51e43a38eeea48bdb0a559d181f7b14d225d70d0ebbd161812"
+                    }
+                },
+                "6p-economic": {
+                    "games": 24,
+                    "roots": 1098,
+                    "public_model_proposals_reproduced": 1098,
+                    "root_counts": {
+                        "auction": {
+                            "train": 0,
+                            "validation": 730
+                        },
+                        "building": {
+                            "train": 0,
+                            "validation": 368
+                        }
+                    },
+                    "coverage": {
+                        "auction/validation/original/False/0": 45,
+                        "auction/validation/original/False/1": 44,
+                        "auction/validation/original/False/2": 38,
+                        "auction/validation/original/False/3": 34,
+                        "auction/validation/original/False/4": 18,
+                        "auction/validation/original/False/5": 52,
+                        "auction/validation/original/True/0": 30,
+                        "auction/validation/original/True/1": 19,
+                        "auction/validation/original/True/2": 23,
+                        "auction/validation/original/True/3": 25,
+                        "auction/validation/original/True/4": 25,
+                        "auction/validation/original/True/5": 21,
+                        "auction/validation/recharged/False/0": 41,
+                        "auction/validation/recharged/False/1": 49,
+                        "auction/validation/recharged/False/2": 38,
+                        "auction/validation/recharged/False/3": 30,
+                        "auction/validation/recharged/False/4": 32,
+                        "auction/validation/recharged/False/5": 39,
+                        "auction/validation/recharged/True/0": 21,
+                        "auction/validation/recharged/True/1": 15,
+                        "auction/validation/recharged/True/2": 18,
+                        "auction/validation/recharged/True/3": 29,
+                        "auction/validation/recharged/True/4": 25,
+                        "auction/validation/recharged/True/5": 19,
+                        "building/validation/original/False/0": 18,
+                        "building/validation/original/False/1": 18,
+                        "building/validation/original/False/2": 14,
+                        "building/validation/original/False/3": 16,
+                        "building/validation/original/False/4": 17,
+                        "building/validation/original/False/5": 19,
+                        "building/validation/original/True/0": 14,
+                        "building/validation/original/True/1": 18,
+                        "building/validation/original/True/2": 9,
+                        "building/validation/original/True/3": 18,
+                        "building/validation/original/True/4": 12,
+                        "building/validation/original/True/5": 17,
+                        "building/validation/recharged/False/0": 18,
+                        "building/validation/recharged/False/1": 18,
+                        "building/validation/recharged/False/2": 16,
+                        "building/validation/recharged/False/3": 15,
+                        "building/validation/recharged/False/4": 16,
+                        "building/validation/recharged/False/5": 18,
+                        "building/validation/recharged/True/0": 17,
+                        "building/validation/recharged/True/1": 13,
+                        "building/validation/recharged/True/2": 16,
+                        "building/validation/recharged/True/3": 9,
+                        "building/validation/recharged/True/4": 15,
+                        "building/validation/recharged/True/5": 7
+                    },
+                    "seconds": 11.706528630000008,
+                    "engine_seconds": 3.871050325999988,
+                    "policy_seconds": 2.250619185999767,
+                    "game_truncations": 0,
+                    "search_truncations": 0,
+                    "qualification_eligible": false,
+                    "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+                    "prefix": "runs/strategic-training-collection-smoke-v1-6p-economic",
+                    "verified_sha256": "80ffee8cd6099265d277c0b40f04c538b25aa08a14d5161540354b5e454614a9",
+                    "artifacts": {
+                        "roots.jsonl.gz": "a78b96f10ade25e647ad99bc7eb0534777d8cc82d697a6d0683ddb9a25f3027a",
+                        "collection-check.json": "cb7d7411543e7922760e22b64a3982f8736a97279b2a81a1213e200c44406487",
+                        "games.json": "ca1ef349c782b14144cf767c2be936918ca32e62af723dfa0c1d513655a29c21"
+                    }
+                },
+                "6p-snapshot0": {
+                    "games": 24,
+                    "roots": 1053,
+                    "public_model_proposals_reproduced": 1053,
+                    "root_counts": {
+                        "auction": {
+                            "train": 0,
+                            "validation": 722
+                        },
+                        "building": {
+                            "train": 0,
+                            "validation": 331
+                        }
+                    },
+                    "coverage": {
+                        "auction/validation/original/False/0": 32,
+                        "auction/validation/original/False/1": 25,
+                        "auction/validation/original/False/2": 31,
+                        "auction/validation/original/False/3": 35,
+                        "auction/validation/original/False/4": 43,
+                        "auction/validation/original/False/5": 33,
+                        "auction/validation/original/True/0": 17,
+                        "auction/validation/original/True/1": 26,
+                        "auction/validation/original/True/2": 30,
+                        "auction/validation/original/True/3": 24,
+                        "auction/validation/original/True/4": 15,
+                        "auction/validation/original/True/5": 28,
+                        "auction/validation/recharged/False/0": 41,
+                        "auction/validation/recharged/False/1": 39,
+                        "auction/validation/recharged/False/2": 50,
+                        "auction/validation/recharged/False/3": 33,
+                        "auction/validation/recharged/False/4": 39,
+                        "auction/validation/recharged/False/5": 24,
+                        "auction/validation/recharged/True/0": 32,
+                        "auction/validation/recharged/True/1": 20,
+                        "auction/validation/recharged/True/2": 21,
+                        "auction/validation/recharged/True/3": 28,
+                        "auction/validation/recharged/True/4": 26,
+                        "auction/validation/recharged/True/5": 30,
+                        "building/validation/original/False/0": 16,
+                        "building/validation/original/False/1": 10,
+                        "building/validation/original/False/2": 11,
+                        "building/validation/original/False/3": 9,
+                        "building/validation/original/False/4": 14,
+                        "building/validation/original/False/5": 15,
+                        "building/validation/original/True/0": 17,
+                        "building/validation/original/True/1": 11,
+                        "building/validation/original/True/2": 10,
+                        "building/validation/original/True/3": 5,
+                        "building/validation/original/True/4": 15,
+                        "building/validation/original/True/5": 12,
+                        "building/validation/recharged/False/0": 19,
+                        "building/validation/recharged/False/1": 16,
+                        "building/validation/recharged/False/2": 15,
+                        "building/validation/recharged/False/3": 12,
+                        "building/validation/recharged/False/4": 19,
+                        "building/validation/recharged/False/5": 15,
+                        "building/validation/recharged/True/0": 15,
+                        "building/validation/recharged/True/1": 17,
+                        "building/validation/recharged/True/2": 15,
+                        "building/validation/recharged/True/3": 14,
+                        "building/validation/recharged/True/4": 15,
+                        "building/validation/recharged/True/5": 14
+                    },
+                    "seconds": 41.064008769000026,
+                    "engine_seconds": 19.09418968899996,
+                    "policy_seconds": 12.864770691000217,
+                    "game_truncations": 0,
+                    "search_truncations": 0,
+                    "qualification_eligible": false,
+                    "revision": "585002bd6f6be511147bab23e68aa04d8ddf57bc",
+                    "prefix": "runs/strategic-training-collection-smoke-v1-6p-snapshot0",
+                    "verified_sha256": "8a4984a30ee864b92380d3f6a7df5df9c228529d2637fd81301dabfb4ad64be1",
+                    "artifacts": {
+                        "roots.jsonl.gz": "082bf058c9f8cd83d3041b11aac9b91fb759d5584185a78c2f1243988c5cb8cd",
+                        "collection-check.json": "f5edef86a16c81bda17f63a0538d573f9c6ea459f6e5dcee57e8521de03241bb",
+                        "games.json": "672099bfce7d670c584415d89b83e0a624b5868c77e3e78b8f6715b2c9cf00f9"
+                    }
+                }
+            },
+            "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+            "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+            "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+            "trained": false,
+            "labels_generated": false,
+            "qualification_eligible": false,
+            "scope": "Runtime probes excluded from training data."
+        },
+        "partial_evidence": {
+            "revision": "abd58220f3c0ee9beef0922af52c2e8c944364f0",
+            "prefix": "runs/strategic-training-collection-partial-evidence-v1",
+            "manifest_sha256": "c7b36989a164945e81aa3da5981a016324c6d8f999ba64cc7319dbe87c9d4822",
+            "file_count": 111,
+            "qualification_eligible": false
+        }
+    },
+    "strategic_teacher_probe_v1": {
+        "protocol_file": "ai/strong/strategic-teacher-probe-protocol-v1.json",
+        "source": {
+            "archive": "strong-source-strategic-teacher-probe-20261010-v1.tgz",
+            "revision": "ca3be3ff81cc259135daa50e9bdf41590b6552ff",
+            "sha256": "c4a700ef7fb6c83c5e85060c52bc49b8eea94ff1c65c62b0bbcc39f0905b91fd",
+            "overlays": {
+                "ai/strong/strategic-continuations.cjs": "77ef281def63f61c2cac9588d61df4c1a4827b794ff40c5a081b70a687feabb2",
+                "ai/strong/test-strategic-continuations.cjs": "56eb4bb33035f68da46dc19572f7a0f5791c6706cf3dcc7d58d1864065cb35e1",
+                "ai/strong/strategic_teacher.py": "e0991d702a03aa986025260d5afee5f5a8f23fac7846d4b6605397ce8d299450",
+                "ai/strong/check-strategic-teacher-batching.py": "2e72767d50cac60fb480cc98bed9487c60f8a5bd97502bcd0197eb984ca848f7",
+                "ai/strong/run-strategic-teacher-probe.py": "731900b768ac26f16273669ca0e7edd91956e702512a08ce77d2ad70f1321f4d",
+                "ai/strong/strategic-teacher-probe-protocol-v1.json": "f19085fef326bfba66895648d2a33309b2be929615ed85ffa3b021be661a21dd",
+                "ai/strong/strategic-teacher-probe-roots-v1.json": "3f2a7086469fd90be807db71731c1c3d8aecb8733e08b27c1d0e7d9748277378",
+                "ai/strong/fixtures/strategic-teacher-probe-v1.jsonl": "a470245b0b85414c9edffde3cd01523698304e785830334c27f6c59cbb84c1c2"
+            },
+            "base": {
+                "archive": "strong-source-strategic-training-collection-20261010-v1.tgz",
+                "revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+                "sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0"
+            },
+            "unchanged_base_file_count": 1383,
+            "protocol_sha256": "f19085fef326bfba66895648d2a33309b2be929615ed85ffa3b021be661a21dd",
+            "qualification_eligible": false
+        },
+        "preflight": {
+            "source_revision": "ca3be3ff81cc259135daa50e9bdf41590b6552ff",
+            "source_sha256": "c4a700ef7fb6c83c5e85060c52bc49b8eea94ff1c65c62b0bbcc39f0905b91fd",
+            "frozen_package_passed": true,
+            "batching": {
+                "positions": 2553,
+                "feature_revision": "4.2-discard-correction",
+                "model_sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+                "batch_sizes": [
+                    1,
+                    17,
+                    64
+                ],
+                "reverse_order_passed": true,
+                "all_actions_match_serial": true,
+                "scope": "Inference batching parity only; no gradients or strength claim."
+            },
+            "contract_tests": "\u2714 neural and mixed controls reproduce the historical rollout worker (381.39574ms)\n\u2714 opponent routing retains the neural focal player; offsets do not change trajectories (28.869482ms)\n\u2714 hidden live deck, private seed and sealed bids cannot affect paired continuations (39.886944ms)\n\u2714 nested search uses the full reference budget and exposes every inner cap (37.492923ms)\n\u2139 tests 4\n\u2139 suites 0\n\u2139 pass 4\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 551.46894\n",
+            "scope": "Control trajectory equality, public-information boundary, opponent routing, cap accounting, and batched inference parity. No training or strength claim.",
+            "qualification_eligible": false
+        },
+        "roots": {
+            "positions": 10,
+            "file": "ai/strong/fixtures/strategic-teacher-probe-v1.jsonl",
+            "sha256": "a470245b0b85414c9edffde3cd01523698304e785830334c27f6c59cbb84c1c2",
+            "selection": "Lowest fixed hash of rootId per count/phase among verified economic validation roots; no outcomes used.",
+            "scope": "Ten runtime probes only; not representative reliability, training or playing-strength evidence.",
+            "roots": [
+                {
+                    "rootId": "2:economic:2:8",
+                    "players": 2,
+                    "phase": "auction",
+                    "variant": "original",
+                    "sealed": false,
+                    "round": 2,
+                    "split": "validation",
+                    "public_root_sha256": "bd99a8a6d31f18451b46909b91d358a33993f51dd3dbc87510d15108885e8583"
+                },
+                {
+                    "rootId": "2:economic:98:37",
+                    "players": 2,
+                    "phase": "building",
+                    "variant": "original",
+                    "sealed": false,
+                    "round": 6,
+                    "split": "validation",
+                    "public_root_sha256": "2cb804757fc25c4482e5a6fbed6af7fbcd9def84521f26e40895ecc00b92afff"
+                },
+                {
+                    "rootId": "3:economic:98:23",
+                    "players": 3,
+                    "phase": "auction",
+                    "variant": "original",
+                    "sealed": false,
+                    "round": 3,
+                    "split": "validation",
+                    "public_root_sha256": "3c3aa7a0e635e4c455dd5a5ee89e80c8aae57b09665f830ce1ae50e1a651cef0"
+                },
+                {
+                    "rootId": "3:economic:4:21",
+                    "players": 3,
+                    "phase": "building",
+                    "variant": "original",
+                    "sealed": true,
+                    "round": 7,
+                    "split": "validation",
+                    "public_root_sha256": "87577f06b9d732e355a40b39608121230b9ad6111e475085d92af2469afea64b"
+                },
+                {
+                    "rootId": "4:economic:130:32",
+                    "players": 4,
+                    "phase": "auction",
+                    "variant": "original",
+                    "sealed": false,
+                    "round": 6,
+                    "split": "validation",
+                    "public_root_sha256": "ac9e410dd2402760cd7151c9a196649e17869d0c398eb699792f1e515e5eeeaf"
+                },
+                {
+                    "rootId": "4:economic:128:8",
+                    "players": 4,
+                    "phase": "building",
+                    "variant": "original",
+                    "sealed": true,
+                    "round": 1,
+                    "split": "validation",
+                    "public_root_sha256": "91539a16b2e5bda7e115208a37b6df481455a9884ef810d812005916a75da6ef"
+                },
+                {
+                    "rootId": "5:economic:95:31",
+                    "players": 5,
+                    "phase": "auction",
+                    "variant": "recharged",
+                    "sealed": false,
+                    "round": 5,
+                    "split": "validation",
+                    "public_root_sha256": "2ac3c44385c8a5dd0b8f7c378bfaf61cf829d230176a83c599f65213acc1477b"
+                },
+                {
+                    "rootId": "5:economic:12:31",
+                    "players": 5,
+                    "phase": "building",
+                    "variant": "original",
+                    "sealed": true,
+                    "round": 7,
+                    "split": "validation",
+                    "public_root_sha256": "23997a846a1c3781fd51f40d7afe4925147ff1fab9d9f63d37fb4e8a2bf3f513"
+                },
+                {
+                    "rootId": "6:economic:23:25",
+                    "players": 6,
+                    "phase": "auction",
+                    "variant": "recharged",
+                    "sealed": false,
+                    "round": 6,
+                    "split": "validation",
+                    "public_root_sha256": "7d3f443f0db98d6b12eab2fed0f56d80fe902dc34e319e3943bd7b10374a2b40"
+                },
+                {
+                    "rootId": "6:economic:99:41",
+                    "players": 6,
+                    "phase": "building",
+                    "variant": "recharged",
+                    "sealed": false,
+                    "round": 5,
+                    "split": "validation",
+                    "public_root_sha256": "8f5838d3bef35a104609b454f2c8187c75a0eb79e2e8a994130fd40b0c17b0af"
+                }
+            ],
+            "collection_pins": {
+                "2": {
+                    "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+                    "prefix": "runs/strategic-training-collection-v1-2p-economic",
+                    "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+                    "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+                    "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+                    "artifacts": {
+                        "roots.jsonl.gz": "720e140cd31bed2d760e61ccecb22005e0d96e8ee4386107f9232d22b12be65c",
+                        "collection-check.json": "256466956a9a351ebde44a676edec3fa717420b10842b920cdf2f88061f56dc3",
+                        "games.json": "1dc4ce3dcc79c4368f0ff3f92e756a3cc21c42fd93a2cf4211cbe02aed2bbbe1"
+                    }
+                },
+                "3": {
+                    "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+                    "prefix": "runs/strategic-training-collection-v1-3p-economic",
+                    "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+                    "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+                    "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+                    "artifacts": {
+                        "roots.jsonl.gz": "010826fb3fd7b57350cfebffcf8d2c9cc69b7f2b24c0b0cb987b257f9d96e056",
+                        "collection-check.json": "6e194f2b6f5aa3e25d80a73d3d18527ce8c6d0e15f18fca8bd6a84a10def2a4b",
+                        "games.json": "dd87747d51eae35b3f8fc7c5fbfe7150f77bc439eb916cf839c8af21079e93be"
+                    }
+                },
+                "4": {
+                    "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+                    "prefix": "runs/strategic-training-collection-v1-4p-economic",
+                    "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+                    "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+                    "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+                    "artifacts": {
+                        "roots.jsonl.gz": "8aacac0394fe8e316479f8dab73dd9ef68bd87f641d8bc72426ca20910aeeb02",
+                        "collection-check.json": "f01dc6002020f32323605861603146c4184ffba8cd04a4ccac28f74dd1d93787",
+                        "games.json": "2c1a40fabad0b6f38a43ba1c13a4fb5fcaf8e6eb58f1e921da1a14ee5367801c"
+                    }
+                },
+                "5": {
+                    "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+                    "prefix": "runs/strategic-training-collection-v1-5p-economic",
+                    "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+                    "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+                    "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+                    "artifacts": {
+                        "roots.jsonl.gz": "4435521c8ef48f45958db47a873db00c19c278d648fad31cab2e430a8bd6cb22",
+                        "collection-check.json": "41500a69cd2e5760e7ab2f4fbfa70663eb694b8324c1697e68aa15e7f0017c88",
+                        "games.json": "4c0c621f290748f7e136dcc1492c7388145948c96921fb0984ab2246a320d8ca"
+                    }
+                },
+                "6": {
+                    "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+                    "prefix": "runs/strategic-training-collection-v1-6p-economic",
+                    "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+                    "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+                    "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+                    "artifacts": {
+                        "roots.jsonl.gz": "02e4f10cd97937be5e8e94628910505457127c4dfa9c5e2e9ae3a74bc35e1afd",
+                        "collection-check.json": "eb096ab0ba13b3e74b4e247e72ce641ece2e51af7262681de0e6b311bd5aeadf",
+                        "games.json": "18e75863e0d6767a8271ce2d7ef3116799d36a7e4508ef1a20f37eba1cbaec13"
+                    }
+                }
+            },
+            "qualification_eligible": false
+        },
+        "status": {
+            "jobs": {
+                "2p-mixed_control": {
+                    "job_id": "6aca7a0efee2c9007018ad9c",
+                    "players": 2,
+                    "mode": "mixed_control",
+                    "timeout_hours": 4,
+                    "status": "SCHEDULING"
+                },
+                "2p-neural": {
+                    "job_id": "6aca7a0bfee2c9007018ad8e",
+                    "players": 2,
+                    "mode": "neural",
+                    "timeout_hours": 4,
+                    "status": "COMPLETED"
+                },
+                "2p-neural_economic": {
+                    "job_id": "6aca7a0cfee2c9007018ad90",
+                    "players": 2,
+                    "mode": "neural_economic",
+                    "timeout_hours": 4,
+                    "status": "COMPLETED"
+                },
+                "2p-neural_search": {
+                    "job_id": "6aca7a0dfee2c9007018ad98",
+                    "players": 2,
+                    "mode": "neural_search",
+                    "timeout_hours": 4,
+                    "status": "RUNNING"
+                },
+                "3p-mixed_control": {
+                    "job_id": "6aca7a13fee2c9007018ada4",
+                    "players": 3,
+                    "mode": "mixed_control",
+                    "timeout_hours": 4,
+                    "status": "SCHEDULING"
+                },
+                "3p-neural": {
+                    "job_id": "6aca7a0f095c57808931523b",
+                    "players": 3,
+                    "mode": "neural",
+                    "timeout_hours": 4,
+                    "status": "SCHEDULING"
+                },
+                "3p-neural_economic": {
+                    "job_id": "6aca7a11fee2c9007018ada0",
+                    "players": 3,
+                    "mode": "neural_economic",
+                    "timeout_hours": 4,
+                    "status": "SCHEDULING"
+                },
+                "3p-neural_search": {
+                    "job_id": "6aca7a12fee2c9007018ada2",
+                    "players": 3,
+                    "mode": "neural_search",
+                    "timeout_hours": 4,
+                    "status": "SCHEDULING"
+                },
+                "4p-mixed_control": {
+                    "job_id": "6aca7a17095c578089315240",
+                    "players": 4,
+                    "mode": "mixed_control",
+                    "timeout_hours": 4,
+                    "status": "SCHEDULING"
+                },
+                "4p-neural": {
+                    "job_id": "6aca7a14095c57808931523e",
+                    "players": 4,
+                    "mode": "neural",
+                    "timeout_hours": 4,
+                    "status": "SCHEDULING"
+                },
+                "4p-neural_economic": {
+                    "job_id": "6aca7a15fee2c9007018ada6",
+                    "players": 4,
+                    "mode": "neural_economic",
+                    "timeout_hours": 4,
+                    "status": "SCHEDULING"
+                },
+                "4p-neural_search": {
+                    "job_id": "6aca7a16fee2c9007018ada8",
+                    "players": 4,
+                    "mode": "neural_search",
+                    "timeout_hours": 4,
+                    "status": "SCHEDULING"
+                },
+                "5p-mixed_control": {
+                    "job_id": "6aca7a1b095c578089315246",
+                    "players": 5,
+                    "mode": "mixed_control",
+                    "timeout_hours": 4,
+                    "status": "COMPLETED"
+                },
+                "5p-neural": {
+                    "job_id": "6aca7a18fee2c9007018adaa",
+                    "players": 5,
+                    "mode": "neural",
+                    "timeout_hours": 4,
+                    "status": "SCHEDULING"
+                },
+                "5p-neural_economic": {
+                    "job_id": "6aca7a19fee2c9007018adac",
+                    "players": 5,
+                    "mode": "neural_economic",
+                    "timeout_hours": 4,
+                    "status": "SCHEDULING"
+                },
+                "5p-neural_search": {
+                    "job_id": "6aca7a1a095c578089315244",
+                    "players": 5,
+                    "mode": "neural_search",
+                    "timeout_hours": 4,
+                    "status": "SCHEDULING"
+                },
+                "6p-mixed_control": {
+                    "job_id": "6aca7a1f095c57808931524a",
+                    "players": 6,
+                    "mode": "mixed_control",
+                    "timeout_hours": 4,
+                    "status": "SCHEDULING"
+                },
+                "6p-neural": {
+                    "job_id": "6aca7a1cfee2c9007018adb3",
+                    "players": 6,
+                    "mode": "neural",
+                    "timeout_hours": 4,
+                    "status": "SCHEDULING"
+                },
+                "6p-neural_economic": {
+                    "job_id": "6aca7a1dfee2c9007018adb5",
+                    "players": 6,
+                    "mode": "neural_economic",
+                    "timeout_hours": 4,
+                    "status": "COMPLETED"
+                },
+                "6p-neural_search": {
+                    "job_id": "6aca7a1e095c578089315248",
+                    "players": 6,
+                    "mode": "neural_search",
+                    "timeout_hours": 4,
+                    "status": "RUNNING"
+                }
+            },
+            "qualification_eligible": false,
+            "checked_at": "2026-10-10T17:48:23.727366+00:00"
+        },
+        "results": {
+            "all_cases_verified": false,
+            "cases": {
+                "2p-neural": {
+                    "players": 2,
+                    "mode": "neural",
+                    "positions": 2,
+                    "searches": 4,
+                    "evaluations": 44,
+                    "nested_evaluations": 0,
+                    "game_truncations": 0,
+                    "nested_truncations": 0,
+                    "seconds": 7.731793243999846,
+                    "engine_seconds": 3.310562928999161,
+                    "policy_seconds": 3.855471826001576,
+                    "revision": "5705e7011a44621b7d4a5e3dba6b82ca0cf55de3",
+                    "prefix": "runs/strategic-teacher-probe-v1-2p-neural",
+                    "verified_sha256": "901c66ef751335da7c7adef8ebdefcf00d844a489e9abda4e4e3478119bdef50",
+                    "artifacts": {
+                        "rollouts.jsonl": "4f66cff5f181b3d86f400db021f2231a1f7274c9982553fcc40463a63afb85b5",
+                        "probe-check.json": "dcd0303ea2f1ac5cd199c92dee90347bc3a9646d5f6789060f1b9018b240ed97"
+                    }
+                },
+                "2p-neural_economic": {
+                    "players": 2,
+                    "mode": "neural_economic",
+                    "positions": 2,
+                    "searches": 4,
+                    "evaluations": 44,
+                    "nested_evaluations": 0,
+                    "game_truncations": 0,
+                    "nested_truncations": 0,
+                    "seconds": 5.014752581000039,
+                    "engine_seconds": 2.127995726997142,
+                    "policy_seconds": 2.36571322600048,
+                    "revision": "5705e7011a44621b7d4a5e3dba6b82ca0cf55de3",
+                    "prefix": "runs/strategic-teacher-probe-v1-2p-neural_economic",
+                    "verified_sha256": "9d7d52e18b26abb1821401c545d380f1418f7bd1fac672317ec326ef42e74bd0",
+                    "artifacts": {
+                        "rollouts.jsonl": "d4031ede5978ed23540038df05376148edf4b4261eb649a140724983b86d91af",
+                        "probe-check.json": "3aab54af7636e009dbb15188e11581a620fc8425fe3cf9b50760403cdd999767"
+                    }
+                },
+                "5p-mixed_control": {
+                    "players": 5,
+                    "mode": "mixed_control",
+                    "positions": 2,
+                    "searches": 4,
+                    "evaluations": 44,
+                    "nested_evaluations": 0,
+                    "game_truncations": 0,
+                    "nested_truncations": 0,
+                    "seconds": 1.0159720720000678,
+                    "engine_seconds": 0.5736024760001328,
+                    "policy_seconds": 0.0,
+                    "revision": "5705e7011a44621b7d4a5e3dba6b82ca0cf55de3",
+                    "prefix": "runs/strategic-teacher-probe-v1-5p-mixed_control",
+                    "verified_sha256": "becb0ebda215d94e0ef1f7cffadd83d41559b7c22c9218ca411d40b3c411ebdc",
+                    "artifacts": {
+                        "rollouts.jsonl": "ea361a3a44548cb6e3a987ced749bb3c421b4081723b602d188bab121f8dff71",
+                        "probe-check.json": "f74e1cf520311bb1995135d17a879810d15ec3c3c2f127a13f3bc6266d1d3cb2"
+                    }
+                },
+                "6p-neural_economic": {
+                    "players": 6,
+                    "mode": "neural_economic",
+                    "positions": 2,
+                    "searches": 4,
+                    "evaluations": 40,
+                    "nested_evaluations": 0,
+                    "game_truncations": 0,
+                    "nested_truncations": 0,
+                    "seconds": 3.2506619119999414,
+                    "engine_seconds": 1.7576465659997211,
+                    "policy_seconds": 1.025660416999699,
+                    "revision": "5705e7011a44621b7d4a5e3dba6b82ca0cf55de3",
+                    "prefix": "runs/strategic-teacher-probe-v1-6p-neural_economic",
+                    "verified_sha256": "1f9a5fda61f18627a12fa67d1bbfb9657ddbe9294b408077dbf7e889169edf9c",
+                    "artifacts": {
+                        "rollouts.jsonl": "7839b68e72bcb5ef025697b211da8a2adc41f671474556adf8ffe85c69cffe99",
+                        "probe-check.json": "0ac14b1df98519cf3633ce8a8d1f70fc6db94e9bb903c279fda254c806a630f4"
+                    }
+                }
+            },
+            "pending_cases": [
+                "2p-neural_search",
+                "2p-mixed_control",
+                "3p-neural",
+                "3p-neural_economic",
+                "3p-neural_search",
+                "3p-mixed_control",
+                "4p-neural",
+                "4p-neural_economic",
+                "4p-neural_search",
+                "4p-mixed_control",
+                "5p-neural",
+                "5p-neural_economic",
+                "5p-neural_search",
+                "6p-neural",
+                "6p-neural_search",
+                "6p-mixed_control"
+            ],
+            "evaluations": 172,
+            "nested_evaluations": 0,
+            "source_revision": "ca3be3ff81cc259135daa50e9bdf41590b6552ff",
+            "source_sha256": "c4a700ef7fb6c83c5e85060c52bc49b8eea94ff1c65c62b0bbcc39f0905b91fd",
+            "protocol_sha256": "f19085fef326bfba66895648d2a33309b2be929615ed85ffa3b021be661a21dd",
+            "scope": "Partial runtime evidence only, two samples per batch on validation-only roots. No training or strength claim.",
+            "qualification_eligible": false,
+            "trained": false
+        },
+        "launch_evidence": {
+            "revision": "0a37a764963f8021d1c31f51f0abb600e0c073d4",
+            "prefix": "runs/strategic-teacher-probe-launch-evidence-v1",
+            "manifest_sha256": "053005290510c953713f51fe9818a215c319f800cc93698a3f1309f84eeeaf21",
+            "file_count": 49,
+            "qualification_eligible": false
+        },
+        "jobs_launched": 20,
+        "trained": false,
+        "qualification_eligible": false,
+        "stage": "New neural-focal continuation runtime frozen;20 HF probes dispatched;four cases independently verified. Runtime evidence only, two samples per batch; broader balanced reliability/teacher pilot and gradients still required."
     }
 }

@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-10-10T17:27:48.170901+00:00",
+  "checked_at": "2026-10-10T17:48:17.779609+00:00",
   "jobs": {
     "smoke-2p-economic": {
       "job_id": "6aca7567095c578089314f12",
-      "status": "SCHEDULING",
+      "status": "COMPLETED",
       "players": 2,
       "mode": "economic",
       "smoke": true,
@@ -11,7 +11,7 @@
     },
     "smoke-2p-search_geo": {
       "job_id": "6aca7568fee2c9007018aa29",
-      "status": "SCHEDULING",
+      "status": "COMPLETED",
       "players": 2,
       "mode": "search_geo",
       "smoke": true,
@@ -19,7 +19,7 @@
     },
     "smoke-2p-snapshot0": {
       "job_id": "6aca756afee2c9007018aa2b",
-      "status": "SCHEDULING",
+      "status": "COMPLETED",
       "players": 2,
       "mode": "snapshot0",
       "smoke": true,
@@ -27,7 +27,7 @@
     },
     "smoke-3p-economic": {
       "job_id": "6aca756bfee2c9007018aa2f",
-      "status": "SCHEDULING",
+      "status": "COMPLETED",
       "players": 3,
       "mode": "economic",
       "smoke": true,
@@ -35,15 +35,15 @@
     },
     "smoke-3p-search_geo": {
       "job_id": "6aca756c095c578089314f15",
-      "status": "SCHEDULING",
       "players": 3,
       "mode": "search_geo",
       "smoke": true,
-      "timeout_hours": 4
+      "timeout_hours": 4,
+      "status": "COMPLETED"
     },
     "smoke-3p-snapshot0": {
       "job_id": "6aca756e095c578089314f17",
-      "status": "SCHEDULING",
+      "status": "COMPLETED",
       "players": 3,
       "mode": "snapshot0",
       "smoke": true,
@@ -51,7 +51,7 @@
     },
     "smoke-4p-economic": {
       "job_id": "6aca756f095c578089314f19",
-      "status": "SCHEDULING",
+      "status": "COMPLETED",
       "players": 4,
       "mode": "economic",
       "smoke": true,
@@ -59,15 +59,15 @@
     },
     "smoke-4p-search_geo": {
       "job_id": "6aca7570095c578089314f1b",
-      "status": "SCHEDULING",
       "players": 4,
       "mode": "search_geo",
+      "timeout_hours": 4,
       "smoke": true,
-      "timeout_hours": 4
+      "status": "RUNNING"
     },
     "smoke-4p-snapshot0": {
       "job_id": "6aca7571095c578089314f1d",
-      "status": "SCHEDULING",
+      "status": "COMPLETED",
       "players": 4,
       "mode": "snapshot0",
       "smoke": true,
@@ -75,7 +75,7 @@
     },
     "smoke-5p-economic": {
       "job_id": "6aca7572095c578089314f1f",
-      "status": "SCHEDULING",
+      "status": "COMPLETED",
       "players": 5,
       "mode": "economic",
       "smoke": true,
@@ -83,15 +83,15 @@
     },
     "smoke-5p-search_geo": {
       "job_id": "6aca7573fee2c9007018aa35",
-      "status": "SCHEDULING",
       "players": 5,
       "mode": "search_geo",
+      "timeout_hours": 4,
       "smoke": true,
-      "timeout_hours": 4
+      "status": "RUNNING"
     },
     "smoke-5p-snapshot0": {
       "job_id": "6aca7574fee2c9007018aa39",
-      "status": "SCHEDULING",
+      "status": "COMPLETED",
       "players": 5,
       "mode": "snapshot0",
       "smoke": true,
@@ -99,7 +99,7 @@
     },
     "smoke-6p-economic": {
       "job_id": "6aca7575fee2c9007018aa3b",
-      "status": "SCHEDULING",
+      "status": "COMPLETED",
       "players": 6,
       "mode": "economic",
       "smoke": true,
@@ -107,19 +107,115 @@
     },
     "smoke-6p-search_geo": {
       "job_id": "6aca7576095c578089314f29",
-      "status": "SCHEDULING",
       "players": 6,
       "mode": "search_geo",
+      "timeout_hours": 4,
       "smoke": true,
-      "timeout_hours": 4
+      "status": "RUNNING"
     },
     "smoke-6p-snapshot0": {
       "job_id": "6aca7577fee2c9007018aa3d",
-      "status": "SCHEDULING",
+      "status": "COMPLETED",
       "players": 6,
       "mode": "snapshot0",
       "smoke": true,
       "timeout_hours": 4
+    },
+    "2p-economic": {
+      "job_id": "6aca76a8095c578089315047",
+      "status": "COMPLETED",
+      "players": 2,
+      "mode": "economic",
+      "smoke": false,
+      "timeout_hours": 4
+    },
+    "2p-snapshot0": {
+      "job_id": "6aca76aafee2c9007018ab51",
+      "status": "COMPLETED",
+      "players": 2,
+      "mode": "snapshot0",
+      "smoke": false,
+      "timeout_hours": 4
+    },
+    "3p-economic": {
+      "job_id": "6aca76acfee2c9007018ab53",
+      "status": "COMPLETED",
+      "players": 3,
+      "mode": "economic",
+      "smoke": false,
+      "timeout_hours": 4
+    },
+    "3p-snapshot0": {
+      "job_id": "6aca76aefee2c9007018ab55",
+      "players": 3,
+      "mode": "snapshot0",
+      "smoke": false,
+      "timeout_hours": 4,
+      "status": "COMPLETED"
+    },
+    "4p-economic": {
+      "job_id": "6aca76af095c57808931504b",
+      "status": "COMPLETED",
+      "players": 4,
+      "mode": "economic",
+      "smoke": false,
+      "timeout_hours": 4
+    },
+    "4p-snapshot0": {
+      "job_id": "6aca76b0095c57808931504f",
+      "players": 4,
+      "mode": "snapshot0",
+      "smoke": false,
+      "timeout_hours": 4,
+      "status": "COMPLETED"
+    },
+    "5p-economic": {
+      "job_id": "6aca76b2fee2c9007018ab57",
+      "status": "COMPLETED",
+      "players": 5,
+      "mode": "economic",
+      "smoke": false,
+      "timeout_hours": 4
+    },
+    "5p-snapshot0": {
+      "job_id": "6aca76b3095c578089315051",
+      "players": 5,
+      "mode": "snapshot0",
+      "smoke": false,
+      "timeout_hours": 4,
+      "status": "COMPLETED"
+    },
+    "6p-economic": {
+      "job_id": "6aca76b4095c578089315055",
+      "players": 6,
+      "mode": "economic",
+      "smoke": false,
+      "timeout_hours": 4,
+      "status": "COMPLETED"
+    },
+    "2p-search_geo": {
+      "job_id": "6aca771bfee2c9007018abaf",
+      "players": 2,
+      "mode": "search_geo",
+      "timeout_hours": 4,
+      "smoke": false,
+      "status": "RUNNING"
+    },
+    "6p-snapshot0": {
+      "job_id": "6aca771c095c578089315099",
+      "players": 6,
+      "mode": "snapshot0",
+      "smoke": false,
+      "timeout_hours": 4,
+      "status": "COMPLETED"
+    },
+    "3p-search_geo": {
+      "job_id": "6aca784afee2c9007018ac7c",
+      "players": 3,
+      "mode": "search_geo",
+      "timeout_hours": 6,
+      "smoke": false,
+      "status": "RUNNING"
     }
   },
   "qualification_eligible": false

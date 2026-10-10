@@ -1,0 +1,111 @@
+{
+  "all_cases_verified": false,
+  "cases": {
+    "2p-neural": {
+      "players": 2,
+      "mode": "neural",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 44,
+      "nested_evaluations": 0,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 7.731793243999846,
+      "engine_seconds": 3.310562928999161,
+      "policy_seconds": 3.855471826001576,
+      "revision": "5705e7011a44621b7d4a5e3dba6b82ca0cf55de3",
+      "prefix": "runs/strategic-teacher-probe-v1-2p-neural",
+      "verified_sha256": "901c66ef751335da7c7adef8ebdefcf00d844a489e9abda4e4e3478119bdef50",
+      "artifacts": {
+        "rollouts.jsonl": "4f66cff5f181b3d86f400db021f2231a1f7274c9982553fcc40463a63afb85b5",
+        "probe-check.json": "dcd0303ea2f1ac5cd199c92dee90347bc3a9646d5f6789060f1b9018b240ed97"
+      }
+    },
+    "2p-neural_economic": {
+      "players": 2,
+      "mode": "neural_economic",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 44,
+      "nested_evaluations": 0,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 5.014752581000039,
+      "engine_seconds": 2.127995726997142,
+      "policy_seconds": 2.36571322600048,
+      "revision": "5705e7011a44621b7d4a5e3dba6b82ca0cf55de3",
+      "prefix": "runs/strategic-teacher-probe-v1-2p-neural_economic",
+      "verified_sha256": "9d7d52e18b26abb1821401c545d380f1418f7bd1fac672317ec326ef42e74bd0",
+      "artifacts": {
+        "rollouts.jsonl": "d4031ede5978ed23540038df05376148edf4b4261eb649a140724983b86d91af",
+        "probe-check.json": "3aab54af7636e009dbb15188e11581a620fc8425fe3cf9b50760403cdd999767"
+      }
+    },
+    "5p-mixed_control": {
+      "players": 5,
+      "mode": "mixed_control",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 44,
+      "nested_evaluations": 0,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 1.0159720720000678,
+      "engine_seconds": 0.5736024760001328,
+      "policy_seconds": 0.0,
+      "revision": "5705e7011a44621b7d4a5e3dba6b82ca0cf55de3",
+      "prefix": "runs/strategic-teacher-probe-v1-5p-mixed_control",
+      "verified_sha256": "becb0ebda215d94e0ef1f7cffadd83d41559b7c22c9218ca411d40b3c411ebdc",
+      "artifacts": {
+        "rollouts.jsonl": "ea361a3a44548cb6e3a987ced749bb3c421b4081723b602d188bab121f8dff71",
+        "probe-check.json": "f74e1cf520311bb1995135d17a879810d15ec3c3c2f127a13f3bc6266d1d3cb2"
+      }
+    },
+    "6p-neural_economic": {
+      "players": 6,
+      "mode": "neural_economic",
+      "positions": 2,
+      "searches": 4,
+      "evaluations": 40,
+      "nested_evaluations": 0,
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "seconds": 3.2506619119999414,
+      "engine_seconds": 1.7576465659997211,
+      "policy_seconds": 1.025660416999699,
+      "revision": "5705e7011a44621b7d4a5e3dba6b82ca0cf55de3",
+      "prefix": "runs/strategic-teacher-probe-v1-6p-neural_economic",
+      "verified_sha256": "1f9a5fda61f18627a12fa67d1bbfb9657ddbe9294b408077dbf7e889169edf9c",
+      "artifacts": {
+        "rollouts.jsonl": "7839b68e72bcb5ef025697b211da8a2adc41f671474556adf8ffe85c69cffe99",
+        "probe-check.json": "0ac14b1df98519cf3633ce8a8d1f70fc6db94e9bb903c279fda254c806a630f4"
+      }
+    }
+  },
+  "pending_cases": [
+    "2p-neural_search",
+    "2p-mixed_control",
+    "3p-neural",
+    "3p-neural_economic",
+    "3p-neural_search",
+    "3p-mixed_control",
+    "4p-neural",
+    "4p-neural_economic",
+    "4p-neural_search",
+    "4p-mixed_control",
+    "5p-neural",
+    "5p-neural_economic",
+    "5p-neural_search",
+    "6p-neural",
+    "6p-neural_search",
+    "6p-mixed_control"
+  ],
+  "evaluations": 172,
+  "nested_evaluations": 0,
+  "source_revision": "ca3be3ff81cc259135daa50e9bdf41590b6552ff",
+  "source_sha256": "c4a700ef7fb6c83c5e85060c52bc49b8eea94ff1c65c62b0bbcc39f0905b91fd",
+  "protocol_sha256": "f19085fef326bfba66895648d2a33309b2be929615ed85ffa3b021be661a21dd",
+  "scope": "Partial runtime evidence only, two samples per batch on validation-only roots. No training or strength claim.",
+  "qualification_eligible": false,
+  "trained": false
+}

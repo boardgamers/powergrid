@@ -1,0 +1,767 @@
+{
+  "smoke": true,
+  "all_shards_verified": false,
+  "verified_shards": [
+    "2p-economic",
+    "2p-search_geo",
+    "2p-snapshot0",
+    "3p-economic",
+    "3p-search_geo",
+    "3p-snapshot0",
+    "4p-economic",
+    "4p-snapshot0",
+    "5p-economic",
+    "5p-snapshot0",
+    "6p-economic",
+    "6p-snapshot0"
+  ],
+  "pending_shards": [
+    "4p-search_geo",
+    "5p-search_geo",
+    "6p-search_geo"
+  ],
+  "unique_games": 180,
+  "engine_game_runs": 360,
+  "roots": 8903,
+  "shards": {
+    "2p-economic": {
+      "games": 8,
+      "roots": 441,
+      "public_model_proposals_reproduced": 441,
+      "root_counts": {
+        "auction": {
+          "train": 0,
+          "validation": 256
+        },
+        "building": {
+          "train": 0,
+          "validation": 185
+        }
+      },
+      "coverage": {
+        "auction/validation/original/False/0": 43,
+        "auction/validation/original/False/1": 56,
+        "auction/validation/original/True/0": 21,
+        "auction/validation/original/True/1": 24,
+        "auction/validation/recharged/False/0": 36,
+        "auction/validation/recharged/False/1": 35,
+        "auction/validation/recharged/True/0": 22,
+        "auction/validation/recharged/True/1": 19,
+        "building/validation/original/False/0": 23,
+        "building/validation/original/False/1": 24,
+        "building/validation/original/True/0": 23,
+        "building/validation/original/True/1": 23,
+        "building/validation/recharged/False/0": 24,
+        "building/validation/recharged/False/1": 24,
+        "building/validation/recharged/True/0": 23,
+        "building/validation/recharged/True/1": 21
+      },
+      "seconds": 4.365859404999995,
+      "engine_seconds": 1.6121220429999,
+      "policy_seconds": 1.3328113179999974,
+      "game_truncations": 0,
+      "search_truncations": 0,
+      "qualification_eligible": false,
+      "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+      "prefix": "runs/strategic-training-collection-smoke-v1-2p-economic",
+      "verified_sha256": "bd13ebbf79d8f03109095b952eddb37062f4fc2fde09cebee962bafdfc34e31a",
+      "artifacts": {
+        "roots.jsonl.gz": "2c2b8572a7529e6ee6228c513fb35b4845b1de4b79677146180871e5da029a31",
+        "collection-check.json": "1cb7fef5c04fce57850d41ade013fe39bf991b783a254352ad69aecc6cee32b8",
+        "games.json": "5d8381441b8c521fdade7c6c1fd8fc2c63550f40119aba75f6bbea22162863bc"
+      }
+    },
+    "2p-search_geo": {
+      "games": 8,
+      "roots": 475,
+      "public_model_proposals_reproduced": 475,
+      "root_counts": {
+        "auction": {
+          "train": 0,
+          "validation": 267
+        },
+        "building": {
+          "train": 0,
+          "validation": 208
+        }
+      },
+      "coverage": {
+        "auction/validation/original/False/0": 36,
+        "auction/validation/original/False/1": 44,
+        "auction/validation/original/True/0": 30,
+        "auction/validation/original/True/1": 29,
+        "auction/validation/recharged/False/0": 42,
+        "auction/validation/recharged/False/1": 40,
+        "auction/validation/recharged/True/0": 23,
+        "auction/validation/recharged/True/1": 23,
+        "building/validation/original/False/0": 27,
+        "building/validation/original/False/1": 25,
+        "building/validation/original/True/0": 24,
+        "building/validation/original/True/1": 28,
+        "building/validation/recharged/False/0": 27,
+        "building/validation/recharged/False/1": 26,
+        "building/validation/recharged/True/0": 25,
+        "building/validation/recharged/True/1": 26
+      },
+      "seconds": 222.44314198300003,
+      "engine_seconds": 219.3569302840001,
+      "policy_seconds": 1.4435943900000296,
+      "game_truncations": 0,
+      "search_truncations": 0,
+      "qualification_eligible": false,
+      "revision": "585002bd6f6be511147bab23e68aa04d8ddf57bc",
+      "prefix": "runs/strategic-training-collection-smoke-v1-2p-search_geo",
+      "verified_sha256": "a53e683c09090a6538b489efef87b4a068360b411d633273dfc702a4a0cf8e26",
+      "artifacts": {
+        "roots.jsonl.gz": "b22a74c028c2f13a4649e38e1e0b367dc7ecbb32346fe2ae8fa9d36343e9eca4",
+        "collection-check.json": "a7b735016bc58f907e419f6023d786218ceedb63b48cbaa7ba1c511f4aa40b44",
+        "games.json": "def703db0e07d4bb2f22e2892ba9f5a58b70725f0ae28169a1545da8ceb022e2"
+      }
+    },
+    "2p-snapshot0": {
+      "games": 8,
+      "roots": 404,
+      "public_model_proposals_reproduced": 404,
+      "root_counts": {
+        "auction": {
+          "train": 0,
+          "validation": 223
+        },
+        "building": {
+          "train": 0,
+          "validation": 181
+        }
+      },
+      "coverage": {
+        "auction/validation/original/False/0": 28,
+        "auction/validation/original/False/1": 19,
+        "auction/validation/original/True/0": 23,
+        "auction/validation/original/True/1": 19,
+        "auction/validation/recharged/False/0": 51,
+        "auction/validation/recharged/False/1": 45,
+        "auction/validation/recharged/True/0": 18,
+        "auction/validation/recharged/True/1": 20,
+        "building/validation/original/False/0": 24,
+        "building/validation/original/False/1": 21,
+        "building/validation/original/True/0": 24,
+        "building/validation/original/True/1": 20,
+        "building/validation/recharged/False/0": 27,
+        "building/validation/recharged/False/1": 24,
+        "building/validation/recharged/True/0": 19,
+        "building/validation/recharged/True/1": 22
+      },
+      "seconds": 6.544885533999988,
+      "engine_seconds": 2.571267141000135,
+      "policy_seconds": 2.366014020999984,
+      "game_truncations": 0,
+      "search_truncations": 0,
+      "qualification_eligible": false,
+      "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+      "prefix": "runs/strategic-training-collection-smoke-v1-2p-snapshot0",
+      "verified_sha256": "ee8d97d1dabc85e2d4523833cc11523bcd26f4b601cb1f42514643fdf70ada24",
+      "artifacts": {
+        "roots.jsonl.gz": "9b940ed59fecdd50f3acca326d7efd1ed50ebdcd72d633cd95d9f263aa1f8a53",
+        "collection-check.json": "7fa520bcfcd000e948e3c2d9516da57eee9c86519e0ded34b0e282505fea704a",
+        "games.json": "f8c6854ab3e0fc82fbcbe3a475fa90bc9532800f53090eebfc75986ea2814470"
+      }
+    },
+    "3p-economic": {
+      "games": 12,
+      "roots": 605,
+      "public_model_proposals_reproduced": 605,
+      "root_counts": {
+        "auction": {
+          "train": 0,
+          "validation": 383
+        },
+        "building": {
+          "train": 0,
+          "validation": 222
+        }
+      },
+      "coverage": {
+        "auction/validation/original/False/0": 35,
+        "auction/validation/original/False/1": 38,
+        "auction/validation/original/False/2": 41,
+        "auction/validation/original/True/0": 21,
+        "auction/validation/original/True/1": 19,
+        "auction/validation/original/True/2": 18,
+        "auction/validation/recharged/False/0": 44,
+        "auction/validation/recharged/False/1": 65,
+        "auction/validation/recharged/False/2": 38,
+        "auction/validation/recharged/True/0": 22,
+        "auction/validation/recharged/True/1": 20,
+        "auction/validation/recharged/True/2": 22,
+        "building/validation/original/False/0": 25,
+        "building/validation/original/False/1": 17,
+        "building/validation/original/False/2": 21,
+        "building/validation/original/True/0": 12,
+        "building/validation/original/True/1": 12,
+        "building/validation/original/True/2": 18,
+        "building/validation/recharged/False/0": 18,
+        "building/validation/recharged/False/1": 21,
+        "building/validation/recharged/False/2": 21,
+        "building/validation/recharged/True/0": 17,
+        "building/validation/recharged/True/1": 19,
+        "building/validation/recharged/True/2": 21
+      },
+      "seconds": 6.03455725500001,
+      "engine_seconds": 2.0825911809998274,
+      "policy_seconds": 1.5583744800001114,
+      "game_truncations": 0,
+      "search_truncations": 0,
+      "qualification_eligible": false,
+      "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+      "prefix": "runs/strategic-training-collection-smoke-v1-3p-economic",
+      "verified_sha256": "c48dea17f15b6c772d8d4ac1911a0ff93715dcb1162508a9ac7520021f35bf22",
+      "artifacts": {
+        "roots.jsonl.gz": "3aef2e4474aad7a12790d130308b70fc6e336abd9cade49fec1c81cb1a6cf05b",
+        "collection-check.json": "2afbc9dfc266bbbf177ce14d68c9c26ad1b125bbdc49afeb74a3c031fd740d30",
+        "games.json": "21dc56c22eb864071854dc16ca63b3284aba2c10b1719de75d3d4bbd79ee5dae"
+      }
+    },
+    "3p-search_geo": {
+      "games": 12,
+      "roots": 716,
+      "public_model_proposals_reproduced": 716,
+      "root_counts": {
+        "auction": {
+          "train": 0,
+          "validation": 453
+        },
+        "building": {
+          "train": 0,
+          "validation": 263
+        }
+      },
+      "coverage": {
+        "auction/validation/original/False/0": 62,
+        "auction/validation/original/False/1": 46,
+        "auction/validation/original/False/2": 50,
+        "auction/validation/original/True/0": 35,
+        "auction/validation/original/True/1": 25,
+        "auction/validation/original/True/2": 22,
+        "auction/validation/recharged/False/0": 64,
+        "auction/validation/recharged/False/1": 37,
+        "auction/validation/recharged/False/2": 33,
+        "auction/validation/recharged/True/0": 27,
+        "auction/validation/recharged/True/1": 27,
+        "auction/validation/recharged/True/2": 25,
+        "building/validation/original/False/0": 24,
+        "building/validation/original/False/1": 28,
+        "building/validation/original/False/2": 24,
+        "building/validation/original/True/0": 25,
+        "building/validation/original/True/1": 26,
+        "building/validation/original/True/2": 17,
+        "building/validation/recharged/False/0": 18,
+        "building/validation/recharged/False/1": 22,
+        "building/validation/recharged/False/2": 21,
+        "building/validation/recharged/True/0": 21,
+        "building/validation/recharged/True/1": 20,
+        "building/validation/recharged/True/2": 17
+      },
+      "seconds": 444.838828712,
+      "engine_seconds": 440.25873907600055,
+      "policy_seconds": 1.7647991529999558,
+      "game_truncations": 0,
+      "search_truncations": 0,
+      "qualification_eligible": false,
+      "revision": "5c97d76a82141bb05474decf05a8df8d08c03264",
+      "prefix": "runs/strategic-training-collection-smoke-v1-3p-search_geo",
+      "verified_sha256": "688d414f9c8d203fcd37e8b87f394f3e5215d8f7bec095acdbc97738e6de2199",
+      "artifacts": {
+        "roots.jsonl.gz": "9735f8075a60b67a127eb2f90d6739288fe3eaa59e99909149e71fe5d9552fb7",
+        "collection-check.json": "dc3e0603c7a8da297844c147af550977d07d56530331da89dec3d146d03ac52d",
+        "games.json": "7e5f9c12fd2ea02f4e623398a03794e5ec84af9e782f7382e82d9cef1da9c02c"
+      }
+    },
+    "3p-snapshot0": {
+      "games": 12,
+      "roots": 587,
+      "public_model_proposals_reproduced": 587,
+      "root_counts": {
+        "auction": {
+          "train": 0,
+          "validation": 327
+        },
+        "building": {
+          "train": 0,
+          "validation": 260
+        }
+      },
+      "coverage": {
+        "auction/validation/original/False/0": 26,
+        "auction/validation/original/False/1": 29,
+        "auction/validation/original/False/2": 44,
+        "auction/validation/original/True/0": 21,
+        "auction/validation/original/True/1": 28,
+        "auction/validation/original/True/2": 27,
+        "auction/validation/recharged/False/0": 24,
+        "auction/validation/recharged/False/1": 36,
+        "auction/validation/recharged/False/2": 35,
+        "auction/validation/recharged/True/0": 22,
+        "auction/validation/recharged/True/1": 16,
+        "auction/validation/recharged/True/2": 19,
+        "building/validation/original/False/0": 18,
+        "building/validation/original/False/1": 23,
+        "building/validation/original/False/2": 27,
+        "building/validation/original/True/0": 17,
+        "building/validation/original/True/1": 20,
+        "building/validation/original/True/2": 22,
+        "building/validation/recharged/False/0": 28,
+        "building/validation/recharged/False/1": 20,
+        "building/validation/recharged/False/2": 29,
+        "building/validation/recharged/True/0": 19,
+        "building/validation/recharged/True/1": 21,
+        "building/validation/recharged/True/2": 16
+      },
+      "seconds": 12.694846841000015,
+      "engine_seconds": 5.357371417000024,
+      "policy_seconds": 4.199725587000245,
+      "game_truncations": 0,
+      "search_truncations": 0,
+      "qualification_eligible": false,
+      "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+      "prefix": "runs/strategic-training-collection-smoke-v1-3p-snapshot0",
+      "verified_sha256": "4f532985d8857559a7537fdaa23a1be359d9db18c8897894fae517eb4d0c4640",
+      "artifacts": {
+        "roots.jsonl.gz": "f5db65512f21dde564ff53b676e128376e23461d8c8732e8398281d05b76422a",
+        "collection-check.json": "48f944be4f1aa15adfcf61f915d61f303ac2ba24591a5d1d1e23f61ecc29920f",
+        "games.json": "14a74f3c3d8f5311c160816938e1d814c2decf6430b82f43b6e4fa4cb3f56599"
+      }
+    },
+    "4p-economic": {
+      "games": 16,
+      "roots": 837,
+      "public_model_proposals_reproduced": 837,
+      "root_counts": {
+        "auction": {
+          "train": 0,
+          "validation": 504
+        },
+        "building": {
+          "train": 0,
+          "validation": 333
+        }
+      },
+      "coverage": {
+        "auction/validation/original/False/0": 46,
+        "auction/validation/original/False/1": 45,
+        "auction/validation/original/False/2": 54,
+        "auction/validation/original/False/3": 35,
+        "auction/validation/original/True/0": 28,
+        "auction/validation/original/True/1": 33,
+        "auction/validation/original/True/2": 23,
+        "auction/validation/original/True/3": 22,
+        "auction/validation/recharged/False/0": 40,
+        "auction/validation/recharged/False/1": 34,
+        "auction/validation/recharged/False/2": 37,
+        "auction/validation/recharged/False/3": 31,
+        "auction/validation/recharged/True/0": 20,
+        "auction/validation/recharged/True/1": 18,
+        "auction/validation/recharged/True/2": 20,
+        "auction/validation/recharged/True/3": 18,
+        "building/validation/original/False/0": 22,
+        "building/validation/original/False/1": 24,
+        "building/validation/original/False/2": 20,
+        "building/validation/original/False/3": 19,
+        "building/validation/original/True/0": 21,
+        "building/validation/original/True/1": 20,
+        "building/validation/original/True/2": 20,
+        "building/validation/original/True/3": 23,
+        "building/validation/recharged/False/0": 20,
+        "building/validation/recharged/False/1": 22,
+        "building/validation/recharged/False/2": 21,
+        "building/validation/recharged/False/3": 21,
+        "building/validation/recharged/True/0": 22,
+        "building/validation/recharged/True/1": 20,
+        "building/validation/recharged/True/2": 18,
+        "building/validation/recharged/True/3": 20
+      },
+      "seconds": 8.329510968000022,
+      "engine_seconds": 2.7635422260000553,
+      "policy_seconds": 1.9420809109998345,
+      "game_truncations": 0,
+      "search_truncations": 0,
+      "qualification_eligible": false,
+      "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+      "prefix": "runs/strategic-training-collection-smoke-v1-4p-economic",
+      "verified_sha256": "48a8292df6fe88b89cba3eab56326657aa01cdaabfdaa495cfdd58c34111b95b",
+      "artifacts": {
+        "roots.jsonl.gz": "d373d0a7575c50ce744489e397e64ebaf11d58e51fb34f2012d68d1debfc0e24",
+        "collection-check.json": "77f6a02c71932ba82b46a2482c32b669e08b970ab10fa4ff2fcfe13616b57c1e",
+        "games.json": "b88a6723795a239cd9a1e47d1b56454a87d562336a1a39539646f8fd1cdfe0cf"
+      }
+    },
+    "4p-snapshot0": {
+      "games": 16,
+      "roots": 811,
+      "public_model_proposals_reproduced": 811,
+      "root_counts": {
+        "auction": {
+          "train": 0,
+          "validation": 502
+        },
+        "building": {
+          "train": 0,
+          "validation": 309
+        }
+      },
+      "coverage": {
+        "auction/validation/original/False/0": 54,
+        "auction/validation/original/False/1": 30,
+        "auction/validation/original/False/2": 42,
+        "auction/validation/original/False/3": 41,
+        "auction/validation/original/True/0": 26,
+        "auction/validation/original/True/1": 26,
+        "auction/validation/original/True/2": 28,
+        "auction/validation/original/True/3": 24,
+        "auction/validation/recharged/False/0": 38,
+        "auction/validation/recharged/False/1": 35,
+        "auction/validation/recharged/False/2": 28,
+        "auction/validation/recharged/False/3": 29,
+        "auction/validation/recharged/True/0": 35,
+        "auction/validation/recharged/True/1": 21,
+        "auction/validation/recharged/True/2": 21,
+        "auction/validation/recharged/True/3": 24,
+        "building/validation/original/False/0": 22,
+        "building/validation/original/False/1": 18,
+        "building/validation/original/False/2": 23,
+        "building/validation/original/False/3": 24,
+        "building/validation/original/True/0": 17,
+        "building/validation/original/True/1": 16,
+        "building/validation/original/True/2": 18,
+        "building/validation/original/True/3": 21,
+        "building/validation/recharged/False/0": 23,
+        "building/validation/recharged/False/1": 20,
+        "building/validation/recharged/False/2": 17,
+        "building/validation/recharged/False/3": 20,
+        "building/validation/recharged/True/0": 16,
+        "building/validation/recharged/True/1": 19,
+        "building/validation/recharged/True/2": 19,
+        "building/validation/recharged/True/3": 16
+      },
+      "seconds": 23.15120521099999,
+      "engine_seconds": 10.022390130999923,
+      "policy_seconds": 7.662457557999801,
+      "game_truncations": 0,
+      "search_truncations": 0,
+      "qualification_eligible": false,
+      "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+      "prefix": "runs/strategic-training-collection-smoke-v1-4p-snapshot0",
+      "verified_sha256": "4970001ab8159ed3107e2351694a937c570b14da1ae342c90048e54477ed33fc",
+      "artifacts": {
+        "roots.jsonl.gz": "74a674f62545d274b5bc245bcfe05100f469528ddad6f253cd8771b9aa180ba9",
+        "collection-check.json": "59870bfcf673c74adebb9da8ece1e46c5766b4e23aa10dc867f268f922268fed",
+        "games.json": "57a4ffdc12220bdbfc6b40d0109006a0befc29801fac7f2c2e9b3d6f148fa828"
+      }
+    },
+    "5p-economic": {
+      "games": 20,
+      "roots": 1020,
+      "public_model_proposals_reproduced": 1020,
+      "root_counts": {
+        "auction": {
+          "train": 0,
+          "validation": 665
+        },
+        "building": {
+          "train": 0,
+          "validation": 355
+        }
+      },
+      "coverage": {
+        "auction/validation/original/False/0": 57,
+        "auction/validation/original/False/1": 61,
+        "auction/validation/original/False/2": 39,
+        "auction/validation/original/False/3": 38,
+        "auction/validation/original/False/4": 36,
+        "auction/validation/original/True/0": 26,
+        "auction/validation/original/True/1": 25,
+        "auction/validation/original/True/2": 21,
+        "auction/validation/original/True/3": 20,
+        "auction/validation/original/True/4": 21,
+        "auction/validation/recharged/False/0": 38,
+        "auction/validation/recharged/False/1": 38,
+        "auction/validation/recharged/False/2": 50,
+        "auction/validation/recharged/False/3": 38,
+        "auction/validation/recharged/False/4": 39,
+        "auction/validation/recharged/True/0": 24,
+        "auction/validation/recharged/True/1": 21,
+        "auction/validation/recharged/True/2": 24,
+        "auction/validation/recharged/True/3": 24,
+        "auction/validation/recharged/True/4": 25,
+        "building/validation/original/False/0": 19,
+        "building/validation/original/False/1": 18,
+        "building/validation/original/False/2": 17,
+        "building/validation/original/False/3": 16,
+        "building/validation/original/False/4": 18,
+        "building/validation/original/True/0": 17,
+        "building/validation/original/True/1": 15,
+        "building/validation/original/True/2": 16,
+        "building/validation/original/True/3": 14,
+        "building/validation/original/True/4": 11,
+        "building/validation/recharged/False/0": 20,
+        "building/validation/recharged/False/1": 19,
+        "building/validation/recharged/False/2": 22,
+        "building/validation/recharged/False/3": 19,
+        "building/validation/recharged/False/4": 18,
+        "building/validation/recharged/True/0": 18,
+        "building/validation/recharged/True/1": 18,
+        "building/validation/recharged/True/2": 22,
+        "building/validation/recharged/True/3": 19,
+        "building/validation/recharged/True/4": 19
+      },
+      "seconds": 10.444779077999982,
+      "engine_seconds": 3.424646297999857,
+      "policy_seconds": 2.211133121000131,
+      "game_truncations": 0,
+      "search_truncations": 0,
+      "qualification_eligible": false,
+      "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+      "prefix": "runs/strategic-training-collection-smoke-v1-5p-economic",
+      "verified_sha256": "be539345c7c96ed3666194c77225c2c5215a92b06055bf9bcc4e3c03615c448c",
+      "artifacts": {
+        "roots.jsonl.gz": "a1df521198004d35b696e365b64f29325ebc30e0fe5103cb429ca6c708f87c6a",
+        "collection-check.json": "b6da7041b23bf70fdfa582c81ada9a2a888491c2d022d9fd6180aadbe3c6a7da",
+        "games.json": "49ca906398f231558023abc3da64932750fb107a315ab5c90d85fb599ad59ce7"
+      }
+    },
+    "5p-snapshot0": {
+      "games": 20,
+      "roots": 856,
+      "public_model_proposals_reproduced": 856,
+      "root_counts": {
+        "auction": {
+          "train": 0,
+          "validation": 552
+        },
+        "building": {
+          "train": 0,
+          "validation": 304
+        }
+      },
+      "coverage": {
+        "auction/validation/original/False/0": 29,
+        "auction/validation/original/False/1": 24,
+        "auction/validation/original/False/2": 29,
+        "auction/validation/original/False/3": 19,
+        "auction/validation/original/False/4": 20,
+        "auction/validation/original/True/0": 31,
+        "auction/validation/original/True/1": 20,
+        "auction/validation/original/True/2": 24,
+        "auction/validation/original/True/3": 18,
+        "auction/validation/original/True/4": 20,
+        "auction/validation/recharged/False/0": 53,
+        "auction/validation/recharged/False/1": 44,
+        "auction/validation/recharged/False/2": 31,
+        "auction/validation/recharged/False/3": 26,
+        "auction/validation/recharged/False/4": 45,
+        "auction/validation/recharged/True/0": 31,
+        "auction/validation/recharged/True/1": 26,
+        "auction/validation/recharged/True/2": 22,
+        "auction/validation/recharged/True/3": 22,
+        "auction/validation/recharged/True/4": 18,
+        "building/validation/original/False/0": 12,
+        "building/validation/original/False/1": 14,
+        "building/validation/original/False/2": 17,
+        "building/validation/original/False/3": 12,
+        "building/validation/original/False/4": 9,
+        "building/validation/original/True/0": 7,
+        "building/validation/original/True/1": 20,
+        "building/validation/original/True/2": 14,
+        "building/validation/original/True/3": 18,
+        "building/validation/original/True/4": 15,
+        "building/validation/recharged/False/0": 16,
+        "building/validation/recharged/False/1": 16,
+        "building/validation/recharged/False/2": 16,
+        "building/validation/recharged/False/3": 21,
+        "building/validation/recharged/False/4": 21,
+        "building/validation/recharged/True/0": 16,
+        "building/validation/recharged/True/1": 16,
+        "building/validation/recharged/True/2": 13,
+        "building/validation/recharged/True/3": 15,
+        "building/validation/recharged/True/4": 16
+      },
+      "seconds": 28.94356063500001,
+      "engine_seconds": 13.215415200999246,
+      "policy_seconds": 9.173865508000262,
+      "game_truncations": 0,
+      "search_truncations": 0,
+      "qualification_eligible": false,
+      "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+      "prefix": "runs/strategic-training-collection-smoke-v1-5p-snapshot0",
+      "verified_sha256": "286022c9fe25216f57253b6b9a452473e933e003a0e99766a1015b07a0f70226",
+      "artifacts": {
+        "roots.jsonl.gz": "9b539d150069e1c64b39ab7e56af52f203695af28633b6b4bcecb5bf01e16bd4",
+        "collection-check.json": "f1bcc335f2c0caa08c5b0add620d0dfc9ba8066d2c67de217343ffd2a81845c9",
+        "games.json": "b8f026985e959b51e43a38eeea48bdb0a559d181f7b14d225d70d0ebbd161812"
+      }
+    },
+    "6p-economic": {
+      "games": 24,
+      "roots": 1098,
+      "public_model_proposals_reproduced": 1098,
+      "root_counts": {
+        "auction": {
+          "train": 0,
+          "validation": 730
+        },
+        "building": {
+          "train": 0,
+          "validation": 368
+        }
+      },
+      "coverage": {
+        "auction/validation/original/False/0": 45,
+        "auction/validation/original/False/1": 44,
+        "auction/validation/original/False/2": 38,
+        "auction/validation/original/False/3": 34,
+        "auction/validation/original/False/4": 18,
+        "auction/validation/original/False/5": 52,
+        "auction/validation/original/True/0": 30,
+        "auction/validation/original/True/1": 19,
+        "auction/validation/original/True/2": 23,
+        "auction/validation/original/True/3": 25,
+        "auction/validation/original/True/4": 25,
+        "auction/validation/original/True/5": 21,
+        "auction/validation/recharged/False/0": 41,
+        "auction/validation/recharged/False/1": 49,
+        "auction/validation/recharged/False/2": 38,
+        "auction/validation/recharged/False/3": 30,
+        "auction/validation/recharged/False/4": 32,
+        "auction/validation/recharged/False/5": 39,
+        "auction/validation/recharged/True/0": 21,
+        "auction/validation/recharged/True/1": 15,
+        "auction/validation/recharged/True/2": 18,
+        "auction/validation/recharged/True/3": 29,
+        "auction/validation/recharged/True/4": 25,
+        "auction/validation/recharged/True/5": 19,
+        "building/validation/original/False/0": 18,
+        "building/validation/original/False/1": 18,
+        "building/validation/original/False/2": 14,
+        "building/validation/original/False/3": 16,
+        "building/validation/original/False/4": 17,
+        "building/validation/original/False/5": 19,
+        "building/validation/original/True/0": 14,
+        "building/validation/original/True/1": 18,
+        "building/validation/original/True/2": 9,
+        "building/validation/original/True/3": 18,
+        "building/validation/original/True/4": 12,
+        "building/validation/original/True/5": 17,
+        "building/validation/recharged/False/0": 18,
+        "building/validation/recharged/False/1": 18,
+        "building/validation/recharged/False/2": 16,
+        "building/validation/recharged/False/3": 15,
+        "building/validation/recharged/False/4": 16,
+        "building/validation/recharged/False/5": 18,
+        "building/validation/recharged/True/0": 17,
+        "building/validation/recharged/True/1": 13,
+        "building/validation/recharged/True/2": 16,
+        "building/validation/recharged/True/3": 9,
+        "building/validation/recharged/True/4": 15,
+        "building/validation/recharged/True/5": 7
+      },
+      "seconds": 11.706528630000008,
+      "engine_seconds": 3.871050325999988,
+      "policy_seconds": 2.250619185999767,
+      "game_truncations": 0,
+      "search_truncations": 0,
+      "qualification_eligible": false,
+      "revision": "0694a9c45d0a6c51a801d1cba10acfcb4f580f3b",
+      "prefix": "runs/strategic-training-collection-smoke-v1-6p-economic",
+      "verified_sha256": "80ffee8cd6099265d277c0b40f04c538b25aa08a14d5161540354b5e454614a9",
+      "artifacts": {
+        "roots.jsonl.gz": "a78b96f10ade25e647ad99bc7eb0534777d8cc82d697a6d0683ddb9a25f3027a",
+        "collection-check.json": "cb7d7411543e7922760e22b64a3982f8736a97279b2a81a1213e200c44406487",
+        "games.json": "ca1ef349c782b14144cf767c2be936918ca32e62af723dfa0c1d513655a29c21"
+      }
+    },
+    "6p-snapshot0": {
+      "games": 24,
+      "roots": 1053,
+      "public_model_proposals_reproduced": 1053,
+      "root_counts": {
+        "auction": {
+          "train": 0,
+          "validation": 722
+        },
+        "building": {
+          "train": 0,
+          "validation": 331
+        }
+      },
+      "coverage": {
+        "auction/validation/original/False/0": 32,
+        "auction/validation/original/False/1": 25,
+        "auction/validation/original/False/2": 31,
+        "auction/validation/original/False/3": 35,
+        "auction/validation/original/False/4": 43,
+        "auction/validation/original/False/5": 33,
+        "auction/validation/original/True/0": 17,
+        "auction/validation/original/True/1": 26,
+        "auction/validation/original/True/2": 30,
+        "auction/validation/original/True/3": 24,
+        "auction/validation/original/True/4": 15,
+        "auction/validation/original/True/5": 28,
+        "auction/validation/recharged/False/0": 41,
+        "auction/validation/recharged/False/1": 39,
+        "auction/validation/recharged/False/2": 50,
+        "auction/validation/recharged/False/3": 33,
+        "auction/validation/recharged/False/4": 39,
+        "auction/validation/recharged/False/5": 24,
+        "auction/validation/recharged/True/0": 32,
+        "auction/validation/recharged/True/1": 20,
+        "auction/validation/recharged/True/2": 21,
+        "auction/validation/recharged/True/3": 28,
+        "auction/validation/recharged/True/4": 26,
+        "auction/validation/recharged/True/5": 30,
+        "building/validation/original/False/0": 16,
+        "building/validation/original/False/1": 10,
+        "building/validation/original/False/2": 11,
+        "building/validation/original/False/3": 9,
+        "building/validation/original/False/4": 14,
+        "building/validation/original/False/5": 15,
+        "building/validation/original/True/0": 17,
+        "building/validation/original/True/1": 11,
+        "building/validation/original/True/2": 10,
+        "building/validation/original/True/3": 5,
+        "building/validation/original/True/4": 15,
+        "building/validation/original/True/5": 12,
+        "building/validation/recharged/False/0": 19,
+        "building/validation/recharged/False/1": 16,
+        "building/validation/recharged/False/2": 15,
+        "building/validation/recharged/False/3": 12,
+        "building/validation/recharged/False/4": 19,
+        "building/validation/recharged/False/5": 15,
+        "building/validation/recharged/True/0": 15,
+        "building/validation/recharged/True/1": 17,
+        "building/validation/recharged/True/2": 15,
+        "building/validation/recharged/True/3": 14,
+        "building/validation/recharged/True/4": 15,
+        "building/validation/recharged/True/5": 14
+      },
+      "seconds": 41.064008769000026,
+      "engine_seconds": 19.09418968899996,
+      "policy_seconds": 12.864770691000217,
+      "game_truncations": 0,
+      "search_truncations": 0,
+      "qualification_eligible": false,
+      "revision": "585002bd6f6be511147bab23e68aa04d8ddf57bc",
+      "prefix": "runs/strategic-training-collection-smoke-v1-6p-snapshot0",
+      "verified_sha256": "8a4984a30ee864b92380d3f6a7df5df9c228529d2637fd81301dabfb4ad64be1",
+      "artifacts": {
+        "roots.jsonl.gz": "082bf058c9f8cd83d3041b11aac9b91fb759d5584185a78c2f1243988c5cb8cd",
+        "collection-check.json": "f5edef86a16c81bda17f63a0538d573f9c6ea459f6e5dcee57e8521de03241bb",
+        "games.json": "672099bfce7d670c584415d89b83e0a624b5868c77e3e78b8f6715b2c9cf00f9"
+      }
+    }
+  },
+  "source_revision": "4462dade57131375986bd1b17ee13ff292292e0a",
+  "source_sha256": "1846a4f168a8a38b67612a198f143958eb24df019cb35b9c55acde6ce25d08e0",
+  "protocol_sha256": "0086deceb58a0dc21a8e07f7e74142315b237985aead8db5ce7ac1617369e45a",
+  "trained": false,
+  "labels_generated": false,
+  "qualification_eligible": false,
+  "scope": "Runtime probes excluded from training data."
+}

@@ -48,6 +48,34 @@ def profile(n,mode):
             'probe_seconds':seconds,'projected_seconds':projected,'timeout_hours':hours,'admitted':hours<=12}
 
 
+def summarize(smoke):
+    source=read(SOURCE);p=read(PROTOCOL);shards={};pending=[]
+    for n in p['players']:
+        for mode in p['modes']:
+            out=directory(n,mode,smoke);key=f'{n}p-{mode}'
+            if not (out/'verified.json').exists():pending.append(key);continue
+            saved=read(out/'verified.json')
+            for k,v in {'players':n,'mode':mode,'smoke':smoke,'verified':True,'prefix':prefix(n,mode,smoke),
+                'protocol_sha256':digest(PROTOCOL),'source_revision':source['revision'],
+                'source_sha256':source['sha256'],'qualification_eligible':False}.items():assert saved[k]==v,k
+            assert re.fullmatch('[a-f0-9]{40}',saved['revision'])
+            for name,sha in saved['artifacts'].items():assert Path(name).name==name and digest(out/name)==sha
+            summary=saved['summary'];assert summary['games']==4*n*(1 if smoke else p['deals_per_shard'])
+            assert summary['game_truncations']==summary['search_truncations']==0
+            assert summary['public_model_proposals_reproduced']==summary['roots']>0
+            shards[key]={**summary,'revision':saved['revision'],'prefix':saved['prefix'],
+                'verified_sha256':digest(out/'verified.json'),'artifacts':saved['artifacts']}
+    games=sum(s['games'] for s in shards.values())
+    if not pending:assert games==(sum(p['players'])*4*len(p['modes']) if smoke else p['unique_games'])
+    result={'smoke':smoke,'all_shards_verified':not pending,'verified_shards':list(shards),'pending_shards':pending,
+        'unique_games':games,'engine_game_runs':games*2,'roots':sum(s['roots'] for s in shards.values()),'shards':shards,
+        'source_revision':source['revision'],'source_sha256':source['sha256'],'protocol_sha256':digest(PROTOCOL),
+        'trained':False,'labels_generated':False,'qualification_eligible':False,
+        'scope':'Runtime probes excluded from training data.' if smoke else 'Fresh public positions; no labels, gradients or strength claim.'}
+    write(ROOT/('ai/strong/strategic-training-collection-'+('probes-' if smoke else '')+'results-v1.json'),result)
+    print({k:result[k] for k in ['smoke','all_shards_verified','verified_shards','pending_shards','unique_games','roots']})
+
+
 def launch(a):
     source=read(SOURCE);assert digest(PROTOCOL)==source['protocol_sha256']
     assert all(digest(ROOT/name)==sha for name,sha in source['overlays'].items())
@@ -107,8 +135,10 @@ if __name__=='__main__':
         p=sub.add_parser(verb);p.add_argument('players',type=int,choices=range(2,7));p.add_argument('mode',choices=['economic','search_geo','snapshot0'])
         if verb!='profile':p.add_argument('--smoke',action='store_true')
         if verb=='collect':p.add_argument('revision')
+    sub.add_parser('summarize').add_argument('--smoke',action='store_true')
     a=parser.parse_args()
     if a.command=='launch':launch(a)
     elif a.command=='collect':collect(a)
+    elif a.command=='summarize':summarize(a.smoke)
     else:
         result=profile(a.players,a.mode);write(ROOT/f'ai/strong/strategic-collection-{a.players}p-{a.mode}-runtime-v1.json',result);print(result)

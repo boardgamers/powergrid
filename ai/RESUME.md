@@ -6,7 +6,91 @@ final-test seeds remain unused.** The separate UI redesign was reverted.
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
 `ai/germany-baseline`. No UI work or publication is part of this AI continuation.
 
-## Latest: fresh strategic training collection frozen; HF probes dispatched
+## Latest: 2,560 fresh games verified; neural continuation probes running
+
+Previous goal turn: **progress** (collector frozen and probes dispatched; verified
+initial probes and launched full shards). This turn: **progress** (full public-root
+verification, source-frozen continuation runtime, exact inference/control checks,
+20 HF probe jobs dispatched). No new gradients or candidate qualification.
+
+**Fresh collection:** all ten economic/frozen-self-play full shards for2–6p are
+verified:2,560 unique games /5,120 exact twin executions and129,588 public auction/
+building roots. Every public encoding, legal menu and serial model proposal was
+reproduced; all actual-game/search caps are zero. Collection remains partial:
+five search_geo shards are outstanding. Full2p/search and3p/search are live;
+4–6p/search runtime probes are still live, so their full shards are not launched.
+Twelve of15 probes are verified,180 probe games /8,903 roots, excluded from training.
+The3p/search probe took444.839s; its full shard was admitted for6h and launched as
+`6aca784afee2c9007018ac7c`. Exact other handles and timestamps are in
+`strong/strategic-training-collection-status-v1.json` and exclusive launch guards.
+
+Full economic and2–4p self-play raw pins: model revision
+`5c97d76a82141bb05474decf05a8df8d08c03264`;5p self-play
+`5b79e4b65d2bd73de1cae8e918d9949622ee99d0`;6p self-play
+`4786b5cc52fc1ffd51fb7415aa41552bdb4035d6`.
+Partial evidence: revision `abd58220f3c0ee9beef0922af52c2e8c944364f0`, prefix
+`runs/strategic-training-collection-partial-evidence-v1`. It saves verified game
+records, source/artifact pins, runtime admissions and launch guards. Large public
+root files remain at the immutable raw revisions recorded in each verified shard.
+`manage-strategic-collection.py summarize [--smoke]` aggregates only independently
+verified shards and retains the missing cases. Do not recollect existing outputs.
+
+**New continuation runtime:** `strategic-continuations.cjs` and
+`strategic_teacher.py` keep the focal player on frozen10102 while opponents use
+that same network, economic policy, or the unchanged search_geo16 reference.
+The historical mixed economic/heuristic continuation is a separate control.
+Same public worlds and random streams are paired across root moves and modes;
+independent batches A/B use fresh seeds, never the true game seed. Candidate set
+is the unchanged geography/economics shortlist plus the exact model proposal.
+Every terminal outcome and paired advantage over that proposal is retained;
+no hard winner labels or calibrated action-value claims are made. Outer and
+nested search both retain2400-step caps; every inner cap is counted and prevents
+admission. Existing workers and1,383 source files are unchanged.
+
+Four meaningful engine checks passed: exact historical neural/mixed trajectories,
+neural focal-player/opponent routing, split-worker equivalence, hidden-data
+invariance and nested-budget/cap propagation. All2,553 serving decisions match
+serial inference at batch sizes1/17/64 and in reverse order, including float64
+inference and the4.2 feature contract.
+
+Probe source: dataset revision `ca3be3ff81cc259135daa50e9bdf41590b6552ff`, archive
+`strong-source-strategic-teacher-probe-20261010-v1.tgz`, SHA256
+`c4a700ef7fb6c83c5e85060c52bc49b8eea94ff1c65c62b0bbcc39f0905b91fd`.
+Protocol SHA256 `f19085fef326bfba66895648d2a33309b2be929615ed85ffa3b021be661a21dd`.
+Eight overlays listed in the source record are frozen; do not edit them or rerun
+the exclusive source builder. Roots:10 validation-only positions, one per count/
+phase, selected by a fixed hash without looking at outcomes. **Not a balanced
+rule-cell reliability study:** notably the selected auction roots are open.
+Broader teacher-label experiments still need explicit sealed/open and variant
+coverage. These two-sample probes establish runtime only, not label reliability.
+
+All20 jobs (five counts ×four continuation modes) were dispatched with exclusive
+guards under `ai/runs/strategic-teacher-probe-launches-v1`; inspect
+`strong/strategic-teacher-probe-status-v1.json` for exact handles. Four completed
+cases have independently verified172 outer rollouts,0 caps:2p/neural7.732s,
+2p/neural_economic5.015s,5p/mixed_control1.016s,6p/neural_economic3.251s.
+No neural_search result is verified yet; do not extrapolate its cost from these.
+Raw revision for those four is `5705e7011a44621b7d4a5e3dba6b82ca0cf55de3`.
+Launch/partial evidence: revision `0a37a764963f8021d1c31f51f0abb600e0c073d4`, prefix
+`runs/strategic-teacher-probe-launch-evidence-v1`.
+
+Collect a completed probe with `ai/.venv/bin/python
+ai/strong/collect-strategic-teacher-probe.py N MODE IMMUTABLE_REV`; this validates
+root proposals, every rollout/sample/role/credit, paired advantages and all
+nested-search counters independently. Then run `summarize-strategic-teacher-probe.py`.
+Probes do not generate training labels or authorize gradients. Do not rerun launch
+commands for existing guards, including SCHEDULING jobs. The six guided5–6p arena
+jobs were also authoritatively confirmed RUNNING at the latest status timestamp.
+
+**Next:** finish public-root and continuation-probe verification on the existing
+handles. Use actual nested-search costs to size a rule/count/phase-balanced
+paired teacher pilot, preserving individual uncertainty and train/validation
+whole-deal separation. Then train the conservative correction on HF and require
+fresh complete-game gains before expanding or selecting it. Earlier heuristic
+continuation bias and original/sealed weaknesses remain unresolved. Reserved
+final seeds remain unused; no candidate meets the full strength gate.
+
+## Earlier: fresh strategic training collection frozen; HF probes dispatched
 
 Previous goal turn: **progress** (all704 phase games and384 guided4p games
 verified). This turn: **progress** (new training-data collector implemented,

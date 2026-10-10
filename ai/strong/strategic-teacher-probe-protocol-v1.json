@@ -1,0 +1,45 @@
+{
+  "purpose": "Runtime feasibility only, before full paired-continuation training labels.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "model": {
+    "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+    "path": "runs/discard-correction-v1/10102/derivative/inference64.onnx",
+    "sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+    "feature_revision": "4.2-discard-correction",
+    "selection": "Fixed10102 used throughout phase diagnostics; not a new model selected from these games."
+  },
+  "ort_threads": 1,
+  "workers": 24,
+  "players": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "modes": [
+    "neural",
+    "neural_economic",
+    "neural_search",
+    "mixed_control"
+  ],
+  "samples": 2,
+  "batches": [
+    "a",
+    "b"
+  ],
+  "max_steps": 2400,
+  "nested_search_samples": 16,
+  "nested_search_candidates": 6,
+  "nested_search_max_steps": 2400,
+  "roots_sha256": "a470245b0b85414c9edffde3cd01523698304e785830334c27f6c59cbb84c1c2",
+  "root_positions": 10,
+  "positions_per_job": 2,
+  "expected_jobs": 20,
+  "options": "Unchanged geography/economics shortlist plus exact frozen-model proposal.",
+  "seed": "Independent public-world seeds from rootId and batch, shared across modes and root actions; never the true game seed.",
+  "outputs": "Individual terminal credits, paired advantages over the model proposal, all outer/nested caps and timings. No hard labels.",
+  "scope": "Validation-only roots chosen by hash; two samples cannot establish target reliability or playing strength.",
+  "trained": false,
+  "qualification_eligible": false
+}

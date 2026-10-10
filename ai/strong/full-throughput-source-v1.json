@@ -1,0 +1,17 @@
+{
+  "archive": "strong-source-full-throughput-20261010-v1.tgz",
+  "base": {
+    "archive": "strong-source-population-fast-20261010-v1.tgz",
+    "revision": "eceb3e01c2152d6ad510069d5dd0eccaba315cd6",
+    "sha256": "2082e54a903083e34874e1213a03c5343412343353e0ee7dff6b8392956b7f3c"
+  },
+  "sha256": "21465581480d69571fcc61a5af77dddc9e112508bca9e8d882b6415f8bd57c50",
+  "bytes": 1270663,
+  "overlays": {
+    "ai/strong/benchmark-full-training.py": "001eb7165a4f89ef8e081292d6a2b551d812d059c86a0b1abee9aa6302b980ed",
+    "ai/strong/full-throughput-protocol-v1.json": "b90f8d734b4e8fbb774b4d502f475cf3a5af896ced8a1fcb65b8d93c73f085b2",
+    "ai/strong/launch-full-throughput-v1.py": "f026ad3e9e4e1c8f0e524ad25460ee56ccf16fb9b02fc6db9e9843fbfc1cc49c"
+  },
+  "scope": "Two 3-update full-training throughput probes only; current population experiment unchanged.",
+  "revision": "13aaf16eb754b17fd6a4efb4c84b14d248c2b82e"
+}

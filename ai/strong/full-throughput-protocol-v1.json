@@ -1,0 +1,107 @@
+{
+  "purpose": "Measure full training updates on future optimized runtime before scaling the next strength experiment. Current population cohort unchanged.",
+  "common_env": {
+    "HF_MODEL_REPO": "coyotte508/powergrid-ai-germany-v1",
+    "INIT_CHECKPOINT": "runs/multiplayer-refine-hard-v1/latest.pt",
+    "INIT_REVISION": "0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a",
+    "INIT_SHA256": "1f9d1c89908ab036f6e6a54facba94b352bbae005e1ac042d88c60067e895224",
+    "FROZEN_OPPONENTS": "ai/strong/population-opponents-v1.json",
+    "ARCHITECTURE": "multiplayer_ordered",
+    "MIX_PLAYER_COUNTS": "1",
+    "OPPONENT_MODE": "population_heterogeneous",
+    "TRAIN_SEED": "10021",
+    "PYTHONHASHSEED": "0",
+    "ASYNC_ROLLOUT": "1",
+    "TORCH_THREADS": "4",
+    "SNAPSHOT_ADMISSION": "periodic_anchor",
+    "SNAPSHOT_INTERVAL": "5",
+    "LR": ".00005",
+    "ENTROPY": ".005",
+    "ANCHOR": ".03",
+    "ANCHOR_POLICY": "initial",
+    "UPDATES": "3",
+    "EVAL_EVERY": "10",
+    "ENVS": "240",
+    "WORKERS": "240",
+    "BATCH_SIZE": "512"
+  },
+  "platforms": {
+    "cpu-performance": {
+      "env": {
+        "TRAIN_DEVICE": "cpu",
+        "RUN_NAME": "multiplayer-throughput-v1-cpu-performance"
+      }
+    },
+    "h200": {
+      "env": {
+        "TRAIN_DEVICE": "cuda",
+        "RUN_NAME": "multiplayer-throughput-v1-h200"
+      }
+    }
+  },
+  "base_source": {
+    "archive": "strong-source-population-fast-20261010-v1.tgz",
+    "revision": "eceb3e01c2152d6ad510069d5dd0eccaba315cd6",
+    "sha256": "2082e54a903083e34874e1213a03c5343412343353e0ee7dff6b8392956b7f3c"
+  },
+  "runtime_sha256": {
+    "ai/strong/train.py": "7f4a8e42c9096f625450bca44138052b64f9d09b6872a4b633a2bd18c2bfeeea",
+    "ai/strong/economics.cjs": "7265923548a15940a33f24d70b2d6419119ef8d759fca1637640f4ff6e9aef58",
+    "ai/strong/bridge.cjs": "209eef9aa211fd3a0c6acfda71b1079e817832c64ea446e4bc12ea6e26741a18",
+    "ai/strong/model_v4.py": "965469c5855ffbf8f6c152713bf48d07fd851cd94b363785820498df7fe027e0",
+    "ai/strong/opponent-population.cjs": "127f545a273bf6fa37c5e4746d7428c19200ac324ed76a0fd7ddb5c654384f81"
+  },
+  "initial": {
+    "role": "initial",
+    "revision": "0aeacd5b8e36ece36ba06a77ddfd7b86110d4f3a",
+    "path": "runs/multiplayer-refine-hard-v1/latest.pt",
+    "sha256": "1f9d1c89908ab036f6e6a54facba94b352bbae005e1ac042d88c60067e895224",
+    "architecture": "multiplayer_ordered",
+    "feature_revision": "4.0-multiplayer",
+    "update": 79
+  },
+  "frozen_opponents": [
+    {
+      "role": "frozen0",
+      "revision": "fbdf2bf24c968bff99ab2d7d9ff9a7d97047db2b",
+      "path": "runs/multiplayer-refine-hard-v1/latest.pt",
+      "sha256": "b1caf9ec10a61da6860e49d45f6b385bc76e1c16e324d500ca5d9f52233a2a7f",
+      "architecture": "multiplayer_ordered",
+      "feature_revision": "4.0-multiplayer",
+      "update": 29
+    },
+    {
+      "role": "frozen1",
+      "revision": "d6adef40b2b836108cd4c3d2e384eefb67a133a0",
+      "path": "runs/multiplayer-refine-hard-v1/latest.pt",
+      "sha256": "c64e09afb74e2953f17738247ff207fff94a25607b4425d45e69f41716718412",
+      "architecture": "multiplayer_ordered",
+      "feature_revision": "4.0-multiplayer",
+      "update": 49
+    },
+    {
+      "role": "frozen2",
+      "revision": "d3bd8ead55d15b4ebf53e333d617c244203ba76a",
+      "path": "runs/multiplayer-refine-geoleague-async-v1/latest.pt",
+      "sha256": "4633dab4062d7158ab2cc0486118297fbc974318e49101b6d7d5c12da781937a",
+      "architecture": "multiplayer_ordered",
+      "feature_revision": "4.0-multiplayer",
+      "update": 49
+    }
+  ],
+  "updates": 3,
+  "games_per_update": 240,
+  "games_per_count_per_update": 48,
+  "primary_metric": "Median complete update wall time, with rollout and optimization components and every update retained.",
+  "original_reference": "First three updates of existing heterogeneous job 6aca02dd095c578089310b2b; collect raw metrics at a pinned revision.",
+  "limitations": [
+    "Timing experiment only; no candidate selection or strength claims.",
+    "Async scheduling and GPU numerics can change action samples and game trajectories despite common seeds. Compare platform throughput and report workload differences; not pure accelerator causality.",
+    "H200 and CPU workers have different host processors and core counts.",
+    "Three updates on one host each is a throughput pilot; investigate inconsistent per-update timings before scaling.",
+    "Update timers exclude initial/final evaluation and checkpoint uploads. Overall wall time includes those operations and model downloads, but excludes container/dependency startup.",
+    "Async engine timing is blocking call wall time, not summed engine CPU time.",
+    "GPU utilization is sampled every 5 seconds across the whole process including internal evaluations.",
+    "All gradients on HF Jobs; no final-reserved seeds, current cohort modifications or deployment."
+  ]
+}

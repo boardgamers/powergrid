@@ -4,10 +4,45 @@
 final-test seeds remain unused.** The separate UI redesign was reverted.
 
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
-`ai/germany-baseline`. The previous goal turn made concrete progress with verified
-CPU/H200 measurements and a behavior-preserving simulation optimization. The
-current turn added and launched a durable HF checkpoint evaluator and verified
-further training batches. Do not repeat completed probes.
+`ai/germany-baseline`. The previous goal turn made concrete progress by launching
+the durable checkpoint evaluator and verifying its startup. The current turn
+launches matched full-training throughput probes on CPU/H200 while the strength
+cohort continues. Do not repeat completed probes or launch duplicate jobs.
+
+## Full training throughput — separate from candidate selection
+
+Two three-update HF probes use the verified faster economics runtime, identical
+H200 update79 initialization, retained heterogeneous opponents, seed 10021,
+240 complete games/update, all player counts, four Torch threads and batch 512.
+The actual trainer is unchanged. Gradients run on HF only. These runs do not
+alter the three-arm population experiment and are not candidate selection.
+
+- CPU-performance: `6aca0ec4fee2c90070185e12`, run
+  `multiplayer-throughput-v1-cpu-performance`.
+- H200: `6aca0ec5fee2c90070185e14`, run `multiplayer-throughput-v1-h200`.
+
+Inspect exact live statuses in HF; `strong/full-throughput-status-v1.json` is
+only a last observation. Source and frozen settings are in
+`strong/full-throughput-source-v1.json` and
+`strong/full-throughput-protocol-v1.json`. Source dataset revision:
+`13aaf16eb754b17fd6a4efb4c84b14d248c2b82e`.
+Each run uploads `metrics.json`, checkpoints and `throughput.json` under its run
+prefix. Require actual completion, exact source/protocol/checkpoint provenance,
+updates 0–2, 720 complete games, balanced counts, and zero search/game caps before
+using its timing. Recompute aggregates from metrics. Benchmark checkpoints must
+not be presented as qualified candidates.
+
+Compare all three update times, rollout/optimization components and actual
+search/sample workloads. Also retain first three original heterogeneous updates
+as an observational reference (read them from a pinned uploaded metrics revision
+when available). Their log snapshot gave median 308.34 s/update. The local
+snapshot is `ai/runs/throughput-original-reference-v1.json`; it is not yet pinned
+as an HF metrics artifact. GPU and CPU hosts differ, and async scheduling/CUDA
+numerics can change trajectories. These are platform throughput measurements,
+not a pure GPU causal estimate. Isolated kernel timings alone were insufficient
+to justify a scale-up. The wrapper rejects incomplete/truncated/count-imbalanced
+batches or missing search diagnostics; those four rejection checks passed using
+mutations of the actual 720-game reference.
 
 ## Automatic checkpoint evaluation — inspect before any manual launch
 

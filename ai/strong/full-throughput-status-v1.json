@@ -1,0 +1,87 @@
+{
+  "purpose": "Full update timing only; not candidate selection",
+  "jobs": {
+    "cpu-performance": {
+      "phase": "launched",
+      "launched_at": "2026-10-10T10:09:08.321668+00:00",
+      "job_id": "6aca0ec4fee2c90070185e12",
+      "url": "https://huggingface.co/jobs/coyotte508/6aca0ec4fee2c90070185e12",
+      "observed_stage": "RUNNING",
+      "observed_at": "2026-10-10T10:11:37.775680+00:00",
+      "verified_startup": {
+        "stage": "full_throughput_start",
+        "flavor": "cpu-performance",
+        "run": "multiplayer-throughput-v1-cpu-performance",
+        "torch_version": "2.6.0+cu124",
+        "logical_cpus": 32,
+        "processor": "AMD EPYC 7R13 Processor",
+        "gpu": null,
+        "tf32": false,
+        "protocol_sha256": "b90f8d734b4e8fbb774b4d502f475cf3a5af896ced8a1fcb65b8d93c73f085b2",
+        "runtime_sha256": {
+          "ai/strong/train.py": "7f4a8e42c9096f625450bca44138052b64f9d09b6872a4b633a2bd18c2bfeeea",
+          "ai/strong/economics.cjs": "7265923548a15940a33f24d70b2d6419119ef8d759fca1637640f4ff6e9aef58",
+          "ai/strong/bridge.cjs": "209eef9aa211fd3a0c6acfda71b1079e817832c64ea446e4bc12ea6e26741a18",
+          "ai/strong/model_v4.py": "965469c5855ffbf8f6c152713bf48d07fd851cd94b363785820498df7fe027e0",
+          "ai/strong/opponent-population.cjs": "127f545a273bf6fa37c5e4746d7428c19200ac324ed76a0fd7ddb5c654384f81"
+        },
+        "qualification_eligible": false,
+        "interpretation": [
+          "Timing experiment only; no candidate selection or strength claims.",
+          "Async scheduling and GPU numerics can change action samples and game trajectories despite common seeds. Compare platform throughput and report workload differences; not pure accelerator causality.",
+          "H200 and CPU workers have different host processors and core counts.",
+          "Three updates on one host each is a throughput pilot; investigate inconsistent per-update timings before scaling.",
+          "Update timers exclude initial/final evaluation and checkpoint uploads. Overall wall time includes those operations and model downloads, but excludes container/dependency startup.",
+          "Async engine timing is blocking call wall time, not summed engine CPU time.",
+          "GPU utilization is sampled every 5 seconds across the whole process including internal evaluations.",
+          "All gradients on HF Jobs; no final-reserved seeds, current cohort modifications or deployment."
+        ]
+      },
+      "complete_updates": []
+    },
+    "h200": {
+      "phase": "launched",
+      "launched_at": "2026-10-10T10:09:09.094562+00:00",
+      "job_id": "6aca0ec5fee2c90070185e14",
+      "url": "https://huggingface.co/jobs/coyotte508/6aca0ec5fee2c90070185e14",
+      "observed_stage": "RUNNING",
+      "observed_at": "2026-10-10T10:11:43.377416+00:00",
+      "verified_startup": {
+        "stage": "full_throughput_start",
+        "flavor": "h200",
+        "run": "multiplayer-throughput-v1-h200",
+        "torch_version": "2.6.0+cu124",
+        "logical_cpus": 224,
+        "processor": "INTEL(R) XEON(R) PLATINUM 8581C CPU @ 2.10GHz",
+        "gpu": "NVIDIA H200",
+        "tf32": false,
+        "protocol_sha256": "b90f8d734b4e8fbb774b4d502f475cf3a5af896ced8a1fcb65b8d93c73f085b2",
+        "runtime_sha256": {
+          "ai/strong/train.py": "7f4a8e42c9096f625450bca44138052b64f9d09b6872a4b633a2bd18c2bfeeea",
+          "ai/strong/economics.cjs": "7265923548a15940a33f24d70b2d6419119ef8d759fca1637640f4ff6e9aef58",
+          "ai/strong/bridge.cjs": "209eef9aa211fd3a0c6acfda71b1079e817832c64ea446e4bc12ea6e26741a18",
+          "ai/strong/model_v4.py": "965469c5855ffbf8f6c152713bf48d07fd851cd94b363785820498df7fe027e0",
+          "ai/strong/opponent-population.cjs": "127f545a273bf6fa37c5e4746d7428c19200ac324ed76a0fd7ddb5c654384f81"
+        },
+        "qualification_eligible": false,
+        "interpretation": [
+          "Timing experiment only; no candidate selection or strength claims.",
+          "Async scheduling and GPU numerics can change action samples and game trajectories despite common seeds. Compare platform throughput and report workload differences; not pure accelerator causality.",
+          "H200 and CPU workers have different host processors and core counts.",
+          "Three updates on one host each is a throughput pilot; investigate inconsistent per-update timings before scaling.",
+          "Update timers exclude initial/final evaluation and checkpoint uploads. Overall wall time includes those operations and model downloads, but excludes container/dependency startup.",
+          "Async engine timing is blocking call wall time, not summed engine CPU time.",
+          "GPU utilization is sampled every 5 seconds across the whole process including internal evaluations.",
+          "All gradients on HF Jobs; no final-reserved seeds, current cohort modifications or deployment."
+        ]
+      },
+      "complete_updates": [],
+      "latest_progress": {
+        "update": 0,
+        "completed_games": 134,
+        "seconds": 60.12960872298572
+      }
+    }
+  },
+  "qualification_eligible": false
+}

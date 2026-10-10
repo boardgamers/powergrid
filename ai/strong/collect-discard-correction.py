@@ -18,6 +18,17 @@ digest=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def write(p,d):Path(p).write_text(json.dumps(d,indent=2)+'\n')
 
 
+def compare_metrics(actual, stored):
+    # Weighted float32 dot products differ by one ULP between CPU BLAS builds.
+    # Counts must remain exact; this does not relax native/ONNX score parity.
+    assert actual.keys()==stored.keys()
+    for key,value in actual.items():
+        if isinstance(value,dict):compare_metrics(value,stored[key])
+        elif key in ['weighted_simulated_regret','weighted_simulated_gain']:
+            assert abs(value-stored[key])<=1e-7,key
+        else:assert value==stored[key],key
+
+
 def main():
     p=argparse.ArgumentParser(__doc__);p.add_argument('revision');p.add_argument('output',type=Path)
     p.add_argument('--data',type=Path,default=ROOT/'ai/runs/discard-training-labels-verified-v1');a=p.parse_args()
@@ -78,10 +89,7 @@ def main():
                 scores=torch.cat([net.policy.head(torch.from_numpy(data['state'][i:i+256]).double(),
                     torch.from_numpy(data['actions'][i:i+256]).double()) for i in range(0,len(subset),256)]).numpy()
             result=metrics(scores,data,subset,protocol['margin']);recomputed[split]=result
-            assert result['changed']==selected[split]['changed'], 'Export precision changes label choices'
-            for metric in ['weighted_simulated_regret','weighted_simulated_gain']:
-                assert abs(result[metric]-selected[split][metric])<=1e-7,(split,metric)
-            assert result['by_players']==selected[split]['by_players']
+            compare_metrics(result,selected[split])
         for label,command in {
             'parity':['check-export.py',str(folder/'derivative/inference64.pt'),str(folder/'derivative/inference64.onnx'),str(ROOT/'ai/runs/multiplayer-serving-fixtures.jsonl')],
             'scope-parity':['check-discard-correction.py',str(folder/'derivative/inference64.pt'),str(folder/'derivative/inference64.onnx'),str(ROOT/'ai/runs/multiplayer-serving-fixtures.jsonl'),'--data',str(a.data.resolve())],

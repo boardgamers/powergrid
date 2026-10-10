@@ -1,0 +1,20 @@
+{
+  "archive": "strong-source-discard-correction-screen-20261010-v1.tgz",
+  "revision": "63db2c7e4b870bf019436a6338c9385f3bad82a6",
+  "sha256": "2ee290d6a7c5863fcfea9ebefa1b00515776be8174e22662870e86e547a04d4d",
+  "overlays": {
+    "ai/strong/discard_correction_screen.py": "e7ecd8586308e81be8a7863af5db48722c33c2a10d6032ed23da9ed6434f27ad",
+    "ai/strong/discard-correction-screen-protocol-v1.json": "88d9439a15d20724ae5a155e36b17f2ba54017f971a2c65511ca7fee2023a070",
+    "ai/strong/discard-correction-screen-models-v1.json": "f3c3362712179d0af1796b5419215ac3e8f69f886126a35c105c1c96b0354a6a",
+    "ai/strong/discard-correction-results-v1.json": "b11b85e1de8a95619d8f3cac263dd320d374c91718ff6a2f6fccec0dab9d840b"
+  },
+  "base": {
+    "archive": "strong-source-discard-correction-20261010-v1.tgz",
+    "revision": "70acf6d6c9eb743aedadc48e38b143ff511803f8",
+    "sha256": "59bf548ea4fa49f848609179a02cd8d692a76f713ff81df83312ff1c150d0bdf"
+  },
+  "unchanged_base_file_count": 1366,
+  "protocol_sha256": "88d9439a15d20724ae5a155e36b17f2ba54017f971a2c65511ca7fee2023a070",
+  "models_sha256": "f3c3362712179d0af1796b5419215ac3e8f69f886126a35c105c1c96b0354a6a",
+  "qualification_eligible": false
+}

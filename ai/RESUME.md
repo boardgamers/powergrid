@@ -6,12 +6,13 @@ final-test seeds remain unused.** The separate UI redesign was reverted.
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
 `ai/germany-baseline`. No UI work or publication is part of this AI continuation.
 
-## Latest: verified discard gain; all fresh labels complete; learned correction submitted
+## Latest: learned discard corrections verified; 4,800 complete-game comparisons launched
 
 The preceding AI goal turn was **progress** (complete-game intervention and fresh
 training collection). This turn is also **progress**: independently verified all
-five labeling shards, saved their evidence, and submitted the learned-head GPU
-experiment. No blocker; no qualification, deployment or reserved final seeds.
+five labeling shards, trained and independently verified both learned corrections,
+and launched paired complete-game development screens. No blocker; no
+qualification, deployment or reserved final seeds.
 
 **Actual complete-game intervention, all960 games verified.** The fixed parent
 wins50.3125%, economic-guided discards73.75%, neural-guided discards73.125% in320
@@ -54,10 +55,13 @@ Combined durable evidence in `coyotte508/powergrid-ai-germany-v1`:
 `strong/discard-training-labels-results-v1.json`,
 `strong/discard-training-evidence-v1.json`.
 
-**Learned correction submitted, not yet a result.** HF job
-`6aca4a1b095c5780893132ed`, one L4, fixed seeds10101/10102,120 epochs each.
-Last authoritative status SCHEDULING at14:22:27UTC10October; re-inspect the same
-handle. Launch intent: `ai/runs/discard-correction-launch-v1/launch.json`.
+**Learned corrections trained and independently verified.** HF job
+`6aca4a1b095c5780893132ed` is COMPLETED (verified14:26:15UTC10October), one L4,
+fixed seeds10101/10102,120 epochs and1,200 optimizer updates each. Both selected
+epoch10 under the predeclared validation rule; later epochs overfit. The376,001
+parameter head takes3.37/3.12s to train, peak allocated GPU memory57.7/57.0MB.
+More GPUs would not help this stage; collection and validation dominate.
+No local gradients. Launch intent: `ai/runs/discard-correction-launch-v1/launch.json`.
 Protocol `strong/discard-correction-protocol-v1.json`, SHA
 `aa7bf7bc6a33ac5ea637fabf23d787a481b10496acd228b3fd2eab8504757cdb`.
 Dataset source revision `70acf6d6c9eb743aedadc48e38b143ff511803f8`, archive
@@ -82,17 +86,69 @@ Preflight:2,553 menus/prefixes/public eligibility checks; strict zero-head
 native64/ONNX parity over2,553 fixtures plus all3,361 labels; parent choices
 unchanged everywhere and outside-scope logits identical. Frozen package repeats
 all checks and independently re-verifies631 labels. See
-`strong/discard-correction-preflight-v1.json`. The job will rerun strict export,
-serving and all-label parity checks on each trained selected checkpoint.
+`strong/discard-correction-preflight-v1.json`. Both trained exports pass the job and independent strict native/ONNX/serving
+checks on all2,553 fixtures, plus all3,361 label inputs. All parent tensors and
+2,544 outside-scope decisions remain identical (logit error0); eligible fixture
+changes are5/9 and4/9. Largest native/export logit error4.75e-10.
 
-**Next:** inspect the live training handle; independently verify downloaded raw
-checkpoint tensors, data hashes, selected epochs, label metrics and strict
-native/ONNX/serving checks. Then test **both seeds and parent** on fresh paired
-complete-game development deals across2–6p/rules/opponents, explicitly checking
-repeated-discard deployment. Do not infer full-game gain from label fit. Keep
-strong independent opponents and the unchanged full gate below. No final-test
-seeds until development warrants a frozen candidate; actual8840U benchmark must
-use the exact eventually-qualified checkpoint/config. UI stays reverted.
+Raw training revision `b115a2d78aae095e51fb72a5535b3507abdf90c0`, prefix
+`runs/discard-correction-v1`. Independently verified local outputs:
+`ai/runs/discard-correction-verified-v1-recheck`; tracked report
+`strong/discard-correction-results-v1.json`. Durable combined evidence revision
+`727848e6a675fe749211a2222ca0efd9826b3d23`,
+`runs/discard-correction-completed-evidence-v1`. The first collector stopped on
+one-ULP float32 weighted-statistic rounding across BLAS builds. Recheck allows
+absolute1e-7 only for aggregate gain/regret fields, with exact counts and a
+rejection regression; native/ONNX tolerances are unchanged. Failed artifacts and
+an explanation are retained. This was no retraining or model repair.
+
+Held-out **conditional simulated gains**, not actual game win gains:
+
+| Seed | 2p | 3p | 4p | 5p | 6p |
+| --- | --- | --- | --- | --- | --- |
+| 10101 | .21860 | .02625 | .02426 | .00385 | −.00986 |
+| 10102 | .22773 | .02625 | .02589 | .00073 | .00000 |
+
+Do not hide the6p regression for10101 or choose a winner from this alone.
+Selected export SHA256:10101
+`bb0790074d2df1a4929c059b61424da72ddf4fc51cf9396a91a27c031934808d`;
+10102 `57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68`.
+
+**Complete-game diagnostic now launched.** Three arms(parent,10101,10102),
+1,600 games each:16 fresh deals ×all seats ×4 rule cells versus economic at
+2–6p, plus capacity-economic2p and A2603p. All eligible discards may use the
+learned head; this tests repeated-discard deployment, unlike the original
+first-discard intervention. No training or final seeds. Report paired whole-deal
+bootstrap differences and every rule cell; keep the two seeds separate.
+Protocol `strong/discard-correction-screen-protocol-v1.json`, SHA
+`88d9439a15d20724ae5a155e36b17f2ba54017f971a2c65511ca7fee2023a070`.
+Source dataset revision `63db2c7e4b870bf019436a6338c9385f3bad82a6`, archive
+`strong-source-discard-correction-screen-20261010-v1.tgz`, SHA
+`2ee290d6a7c5863fcfea9ebefa1b00515776be8174e22662870e86e547a04d4d`.
+All1,366 base files stay unchanged. Frozen preflight:108 complete smoke games,
+all models at2p/6p plus mixed-schema A2603p, zero game/search truncations.
+
+| Arm | HF CPU-performance job |
+| --- | --- |
+| parent | `6aca4c50095c578089313476` |
+| 10101 | `6aca4c51fee2c90070188a1c` |
+| 10102 | `6aca4c51fee2c90070188a1e` |
+
+Last authoritative14:32:58UTC status:parent RUNNING, both candidates SCHEDULING.
+Re-inspect these exact handles; do not duplicate a queued job. Status file:
+`strong/discard-correction-screen-status-v1.json`. Output prefixes:
+`runs/discard-correction-screen-v1-KEY` in the model repo.
+
+**Next:** inspect the three jobs, then pin their combined output revision and run
+`ai/.venv/bin/python ai/strong/collect-discard-correction-screen.py REVISION ai/runs/discard-correction-screen-verified-v1`.
+The collector checks every raw game, pins, seats/rules/deals/caps and three paired
+contrasts. It is prepared and syntax-checked, not yet run on completed screens.
+If changes help, extend to independent legacy/heuristic/rush/search_geo coverage;
+if they regress, use the adverse cells to direct the next correction/training.
+The unchanged full multiplayer gate still applies. No final-test seeds until
+development warrants a frozen candidate; actual8840U benchmark must use the
+exact eventually-qualified checkpoint/config. No candidate is promoted. UI stays
+reverted.
 
 ## Earlier: all 34,720 precision reruns verified; discard audit and intervention setup
 

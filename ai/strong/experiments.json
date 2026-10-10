@@ -37903,5 +37903,45 @@
             "status": "SCHEDULING",
             "qualification_eligible": false
         }
+    },
+    "discard_correction_v1": {
+        "training_job": {
+            "checked_at": "2026-10-10T14:26:15.253242+00:00",
+            "job_id": "6aca4a1b095c5780893132ed",
+            "status": "COMPLETED",
+            "qualification_eligible": false
+        },
+        "evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "727848e6a675fe749211a2222ca0efd9826b3d23",
+            "prefix": "runs/discard-correction-completed-evidence-v1",
+            "raw_revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+            "qualification_eligible": false
+        },
+        "results_file": "ai/strong/discard-correction-results-v1.json",
+        "selected_epochs": {
+            "10101": 10,
+            "10102": 10
+        },
+        "screens": {
+            "checked_at": "2026-10-10T14:32:58.318778+00:00",
+            "jobs": {
+                "10101": {
+                    "job_id": "6aca4c51fee2c90070188a1c",
+                    "status": "SCHEDULING"
+                },
+                "10102": {
+                    "job_id": "6aca4c51fee2c90070188a1e",
+                    "status": "SCHEDULING"
+                },
+                "parent": {
+                    "job_id": "6aca4c50095c578089313476",
+                    "status": "RUNNING"
+                }
+            },
+            "qualification_eligible": false
+        },
+        "screen_protocol_file": "ai/strong/discard-correction-screen-protocol-v1.json",
+        "qualification_eligible": false
     }
 }

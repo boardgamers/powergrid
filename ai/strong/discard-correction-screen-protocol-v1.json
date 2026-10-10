@@ -1,0 +1,77 @@
+{
+  "purpose": "Paired complete-game diagnostic of both frozen learned discard heads versus the parent; all counts and rule combinations. No promotion or final seeds.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "models": [
+    "parent",
+    "10101",
+    "10102"
+  ],
+  "seed_template": "discard-correction-games-v1-{players}p",
+  "deal_offsets": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 8891,
+  "screens": [
+    {
+      "players": 2,
+      "opponent": "economic",
+      "games": 128
+    },
+    {
+      "players": 3,
+      "opponent": "economic",
+      "games": 192
+    },
+    {
+      "players": 4,
+      "opponent": "economic",
+      "games": 256
+    },
+    {
+      "players": 5,
+      "opponent": "economic",
+      "games": 320
+    },
+    {
+      "players": 6,
+      "opponent": "economic",
+      "games": 384
+    },
+    {
+      "players": 2,
+      "opponent": "economic_capacity_v1",
+      "games": 128
+    },
+    {
+      "players": 3,
+      "opponent": "a260",
+      "games": 192,
+      "model_path": "runs/strong-league-v2-a/best.onnx",
+      "revision": "b38515c29e57826de05b55b645c29591e4a886bf",
+      "sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd"
+    }
+  ],
+  "analysis": "Report paired whole-deal bootstrap candidate-minus-parent overall and by each rule. Keep seed contrasts separate; marginal exploratory intervals without multiplicity adjustment. All raw records, including adverse cells.",
+  "max_steps": 2400,
+  "workers": 24,
+  "training": "None; frozen selected checkpoints.",
+  "qualification_eligible": false,
+  "remaining_gate": "This diagnoses late-discard transfer including repeated discards. Full legacy/heuristic/rush/search_geo/A260 scope and unchanged final-protocol-multiplayer.json still apply before qualification.",
+  "caps": "Zero game/search truncations; preserve failures, never silently score or omit them."
+}

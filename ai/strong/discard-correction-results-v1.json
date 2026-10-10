@@ -1,0 +1,516 @@
+{
+  "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+  "prefix": "runs/discard-correction-v1",
+  "source_revision": "70acf6d6c9eb743aedadc48e38b143ff511803f8",
+  "protocol_sha256": "aa7bf7bc6a33ac5ea637fabf23d787a481b10496acd228b3fd2eab8504757cdb",
+  "seeds": {
+    "10101": {
+      "training": {
+        "seed": 10101,
+        "best_epoch": 10,
+        "updates": 1200,
+        "seconds": 3.3660068019999017,
+        "train_roots": 2527,
+        "validation_roots": 834,
+        "gpu": "NVIDIA L4",
+        "max_allocated_bytes": 57710080,
+        "head_parameters": 376001,
+        "parent_tensors_identical": true,
+        "training_device": "cuda",
+        "tf32": false,
+        "qualification_eligible": false
+      },
+      "selected_epoch": 10,
+      "recomputed": {
+        "train": {
+          "roots": 2527,
+          "weighted_simulated_gain": 0.03926469758152962,
+          "weighted_simulated_regret": 0.04565281420946121,
+          "changed": 690,
+          "by_players": {
+            "2": {
+              "roots": 470,
+              "weighted_simulated_gain": 0.15482120215892792,
+              "weighted_simulated_regret": 0.08821125328540802,
+              "changed": 320
+            },
+            "3": {
+              "roots": 362,
+              "weighted_simulated_gain": 0.02137891948223114,
+              "weighted_simulated_regret": 0.05435262620449066,
+              "changed": 85
+            },
+            "4": {
+              "roots": 452,
+              "weighted_simulated_gain": 0.02501906082034111,
+              "weighted_simulated_regret": 0.038949016481637955,
+              "changed": 86
+            },
+            "5": {
+              "roots": 623,
+              "weighted_simulated_gain": -0.0015970412641763687,
+              "weighted_simulated_regret": 0.03297294303774834,
+              "changed": 123
+            },
+            "6": {
+              "roots": 620,
+              "weighted_simulated_gain": -0.0032986458390951157,
+              "weighted_simulated_regret": 0.013778243213891983,
+              "changed": 76
+            }
+          },
+          "by_rules": {
+            "original/open": {
+              "roots": 742,
+              "weighted_simulated_gain": 0.03391575813293457,
+              "weighted_simulated_regret": 0.0486534908413887,
+              "changed": 211
+            },
+            "original/sealed": {
+              "roots": 701,
+              "weighted_simulated_gain": 0.04806067794561386,
+              "weighted_simulated_regret": 0.045648396015167236,
+              "changed": 201
+            },
+            "recharged/open": {
+              "roots": 576,
+              "weighted_simulated_gain": 0.028322303667664528,
+              "weighted_simulated_regret": 0.04243352264165878,
+              "changed": 139
+            },
+            "recharged/sealed": {
+              "roots": 508,
+              "weighted_simulated_gain": 0.04770367592573166,
+              "weighted_simulated_regret": 0.04472123831510544,
+              "changed": 139
+            }
+          },
+          "scope": "Conditional label returns, not whole-game win rates."
+        },
+        "validation": {
+          "roots": 834,
+          "weighted_simulated_gain": 0.052619993686676025,
+          "weighted_simulated_regret": 0.044773247092962265,
+          "changed": 234,
+          "by_players": {
+            "2": {
+              "roots": 161,
+              "weighted_simulated_gain": 0.21859583258628845,
+              "weighted_simulated_regret": 0.07065044343471527,
+              "changed": 113
+            },
+            "3": {
+              "roots": 96,
+              "weighted_simulated_gain": 0.02624937891960144,
+              "weighted_simulated_regret": 0.03986545652151108,
+              "changed": 17
+            },
+            "4": {
+              "roots": 158,
+              "weighted_simulated_gain": 0.024260323494672775,
+              "weighted_simulated_regret": 0.05670418217778206,
+              "changed": 37
+            },
+            "5": {
+              "roots": 234,
+              "weighted_simulated_gain": 0.0038500791415572166,
+              "weighted_simulated_regret": 0.022607922554016113,
+              "changed": 46
+            },
+            "6": {
+              "roots": 185,
+              "weighted_simulated_gain": -0.009855622425675392,
+              "weighted_simulated_regret": 0.0340382419526577,
+              "changed": 21
+            }
+          },
+          "by_rules": {
+            "original/open": {
+              "roots": 240,
+              "weighted_simulated_gain": 0.04703383147716522,
+              "weighted_simulated_regret": 0.059909746050834656,
+              "changed": 68
+            },
+            "original/sealed": {
+              "roots": 240,
+              "weighted_simulated_gain": 0.04056776687502861,
+              "weighted_simulated_regret": 0.03681451454758644,
+              "changed": 59
+            },
+            "recharged/open": {
+              "roots": 195,
+              "weighted_simulated_gain": 0.04908242076635361,
+              "weighted_simulated_regret": 0.05121654272079468,
+              "changed": 48
+            },
+            "recharged/sealed": {
+              "roots": 159,
+              "weighted_simulated_gain": 0.08556681871414185,
+              "weighted_simulated_regret": 0.025326093658804893,
+              "changed": 59
+            }
+          },
+          "scope": "Conditional label returns, not whole-game win rates."
+        }
+      },
+      "parity": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "inactive_values_zero": true,
+        "feature_revision": "4.2-discard-correction",
+        "model_sha256": "bb0790074d2df1a4929c059b61424da72ddf4fc51cf9396a91a27c031934808d",
+        "max_logit_error": 4.746425474877469e-10,
+        "max_value_error": 1.0236589353951331e-11,
+        "all_actions_match": true,
+        "specialist_route_counts": {}
+      },
+      "scope": {
+        "positions": 2553,
+        "eligible": 9,
+        "changed_eligible": 5,
+        "unchanged_other_actions": 2544,
+        "outside_max_logit_error": 0.0,
+        "labels_strict_parity": 3361,
+        "label_max_logit_error": 1.3353584904507443e-10,
+        "model_sha256": "bb0790074d2df1a4929c059b61424da72ddf4fc51cf9396a91a27c031934808d",
+        "checkpoint_sha256": "ea30240af0c3a6cafd2c3a9569090758f4754c07eb9491e905768b72831af393",
+        "rtol": 0.0001,
+        "atol": 1e-05,
+        "qualification_eligible": false
+      },
+      "serving": {
+        "hostname": "Mint-FW-13",
+        "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "python_version": "3.11.15",
+        "positions": 2553,
+        "by_player_count": {
+          "2": {
+            "positions": 349,
+            "p95_ms": 4.879484197590498
+          },
+          "3": {
+            "positions": 427,
+            "p95_ms": 4.473522701300681
+          },
+          "4": {
+            "positions": 527,
+            "p95_ms": 5.822769200312905
+          },
+          "5": {
+            "positions": 609,
+            "p95_ms": 7.683422006084586
+          },
+          "6": {
+            "positions": 641,
+            "p95_ms": 8.623556001111865
+          }
+        },
+        "model_sha256": "bb0790074d2df1a4929c059b61424da72ddf4fc51cf9396a91a27c031934808d",
+        "all_moves_legal": true,
+        "search_samples": 0,
+        "search_scope": "all",
+        "geographic_search": false,
+        "cold_start_ms": 264.31873699766584,
+        "warm_roundtrip_p50_ms": 3.6043739964952692,
+        "warm_roundtrip_p95_ms": 7.201635697128946,
+        "worker_p95_ms": 4.354845943453256,
+        "max_roundtrip_ms": 264.31873699766584,
+        "search_decisions": 0,
+        "search_evaluations": 0,
+        "search_truncated_rollouts": 0,
+        "search_roundtrip_p50_ms": null,
+        "search_roundtrip_p95_ms": null,
+        "by_phase": {
+          "Auction": {
+            "positions": 840,
+            "p50_ms": 3.6147480059298687,
+            "p95_ms": 6.888431396509984,
+            "max_ms": 264.31873699766584
+          },
+          "Resources": {
+            "positions": 755,
+            "p50_ms": 3.53555400215555,
+            "p95_ms": 7.268065298558212,
+            "max_ms": 20.915397006319836
+          },
+          "Building": {
+            "positions": 491,
+            "p50_ms": 3.7708869931520894,
+            "p95_ms": 7.683720505156089,
+            "max_ms": 18.312444997718558
+          },
+          "Bureaucracy": {
+            "positions": 467,
+            "p50_ms": 3.508163004880771,
+            "p95_ms": 7.018588892242403,
+            "max_ms": 13.631890004035085
+          }
+        }
+      },
+      "parent_tensors_identical": true,
+      "model_sha256": "bb0790074d2df1a4929c059b61424da72ddf4fc51cf9396a91a27c031934808d",
+      "best_checkpoint_sha256": "0900b70f47230f52eb4fe59ddaff83e3600a467fac1c2560cbb66db187e867ba"
+    },
+    "10102": {
+      "training": {
+        "seed": 10102,
+        "best_epoch": 10,
+        "updates": 1200,
+        "seconds": 3.1234962369999266,
+        "train_roots": 2527,
+        "validation_roots": 834,
+        "gpu": "NVIDIA L4",
+        "max_allocated_bytes": 56979456,
+        "head_parameters": 376001,
+        "parent_tensors_identical": true,
+        "training_device": "cuda",
+        "tf32": false,
+        "qualification_eligible": false
+      },
+      "selected_epoch": 10,
+      "recomputed": {
+        "train": {
+          "roots": 2527,
+          "weighted_simulated_gain": 0.040697745978832245,
+          "weighted_simulated_regret": 0.044219762086868286,
+          "changed": 548,
+          "by_players": {
+            "2": {
+              "roots": 470,
+              "weighted_simulated_gain": 0.1598755419254303,
+              "weighted_simulated_regret": 0.08315689861774445,
+              "changed": 310
+            },
+            "3": {
+              "roots": 362,
+              "weighted_simulated_gain": 0.021222950890660286,
+              "weighted_simulated_regret": 0.05450858920812607,
+              "changed": 65
+            },
+            "4": {
+              "roots": 452,
+              "weighted_simulated_gain": 0.024191003292798996,
+              "weighted_simulated_regret": 0.03977707400918007,
+              "changed": 71
+            },
+            "5": {
+              "roots": 623,
+              "weighted_simulated_gain": -1.5253899618983269e-05,
+              "weighted_simulated_regret": 0.03139115869998932,
+              "changed": 67
+            },
+            "6": {
+              "roots": 620,
+              "weighted_simulated_gain": -0.001785510452464223,
+              "weighted_simulated_regret": 0.012265108525753021,
+              "changed": 35
+            }
+          },
+          "by_rules": {
+            "original/open": {
+              "roots": 742,
+              "weighted_simulated_gain": 0.038448795676231384,
+              "weighted_simulated_regret": 0.04412045329809189,
+              "changed": 163
+            },
+            "original/sealed": {
+              "roots": 701,
+              "weighted_simulated_gain": 0.04690206050872803,
+              "weighted_simulated_regret": 0.04680700600147247,
+              "changed": 168
+            },
+            "recharged/open": {
+              "roots": 576,
+              "weighted_simulated_gain": 0.027403637766838074,
+              "weighted_simulated_regret": 0.04335218667984009,
+              "changed": 105
+            },
+            "recharged/sealed": {
+              "roots": 508,
+              "weighted_simulated_gain": 0.05078385770320892,
+              "weighted_simulated_regret": 0.041641056537628174,
+              "changed": 112
+            }
+          },
+          "scope": "Conditional label returns, not whole-game win rates."
+        },
+        "validation": {
+          "roots": 834,
+          "weighted_simulated_gain": 0.05611920729279518,
+          "weighted_simulated_regret": 0.04127403348684311,
+          "changed": 199,
+          "by_players": {
+            "2": {
+              "roots": 161,
+              "weighted_simulated_gain": 0.22773367166519165,
+              "weighted_simulated_regret": 0.06151261553168297,
+              "changed": 111
+            },
+            "3": {
+              "roots": 96,
+              "weighted_simulated_gain": 0.02624937891960144,
+              "weighted_simulated_regret": 0.03986545652151108,
+              "changed": 17
+            },
+            "4": {
+              "roots": 158,
+              "weighted_simulated_gain": 0.025887927040457726,
+              "weighted_simulated_regret": 0.05507657676935196,
+              "changed": 35
+            },
+            "5": {
+              "roots": 234,
+              "weighted_simulated_gain": 0.0007250793278217316,
+              "weighted_simulated_regret": 0.025732921436429024,
+              "changed": 31
+            },
+            "6": {
+              "roots": 185,
+              "weighted_simulated_gain": 0.0,
+              "weighted_simulated_regret": 0.024182617664337158,
+              "changed": 5
+            }
+          },
+          "by_rules": {
+            "original/open": {
+              "roots": 240,
+              "weighted_simulated_gain": 0.0587359294295311,
+              "weighted_simulated_regret": 0.04820764437317848,
+              "changed": 56
+            },
+            "original/sealed": {
+              "roots": 240,
+              "weighted_simulated_gain": 0.04013023152947426,
+              "weighted_simulated_regret": 0.03725204989314079,
+              "changed": 50
+            },
+            "recharged/open": {
+              "roots": 195,
+              "weighted_simulated_gain": 0.05239222198724747,
+              "weighted_simulated_regret": 0.04790674149990082,
+              "changed": 44
+            },
+            "recharged/sealed": {
+              "roots": 159,
+              "weighted_simulated_gain": 0.08238193392753601,
+              "weighted_simulated_regret": 0.02851097844541073,
+              "changed": 49
+            }
+          },
+          "scope": "Conditional label returns, not whole-game win rates."
+        }
+      },
+      "parity": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "inactive_values_zero": true,
+        "feature_revision": "4.2-discard-correction",
+        "model_sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+        "max_logit_error": 4.746425474877469e-10,
+        "max_value_error": 1.0236589353951331e-11,
+        "all_actions_match": true,
+        "specialist_route_counts": {}
+      },
+      "scope": {
+        "positions": 2553,
+        "eligible": 9,
+        "changed_eligible": 4,
+        "unchanged_other_actions": 2544,
+        "outside_max_logit_error": 0.0,
+        "labels_strict_parity": 3361,
+        "label_max_logit_error": 1.3353584904507443e-10,
+        "model_sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+        "checkpoint_sha256": "25e9995c3998cc9f09e1dafb40f0328ae09e616f791c10e793eaad42cfa5e473",
+        "rtol": 0.0001,
+        "atol": 1e-05,
+        "qualification_eligible": false
+      },
+      "serving": {
+        "hostname": "Mint-FW-13",
+        "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "python_version": "3.11.15",
+        "positions": 2553,
+        "by_player_count": {
+          "2": {
+            "positions": 349,
+            "p95_ms": 4.504571604775262
+          },
+          "3": {
+            "positions": 427,
+            "p95_ms": 4.660038599104155
+          },
+          "4": {
+            "positions": 527,
+            "p95_ms": 6.040189902705605
+          },
+          "5": {
+            "positions": 609,
+            "p95_ms": 8.88822999841068
+          },
+          "6": {
+            "positions": 641,
+            "p95_ms": 9.221609987434931
+          }
+        },
+        "model_sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+        "all_moves_legal": true,
+        "search_samples": 0,
+        "search_scope": "all",
+        "geographic_search": false,
+        "cold_start_ms": 242.24371599848382,
+        "warm_roundtrip_p50_ms": 3.48329650296364,
+        "warm_roundtrip_p95_ms": 7.213925755786469,
+        "worker_p95_ms": 4.230967452167528,
+        "max_roundtrip_ms": 242.24371599848382,
+        "search_decisions": 0,
+        "search_evaluations": 0,
+        "search_truncated_rollouts": 0,
+        "search_roundtrip_p50_ms": null,
+        "search_roundtrip_p95_ms": null,
+        "by_phase": {
+          "Auction": {
+            "positions": 840,
+            "p50_ms": 3.42466049187351,
+            "p95_ms": 7.536251807323416,
+            "max_ms": 242.24371599848382
+          },
+          "Resources": {
+            "positions": 755,
+            "p50_ms": 3.437500010477379,
+            "p95_ms": 6.564208200143173,
+            "max_ms": 13.50539100531023
+          },
+          "Building": {
+            "positions": 491,
+            "p50_ms": 3.7728600000264123,
+            "p95_ms": 8.19732549280161,
+            "max_ms": 15.26384599856101
+          },
+          "Bureaucracy": {
+            "positions": 467,
+            "p50_ms": 3.4059109893860295,
+            "p95_ms": 6.672820706444326,
+            "max_ms": 13.283052991027944
+          }
+        }
+      },
+      "parent_tensors_identical": true,
+      "model_sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+      "best_checkpoint_sha256": "66a10b831a54843063bbca89743a542ed1f89515a16452a40483eef369c59bd8"
+    }
+  },
+  "qualification_eligible": false,
+  "scope": "Valid learned exports and conditional label fit only. Fresh complete-game comparisons and full strength gate still required."
+}

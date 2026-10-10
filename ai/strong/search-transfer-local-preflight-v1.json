@@ -1,0 +1,30 @@
+{
+  "source_revision": "1ef629c51282936c0bd2be9e7b584ce985e91d03",
+  "source_sha256": "e35e93d6d410ccb34bfb59a2840a7e4ed3b67e950a429968adcdf383ec53ef55",
+  "protocol_sha256": "5c0d303a3ea15c69c29c841f022a3c7a80379d97f1e14cf7901ce371df3b5d1c",
+  "routing": {
+    "positions": 2553,
+    "routes": 5106,
+    "strategicRoutes": 2192,
+    "discardRoutes": 116,
+    "eligibleDiscards": 9,
+    "byPlayers": {
+      "2": 349,
+      "3": 427,
+      "4": 527,
+      "5": 609,
+      "6": 641
+    },
+    "all_menu_indices_match": true,
+    "outside_search_proposals_preserved": true,
+    "scope": "Actual bridge routing with stubbed search/transitions; not a complete-game or strength test"
+  },
+  "baseline": {
+    "baseline_games": 1152,
+    "all_baseline_contracts_passed": true
+  },
+  "frozen_package_passed": true,
+  "full_game_search48_smoke_verified": false,
+  "scope": "Frozen-package routing and baseline admission only. Complete HF games and runtime still required.",
+  "qualification_eligible": false
+}

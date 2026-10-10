@@ -1,0 +1,66 @@
+{
+  "checked_at": "2026-10-10T15:56:25.534375+00:00",
+  "jobs": {
+    "10101-a260-3p": {
+      "job_id": "6aca5bbbfee2c900701896a4",
+      "status": "RUNNING",
+      "timeout_hours": 5
+    },
+    "10101-heuristic-2p": {
+      "job_id": "6aca5acefee2c90070189548",
+      "status": "COMPLETED",
+      "timeout_hours": 4
+    },
+    "10101-search_geo-2p": {
+      "job_id": "6aca5bb8095c578089313ec3",
+      "status": "COMPLETED",
+      "timeout_hours": 4
+    },
+    "10102-a260-3p": {
+      "job_id": "6aca5bbc095c578089313ecb",
+      "status": "RUNNING",
+      "timeout_hours": 5
+    },
+    "10102-heuristic-2p": {
+      "job_id": "6aca5acf095c578089313d8b",
+      "status": "COMPLETED",
+      "timeout_hours": 4
+    },
+    "10102-search_geo-2p": {
+      "job_id": "6aca5bb9095c578089313ec5",
+      "status": "COMPLETED",
+      "timeout_hours": 4
+    },
+    "parent-a260-3p": {
+      "job_id": "6aca5bba095c578089313ec7",
+      "status": "RUNNING",
+      "timeout_hours": 5
+    },
+    "parent-heuristic-2p": {
+      "job_id": "6aca5acdfee2c90070189545",
+      "status": "COMPLETED",
+      "timeout_hours": 4
+    },
+    "parent-search_geo-2p": {
+      "job_id": "6aca5bb6fee2c900701896a1",
+      "status": "COMPLETED",
+      "timeout_hours": 4
+    },
+    "smoke-10102-a260-3p": {
+      "job_id": "6aca5903fee2c900701893f2",
+      "status": "COMPLETED",
+      "timeout_hours": 4
+    },
+    "smoke-10102-heuristic-2p": {
+      "job_id": "6aca5901fee2c900701893ee",
+      "status": "COMPLETED",
+      "timeout_hours": 4
+    },
+    "smoke-10102-search_geo-2p": {
+      "job_id": "6aca5902fee2c900701893f0",
+      "status": "COMPLETED",
+      "timeout_hours": 4
+    }
+  },
+  "qualification_eligible": false
+}

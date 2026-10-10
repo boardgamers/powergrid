@@ -1,5 +1,5 @@
 {
-  "purpose": "Planned development-only test of existing public-belief search with current precise models, before considering further distillation. Not launched.",
+  "purpose": "Development-only fixed public-search48 transfer experiment with current precise models. No training or final qualification.",
   "repo": "coyotte508/powergrid-ai-germany-v1",
   "models": {
     "parent": {
@@ -129,8 +129,19 @@
   "bootstrap_seed": 9032,
   "planned_new_games": 1152,
   "base_source_file": "discard-opponents-source-v1.json",
-  "admission": "Before launch: freeze wrapper source and independently verify menu-index compatibility for schema4.2/model proposals, preserved outside-search discard behavior, legality/caps and measured HF search48 runtime. Do not change existing independent opponents. No gradients.",
+  "admission": "Before full launch: freeze wrapper source and independently verify menu-index compatibility for schema4.2/model proposals, preserved outside-search discard behavior, legality/caps and measured HF search48 runtime. Do not change existing independent opponents. No gradients.",
   "analysis": "Reuse the listed development deals intentionally for paired raw-versus-search contrasts. Report each model and every rule cell, including regressions. These targets were chosen after observing raw deficits; this is exploratory development, never final qualification. Do not train hard imitation labels simply from mixed-policy winners; prior continuation audits showed policy dependence.",
   "remaining_scope": "Current raw2-6p independent-opponent suite continues unchanged. Any eventual configuration must still pass the full unchanged multiplayer gate and an exact-config AMD8840U benchmark.",
-  "qualification_eligible": false
+  "qualification_eligible": false,
+  "smoke": {
+    "model": "10102",
+    "independent_deals": 1,
+    "seed_template": "search-transfer-smoke-v1-{case}",
+    "cases": [
+      "heuristic-2p",
+      "search_geo-2p",
+      "a260-3p"
+    ],
+    "purpose": "Separate-deal HF runtime and full-game legality/cap admission; not a strength comparison."
+  }
 }

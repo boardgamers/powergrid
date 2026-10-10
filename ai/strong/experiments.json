@@ -37982,79 +37982,74 @@
             "game_truncations": 0,
             "search_truncations": 0
         },
-        "stage": "All1344 full2p games independently verified. Both128-game endpoint probes independently verified;all12remaining3-6p shards launched,12096games,9hCPU-performance each.",
+        "stage": "All6048 complete2-4p games independently verified,caps0; remaining six5-6p shards running. Search remains weak at3p/4p;no qualification.",
         "qualification_eligible": false,
         "status": {
-            "checked_at": "2026-10-10T15:13:46.766149+00:00",
+            "checked_at": "2026-10-10T15:56:25.192585+00:00",
             "jobs": {
-                "10101-5p": {
-                    "job_id": "6aca55ecfee2c900701891ed",
-                    "status": "SCHEDULING",
-                    "timeout_hours": 9
+                "10101-2p": {
+                    "job_id": "6aca529ffee2c90070188f0f",
+                    "status": "COMPLETED",
+                    "timeout_hours": null
                 },
-                "parent-3p": {
-                    "job_id": "6aca55e6fee2c900701891e0",
-                    "status": "RUNNING",
+                "10101-3p": {
+                    "job_id": "6aca55eafee2c900701891e9",
+                    "status": "COMPLETED",
                     "timeout_hours": 9
                 },
                 "10101-4p": {
                     "job_id": "6aca55ebfee2c900701891eb",
-                    "status": "SCHEDULING",
+                    "status": "COMPLETED",
+                    "timeout_hours": 9
+                },
+                "10101-5p": {
+                    "job_id": "6aca55ecfee2c900701891ed",
+                    "status": "RUNNING",
                     "timeout_hours": 9
                 },
                 "10101-6p": {
                     "job_id": "6aca55edfee2c900701891ef",
-                    "status": "SCHEDULING",
-                    "timeout_hours": 9
-                },
-                "smoke-10102-2p": {
-                    "job_id": "6aca4fce095c57808931369e",
-                    "status": "COMPLETED",
-                    "timeout_hours": 4
-                },
-                "10101-3p": {
-                    "job_id": "6aca55eafee2c900701891e9",
-                    "status": "SCHEDULING",
-                    "timeout_hours": 9
-                },
-                "parent-4p": {
-                    "job_id": "6aca55e6095c578089313acc",
                     "status": "RUNNING",
+                    "timeout_hours": 9
+                },
+                "10102-2p": {
+                    "job_id": "6aca52a0095c57808931387c",
+                    "status": "COMPLETED",
+                    "timeout_hours": null
+                },
+                "10102-3p": {
+                    "job_id": "6aca55ed095c578089313ad4",
+                    "status": "COMPLETED",
+                    "timeout_hours": 9
+                },
+                "10102-4p": {
+                    "job_id": "6aca55ee095c578089313ad7",
+                    "status": "COMPLETED",
                     "timeout_hours": 9
                 },
                 "10102-5p": {
                     "job_id": "6aca55ef095c578089313ad9",
-                    "status": "SCHEDULING",
+                    "status": "RUNNING",
                     "timeout_hours": 9
                 },
-                "smoke-10102-6p": {
-                    "job_id": "6aca4fcf095c5780893136a4",
-                    "status": "COMPLETED",
-                    "timeout_hours": 4
-                },
-                "10102-3p": {
-                    "job_id": "6aca55ed095c578089313ad4",
-                    "status": "SCHEDULING",
+                "10102-6p": {
+                    "job_id": "6aca55ef095c578089313adb",
+                    "status": "RUNNING",
                     "timeout_hours": 9
                 },
                 "parent-2p": {
                     "job_id": "6aca529e095c578089313879",
                     "status": "COMPLETED",
-                    "timeout_hours": 4
+                    "timeout_hours": null
                 },
-                "10102-4p": {
-                    "job_id": "6aca55ee095c578089313ad7",
-                    "status": "SCHEDULING",
+                "parent-3p": {
+                    "job_id": "6aca55e6fee2c900701891e0",
+                    "status": "COMPLETED",
                     "timeout_hours": 9
                 },
-                "10101-2p": {
-                    "job_id": "6aca529ffee2c90070188f0f",
+                "parent-4p": {
+                    "job_id": "6aca55e6095c578089313acc",
                     "status": "COMPLETED",
-                    "timeout_hours": 4
-                },
-                "10102-6p": {
-                    "job_id": "6aca55ef095c578089313adb",
-                    "status": "SCHEDULING",
                     "timeout_hours": 9
                 },
                 "parent-5p": {
@@ -38067,10 +38062,15 @@
                     "status": "RUNNING",
                     "timeout_hours": 9
                 },
-                "10102-2p": {
-                    "job_id": "6aca52a0095c57808931387c",
+                "smoke-10102-2p": {
+                    "job_id": "6aca4fce095c57808931369e",
                     "status": "COMPLETED",
-                    "timeout_hours": 4
+                    "timeout_hours": null
+                },
+                "smoke-10102-6p": {
+                    "job_id": "6aca4fcf095c5780893136a4",
+                    "status": "COMPLETED",
+                    "timeout_hours": null
                 }
             },
             "qualification_eligible": false
@@ -38121,6 +38121,296 @@
             "planned_games": 1152,
             "qualification_eligible": false,
             "baseline_check_file": "ai/strong/search-transfer-plan-check-v1.json"
+        },
+        "completed_evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "3a61f660c843e93eec01ab147418a825d7b92cce",
+            "prefix": "runs/discard-opponents-2p4p-completed-evidence-v1",
+            "manifest_sha256": "58a0a953e858d6a48e6e589584294bde0ea576a9aa1a609d128937c0ee2988f9",
+            "games_verified": 6048,
+            "verified_players": [
+                2,
+                3,
+                4
+            ],
+            "all_counts_verified": false,
+            "qualification_eligible": false
+        },
+        "results_file": "ai/strong/discard-opponents-results-v1.json"
+    },
+    "search_transfer_v1": {
+        "protocol_file": "ai/strong/search-transfer-protocol-v1.json",
+        "source": {
+            "archive": "strong-source-search-transfer-20261010-v1.tgz",
+            "revision": "1ef629c51282936c0bd2be9e7b584ce985e91d03",
+            "sha256": "e35e93d6d410ccb34bfb59a2840a7e4ed3b67e950a429968adcdf383ec53ef55",
+            "overlays": {
+                "ai/strong/search_transfer.py": "4ed3cd491666c9e99e481d807979dbed95245183818740350cbe83ab95cdebf4",
+                "ai/strong/search-transfer-protocol-v1.json": "5c0d303a3ea15c69c29c841f022a3c7a80379d97f1e14cf7901ce371df3b5d1c",
+                "ai/strong/check-search-transfer.cjs": "e4c256d2214ec6a89fb5e88cc50fc04f3d2196e95928759a9157ced9c8f80d93",
+                "ai/strong/compare-population-screens.py": "b74bac5c403d5a96e79fddf43b4dcd9b715d5124e9c2681983ad519e2177d887"
+            },
+            "base": {
+                "archive": "strong-source-discard-opponents-20261010-v1.tgz",
+                "revision": "e44812ae307ae3e8a2b62306511d55b61d34720f",
+                "sha256": "b40efa0c88e8b8a148bf44f955a50b1aa20804cc7e9eb09bd0f4f15efe31a880"
+            },
+            "unchanged_base_file_count": 1372,
+            "protocol_sha256": "5c0d303a3ea15c69c29c841f022a3c7a80379d97f1e14cf7901ce371df3b5d1c",
+            "qualification_eligible": false
+        },
+        "preflight": {
+            "source_revision": "1ef629c51282936c0bd2be9e7b584ce985e91d03",
+            "source_sha256": "e35e93d6d410ccb34bfb59a2840a7e4ed3b67e950a429968adcdf383ec53ef55",
+            "protocol_sha256": "5c0d303a3ea15c69c29c841f022a3c7a80379d97f1e14cf7901ce371df3b5d1c",
+            "routing": {
+                "positions": 2553,
+                "routes": 5106,
+                "strategicRoutes": 2192,
+                "discardRoutes": 116,
+                "eligibleDiscards": 9,
+                "byPlayers": {
+                    "2": 349,
+                    "3": 427,
+                    "4": 527,
+                    "5": 609,
+                    "6": 641
+                },
+                "all_menu_indices_match": true,
+                "outside_search_proposals_preserved": true,
+                "scope": "Actual bridge routing with stubbed search/transitions; not a complete-game or strength test"
+            },
+            "baseline": {
+                "baseline_games": 1152,
+                "all_baseline_contracts_passed": true
+            },
+            "frozen_package_passed": true,
+            "full_game_search48_smoke_verified": false,
+            "scope": "Frozen-package routing and baseline admission only. Complete HF games and runtime still required.",
+            "qualification_eligible": false
+        },
+        "runtime": {
+            "source_revision": "1ef629c51282936c0bd2be9e7b584ce985e91d03",
+            "source_sha256": "e35e93d6d410ccb34bfb59a2840a7e4ed3b67e950a429968adcdf383ec53ef55",
+            "protocol_sha256": "5c0d303a3ea15c69c29c841f022a3c7a80379d97f1e14cf7901ce371df3b5d1c",
+            "profiles": {
+                "heuristic-2p": {
+                    "revision": "3a45d86ffc8804bd7a888e2d37cebd7b3554fc1f",
+                    "verified_sha256": "1c1952edcfeec13affbd14ce289c072cfe02b09cffcc41743a60900187ea868b",
+                    "games": 8,
+                    "seconds": 247.075610653,
+                    "search_stats": {
+                        "learner": {
+                            "decisions": 465,
+                            "evaluations": 112176,
+                            "truncated": 0
+                        }
+                    }
+                },
+                "search_geo-2p": {
+                    "revision": "b750b197a8418d5404681e1d185fadd4656db899",
+                    "verified_sha256": "8d39212f84862e3eb9d535d6615605672a7c3ad95522cfbba28dbf5b12951b2f",
+                    "games": 8,
+                    "seconds": 298.32678176499996,
+                    "search_stats": {
+                        "learner": {
+                            "decisions": 439,
+                            "evaluations": 105456,
+                            "truncated": 0
+                        },
+                        "search_geo": {
+                            "decisions": 434,
+                            "evaluations": 34608,
+                            "truncated": 0
+                        }
+                    }
+                },
+                "a260-3p": {
+                    "revision": "1f7922b2da12bbf8a3ec4854aeab0a21537defb4",
+                    "verified_sha256": "4c3f105dbe25fe016c6e11255f7fe33cbfcaec3176c6ff16107cc3d9a57d1510",
+                    "games": 12,
+                    "seconds": 369.531382022,
+                    "search_stats": {
+                        "learner": {
+                            "decisions": 493,
+                            "evaluations": 119088,
+                            "truncated": 0
+                        }
+                    }
+                }
+            },
+            "admission": {
+                "heuristic-2p": {
+                    "projected_shard_seconds": 8026.419540896,
+                    "timeout_hours": 4,
+                    "admitted": true,
+                    "basis": "Measured same-case search48 smoke; double linear runtime plus120s setup and25% timeout headroom. No game/search horizon change."
+                },
+                "search_geo-2p": {
+                    "projected_shard_seconds": 4893.228508239999,
+                    "timeout_hours": 4,
+                    "admitted": true,
+                    "basis": "Measured same-case search48 smoke; double linear runtime plus120s setup and25% timeout headroom. No game/search horizon change."
+                },
+                "a260-3p": {
+                    "projected_shard_seconds": 11945.004224704,
+                    "timeout_hours": 5,
+                    "admitted": true,
+                    "basis": "Measured same-case search48 smoke; double linear runtime plus120s setup and25% timeout headroom. No game/search horizon change."
+                }
+            },
+            "verified": true,
+            "all_cases_verified": true,
+            "games": 28,
+            "game_truncations": 0,
+            "search_truncations": 0,
+            "qualification_eligible": false
+        },
+        "status": {
+            "checked_at": "2026-10-10T15:56:25.534375+00:00",
+            "jobs": {
+                "10101-a260-3p": {
+                    "job_id": "6aca5bbbfee2c900701896a4",
+                    "status": "RUNNING",
+                    "timeout_hours": 5
+                },
+                "10101-heuristic-2p": {
+                    "job_id": "6aca5acefee2c90070189548",
+                    "status": "COMPLETED",
+                    "timeout_hours": 4
+                },
+                "10101-search_geo-2p": {
+                    "job_id": "6aca5bb8095c578089313ec3",
+                    "status": "COMPLETED",
+                    "timeout_hours": 4
+                },
+                "10102-a260-3p": {
+                    "job_id": "6aca5bbc095c578089313ecb",
+                    "status": "RUNNING",
+                    "timeout_hours": 5
+                },
+                "10102-heuristic-2p": {
+                    "job_id": "6aca5acf095c578089313d8b",
+                    "status": "COMPLETED",
+                    "timeout_hours": 4
+                },
+                "10102-search_geo-2p": {
+                    "job_id": "6aca5bb9095c578089313ec5",
+                    "status": "COMPLETED",
+                    "timeout_hours": 4
+                },
+                "parent-a260-3p": {
+                    "job_id": "6aca5bba095c578089313ec7",
+                    "status": "RUNNING",
+                    "timeout_hours": 5
+                },
+                "parent-heuristic-2p": {
+                    "job_id": "6aca5acdfee2c90070189545",
+                    "status": "COMPLETED",
+                    "timeout_hours": 4
+                },
+                "parent-search_geo-2p": {
+                    "job_id": "6aca5bb6fee2c900701896a1",
+                    "status": "COMPLETED",
+                    "timeout_hours": 4
+                },
+                "smoke-10102-a260-3p": {
+                    "job_id": "6aca5903fee2c900701893f2",
+                    "status": "COMPLETED",
+                    "timeout_hours": 4
+                },
+                "smoke-10102-heuristic-2p": {
+                    "job_id": "6aca5901fee2c900701893ee",
+                    "status": "COMPLETED",
+                    "timeout_hours": 4
+                },
+                "smoke-10102-search_geo-2p": {
+                    "job_id": "6aca5902fee2c900701893f0",
+                    "status": "COMPLETED",
+                    "timeout_hours": 4
+                }
+            },
+            "qualification_eligible": false
+        },
+        "evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "fc0b2db80dc0fb1ef758e259c2efbc33bfaa8ce3",
+            "prefix": "runs/search-transfer-runtime-completed-evidence-v1",
+            "manifest_sha256": "8127be6977dfd0e3284e793ac4ad12abe9604c45f867561661627747b719eaef",
+            "games_verified": 28,
+            "search_rollouts": 371328,
+            "full_jobs_launched": 9,
+            "new_games_dispatched": 1152,
+            "qualification_eligible": false
+        },
+        "plan": {
+            "protocol_sha256": "5c0d303a3ea15c69c29c841f022a3c7a80379d97f1e14cf7901ce371df3b5d1c",
+            "existing_baseline_games_verified": 1152,
+            "baseline_files": 9,
+            "raw_baseline_contracts_passed": true,
+            "search_compatibility_tested": true,
+            "search_runtime_profiled": true,
+            "source_frozen": true,
+            "launched": true,
+            "qualification_eligible": false,
+            "smoke_launched": true,
+            "source_revision": "1ef629c51282936c0bd2be9e7b584ce985e91d03",
+            "source_sha256": "e35e93d6d410ccb34bfb59a2840a7e4ed3b67e950a429968adcdf383ec53ef55",
+            "scope": "1,152 existing baselines and5,106 stubbed bridge-routing checks verified;28 real HF probe games verified with371,328 rollouts and0 caps. Allnine full jobs launched; strength results pending.",
+            "smoke_verified": true,
+            "smoke_games": 28,
+            "full_jobs": 9,
+            "planned_new_games": 1152
+        },
+        "stage": "Allsix2p fulljobs completed;576guidedgames pluspairedrawbaselines independently verified,caps0. Bothcorrections92.96875%heuristic and65.625%search_geo; allsearchrule-cellCIs includechance. ThreeA260jobs stillrunning. No qualification.",
+        "qualification_eligible": false,
+        "hardware_probe": {
+            "report_file": "ai/strong/search-transfer-8840u-probe-v1.json",
+            "evidence": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "3ffca6810bfddd1be50f1c2a7acf7b9416eac478",
+                "prefix": "runs/search-transfer-8840u-completed-evidence-v1",
+                "manifest_sha256": "0d23c32756f51a4b230e2751412e3ddfd6804f6ac1d56b1f4167429fe337ad39",
+                "requests_verified": 8013,
+                "search_decisions": 180,
+                "search_rollouts": 43200,
+                "search_truncations": 0,
+                "discard_actions_preserved": 174,
+                "qualification_eligible": false
+            },
+            "stage": "All8013 actual8840U requests independently verified;180search decisions,43200rollouts,caps0,174discard actions preserved. Fixed sequential engineering diagnostic,not strength.",
+            "qualification_eligible": false
+        },
+        "partial_game_evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "7512fc2d33fb1d7653be0e8a3717d9fe0e594a20",
+            "prefix": "runs/search-transfer-2p-partial-evidence-v1",
+            "manifest_sha256": "2f4f7f1017507422e4cb436fd8b765b608d90021e09868a82c7eac8b4b5ddbd9",
+            "new_games_verified": 512,
+            "complete_case_comparison_games": 384,
+            "complete_cases": [
+                "heuristic-2p"
+            ],
+            "partial_case": "search_geo-2p: parent and10101 only;10102 running",
+            "all_cases_verified": false,
+            "qualification_eligible": false
+        },
+        "results_file": "ai/strong/search-transfer-results-v1.json",
+        "completed_game_evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "ebf6cdce5d571f1067082985a819d053ea16d753",
+            "prefix": "runs/search-transfer-2p-completed-evidence-v1",
+            "manifest_sha256": "171d21d96aa7e985a6cb8312dabd010a3c64234f0bd8f5c3b11722fce0f3c53f",
+            "new_games_verified": 576,
+            "paired_baseline_games": 576,
+            "complete_cases": [
+                "heuristic-2p",
+                "search_geo-2p"
+            ],
+            "all_cases_verified": false,
+            "game_truncations": 0,
+            "search_truncations": 0,
+            "qualification_eligible": false
         }
     }
 }

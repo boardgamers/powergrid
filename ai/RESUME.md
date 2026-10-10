@@ -6,7 +6,173 @@ final-test seeds remain unused.** The separate UI redesign was reverted.
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
 `ai/germany-baseline`. No UI work or publication is part of this AI continuation.
 
-## Latest: learned discard gains transfer to independent 2p opponents
+## Latest: raw 2–4p evaluated; search transfer running; actual-device probe verified
+
+The preceding AI goal turn was **progress**: independently verified three-player
+results, completed search-routing/package checks and all three HF runtime probes,
+and launched all nine full search-transfer jobs. The intervening UI revert is
+complete. This continuation is **progress**: independently verified all 6,048 raw 2–4p games,
+576 new search-guided 2p games and 8,013 requests on the actual 8840U, confirmed
+every live HF handle, and saved immutable raw evidence. No new
+training gradients, final seeds, model promotion or deployment.
+
+**All 2p, 3p and 4p independent-opponent results are verified**, 6,048 games total;
+zero actual-game/search truncations. The remaining six 5–6p jobs were confirmed
+RUNNING at the timestamp in `strong/discard-opponents-status-v1.json`.
+Do not relaunch. All 15 full jobs were already dispatched (13,440 games).
+
+| Opponent (3p) | Parent | Seed 10101 | Seed 10102 |
+| --- | ---: | ---: | ---: |
+| legacy | 91.15% | 92.71% | 92.71% |
+| heuristic | 85.42% | 85.42% | 85.42% |
+| rush | 57.81% | 60.68% | 60.68% |
+| search_geo | 16.67% | 20.83% | 20.83% |
+
+Against search_geo, corrections have whole-deal 95% interval [15.625,27.0833]%:
+below 1/3 chance and the40% point floor. Only eight independent deals
+(96 games/model), so this is exploratory development evidence. Paired gain is
++4.1667 points, interval [0,8.3333]. Both seeds have identical outcome credits
+on 2p and3p; their trajectories are not identical. Corrections' 3p rule-cell
+shares are20.8333/25/29.1667/8.3333% (original open/sealed, Recharged open/sealed).
+The Recharged sealed weakness remains especially large. Raw3p revisions:
+parent `84c1d964400507eb4796fc7f2584b87c5b173370`;
+both seeds `96a899ef266439f72f50f2dbcfe8d5060985a543`.
+Combined 2p–4p immutable evidence:
+`3a61f660c843e93eec01ab147418a825d7b92cce`, prefix
+`runs/discard-opponents-2p4p-completed-evidence-v1` in the model repo.
+
+| Opponent (4p) | Parent | Seed 10101 | Seed 10102 |
+| --- | ---: | ---: | ---: |
+| legacy | 90.23% | 89.84% | 90.63% |
+| heuristic | 92.19% | 92.58% | 92.58% |
+| rush | 63.28% | 64.84% | 64.84% |
+| search_geo | 22.66% | 24.22% | 24.22% |
+
+Four-player search performance remains below the 32.5% point floor and the
+25% chance point. Both confidence intervals include chance; the paired gain
+is +1.5625 points, with seed10101 interval [-1.5625,+4.6875]. The training
+seeds differ in some individual outcomes/rule cells despite the equal aggregate.
+Raw4p revisions: parent `a531d4e90204005fa4e9555df599aaab8ecb933b`;
+both corrections `a974ede722560313372a5b3a02329784cbf11d1f`.
+All three four-player jobs are COMPLETED and independently verified, each
+896 games including128 against search_geo. Do not repeat them.
+
+**Search-transfer experiment now implemented, frozen and running.**
+`strong/search-transfer-protocol-v1.json` fixes public search48, six proposal
+candidates, geographic proposals plus the model proposal, all existing strategic
+phases, with the learned discard/resource/powering actions retained outside
+search. All three models remain separate. Cases:2p heuristic (16deals),2p
+search_geo (8deals),3p A260 (16deals), all seats/four rules:1,152 new games paired
+with1,152 verified existing raw-policy games. These development deals were
+intentionally reused and the target cases selected after raw weaknesses appeared;
+this does not replace an independent held-out strength test. The newly observed
+3p search_geo deficit is not in this already-frozen transfer protocol.
+
+Frozen source archive `strong-source-search-transfer-20261010-v1.tgz`, dataset
+revision `1ef629c51282936c0bd2be9e7b584ce985e91d03`, SHA256
+`e35e93d6d410ccb34bfb59a2840a7e4ed3b67e950a429968adcdf383ec53ef55`.
+All1,372 base files unchanged; four overlays. A preflight missing-helper error
+was fixed before upload/launch and preserved in the packaging-repair report.
+Protocol SHA256
+`5c0d303a3ea15c69c29c841f022a3c7a80379d97f1e14cf7901ce371df3b5d1c`.
+5,106 actual bridge-routing checks over2,553 positions passed with stubbed
+search/transitions; this is compatibility evidence only. All1,152 baseline
+contracts pass. Collector negative checks reject wrong models, seeds, opponents,
+search configurations, incomplete games and caps.
+
+All three real HF search probes are COMPLETED and independently verified:
+28 complete games,371,328 rollouts,zero game/search caps. Timings:
+heuristic2p247.08s/8games; search_geo2p298.33s/8games;
+A2603p369.53s/12games. Full jobs use CPU-performance:4h for2p,5h forA260,
+admitted from twice the measured linear runtime plus120s and25% timeout headroom.
+No game/search horizons were reduced. Search runtime/preflight/launch evidence:
+`fc0b2db80dc0fb1ef758e259c2efbc33bfaa8ce3`, prefix
+`runs/search-transfer-runtime-completed-evidence-v1`. Local verified probes:
+`ai/runs/search-transfer-smoke-verified-v1/{heuristic-2p,search_geo-2p,a260-3p}`.
+
+All nine full search jobs were launched once. Six are now COMPLETED and
+independently verified (576 new games); all three A260 jobs were still RUNNING
+at the saved status timestamp:
+
+| Model | heuristic2p | search_geo2p | A2603p |
+| --- | --- | --- | --- |
+| parent | `6aca5acdfee2c90070189545` | `6aca5bb6fee2c900701896a1` | `6aca5bba095c578089313ec7` |
+| 10101 | `6aca5acefee2c90070189548` | `6aca5bb8095c578089313ec3` | `6aca5bbbfee2c900701896a4` |
+| 10102 | `6aca5acf095c578089313d8b` | `6aca5bb9095c578089313ec5` | `6aca5bbc095c578089313ecb` |
+
+**First complete-game search-transfer results are verified.**
+All three heuristic2p arms are complete (384 new games). Parent improves from
+63.28125% raw to89.0625% search; each correction improves from71.09375% to
+92.96875%. Corrections' paired search gain is +21.875 points, whole-deal95%
+interval [+13.2617,+32.03125], on16 independent deals. Rule-cell shares for
+both corrections:90.625/87.5/100/93.75% (original open/sealed, Recharged
+open/sealed). The100% cell is only32 games, not a perfect-performance claim.
+
+All three search_geo2p arms are also complete (192 new games): parent62.5%,
+both corrected models65.625%, versus their raw23.4375% and50%. Each correction's
+search-minus-raw gain is +15.625 points, paired interval [+1.5625,+31.25].
+Their aggregate win-share interval is [54.6875,75]%, but all four rule-cell
+intervals include50% (one at the boundary). Rule-cell shares are62.5/68.75/
+62.5/68.75%. Eight development deals do not establish final qualification.
+Both seeds have identical win credits on this two-player transfer subset; this
+does not establish equal behavior or strength in other populations.
+
+The added learned discard correction still helps when search is enabled:
+versus parent+search, each correction gains3.90625 points against heuristic,
+paired interval [+0.78125,+7.8125]; against search_geo the gain is3.125 points,
+interval [0,+7.8125]. Retain the parent control and both seeds.
+All576 independently collected guided games have zero game/search caps.
+The combined comparison verifies both 2p cases, explicitly partial relative
+to the three-case protocol because A260 remains running. Raw revision for the
+first five arms: `0fa5c86d2550499c1ad2100b1b6d4ae6be7f1fc1`; sixth arm
+10102/search_geo: `7512fc2d33fb1d7653be0e8a3717d9fe0e594a20`.
+Durable complete 2p evidence: `ebf6cdce5d571f1067082985a819d053ea16d753`, prefix
+`runs/search-transfer-2p-completed-evidence-v1`. The earlier five-arm snapshot
+remains immutable at its earlier revision.
+
+Collect completed results at immutable revisions:
+`collect-search-transfer.py KEY CASE REV ai/runs/search-transfer-verified-v1/KEY-CASE`.
+Compare all three models in each completed case with
+`compare-search-transfer.py DIRECTORY OUTPUT [--cases CASE ...]`. It rechecks
+raw contracts, caps, hashes and paired whole-deal/rule contrasts. A partial
+case collection must not be called the full1,152-game result.
+
+**8840U diagnostic completed and independently verified.**
+Research directory `/home/coyotte508/powergrid-ai-search-transfer-probe-v1`
+on `ssh minipc`; source/models use the immutable search-transfer pins.
+All 8,013 requests are legal, model/schema/order match, 174 discard responses
+are preserved under the search configuration, and all 43,200 rollouts finish
+without truncation. Each model served all 2,553 saved public positions raw,
+then 118 search-configured requests: one median-round root in each of the
+60 player-count/rule/strategic-action strata, plus all 58 discard roots.
+
+| Model | Raw median / p95 | Strategic search median / p95 | Search maximum |
+| --- | ---: | ---: | ---: |
+| parent | 2.54 / 5.03 ms | 1.083 / 2.027 s | 2.291 s |
+| 10101 | 3.13 / 5.47 ms | 1.098 / 2.017 s | 2.321 s |
+| 10102 | 3.09 / 5.40 ms | 1.113 / 2.064 s | 2.346 s |
+
+Raw timings exclude each worker's cold first request. Search timings count the
+60 actual search decisions/model, excluding the cheap discard passthroughs.
+Fixed sequential diagnostics are not significance tests, worst-case guarantees,
+or evidence of game strength. No training or production routing. Full per-request
+responses, timings and immutable fixtures were independently rechecked by
+`strong/collect-search-transfer-8840u.py`. Device report:
+`strong/search-transfer-8840u-probe-v1.json`. Durable evidence revision
+`3ffca6810bfddd1be50f1c2a7acf7b9416eac478`, prefix
+`runs/search-transfer-8840u-completed-evidence-v1`. This establishes plausible
+bot-job latency for the current configurations, not qualification of a model.
+
+**Next:** collect the remaining raw5–6p/search cases, then extend guided
+evaluation to3–6p against the independent search reference. Current search
+transfer covers only2p and3p A260; it cannot establish4–6p strength. Use the
+full-game search-versus-raw changes to select the next training recipe.
+Search wins do not automatically supply reliable hard labels: earlier teacher
+continuations were policy-dependent. The complete Germany2–6p strength gate,
+reserved held-out tests and benchmark of the eventual exact qualified policy
+remain required. Other maps and score calibration are not demonstrated.
+
+## Earlier: learned discard gains transfer to independent 2p opponents
 
 The preceding goal turn was **progress**: verified the runtime probe and launched
 three complete 2p opponent evaluations. This turn is **progress**: all 1,344 games

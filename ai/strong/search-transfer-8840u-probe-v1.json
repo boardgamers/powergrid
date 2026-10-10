@@ -1,0 +1,671 @@
+{
+  "machine": {
+    "hostname": "coyotte508-4X4-BOX-8840U",
+    "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+    "python": "3.12.3 (main, Mar  3 2026, 12:15:18) [GCC 13.3.0]",
+    "numpy": "2.5.3",
+    "onnxruntime": "1.30.0",
+    "node": "v24.19.0",
+    "load_before": [
+      0.1376953125,
+      0.16064453125,
+      0.1142578125
+    ]
+  },
+  "models": {
+    "parent": {
+      "raw": {
+        "positions": 2553,
+        "cold_start_ms": 169.0214149421081,
+        "warm": {
+          "positions": 2552,
+          "p50_ms": 2.5362715241499245,
+          "p95_ms": 5.025986395776272,
+          "max_ms": 9.876386960968375
+        },
+        "groups": {
+          "players": {
+            "2": {
+              "positions": 349,
+              "p50_ms": 2.1867479663342237,
+              "p95_ms": 3.6745398072525854,
+              "max_ms": 169.0214149421081
+            },
+            "3": {
+              "positions": 427,
+              "p50_ms": 2.3029509466141462,
+              "p95_ms": 4.344202543143183,
+              "max_ms": 6.8794069811701775
+            },
+            "4": {
+              "positions": 527,
+              "p50_ms": 2.4824979482218623,
+              "p95_ms": 4.578284814488143,
+              "max_ms": 7.0044080493971705
+            },
+            "5": {
+              "positions": 609,
+              "p50_ms": 2.8719479450955987,
+              "p95_ms": 5.084420996718109,
+              "max_ms": 9.01756004896015
+            },
+            "6": {
+              "positions": 641,
+              "p50_ms": 2.8878089506179094,
+              "p95_ms": 5.7351000141352415,
+              "max_ms": 9.876386960968375
+            }
+          },
+          "phase": {
+            "Auction": {
+              "positions": 840,
+              "p50_ms": 2.5263825082220137,
+              "p95_ms": 4.950522270519286,
+              "max_ms": 169.0214149421081
+            },
+            "Resources": {
+              "positions": 755,
+              "p50_ms": 2.4940200382843614,
+              "p95_ms": 4.746725899167358,
+              "max_ms": 9.01756004896015
+            },
+            "Building": {
+              "positions": 491,
+              "p50_ms": 2.6883049868047237,
+              "p95_ms": 5.514154036063701,
+              "max_ms": 8.083448046818376
+            },
+            "Bureaucracy": {
+              "positions": 467,
+              "p50_ms": 2.4701030924916267,
+              "p95_ms": 5.042137508280575,
+              "max_ms": 9.372083935886621
+            }
+          },
+          "rule": {
+            "original/sealed": {
+              "positions": 555,
+              "p50_ms": 2.4013009387999773,
+              "p95_ms": 4.508555296342817,
+              "max_ms": 169.0214149421081
+            },
+            "recharged/sealed": {
+              "positions": 589,
+              "p50_ms": 2.494360087439418,
+              "p95_ms": 4.672961751930416,
+              "max_ms": 8.208950981497765
+            },
+            "original/open": {
+              "positions": 703,
+              "p50_ms": 2.706098952330649,
+              "p95_ms": 5.047719145659357,
+              "max_ms": 9.372083935886621
+            },
+            "recharged/open": {
+              "positions": 706,
+              "p50_ms": 2.5540005299262702,
+              "p95_ms": 5.560683028306812,
+              "max_ms": 9.876386960968375
+            }
+          }
+        },
+        "search_decisions": 0,
+        "search_timing": null,
+        "search_evaluations": 0,
+        "search_truncations": 0,
+        "all_moves_legal": true
+      },
+      "search48": {
+        "positions": 118,
+        "cold_start_ms": 1061.4114180207253,
+        "warm": {
+          "positions": 117,
+          "p50_ms": 602.9113000258803,
+          "p95_ms": 1736.3800637889635,
+          "max_ms": 2290.692626964301
+        },
+        "groups": {
+          "players": {
+            "2": {
+              "positions": 20,
+              "p50_ms": 733.7992204702459,
+              "p95_ms": 1138.3965107030238,
+              "max_ms": 1311.011295998469
+            },
+            "3": {
+              "positions": 29,
+              "p50_ms": 5.82983298227191,
+              "p95_ms": 897.704391577281,
+              "max_ms": 1062.7235679421574
+            },
+            "4": {
+              "positions": 22,
+              "p50_ms": 748.7005309667438,
+              "p95_ms": 1413.674703927245,
+              "max_ms": 1495.7440659636632
+            },
+            "5": {
+              "positions": 25,
+              "p50_ms": 8.025688002817333,
+              "p95_ms": 1990.6184717547144,
+              "max_ms": 2147.237612050958
+            },
+            "6": {
+              "positions": 22,
+              "p50_ms": 877.0900284289382,
+              "p95_ms": 2100.0826488016173,
+              "max_ms": 2290.692626964301
+            }
+          },
+          "phase": {
+            "Auction": {
+              "positions": 98,
+              "p50_ms": 6.967101013287902,
+              "p95_ms": 1875.861647987039,
+              "max_ms": 2290.692626964301
+            },
+            "Building": {
+              "positions": 20,
+              "p50_ms": 877.0900284289382,
+              "p95_ms": 1542.6130415697116,
+              "max_ms": 1614.330471958965
+            }
+          },
+          "rule": {
+            "original/sealed": {
+              "positions": 34,
+              "p50_ms": 7.4618650251068175,
+              "p95_ms": 1571.7115847859523,
+              "max_ms": 1946.7831599758938
+            },
+            "recharged/sealed": {
+              "positions": 25,
+              "p50_ms": 743.7788710230961,
+              "p95_ms": 1940.8153487369407,
+              "max_ms": 2108.1510429503396
+            },
+            "original/open": {
+              "positions": 30,
+              "p50_ms": 348.64507347811013,
+              "p95_ms": 1530.5490872066002,
+              "max_ms": 1672.701299074106
+            },
+            "recharged/open": {
+              "positions": 29,
+              "p50_ms": 740.6137170037255,
+              "p95_ms": 1970.1979904202735,
+              "max_ms": 2290.692626964301
+            }
+          }
+        },
+        "search_decisions": 60,
+        "search_timing": {
+          "positions": 60,
+          "p50_ms": 1083.2831239677034,
+          "p95_ms": 2026.722291682381,
+          "max_ms": 2290.692626964301
+        },
+        "search_evaluations": 14400,
+        "search_truncations": 0,
+        "all_moves_legal": true
+      }
+    },
+    "10101": {
+      "raw": {
+        "positions": 2553,
+        "cold_start_ms": 168.0500799557194,
+        "warm": {
+          "positions": 2552,
+          "p50_ms": 3.1334125087596476,
+          "p95_ms": 5.472324701258912,
+          "max_ms": 10.183378006331623
+        },
+        "groups": {
+          "players": {
+            "2": {
+              "positions": 349,
+              "p50_ms": 2.9287280049175024,
+              "p95_ms": 4.668026394210755,
+              "max_ms": 168.0500799557194
+            },
+            "3": {
+              "positions": 427,
+              "p50_ms": 2.852329984307289,
+              "p95_ms": 4.629773215856403,
+              "max_ms": 7.482239976525307
+            },
+            "4": {
+              "positions": 527,
+              "p50_ms": 3.0586490174755454,
+              "p95_ms": 5.204153701197356,
+              "max_ms": 7.9556930577382445
+            },
+            "5": {
+              "positions": 609,
+              "p50_ms": 3.489529946818948,
+              "p95_ms": 5.8187972055748105,
+              "max_ms": 10.183378006331623
+            },
+            "6": {
+              "positions": 641,
+              "p50_ms": 3.397841937839985,
+              "p95_ms": 6.029627984389663,
+              "max_ms": 10.060881962999701
+            }
+          },
+          "phase": {
+            "Auction": {
+              "positions": 840,
+              "p50_ms": 3.1576294568367302,
+              "p95_ms": 5.355948361102492,
+              "max_ms": 168.0500799557194
+            },
+            "Resources": {
+              "positions": 755,
+              "p50_ms": 3.0575160635635257,
+              "p95_ms": 5.294851958751677,
+              "max_ms": 10.183378006331623
+            },
+            "Building": {
+              "positions": 491,
+              "p50_ms": 3.4017099533230066,
+              "p95_ms": 5.946547957137227,
+              "max_ms": 10.060881962999701
+            },
+            "Bureaucracy": {
+              "positions": 467,
+              "p50_ms": 3.0404829885810614,
+              "p95_ms": 5.000297829974443,
+              "max_ms": 8.93634301610291
+            }
+          },
+          "rule": {
+            "original/sealed": {
+              "positions": 555,
+              "p50_ms": 3.0871740309521556,
+              "p95_ms": 4.749474150594318,
+              "max_ms": 168.0500799557194
+            },
+            "recharged/sealed": {
+              "positions": 589,
+              "p50_ms": 3.03460203576833,
+              "p95_ms": 5.056333029642701,
+              "max_ms": 10.010414058342576
+            },
+            "original/open": {
+              "positions": 703,
+              "p50_ms": 3.2184660667553544,
+              "p95_ms": 5.231326771900058,
+              "max_ms": 10.183378006331623
+            },
+            "recharged/open": {
+              "positions": 706,
+              "p50_ms": 3.255443007219583,
+              "p95_ms": 6.044747191481292,
+              "max_ms": 9.53052006661892
+            }
+          }
+        },
+        "search_decisions": 0,
+        "search_timing": null,
+        "search_evaluations": 0,
+        "search_truncations": 0,
+        "all_moves_legal": true
+      },
+      "search48": {
+        "positions": 118,
+        "cold_start_ms": 1088.449863018468,
+        "warm": {
+          "positions": 117,
+          "p50_ms": 607.6370290247723,
+          "p95_ms": 1741.9373119715583,
+          "max_ms": 2320.5458249431103
+        },
+        "groups": {
+          "players": {
+            "2": {
+              "positions": 20,
+              "p50_ms": 725.5290115135722,
+              "p95_ms": 1144.966529979138,
+              "max_ms": 1317.6638759905472
+            },
+            "3": {
+              "positions": 29,
+              "p50_ms": 6.557445973157883,
+              "p95_ms": 908.9004389941691,
+              "max_ms": 1055.9659979771823
+            },
+            "4": {
+              "positions": 22,
+              "p50_ms": 754.5005864812993,
+              "p95_ms": 1436.7076498281676,
+              "max_ms": 1514.4215349573642
+            },
+            "5": {
+              "positions": 25,
+              "p50_ms": 8.614393067546189,
+              "p95_ms": 1984.2314119916405,
+              "max_ms": 2146.594407968223
+            },
+            "6": {
+              "positions": 22,
+              "p50_ms": 871.8743555364199,
+              "p95_ms": 2117.6083268772345,
+              "max_ms": 2320.5458249431103
+            }
+          },
+          "phase": {
+            "Auction": {
+              "positions": 98,
+              "p50_ms": 7.979197485838085,
+              "p95_ms": 1886.6767755185713,
+              "max_ms": 2320.5458249431103
+            },
+            "Building": {
+              "positions": 20,
+              "p50_ms": 871.8743555364199,
+              "p95_ms": 1534.7415524127427,
+              "max_ms": 1640.9057319397107
+            }
+          },
+          "rule": {
+            "original/sealed": {
+              "positions": 34,
+              "p50_ms": 8.272017526905984,
+              "p95_ms": 1591.9997049029907,
+              "max_ms": 1953.4507560310885
+            },
+            "recharged/sealed": {
+              "positions": 25,
+              "p50_ms": 736.8928859941661,
+              "p95_ms": 1937.4339319998387,
+              "max_ms": 2126.2481990270317
+            },
+            "original/open": {
+              "positions": 30,
+              "p50_ms": 350.3178524551913,
+              "p95_ms": 1522.5243709399365,
+              "max_ms": 1652.1543039707467
+            },
+            "recharged/open": {
+              "positions": 29,
+              "p50_ms": 733.8263619458303,
+              "p95_ms": 1971.4359875768414,
+              "max_ms": 2320.5458249431103
+            }
+          }
+        },
+        "search_decisions": 60,
+        "search_timing": {
+          "positions": 60,
+          "p50_ms": 1097.7520900196396,
+          "p95_ms": 2017.3000928654799,
+          "max_ms": 2320.5458249431103
+        },
+        "search_evaluations": 14400,
+        "search_truncations": 0,
+        "all_moves_legal": true
+      }
+    },
+    "10102": {
+      "raw": {
+        "positions": 2553,
+        "cold_start_ms": 175.0688039464876,
+        "warm": {
+          "positions": 2552,
+          "p50_ms": 3.0876194941811264,
+          "p95_ms": 5.402468348620459,
+          "max_ms": 11.979992967098951
+        },
+        "groups": {
+          "players": {
+            "2": {
+              "positions": 349,
+              "p50_ms": 2.9095610370859504,
+              "p95_ms": 4.751953971572218,
+              "max_ms": 175.0688039464876
+            },
+            "3": {
+              "positions": 427,
+              "p50_ms": 2.974426024593413,
+              "p95_ms": 4.5289246598258615,
+              "max_ms": 7.473511970601976
+            },
+            "4": {
+              "positions": 527,
+              "p50_ms": 2.9902569949626923,
+              "p95_ms": 5.130352277774363,
+              "max_ms": 8.220051997341216
+            },
+            "5": {
+              "positions": 609,
+              "p50_ms": 3.3443690044805408,
+              "p95_ms": 5.706704990006983,
+              "max_ms": 10.357875027693808
+            },
+            "6": {
+              "positions": 641,
+              "p50_ms": 3.33190499804914,
+              "p95_ms": 6.2334309332072735,
+              "max_ms": 11.979992967098951
+            }
+          },
+          "phase": {
+            "Auction": {
+              "positions": 840,
+              "p50_ms": 3.099702997133136,
+              "p95_ms": 5.19155848887749,
+              "max_ms": 175.0688039464876
+            },
+            "Resources": {
+              "positions": 755,
+              "p50_ms": 3.0286910478025675,
+              "p95_ms": 5.247637571301311,
+              "max_ms": 10.357875027693808
+            },
+            "Building": {
+              "positions": 491,
+              "p50_ms": 3.2652170630171895,
+              "p95_ms": 6.18221698096022,
+              "max_ms": 11.979992967098951
+            },
+            "Bureaucracy": {
+              "positions": 467,
+              "p50_ms": 3.005334991030395,
+              "p95_ms": 5.296348291449247,
+              "max_ms": 9.168621036224067
+            }
+          },
+          "rule": {
+            "original/sealed": {
+              "positions": 555,
+              "p50_ms": 3.027247963473201,
+              "p95_ms": 4.908739635720848,
+              "max_ms": 175.0688039464876
+            },
+            "recharged/sealed": {
+              "positions": 589,
+              "p50_ms": 3.1037050066515803,
+              "p95_ms": 5.1423608092591175,
+              "max_ms": 10.792102082632482
+            },
+            "original/open": {
+              "positions": 703,
+              "p50_ms": 3.090079058893025,
+              "p95_ms": 5.231236282270401,
+              "max_ms": 11.979992967098951
+            },
+            "recharged/open": {
+              "positions": 706,
+              "p50_ms": 3.1585009419359267,
+              "p95_ms": 6.025091948686168,
+              "max_ms": 9.168621036224067
+            }
+          }
+        },
+        "search_decisions": 0,
+        "search_timing": null,
+        "search_evaluations": 0,
+        "search_truncations": 0,
+        "all_moves_legal": true
+      },
+      "search48": {
+        "positions": 118,
+        "cold_start_ms": 1093.7881820136681,
+        "warm": {
+          "positions": 117,
+          "p50_ms": 611.6642829729244,
+          "p95_ms": 1759.4999093562344,
+          "max_ms": 2345.75089905411
+        },
+        "groups": {
+          "players": {
+            "2": {
+              "positions": 20,
+              "p50_ms": 740.0748135405593,
+              "p95_ms": 1156.6216608451216,
+              "max_ms": 1340.8152949996293
+            },
+            "3": {
+              "positions": 29,
+              "p50_ms": 7.859415956772864,
+              "p95_ms": 912.1836176142095,
+              "max_ms": 1077.5992210255936
+            },
+            "4": {
+              "positions": 22,
+              "p50_ms": 763.3719594450668,
+              "p95_ms": 1454.3708022451028,
+              "max_ms": 1530.0645240349695
+            },
+            "5": {
+              "positions": 25,
+              "p50_ms": 8.724835002794862,
+              "p95_ms": 2026.4627718366678,
+              "max_ms": 2167.022580979392
+            },
+            "6": {
+              "positions": 22,
+              "p50_ms": 885.538537055254,
+              "p95_ms": 2153.6890461400617,
+              "max_ms": 2345.75089905411
+            }
+          },
+          "phase": {
+            "Auction": {
+              "positions": 98,
+              "p50_ms": 7.942506519611925,
+              "p95_ms": 1912.9539270186788,
+              "max_ms": 2345.75089905411
+            },
+            "Building": {
+              "positions": 20,
+              "p50_ms": 885.538537055254,
+              "p95_ms": 1545.7115581084508,
+              "max_ms": 1658.6800110526383
+            }
+          },
+          "rule": {
+            "original/sealed": {
+              "positions": 34,
+              "p50_ms": 7.860258570872247,
+              "p95_ms": 1611.1643389158407,
+              "max_ms": 1999.952923040837
+            },
+            "recharged/sealed": {
+              "positions": 25,
+              "p50_ms": 753.1948200194165,
+              "p95_ms": 1978.6785414442409,
+              "max_ms": 2161.780421040021
+            },
+            "original/open": {
+              "positions": 30,
+              "p50_ms": 353.83820947026834,
+              "p95_ms": 1549.2276138509624,
+              "max_ms": 1664.1645170748234
+            },
+            "recharged/open": {
+              "positions": 29,
+              "p50_ms": 751.7466470599174,
+              "p95_ms": 1990.2033869642755,
+              "max_ms": 2345.75089905411
+            }
+          }
+        },
+        "search_decisions": 60,
+        "search_timing": {
+          "positions": 60,
+          "p50_ms": 1112.7171230036765,
+          "p95_ms": 2063.8332863920364,
+          "max_ms": 2345.75089905411
+        },
+        "search_evaluations": 14400,
+        "search_truncations": 0,
+        "all_moves_legal": true
+      }
+    }
+  },
+  "requests": 8013,
+  "discard_actions_preserved": 174,
+  "source": {
+    "archive": "strong-source-search-transfer-20261010-v1.tgz",
+    "revision": "1ef629c51282936c0bd2be9e7b584ce985e91d03",
+    "sha256": "e35e93d6d410ccb34bfb59a2840a7e4ed3b67e950a429968adcdf383ec53ef55",
+    "overlays": {
+      "ai/strong/search_transfer.py": "4ed3cd491666c9e99e481d807979dbed95245183818740350cbe83ab95cdebf4",
+      "ai/strong/search-transfer-protocol-v1.json": "5c0d303a3ea15c69c29c841f022a3c7a80379d97f1e14cf7901ce371df3b5d1c",
+      "ai/strong/check-search-transfer.cjs": "e4c256d2214ec6a89fb5e88cc50fc04f3d2196e95928759a9157ced9c8f80d93",
+      "ai/strong/compare-population-screens.py": "b74bac5c403d5a96e79fddf43b4dcd9b715d5124e9c2681983ad519e2177d887"
+    },
+    "base": {
+      "archive": "strong-source-discard-opponents-20261010-v1.tgz",
+      "revision": "e44812ae307ae3e8a2b62306511d55b61d34720f",
+      "sha256": "b40efa0c88e8b8a148bf44f955a50b1aa20804cc7e9eb09bd0f4f15efe31a880"
+    },
+    "unchanged_base_file_count": 1372,
+    "protocol_sha256": "5c0d303a3ea15c69c29c841f022a3c7a80379d97f1e14cf7901ce371df3b5d1c",
+    "qualification_eligible": false
+  },
+  "manifest_sha256": "a087d04cbc2d651b6b9ff2378c31e10468c16b7cd2a5f0e4ba9dac2bd356df4c",
+  "verified": true,
+  "search_truncations": 0,
+  "all_moves_legal": true,
+  "qualification_eligible": false,
+  "scope": "Engineering diagnostic only, all three predetermined models. Raw serving on2553 public fixtures/model; search48 on one median-round root in each count/rule/action-kind stratum (60), plus all58 discard roots. Sequential fixed-order timings, no latency significance or strength claim; search caps retained. No training or production deployment.",
+  "artifacts": {
+    "10101-raw.json": "129ce9e472ad9618d24068988e2bce8994bffccdf76421c38247b56d65c4940d",
+    "10101-raw.jsonl": "c0e34887315b3e035cdd322275a17c95f579685372ab163d1a062693bf63ab69",
+    "10101-raw.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "10101-search48.json": "ad3c5ea53a0c3b9beaa721c49a16e66b75dcd4c4bde946823623c23db1867d16",
+    "10101-search48.jsonl": "d3373ecd9ef90000c61a6264acccb72c43b0bd8aea310a58e5baf1c4e7b1c733",
+    "10101-search48.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "10102-raw.json": "f42752932cce0470d8d16f88198bd3f8309bfbe17260e70a32da2c5a5d03ec8a",
+    "10102-raw.jsonl": "087359e467d31146bfc3332dd097e4e498bc89a1fbd1d3ed1c297dd20725557d",
+    "10102-raw.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "10102-search48.json": "26b0ea02f8c11cbc76cd00e5192e8c180c5a7173b82574959a958ea481c3f5c8",
+    "10102-search48.jsonl": "f13df69e55966a7c9fb41c7638c6126a7b1e15ce476749ad6358492a6d6cf917",
+    "10102-search48.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "machine.json": "697c7c05206554454e887dc9eab28c4de5c39b99d60bd23913f0657d66589e88",
+    "manifest.json": "a087d04cbc2d651b6b9ff2378c31e10468c16b7cd2a5f0e4ba9dac2bd356df4c",
+    "parent-raw.json": "cd689824bce7c831750b8304550dc34ad47d926a299dc31fe82120dfc85ee6d7",
+    "parent-raw.jsonl": "b16d18d3790c697dce4981e86dc746cfc152ac0a972f849028503283dfe95dbc",
+    "parent-raw.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "parent-search48.json": "0f1906cb3d8ab7fd88a3975c2845f92d65b72437b2b8a4d35509999447bd2dc7",
+    "parent-search48.jsonl": "a49e02f2b4748351a3f90dfbeb515fd5f7f8a69b7658fff23283515d4c090790",
+    "parent-search48.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results.json": "dce12a99043f695bf7e649fc4a30ad0c1112872972a928a1caddcfb5774cdd6f",
+    "run.log": "d29644447b8767d69f4de0e1afced2f3e10b950e0d318e759b70a63819eb6037"
+  },
+  "evidence": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "3ffca6810bfddd1be50f1c2a7acf7b9416eac478",
+    "prefix": "runs/search-transfer-8840u-completed-evidence-v1",
+    "manifest_sha256": "0d23c32756f51a4b230e2751412e3ddfd6804f6ac1d56b1f4167429fe337ad39",
+    "requests_verified": 8013,
+    "search_decisions": 180,
+    "search_rollouts": 43200,
+    "search_truncations": 0,
+    "discard_actions_preserved": 174,
+    "qualification_eligible": false
+  }
+}

@@ -1,11 +1,19 @@
 {
-  "protocol_sha256": "ed77fa6bf9131dc146a61224ddea62256e2544953e5c3b86423148aa1a97e492",
+  "protocol_sha256": "5c0d303a3ea15c69c29c841f022a3c7a80379d97f1e14cf7901ce371df3b5d1c",
   "existing_baseline_games_verified": 1152,
   "baseline_files": 9,
   "raw_baseline_contracts_passed": true,
-  "search_compatibility_tested": false,
-  "search_runtime_profiled": false,
-  "source_frozen": false,
-  "launched": false,
-  "qualification_eligible": false
+  "search_compatibility_tested": true,
+  "search_runtime_profiled": true,
+  "source_frozen": true,
+  "launched": true,
+  "qualification_eligible": false,
+  "smoke_launched": true,
+  "source_revision": "1ef629c51282936c0bd2be9e7b584ce985e91d03",
+  "source_sha256": "e35e93d6d410ccb34bfb59a2840a7e4ed3b67e950a429968adcdf383ec53ef55",
+  "scope": "1,152 existing baselines and5,106 stubbed bridge-routing checks verified;28 real HF probe games verified with371,328 rollouts and0 caps. Allnine full jobs launched; strength results pending.",
+  "smoke_verified": true,
+  "smoke_games": 28,
+  "full_jobs": 9,
+  "planned_new_games": 1152
 }

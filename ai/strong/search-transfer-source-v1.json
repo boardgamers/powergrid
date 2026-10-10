@@ -1,0 +1,19 @@
+{
+  "archive": "strong-source-search-transfer-20261010-v1.tgz",
+  "revision": "1ef629c51282936c0bd2be9e7b584ce985e91d03",
+  "sha256": "e35e93d6d410ccb34bfb59a2840a7e4ed3b67e950a429968adcdf383ec53ef55",
+  "overlays": {
+    "ai/strong/search_transfer.py": "4ed3cd491666c9e99e481d807979dbed95245183818740350cbe83ab95cdebf4",
+    "ai/strong/search-transfer-protocol-v1.json": "5c0d303a3ea15c69c29c841f022a3c7a80379d97f1e14cf7901ce371df3b5d1c",
+    "ai/strong/check-search-transfer.cjs": "e4c256d2214ec6a89fb5e88cc50fc04f3d2196e95928759a9157ced9c8f80d93",
+    "ai/strong/compare-population-screens.py": "b74bac5c403d5a96e79fddf43b4dcd9b715d5124e9c2681983ad519e2177d887"
+  },
+  "base": {
+    "archive": "strong-source-discard-opponents-20261010-v1.tgz",
+    "revision": "e44812ae307ae3e8a2b62306511d55b61d34720f",
+    "sha256": "b40efa0c88e8b8a148bf44f955a50b1aa20804cc7e9eb09bd0f4f15efe31a880"
+  },
+  "unchanged_base_file_count": 1372,
+  "protocol_sha256": "5c0d303a3ea15c69c29c841f022a3c7a80379d97f1e14cf7901ce371df3b5d1c",
+  "qualification_eligible": false
+}

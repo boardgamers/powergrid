@@ -1,0 +1,77 @@
+{
+  "source_revision": "1ef629c51282936c0bd2be9e7b584ce985e91d03",
+  "source_sha256": "e35e93d6d410ccb34bfb59a2840a7e4ed3b67e950a429968adcdf383ec53ef55",
+  "protocol_sha256": "5c0d303a3ea15c69c29c841f022a3c7a80379d97f1e14cf7901ce371df3b5d1c",
+  "profiles": {
+    "heuristic-2p": {
+      "revision": "3a45d86ffc8804bd7a888e2d37cebd7b3554fc1f",
+      "verified_sha256": "1c1952edcfeec13affbd14ce289c072cfe02b09cffcc41743a60900187ea868b",
+      "games": 8,
+      "seconds": 247.075610653,
+      "search_stats": {
+        "learner": {
+          "decisions": 465,
+          "evaluations": 112176,
+          "truncated": 0
+        }
+      }
+    },
+    "search_geo-2p": {
+      "revision": "b750b197a8418d5404681e1d185fadd4656db899",
+      "verified_sha256": "8d39212f84862e3eb9d535d6615605672a7c3ad95522cfbba28dbf5b12951b2f",
+      "games": 8,
+      "seconds": 298.32678176499996,
+      "search_stats": {
+        "learner": {
+          "decisions": 439,
+          "evaluations": 105456,
+          "truncated": 0
+        },
+        "search_geo": {
+          "decisions": 434,
+          "evaluations": 34608,
+          "truncated": 0
+        }
+      }
+    },
+    "a260-3p": {
+      "revision": "1f7922b2da12bbf8a3ec4854aeab0a21537defb4",
+      "verified_sha256": "4c3f105dbe25fe016c6e11255f7fe33cbfcaec3176c6ff16107cc3d9a57d1510",
+      "games": 12,
+      "seconds": 369.531382022,
+      "search_stats": {
+        "learner": {
+          "decisions": 493,
+          "evaluations": 119088,
+          "truncated": 0
+        }
+      }
+    }
+  },
+  "admission": {
+    "heuristic-2p": {
+      "projected_shard_seconds": 8026.419540896,
+      "timeout_hours": 4,
+      "admitted": true,
+      "basis": "Measured same-case search48 smoke; double linear runtime plus120s setup and25% timeout headroom. No game/search horizon change."
+    },
+    "search_geo-2p": {
+      "projected_shard_seconds": 4893.228508239999,
+      "timeout_hours": 4,
+      "admitted": true,
+      "basis": "Measured same-case search48 smoke; double linear runtime plus120s setup and25% timeout headroom. No game/search horizon change."
+    },
+    "a260-3p": {
+      "projected_shard_seconds": 11945.004224704,
+      "timeout_hours": 5,
+      "admitted": true,
+      "basis": "Measured same-case search48 smoke; double linear runtime plus120s setup and25% timeout headroom. No game/search horizon change."
+    }
+  },
+  "verified": true,
+  "all_cases_verified": true,
+  "games": 28,
+  "game_truncations": 0,
+  "search_truncations": 0,
+  "qualification_eligible": false
+}

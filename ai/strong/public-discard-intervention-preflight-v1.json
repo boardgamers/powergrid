@@ -1,0 +1,51 @@
+{
+  "smoke_games_per_arm": 8,
+  "arms": [
+    "parent",
+    "economic",
+    "neural"
+  ],
+  "all_pre_intervention_public_roots_and_proposals_identical": true,
+  "parent_terminal_records_equal_uninstrumented_control": 8,
+  "game_caps": 0,
+  "search_caps": 0,
+  "trained": false,
+  "qualification_eligible": false,
+  "frozen_source_checks": [
+    {
+      "arm": "parent",
+      "games": 8,
+      "exact_complete_game_records": true,
+      "exact_roots_choices_and_sample_outcomes": true
+    },
+    {
+      "arm": "economic",
+      "games": 8,
+      "exact_complete_game_records": true,
+      "exact_roots_choices_and_sample_outcomes": true
+    },
+    {
+      "arm": "neural",
+      "games": 8,
+      "exact_complete_game_records": true,
+      "exact_roots_choices_and_sample_outcomes": true
+    }
+  ],
+  "source": {
+    "archive": "strong-source-public-discard-intervention-20261010-v1.tgz",
+    "revision": "7bc8f890992d3c44faa38a7241521f6d1736d9ea",
+    "sha256": "ecc08c7b64634d83e2f1b023b3a890be1b2368c1434f985287b59950b160583c",
+    "base": {
+      "archive": "strong-source-public-discard-teacher-20261010-v1.tgz",
+      "revision": "52041c96794e0b3c76065ea5538c87b1a878d58f",
+      "sha256": "9bfaa1bbfe95bc5a2c1392e56128315604fe401c9063ed35e7b05ee5410615ff"
+    },
+    "overlays": {
+      "ai/strong/public-discard-intervention.py": "0d6cc840f107dd2fc367405bf2f77f406b9ff0de37df83461309c041c223294c",
+      "ai/strong/public-discard-intervention-protocol-v1.json": "e50f6b471b0af055eb80048a127b2aea06f01034d437cedba03f1ed4d12c6b76"
+    },
+    "unchanged_base_file_count": 1343,
+    "protocol_sha256": "e50f6b471b0af055eb80048a127b2aea06f01034d437cedba03f1ed4d12c6b76",
+    "qualification_eligible": false
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "stage": "launched",
+  "created_at": "2026-10-10T13:07:00.470385+00:00",
+  "protocol_sha256": "87df7bcd4d36c4e16eba466a004b5281c46c7233bfff5e40a286c6afaf085b45",
+  "source_revision": "616f94b1f27553a9688efe86276e06218e84f96a",
+  "source_sha256": "280ea886de1ff814792a937f71c0de65d9fb3327c692af9ae0fcab233bca694d",
+  "qualification_eligible": false,
+  "job_id": "6aca3874fee2c90070187ba0",
+  "status": "COMPLETED",
+  "observed_at": "2026-10-10T13:11:01.536121+00:00",
+  "recent_log": [
+    "{'games': 80, 'exact_observations_actions_and_terminal_records': True, 'truncations': 0, 'trajectory_sha256': '9eb324151192ffadb2e6d96326c9476160f47eae5e71caae4d1a84b6f2b4fec1', 'decisions': 9795, 'seconds': 14.462081865999835, 'roots': 49}",
+    "{'games': 96, 'exact_observations_actions_and_terminal_records': True, 'truncations': 0, 'trajectory_sha256': 'e310b75701c99c9a93eb37647797d5e9d77a94dd67f2ab11c8d1cceddcc9f769', 'decisions': 10884, 'seconds': 16.258882286000016, 'roots': 53}",
+    "{'status': 'complete', 'protocol_sha256': '87df7bcd4d36c4e16eba466a004b5281c46c7233bfff5e40a286c6afaf085b45', 'source_revision': '616f94b1f27553a9688efe86276e06218e84f96a', 'source_sha256': '280ea886de1ff814792a937f71c0de65d9fb3327c692af9ae0fcab233bca694d', 'model_sha256': '1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a', 'trained': False, 'qualification_eligible': False, 'unique_games': 320, 'engine_game_runs': 640, 'roots': 189, 'smoke': False, 'all_trace_controls_match': True, 'truncations': 0}"
+  ]
+}

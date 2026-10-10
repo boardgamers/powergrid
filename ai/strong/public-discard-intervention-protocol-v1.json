@@ -1,0 +1,55 @@
+{
+  "purpose": "Fresh paired complete-game test of a first eligible discard intervention; focused 2p development experiment, not the full multiplayer strength gate.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "model": {
+    "revision": "f14d0db14edb494c8797af00a546ac56088cfa96",
+    "path": "runs/inference64-cohort-v1/parent/inference64.onnx",
+    "sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a",
+    "feature_revision": "4.0-multiplayer",
+    "selection": "Fixed original update79 parent derivative; not a winner selected from the new comparison."
+  },
+  "players": 2,
+  "deals": 40,
+  "games_per_arm": 320,
+  "arms": [
+    "parent",
+    "economic",
+    "neural"
+  ],
+  "opponent": "economic",
+  "variant_sealed_cells": [
+    "original/open",
+    "original/sealed",
+    "recharged/open",
+    "recharged/sealed"
+  ],
+  "arena_seed": "public-discard-intervention-games-v1-2p",
+  "smoke_arena_seed": "public-discard-intervention-smoke-v1-2p",
+  "search_seed_template": "public-discard-intervention-search-v1-{rootIndex}-{batch}",
+  "smoke_search_seed_template": "public-discard-intervention-search-smoke-v1-{rootIndex}-{batch}",
+  "eligibility": "Exactly the first learner multi-choice discard per game with max public cities >= end threshold minus3. Other model actions unchanged.",
+  "samples_per_batch": 64,
+  "search_batch": "a",
+  "max_steps": 2400,
+  "workers": 24,
+  "ort_threads": 4,
+  "feature_revision": "4.0-multiplayer",
+  "pairing": "Same fresh deals and all seats/rules for each arm. Public root identities, legal menus and original model proposals must match across arms before the intervention. Search RNG has a distinct seed stream; no live private seed/deck or outcome input.",
+  "tie_rule": "Keep parent proposal if among tied winners; otherwise first engine-legal winner. Any cap invalidates the experiment; never score capped search as a defeat.",
+  "selection_rationale": "All 46080 2p audit rollouts verified, zero caps; neural batch choices agree29/30 and economic27/30. Choose both continuations for this fresh test instead of picking a winner on the same audit data.",
+  "audit_evidence_revision": "443a96ead2624a87e2ec53f169b7f905a1ed8116",
+  "audit_evidence_prefix": "runs/public-discard-teacher-v1-2p",
+  "analysis": {
+    "contrasts": [
+      "economic-minus-parent",
+      "neural-minus-parent",
+      "neural-minus-economic"
+    ],
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 8543,
+    "unit": "Whole independent deals; preserve all seat/rule repeats. Overall and four rule cells. Marginal exploratory intervals, not multiplicity adjusted."
+  },
+  "qualification_eligible": false,
+  "trained": false,
+  "next_scope": "If complete-game gain holds, test guidance/training across every2\u20136p/rule cell and independent opponents, then the unchanged reserved strength gate. No deployment from this test."
+}

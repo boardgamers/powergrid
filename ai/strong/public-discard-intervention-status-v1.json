@@ -1,0 +1,43 @@
+[
+  {
+    "arm": "economic",
+    "stage": "launched",
+    "created_at": "2026-10-10T13:34:45.055648+00:00",
+    "protocol_sha256": "e50f6b471b0af055eb80048a127b2aea06f01034d437cedba03f1ed4d12c6b76",
+    "source_revision": "7bc8f890992d3c44faa38a7241521f6d1736d9ea",
+    "source_sha256": "ecc08c7b64634d83e2f1b023b3a890be1b2368c1434f985287b59950b160583c",
+    "qualification_eligible": false,
+    "job_id": "6aca3ef5fee2c9007018805e",
+    "status": "COMPLETED",
+    "observed_at": "2026-10-10T13:38:51.862531+00:00",
+    "recent_log": []
+  },
+  {
+    "arm": "neural",
+    "stage": "launched",
+    "created_at": "2026-10-10T13:34:46.191901+00:00",
+    "protocol_sha256": "e50f6b471b0af055eb80048a127b2aea06f01034d437cedba03f1ed4d12c6b76",
+    "source_revision": "7bc8f890992d3c44faa38a7241521f6d1736d9ea",
+    "source_sha256": "ecc08c7b64634d83e2f1b023b3a890be1b2368c1434f985287b59950b160583c",
+    "qualification_eligible": false,
+    "job_id": "6aca3ef6fee2c90070188062",
+    "status": "RUNNING",
+    "observed_at": "2026-10-10T13:38:51.839002+00:00",
+    "recent_log": [
+      "{'arm': 'neural', 'roots': 29, 'episode': 144, 'changed': True, 'seconds': 123.55969876599998}"
+    ]
+  },
+  {
+    "arm": "parent",
+    "stage": "launched",
+    "created_at": "2026-10-10T13:34:43.816325+00:00",
+    "protocol_sha256": "e50f6b471b0af055eb80048a127b2aea06f01034d437cedba03f1ed4d12c6b76",
+    "source_revision": "7bc8f890992d3c44faa38a7241521f6d1736d9ea",
+    "source_sha256": "ecc08c7b64634d83e2f1b023b3a890be1b2368c1434f985287b59950b160583c",
+    "qualification_eligible": false,
+    "job_id": "6aca3ef4fee2c90070188056",
+    "status": "COMPLETED",
+    "observed_at": "2026-10-10T13:38:51.837278+00:00",
+    "recent_log": []
+  }
+]

@@ -4,102 +4,206 @@
 final-test seeds remain unused.** The separate UI redesign was reverted.
 
 Use `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`, branch
-`ai/germany-baseline`. The preceding goal turn independently collected the final
-homogeneous screen and pushed the sealed-menu experiment: **progress**. This
-continuation independently verified the complete sealed-menu comparison, completed
-a selected-trajectory discard diagnosis, and prepared higher-precision inference
-derivatives after real export-check failures: **progress**. No candidate is
-qualified and there is no external blocker.
+`ai/germany-baseline`. No UI work or publication is part of this AI continuation.
 
-## Latest continuation: full precision cohort verified; nine HF reruns live
+## Latest: all 34,720 precision reruns verified; discard guidance and complete-game intervention
 
-The preceding goal turn was **progress**: verified discard diagnosis and explicit
-numerical derivatives, pushed as`304e9c0`. This continuation completed the whole
-precision audit, repaired all three population finals, launched the two uniform
-precision comparisons, and measured their deployment cost on the actual8840U:
-**progress**. No external blocker and no qualified candidate.
+The preceding AI goal turn was **progress**: it independently verified all nine
+completed screens, exposed a gap in discard search coverage and collected fresh
+public discard roots. This turn is also **progress**: verified the frozen audit
+package, launched five HF CPU jobs for all 189 roots, independently collected the
+all five audits (229,248 rollouts), and launched a fresh complete-game intervention test. No
+external blocker.
 
-All **eight unique models** (parent, four five-plant finals, three population
-finals) pass all2,553 strict checkpoint/export and legal serving requests. The
-independent native-SiLU float64 reference also agrees with Exp/Div ONNX at the
-unchanged tolerance. Across each full fixture set there are **zero chosen-action
-changes** for PyTorch32→native64, ONNX32→ONNX64 and PyTorch32→ONNX32. This does not
-prove equal complete-game trajectories. Maximum native64 logit error over the
-cohort is6.053e-10. Stored weights and float32 feature inputs are unchanged; no
-gradients ran locally. Original FP32 failures remain failures.
+**Completed comparisons.** All nine precision reruns are authoritatively COMPLETED;
+all 34,720 raw games have been independently checked, including exact paired
+seat/rule/deal coverage, original training provenance, all 2,553 strict numerical
+and legal serving requests per screen, and zero game/search caps. All 19,040
+available earlier FP32 terminal result records match their FP64 reruns exactly;
+this is not full action-trace equivalence. Original failed FP32 checks remain
+failures. Summary: `strong/inference64-results-v1.json`; raw game-record audit:
+`strong/inference64-game-record-audit-v1.json`. Durable combined evidence is model
+repo `coyotte508/powergrid-ai-germany-v1`, revision
+`a9a33c938b0f2cfcef4aa0e442d1b14bcac4bc16`, prefix
+`runs/inference64-completed-evidence-v1`. Raw population revision:
+`1c1af00ae2c355c1f5c9382cff5dead96f0e4bd7`; raw five-plant revision:
+`76307c9e7d820644573c00a3e2afee2eb5a8fbff`.
 
-Persistent model revision **`f14d0db14edb494c8797af00a546ac56088cfa96`**,
-prefix`runs/inference64-cohort-v1`, contains all eight models, original-checkpoint
-pins, strict parity/serving/action-change reports and source. All remote model
-artifacts and original training provenance were independently checked by the
-nine-screen preflight. Tracked manifests:
-`strong/inference64-cohort-{artifacts,validation}-v1.json` and
-`strong/inference64-screen-preflight-v1.json`.
+- Population comparison: all six overall heterogeneous-minus-homogeneous paired
+  intervals include zero. Both retained-opponent arms beat control at 4p; control
+  regresses against parent there. Highest 2p economic win share is 61.875%, below
+  the 66.25% floor. One training seed; exploratory marginal intervals, no
+  multiplicity adjustment. There is no clear recipe winner to promote.
+- Five-plant feature ablation: full-minus-control economic point estimates are
+  negative at every count for both training seeds. Clear overall regressions
+  include 6p seed10031 (−8.333 percentage points), capacity-economic 2p seed10031
+  (−8.438), and 5p seed10032 (−5.625). Both A260 deltas are negative but uncertain.
+  This recipe has no demonstrated benefit from the added inputs; that does not
+  show that the information itself is useless. Keep seed contrasts separate.
 
-**Frozen rerun protocol:** `strong/inference64-screen-protocol-v1.json`,
-SHA`a7d580e91410cdf79862e7b9928c95e59f25d70d425de0ab5005ab4ed2437176`.
-Nine candidates/screens,34,720 games: parent+four five-plant finals×4,000;
-parent+three population finals×3,680. The shared parent is evaluated on each
-cohort's separate original prescribed development deals. All2–6p, all seats,
-original/Recharged×open/sealed, exact final checkpoints, A260 pins and paired
-whole-deal bootstrap settings are retained. Never substitute old FP32 results.
+**Why investigate discards.** The existing search gate covers plant choice, bids
+and building, but not `DiscardPowerPlant`. In the 2,553 serving fixtures there
+are 58 discard positions and zero searched discards. PPO does update those
+moves; do not say discards receive no learning. The old economic discard rule
+also maximizes income without its endgame mode. See
+`strong/discard-search-coverage-v1.json` and `audit-discard-coverage.cjs`.
+Do not change the independent reference opponents to make a candidate look good.
 
-Each cohort inherits its **own original arena source**, with all engine,
-feature, action-menu, opponent and arena-runner files byte-identical. Only the
-explicit precision model loader and validation/orchestration tooling are
-overlaid. Source manifests include every unchanged base-file hash:
+**Fresh public roots.** HF collection job `6aca3874fee2c90070187ba0` is COMPLETED.
+320 fresh games across 2–6p × all seats × original/Recharged × open/sealed yield
+189 first eligible learner discards (30/21/36/49/53 by count). Eligibility is the
+public condition max cities ≥ end threshold−3, never the eventual result or last
+discard of a completed trajectory. Every game matched an uninstrumented twin
+at every observation/action and terminal record: 640 engine runs, zero caps.
+All 189 sanitized public roots independently reproduce the original parent
+model's proposal. Keep the three absent rule/seat cells absent: coverage77/80,
+no outcome-driven resampling. Raw data revision
+`1a9027f0b9c76d86846c3987df0687dcd12f9dd5`, prefix
+`runs/public-discard-collection-v1`; root SHA
+`268ab59096b3600dd61c10c7622696cacf033ff6902853e0b596b2014df38e0a`.
+Tracked report: `strong/public-discard-collection-results-v1.json`.
+These are development data, not a strength result or accepted teacher labels.
 
-- Population source revision`603440db1877c4fba2470710d5bb66c61a3e38ec`,
-  archive`strong-source-inference64-screen-20261010-v1-population.tgz`,
-  SHA`18dae821a3b69e8c70ad602be5695ec9b9c0890158744177a8445e32e3e8c42b`.
-- Five-plant source revision`8925f0986217500c4118a9997a3aa1c4adc04ccf`,
-  archive`strong-source-inference64-screen-20261010-v1-five-plant.tgz`,
-  SHA`45c8f05dd60e71dfbb9027093b14a8ecfa3a4272277b1ed96cc411feea780c1f`.
+**Completed HF audit.** All legal discards on every root, three continuation
+policies (economic/heuristic/neural), two independent batches of64 public-belief
+scenarios: 229,248 independently verified rollouts, zero caps. Identical scenarios within a batch across
+moves and continuation policies. No actual private deck/seed or future moves.
+Neural continuations use the fixed original update79 parent for every actor;
+that is an explicit modelling assumption. Record all ties and sample results.
+Any cap makes that target invalid, never a loss. Protocol:
+`strong/public-discard-teacher-protocol-v1.json`, SHA
+`3b42768997a9f85ca462961448143e385b84bef3878bb27dbc48b03ea2200e09`.
 
-HF CPU-performance jobs, launched12:45–12:46UTC; all nine confirmed **RUNNING**
-at the observation stored in`strong/inference64-screen-status-v1.json`. Every
-job has passed remote validation and completed at least its2p and3p economic
-cells; population control has also completed4p and5p. No complete-game result
-has yet been independently collected. Do not relaunch these live handles:
+Frozen source dataset revision `52041c96794e0b3c76065ea5538c87b1a878d58f`,
+archive `strong-source-public-discard-teacher-20261010-v1.tgz`, SHA
+`9bfaa1bbfe95bc5a2c1392e56128315604fe401c9063ed35e7b05ee5410615ff`.
+The collection base is preserved byte-for-byte except the five explicit audit
+files; 1,338 base files unchanged. Frozen 2p/6p smokes reproduce every original
+sample/action outcome exactly (84 rollouts, zero caps). Three continuation
+regressions pass: economic/heuristic reference agreement, caps/legality/worker
+offsets, hidden-deck/bid invariance. The independent collector rejects missing,
+duplicate, miscomputed or silently capped evidence and reports valid caps as
+invalid targets. Preflight: `strong/public-discard-teacher-preflight-v1.json`.
 
-| Cohort | Key | Job |
-| --- | --- | --- |
-| population | parent | `6aca3385095c578089312607` |
-| population | control | `6aca3376fee2c90070187915` |
-| population | homogeneous | `6aca3387fee2c9007018791d` |
-| population | heterogeneous | `6aca3389fee2c9007018791f` |
-| five-plant | parent | `6aca338a095c57808931260b` |
-| five-plant | control-s10031 | `6aca338cfee2c90070187921` |
-| five-plant | full-s10031 | `6aca338efee2c90070187923` |
-| five-plant | control-s10032 | `6aca3390095c578089312610` |
-| five-plant | full-s10032 | `6aca3392095c578089312612` |
+HF CPU-performance jobs (4h timeout, launched 13:24UTC):
 
-Next: inspect these exact handles. Each completed job writes
-`runs/inference64-screen-v1-COHORT-KEY/screen-check.json` and all raw evidence.
-Pin an immutable model-repo revision containing the completed screen, then run
-`collect-inference64-screen.py COHORT KEY REVISION ai/runs/inference64-comparison-v1/COHORT/KEY`.
-Once a cohort is complete, run`compare-inference64-screens.py COHORT ai/runs/inference64-comparison-v1/COHORT --output ...`.
-These collectors revalidate original training, derivative hashes, all raw
-seat/rule/deal pairs, strict numerical/serving reports and zero game/search caps.
-Keep feature-training seed contrasts separate. Use the results and the existing
-public-information discard diagnosis to decide the next training change.
+| Players | Roots | Planned rollouts | Job |
+| --- | --- | --- | --- |
+| 2 | 30 | 46,080 | `6aca3c8b095c578089312a44` |
+| 3 | 21 | 24,192 | `6aca3c8cfee2c90070187e70` |
+| 4 | 36 | 41,472 | `6aca3c8d095c578089312a46` |
+| 5 | 49 | 56,448 | `6aca3c8d095c578089312a48` |
+| 6 | 53 | 61,056 | `6aca3c8efee2c90070187e72` |
 
-**Actual8840U cost measured**, in the isolated directory
-`minipc:~/powergrid-ai-inference64-probe-v1`, without changing installed routing.
-Parent FP64 median/p95 full-request latency2.709/5.235ms; full-s10031 FP64
-2.763/5.308ms. Original FP32 controls measured1.951/4.648 and2.180/4.784ms.
-Each configuration passed all2,553 legal requests. These are sequential
-engineering measurements, not a statistical speed comparison or a benchmark
-of a selected qualified winner. Source/fixture/model hashes, machine identity,
-Python3.12.3, ORT1.30.0, NumPy2.5.3 and Node24.19.0 are recorded. Persistent
-revision **`5b3e67be71ed911bcef458f6c9c0ed6a6c0c9091`**,
-`runs/inference64-8840u-probe-v1`; tracked report
-`strong/inference64-8840u-probe-v1.json`.
+All five audit jobs are authoritatively COMPLETED and independently collected.
+Status is in `strong/public-discard-teacher-status-v1.json`; do not relaunch them.
+Each wrote `runs/public-discard-teacher-v1-Np/{audit-check.json,rows.jsonl}`.
+For reproduction pin the recorded model-repo revision and run
+`collect-public-discard-teacher.py N REVISION ai/runs/public-discard-teacher-verified-v1/Np`.
+It independently recomputes every target and both batch/policy comparisons.
+Cross-batch gain selects on batch a and measures on b, then reverses: it is still
+simulated continuation return, not actual strength. The resulting complete-game
+intervention test is below; do not train from guidance or promote a policy until
+its benefit is independently verified. Full engine/inference timings are saved
+by count in the result manifest. No gradients ran locally.
 
-The full independent strength gate, reserved final tests, final standalone
-package and benchmark of the eventual selected winner are still required.
-No model is deployed or qualified. The historical notes below are superseded
-where they describe pending precision audits or unlaunched reruns.
+The full verified audit is `strong/public-discard-teacher-results-v1.json`.
+Durable model-repo evidence revision `29f803c518d18b3acfe93d54c82ccd69095d841e`,
+prefix `runs/public-discard-teacher-completed-evidence-v1`, includes every raw
+sample, count/rule summary, verifier, protocol and intervention preflight.
+Neural selected-action agreement across independent batches is188/189 with the
+specified tie rule; 28 positions consistently change the parent proposal.
+Conditional simulated cross-batch mean gains by count:
+
+| Players | Roots | Economic | Neural | Consistent neural changes |
+| --- | --- | --- | --- | --- |
+| 2 | 30 | .21120 | .22005 | 9 |
+| 3 | 21 | .17411 | .13876 | 5 |
+| 4 | 36 | .14692 | .12174 | 10 |
+| 5 | 49 | .01244 | .00925 | 3 |
+| 6 | 53 | .01312 | .01179 | 1 |
+
+These are returns conditional on captured public roots and the assumed
+continuation policy, not actual win-rate improvements or independent games.
+The pattern supports prioritizing2p while retaining the full multiplayer scope.
+For2p total measured HF timing is118.004s engine and67.926s policy (560,163 neural
+decisions) over all46,080 rollouts; this differs from the initial one-root local
+smoke and is the appropriate evidence for later hardware decisions.
+
+**Fresh complete-game intervention launched.** The independently verified 2p audit
+has 46,080 rollouts and zero caps. Neural batch choices agree29/30; both batches
+change the parent proposal in9/30 positions. Economic choices agree27/30 and
+change10/30. Mean cross-batch simulated gain is .2201 neural and .2112 economic;
+these are conditional simulated returns, not arena win gains. The verified3p
+and4p audits also suggest stable changes;5–6p gains are much smaller. Full count/rule summaries are in the
+local `ai/runs/public-discard-teacher-verified-v1/Np` directories. All roots,
+ties, disagreements and adverse strata remain in the evidence.
+
+The next causal test uses40 fresh independent deals ×2seats ×4rule combinations
+=320 complete games per arm: parent, economic-guided discard, neural-guided
+discard (960 total). The only intervention is the first eligible learner discard
+in each game, chosen with64 independent public-scenario rollouts. All other
+moves remain the same frozen parent policy. Keep the parent proposal on ties.
+Economic opponents are unchanged; there is no training or deployment.
+This is an explicitly focused2p development experiment, not a narrowed strength
+gate. Any gain must still survive every2–6p/rule cell and independent opponents,
+then an appropriately trained/exported candidate and the reserved final tests.
+
+Protocol `strong/public-discard-intervention-protocol-v1.json`, SHA
+`e50f6b471b0af055eb80048a127b2aea06f01034d437cedba03f1ed4d12c6b76`.
+Fresh game prefix `public-discard-intervention-games-v1-2p`; separate search RNG
+prefix and separate smoke deals. Prescribed three contrasts, whole-deal paired
+bootstrap with10,000 replicates/seed8543, overall and every rule cell. Marginal
+exploratory intervals, not multiplicity adjusted.
+
+Source dataset revision `7bc8f890992d3c44faa38a7241521f6d1736d9ea`, archive
+`strong-source-public-discard-intervention-20261010-v1.tgz`, SHA
+`ecc08c7b64634d83e2f1b023b3a890be1b2368c1434f985287b59950b160583c`.
+All1,343 audit-base files unchanged; only the new protocol/harness overlaid.
+Local three-arm smoke8games/arm: all pre-intervention public roots, legal menus
+and parent proposals identical. Unchanged arm's8 terminal records match a
+separate uninstrumented engine control. Frozen-source smoke repeats every
+root/action/sample outcome and complete-game record exactly for all three arms.
+No game/search caps. `strong/public-discard-intervention-preflight-v1.json`.
+
+HF CPU-performance jobs launched13:34UTC (4h timeout):
+
+- Parent: `6aca3ef4fee2c90070188056`.
+- Economic continuation: `6aca3ef5fee2c9007018805e`.
+- Neural continuation: `6aca3ef6fee2c90070188062`.
+
+Inspect `strong/public-discard-intervention-status-v1.json` and those exact HF
+handles before any follow-up. At the latest authoritative observation parent and
+economic are COMPLETED; neural is RUNNING with29 recorded roots and no reported
+error. The full intervention comparison has not yet been independently collected.
+Artifacts are
+`runs/public-discard-intervention-v1-ARM/{intervention-check.json,games.json,roots.jsonl}`.
+After all three finish, pin a model-repo revision containing all three and run
+`collect-public-discard-intervention.py REVISION ai/runs/public-discard-intervention-verified-v1`.
+That collector independently rechecks hashes, complete paired games, all legal
+public roots and original model proposals, every search sample/target, unchanged
+pre-intervention roots across arms, and paired result intervals. A successful
+job alone does not establish benefit; do not train/promote from uncollected results.
+
+The collection/audit preflight evidence is also saved at model revision
+`443a96ead2624a87e2ec53f169b7f905a1ed8116`, prefix
+`runs/public-discard-preflight-evidence-v1`; manifest
+`strong/public-discard-preflight-artifacts-v1.json`.
+
+**Preserved inference evidence.** Eight unique derivatives at model revision
+`f14d0db14edb494c8797af00a546ac56088cfa96`, prefix
+`runs/inference64-cohort-v1`, pass all 2,553 strict export/serving requests each.
+Stored weights and float32 inputs unchanged; float64 internal inference, same
+rtol1e-4/atol1e-5. Max native64 logit error6.053e-10, zero fixture action changes.
+Actual AMD8840U parent FP64 median/p95 full-request latency2.709/5.235ms; full
+s10031 FP64 2.763/5.308ms. Four configs ×2,553 legal requests in an isolated
+probe, no deployment. Evidence revision
+`5b3e67be71ed911bcef458f6c9c0ed6a6c0c9091`, prefix
+`runs/inference64-8840u-probe-v1`; report `strong/inference64-8840u-probe-v1.json`.
+The eventual selected winner still needs the full independent strength gate,
+reserved tests, a standalone package and a benchmark on that exact machine.
+
+Everything below is historical context. Current handles and next actions are above.
 
 ## Previous continuation: numerical repair prepared; both old coordinators ended with errors
 

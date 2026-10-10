@@ -1,0 +1,296 @@
+{
+  "scope": "Compare every complete old FP32 result record against new FP64 reruns on matching development deals. This does not assert identical full action traces. Failed original screens have no outcomes and are excluded, not counted as passes.",
+  "pairs": [
+    {
+      "cohort": "population",
+      "key": "parent",
+      "cell": "a260-3p.json",
+      "games": 480,
+      "changed_result_records": [],
+      "fp32_model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+      "fp64_model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a"
+    },
+    {
+      "cohort": "population",
+      "key": "parent",
+      "cell": "economic-2p.json",
+      "games": 320,
+      "changed_result_records": [],
+      "fp32_model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+      "fp64_model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a"
+    },
+    {
+      "cohort": "population",
+      "key": "parent",
+      "cell": "economic-3p.json",
+      "games": 480,
+      "changed_result_records": [],
+      "fp32_model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+      "fp64_model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a"
+    },
+    {
+      "cohort": "population",
+      "key": "parent",
+      "cell": "economic-4p.json",
+      "games": 640,
+      "changed_result_records": [],
+      "fp32_model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+      "fp64_model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a"
+    },
+    {
+      "cohort": "population",
+      "key": "parent",
+      "cell": "economic-5p.json",
+      "games": 800,
+      "changed_result_records": [],
+      "fp32_model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+      "fp64_model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a"
+    },
+    {
+      "cohort": "population",
+      "key": "parent",
+      "cell": "economic-6p.json",
+      "games": 960,
+      "changed_result_records": [],
+      "fp32_model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+      "fp64_model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a"
+    },
+    {
+      "cohort": "population",
+      "key": "homogeneous",
+      "cell": "a260-3p.json",
+      "games": 480,
+      "changed_result_records": [],
+      "fp32_model_sha256": "8606c6902806f7df82f7c687fa92746230b63c110d2654730b7913cbc68d3258",
+      "fp64_model_sha256": "5bb4f777d2092d804e839ccc2447169439b6cb5b8459d5856737c4ccf4ee4544"
+    },
+    {
+      "cohort": "population",
+      "key": "homogeneous",
+      "cell": "economic-2p.json",
+      "games": 320,
+      "changed_result_records": [],
+      "fp32_model_sha256": "8606c6902806f7df82f7c687fa92746230b63c110d2654730b7913cbc68d3258",
+      "fp64_model_sha256": "5bb4f777d2092d804e839ccc2447169439b6cb5b8459d5856737c4ccf4ee4544"
+    },
+    {
+      "cohort": "population",
+      "key": "homogeneous",
+      "cell": "economic-3p.json",
+      "games": 480,
+      "changed_result_records": [],
+      "fp32_model_sha256": "8606c6902806f7df82f7c687fa92746230b63c110d2654730b7913cbc68d3258",
+      "fp64_model_sha256": "5bb4f777d2092d804e839ccc2447169439b6cb5b8459d5856737c4ccf4ee4544"
+    },
+    {
+      "cohort": "population",
+      "key": "homogeneous",
+      "cell": "economic-4p.json",
+      "games": 640,
+      "changed_result_records": [],
+      "fp32_model_sha256": "8606c6902806f7df82f7c687fa92746230b63c110d2654730b7913cbc68d3258",
+      "fp64_model_sha256": "5bb4f777d2092d804e839ccc2447169439b6cb5b8459d5856737c4ccf4ee4544"
+    },
+    {
+      "cohort": "population",
+      "key": "homogeneous",
+      "cell": "economic-5p.json",
+      "games": 800,
+      "changed_result_records": [],
+      "fp32_model_sha256": "8606c6902806f7df82f7c687fa92746230b63c110d2654730b7913cbc68d3258",
+      "fp64_model_sha256": "5bb4f777d2092d804e839ccc2447169439b6cb5b8459d5856737c4ccf4ee4544"
+    },
+    {
+      "cohort": "population",
+      "key": "homogeneous",
+      "cell": "economic-6p.json",
+      "games": 960,
+      "changed_result_records": [],
+      "fp32_model_sha256": "8606c6902806f7df82f7c687fa92746230b63c110d2654730b7913cbc68d3258",
+      "fp64_model_sha256": "5bb4f777d2092d804e839ccc2447169439b6cb5b8459d5856737c4ccf4ee4544"
+    },
+    {
+      "cohort": "population",
+      "key": "heterogeneous",
+      "cell": "a260-3p.json",
+      "games": 480,
+      "changed_result_records": [],
+      "fp32_model_sha256": "39a2d32e4612c7c7c6bbbd1c08ad1d25a5ce0eab2923195c783b025731fc0f01",
+      "fp64_model_sha256": "7131bf839fcdbbf5f8c6dd638deb1adcc338b201effdc225384f1f425be145d5"
+    },
+    {
+      "cohort": "population",
+      "key": "heterogeneous",
+      "cell": "economic-2p.json",
+      "games": 320,
+      "changed_result_records": [],
+      "fp32_model_sha256": "39a2d32e4612c7c7c6bbbd1c08ad1d25a5ce0eab2923195c783b025731fc0f01",
+      "fp64_model_sha256": "7131bf839fcdbbf5f8c6dd638deb1adcc338b201effdc225384f1f425be145d5"
+    },
+    {
+      "cohort": "population",
+      "key": "heterogeneous",
+      "cell": "economic-3p.json",
+      "games": 480,
+      "changed_result_records": [],
+      "fp32_model_sha256": "39a2d32e4612c7c7c6bbbd1c08ad1d25a5ce0eab2923195c783b025731fc0f01",
+      "fp64_model_sha256": "7131bf839fcdbbf5f8c6dd638deb1adcc338b201effdc225384f1f425be145d5"
+    },
+    {
+      "cohort": "population",
+      "key": "heterogeneous",
+      "cell": "economic-4p.json",
+      "games": 640,
+      "changed_result_records": [],
+      "fp32_model_sha256": "39a2d32e4612c7c7c6bbbd1c08ad1d25a5ce0eab2923195c783b025731fc0f01",
+      "fp64_model_sha256": "7131bf839fcdbbf5f8c6dd638deb1adcc338b201effdc225384f1f425be145d5"
+    },
+    {
+      "cohort": "population",
+      "key": "heterogeneous",
+      "cell": "economic-5p.json",
+      "games": 800,
+      "changed_result_records": [],
+      "fp32_model_sha256": "39a2d32e4612c7c7c6bbbd1c08ad1d25a5ce0eab2923195c783b025731fc0f01",
+      "fp64_model_sha256": "7131bf839fcdbbf5f8c6dd638deb1adcc338b201effdc225384f1f425be145d5"
+    },
+    {
+      "cohort": "population",
+      "key": "heterogeneous",
+      "cell": "economic-6p.json",
+      "games": 960,
+      "changed_result_records": [],
+      "fp32_model_sha256": "39a2d32e4612c7c7c6bbbd1c08ad1d25a5ce0eab2923195c783b025731fc0f01",
+      "fp64_model_sha256": "7131bf839fcdbbf5f8c6dd638deb1adcc338b201effdc225384f1f425be145d5"
+    },
+    {
+      "cohort": "five-plant",
+      "key": "parent",
+      "cell": "a260-3p.json",
+      "games": 480,
+      "changed_result_records": [],
+      "fp32_model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+      "fp64_model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a"
+    },
+    {
+      "cohort": "five-plant",
+      "key": "parent",
+      "cell": "economic-2p.json",
+      "games": 320,
+      "changed_result_records": [],
+      "fp32_model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+      "fp64_model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a"
+    },
+    {
+      "cohort": "five-plant",
+      "key": "parent",
+      "cell": "economic-3p.json",
+      "games": 480,
+      "changed_result_records": [],
+      "fp32_model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+      "fp64_model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a"
+    },
+    {
+      "cohort": "five-plant",
+      "key": "parent",
+      "cell": "economic-4p.json",
+      "games": 640,
+      "changed_result_records": [],
+      "fp32_model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+      "fp64_model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a"
+    },
+    {
+      "cohort": "five-plant",
+      "key": "parent",
+      "cell": "economic-5p.json",
+      "games": 800,
+      "changed_result_records": [],
+      "fp32_model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+      "fp64_model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a"
+    },
+    {
+      "cohort": "five-plant",
+      "key": "parent",
+      "cell": "economic-6p.json",
+      "games": 960,
+      "changed_result_records": [],
+      "fp32_model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+      "fp64_model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a"
+    },
+    {
+      "cohort": "five-plant",
+      "key": "parent",
+      "cell": "economic_capacity_v1-2p.json",
+      "games": 320,
+      "changed_result_records": [],
+      "fp32_model_sha256": "2f1dd42625ea86404155e63124e55d95d07016027a0ceda4e08164357b554927",
+      "fp64_model_sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a"
+    },
+    {
+      "cohort": "five-plant",
+      "key": "control-s10032",
+      "cell": "a260-3p.json",
+      "games": 480,
+      "changed_result_records": [],
+      "fp32_model_sha256": "e190d72bed54f3d24b811d3b527013adb7dbecdf6cee25dcc0c3613fa4ae72cc",
+      "fp64_model_sha256": "cacd377f870a7db9d352055ee9a8db9e9f3b783faab474dbcfb460022b77ec78"
+    },
+    {
+      "cohort": "five-plant",
+      "key": "control-s10032",
+      "cell": "economic-2p.json",
+      "games": 320,
+      "changed_result_records": [],
+      "fp32_model_sha256": "e190d72bed54f3d24b811d3b527013adb7dbecdf6cee25dcc0c3613fa4ae72cc",
+      "fp64_model_sha256": "cacd377f870a7db9d352055ee9a8db9e9f3b783faab474dbcfb460022b77ec78"
+    },
+    {
+      "cohort": "five-plant",
+      "key": "control-s10032",
+      "cell": "economic-3p.json",
+      "games": 480,
+      "changed_result_records": [],
+      "fp32_model_sha256": "e190d72bed54f3d24b811d3b527013adb7dbecdf6cee25dcc0c3613fa4ae72cc",
+      "fp64_model_sha256": "cacd377f870a7db9d352055ee9a8db9e9f3b783faab474dbcfb460022b77ec78"
+    },
+    {
+      "cohort": "five-plant",
+      "key": "control-s10032",
+      "cell": "economic-4p.json",
+      "games": 640,
+      "changed_result_records": [],
+      "fp32_model_sha256": "e190d72bed54f3d24b811d3b527013adb7dbecdf6cee25dcc0c3613fa4ae72cc",
+      "fp64_model_sha256": "cacd377f870a7db9d352055ee9a8db9e9f3b783faab474dbcfb460022b77ec78"
+    },
+    {
+      "cohort": "five-plant",
+      "key": "control-s10032",
+      "cell": "economic-5p.json",
+      "games": 800,
+      "changed_result_records": [],
+      "fp32_model_sha256": "e190d72bed54f3d24b811d3b527013adb7dbecdf6cee25dcc0c3613fa4ae72cc",
+      "fp64_model_sha256": "cacd377f870a7db9d352055ee9a8db9e9f3b783faab474dbcfb460022b77ec78"
+    },
+    {
+      "cohort": "five-plant",
+      "key": "control-s10032",
+      "cell": "economic-6p.json",
+      "games": 960,
+      "changed_result_records": [],
+      "fp32_model_sha256": "e190d72bed54f3d24b811d3b527013adb7dbecdf6cee25dcc0c3613fa4ae72cc",
+      "fp64_model_sha256": "cacd377f870a7db9d352055ee9a8db9e9f3b783faab474dbcfb460022b77ec78"
+    },
+    {
+      "cohort": "five-plant",
+      "key": "control-s10032",
+      "cell": "economic_capacity_v1-2p.json",
+      "games": 320,
+      "changed_result_records": [],
+      "fp32_model_sha256": "e190d72bed54f3d24b811d3b527013adb7dbecdf6cee25dcc0c3613fa4ae72cc",
+      "fp64_model_sha256": "cacd377f870a7db9d352055ee9a8db9e9f3b783faab474dbcfb460022b77ec78"
+    }
+  ],
+  "qualification_eligible": false,
+  "games": 19040,
+  "changed_result_records": 0
+}

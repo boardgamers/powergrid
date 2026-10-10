@@ -1,0 +1,40 @@
+{
+  "purpose": "Collect fresh public discard decisions for testing stronger search guidance. No hindsight last-discard or win/loss selection, no teacher labels or gradients in this stage.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "output_prefix": "runs/public-discard-collection-v1",
+  "model": {
+    "revision": "f14d0db14edb494c8797af00a546ac56088cfa96",
+    "path": "runs/inference64-cohort-v1/parent/inference64.onnx",
+    "sha256": "1b4a5d374dca0e914cdd12851a70f039e9f7c158461201d5ac0bbbc2ae283d9a",
+    "feature_revision": "4.0-multiplayer",
+    "selection": "Fixed original update79 parent derivative; not a winner selected from the new comparison."
+  },
+  "base_source": {
+    "archive": "strong-source-inference64-screen-20261010-v1-five-plant.tgz",
+    "revision": "8925f0986217500c4118a9997a3aa1c4adc04ccf",
+    "sha256": "45c8f05dd60e71dfbb9027093b14a8ecfa3a4272277b1ed96cc411feea780c1f"
+  },
+  "players": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "deals_per_player_count": 4,
+  "unique_games": 320,
+  "engine_game_runs": 640,
+  "seed_template": "public-discard-development-v1-{players}p",
+  "smoke_seed_template": "public-discard-smoke-v1-{players}p",
+  "pairing": "Every seat crossed with original/Recharged and open/sealed. Identical uninstrumented twin for every complete game.",
+  "root_selection": "First learner multi-choice DiscardPowerPlant per game while maximum public connected cities is at least citiesToEndGame minus3. Never filter on final outcome, terminal round, chosen discard or teacher preference. Keep absent-root cells visible; do not resample them silently.",
+  "privacy": "Capture only a clone of stripSecret for the actor; remove future private deck, hidden log, all queued plans, and sealed currentBid. Opponent money is intentionally visible. Original game must remain byte-identical during capture.",
+  "validation": [
+    "Exact original and instrumented model inputs/action order at every decision; apply the same original-model action to both engines.",
+    "Identical complete terminal records with zero caps; full seat/rule/deal pairs.",
+    "Record every eligible root once with exact legal moves and original model proposal."
+  ],
+  "next": "Inspect coverage, then audit all legal discards under independently seeded public-belief scenarios and contrasting continuation policies before accepting training guidance. Fresh complete-game intervention tests still required; root action stability alone is not strength.",
+  "qualification_eligible": false,
+  "trained": false
+}

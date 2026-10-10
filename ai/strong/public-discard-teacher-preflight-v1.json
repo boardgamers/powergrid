@@ -1,0 +1,46 @@
+{
+  "frozen_source": {
+    "archive": "strong-source-public-discard-teacher-20261010-v1.tgz",
+    "revision": "52041c96794e0b3c76065ea5538c87b1a878d58f",
+    "sha256": "9bfaa1bbfe95bc5a2c1392e56128315604fe401c9063ed35e7b05ee5410615ff",
+    "base": {
+      "archive": "strong-source-public-discard-collection-20261010-v1.tgz",
+      "revision": "616f94b1f27553a9688efe86276e06218e84f96a",
+      "sha256": "280ea886de1ff814792a937f71c0de65d9fb3327c692af9ae0fcab233bca694d"
+    },
+    "overlays": {
+      "ai/strong/audit-public-discard-teacher.py": "195b0fd23dcd8a67d77876695d41b809834393a3ef2e3021b188923bca04f1aa",
+      "ai/strong/public-discard-teacher-protocol-v1.json": "3b42768997a9f85ca462961448143e385b84bef3878bb27dbc48b03ea2200e09",
+      "ai/strong/audit-neural-continuations.py": "bdea52dbeb2436224e2f553442913d69167bac71052b61a71c43944523d62e01",
+      "ai/strong/continuation-rollouts.cjs": "8d0fc281725222e1587de9951ac5e5e18aa403b26d1d83de492f4bf18a5b2701",
+      "ai/strong/test-continuation-rollouts.cjs": "313f1e8e0e6d8fba174c8b3ba73705e59269b85a82441d4e78b81ff747359c60"
+    },
+    "unchanged_base_file_count": 1338,
+    "protocol_sha256": "3b42768997a9f85ca462961448143e385b84bef3878bb27dbc48b03ea2200e09",
+    "qualification_eligible": false
+  },
+  "smokes": [
+    {
+      "players": 2,
+      "exact_sample_outcomes_and_actions": true,
+      "evaluations": 48,
+      "truncations": 0
+    },
+    {
+      "players": 6,
+      "exact_sample_outcomes_and_actions": true,
+      "evaluations": 36,
+      "truncations": 0
+    }
+  ],
+  "continuation_regressions": {
+    "passed": 3,
+    "coverage": [
+      "reference economic/heuristic equivalence",
+      "legality caps worker offsets",
+      "hidden deck/bid invariance"
+    ]
+  },
+  "trained": false,
+  "qualification_eligible": false
+}

@@ -1,0 +1,2847 @@
+{
+  "positions": 189,
+  "evaluations": 229248,
+  "truncated": 0,
+  "by_player_count": {
+    "2": {
+      "verification": {
+        "revision": "443a96ead2624a87e2ec53f169b7f905a1ed8116",
+        "prefix": "runs/public-discard-teacher-v1-2p",
+        "players": 2,
+        "positions": 30,
+        "evaluations": 46080,
+        "truncated": 0,
+        "all_artifacts_recomputed": true,
+        "qualification_eligible": false,
+        "sha256": {
+          "audit-check.json": "c45d24b3696adaf6fb114d1f3db379e738693f8b4b14b57e4f297adff8dc3877",
+          "rows.jsonl": "b4ea6eec42016913b4a9ae46432c5bc152d4a0a0d85366a75d03e0fb5a395070",
+          "summary.json": "3f8b1f15430ecc4d2ee0bef1b624839faf62771daf74f928838e58e1070ecf17"
+        }
+      },
+      "summary": {
+        "positions": 30,
+        "per_continuation": {
+          "economic": {
+            "valid_paired_roots": 30,
+            "invalid_paired_roots": 0,
+            "exact_winner_set_agreement": 27,
+            "winner_sets_overlap": 29,
+            "same_selected_action": 27,
+            "both_batches_agree_to_change_proposal": 10,
+            "tied_batch_winners": 39,
+            "mean_apparent_proposal_regret": 0.21354166666666666,
+            "mean_cross_batch_selected_gain": 0.21119791666666668,
+            "per_root_cross_batch_gain": {
+              "0": 0.0,
+              "1": 1.0,
+              "2": 1.0,
+              "3": 0.0,
+              "4": 0.0,
+              "5": 0.0,
+              "6": 0.0,
+              "7": 1.0,
+              "8": 0.0,
+              "9": 0.0,
+              "10": 0.0,
+              "11": 0.0,
+              "12": 0.0,
+              "13": -0.0390625,
+              "14": 0.0,
+              "15": 0.0,
+              "16": 0.0,
+              "17": 0.234375,
+              "18": 1.0,
+              "19": 1.0,
+              "20": 0.0,
+              "21": 0.0,
+              "22": 0.2421875,
+              "23": 0.265625,
+              "24": 0.4609375,
+              "25": 0.171875,
+              "26": 0.0,
+              "27": 0.0,
+              "28": 0.0,
+              "29": 0.0
+            }
+          },
+          "heuristic": {
+            "valid_paired_roots": 30,
+            "invalid_paired_roots": 0,
+            "exact_winner_set_agreement": 30,
+            "winner_sets_overlap": 30,
+            "same_selected_action": 30,
+            "both_batches_agree_to_change_proposal": 5,
+            "tied_batch_winners": 54,
+            "mean_apparent_proposal_regret": 0.12682291666666667,
+            "mean_cross_batch_selected_gain": 0.12682291666666667,
+            "per_root_cross_batch_gain": {
+              "0": 0.0,
+              "1": 0.1484375,
+              "2": 0.0,
+              "3": 0.0,
+              "4": 0.0,
+              "5": 0.0,
+              "6": 0.0,
+              "7": 0.0,
+              "8": 0.0,
+              "9": 0.0,
+              "10": 0.0,
+              "11": 0.0,
+              "12": 0.0,
+              "13": 0.0,
+              "14": 0.0,
+              "15": 0.0,
+              "16": 0.859375,
+              "17": 1.0,
+              "18": 0.0,
+              "19": 0.0,
+              "20": 0.0,
+              "21": 0.0,
+              "22": 1.0,
+              "23": 0.0,
+              "24": 0.0,
+              "25": 0.796875,
+              "26": 0.0,
+              "27": 0.0,
+              "28": 0.0,
+              "29": 0.0
+            }
+          },
+          "neural": {
+            "valid_paired_roots": 30,
+            "invalid_paired_roots": 0,
+            "exact_winner_set_agreement": 29,
+            "winner_sets_overlap": 30,
+            "same_selected_action": 29,
+            "both_batches_agree_to_change_proposal": 9,
+            "tied_batch_winners": 43,
+            "mean_apparent_proposal_regret": 0.22057291666666667,
+            "mean_cross_batch_selected_gain": 0.22005208333333334,
+            "per_root_cross_batch_gain": {
+              "0": 0.1015625,
+              "1": 1.0,
+              "2": 1.0,
+              "3": 0.0,
+              "4": 0.0,
+              "5": 0.0,
+              "6": 0.0,
+              "7": 1.0,
+              "8": 0.0,
+              "9": 0.0,
+              "10": 0.0,
+              "11": 0.0,
+              "12": 0.0,
+              "13": 0.0,
+              "14": 0.0,
+              "15": 0.0,
+              "16": 0.3203125,
+              "17": 0.2578125,
+              "18": 1.0,
+              "19": 1.0,
+              "20": 0.0,
+              "21": 0.0,
+              "22": 0.0,
+              "23": 0.0,
+              "24": 0.640625,
+              "25": 0.28125,
+              "26": 0.0,
+              "27": 0.0,
+              "28": 0.0,
+              "29": 0.0
+            }
+          }
+        },
+        "between_continuations": {
+          "economic_vs_heuristic": {
+            "valid_root_batches": 60,
+            "disjoint_winner_sets": 4,
+            "different_selected_actions": 17
+          },
+          "economic_vs_neural": {
+            "valid_root_batches": 60,
+            "disjoint_winner_sets": 4,
+            "different_selected_actions": 10
+          },
+          "heuristic_vs_neural": {
+            "valid_root_batches": 60,
+            "disjoint_winner_sets": 2,
+            "different_selected_actions": 14
+          }
+        },
+        "rules": {
+          "original-open": {
+            "positions": 8,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 7,
+                "winner_sets_overlap": 7,
+                "same_selected_action": 7,
+                "both_batches_agree_to_change_proposal": 3,
+                "tied_batch_winners": 8,
+                "mean_apparent_proposal_regret": 0.11328125,
+                "mean_cross_batch_selected_gain": 0.107421875,
+                "per_root_cross_batch_gain": {
+                  "12": 0.0,
+                  "13": -0.0390625,
+                  "21": 0.0,
+                  "23": 0.265625,
+                  "24": 0.4609375,
+                  "25": 0.171875,
+                  "27": 0.0,
+                  "28": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 8,
+                "winner_sets_overlap": 8,
+                "same_selected_action": 8,
+                "both_batches_agree_to_change_proposal": 1,
+                "tied_batch_winners": 16,
+                "mean_apparent_proposal_regret": 0.099609375,
+                "mean_cross_batch_selected_gain": 0.099609375,
+                "per_root_cross_batch_gain": {
+                  "12": 0.0,
+                  "13": 0.0,
+                  "21": 0.0,
+                  "23": 0.0,
+                  "24": 0.0,
+                  "25": 0.796875,
+                  "27": 0.0,
+                  "28": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 8,
+                "winner_sets_overlap": 8,
+                "same_selected_action": 8,
+                "both_batches_agree_to_change_proposal": 2,
+                "tied_batch_winners": 10,
+                "mean_apparent_proposal_regret": 0.115234375,
+                "mean_cross_batch_selected_gain": 0.115234375,
+                "per_root_cross_batch_gain": {
+                  "12": 0.0,
+                  "13": 0.0,
+                  "21": 0.0,
+                  "23": 0.0,
+                  "24": 0.640625,
+                  "25": 0.28125,
+                  "27": 0.0,
+                  "28": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 1,
+                "different_selected_actions": 5
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 1,
+                "different_selected_actions": 3
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 2
+              }
+            }
+          },
+          "original-sealed": {
+            "positions": 8,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 7,
+                "winner_sets_overlap": 8,
+                "same_selected_action": 7,
+                "both_batches_agree_to_change_proposal": 3,
+                "tied_batch_winners": 12,
+                "mean_apparent_proposal_regret": 0.28125,
+                "mean_cross_batch_selected_gain": 0.279296875,
+                "per_root_cross_batch_gain": {
+                  "5": 0.0,
+                  "8": 0.0,
+                  "9": 0.0,
+                  "14": 0.0,
+                  "17": 0.234375,
+                  "18": 1.0,
+                  "19": 1.0,
+                  "20": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 8,
+                "winner_sets_overlap": 8,
+                "same_selected_action": 8,
+                "both_batches_agree_to_change_proposal": 1,
+                "tied_batch_winners": 14,
+                "mean_apparent_proposal_regret": 0.125,
+                "mean_cross_batch_selected_gain": 0.125,
+                "per_root_cross_batch_gain": {
+                  "5": 0.0,
+                  "8": 0.0,
+                  "9": 0.0,
+                  "14": 0.0,
+                  "17": 1.0,
+                  "18": 0.0,
+                  "19": 0.0,
+                  "20": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 8,
+                "winner_sets_overlap": 8,
+                "same_selected_action": 8,
+                "both_batches_agree_to_change_proposal": 3,
+                "tied_batch_winners": 12,
+                "mean_apparent_proposal_regret": 0.2822265625,
+                "mean_cross_batch_selected_gain": 0.2822265625,
+                "per_root_cross_batch_gain": {
+                  "5": 0.0,
+                  "8": 0.0,
+                  "9": 0.0,
+                  "14": 0.0,
+                  "17": 0.2578125,
+                  "18": 1.0,
+                  "19": 1.0,
+                  "20": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 5
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 1
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 4
+              }
+            }
+          },
+          "recharged-open": {
+            "positions": 6,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 6,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 6,
+                "winner_sets_overlap": 6,
+                "same_selected_action": 6,
+                "both_batches_agree_to_change_proposal": 1,
+                "tied_batch_winners": 10,
+                "mean_apparent_proposal_regret": 0.040364583333333336,
+                "mean_cross_batch_selected_gain": 0.040364583333333336,
+                "per_root_cross_batch_gain": {
+                  "4": 0.0,
+                  "11": 0.0,
+                  "15": 0.0,
+                  "22": 0.2421875,
+                  "26": 0.0,
+                  "29": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 6,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 6,
+                "winner_sets_overlap": 6,
+                "same_selected_action": 6,
+                "both_batches_agree_to_change_proposal": 1,
+                "tied_batch_winners": 10,
+                "mean_apparent_proposal_regret": 0.16666666666666666,
+                "mean_cross_batch_selected_gain": 0.16666666666666666,
+                "per_root_cross_batch_gain": {
+                  "4": 0.0,
+                  "11": 0.0,
+                  "15": 0.0,
+                  "22": 1.0,
+                  "26": 0.0,
+                  "29": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 6,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 6,
+                "winner_sets_overlap": 6,
+                "same_selected_action": 6,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 12,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "4": 0.0,
+                  "11": 0.0,
+                  "15": 0.0,
+                  "22": 0.0,
+                  "26": 0.0,
+                  "29": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 12,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 0
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 12,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 2
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 12,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 2
+              }
+            }
+          },
+          "recharged-sealed": {
+            "positions": 8,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 7,
+                "winner_sets_overlap": 8,
+                "same_selected_action": 7,
+                "both_batches_agree_to_change_proposal": 3,
+                "tied_batch_winners": 9,
+                "mean_apparent_proposal_regret": 0.3759765625,
+                "mean_cross_batch_selected_gain": 0.375,
+                "per_root_cross_batch_gain": {
+                  "0": 0.0,
+                  "1": 1.0,
+                  "2": 1.0,
+                  "3": 0.0,
+                  "6": 0.0,
+                  "7": 1.0,
+                  "10": 0.0,
+                  "16": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 8,
+                "winner_sets_overlap": 8,
+                "same_selected_action": 8,
+                "both_batches_agree_to_change_proposal": 2,
+                "tied_batch_winners": 14,
+                "mean_apparent_proposal_regret": 0.1259765625,
+                "mean_cross_batch_selected_gain": 0.1259765625,
+                "per_root_cross_batch_gain": {
+                  "0": 0.0,
+                  "1": 0.1484375,
+                  "2": 0.0,
+                  "3": 0.0,
+                  "6": 0.0,
+                  "7": 0.0,
+                  "10": 0.0,
+                  "16": 0.859375
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 7,
+                "winner_sets_overlap": 8,
+                "same_selected_action": 7,
+                "both_batches_agree_to_change_proposal": 4,
+                "tied_batch_winners": 9,
+                "mean_apparent_proposal_regret": 0.4296875,
+                "mean_cross_batch_selected_gain": 0.427734375,
+                "per_root_cross_batch_gain": {
+                  "0": 0.1015625,
+                  "1": 1.0,
+                  "2": 1.0,
+                  "3": 0.0,
+                  "6": 0.0,
+                  "7": 1.0,
+                  "10": 0.0,
+                  "16": 0.3203125
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 3,
+                "different_selected_actions": 7
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 3,
+                "different_selected_actions": 4
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 2,
+                "different_selected_actions": 6
+              }
+            }
+          }
+        },
+        "scope": "Descriptive, equal weight per collected root. Winner ties preserve the original proposal; otherwise lowest legal index. Cross-batch gain selects on a and measures on b, then reverses and averages. These are public-belief continuation returns, not actual playing strength. Roots from the same game-deal family are dependent. No promotion or training labels approved.",
+        "qualification_eligible": false
+      },
+      "runtime": {
+        "engine_seconds": 118.00370060745627,
+        "policy_seconds": 67.92588452715427,
+        "policy_decisions": 560163
+      }
+    },
+    "3": {
+      "verification": {
+        "revision": "63fde63f3ec41a1fecb54cd5cfe3a452db12fb80",
+        "prefix": "runs/public-discard-teacher-v1-3p",
+        "players": 3,
+        "positions": 21,
+        "evaluations": 24192,
+        "truncated": 0,
+        "all_artifacts_recomputed": true,
+        "qualification_eligible": false,
+        "sha256": {
+          "audit-check.json": "ae2639b8ba38e54bb8a043bea475df424d1c596c8e44098fac6ae3a2cc7510da",
+          "rows.jsonl": "38ed2491eff208d43771cf51b8c72af31320424297df6aee9904239fa83bd8ca",
+          "summary.json": "deb5a68e732d9feaa77fa3e974c5f7176bed939cf3fce6c450f9fb6d7bcbe271"
+        }
+      },
+      "summary": {
+        "positions": 21,
+        "per_continuation": {
+          "economic": {
+            "valid_paired_roots": 21,
+            "invalid_paired_roots": 0,
+            "exact_winner_set_agreement": 20,
+            "winner_sets_overlap": 21,
+            "same_selected_action": 21,
+            "both_batches_agree_to_change_proposal": 5,
+            "tied_batch_winners": 27,
+            "mean_apparent_proposal_regret": 0.17410714285714285,
+            "mean_cross_batch_selected_gain": 0.17410714285714285,
+            "per_root_cross_batch_gain": {
+              "30": 0.0,
+              "31": 0.0,
+              "32": 0.0,
+              "33": 0.0,
+              "34": 0.0,
+              "35": 0.0,
+              "36": 0.4921875,
+              "37": 0.0,
+              "38": 0.0,
+              "39": 1.0,
+              "40": 0.0,
+              "41": 0.1640625,
+              "42": 0.0,
+              "43": 0.0,
+              "44": 1.0,
+              "45": 0.0,
+              "46": 0.0,
+              "47": 0.0,
+              "48": 1.0,
+              "49": 0.0,
+              "50": 0.0
+            }
+          },
+          "heuristic": {
+            "valid_paired_roots": 21,
+            "invalid_paired_roots": 0,
+            "exact_winner_set_agreement": 19,
+            "winner_sets_overlap": 21,
+            "same_selected_action": 21,
+            "both_batches_agree_to_change_proposal": 3,
+            "tied_batch_winners": 25,
+            "mean_apparent_proposal_regret": 0.05357142857142857,
+            "mean_cross_batch_selected_gain": 0.05357142857142857,
+            "per_root_cross_batch_gain": {
+              "30": 0.0,
+              "31": 0.140625,
+              "32": 0.0,
+              "33": 0.0,
+              "34": 0.0,
+              "35": 0.0,
+              "36": 0.1953125,
+              "37": 0.0,
+              "38": 0.0,
+              "39": 0.7890625,
+              "40": 0.0,
+              "41": 0.0,
+              "42": 0.0,
+              "43": 0.0,
+              "44": 0.0,
+              "45": 0.0,
+              "46": 0.0,
+              "47": 0.0,
+              "48": 0.0,
+              "49": 0.0,
+              "50": 0.0
+            }
+          },
+          "neural": {
+            "valid_paired_roots": 21,
+            "invalid_paired_roots": 0,
+            "exact_winner_set_agreement": 21,
+            "winner_sets_overlap": 21,
+            "same_selected_action": 21,
+            "both_batches_agree_to_change_proposal": 5,
+            "tied_batch_winners": 28,
+            "mean_apparent_proposal_regret": 0.13876488095238096,
+            "mean_cross_batch_selected_gain": 0.13876488095238096,
+            "per_root_cross_batch_gain": {
+              "30": 0.0,
+              "31": 0.0,
+              "32": 0.0,
+              "33": 0.0,
+              "34": 0.0,
+              "35": 0.0,
+              "36": 0.5390625,
+              "37": 0.0,
+              "38": 0.0,
+              "39": 1.0,
+              "40": 0.0,
+              "41": 0.265625,
+              "42": 0.0,
+              "43": 0.109375,
+              "44": 0.0,
+              "45": 0.0,
+              "46": 0.0,
+              "47": 0.0,
+              "48": 1.0,
+              "49": 0.0,
+              "50": 0.0
+            }
+          }
+        },
+        "between_continuations": {
+          "economic_vs_heuristic": {
+            "valid_root_batches": 42,
+            "disjoint_winner_sets": 1,
+            "different_selected_actions": 8
+          },
+          "economic_vs_neural": {
+            "valid_root_batches": 42,
+            "disjoint_winner_sets": 2,
+            "different_selected_actions": 4
+          },
+          "heuristic_vs_neural": {
+            "valid_root_batches": 42,
+            "disjoint_winner_sets": 3,
+            "different_selected_actions": 8
+          }
+        },
+        "rules": {
+          "original-open": {
+            "positions": 8,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 8,
+                "winner_sets_overlap": 8,
+                "same_selected_action": 8,
+                "both_batches_agree_to_change_proposal": 3,
+                "tied_batch_winners": 6,
+                "mean_apparent_proposal_regret": 0.2705078125,
+                "mean_cross_batch_selected_gain": 0.2705078125,
+                "per_root_cross_batch_gain": {
+                  "39": 1.0,
+                  "41": 0.1640625,
+                  "43": 0.0,
+                  "45": 0.0,
+                  "47": 0.0,
+                  "48": 1.0,
+                  "49": 0.0,
+                  "50": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 6,
+                "winner_sets_overlap": 8,
+                "same_selected_action": 8,
+                "both_batches_agree_to_change_proposal": 1,
+                "tied_batch_winners": 5,
+                "mean_apparent_proposal_regret": 0.0986328125,
+                "mean_cross_batch_selected_gain": 0.0986328125,
+                "per_root_cross_batch_gain": {
+                  "39": 0.7890625,
+                  "41": 0.0,
+                  "43": 0.0,
+                  "45": 0.0,
+                  "47": 0.0,
+                  "48": 0.0,
+                  "49": 0.0,
+                  "50": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 8,
+                "winner_sets_overlap": 8,
+                "same_selected_action": 8,
+                "both_batches_agree_to_change_proposal": 4,
+                "tied_batch_winners": 6,
+                "mean_apparent_proposal_regret": 0.296875,
+                "mean_cross_batch_selected_gain": 0.296875,
+                "per_root_cross_batch_gain": {
+                  "39": 1.0,
+                  "41": 0.265625,
+                  "43": 0.109375,
+                  "45": 0.0,
+                  "47": 0.0,
+                  "48": 1.0,
+                  "49": 0.0,
+                  "50": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 1,
+                "different_selected_actions": 4
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 2,
+                "different_selected_actions": 2
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 3,
+                "different_selected_actions": 6
+              }
+            }
+          },
+          "original-sealed": {
+            "positions": 6,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 6,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 5,
+                "winner_sets_overlap": 6,
+                "same_selected_action": 6,
+                "both_batches_agree_to_change_proposal": 1,
+                "tied_batch_winners": 9,
+                "mean_apparent_proposal_regret": 0.08203125,
+                "mean_cross_batch_selected_gain": 0.08203125,
+                "per_root_cross_batch_gain": {
+                  "30": 0.0,
+                  "31": 0.0,
+                  "33": 0.0,
+                  "35": 0.0,
+                  "36": 0.4921875,
+                  "42": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 6,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 6,
+                "winner_sets_overlap": 6,
+                "same_selected_action": 6,
+                "both_batches_agree_to_change_proposal": 2,
+                "tied_batch_winners": 8,
+                "mean_apparent_proposal_regret": 0.055989583333333336,
+                "mean_cross_batch_selected_gain": 0.055989583333333336,
+                "per_root_cross_batch_gain": {
+                  "30": 0.0,
+                  "31": 0.140625,
+                  "33": 0.0,
+                  "35": 0.0,
+                  "36": 0.1953125,
+                  "42": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 6,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 6,
+                "winner_sets_overlap": 6,
+                "same_selected_action": 6,
+                "both_batches_agree_to_change_proposal": 1,
+                "tied_batch_winners": 8,
+                "mean_apparent_proposal_regret": 0.08984375,
+                "mean_cross_batch_selected_gain": 0.08984375,
+                "per_root_cross_batch_gain": {
+                  "30": 0.0,
+                  "31": 0.0,
+                  "33": 0.0,
+                  "35": 0.0,
+                  "36": 0.5390625,
+                  "42": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 12,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 2
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 12,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 0
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 12,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 2
+              }
+            }
+          },
+          "recharged-open": {
+            "positions": 2,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 2,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 2,
+                "winner_sets_overlap": 2,
+                "same_selected_action": 2,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 4,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "37": 0.0,
+                  "46": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 2,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 2,
+                "winner_sets_overlap": 2,
+                "same_selected_action": 2,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 4,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "37": 0.0,
+                  "46": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 2,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 2,
+                "winner_sets_overlap": 2,
+                "same_selected_action": 2,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 4,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "37": 0.0,
+                  "46": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 4,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 0
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 4,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 0
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 4,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 0
+              }
+            }
+          },
+          "recharged-sealed": {
+            "positions": 5,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 5,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 5,
+                "winner_sets_overlap": 5,
+                "same_selected_action": 5,
+                "both_batches_agree_to_change_proposal": 1,
+                "tied_batch_winners": 8,
+                "mean_apparent_proposal_regret": 0.2,
+                "mean_cross_batch_selected_gain": 0.2,
+                "per_root_cross_batch_gain": {
+                  "32": 0.0,
+                  "34": 0.0,
+                  "38": 0.0,
+                  "40": 0.0,
+                  "44": 1.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 5,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 5,
+                "winner_sets_overlap": 5,
+                "same_selected_action": 5,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 8,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "32": 0.0,
+                  "34": 0.0,
+                  "38": 0.0,
+                  "40": 0.0,
+                  "44": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 5,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 5,
+                "winner_sets_overlap": 5,
+                "same_selected_action": 5,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 10,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "32": 0.0,
+                  "34": 0.0,
+                  "38": 0.0,
+                  "40": 0.0,
+                  "44": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 10,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 2
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 10,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 2
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 10,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 0
+              }
+            }
+          }
+        },
+        "scope": "Descriptive, equal weight per collected root. Winner ties preserve the original proposal; otherwise lowest legal index. Cross-batch gain selects on a and measures on b, then reverses and averages. These are public-belief continuation returns, not actual playing strength. Roots from the same game-deal family are dependent. No promotion or training labels approved.",
+        "qualification_eligible": false
+      },
+      "runtime": {
+        "engine_seconds": 81.16278561399976,
+        "policy_seconds": 45.338046802999614,
+        "policy_decisions": 388834
+      }
+    },
+    "4": {
+      "verification": {
+        "revision": "82cf7bab3f65fb5dda50c0651dee9caf413e4aae",
+        "prefix": "runs/public-discard-teacher-v1-4p",
+        "players": 4,
+        "positions": 36,
+        "evaluations": 41472,
+        "truncated": 0,
+        "all_artifacts_recomputed": true,
+        "qualification_eligible": false,
+        "sha256": {
+          "audit-check.json": "fe3b5236e2474e8e8ca63189076f264f2e401fbdbb7e6660e1e49213eb7bac2f",
+          "rows.jsonl": "77c2e2365eb7a8a62d75a7e0d9f068ce86c79620099a7fbf8bdcd2a271ee2b6d",
+          "summary.json": "c3d3f093e643f0143681bf373e3fdccc3006db1be66191c57da800dcee970520"
+        }
+      },
+      "summary": {
+        "positions": 36,
+        "per_continuation": {
+          "economic": {
+            "valid_paired_roots": 36,
+            "invalid_paired_roots": 0,
+            "exact_winner_set_agreement": 35,
+            "winner_sets_overlap": 36,
+            "same_selected_action": 35,
+            "both_batches_agree_to_change_proposal": 10,
+            "tied_batch_winners": 41,
+            "mean_apparent_proposal_regret": 0.14778645833333334,
+            "mean_cross_batch_selected_gain": 0.1469184027777778,
+            "per_root_cross_batch_gain": {
+              "51": 1.0,
+              "52": 0.0,
+              "53": 0.0,
+              "54": 0.0,
+              "55": 0.578125,
+              "56": 0.2734375,
+              "57": 0.0,
+              "58": 0.0,
+              "59": 0.421875,
+              "60": 0.0,
+              "61": 0.7734375,
+              "62": 0.0,
+              "63": 0.0,
+              "64": 0.3125,
+              "65": 0.0,
+              "66": 0.0,
+              "67": 0.625,
+              "68": 0.0,
+              "69": 0.140625,
+              "70": 0.1328125,
+              "71": 0.0,
+              "72": 0.0,
+              "73": 0.0,
+              "74": 0.0,
+              "75": 0.0,
+              "76": 0.03125,
+              "77": 0.0,
+              "78": 0.0,
+              "79": 0.0,
+              "80": 1.0,
+              "81": 0.0,
+              "82": 0.0,
+              "83": 0.0,
+              "84": 0.0,
+              "85": 0.0,
+              "86": 0.0
+            }
+          },
+          "heuristic": {
+            "valid_paired_roots": 36,
+            "invalid_paired_roots": 0,
+            "exact_winner_set_agreement": 35,
+            "winner_sets_overlap": 36,
+            "same_selected_action": 35,
+            "both_batches_agree_to_change_proposal": 4,
+            "tied_batch_winners": 41,
+            "mean_apparent_proposal_regret": 0.053385416666666664,
+            "mean_cross_batch_selected_gain": 0.05186631944444445,
+            "per_root_cross_batch_gain": {
+              "51": 0.0,
+              "52": 0.0,
+              "53": 0.0,
+              "54": 0.0,
+              "55": 0.0,
+              "56": 0.0,
+              "57": 0.0,
+              "58": 0.0,
+              "59": 0.0,
+              "60": 0.0,
+              "61": 0.0703125,
+              "62": 0.0,
+              "63": 0.0,
+              "64": 0.0,
+              "65": 0.0,
+              "66": 0.0,
+              "67": 0.0,
+              "68": 0.734375,
+              "69": 0.0,
+              "70": 0.0,
+              "71": 0.0,
+              "72": 0.0,
+              "73": 0.0,
+              "74": 1.0,
+              "75": 0.0,
+              "76": 0.0625,
+              "77": 0.0,
+              "78": 0.0,
+              "79": 0.0,
+              "80": 0.0,
+              "81": 0.0,
+              "82": 0.0,
+              "83": 0.0,
+              "84": 0.0,
+              "85": 0.0,
+              "86": 0.0
+            }
+          },
+          "neural": {
+            "valid_paired_roots": 36,
+            "invalid_paired_roots": 0,
+            "exact_winner_set_agreement": 36,
+            "winner_sets_overlap": 36,
+            "same_selected_action": 36,
+            "both_batches_agree_to_change_proposal": 10,
+            "tied_batch_winners": 48,
+            "mean_apparent_proposal_regret": 0.12174479166666667,
+            "mean_cross_batch_selected_gain": 0.12174479166666667,
+            "per_root_cross_batch_gain": {
+              "51": 1.0,
+              "52": 0.0,
+              "53": 0.0,
+              "54": 0.0,
+              "55": 0.578125,
+              "56": 0.2890625,
+              "57": 0.0,
+              "58": 0.0,
+              "59": 0.421875,
+              "60": 0.0,
+              "61": 0.21875,
+              "62": 0.0,
+              "63": 0.0,
+              "64": 0.2578125,
+              "65": 0.0,
+              "66": 0.0,
+              "67": 0.75,
+              "68": 0.0,
+              "69": 0.3984375,
+              "70": 0.28125,
+              "71": 0.0,
+              "72": 0.0,
+              "73": 0.0,
+              "74": 0.0,
+              "75": 0.0,
+              "76": 0.1875,
+              "77": 0.0,
+              "78": 0.0,
+              "79": 0.0,
+              "80": 0.0,
+              "81": 0.0,
+              "82": 0.0,
+              "83": 0.0,
+              "84": 0.0,
+              "85": 0.0,
+              "86": 0.0
+            }
+          }
+        },
+        "between_continuations": {
+          "economic_vs_heuristic": {
+            "valid_root_batches": 72,
+            "disjoint_winner_sets": 11,
+            "different_selected_actions": 24
+          },
+          "economic_vs_neural": {
+            "valid_root_batches": 72,
+            "disjoint_winner_sets": 1,
+            "different_selected_actions": 5
+          },
+          "heuristic_vs_neural": {
+            "valid_root_batches": 72,
+            "disjoint_winner_sets": 8,
+            "different_selected_actions": 19
+          }
+        },
+        "rules": {
+          "original-open": {
+            "positions": 10,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 10,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 10,
+                "winner_sets_overlap": 10,
+                "same_selected_action": 10,
+                "both_batches_agree_to_change_proposal": 2,
+                "tied_batch_winners": 12,
+                "mean_apparent_proposal_regret": 0.04453125,
+                "mean_cross_batch_selected_gain": 0.04453125,
+                "per_root_cross_batch_gain": {
+                  "64": 0.3125,
+                  "65": 0.0,
+                  "70": 0.1328125,
+                  "77": 0.0,
+                  "79": 0.0,
+                  "81": 0.0,
+                  "82": 0.0,
+                  "84": 0.0,
+                  "85": 0.0,
+                  "86": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 10,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 10,
+                "winner_sets_overlap": 10,
+                "same_selected_action": 10,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 12,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "64": 0.0,
+                  "65": 0.0,
+                  "70": 0.0,
+                  "77": 0.0,
+                  "79": 0.0,
+                  "81": 0.0,
+                  "82": 0.0,
+                  "84": 0.0,
+                  "85": 0.0,
+                  "86": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 10,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 10,
+                "winner_sets_overlap": 10,
+                "same_selected_action": 10,
+                "both_batches_agree_to_change_proposal": 2,
+                "tied_batch_winners": 12,
+                "mean_apparent_proposal_regret": 0.05390625,
+                "mean_cross_batch_selected_gain": 0.05390625,
+                "per_root_cross_batch_gain": {
+                  "64": 0.2578125,
+                  "65": 0.0,
+                  "70": 0.28125,
+                  "77": 0.0,
+                  "79": 0.0,
+                  "81": 0.0,
+                  "82": 0.0,
+                  "84": 0.0,
+                  "85": 0.0,
+                  "86": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 20,
+                "disjoint_winner_sets": 4,
+                "different_selected_actions": 4
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 20,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 0
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 20,
+                "disjoint_winner_sets": 4,
+                "different_selected_actions": 4
+              }
+            }
+          },
+          "original-sealed": {
+            "positions": 9,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 9,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 9,
+                "winner_sets_overlap": 9,
+                "same_selected_action": 9,
+                "both_batches_agree_to_change_proposal": 3,
+                "tied_batch_winners": 10,
+                "mean_apparent_proposal_regret": 0.09288194444444445,
+                "mean_cross_batch_selected_gain": 0.09288194444444445,
+                "per_root_cross_batch_gain": {
+                  "56": 0.2734375,
+                  "59": 0.421875,
+                  "60": 0.0,
+                  "62": 0.0,
+                  "68": 0.0,
+                  "69": 0.140625,
+                  "74": 0.0,
+                  "75": 0.0,
+                  "78": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 9,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 8,
+                "winner_sets_overlap": 9,
+                "same_selected_action": 8,
+                "both_batches_agree_to_change_proposal": 2,
+                "tied_batch_winners": 7,
+                "mean_apparent_proposal_regret": 0.1987847222222222,
+                "mean_cross_batch_selected_gain": 0.19270833333333334,
+                "per_root_cross_batch_gain": {
+                  "56": 0.0,
+                  "59": 0.0,
+                  "60": 0.0,
+                  "62": 0.0,
+                  "68": 0.734375,
+                  "69": 0.0,
+                  "74": 1.0,
+                  "75": 0.0,
+                  "78": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 9,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 9,
+                "winner_sets_overlap": 9,
+                "same_selected_action": 9,
+                "both_batches_agree_to_change_proposal": 3,
+                "tied_batch_winners": 10,
+                "mean_apparent_proposal_regret": 0.1232638888888889,
+                "mean_cross_batch_selected_gain": 0.1232638888888889,
+                "per_root_cross_batch_gain": {
+                  "56": 0.2890625,
+                  "59": 0.421875,
+                  "60": 0.0,
+                  "62": 0.0,
+                  "68": 0.0,
+                  "69": 0.3984375,
+                  "74": 0.0,
+                  "75": 0.0,
+                  "78": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 18,
+                "disjoint_winner_sets": 4,
+                "different_selected_actions": 9
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 18,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 0
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 18,
+                "disjoint_winner_sets": 4,
+                "different_selected_actions": 9
+              }
+            }
+          },
+          "recharged-open": {
+            "positions": 8,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 7,
+                "winner_sets_overlap": 8,
+                "same_selected_action": 7,
+                "both_batches_agree_to_change_proposal": 2,
+                "tied_batch_winners": 9,
+                "mean_apparent_proposal_regret": 0.2109375,
+                "mean_cross_batch_selected_gain": 0.20703125,
+                "per_root_cross_batch_gain": {
+                  "58": 0.0,
+                  "66": 0.0,
+                  "67": 0.625,
+                  "72": 0.0,
+                  "73": 0.0,
+                  "76": 0.03125,
+                  "80": 1.0,
+                  "83": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 8,
+                "winner_sets_overlap": 8,
+                "same_selected_action": 8,
+                "both_batches_agree_to_change_proposal": 1,
+                "tied_batch_winners": 8,
+                "mean_apparent_proposal_regret": 0.0078125,
+                "mean_cross_batch_selected_gain": 0.0078125,
+                "per_root_cross_batch_gain": {
+                  "58": 0.0,
+                  "66": 0.0,
+                  "67": 0.0,
+                  "72": 0.0,
+                  "73": 0.0,
+                  "76": 0.0625,
+                  "80": 0.0,
+                  "83": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 8,
+                "winner_sets_overlap": 8,
+                "same_selected_action": 8,
+                "both_batches_agree_to_change_proposal": 2,
+                "tied_batch_winners": 10,
+                "mean_apparent_proposal_regret": 0.1171875,
+                "mean_cross_batch_selected_gain": 0.1171875,
+                "per_root_cross_batch_gain": {
+                  "58": 0.0,
+                  "66": 0.0,
+                  "67": 0.75,
+                  "72": 0.0,
+                  "73": 0.0,
+                  "76": 0.1875,
+                  "80": 0.0,
+                  "83": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 1,
+                "different_selected_actions": 5
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 1,
+                "different_selected_actions": 3
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 2
+              }
+            }
+          },
+          "recharged-sealed": {
+            "positions": 9,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 9,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 9,
+                "winner_sets_overlap": 9,
+                "same_selected_action": 9,
+                "both_batches_agree_to_change_proposal": 3,
+                "tied_batch_winners": 10,
+                "mean_apparent_proposal_regret": 0.2612847222222222,
+                "mean_cross_batch_selected_gain": 0.2612847222222222,
+                "per_root_cross_batch_gain": {
+                  "51": 1.0,
+                  "52": 0.0,
+                  "53": 0.0,
+                  "54": 0.0,
+                  "55": 0.578125,
+                  "57": 0.0,
+                  "61": 0.7734375,
+                  "63": 0.0,
+                  "71": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 9,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 9,
+                "winner_sets_overlap": 9,
+                "same_selected_action": 9,
+                "both_batches_agree_to_change_proposal": 1,
+                "tied_batch_winners": 14,
+                "mean_apparent_proposal_regret": 0.0078125,
+                "mean_cross_batch_selected_gain": 0.0078125,
+                "per_root_cross_batch_gain": {
+                  "51": 0.0,
+                  "52": 0.0,
+                  "53": 0.0,
+                  "54": 0.0,
+                  "55": 0.0,
+                  "57": 0.0,
+                  "61": 0.0703125,
+                  "63": 0.0,
+                  "71": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 9,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 9,
+                "winner_sets_overlap": 9,
+                "same_selected_action": 9,
+                "both_batches_agree_to_change_proposal": 3,
+                "tied_batch_winners": 16,
+                "mean_apparent_proposal_regret": 0.1996527777777778,
+                "mean_cross_batch_selected_gain": 0.1996527777777778,
+                "per_root_cross_batch_gain": {
+                  "51": 1.0,
+                  "52": 0.0,
+                  "53": 0.0,
+                  "54": 0.0,
+                  "55": 0.578125,
+                  "57": 0.0,
+                  "61": 0.21875,
+                  "63": 0.0,
+                  "71": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 18,
+                "disjoint_winner_sets": 2,
+                "different_selected_actions": 6
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 18,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 2
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 18,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 4
+              }
+            }
+          }
+        },
+        "scope": "Descriptive, equal weight per collected root. Winner ties preserve the original proposal; otherwise lowest legal index. Cross-batch gain selects on a and measures on b, then reverses and averages. These are public-belief continuation returns, not actual playing strength. Roots from the same game-deal family are dependent. No promotion or training labels approved.",
+        "qualification_eligible": false
+      },
+      "runtime": {
+        "engine_seconds": 254.51362654400003,
+        "policy_seconds": 143.7272365049988,
+        "policy_decisions": 1065166
+      }
+    },
+    "5": {
+      "verification": {
+        "revision": "6d631e702a391c08b8285ecd11f0723f9deefd28",
+        "prefix": "runs/public-discard-teacher-v1-5p",
+        "players": 5,
+        "positions": 49,
+        "evaluations": 56448,
+        "truncated": 0,
+        "all_artifacts_recomputed": true,
+        "qualification_eligible": false,
+        "sha256": {
+          "audit-check.json": "be1023e98380de205b98c186e807d20b96f1d456bf31234ef3d4ec89f89ea681",
+          "rows.jsonl": "c7d1da6583dd793d3a9d24341553eb86a54c3c1551c61d220ed95b34313b43f6",
+          "summary.json": "deebbd1b22f8cfcfd891ee66290cfbb22e45af2ef803cffcadfb8038b7f850fc"
+        }
+      },
+      "summary": {
+        "positions": 49,
+        "per_continuation": {
+          "economic": {
+            "valid_paired_roots": 49,
+            "invalid_paired_roots": 0,
+            "exact_winner_set_agreement": 48,
+            "winner_sets_overlap": 49,
+            "same_selected_action": 48,
+            "both_batches_agree_to_change_proposal": 3,
+            "tied_batch_winners": 69,
+            "mean_apparent_proposal_regret": 0.012755102040816327,
+            "mean_cross_batch_selected_gain": 0.012436224489795918,
+            "per_root_cross_batch_gain": {
+              "87": 0.0,
+              "88": 0.0,
+              "89": 0.0,
+              "90": 0.0,
+              "91": 0.0,
+              "92": 0.0,
+              "93": 0.0,
+              "94": 0.0,
+              "95": 0.0,
+              "96": 0.0,
+              "97": 0.0,
+              "98": 0.0,
+              "99": 0.0,
+              "100": 0.0,
+              "101": 0.0,
+              "102": 0.0,
+              "103": 0.0,
+              "104": 0.0,
+              "105": 0.0,
+              "106": 0.0,
+              "107": 0.0,
+              "108": 0.0,
+              "109": 0.2109375,
+              "110": 0.0,
+              "111": 0.0,
+              "112": 0.0,
+              "113": 0.0234375,
+              "114": 0.0,
+              "115": 0.375,
+              "116": 0.0,
+              "117": 0.0,
+              "118": 0.0,
+              "119": 0.0,
+              "120": 0.0,
+              "121": 0.0,
+              "122": 0.0,
+              "123": 0.0,
+              "124": 0.0,
+              "125": 0.0,
+              "126": 0.0,
+              "127": 0.0,
+              "128": 0.0,
+              "129": 0.0,
+              "130": 0.0,
+              "131": 0.0,
+              "132": 0.0,
+              "133": 0.0,
+              "134": 0.0,
+              "135": 0.0
+            }
+          },
+          "heuristic": {
+            "valid_paired_roots": 49,
+            "invalid_paired_roots": 0,
+            "exact_winner_set_agreement": 46,
+            "winner_sets_overlap": 48,
+            "same_selected_action": 48,
+            "both_batches_agree_to_change_proposal": 1,
+            "tied_batch_winners": 85,
+            "mean_apparent_proposal_regret": 0.00701530612244898,
+            "mean_cross_batch_selected_gain": 0.006218112244897959,
+            "per_root_cross_batch_gain": {
+              "87": 0.0,
+              "88": 0.0,
+              "89": 0.0,
+              "90": 0.0,
+              "91": 0.0,
+              "92": 0.0,
+              "93": 0.0,
+              "94": 0.0,
+              "95": 0.0,
+              "96": 0.0,
+              "97": 0.0,
+              "98": -0.03125,
+              "99": 0.0,
+              "100": 0.0,
+              "101": 0.0,
+              "102": 0.0,
+              "103": 0.0,
+              "104": 0.0,
+              "105": 0.0,
+              "106": 0.0,
+              "107": 0.0,
+              "108": 0.0,
+              "109": 0.0,
+              "110": 0.0,
+              "111": 0.0,
+              "112": 0.0,
+              "113": 0.0,
+              "114": 0.0,
+              "115": 0.3359375,
+              "116": 0.0,
+              "117": 0.0,
+              "118": 0.0,
+              "119": 0.0,
+              "120": 0.0,
+              "121": 0.0,
+              "122": 0.0,
+              "123": 0.0,
+              "124": 0.0,
+              "125": 0.0,
+              "126": 0.0,
+              "127": 0.0,
+              "128": 0.0,
+              "129": 0.0,
+              "130": 0.0,
+              "131": 0.0,
+              "132": 0.0,
+              "133": 0.0,
+              "134": 0.0,
+              "135": 0.0
+            }
+          },
+          "neural": {
+            "valid_paired_roots": 49,
+            "invalid_paired_roots": 0,
+            "exact_winner_set_agreement": 49,
+            "winner_sets_overlap": 49,
+            "same_selected_action": 49,
+            "both_batches_agree_to_change_proposal": 3,
+            "tied_batch_winners": 78,
+            "mean_apparent_proposal_regret": 0.009247448979591837,
+            "mean_cross_batch_selected_gain": 0.009247448979591837,
+            "per_root_cross_batch_gain": {
+              "87": 0.0,
+              "88": 0.0,
+              "89": 0.0,
+              "90": 0.0,
+              "91": 0.0390625,
+              "92": 0.0,
+              "93": 0.0,
+              "94": 0.0,
+              "95": 0.0,
+              "96": 0.3671875,
+              "97": 0.0,
+              "98": 0.0,
+              "99": 0.0,
+              "100": 0.0,
+              "101": 0.0,
+              "102": 0.046875,
+              "103": 0.0,
+              "104": 0.0,
+              "105": 0.0,
+              "106": 0.0,
+              "107": 0.0,
+              "108": 0.0,
+              "109": 0.0,
+              "110": 0.0,
+              "111": 0.0,
+              "112": 0.0,
+              "113": 0.0,
+              "114": 0.0,
+              "115": 0.0,
+              "116": 0.0,
+              "117": 0.0,
+              "118": 0.0,
+              "119": 0.0,
+              "120": 0.0,
+              "121": 0.0,
+              "122": 0.0,
+              "123": 0.0,
+              "124": 0.0,
+              "125": 0.0,
+              "126": 0.0,
+              "127": 0.0,
+              "128": 0.0,
+              "129": 0.0,
+              "130": 0.0,
+              "131": 0.0,
+              "132": 0.0,
+              "133": 0.0,
+              "134": 0.0,
+              "135": 0.0
+            }
+          }
+        },
+        "between_continuations": {
+          "economic_vs_heuristic": {
+            "valid_root_batches": 98,
+            "disjoint_winner_sets": 0,
+            "different_selected_actions": 6
+          },
+          "economic_vs_neural": {
+            "valid_root_batches": 98,
+            "disjoint_winner_sets": 6,
+            "different_selected_actions": 11
+          },
+          "heuristic_vs_neural": {
+            "valid_root_batches": 98,
+            "disjoint_winner_sets": 2,
+            "different_selected_actions": 9
+          }
+        },
+        "rules": {
+          "original-open": {
+            "positions": 12,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 12,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 11,
+                "winner_sets_overlap": 12,
+                "same_selected_action": 11,
+                "both_batches_agree_to_change_proposal": 1,
+                "tied_batch_winners": 15,
+                "mean_apparent_proposal_regret": 0.018880208333333332,
+                "mean_cross_batch_selected_gain": 0.017578125,
+                "per_root_cross_batch_gain": {
+                  "102": 0.0,
+                  "109": 0.2109375,
+                  "112": 0.0,
+                  "117": 0.0,
+                  "120": 0.0,
+                  "122": 0.0,
+                  "123": 0.0,
+                  "124": 0.0,
+                  "127": 0.0,
+                  "131": 0.0,
+                  "132": 0.0,
+                  "135": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 12,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 12,
+                "winner_sets_overlap": 12,
+                "same_selected_action": 12,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 22,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "102": 0.0,
+                  "109": 0.0,
+                  "112": 0.0,
+                  "117": 0.0,
+                  "120": 0.0,
+                  "122": 0.0,
+                  "123": 0.0,
+                  "124": 0.0,
+                  "127": 0.0,
+                  "131": 0.0,
+                  "132": 0.0,
+                  "135": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 12,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 12,
+                "winner_sets_overlap": 12,
+                "same_selected_action": 12,
+                "both_batches_agree_to_change_proposal": 1,
+                "tied_batch_winners": 18,
+                "mean_apparent_proposal_regret": 0.00390625,
+                "mean_cross_batch_selected_gain": 0.00390625,
+                "per_root_cross_batch_gain": {
+                  "102": 0.046875,
+                  "109": 0.0,
+                  "112": 0.0,
+                  "117": 0.0,
+                  "120": 0.0,
+                  "122": 0.0,
+                  "123": 0.0,
+                  "124": 0.0,
+                  "127": 0.0,
+                  "131": 0.0,
+                  "132": 0.0,
+                  "135": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 24,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 3
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 24,
+                "disjoint_winner_sets": 2,
+                "different_selected_actions": 3
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 24,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 2
+              }
+            }
+          },
+          "original-sealed": {
+            "positions": 11,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 11,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 11,
+                "winner_sets_overlap": 11,
+                "same_selected_action": 11,
+                "both_batches_agree_to_change_proposal": 1,
+                "tied_batch_winners": 12,
+                "mean_apparent_proposal_regret": 0.002130681818181818,
+                "mean_cross_batch_selected_gain": 0.002130681818181818,
+                "per_root_cross_batch_gain": {
+                  "88": 0.0,
+                  "89": 0.0,
+                  "90": 0.0,
+                  "91": 0.0,
+                  "96": 0.0,
+                  "105": 0.0,
+                  "108": 0.0,
+                  "110": 0.0,
+                  "113": 0.0234375,
+                  "114": 0.0,
+                  "119": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 11,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 9,
+                "winner_sets_overlap": 11,
+                "same_selected_action": 11,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 21,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "88": 0.0,
+                  "89": 0.0,
+                  "90": 0.0,
+                  "91": 0.0,
+                  "96": 0.0,
+                  "105": 0.0,
+                  "108": 0.0,
+                  "110": 0.0,
+                  "113": 0.0,
+                  "114": 0.0,
+                  "119": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 11,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 11,
+                "winner_sets_overlap": 11,
+                "same_selected_action": 11,
+                "both_batches_agree_to_change_proposal": 2,
+                "tied_batch_winners": 18,
+                "mean_apparent_proposal_regret": 0.036931818181818184,
+                "mean_cross_batch_selected_gain": 0.036931818181818184,
+                "per_root_cross_batch_gain": {
+                  "88": 0.0,
+                  "89": 0.0,
+                  "90": 0.0,
+                  "91": 0.0390625,
+                  "96": 0.3671875,
+                  "105": 0.0,
+                  "108": 0.0,
+                  "110": 0.0,
+                  "113": 0.0,
+                  "114": 0.0,
+                  "119": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 22,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 2
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 22,
+                "disjoint_winner_sets": 2,
+                "different_selected_actions": 6
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 22,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 4
+              }
+            }
+          },
+          "recharged-open": {
+            "positions": 13,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 13,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 13,
+                "winner_sets_overlap": 13,
+                "same_selected_action": 13,
+                "both_batches_agree_to_change_proposal": 1,
+                "tied_batch_winners": 18,
+                "mean_apparent_proposal_regret": 0.028846153846153848,
+                "mean_cross_batch_selected_gain": 0.028846153846153848,
+                "per_root_cross_batch_gain": {
+                  "103": 0.0,
+                  "107": 0.0,
+                  "115": 0.375,
+                  "116": 0.0,
+                  "118": 0.0,
+                  "121": 0.0,
+                  "125": 0.0,
+                  "126": 0.0,
+                  "128": 0.0,
+                  "129": 0.0,
+                  "130": 0.0,
+                  "133": 0.0,
+                  "134": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 13,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 13,
+                "winner_sets_overlap": 13,
+                "same_selected_action": 13,
+                "both_batches_agree_to_change_proposal": 1,
+                "tied_batch_winners": 20,
+                "mean_apparent_proposal_regret": 0.025841346153846152,
+                "mean_cross_batch_selected_gain": 0.025841346153846152,
+                "per_root_cross_batch_gain": {
+                  "103": 0.0,
+                  "107": 0.0,
+                  "115": 0.3359375,
+                  "116": 0.0,
+                  "118": 0.0,
+                  "121": 0.0,
+                  "125": 0.0,
+                  "126": 0.0,
+                  "128": 0.0,
+                  "129": 0.0,
+                  "130": 0.0,
+                  "133": 0.0,
+                  "134": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 13,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 13,
+                "winner_sets_overlap": 13,
+                "same_selected_action": 13,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 20,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "103": 0.0,
+                  "107": 0.0,
+                  "115": 0.0,
+                  "116": 0.0,
+                  "118": 0.0,
+                  "121": 0.0,
+                  "125": 0.0,
+                  "126": 0.0,
+                  "128": 0.0,
+                  "129": 0.0,
+                  "130": 0.0,
+                  "133": 0.0,
+                  "134": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 26,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 0
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 26,
+                "disjoint_winner_sets": 2,
+                "different_selected_actions": 2
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 26,
+                "disjoint_winner_sets": 2,
+                "different_selected_actions": 2
+              }
+            }
+          },
+          "recharged-sealed": {
+            "positions": 13,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 13,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 13,
+                "winner_sets_overlap": 13,
+                "same_selected_action": 13,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 24,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "87": 0.0,
+                  "92": 0.0,
+                  "93": 0.0,
+                  "94": 0.0,
+                  "95": 0.0,
+                  "97": 0.0,
+                  "98": 0.0,
+                  "99": 0.0,
+                  "100": 0.0,
+                  "101": 0.0,
+                  "104": 0.0,
+                  "106": 0.0,
+                  "111": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 13,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 12,
+                "winner_sets_overlap": 12,
+                "same_selected_action": 12,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 22,
+                "mean_apparent_proposal_regret": 0.0006009615384615385,
+                "mean_cross_batch_selected_gain": -0.002403846153846154,
+                "per_root_cross_batch_gain": {
+                  "87": 0.0,
+                  "92": 0.0,
+                  "93": 0.0,
+                  "94": 0.0,
+                  "95": 0.0,
+                  "97": 0.0,
+                  "98": -0.03125,
+                  "99": 0.0,
+                  "100": 0.0,
+                  "101": 0.0,
+                  "104": 0.0,
+                  "106": 0.0,
+                  "111": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 13,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 13,
+                "winner_sets_overlap": 13,
+                "same_selected_action": 13,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 22,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "87": 0.0,
+                  "92": 0.0,
+                  "93": 0.0,
+                  "94": 0.0,
+                  "95": 0.0,
+                  "97": 0.0,
+                  "98": 0.0,
+                  "99": 0.0,
+                  "100": 0.0,
+                  "101": 0.0,
+                  "104": 0.0,
+                  "106": 0.0,
+                  "111": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 26,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 1
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 26,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 0
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 26,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 1
+              }
+            }
+          }
+        },
+        "scope": "Descriptive, equal weight per collected root. Winner ties preserve the original proposal; otherwise lowest legal index. Cross-batch gain selects on a and measures on b, then reverses and averages. These are public-belief continuation returns, not actual playing strength. Roots from the same game-deal family are dependent. No promotion or training labels approved.",
+        "qualification_eligible": false
+      },
+      "runtime": {
+        "engine_seconds": 354.40900774500295,
+        "policy_seconds": 204.25956039999545,
+        "policy_decisions": 1416523
+      }
+    },
+    "6": {
+      "verification": {
+        "revision": "1aed2324f13d8d5188894da4c83f8286021fa77b",
+        "prefix": "runs/public-discard-teacher-v1-6p",
+        "players": 6,
+        "positions": 53,
+        "evaluations": 61056,
+        "truncated": 0,
+        "all_artifacts_recomputed": true,
+        "qualification_eligible": false,
+        "sha256": {
+          "audit-check.json": "67ad6415c01daad0b3f416e4f67ebbe1a5885989897bf47c168f10410d95f45b",
+          "rows.jsonl": "80f01e508b2554f659ca8460d5416b787bfb8ecef0045ddd3f7fc6d0d9c039e8",
+          "summary.json": "a9ef8d32f182fdb335b74f2a17aad860a529926c3e6ce8e1e7f3e5fa8cc3abe2"
+        }
+      },
+      "summary": {
+        "positions": 53,
+        "per_continuation": {
+          "economic": {
+            "valid_paired_roots": 53,
+            "invalid_paired_roots": 0,
+            "exact_winner_set_agreement": 53,
+            "winner_sets_overlap": 53,
+            "same_selected_action": 53,
+            "both_batches_agree_to_change_proposal": 1,
+            "tied_batch_winners": 86,
+            "mean_apparent_proposal_regret": 0.013119103773584906,
+            "mean_cross_batch_selected_gain": 0.013119103773584906,
+            "per_root_cross_batch_gain": {
+              "136": 0.0,
+              "137": 0.0,
+              "138": 0.0,
+              "139": 0.0,
+              "140": 0.0,
+              "141": 0.0,
+              "142": 0.0,
+              "143": 0.0,
+              "144": 0.0,
+              "145": 0.0,
+              "146": 0.0,
+              "147": 0.0,
+              "148": 0.0,
+              "149": 0.0,
+              "150": 0.0,
+              "151": 0.0,
+              "152": 0.0,
+              "153": 0.0,
+              "154": 0.0,
+              "155": 0.0,
+              "156": 0.0,
+              "157": 0.0,
+              "158": 0.0,
+              "159": 0.0,
+              "160": 0.0,
+              "161": 0.0,
+              "162": 0.0,
+              "163": 0.0,
+              "164": 0.0,
+              "165": 0.0,
+              "166": 0.0,
+              "167": 0.0,
+              "168": 0.0,
+              "169": 0.6953125,
+              "170": 0.0,
+              "171": 0.0,
+              "172": 0.0,
+              "173": 0.0,
+              "174": 0.0,
+              "175": 0.0,
+              "176": 0.0,
+              "177": 0.0,
+              "178": 0.0,
+              "179": 0.0,
+              "180": 0.0,
+              "181": 0.0,
+              "182": 0.0,
+              "183": 0.0,
+              "184": 0.0,
+              "185": 0.0,
+              "186": 0.0,
+              "187": 0.0,
+              "188": 0.0
+            }
+          },
+          "heuristic": {
+            "valid_paired_roots": 53,
+            "invalid_paired_roots": 0,
+            "exact_winner_set_agreement": 53,
+            "winner_sets_overlap": 53,
+            "same_selected_action": 53,
+            "both_batches_agree_to_change_proposal": 4,
+            "tied_batch_winners": 88,
+            "mean_apparent_proposal_regret": 0.026238207547169812,
+            "mean_cross_batch_selected_gain": 0.026238207547169812,
+            "per_root_cross_batch_gain": {
+              "136": 0.0,
+              "137": 0.0,
+              "138": 0.03125,
+              "139": 0.0,
+              "140": 0.0,
+              "141": 0.0,
+              "142": 0.0,
+              "143": 0.0,
+              "144": 0.0,
+              "145": 0.0,
+              "146": 0.0,
+              "147": 0.0,
+              "148": 0.0,
+              "149": 0.0,
+              "150": 0.0,
+              "151": 0.0,
+              "152": 1.0,
+              "153": 0.0,
+              "154": 0.0,
+              "155": 0.0,
+              "156": 0.0,
+              "157": 0.0,
+              "158": 0.0,
+              "159": 0.0,
+              "160": 0.0,
+              "161": 0.0,
+              "162": 0.0,
+              "163": 0.0,
+              "164": 0.0,
+              "165": 0.0,
+              "166": 0.0,
+              "167": 0.0,
+              "168": 0.0,
+              "169": 0.0,
+              "170": 0.0,
+              "171": 0.0,
+              "172": 0.0,
+              "173": 0.0,
+              "174": 0.0,
+              "175": 0.0,
+              "176": 0.296875,
+              "177": 0.0,
+              "178": 0.0,
+              "179": 0.0,
+              "180": 0.0,
+              "181": 0.0,
+              "182": 0.0,
+              "183": 0.0,
+              "184": 0.0625,
+              "185": 0.0,
+              "186": 0.0,
+              "187": 0.0,
+              "188": 0.0
+            }
+          },
+          "neural": {
+            "valid_paired_roots": 53,
+            "invalid_paired_roots": 0,
+            "exact_winner_set_agreement": 53,
+            "winner_sets_overlap": 53,
+            "same_selected_action": 53,
+            "both_batches_agree_to_change_proposal": 1,
+            "tied_batch_winners": 90,
+            "mean_apparent_proposal_regret": 0.01179245283018868,
+            "mean_cross_batch_selected_gain": 0.01179245283018868,
+            "per_root_cross_batch_gain": {
+              "136": 0.0,
+              "137": 0.0,
+              "138": 0.0,
+              "139": 0.0,
+              "140": 0.0,
+              "141": 0.0,
+              "142": 0.0,
+              "143": 0.0,
+              "144": 0.0,
+              "145": 0.0,
+              "146": 0.0,
+              "147": 0.0,
+              "148": 0.0,
+              "149": 0.0,
+              "150": 0.0,
+              "151": 0.0,
+              "152": 0.0,
+              "153": 0.0,
+              "154": 0.0,
+              "155": 0.0,
+              "156": 0.0,
+              "157": 0.0,
+              "158": 0.0,
+              "159": 0.0,
+              "160": 0.0,
+              "161": 0.0,
+              "162": 0.0,
+              "163": 0.0,
+              "164": 0.0,
+              "165": 0.0,
+              "166": 0.0,
+              "167": 0.0,
+              "168": 0.0,
+              "169": 0.0,
+              "170": 0.0,
+              "171": 0.0,
+              "172": 0.0,
+              "173": 0.0,
+              "174": 0.0,
+              "175": 0.0,
+              "176": 0.0,
+              "177": 0.0,
+              "178": 0.625,
+              "179": 0.0,
+              "180": 0.0,
+              "181": 0.0,
+              "182": 0.0,
+              "183": 0.0,
+              "184": 0.0,
+              "185": 0.0,
+              "186": 0.0,
+              "187": 0.0,
+              "188": 0.0
+            }
+          }
+        },
+        "between_continuations": {
+          "economic_vs_heuristic": {
+            "valid_root_batches": 106,
+            "disjoint_winner_sets": 4,
+            "different_selected_actions": 10
+          },
+          "economic_vs_neural": {
+            "valid_root_batches": 106,
+            "disjoint_winner_sets": 2,
+            "different_selected_actions": 4
+          },
+          "heuristic_vs_neural": {
+            "valid_root_batches": 106,
+            "disjoint_winner_sets": 4,
+            "different_selected_actions": 10
+          }
+        },
+        "rules": {
+          "original-open": {
+            "positions": 16,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 16,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 16,
+                "winner_sets_overlap": 16,
+                "same_selected_action": 16,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 28,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "150": 0.0,
+                  "158": 0.0,
+                  "168": 0.0,
+                  "170": 0.0,
+                  "171": 0.0,
+                  "174": 0.0,
+                  "175": 0.0,
+                  "176": 0.0,
+                  "179": 0.0,
+                  "180": 0.0,
+                  "181": 0.0,
+                  "183": 0.0,
+                  "184": 0.0,
+                  "185": 0.0,
+                  "186": 0.0,
+                  "188": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 16,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 16,
+                "winner_sets_overlap": 16,
+                "same_selected_action": 16,
+                "both_batches_agree_to_change_proposal": 2,
+                "tied_batch_winners": 22,
+                "mean_apparent_proposal_regret": 0.0224609375,
+                "mean_cross_batch_selected_gain": 0.0224609375,
+                "per_root_cross_batch_gain": {
+                  "150": 0.0,
+                  "158": 0.0,
+                  "168": 0.0,
+                  "170": 0.0,
+                  "171": 0.0,
+                  "174": 0.0,
+                  "175": 0.0,
+                  "176": 0.296875,
+                  "179": 0.0,
+                  "180": 0.0,
+                  "181": 0.0,
+                  "183": 0.0,
+                  "184": 0.0625,
+                  "185": 0.0,
+                  "186": 0.0,
+                  "188": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 16,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 16,
+                "winner_sets_overlap": 16,
+                "same_selected_action": 16,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 30,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "150": 0.0,
+                  "158": 0.0,
+                  "168": 0.0,
+                  "170": 0.0,
+                  "171": 0.0,
+                  "174": 0.0,
+                  "175": 0.0,
+                  "176": 0.0,
+                  "179": 0.0,
+                  "180": 0.0,
+                  "181": 0.0,
+                  "183": 0.0,
+                  "184": 0.0,
+                  "185": 0.0,
+                  "186": 0.0,
+                  "188": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 32,
+                "disjoint_winner_sets": 2,
+                "different_selected_actions": 4
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 32,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 0
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 32,
+                "disjoint_winner_sets": 2,
+                "different_selected_actions": 4
+              }
+            }
+          },
+          "original-sealed": {
+            "positions": 17,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 17,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 17,
+                "winner_sets_overlap": 17,
+                "same_selected_action": 17,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 28,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "136": 0.0,
+                  "138": 0.0,
+                  "140": 0.0,
+                  "144": 0.0,
+                  "145": 0.0,
+                  "147": 0.0,
+                  "148": 0.0,
+                  "149": 0.0,
+                  "152": 0.0,
+                  "153": 0.0,
+                  "155": 0.0,
+                  "159": 0.0,
+                  "165": 0.0,
+                  "166": 0.0,
+                  "172": 0.0,
+                  "177": 0.0,
+                  "182": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 17,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 17,
+                "winner_sets_overlap": 17,
+                "same_selected_action": 17,
+                "both_batches_agree_to_change_proposal": 2,
+                "tied_batch_winners": 30,
+                "mean_apparent_proposal_regret": 0.06066176470588235,
+                "mean_cross_batch_selected_gain": 0.06066176470588235,
+                "per_root_cross_batch_gain": {
+                  "136": 0.0,
+                  "138": 0.03125,
+                  "140": 0.0,
+                  "144": 0.0,
+                  "145": 0.0,
+                  "147": 0.0,
+                  "148": 0.0,
+                  "149": 0.0,
+                  "152": 1.0,
+                  "153": 0.0,
+                  "155": 0.0,
+                  "159": 0.0,
+                  "165": 0.0,
+                  "166": 0.0,
+                  "172": 0.0,
+                  "177": 0.0,
+                  "182": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 17,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 17,
+                "winner_sets_overlap": 17,
+                "same_selected_action": 17,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 26,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "136": 0.0,
+                  "138": 0.0,
+                  "140": 0.0,
+                  "144": 0.0,
+                  "145": 0.0,
+                  "147": 0.0,
+                  "148": 0.0,
+                  "149": 0.0,
+                  "152": 0.0,
+                  "153": 0.0,
+                  "155": 0.0,
+                  "159": 0.0,
+                  "165": 0.0,
+                  "166": 0.0,
+                  "172": 0.0,
+                  "177": 0.0,
+                  "182": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 34,
+                "disjoint_winner_sets": 2,
+                "different_selected_actions": 4
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 34,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 0
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 34,
+                "disjoint_winner_sets": 2,
+                "different_selected_actions": 4
+              }
+            }
+          },
+          "recharged-open": {
+            "positions": 12,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 12,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 12,
+                "winner_sets_overlap": 12,
+                "same_selected_action": 12,
+                "both_batches_agree_to_change_proposal": 1,
+                "tied_batch_winners": 16,
+                "mean_apparent_proposal_regret": 0.057942708333333336,
+                "mean_cross_batch_selected_gain": 0.057942708333333336,
+                "per_root_cross_batch_gain": {
+                  "154": 0.0,
+                  "156": 0.0,
+                  "157": 0.0,
+                  "160": 0.0,
+                  "161": 0.0,
+                  "162": 0.0,
+                  "163": 0.0,
+                  "164": 0.0,
+                  "169": 0.6953125,
+                  "173": 0.0,
+                  "178": 0.0,
+                  "187": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 12,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 12,
+                "winner_sets_overlap": 12,
+                "same_selected_action": 12,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 22,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "154": 0.0,
+                  "156": 0.0,
+                  "157": 0.0,
+                  "160": 0.0,
+                  "161": 0.0,
+                  "162": 0.0,
+                  "163": 0.0,
+                  "164": 0.0,
+                  "169": 0.0,
+                  "173": 0.0,
+                  "178": 0.0,
+                  "187": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 12,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 12,
+                "winner_sets_overlap": 12,
+                "same_selected_action": 12,
+                "both_batches_agree_to_change_proposal": 1,
+                "tied_batch_winners": 20,
+                "mean_apparent_proposal_regret": 0.052083333333333336,
+                "mean_cross_batch_selected_gain": 0.052083333333333336,
+                "per_root_cross_batch_gain": {
+                  "154": 0.0,
+                  "156": 0.0,
+                  "157": 0.0,
+                  "160": 0.0,
+                  "161": 0.0,
+                  "162": 0.0,
+                  "163": 0.0,
+                  "164": 0.0,
+                  "169": 0.0,
+                  "173": 0.0,
+                  "178": 0.625,
+                  "187": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 24,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 2
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 24,
+                "disjoint_winner_sets": 2,
+                "different_selected_actions": 4
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 24,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 2
+              }
+            }
+          },
+          "recharged-sealed": {
+            "positions": 8,
+            "per_continuation": {
+              "economic": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 8,
+                "winner_sets_overlap": 8,
+                "same_selected_action": 8,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 14,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "137": 0.0,
+                  "139": 0.0,
+                  "141": 0.0,
+                  "142": 0.0,
+                  "143": 0.0,
+                  "146": 0.0,
+                  "151": 0.0,
+                  "167": 0.0
+                }
+              },
+              "heuristic": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 8,
+                "winner_sets_overlap": 8,
+                "same_selected_action": 8,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 14,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "137": 0.0,
+                  "139": 0.0,
+                  "141": 0.0,
+                  "142": 0.0,
+                  "143": 0.0,
+                  "146": 0.0,
+                  "151": 0.0,
+                  "167": 0.0
+                }
+              },
+              "neural": {
+                "valid_paired_roots": 8,
+                "invalid_paired_roots": 0,
+                "exact_winner_set_agreement": 8,
+                "winner_sets_overlap": 8,
+                "same_selected_action": 8,
+                "both_batches_agree_to_change_proposal": 0,
+                "tied_batch_winners": 14,
+                "mean_apparent_proposal_regret": 0.0,
+                "mean_cross_batch_selected_gain": 0.0,
+                "per_root_cross_batch_gain": {
+                  "137": 0.0,
+                  "139": 0.0,
+                  "141": 0.0,
+                  "142": 0.0,
+                  "143": 0.0,
+                  "146": 0.0,
+                  "151": 0.0,
+                  "167": 0.0
+                }
+              }
+            },
+            "between_continuations": {
+              "economic_vs_heuristic": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 0
+              },
+              "economic_vs_neural": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 0
+              },
+              "heuristic_vs_neural": {
+                "valid_root_batches": 16,
+                "disjoint_winner_sets": 0,
+                "different_selected_actions": 0
+              }
+            }
+          }
+        },
+        "scope": "Descriptive, equal weight per collected root. Winner ties preserve the original proposal; otherwise lowest legal index. Cross-batch gain selects on a and measures on b, then reverses and averages. These are public-belief continuation returns, not actual playing strength. Roots from the same game-deal family are dependent. No promotion or training labels approved.",
+        "qualification_eligible": false
+      },
+      "runtime": {
+        "engine_seconds": 399.90330509599835,
+        "policy_seconds": 219.23371411299343,
+        "policy_decisions": 1549569
+      }
+    }
+  },
+  "qualification_eligible": false,
+  "trained": false,
+  "interpretation": "All public-discard guidance audit roots verified. Strongest conditional simulated gains2\u20134p; small5\u20136p gains. Continuation-dependent public-belief returns, no demonstrated full-game improvement or qualification. Complete-game intervention launched separately.",
+  "evidence": {
+    "revision": "29f803c518d18b3acfe93d54c82ccd69095d841e",
+    "prefix": "runs/public-discard-teacher-completed-evidence-v1",
+    "files": {
+      "test_public_discard_teacher_collect.py": "65f2655988269d845ca0c0eb4f420f01a9ba439ee5c623681e51954d24c2ebe7",
+      "public-discard-intervention.py": "0d6cc840f107dd2fc367405bf2f77f406b9ff0de37df83461309c041c223294c",
+      "collect-public-discard-intervention.py": "d3f2d7b6d83c4ca403ac0e17db5fe1d903a78ef9b93eacb8b583055b7a9b227c",
+      "public-discard-intervention-preflight-v1.json": "5122b618ca179e10a350594406d78943045e9ea5dc52b5d690b647c630a3f6b9",
+      "public-discard-intervention-status-v1.json": "f07147193130c9ef7f5eadb1fb306d0225f78a872edd8eb60b25c02845c6d57d",
+      "public-discard-teacher-protocol-v1.json": "3b42768997a9f85ca462961448143e385b84bef3878bb27dbc48b03ea2200e09",
+      "public-discard-teacher-source-v1.json": "c84cbbc9cc3ce3f38173798c94fc5d49dcea9eab4bf3ace7695228bf2bcccc53",
+      "collect-public-discard-teacher.py": "4486211aeb37c4665d9b1699a67bba31485c7281fb4b3a977ac2a8a8b5503cf4",
+      "public-discard-teacher-status-v1.json": "b2e52463a752bab912d6eeddc765210f28f12919cb37765545df1c2fb9f11edd",
+      "public-discard-intervention-source-v1.json": "a76375fdfa6366670db451fa7746cc7bafd3ef347614d405608adf0ce7ff41f7",
+      "summary.json": "f9fe2a77269e2ce7081f4b7da1b53ab3c843c248b8518e394f2f83de3ca2a6c5",
+      "launch-public-discard-intervention.py": "2b9b1d4f5bb58b5e744c36d8a7c7b122c0ccaf1d6304e0b4dfe6ad5babeb16a5",
+      "public-discard-intervention-protocol-v1.json": "e50f6b471b0af055eb80048a127b2aea06f01034d437cedba03f1ed4d12c6b76",
+      "5p/audit-check.json": "be1023e98380de205b98c186e807d20b96f1d456bf31234ef3d4ec89f89ea681",
+      "5p/rows.jsonl": "c7d1da6583dd793d3a9d24341553eb86a54c3c1551c61d220ed95b34313b43f6",
+      "5p/verified.json": "fcfca28f8cc5b3058ebd035325e88b74f95cd9489041d4a1175f87caa4ac9ee1",
+      "5p/summary.json": "deebbd1b22f8cfcfd891ee66290cfbb22e45af2ef803cffcadfb8038b7f850fc",
+      "intervention-smokes/economic/roots.jsonl": "ed6088a0429f659a7676ca3dc7045105360a339ec95aaa255e16310adf518eef",
+      "intervention-smokes/economic/games.json": "f71919457f0694464965e70c4b109fd222d06f92fb04d8220f760f6f37e59fe0",
+      "intervention-smokes/economic/intervention-check.json": "5cd0f8e3d2ddef2a7bd39c062a11d09554f1cd9204005b88132e6522f6ff9b6f",
+      "intervention-smokes/parent/roots.jsonl": "97d74f5703784f7ce90fa3add1892f75053d4cced9a3aa9bf857b0035e3ab539",
+      "intervention-smokes/parent/games.json": "46581d20b0e36b58d7ec9566d68789a7edfe1a0a50bf8216c53a6b79a355dd0b",
+      "intervention-smokes/parent/intervention-check.json": "e1b38c1744c8952ac238254e8ed1ae947dbe4fbe0ad728b958c822f7b9eb6b85",
+      "intervention-smokes/neural/roots.jsonl": "e9056c444e4cbf1cf677f6b58a68ff467053097c703ba383d0162b2a659940fa",
+      "intervention-smokes/neural/games.json": "cd7c19324b4ded3b40c8d44f2921f0a6e96a077bd6951034a9b82d9807cdf61c",
+      "intervention-smokes/neural/intervention-check.json": "e70bd1786846ef7199f1c3ea69ab44f823df191d7ba2b63e1174451e0b7f282f",
+      "6p/audit-check.json": "67ad6415c01daad0b3f416e4f67ebbe1a5885989897bf47c168f10410d95f45b",
+      "6p/rows.jsonl": "80f01e508b2554f659ca8460d5416b787bfb8ecef0045ddd3f7fc6d0d9c039e8",
+      "6p/verified.json": "c0eb9fc52f3d9937033fef0844029d97ef689e0abd3ba110ec82ded53e19907f",
+      "6p/summary.json": "a9ef8d32f182fdb335b74f2a17aad860a529926c3e6ce8e1e7f3e5fa8cc3abe2",
+      "4p/audit-check.json": "fe3b5236e2474e8e8ca63189076f264f2e401fbdbb7e6660e1e49213eb7bac2f",
+      "4p/rows.jsonl": "77c2e2365eb7a8a62d75a7e0d9f068ce86c79620099a7fbf8bdcd2a271ee2b6d",
+      "4p/verified.json": "b1a645f84d6dc952926d663435dd4fd98055f87bd9f1cfd5b8709e3a1a7441c7",
+      "4p/summary.json": "c3d3f093e643f0143681bf373e3fdccc3006db1be66191c57da800dcee970520",
+      "3p/audit-check.json": "ae2639b8ba38e54bb8a043bea475df424d1c596c8e44098fac6ae3a2cc7510da",
+      "3p/rows.jsonl": "38ed2491eff208d43771cf51b8c72af31320424297df6aee9904239fa83bd8ca",
+      "3p/verified.json": "13dad5469c19a88cceee4a4b66c8b5204180d29210c872cd5a50dba98c2653d0",
+      "3p/summary.json": "deb5a68e732d9feaa77fa3e974c5f7176bed939cf3fce6c450f9fb6d7bcbe271",
+      "2p/audit-check.json": "c45d24b3696adaf6fb114d1f3db379e738693f8b4b14b57e4f297adff8dc3877",
+      "2p/rows.jsonl": "b4ea6eec42016913b4a9ae46432c5bc152d4a0a0d85366a75d03e0fb5a395070",
+      "2p/verified.json": "c35e680dd9d94e782e9f4388a68da5060ffdb641b5569a5e1fb9d292ab56d577",
+      "2p/summary.json": "3f8b1f15430ecc4d2ee0bef1b624839faf62771daf74f928838e58e1070ecf17"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+  "positions": 2553,
+  "discard_positions": 58,
+  "discard_strategic_search_positions": 0,
+  "by_player_count": {
+    "2": 8,
+    "3": 17,
+    "4": 10,
+    "5": 13,
+    "6": 10
+  },
+  "by_rules": {
+    "original/sealed": 19,
+    "recharged/sealed": 10,
+    "original/open": 15,
+    "recharged/open": 14
+  },
+  "default_shortlist_omissions": 5,
+  "geographic_shortlist_omissions": 0,
+  "imminent_discard_positions": 9,
+  "source_hashes": {
+    "ai/strong/bridge.cjs": "895abd65c7d685a4b3beb6830bbe04306ddc11b1849e24db1adaf7483c25834d",
+    "ai/strong/worker.cjs": "aeb7f80bf43c00a3ab82b1067fdf60dbf1a0f17ce5b13d6a3f1d7c0903759a0b",
+    "ai/strong/search-teacher.cjs": "865729c56faf85e944bdff53d5b9899a8ce5e8a8ce6dcc9197f886b712687aec",
+    "ai/strong/search.cjs": "e92fb27b51ae5fc308fd7787af5991411e939d559473dfd9f9f8294ef1552572",
+    "ai/strong/economics.cjs": "7265923548a15940a33f24d70b2d6419119ef8d759fca1637640f4ff6e9aef58"
+  },
+  "scope": "Read-only coverage of the existing serving fixtures. This corpus is not a prevalence estimate for deployed play. PPO still updates discard decisions; the current search teacher and search-enhanced serving route do not search them.",
+  "qualification_eligible": false
+}

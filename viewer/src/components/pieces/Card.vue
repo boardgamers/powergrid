@@ -83,6 +83,10 @@
                 <stop offset="50%" stop-color="#8b4513" />
                 <stop offset="50%" stop-color="#445" />
             </linearGradient>
+            <linearGradient id="garbageOilHybrid" x1="0" y1="0" x2="100%" y2="100%">
+                <stop offset="50%" stop-color="goldenrod" />
+                <stop offset="50%" stop-color="#445" />
+            </linearGradient>
         </defs>
     </g>
 </template>
@@ -129,6 +133,7 @@ export default class Card extends Mixins(Piece) {
             case PowerPlantType.Wind: return 'limegreen';
             case PowerPlantType.Nuclear: return 'dodgerblue';
             case PowerPlantType.Step3: return 'dodgerblue';
+            case PowerPlantType.GarbageOilHybrid: return 'url(#garbageOilHybrid)';
         }
     }
 
@@ -142,6 +147,7 @@ export default class Card extends Mixins(Piece) {
             case PowerPlantType.Wind: return '';
             case PowerPlantType.Nuclear: return '';
             case PowerPlantType.Step3: return '';
+            case PowerPlantType.GarbageOilHybrid: return 'M0,3 A7.5,3 0 0,1 15,3 L15,12 A7.5,3 0 0,1 0,12Z M9,1 A6,3 0 0,1 18,1 L18,10 A6,3 0 0,1 10,10Z';
         }
     }
 }

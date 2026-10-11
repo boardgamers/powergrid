@@ -116,10 +116,13 @@ export interface GameMap {
     oilPrices?: number[];
     garbagePrices?: number[];
     uraniumPrices?: number[];
+    // `deck` is the alternate power plant list when the game uses it (only on maps
+    // in ALTERNATE_DECK_MAPS); otherwise undefined and the map uses its usual deck.
     setupDeck?: (
         numPlayers: number,
         variant: string,
-        rng: seedrandom.prng
+        rng: seedrandom.prng,
+        deck?: PowerPlant[]
     ) => {
         actualMarket: PowerPlant[];
         futureMarket: PowerPlant[];

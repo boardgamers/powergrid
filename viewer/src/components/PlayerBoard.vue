@@ -89,14 +89,45 @@
         </template>
 
         <g v-if="canClickResources">
-            <rect width="30" height="30" x="0" y="71" fill="none" stroke="blue" stroke-width="2px" rx="2px" />
-            <rect width="30" height="30" x="70" y="71" fill="none" stroke="blue" stroke-width="2px" rx="2px" />
+            <rect
+                v-if="canClickResource('coal')"
+                width="30"
+                height="30"
+                x="0"
+                y="71"
+                fill="none"
+                stroke="blue"
+                stroke-width="2px"
+                rx="2px"
+            />
+            <rect
+                v-if="canClickResource('oil')"
+                width="30"
+                height="30"
+                x="70"
+                y="71"
+                fill="none"
+                stroke="blue"
+                stroke-width="2px"
+                rx="2px"
+            />
+            <rect
+                v-if="canClickResource('garbage')"
+                width="30"
+                height="30"
+                x="140"
+                y="71"
+                fill="none"
+                stroke="blue"
+                stroke-width="2px"
+                rx="2px"
+            />
         </g>
 
         <Coal
             :pieceId="'Coal' + player.id"
             :targetState="{ x: 5, y: 76 }"
-            :canClick="canClickResources"
+            :canClick="canClickResource('coal')"
             @click="clickResource('coal')"
         />
         <text text-anchor="middle" x="40" y="85" fill="black">{{ player.coalLeft }}</text>
@@ -104,12 +135,17 @@
         <Oil
             :pieceId="'Oil' + player.id"
             :targetState="{ x: 75, y: 76 }"
-            :canClick="canClickResources"
+            :canClick="canClickResource('oil')"
             @click="clickResource('oil')"
         />
         <text text-anchor="middle" x="110" y="85" fill="black">{{ player.oilLeft }}</text>
 
-        <Garbage :pieceId="'Garbage' + player.id" :targetState="{ x: 145, y: 76 }" />
+        <Garbage
+            :pieceId="'Garbage' + player.id"
+            :targetState="{ x: 145, y: 76 }"
+            :canClick="canClickResource('garbage')"
+            @click="clickResource('garbage')"
+        />
         <text text-anchor="middle" x="180" y="85" fill="black">{{ player.garbageLeft }}</text>
 
         <Uranium :pieceId="'Uranium' + player.id" :targetState="{ x: 215, y: 76 }" />
@@ -251,6 +287,7 @@ export default class PlayerBoard extends Vue {
         if (!this.player.powerPlantsNotUsed.includes(plant.number)) return 'used';
         const fuel = [this.player.coalLeft, this.player.oilLeft, this.player.garbageLeft,
             this.player.uraniumLeft, this.player.coalLeft + this.player.oilLeft];
+        fuel[PowerPlantType.GarbageOilHybrid] = this.player.garbageLeft + this.player.oilLeft;
         if (plant.cost > 0 && fuel[plant.type] < plant.cost) return 'unavailable';
         return this.canUse(plant) ? 'ready' : 'idle';
     }
@@ -263,17 +300,27 @@ export default class PlayerBoard extends Vue {
             !!moves?.UsePowerPlant?.some((move) => move.powerPlant === powerPlant.number);
     }
 
+    // The fuel a hybrid plant can burn besides oil: coal for the standard hybrid,
+    // garbage for the alternate deck's garbage/oil hybrid. Undefined for other plants.
+    hybridFuel(powerPlant: PowerPlant): ResourceType.Coal | ResourceType.Garbage | undefined {
+        if (powerPlant.type == PowerPlantType.Hybrid) return ResourceType.Coal;
+        if (powerPlant.type == PowerPlantType.GarbageOilHybrid) return ResourceType.Garbage;
+        return undefined;
+    }
+
     powerPlantClick(powerPlant: PowerPlant) {
-        if (this.phase == Phase.Bureaucracy && powerPlant.type == PowerPlantType.Hybrid) {
+        const other = this.hybridFuel(powerPlant);
+        if (this.phase == Phase.Bureaucracy && other) {
+            const otherLeft = other == ResourceType.Coal ? this.player.coalLeft : this.player.garbageLeft;
             if (
-                this.player.coalLeft == 0 ||
+                otherLeft == 0 ||
                 this.player.oilLeft == 0 ||
-                this.player.coalLeft + this.player.oilLeft == powerPlant.cost
+                otherLeft + this.player.oilLeft == powerPlant.cost
             ) {
-                this.player.resourcesUsed = Array(Math.min(powerPlant.cost, this.player.coalLeft))
-                    .fill(ResourceType.Coal)
+                this.player.resourcesUsed = Array(Math.min(powerPlant.cost, otherLeft))
+                    .fill(other)
                     .concat(
-                        Array(powerPlant.cost - Math.min(powerPlant.cost, this.player.coalLeft)).fill(ResourceType.Oil)
+                        Array(powerPlant.cost - Math.min(powerPlant.cost, otherLeft)).fill(ResourceType.Oil)
                     );
                 this.$emit('powerPlantClick', powerPlant);
             } else {
@@ -292,6 +339,21 @@ export default class PlayerBoard extends Vue {
         );
     }
 
+    // Whether this resource can be clicked: offered as a discard, or a fuel of the
+    // hybrid plant whose resources are being chosen.
+    canClickResource(resourceType: ResourceType) {
+        const discards = this.player.availableMoves?.DiscardResources;
+        if (discards) {
+            // The engine only handles garbage discards for garbage/oil hybrid owners.
+            if (resourceType == ResourceType.Garbage && !this.player.garbageOilHybridCapacity) return false;
+            return discards.includes(resourceType);
+        }
+        if (!this.player.resourcesUsed.some(r => r == null)) return false;
+        // Without the clicked plant (not expected), fall back to the coal/oil hybrid.
+        const other = this.powerPlantClicked ? this.hybridFuel(this.powerPlantClicked) : ResourceType.Coal;
+        return resourceType == ResourceType.Oil || resourceType == other;
+    }
+
     clickResource(resourceType) {
         if (this.player.availableMoves && this.player.availableMoves['DiscardResources']) {
             this.$emit('discardResource', resourceType);
@@ -303,6 +365,8 @@ export default class PlayerBoard extends Vue {
                 this.player.coalLeft--;
             } else if (resourceType == 'oil') {
                 this.player.oilLeft--;
+            } else if (resourceType == 'garbage') {
+                this.player.garbageLeft--;
             }
 
             if (!this.player.resourcesUsed.some(r => r == null)) {

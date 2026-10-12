@@ -34,7 +34,7 @@ import {
 } from './gamestate';
 import { GameMap, maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
-import { indiaPowerPlants, plantCatalogue, powerPlants, usesAlternateDeck } from './powerPlants';
+import { plantCatalogue, powerPlants, usesAlternateDeck } from './powerPlants';
 import prices from './prices';
 import { createRandomizedMap } from './randomizeMap';
 import { asserts, shuffle } from './utils';
@@ -2750,12 +2750,8 @@ function removePowerPlant(G: GameState, powerPlant: PowerPlant) {
     );
 }
 
-export function getPowerPlant(num: number, mapName = ''): PowerPlant {
-    if (mapName == 'India') {
-        return indiaPowerPlants.find((p) => p.number == num)!;
-    } else {
-        return powerPlants.find((p) => p.number == num)!;
-    }
+export function getPowerPlant(num: number, mapName = '', alternatePowerPlants = false): PowerPlant {
+    return plantCatalogue(mapName, alternatePowerPlants).find((p) => p.number == num)!;
 }
 
 function getBaseState(G: GameState): GameState {

@@ -555,7 +555,12 @@
 
         <div class="chat-tabs-host"></div>
         <div class="journal-and-chat">
-            <InlineLog v-if="G" :entries="logReversed.slice().reverse()" :mapName="G.options.map" />
+            <InlineLog
+                v-if="G"
+                :entries="logReversed.slice().reverse()"
+                :mapName="G.options.map"
+                :alternatePowerPlants="!!G.options.alternatePowerPlants"
+            />
             <div class="chat-host"></div>
         </div>
 

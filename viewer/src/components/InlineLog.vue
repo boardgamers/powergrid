@@ -33,6 +33,8 @@ import type { PowerPlant } from 'powergrid-engine/src/gamestate';
 export default class InlineLog extends Vue {
     @Prop({ default: () => [] }) entries!: string[];
     @Prop({ default: '' }) mapName!: string;
+    // Games on the alternate deck number their plants differently; draw them from it.
+    @Prop({ default: false }) alternatePowerPlants!: boolean;
     follow = true;
     private feedObserver?: ResizeObserver;
     locale = 'en';
@@ -41,7 +43,7 @@ export default class InlineLog extends Vue {
         return this.entries.map((entry) => localizeJournal(
             entry,
             (text: string) => translateText(text, this.locale),
-            (number: number) => getPowerPlant(number, this.mapName)
+            (number: number) => getPowerPlant(number, this.mapName, this.alternatePowerPlants)
         ));
     }
     plantLabel(plant: PowerPlant) {

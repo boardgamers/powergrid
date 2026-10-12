@@ -28,6 +28,7 @@ function launchSelfContained(selector = '#app') {
         showMoney: true,
         randomizeMap: params.get('randomize') === '1',
         chooseRegions: params.get('regions') === '1',
+        alternatePowerPlants: params.get('altdeck') === '1',
     };
     let gameState = setup(Number(params.get('players')) || 6, gameOptions, params.get('seed') || '0');
 

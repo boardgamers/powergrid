@@ -555,7 +555,12 @@
 
         <div class="chat-tabs-host"></div>
         <div class="journal-and-chat">
-            <InlineLog v-if="G" :entries="logReversed.slice().reverse()" :mapName="G.options.map" />
+            <InlineLog
+                v-if="G"
+                :entries="logReversed.slice().reverse()"
+                :mapName="G.options.map"
+                :alternatePowerPlants="!!G.options.alternatePowerPlants"
+            />
             <div class="chat-host"></div>
         </div>
 
@@ -938,8 +943,8 @@ import { formatDuration } from '../util/time';
 import { playerOrderForDisplay } from '../util/player-order';
 import { freePlantMoves, canAutoFinishPowering, poweredCities } from '../util/powering';
 import { bidRevision, canReopenPowering } from 'powergrid-engine/src/choice-revisions';
-import { availableMoves } from 'powergrid-engine/src/available-moves';
-import { powerIncome } from 'powergrid-engine/src/engine';
+import { availableMoves, canStoreFuel } from 'powergrid-engine/src/available-moves';
+import { powerIncome, updatePlayerCapacity } from 'powergrid-engine/src/engine';
 import { inactiveMapNetwork } from '../util/inactive-map';
 import { desktopBoardLayout } from '../util/board-layout';
 import { measureBoardBox } from '../util/measure-board';
@@ -1619,6 +1624,7 @@ export default class Game extends Vue {
                 player = {
                     coalLeft: this.G.players[this.player].coalLeft,
                     oilLeft: this.G.players[this.player].oilLeft,
+                    garbageLeft: this.G.players[this.player].garbageLeft,
                     resourcesUsed: this.G.players[this.player].resourcesUsed,
                 };
             }
@@ -2025,8 +2031,32 @@ export default class Game extends Vue {
         this.discardVisible = false;
     }
 
+    // Discard check for players with a garbage/oil hybrid (alternate deck), whose
+    // garbage and oil can sit in a shared tank: recompute storage without the
+    // discarded plant and test whether what is left still fits.
+    garbageOilDiscardInvalid(currentPlayer: Player) {
+        const after: Player = {
+            ...currentPlayer,
+            powerPlants: currentPlayer.powerPlants.filter((pp) => pp.number != this.discardedPowerPlant!.number),
+        };
+        updatePlayerCapacity(after);
+
+        const discarded = (name: string) =>
+            parseInt(this.resourcesToDiscard.find((r) => r.name == name)?.value ?? '0') || 0;
+        const coal = currentPlayer.coalLeft - discarded('Coal');
+        const oil = currentPlayer.oilLeft - discarded('Oil');
+        const garbage = currentPlayer.garbageLeft - discarded('Garbage');
+        const uranium = currentPlayer.uraniumLeft - discarded('Uranium');
+
+        return !canStoreFuel(after, coal, oil, garbage) || uranium > after.uraniumCapacity;
+    }
+
     discardInvalid() {
         const currentPlayer = this.G!.players[this.player!];
+        if (currentPlayer.garbageOilHybridCapacity) {
+            return this.garbageOilDiscardInvalid(currentPlayer);
+        }
+
         let hybridCapacityUsed;
         switch (this.discardedPowerPlant!.type) {
             case PowerPlantType.Coal:
@@ -2115,7 +2145,9 @@ export default class Game extends Vue {
                     case PowerPlantType.Oil:
                         if (
                             currentPlayer.powerPlants.filter((pp) => pp.type == powerPlant.type).length +
-                                currentPlayer.powerPlants.filter((pp) => pp.type == PowerPlantType.Hybrid).length ==
+                                currentPlayer.powerPlants.filter((pp) => pp.type == PowerPlantType.Hybrid).length +
+                                currentPlayer.powerPlants.filter((pp) => pp.type == PowerPlantType.GarbageOilHybrid)
+                                    .length ==
                             1
                         ) {
                             this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
@@ -2131,7 +2163,12 @@ export default class Game extends Vue {
                         break;
 
                     case PowerPlantType.Garbage:
-                        if (currentPlayer.powerPlants.filter((pp) => pp.type == powerPlant.type).length == 1) {
+                        if (
+                            currentPlayer.powerPlants.filter((pp) => pp.type == powerPlant.type).length +
+                                currentPlayer.powerPlants.filter((pp) => pp.type == PowerPlantType.GarbageOilHybrid)
+                                    .length ==
+                            1
+                        ) {
                             this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
                             return;
                         }
@@ -2180,6 +2217,29 @@ export default class Game extends Vue {
                             { name: 'Oil', value: '0', max: currentPlayer.oilLeft },
                         ];
                         break;
+
+                    case PowerPlantType.GarbageOilHybrid:
+                        if (
+                            currentPlayer.powerPlants.filter((pp) => pp.type == powerPlant.type).length +
+                                currentPlayer.powerPlants.filter((pp) => pp.type == PowerPlantType.Garbage).length +
+                                currentPlayer.powerPlants.filter((pp) => pp.type == PowerPlantType.Oil).length ==
+                            1
+                        ) {
+                            this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
+                            return;
+                        }
+
+                        if (currentPlayer.garbageLeft + currentPlayer.oilLeft == 0) {
+                            this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
+                            return;
+                        }
+
+                        // Same order as the engine's move.extra: [garbage, oil].
+                        this.resourcesToDiscard = [
+                            { name: 'Garbage', value: '0', max: currentPlayer.garbageLeft },
+                            { name: 'Oil', value: '0', max: currentPlayer.oilLeft },
+                        ];
+                        break;
                 }
 
                 this.discardedPowerPlant = powerPlant;
@@ -2201,6 +2261,7 @@ export default class Game extends Vue {
                     resourcesSpent = Array(powerPlant.cost).fill(ResourceType.Uranium);
                     break;
                 case PowerPlantType.Hybrid:
+                case PowerPlantType.GarbageOilHybrid:
                     const currentPlayer = this.G!.players[this.player!];
                     resourcesSpent = currentPlayer.resourcesUsed;
                     resourcesSpent.sort();
@@ -2574,6 +2635,7 @@ export default class Game extends Vue {
         let garbageUsed = 0;
         let uraniumUsed = 0;
         let hybridUsed = 0;
+        let garbageOilUsed = 0;
         for (const powerPlant of player.powerPlants) {
             // Australia: uranium mines never power cities, so they need no fuel
             // (there isn't even a uranium row in the main market to buy it from).
@@ -2596,6 +2658,9 @@ export default class Game extends Vue {
                 case PowerPlantType.Hybrid:
                     hybridUsed += powerPlant.cost;
                     break;
+                case PowerPlantType.GarbageOilHybrid:
+                    garbageOilUsed += powerPlant.cost;
+                    break;
             }
         }
 
@@ -2611,6 +2676,14 @@ export default class Game extends Vue {
         const remainingCoal = player.coalLeft - coalUsed;
         const remainingOil = player.oilLeft - oilUsed;
         if (hybridUsed > remainingCoal + remainingOil) {
+            return false;
+        }
+        // Garbage/oil hybrids share the leftover oil with coal/oil hybrids.
+        const remainingGarbage = player.garbageLeft - garbageUsed;
+        if (
+            garbageOilUsed > remainingGarbage + remainingOil ||
+            hybridUsed + garbageOilUsed > remainingCoal + remainingOil + remainingGarbage
+        ) {
             return false;
         }
         return true;

@@ -1,7 +1,15 @@
 import assert from 'assert';
 import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
-import { availableMoves, coalOilOverCapacity, computeRegionGraph, regionPickable } from './available-moves';
+import {
+    availableMoves,
+    coalOilOverCapacity,
+    computeRegionGraph,
+    fuelOverCapacity,
+    hasGarbageOilHybrid,
+    maxStorable,
+    regionPickable,
+} from './available-moves';
 import {
     canReviseChoice,
     finishPoweringLog,
@@ -26,7 +34,7 @@ import {
 } from './gamestate';
 import { GameMap, maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
-import { indiaPowerPlants, powerPlants } from './powerPlants';
+import { plantCatalogue, powerPlants, usesAlternateDeck } from './powerPlants';
 import prices from './prices';
 import { createRandomizedMap } from './randomizeMap';
 import { asserts, shuffle } from './utils';
@@ -50,11 +58,13 @@ export function defaultSetupDeck(
     numPlayers: number,
     variant: string,
     rng: seedrandom.prng,
-    useNewRechargedSetup: boolean
+    useNewRechargedSetup: boolean,
+    deck: PowerPlant[] = powerPlants
 ) {
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
-    let powerPlantsDeck: PowerPlant[] = cloneDeep(powerPlants);
+    let powerPlantsDeck: PowerPlant[] = cloneDeep(deck);
+    const plant = (num: number) => deck.find((p) => p.number == num)!;
 
     if (variant == 'original') {
         powerPlantsDeck = powerPlantsDeck.slice(8);
@@ -71,8 +81,8 @@ export function defaultSetupDeck(
         powerPlantsDeck.unshift(powerPlant13);
         powerPlantsDeck.push(step3);
 
-        actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
-        futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];
+        actualMarket = [plant(3), plant(4), plant(5), plant(6)];
+        futureMarket = [plant(7), plant(8), plant(9), plant(10)];
     } else {
         let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 13), rng() + '');
         let initialPlantMarket = initialPowerPlants.splice(0, 8);
@@ -120,6 +130,7 @@ export function setup(
         randomizeMap = false,
         chooseRegions = false,
         chooseColors = false,
+        alternatePowerPlants = false,
     }: GameOptions,
     seed?: string,
     forceDeck?: PowerPlant[],
@@ -139,6 +150,9 @@ export function setup(
         throw new Error(`Map "${map}" not found for variant "${variant}"`);
     }
     const chosenMap = cloneDeep(chosenMapRaw);
+    // The option is only honoured on the maps that support the alternate deck.
+    const alternateDeck = usesAlternateDeck(chosenMap.name, alternatePowerPlants);
+    const deck = plantCatalogue(chosenMap.name, alternateDeck);
 
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
@@ -150,13 +164,19 @@ export function setup(
         futureMarket = powerPlantsDeck.splice(0, 4);
     } else {
         if (chosenMap.setupDeck) {
-            ({ actualMarket, futureMarket, powerPlantsDeck } = chosenMap.setupDeck(numPlayers, variant, rng));
+            ({ actualMarket, futureMarket, powerPlantsDeck } = chosenMap.setupDeck(
+                numPlayers,
+                variant,
+                rng,
+                alternateDeck ? deck : undefined
+            ));
         } else {
             ({ actualMarket, futureMarket, powerPlantsDeck } = defaultSetupDeck(
                 numPlayers,
                 variant,
                 rng,
-                useNewRechargedSetup
+                useNewRechargedSetup,
+                alternateDeck ? deck : undefined
             ));
         }
     }
@@ -174,6 +194,7 @@ export function setup(
         uraniumLeft: 0,
         hybridCapacity: 0,
         hybridLeft: 0,
+        ...(alternateDeck ? { garbageOilHybridCapacity: 0 } : {}),
         money: 50,
         housesLeft: 22,
         cities: [],
@@ -420,6 +441,8 @@ export function setup(
             trackTotalSpent,
             chooseRegions,
             chooseColors,
+            // Only stored when in effect, so states of every other game are unchanged.
+            ...(alternateDeck ? { alternatePowerPlants: true } : {}),
         },
         log: [],
         hiddenLog: [],
@@ -1470,6 +1493,21 @@ export function move(
                         }
 
                         break;
+
+                    case PowerPlantType.GarbageOilHybrid:
+                        if (move.extra[0] > 0) {
+                            G.garbageSupply += move.extra[0];
+                            player.garbageLeft -= move.extra[0];
+                            discarded.push(move.extra[0] + ' Garbage');
+                        }
+
+                        if (move.extra[1] > 0) {
+                            G.oilSupply += move.extra[1];
+                            player.oilLeft -= move.extra[1];
+                            discarded.push(move.extra[1] + ' Oil');
+                        }
+
+                        break;
                 }
 
                 G.log.push({
@@ -1495,9 +1533,14 @@ export function move(
                     toResourcesPhase(G);
                 }
             } else {
-                const toDiscard: ResourceType[] = coalOilOverCapacity(player);
+                const garbageOilHybrid = hasGarbageOilHybrid(player);
+                const toDiscard: ResourceType[] = garbageOilHybrid
+                    ? fuelOverCapacity(player)
+                    : coalOilOverCapacity(player);
 
-                if (player.garbageLeft > player.garbageCapacity) {
+                // With a garbage/oil hybrid, overflow garbage can still fit in its tank,
+                // so it is left to the fuelOverCapacity discard below.
+                if (!garbageOilHybrid && player.garbageLeft > player.garbageCapacity) {
                     G.garbageSupply += player.garbageLeft - player.garbageCapacity;
                     player.garbageLeft = player.garbageCapacity;
                 }
@@ -1508,7 +1551,11 @@ export function move(
                 }
 
                 if (toDiscard.length == 1) {
-                    discardDownToCapacity(G, player, toDiscard[0]);
+                    if (garbageOilHybrid) {
+                        discardDownToStorable(G, player, toDiscard[0]);
+                    } else {
+                        discardDownToCapacity(G, player, toDiscard[0]);
+                    }
                     toDiscard.pop();
                 }
 
@@ -1547,12 +1594,21 @@ export function move(
             } else if (move.data == ResourceType.Oil) {
                 player.oilLeft--;
                 G.oilSupply++;
+            } else if (move.data == ResourceType.Garbage && hasGarbageOilHybrid(player)) {
+                // Garbage is only offered as a discard to garbage/oil hybrid owners.
+                player.garbageLeft--;
+                G.garbageSupply++;
             }
 
-            const toDiscard: ResourceType[] = coalOilOverCapacity(player);
+            const garbageOilHybrid = hasGarbageOilHybrid(player);
+            const toDiscard: ResourceType[] = garbageOilHybrid ? fuelOverCapacity(player) : coalOilOverCapacity(player);
 
             if (toDiscard.length == 1) {
-                discardDownToCapacity(G, player, toDiscard[0]);
+                if (garbageOilHybrid) {
+                    discardDownToStorable(G, player, toDiscard[0]);
+                } else {
+                    discardDownToCapacity(G, player, toDiscard[0]);
+                }
                 toDiscard.pop();
             }
 
@@ -1955,11 +2011,16 @@ export function moveAI(G: GameState, playerNumber: number): GameState {
                 const buyGarbage = availableMoves.BuyResource.find((r) => r.resource == ResourceType.Garbage);
                 const buyUranium = availableMoves.BuyResource.find((r) => r.resource == ResourceType.Uranium);
 
+                const garbageOilTank = player.garbageOilHybridCapacity ?? 0;
+
                 if (buyCoal && player.coalLeft < (player.coalCapacity + player.hybridCapacity) / 2) {
                     chosenMove = { name: MoveName.BuyResource, data: buyCoal };
-                } else if (buyOil && player.oilLeft < (player.oilCapacity + player.hybridCapacity) / 2) {
+                } else if (
+                    buyOil &&
+                    player.oilLeft < (player.oilCapacity + player.hybridCapacity + garbageOilTank) / 2
+                ) {
                     chosenMove = { name: MoveName.BuyResource, data: buyOil };
-                } else if (buyGarbage && player.garbageLeft < player.garbageCapacity / 2) {
+                } else if (buyGarbage && player.garbageLeft < (player.garbageCapacity + garbageOilTank) / 2) {
                     chosenMove = { name: MoveName.BuyResource, data: buyGarbage };
                 } else if (buyUranium && player.uraniumLeft < player.uraniumCapacity / 2) {
                     chosenMove = { name: MoveName.BuyResource, data: buyUranium };
@@ -2100,13 +2161,17 @@ export function reconstructState(gameState: GameState, to?: number, forcePublicD
     return G;
 }
 
-function updatePlayerCapacity(player: Player) {
+export function updatePlayerCapacity(player: Player) {
     player.coalCapacity =
         player.oilCapacity =
         player.garbageCapacity =
         player.uraniumCapacity =
         player.hybridCapacity =
             0;
+    // Only alternate-deck players carry this field; leave everyone else's state as is.
+    if (player.garbageOilHybridCapacity !== undefined) {
+        player.garbageOilHybridCapacity = 0;
+    }
 
     player.powerPlants.forEach((powerPlant) => {
         switch (powerPlant.type) {
@@ -2138,6 +2203,11 @@ function updatePlayerCapacity(player: Player) {
 
             case PowerPlantType.Hybrid: {
                 player.hybridCapacity += powerPlant.cost * 2;
+                break;
+            }
+
+            case PowerPlantType.GarbageOilHybrid: {
+                player.garbageOilHybridCapacity = (player.garbageOilHybridCapacity ?? 0) + powerPlant.cost * 2;
                 break;
             }
         }
@@ -2631,6 +2701,25 @@ function discardDownToCapacity(G: GameState, player: Player, resource: ResourceT
 }
 
 /**
+ * Garbage/oil hybrid counterpart of discardDownToCapacity: discard just enough of one
+ * resource for all of the player's fuel to fit, using the room left in the hybrid
+ * tanks, and return the cubes to the supply.
+ */
+function discardDownToStorable(G: GameState, player: Player, resource: ResourceType) {
+    const keep = maxStorable(player, resource);
+    if (resource == ResourceType.Coal) {
+        G.coalSupply += player.coalLeft - keep;
+        player.coalLeft = keep;
+    } else if (resource == ResourceType.Oil) {
+        G.oilSupply += player.oilLeft - keep;
+        player.oilLeft = keep;
+    } else if (resource == ResourceType.Garbage) {
+        G.garbageSupply += player.garbageLeft - keep;
+        player.garbageLeft = keep;
+    }
+}
+
+/**
  * Draw the replacement plant a completed purchase is owed — and only then.
  *
  * `endAuction` marks the purchase; whichever path finishes it consumes the mark. The
@@ -2661,12 +2750,8 @@ function removePowerPlant(G: GameState, powerPlant: PowerPlant) {
     );
 }
 
-export function getPowerPlant(num: number, mapName = ''): PowerPlant {
-    if (mapName == 'India') {
-        return indiaPowerPlants.find((p) => p.number == num)!;
-    } else {
-        return powerPlants.find((p) => p.number == num)!;
-    }
+export function getPowerPlant(num: number, mapName = '', alternatePowerPlants = false): PowerPlant {
+    return plantCatalogue(mapName, alternatePowerPlants).find((p) => p.number == num)!;
 }
 
 function getBaseState(G: GameState): GameState {
@@ -2766,6 +2851,25 @@ function isValid(player: Player, powerPlants: PowerPlant[]) {
 
     if (hybridUsed > player.coalLeft - coalUsed + player.oilLeft - oilUsed) {
         return false;
+    }
+
+    // Garbage/oil hybrids draw on the leftover garbage and oil, sharing that oil with
+    // any coal/oil hybrids: each kind must fit its own fuels, and both together must
+    // fit everything that is left.
+    const garbageOilUsed = powerPlants
+        .filter((pp) => pp.type == PowerPlantType.GarbageOilHybrid)
+        .map((pp) => pp.cost)
+        .reduce((a, b) => a + b, 0);
+    if (garbageOilUsed > 0) {
+        const coalRemaining = player.coalLeft - coalUsed;
+        const oilRemaining = player.oilLeft - oilUsed;
+        const garbageRemaining = player.garbageLeft - garbageUsed;
+        if (
+            garbageOilUsed > garbageRemaining + oilRemaining ||
+            hybridUsed + garbageOilUsed > coalRemaining + oilRemaining + garbageRemaining
+        ) {
+            return false;
+        }
     }
 
     return true;

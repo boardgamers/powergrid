@@ -6,13 +6,15 @@ export function resolvePlayerColors(
     preferences?: ColorPreferences
 ): string[] {
     const colors = [...defaults];
+    for (const player of players) if (player.color) colors[player.id] = player.color;
+
+    // The game's chosen colors are fallbacks for the viewer's BGS preferences.
     const preferred = preferences?.bgs?.playerColors;
-    if (!preferences?.colorBlind && !players.some((p) => p.color) && Array.isArray(preferred)) {
+    if (!preferences?.colorBlind && Array.isArray(preferred)) {
         preferred.slice(0, colors.length).forEach((color, i) => {
             if (typeof color === 'string' && /^#[a-f0-9]{6}$/i.test(color)) colors[i] = color;
         });
     }
-    for (const player of players) if (player.color) colors[player.id] = player.color;
     return colors;
 }
 

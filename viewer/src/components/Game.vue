@@ -1145,8 +1145,7 @@ export default class Game extends Vue {
 
     defaultPlayerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', 'yellow', 'brown'];
 
-    // Colors indexed by player id. Falls back to the default palette, but any color
-    // a player drafted via the chooseColors option overrides their default entry.
+    // Colors indexed by player id: BGS preferences, then drafted colors, then defaults.
     get playerColors() {
         return resolvePlayerColors(this.defaultPlayerColors, this.G?.players ?? [], this.preferences);
     }

@@ -40,6 +40,7 @@ function launch(selector: string) {
         // toggles, platform preference pushes) would only paint on the next re-render.
         preferences: Vue.observable({
             bgs: {},
+            preferredPlayerColors: undefined as (string | null)[] | undefined,
             sound: true,
             colorBlind: false,
             showUnselectedRegions: true,
@@ -79,6 +80,9 @@ function launch(selector: string) {
             if (!(await localization.setLocale(data.locale))) return;
             Object.assign(params.preferences, data);
             params.preferences.bgs = (data.bgs ?? {}) as NonNullable<Preferences['bgs']>;
+            params.preferences.preferredPlayerColors = Array.isArray(data.preferredPlayerColors)
+                ? data.preferredPlayerColors
+                : undefined;
             app.$forceUpdate();
         },
         onAvatars(data) {

@@ -1,6 +1,7 @@
 import { checkHostPresentation } from './host-presentation-smoke.mjs';
 import { checkMiddleEastReplay } from './replay-smoke.mjs';
 import { checkUndoMove } from './undo-smoke.mjs';
+import { checkPlayerColors } from './player-colors-smoke.mjs';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createServer } from 'node:http';
@@ -428,6 +429,7 @@ try {
         assert.equal(await page.locator('.region-borders').count(), 0);
         assert.doesNotMatch(await page.locator('.player-board [data-bgs-player="1"]').textContent(), /2 ·/);
         assert.deepEqual(await page.evaluate(() => preferenceUpdates), [{ name: 'colorBlind', value: false }]);
+        await checkPlayerColors(page, engine);
         await checkHostPresentation(page, 'host', `/tmp/powergrid-board-thumbnail-${width}.png`);
         if (width === 1400) await checkMiddleEastReplay(page);
         await checkUndoMove(page);

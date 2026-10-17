@@ -20,9 +20,11 @@ export async function init(
     nbPlayers: number,
     expansions: string[],
     options: GameOptions,
-    seed?: string
+    seed?: string,
+    creator?: number,
+    context?: { preferredPlayerColors?: (string | null)[] }
 ): Promise<GameState> {
-    return engine.setup(nbPlayers, options, seed);
+    return engine.setup(nbPlayers, options, seed, undefined, undefined, context?.preferredPlayerColors);
 }
 
 export function setPlayerMetaData(G: GameState, player: number, metaData: { name: string }): GameState {
@@ -194,7 +196,7 @@ export function replay(G: GameState, { to = Infinity }: { to?: number } = {}): G
 
     const oldG = G;
 
-    G = engine.setup(G.players.length, G.options, G.seed);
+    G = engine.setup(G.players.length, G.options, G.seed, undefined, undefined, G.setupPlayerColors);
 
     for (let i = 0; i < oldPlayers.length && i < G.players.length; i++) {
         G.players[i].name = oldPlayers[i].name;

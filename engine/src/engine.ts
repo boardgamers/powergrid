@@ -134,7 +134,8 @@ export function setup(
     }: GameOptions,
     seed?: string,
     forceDeck?: PowerPlant[],
-    forceMap?: GameMap
+    forceMap?: GameMap,
+    preferredPlayerColors?: (string | null)[]
 ): GameState {
     seed = seed ?? Math.random().toString();
     const rng = seedrandom(seed);
@@ -516,10 +517,17 @@ export function setup(
 
     // chooseColors: players draft their colors first of all. The region draft (if
     // any) stays pending in G.regionDraft and only activates once colors are done
-    // (see finalizeColors). The phase set here wins over RegionSelection above.
+    // (see advanceColorDraft). The phase set here wins over RegionSelection above.
     if (chooseColors) {
+        if (preferredPlayerColors?.some((color) => typeof color === 'string' && /^#[a-f0-9]{6}$/i.test(color))) {
+            G.setupPlayerColors = G.players.map((_, i) => {
+                const color = preferredPlayerColors[i];
+                return typeof color === 'string' && /^#[a-f0-9]{6}$/i.test(color) ? color.toLowerCase() : null;
+            });
+        }
         G.phase = Phase.ColorSelection;
         G.colorDraft = { picked: [] };
+        advanceColorDraft(G);
     }
 
     if (G.map.blockSpaces) {
@@ -532,7 +540,7 @@ export function setup(
         }
     }
 
-    G.players[startingPlayer].availableMoves = availableMoves(G, G.players[startingPlayer]);
+    for (const index of G.currentPlayers) G.players[index].availableMoves = availableMoves(G, G.players[index]);
 
     return G;
 }
@@ -601,10 +609,22 @@ function finalizeRegions(G: GameState) {
     G.currentPlayers = [G.playerOrder[0]];
 }
 
-// Completes the chooseColors draft once every player has a color. Hands off to the
-// region draft if one is still pending (chooseColors + chooseRegions), otherwise
-// straight to the auction with the starting player to move.
-function finalizeColors(G: GameState) {
+// Manual picks precede fallback assignments for players using a custom BGS colour.
+function advanceColorDraft(G: GameState) {
+    const next = G.playerOrder.find((index) => !G.players[index].color && !G.setupPlayerColors?.[index]);
+    if (next !== undefined) {
+        G.currentPlayers = [next];
+        return;
+    }
+
+    // Custom-colour players take only leftovers, keeping every colour available to manual pickers.
+    const unused = playerColors.filter((color) => !G.colorDraft!.picked.includes(color));
+    for (const index of G.playerOrder) {
+        if (G.players[index].color) continue;
+        const color = unused.includes(playerColors[index]) ? playerColors[index] : unused[0];
+        G.players[index].color = color;
+        unused.splice(unused.indexOf(color), 1);
+    }
     G.colorDraft = undefined;
     G.currentPlayers = [G.playerOrder[0]];
     if (G.regionDraft) {
@@ -844,12 +864,7 @@ export function move(
                 pretty: `${playerNameHTML(player)} chooses <b>${move.data}</b>.`,
             });
 
-            if (G.colorDraft!.picked.length >= G.players.length) {
-                finalizeColors(G);
-            } else {
-                // Next picker, in seating order (each player picks exactly once).
-                G.currentPlayers = [G.playerOrder[G.colorDraft!.picked.length]];
-            }
+            advanceColorDraft(G);
 
             break;
         }
@@ -1892,8 +1907,11 @@ export function move(
     //   across them.
     // - Bids in a fastBid auction go to the hidden log; the mover leaves
     //   currentPlayers, so they commit as single-move turns.
+    // - Colour picks commit even if skipping custom-colour seats hands the same
+    //   player the next auction or region-selection turn.
     const lastLog = G.log[G.log.length - 1];
     G.newTurn = !(
+        move.name !== MoveName.ChooseColor &&
         lastLog?.type === 'move' &&
         lastLog.player === playerNumber &&
         G.currentPlayers.includes(playerNumber) &&
@@ -2755,7 +2773,7 @@ export function getPowerPlant(num: number, mapName = '', alternatePowerPlants = 
 }
 
 function getBaseState(G: GameState): GameState {
-    const baseState = setup(G.players.length, G.options, G.seed);
+    const baseState = setup(G.players.length, G.options, G.seed, undefined, undefined, G.setupPlayerColors);
     baseState.players.forEach((player, i) => {
         player.name = G.players[i].name;
         player.isAI = G.players[i].isAI;

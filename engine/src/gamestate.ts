@@ -226,6 +226,8 @@ export interface GameState {
     // is the colors taken so far, in pick order; its length is also the seating
     // index of the next picker. Cleared once every player has a color.
     colorDraft?: { picked: string[] };
+    // Snapshot from the host at setup; replay must not depend on later profile changes.
+    setupPlayerColors?: (string | null)[];
     options: GameOptions;
     log: LogItem[];
     hiddenLog: LogItem[];

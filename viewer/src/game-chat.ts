@@ -151,7 +151,7 @@ export function mountGameChat(emitter: ViewerEmitter<any, any>, host: Element): 
             message.playerIndex ??
             (message.author === 'You' ? localPlayer : players.find((p) => p.name === message.author)?.id);
         if (index !== undefined && playerColors[index]) {
-            const color = resolvePlayerColors(playerColors, players, colorPreferences)[index];
+            const color = resolvePlayerColors(playerColors, players, colorPreferences, localPlayer)[index];
             author.style.backgroundColor = color;
             author.style.color = colorText(color);
         }

@@ -5,6 +5,7 @@ export interface UIData {
 }
 
 export type Preferences = {
+    preferredPlayerColors?: (string | null)[];
     geographicBackground?: 'terrain' | 'wash' | 'line' | 'none';
     bgs?: {
         playerSymbols?: string[];

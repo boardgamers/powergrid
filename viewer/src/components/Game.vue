@@ -1147,7 +1147,7 @@ export default class Game extends Vue {
 
     // Colors indexed by player id: BGS preferences, then drafted colors, then defaults.
     get playerColors() {
-        return resolvePlayerColors(this.defaultPlayerColors, this.G?.players ?? [], this.preferences);
+        return resolvePlayerColors(this.defaultPlayerColors, this.G?.players ?? [], this.preferences, this.player);
     }
 
     animationQueue: Array<Function> = [];

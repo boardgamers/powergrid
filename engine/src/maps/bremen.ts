@@ -82,7 +82,7 @@ export const map: GameMap = {
         },
         { name: Cities.Huchting, region: Regions.Purple, connectionCost: 12, slotCosts: [8, 14], x: 386, y: 442 },
         // Red
-        { name: Cities.Hofen, region: Regions.Red, connectionCost: 9, slotCosts: [8, 14, 20], x: 352, y: 272 },
+        { name: Cities.Hofen, region: Regions.Red, connectionCost: 9, slotCosts: [8, 14, 20], x: 352, y: 292 },
         { name: Cities.Pusdorf, region: Regions.Red, connectionCost: 7, slotCosts: [8, 14, 20], x: 399, y: 386 },
         { name: Cities.Neustadtshafen, region: Regions.Red, connectionCost: 8, slotCosts: [8, 14, 20], x: 375, y: 340 },
         { name: Cities.Strom, region: Regions.Red, connectionCost: 14, slotCosts: [8, 14, 20], x: 328, y: 393 },
@@ -90,9 +90,9 @@ export const map: GameMap = {
         // Orange
         { name: Cities.Blockland, region: Regions.Orange, connectionCost: 11, slotCosts: [8, 14, 20], x: 476, y: 251 },
         { name: Cities.Gropelingen, region: Regions.Orange, connectionCost: 8, slotCosts: [8, 14, 20], x: 426, y: 280 },
-        { name: Cities.Burglesum, region: Regions.Orange, connectionCost: 13, slotCosts: [8, 14, 20], x: 337, y: 197 },
-        { name: Cities.Vegesack, region: Regions.Orange, connectionCost: 10, slotCosts: [8, 14, 20], x: 248, y: 170 },
-        { name: Cities.Blumenthal, region: Regions.Orange, connectionCost: 15, slotCosts: [8, 14], x: 154, y: 135 },
+        { name: Cities.Burglesum, region: Regions.Orange, connectionCost: 13, slotCosts: [8, 14, 20], x: 379, y: 212 },
+        { name: Cities.Vegesack, region: Regions.Orange, connectionCost: 10, slotCosts: [8, 14, 20], x: 303, y: 205 },
+        { name: Cities.Blumenthal, region: Regions.Orange, connectionCost: 15, slotCosts: [8, 14], x: 213, y: 190 },
     ],
     // Bremen has flat per-district costs (the `connectionCost` on each city), not
     // per-edge costs — so every connection's `cost` is 0 and only encodes which

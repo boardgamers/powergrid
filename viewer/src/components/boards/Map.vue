@@ -110,14 +110,14 @@
             >
                 <rect
                     :class="[{ canClick: canBuild(city) || canPickRegion(city) }]"
-                    :x="city.x - 23"
-                    :y="city.y - 23"
-                    width="46"
-                    height="46"
-                    rx="7"
+                    :x="city.x - 23 * t"
+                    :y="city.y - 23 * t"
+                    :width="46 * t"
+                    :height="46 * t"
+                    :rx="7 * t"
                     fill="gray"
                     :stroke="city.region"
-                    stroke-width="4"
+                    :stroke-width="4 * t"
                     :transform="`rotate(45, ${city.x}, ${city.y})`"
                     @click="onCityClick(city)"
                 >
@@ -127,21 +127,21 @@
                 <template v-for="(sc, i) in city.slotCosts">
                     <rect
                         :key="city.name + '_slot' + i"
-                        :x="city.x + nodeSlotPos(i).dx - 6.5"
-                        :y="city.y + nodeSlotPos(i).dy - 6.5"
-                        width="13"
-                        height="13"
-                        rx="1"
+                        :x="city.x + nodeSlotPos(i).dx - 6.5 * t"
+                        :y="city.y + nodeSlotPos(i).dy - 6.5 * t"
+                        :width="13 * t"
+                        :height="13 * t"
+                        :rx="1 * t"
                         fill="gray"
                         stroke="black"
-                        stroke-width="1"
+                        :stroke-width="1 * t"
                         :transform="`rotate(45, ${city.x + nodeSlotPos(i).dx}, ${city.y + nodeSlotPos(i).dy})`"
                     />
                     <text
                         :key="city.name + '_slotlbl' + i"
                         :x="city.x + nodeSlotPos(i).dx"
                         :y="city.y + nodeSlotPos(i).dy"
-                        font-size="10"
+                        :font-size="10 * t"
                         text-anchor="middle"
                         dominant-baseline="central"
                         fill="black"
@@ -275,22 +275,29 @@
             >
                 <circle
                     :cx="city.x"
-                    :cy="city.y + 15"
-                    r="11"
+                    :cy="city.y + 15 * t"
+                    :r="11 * t"
                     fill="goldenrod"
                     stroke="darkgoldenrod"
-                    stroke-width="2"
+                    :stroke-width="2 * t"
                 />
-                <circle :cx="city.x" :cy="city.y + 15" r="7.5" fill="gray" stroke="darkgoldenrod" stroke-width="1" />
+                <circle
+                    :cx="city.x"
+                    :cy="city.y + 15 * t"
+                    :r="7.5 * t"
+                    fill="gray"
+                    stroke="darkgoldenrod"
+                    :stroke-width="1 * t"
+                />
                 <text
                     :x="city.x"
-                    :y="city.y + 15"
-                    font-size="11"
+                    :y="city.y + 15 * t"
+                    :font-size="11 * t"
                     font-weight="bold"
                     text-anchor="middle"
                     dominant-baseline="central"
                     fill="black"
-                    :transform="mapRotation ? `rotate(${-mapRotation}, ${city.x}, ${city.y + 15})` : undefined"
+                    :transform="mapRotation ? `rotate(${-mapRotation}, ${city.x}, ${city.y + 15 * t})` : undefined"
                 >
                     {{ city.connectionCost }}
                 </text>
@@ -434,11 +441,11 @@
                 v-if="isNodeTile(city) && (canBuild(city) || canPickRegion(city))"
                 :key="city.name + '_tapTile'"
                 class="canClick"
-                :x="city.x - 23"
-                :y="city.y - 23"
-                width="46"
-                height="46"
-                rx="7"
+                :x="city.x - 23 * t"
+                :y="city.y - 23 * t"
+                :width="46 * t"
+                :height="46 * t"
+                :rx="7 * t"
                 fill="none"
                 pointer-events="all"
                 :transform="`rotate(45, ${city.x}, ${city.y})`"
@@ -502,6 +509,12 @@ import { City, Connection, Polygon } from 'powergrid-engine/src/maps';
 const CITY_RADIUS = 20;
 /** The coloured region ring drawn around that disc — the city's visible edge. */
 const CITY_RING_RADIUS = 25;
+/**
+ * Bremen district tiles were drawn at 46 units with 10–11 unit labels. Every part of
+ * the tile (diamond, house slots, slot numbers, entry-cost coin, houses) scales by
+ * this one factor so the pieces keep their relative places (Amy, 2026-10).
+ */
+const TILE_SCALE = 1.3;
 
 @Component({
     components: {
@@ -530,6 +543,8 @@ export default class Map extends Vue {
     @Inject() preferences!: Preferences;
 
     houses: Piece[] = [];
+    /** Node-weighted tile scale, exposed to the template. */
+    t = TILE_SCALE;
 
     get regionBorderCities() {
         return (this.cities || []).filter(city => city.connectionCost == null || (city.slotCosts && city.slotCosts.length >= 2));
@@ -580,8 +595,9 @@ export default class Map extends Vue {
                     // The House piece is anchored top-left (~14×16 after its scale), so
                     // offset by half its size to center it on the slot.
                     const slot = this.nodeSlotPos(cityPiece.position);
-                    offsetX = slot.dx - 7;
-                    offsetY = slot.dy - 8;
+                    pieceScale = 0.035 * TILE_SCALE;
+                    offsetX = slot.dx - 7 * TILE_SCALE;
+                    offsetY = slot.dy - 8 * TILE_SCALE;
                 } else if (is1520) {
                     // [15,20] city: slot 0 (cost 15) → bottom-left, slot 1 (cost 20) → bottom-right
                     if (cityPiece.position == 0) {
@@ -637,9 +653,10 @@ export default class Map extends Vue {
 
     nodeSlotPos(i: number) {
         // House slots laid out like the printed board: 0 = 8 (top), 1 = 14 (left), 2 = 20 (right).
-        if (i === 0) return { dx: 0, dy: -15 };
-        if (i === 1) return { dx: -15, dy: 0 };
-        return { dx: 15, dy: 0 };
+        const d = 15 * TILE_SCALE;
+        if (i === 0) return { dx: 0, dy: -d };
+        if (i === 1) return { dx: -d, dy: 0 };
+        return { dx: d, dy: 0 };
     }
 
     // One "no nuclear" marker per banned region. Placed at the most open spot

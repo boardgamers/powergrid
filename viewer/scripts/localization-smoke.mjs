@@ -78,28 +78,26 @@ try {
         assert.match(rules, /la centrale au numéro le plus élevé/);
         assert.doesNotMatch(rules, /Buy Resources|One player|Game ends after|inverser/);
         if (width === 390) {
-            await page.waitForFunction(() =>
-                document.querySelector('[data-tutorial="resources"]')?.textContent.includes('RESTANTS')
-            );
             const labels = {
-                de: 'ÜBRIG',
-                nl: 'OVER',
-                it: 'RIMASTI',
-                'pt-BR': 'RESTANTES',
-                pl: 'POZOSTAŁO',
-                ro: 'RĂMASE',
-                da: 'TILBAGE',
-                el: 'ΑΠΟΜΕΝΟΥΝ',
-                ru: 'ОСТАЛОСЬ',
-                hi: 'शेष',
-                ko: '남은 수',
-                'zh-TW': '剩餘',
-                vi: 'CÒN LẠI',
+                de: 'Ein Spieler pro Stadt',
+                nl: 'Eén speler per stad',
+                it: 'Un giocatore per città',
+                'pt-BR': 'Um jogador por cidade',
+                pl: 'Jeden gracz na miasto',
+                ro: 'Un jucător pe oraș',
+                da: 'Én spiller pr. by',
+                el: 'Ένας παίκτης ανά πόλη',
+                ru: 'Один игрок в городе',
+                hi: 'हर शहर में एक खिलाड़ी',
+                ko: '도시당 1명',
+                'zh-TW': '每座城市限 1 位玩家',
+                'zh-CN': '每座城市一名玩家',
+                vi: 'Một người chơi mỗi thành phố',
             };
             for (const [locale, label] of Object.entries(labels)) {
                 await page.evaluate((locale) => host.emit('preferences', { locale, sound: false }), locale);
                 await page.waitForFunction(
-                    (label) => document.querySelector('[data-tutorial="resources"]')?.textContent.includes(label),
+                    (label) => document.querySelector('.modal-body')?.textContent.includes(label),
                     label
                 );
             }
@@ -111,7 +109,7 @@ try {
         );
         assert.deepEqual(errors, [], 'Unavailable translations should fall back to English without crashing');
         await page.close();
-        console.log(`Complete rules and remaining stock labels: ${width}px passed`);
+        console.log(`Complete rules and language switching: ${width}px passed`);
     }
 } finally {
     await browser.close();

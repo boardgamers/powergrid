@@ -4,7 +4,24 @@ import { chromium } from 'playwright';
 const root = new URL('../src/localization/', import.meta.url);
 const runtime = await readFile(new URL('runtime.js', root), 'utf8');
 const journal = await readFile(new URL('journal.js', root), 'utf8');
-const locales = ['en', 'fr', 'de', 'nl', 'it', 'pl', 'ro', 'da', 'pt-BR', 'ru', 'el', 'hi', 'ko', 'zh-TW', 'vi'];
+const locales = [
+    'en',
+    'fr',
+    'de',
+    'nl',
+    'it',
+    'pl',
+    'ro',
+    'da',
+    'pt-BR',
+    'ru',
+    'el',
+    'hi',
+    'ko',
+    'zh-TW',
+    'zh-CN',
+    'vi',
+];
 const catalogs = Object.fromEntries(
     await Promise.all(
         locales.map(async (lang) => [lang, JSON.parse(await readFile(new URL(`${lang}.json`, root), 'utf8'))])

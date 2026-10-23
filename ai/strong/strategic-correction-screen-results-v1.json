@@ -1,9 +1,6 @@
 {
   "all_shards_verified": false,
   "pending": [
-    "parent-6p-search_geo-0-4",
-    "parent-6p-search_geo-8-12",
-    "parent-6p-search_geo-12-16",
     "11101-2p-economic-0-4",
     "11101-2p-economic-4-8",
     "11101-2p-economic-8-12",
@@ -1297,6 +1294,62 @@
           }
         }
       },
+      "search_geo/6p": {
+        "games": 384,
+        "independent_deals": 16,
+        "win_rate": 0.4166666666666667,
+        "deal_bootstrap_95_interval": [
+          0.3697916666666667,
+          0.4635416666666667
+        ],
+        "search_rollouts_reported": true,
+        "search_stats": {
+          "search_geo": {
+            "decisions": 88274,
+            "evaluations": 7189408,
+            "truncated": 0
+          }
+        },
+        "stage": "primary",
+        "by_rules": {
+          "original/open": {
+            "games": 96,
+            "independent_deals": 16,
+            "win_rate": 0.5729166666666666,
+            "deal_bootstrap_95_interval": [
+              0.48958333333333326,
+              0.65625
+            ]
+          },
+          "original/sealed": {
+            "games": 96,
+            "independent_deals": 16,
+            "win_rate": 0.29166666666666663,
+            "deal_bootstrap_95_interval": [
+              0.20833333333333331,
+              0.375
+            ]
+          },
+          "recharged/open": {
+            "games": 96,
+            "independent_deals": 16,
+            "win_rate": 0.5625,
+            "deal_bootstrap_95_interval": [
+              0.4583333333333333,
+              0.6666666666666666
+            ]
+          },
+          "recharged/sealed": {
+            "games": 96,
+            "independent_deals": 16,
+            "win_rate": 0.23958333333333331,
+            "deal_bootstrap_95_interval": [
+              0.15625,
+              0.3333333333333333
+            ]
+          }
+        }
+      },
       "legacy/6p": {
         "games": 384,
         "independent_deals": 16,
@@ -1555,7 +1608,7 @@
     "11101-minus-parent": {},
     "11102-minus-parent": {}
   },
-  "games": 6336,
+  "games": 6720,
   "planned_games": 20160,
   "source_revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
   "source_sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb",
@@ -2189,6 +2242,36 @@
         "prefix": "runs/strategic-correction-screen-v1-parent-6p-economic-12-16",
         "verified_sha256": "bcf71d59f66afca6c9fdb98b06409d79516f3cd8fe1e0b5d3b8d8e27a6ca9c79",
         "evaluation_sha256": "21aadf8b41b5e3de9b068766709504d7be7bbd3db510b08b4668f66a1b595648"
+      }
+    ],
+    "parent/search_geo/6p": [
+      {
+        "key": "parent-6p-search_geo-0-4",
+        "revision": "c7b86f2062a364260d82e872e61138a140d2a628",
+        "prefix": "runs/strategic-correction-screen-v1-parent-6p-search_geo-0-4",
+        "verified_sha256": "46c029f15af35b37b60f44345bdf11810193df84a2817dec7e985b2d50506c33",
+        "evaluation_sha256": "b7592e043723446d5f468e961814f7cc51a40e4bbb57adb7694ec354373be7c6"
+      },
+      {
+        "key": "parent-6p-search_geo-4-8",
+        "revision": "3b3044a49826467fd78c389e5166c99b12d52b35",
+        "prefix": "runs/strategic-correction-screen-v1-parent-6p-search_geo-4-8",
+        "verified_sha256": "b4d239705eeef198f6eaa5b409a1a71f01450c0584365cf907c5fb314b077777",
+        "evaluation_sha256": "e452660354f61f5071f3fc6ccac99ee3f0214a3fda39ef54bd5beeb2582d1ea8"
+      },
+      {
+        "key": "parent-6p-search_geo-8-12",
+        "revision": "c7b86f2062a364260d82e872e61138a140d2a628",
+        "prefix": "runs/strategic-correction-screen-v1-parent-6p-search_geo-8-12",
+        "verified_sha256": "1cc12547c9101699994b21c30ab5a0d974cfe84b960832d6af62f1024a2ead74",
+        "evaluation_sha256": "2fd4d37966e333bd0ed561f02cbf78c08974b53458d5defe40b92d2b4a25a68a"
+      },
+      {
+        "key": "parent-6p-search_geo-12-16",
+        "revision": "c7b86f2062a364260d82e872e61138a140d2a628",
+        "prefix": "runs/strategic-correction-screen-v1-parent-6p-search_geo-12-16",
+        "verified_sha256": "9b8b196bd35aa3e8c595ea58f4c407f5a8cf92ffe45f12322a02b5b79997ba9a",
+        "evaluation_sha256": "2015b90fda9058656d940d85f3e0090b408361fe4482161deca7c5e36289384f"
       }
     ],
     "parent/legacy/6p": [

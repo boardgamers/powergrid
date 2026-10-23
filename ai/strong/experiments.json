@@ -43226,7 +43226,7 @@
         "teacher_job_snapshot_file": "ai/strong/strategic-teacher-training-status-v1.json",
         "screen_job_snapshot_file": "ai/strong/strategic-correction-screen-status-v1.json",
         "submitted_parent_reference_shards": 108,
-        "verified_parent_complete_cell_games": 6336,
+        "verified_parent_complete_cell_games": 6720,
         "screen_source_file": "ai/strong/strategic-correction-screen-source-v1.json",
         "screen_preflight_file": "ai/strong/strategic-correction-screen-preflight-v1.json",
         "private_state_preflight_file": "ai/strong/strategic-correction-private-state-preflight-v1.json",
@@ -43240,7 +43240,7 @@
             "qualification_eligible": false
         },
         "final_runtime_followup": "The4.3 launcher contract passes11 mocked tests. Frozen strategic development archive has matching encoder/evaluator but old arena-job.py; derive a new archive with provenance wrapper and probe exact selected candidate before final qualification.",
-        "parent_complete_cells": 26,
+        "parent_complete_cells": 27,
         "complete_teacher_manifest_sha256": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57",
         "final_training_split": {
             "train": 1440,
@@ -43275,7 +43275,16 @@
         "candidate_2p_probes_verified": true,
         "candidate_2p_probe_artifact_revision": "3b3044a49826467fd78c389e5166c99b12d52b35",
         "candidate_6p_probes_verified": false,
-        "new_model_full_arenas_submitted": 0
+        "new_model_full_arenas_submitted": 0,
+        "parent_reference_complete": true,
+        "parent_assessment_file": "ai/strong/strategic-correction-parent-assessment-v1.json",
+        "parent_evidence": {
+            "revision": "f44c5dde6958d322aae908982e02279fb55a0c47",
+            "prefix": "runs/strategic-correction-parent-reference-evidence-v1",
+            "manifest_sha256": "8aef607ef6194a65af0907f0ca552830b58136742f0bf48ef224b19d3a28c257",
+            "file_count": 113,
+            "qualification_eligible": false
+        }
     },
     "final_strategic_runtime_v1": {
         "readiness_file": "ai/strong/final-strategic-runtime-readiness-v1.json",

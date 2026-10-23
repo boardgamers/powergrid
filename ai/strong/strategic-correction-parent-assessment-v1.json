@@ -1,0 +1,381 @@
+{
+  "complete_parent_reference": true,
+  "games": 6720,
+  "cells": {
+    "economic/2p": {
+      "games": 128,
+      "win_share": 0.69921875,
+      "interval": [
+        0.625,
+        0.77734375
+      ],
+      "reference_point_floor": 0.6625,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": [
+        "original/open",
+        "recharged/sealed"
+      ]
+    },
+    "search_geo/2p": {
+      "games": 128,
+      "win_share": 0.4921875,
+      "interval": [
+        0.4296875,
+        0.5546875
+      ],
+      "reference_point_floor": 0.55,
+      "below_reference_floor": true,
+      "overall_interval_above_chance": false,
+      "rules_without_lower_bound_above_chance": [
+        "original/open",
+        "original/sealed",
+        "recharged/open",
+        "recharged/sealed"
+      ]
+    },
+    "legacy/2p": {
+      "games": 128,
+      "win_share": 0.9375,
+      "interval": [
+        0.890625,
+        0.984375
+      ],
+      "reference_point_floor": 0.9,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": []
+    },
+    "heuristic/2p": {
+      "games": 128,
+      "win_share": 0.765625,
+      "interval": [
+        0.6875,
+        0.8359375
+      ],
+      "reference_point_floor": 0.775,
+      "below_reference_floor": true,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": [
+        "original/sealed"
+      ]
+    },
+    "rush/2p": {
+      "games": 128,
+      "win_share": 0.66796875,
+      "interval": [
+        0.58203125,
+        0.7578125
+      ],
+      "reference_point_floor": 0.625,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": [
+        "original/open",
+        "recharged/open",
+        "recharged/sealed"
+      ]
+    },
+    "economic/3p": {
+      "games": 192,
+      "win_share": 0.6197916666666666,
+      "interval": [
+        0.5416666666666667,
+        0.6979166666666667
+      ],
+      "reference_point_floor": 0.55,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": []
+    },
+    "search_geo/3p": {
+      "games": 192,
+      "win_share": 0.25,
+      "interval": [
+        0.1875,
+        0.3125
+      ],
+      "reference_point_floor": 0.4,
+      "below_reference_floor": true,
+      "overall_interval_above_chance": false,
+      "rules_without_lower_bound_above_chance": [
+        "original/open",
+        "original/sealed",
+        "recharged/open",
+        "recharged/sealed"
+      ]
+    },
+    "legacy/3p": {
+      "games": 192,
+      "win_share": 0.9114583333333334,
+      "interval": [
+        0.8697916666666667,
+        0.953125
+      ],
+      "reference_point_floor": 0.9,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": []
+    },
+    "heuristic/3p": {
+      "games": 192,
+      "win_share": 0.859375,
+      "interval": [
+        0.8020833333333334,
+        0.9114583333333334
+      ],
+      "reference_point_floor": 0.7000000000000001,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": []
+    },
+    "rush/3p": {
+      "games": 192,
+      "win_share": 0.6458333333333334,
+      "interval": [
+        0.5572916666666666,
+        0.7239583333333333
+      ],
+      "reference_point_floor": 0.5,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": []
+    },
+    "economic/4p": {
+      "games": 256,
+      "win_share": 0.61328125,
+      "interval": [
+        0.5546875,
+        0.671875
+      ],
+      "reference_point_floor": 0.49375,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": []
+    },
+    "search_geo/4p": {
+      "games": 256,
+      "win_share": 0.23046875,
+      "interval": [
+        0.17578125,
+        0.28515625
+      ],
+      "reference_point_floor": 0.325,
+      "below_reference_floor": true,
+      "overall_interval_above_chance": false,
+      "rules_without_lower_bound_above_chance": [
+        "original/open",
+        "original/sealed",
+        "recharged/open",
+        "recharged/sealed"
+      ]
+    },
+    "legacy/4p": {
+      "games": 256,
+      "win_share": 0.84765625,
+      "interval": [
+        0.79296875,
+        0.8984375
+      ],
+      "reference_point_floor": 0.9,
+      "below_reference_floor": true,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": []
+    },
+    "heuristic/4p": {
+      "games": 256,
+      "win_share": 0.9140625,
+      "interval": [
+        0.87109375,
+        0.953125
+      ],
+      "reference_point_floor": 0.6625000000000001,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": []
+    },
+    "rush/4p": {
+      "games": 256,
+      "win_share": 0.6484375,
+      "interval": [
+        0.6015625,
+        0.69921875
+      ],
+      "reference_point_floor": 0.4375,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": []
+    },
+    "economic/5p": {
+      "games": 320,
+      "win_share": 0.7578125,
+      "interval": [
+        0.709375,
+        0.8062499999999999
+      ],
+      "reference_point_floor": 0.46,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": []
+    },
+    "search_geo/5p": {
+      "games": 320,
+      "win_share": 0.38125,
+      "interval": [
+        0.340546875,
+        0.41875
+      ],
+      "reference_point_floor": 0.28,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": [
+        "recharged/sealed"
+      ]
+    },
+    "legacy/5p": {
+      "games": 320,
+      "win_share": 0.896875,
+      "interval": [
+        0.8656250000000001,
+        0.925
+      ],
+      "reference_point_floor": 0.9,
+      "below_reference_floor": true,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": []
+    },
+    "heuristic/5p": {
+      "games": 320,
+      "win_share": 0.98125,
+      "interval": [
+        0.965625,
+        0.99375
+      ],
+      "reference_point_floor": 0.6400000000000001,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": []
+    },
+    "rush/5p": {
+      "games": 320,
+      "win_share": 0.7906249999999999,
+      "interval": [
+        0.7374999999999999,
+        0.840625
+      ],
+      "reference_point_floor": 0.4,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": []
+    },
+    "economic/6p": {
+      "games": 384,
+      "win_share": 0.7669270833333333,
+      "interval": [
+        0.73046875,
+        0.7994791666666667
+      ],
+      "reference_point_floor": 0.4375,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": []
+    },
+    "search_geo/6p": {
+      "games": 384,
+      "win_share": 0.4166666666666667,
+      "interval": [
+        0.3697916666666667,
+        0.4635416666666667
+      ],
+      "reference_point_floor": 0.25,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": [
+        "recharged/sealed"
+      ]
+    },
+    "legacy/6p": {
+      "games": 384,
+      "win_share": 0.9296875,
+      "interval": [
+        0.90625,
+        0.9505208333333334
+      ],
+      "reference_point_floor": 0.9,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": []
+    },
+    "heuristic/6p": {
+      "games": 384,
+      "win_share": 0.9817708333333334,
+      "interval": [
+        0.9635416666666667,
+        0.9947916666666667
+      ],
+      "reference_point_floor": 0.625,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": []
+    },
+    "rush/6p": {
+      "games": 384,
+      "win_share": 0.7864583333333333,
+      "interval": [
+        0.7369791666666666,
+        0.8333333333333334
+      ],
+      "reference_point_floor": 0.375,
+      "below_reference_floor": false,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": []
+    },
+    "a260/3p": {
+      "games": 192,
+      "win_share": 0.2760416666666667,
+      "interval": [
+        0.21875,
+        0.33854166666666663
+      ],
+      "reference_point_floor": 0.4,
+      "below_reference_floor": true,
+      "overall_interval_above_chance": false,
+      "rules_without_lower_bound_above_chance": [
+        "original/open",
+        "original/sealed",
+        "recharged/open",
+        "recharged/sealed"
+      ]
+    },
+    "economic_capacity_v1/2p": {
+      "games": 128,
+      "win_share": 0.63671875,
+      "interval": [
+        0.56640625,
+        0.7109375
+      ],
+      "reference_point_floor": null,
+      "below_reference_floor": null,
+      "overall_interval_above_chance": true,
+      "rules_without_lower_bound_above_chance": [
+        "original/open",
+        "original/sealed",
+        "recharged/sealed"
+      ]
+    }
+  },
+  "point_floor_failures": [
+    "search_geo/2p",
+    "heuristic/2p",
+    "search_geo/3p",
+    "search_geo/4p",
+    "legacy/4p",
+    "legacy/5p",
+    "a260/3p"
+  ],
+  "result_sha256": "30f1f11074748e57344f3896bb44e616457cc2d88951e5f593d7a3ce7e12b963",
+  "final_protocol_sha256": "7f0336c8784faf8f18e046b95b88e0ab1be7c2de1c0ec4d3eec96f0a415286ce",
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "scope": "Development parent reference only:16 independent deals/cell, fewer than final requirements. Point floors are diagnostic comparisons, not qualification. Preserve all rule/count deficiencies and all27cells."
+}

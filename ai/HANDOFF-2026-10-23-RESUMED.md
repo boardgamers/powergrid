@@ -73,9 +73,9 @@ Machine-readable results:
   steps, epoch selection, strict exports, all 2,553 serving requests and all
   1,920 labeled positions. Values and 1,457 out-of-scope actions are preserved.
   These checks establish correctness, not strength.
-- Parent reference: 26/27 complete cells, 6,336/6,720 games. Three six-player
-  search shards remain on their original handles. No new-model full arena has
-  been submitted yet; both 2p probes are verified and both 6p probes remain live.
+- Parent reference is complete: **27/27 cells and 6,720/6,720 games**, all
+  independently verified. No new-model full arena has been submitted yet;
+  both 2p probes are verified and both 6p probes remain live.
 - The alternate A10G startup probe `6adbdfa7046eb82b1ecd7b29` was cancelled
   while still queued once the L4 started. It performed no training and needs
   no retry (`strong/strategic-correction-hardware-probe-v1.json`).
@@ -232,8 +232,8 @@ The automatic admission calculation must pass without reducing game horizons.
 ## Fresh whole-game evaluation
 
 The evaluation implementation and frozen source are ready. All **108 parent
-reference shards** have been submitted, covering 6,720 games. Do not duplicate
-those launches. The two runtime probes also completed and were independently
+reference shards** are independently verified, covering 6,720 games. Do not
+duplicate those launches. The two runtime probes also completed and were independently
 verified: 8 two-player games in 119.84s and 24 six-player games in 1,258.66s,
 both against geographic search, without truncation. The conservative admission
 calculation permits four-deal shards with a four-hour job timeout.
@@ -273,14 +273,24 @@ prefix `runs/strategic-correction-resume-evidence-v1` (258 files). This snapshot
 contains partial results, not a completed training or strength claim. See
 `strong/strategic-correction-resume-evidence-v1.json` for the manifest hash.
 
+Complete parent-reference evidence: model-repo revision
+`f44c5dde6958d322aae908982e02279fb55a0c47`, prefix
+`runs/strategic-correction-parent-reference-evidence-v1` (113 files). The immutable
+snapshot preserves the report used by `strong/strategic-correction-parent-assessment-v1.json`.
+Seven development point estimates fall below the corresponding final reference
+floors: search at 2/3/4p, heuristic at 2p, legacy at 4/5p, and A260 at 3p. Some
+rule-specific intervals also fail to exclude chance, including Recharged/sealed
+at 5/6p. The 6p search overall share is 41.67%, interval [36.98%,46.35%]. These
+are development diagnostics; final required deal counts and all gates still apply.
+
 ## Ordered continuation
 
-1. Inspect the two remaining 6p runtime probes and the three remaining parent 6p
-   reference shards. Collect completed artifacts at immutable revisions; retain
+1. Inspect the two remaining 6p runtime probes. The parent reference is complete.
+   Collect completed artifacts at immutable revisions; retain
    verified folders and reconcile partial folders before any retry.
 2. Once both probes for a model verify, use the guarded screen launcher to submit
    its 108 full four-deal shards. Exact model pins already exist. The parent
-   reference is already fully submitted. No training or teacher retries are needed.
+   reference is fully verified. No training or teacher retries are needed.
 3. Continue the fixed `strong/strategic-correction-screen-protocol-v1.json`:
    20,160 full games across parent and both seeds, 27 count/opponent cells, all
    four rules and every seat. Preserve both seeds separately and every adverse

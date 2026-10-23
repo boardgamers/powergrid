@@ -1,0 +1,241 @@
+{
+  "purpose": "Fresh complete-game development comparisons for both strategic correction seeds against the retained raw10102 policy. Fixed before gradient training; not final qualification.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "models": [
+    "parent",
+    "11101",
+    "11102"
+  ],
+  "parent": "Frozen discard-correction seed10102, epoch10; no guided search for any tested candidate.",
+  "seed_template": "strategic-correction-dev-v1-{players}p",
+  "smoke_seed_template": "strategic-correction-smoke-v1-{players}p",
+  "deal_offsets": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 11197,
+  "workers": 24,
+  "max_steps": 2400,
+  "screens": [
+    {
+      "players": 2,
+      "opponent": "economic",
+      "deals": 16,
+      "games": 128,
+      "stage": "primary"
+    },
+    {
+      "players": 2,
+      "opponent": "search_geo",
+      "deals": 16,
+      "games": 128,
+      "stage": "primary"
+    },
+    {
+      "players": 2,
+      "opponent": "legacy",
+      "deals": 16,
+      "games": 128,
+      "stage": "extension"
+    },
+    {
+      "players": 2,
+      "opponent": "heuristic",
+      "deals": 16,
+      "games": 128,
+      "stage": "extension"
+    },
+    {
+      "players": 2,
+      "opponent": "rush",
+      "deals": 16,
+      "games": 128,
+      "stage": "extension"
+    },
+    {
+      "players": 3,
+      "opponent": "economic",
+      "deals": 16,
+      "games": 192,
+      "stage": "primary"
+    },
+    {
+      "players": 3,
+      "opponent": "search_geo",
+      "deals": 16,
+      "games": 192,
+      "stage": "primary"
+    },
+    {
+      "players": 3,
+      "opponent": "legacy",
+      "deals": 16,
+      "games": 192,
+      "stage": "extension"
+    },
+    {
+      "players": 3,
+      "opponent": "heuristic",
+      "deals": 16,
+      "games": 192,
+      "stage": "extension"
+    },
+    {
+      "players": 3,
+      "opponent": "rush",
+      "deals": 16,
+      "games": 192,
+      "stage": "extension"
+    },
+    {
+      "players": 4,
+      "opponent": "economic",
+      "deals": 16,
+      "games": 256,
+      "stage": "primary"
+    },
+    {
+      "players": 4,
+      "opponent": "search_geo",
+      "deals": 16,
+      "games": 256,
+      "stage": "primary"
+    },
+    {
+      "players": 4,
+      "opponent": "legacy",
+      "deals": 16,
+      "games": 256,
+      "stage": "extension"
+    },
+    {
+      "players": 4,
+      "opponent": "heuristic",
+      "deals": 16,
+      "games": 256,
+      "stage": "extension"
+    },
+    {
+      "players": 4,
+      "opponent": "rush",
+      "deals": 16,
+      "games": 256,
+      "stage": "extension"
+    },
+    {
+      "players": 5,
+      "opponent": "economic",
+      "deals": 16,
+      "games": 320,
+      "stage": "primary"
+    },
+    {
+      "players": 5,
+      "opponent": "search_geo",
+      "deals": 16,
+      "games": 320,
+      "stage": "primary"
+    },
+    {
+      "players": 5,
+      "opponent": "legacy",
+      "deals": 16,
+      "games": 320,
+      "stage": "extension"
+    },
+    {
+      "players": 5,
+      "opponent": "heuristic",
+      "deals": 16,
+      "games": 320,
+      "stage": "extension"
+    },
+    {
+      "players": 5,
+      "opponent": "rush",
+      "deals": 16,
+      "games": 320,
+      "stage": "extension"
+    },
+    {
+      "players": 6,
+      "opponent": "economic",
+      "deals": 16,
+      "games": 384,
+      "stage": "primary"
+    },
+    {
+      "players": 6,
+      "opponent": "search_geo",
+      "deals": 16,
+      "games": 384,
+      "stage": "primary"
+    },
+    {
+      "players": 6,
+      "opponent": "legacy",
+      "deals": 16,
+      "games": 384,
+      "stage": "extension"
+    },
+    {
+      "players": 6,
+      "opponent": "heuristic",
+      "deals": 16,
+      "games": 384,
+      "stage": "extension"
+    },
+    {
+      "players": 6,
+      "opponent": "rush",
+      "deals": 16,
+      "games": 384,
+      "stage": "extension"
+    },
+    {
+      "players": 3,
+      "opponent": "a260",
+      "model_path": "runs/strong-league-v2-a/best.onnx",
+      "revision": "b38515c29e57826de05b55b645c29591e4a886bf",
+      "sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+      "deals": 16,
+      "games": 192,
+      "stage": "primary"
+    },
+    {
+      "players": 2,
+      "opponent": "economic_capacity_v1",
+      "deals": 16,
+      "games": 128,
+      "stage": "primary"
+    }
+  ],
+  "planned_games_per_model": 6720,
+  "planned_games_total": 20160,
+  "pairing": "Identical deal/rule/seat/opponent grid for parent and both seeds. Bootstrap whole deals, retaining seat/rule repetitions. Keep seed contrasts separate.",
+  "search_reference": "Unchanged search_geo16 samples,6 candidates,geographic proposals,2400-step horizon. Candidate search remains off.",
+  "analysis": "Report absolute win share and paired candidate-minus-parent differences overall and by player count, opponent and each rule cell. Include every adverse result, especially5p Recharged/open and6p. Exploratory marginal95% intervals; no simultaneous guarantee.",
+  "promotion": "Conditional simulation improvement alone is insufficient. Investigate unresolved adverse full-game cells before selecting a final candidate; do not choose seeds from aggregate results while hiding losses. The unchanged final qualification protocol is mandatory.",
+  "caps": "Every game and search rollout must finish legally. Preserve failures and capped results; never omit or score as normal.",
+  "final_protocol_sha256": "7f0336c8784faf8f18e046b95b88e0ab1be7c2de1c0ec4d3eec96f0a415286ce",
+  "reserved_final_seeds_used": false,
+  "qualification_eligible": false,
+  "game_max_steps": 1600,
+  "search_max_steps": 2400,
+  "horizon_note": "Preserve frozen arena1600-step outer game cap and2400-step search horizon. Any cap invalidates the cell; never score a truncated game as normal."
+}

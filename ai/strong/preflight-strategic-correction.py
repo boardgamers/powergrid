@@ -24,6 +24,7 @@ def main():
     parser.add_argument('--output', type=Path, default=ROOT/'ai/runs/strategic-correction-preflight-v1')
     out = parser.parse_args().output.resolve()
     out.mkdir(exist_ok=False)
+    fixtures = ROOT/'ai/strong/fixtures/multiplayer-serving-v1.jsonl'
     p = Path(hf_hub_download('coyotte508/powergrid-ai-germany-v1', PARENT['path'], revision=PARENT['revision']))
     assert hashlib.sha256(p.read_bytes()).hexdigest() == PARENT['sha256']
     cp = torch.load(p, map_location='cpu', weights_only=True)
@@ -39,7 +40,7 @@ def main():
     commands = [
         ('export-inference64.py', [out/'zero-correction.pt', out/'derivative']),
         ('check-export.py', [out/'derivative/inference64.pt', out/'derivative/inference64.onnx',
-            ROOT/'ai/runs/multiplayer-serving-fixtures.jsonl', '--output', out/'export-parity.json'])]
+            fixtures, '--output', out/'export-parity.json'])]
     for script, args in commands:
         with (out/(script+'.log')).open('w') as f:
             subprocess.run([sys.executable, str(ROOT/'ai/strong'/script), *map(str, args)],
@@ -49,7 +50,7 @@ def main():
     node = Node('strong/worker.cjs')
     count = eligible = 0
     try:
-        with (ROOT/'ai/runs/multiplayer-serving-fixtures.jsonl').open() as f:
+        with fixtures.open() as f:
             for line in f:
                 q = json.loads(line)['request']
                 row = node.call({**q, 'featureRevision': FEATURE_REVISION})

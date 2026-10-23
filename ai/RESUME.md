@@ -1,6 +1,19 @@
-# Power Grid AI — PAUSED, 10 October 2026
+# Power Grid AI — ACTIVE, resumed 23 October 2026
 
-**Start with [the new standalone handoff](HANDOFF-2026-10-10-PAUSED.md).**
+**Start with [the current resumption handoff](HANDOFF-2026-10-23-RESUMED.md).**
+The user explicitly resumed training on 23 October. The research goal is active.
+All jobs left at the previous pause completed; their outputs have been recovered.
+The full remaining 140 teacher shards have now been submitted. Exact job handles
+and authoritative status timestamps are in
+[resume-2026-10-23-status.json](strong/resume-2026-10-23-status.json).
+Do not duplicate those jobs. No new strategic gradient job has run yet, no model
+is qualified, and reserved final-test seeds remain unused.
+
+---
+
+## Historical pause snapshot — 10 October 2026
+
+**Historical [paused handoff](HANDOFF-2026-10-10-PAUSED.md).**
 The user explicitly paused research and prohibited new jobs. The Codex goal is
 paused. No jobs or retries may be launched until the user resumes. Existing HF
 jobs were left running and terminate on completion, failure or timeout.
@@ -213,7 +226,7 @@ modes (neural self-play and neural focal player versus economic opponents).
 Each job labels deals[0,2),24 roots, with48 worlds in each independent batch A/B,
 full2400-step continuations and shortlist plus parent proposal. All individual
 outcomes and paired advantages are retained. This is a counterfactual-label
-pilot, **not gradient training**. Full design160 shards; the remaining140 are
+pilot, **not gradient training**. Full design160 shards; the remaining 140 are
 not admitted until first-wave results and runtime verify. Label jobs using actual
 search opponents are not part of this initial bulk pilot due their measured cost;
 independent strong-opponent full games remain required for acceptance.

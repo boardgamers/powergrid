@@ -1,5 +1,10 @@
 # Power Grid AI — paused handoff, 10 October 2026
 
+> Historical snapshot. The user resumed training on 23 October 2026. Current
+> instructions and verified progress are in
+> [HANDOFF-2026-10-23-RESUMED.md](HANDOFF-2026-10-23-RESUMED.md).
+> The pause below no longer applies; retain it as the record of the earlier pause.
+
 **Research is PAUSED at the user's explicit request. Do not start jobs, retries,
 training, evaluations or further development until the user resumes.** Existing
 HF jobs were left running. They terminate on completion, failure or timeout;

@@ -61,7 +61,8 @@ if not a.launch:
 if candidate.get("status") != "selected":
     raise ValueError("Select and freeze the candidate before spending final seeds")
 if multiplayer and candidate.get("feature_revision") not in {
-    "4.0-multiplayer", "4.1-five-plants", "4.1-five-plants-zero-inputs", "4.2-discard-correction"
+    "4.0-multiplayer", "4.1-five-plants", "4.1-five-plants-zero-inputs", "4.2-discard-correction",
+    "4.3-strategic-correction"
 }:
     raise ValueError("Multiplayer final requires a schema-4 candidate")
 from huggingface_hub import hf_hub_download
@@ -75,6 +76,11 @@ if multiplayer:
     assert hashlib.sha256(archive.read_bytes()).hexdigest() == source["sha256"]
     with tarfile.open(archive) as tar:
         runner_hash = hashlib.sha256(tar.extractfile("ai/strong/arena-job.py").read()).hexdigest()
+        if candidate["feature_revision"] == "4.3-strategic-correction":
+            for name in ["features-v4_3.cjs", "encoders.cjs", "evaluate.py"]:
+                relative = "ai/strong/" + name
+                assert hashlib.sha256(tar.extractfile(relative).read()).hexdigest() == hashlib.sha256(
+                    (root/relative).read_bytes()).hexdigest(), "Runtime differs from the checked strategic encoder/evaluator"
     assert runner_hash == hashlib.sha256((root/"ai/strong/arena-job.py").read_bytes()).hexdigest(), "Runtime lacks the current provenance-aware arena runner"
     assert candidate.get("arena_runner_sha256") == runner_hash
     assert isinstance(candidate.get("arena_timeout_hours"), int) and 1 <= candidate["arena_timeout_hours"] <= 12

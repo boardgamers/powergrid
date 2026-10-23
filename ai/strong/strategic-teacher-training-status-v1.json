@@ -1,11 +1,10 @@
 {
-  "checked_at": "2026-10-23T22:08:59.662435+00:00",
-  "artifact_revision": "9e5cfb8a73c5a993cefe0eec707f7b8043d59a4c",
+  "checked_at": "2026-10-23T22:21:19.682951+00:00",
+  "artifact_revision": "c324b32b06af3fdb41d450b6b8029d0899c17670",
   "submitted_shards": 163,
   "status_counts": {
-    "COMPLETED": 158,
-    "ERROR": 3,
-    "RUNNING": 2
+    "COMPLETED": 160,
+    "ERROR": 3
   },
   "historical_errors_with_completed_replacements": 3,
   "jobs": [
@@ -3239,10 +3238,10 @@
       "qualification_eligible": false,
       "job_id": "6adbcaeb1e112550ce7d8aec",
       "guard": "ai/runs/strategic-teacher-training-launches-v1/5p-economic-neural-14-16.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 21:24:38.342000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 22:09:37.220000+00:00"
     },
     {
       "stage": "launched",
@@ -4187,10 +4186,10 @@
       "qualification_eligible": false,
       "job_id": "6adbcabd046eb82b1ecd728c",
       "guard": "ai/runs/strategic-teacher-training-launches-v1/6p-economic-neural-10-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 21:26:07.253000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 22:17:58.527000+00:00"
     },
     {
       "stage": "launched",

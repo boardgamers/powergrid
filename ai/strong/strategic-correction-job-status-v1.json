@@ -1,0 +1,33 @@
+{
+  "checked_at": "2026-10-23T22:21:19.701496+00:00",
+  "artifact_revision": "c324b32b06af3fdb41d450b6b8029d0899c17670",
+  "submitted_shards": 1,
+  "status_counts": {
+    "SCHEDULING": 1
+  },
+  "historical_errors_with_completed_replacements": 0,
+  "jobs": [
+    {
+      "stage": "launched",
+      "created_at": "2026-10-23T22:20:56.811149+00:00",
+      "source_revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+      "source_sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5",
+      "design_sha256": "98a616c3c0ce6659b105ccb3b5fe26d662be9cd5b2cdd9805d0b1262258fd1f6",
+      "data_manifest_sha256": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57",
+      "flavor": "l4x1",
+      "timeout_hours": 3,
+      "seeds": [
+        11101,
+        11102
+      ],
+      "qualification_eligible": false,
+      "job_id": "6adbddc9046eb82b1ecd7ac0",
+      "guard": "ai/runs/strategic-correction-launch-v1/launch.json",
+      "authoritative_status": "SCHEDULING",
+      "message": "Waiting for requested hardware to become available",
+      "started_at": null,
+      "finished_at": null
+    }
+  ],
+  "qualification_eligible": false
+}

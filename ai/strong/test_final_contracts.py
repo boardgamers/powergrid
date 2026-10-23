@@ -78,6 +78,44 @@ class LaunchContracts(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, 'Unresolved launch intent'):
             self.invoke(lambda *a, **k: self.fail('Must not retry an unresolved submission'))
 
+    def test_strategic_revision_requires_matching_encoder_and_evaluator(self):
+        self.candidate['feature_revision'] = '4.3-strategic-correction'
+        write(self.candidate_path, self.candidate)
+        with self.assertRaises(KeyError):
+            self.invoke(lambda *a, **k: self.fail('Old runtime submitted for strategic model'))
+        self.assertFalse(read(self.folder/'experiments.json')['final_seed_prefix_used'])
+        names = ['features-v4_3.cjs', 'encoders.cjs', 'evaluate.py']
+        for name in names:
+            shutil.copy2(STRONG/name, self.folder/name)
+        with tarfile.open(self.archive, 'w:gz') as t:
+            for name in ['arena-job.py', *names]:
+                t.add(self.folder/name, arcname='ai/strong/'+name)
+        self.candidate['source']['sha256'] = sha(self.archive)
+        write(self.candidate_path, self.candidate)
+        calls = []
+        def submit(command, **kw):
+            calls.append(command)
+            return subprocess.CompletedProcess(command, 0, stdout=f'{len(calls):024x}', stderr='')
+        self.invoke(submit)
+        self.assertEqual(len(calls), 320)
+        self.assertEqual(sum(int(command[-2]) for command in calls), 20160)
+        self.invoke(lambda *a, **k: self.fail('Duplicate strategic submission'))
+
+    def test_changed_strategic_encoder_is_rejected_before_submission(self):
+        names = ['features-v4_3.cjs', 'encoders.cjs', 'evaluate.py']
+        for name in names:
+            shutil.copy2(STRONG/name, self.folder/name)
+        with tarfile.open(self.archive, 'w:gz') as t:
+            for name in ['arena-job.py', *names]:
+                t.add(self.folder/name, arcname='ai/strong/'+name)
+        self.candidate['feature_revision'] = '4.3-strategic-correction'
+        self.candidate['source']['sha256'] = sha(self.archive)
+        write(self.candidate_path, self.candidate)
+        (self.folder/'features-v4_3.cjs').write_text('changed after preflight')
+        with self.assertRaisesRegex(AssertionError, 'Runtime differs'):
+            self.invoke(lambda *a, **k: self.fail('Changed encoder submitted'))
+        self.assertFalse(read(self.folder/'experiments.json')['final_seed_prefix_used'])
+
     def test_dry_run_cannot_submit_or_spend_seeds(self):
         with self.assertRaises(SystemExit) as error:
             self.invoke(lambda *a, **k: self.fail('Dry run submitted'), launch=False)

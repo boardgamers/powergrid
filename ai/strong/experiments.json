@@ -42992,7 +42992,8 @@
             "manifest_sha256": "d52ff8f76a3b0556046b30da3093fbab0c371b8ba70b889126adddbbb90f05cc",
             "file_count": 29,
             "qualification_eligible": false
-        }
+        },
+        "complete_result_file": "ai/strong/strategic-teacher-training-results-v1.json"
     },
     "strategic_correction_v1": {
         "design_file": "ai/strong/strategic-correction-design-v1.json",
@@ -43101,7 +43102,61 @@
         "gradients_started": false,
         "source_frozen": false,
         "qualification_eligible": false,
-        "stage": "97473-parameter frozen-parent correction implemented;feature/source/export/serving checks passed on2553positions. Full-grid loader and HF-only training code compiled;not executed on full labels. Freeze full data manifest and source before a gradient job."
+        "stage": "97473-parameter frozen-parent correction implemented;feature/source/export/serving checks passed on2553positions. Full-grid loader and HF-only training code compiled;not executed on full labels. Freeze full data manifest and source before a gradient job.",
+        "training_launch": {
+            "stage": "launched",
+            "created_at": "2026-10-23T22:20:56.811149+00:00",
+            "source_revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+            "source_sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5",
+            "design_sha256": "98a616c3c0ce6659b105ccb3b5fe26d662be9cd5b2cdd9805d0b1262258fd1f6",
+            "data_manifest_sha256": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57",
+            "flavor": "l4x1",
+            "timeout_hours": 3,
+            "seeds": [
+                11101,
+                11102
+            ],
+            "qualification_eligible": false,
+            "job_id": "6adbddc9046eb82b1ecd7ac0"
+        },
+        "training_source": {
+            "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+            "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+            "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5",
+            "bytes": 22575266,
+            "base": {
+                "archive": "strong-source-strategic-teacher-training-20261010-v1.tgz",
+                "revision": "837d94e14272163c33e5e55fa9c24b24686a28ae",
+                "sha256": "a011f9ee4b8116b99220913a7db9d00849e9e593137cdb7e435e116fcafdd6c3"
+            },
+            "overlays": {
+                "ai/strong/model.py": "cfe58a7d4f2a62a8a5d8c1b06a1e6ff47dd312514c307a9d688e93511acee82b",
+                "ai/strong/model_strategic.py": "917954d26d99078442b6b154d494e48de1fc0a393547c29677f8409917124b01",
+                "ai/strong/features-v4_3.cjs": "c103758a436be51f8bb9aa399e3880263b14d743b588858cd177de34f7aac697",
+                "ai/strong/encoders.cjs": "b1aec9b85ca387c85663dd3aa8ba9aa3916d06a5bb546fa91694f45924f47a72",
+                "ai/strong/export-inference64.py": "2772fc44a40378e5094c1e3f1b0ff5b16c1c5238f21674e9221e3a2aabd66986",
+                "ai/strong/package-serving.py": "be49b67c160cae370c7af5354b34048b78d5eac6d8097cda7d5cf104d464ed3d",
+                "ai/strong/evaluate.py": "64b405a92e7b97a7889fdc17facd9825e12da5fc7609f34f18d7c988f2d2209a",
+                "ai/strong/strategic_correction_data.py": "192caf71f23a90a57e996e0d831ef25708f7024a0b2851080caa163006c43c12",
+                "ai/strong/strategic_correction_targets.py": "0a9f4587471ee865d3d10b57d777abbbed704e99c1331f7bbf2e4fe4b015450a",
+                "ai/strong/strategic_correction_check.py": "554fbf6badd552c032bf1d2102a23c3ad6f5b639b3c363bc5c20ffc0494b7d10",
+                "ai/strong/train-strategic-correction.py": "5edb74d085c8922558f7ee6004c26d1bb8bc4e687642998a3412bf843fae48ae",
+                "ai/strong/check-strategic-correction-data.py": "a677c0396eb06df4d3a0695651d9b16e6e5346a13796e9be0d08a04803db7819",
+                "ai/strong/test_model_strategic.py": "1b1f06f8fa2d7a115a78f32d93fe973e6e273c5b912d9bebf6164e9ba597c281",
+                "ai/strong/test_strategic_correction_targets.py": "c9f8f5afe47eff10c6b6d4d618b031a62f0088051fdd1d17904221a411835315",
+                "ai/strong/test-strategic-correction-features.cjs": "7abbb067ae4827ba7874db878e0cd5ff66ebf43751d36e7267d46cd0bbbdb1f5",
+                "ai/strong/preflight-strategic-correction.py": "c7d3894c7fb2d926d2f8026081db7b0f6ca3c1b80f0d1cfbb08e0b648230c8d4",
+                "ai/strong/check-strategic-correction-arena.py": "5d1517171836fa93fd03461718c1dcee41e41667946489a7feafa67f284e3033",
+                "ai/strong/strategic-correction-design-v1.json": "98a616c3c0ce6659b105ccb3b5fe26d662be9cd5b2cdd9805d0b1262258fd1f6",
+                "ai/strong/strategic-teacher-training-source-v1.json": "b81497226e77612edd5cff6097935012d1a3c0027f2174db99063883cd4fc41c",
+                "ai/strong/strategic-teacher-training-results-v1.json": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57"
+            },
+            "unchanged_base_file_count": 1391,
+            "design_sha256": "98a616c3c0ce6659b105ccb3b5fe26d662be9cd5b2cdd9805d0b1262258fd1f6",
+            "data_manifest_sha256": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57",
+            "qualification_eligible": false
+        },
+        "training_independently_verified": false
     },
     "pause_2026_10_10": {
         "checked_at": "2026-10-10T18:38:44.834301+00:00",
@@ -43128,10 +43183,10 @@
         "job_snapshot_file": "ai/strong/resume-2026-10-23-status.json",
         "live_jobs_at_resume": 0,
         "submitted_teacher_jobs": 140,
-        "verified_teacher_shards": 158,
-        "teacher_evaluations": 1812960,
-        "complete_mixture_roots": 1872,
-        "all_labels_verified": false,
+        "verified_teacher_shards": 160,
+        "teacher_evaluations": 1836672,
+        "complete_mixture_roots": 1920,
+        "all_labels_verified": true,
         "collection_unique_games": 3840,
         "collection_roots": 200775,
         "merged_collection_evidence": {
@@ -43156,7 +43211,7 @@
         "zero_correction_parent_identical_arena_games": 160,
         "fresh_game_protocol_file": "ai/strong/strategic-correction-screen-protocol-v1.json",
         "gradient_job_started": false,
-        "complete_training_source_frozen": false,
+        "complete_training_source_frozen": true,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "evidence": {
@@ -43169,7 +43224,7 @@
         "teacher_job_snapshot_file": "ai/strong/strategic-teacher-training-status-v1.json",
         "screen_job_snapshot_file": "ai/strong/strategic-correction-screen-status-v1.json",
         "submitted_parent_reference_shards": 108,
-        "verified_parent_complete_cell_games": 5760,
+        "verified_parent_complete_cell_games": 6016,
         "screen_source_file": "ai/strong/strategic-correction-screen-source-v1.json",
         "screen_preflight_file": "ai/strong/strategic-correction-screen-preflight-v1.json",
         "private_state_preflight_file": "ai/strong/strategic-correction-private-state-preflight-v1.json",
@@ -43182,7 +43237,32 @@
             "file_count": 258,
             "qualification_eligible": false
         },
-        "final_runtime_followup": "Final launcher whitelist and archived October10 runtime cover through4.2; prepare and test matching4.3 runtime with development-only seeds before any final launch.",
-        "parent_complete_cells": 24
+        "final_runtime_followup": "The4.3 launcher contract passes11 mocked tests. Frozen strategic development archive has matching encoder/evaluator but old arena-job.py; derive a new archive with provenance wrapper and probe exact selected candidate before final qualification.",
+        "parent_complete_cells": 25,
+        "complete_teacher_manifest_sha256": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57",
+        "final_training_split": {
+            "train": 1440,
+            "validation": 480
+        },
+        "gradient_job_submitted": true,
+        "training_launch_file": "ai/runs/strategic-correction-launch-v1/launch.json",
+        "training_job_id": "6adbddc9046eb82b1ecd7ac0",
+        "training_source_file": "ai/strong/strategic-correction-source-v1.json",
+        "training_preflight_file": "ai/strong/strategic-correction-source-preflight-v1.json",
+        "training_admission_evidence": {
+            "revision": "67bb0d978b404ca49dfd034cb19c9dfc4ea8721d",
+            "prefix": "runs/strategic-correction-training-admission-v1",
+            "manifest_sha256": "d98568f62ca2b653c3ab519077da1dcd5d58312c58c253432b3bd8323d04d712",
+            "file_count": 178,
+            "qualification_eligible": false
+        }
+    },
+    "final_strategic_runtime_v1": {
+        "readiness_file": "ai/strong/final-strategic-runtime-readiness-v1.json",
+        "contract_tests": 11,
+        "runtime_ready": false,
+        "candidate_selected": false,
+        "reserved_final_seeds_used": false,
+        "qualification_eligible": false
     }
 }

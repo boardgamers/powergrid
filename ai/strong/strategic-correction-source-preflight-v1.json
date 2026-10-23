@@ -1,0 +1,134 @@
+{
+  "passed": true,
+  "code_only": false,
+  "overlays": {
+    "ai/strong/model.py": "cfe58a7d4f2a62a8a5d8c1b06a1e6ff47dd312514c307a9d688e93511acee82b",
+    "ai/strong/model_strategic.py": "917954d26d99078442b6b154d494e48de1fc0a393547c29677f8409917124b01",
+    "ai/strong/features-v4_3.cjs": "c103758a436be51f8bb9aa399e3880263b14d743b588858cd177de34f7aac697",
+    "ai/strong/encoders.cjs": "b1aec9b85ca387c85663dd3aa8ba9aa3916d06a5bb546fa91694f45924f47a72",
+    "ai/strong/export-inference64.py": "2772fc44a40378e5094c1e3f1b0ff5b16c1c5238f21674e9221e3a2aabd66986",
+    "ai/strong/package-serving.py": "be49b67c160cae370c7af5354b34048b78d5eac6d8097cda7d5cf104d464ed3d",
+    "ai/strong/evaluate.py": "64b405a92e7b97a7889fdc17facd9825e12da5fc7609f34f18d7c988f2d2209a",
+    "ai/strong/strategic_correction_data.py": "192caf71f23a90a57e996e0d831ef25708f7024a0b2851080caa163006c43c12",
+    "ai/strong/strategic_correction_targets.py": "0a9f4587471ee865d3d10b57d777abbbed704e99c1331f7bbf2e4fe4b015450a",
+    "ai/strong/strategic_correction_check.py": "554fbf6badd552c032bf1d2102a23c3ad6f5b639b3c363bc5c20ffc0494b7d10",
+    "ai/strong/train-strategic-correction.py": "5edb74d085c8922558f7ee6004c26d1bb8bc4e687642998a3412bf843fae48ae",
+    "ai/strong/check-strategic-correction-data.py": "a677c0396eb06df4d3a0695651d9b16e6e5346a13796e9be0d08a04803db7819",
+    "ai/strong/test_model_strategic.py": "1b1f06f8fa2d7a115a78f32d93fe973e6e273c5b912d9bebf6164e9ba597c281",
+    "ai/strong/test_strategic_correction_targets.py": "c9f8f5afe47eff10c6b6d4d618b031a62f0088051fdd1d17904221a411835315",
+    "ai/strong/test-strategic-correction-features.cjs": "7abbb067ae4827ba7874db878e0cd5ff66ebf43751d36e7267d46cd0bbbdb1f5",
+    "ai/strong/preflight-strategic-correction.py": "c7d3894c7fb2d926d2f8026081db7b0f6ca3c1b80f0d1cfbb08e0b648230c8d4",
+    "ai/strong/check-strategic-correction-arena.py": "5d1517171836fa93fd03461718c1dcee41e41667946489a7feafa67f284e3033",
+    "ai/strong/strategic-correction-design-v1.json": "98a616c3c0ce6659b105ccb3b5fe26d662be9cd5b2cdd9805d0b1262258fd1f6",
+    "ai/strong/strategic-teacher-training-source-v1.json": "b81497226e77612edd5cff6097935012d1a3c0027f2174db99063883cd4fc41c",
+    "ai/strong/strategic-teacher-training-results-v1.json": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57"
+  },
+  "base": {
+    "archive": "strong-source-strategic-teacher-training-20261010-v1.tgz",
+    "revision": "837d94e14272163c33e5e55fa9c24b24686a28ae",
+    "sha256": "a011f9ee4b8116b99220913a7db9d00849e9e593137cdb7e435e116fcafdd6c3"
+  },
+  "unchanged_base_file_count": 1391,
+  "parent_preflight": {
+    "positions": 2553,
+    "eligible": 1096,
+    "parent": {
+      "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+      "path": "runs/discard-correction-v1/10102/best.pt",
+      "sha256": "66a10b831a54843063bbca89743a542ed1f89515a16452a40483eef369c59bd8"
+    },
+    "parent_tensors_unchanged": true,
+    "parent_actions_and_values_preserved": true,
+    "native_export_serving_parity": {
+      "positions": 2553,
+      "by_player_count": {
+        "2": 349,
+        "3": 427,
+        "4": 527,
+        "5": 609,
+        "6": 641
+      },
+      "inactive_values_zero": true,
+      "feature_revision": "4.3-strategic-correction",
+      "model_sha256": "bf08d13ad2feebbe923684d0e2c8bc5a658fe4f2aaf9b26fd67bcf7ce64100d1",
+      "max_logit_error": 4.746425474877469e-10,
+      "max_value_error": 1.0236589353951331e-11,
+      "all_actions_match": true,
+      "specialist_route_counts": {}
+    },
+    "local_output": "ai/runs/source-zero-correction",
+    "head_parameters": 97473,
+    "gradients": 0,
+    "scope": "Untrained zero correction only. No training, tuned threshold or strength claim.",
+    "qualification_eligible": false
+  },
+  "arena_preflight": {
+    "passed": true,
+    "by_player_count": {
+      "2": {
+        "games_per_model": 8,
+        "complete_game_records_identical": true
+      },
+      "3": {
+        "games_per_model": 12,
+        "complete_game_records_identical": true
+      },
+      "4": {
+        "games_per_model": 16,
+        "complete_game_records_identical": true
+      },
+      "5": {
+        "games_per_model": 20,
+        "complete_game_records_identical": true
+      },
+      "6": {
+        "games_per_model": 24,
+        "complete_game_records_identical": true
+      }
+    },
+    "total_games": 160,
+    "game_truncations": 0,
+    "parent_sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+    "zero_model_sha256": "bf08d13ad2feebbe923684d0e2c8bc5a658fe4f2aaf9b26fd67bcf7ce64100d1",
+    "gradients": 0,
+    "qualification_eligible": false,
+    "scope": "Untrained arena compatibility only. Disjoint plumbing seeds; not strength evidence."
+  },
+  "design_sha256": "98a616c3c0ce6659b105ccb3b5fe26d662be9cd5b2cdd9805d0b1262258fd1f6",
+  "manifest_sha256": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57",
+  "gradients": 0,
+  "qualification_eligible": false,
+  "data_preflight": {
+    "passed": true,
+    "roots": 1920,
+    "splits": {
+      "validation": 480,
+      "train": 1440
+    },
+    "by_count": {
+      "2": 384,
+      "3": 384,
+      "4": 384,
+      "5": 384,
+      "6": 384
+    },
+    "by_decision": {
+      "bid": 640,
+      "building": 640,
+      "nomination": 640
+    },
+    "parent_proposals_reproduced": 1920,
+    "parent_targets_zero": true,
+    "negative_advantages_retained": 3196,
+    "uncertainty_weight_range": [
+      0.27329936623573303,
+      1.0
+    ],
+    "design_sha256": "98a616c3c0ce6659b105ccb3b5fe26d662be9cd5b2cdd9805d0b1262258fd1f6",
+    "manifest_sha256": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57",
+    "gradients": 0,
+    "qualification_eligible": false
+  },
+  "source_revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+  "source_sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+}

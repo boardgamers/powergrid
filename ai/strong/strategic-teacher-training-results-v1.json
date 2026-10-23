@@ -1,44 +1,44 @@
 {
-  "verified_shards": 158,
+  "verified_shards": 160,
   "expected_shards": 160,
-  "all_shards_verified": false,
+  "all_shards_verified": true,
   "first_wave_verified": 20,
   "first_wave_complete": true,
   "positions_by_mode": {
-    "neural": 1872,
+    "neural": 1920,
     "neural_economic": 1920
   },
-  "complete_mixture_roots": 1872,
-  "evaluations": 1812960,
+  "complete_mixture_roots": 1920,
+  "evaluations": 1836672,
   "paired_mixture_diagnostic": {
     "train": {
-      "roots": 1392,
+      "roots": 1440,
       "all": {
         "all": {
-          "roots": 1392,
-          "a_selected_b_advantage": 0.04587972940613027,
-          "b_selected_a_advantage": 0.04816211685823755,
-          "same_choice_fraction": 0.6839080459770115
+          "roots": 1440,
+          "a_selected_b_advantage": 0.04576099537037038,
+          "b_selected_a_advantage": 0.04782986111111111,
+          "same_choice_fraction": 0.6833333333333333
         }
       },
       "decision": {
         "bid": {
-          "roots": 464,
-          "a_selected_b_advantage": 0.030531609195402296,
-          "b_selected_a_advantage": 0.033427622126436775,
-          "same_choice_fraction": 0.625
+          "roots": 480,
+          "a_selected_b_advantage": 0.030295138888888885,
+          "b_selected_a_advantage": 0.03292100694444445,
+          "same_choice_fraction": 0.6270833333333333
         },
         "building": {
-          "roots": 464,
-          "a_selected_b_advantage": 0.039275772270114945,
-          "b_selected_a_advantage": 0.04156564295977011,
-          "same_choice_fraction": 0.7155172413793104
+          "roots": 480,
+          "a_selected_b_advantage": 0.03997395833333333,
+          "b_selected_a_advantage": 0.04205729166666667,
+          "same_choice_fraction": 0.7166666666666667
         },
         "nomination": {
-          "roots": 464,
-          "a_selected_b_advantage": 0.06783180675287356,
-          "b_selected_a_advantage": 0.06949308548850576,
-          "same_choice_fraction": 0.7112068965517241
+          "roots": 480,
+          "a_selected_b_advantage": 0.06701388888888889,
+          "b_selected_a_advantage": 0.06851128472222222,
+          "same_choice_fraction": 0.70625
         }
       },
       "players": {
@@ -61,42 +61,42 @@
           "same_choice_fraction": 0.6944444444444444
         },
         "5": {
-          "roots": 264,
-          "a_selected_b_advantage": 0.039910827020202023,
-          "b_selected_a_advantage": 0.04294902146464647,
-          "same_choice_fraction": 0.6515151515151515
+          "roots": 288,
+          "a_selected_b_advantage": 0.03931568287037037,
+          "b_selected_a_advantage": 0.042046440972222224,
+          "same_choice_fraction": 0.6527777777777778
         },
         "6": {
-          "roots": 264,
-          "a_selected_b_advantage": 0.04425110479797979,
-          "b_selected_a_advantage": 0.047881155303030304,
-          "same_choice_fraction": 0.7727272727272727
+          "roots": 288,
+          "a_selected_b_advantage": 0.04488570601851852,
+          "b_selected_a_advantage": 0.04758029513888889,
+          "same_choice_fraction": 0.7638888888888888
         }
       },
       "rules": {
         "original/open": {
-          "roots": 348,
-          "a_selected_b_advantage": 0.03231261973180077,
-          "b_selected_a_advantage": 0.03817947796934865,
-          "same_choice_fraction": 0.6350574712643678
+          "roots": 360,
+          "a_selected_b_advantage": 0.032552083333333336,
+          "b_selected_a_advantage": 0.038237847222222225,
+          "same_choice_fraction": 0.6333333333333333
         },
         "original/sealed": {
-          "roots": 348,
-          "a_selected_b_advantage": 0.038703304597701146,
-          "b_selected_a_advantage": 0.039825790229885055,
-          "same_choice_fraction": 0.6925287356321839
+          "roots": 360,
+          "a_selected_b_advantage": 0.03940972222222222,
+          "b_selected_a_advantage": 0.04062500000000001,
+          "same_choice_fraction": 0.6861111111111111
         },
         "recharged/open": {
-          "roots": 348,
-          "a_selected_b_advantage": 0.0629040948275862,
-          "b_selected_a_advantage": 0.06314355842911878,
-          "same_choice_fraction": 0.7068965517241379
+          "roots": 360,
+          "a_selected_b_advantage": 0.0624855324074074,
+          "b_selected_a_advantage": 0.06254340277777778,
+          "same_choice_fraction": 0.7111111111111111
         },
         "recharged/sealed": {
-          "roots": 348,
-          "a_selected_b_advantage": 0.049598898467432956,
-          "b_selected_a_advantage": 0.0514996408045977,
-          "same_choice_fraction": 0.7011494252873564
+          "roots": 360,
+          "a_selected_b_advantage": 0.048596643518518515,
+          "b_selected_a_advantage": 0.04991319444444445,
+          "same_choice_fraction": 0.7027777777777777
         }
       }
     },
@@ -3603,6 +3603,36 @@
       },
       "verified_sha256": "3a39f1d7f7bfa8bd96745ff60441ed6acc3a1ac3bae407dc73acbf4d4fab8d20"
     },
+    "5p-economic-neural-14-16": {
+      "players": 5,
+      "source_mode": "economic",
+      "mode": "neural",
+      "deal_start": 14,
+      "deal_end": 16,
+      "positions": 24,
+      "searches": 48,
+      "samples": 48,
+      "evaluations": 11904,
+      "root_splits": {
+        "train": 24
+      },
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "engine_seconds": 852.5288632779641,
+      "policy_seconds": 1737.3040462189765,
+      "seconds": 2662.047078632,
+      "a_selected_b_mean_advantage": {
+        "train": 0.06163194444444444
+      },
+      "scope": "Conditional simulation targets and independent-batch diagnostic, not whole-game playing strength.",
+      "revision": "20c9f34e6f3feff5b60fdf03a2d829aca4f0ff62",
+      "prefix": "runs/strategic-teacher-training-v1-5p-economic-neural-14-16",
+      "artifacts": {
+        "labels.jsonl.gz": "9eb3be7a4f7a10447f0a7bf98e6b28336aa6de33bf66beb54ac8cf2b44b6e453",
+        "label-check.json": "0955118a0ee979fceddb045be9838d94c07c3f8c032d9d07e115c8229528ae9c"
+      },
+      "verified_sha256": "e35e6ff5367e75c7c0c0f434652ecc9c687c94b52cdec8c105d147eb674c5c89"
+    },
     "5p-economic-neural_economic-14-16": {
       "players": 5,
       "source_mode": "economic",
@@ -4441,6 +4471,36 @@
       },
       "verified_sha256": "c0791fdf828933e56cfa670b83ce569c733ca6b9fd2726c54a65b7f606097466"
     },
+    "6p-economic-neural-10-12": {
+      "players": 6,
+      "source_mode": "economic",
+      "mode": "neural",
+      "deal_start": 10,
+      "deal_end": 12,
+      "positions": 24,
+      "searches": 48,
+      "samples": 48,
+      "evaluations": 11808,
+      "root_splits": {
+        "train": 24
+      },
+      "game_truncations": 0,
+      "nested_truncations": 0,
+      "engine_seconds": 958.2266049180027,
+      "policy_seconds": 2037.7407984899385,
+      "seconds": 3072.5477258130004,
+      "a_selected_b_mean_advantage": {
+        "train": 0.057291666666666664
+      },
+      "scope": "Conditional simulation targets and independent-batch diagnostic, not whole-game playing strength.",
+      "revision": "c324b32b06af3fdb41d450b6b8029d0899c17670",
+      "prefix": "runs/strategic-teacher-training-v1-6p-economic-neural-10-12",
+      "artifacts": {
+        "labels.jsonl.gz": "832e812c35b59bb7cf16774ddc71da170f92a4acc165cce2147e531cafbd6f10",
+        "label-check.json": "4ab2accf1acc53bf736645b2b293264f7eaa02833ade094b536b7ee38006ed39"
+      },
+      "verified_sha256": "b610d831f768abe208efac45472c37abba8b8388f335c2cbdd0317a9d6a1e898"
+    },
     "6p-economic-neural_economic-10-12": {
       "players": 6,
       "source_mode": "economic",
@@ -5092,10 +5152,7 @@
       "verified_sha256": "42d3b0353d8d770ac79f615cea3afae4bbe36a206dcba8754aad90d85ba9f7f0"
     }
   },
-  "pending": [
-    "5p-economic-neural-14-16",
-    "6p-economic-neural-10-12"
-  ],
+  "pending": [],
   "scope": "Equal neural/economic continuation mixture; selection on A evaluated on B and vice versa. Descriptive simulation diagnostic only, not whole-game strength or a confidence interval.",
   "protocol_sha256": "3c39786cc6c44a3838d3c4183c312c94a26563222b2720572010b76bbdd62a76",
   "source_revision": "837d94e14272163c33e5e55fa9c24b24686a28ae",

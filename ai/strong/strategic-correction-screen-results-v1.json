@@ -1,10 +1,6 @@
 {
   "all_shards_verified": false,
   "pending": [
-    "parent-4p-search_geo-0-4",
-    "parent-4p-search_geo-4-8",
-    "parent-4p-search_geo-8-12",
-    "parent-4p-search_geo-12-16",
     "parent-5p-search_geo-0-4",
     "parent-5p-search_geo-4-8",
     "parent-5p-search_geo-8-12",
@@ -794,6 +790,62 @@
           }
         }
       },
+      "search_geo/4p": {
+        "games": 256,
+        "independent_deals": 16,
+        "win_rate": 0.23046875,
+        "deal_bootstrap_95_interval": [
+          0.17578125,
+          0.28515625
+        ],
+        "search_rollouts_reported": true,
+        "search_stats": {
+          "search_geo": {
+            "decisions": 38737,
+            "evaluations": 3184640,
+            "truncated": 0
+          }
+        },
+        "stage": "primary",
+        "by_rules": {
+          "original/open": {
+            "games": 64,
+            "independent_deals": 16,
+            "win_rate": 0.359375,
+            "deal_bootstrap_95_interval": [
+              0.25,
+              0.484375
+            ]
+          },
+          "original/sealed": {
+            "games": 64,
+            "independent_deals": 16,
+            "win_rate": 0.125,
+            "deal_bootstrap_95_interval": [
+              0.0625,
+              0.1875
+            ]
+          },
+          "recharged/open": {
+            "games": 64,
+            "independent_deals": 16,
+            "win_rate": 0.34375,
+            "deal_bootstrap_95_interval": [
+              0.234375,
+              0.453125
+            ]
+          },
+          "recharged/sealed": {
+            "games": 64,
+            "independent_deals": 16,
+            "win_rate": 0.09375,
+            "deal_bootstrap_95_interval": [
+              0.015625,
+              0.1875
+            ]
+          }
+        }
+      },
       "legacy/4p": {
         "games": 256,
         "independent_deals": 16,
@@ -1452,7 +1504,7 @@
     "11101-minus-parent": {},
     "11102-minus-parent": {}
   },
-  "games": 5760,
+  "games": 6016,
   "planned_games": 20160,
   "source_revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
   "source_sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb",
@@ -1786,6 +1838,36 @@
         "prefix": "runs/strategic-correction-screen-v1-parent-4p-economic-12-16",
         "verified_sha256": "f26c801fa920f64f1953c15803a8ad19082db02dfd99e23aad7aa7eb2e9fc6b9",
         "evaluation_sha256": "6edd961f603466141690fd89194f240e3ed2db97be3bca598efac4ce547b658b"
+      }
+    ],
+    "parent/search_geo/4p": [
+      {
+        "key": "parent-4p-search_geo-0-4",
+        "revision": "20c9f34e6f3feff5b60fdf03a2d829aca4f0ff62",
+        "prefix": "runs/strategic-correction-screen-v1-parent-4p-search_geo-0-4",
+        "verified_sha256": "665f8bca261b2285a39d03d1f24250f339fa0ca0a907ab02a7119b8a1affe2ec",
+        "evaluation_sha256": "fb75d7f62c6ee220af9a3d0153e9fa549766e09ade958525b2f26de37c46052d"
+      },
+      {
+        "key": "parent-4p-search_geo-4-8",
+        "revision": "18d52eb803950fb50dcc341ade02114ccbec83f1",
+        "prefix": "runs/strategic-correction-screen-v1-parent-4p-search_geo-4-8",
+        "verified_sha256": "4bb0d7ff7e91470c73db71bff1031e6f1e20d430f8dc81d851457917fb29512c",
+        "evaluation_sha256": "f441c274c6c08b08cd3be844de6a99f7c58faf4166de1b72ea68f7b69cd66422"
+      },
+      {
+        "key": "parent-4p-search_geo-8-12",
+        "revision": "20c9f34e6f3feff5b60fdf03a2d829aca4f0ff62",
+        "prefix": "runs/strategic-correction-screen-v1-parent-4p-search_geo-8-12",
+        "verified_sha256": "5b8753e80700e3dd95f0d8cf41eca4a797a8cb623b412185ff266d9c4d8e0f99",
+        "evaluation_sha256": "66bf5cde12500bc59b9c89340052fdfc881fee8830b812e1ac935cfbdd9eaaeb"
+      },
+      {
+        "key": "parent-4p-search_geo-12-16",
+        "revision": "18d52eb803950fb50dcc341ade02114ccbec83f1",
+        "prefix": "runs/strategic-correction-screen-v1-parent-4p-search_geo-12-16",
+        "verified_sha256": "db480bf7cdfd7bce2d5833ec087faf2f33d4b585d2fb95af67d49d335d82b3e2",
+        "evaluation_sha256": "d5e7b5acc885cbafd77971b5f1f2b1b7cdeacc570b4827def50b2fb8e6736071"
       }
     ],
     "parent/legacy/4p": [

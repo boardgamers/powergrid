@@ -1,10 +1,10 @@
 {
-  "checked_at": "2026-10-23T22:08:59.678819+00:00",
-  "artifact_revision": "9e5cfb8a73c5a993cefe0eec707f7b8043d59a4c",
+  "checked_at": "2026-10-23T22:21:19.694786+00:00",
+  "artifact_revision": "c324b32b06af3fdb41d450b6b8029d0899c17670",
   "submitted_shards": 110,
   "status_counts": {
-    "COMPLETED": 98,
-    "RUNNING": 12
+    "COMPLETED": 102,
+    "RUNNING": 8
   },
   "historical_errors_with_completed_replacements": 0,
   "jobs": [
@@ -3643,10 +3643,10 @@
       "qualification_eligible": false,
       "job_id": "6adbd676046eb82b1ecd774e",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/parent-4p-search_geo-0-4.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 21:49:44.564000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 22:10:32.023000+00:00"
     },
     {
       "stage": "launched",
@@ -3699,10 +3699,10 @@
       "qualification_eligible": false,
       "job_id": "6adbd6791e112550ce7d90a0",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/parent-4p-search_geo-12-16.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 21:49:48.286000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 22:10:58.199000+00:00"
     },
     {
       "stage": "launched",
@@ -3755,10 +3755,10 @@
       "qualification_eligible": false,
       "job_id": "6adbd677046eb82b1ecd7750",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/parent-4p-search_geo-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 21:49:46.458000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 22:11:32.675000+00:00"
     },
     {
       "stage": "launched",
@@ -3811,10 +3811,10 @@
       "qualification_eligible": false,
       "job_id": "6adbd678046eb82b1ecd7752",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/parent-4p-search_geo-8-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 21:49:47.464000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 22:10:05.845000+00:00"
     },
     {
       "stage": "launched",

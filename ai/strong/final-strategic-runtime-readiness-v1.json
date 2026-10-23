@@ -1,0 +1,56 @@
+{
+  "contract_tests_passed": true,
+  "contract_tests": 11,
+  "runtime_ready": false,
+  "source": {
+    "revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
+    "archive": "strong-source-strategic-correction-screen-20261023-v1.tgz",
+    "sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb",
+    "base": {
+      "revision": "837d94e14272163c33e5e55fa9c24b24686a28ae",
+      "archive": "strong-source-strategic-teacher-training-20261010-v1.tgz",
+      "sha256": "a011f9ee4b8116b99220913a7db9d00849e9e593137cdb7e435e116fcafdd6c3"
+    },
+    "overlays": {
+      "ai/strong/evaluate.py": "64b405a92e7b97a7889fdc17facd9825e12da5fc7609f34f18d7c988f2d2209a",
+      "ai/strong/encoders.cjs": "b1aec9b85ca387c85663dd3aa8ba9aa3916d06a5bb546fa91694f45924f47a72",
+      "ai/strong/features-v4_3.cjs": "c103758a436be51f8bb9aa399e3880263b14d743b588858cd177de34f7aac697",
+      "ai/strong/collect-population-screen.py": "21e36dc55f5f0344ee6f7059f1b13c5e82b7005e5b51cf54a60d906fcd17911d",
+      "ai/strong/strategic_correction_screen.py": "ab511a51541b3debed65dbb7510f1d2bc8ce09f88d081ffc05e02d9eb6efffae",
+      "ai/strong/preflight-strategic-correction-screen.py": "9a66f149966acd26c816e689deb7adaa24c115308a402a56481e7b079235c66b",
+      "ai/strong/strategic-correction-screen-protocol-v1.json": "cd038070dcf7f875cecab0a9ecfa095447675cfd75bc3584c157fd1d4261787a"
+    },
+    "unchanged_base_file_count": 1393,
+    "protocol_sha256": "cd038070dcf7f875cecab0a9ecfa095447675cfd75bc3584c157fd1d4261787a",
+    "model_pins": "Each job separately pins the exact canonical MODEL_PIN JSON and its SHA256. No checkpoint selection from development results.",
+    "qualification_eligible": false
+  },
+  "runtime_files": {
+    "ai/strong/arena-job.py": {
+      "archive_sha256": "cdffaa6213c8e0fe25b7a4adcb2df879b66a42a55f9538db57d4895a280a0195",
+      "current_sha256": "dab09f587cb1ad0f4ac11c8e68c146228f35ccfc821a3a287eba118053d4d0af",
+      "matches": false
+    },
+    "ai/strong/features-v4_3.cjs": {
+      "archive_sha256": "c103758a436be51f8bb9aa399e3880263b14d743b588858cd177de34f7aac697",
+      "current_sha256": "c103758a436be51f8bb9aa399e3880263b14d743b588858cd177de34f7aac697",
+      "matches": true
+    },
+    "ai/strong/encoders.cjs": {
+      "archive_sha256": "b1aec9b85ca387c85663dd3aa8ba9aa3916d06a5bb546fa91694f45924f47a72",
+      "current_sha256": "b1aec9b85ca387c85663dd3aa8ba9aa3916d06a5bb546fa91694f45924f47a72",
+      "matches": true
+    },
+    "ai/strong/evaluate.py": {
+      "archive_sha256": "64b405a92e7b97a7889fdc17facd9825e12da5fc7609f34f18d7c988f2d2209a",
+      "current_sha256": "64b405a92e7b97a7889fdc17facd9825e12da5fc7609f34f18d7c988f2d2209a",
+      "matches": true
+    }
+  },
+  "contract_test_sha256": "1742713736294c37cbb15a5a2459a610f8b07adc79817e63be4b8eb8501be714",
+  "launcher_sha256": "df83a737dc6a697d610c557efb82a7f40d5de824408a4ebb31c39cfc228390cd",
+  "log_sha256": "787a964e4325800efdf4fe8447439e3f85620a49bbda5fce10ee9141eec01258",
+  "reserved_final_seeds_used": false,
+  "qualification_eligible": false,
+  "next_action": "Before final qualification, derive a fresh archive from the frozen strategic evaluator, overlay only the provenance-aware arena-job.py, then verify exact candidate through development-only wrapper probes. Current screen archive has the older wrapper; never use it directly for final qualification."
+}

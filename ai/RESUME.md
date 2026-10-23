@@ -9,9 +9,12 @@ and exact handles are in [teacher jobs](strong/strategic-teacher-training-status
 and [development arenas](strong/strategic-correction-screen-status-v1.json).
 The three historical image-pull errors already have completed replacements.
 
-No strategic gradient job has run yet. The builder requires the complete verified
-160-shard dataset. The frozen evaluator and independent trained-export collector
-are ready. No model is qualified; reserved final-test seeds remain unused.
+All 160 teacher shards are now verified (1,836,672 completed simulations). The
+full training source/data preflight passed and L4 job `6adbddc9046eb82b1ecd7ac0`
+is submitted for seeds 11101/11102. See [training status](strong/strategic-correction-job-status-v1.json).
+Do not duplicate it or change its frozen design/source/label manifest. Both trained
+exports must pass independent collection before arenas. No model is qualified;
+reserved final-test seeds remain unused.
 
 ---
 

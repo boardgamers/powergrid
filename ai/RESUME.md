@@ -11,9 +11,11 @@ The three historical image-pull errors already have completed replacements.
 
 All 160 teacher shards are verified (1,836,672 completed simulations). L4 job
 `6adbddc9046eb82b1ecd7ac0` completed and both seeds passed independent verification:
-11101/epoch30 and 11102/epoch50. Their four exact-model runtime probes are now
-submitted. Wait for both endpoints to verify before launching each full screen.
-Do not retrain or duplicate jobs. See the current handoff for exact handles,
+11101/epoch30 and 11102/epoch50. Their four runtime probes are verified and all
+216 full candidate arena shards (13,440 games) are submitted. The 6,720-game
+parent reference is complete. Both standalone models passed all 5,106 requests
+on the actual AMD 8840U, with warm p95 under 6.7ms and identical moves to the
+frozen evaluation runtime. Do not retrain or duplicate jobs. See the handoff for handles,
 model hashes, evidence revisions and the ordered continuation. No model is
 qualified; reserved final-test seeds remain unused.
 

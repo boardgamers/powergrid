@@ -1,0 +1,37 @@
+{
+  "runtime_ready": true,
+  "previous_readiness_file": "ai/strong/final-strategic-runtime-readiness-v1.json",
+  "previous_readiness_sha256": "65db6b33bc178dc41afe7b878c58b2c9a6c2fdc9b464a749b41fc48e9bd50f59",
+  "source_file": "ai/strong/final-strategic-runtime-source-v1.json",
+  "source": {
+    "archive": "strong-source-final-strategic-runtime-20261023-v1.tgz",
+    "revision": "b279b0e8fca796d8a726de2d20b8340ddd13d52e",
+    "sha256": "85eeb02b4a25eb0a652bba453325ff8958a0629bf40396c21d12e223222afe51",
+    "base": {
+      "archive": "strong-source-strategic-correction-screen-20261023-v1.tgz",
+      "revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
+      "sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb"
+    },
+    "overlays": {
+      "ai/strong/arena-job.py": "dab09f587cb1ad0f4ac11c8e68c146228f35ccfc821a3a287eba118053d4d0af"
+    },
+    "old_runner_sha256": "cdffaa6213c8e0fe25b7a4adcb2df879b66a42a55f9538db57d4895a280a0195",
+    "arena_runner_sha256": "dab09f587cb1ad0f4ac11c8e68c146228f35ccfc821a3a287eba118053d4d0af",
+    "unchanged_base_file_count": 1399,
+    "qualification_eligible": false,
+    "scope": "Only the provenance wrapper changes. Engine, features, inference, search and evaluator bytes match the frozen development source."
+  },
+  "preflight_file": "ai/strong/final-strategic-runtime-preflight-v1.json",
+  "preflight_sha256": "fcea5040db6a3604d8aa3c81e288438f3fff58cf18af8fad622e1ef675b04b48",
+  "contract_tests": 11,
+  "plumbing_games": 64,
+  "model_keys": [
+    "11101",
+    "11102"
+  ],
+  "nonzero_deal_offset": 4,
+  "candidate_selected": false,
+  "reserved_final_seeds_used": false,
+  "qualification_eligible": false,
+  "scope": "New archive resolves the old wrapper mismatch. Real local pinned models, wrapper, evaluator and engine verified; only artifact upload captured locally. Strength assessment and target-hardware benchmark remain required."
+}

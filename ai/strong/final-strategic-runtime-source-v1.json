@@ -1,0 +1,18 @@
+{
+  "archive": "strong-source-final-strategic-runtime-20261023-v1.tgz",
+  "revision": "b279b0e8fca796d8a726de2d20b8340ddd13d52e",
+  "sha256": "85eeb02b4a25eb0a652bba453325ff8958a0629bf40396c21d12e223222afe51",
+  "base": {
+    "archive": "strong-source-strategic-correction-screen-20261023-v1.tgz",
+    "revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
+    "sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb"
+  },
+  "overlays": {
+    "ai/strong/arena-job.py": "dab09f587cb1ad0f4ac11c8e68c146228f35ccfc821a3a287eba118053d4d0af"
+  },
+  "old_runner_sha256": "cdffaa6213c8e0fe25b7a4adcb2df879b66a42a55f9538db57d4895a280a0195",
+  "arena_runner_sha256": "dab09f587cb1ad0f4ac11c8e68c146228f35ccfc821a3a287eba118053d4d0af",
+  "unchanged_base_file_count": 1399,
+  "qualification_eligible": false,
+  "scope": "Only the provenance wrapper changes. Engine, features, inference, search and evaluator bytes match the frozen development source."
+}

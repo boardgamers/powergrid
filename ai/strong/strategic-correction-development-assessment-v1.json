@@ -1,0 +1,905 @@
+{
+  "complete": false,
+  "complete_cell_games": 10944,
+  "planned_games": 20160,
+  "pending_shards": 121,
+  "source_results_sha256": "49afced38e96fba1f5a92540ec6c9c81cdb79f2ab16c071cd47cb57a1dc089c9",
+  "models": {
+    "11101": {
+      "complete_cells": 14,
+      "cells": {
+        "economic/2p": {
+          "candidate_win_share": 0.6796875,
+          "parent_win_share": 0.69921875,
+          "games_per_model": 128,
+          "independent_deals": 16,
+          "win_share_difference": -0.01953125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.125,
+            0.0703125
+          ],
+          "interval_below_zero": false,
+          "interval_above_zero": false,
+          "rules": {
+            "original/open": {
+              "games_per_model": 32,
+              "independent_deals": 16,
+              "win_share_difference": 0.0625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.21875,
+                0.34375
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 32,
+              "independent_deals": 16,
+              "win_share_difference": -0.015625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.203125,
+                0.171875
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 32,
+              "independent_deals": 16,
+              "win_share_difference": 0.0,
+              "paired_deal_bootstrap_95_interval": [
+                -0.25,
+                0.25
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 32,
+              "independent_deals": 16,
+              "win_share_difference": -0.125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.375,
+                0.15625
+              ]
+            }
+          }
+        },
+        "search_geo/2p": {
+          "candidate_win_share": 0.4765625,
+          "parent_win_share": 0.4921875,
+          "games_per_model": 128,
+          "independent_deals": 16,
+          "win_share_difference": -0.015625,
+          "paired_deal_bootstrap_95_interval": [
+            -0.109375,
+            0.0703125
+          ],
+          "interval_below_zero": false,
+          "interval_above_zero": false,
+          "rules": {
+            "original/open": {
+              "games_per_model": 32,
+              "independent_deals": 16,
+              "win_share_difference": -0.0625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.25,
+                0.125
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 32,
+              "independent_deals": 16,
+              "win_share_difference": -0.03125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.28125,
+                0.21875
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 32,
+              "independent_deals": 16,
+              "win_share_difference": 0.0,
+              "paired_deal_bootstrap_95_interval": [
+                -0.1875,
+                0.1875
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 32,
+              "independent_deals": 16,
+              "win_share_difference": 0.03125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.125,
+                0.21875
+              ]
+            }
+          }
+        },
+        "heuristic/2p": {
+          "candidate_win_share": 0.7734375,
+          "parent_win_share": 0.765625,
+          "games_per_model": 128,
+          "independent_deals": 16,
+          "win_share_difference": 0.0078125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1015625,
+            0.109375
+          ],
+          "interval_below_zero": false,
+          "interval_above_zero": false,
+          "rules": {
+            "original/open": {
+              "games_per_model": 32,
+              "independent_deals": 16,
+              "win_share_difference": 0.0625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.125,
+                0.25
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 32,
+              "independent_deals": 16,
+              "win_share_difference": 0.0625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.125,
+                0.25
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 32,
+              "independent_deals": 16,
+              "win_share_difference": -0.125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.28125,
+                0.03125
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 32,
+              "independent_deals": 16,
+              "win_share_difference": 0.03125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.125,
+                0.1875
+              ]
+            }
+          }
+        },
+        "economic/3p": {
+          "candidate_win_share": 0.5416666666666667,
+          "parent_win_share": 0.6197916666666666,
+          "games_per_model": 192,
+          "independent_deals": 16,
+          "win_share_difference": -0.078125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.17708333333333334,
+            0.015625
+          ],
+          "interval_below_zero": false,
+          "interval_above_zero": false,
+          "rules": {
+            "original/open": {
+              "games_per_model": 48,
+              "independent_deals": 16,
+              "win_share_difference": -0.10416666666666666,
+              "paired_deal_bootstrap_95_interval": [
+                -0.37499999999999994,
+                0.14583333333333331
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 48,
+              "independent_deals": 16,
+              "win_share_difference": -0.16666666666666666,
+              "paired_deal_bootstrap_95_interval": [
+                -0.3541666666666667,
+                0.04166666666666666
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 48,
+              "independent_deals": 16,
+              "win_share_difference": 0.020833333333333332,
+              "paired_deal_bootstrap_95_interval": [
+                -0.10416666666666666,
+                0.14583333333333331
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 48,
+              "independent_deals": 16,
+              "win_share_difference": -0.0625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.25,
+                0.12499999999999999
+              ]
+            }
+          }
+        },
+        "heuristic/3p": {
+          "candidate_win_share": 0.8645833333333333,
+          "parent_win_share": 0.859375,
+          "games_per_model": 192,
+          "independent_deals": 16,
+          "win_share_difference": 0.005208333333333336,
+          "paired_deal_bootstrap_95_interval": [
+            -0.08333333333333333,
+            0.08854166666666667
+          ],
+          "interval_below_zero": false,
+          "interval_above_zero": false,
+          "rules": {
+            "original/open": {
+              "games_per_model": 48,
+              "independent_deals": 16,
+              "win_share_difference": 0.10416666666666666,
+              "paired_deal_bootstrap_95_interval": [
+                -0.041666666666666664,
+                0.22916666666666666
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 48,
+              "independent_deals": 16,
+              "win_share_difference": -0.14583333333333331,
+              "paired_deal_bootstrap_95_interval": [
+                -0.29166666666666663,
+                -6.938893903907228e-18
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 48,
+              "independent_deals": 16,
+              "win_share_difference": 0.10416666666666666,
+              "paired_deal_bootstrap_95_interval": [
+                0.041666666666666664,
+                0.1875
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 48,
+              "independent_deals": 16,
+              "win_share_difference": -0.041666666666666664,
+              "paired_deal_bootstrap_95_interval": [
+                -0.1875,
+                0.10416666666666666
+              ]
+            }
+          }
+        },
+        "economic/4p": {
+          "candidate_win_share": 0.44921875,
+          "parent_win_share": 0.61328125,
+          "games_per_model": 256,
+          "independent_deals": 16,
+          "win_share_difference": -0.1640625,
+          "paired_deal_bootstrap_95_interval": [
+            -0.25390625,
+            -0.07421875
+          ],
+          "interval_below_zero": true,
+          "interval_above_zero": false,
+          "rules": {
+            "original/open": {
+              "games_per_model": 64,
+              "independent_deals": 16,
+              "win_share_difference": -0.0625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.25,
+                0.125
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 64,
+              "independent_deals": 16,
+              "win_share_difference": -0.109375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.28125,
+                0.0625
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 64,
+              "independent_deals": 16,
+              "win_share_difference": -0.203125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.34375,
+                -0.0625
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 64,
+              "independent_deals": 16,
+              "win_share_difference": -0.28125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.4375,
+                -0.125
+              ]
+            }
+          }
+        },
+        "economic/5p": {
+          "candidate_win_share": 0.625,
+          "parent_win_share": 0.7578125,
+          "games_per_model": 320,
+          "independent_deals": 16,
+          "win_share_difference": -0.1328125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1953125,
+            -0.07500000000000001
+          ],
+          "interval_below_zero": true,
+          "interval_above_zero": false,
+          "rules": {
+            "original/open": {
+              "games_per_model": 80,
+              "independent_deals": 16,
+              "win_share_difference": -1.0408340855860843e-17,
+              "paired_deal_bootstrap_95_interval": [
+                -0.1625,
+                0.16250000000000003
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 80,
+              "independent_deals": 16,
+              "win_share_difference": -0.24374999999999997,
+              "paired_deal_bootstrap_95_interval": [
+                -0.3875,
+                -0.09999999999999999
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 80,
+              "independent_deals": 16,
+              "win_share_difference": -0.03749999999999999,
+              "paired_deal_bootstrap_95_interval": [
+                -0.1625,
+                0.08750000000000001
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 80,
+              "independent_deals": 16,
+              "win_share_difference": -0.25,
+              "paired_deal_bootstrap_95_interval": [
+                -0.375,
+                -0.125
+              ]
+            }
+          }
+        },
+        "rush/5p": {
+          "candidate_win_share": 0.640625,
+          "parent_win_share": 0.7906249999999999,
+          "games_per_model": 320,
+          "independent_deals": 16,
+          "win_share_difference": -0.15000000000000002,
+          "paired_deal_bootstrap_95_interval": [
+            -0.2125,
+            -0.0875
+          ],
+          "interval_below_zero": true,
+          "interval_above_zero": false,
+          "rules": {
+            "original/open": {
+              "games_per_model": 80,
+              "independent_deals": 16,
+              "win_share_difference": -0.175,
+              "paired_deal_bootstrap_95_interval": [
+                -0.30000000000000004,
+                -0.037500000000000006
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 80,
+              "independent_deals": 16,
+              "win_share_difference": -0.1375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.25,
+                -0.012500000000000004
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 80,
+              "independent_deals": 16,
+              "win_share_difference": -0.075,
+              "paired_deal_bootstrap_95_interval": [
+                -0.175,
+                0.025
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 80,
+              "independent_deals": 16,
+              "win_share_difference": -0.21249999999999997,
+              "paired_deal_bootstrap_95_interval": [
+                -0.3375,
+                -0.08750000000000001
+              ]
+            }
+          }
+        },
+        "economic/6p": {
+          "candidate_win_share": 0.5963541666666667,
+          "parent_win_share": 0.7669270833333333,
+          "games_per_model": 384,
+          "independent_deals": 16,
+          "win_share_difference": -0.17057291666666669,
+          "paired_deal_bootstrap_95_interval": [
+            -0.21875,
+            -0.12239583333333333
+          ],
+          "interval_below_zero": true,
+          "interval_above_zero": false,
+          "rules": {
+            "original/open": {
+              "games_per_model": 96,
+              "independent_deals": 16,
+              "win_share_difference": -0.125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.20833333333333331,
+                -0.041666666666666664
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 96,
+              "independent_deals": 16,
+              "win_share_difference": -0.140625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.265625,
+                -0.010416666666666673
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 96,
+              "independent_deals": 16,
+              "win_share_difference": -0.14583333333333331,
+              "paired_deal_bootstrap_95_interval": [
+                -0.2708333333333333,
+                -0.020833333333333336
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 96,
+              "independent_deals": 16,
+              "win_share_difference": -0.2708333333333333,
+              "paired_deal_bootstrap_95_interval": [
+                -0.40624999999999994,
+                -0.13541666666666666
+              ]
+            }
+          }
+        },
+        "legacy/6p": {
+          "candidate_win_share": 0.8528645833333333,
+          "parent_win_share": 0.9296875,
+          "games_per_model": 384,
+          "independent_deals": 16,
+          "win_share_difference": -0.07682291666666666,
+          "paired_deal_bootstrap_95_interval": [
+            -0.12369791666666667,
+            -0.033854166666666664
+          ],
+          "interval_below_zero": true,
+          "interval_above_zero": false,
+          "rules": {
+            "original/open": {
+              "games_per_model": 96,
+              "independent_deals": 16,
+              "win_share_difference": -0.08333333333333333,
+              "paired_deal_bootstrap_95_interval": [
+                -0.17708333333333334,
+                0.010416666666666668
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 96,
+              "independent_deals": 16,
+              "win_share_difference": -0.09375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.17708333333333331,
+                -0.02083333333333333
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 96,
+              "independent_deals": 16,
+              "win_share_difference": 0.010416666666666666,
+              "paired_deal_bootstrap_95_interval": [
+                -0.07291666666666667,
+                0.10416666666666666
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 96,
+              "independent_deals": 16,
+              "win_share_difference": -0.140625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.2552083333333333,
+                -0.031249999999999997
+              ]
+            }
+          }
+        },
+        "heuristic/6p": {
+          "candidate_win_share": 0.9348958333333333,
+          "parent_win_share": 0.9817708333333334,
+          "games_per_model": 384,
+          "independent_deals": 16,
+          "win_share_difference": -0.046875,
+          "paired_deal_bootstrap_95_interval": [
+            -0.06510416666666666,
+            -0.026041666666666664
+          ],
+          "interval_below_zero": true,
+          "interval_above_zero": false,
+          "rules": {
+            "original/open": {
+              "games_per_model": 96,
+              "independent_deals": 16,
+              "win_share_difference": -0.05208333333333333,
+              "paired_deal_bootstrap_95_interval": [
+                -0.10416666666666666,
+                -0.010416666666666666
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 96,
+              "independent_deals": 16,
+              "win_share_difference": -0.05208333333333333,
+              "paired_deal_bootstrap_95_interval": [
+                -0.12499999999999999,
+                0.010416666666666666
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 96,
+              "independent_deals": 16,
+              "win_share_difference": -0.041666666666666664,
+              "paired_deal_bootstrap_95_interval": [
+                -0.09375,
+                0.010416666666666666
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 96,
+              "independent_deals": 16,
+              "win_share_difference": -0.04166666666666667,
+              "paired_deal_bootstrap_95_interval": [
+                -0.10416666666666666,
+                0.020833333333333332
+              ]
+            }
+          }
+        },
+        "rush/6p": {
+          "candidate_win_share": 0.640625,
+          "parent_win_share": 0.7864583333333333,
+          "games_per_model": 384,
+          "independent_deals": 16,
+          "win_share_difference": -0.14583333333333334,
+          "paired_deal_bootstrap_95_interval": [
+            -0.203125,
+            -0.08854166666666667
+          ],
+          "interval_below_zero": true,
+          "interval_above_zero": false,
+          "rules": {
+            "original/open": {
+              "games_per_model": 96,
+              "independent_deals": 16,
+              "win_share_difference": -0.04166666666666667,
+              "paired_deal_bootstrap_95_interval": [
+                -0.15625,
+                0.07291666666666667
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 96,
+              "independent_deals": 16,
+              "win_share_difference": -0.125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.2708333333333333,
+                0.0
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 96,
+              "independent_deals": 16,
+              "win_share_difference": -0.17708333333333331,
+              "paired_deal_bootstrap_95_interval": [
+                -0.28125,
+                -0.07291666666666666
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 96,
+              "independent_deals": 16,
+              "win_share_difference": -0.23958333333333331,
+              "paired_deal_bootstrap_95_interval": [
+                -0.3645833333333333,
+                -0.11458333333333331
+              ]
+            }
+          }
+        },
+        "a260/3p": {
+          "candidate_win_share": 0.265625,
+          "parent_win_share": 0.2760416666666667,
+          "games_per_model": 192,
+          "independent_deals": 16,
+          "win_share_difference": -0.010416666666666671,
+          "paired_deal_bootstrap_95_interval": [
+            -0.10416666666666667,
+            0.07812499999999999
+          ],
+          "interval_below_zero": false,
+          "interval_above_zero": false,
+          "rules": {
+            "original/open": {
+              "games_per_model": 48,
+              "independent_deals": 16,
+              "win_share_difference": 0.041666666666666664,
+              "paired_deal_bootstrap_95_interval": [
+                -0.125,
+                0.20833333333333334
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 48,
+              "independent_deals": 16,
+              "win_share_difference": -0.06250000000000001,
+              "paired_deal_bootstrap_95_interval": [
+                -0.24999999999999997,
+                0.125
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 48,
+              "independent_deals": 16,
+              "win_share_difference": 0.04166666666666667,
+              "paired_deal_bootstrap_95_interval": [
+                -0.125,
+                0.20833333333333334
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 48,
+              "independent_deals": 16,
+              "win_share_difference": -0.062499999999999986,
+              "paired_deal_bootstrap_95_interval": [
+                -0.25,
+                0.12499999999999999
+              ]
+            }
+          }
+        },
+        "economic_capacity_v1/2p": {
+          "candidate_win_share": 0.6484375,
+          "parent_win_share": 0.63671875,
+          "games_per_model": 128,
+          "independent_deals": 16,
+          "win_share_difference": 0.01171875,
+          "paired_deal_bootstrap_95_interval": [
+            -0.078125,
+            0.09765625
+          ],
+          "interval_below_zero": false,
+          "interval_above_zero": false,
+          "rules": {
+            "original/open": {
+              "games_per_model": 32,
+              "independent_deals": 16,
+              "win_share_difference": 0.21875,
+              "paired_deal_bootstrap_95_interval": [
+                0.0,
+                0.4375
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 32,
+              "independent_deals": 16,
+              "win_share_difference": 0.015625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.21875,
+                0.234375
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 32,
+              "independent_deals": 16,
+              "win_share_difference": -0.125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.375,
+                0.125
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 32,
+              "independent_deals": 16,
+              "win_share_difference": -0.0625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.34375,
+                0.21875
+              ]
+            }
+          }
+        }
+      },
+      "negative_interval_cells": [
+        "economic/4p",
+        "economic/5p",
+        "rush/5p",
+        "economic/6p",
+        "legacy/6p",
+        "heuristic/6p",
+        "rush/6p"
+      ],
+      "positive_interval_cells": []
+    },
+    "11102": {
+      "complete_cells": 3,
+      "cells": {
+        "economic/4p": {
+          "candidate_win_share": 0.4453125,
+          "parent_win_share": 0.61328125,
+          "games_per_model": 256,
+          "independent_deals": 16,
+          "win_share_difference": -0.16796875,
+          "paired_deal_bootstrap_95_interval": [
+            -0.23828125,
+            -0.09765625
+          ],
+          "interval_below_zero": true,
+          "interval_above_zero": false,
+          "rules": {
+            "original/open": {
+              "games_per_model": 64,
+              "independent_deals": 16,
+              "win_share_difference": -0.015625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.21875,
+                0.1875
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 64,
+              "independent_deals": 16,
+              "win_share_difference": -0.109375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.265625,
+                0.03125
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 64,
+              "independent_deals": 16,
+              "win_share_difference": -0.265625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.40625,
+                -0.125
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 64,
+              "independent_deals": 16,
+              "win_share_difference": -0.28125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.4375,
+                -0.125
+              ]
+            }
+          }
+        },
+        "rush/4p": {
+          "candidate_win_share": 0.46875,
+          "parent_win_share": 0.6484375,
+          "games_per_model": 256,
+          "independent_deals": 16,
+          "win_share_difference": -0.1796875,
+          "paired_deal_bootstrap_95_interval": [
+            -0.26171875,
+            -0.10546875
+          ],
+          "interval_below_zero": true,
+          "interval_above_zero": false,
+          "rules": {
+            "original/open": {
+              "games_per_model": 64,
+              "independent_deals": 16,
+              "win_share_difference": -0.09375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.21875,
+                0.015625
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 64,
+              "independent_deals": 16,
+              "win_share_difference": -0.109375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.3125,
+                0.09375
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 64,
+              "independent_deals": 16,
+              "win_share_difference": -0.21875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.359375,
+                -0.0625
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 64,
+              "independent_deals": 16,
+              "win_share_difference": -0.296875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.4375,
+                -0.15625
+              ]
+            }
+          }
+        },
+        "a260/3p": {
+          "candidate_win_share": 0.24479166666666666,
+          "parent_win_share": 0.2760416666666667,
+          "games_per_model": 192,
+          "independent_deals": 16,
+          "win_share_difference": -0.03125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.09375,
+            0.03645833333333333
+          ],
+          "interval_below_zero": false,
+          "interval_above_zero": false,
+          "rules": {
+            "original/open": {
+              "games_per_model": 48,
+              "independent_deals": 16,
+              "win_share_difference": 0.04166666666666667,
+              "paired_deal_bootstrap_95_interval": [
+                -0.14583333333333331,
+                0.20833333333333334
+              ]
+            },
+            "original/sealed": {
+              "games_per_model": 48,
+              "independent_deals": 16,
+              "win_share_difference": 0.0,
+              "paired_deal_bootstrap_95_interval": [
+                -0.1875,
+                0.1875
+              ]
+            },
+            "recharged/open": {
+              "games_per_model": 48,
+              "independent_deals": 16,
+              "win_share_difference": -0.06250000000000001,
+              "paired_deal_bootstrap_95_interval": [
+                -0.2708333333333333,
+                0.16666666666666666
+              ]
+            },
+            "recharged/sealed": {
+              "games_per_model": 48,
+              "independent_deals": 16,
+              "win_share_difference": -0.10416666666666666,
+              "paired_deal_bootstrap_95_interval": [
+                -0.33333333333333337,
+                0.125
+              ]
+            }
+          }
+        }
+      },
+      "negative_interval_cells": [
+        "economic/4p",
+        "rush/4p"
+      ],
+      "positive_interval_cells": []
+    }
+  },
+  "candidate_selected": false,
+  "qualification_eligible": false,
+  "scope": "Development diagnostics on complete cells only. Whole-deal paired marginal95% intervals; all count/opponent/rule contrasts retained in the pinned source report. Partial grid, no final qualification or aggregate seed selection.",
+  "interpretation": "Both candidates show substantial adverse complete-game cells despite modest teacher-validation gains. Do not promote either from these data. Finish the fixed grid, then diagnose intervention frequency/phase and conditional-teacher versus repeated-policy distribution mismatch; that proposed mechanism remains unproven."
+}

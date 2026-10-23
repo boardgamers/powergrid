@@ -1,0 +1,301 @@
+{
+  "verified": true,
+  "machine": {
+    "hostname": "coyotte508-4X4-BOX-8840U",
+    "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+    "python": "3.12.3 (main, Mar  3 2026, 12:15:18) [GCC 13.3.0]",
+    "numpy": "2.5.3",
+    "onnxruntime": "1.30.0",
+    "node": "v24.19.0",
+    "load_before": [
+      0.94580078125,
+      0.29296875,
+      0.09423828125
+    ]
+  },
+  "models": {
+    "11101": {
+      "summary": {
+        "positions": 2553,
+        "cold_start_ms": 217.84855611622334,
+        "warm": {
+          "positions": 2552,
+          "p50_ms": 3.808632493019104,
+          "p95_ms": 6.522047519683835,
+          "max_ms": 11.425600852817297
+        },
+        "groups": {
+          "players": {
+            "2": {
+              "positions": 349,
+              "p50_ms": 3.5355109721422195,
+              "p95_ms": 4.898706823587417,
+              "max_ms": 217.84855611622334
+            },
+            "3": {
+              "positions": 427,
+              "p50_ms": 3.2633072696626186,
+              "p95_ms": 4.54533826559782,
+              "max_ms": 8.187483064830303
+            },
+            "4": {
+              "positions": 527,
+              "p50_ms": 3.76477325335145,
+              "p95_ms": 6.398851750418544,
+              "max_ms": 9.277492761611938
+            },
+            "5": {
+              "positions": 609,
+              "p50_ms": 4.38953610137105,
+              "p95_ms": 6.845854222774506,
+              "max_ms": 10.384344961494207
+            },
+            "6": {
+              "positions": 641,
+              "p50_ms": 4.4623869471251965,
+              "p95_ms": 7.103655021637678,
+              "max_ms": 11.425600852817297
+            }
+          },
+          "phase": {
+            "Auction": {
+              "positions": 840,
+              "p50_ms": 3.8684874307364225,
+              "p95_ms": 6.227318663150071,
+              "max_ms": 217.84855611622334
+            },
+            "Resources": {
+              "positions": 755,
+              "p50_ms": 3.593994304537773,
+              "p95_ms": 6.25741584226489,
+              "max_ms": 9.410297963768244
+            },
+            "Building": {
+              "positions": 491,
+              "p50_ms": 4.188397899270058,
+              "p95_ms": 7.571040652692318,
+              "max_ms": 10.384344961494207
+            },
+            "Bureaucracy": {
+              "positions": 467,
+              "p50_ms": 3.5908478312194347,
+              "p95_ms": 6.0938583221286535,
+              "max_ms": 10.794144123792648
+            }
+          },
+          "rule": {
+            "original/sealed": {
+              "positions": 555,
+              "p50_ms": 3.6487900651991367,
+              "p95_ms": 6.0894275549799195,
+              "max_ms": 217.84855611622334
+            },
+            "recharged/sealed": {
+              "positions": 589,
+              "p50_ms": 3.8145589642226696,
+              "p95_ms": 6.450277939438822,
+              "max_ms": 10.384344961494207
+            },
+            "original/open": {
+              "positions": 703,
+              "p50_ms": 3.878431860357523,
+              "p95_ms": 6.699304701760411,
+              "max_ms": 10.794144123792648
+            },
+            "recharged/open": {
+              "positions": 706,
+              "p50_ms": 3.851469373330474,
+              "p95_ms": 6.91783451475203,
+              "max_ms": 11.425600852817297
+            }
+          }
+        },
+        "search_decisions": 0,
+        "search_timing": null,
+        "search_evaluations": 0,
+        "search_truncations": 0,
+        "all_moves_legal": true
+      },
+      "model_pin": {
+        "key": "11101",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "6be6f2af36d3382d43013621eab382c16a4cc1ae",
+        "prefix": "runs/strategic-correction-v1/11101/derivative",
+        "files": {
+          "inference64.onnx": "9f8d87b28dc1ed76770e7ffe8457a87fb3fb014d866b43b571ce838b87ff0f32",
+          "inference64.pt": "d271b7a28a9a33edacbebf3d6e398d18cd97b549768c24557a8b11d57564fb54"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "seed": 11101,
+        "selected_epoch": 30,
+        "training_verified": true,
+        "parent_frozen": true,
+        "strict_parity_positions": 2553,
+        "training_verified_sha256": "40e0495e736942566c15c4dec2fe039d15ac3069e6b605f5e6ebb69051455ea6",
+        "qualification_eligible": false
+      },
+      "all_frozen_runtime_moves_identical": true,
+      "maximum_value_difference": 0,
+      "package_sha256": "28dcb007969f839fba5bc1e33c0c1229f997de62c46b062cd6d121cac1916d64"
+    },
+    "11102": {
+      "summary": {
+        "positions": 2553,
+        "cold_start_ms": 206.71333419159055,
+        "warm": {
+          "positions": 2552,
+          "p50_ms": 3.889071987941861,
+          "p95_ms": 6.629126961342987,
+          "max_ms": 10.887544136494398
+        },
+        "groups": {
+          "players": {
+            "2": {
+              "positions": 349,
+              "p50_ms": 3.5630040802061558,
+              "p95_ms": 5.113843176513909,
+              "max_ms": 206.71333419159055
+            },
+            "3": {
+              "positions": 427,
+              "p50_ms": 3.4310100600123405,
+              "p95_ms": 5.028242105618118,
+              "max_ms": 9.50580183416605
+            },
+            "4": {
+              "positions": 527,
+              "p50_ms": 3.928157966583967,
+              "p95_ms": 5.924886651337147,
+              "max_ms": 9.05342074111104
+            },
+            "5": {
+              "positions": 609,
+              "p50_ms": 4.140667151659727,
+              "p95_ms": 7.193536404520274,
+              "max_ms": 10.045763105154037
+            },
+            "6": {
+              "positions": 641,
+              "p50_ms": 4.513904917985201,
+              "p95_ms": 6.753599736839533,
+              "max_ms": 10.57332893833518
+            }
+          },
+          "phase": {
+            "Auction": {
+              "positions": 840,
+              "p50_ms": 3.9039752446115017,
+              "p95_ms": 6.360600842162967,
+              "max_ms": 206.71333419159055
+            },
+            "Resources": {
+              "positions": 755,
+              "p50_ms": 3.757248166948557,
+              "p95_ms": 6.2871879898011676,
+              "max_ms": 9.964104741811752
+            },
+            "Building": {
+              "positions": 491,
+              "p50_ms": 4.297659266740084,
+              "p95_ms": 7.2739929892122746,
+              "max_ms": 10.887544136494398
+            },
+            "Bureaucracy": {
+              "positions": 467,
+              "p50_ms": 3.6882050335407257,
+              "p95_ms": 6.175854662433267,
+              "max_ms": 10.57332893833518
+            }
+          },
+          "rule": {
+            "original/sealed": {
+              "positions": 555,
+              "p50_ms": 3.765404224395752,
+              "p95_ms": 5.70060578174889,
+              "max_ms": 206.71333419159055
+            },
+            "recharged/sealed": {
+              "positions": 589,
+              "p50_ms": 3.8402979262173176,
+              "p95_ms": 6.814015470445157,
+              "max_ms": 9.71850287169218
+            },
+            "original/open": {
+              "positions": 703,
+              "p50_ms": 3.961451817303896,
+              "p95_ms": 6.751400651410221,
+              "max_ms": 10.57332893833518
+            },
+            "recharged/open": {
+              "positions": 706,
+              "p50_ms": 3.9479455444961786,
+              "p95_ms": 6.624859874136746,
+              "max_ms": 10.045763105154037
+            }
+          }
+        },
+        "search_decisions": 0,
+        "search_timing": null,
+        "search_evaluations": 0,
+        "search_truncations": 0,
+        "all_moves_legal": true
+      },
+      "model_pin": {
+        "key": "11102",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "6be6f2af36d3382d43013621eab382c16a4cc1ae",
+        "prefix": "runs/strategic-correction-v1/11102/derivative",
+        "files": {
+          "inference64.onnx": "85a8885a0f30b32f7f4c131f2d07003724ee4cd5e8c682c4d20d2842ef60ec09",
+          "inference64.pt": "65d95f80e7841bde3438dbd5ba89a03b675715ffaf1d9c1322fcb05fbba49f71"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "seed": 11102,
+        "selected_epoch": 50,
+        "training_verified": true,
+        "parent_frozen": true,
+        "strict_parity_positions": 2553,
+        "training_verified_sha256": "40e0495e736942566c15c4dec2fe039d15ac3069e6b605f5e6ebb69051455ea6",
+        "qualification_eligible": false
+      },
+      "all_frozen_runtime_moves_identical": true,
+      "maximum_value_difference": 0,
+      "package_sha256": "041d5cffd7cdd5a88fc1279cac726dee373c3a3553802987b1c4e00abe07635f"
+    }
+  },
+  "requests": 5106,
+  "source": {
+    "archive": "strong-source-final-strategic-runtime-20261023-v1.tgz",
+    "revision": "b279b0e8fca796d8a726de2d20b8340ddd13d52e",
+    "sha256": "85eeb02b4a25eb0a652bba453325ff8958a0629bf40396c21d12e223222afe51",
+    "base": {
+      "archive": "strong-source-strategic-correction-screen-20261023-v1.tgz",
+      "revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
+      "sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb"
+    },
+    "overlays": {
+      "ai/strong/arena-job.py": "dab09f587cb1ad0f4ac11c8e68c146228f35ccfc821a3a287eba118053d4d0af"
+    },
+    "old_runner_sha256": "cdffaa6213c8e0fe25b7a4adcb2df879b66a42a55f9538db57d4895a280a0195",
+    "arena_runner_sha256": "dab09f587cb1ad0f4ac11c8e68c146228f35ccfc821a3a287eba118053d4d0af",
+    "unchanged_base_file_count": 1399,
+    "qualification_eligible": false,
+    "scope": "Only the provenance wrapper changes. Engine, features, inference, search and evaluator bytes match the frozen development source."
+  },
+  "manifest_sha256": "0f675aba2fd4cdbda996fb6d5c271c3367aa8b94b79ab732927df1e14907f4b3",
+  "qualification_eligible": false,
+  "candidate_selected": false,
+  "scope": "Engineering check of both predetermined strategic models, all2553 public fixtures. Standalone workers on actual AMD8840U; no strength qualification, gradients or production routing.",
+  "interpretation": "Sequential engineering timing on the actual target CPU. No statistically ranked latency or strength claim. All moves match the frozen evaluation runtime.",
+  "artifacts": {
+    "11101.jsonl": "f507fd0af884f255e2ea07a5a53f38b5627602c574bc9954e9cc6128904dc4ca",
+    "11101.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "11102.jsonl": "001a77afc465fc186f79a9c9996ec4ba66ad39ac87ad02045c231c405c454f4a",
+    "11102.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fixtures.jsonl": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+    "machine.json": "251666cf5c43c92a4cfdc4dc8fe22f5ffbf414d1d9d322be960fd3814c370325",
+    "manifest.json": "0f675aba2fd4cdbda996fb6d5c271c3367aa8b94b79ab732927df1e14907f4b3",
+    "results.json": "c5d23464fbf77e99ad2e12a8c97ff03248a6303569f3cddba826ee87ce311920",
+    "run.log": "d57ce386c3015acfb947c7207f47ca7c4cb9e9cac012d6e857e4ba0a1ed71e35"
+  }
+}

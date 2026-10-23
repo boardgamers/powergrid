@@ -74,8 +74,13 @@ Machine-readable results:
   1,920 labeled positions. Values and 1,457 out-of-scope actions are preserved.
   These checks establish correctness, not strength.
 - Parent reference is complete: **27/27 cells and 6,720/6,720 games**, all
-  independently verified. No new-model full arena has been submitted yet;
-  both 2p probes are verified and both 6p probes remain live.
+  independently verified. Both trained models' 2p and 6p runtime probes are
+  verified. Their **216 full arena shards / 13,440 games** are submitted;
+  inspect the existing handles before any retry.
+- Both standalone packages were benchmarked on the actual AMD 8840U. All
+  5,106 requests were legal and every move matched the frozen evaluation
+  runtime. Warm p95 was 6.52ms/6.63ms. This establishes serving feasibility,
+  not strength; neither candidate is selected.
 - The alternate A10G startup probe `6adbdfa7046eb82b1ecd7b29` was cancelled
   while still queued once the L4 started. It performed no training and needs
   no retry (`strong/strategic-correction-hardware-probe-v1.json`).
@@ -83,6 +88,15 @@ Machine-readable results:
   16 deals, 95% interval [21.88%,33.85%], below the 40% floor. Versus geographic
   search, parent win shares at 2/3/4/5 players are 49.22/25/23.05/38.125%; sealed
   weaknesses remain (5p Recharged/sealed is 20%). Preserve all adverse cells.
+- The 23:07 UTC collection checkpoint verifies 95 of 216 candidate shards.
+  Complete cells total 10,944 games: all 27 parent cells, 14 for 11101 and 3 for
+  11102. **Both candidates show regressions.** Against economic at 4p, their
+  paired differences are -16.41pp and -16.80pp; both marginal 95% intervals are
+  wholly negative. 11101 also loses 17.06pp at 6p economic and 15pp at 5p rush.
+  All positive and negative results remain in the report. These candidates
+  must not be promoted from modest teacher-validation improvements.
+  See `strong/strategic-correction-development-assessment-v1.json` and its
+  immutable source snapshot in `strong/strategic-correction-candidate-arena-evidence-v1.json`.
 
 ## Work resumed
 
@@ -188,7 +202,7 @@ job or check remains failed; inspect its original logs and uploaded status rathe
 than silently retrying or weakening tolerances. The source package intentionally
 keeps the pre-gradient design/manifest flags unchanged as historical metadata.
 
-## Verified trained models and live probes
+## Verified trained models and completed probes
 
 Raw training/export revision: `6be6f2af36d3382d43013621eab382c16a4cc1ae`,
 model-repo prefix `runs/strategic-correction-v1`. Independent result:
@@ -215,7 +229,11 @@ pins; the collector intentionally refuses to overwrite existing model pins.
 All four exact-model runtime probes were submitted at 22:38 UTC. Both 2p probes
 are independently verified at artifact revision
 `3b3044a49826467fd78c389e5166c99b12d52b35`: eight games each, 103.41s/108.54s,
-no caps. Both 6p probes still run:
+no caps. Both 6p probes also completed and were independently verified:
+11101 took 1,205.15s (artifact revision
+`35a34845b207ce4bb667aee632270b010edcfe1e`); 11102 took 1,314.32s
+(`d2de0a061a7f6c844f2ee4ad3ef4d6dcc962d7cd`). Each contains 24 complete
+games without game or search truncation.
 
 | Seed | Players | HF job |
 | --- | --- | --- |
@@ -224,10 +242,12 @@ no caps. Both 6p probes still run:
 | 11102 | 6 | `6adbe1d81e112550ce7d9757` |
 | 11102 | 2 | `6adbe1d9046eb82b1ecd7c5e` |
 
-Do not duplicate them. Collect each with the normal screen collector and
-`--smoke`, using START=0 and END=1 at an immutable artifact revision. Each model
-needs both independently verified probes before its full 108 shards can launch.
-The automatic admission calculation must pass without reducing game horizons.
+Do not duplicate them. Both automatic admission reports permit four-deal
+shards with a four-hour timeout, without reducing any game/search horizon:
+`strong/strategic-correction-screen-{11101,11102}-admission-v1.json`.
+All 108 full shards per candidate were submitted by 23:05:08 UTC. The batch
+launcher `strong/launch-strategic-correction-screens.py` checks existing guards,
+pins and source hashes and stops on ambiguous launches; its default is dry-run.
 
 ## Fresh whole-game evaluation
 
@@ -265,7 +285,9 @@ Both trained seeds remain separate contrasts with the parent. Training collectio
 uses `collect-strategic-correction.py REVISION NEW_OUTPUT_DIRECTORY`; only after
 independent verification does it produce pins for 11101/11102. Each then needs
 its own verified 2p and 6p search runtime probe before launching its 108 shards.
-Both trained seeds now have runtime probes submitted; their full 108-shard screens await verified admission.
+Both trained seeds have verified probes and their full 108-shard screens are
+submitted. The local launch logs are
+`ai/runs/strategic-correction-{11101,11102}-full-launch-v1.log`.
 
 Independent verification records and preflight logs are also archived in the
 private model repository at revision `141ef2843681c3edb883ef79debe8462cf943c70`,
@@ -283,14 +305,52 @@ rule-specific intervals also fail to exclude chance, including Recharged/sealed
 at 5/6p. The 6p search overall share is 41.67%, interval [36.98%,46.35%]. These
 are development diagnostics; final required deal counts and all gates still apply.
 
+## Final runtime and standalone target packages
+
+The old readiness report remains as an audit of the wrapper mismatch. The new
+`strong/final-strategic-runtime-readiness-v2.json` resolves it:
+
+- Source dataset revision `b279b0e8fca796d8a726de2d20b8340ddd13d52e`, archive
+  `strong-source-final-strategic-runtime-20261023-v1.tgz`, SHA256
+  `85eeb02b4a25eb0a652bba453325ff8958a0629bf40396c21d12e223222afe51`.
+- Only the provenance-aware `arena-job.py` wrapper changed; 1,399 other base
+  files retain their hashes. Both models passed the real wrapper/evaluator on
+  64 separate plumbing games, including nonzero deal offset 4. No final seeds.
+- Evidence revision `35a34845b207ce4bb667aee632270b010edcfe1e`, prefix
+  `runs/final-strategic-runtime-evidence-v1`, 18 files.
+
+The standalone package builder initially caught current-checkout runtime drift
+and stopped before anything ran on the target. Preserve that rejected local
+attempt at `ai/runs/strategic-packages-8840u-v1`. The corrected package preparation
+at `ai/runs/strategic-packages-8840u-v2` uses the frozen source directly; only the
+packager and serving dependency declaration were added/updated. Every packaged
+engine/worker/encoder file was compared with the frozen source.
+
+Both packages completed all 2,553 fixtures from an unrelated working directory
+on `ssh minipc`, with full per-request responses retained. Independent local
+collection rechecked legality, request/revision identity, schema, value ordering,
+timing summaries and **all 5,106 moves against the frozen evaluation runtime**.
+
+| Model | Warm median | Warm p95 | First request |
+| --- | --- | --- | --- |
+| 11101 | 3.81ms | 6.52ms | 217.85ms |
+| 11102 | 3.89ms | 6.63ms | 206.71ms |
+
+These are sequential engineering timings, not statistically ranked model
+performance. Exact reports: `strong/strategic-packages-8840u-results-v1.json`.
+Remote directory `/home/coyotte508/powergrid-ai-strategic-packages-v1` completed;
+no target process remains to restart. Packages and raw evidence are archived at
+model-repo revision `555d4ab983369dfe183fc68b9d555690f5f3d583`, prefix
+`runs/strategic-packages-8840u-evidence-v1`. No production routing was installed.
+
 ## Ordered continuation
 
-1. Inspect the two remaining 6p runtime probes. The parent reference is complete.
-   Collect completed artifacts at immutable revisions; retain
+1. Inspect the 216 submitted trained-model arena shards. Teacher work, gradient
+   training, the parent reference, four runtime probes and target benchmarks
+   are complete. Collect completed artifacts at immutable revisions; retain
    verified folders and reconcile partial folders before any retry.
-2. Once both probes for a model verify, use the guarded screen launcher to submit
-   its 108 full four-deal shards. Exact model pins already exist. The parent
-   reference is fully verified. No training or teacher retries are needed.
+2. Do not duplicate full arenas. The status snapshot contains all 330 screen
+   handles: 324 full cases across three models plus six runtime probes.
 3. Continue the fixed `strong/strategic-correction-screen-protocol-v1.json`:
    20,160 full games across parent and both seeds, 27 count/opponent cells, all
    four rules and every seat. Preserve both seeds separately and every adverse
@@ -299,13 +359,19 @@ are development diagnostics; final required deal counts and all gates still appl
    targets or small probes cannot qualify a model. The reserved final protocol
    remains unchanged and unused. If development evidence remains weak, diagnose
    and improve the training rather than lowering the strength requirements.
+   The first complete candidate cells already show substantial regressions for
+   both seeds. After finishing this fixed comparison, trace paired losses and
+   isolate nomination, bid and building interventions. A mismatch between
+   single-intervention teacher targets and repeated new-policy decisions is
+   one hypothesis to investigate, not an established explanation. Do not tune
+   thresholds on final seeds or hide weak rule/player-count cells.
 5. The final launcher accepts 4.3 only with matching encoder/evaluator bytes;
-   eleven contract tests passed without real submissions. The development source
-   still has the older arena wrapper (`strong/final-strategic-runtime-readiness-v1.json`).
-   Before qualification, derive a fresh source with the provenance-aware
-   arena-job.py overlay and probe the exact selected model on development-only seeds.
-6. Benchmark the exact selected configuration on the actual 8840U and verify
-   the extracted standalone serving package before qualification/deployment.
+   eleven contract tests and the fresh wrapper's 64 real plumbing games passed.
+   Use the new final runtime descriptor, not the development source's old wrapper.
+6. Target benchmarks and standalone packages for these exact two candidates are
+   verified. Any subsequently changed model/runtime must be checked in its actual
+   serving configuration. The unchanged reserved final strength gate is still
+   mandatory and unused.
 
 Scope remains Germany, automatic setup, 2–6 players, original/Recharged and
 open/sealed auctions. All players' money is allowed. Hidden deck order, random

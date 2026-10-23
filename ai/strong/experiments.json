@@ -43239,7 +43239,7 @@
             "file_count": 258,
             "qualification_eligible": false
         },
-        "final_runtime_followup": "The4.3 launcher contract passes11 mocked tests. Frozen strategic development archive has matching encoder/evaluator but old arena-job.py; derive a new archive with provenance wrapper and probe exact selected candidate before final qualification.",
+        "final_runtime_followup": "Provenance wrapper archive frozen and passed64 real plumbing games. Both exact standalone models passed5106requests on actualAMD8840U. Final candidate remains unselected; strength and reserved final gate remain required.",
         "parent_complete_cells": 27,
         "complete_teacher_manifest_sha256": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57",
         "final_training_split": {
@@ -43274,8 +43274,8 @@
         "submitted_trained_model_probes": 4,
         "candidate_2p_probes_verified": true,
         "candidate_2p_probe_artifact_revision": "3b3044a49826467fd78c389e5166c99b12d52b35",
-        "candidate_6p_probes_verified": false,
-        "new_model_full_arenas_submitted": 0,
+        "candidate_6p_probes_verified": true,
+        "new_model_full_arenas_submitted": 216,
         "parent_reference_complete": true,
         "parent_assessment_file": "ai/strong/strategic-correction-parent-assessment-v1.json",
         "parent_evidence": {
@@ -43284,14 +43284,73 @@
             "manifest_sha256": "8aef607ef6194a65af0907f0ca552830b58136742f0bf48ef224b19d3a28c257",
             "file_count": 113,
             "qualification_eligible": false
-        }
+        },
+        "new_model_full_games_planned": 13440,
+        "candidate_runtime_admission_files": [
+            "ai/strong/strategic-correction-screen-11101-admission-v1.json",
+            "ai/strong/strategic-correction-screen-11102-admission-v1.json"
+        ],
+        "amd8840u_candidate_benchmark_file": "ai/strong/strategic-packages-8840u-results-v1.json",
+        "candidate_probe_artifact_revisions": {
+            "11101": "35a34845b207ce4bb667aee632270b010edcfe1e",
+            "11102": "d2de0a061a7f6c844f2ee4ad3ef4d6dcc962d7cd"
+        },
+        "candidate_arena_evidence": {
+            "revision": "5478e9ecb6784553fb717157c20239152f2263f4",
+            "prefix": "runs/strategic-correction-candidate-arena-evidence-v1",
+            "manifest_sha256": "27a12d98a590db9f1c060a9a11f82ddd85c01357c4b33fa69d6f955c6d2ca177",
+            "file_count": 327,
+            "qualification_eligible": false
+        },
+        "candidate_development_assessment_file": "ai/strong/strategic-correction-development-assessment-v1.json",
+        "verified_candidate_shards_at_checkpoint": 95,
+        "complete_candidate_cells_at_checkpoint": {
+            "11101": 14,
+            "11102": 3
+        },
+        "complete_cell_games_at_checkpoint": 10944,
+        "candidate_development_conclusion": "Both candidates regress in complete-game cells. Finish the fixed grid and diagnose before another training cohort; neither is selected or qualified."
     },
     "final_strategic_runtime_v1": {
-        "readiness_file": "ai/strong/final-strategic-runtime-readiness-v1.json",
+        "readiness_file": "ai/strong/final-strategic-runtime-readiness-v2.json",
         "contract_tests": 11,
-        "runtime_ready": false,
+        "runtime_ready": true,
         "candidate_selected": false,
         "reserved_final_seeds_used": false,
+        "qualification_eligible": false,
+        "previous_readiness_file": "ai/strong/final-strategic-runtime-readiness-v1.json",
+        "source_file": "ai/strong/final-strategic-runtime-source-v1.json",
+        "preflight_file": "ai/strong/final-strategic-runtime-preflight-v1.json",
+        "plumbing_games": 64,
+        "evidence": {
+            "revision": "35a34845b207ce4bb667aee632270b010edcfe1e",
+            "prefix": "runs/final-strategic-runtime-evidence-v1",
+            "manifest_sha256": "f16f4d0de0dc5a1da4cc35665c0531fa213e5a74e43bd7bc1af95b2355473dc4",
+            "file_count": 18,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false
+        }
+    },
+    "strategic_packages_8840u_v1": {
+        "result_file": "ai/strong/strategic-packages-8840u-results-v1.json",
+        "evidence": {
+            "revision": "555d4ab983369dfe183fc68b9d555690f5f3d583",
+            "prefix": "runs/strategic-packages-8840u-evidence-v1",
+            "manifest_sha256": "a867008f41311f2481f00da77afd5a6791c48f44ca92e5acda1b4ed051b7907b",
+            "file_count": 18,
+            "qualification_eligible": false
+        },
+        "models": [
+            "11101",
+            "11102"
+        ],
+        "requests": 5106,
+        "all_frozen_runtime_moves_identical": true,
+        "warm_p95_ms": {
+            "11101": 6.522047519683835,
+            "11102": 6.629126961342987
+        },
+        "candidate_selected": false,
         "qualification_eligible": false
     }
 }

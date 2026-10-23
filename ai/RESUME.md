@@ -2,12 +2,16 @@
 
 **Start with [the current resumption handoff](HANDOFF-2026-10-23-RESUMED.md).**
 The user explicitly resumed training on 23 October. The research goal is active.
-All jobs left at the previous pause completed; their outputs have been recovered.
-The full remaining 140 teacher shards have now been submitted. Exact job handles
-and authoritative status timestamps are in
-[resume-2026-10-23-status.json](strong/resume-2026-10-23-status.json).
-Do not duplicate those jobs. No new strategic gradient job has run yet, no model
-is qualified, and reserved final-test seeds remain unused.
+All jobs left at the previous pause completed and their outputs were recovered.
+All 140 remaining teacher shards and 108 parent reference arena shards have
+been submitted. Do not duplicate them. Current authoritative status timestamps
+and exact handles are in [teacher jobs](strong/strategic-teacher-training-status-v1.json)
+and [development arenas](strong/strategic-correction-screen-status-v1.json).
+The three historical image-pull errors already have completed replacements.
+
+No strategic gradient job has run yet. The builder requires the complete verified
+160-shard dataset. The frozen evaluator and independent trained-export collector
+are ready. No model is qualified; reserved final-test seeds remain unused.
 
 ---
 

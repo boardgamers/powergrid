@@ -14,6 +14,7 @@ from huggingface_hub import HfApi, hf_hub_download
 from model_strategic import StrategicPolicy, FEATURE_REVISION, STATE_DIM, ACTION_DIM
 from strategic_correction_data import load, arrays, metrics
 from strategic_correction_targets import regression_loss
+from strategic_correction_check import check as check_learned_scope
 
 ROOT = Path(__file__).resolve().parents[2]
 def read(p): return json.loads(Path(p).read_text())
@@ -91,6 +92,7 @@ def train(seed, rows, parent, out, design, manifest_hash):
     torch.save(optimizer.state_dict(),out/'optimizer.pt')
     report = {'seed':seed,'best_epoch':best_epoch,'updates':updates,'seconds':time.monotonic()-started,
         'gpu':torch.cuda.get_device_name(),'max_allocated_bytes':torch.cuda.max_memory_allocated(),
+        'training_device':'cuda','tf32':False,'torch_version':torch.__version__,
         'head_parameters':sum(p.numel() for p in net.head.parameters()),'parent_tensors_identical':True,
         'train_roots':1440,'validation_roots':480,'training_location':'HF Jobs','qualification_eligible':False}
     write(out/'training.json',report)
@@ -142,6 +144,9 @@ def main():
                     subprocess.run([sys.executable,str(ROOT/'ai/strong'/script),*map(str,arguments)],cwd=ROOT,stdout=f,stderr=subprocess.STDOUT,check=True)
             parity,serving=read(directory/'parity.json'),read(directory/'serving.json')
             assert parity['positions']==serving['positions']==2553 and parity['all_actions_match'] and serving['all_moves_legal']
+            scope=check_learned_scope(directory/'derivative/inference64.pt',directory/'derivative/inference64.onnx',fixtures,rows)
+            assert scope['labels_strict_parity']==1920 and scope['parent_values_preserved']
+            write(directory/'scope.json',scope)
         status.update(status='complete',runs=reports)
     except BaseException as error:
         status.update(status='failed',error=type(error).__name__+': '+str(error))

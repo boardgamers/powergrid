@@ -4,7 +4,7 @@ const parent = require('./features-v4_2.cjs'), next = require('./features-v4_3.c
 const search = require('./search.cjs');
 test('2553 parent prefixes/menus and exact public teacher shortlists', async () => {
     const fixtures = process.env.PG_SERVING_FIXTURES || path.join(__dirname, 'fixtures/multiplayer-serving-v1.jsonl');
-    let positions = 0, eligible = 0;
+    let positions = 0, eligible = 0, hiddenBidCases = 0;
     const phases = new Set();
     for await (const line of readline.createInterface({input: fs.createReadStream(fixtures)})) {
         const {state, player} = JSON.parse(line).request;
@@ -26,13 +26,21 @@ test('2553 parent prefixes/menus and exact public teacher shortlists', async () 
             hidden.seed = 'irrelevant-real-game-seed'; hidden.powerPlantsDeck = [{number: 999}];
             hidden.powerPlantDeckAfterStep3 = [{number: 888}]; hidden.hiddenLog = [{secret: true}];
             hidden.automation = {...hidden.automation, plans: {0: {secret: true}}};
+            if (hidden.options.fastBid) {
+                hidden.currentBid = 999;
+                hidden.players.forEach((opponent, seat) => {
+                    if (seat !== player) opponent.bid = 777 + seat;
+                });
+                hiddenBidCases++;
+            }
             assert.deepEqual(next.encode(hidden, player), b);
         }
         positions++;
     }
     assert.equal(positions, 2553);
     assert.ok(eligible > 0);
+    assert.ok(hiddenBidCases > 0);
     assert.deepEqual([...phases].sort(), ['Bid', 'Build', 'ChoosePowerPlant']);
-    console.log(JSON.stringify({positions, eligible, parent_features_and_menus_identical: true,
+    console.log(JSON.stringify({positions, eligible, hiddenBidCases, parent_features_and_menus_identical: true,
         exact_teacher_shortlists: true, hidden_state_does_not_change_features: true}));
 });

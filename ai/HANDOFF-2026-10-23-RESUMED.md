@@ -15,11 +15,16 @@ This document supersedes the pause instruction in the
 - Artifact repo: `coyotte508/powergrid-ai-germany-v1` (private).
 - Source dataset: `coyotte508/powergrid-ai-training-v1`.
 - Target: `ssh minipc`, AMD 8840U. The local HX370 is not the target benchmark.
-- Latest explicit job snapshot:
-  [resume-2026-10-23-status.json](strong/resume-2026-10-23-status.json).
+- Latest explicit job snapshots:
+  [teacher jobs](strong/strategic-teacher-training-status-v1.json) and
+  [development arenas](strong/strategic-correction-screen-status-v1.json).
   Read its timestamps and inspect those exact handles; do not infer current
   state from this document. Local launch guards are under
-  `ai/runs/strategic-teacher-training-launches-v1/`.
+  `ai/runs/strategic-teacher-training-launches-v1/` and
+  `ai/runs/strategic-correction-screen-launches-v1/`. Refresh these safely with
+  `ai/.venv/bin/python ai/strong/refresh-strategic-correction-jobs.py`;
+  this only inspects existing jobs. The three historical image-pull failures
+  retain explicit links to their completed replacement jobs. Do not retry them.
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
@@ -60,10 +65,10 @@ sources and both continuation modes. Exact handles and timeouts are saved in
 the status snapshot and launch guards. The first full snapshot had 67 running,
 72 scheduling and one completed; this is historical, not a live count.
 
-At the resumption checkpoint, 30/160 shards are independently verified, totaling
-345,696 full simulated rollouts. There are still 240 roots with both complete
-continuation modes. The faster economic-opponent jobs finishing first does not
-make the partial dataset ready for gradients.
+The first resumption checkpoint had 30/160 independently verified shards.
+The live verified counts are in `strong/strategic-teacher-training-results-v1.json`.
+The faster economic-opponent jobs finishing first does not make a partial dataset
+ready for gradients; all 160 shards and 1,920 complete-mixture roots are required.
 
 These are CPU simulation jobs, using 24 engine workers and single-thread FP64
 ONNX inference. The lighter CPU image checks batching parity on all 2,553
@@ -115,12 +120,58 @@ passed across 2–6 players: every complete game record was identical between
 zero correction and parent. Evidence is in
 `strong/strategic-correction-source-code-preflight-v1.json`.
 
+The public-information check now also mutates opponents' submitted sealed bids:
+422 sealed-auction fixtures pass, with identical features and shortlists. Actual
+trained exports must pass `strategic_correction_check.py`: all 2,553 serving
+positions, unchanged parent values and out-of-scope actions, and native/ONNX
+parity over all 1,920 labeled roots. The independent training collector additionally
+checks parent tensors, optimizer steps, fixed validation selection, checkpoint
+hashes and actual exported actions before writing evaluation model pins.
+
 The trainable parent is pinned to model-repo revision
 `b115a2d78aae095e51fb72a5535b3507abdf90c0`,
 `runs/discard-correction-v1/10102/best.pt`, SHA256
 `66a10b831a54843063bbca89743a542ed1f89515a16452a40483eef369c59bd8`.
 Its serving ONNX SHA256 is
 `57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68`.
+
+## Fresh whole-game evaluation
+
+The evaluation implementation and frozen source are ready. All **108 parent
+reference shards** have been submitted, covering 6,720 games. Do not duplicate
+those launches. The two runtime probes also completed and were independently
+verified: 8 two-player games in 119.84s and 24 six-player games in 1,258.66s,
+both against geographic search, without truncation. The conservative admission
+calculation permits four-deal shards with a four-hour job timeout.
+
+- Source descriptor: `strong/strategic-correction-screen-source-v1.json`.
+- Dataset revision: `2c33a8878a742eabf54b94b7e2148a63223318e8`.
+- Archive: `strong-source-strategic-correction-screen-20261023-v1.tgz`.
+- SHA256: `162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb`.
+- Protocol SHA256: `cd038070dcf7f875cecab0a9ecfa095447675cfd75bc3584c157fd1d4261787a`.
+- Results: `strong/strategic-correction-screen-results-v1.json`.
+- Exact model manifests: `strong/strategic-correction-screen-pins-v1/`.
+
+Do not modify frozen evaluation overlays while these jobs run. The runtime
+retains the original engine and features; seven explicit overlays support the
+new correction and audited deal offsets. Preflight verified 40 plumbing games,
+nonzero deal offsets and nine rejected corruptions. The arena outer cap remains
+1,600 steps and search horizon 2,400; a cap invalidates the result, never turns it
+into a scored ordinary game.
+
+Collect a completed shard at an immutable model-repo revision:
+
+```bash
+ai/.venv/bin/python ai/strong/manage-strategic-correction-screen.py collect parent N OPPONENT START END REVISION
+ai/.venv/bin/python ai/strong/manage-strategic-correction-screen.py compare
+```
+
+Only complete cells enter comparison, retaining all missing cells explicitly.
+Both trained seeds remain separate contrasts with the parent. Training collection
+uses `collect-strategic-correction.py REVISION NEW_OUTPUT_DIRECTORY`; only after
+independent verification does it produce pins for 11101/11102. Each then needs
+its own verified 2p and 6p search runtime probe before launching its 108 shards.
+Neither seed has been trained or entered these arenas yet.
 
 ## Ordered continuation
 
@@ -134,13 +185,13 @@ Its serving ONNX SHA256 is
 3. Build/check the frozen training source and launch the HF GPU job. Collect
    both seeds, verify frozen parent tensors, epoch selection, strict exports,
    legal responses and source/data hashes independently.
-4. Implement/run the fresh development protocol fixed in
+4. Continue the fresh development protocol fixed in
    `strong/strategic-correction-screen-protocol-v1.json`: 20,160 games across
    parent and both seeds, 27 count/opponent cells, all four rules and every seat.
    Economic/search opponents, capacity behavior at 2p and frozen A260 at 3p are
-   primary diagnostics; legacy/heuristic/rush are included. No development
-   games have been run for this protocol yet. Freeze the exact model manifests
-   and evaluation source, verify runtime, then submit bounded full-game shards.
+   primary diagnostics; legacy/heuristic/rush are included. The parent reference
+   is already running. Collect it and run each independently verified new seed
+   with the frozen evaluator and matching deal partitions.
 5. Report absolute strength and paired gains, including adverse cells. The
    reserved `final-protocol-multiplayer.json` remains unchanged and unused.
    No training-target result or small diagnostic substitutes for that gate.

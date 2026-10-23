@@ -21,7 +21,7 @@ def verify_report(report, screen, checkpoint, evaluation, feature_revision='4.0-
         'player_count': n, 'games': screen['games'], 'paired_seats': True,
         'candidate_search_samples': 0, 'candidate_geographic_search': False,
         'candidate_search_scope': 'all', 'candidate_search_model_proposal': True,
-        'seed': expected_seed, 'deal_offset': 0, 'search_max_steps': 2400,
+        'seed': expected_seed, 'deal_offset': screen.get('deal_offset', 0), 'search_max_steps': 2400,
         'opponent_sha256': screen.get('sha256'),
     }
     for key, value in expected.items():

@@ -43128,9 +43128,9 @@
         "job_snapshot_file": "ai/strong/resume-2026-10-23-status.json",
         "live_jobs_at_resume": 0,
         "submitted_teacher_jobs": 140,
-        "verified_teacher_shards": 30,
-        "teacher_evaluations": 345696,
-        "complete_mixture_roots": 240,
+        "verified_teacher_shards": 153,
+        "teacher_evaluations": 1753440,
+        "complete_mixture_roots": 1752,
         "all_labels_verified": false,
         "collection_unique_games": 3840,
         "collection_roots": 200775,
@@ -43165,6 +43165,15 @@
             "manifest_sha256": "233a1cf46fb94475dd3edc21241b15d69020f00f98837f19b70c43a3671ed5a4",
             "file_count": 42,
             "qualification_eligible": false
-        }
+        },
+        "teacher_job_snapshot_file": "ai/strong/strategic-teacher-training-status-v1.json",
+        "screen_job_snapshot_file": "ai/strong/strategic-correction-screen-status-v1.json",
+        "submitted_parent_reference_shards": 108,
+        "verified_parent_complete_cell_games": 1728,
+        "screen_source_file": "ai/strong/strategic-correction-screen-source-v1.json",
+        "screen_preflight_file": "ai/strong/strategic-correction-screen-preflight-v1.json",
+        "private_state_preflight_file": "ai/strong/strategic-correction-private-state-preflight-v1.json",
+        "independent_training_collector": "ai/strong/collect-strategic-correction.py",
+        "amd8840u_reachable": true
     }
 }

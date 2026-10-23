@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "games": 40,
+  "serving_positions": 2553,
+  "nonzero_deal_offset_verified": 4,
+  "corruptions_rejected": [
+    "changed_credit",
+    "duplicate_pair",
+    "missing_game",
+    "truncated_game",
+    "truncated_search",
+    "wrong_deal_seed",
+    "wrong_episode",
+    "wrong_model",
+    "wrong_offset"
+  ],
+  "full_grid_games_per_model": 6720,
+  "protocol_sha256": "cd038070dcf7f875cecab0a9ecfa095447675cfd75bc3584c157fd1d4261787a",
+  "qualification_eligible": false,
+  "scope": "Runtime/verifier plumbing; no development or final candidate games.",
+  "source_revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
+  "source_sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb",
+  "unchanged_base_file_count": 1393
+}

@@ -11,7 +11,8 @@
     "ai/strong/evaluate.py": "64b405a92e7b97a7889fdc17facd9825e12da5fc7609f34f18d7c988f2d2209a",
     "ai/strong/strategic_correction_data.py": "192caf71f23a90a57e996e0d831ef25708f7024a0b2851080caa163006c43c12",
     "ai/strong/strategic_correction_targets.py": "0a9f4587471ee865d3d10b57d777abbbed704e99c1331f7bbf2e4fe4b015450a",
-    "ai/strong/train-strategic-correction.py": "054e50c4dd183f7be86211a061e55b2f8ad7a514108c302e0f16ba877d543ada",
+    "ai/strong/strategic_correction_check.py": "554fbf6badd552c032bf1d2102a23c3ad6f5b639b3c363bc5c20ffc0494b7d10",
+    "ai/strong/train-strategic-correction.py": "5edb74d085c8922558f7ee6004c26d1bb8bc4e687642998a3412bf843fae48ae",
     "ai/strong/check-strategic-correction-data.py": "a677c0396eb06df4d3a0695651d9b16e6e5346a13796e9be0d08a04803db7819",
     "ai/strong/test_model_strategic.py": "1b1f06f8fa2d7a115a78f32d93fe973e6e273c5b912d9bebf6164e9ba597c281",
     "ai/strong/test_strategic_correction_targets.py": "c9f8f5afe47eff10c6b6d4d618b031a62f0088051fdd1d17904221a411835315",
@@ -20,7 +21,7 @@
     "ai/strong/check-strategic-correction-arena.py": "5d1517171836fa93fd03461718c1dcee41e41667946489a7feafa67f284e3033",
     "ai/strong/strategic-correction-design-v1.json": "98a616c3c0ce6659b105ccb3b5fe26d662be9cd5b2cdd9805d0b1262258fd1f6",
     "ai/strong/strategic-teacher-training-source-v1.json": "b81497226e77612edd5cff6097935012d1a3c0027f2174db99063883cd4fc41c",
-    "ai/strong/strategic-teacher-training-results-v1.json": "c9cd5ae749587a9d2c3479cef56056517fc10e82dea27ef553ed59e6ac47b353"
+    "ai/strong/strategic-teacher-training-results-v1.json": "8c58a142cc4fb1146b4521637371b491a2687db87337ec48beab5548eeb421d7"
   },
   "base": {
     "archive": "strong-source-strategic-teacher-training-20261010-v1.tgz",
@@ -94,8 +95,8 @@
     "scope": "Untrained arena compatibility only. Disjoint plumbing seeds; not strength evidence."
   },
   "design_sha256": "98a616c3c0ce6659b105ccb3b5fe26d662be9cd5b2cdd9805d0b1262258fd1f6",
-  "manifest_sha256": "c9cd5ae749587a9d2c3479cef56056517fc10e82dea27ef553ed59e6ac47b353",
+  "manifest_sha256": "8c58a142cc4fb1146b4521637371b491a2687db87337ec48beab5548eeb421d7",
   "gradients": 0,
   "qualification_eligible": false,
-  "workspace_output": "ai/runs/strategic-correction-code-preflight-v2"
+  "workspace_output": "ai/runs/strategic-correction-code-preflight-v4"
 }

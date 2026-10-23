@@ -11,7 +11,7 @@ from strategic_collection import ROOT, read, write, digest
 NAMES = [
     'model.py', 'model_strategic.py', 'features-v4_3.cjs', 'encoders.cjs',
     'export-inference64.py', 'package-serving.py', 'evaluate.py',
-    'strategic_correction_data.py', 'strategic_correction_targets.py',
+    'strategic_correction_data.py', 'strategic_correction_targets.py', 'strategic_correction_check.py',
     'train-strategic-correction.py', 'check-strategic-correction-data.py',
     'test_model_strategic.py', 'test_strategic_correction_targets.py',
     'test-strategic-correction-features.cjs', 'preflight-strategic-correction.py',
@@ -65,6 +65,7 @@ def main():
     logs = out/'ai/runs/source-checks'
     logs.mkdir(parents=True)
     commands = [
+        [sys.executable, '-c', "import runpy,sys; sys.path.insert(0,'ai/strong'); runpy.run_path('ai/strong/train-strategic-correction.py', run_name='source_import_check')"],
         ['node', '--test', 'ai/strong/test-strategic-correction-features.cjs'],
         [sys.executable, 'ai/strong/test_model_strategic.py'],
         [sys.executable, 'ai/strong/test_strategic_correction_targets.py'],

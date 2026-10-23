@@ -28,6 +28,102 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
+## 24 October checkpoint: regressions isolated, teacher assumption audited
+
+This goal turn made **progress**. No model is selected or qualified, no final
+seeds were used, and no production files were changed. Both trained models are
+rejected for promotion on current development evidence; the previous parent
+also remains below the full strength requirements.
+
+The original fixed screen now has **19,392/20,160 complete-cell games**:
+27 parent cells and 26 cells for each candidate. Only each candidate's 6p
+geographic-search cell remains incomplete. At `2026-10-23T23:41:45.784875+00:00`, the
+331 recorded handles comprise 322 completed, eight running and one historical
+error. Do not relaunch the eight live jobs. Consult the timestamped status file
+and exact guards before future collection or recovery.
+
+The original `11101-6p-search_geo-0-4` job `6adbe72b1e112550ce7d9c7b` failed
+with exit 137 and no result artifact. Resource metrics were unavailable (HTTP 406),
+so OOM is **not established**. One exact clone replacement,
+`6adbed2f046eb82b1ecd8532`, is running. It retains the same source, seed, model,
+hardware, 24 workers, 4h timeout and full horizons. Original failure and guards
+are preserved in `strong/strategic-correction-screen-retry1-v1.json`.
+
+### Calibration diagnostic
+
+`strong/strategic-correction-calibration-v1.json` uses the immutable 1,920-root
+labels and fixed exported weights, without gradients or threshold fitting.
+On 480 validation roots, 11101 changes 113 decisions and predicts +0.01552 mean
+advantage, versus +0.00518 in the simulation labels. 11102 changes 144 decisions,
+predicts +0.01820 and achieves +0.00686 on those labels. Of changed validation
+actions, 28.3% and 33.3% respectively have negative teacher targets. These
+post-hoc diagnostics suggest overconfidence; they do not validate teacher
+realism or measure full-game improvement.
+
+### Completed causal phase isolation
+
+All **120 HF diagnostic jobs / 7,680 full games** completed and are independently
+verified. There are 30 complete cells: two models, 2–6 players, and nomination,
+bid or building changes alone. Each arm uses the unchanged parent outside its
+named phase. Every cell has 16 paired development deals, all seats and all four
+rules against the economic opponent. None uses reserved final deals.
+
+Preflight proved exact complete-game parity for `all` versus the original
+candidate and `none` versus parent (128 games across both models at 2p/6p).
+Another 48 games exercised all six named model/phase arms. Full collection
+reencoded **104,641 public disagreement states** with the frozen runtime and
+reproduced both models' choices, while checking every routing ledger and cap.
+These are encountered states, not a count of independent games or unique boards.
+
+No model/phase/count cell has a positive marginal 95% improvement interval
+against parent. At 6p, 11101's isolated nomination/bid/build changes lose
+5.86/8.98/8.07 percentage points; all three marginal intervals are wholly
+negative. For 11102, wholly negative cells include nomination at 2p/4p/5p,
+bidding at 2p, and building at 5p. All other results and uncertainties remain in
+`strong/strategic-correction-ablation-results-v1.json` and its assessment.
+The regression is not confined to bidding. These are exploratory, reused
+development deals; no simultaneous-confidence or post-hoc candidate claim.
+
+Frozen diagnostic source: dataset revision
+`8da026471210f9f8beb2c23a9289d764d8982c3b`, archive
+`strong-source-strategic-correction-ablation-20261024-v1.tgz`, SHA256
+`1d2e5c1daad55f630b03d5070f49ab91eab7d272d9eee7bd8f36f106be73109f`.
+Only the runner and protocol were overlaid on the original screen archive;
+1,400 base files are unchanged. Do not edit those frozen overlays. The manager
+collects with the frozen archive, not the drifting current engine/encoder.
+A local collector missing-import failure was fixed and partial folders were
+reconciled to their original immutable artifact revisions; no HF job was rerun.
+
+All verified records, full comparison, job guards and independent check logs
+are archived at model-repo revision `53a9f6dd70a3e6eb2a24c060f0989f7c3197c8f4`,
+prefix `runs/strategic-correction-ablation-evidence-v1` (373 files).
+Earlier launch/preflight/calibration evidence is at
+`c9c75161f47d0e107ecdcb6052c6a77e11246879`,
+prefix `runs/strategic-correction-diagnostics-evidence-v1`.
+
+### Sealed-bid belief mismatch
+
+The frozen `createAnalysisScenario` samples an already-committed affordable
+opponent's bid uniformly between minimum and all available cash, with no pass.
+This is independent of whether the continuation uses neural or economic bots.
+A read-only audit covered all 320 sealed-bid teacher roots. 184 have earlier
+committed opponents, giving 317 reconstructed public opponent prompts. The
+uniform assumption's mean is 49.22 Elektro, while the frozen parent and economic
+policy choose 24.51 and 26.94 respectively, including passes as zero. They choose
+42 and 22 passes where the sampler forces a positive bid.
+
+These are **hypothetical policy choices at reconstructed prompts**, not reads
+of historical hidden bids. The diagnostic clears bids, private logs/deck/seed,
+plans and `lastMove`. All320 cases passed engine-forward public-feature parity
+and invariance to deliberately changed private fields. No gradients, production
+engine changes or old-label edits were made. This establishes a mismatch with
+the specified continuation policies, not its causal contribution to losses.
+It cannot explain regressions in open auctions or all isolated phases.
+
+Report: `strong/strategic-sealed-belief-audit-v1.json`. Audit code and raw rows
+are archived at `961287c89bc32f388b3ed384624b707b24b0b7b1`,
+prefix `runs/strategic-sealed-belief-evidence-v1`.
+
 ## Recovered evidence
 
 No HF jobs were active at resume. All intended jobs left at the pause completed.
@@ -88,7 +184,8 @@ Machine-readable results:
   16 deals, 95% interval [21.88%,33.85%], below the 40% floor. Versus geographic
   search, parent win shares at 2/3/4/5 players are 49.22/25/23.05/38.125%; sealed
   weaknesses remain (5p Recharged/sealed is 20%). Preserve all adverse cells.
-- The 23:07 UTC collection checkpoint verifies 95 of 216 candidate shards.
+- The historical 23:07 UTC collection checkpoint verified 95 of 216 candidate shards.
+  The 24 October section above supersedes this partial count.
   Complete cells total 10,944 games: all 27 parent cells, 14 for 11101 and 3 for
   11102. **Both candidates show regressions.** Against economic at 4p, their
   paired differences are -16.41pp and -16.80pp; both marginal 95% intervals are
@@ -345,33 +442,38 @@ model-repo revision `555d4ab983369dfe183fc68b9d555690f5f3d583`, prefix
 
 ## Ordered continuation
 
-1. Inspect the 216 submitted trained-model arena shards. Teacher work, gradient
-   training, the parent reference, four runtime probes and target benchmarks
-   are complete. Collect completed artifacts at immutable revisions; retain
-   verified folders and reconcile partial folders before any retry.
-2. Do not duplicate full arenas. The status snapshot contains all 330 screen
-   handles: 324 full cases across three models plus six runtime probes.
-3. Continue the fixed `strong/strategic-correction-screen-protocol-v1.json`:
-   20,160 full games across parent and both seeds, 27 count/opponent cells, all
-   four rules and every seat. Preserve both seeds separately and every adverse
-   cell, including 5p Recharged/open and 6p. Run the paired comparison after collection.
-4. Assess actual-game strength before selecting any final candidate. Simulation
-   targets or small probes cannot qualify a model. The reserved final protocol
-   remains unchanged and unused. If development evidence remains weak, diagnose
-   and improve the training rather than lowering the strength requirements.
-   The first complete candidate cells already show substantial regressions for
-   both seeds. After finishing this fixed comparison, trace paired losses and
-   isolate nomination, bid and building interventions. A mismatch between
-   single-intervention teacher targets and repeated new-policy decisions is
-   one hypothesis to investigate, not an established explanation. Do not tune
-   thresholds on final seeds or hide weak rule/player-count cells.
-5. The final launcher accepts 4.3 only with matching encoder/evaluator bytes;
-   eleven contract tests and the fresh wrapper's 64 real plumbing games passed.
-   Use the new final runtime descriptor, not the development source's old wrapper.
-6. Target benchmarks and standalone packages for these exact two candidates are
-   verified. Any subsequently changed model/runtime must be checked in its actual
-   serving configuration. The unchanged reserved final strength gate is still
-   mandatory and unused.
+1. Inspect and finish collecting the eight existing 6p geographic-search jobs.
+   All other fixed screen cells are verified. The one failed job has exactly
+   one live replacement; never rerun either merely because it is quiet. Refresh
+   with `ai/.venv/bin/python ai/strong/refresh-strategic-correction-jobs.py`, then
+   collect complete cases at immutable revisions and regenerate the comparison.
+   `ai/runs/collect-completed-resume.py` is a local convenience wrapper. The
+   committed manager supports per-case collection. Do not regenerate the frozen
+   teacher label manifest or edit source archives.
+2. Phase isolation is fully complete. Do not relaunch its 120 jobs. Read
+   `strong/strategic-correction-ablation-assessment-v1.json`, calibration and the
+   sealed-belief audit. Neither candidate or phase-gated derivative is selected.
+3. Implement the sealed-belief correction in a separate versioned research
+   teacher, retaining the old engine/runtime for controls. Reconstruct earlier
+   public bid prompts and use the same opponent policy as the continuation;
+   include passing and verify private-field invariance. Never read actual hidden
+   submissions. First run matched diagnostic pilots, not an immediate full
+   replacement label campaign. Existing labels remain immutable historical data.
+4. Address the broader repeated-policy/generalization problem too. Capture new
+   policy-visited public states, including all three decision types and every
+   count/rule, with new whole-deal train/validation splits. Keep parent proposals
+   and uncertainty, and account for the rollout-policy versus deployed-policy
+   mismatch. The frozen 1,440-root training set and modest simulation gains did
+   not transfer to actual games. Do not use an auction-only fix or threshold
+   fitting on reused development deals as evidence of strong play.
+5. Any next gradients run on HF Jobs only. Establish source/data/policy checks,
+   train under a predeclared small pilot design, and test complete games on fresh
+   development deals before scaling. Preserve adverse cells and both seeds.
+   Leave the final protocol and final seeds unchanged until a candidate merits it.
+6. Final 4.3 wrapper readiness and exact AMD8840U packages for these two models
+   are verified; runtime readiness does not qualify them. A changed model/runtime
+   needs its own serving checks and target benchmark. The reserved final gate
+   is still mandatory and unused.
 
 Scope remains Germany, automatic setup, 2–6 players, original/Recharged and
 open/sealed auctions. All players' money is allowed. Hidden deck order, random

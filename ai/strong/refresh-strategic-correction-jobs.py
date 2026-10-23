@@ -32,9 +32,12 @@ def main():
                 'authoritative_status': job.status.stage, 'message': job.status.message,
                 'started_at': str(job.started_at) if job.started_at else None,
                 'finished_at': str(job.finished_at) if job.finished_at else None})
-        if directory == 'strategic-teacher-training-launches-v1':
-            identity = lambda r: tuple(r.get(k) for k in ['players', 'source_mode', 'mode',
-                'deal_start', 'deal_end', 'source_revision', 'source_sha256', 'protocol_sha256'])
+        if directory in ['strategic-teacher-training-launches-v1','strategic-correction-screen-launches-v1']:
+            fields = (['players','source_mode','mode','deal_start','deal_end']
+                if directory == 'strategic-teacher-training-launches-v1'
+                else ['key','players','opponent','start','end','smoke','model_pin_sha256'])
+            fields += ['source_revision','source_sha256','protocol_sha256']
+            identity = lambda r: tuple(r.get(k) for k in fields)
             for row in rows:
                 if row['authoritative_status'] == 'ERROR':
                     row['completed_replacement_job_ids'] = [r['job_id'] for r in rows

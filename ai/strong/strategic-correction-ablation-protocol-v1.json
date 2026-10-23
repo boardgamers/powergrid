@@ -1,0 +1,92 @@
+{
+  "purpose": "Post-hoc causal diagnostic of strategic correction regressions. Isolate nomination, bid and building without retraining or changing thresholds. Not candidate selection or final qualification.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "models": {
+    "parent": {
+      "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+      "prefix": "runs/discard-correction-v1/10102/derivative",
+      "files": {
+        "inference64.onnx": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+        "inference64.pt": "25e9995c3998cc9f09e1dafb40f0328ae09e616f791c10e793eaad42cfa5e473"
+      },
+      "feature_revision": "4.2-discard-correction",
+      "selected_epoch": 10,
+      "key": "parent",
+      "repo": "coyotte508/powergrid-ai-germany-v1",
+      "seed": 10102,
+      "training_verified": true,
+      "parent_frozen": true
+    },
+    "11101": {
+      "key": "11101",
+      "repo": "coyotte508/powergrid-ai-germany-v1",
+      "revision": "6be6f2af36d3382d43013621eab382c16a4cc1ae",
+      "prefix": "runs/strategic-correction-v1/11101/derivative",
+      "files": {
+        "inference64.onnx": "9f8d87b28dc1ed76770e7ffe8457a87fb3fb014d866b43b571ce838b87ff0f32",
+        "inference64.pt": "d271b7a28a9a33edacbebf3d6e398d18cd97b549768c24557a8b11d57564fb54"
+      },
+      "feature_revision": "4.3-strategic-correction",
+      "seed": 11101,
+      "selected_epoch": 30,
+      "training_verified": true,
+      "parent_frozen": true,
+      "strict_parity_positions": 2553,
+      "training_verified_sha256": "40e0495e736942566c15c4dec2fe039d15ac3069e6b605f5e6ebb69051455ea6",
+      "qualification_eligible": false
+    },
+    "11102": {
+      "key": "11102",
+      "repo": "coyotte508/powergrid-ai-germany-v1",
+      "revision": "6be6f2af36d3382d43013621eab382c16a4cc1ae",
+      "prefix": "runs/strategic-correction-v1/11102/derivative",
+      "files": {
+        "inference64.onnx": "85a8885a0f30b32f7f4c131f2d07003724ee4cd5e8c682c4d20d2842ef60ec09",
+        "inference64.pt": "65d95f80e7841bde3438dbd5ba89a03b675715ffaf1d9c1322fcb05fbba49f71"
+      },
+      "feature_revision": "4.3-strategic-correction",
+      "seed": 11102,
+      "selected_epoch": 50,
+      "training_verified": true,
+      "parent_frozen": true,
+      "strict_parity_positions": 2553,
+      "training_verified_sha256": "40e0495e736942566c15c4dec2fe039d15ac3069e6b605f5e6ebb69051455ea6",
+      "qualification_eligible": false
+    }
+  },
+  "arms": [
+    "nomination",
+    "bid",
+    "building"
+  ],
+  "control_arms": [
+    "all",
+    "none"
+  ],
+  "players": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "opponent": "economic",
+  "deals": 16,
+  "deals_per_job": 4,
+  "seed_template": "strategic-correction-dev-v1-{players}p",
+  "workers": 24,
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 11297,
+  "candidate_search_samples": 0,
+  "game_max_steps": 1600,
+  "search_max_steps": 2400,
+  "planned_jobs": 120,
+  "planned_games": 7680,
+  "reference_results_sha256": "6c63caa80db598467c6f4deaf97bf430d91104383890b04309386d67b4c0ad82",
+  "reference_evidence": "Candidate and parent development artifacts are individually pinned in screen-results-v1; reuse the same complete deals, all seats and all four rule variants.",
+  "routing": "Compute the unchanged strategic candidate and frozen parent on every candidate turn. Apply the new choice only in the named phase; otherwise use the parent. Keep all out-of-scope moves and values.",
+  "capture": "Read-only public root capture, independently verified by all/none terminal controls. Store all strategic decision actions/counts; store redacted public roots for disagreements. No actual hidden state is written.",
+  "promotion": "None. Report every arm/count/model and paired differences against both parent and full correction. If a phase looks promising, it still requires a newly frozen development candidate and independent evaluation; final seeds remain untouched.",
+  "reserved_final_seeds_used": false,
+  "qualification_eligible": false
+}

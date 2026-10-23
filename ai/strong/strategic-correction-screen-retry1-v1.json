@@ -1,0 +1,14 @@
+{
+  "original_job_id": "6adbe72b1e112550ce7d9c7b",
+  "authoritative_status": "ERROR",
+  "message": "Job failed with exit code: 137. Reason: Error",
+  "started_at": "2026-10-23 23:01:01.760000+00:00",
+  "finished_at": "2026-10-23 23:21:07.729000+00:00",
+  "artifact_revision_checked": "7bec7e12e604964b1176390efef490058dad98cb",
+  "result_artifacts_exist": false,
+  "metrics_available": false,
+  "metrics_error": "HF metrics endpoint returned406; no usable resource metrics. Do not infer OOM from exit137 alone.",
+  "replacement_policy": "One exact configuration replacement after confirmed terminal error and absent result artifacts. Preserve the original failed attempt; no horizon, budget, model, seed, worker or source changes.",
+  "qualification_eligible": false,
+  "replacement_job_id": "6adbed2f046eb82b1ecd8532"
+}

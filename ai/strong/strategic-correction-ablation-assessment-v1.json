@@ -1,0 +1,394 @@
+{
+  "source_results_sha256": "8e97f0d0a5b7bcf9e9bd6b02209411427ea9967866b989dfe0fcf46709f68658",
+  "source": {
+    "archive": "strong-source-strategic-correction-ablation-20261024-v1.tgz",
+    "revision": "8da026471210f9f8beb2c23a9289d764d8982c3b",
+    "sha256": "1d2e5c1daad55f630b03d5070f49ab91eab7d272d9eee7bd8f36f106be73109f",
+    "base": {
+      "archive": "strong-source-strategic-correction-screen-20261023-v1.tgz",
+      "revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
+      "sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb"
+    },
+    "overlays": {
+      "ai/strong/strategic_correction_ablation.py": "1c5de7d9e64d9a3107b3af0923b3fd090b059d0c4f0c4b38e801101faad10f66",
+      "ai/strong/strategic-correction-ablation-protocol-v1.json": "56655207742de25684605f97a343bcae9d40197ee8e426903cfa30dd23edb023"
+    },
+    "unchanged_base_file_count": 1400,
+    "preflight_sha256": "85b6bcbf6ba35d669e77cac4f925296a6db5fae86418eea6d1bcb26c22674f35",
+    "protocol_sha256": "56655207742de25684605f97a343bcae9d40197ee8e426903cfa30dd23edb023",
+    "qualification_eligible": false
+  },
+  "protocol_sha256": "56655207742de25684605f97a343bcae9d40197ee8e426903cfa30dd23edb023",
+  "complete": true,
+  "games": 7680,
+  "verified_shards": 120,
+  "independently_reproduced_public_disagreements": 104641,
+  "models": {
+    "11101": {
+      "games": 3840,
+      "cells": {
+        "2p/nomination": {
+          "win_rate": 0.7109375,
+          "games_per_model": 128,
+          "independent_deals": 16,
+          "win_share_difference": 0.01171875,
+          "paired_deal_bootstrap_95_interval": [
+            -0.06640625,
+            0.0859375
+          ]
+        },
+        "2p/bid": {
+          "win_rate": 0.65234375,
+          "games_per_model": 128,
+          "independent_deals": 16,
+          "win_share_difference": -0.046875,
+          "paired_deal_bootstrap_95_interval": [
+            -0.140625,
+            0.046875
+          ]
+        },
+        "2p/building": {
+          "win_rate": 0.72265625,
+          "games_per_model": 128,
+          "independent_deals": 16,
+          "win_share_difference": 0.0234375,
+          "paired_deal_bootstrap_95_interval": [
+            -0.046875,
+            0.09765625
+          ]
+        },
+        "3p/nomination": {
+          "win_rate": 0.640625,
+          "games_per_model": 192,
+          "independent_deals": 16,
+          "win_share_difference": 0.020833333333333322,
+          "paired_deal_bootstrap_95_interval": [
+            -0.07291666666666667,
+            0.10416666666666666
+          ]
+        },
+        "3p/bid": {
+          "win_rate": 0.5833333333333334,
+          "games_per_model": 192,
+          "independent_deals": 16,
+          "win_share_difference": -0.03645833333333333,
+          "paired_deal_bootstrap_95_interval": [
+            -0.11458333333333333,
+            0.05208333333333333
+          ]
+        },
+        "3p/building": {
+          "win_rate": 0.6354166666666667,
+          "games_per_model": 192,
+          "independent_deals": 16,
+          "win_share_difference": 0.015624999999999997,
+          "paired_deal_bootstrap_95_interval": [
+            -0.05729166666666667,
+            0.08854166666666666
+          ]
+        },
+        "4p/nomination": {
+          "win_rate": 0.578125,
+          "games_per_model": 256,
+          "independent_deals": 16,
+          "win_share_difference": -0.03515625,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1015625,
+            0.03515625
+          ]
+        },
+        "4p/bid": {
+          "win_rate": 0.609375,
+          "games_per_model": 256,
+          "independent_deals": 16,
+          "win_share_difference": -0.00390625,
+          "paired_deal_bootstrap_95_interval": [
+            -0.05859375,
+            0.0625
+          ]
+        },
+        "4p/building": {
+          "win_rate": 0.63671875,
+          "games_per_model": 256,
+          "independent_deals": 16,
+          "win_share_difference": 0.0234375,
+          "paired_deal_bootstrap_95_interval": [
+            -0.03515625,
+            0.08203125
+          ]
+        },
+        "5p/nomination": {
+          "win_rate": 0.74375,
+          "games_per_model": 320,
+          "independent_deals": 16,
+          "win_share_difference": -0.014062500000000004,
+          "paired_deal_bootstrap_95_interval": [
+            -0.0625,
+            0.03749999999999999
+          ]
+        },
+        "5p/bid": {
+          "win_rate": 0.721875,
+          "games_per_model": 320,
+          "independent_deals": 16,
+          "win_share_difference": -0.035937500000000004,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1265625,
+            0.05312499999999999
+          ]
+        },
+        "5p/building": {
+          "win_rate": 0.71875,
+          "games_per_model": 320,
+          "independent_deals": 16,
+          "win_share_difference": -0.0390625,
+          "paired_deal_bootstrap_95_interval": [
+            -0.08906249999999999,
+            0.012500000000000002
+          ]
+        },
+        "6p/nomination": {
+          "win_rate": 0.7083333333333333,
+          "games_per_model": 384,
+          "independent_deals": 16,
+          "win_share_difference": -0.05859375,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1015625,
+            -0.01953125
+          ]
+        },
+        "6p/bid": {
+          "win_rate": 0.6770833333333333,
+          "games_per_model": 384,
+          "independent_deals": 16,
+          "win_share_difference": -0.08984375,
+          "paired_deal_bootstrap_95_interval": [
+            -0.16276041666666669,
+            -0.0234375
+          ]
+        },
+        "6p/building": {
+          "win_rate": 0.6861979166666667,
+          "games_per_model": 384,
+          "independent_deals": 16,
+          "win_share_difference": -0.08072916666666667,
+          "paired_deal_bootstrap_95_interval": [
+            -0.12630208333333334,
+            -0.03385416666666667
+          ]
+        }
+      },
+      "negative_point_cells": [
+        "2p/bid",
+        "3p/bid",
+        "4p/nomination",
+        "4p/bid",
+        "5p/nomination",
+        "5p/bid",
+        "5p/building",
+        "6p/nomination",
+        "6p/bid",
+        "6p/building"
+      ],
+      "negative_marginal_95_interval_cells": [
+        "6p/nomination",
+        "6p/bid",
+        "6p/building"
+      ],
+      "positive_marginal_95_interval_cells": []
+    },
+    "11102": {
+      "games": 3840,
+      "cells": {
+        "2p/nomination": {
+          "win_rate": 0.578125,
+          "games_per_model": 128,
+          "independent_deals": 16,
+          "win_share_difference": -0.12109375,
+          "paired_deal_bootstrap_95_interval": [
+            -0.2149414062499999,
+            -0.02734375
+          ]
+        },
+        "2p/bid": {
+          "win_rate": 0.6171875,
+          "games_per_model": 128,
+          "independent_deals": 16,
+          "win_share_difference": -0.08203125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.15625,
+            -0.00390625
+          ]
+        },
+        "2p/building": {
+          "win_rate": 0.625,
+          "games_per_model": 128,
+          "independent_deals": 16,
+          "win_share_difference": -0.07421875,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1484375,
+            0.0
+          ]
+        },
+        "3p/nomination": {
+          "win_rate": 0.6666666666666666,
+          "games_per_model": 192,
+          "independent_deals": 16,
+          "win_share_difference": 0.046875,
+          "paired_deal_bootstrap_95_interval": [
+            -0.046875,
+            0.13541666666666666
+          ]
+        },
+        "3p/bid": {
+          "win_rate": 0.5677083333333334,
+          "games_per_model": 192,
+          "independent_deals": 16,
+          "win_share_difference": -0.05208333333333333,
+          "paired_deal_bootstrap_95_interval": [
+            -0.16145833333333331,
+            0.0625
+          ]
+        },
+        "3p/building": {
+          "win_rate": 0.5989583333333334,
+          "games_per_model": 192,
+          "independent_deals": 16,
+          "win_share_difference": -0.02083333333333333,
+          "paired_deal_bootstrap_95_interval": [
+            -0.109375,
+            0.0625
+          ]
+        },
+        "4p/nomination": {
+          "win_rate": 0.4765625,
+          "games_per_model": 256,
+          "independent_deals": 16,
+          "win_share_difference": -0.13671875,
+          "paired_deal_bootstrap_95_interval": [
+            -0.20703125,
+            -0.0703125
+          ]
+        },
+        "4p/bid": {
+          "win_rate": 0.6015625,
+          "games_per_model": 256,
+          "independent_deals": 16,
+          "win_share_difference": -0.01171875,
+          "paired_deal_bootstrap_95_interval": [
+            -0.07421875,
+            0.0546875
+          ]
+        },
+        "4p/building": {
+          "win_rate": 0.556640625,
+          "games_per_model": 256,
+          "independent_deals": 16,
+          "win_share_difference": -0.056640625,
+          "paired_deal_bootstrap_95_interval": [
+            -0.12109375,
+            0.009765625
+          ]
+        },
+        "5p/nomination": {
+          "win_rate": 0.665625,
+          "games_per_model": 320,
+          "independent_deals": 16,
+          "win_share_difference": -0.09218749999999999,
+          "paired_deal_bootstrap_95_interval": [
+            -0.15312499999999998,
+            -0.029687500000000002
+          ]
+        },
+        "5p/bid": {
+          "win_rate": 0.7281249999999999,
+          "games_per_model": 320,
+          "independent_deals": 16,
+          "win_share_difference": -0.029687500000000006,
+          "paired_deal_bootstrap_95_interval": [
+            -0.09066406249999998,
+            0.032812499999999994
+          ]
+        },
+        "5p/building": {
+          "win_rate": 0.6625000000000001,
+          "games_per_model": 320,
+          "independent_deals": 16,
+          "win_share_difference": -0.0953125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1500390625,
+            -0.046875
+          ]
+        },
+        "6p/nomination": {
+          "win_rate": 0.7317708333333333,
+          "games_per_model": 384,
+          "independent_deals": 16,
+          "win_share_difference": -0.03515625,
+          "paired_deal_bootstrap_95_interval": [
+            -0.07552083333333334,
+            0.002604166666666667
+          ]
+        },
+        "6p/bid": {
+          "win_rate": 0.7265625,
+          "games_per_model": 384,
+          "independent_deals": 16,
+          "win_share_difference": -0.04036458333333333,
+          "paired_deal_bootstrap_95_interval": [
+            -0.09244791666666666,
+            0.0078125
+          ]
+        },
+        "6p/building": {
+          "win_rate": 0.7213541666666667,
+          "games_per_model": 384,
+          "independent_deals": 16,
+          "win_share_difference": -0.045572916666666664,
+          "paired_deal_bootstrap_95_interval": [
+            -0.09505208333333333,
+            4.44522890718899e-19
+          ]
+        }
+      },
+      "negative_point_cells": [
+        "2p/nomination",
+        "2p/bid",
+        "2p/building",
+        "3p/bid",
+        "3p/building",
+        "4p/nomination",
+        "4p/bid",
+        "4p/building",
+        "5p/nomination",
+        "5p/bid",
+        "5p/building",
+        "6p/nomination",
+        "6p/bid",
+        "6p/building"
+      ],
+      "negative_marginal_95_interval_cells": [
+        "2p/nomination",
+        "2p/bid",
+        "4p/nomination",
+        "5p/nomination",
+        "5p/building"
+      ],
+      "positive_marginal_95_interval_cells": []
+    }
+  },
+  "inference": "Exploratory paired whole-deal marginal 95% intervals, not simultaneous or confirmatory. Same development deals as the discovery screen; no held-out qualification claim.",
+  "conclusions": [
+    "No isolated phase has a positive marginal 95% improvement interval against the parent at any player count.",
+    "For11101, all three isolated phases have negative marginal intervals at6p. The regression is not confined to bidding.",
+    "For11102, nomination harms2p/4p/5p, bidding harms2p, and building harms5p by marginal intervals. Retain every other cell and uncertainty.",
+    "Do not promote either model or choose a post-hoc phase-gated derivative from these reused development deals."
+  ],
+  "next_work": [
+    "Use a separate, versioned teacher to reconstruct previous sealed bids consistently with its public opponent policies; validate it without using hidden bid fields.",
+    "Collect public states reached by the modified policies, preserve new whole-deal train/validation splits, and label both candidate and parent alternatives. The1,440-root training set is narrow relative to104,641 encountered disagreement states; these are diagnostic counts, not a formal coverage estimate.",
+    "Test teacher changes with paired local-intervention pilots before another large label batch. Train only on HF Jobs and evaluate complete games before promotion."
+  ],
+  "candidate_selected": false,
+  "qualification_eligible": false
+}

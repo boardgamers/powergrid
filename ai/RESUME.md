@@ -19,6 +19,18 @@ frozen evaluation runtime. Do not retrain or duplicate jobs. See the handoff for
 model hashes, evidence revisions and the ordered continuation. No model is
 qualified; reserved final-test seeds remain unused.
 
+
+24 October update: **19,392 fixed-screen games are verified**; only the
+8 existing 6p search shards remain. One failed job has one exact live replacement;
+see the handoff and timestamped status, never duplicate it. All 120 phase-isolation
+jobs are complete: 7,680 games, 104,641 independently reproduced disagreement
+states. Both candidates regress, including isolated phases. A read-only 320-root
+sealed-auction audit found the teacher's uniform/no-pass committed-bid assumption
+is inconsistent with its opponent policies. Calibration, full phase results,
+source pins and immutable HF evidence are linked in the handoff. Next: separate
+versioned belief correction and targeted on-policy data/teacher pilots; no new
+candidate is selected. No GPU training or phase-isolation job remains active.
+
 ---
 
 ## Historical pause snapshot — 10 October 2026

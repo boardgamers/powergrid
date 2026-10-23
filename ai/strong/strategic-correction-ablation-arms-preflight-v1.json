@@ -1,0 +1,224 @@
+{
+  "passed": true,
+  "source": {
+    "archive": "strong-source-strategic-correction-ablation-20261024-v1.tgz",
+    "revision": "8da026471210f9f8beb2c23a9289d764d8982c3b",
+    "sha256": "1d2e5c1daad55f630b03d5070f49ab91eab7d272d9eee7bd8f36f106be73109f",
+    "base": {
+      "archive": "strong-source-strategic-correction-screen-20261023-v1.tgz",
+      "revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
+      "sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb"
+    },
+    "overlays": {
+      "ai/strong/strategic_correction_ablation.py": "1c5de7d9e64d9a3107b3af0923b3fd090b059d0c4f0c4b38e801101faad10f66",
+      "ai/strong/strategic-correction-ablation-protocol-v1.json": "56655207742de25684605f97a343bcae9d40197ee8e426903cfa30dd23edb023"
+    },
+    "unchanged_base_file_count": 1400,
+    "preflight_sha256": "85b6bcbf6ba35d669e77cac4f925296a6db5fae86418eea6d1bcb26c22674f35",
+    "protocol_sha256": "56655207742de25684605f97a343bcae9d40197ee8e426903cfa30dd23edb023",
+    "qualification_eligible": false
+  },
+  "cases": {
+    "11101-2p-nomination": {
+      "games": 8,
+      "independent_deals": 1,
+      "win_rate": 0.75,
+      "deal_bootstrap_95_interval": null,
+      "routing": {
+        "nomination": {
+          "decisions": 112,
+          "disagreements": 22,
+          "applied": 22
+        },
+        "bid": {
+          "decisions": 122,
+          "disagreements": 32,
+          "applied": 0
+        },
+        "building": {
+          "decisions": 184,
+          "disagreements": 54,
+          "applied": 0
+        },
+        "other": {
+          "decisions": 926,
+          "disagreements": 0,
+          "applied": 0
+        }
+      },
+      "disagreement_roots": 108,
+      "public_choices_reproduced": 108,
+      "seconds": 3.971516872989014,
+      "game_truncations": 0,
+      "qualification_eligible": false
+    },
+    "11101-2p-bid": {
+      "games": 8,
+      "independent_deals": 1,
+      "win_rate": 1.0,
+      "deal_bootstrap_95_interval": null,
+      "routing": {
+        "nomination": {
+          "decisions": 115,
+          "disagreements": 18,
+          "applied": 0
+        },
+        "bid": {
+          "decisions": 154,
+          "disagreements": 29,
+          "applied": 29
+        },
+        "building": {
+          "decisions": 200,
+          "disagreements": 57,
+          "applied": 0
+        },
+        "other": {
+          "decisions": 897,
+          "disagreements": 0,
+          "applied": 0
+        }
+      },
+      "disagreement_roots": 104,
+      "public_choices_reproduced": 104,
+      "seconds": 3.88591872699908,
+      "game_truncations": 0,
+      "qualification_eligible": false
+    },
+    "11101-2p-building": {
+      "games": 8,
+      "independent_deals": 1,
+      "win_rate": 0.875,
+      "deal_bootstrap_95_interval": null,
+      "routing": {
+        "nomination": {
+          "decisions": 106,
+          "disagreements": 19,
+          "applied": 0
+        },
+        "bid": {
+          "decisions": 148,
+          "disagreements": 33,
+          "applied": 0
+        },
+        "building": {
+          "decisions": 203,
+          "disagreements": 54,
+          "applied": 54
+        },
+        "other": {
+          "decisions": 894,
+          "disagreements": 0,
+          "applied": 0
+        }
+      },
+      "disagreement_roots": 106,
+      "public_choices_reproduced": 106,
+      "seconds": 3.7488606949918903,
+      "game_truncations": 0,
+      "qualification_eligible": false
+    },
+    "11102-2p-nomination": {
+      "games": 8,
+      "independent_deals": 1,
+      "win_rate": 0.625,
+      "deal_bootstrap_95_interval": null,
+      "routing": {
+        "nomination": {
+          "decisions": 95,
+          "disagreements": 31,
+          "applied": 31
+        },
+        "bid": {
+          "decisions": 114,
+          "disagreements": 25,
+          "applied": 0
+        },
+        "building": {
+          "decisions": 200,
+          "disagreements": 78,
+          "applied": 0
+        },
+        "other": {
+          "decisions": 936,
+          "disagreements": 0,
+          "applied": 0
+        }
+      },
+      "disagreement_roots": 134,
+      "public_choices_reproduced": 134,
+      "seconds": 3.7242825890134554,
+      "game_truncations": 0,
+      "qualification_eligible": false
+    },
+    "11102-2p-bid": {
+      "games": 8,
+      "independent_deals": 1,
+      "win_rate": 0.875,
+      "deal_bootstrap_95_interval": null,
+      "routing": {
+        "nomination": {
+          "decisions": 112,
+          "disagreements": 18,
+          "applied": 0
+        },
+        "bid": {
+          "decisions": 159,
+          "disagreements": 26,
+          "applied": 26
+        },
+        "building": {
+          "decisions": 198,
+          "disagreements": 75,
+          "applied": 0
+        },
+        "other": {
+          "decisions": 864,
+          "disagreements": 0,
+          "applied": 0
+        }
+      },
+      "disagreement_roots": 119,
+      "public_choices_reproduced": 119,
+      "seconds": 4.014497639000183,
+      "game_truncations": 0,
+      "qualification_eligible": false
+    },
+    "11102-2p-building": {
+      "games": 8,
+      "independent_deals": 1,
+      "win_rate": 0.75,
+      "deal_bootstrap_95_interval": null,
+      "routing": {
+        "nomination": {
+          "decisions": 107,
+          "disagreements": 25,
+          "applied": 0
+        },
+        "bid": {
+          "decisions": 151,
+          "disagreements": 23,
+          "applied": 0
+        },
+        "building": {
+          "decisions": 200,
+          "disagreements": 68,
+          "applied": 68
+        },
+        "other": {
+          "decisions": 921,
+          "disagreements": 0,
+          "applied": 0
+        }
+      },
+      "disagreement_roots": 116,
+      "public_choices_reproduced": 116,
+      "seconds": 3.899730687000556,
+      "game_truncations": 0,
+      "qualification_eligible": false
+    }
+  },
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "games": 48
+}

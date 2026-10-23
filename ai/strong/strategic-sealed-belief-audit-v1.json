@@ -1,0 +1,1846 @@
+{
+  "source": {
+    "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+    "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+    "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5",
+    "bytes": 22575266,
+    "base": {
+      "archive": "strong-source-strategic-teacher-training-20261010-v1.tgz",
+      "revision": "837d94e14272163c33e5e55fa9c24b24686a28ae",
+      "sha256": "a011f9ee4b8116b99220913a7db9d00849e9e593137cdb7e435e116fcafdd6c3"
+    },
+    "overlays": {
+      "ai/strong/model.py": "cfe58a7d4f2a62a8a5d8c1b06a1e6ff47dd312514c307a9d688e93511acee82b",
+      "ai/strong/model_strategic.py": "917954d26d99078442b6b154d494e48de1fc0a393547c29677f8409917124b01",
+      "ai/strong/features-v4_3.cjs": "c103758a436be51f8bb9aa399e3880263b14d743b588858cd177de34f7aac697",
+      "ai/strong/encoders.cjs": "b1aec9b85ca387c85663dd3aa8ba9aa3916d06a5bb546fa91694f45924f47a72",
+      "ai/strong/export-inference64.py": "2772fc44a40378e5094c1e3f1b0ff5b16c1c5238f21674e9221e3a2aabd66986",
+      "ai/strong/package-serving.py": "be49b67c160cae370c7af5354b34048b78d5eac6d8097cda7d5cf104d464ed3d",
+      "ai/strong/evaluate.py": "64b405a92e7b97a7889fdc17facd9825e12da5fc7609f34f18d7c988f2d2209a",
+      "ai/strong/strategic_correction_data.py": "192caf71f23a90a57e996e0d831ef25708f7024a0b2851080caa163006c43c12",
+      "ai/strong/strategic_correction_targets.py": "0a9f4587471ee865d3d10b57d777abbbed704e99c1331f7bbf2e4fe4b015450a",
+      "ai/strong/strategic_correction_check.py": "554fbf6badd552c032bf1d2102a23c3ad6f5b639b3c363bc5c20ffc0494b7d10",
+      "ai/strong/train-strategic-correction.py": "5edb74d085c8922558f7ee6004c26d1bb8bc4e687642998a3412bf843fae48ae",
+      "ai/strong/check-strategic-correction-data.py": "a677c0396eb06df4d3a0695651d9b16e6e5346a13796e9be0d08a04803db7819",
+      "ai/strong/test_model_strategic.py": "1b1f06f8fa2d7a115a78f32d93fe973e6e273c5b912d9bebf6164e9ba597c281",
+      "ai/strong/test_strategic_correction_targets.py": "c9f8f5afe47eff10c6b6d4d618b031a62f0088051fdd1d17904221a411835315",
+      "ai/strong/test-strategic-correction-features.cjs": "7abbb067ae4827ba7874db878e0cd5ff66ebf43751d36e7267d46cd0bbbdb1f5",
+      "ai/strong/preflight-strategic-correction.py": "c7d3894c7fb2d926d2f8026081db7b0f6ca3c1b80f0d1cfbb08e0b648230c8d4",
+      "ai/strong/check-strategic-correction-arena.py": "5d1517171836fa93fd03461718c1dcee41e41667946489a7feafa67f284e3033",
+      "ai/strong/strategic-correction-design-v1.json": "98a616c3c0ce6659b105ccb3b5fe26d662be9cd5b2cdd9805d0b1262258fd1f6",
+      "ai/strong/strategic-teacher-training-source-v1.json": "b81497226e77612edd5cff6097935012d1a3c0027f2174db99063883cd4fc41c",
+      "ai/strong/strategic-teacher-training-results-v1.json": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57"
+    },
+    "unchanged_base_file_count": 1391,
+    "design_sha256": "98a616c3c0ce6659b105ccb3b5fe26d662be9cd5b2cdd9805d0b1262258fd1f6",
+    "data_manifest_sha256": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57",
+    "qualification_eligible": false
+  },
+  "root_pin": "f0fd62b4dd75c6b6c0936adeb1ffc75a2747cb2c62debe6b5d0aba60dbb4a091",
+  "parent": {
+    "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+    "prefix": "runs/discard-correction-v1/10102/derivative",
+    "files": {
+      "inference64.onnx": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+      "inference64.pt": "25e9995c3998cc9f09e1dafb40f0328ae09e616f791c10e793eaad42cfa5e473"
+    },
+    "feature_revision": "4.2-discard-correction",
+    "selected_epoch": 10,
+    "key": "parent",
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "seed": 10102,
+    "training_verified": true,
+    "parent_frozen": true
+  },
+  "roots": 320,
+  "roots_with_committed_opponents": 184,
+  "opponent_prompts": 317,
+  "groups": {
+    "all": {
+      "opponent_prompts": 317,
+      "roots": 184,
+      "uniform_mean_bid": 49.22397476340694,
+      "policies": {
+        "neural": {
+          "mean_bid_including_pass": 24.51104100946372,
+          "passes": 42,
+          "passes_where_sampler_forces_positive_bid": 42
+        },
+        "economic": {
+          "mean_bid_including_pass": 26.936908517350158,
+          "passes": 22,
+          "passes_where_sampler_forces_positive_bid": 22
+        }
+      }
+    },
+    "2p": {
+      "opponent_prompts": 23,
+      "roots": 23,
+      "uniform_mean_bid": 64.15217391304348,
+      "policies": {
+        "neural": {
+          "mean_bid_including_pass": 30.17391304347826,
+          "passes": 0,
+          "passes_where_sampler_forces_positive_bid": 0
+        },
+        "economic": {
+          "mean_bid_including_pass": 30.47826086956522,
+          "passes": 0,
+          "passes_where_sampler_forces_positive_bid": 0
+        }
+      }
+    },
+    "train": {
+      "opponent_prompts": 243,
+      "roots": 139,
+      "uniform_mean_bid": 49.56378600823045,
+      "policies": {
+        "neural": {
+          "mean_bid_including_pass": 24.76954732510288,
+          "passes": 31,
+          "passes_where_sampler_forces_positive_bid": 31
+        },
+        "economic": {
+          "mean_bid_including_pass": 27.090534979423868,
+          "passes": 16,
+          "passes_where_sampler_forces_positive_bid": 16
+        }
+      }
+    },
+    "original": {
+      "opponent_prompts": 158,
+      "roots": 92,
+      "uniform_mean_bid": 49.401898734177216,
+      "policies": {
+        "neural": {
+          "mean_bid_including_pass": 23.60759493670886,
+          "passes": 11,
+          "passes_where_sampler_forces_positive_bid": 11
+        },
+        "economic": {
+          "mean_bid_including_pass": 25.044303797468356,
+          "passes": 5,
+          "passes_where_sampler_forces_positive_bid": 5
+        }
+      }
+    },
+    "validation": {
+      "opponent_prompts": 74,
+      "roots": 45,
+      "uniform_mean_bid": 48.108108108108105,
+      "policies": {
+        "neural": {
+          "mean_bid_including_pass": 23.66216216216216,
+          "passes": 11,
+          "passes_where_sampler_forces_positive_bid": 11
+        },
+        "economic": {
+          "mean_bid_including_pass": 26.43243243243243,
+          "passes": 6,
+          "passes_where_sampler_forces_positive_bid": 6
+        }
+      }
+    },
+    "recharged": {
+      "opponent_prompts": 159,
+      "roots": 92,
+      "uniform_mean_bid": 49.04716981132076,
+      "policies": {
+        "neural": {
+          "mean_bid_including_pass": 25.40880503144654,
+          "passes": 31,
+          "passes_where_sampler_forces_positive_bid": 31
+        },
+        "economic": {
+          "mean_bid_including_pass": 28.81761006289308,
+          "passes": 17,
+          "passes_where_sampler_forces_positive_bid": 17
+        }
+      }
+    },
+    "3p": {
+      "opponent_prompts": 45,
+      "roots": 32,
+      "uniform_mean_bid": 52.44444444444444,
+      "policies": {
+        "neural": {
+          "mean_bid_including_pass": 26.955555555555556,
+          "passes": 1,
+          "passes_where_sampler_forces_positive_bid": 1
+        },
+        "economic": {
+          "mean_bid_including_pass": 27.42222222222222,
+          "passes": 0,
+          "passes_where_sampler_forces_positive_bid": 0
+        }
+      }
+    },
+    "4p": {
+      "opponent_prompts": 73,
+      "roots": 46,
+      "uniform_mean_bid": 51.06164383561644,
+      "policies": {
+        "neural": {
+          "mean_bid_including_pass": 28.424657534246574,
+          "passes": 6,
+          "passes_where_sampler_forces_positive_bid": 6
+        },
+        "economic": {
+          "mean_bid_including_pass": 30.78082191780822,
+          "passes": 2,
+          "passes_where_sampler_forces_positive_bid": 2
+        }
+      }
+    },
+    "5p": {
+      "opponent_prompts": 80,
+      "roots": 39,
+      "uniform_mean_bid": 49.75625,
+      "policies": {
+        "neural": {
+          "mean_bid_including_pass": 22.475,
+          "passes": 18,
+          "passes_where_sampler_forces_positive_bid": 18
+        },
+        "economic": {
+          "mean_bid_including_pass": 26.3625,
+          "passes": 10,
+          "passes_where_sampler_forces_positive_bid": 10
+        }
+      }
+    },
+    "6p": {
+      "opponent_prompts": 96,
+      "roots": 44,
+      "uniform_mean_bid": 42.296875,
+      "policies": {
+        "neural": {
+          "mean_bid_including_pass": 20.729166666666668,
+          "passes": 17,
+          "passes_where_sampler_forces_positive_bid": 17
+        },
+        "economic": {
+          "mean_bid_including_pass": 23.416666666666668,
+          "passes": 10,
+          "passes_where_sampler_forces_positive_bid": 10
+        }
+      }
+    }
+  },
+  "roots_detail": [
+    {
+      "rootId": "2:economic:4:5",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:1:6",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:12:42",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:13:29",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:16:27",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:economic:17:48",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:24:20",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:25:39",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:36:24",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:33:50",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:40:16",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:41:38",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:48:14",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:economic:49:25",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:60:43",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:57:42",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:64:45",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:economic:65:25",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:72:7",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:73:36",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:84:0",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:economic:81:7",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:88:11",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:93:8",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:96:38",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:97:24",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:economic:104:36",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:economic:105:12",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:economic:112:24",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:117:4",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:economic:120:15",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:economic:125:31",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:snapshot0:4:14",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:snapshot0:5:7",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:snapshot0:8:37",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:snapshot0:13:10",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:snapshot0:20:15",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:snapshot0:21:13",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:snapshot0:28:36",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:snapshot0:25:8",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:snapshot0:36:0",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:snapshot0:33:20",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:snapshot0:40:26",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:snapshot0:41:16",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:snapshot0:52:9",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:snapshot0:49:1",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:snapshot0:56:48",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:snapshot0:57:1",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:snapshot0:68:21",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:snapshot0:69:18",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:snapshot0:72:17",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:snapshot0:77:23",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:snapshot0:80:49",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:snapshot0:85:9",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:snapshot0:88:43",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:snapshot0:93:3",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:snapshot0:96:28",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:snapshot0:101:3",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:snapshot0:104:1",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:snapshot0:109:19",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:snapshot0:116:31",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:snapshot0:117:22",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "2:snapshot0:124:7",
+      "players": 2,
+      "already_committed": 1
+    },
+    {
+      "rootId": "2:snapshot0:125:44",
+      "players": 2,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:8:4",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:economic:5:0",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:economic:20:30",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:21:4",
+      "players": 3,
+      "already_committed": 2
+    },
+    {
+      "rootId": "3:economic:32:10",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:33:28",
+      "players": 3,
+      "already_committed": 2
+    },
+    {
+      "rootId": "3:economic:36:40",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:41:34",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:48:3",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:53:22",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:economic:68:0",
+      "players": 3,
+      "already_committed": 2
+    },
+    {
+      "rootId": "3:economic:69:1",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:economic:76:0",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:economic:81:11",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:92:33",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:economic:93:23",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:96:32",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:101:12",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:112:4",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:economic:113:18",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:120:19",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:121:26",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:132:39",
+      "players": 3,
+      "already_committed": 2
+    },
+    {
+      "rootId": "3:economic:133:10",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:economic:148:10",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:145:3",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:156:1",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:157:3",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:168:36",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:economic:177:1",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:economic:188:36",
+      "players": 3,
+      "already_committed": 2
+    },
+    {
+      "rootId": "3:economic:189:4",
+      "players": 3,
+      "already_committed": 2
+    },
+    {
+      "rootId": "3:snapshot0:0:24",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:snapshot0:9:11",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:snapshot0:20:1",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:snapshot0:13:16",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:snapshot0:28:14",
+      "players": 3,
+      "already_committed": 2
+    },
+    {
+      "rootId": "3:snapshot0:25:17",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:snapshot0:36:15",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:snapshot0:45:34",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:snapshot0:48:24",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:snapshot0:49:40",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:snapshot0:68:24",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:snapshot0:69:17",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:snapshot0:72:36",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:snapshot0:81:10",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:snapshot0:92:8",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:snapshot0:89:11",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:snapshot0:100:22",
+      "players": 3,
+      "already_committed": 2
+    },
+    {
+      "rootId": "3:snapshot0:97:26",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:snapshot0:116:38",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:snapshot0:117:27",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:snapshot0:128:0",
+      "players": 3,
+      "already_committed": 2
+    },
+    {
+      "rootId": "3:snapshot0:129:17",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:snapshot0:140:19",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:snapshot0:141:0",
+      "players": 3,
+      "already_committed": 2
+    },
+    {
+      "rootId": "3:snapshot0:144:3",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:snapshot0:153:4",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:snapshot0:160:46",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:snapshot0:165:29",
+      "players": 3,
+      "already_committed": 0
+    },
+    {
+      "rootId": "3:snapshot0:168:9",
+      "players": 3,
+      "already_committed": 2
+    },
+    {
+      "rootId": "3:snapshot0:169:36",
+      "players": 3,
+      "already_committed": 2
+    },
+    {
+      "rootId": "3:snapshot0:180:13",
+      "players": 3,
+      "already_committed": 1
+    },
+    {
+      "rootId": "3:snapshot0:189:0",
+      "players": 3,
+      "already_committed": 2
+    },
+    {
+      "rootId": "4:economic:4:46",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:economic:5:0",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:economic:20:1",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:economic:29:31",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:economic:36:8",
+      "players": 4,
+      "already_committed": 2
+    },
+    {
+      "rootId": "4:economic:33:6",
+      "players": 4,
+      "already_committed": 2
+    },
+    {
+      "rootId": "4:economic:52:20",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:economic:53:0",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:economic:68:4",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:economic:73:5",
+      "players": 4,
+      "already_committed": 2
+    },
+    {
+      "rootId": "4:economic:92:38",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:economic:89:5",
+      "players": 4,
+      "already_committed": 2
+    },
+    {
+      "rootId": "4:economic:108:37",
+      "players": 4,
+      "already_committed": 2
+    },
+    {
+      "rootId": "4:economic:101:39",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:economic:112:29",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:economic:121:5",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:economic:128:20",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:economic:137:28",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:economic:144:38",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:economic:153:19",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:economic:160:15",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:economic:173:31",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:economic:180:19",
+      "players": 4,
+      "already_committed": 2
+    },
+    {
+      "rootId": "4:economic:181:24",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:economic:204:28",
+      "players": 4,
+      "already_committed": 3
+    },
+    {
+      "rootId": "4:economic:205:1",
+      "players": 4,
+      "already_committed": 2
+    },
+    {
+      "rootId": "4:economic:220:33",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:economic:217:13",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:economic:228:10",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:economic:233:1",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:economic:252:0",
+      "players": 4,
+      "already_committed": 3
+    },
+    {
+      "rootId": "4:economic:245:30",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:snapshot0:0:5",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:snapshot0:1:30",
+      "players": 4,
+      "already_committed": 2
+    },
+    {
+      "rootId": "4:snapshot0:24:22",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:snapshot0:17:33",
+      "players": 4,
+      "already_committed": 2
+    },
+    {
+      "rootId": "4:snapshot0:36:24",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:snapshot0:37:24",
+      "players": 4,
+      "already_committed": 3
+    },
+    {
+      "rootId": "4:snapshot0:48:29",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:snapshot0:53:46",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:snapshot0:68:0",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:snapshot0:65:16",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:snapshot0:80:13",
+      "players": 4,
+      "already_committed": 2
+    },
+    {
+      "rootId": "4:snapshot0:85:12",
+      "players": 4,
+      "already_committed": 2
+    },
+    {
+      "rootId": "4:snapshot0:108:27",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:snapshot0:105:31",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:snapshot0:116:1",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:snapshot0:117:11",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:snapshot0:128:9",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:snapshot0:137:5",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:snapshot0:144:40",
+      "players": 4,
+      "already_committed": 2
+    },
+    {
+      "rootId": "4:snapshot0:145:15",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:snapshot0:160:14",
+      "players": 4,
+      "already_committed": 2
+    },
+    {
+      "rootId": "4:snapshot0:173:4",
+      "players": 4,
+      "already_committed": 3
+    },
+    {
+      "rootId": "4:snapshot0:180:30",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:snapshot0:185:23",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:snapshot0:196:31",
+      "players": 4,
+      "already_committed": 3
+    },
+    {
+      "rootId": "4:snapshot0:193:21",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:snapshot0:212:41",
+      "players": 4,
+      "already_committed": 0
+    },
+    {
+      "rootId": "4:snapshot0:209:19",
+      "players": 4,
+      "already_committed": 2
+    },
+    {
+      "rootId": "4:snapshot0:224:14",
+      "players": 4,
+      "already_committed": 2
+    },
+    {
+      "rootId": "4:snapshot0:225:34",
+      "players": 4,
+      "already_committed": 2
+    },
+    {
+      "rootId": "4:snapshot0:244:1",
+      "players": 4,
+      "already_committed": 1
+    },
+    {
+      "rootId": "4:snapshot0:245:8",
+      "players": 4,
+      "already_committed": 2
+    },
+    {
+      "rootId": "5:economic:12:19",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:economic:9:28",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:economic:28:31",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:economic:25:10",
+      "players": 5,
+      "already_committed": 1
+    },
+    {
+      "rootId": "5:economic:40:47",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:economic:57:3",
+      "players": 5,
+      "already_committed": 1
+    },
+    {
+      "rootId": "5:economic:72:27",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:economic:73:11",
+      "players": 5,
+      "already_committed": 2
+    },
+    {
+      "rootId": "5:economic:84:23",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:economic:93:5",
+      "players": 5,
+      "already_committed": 4
+    },
+    {
+      "rootId": "5:economic:100:15",
+      "players": 5,
+      "already_committed": 2
+    },
+    {
+      "rootId": "5:economic:117:1",
+      "players": 5,
+      "already_committed": 3
+    },
+    {
+      "rootId": "5:economic:128:3",
+      "players": 5,
+      "already_committed": 1
+    },
+    {
+      "rootId": "5:economic:125:19",
+      "players": 5,
+      "already_committed": 1
+    },
+    {
+      "rootId": "5:economic:152:16",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:economic:141:5",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:economic:168:11",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:economic:173:24",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:economic:180:3",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:economic:181:33",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:economic:200:22",
+      "players": 5,
+      "already_committed": 2
+    },
+    {
+      "rootId": "5:economic:201:19",
+      "players": 5,
+      "already_committed": 4
+    },
+    {
+      "rootId": "5:economic:236:34",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:economic:229:2",
+      "players": 5,
+      "already_committed": 1
+    },
+    {
+      "rootId": "5:economic:244:8",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:economic:257:8",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:economic:260:11",
+      "players": 5,
+      "already_committed": 3
+    },
+    {
+      "rootId": "5:economic:265:6",
+      "players": 5,
+      "already_committed": 1
+    },
+    {
+      "rootId": "5:economic:280:18",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:economic:289:8",
+      "players": 5,
+      "already_committed": 1
+    },
+    {
+      "rootId": "5:economic:308:0",
+      "players": 5,
+      "already_committed": 2
+    },
+    {
+      "rootId": "5:economic:305:30",
+      "players": 5,
+      "already_committed": 1
+    },
+    {
+      "rootId": "5:snapshot0:8:22",
+      "players": 5,
+      "already_committed": 1
+    },
+    {
+      "rootId": "5:snapshot0:9:44",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:snapshot0:28:21",
+      "players": 5,
+      "already_committed": 2
+    },
+    {
+      "rootId": "5:snapshot0:21:13",
+      "players": 5,
+      "already_committed": 2
+    },
+    {
+      "rootId": "5:snapshot0:40:12",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:snapshot0:57:28",
+      "players": 5,
+      "already_committed": 4
+    },
+    {
+      "rootId": "5:snapshot0:68:2",
+      "players": 5,
+      "already_committed": 1
+    },
+    {
+      "rootId": "5:snapshot0:73:22",
+      "players": 5,
+      "already_committed": 3
+    },
+    {
+      "rootId": "5:snapshot0:96:28",
+      "players": 5,
+      "already_committed": 1
+    },
+    {
+      "rootId": "5:snapshot0:93:16",
+      "players": 5,
+      "already_committed": 3
+    },
+    {
+      "rootId": "5:snapshot0:116:33",
+      "players": 5,
+      "already_committed": 2
+    },
+    {
+      "rootId": "5:snapshot0:101:32",
+      "players": 5,
+      "already_committed": 2
+    },
+    {
+      "rootId": "5:snapshot0:128:21",
+      "players": 5,
+      "already_committed": 4
+    },
+    {
+      "rootId": "5:snapshot0:125:32",
+      "players": 5,
+      "already_committed": 3
+    },
+    {
+      "rootId": "5:snapshot0:152:18",
+      "players": 5,
+      "already_committed": 1
+    },
+    {
+      "rootId": "5:snapshot0:153:7",
+      "players": 5,
+      "already_committed": 1
+    },
+    {
+      "rootId": "5:snapshot0:168:7",
+      "players": 5,
+      "already_committed": 2
+    },
+    {
+      "rootId": "5:snapshot0:173:10",
+      "players": 5,
+      "already_committed": 1
+    },
+    {
+      "rootId": "5:snapshot0:184:4",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:snapshot0:181:12",
+      "players": 5,
+      "already_committed": 1
+    },
+    {
+      "rootId": "5:snapshot0:212:0",
+      "players": 5,
+      "already_committed": 3
+    },
+    {
+      "rootId": "5:snapshot0:209:12",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:snapshot0:236:36",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:snapshot0:233:29",
+      "players": 5,
+      "already_committed": 3
+    },
+    {
+      "rootId": "5:snapshot0:240:33",
+      "players": 5,
+      "already_committed": 2
+    },
+    {
+      "rootId": "5:snapshot0:245:25",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:snapshot0:272:40",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:snapshot0:273:0",
+      "players": 5,
+      "already_committed": 3
+    },
+    {
+      "rootId": "5:snapshot0:288:7",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:snapshot0:285:27",
+      "players": 5,
+      "already_committed": 1
+    },
+    {
+      "rootId": "5:snapshot0:308:6",
+      "players": 5,
+      "already_committed": 0
+    },
+    {
+      "rootId": "5:snapshot0:301:25",
+      "players": 5,
+      "already_committed": 4
+    },
+    {
+      "rootId": "6:economic:8:10",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:economic:13:2",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:economic:44:0",
+      "players": 6,
+      "already_committed": 5
+    },
+    {
+      "rootId": "6:economic:29:5",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:economic:56:4",
+      "players": 6,
+      "already_committed": 4
+    },
+    {
+      "rootId": "6:economic:49:28",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:economic:76:27",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:economic:89:7",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:economic:100:0",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:economic:117:4",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:economic:132:24",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:economic:121:5",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:economic:160:1",
+      "players": 6,
+      "already_committed": 3
+    },
+    {
+      "rootId": "6:economic:165:11",
+      "players": 6,
+      "already_committed": 2
+    },
+    {
+      "rootId": "6:economic:172:23",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:economic:169:32",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:economic:212:4",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:economic:213:0",
+      "players": 6,
+      "already_committed": 5
+    },
+    {
+      "rootId": "6:economic:228:11",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:economic:217:1",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:economic:244:12",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:economic:249:17",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:economic:268:4",
+      "players": 6,
+      "already_committed": 4
+    },
+    {
+      "rootId": "6:economic:273:28",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:economic:300:1",
+      "players": 6,
+      "already_committed": 2
+    },
+    {
+      "rootId": "6:economic:297:1",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:economic:316:29",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:economic:313:9",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:economic:356:3",
+      "players": 6,
+      "already_committed": 2
+    },
+    {
+      "rootId": "6:economic:349:37",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:economic:380:1",
+      "players": 6,
+      "already_committed": 4
+    },
+    {
+      "rootId": "6:economic:369:6",
+      "players": 6,
+      "already_committed": 3
+    },
+    {
+      "rootId": "6:snapshot0:8:32",
+      "players": 6,
+      "already_committed": 3
+    },
+    {
+      "rootId": "6:snapshot0:13:23",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:snapshot0:32:0",
+      "players": 6,
+      "already_committed": 2
+    },
+    {
+      "rootId": "6:snapshot0:45:29",
+      "players": 6,
+      "already_committed": 3
+    },
+    {
+      "rootId": "6:snapshot0:60:32",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:snapshot0:61:20",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:snapshot0:76:0",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:snapshot0:89:12",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:snapshot0:104:36",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:snapshot0:97:7",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:snapshot0:140:28",
+      "players": 6,
+      "already_committed": 2
+    },
+    {
+      "rootId": "6:snapshot0:121:21",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:snapshot0:144:3",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:snapshot0:157:12",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:snapshot0:180:32",
+      "players": 6,
+      "already_committed": 2
+    },
+    {
+      "rootId": "6:snapshot0:185:16",
+      "players": 6,
+      "already_committed": 5
+    },
+    {
+      "rootId": "6:snapshot0:204:0",
+      "players": 6,
+      "already_committed": 3
+    },
+    {
+      "rootId": "6:snapshot0:201:4",
+      "players": 6,
+      "already_committed": 4
+    },
+    {
+      "rootId": "6:snapshot0:232:21",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:snapshot0:233:30",
+      "players": 6,
+      "already_committed": 4
+    },
+    {
+      "rootId": "6:snapshot0:244:3",
+      "players": 6,
+      "already_committed": 4
+    },
+    {
+      "rootId": "6:snapshot0:253:23",
+      "players": 6,
+      "already_committed": 2
+    },
+    {
+      "rootId": "6:snapshot0:280:33",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:snapshot0:265:38",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:snapshot0:296:18",
+      "players": 6,
+      "already_committed": 3
+    },
+    {
+      "rootId": "6:snapshot0:293:0",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:snapshot0:316:4",
+      "players": 6,
+      "already_committed": 3
+    },
+    {
+      "rootId": "6:snapshot0:329:5",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:snapshot0:344:31",
+      "players": 6,
+      "already_committed": 1
+    },
+    {
+      "rootId": "6:snapshot0:337:5",
+      "players": 6,
+      "already_committed": 0
+    },
+    {
+      "rootId": "6:snapshot0:364:9",
+      "players": 6,
+      "already_committed": 2
+    },
+    {
+      "rootId": "6:snapshot0:381:4",
+      "players": 6,
+      "already_committed": 1
+    }
+  ],
+  "source_files": {
+    "engine/dist/src/analysis.js": "c2d27ff1bb43f086f60ad363dfb3776393b1a8334a673cd55f89e01abd65f024",
+    "ai/strong/economics.cjs": "7265923548a15940a33f24d70b2d6419119ef8d759fca1637640f4ff6e9aef58"
+  },
+  "audit_files": {
+    "ai/strong/audit-strategic-sealed-belief.py": "f2644847bf0f0a6af2212ee14d28d1c4508c92619070c6938b5805fa01930083",
+    "ai/strong/audit-sealed-belief-worker.cjs": "fedb90b2c80503d0b8e616328240dea1147206e9f3046d806d64180cdb6b72bb"
+  },
+  "raw_sha256": "92803e86bb8469cd68a9af2cbfa23e23bdc856543c335d4b7f8f5425e458524a",
+  "public_replay_feature_parity": true,
+  "hidden_data_mutation_invariance": true,
+  "gradients": false,
+  "qualification_eligible": false,
+  "scope": "Hypothetical frozen-policy bids at reconstructed public prompts, not observed historical hidden bids. Economic tie breaking fixed at 0.5. Uniform mean is analytic. Post-hoc diagnostic, no causal claim or label replacement."
+}

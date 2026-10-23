@@ -1,0 +1,313 @@
+{
+  "passed": true,
+  "cases": {
+    "11101-2p-all": {
+      "games": 8,
+      "baseline_sha256": "fe5354e4625ccf6cbb28ab793695a1e5a78357d25a01e4d7636e9b3adde0a305",
+      "all_game_rows_match": true,
+      "summary": {
+        "games": 8,
+        "independent_deals": 1,
+        "win_rate": 0.625,
+        "deal_bootstrap_95_interval": null,
+        "routing": {
+          "nomination": {
+            "decisions": 117,
+            "disagreements": 19,
+            "applied": 19
+          },
+          "bid": {
+            "decisions": 147,
+            "disagreements": 35,
+            "applied": 35
+          },
+          "building": {
+            "decisions": 193,
+            "disagreements": 56,
+            "applied": 56
+          },
+          "other": {
+            "decisions": 876,
+            "disagreements": 0,
+            "applied": 0
+          }
+        },
+        "disagreement_roots": 110,
+        "public_choices_reproduced": 110,
+        "seconds": 3.2692891850019805,
+        "game_truncations": 0,
+        "qualification_eligible": false
+      }
+    },
+    "11101-2p-none": {
+      "games": 8,
+      "baseline_sha256": "c72a0ba9e71cfb4e935bb0e4ea8e00d16af8f4e6cc8b3ac94bb941f5ddbae0bb",
+      "all_game_rows_match": true,
+      "summary": {
+        "games": 8,
+        "independent_deals": 1,
+        "win_rate": 1.0,
+        "deal_bootstrap_95_interval": null,
+        "routing": {
+          "nomination": {
+            "decisions": 110,
+            "disagreements": 21,
+            "applied": 0
+          },
+          "bid": {
+            "decisions": 148,
+            "disagreements": 27,
+            "applied": 0
+          },
+          "building": {
+            "decisions": 202,
+            "disagreements": 66,
+            "applied": 0
+          },
+          "other": {
+            "decisions": 863,
+            "disagreements": 0,
+            "applied": 0
+          }
+        },
+        "disagreement_roots": 114,
+        "public_choices_reproduced": 114,
+        "seconds": 3.6074165260070004,
+        "game_truncations": 0,
+        "qualification_eligible": false
+      }
+    },
+    "11101-6p-all": {
+      "games": 24,
+      "baseline_sha256": "910498ec31105d0605da338a4d8cca12828c6ad16de43c0d8442a0cfa32a8e5e",
+      "all_game_rows_match": true,
+      "summary": {
+        "games": 24,
+        "independent_deals": 1,
+        "win_rate": 0.7083333333333334,
+        "deal_bootstrap_95_interval": null,
+        "routing": {
+          "nomination": {
+            "decisions": 290,
+            "disagreements": 61,
+            "applied": 61
+          },
+          "bid": {
+            "decisions": 585,
+            "disagreements": 98,
+            "applied": 98
+          },
+          "building": {
+            "decisions": 370,
+            "disagreements": 88,
+            "applied": 88
+          },
+          "other": {
+            "decisions": 1543,
+            "disagreements": 0,
+            "applied": 0
+          }
+        },
+        "disagreement_roots": 247,
+        "public_choices_reproduced": 247,
+        "seconds": 8.86190422301297,
+        "game_truncations": 0,
+        "qualification_eligible": false
+      }
+    },
+    "11101-6p-none": {
+      "games": 24,
+      "baseline_sha256": "f1747057ddededb1f8743301464a8b740a45b0a4d1093b0ee8243fd7a6c0d554",
+      "all_game_rows_match": true,
+      "summary": {
+        "games": 24,
+        "independent_deals": 1,
+        "win_rate": 0.7916666666666666,
+        "deal_bootstrap_95_interval": null,
+        "routing": {
+          "nomination": {
+            "decisions": 245,
+            "disagreements": 48,
+            "applied": 0
+          },
+          "bid": {
+            "decisions": 519,
+            "disagreements": 126,
+            "applied": 0
+          },
+          "building": {
+            "decisions": 413,
+            "disagreements": 123,
+            "applied": 0
+          },
+          "other": {
+            "decisions": 1608,
+            "disagreements": 0,
+            "applied": 0
+          }
+        },
+        "disagreement_roots": 297,
+        "public_choices_reproduced": 297,
+        "seconds": 8.904312521015527,
+        "game_truncations": 0,
+        "qualification_eligible": false
+      }
+    },
+    "11102-2p-all": {
+      "games": 8,
+      "baseline_sha256": "64ee9dd9a8e4b06461190c74713870cd749ff746a4d215371a49c429235d008a",
+      "all_game_rows_match": true,
+      "summary": {
+        "games": 8,
+        "independent_deals": 1,
+        "win_rate": 0.5,
+        "deal_bootstrap_95_interval": null,
+        "routing": {
+          "nomination": {
+            "decisions": 98,
+            "disagreements": 33,
+            "applied": 33
+          },
+          "bid": {
+            "decisions": 114,
+            "disagreements": 20,
+            "applied": 20
+          },
+          "building": {
+            "decisions": 205,
+            "disagreements": 80,
+            "applied": 80
+          },
+          "other": {
+            "decisions": 900,
+            "disagreements": 0,
+            "applied": 0
+          }
+        },
+        "disagreement_roots": 133,
+        "public_choices_reproduced": 133,
+        "seconds": 3.7048941219982225,
+        "game_truncations": 0,
+        "qualification_eligible": false
+      }
+    },
+    "11102-2p-none": {
+      "games": 8,
+      "baseline_sha256": "c72a0ba9e71cfb4e935bb0e4ea8e00d16af8f4e6cc8b3ac94bb941f5ddbae0bb",
+      "all_game_rows_match": true,
+      "summary": {
+        "games": 8,
+        "independent_deals": 1,
+        "win_rate": 1.0,
+        "deal_bootstrap_95_interval": null,
+        "routing": {
+          "nomination": {
+            "decisions": 110,
+            "disagreements": 23,
+            "applied": 0
+          },
+          "bid": {
+            "decisions": 148,
+            "disagreements": 27,
+            "applied": 0
+          },
+          "building": {
+            "decisions": 202,
+            "disagreements": 85,
+            "applied": 0
+          },
+          "other": {
+            "decisions": 863,
+            "disagreements": 0,
+            "applied": 0
+          }
+        },
+        "disagreement_roots": 135,
+        "public_choices_reproduced": 135,
+        "seconds": 3.7816476459847763,
+        "game_truncations": 0,
+        "qualification_eligible": false
+      }
+    },
+    "11102-6p-all": {
+      "games": 24,
+      "baseline_sha256": "d10a89df7ddbdcd0e06f9dd5d09ae2b74fc91d621210fe52f89e0fe3f2b7f754",
+      "all_game_rows_match": true,
+      "summary": {
+        "games": 24,
+        "independent_deals": 1,
+        "win_rate": 0.75,
+        "deal_bootstrap_95_interval": null,
+        "routing": {
+          "nomination": {
+            "decisions": 312,
+            "disagreements": 81,
+            "applied": 81
+          },
+          "bid": {
+            "decisions": 577,
+            "disagreements": 128,
+            "applied": 128
+          },
+          "building": {
+            "decisions": 376,
+            "disagreements": 103,
+            "applied": 103
+          },
+          "other": {
+            "decisions": 1595,
+            "disagreements": 0,
+            "applied": 0
+          }
+        },
+        "disagreement_roots": 312,
+        "public_choices_reproduced": 312,
+        "seconds": 9.473137181979837,
+        "game_truncations": 0,
+        "qualification_eligible": false
+      }
+    },
+    "11102-6p-none": {
+      "games": 24,
+      "baseline_sha256": "f1747057ddededb1f8743301464a8b740a45b0a4d1093b0ee8243fd7a6c0d554",
+      "all_game_rows_match": true,
+      "summary": {
+        "games": 24,
+        "independent_deals": 1,
+        "win_rate": 0.7916666666666666,
+        "deal_bootstrap_95_interval": null,
+        "routing": {
+          "nomination": {
+            "decisions": 245,
+            "disagreements": 50,
+            "applied": 0
+          },
+          "bid": {
+            "decisions": 519,
+            "disagreements": 130,
+            "applied": 0
+          },
+          "building": {
+            "decisions": 413,
+            "disagreements": 121,
+            "applied": 0
+          },
+          "other": {
+            "decisions": 1608,
+            "disagreements": 0,
+            "applied": 0
+          }
+        },
+        "disagreement_roots": 301,
+        "public_choices_reproduced": 301,
+        "seconds": 8.770203474996379,
+        "game_truncations": 0,
+        "qualification_eligible": false
+      }
+    }
+  },
+  "reserved_final_seeds_used": false,
+  "qualification_eligible": false,
+  "games": 128,
+  "unchanged_base_file_count": 1400
+}

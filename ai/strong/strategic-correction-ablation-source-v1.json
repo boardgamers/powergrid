@@ -1,0 +1,18 @@
+{
+  "archive": "strong-source-strategic-correction-ablation-20261024-v1.tgz",
+  "revision": "8da026471210f9f8beb2c23a9289d764d8982c3b",
+  "sha256": "1d2e5c1daad55f630b03d5070f49ab91eab7d272d9eee7bd8f36f106be73109f",
+  "base": {
+    "archive": "strong-source-strategic-correction-screen-20261023-v1.tgz",
+    "revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
+    "sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb"
+  },
+  "overlays": {
+    "ai/strong/strategic_correction_ablation.py": "1c5de7d9e64d9a3107b3af0923b3fd090b059d0c4f0c4b38e801101faad10f66",
+    "ai/strong/strategic-correction-ablation-protocol-v1.json": "56655207742de25684605f97a343bcae9d40197ee8e426903cfa30dd23edb023"
+  },
+  "unchanged_base_file_count": 1400,
+  "preflight_sha256": "85b6bcbf6ba35d669e77cac4f925296a6db5fae86418eea6d1bcb26c22674f35",
+  "protocol_sha256": "56655207742de25684605f97a343bcae9d40197ee8e426903cfa30dd23edb023",
+  "qualification_eligible": false
+}

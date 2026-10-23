@@ -1,11 +1,11 @@
 {
-  "checked_at": "2026-10-23T23:07:02.163941+00:00",
-  "artifact_revision": "f8802371652f07c6a937d0cb05ec2ea9060b6651",
-  "submitted_shards": 330,
+  "checked_at": "2026-10-23T23:41:45.784875+00:00",
+  "artifact_revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+  "submitted_shards": 331,
   "status_counts": {
-    "COMPLETED": 209,
-    "SCHEDULING": 61,
-    "RUNNING": 60
+    "COMPLETED": 322,
+    "RUNNING": 8,
+    "ERROR": 1
   },
   "historical_errors_with_completed_replacements": 0,
   "jobs": [
@@ -771,10 +771,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7981e112550ce7d9d25",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-2p-legacy-0-4.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:44.159000+00:00",
+      "finished_at": "2026-10-23 23:08:26.395000+00:00"
     },
     {
       "stage": "launched",
@@ -830,10 +830,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe79b046eb82b1ecd8145",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-2p-legacy-12-16.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:32.689000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:14.936000+00:00"
     },
     {
       "stage": "launched",
@@ -889,10 +889,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7991e112550ce7d9d3b",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-2p-legacy-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:24.459000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:05.707000+00:00"
     },
     {
       "stage": "launched",
@@ -1007,10 +1007,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe79c1e112550ce7d9d3f",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-2p-rush-0-4.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:34.014000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:19.256000+00:00"
     },
     {
       "stage": "launched",
@@ -1066,10 +1066,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe79f046eb82b1ecd8153",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-2p-rush-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:24.572000+00:00",
+      "finished_at": "2026-10-23 23:08:11.876000+00:00"
     },
     {
       "stage": "launched",
@@ -1184,10 +1184,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe79e1e112550ce7d9d42",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-2p-rush-8-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:23.953000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:06.189000+00:00"
     },
     {
       "stage": "launched",
@@ -2246,10 +2246,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe78e046eb82b1ecd8121",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-3p-legacy-12-16.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:23.131000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:06.387000+00:00"
     },
     {
       "stage": "launched",
@@ -2305,10 +2305,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe78c046eb82b1ecd811d",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-3p-legacy-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:23.943000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:07.196000+00:00"
     },
     {
       "stage": "launched",
@@ -2364,10 +2364,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe78d046eb82b1ecd811f",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-3p-legacy-8-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:23.700000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:07.932000+00:00"
     },
     {
       "stage": "launched",
@@ -2423,10 +2423,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe78f046eb82b1ecd8123",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-3p-rush-0-4.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:21.950000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:06.189000+00:00"
     },
     {
       "stage": "launched",
@@ -2482,10 +2482,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7931e112550ce7d9d20",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-3p-rush-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:45.166000+00:00",
+      "finished_at": "2026-10-23 23:08:29.414000+00:00"
     },
     {
       "stage": "launched",
@@ -2541,10 +2541,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7911e112550ce7d9d1c",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-3p-rush-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:21.228000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:05.498000+00:00"
     },
     {
       "stage": "launched",
@@ -2600,10 +2600,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7921e112550ce7d9d1e",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-3p-rush-8-12.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:53.350000+00:00",
+      "finished_at": "2026-10-23 23:08:36.598000+00:00"
     },
     {
       "stage": "launched",
@@ -2659,10 +2659,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe739046eb82b1ecd80a9",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-3p-search_geo-0-4.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:02:29.121000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:09:36.387000+00:00"
     },
     {
       "stage": "launched",
@@ -2718,10 +2718,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe73c1e112550ce7d9c95",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-3p-search_geo-12-16.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:02:28.029000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:09:53.496000+00:00"
     },
     {
       "stage": "launched",
@@ -2777,10 +2777,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe73a046eb82b1ecd80ab",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-3p-search_geo-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:02:28.396000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:09:46.695000+00:00"
     },
     {
       "stage": "launched",
@@ -2836,10 +2836,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe73b1e112550ce7d9c90",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-3p-search_geo-8-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:02:27.465000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:10:27.917000+00:00"
     },
     {
       "stage": "launched",
@@ -3131,10 +3131,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe77a046eb82b1ecd8105",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-4p-heuristic-0-4.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:25.675000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:11.947000+00:00"
     },
     {
       "stage": "launched",
@@ -3249,10 +3249,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe77c1e112550ce7d9cfd",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-4p-heuristic-4-8.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:49.138000+00:00",
+      "finished_at": "2026-10-23 23:08:36.376000+00:00"
     },
     {
       "stage": "launched",
@@ -3308,10 +3308,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe77d046eb82b1ecd8107",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-4p-heuristic-8-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:21.622000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:09.883000+00:00"
     },
     {
       "stage": "launched",
@@ -3426,10 +3426,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7811e112550ce7d9d01",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-4p-legacy-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:48.889000+00:00",
+      "finished_at": "2026-10-23 23:08:36.142000+00:00"
     },
     {
       "stage": "launched",
@@ -3485,10 +3485,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe77f046eb82b1ecd810d",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-4p-legacy-4-8.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:48.222000+00:00",
+      "finished_at": "2026-10-23 23:08:36.489000+00:00"
     },
     {
       "stage": "launched",
@@ -3662,10 +3662,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe786046eb82b1ecd8115",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-4p-rush-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:42.694000+00:00",
+      "finished_at": "2026-10-23 23:08:28.939000+00:00"
     },
     {
       "stage": "launched",
@@ -3780,10 +3780,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7841e112550ce7d9d08",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-4p-rush-8-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:55.950000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:41.182000+00:00"
     },
     {
       "stage": "launched",
@@ -3839,10 +3839,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7331e112550ce7d9c83",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-4p-search_geo-0-4.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:02:11.113000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:22:29.581000+00:00"
     },
     {
       "stage": "launched",
@@ -3898,10 +3898,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe738046eb82b1ecd80a5",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-4p-search_geo-12-16.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:02:29.622000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:21:52.351000+00:00"
     },
     {
       "stage": "launched",
@@ -3957,10 +3957,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7351e112550ce7d9c86",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-4p-search_geo-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:02:32.231000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:21:27.500000+00:00"
     },
     {
       "stage": "launched",
@@ -4016,10 +4016,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7371e112550ce7d9c8e",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-4p-search_geo-8-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:02:26.499000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:22:21.884000+00:00"
     },
     {
       "stage": "launched",
@@ -4370,10 +4370,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe770046eb82b1ecd80f9",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-5p-heuristic-12-16.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:12.622000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:00.913000+00:00"
     },
     {
       "stage": "launched",
@@ -4547,10 +4547,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe771046eb82b1ecd80fb",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-5p-legacy-0-4.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:21.153000+00:00",
+      "finished_at": "2026-10-23 23:08:09.432000+00:00"
     },
     {
       "stage": "launched",
@@ -4606,10 +4606,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe775046eb82b1ecd80ff",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-5p-legacy-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:47.696000+00:00",
+      "finished_at": "2026-10-23 23:08:34.946000+00:00"
     },
     {
       "stage": "launched",
@@ -4665,10 +4665,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe773046eb82b1ecd80fd",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-5p-legacy-4-8.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:43.082000+00:00",
+      "finished_at": "2026-10-23 23:08:30.329000+00:00"
     },
     {
       "stage": "launched",
@@ -4724,10 +4724,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7741e112550ce7d9cf4",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-5p-legacy-8-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:29.356000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:21.682000+00:00"
     },
     {
       "stage": "launched",
@@ -5019,10 +5019,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe72f046eb82b1ecd809a",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-5p-search_geo-0-4.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:02:11.307000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:37:47.347000+00:00"
     },
     {
       "stage": "launched",
@@ -5078,10 +5078,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe732046eb82b1ecd809c",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-5p-search_geo-12-16.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:02:10.402000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:35:43.258000+00:00"
     },
     {
       "stage": "launched",
@@ -5137,10 +5137,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7301e112550ce7d9c7f",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-5p-search_geo-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:02:11.015000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:35:40.912000+00:00"
     },
     {
       "stage": "launched",
@@ -5196,10 +5196,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7311e112550ce7d9c81",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-5p-search_geo-8-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:02:11.274000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:36:58.158000+00:00"
     },
     {
       "stage": "launched",
@@ -6147,6 +6147,67 @@
     },
     {
       "stage": "launched",
+      "created_at": "2026-10-23T23:26:39.241992+00:00",
+      "key": "11101",
+      "players": 6,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "smoke": false,
+      "source_revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
+      "source_sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb",
+      "protocol_sha256": "cd038070dcf7f875cecab0a9ecfa095447675cfd75bc3584c157fd1d4261787a",
+      "model_pin_sha256": "cfa5b0ed8c183bd43212e4eefb22f6e33ccc917b17d8a1928ed9718f76df0578",
+      "model_pin": {
+        "key": "11101",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "6be6f2af36d3382d43013621eab382c16a4cc1ae",
+        "prefix": "runs/strategic-correction-v1/11101/derivative",
+        "files": {
+          "inference64.onnx": "9f8d87b28dc1ed76770e7ffe8457a87fb3fb014d866b43b571ce838b87ff0f32",
+          "inference64.pt": "d271b7a28a9a33edacbebf3d6e398d18cd97b549768c24557a8b11d57564fb54"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "seed": 11101,
+        "selected_epoch": 30,
+        "training_verified": true,
+        "parent_frozen": true,
+        "strict_parity_positions": 2553,
+        "training_verified_sha256": "40e0495e736942566c15c4dec2fe039d15ac3069e6b605f5e6ebb69051455ea6",
+        "qualification_eligible": false
+      },
+      "runtime_admission": {
+        "key": "11101",
+        "probes": {
+          "2": {
+            "revision": "3b3044a49826467fd78c389e5166c99b12d52b35",
+            "seconds": 103.414254003,
+            "verified_sha256": "96cc051484ea7660ed72d943ec9b4d47f864d2e8bc78a69c968beffc40c188df"
+          },
+          "6": {
+            "revision": "35a34845b207ce4bb667aee632270b010edcfe1e",
+            "seconds": 1205.1529502479998,
+            "verified_sha256": "763c3870c416437dc209592e7b52496bd937bee8882d96d77bc25b43b3bcb541"
+          }
+        },
+        "projected_seconds": 9761.223601983998,
+        "timeout_hours": 4,
+        "admitted": true,
+        "scope": "Same frozen candidate,2p/6p HF search smoke;2x worst endpoint linear projection for4 whole deals plus120s setup,25% timeout headroom. Planning only; no game cutoff changes."
+      },
+      "timeout_hours": 4,
+      "qualification_eligible": false,
+      "retry_of_job_id": "6adbe72b1e112550ce7d9c7b",
+      "retry_reason": "Job failed with exit code: 137. Reason: Error",
+      "job_id": "6adbed2f046eb82b1ecd8532",
+      "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-6p-search_geo-0-4-retry1.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-23 23:27:05.835000+00:00",
+      "finished_at": null
+    },
+    {
+      "stage": "launched",
       "created_at": "2026-10-23T23:00:58.331381+00:00",
       "key": "11101",
       "players": 6,
@@ -6199,10 +6260,11 @@
       "qualification_eligible": false,
       "job_id": "6adbe72b1e112550ce7d9c7b",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-6p-search_geo-0-4.json",
-      "authoritative_status": "RUNNING",
-      "message": null,
+      "authoritative_status": "ERROR",
+      "message": "Job failed with exit code: 137. Reason: Error",
       "started_at": "2026-10-23 23:01:01.760000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:21:07.729000+00:00",
+      "completed_replacement_job_ids": []
     },
     {
       "stage": "launched",
@@ -6553,10 +6615,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7e2046eb82b1ecd81c8",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-2p-economic-4-8.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:03.550000+00:00",
+      "finished_at": "2026-10-23 23:07:45.805000+00:00"
     },
     {
       "stage": "launched",
@@ -6789,10 +6851,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7e6046eb82b1ecd81d0",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-2p-economic_capacity_v1-4-8.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:09.083000+00:00",
+      "finished_at": "2026-10-23 23:07:51.337000+00:00"
     },
     {
       "stage": "launched",
@@ -6848,10 +6910,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7e6046eb82b1ecd81d2",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-2p-economic_capacity_v1-8-12.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:10.013000+00:00",
+      "finished_at": "2026-10-23 23:07:52.263000+00:00"
     },
     {
       "stage": "launched",
@@ -6907,10 +6969,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe818046eb82b1ecd8228",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-2p-heuristic-0-4.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:57.295000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:40.527000+00:00"
     },
     {
       "stage": "launched",
@@ -6966,10 +7028,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe81a046eb82b1ecd822f",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-2p-heuristic-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Pulling container image",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:06:58.008000+00:00",
+      "finished_at": "2026-10-23 23:07:41.251000+00:00"
     },
     {
       "stage": "launched",
@@ -7025,10 +7087,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe8191e112550ce7d9e1e",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-2p-heuristic-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:57.509000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:38.756000+00:00"
     },
     {
       "stage": "launched",
@@ -7084,10 +7146,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe819046eb82b1ecd822d",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-2p-heuristic-8-12.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Pulling container image",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:06:58.566000+00:00",
+      "finished_at": "2026-10-23 23:07:40.803000+00:00"
     },
     {
       "stage": "launched",
@@ -7143,10 +7205,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe81b046eb82b1ecd8231",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-2p-legacy-0-4.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:54.231000+00:00",
+      "finished_at": "2026-10-23 23:08:37.476000+00:00"
     },
     {
       "stage": "launched",
@@ -7202,10 +7264,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe81f046eb82b1ecd8233",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-2p-legacy-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:08:31.305000+00:00",
+      "finished_at": "2026-10-23 23:09:13.534000+00:00"
     },
     {
       "stage": "launched",
@@ -7379,10 +7441,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe820046eb82b1ecd8235",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-2p-rush-0-4.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:08:30.834000+00:00",
+      "finished_at": "2026-10-23 23:09:12.071000+00:00"
     },
     {
       "stage": "launched",
@@ -7438,10 +7500,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe823046eb82b1ecd823c",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-2p-rush-12-16.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:15.933000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:06:59.171000+00:00"
     },
     {
       "stage": "launched",
@@ -7615,10 +7677,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7cc046eb82b1ecd8198",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-2p-search_geo-0-4.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:03:42.673000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:50.700000+00:00"
     },
     {
       "stage": "launched",
@@ -7674,10 +7736,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7cf046eb82b1ecd819e",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-2p-search_geo-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:17.828000+00:00",
+      "finished_at": "2026-10-23 23:11:47.725000+00:00"
     },
     {
       "stage": "launched",
@@ -7733,10 +7795,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7cd1e112550ce7d9da2",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-2p-search_geo-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:03:45.068000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:08:11.259000+00:00"
     },
     {
       "stage": "launched",
@@ -7792,10 +7854,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7ce046eb82b1ecd819c",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-2p-search_geo-8-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:05:30.264000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:09:43.056000+00:00"
     },
     {
       "stage": "launched",
@@ -8146,10 +8208,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7e1046eb82b1ecd81c4",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-3p-economic-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:02.080000+00:00",
+      "finished_at": "2026-10-23 23:07:46.329000+00:00"
     },
     {
       "stage": "launched",
@@ -8205,10 +8267,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7df046eb82b1ecd81c0",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-3p-economic-4-8.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:09.533000+00:00",
+      "finished_at": "2026-10-23 23:07:52.769000+00:00"
     },
     {
       "stage": "launched",
@@ -8264,10 +8326,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7e0046eb82b1ecd81c2",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-3p-economic-8-12.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Job initialization",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:06:59.023000+00:00",
+      "finished_at": "2026-10-23 23:07:42.278000+00:00"
     },
     {
       "stage": "launched",
@@ -8382,10 +8444,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe810046eb82b1ecd8214",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-3p-heuristic-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:04.001000+00:00",
+      "finished_at": "2026-10-23 23:07:47.246000+00:00"
     },
     {
       "stage": "launched",
@@ -8500,10 +8562,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe80f1e112550ce7d9e0c",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-3p-heuristic-8-12.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:07.330000+00:00",
+      "finished_at": "2026-10-23 23:07:51.584000+00:00"
     },
     {
       "stage": "launched",
@@ -8559,10 +8621,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe8111e112550ce7d9e0f",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-3p-legacy-0-4.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:17.521000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:02.771000+00:00"
     },
     {
       "stage": "launched",
@@ -8618,10 +8680,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe8141e112550ce7d9e11",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-3p-legacy-12-16.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:17.868000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:02.116000+00:00"
     },
     {
       "stage": "launched",
@@ -8677,10 +8739,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe812046eb82b1ecd8216",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-3p-legacy-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:17.595000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:01.853000+00:00"
     },
     {
       "stage": "launched",
@@ -8736,10 +8798,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe813046eb82b1ecd821a",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-3p-legacy-8-12.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:03.748000+00:00",
+      "finished_at": "2026-10-23 23:07:47+00:00"
     },
     {
       "stage": "launched",
@@ -8795,10 +8857,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe8141e112550ce7d9e13",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-3p-rush-0-4.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:17.816000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:11.065000+00:00"
     },
     {
       "stage": "launched",
@@ -8854,10 +8916,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe817046eb82b1ecd8226",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-3p-rush-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:53.465000+00:00",
+      "finished_at": "2026-10-23 23:08:47.743000+00:00"
     },
     {
       "stage": "launched",
@@ -8913,10 +8975,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe815046eb82b1ecd821c",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-3p-rush-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:16.406000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:00.662000+00:00"
     },
     {
       "stage": "launched",
@@ -8972,10 +9034,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe8161e112550ce7d9e1c",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-3p-rush-8-12.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:53.800000+00:00",
+      "finished_at": "2026-10-23 23:08:37.045000+00:00"
     },
     {
       "stage": "launched",
@@ -9031,10 +9093,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7c7046eb82b1ecd818e",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-3p-search_geo-0-4.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:03:40.354000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:11:02.937000+00:00"
     },
     {
       "stage": "launched",
@@ -9090,10 +9152,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7cb046eb82b1ecd8195",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-3p-search_geo-12-16.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:03:41.512000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:11:36.146000+00:00"
     },
     {
       "stage": "launched",
@@ -9149,10 +9211,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7c8046eb82b1ecd8190",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-3p-search_geo-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:03:42.293000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:11:52.991000+00:00"
     },
     {
       "stage": "launched",
@@ -9208,10 +9270,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7c9046eb82b1ecd8192",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-3p-search_geo-8-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:03:42.064000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:11:40.743000+00:00"
     },
     {
       "stage": "launched",
@@ -9503,10 +9565,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe8001e112550ce7d9df8",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-4p-heuristic-0-4.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:57.747000+00:00",
+      "finished_at": "2026-10-23 23:08:43.989000+00:00"
     },
     {
       "stage": "launched",
@@ -9562,10 +9624,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe8031e112550ce7d9e02",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-4p-heuristic-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:07.591000+00:00",
+      "finished_at": "2026-10-23 23:07:54.852000+00:00"
     },
     {
       "stage": "launched",
@@ -9621,10 +9683,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe801046eb82b1ecd8202",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-4p-heuristic-4-8.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:58.233000+00:00",
+      "finished_at": "2026-10-23 23:08:45.503000+00:00"
     },
     {
       "stage": "launched",
@@ -9680,10 +9742,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe802046eb82b1ecd8204",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-4p-heuristic-8-12.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:08.387000+00:00",
+      "finished_at": "2026-10-23 23:07:54.660000+00:00"
     },
     {
       "stage": "launched",
@@ -9739,10 +9801,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe804046eb82b1ecd8206",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-4p-legacy-0-4.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:08.078000+00:00",
+      "finished_at": "2026-10-23 23:07:55.336000+00:00"
     },
     {
       "stage": "launched",
@@ -9798,10 +9860,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe808046eb82b1ecd8208",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-4p-legacy-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:04.653000+00:00",
+      "finished_at": "2026-10-23 23:07:51.911000+00:00"
     },
     {
       "stage": "launched",
@@ -9857,10 +9919,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe8051e112550ce7d9e04",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-4p-legacy-4-8.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:54.153000+00:00",
+      "finished_at": "2026-10-23 23:08:42.424000+00:00"
     },
     {
       "stage": "launched",
@@ -9916,10 +9978,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe8061e112550ce7d9e06",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-4p-legacy-8-12.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:55.674000+00:00",
+      "finished_at": "2026-10-23 23:08:42.910000+00:00"
     },
     {
       "stage": "launched",
@@ -10211,10 +10273,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7c3046eb82b1ecd8182",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-4p-search_geo-0-4.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:42.419000+00:00",
+      "finished_at": "2026-10-23 23:28:12.982000+00:00"
     },
     {
       "stage": "launched",
@@ -10270,10 +10332,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7c6046eb82b1ecd818c",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-4p-search_geo-12-16.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:03:42.128000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:22:51.599000+00:00"
     },
     {
       "stage": "launched",
@@ -10329,10 +10391,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7c41e112550ce7d9d8a",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-4p-search_geo-4-8.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:40.649000+00:00",
+      "finished_at": "2026-10-23 23:26:15.812000+00:00"
     },
     {
       "stage": "launched",
@@ -10388,10 +10450,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7c51e112550ce7d9d8d",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-4p-search_geo-8-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:03:35.941000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:24:45.795000+00:00"
     },
     {
       "stage": "launched",
@@ -10506,10 +10568,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7d7046eb82b1ecd81a4",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-economic-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:11.771000+00:00",
+      "finished_at": "2026-10-23 23:08:00.037000+00:00"
     },
     {
       "stage": "launched",
@@ -10565,10 +10627,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7d51e112550ce7d9db4",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-economic-4-8.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:03.783000+00:00",
+      "finished_at": "2026-10-23 23:07:56.072000+00:00"
     },
     {
       "stage": "launched",
@@ -10624,10 +10686,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7d61e112550ce7d9db6",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-economic-8-12.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:09.832000+00:00",
+      "finished_at": "2026-10-23 23:07:58.094000+00:00"
     },
     {
       "stage": "launched",
@@ -10683,10 +10745,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7f31e112550ce7d9de8",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-heuristic-0-4.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:57.963000+00:00",
+      "finished_at": "2026-10-23 23:08:46.210000+00:00"
     },
     {
       "stage": "launched",
@@ -10742,10 +10804,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7f6046eb82b1ecd81f0",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-heuristic-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:59.982000+00:00",
+      "finished_at": "2026-10-23 23:08:48.237000+00:00"
     },
     {
       "stage": "launched",
@@ -10801,10 +10863,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7f41e112550ce7d9dea",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-heuristic-4-8.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:58.248000+00:00",
+      "finished_at": "2026-10-23 23:08:48.514000+00:00"
     },
     {
       "stage": "launched",
@@ -10860,10 +10922,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7f51e112550ce7d9dec",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-heuristic-8-12.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:58.289000+00:00",
+      "finished_at": "2026-10-23 23:08:47.556000+00:00"
     },
     {
       "stage": "launched",
@@ -10919,10 +10981,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7f71e112550ce7d9dee",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-legacy-0-4.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:08:02.438000+00:00",
+      "finished_at": "2026-10-23 23:08:50.708000+00:00"
     },
     {
       "stage": "launched",
@@ -10978,10 +11040,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7fa046eb82b1ecd81f4",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-legacy-12-16.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:17.177000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:05.444000+00:00"
     },
     {
       "stage": "launched",
@@ -11037,10 +11099,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7f81e112550ce7d9df0",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-legacy-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:17.840000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:07.157000+00:00"
     },
     {
       "stage": "launched",
@@ -11096,10 +11158,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7f9046eb82b1ecd81f2",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-legacy-8-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:19.644000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:10.940000+00:00"
     },
     {
       "stage": "launched",
@@ -11155,10 +11217,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7fb1e112550ce7d9df2",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-rush-0-4.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:08.083000+00:00",
+      "finished_at": "2026-10-23 23:07:56.360000+00:00"
     },
     {
       "stage": "launched",
@@ -11214,10 +11276,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7ff046eb82b1ecd81fe",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-rush-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:57.553000+00:00",
+      "finished_at": "2026-10-23 23:08:44.815000+00:00"
     },
     {
       "stage": "launched",
@@ -11273,10 +11335,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7fd1e112550ce7d9df4",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-rush-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:15.971000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:06.244000+00:00"
     },
     {
       "stage": "launched",
@@ -11332,10 +11394,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7fe046eb82b1ecd81fc",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-rush-8-12.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:08.132000+00:00",
+      "finished_at": "2026-10-23 23:07:56.416000+00:00"
     },
     {
       "stage": "launched",
@@ -11391,10 +11453,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7be046eb82b1ecd817a",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-search_geo-0-4.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:03:30.565000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:38:43.824000+00:00"
     },
     {
       "stage": "launched",
@@ -11450,10 +11512,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7c1046eb82b1ecd8180",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-search_geo-12-16.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:03:32.553000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:38:01.307000+00:00"
     },
     {
       "stage": "launched",
@@ -11509,10 +11571,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7bf046eb82b1ecd817c",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-search_geo-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:03:30.665000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:37:08.633000+00:00"
     },
     {
       "stage": "launched",
@@ -11568,10 +11630,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7c01e112550ce7d9d86",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-5p-search_geo-8-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:03:31.897000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:37:31.776000+00:00"
     },
     {
       "stage": "launched",
@@ -11686,10 +11748,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7d31e112550ce7d9db0",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-6p-economic-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:12.816000+00:00",
+      "finished_at": "2026-10-23 23:08:03.091000+00:00"
     },
     {
       "stage": "launched",
@@ -11745,10 +11807,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7d11e112550ce7d9dae",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-6p-economic-4-8.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:13.829000+00:00",
+      "finished_at": "2026-10-23 23:08:05.101000+00:00"
     },
     {
       "stage": "launched",
@@ -11804,10 +11866,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7d2046eb82b1ecd81a0",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-6p-economic-8-12.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:13.965000+00:00",
+      "finished_at": "2026-10-23 23:08:05.241000+00:00"
     },
     {
       "stage": "launched",
@@ -11863,10 +11925,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7e8046eb82b1ecd81d6",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-6p-heuristic-0-4.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:08:13.905000+00:00",
+      "finished_at": "2026-10-23 23:09:06.201000+00:00"
     },
     {
       "stage": "launched",
@@ -11922,10 +11984,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7ea046eb82b1ecd81dc",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-6p-heuristic-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:07:09.272000+00:00",
+      "finished_at": "2026-10-23 23:07:59.546000+00:00"
     },
     {
       "stage": "launched",
@@ -11981,10 +12043,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7e9046eb82b1ecd81d8",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-6p-heuristic-4-8.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:08:14.772000+00:00",
+      "finished_at": "2026-10-23 23:09:09.117000+00:00"
     },
     {
       "stage": "launched",
@@ -12040,10 +12102,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7ea046eb82b1ecd81da",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-6p-heuristic-8-12.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:08:29.291000+00:00",
+      "finished_at": "2026-10-23 23:09:19.551000+00:00"
     },
     {
       "stage": "launched",
@@ -12099,10 +12161,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7eb046eb82b1ecd81de",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-6p-legacy-0-4.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:08:06.978000+00:00",
+      "finished_at": "2026-10-23 23:08:57.236000+00:00"
     },
     {
       "stage": "launched",
@@ -12158,10 +12220,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7ee046eb82b1ecd81e0",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-6p-legacy-12-16.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:08:12.320000+00:00",
+      "finished_at": "2026-10-23 23:09:05.618000+00:00"
     },
     {
       "stage": "launched",
@@ -12217,10 +12279,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7ec1e112550ce7d9dd4",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-6p-legacy-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:06:16.365000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 23:07:07.641000+00:00"
     },
     {
       "stage": "launched",
@@ -12276,10 +12338,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7ed1e112550ce7d9dd6",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-6p-legacy-8-12.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:08:07.128000+00:00",
+      "finished_at": "2026-10-23 23:08:59.402000+00:00"
     },
     {
       "stage": "launched",
@@ -12335,10 +12397,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7ee1e112550ce7d9ddc",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-6p-rush-0-4.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:08:01.921000+00:00",
+      "finished_at": "2026-10-23 23:08:54.200000+00:00"
     },
     {
       "stage": "launched",
@@ -12453,10 +12515,10 @@
       "qualification_eligible": false,
       "job_id": "6adbe7ef1e112550ce7d9dde",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11102-6p-rush-4-8.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:08:04.994000+00:00",
+      "finished_at": "2026-10-23 23:08:55.280000+00:00"
     },
     {
       "stage": "launched",

@@ -1,0 +1,4081 @@
+{
+  "complete": true,
+  "pending": [],
+  "arms": {
+    "11101": {
+      "2p/nomination": {
+        "games": 128,
+        "independent_deals": 16,
+        "win_rate": 0.7109375,
+        "deal_bootstrap_95_interval": [
+          0.6640625,
+          0.7578125
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 128,
+              "independent_deals": 16,
+              "win_share_difference": 0.01171875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.06640625,
+                0.0859375
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.03125,
+                  0.40625
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.015625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.171875,
+                  0.203125
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.15625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.375,
+                  0.09375
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.21875,
+                  0.21875
+                ]
+              }
+            }
+          },
+          "11101": {
+            "overall": {
+              "games_per_model": 128,
+              "independent_deals": 16,
+              "win_share_difference": 0.03125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.0390625,
+                0.109375
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0625,
+                  0.3125
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.15625,
+                  0.25
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.15625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.40625,
+                  0.0625
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.09375,
+                  0.34375
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11101-2p-nomination-0-4",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-2p-nomination-0-4",
+            "verified_sha256": "c552a84c9f772ec91af58bb58e0a8e5cc93602760ef7bf45ae2534825f075ccb"
+          },
+          {
+            "case": "11101-2p-nomination-4-8",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-2p-nomination-4-8",
+            "verified_sha256": "0da7f97ce3175d59ad0a551ae092bce2e117a2d52de9898d679b373808420e29"
+          },
+          {
+            "case": "11101-2p-nomination-8-12",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-2p-nomination-8-12",
+            "verified_sha256": "9069e21616974a9de9ec33bc7261a12fdfa6577a4666b0b40836d39489620b07"
+          },
+          {
+            "case": "11101-2p-nomination-12-16",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-2p-nomination-12-16",
+            "verified_sha256": "369d2816aeae5e05981d836331f786ad889cdf0dd99890d4529647c718cc23b5"
+          }
+        ]
+      },
+      "2p/bid": {
+        "games": 128,
+        "independent_deals": 16,
+        "win_rate": 0.65234375,
+        "deal_bootstrap_95_interval": [
+          0.5703125,
+          0.734375
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 128,
+              "independent_deals": 16,
+              "win_share_difference": -0.046875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.140625,
+                0.046875
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.3125,
+                  0.25
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.28125,
+                  0.0
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.25,
+                  0.15625
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.15625,
+                  0.15625
+                ]
+              }
+            }
+          },
+          "11101": {
+            "overall": {
+              "games_per_model": 128,
+              "independent_deals": 16,
+              "win_share_difference": -0.02734375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.1015625,
+                0.0546875
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.09375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.28125,
+                  0.0625
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.109375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.28125,
+                  0.0625
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.28125,
+                  0.25
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.15625,
+                  0.375
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11101-2p-bid-0-4",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-2p-bid-0-4",
+            "verified_sha256": "65cfff268a431621d74bbe94de3889cdd4cc15f18ba76e6bd114eff6684d76ae"
+          },
+          {
+            "case": "11101-2p-bid-4-8",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-2p-bid-4-8",
+            "verified_sha256": "a72043ded069f59d75332ebcaca2017c998d95e8cfac6999c340d764fe30556c"
+          },
+          {
+            "case": "11101-2p-bid-8-12",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-2p-bid-8-12",
+            "verified_sha256": "2da361d38e34f1b0e78b068cc69d9e1e3651be73065cdd572aa3535633bfee5e"
+          },
+          {
+            "case": "11101-2p-bid-12-16",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-2p-bid-12-16",
+            "verified_sha256": "52b0837fd76bf68c328a1206d468ad3298c1c7a797c1115a6464fe958f466709"
+          }
+        ]
+      },
+      "2p/building": {
+        "games": 128,
+        "independent_deals": 16,
+        "win_rate": 0.72265625,
+        "deal_bootstrap_95_interval": [
+          0.63671875,
+          0.8046875
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 128,
+              "independent_deals": 16,
+              "win_share_difference": 0.0234375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.046875,
+                0.09765625
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1875,
+                  0.18828124999998863
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.015625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1875,
+                  0.15625
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.125,
+                  0.125
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.109375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.015625,
+                  0.234375
+                ]
+              }
+            }
+          },
+          "11101": {
+            "overall": {
+              "games_per_model": 128,
+              "independent_deals": 16,
+              "win_share_difference": 0.04296875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.04296875,
+                0.1328125
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.21875,
+                  0.09375
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.15625,
+                  0.15625
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.25,
+                  0.28125
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.234375,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.46875
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11101-2p-building-0-4",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-2p-building-0-4",
+            "verified_sha256": "d9f6dc05548d0b0b88975800c7ebd794a3d0fa7dfd75d4742836f92246e1d04d"
+          },
+          {
+            "case": "11101-2p-building-4-8",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-2p-building-4-8",
+            "verified_sha256": "27ed0a7557cacd05c5701458afe662db03dca7f2ecb768009ef9e6125d9d6223"
+          },
+          {
+            "case": "11101-2p-building-8-12",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-2p-building-8-12",
+            "verified_sha256": "ab3519bc4d216180b69971adc75334b7e7778759c596b2caae7d562a09988232"
+          },
+          {
+            "case": "11101-2p-building-12-16",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-2p-building-12-16",
+            "verified_sha256": "eda5d4f8618c44615238b6c782dceb03b7d2eeb696e8b3542298a2d7f31a7917"
+          }
+        ]
+      },
+      "3p/nomination": {
+        "games": 192,
+        "independent_deals": 16,
+        "win_rate": 0.640625,
+        "deal_bootstrap_95_interval": [
+          0.5625,
+          0.7135416666666666
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 192,
+              "independent_deals": 16,
+              "win_share_difference": 0.020833333333333322,
+              "paired_deal_bootstrap_95_interval": [
+                -0.07291666666666667,
+                0.10416666666666666
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.020833333333333322,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.22916666666666666,
+                  0.25
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.10416666666666666,
+                  0.24999999999999997
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": -0.020833333333333343,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.16666666666666666,
+                  0.125
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.020833333333333336,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.14583333333333334,
+                  0.20833333333333331
+                ]
+              }
+            }
+          },
+          "11101": {
+            "overall": {
+              "games_per_model": 192,
+              "independent_deals": 16,
+              "win_share_difference": 0.09895833333333333,
+              "paired_deal_bootstrap_95_interval": [
+                -0.005208333333333332,
+                0.19791666666666669
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.12499999999999999,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.10416666666666666,
+                  0.3333333333333333
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.22916666666666663,
+                "paired_deal_bootstrap_95_interval": [
+                  0.08333333333333333,
+                  0.375
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": -0.04166666666666666,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.22916666666666666,
+                  0.14583333333333331
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.08333333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.10416666666666666,
+                  0.2708333333333333
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11101-3p-nomination-0-4",
+            "revision": "059aa49c5a164d8609cc3af1e83540899b71ff78",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-3p-nomination-0-4",
+            "verified_sha256": "412ff1d4a834f1d31eca371083bab0c2908c9c2c4351a2dace0ae37b7fbbbecd"
+          },
+          {
+            "case": "11101-3p-nomination-4-8",
+            "revision": "059aa49c5a164d8609cc3af1e83540899b71ff78",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-3p-nomination-4-8",
+            "verified_sha256": "5df42b0052c00ddc92088bcfa6c1810779fefc5cfb4dff4754ca91c44e1516ac"
+          },
+          {
+            "case": "11101-3p-nomination-8-12",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-3p-nomination-8-12",
+            "verified_sha256": "01fd0730b3cd7e58809e0816c6d1daa1e3e93cb654db522019fca797398c8d3d"
+          },
+          {
+            "case": "11101-3p-nomination-12-16",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-3p-nomination-12-16",
+            "verified_sha256": "77e215c438bf57084fdbd7497af0e1d8b2ccf1621e92dfce864ab0792a372a18"
+          }
+        ]
+      },
+      "3p/bid": {
+        "games": 192,
+        "independent_deals": 16,
+        "win_rate": 0.5833333333333334,
+        "deal_bootstrap_95_interval": [
+          0.4947916666666667,
+          0.671875
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 192,
+              "independent_deals": 16,
+              "win_share_difference": -0.03645833333333333,
+              "paired_deal_bootstrap_95_interval": [
+                -0.11458333333333333,
+                0.05208333333333333
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": -0.08333333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.24999999999999997,
+                  0.08333333333333333
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.020833333333333336,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.14583333333333331,
+                  0.20833333333333331
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": -0.04166666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.16666666666666666,
+                  0.08333333333333333
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": -0.04166666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.22916666666666663,
+                  0.125
+                ]
+              }
+            }
+          },
+          "11101": {
+            "overall": {
+              "games_per_model": 192,
+              "independent_deals": 16,
+              "win_share_difference": 0.04166666666666666,
+              "paired_deal_bootstrap_95_interval": [
+                -0.05729166666666666,
+                0.14583333333333331
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.020833333333333343,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1875,
+                  0.25
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.375
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": -0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.22916666666666666,
+                  0.10416666666666666
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.020833333333333336,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.14583333333333331,
+                  0.1875
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11101-3p-bid-0-4",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-3p-bid-0-4",
+            "verified_sha256": "a3cccb351a420576ac2d12add37d90db46a63a161bb2e907d9f1e09e04a389c8"
+          },
+          {
+            "case": "11101-3p-bid-4-8",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-3p-bid-4-8",
+            "verified_sha256": "61cd437302da387a64ad591ee3fc3fe16981bd6e93bce47649f7fe7ea9c7fc22"
+          },
+          {
+            "case": "11101-3p-bid-8-12",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-3p-bid-8-12",
+            "verified_sha256": "cc0f326e6e994c4860bb28d406db281cfe73360ce9dd1f36fddaec479af4cc00"
+          },
+          {
+            "case": "11101-3p-bid-12-16",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-3p-bid-12-16",
+            "verified_sha256": "b5f8e8173ad8a8c69bf063e4b1c9c50607f3412534a65c96b8fed38aa3145294"
+          }
+        ]
+      },
+      "3p/building": {
+        "games": 192,
+        "independent_deals": 16,
+        "win_rate": 0.6354166666666667,
+        "deal_bootstrap_95_interval": [
+          0.578125,
+          0.6927083333333333
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 192,
+              "independent_deals": 16,
+              "win_share_difference": 0.015624999999999997,
+              "paired_deal_bootstrap_95_interval": [
+                -0.05729166666666667,
+                0.08854166666666666
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.04166666666666666,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.10416666666666667,
+                  0.1875
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.02083333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.16666666666666666,
+                  0.20833333333333334
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.020833333333333336,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.08333333333333333,
+                  0.14583333333333331
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": -0.020833333333333332,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.14583333333333331,
+                  0.10416666666666666
+                ]
+              }
+            }
+          },
+          "11101": {
+            "overall": {
+              "games_per_model": 192,
+              "independent_deals": 16,
+              "win_share_difference": 0.09375,
+              "paired_deal_bootstrap_95_interval": [
+                0.005208333333333334,
+                0.1875
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.14583333333333331,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.06249999999999999,
+                  0.33333333333333337
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  3.469446951953614e-18,
+                  0.3958333333333333
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.125,
+                  0.125
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.04166666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.14583333333333331,
+                  0.25
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11101-3p-building-0-4",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-3p-building-0-4",
+            "verified_sha256": "8e1e2f9f92b30e3ea7f693e6c9ca7c5b24cb29f60bf7afb6a9ed352a73167315"
+          },
+          {
+            "case": "11101-3p-building-4-8",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-3p-building-4-8",
+            "verified_sha256": "e65f3d95ffc927e9f9f0238f2fe60fde400912253ec5018042f2cf2cd8dc18b3"
+          },
+          {
+            "case": "11101-3p-building-8-12",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-3p-building-8-12",
+            "verified_sha256": "14a8d266d03e30b9818dad1108c674bd4dea3848cc5b60e5594d0b74330f90cf"
+          },
+          {
+            "case": "11101-3p-building-12-16",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-3p-building-12-16",
+            "verified_sha256": "4273b82cd1a906c4f2516e1ea7ded6e1f9dd64869582f9e218cc179709eaad16"
+          }
+        ]
+      },
+      "4p/nomination": {
+        "games": 256,
+        "independent_deals": 16,
+        "win_rate": 0.578125,
+        "deal_bootstrap_95_interval": [
+          0.51953125,
+          0.62890625
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 256,
+              "independent_deals": 16,
+              "win_share_difference": -0.03515625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.1015625,
+                0.03515625
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.046875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.078125,
+                  0.171875
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.09375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.078125,
+                  0.265625
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": -0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.265625,
+                  0.0
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": -0.15625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.28125,
+                  -0.015625
+                ]
+              }
+            }
+          },
+          "11101": {
+            "overall": {
+              "games_per_model": 256,
+              "independent_deals": 16,
+              "win_share_difference": 0.12890625,
+              "paired_deal_bootstrap_95_interval": [
+                0.0625,
+                0.19140625
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.109375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0625,
+                  0.265625
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.203125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.078125,
+                  0.328125
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.078125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0625,
+                  0.21875
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.25
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11101-4p-nomination-0-4",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-4p-nomination-0-4",
+            "verified_sha256": "5f877fad65fbfb008f4eed7bdcbf2592cf3b30104bea484b4e16be3370dcb77c"
+          },
+          {
+            "case": "11101-4p-nomination-4-8",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-4p-nomination-4-8",
+            "verified_sha256": "4e1e4f1cf3cb4bae02675c96a025f8817d356e6a061617f771e7928352b6a06a"
+          },
+          {
+            "case": "11101-4p-nomination-8-12",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-4p-nomination-8-12",
+            "verified_sha256": "12ccd5115376c80e400ffd0d03a7ea739974c12e0a06cdea6d776833bcb4442d"
+          },
+          {
+            "case": "11101-4p-nomination-12-16",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-4p-nomination-12-16",
+            "verified_sha256": "0eb0d16a784779f5539cceff575f77deb65e72131bf59a8161e12093802eb274"
+          }
+        ]
+      },
+      "4p/bid": {
+        "games": 256,
+        "independent_deals": 16,
+        "win_rate": 0.609375,
+        "deal_bootstrap_95_interval": [
+          0.5546875,
+          0.6640625
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 256,
+              "independent_deals": 16,
+              "win_share_difference": -0.00390625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.05859375,
+                0.0625
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.109375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.046875,
+                  0.265625
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.015625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.15625,
+                  0.1875
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": -0.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.125,
+                  0.046875
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": -0.109375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.234375,
+                  0.015625
+                ]
+              }
+            }
+          },
+          "11101": {
+            "overall": {
+              "games_per_model": 256,
+              "independent_deals": 16,
+              "win_share_difference": 0.16015625,
+              "paired_deal_bootstrap_95_interval": [
+                0.08984375,
+                0.23046875
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.171875,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.34375
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.015625,
+                  0.265625
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.171875,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0625,
+                  0.296875
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.171875,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.328125
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11101-4p-bid-0-4",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-4p-bid-0-4",
+            "verified_sha256": "ccded3135525c8e116c567e85e459701c9d2506d560c79029f4a8639a7b66118"
+          },
+          {
+            "case": "11101-4p-bid-4-8",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-4p-bid-4-8",
+            "verified_sha256": "92452ac7b7769f10d66357325e68187d8b8a5ae9f02b2baefeb04e29ce047853"
+          },
+          {
+            "case": "11101-4p-bid-8-12",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-4p-bid-8-12",
+            "verified_sha256": "a2c9a89d917856532b75f561e9c803b2a63ca2692978555f1bb61aa23d41727d"
+          },
+          {
+            "case": "11101-4p-bid-12-16",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-4p-bid-12-16",
+            "verified_sha256": "ddde43259e7969795b4534fd0a3f3231100d4b2166196464bcf25ba1d179f7a9"
+          }
+        ]
+      },
+      "4p/building": {
+        "games": 256,
+        "independent_deals": 16,
+        "win_rate": 0.63671875,
+        "deal_bootstrap_95_interval": [
+          0.59765625,
+          0.67578125
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 256,
+              "independent_deals": 16,
+              "win_share_difference": 0.0234375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.03515625,
+                0.08203125
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.109375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.03125,
+                  0.265625
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.015625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.15625,
+                  0.1875
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.046875,
+                  0.125
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": -0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.171875,
+                  0.046875
+                ]
+              }
+            }
+          },
+          "11101": {
+            "overall": {
+              "games_per_model": 256,
+              "independent_deals": 16,
+              "win_share_difference": 0.1875,
+              "paired_deal_bootstrap_95_interval": [
+                0.109375,
+                0.26953125
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.171875,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.34375
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0,
+                  0.25
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.234375,
+                "paired_deal_bootstrap_95_interval": [
+                  0.078125,
+                  0.390625
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.21875,
+                "paired_deal_bootstrap_95_interval": [
+                  0.03125,
+                  0.40625
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11101-4p-building-0-4",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-4p-building-0-4",
+            "verified_sha256": "ff4090bc2913d66e24a036d10bb5360cf681a6922d44ec8d09648ad37d301c36"
+          },
+          {
+            "case": "11101-4p-building-4-8",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-4p-building-4-8",
+            "verified_sha256": "2c3b2c95628b436b652775c1ead4c5084372dac4e956bc12e41850e0902d776a"
+          },
+          {
+            "case": "11101-4p-building-8-12",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-4p-building-8-12",
+            "verified_sha256": "a32d8c5cf325f0f3f0be4e4ad8245cb5a50b7104c3690a5bc7272d3d46d69c18"
+          },
+          {
+            "case": "11101-4p-building-12-16",
+            "revision": "059aa49c5a164d8609cc3af1e83540899b71ff78",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-4p-building-12-16",
+            "verified_sha256": "8f6aae75e43ab8ad2661e4b0b1b0e9e60b1274f08f6e0cd20457cc4102f37d81"
+          }
+        ]
+      },
+      "5p/nomination": {
+        "games": 320,
+        "independent_deals": 16,
+        "win_rate": 0.74375,
+        "deal_bootstrap_95_interval": [
+          0.696875,
+          0.79375
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 320,
+              "independent_deals": 16,
+              "win_share_difference": -0.014062500000000004,
+              "paired_deal_bootstrap_95_interval": [
+                -0.0625,
+                0.03749999999999999
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.037500000000000006,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.06250000000000001,
+                  0.1375
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.05625000000000001,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.18125,
+                  0.06875
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.05,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.15000000000000002,
+                  0.05
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.0125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0875,
+                  0.10000000000000002
+                ]
+              }
+            }
+          },
+          "11101": {
+            "overall": {
+              "games_per_model": 320,
+              "independent_deals": 16,
+              "win_share_difference": 0.11875,
+              "paired_deal_bootstrap_95_interval": [
+                0.053125000000000006,
+                0.19375
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.03750000000000002,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1375,
+                  0.21250000000000002
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.18749999999999997,
+                "paired_deal_bootstrap_95_interval": [
+                  0.025,
+                  0.35
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.012499999999999997,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.15000000000000002,
+                  0.1
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.2625,
+                "paired_deal_bootstrap_95_interval": [
+                  0.1125,
+                  0.4125
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11101-5p-nomination-0-4",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-5p-nomination-0-4",
+            "verified_sha256": "092134d277ae74477ebe13e36211bc7ee1ebf98e7f7c314f38a177d4dc90c7c6"
+          },
+          {
+            "case": "11101-5p-nomination-4-8",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-5p-nomination-4-8",
+            "verified_sha256": "96edfa2e05e410a47cc6780084f9ca11e04e10bb447c9ae2d4baf859be9079d1"
+          },
+          {
+            "case": "11101-5p-nomination-8-12",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-5p-nomination-8-12",
+            "verified_sha256": "30c75fb0593552113c57ae9cf72c40b5591de9514e8990dbed5f69c8add6293d"
+          },
+          {
+            "case": "11101-5p-nomination-12-16",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-5p-nomination-12-16",
+            "verified_sha256": "f06695333b722a29a1b99f24bc8ac5460bfadeb89471ce5e6ffe82ca795f6752"
+          }
+        ]
+      },
+      "5p/bid": {
+        "games": 320,
+        "independent_deals": 16,
+        "win_rate": 0.721875,
+        "deal_bootstrap_95_interval": [
+          0.6625,
+          0.7843749999999999
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 320,
+              "independent_deals": 16,
+              "win_share_difference": -0.035937500000000004,
+              "paired_deal_bootstrap_95_interval": [
+                -0.1265625,
+                0.05312499999999999
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.0375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1125,
+                  0.1875
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.018750000000000003,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.15000000000000002,
+                  0.125
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.125,
+                  0.125
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.16250000000000003,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.3375,
+                  -3.469446951953614e-18
+                ]
+              }
+            }
+          },
+          "11101": {
+            "overall": {
+              "games_per_model": 320,
+              "independent_deals": 16,
+              "win_share_difference": 0.096875,
+              "paired_deal_bootstrap_95_interval": [
+                0.034375,
+                0.159375
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.037500000000000006,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.07500000000000001,
+                  0.1375
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.225,
+                "paired_deal_bootstrap_95_interval": [
+                  0.1,
+                  0.35
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.037500000000000006,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0875,
+                  0.1625
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.0875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.07500000000000001,
+                  0.2625
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11101-5p-bid-0-4",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-5p-bid-0-4",
+            "verified_sha256": "79cd7421610049cf0cb65c8fec9c9d2cca39ce90819688f6c1c7e0b5bed1b49e"
+          },
+          {
+            "case": "11101-5p-bid-4-8",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-5p-bid-4-8",
+            "verified_sha256": "57400385117bd678d52c33e582f9fe5322311644e89b8de3ff62b183c9a48f19"
+          },
+          {
+            "case": "11101-5p-bid-8-12",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-5p-bid-8-12",
+            "verified_sha256": "982bbb0b1266e2556161d61bc75fa767f6b3d9e59712b1c7581a8e0f70a12259"
+          },
+          {
+            "case": "11101-5p-bid-12-16",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-5p-bid-12-16",
+            "verified_sha256": "3a7b7ef312eacd9dfd3110dde90fd090771f91a87072fd3635a953dca68ad241"
+          }
+        ]
+      },
+      "5p/building": {
+        "games": 320,
+        "independent_deals": 16,
+        "win_rate": 0.71875,
+        "deal_bootstrap_95_interval": [
+          0.66875,
+          0.759375
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 320,
+              "independent_deals": 16,
+              "win_share_difference": -0.0390625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.08906249999999999,
+                0.012500000000000002
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.012500000000000004,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.11250000000000002,
+                  0.0875
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.16875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.29375,
+                  -0.031249999999999997
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.05,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.05,
+                  0.15000000000000002
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.025,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.11250000000000002,
+                  0.06250000000000001
+                ]
+              }
+            }
+          },
+          "11101": {
+            "overall": {
+              "games_per_model": 320,
+              "independent_deals": 16,
+              "win_share_difference": 0.09375,
+              "paired_deal_bootstrap_95_interval": [
+                0.053125000000000006,
+                0.1375
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.012500000000000004,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.125,
+                  0.08750000000000001
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.075,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0625,
+                  0.2125
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.0875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.012500000000000004,
+                  0.1875
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.225,
+                "paired_deal_bootstrap_95_interval": [
+                  0.08750000000000001,
+                  0.375
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11101-5p-building-0-4",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-5p-building-0-4",
+            "verified_sha256": "e69c5f532bec8d878a8cba004cd3b0888e823f57ce1a8b5d392b17c06a94f2f5"
+          },
+          {
+            "case": "11101-5p-building-4-8",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-5p-building-4-8",
+            "verified_sha256": "4abd4930e364bb382eca0554c174d85eb30cdc3cb7193668b6b30ad635fc8fe6"
+          },
+          {
+            "case": "11101-5p-building-8-12",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-5p-building-8-12",
+            "verified_sha256": "d067397c061aa32f6c0b883cfaa06dad54ef9e8a76529f73f516dbe7b704347b"
+          },
+          {
+            "case": "11101-5p-building-12-16",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-5p-building-12-16",
+            "verified_sha256": "b555fff949fa36d325a3dd994b6206043b9cbdf5c80f7197ff706977b739dbd6"
+          }
+        ]
+      },
+      "6p/nomination": {
+        "games": 384,
+        "independent_deals": 16,
+        "win_rate": 0.7083333333333333,
+        "deal_bootstrap_95_interval": [
+          0.6770833333333334,
+          0.7447916666666666
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 384,
+              "independent_deals": 16,
+              "win_share_difference": -0.05859375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.1015625,
+                -0.01953125
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.10416666666666666,
+                  0.10416666666666666
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.16145833333333331,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.2708333333333333,
+                  -0.057291666666666664
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.08333333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.16666666666666666,
+                  0.0
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.010416666666666671,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.07291666666666666,
+                  0.09375
+                ]
+              }
+            }
+          },
+          "11101": {
+            "overall": {
+              "games_per_model": 384,
+              "independent_deals": 16,
+              "win_share_difference": 0.11197916666666666,
+              "paired_deal_bootstrap_95_interval": [
+                0.06510416666666667,
+                0.15364583333333334
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.03125,
+                  0.20833333333333331
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.020833333333333336,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.15625,
+                  0.10416666666666666
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.08333333333333334,
+                  0.20833333333333331
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.28125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.16666666666666666,
+                  0.3958333333333333
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11101-6p-nomination-0-4",
+            "revision": "059aa49c5a164d8609cc3af1e83540899b71ff78",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-6p-nomination-0-4",
+            "verified_sha256": "ee18c67ca4e78da05b9e00f39150bbe0f45b81134af40a484fe6d43c560ecb78"
+          },
+          {
+            "case": "11101-6p-nomination-4-8",
+            "revision": "059aa49c5a164d8609cc3af1e83540899b71ff78",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-6p-nomination-4-8",
+            "verified_sha256": "ca762c719da550ab8144a07bb4a0de1dc7ec90742051ad09b469059a0a981c11"
+          },
+          {
+            "case": "11101-6p-nomination-8-12",
+            "revision": "059aa49c5a164d8609cc3af1e83540899b71ff78",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-6p-nomination-8-12",
+            "verified_sha256": "4888360f91685c03e30caf174e20ae23df6026098b9193d9a4b44da0c38a6f85"
+          },
+          {
+            "case": "11101-6p-nomination-12-16",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-6p-nomination-12-16",
+            "verified_sha256": "29d550ca7f5fa384e62c845ed7e571403fa734c5d09a1d575dacc0335352a414"
+          }
+        ]
+      },
+      "6p/bid": {
+        "games": 384,
+        "independent_deals": 16,
+        "win_rate": 0.6770833333333333,
+        "deal_bootstrap_95_interval": [
+          0.609375,
+          0.7421875
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 384,
+              "independent_deals": 16,
+              "win_share_difference": -0.08984375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.16276041666666669,
+                -0.0234375
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.09375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.22916666666666666,
+                  0.04166666666666667
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.06770833333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1875,
+                  0.06770833333333333
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.08333333333333334,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.17708333333333331,
+                  0.010416666666666664
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.11458333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.22916666666666666,
+                  0.0
+                ]
+              }
+            }
+          },
+          "11101": {
+            "overall": {
+              "games_per_model": 384,
+              "independent_deals": 16,
+              "win_share_difference": 0.08072916666666666,
+              "paired_deal_bootstrap_95_interval": [
+                0.013020833333333336,
+                0.1484375
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.09375,
+                  0.15625
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.07291666666666666,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.10416666666666666,
+                  0.25
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.062499999999999986,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.07291666666666667,
+                  0.19791666666666666
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.15625,
+                "paired_deal_bootstrap_95_interval": [
+                  0.07291666666666666,
+                  0.23984374999999622
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11101-6p-bid-0-4",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-6p-bid-0-4",
+            "verified_sha256": "c9253af9f44048d674c59aea6fb54cb14545b0b1fb4700ce8e8750df5b2a3c35"
+          },
+          {
+            "case": "11101-6p-bid-4-8",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-6p-bid-4-8",
+            "verified_sha256": "73079eaf93663a0af97f2d72563dbf6880556ed2f79192dcfd016871a0242379"
+          },
+          {
+            "case": "11101-6p-bid-8-12",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-6p-bid-8-12",
+            "verified_sha256": "c5c0ea955ebdbf8c0cfdd897999f21bd838e5731a4e9714ff4e15d3c982918fc"
+          },
+          {
+            "case": "11101-6p-bid-12-16",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-6p-bid-12-16",
+            "verified_sha256": "faa46e9ff90087e5abe94da606116bbb5a5d7c85ba695fad2474c9769e1b0c67"
+          }
+        ]
+      },
+      "6p/building": {
+        "games": 384,
+        "independent_deals": 16,
+        "win_rate": 0.6861979166666667,
+        "deal_bootstrap_95_interval": [
+          0.6328125,
+          0.7369791666666667
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 384,
+              "independent_deals": 16,
+              "win_share_difference": -0.08072916666666667,
+              "paired_deal_bootstrap_95_interval": [
+                -0.12630208333333334,
+                -0.03385416666666667
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.140625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.24999999999999997,
+                  -0.046875
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.03645833333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.11458333333333333,
+                  0.041666666666666664
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.05208333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.15625,
+                  0.041666666666666664
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.09375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.17708333333333331,
+                  0.010416666666666678
+                ]
+              }
+            }
+          },
+          "11101": {
+            "overall": {
+              "games_per_model": 384,
+              "independent_deals": 16,
+              "win_share_difference": 0.08984375,
+              "paired_deal_bootstrap_95_interval": [
+                0.023437500000000007,
+                0.14973958333333334
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.015625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.13541666666666666,
+                  0.09375
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.10416666666666666,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.010416666666666671,
+                  0.21875
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.09375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.05208333333333333,
+                  0.23958333333333331
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.17708333333333334,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0625,
+                  0.28125
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11101-6p-building-0-4",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-6p-building-0-4",
+            "verified_sha256": "98ea8398de0ebdc59c9d64a8b7ed403417375df0c6a7ad735e34d14af44ad85c"
+          },
+          {
+            "case": "11101-6p-building-4-8",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-6p-building-4-8",
+            "verified_sha256": "940cc07f5604dee7d8f75bc5fc21c5546b7f418da8f9c14a1658ddb8141a9c8c"
+          },
+          {
+            "case": "11101-6p-building-8-12",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-6p-building-8-12",
+            "verified_sha256": "0052f9df79166b50131fd88c55175f0237fd2edf7f83059a83851132be094e25"
+          },
+          {
+            "case": "11101-6p-building-12-16",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11101-6p-building-12-16",
+            "verified_sha256": "99407de8c3b8ed269daf97231b6159ab10de22a15529f1cf78e9cad1b3bab95f"
+          }
+        ]
+      }
+    },
+    "11102": {
+      "2p/nomination": {
+        "games": 128,
+        "independent_deals": 16,
+        "win_rate": 0.578125,
+        "deal_bootstrap_95_interval": [
+          0.5,
+          0.65625
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 128,
+              "independent_deals": 16,
+              "win_share_difference": -0.12109375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.2149414062499999,
+                -0.02734375
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.3125,
+                  0.25
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.015625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.203125,
+                  0.1875
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.40625,
+                  0.0625
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.25,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.4375,
+                  -0.0625
+                ]
+              }
+            }
+          },
+          "11102": {
+            "overall": {
+              "games_per_model": 128,
+              "independent_deals": 16,
+              "win_share_difference": 0.0546875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.046875,
+                0.1640625
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.15625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.09375,
+                  0.40625
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.09375,
+                  0.21875
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.21875,
+                  0.1875
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.25,
+                  0.25
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11102-2p-nomination-0-4",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-2p-nomination-0-4",
+            "verified_sha256": "6442522085d8fd59d4e17f0adeadb542f53f7bfcdb216fb9ba4b758ad6805604"
+          },
+          {
+            "case": "11102-2p-nomination-4-8",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-2p-nomination-4-8",
+            "verified_sha256": "e9ba46925bd0c675c249973c00b7e4a8760a4bca77c953413226d3081048c00e"
+          },
+          {
+            "case": "11102-2p-nomination-8-12",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-2p-nomination-8-12",
+            "verified_sha256": "d0da2916ed07cc88d6badc473b9f7c653d4f57855328828ff196b22cd984e3ef"
+          },
+          {
+            "case": "11102-2p-nomination-12-16",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-2p-nomination-12-16",
+            "verified_sha256": "9d726dda2d33b1b6b96e3aed3f4d8307afb62cbb53034b333303af4512a06453"
+          }
+        ]
+      },
+      "2p/bid": {
+        "games": 128,
+        "independent_deals": 16,
+        "win_rate": 0.6171875,
+        "deal_bootstrap_95_interval": [
+          0.5390625,
+          0.703125
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 128,
+              "independent_deals": 16,
+              "win_share_difference": -0.08203125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.15625,
+                -0.00390625
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.21875,
+                  0.15625
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.015625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.15625,
+                  0.125
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.1875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.34375,
+                  0.0
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.09375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.3125,
+                  0.125
+                ]
+              }
+            }
+          },
+          "11102": {
+            "overall": {
+              "games_per_model": 128,
+              "independent_deals": 16,
+              "win_share_difference": 0.09375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.0546875,
+                0.2578125
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.15625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.09375,
+                  0.4375
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.15625,
+                  0.28125
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.25,
+                  0.25
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.15625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.09375,
+                  0.4375
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11102-2p-bid-0-4",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-2p-bid-0-4",
+            "verified_sha256": "724cf028ddc90365b7883a55ba8c79ff19bb8f1caf04947bb490411876bdaaf7"
+          },
+          {
+            "case": "11102-2p-bid-4-8",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-2p-bid-4-8",
+            "verified_sha256": "d1d1674782e0c75421e059021e4d6fdffba25da75ec16888a2ad196ab5044f5e"
+          },
+          {
+            "case": "11102-2p-bid-8-12",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-2p-bid-8-12",
+            "verified_sha256": "5add65ad1017a7dc5958a579cc6d21e3525041b534c059f00122d51629e6bac6"
+          },
+          {
+            "case": "11102-2p-bid-12-16",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-2p-bid-12-16",
+            "verified_sha256": "233b01bef79831f34bc65edab39e5f0f6a098063e3695352d5b8ac74012d7dc0"
+          }
+        ]
+      },
+      "2p/building": {
+        "games": 128,
+        "independent_deals": 16,
+        "win_rate": 0.625,
+        "deal_bootstrap_95_interval": [
+          0.5546875,
+          0.6953125
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 128,
+              "independent_deals": 16,
+              "win_share_difference": -0.07421875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.1484375,
+                0.0
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.125,
+                  0.25
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.203125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.375,
+                  -0.03125
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.21875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.4375,
+                  0.0
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.09375,
+                  0.21875
+                ]
+              }
+            }
+          },
+          "11102": {
+            "overall": {
+              "games_per_model": 128,
+              "independent_deals": 16,
+              "win_share_difference": 0.1015625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.0078125,
+                0.2109375
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.25,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.03125,
+                  0.5
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.3125,
+                  0.09375
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": -0.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.25,
+                  0.1875
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 32,
+                "independent_deals": 16,
+                "win_share_difference": 0.3125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0625,
+                  0.53125
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11102-2p-building-0-4",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-2p-building-0-4",
+            "verified_sha256": "c9dfa2394dd6592e9d3ff612fdd28ba13d78aa6f6a5efd65abcdd902645faba8"
+          },
+          {
+            "case": "11102-2p-building-4-8",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-2p-building-4-8",
+            "verified_sha256": "9d4f9ecafefceb1ef1b6808da36b26ce9a09fbea6882daed03bfda140f928031"
+          },
+          {
+            "case": "11102-2p-building-8-12",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-2p-building-8-12",
+            "verified_sha256": "4b3cdf2b4b1277acf287a0df0286a97298c79e67fbfb5dfd72dac51422822798"
+          },
+          {
+            "case": "11102-2p-building-12-16",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-2p-building-12-16",
+            "verified_sha256": "fe2ebbeb4ef001d0b4cafef79890417fe30e6b74bdb0868e2e2de49ea3b5777e"
+          }
+        ]
+      },
+      "3p/nomination": {
+        "games": 192,
+        "independent_deals": 16,
+        "win_rate": 0.6666666666666666,
+        "deal_bootstrap_95_interval": [
+          0.6145833333333333,
+          0.7135416666666667
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 192,
+              "independent_deals": 16,
+              "win_share_difference": 0.046875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.046875,
+                0.13541666666666666
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": -0.04166666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.22916666666666666,
+                  0.14583333333333334
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.125,
+                  0.24999999999999997
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.02083333333333334,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.10416666666666666,
+                  0.16666666666666666
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.14583333333333334,
+                "paired_deal_bootstrap_95_interval": [
+                  0.020833333333333332,
+                  0.2708333333333333
+                ]
+              }
+            }
+          },
+          "11102": {
+            "overall": {
+              "games_per_model": 192,
+              "independent_deals": 16,
+              "win_share_difference": 0.11979166666666667,
+              "paired_deal_bootstrap_95_interval": [
+                0.03125,
+                0.21354166666666669
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.10416666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.125,
+                  0.3125
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.10416666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.04166666666666667,
+                  0.25
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.16666666666666666,
+                  0.14583333333333331
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.2708333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  0.06250000000000001,
+                  0.4583333333333333
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11102-3p-nomination-0-4",
+            "revision": "059aa49c5a164d8609cc3af1e83540899b71ff78",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-3p-nomination-0-4",
+            "verified_sha256": "7853f33eb3f0f6fc1ac6ef5e4a7ee0a0c9e26718f06aaa7812dc5b25014b65ee"
+          },
+          {
+            "case": "11102-3p-nomination-4-8",
+            "revision": "059aa49c5a164d8609cc3af1e83540899b71ff78",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-3p-nomination-4-8",
+            "verified_sha256": "6fb0d9bf0d26463182b75875227b5bdb0576c4d9a3014c60f9f9dd1e30497dfc"
+          },
+          {
+            "case": "11102-3p-nomination-8-12",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-3p-nomination-8-12",
+            "verified_sha256": "b8fba990668390d03c6c47509d79aeffcd410fef9cdd5ca1312cfcc74428e39e"
+          },
+          {
+            "case": "11102-3p-nomination-12-16",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-3p-nomination-12-16",
+            "verified_sha256": "b46502fe246b1092a548535ea7637b829dee8972716e2be8a4a89b60a91ce78c"
+          }
+        ]
+      },
+      "3p/bid": {
+        "games": 192,
+        "independent_deals": 16,
+        "win_rate": 0.5677083333333334,
+        "deal_bootstrap_95_interval": [
+          0.47916666666666663,
+          0.6510416666666667
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 192,
+              "independent_deals": 16,
+              "win_share_difference": -0.05208333333333333,
+              "paired_deal_bootstrap_95_interval": [
+                -0.16145833333333331,
+                0.0625
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": -0.08333333333333331,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.2708333333333333,
+                  0.10416666666666667
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": -0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.22916666666666666,
+                  0.125
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.08333333333333333,
+                  0.22916666666666663
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": -0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.29166666666666663,
+                  0.041666666666666664
+                ]
+              }
+            }
+          },
+          "11102": {
+            "overall": {
+              "games_per_model": 192,
+              "independent_deals": 16,
+              "win_share_difference": 0.020833333333333332,
+              "paired_deal_bootstrap_95_interval": [
+                -0.08333333333333333,
+                0.11458333333333333
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.06249999999999999,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.125,
+                  0.22916666666666666
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": -0.020833333333333336,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.20833333333333334,
+                  0.16666666666666666
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.04166666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.08333333333333334,
+                  0.1875
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.25,
+                  0.2708333333333333
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11102-3p-bid-0-4",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-3p-bid-0-4",
+            "verified_sha256": "19205c085b5ff819dc5d48dca7fa4c7ac50cb887eb9a8dfd3107a8caa485ed30"
+          },
+          {
+            "case": "11102-3p-bid-4-8",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-3p-bid-4-8",
+            "verified_sha256": "eaafdd6aa74d65791e2bcc85638f429ed1169fd9d7a0243e198e7cd56d508e7c"
+          },
+          {
+            "case": "11102-3p-bid-8-12",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-3p-bid-8-12",
+            "verified_sha256": "f9cb175b274b98142ebb47a2b80daa6de89ebc03c8bd73f56572089ac33977b6"
+          },
+          {
+            "case": "11102-3p-bid-12-16",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-3p-bid-12-16",
+            "verified_sha256": "71863e095740e7ce74400c1781895176e2759d84be8b4df3d62a4c202e7b3a23"
+          }
+        ]
+      },
+      "3p/building": {
+        "games": 192,
+        "independent_deals": 16,
+        "win_rate": 0.5989583333333334,
+        "deal_bootstrap_95_interval": [
+          0.5208333333333333,
+          0.6875
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 192,
+              "independent_deals": 16,
+              "win_share_difference": -0.02083333333333333,
+              "paired_deal_bootstrap_95_interval": [
+                -0.109375,
+                0.0625
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.041666666666666664,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.10416666666666666,
+                  0.1875
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": -0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.29166666666666663,
+                  0.16666666666666669
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.125,
+                  0.125
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": -0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.22916666666666663,
+                  0.10416666666666666
+                ]
+              }
+            }
+          },
+          "11102": {
+            "overall": {
+              "games_per_model": 192,
+              "independent_deals": 16,
+              "win_share_difference": 0.052083333333333336,
+              "paired_deal_bootstrap_95_interval": [
+                -0.03125,
+                0.140625
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.18749999999999997,
+                "paired_deal_bootstrap_95_interval": [
+                  0.020833333333333332,
+                  0.35416666666666663
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": -0.020833333333333332,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.24999999999999997,
+                  0.20833333333333331
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": -0.020833333333333332,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.14583333333333331,
+                  0.10416666666666666
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 48,
+                "independent_deals": 16,
+                "win_share_difference": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.16666666666666666,
+                  0.27083333333333337
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11102-3p-building-0-4",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-3p-building-0-4",
+            "verified_sha256": "e676162ba923e14c89aa940417233401fe7f3ea35193978a5e9652a6457cd330"
+          },
+          {
+            "case": "11102-3p-building-4-8",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-3p-building-4-8",
+            "verified_sha256": "8ff6ae839be3c953fd778926316c3e0794066942544c100da303c366c8b27e04"
+          },
+          {
+            "case": "11102-3p-building-8-12",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-3p-building-8-12",
+            "verified_sha256": "1d7bc3939f1b5f401f9c5dcdca98daa801f2caf05a3163cbdbe476895f3a45d8"
+          },
+          {
+            "case": "11102-3p-building-12-16",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-3p-building-12-16",
+            "verified_sha256": "121eabac2c69cd03f2267f1e16f0700de37399667e2604c16f375774af979834"
+          }
+        ]
+      },
+      "4p/nomination": {
+        "games": 256,
+        "independent_deals": 16,
+        "win_rate": 0.4765625,
+        "deal_bootstrap_95_interval": [
+          0.421875,
+          0.52734375
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 256,
+              "independent_deals": 16,
+              "win_share_difference": -0.13671875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.20703125,
+                -0.0703125
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": -0.046875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.171875,
+                  0.09375
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": -0.015625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.171875,
+                  0.12539062499999432
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": -0.25,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.390625,
+                  -0.109375
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": -0.234375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.375,
+                  -0.09375
+                ]
+              }
+            }
+          },
+          "11102": {
+            "overall": {
+              "games_per_model": 256,
+              "independent_deals": 16,
+              "win_share_difference": 0.03125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.0390625,
+                0.10546875
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": -0.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.265625,
+                  0.203125
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.09375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0625,
+                  0.25
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.015625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.125,
+                  0.171875
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.046875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.078125,
+                  0.171875
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11102-4p-nomination-0-4",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-4p-nomination-0-4",
+            "verified_sha256": "f0c2d59117528c4ac49f6a14a108878aee824429a98aab3208a2ce5bde8fef9f"
+          },
+          {
+            "case": "11102-4p-nomination-4-8",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-4p-nomination-4-8",
+            "verified_sha256": "b8026404b6a088b277006fccbe520cd332bd7d0fdd413b9f0dacb6abf5da3c92"
+          },
+          {
+            "case": "11102-4p-nomination-8-12",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-4p-nomination-8-12",
+            "verified_sha256": "59c2961a0f9f443fdd5683fc1abcdbb1e87d3e8d6b3d558134a93827dfbdeb2e"
+          },
+          {
+            "case": "11102-4p-nomination-12-16",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-4p-nomination-12-16",
+            "verified_sha256": "8a61d28b04ae427d18eaaeb093b2c096f68384980e7ef950f8aba8bf4474ba06"
+          }
+        ]
+      },
+      "4p/bid": {
+        "games": 256,
+        "independent_deals": 16,
+        "win_rate": 0.6015625,
+        "deal_bootstrap_95_interval": [
+          0.5546875,
+          0.6484375
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 256,
+              "independent_deals": 16,
+              "win_share_difference": -0.01171875,
+              "paired_deal_bootstrap_95_interval": [
+                -0.07421875,
+                0.0546875
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.09375,
+                  0.234375
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.015625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1875,
+                  0.203125
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": -0.015625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.109375,
+                  0.0625
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": -0.109375,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.25,
+                  0.03125
+                ]
+              }
+            }
+          },
+          "11102": {
+            "overall": {
+              "games_per_model": 256,
+              "independent_deals": 16,
+              "win_share_difference": 0.15625,
+              "paired_deal_bootstrap_95_interval": [
+                0.09375,
+                0.2265625
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.078125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.09375,
+                  0.25
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.046875,
+                  0.28125
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.25,
+                "paired_deal_bootstrap_95_interval": [
+                  0.140625,
+                  0.359375
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.171875,
+                "paired_deal_bootstrap_95_interval": [
+                  0.03125,
+                  0.296875
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11102-4p-bid-0-4",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-4p-bid-0-4",
+            "verified_sha256": "8342d221001ce632df5a79281fd51074285c10be03661e510330d789bea5f3e0"
+          },
+          {
+            "case": "11102-4p-bid-4-8",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-4p-bid-4-8",
+            "verified_sha256": "65afd10591ac3b3ecc2bf2c84cd87274b79b08e03d18a50ad2a648629915c2e9"
+          },
+          {
+            "case": "11102-4p-bid-8-12",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-4p-bid-8-12",
+            "verified_sha256": "624ec1cf481751fa27b4acf33a790d9081dda7491c6b4cbb238621bb50fbab1a"
+          },
+          {
+            "case": "11102-4p-bid-12-16",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-4p-bid-12-16",
+            "verified_sha256": "b537c79b994f156c51bc567fe1b4d7de50d85129522cbecd937a33203fec97da"
+          }
+        ]
+      },
+      "4p/building": {
+        "games": 256,
+        "independent_deals": 16,
+        "win_rate": 0.556640625,
+        "deal_bootstrap_95_interval": [
+          0.49409179687500004,
+          0.62109375
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 256,
+              "independent_deals": 16,
+              "win_share_difference": -0.056640625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.12109375,
+                0.009765625
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.046875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.09375,
+                  0.1875
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.03125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.140625,
+                  0.203125
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": -0.140625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.265625,
+                  -0.015625
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": -0.1640625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.2890625,
+                  -0.046875
+                ]
+              }
+            }
+          },
+          "11102": {
+            "overall": {
+              "games_per_model": 256,
+              "independent_deals": 16,
+              "win_share_difference": 0.111328125,
+              "paired_deal_bootstrap_95_interval": [
+                0.02734375,
+                0.205078125
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.140625,
+                  0.28125
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.140625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0625,
+                  0.34375
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.046875,
+                  0.296875
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 64,
+                "independent_deals": 16,
+                "win_share_difference": 0.1171875,
+                "paired_deal_bootstrap_95_interval": [
+                  0.0078125,
+                  0.2265625
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11102-4p-building-0-4",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-4p-building-0-4",
+            "verified_sha256": "8d00bb1eb29a95f7d251e3f80a9034e936868db14cb0a18fdef56a127daa5bb1"
+          },
+          {
+            "case": "11102-4p-building-4-8",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-4p-building-4-8",
+            "verified_sha256": "e053c3cbafe72cee8281dcbed91bbf7ed756390d6baf33b1d44a6082b552d58e"
+          },
+          {
+            "case": "11102-4p-building-8-12",
+            "revision": "059aa49c5a164d8609cc3af1e83540899b71ff78",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-4p-building-8-12",
+            "verified_sha256": "4b9db1d891abdc11fb0d81246b801c492a7587b96eed125256b44bd50103a28c"
+          },
+          {
+            "case": "11102-4p-building-12-16",
+            "revision": "059aa49c5a164d8609cc3af1e83540899b71ff78",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-4p-building-12-16",
+            "verified_sha256": "d6dfd16a91f3b015c792a45c00f68f1c3ee09e9e2549e8864769143299e2d1bc"
+          }
+        ]
+      },
+      "5p/nomination": {
+        "games": 320,
+        "independent_deals": 16,
+        "win_rate": 0.665625,
+        "deal_bootstrap_95_interval": [
+          0.61875,
+          0.7125
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 320,
+              "independent_deals": 16,
+              "win_share_difference": -0.09218749999999999,
+              "paired_deal_bootstrap_95_interval": [
+                -0.15312499999999998,
+                -0.029687500000000002
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.07500000000000001,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1625,
+                  0.025
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.11875000000000001,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.2376562499999999,
+                  0.012499999999999997
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.1,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.175,
+                  -0.025000000000000005
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.07500000000000001,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1875,
+                  0.05
+                ]
+              }
+            }
+          },
+          "11102": {
+            "overall": {
+              "games_per_model": 320,
+              "independent_deals": 16,
+              "win_share_difference": 0.0375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.028125000000000004,
+                0.1
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.024999999999999998,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.08750000000000002,
+                  0.15000000000000002
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.1,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.05,
+                  0.2625
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.075,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.18750000000000003,
+                  0.037500000000000006
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.1,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.012499999999999997,
+                  0.2
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11102-5p-nomination-0-4",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-5p-nomination-0-4",
+            "verified_sha256": "1deacfd4a434583c6038dbd89a537465e508b773ac290d74cae1401397daae22"
+          },
+          {
+            "case": "11102-5p-nomination-4-8",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-5p-nomination-4-8",
+            "verified_sha256": "937d9a1e4cc4386b1cfa00ed4fd118c684d837699209d439c12a60d3f0772080"
+          },
+          {
+            "case": "11102-5p-nomination-8-12",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-5p-nomination-8-12",
+            "verified_sha256": "de74ca3bd958c44576b9dd78933b5e2cc3fb55504fd3505c312029489dad9369"
+          },
+          {
+            "case": "11102-5p-nomination-12-16",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-5p-nomination-12-16",
+            "verified_sha256": "de68ed6612dff12c47eb67b80b20a1d5a0774b850de21e160f426c8cd5ccb475"
+          }
+        ]
+      },
+      "5p/bid": {
+        "games": 320,
+        "independent_deals": 16,
+        "win_rate": 0.7281249999999999,
+        "deal_bootstrap_95_interval": [
+          0.671875,
+          0.771875
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 320,
+              "independent_deals": 16,
+              "win_share_difference": -0.029687500000000006,
+              "paired_deal_bootstrap_95_interval": [
+                -0.09066406249999998,
+                0.032812499999999994
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.1,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0125,
+                  0.2
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.11875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.25625,
+                  0.012500000000000004
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.012500000000000004,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.125,
+                  0.1375
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.11250000000000002,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.2,
+                  -0.025
+                ]
+              }
+            }
+          },
+          "11102": {
+            "overall": {
+              "games_per_model": 320,
+              "independent_deals": 16,
+              "win_share_difference": 0.09999999999999999,
+              "paired_deal_bootstrap_95_interval": [
+                0.03125,
+                0.16249999999999998
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.2,
+                "paired_deal_bootstrap_95_interval": [
+                  0.1,
+                  0.30000000000000004
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.10000000000000002,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.037500000000000006,
+                  0.25
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.037500000000000006,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0875,
+                  0.15000000000000002
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0875,
+                  0.2
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11102-5p-bid-0-4",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-5p-bid-0-4",
+            "verified_sha256": "09151648ada2f486abda9fb9236d0c6951ace2bb7b390016755c7a9992678ee7"
+          },
+          {
+            "case": "11102-5p-bid-4-8",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-5p-bid-4-8",
+            "verified_sha256": "10d62dcf7b561ca94b24fd84274a7a44becb959ae1bba28c90504ce1e580769a"
+          },
+          {
+            "case": "11102-5p-bid-8-12",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-5p-bid-8-12",
+            "verified_sha256": "693b463a11403d726199afa07a4cd65bcc526527a52b644f0341bfedd1dfef2c"
+          },
+          {
+            "case": "11102-5p-bid-12-16",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-5p-bid-12-16",
+            "verified_sha256": "9f9f1364b2850b0fe91ae240edf2464ee1042aecfdd8a49aaa772588da6feb2a"
+          }
+        ]
+      },
+      "5p/building": {
+        "games": 320,
+        "independent_deals": 16,
+        "win_rate": 0.6625000000000001,
+        "deal_bootstrap_95_interval": [
+          0.615625,
+          0.70625
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 320,
+              "independent_deals": 16,
+              "win_share_difference": -0.0953125,
+              "paired_deal_bootstrap_95_interval": [
+                -0.1500390625,
+                -0.046875
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.049999999999999996,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1875,
+                  0.07500000000000001
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.21875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.36875,
+                  -0.0625
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.0125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1125,
+                  0.08750000000000001
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": -0.10000000000000002,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.18750000000000003,
+                  0.0
+                ]
+              }
+            }
+          },
+          "11102": {
+            "overall": {
+              "games_per_model": 320,
+              "independent_deals": 16,
+              "win_share_difference": 0.034375,
+              "paired_deal_bootstrap_95_interval": [
+                -0.025000000000000005,
+                0.096875
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.04999999999999999,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1,
+                  0.19999999999999998
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.0,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.1125,
+                  0.1125
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.012500000000000011,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.10000000000000002,
+                  0.125
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 80,
+                "independent_deals": 16,
+                "win_share_difference": 0.07500000000000001,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.05,
+                  0.2
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11102-5p-building-0-4",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-5p-building-0-4",
+            "verified_sha256": "05e412b2259a3d767e40ea4dc2c9fb9b4cb5d13697e0e3e09d458cdbe10c1603"
+          },
+          {
+            "case": "11102-5p-building-4-8",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-5p-building-4-8",
+            "verified_sha256": "2ea6e3f697fd288252311f70de100771600710907c2bef757e4ff35a83e6c1e6"
+          },
+          {
+            "case": "11102-5p-building-8-12",
+            "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-5p-building-8-12",
+            "verified_sha256": "4d82771b8d49892bbcbd9ff65286219877436037004707c7ae6dfc2ae34c9b0a"
+          },
+          {
+            "case": "11102-5p-building-12-16",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-5p-building-12-16",
+            "verified_sha256": "f99ef672599740413051a191271929cc3724475bc7c3457f73165caef22008f8"
+          }
+        ]
+      },
+      "6p/nomination": {
+        "games": 384,
+        "independent_deals": 16,
+        "win_rate": 0.7317708333333333,
+        "deal_bootstrap_95_interval": [
+          0.6848958333333333,
+          0.7786458333333333
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 384,
+              "independent_deals": 16,
+              "win_share_difference": -0.03515625,
+              "paired_deal_bootstrap_95_interval": [
+                -0.07552083333333334,
+                0.002604166666666667
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.04166666666666666,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.08333333333333333,
+                  0.15625
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.09895833333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.20833333333333331,
+                  0.010416666666666664
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.05208333333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.125,
+                  0.020833333333333332
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.031249999999999997,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.10416666666666666,
+                  0.041666666666666664
+                ]
+              }
+            }
+          },
+          "11102": {
+            "overall": {
+              "games_per_model": 384,
+              "independent_deals": 16,
+              "win_share_difference": 0.03776041666666667,
+              "paired_deal_bootstrap_95_interval": [
+                -0.028645833333333336,
+                0.10677083333333334
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.04166666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.07291666666666667,
+                  0.15625
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.031249999999999997,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.15625,
+                  0.10416666666666666
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.06770833333333334,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.046874999999999986,
+                  0.18229166666666669
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.07291666666666666,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0625,
+                  0.20833333333333331
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11102-6p-nomination-0-4",
+            "revision": "059aa49c5a164d8609cc3af1e83540899b71ff78",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-6p-nomination-0-4",
+            "verified_sha256": "62610b6b63647ac0462df8a1c44503a1e7ef375ef987d136915db51f565d874c"
+          },
+          {
+            "case": "11102-6p-nomination-4-8",
+            "revision": "059aa49c5a164d8609cc3af1e83540899b71ff78",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-6p-nomination-4-8",
+            "verified_sha256": "d7100f90ced25804c3b785a2107e8d4f948b506a896b547f497a1068020a88b4"
+          },
+          {
+            "case": "11102-6p-nomination-8-12",
+            "revision": "059aa49c5a164d8609cc3af1e83540899b71ff78",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-6p-nomination-8-12",
+            "verified_sha256": "0987e5d3b742957c2fe24300afdd93f6e9ee96b8225e18cba6d9e7d7ca8e75d8"
+          },
+          {
+            "case": "11102-6p-nomination-12-16",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-6p-nomination-12-16",
+            "verified_sha256": "6ffbf358b81097c7c2a3d88c9add429271aaf5431999c8e2f5f095f18ef805a8"
+          }
+        ]
+      },
+      "6p/bid": {
+        "games": 384,
+        "independent_deals": 16,
+        "win_rate": 0.7265625,
+        "deal_bootstrap_95_interval": [
+          0.6822916666666667,
+          0.7708333333333333
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 384,
+              "independent_deals": 16,
+              "win_share_difference": -0.04036458333333333,
+              "paired_deal_bootstrap_95_interval": [
+                -0.09244791666666666,
+                0.0078125
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.020833333333333332,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.07291666666666667,
+                  0.11458333333333334
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.04687499999999999,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.15104166666666669,
+                  0.0625
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.07291666666666666,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.16666666666666666,
+                  0.03125
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.0625,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.20833333333333334,
+                  0.07291666666666666
+                ]
+              }
+            }
+          },
+          "11102": {
+            "overall": {
+              "games_per_model": 384,
+              "independent_deals": 16,
+              "win_share_difference": 0.032552083333333336,
+              "paired_deal_bootstrap_95_interval": [
+                -0.020833333333333332,
+                0.0859375
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.020833333333333336,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.0625,
+                  0.09375
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.02083333333333334,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.08333333333333334,
+                  0.13541666666666666
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.046875,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.08333333333333333,
+                  0.17200520833333144
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.041666666666666664,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.03125,
+                  0.11458333333333333
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11102-6p-bid-0-4",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-6p-bid-0-4",
+            "verified_sha256": "99927efb2707a837630c2ac637764892e2d39ac71bdc1ae05dbbe04a7da66f16"
+          },
+          {
+            "case": "11102-6p-bid-4-8",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-6p-bid-4-8",
+            "verified_sha256": "98c168ac871fb292ea7135c271ba18e9f3d25e042cb6e4b23f93f5b28ac11b0b"
+          },
+          {
+            "case": "11102-6p-bid-8-12",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-6p-bid-8-12",
+            "verified_sha256": "4682234103e00d6b2481b134c2ae74feeab6de1543b0bc9b554498dc5d05770b"
+          },
+          {
+            "case": "11102-6p-bid-12-16",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-6p-bid-12-16",
+            "verified_sha256": "ee0e374e063b09d1752e4673134cbb8b8bbd2670f0c8580e854a5ebd2fec1b1c"
+          }
+        ]
+      },
+      "6p/building": {
+        "games": 384,
+        "independent_deals": 16,
+        "win_rate": 0.7213541666666667,
+        "deal_bootstrap_95_interval": [
+          0.66796875,
+          0.77734375
+        ],
+        "differences": {
+          "parent": {
+            "overall": {
+              "games_per_model": 384,
+              "independent_deals": 16,
+              "win_share_difference": -0.045572916666666664,
+              "paired_deal_bootstrap_95_interval": [
+                -0.09505208333333333,
+                4.44522890718899e-19
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.04166666666666667,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.14583333333333334,
+                  0.0625
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.078125,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.21354166666666669,
+                  0.03645833333333333
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.005208333333333329,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.09375,
+                  0.109375
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.06770833333333333,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.18229166666666666,
+                  0.041666666666666664
+                ]
+              }
+            }
+          },
+          "11102": {
+            "overall": {
+              "games_per_model": 384,
+              "independent_deals": 16,
+              "win_share_difference": 0.027343750000000003,
+              "paired_deal_bootstrap_95_interval": [
+                -0.033854166666666664,
+                0.09375
+              ]
+            },
+            "by_rules": {
+              "original/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.041666666666666664,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.14583333333333331,
+                  0.052083333333333336
+                ]
+              },
+              "original/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": -0.010416666666666671,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.13541666666666666,
+                  0.11458333333333333
+                ]
+              },
+              "recharged/open": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.125,
+                "paired_deal_bootstrap_95_interval": [
+                  0.041666666666666664,
+                  0.21875
+                ]
+              },
+              "recharged/sealed": {
+                "games_per_model": 96,
+                "independent_deals": 16,
+                "win_share_difference": 0.036458333333333336,
+                "paired_deal_bootstrap_95_interval": [
+                  -0.06249999999999999,
+                  0.13541666666666666
+                ]
+              }
+            }
+          }
+        },
+        "provenance": [
+          {
+            "case": "11102-6p-building-0-4",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-6p-building-0-4",
+            "verified_sha256": "f5c23e62bd5bfd721f22378f735fb1405ae846590ccf3b370c188f7df135f30a"
+          },
+          {
+            "case": "11102-6p-building-4-8",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-6p-building-4-8",
+            "verified_sha256": "b1622fba4cbe1a6fd8170e6fb873c0e4d782e9dcb5c1ec96039ed2e4d77a1098"
+          },
+          {
+            "case": "11102-6p-building-8-12",
+            "revision": "5ead46d2cc9bcdb556452fdc10a1a351262ef8f7",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-6p-building-8-12",
+            "verified_sha256": "d3d28502feac12fce7ea6e383354cc78de8af34f79c52d076c6284a93ecda70e"
+          },
+          {
+            "case": "11102-6p-building-12-16",
+            "revision": "248e92aac88b22defa7b47264fae7f0b6512d51a",
+            "prefix": "runs/strategic-correction-ablation-v1-11102-6p-building-12-16",
+            "verified_sha256": "73b4d6f5509e265d3ec067b6f240fd82ceb38b744a7a9b0a41c4e7595b6e3364"
+          }
+        ]
+      }
+    }
+  },
+  "source": {
+    "archive": "strong-source-strategic-correction-ablation-20261024-v1.tgz",
+    "revision": "8da026471210f9f8beb2c23a9289d764d8982c3b",
+    "sha256": "1d2e5c1daad55f630b03d5070f49ab91eab7d272d9eee7bd8f36f106be73109f",
+    "base": {
+      "archive": "strong-source-strategic-correction-screen-20261023-v1.tgz",
+      "revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
+      "sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb"
+    },
+    "overlays": {
+      "ai/strong/strategic_correction_ablation.py": "1c5de7d9e64d9a3107b3af0923b3fd090b059d0c4f0c4b38e801101faad10f66",
+      "ai/strong/strategic-correction-ablation-protocol-v1.json": "56655207742de25684605f97a343bcae9d40197ee8e426903cfa30dd23edb023"
+    },
+    "unchanged_base_file_count": 1400,
+    "preflight_sha256": "85b6bcbf6ba35d669e77cac4f925296a6db5fae86418eea6d1bcb26c22674f35",
+    "protocol_sha256": "56655207742de25684605f97a343bcae9d40197ee8e426903cfa30dd23edb023",
+    "qualification_eligible": false
+  },
+  "protocol_sha256": "56655207742de25684605f97a343bcae9d40197ee8e426903cfa30dd23edb023",
+  "qualification_eligible": false,
+  "candidate_selected": false
+}

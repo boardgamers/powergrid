@@ -43352,5 +43352,92 @@
         },
         "candidate_selected": false,
         "qualification_eligible": false
+    },
+    "strategic_correction_diagnostics_v1": {
+        "date": "2026-10-24",
+        "progress": true,
+        "screen_games_verified": 19392,
+        "screen_pending": [
+            "11101-6p-search_geo-0-4",
+            "11101-6p-search_geo-4-8",
+            "11101-6p-search_geo-8-12",
+            "11101-6p-search_geo-12-16",
+            "11102-6p-search_geo-0-4",
+            "11102-6p-search_geo-4-8",
+            "11102-6p-search_geo-8-12",
+            "11102-6p-search_geo-12-16"
+        ],
+        "screen_status_checked_at": "2026-10-23T23:41:45.784875+00:00",
+        "screen_failed_replacement": {
+            "original_job_id": "6adbe72b1e112550ce7d9c7b",
+            "authoritative_status": "ERROR",
+            "message": "Job failed with exit code: 137. Reason: Error",
+            "started_at": "2026-10-23 23:01:01.760000+00:00",
+            "finished_at": "2026-10-23 23:21:07.729000+00:00",
+            "artifact_revision_checked": "7bec7e12e604964b1176390efef490058dad98cb",
+            "result_artifacts_exist": false,
+            "metrics_available": false,
+            "metrics_error": "HF metrics endpoint returned406; no usable resource metrics. Do not infer OOM from exit137 alone.",
+            "replacement_policy": "One exact configuration replacement after confirmed terminal error and absent result artifacts. Preserve the original failed attempt; no horizon, budget, model, seed, worker or source changes.",
+            "qualification_eligible": false,
+            "replacement_job_id": "6adbed2f046eb82b1ecd8532"
+        },
+        "calibration": "ai/strong/strategic-correction-calibration-v1.json",
+        "ablation": {
+            "protocol": "ai/strong/strategic-correction-ablation-protocol-v1.json",
+            "source": {
+                "archive": "strong-source-strategic-correction-ablation-20261024-v1.tgz",
+                "revision": "8da026471210f9f8beb2c23a9289d764d8982c3b",
+                "sha256": "1d2e5c1daad55f630b03d5070f49ab91eab7d272d9eee7bd8f36f106be73109f",
+                "base": {
+                    "archive": "strong-source-strategic-correction-screen-20261023-v1.tgz",
+                    "revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
+                    "sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb"
+                },
+                "overlays": {
+                    "ai/strong/strategic_correction_ablation.py": "1c5de7d9e64d9a3107b3af0923b3fd090b059d0c4f0c4b38e801101faad10f66",
+                    "ai/strong/strategic-correction-ablation-protocol-v1.json": "56655207742de25684605f97a343bcae9d40197ee8e426903cfa30dd23edb023"
+                },
+                "unchanged_base_file_count": 1400,
+                "preflight_sha256": "85b6bcbf6ba35d669e77cac4f925296a6db5fae86418eea6d1bcb26c22674f35",
+                "protocol_sha256": "56655207742de25684605f97a343bcae9d40197ee8e426903cfa30dd23edb023",
+                "qualification_eligible": false
+            },
+            "assessment": "ai/strong/strategic-correction-ablation-assessment-v1.json",
+            "verified_games": 7680,
+            "verified_shards": 120,
+            "reproduced_disagreements": 104641,
+            "evidence": {
+                "revision": "53a9f6dd70a3e6eb2a24c060f0989f7c3197c8f4",
+                "prefix": "runs/strategic-correction-ablation-evidence-v1",
+                "manifest_sha256": "9e119ee0b5c1a491392e02da90abbad8db156abd8ab298d57dc991a8d3a68d73",
+                "file_count": 373,
+                "qualification_eligible": false
+            }
+        },
+        "sealed_belief_audit": {
+            "report": "ai/strong/strategic-sealed-belief-audit-v1.json",
+            "roots": 320,
+            "affected_roots": 184,
+            "opponent_prompts": 317,
+            "evidence": {
+                "revision": "961287c89bc32f388b3ed384624b707b24b0b7b1",
+                "prefix": "runs/strategic-sealed-belief-evidence-v1",
+                "manifest_sha256": "5c85674a9235d2713196d67a30ca7aa992c2473f378ce5426e13b1d632813eb8",
+                "file_count": 5,
+                "qualification_eligible": false
+            }
+        },
+        "launch_preflight_calibration_evidence": {
+            "revision": "c9c75161f47d0e107ecdcb6052c6a77e11246879",
+            "prefix": "runs/strategic-correction-diagnostics-evidence-v1",
+            "manifest_sha256": "c1cd49c055db7ea2a658cf2cf1ef4c7b1cb6a89b0bf3cbe0aa98eed8cbd7a501",
+            "file_count": 236,
+            "qualification_eligible": false
+        },
+        "candidate_selected": false,
+        "qualification_eligible": false,
+        "final_seeds_used": false,
+        "next": "Finish existing6p search jobs. New versioned public-policy sealed-bid beliefs with matched teacher pilots, plus broader policy-visited root coverage. No promotion of11101/11102 from these regressions."
     }
 }

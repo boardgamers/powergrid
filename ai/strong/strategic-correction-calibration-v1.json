@@ -1,0 +1,1099 @@
+{
+  "training_source": {
+    "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+    "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+    "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5",
+    "bytes": 22575266,
+    "base": {
+      "archive": "strong-source-strategic-teacher-training-20261010-v1.tgz",
+      "revision": "837d94e14272163c33e5e55fa9c24b24686a28ae",
+      "sha256": "a011f9ee4b8116b99220913a7db9d00849e9e593137cdb7e435e116fcafdd6c3"
+    },
+    "overlays": {
+      "ai/strong/model.py": "cfe58a7d4f2a62a8a5d8c1b06a1e6ff47dd312514c307a9d688e93511acee82b",
+      "ai/strong/model_strategic.py": "917954d26d99078442b6b154d494e48de1fc0a393547c29677f8409917124b01",
+      "ai/strong/features-v4_3.cjs": "c103758a436be51f8bb9aa399e3880263b14d743b588858cd177de34f7aac697",
+      "ai/strong/encoders.cjs": "b1aec9b85ca387c85663dd3aa8ba9aa3916d06a5bb546fa91694f45924f47a72",
+      "ai/strong/export-inference64.py": "2772fc44a40378e5094c1e3f1b0ff5b16c1c5238f21674e9221e3a2aabd66986",
+      "ai/strong/package-serving.py": "be49b67c160cae370c7af5354b34048b78d5eac6d8097cda7d5cf104d464ed3d",
+      "ai/strong/evaluate.py": "64b405a92e7b97a7889fdc17facd9825e12da5fc7609f34f18d7c988f2d2209a",
+      "ai/strong/strategic_correction_data.py": "192caf71f23a90a57e996e0d831ef25708f7024a0b2851080caa163006c43c12",
+      "ai/strong/strategic_correction_targets.py": "0a9f4587471ee865d3d10b57d777abbbed704e99c1331f7bbf2e4fe4b015450a",
+      "ai/strong/strategic_correction_check.py": "554fbf6badd552c032bf1d2102a23c3ad6f5b639b3c363bc5c20ffc0494b7d10",
+      "ai/strong/train-strategic-correction.py": "5edb74d085c8922558f7ee6004c26d1bb8bc4e687642998a3412bf843fae48ae",
+      "ai/strong/check-strategic-correction-data.py": "a677c0396eb06df4d3a0695651d9b16e6e5346a13796e9be0d08a04803db7819",
+      "ai/strong/test_model_strategic.py": "1b1f06f8fa2d7a115a78f32d93fe973e6e273c5b912d9bebf6164e9ba597c281",
+      "ai/strong/test_strategic_correction_targets.py": "c9f8f5afe47eff10c6b6d4d618b031a62f0088051fdd1d17904221a411835315",
+      "ai/strong/test-strategic-correction-features.cjs": "7abbb067ae4827ba7874db878e0cd5ff66ebf43751d36e7267d46cd0bbbdb1f5",
+      "ai/strong/preflight-strategic-correction.py": "c7d3894c7fb2d926d2f8026081db7b0f6ca3c1b80f0d1cfbb08e0b648230c8d4",
+      "ai/strong/check-strategic-correction-arena.py": "5d1517171836fa93fd03461718c1dcee41e41667946489a7feafa67f284e3033",
+      "ai/strong/strategic-correction-design-v1.json": "98a616c3c0ce6659b105ccb3b5fe26d662be9cd5b2cdd9805d0b1262258fd1f6",
+      "ai/strong/strategic-teacher-training-source-v1.json": "b81497226e77612edd5cff6097935012d1a3c0027f2174db99063883cd4fc41c",
+      "ai/strong/strategic-teacher-training-results-v1.json": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57"
+    },
+    "unchanged_base_file_count": 1391,
+    "design_sha256": "98a616c3c0ce6659b105ccb3b5fe26d662be9cd5b2cdd9805d0b1262258fd1f6",
+    "data_manifest_sha256": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57",
+    "qualification_eligible": false
+  },
+  "data_manifest_sha256": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57",
+  "models": {
+    "11101": {
+      "pin": {
+        "key": "11101",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "6be6f2af36d3382d43013621eab382c16a4cc1ae",
+        "prefix": "runs/strategic-correction-v1/11101/derivative",
+        "files": {
+          "inference64.onnx": "9f8d87b28dc1ed76770e7ffe8457a87fb3fb014d866b43b571ce838b87ff0f32",
+          "inference64.pt": "d271b7a28a9a33edacbebf3d6e398d18cd97b549768c24557a8b11d57564fb54"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "seed": 11101,
+        "selected_epoch": 30,
+        "training_verified": true,
+        "parent_frozen": true,
+        "strict_parity_positions": 2553,
+        "training_verified_sha256": "40e0495e736942566c15c4dec2fe039d15ac3069e6b605f5e6ebb69051455ea6",
+        "qualification_eligible": false
+      },
+      "groups": {
+        "validation": {
+          "roots": 480,
+          "changed": 113,
+          "changed_fraction": 0.23541666666666666,
+          "mean_predicted_gain": 0.015520238626775866,
+          "mean_teacher_gain": 0.005181206666748039,
+          "changed_mean_teacher_gain": 0.022008665487071317,
+          "changed_negative_teacher_fraction": 0.2831858407079646
+        },
+        "validation/bid": {
+          "roots": 160,
+          "changed": 44,
+          "changed_fraction": 0.275,
+          "mean_predicted_gain": 0.020321022758956864,
+          "mean_teacher_gain": 0.00428059900586959,
+          "changed_mean_teacher_gain": 0.015565814566798508,
+          "changed_negative_teacher_fraction": 0.3181818181818182
+        },
+        "validation/2p": {
+          "roots": 96,
+          "changed": 23,
+          "changed_fraction": 0.23958333333333334,
+          "mean_predicted_gain": 0.01423904223132865,
+          "mean_teacher_gain": 0.010199652766459621,
+          "changed_mean_teacher_gain": 0.04257246372087494,
+          "changed_negative_teacher_fraction": 0.30434782608695654
+        },
+        "validation/2p/bid": {
+          "roots": 32,
+          "changed": 8,
+          "changed_fraction": 0.25,
+          "mean_predicted_gain": 0.014665044530387026,
+          "mean_teacher_gain": 0.021565754926996306,
+          "changed_mean_teacher_gain": 0.08626301970798522,
+          "changed_negative_teacher_fraction": 0.5
+        },
+        "validation/building": {
+          "roots": 160,
+          "changed": 35,
+          "changed_fraction": 0.21875,
+          "mean_predicted_gain": 0.013588624284578035,
+          "mean_teacher_gain": 0.0041666666744276885,
+          "changed_mean_teacher_gain": 0.019047619083098002,
+          "changed_negative_teacher_fraction": 0.3142857142857143
+        },
+        "validation/2p/building": {
+          "roots": 32,
+          "changed": 7,
+          "changed_fraction": 0.21875,
+          "mean_predicted_gain": 0.013116418063609702,
+          "mean_teacher_gain": 0.005208333372138441,
+          "changed_mean_teacher_gain": 0.023809523986918584,
+          "changed_negative_teacher_fraction": 0.14285714285714285
+        },
+        "validation/nomination": {
+          "roots": 160,
+          "changed": 34,
+          "changed_fraction": 0.2125,
+          "mean_predicted_gain": 0.012651068836792696,
+          "mean_teacher_gain": 0.007096354319946841,
+          "changed_mean_teacher_gain": 0.03339460856445572,
+          "changed_negative_teacher_fraction": 0.20588235294117646
+        },
+        "validation/2p/nomination": {
+          "roots": 32,
+          "changed": 8,
+          "changed_fraction": 0.25,
+          "mean_predicted_gain": 0.014935664099989216,
+          "mean_teacher_gain": 0.0038248700002441183,
+          "changed_mean_teacher_gain": 0.015299480000976473,
+          "changed_negative_teacher_fraction": 0.25
+        },
+        "validation/changed-predicted-gain/.025-.05": {
+          "roots": 62,
+          "changed": 62,
+          "changed_fraction": 1.0,
+          "mean_predicted_gain": 0.03530548954122851,
+          "mean_teacher_gain": 0.0017641128731831427,
+          "changed_mean_teacher_gain": 0.0017641128731831427,
+          "changed_negative_teacher_fraction": 0.3387096774193548
+        },
+        "train": {
+          "roots": 1440,
+          "changed": 421,
+          "changed_fraction": 0.2923611111111111,
+          "mean_predicted_gain": 0.02003980416065582,
+          "mean_teacher_gain": 0.010159866880631955,
+          "changed_mean_teacher_gain": 0.03475108861783851,
+          "changed_negative_teacher_fraction": 0.23990498812351543
+        },
+        "train/bid": {
+          "roots": 480,
+          "changed": 148,
+          "changed_fraction": 0.30833333333333335,
+          "mean_predicted_gain": 0.020196802445296202,
+          "mean_teacher_gain": 0.005099826361887002,
+          "changed_mean_teacher_gain": 0.01653997738990379,
+          "changed_negative_teacher_fraction": 0.28378378378378377
+        },
+        "train/2p": {
+          "roots": 288,
+          "changed": 80,
+          "changed_fraction": 0.2777777777777778,
+          "mean_predicted_gain": 0.0175529043247733,
+          "mean_teacher_gain": 0.010642722637082139,
+          "changed_mean_teacher_gain": 0.038313801493495704,
+          "changed_negative_teacher_fraction": 0.275
+        },
+        "train/2p/bid": {
+          "roots": 96,
+          "changed": 30,
+          "changed_fraction": 0.3125,
+          "mean_predicted_gain": 0.019418014951159454,
+          "mean_teacher_gain": 0.0012749565357808024,
+          "changed_mean_teacher_gain": 0.004079860914498567,
+          "changed_negative_teacher_fraction": 0.23333333333333334
+        },
+        "train/building": {
+          "roots": 480,
+          "changed": 131,
+          "changed_fraction": 0.27291666666666664,
+          "mean_predicted_gain": 0.02130260004637209,
+          "mean_teacher_gain": 0.014697265569702722,
+          "changed_mean_teacher_gain": 0.05385257613326188,
+          "changed_negative_teacher_fraction": 0.13740458015267176
+        },
+        "train/2p/building": {
+          "roots": 96,
+          "changed": 24,
+          "changed_fraction": 0.25,
+          "mean_predicted_gain": 0.0193711624106626,
+          "mean_teacher_gain": 0.01996527758213536,
+          "changed_mean_teacher_gain": 0.07986111032854144,
+          "changed_negative_teacher_fraction": 0.2916666666666667
+        },
+        "train/changed-predicted-gain/.025-.05": {
+          "roots": 229,
+          "changed": 229,
+          "changed_fraction": 1.0,
+          "mean_predicted_gain": 0.03586305810159962,
+          "mean_teacher_gain": 0.006982350675185825,
+          "changed_mean_teacher_gain": 0.006982350675185825,
+          "changed_negative_teacher_fraction": 0.314410480349345
+        },
+        "train/nomination": {
+          "roots": 480,
+          "changed": 142,
+          "changed_fraction": 0.29583333333333334,
+          "mean_predicted_gain": 0.01862000999029915,
+          "mean_teacher_gain": 0.010682508710306137,
+          "changed_mean_teacher_gain": 0.03610988859821793,
+          "changed_negative_teacher_fraction": 0.2887323943661972
+        },
+        "train/2p/nomination": {
+          "roots": 96,
+          "changed": 26,
+          "changed_fraction": 0.2708333333333333,
+          "mean_predicted_gain": 0.013869535612497853,
+          "mean_teacher_gain": 0.010687933793330254,
+          "changed_mean_teacher_gain": 0.039463140159988634,
+          "changed_negative_teacher_fraction": 0.3076923076923077
+        },
+        "train/changed-predicted-gain/.10-.20": {
+          "roots": 44,
+          "changed": 44,
+          "changed_fraction": 1.0,
+          "mean_predicted_gain": 0.13279964677881084,
+          "mean_teacher_gain": 0.07297585197639736,
+          "changed_mean_teacher_gain": 0.07297585197639736,
+          "changed_negative_teacher_fraction": 0.11363636363636363
+        },
+        "train/changed-predicted-gain/.05-.10": {
+          "roots": 134,
+          "changed": 134,
+          "changed_fraction": 1.0,
+          "mean_predicted_gain": 0.07011378041395118,
+          "mean_teacher_gain": 0.02365127503837167,
+          "changed_mean_teacher_gain": 0.02365127503837167,
+          "changed_negative_teacher_fraction": 0.17164179104477612
+        },
+        "validation/changed-predicted-gain/.10-.20": {
+          "roots": 15,
+          "changed": 15,
+          "changed_fraction": 1.0,
+          "mean_predicted_gain": 0.1385504955724824,
+          "mean_teacher_gain": -0.011979165859520436,
+          "changed_mean_teacher_gain": -0.011979165859520436,
+          "changed_negative_teacher_fraction": 0.26666666666666666
+        },
+        "validation/changed-predicted-gain/.05-.10": {
+          "roots": 33,
+          "changed": 33,
+          "changed_fraction": 1.0,
+          "mean_predicted_gain": 0.07134846576527115,
+          "mean_teacher_gain": 0.06581439403817058,
+          "changed_mean_teacher_gain": 0.06581439403817058,
+          "changed_negative_teacher_fraction": 0.18181818181818182
+        },
+        "train/changed-predicted-gain/.20+": {
+          "roots": 14,
+          "changed": 14,
+          "changed_fraction": 1.0,
+          "mean_predicted_gain": 0.38616047516720936,
+          "mean_teacher_gain": 0.47507440438494086,
+          "changed_mean_teacher_gain": 0.47507440438494086,
+          "changed_negative_teacher_fraction": 0.07142857142857142
+        },
+        "validation/3p": {
+          "roots": 96,
+          "changed": 25,
+          "changed_fraction": 0.2604166666666667,
+          "mean_predicted_gain": 0.014445015255694504,
+          "mean_teacher_gain": 0.0027126735512865707,
+          "changed_mean_teacher_gain": 0.010416666436940432,
+          "changed_negative_teacher_fraction": 0.16
+        },
+        "validation/3p/bid": {
+          "roots": 32,
+          "changed": 9,
+          "changed_fraction": 0.28125,
+          "mean_predicted_gain": 0.015375325280245404,
+          "mean_teacher_gain": -0.006591797005967237,
+          "changed_mean_teacher_gain": -0.023437500465661287,
+          "changed_negative_teacher_fraction": 0.3333333333333333
+        },
+        "validation/3p/building": {
+          "roots": 32,
+          "changed": 6,
+          "changed_fraction": 0.1875,
+          "mean_predicted_gain": 0.012111262582074912,
+          "mean_teacher_gain": 0.0030924479360692203,
+          "changed_mean_teacher_gain": 0.016493055659035843,
+          "changed_negative_teacher_fraction": 0.0
+        },
+        "validation/3p/nomination": {
+          "roots": 32,
+          "changed": 10,
+          "changed_fraction": 0.3125,
+          "mean_predicted_gain": 0.01584845790476319,
+          "mean_teacher_gain": 0.011637369723757729,
+          "changed_mean_teacher_gain": 0.03723958311602473,
+          "changed_negative_teacher_fraction": 0.1
+        },
+        "train/3p": {
+          "roots": 288,
+          "changed": 90,
+          "changed_fraction": 0.3125,
+          "mean_predicted_gain": 0.022277111581380325,
+          "mean_teacher_gain": 0.006790726230570322,
+          "changed_mean_teacher_gain": 0.021730323937825032,
+          "changed_negative_teacher_fraction": 0.2111111111111111
+        },
+        "train/3p/bid": {
+          "roots": 96,
+          "changed": 31,
+          "changed_fraction": 0.3229166666666667,
+          "mean_predicted_gain": 0.0225564822693264,
+          "mean_teacher_gain": 0.009358723832216734,
+          "changed_mean_teacher_gain": 0.02898185444815505,
+          "changed_negative_teacher_fraction": 0.1935483870967742
+        },
+        "train/3p/building": {
+          "roots": 96,
+          "changed": 26,
+          "changed_fraction": 0.2708333333333333,
+          "mean_predicted_gain": 0.02200597863530879,
+          "mean_teacher_gain": 0.008843315925332718,
+          "changed_mean_teacher_gain": 0.03265224341661311,
+          "changed_negative_teacher_fraction": 0.11538461538461539
+        },
+        "train/3p/nomination": {
+          "roots": 96,
+          "changed": 33,
+          "changed_fraction": 0.34375,
+          "mean_predicted_gain": 0.02226887383950577,
+          "mean_teacher_gain": 0.002170138934161514,
+          "changed_mean_teacher_gain": 0.006313131444833495,
+          "changed_negative_teacher_fraction": 0.30303030303030304
+        },
+        "validation/changed-predicted-gain/.20+": {
+          "roots": 3,
+          "changed": 3,
+          "changed_fraction": 1.0,
+          "mean_predicted_gain": 0.2760057951516881,
+          "mean_teacher_gain": 0.12847222884496054,
+          "changed_mean_teacher_gain": 0.12847222884496054,
+          "changed_negative_teacher_fraction": 0.3333333333333333
+        },
+        "validation/4p": {
+          "roots": 96,
+          "changed": 21,
+          "changed_fraction": 0.21875,
+          "mean_predicted_gain": 0.018075746553972455,
+          "mean_teacher_gain": 0.004096137311231966,
+          "changed_mean_teacher_gain": 0.018725199137060416,
+          "changed_negative_teacher_fraction": 0.38095238095238093
+        },
+        "validation/4p/bid": {
+          "roots": 32,
+          "changed": 7,
+          "changed_fraction": 0.21875,
+          "mean_predicted_gain": 0.026349114054152762,
+          "mean_teacher_gain": 0.01367187558207661,
+          "changed_mean_teacher_gain": 0.06250000266092164,
+          "changed_negative_teacher_fraction": 0.14285714285714285
+        },
+        "validation/4p/building": {
+          "roots": 32,
+          "changed": 9,
+          "changed_fraction": 0.28125,
+          "mean_predicted_gain": 0.017415098574730833,
+          "mean_teacher_gain": -0.006591796933207661,
+          "changed_mean_teacher_gain": -0.023437500206960574,
+          "changed_negative_teacher_fraction": 0.5555555555555556
+        },
+        "validation/4p/nomination": {
+          "roots": 32,
+          "changed": 5,
+          "changed_fraction": 0.15625,
+          "mean_predicted_gain": 0.010463027033033765,
+          "mean_teacher_gain": 0.005208333284826949,
+          "changed_mean_teacher_gain": 0.03333333302289247,
+          "changed_negative_teacher_fraction": 0.4
+        },
+        "train/4p": {
+          "roots": 288,
+          "changed": 111,
+          "changed_fraction": 0.3854166666666667,
+          "mean_predicted_gain": 0.032018488532001496,
+          "mean_teacher_gain": 0.019856770860820286,
+          "changed_mean_teacher_gain": 0.051520270341587765,
+          "changed_negative_teacher_fraction": 0.2072072072072072
+        },
+        "train/4p/bid": {
+          "roots": 96,
+          "changed": 36,
+          "changed_fraction": 0.375,
+          "mean_predicted_gain": 0.03211210705626326,
+          "mean_teacher_gain": 0.013997395940047378,
+          "changed_mean_teacher_gain": 0.03732638917345968,
+          "changed_negative_teacher_fraction": 0.3333333333333333
+        },
+        "train/4p/building": {
+          "roots": 96,
+          "changed": 34,
+          "changed_fraction": 0.3541666666666667,
+          "mean_predicted_gain": 0.030913274682932392,
+          "mean_teacher_gain": 0.01681857639050577,
+          "changed_mean_teacher_gain": 0.04748774510260452,
+          "changed_negative_teacher_fraction": 0.08823529411764706
+        },
+        "train/4p/nomination": {
+          "roots": 96,
+          "changed": 41,
+          "changed_fraction": 0.4270833333333333,
+          "mean_predicted_gain": 0.03303008385680883,
+          "mean_teacher_gain": 0.028754340251907706,
+          "changed_mean_teacher_gain": 0.0673272357117839,
+          "changed_negative_teacher_fraction": 0.1951219512195122
+        },
+        "validation/5p": {
+          "roots": 96,
+          "changed": 20,
+          "changed_fraction": 0.20833333333333334,
+          "mean_predicted_gain": 0.013493545713039796,
+          "mean_teacher_gain": 0.0042317708672878025,
+          "changed_mean_teacher_gain": 0.020312500162981452,
+          "changed_negative_teacher_fraction": 0.1
+        },
+        "validation/5p/bid": {
+          "roots": 32,
+          "changed": 10,
+          "changed_fraction": 0.3125,
+          "mean_predicted_gain": 0.019428253172508687,
+          "mean_teacher_gain": 0.0034179687354480848,
+          "changed_mean_teacher_gain": 0.010937499953433872,
+          "changed_negative_teacher_fraction": 0.1
+        },
+        "validation/5p/building": {
+          "roots": 32,
+          "changed": 5,
+          "changed_fraction": 0.15625,
+          "mean_predicted_gain": 0.011585672081893227,
+          "mean_teacher_gain": -0.0026041667442768812,
+          "changed_mean_teacher_gain": -0.01666666716337204,
+          "changed_negative_teacher_fraction": 0.2
+        },
+        "validation/5p/nomination": {
+          "roots": 32,
+          "changed": 5,
+          "changed_fraction": 0.15625,
+          "mean_predicted_gain": 0.009466711884717472,
+          "mean_teacher_gain": 0.011881510610692203,
+          "changed_mean_teacher_gain": 0.0760416679084301,
+          "changed_negative_teacher_fraction": 0.0
+        },
+        "train/5p": {
+          "roots": 288,
+          "changed": 69,
+          "changed_fraction": 0.23958333333333334,
+          "mean_predicted_gain": 0.014186644031591153,
+          "mean_teacher_gain": 0.008960865176049992,
+          "changed_mean_teacher_gain": 0.03740187203916519,
+          "changed_negative_teacher_fraction": 0.21739130434782608
+        },
+        "train/5p/bid": {
+          "roots": 96,
+          "changed": 26,
+          "changed_fraction": 0.2708333333333333,
+          "mean_predicted_gain": 0.011842242313886175,
+          "mean_teacher_gain": 0.0033637151354923844,
+          "changed_mean_teacher_gain": 0.012419871269510342,
+          "changed_negative_teacher_fraction": 0.2692307692307692
+        },
+        "train/5p/building": {
+          "roots": 96,
+          "changed": 24,
+          "changed_fraction": 0.25,
+          "mean_predicted_gain": 0.019899887463011592,
+          "mean_teacher_gain": 0.013454861007630825,
+          "changed_mean_teacher_gain": 0.0538194440305233,
+          "changed_negative_teacher_fraction": 0.125
+        },
+        "train/5p/nomination": {
+          "roots": 96,
+          "changed": 19,
+          "changed_fraction": 0.19791666666666666,
+          "mean_predicted_gain": 0.010817802317875701,
+          "mean_teacher_gain": 0.010064019385026768,
+          "changed_mean_teacher_gain": 0.05084978215592472,
+          "changed_negative_teacher_fraction": 0.2631578947368421
+        },
+        "validation/6p": {
+          "roots": 96,
+          "changed": 24,
+          "changed_fraction": 0.25,
+          "mean_predicted_gain": 0.017347843379843925,
+          "mean_teacher_gain": 0.004665798837474237,
+          "changed_mean_teacher_gain": 0.01866319534989695,
+          "changed_negative_teacher_fraction": 0.4583333333333333
+        },
+        "validation/6p/bid": {
+          "roots": 32,
+          "changed": 10,
+          "changed_fraction": 0.3125,
+          "mean_predicted_gain": 0.02578737675749044,
+          "mean_teacher_gain": -0.010660807209205814,
+          "changed_mean_teacher_gain": -0.0341145830694586,
+          "changed_negative_teacher_fraction": 0.5
+        },
+        "validation/6p/building": {
+          "roots": 32,
+          "changed": 8,
+          "changed_fraction": 0.25,
+          "mean_predicted_gain": 0.01371467012058151,
+          "mean_teacher_gain": 0.021728515741415322,
+          "changed_mean_teacher_gain": 0.08691406296566129,
+          "changed_negative_teacher_fraction": 0.5
+        },
+        "validation/6p/nomination": {
+          "roots": 32,
+          "changed": 6,
+          "changed_fraction": 0.1875,
+          "mean_predicted_gain": 0.012541483261459829,
+          "mean_teacher_gain": 0.0029296879802132025,
+          "changed_mean_teacher_gain": 0.01562500256113708,
+          "changed_negative_teacher_fraction": 0.3333333333333333
+        },
+        "train/6p": {
+          "roots": 288,
+          "changed": 71,
+          "changed_fraction": 0.2465277777777778,
+          "mean_predicted_gain": 0.014163872333532815,
+          "mean_teacher_gain": 0.004548249498637031,
+          "changed_mean_teacher_gain": 0.01844923740292204,
+          "changed_negative_teacher_fraction": 0.30985915492957744
+        },
+        "train/6p/bid": {
+          "roots": 96,
+          "changed": 25,
+          "changed_fraction": 0.2604166666666667,
+          "mean_predicted_gain": 0.015055165635845733,
+          "mean_teacher_gain": -0.002495659634102291,
+          "changed_mean_teacher_gain": -0.009583332994952797,
+          "changed_negative_teacher_fraction": 0.4
+        },
+        "train/6p/building": {
+          "roots": 96,
+          "changed": 23,
+          "changed_fraction": 0.23958333333333334,
+          "mean_predicted_gain": 0.014322697039945103,
+          "mean_teacher_gain": 0.014404296942908937,
+          "changed_mean_teacher_gain": 0.06012228289214165,
+          "changed_negative_teacher_fraction": 0.08695652173913043
+        },
+        "train/6p/nomination": {
+          "roots": 96,
+          "changed": 23,
+          "changed_fraction": 0.23958333333333334,
+          "mean_predicted_gain": 0.013113754324807604,
+          "mean_teacher_gain": 0.0017361111871044461,
+          "changed_mean_teacher_gain": 0.007246377128783775,
+          "changed_negative_teacher_fraction": 0.43478260869565216
+        }
+      },
+      "records_sha256": "f235a956e2ec17d0b383c595446d5eb926dce077a4336f7914c546f10d38afb3"
+    },
+    "11102": {
+      "pin": {
+        "key": "11102",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "6be6f2af36d3382d43013621eab382c16a4cc1ae",
+        "prefix": "runs/strategic-correction-v1/11102/derivative",
+        "files": {
+          "inference64.onnx": "85a8885a0f30b32f7f4c131f2d07003724ee4cd5e8c682c4d20d2842ef60ec09",
+          "inference64.pt": "65d95f80e7841bde3438dbd5ba89a03b675715ffaf1d9c1322fcb05fbba49f71"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "seed": 11102,
+        "selected_epoch": 50,
+        "training_verified": true,
+        "parent_frozen": true,
+        "strict_parity_positions": 2553,
+        "training_verified_sha256": "40e0495e736942566c15c4dec2fe039d15ac3069e6b605f5e6ebb69051455ea6",
+        "qualification_eligible": false
+      },
+      "groups": {
+        "validation": {
+          "roots": 480,
+          "changed": 144,
+          "changed_fraction": 0.3,
+          "mean_predicted_gain": 0.018199105365031606,
+          "mean_teacher_gain": 0.00686306431501483,
+          "changed_mean_teacher_gain": 0.02287688105004943,
+          "changed_negative_teacher_fraction": 0.3333333333333333
+        },
+        "validation/bid": {
+          "roots": 160,
+          "changed": 55,
+          "changed_fraction": 0.34375,
+          "mean_predicted_gain": 0.019794144545407538,
+          "mean_teacher_gain": 0.009098307107342407,
+          "changed_mean_teacher_gain": 0.026467802494087003,
+          "changed_negative_teacher_fraction": 0.32727272727272727
+        },
+        "validation/2p": {
+          "roots": 96,
+          "changed": 26,
+          "changed_fraction": 0.2708333333333333,
+          "mean_predicted_gain": 0.01637040653378616,
+          "mean_teacher_gain": 0.011501736109494232,
+          "changed_mean_teacher_gain": 0.042467948711978704,
+          "changed_negative_teacher_fraction": 0.34615384615384615
+        },
+        "validation/2p/bid": {
+          "roots": 32,
+          "changed": 8,
+          "changed_fraction": 0.25,
+          "mean_predicted_gain": 0.013563961575506987,
+          "mean_teacher_gain": 0.019368489301996306,
+          "changed_mean_teacher_gain": 0.07747395720798522,
+          "changed_negative_teacher_fraction": 0.625
+        },
+        "validation/building": {
+          "roots": 160,
+          "changed": 49,
+          "changed_fraction": 0.30625,
+          "mean_predicted_gain": 0.01966090325952698,
+          "mean_teacher_gain": 0.006233724157209508,
+          "changed_mean_teacher_gain": 0.020355017656194314,
+          "changed_negative_teacher_fraction": 0.3469387755102041
+        },
+        "validation/2p/building": {
+          "roots": 32,
+          "changed": 12,
+          "changed_fraction": 0.375,
+          "mean_predicted_gain": 0.021017572676839732,
+          "mean_teacher_gain": 0.01253255212213844,
+          "changed_mean_teacher_gain": 0.033420138992369175,
+          "changed_negative_teacher_fraction": 0.16666666666666666
+        },
+        "validation/nomination": {
+          "roots": 160,
+          "changed": 40,
+          "changed_fraction": 0.25,
+          "mean_predicted_gain": 0.015142268290160294,
+          "mean_teacher_gain": 0.005257161680492573,
+          "changed_mean_teacher_gain": 0.02102864672197029,
+          "changed_negative_teacher_fraction": 0.325
+        },
+        "validation/2p/nomination": {
+          "roots": 32,
+          "changed": 6,
+          "changed_fraction": 0.1875,
+          "mean_predicted_gain": 0.014529685349011766,
+          "mean_teacher_gain": 0.0026041669043479487,
+          "changed_mean_teacher_gain": 0.013888890156522393,
+          "changed_negative_teacher_fraction": 0.3333333333333333
+        },
+        "validation/changed-predicted-gain/.025-.05": {
+          "roots": 79,
+          "changed": 79,
+          "changed_fraction": 1.0,
+          "mean_predicted_gain": 0.03508529618330294,
+          "mean_teacher_gain": 0.008273997915837961,
+          "changed_mean_teacher_gain": 0.008273997915837961,
+          "changed_negative_teacher_fraction": 0.35443037974683544
+        },
+        "train": {
+          "roots": 1440,
+          "changed": 425,
+          "changed_fraction": 0.2951388888888889,
+          "mean_predicted_gain": 0.020482037723909424,
+          "mean_teacher_gain": 0.01602105029629052,
+          "changed_mean_teacher_gain": 0.054283088062725526,
+          "changed_negative_teacher_fraction": 0.2211764705882353
+        },
+        "train/bid": {
+          "roots": 480,
+          "changed": 145,
+          "changed_fraction": 0.3020833333333333,
+          "mean_predicted_gain": 0.01624509151988576,
+          "mean_teacher_gain": 0.006922743067358776,
+          "changed_mean_teacher_gain": 0.022916666705739396,
+          "changed_negative_teacher_fraction": 0.27586206896551724
+        },
+        "train/2p": {
+          "roots": 288,
+          "changed": 80,
+          "changed_fraction": 0.2777777777777778,
+          "mean_predicted_gain": 0.01872207947406631,
+          "mean_teacher_gain": 0.01091399012592673,
+          "changed_mean_teacher_gain": 0.039290364453336224,
+          "changed_negative_teacher_fraction": 0.325
+        },
+        "train/2p/bid": {
+          "roots": 96,
+          "changed": 29,
+          "changed_fraction": 0.3020833333333333,
+          "mean_predicted_gain": 0.013703557590087989,
+          "mean_teacher_gain": -0.0034993488273660964,
+          "changed_mean_teacher_gain": -0.011584051290591216,
+          "changed_negative_teacher_fraction": 0.3793103448275862
+        },
+        "train/building": {
+          "roots": 480,
+          "changed": 144,
+          "changed_fraction": 0.3,
+          "mean_predicted_gain": 0.02489658616044083,
+          "mean_teacher_gain": 0.02163628456085765,
+          "changed_mean_teacher_gain": 0.07212094853619216,
+          "changed_negative_teacher_fraction": 0.1736111111111111
+        },
+        "train/2p/building": {
+          "roots": 96,
+          "changed": 25,
+          "changed_fraction": 0.2604166666666667,
+          "mean_predicted_gain": 0.02562579335213037,
+          "mean_teacher_gain": 0.024576822708089214,
+          "changed_mean_teacher_gain": 0.09437499919906259,
+          "changed_negative_teacher_fraction": 0.24
+        },
+        "train/changed-predicted-gain/.05-.10": {
+          "roots": 135,
+          "changed": 135,
+          "changed_fraction": 1.0,
+          "mean_predicted_gain": 0.06634293711587003,
+          "mean_teacher_gain": 0.044309413234737735,
+          "changed_mean_teacher_gain": 0.044309413234737735,
+          "changed_negative_teacher_fraction": 0.17777777777777778
+        },
+        "train/nomination": {
+          "roots": 480,
+          "changed": 136,
+          "changed_fraction": 0.2833333333333333,
+          "mean_predicted_gain": 0.020304435491401675,
+          "mean_teacher_gain": 0.01950412326065513,
+          "changed_mean_teacher_gain": 0.06883808209642987,
+          "changed_negative_teacher_fraction": 0.21323529411764705
+        },
+        "train/2p/nomination": {
+          "roots": 96,
+          "changed": 26,
+          "changed_fraction": 0.2708333333333333,
+          "mean_predicted_gain": 0.01683688747998056,
+          "mean_teacher_gain": 0.011664496497057067,
+          "changed_mean_teacher_gain": 0.04306891014297994,
+          "changed_negative_teacher_fraction": 0.34615384615384615
+        },
+        "train/changed-predicted-gain/.025-.05": {
+          "roots": 242,
+          "changed": 242,
+          "changed_fraction": 1.0,
+          "mean_predicted_gain": 0.035609609491390685,
+          "mean_teacher_gain": 0.015764893188472254,
+          "changed_mean_teacher_gain": 0.015764893188472254,
+          "changed_negative_teacher_fraction": 0.2809917355371901
+        },
+        "validation/changed-predicted-gain/.10-.20": {
+          "roots": 19,
+          "changed": 19,
+          "changed_fraction": 1.0,
+          "mean_predicted_gain": 0.13281338436575077,
+          "mean_teacher_gain": 0.04248903466290549,
+          "changed_mean_teacher_gain": 0.04248903466290549,
+          "changed_negative_teacher_fraction": 0.21052631578947367
+        },
+        "validation/changed-predicted-gain/.05-.10": {
+          "roots": 44,
+          "changed": 44,
+          "changed_fraction": 1.0,
+          "mean_predicted_gain": 0.06733837677788267,
+          "mean_teacher_gain": 0.018821023722094567,
+          "changed_mean_teacher_gain": 0.018821023722094567,
+          "changed_negative_teacher_fraction": 0.36363636363636365
+        },
+        "validation/changed-predicted-gain/.20+": {
+          "roots": 2,
+          "changed": 2,
+          "changed_fraction": 1.0,
+          "mean_predicted_gain": 0.23874464777906806,
+          "mean_teacher_gain": 0.5026041667442769,
+          "changed_mean_teacher_gain": 0.5026041667442769,
+          "changed_negative_teacher_fraction": 0.0
+        },
+        "train/changed-predicted-gain/.10-.20": {
+          "roots": 34,
+          "changed": 34,
+          "changed_fraction": 1.0,
+          "mean_predicted_gain": 0.1345492959801204,
+          "mean_teacher_gain": 0.1618412983850302,
+          "changed_mean_teacher_gain": 0.1618412983850302,
+          "changed_negative_teacher_fraction": 0.058823529411764705
+        },
+        "train/changed-predicted-gain/.20+": {
+          "roots": 14,
+          "changed": 14,
+          "changed_fraction": 1.0,
+          "mean_predicted_gain": 0.5246883036818913,
+          "mean_teacher_gain": 0.5550595245191029,
+          "changed_mean_teacher_gain": 0.5550595245191029,
+          "changed_negative_teacher_fraction": 0.0
+        },
+        "validation/3p": {
+          "roots": 96,
+          "changed": 23,
+          "changed_fraction": 0.23958333333333334,
+          "mean_predicted_gain": 0.012820316774802673,
+          "mean_teacher_gain": -0.00385199664257622,
+          "changed_mean_teacher_gain": -0.016077899029883352,
+          "changed_negative_teacher_fraction": 0.2608695652173913
+        },
+        "validation/3p/bid": {
+          "roots": 32,
+          "changed": 12,
+          "changed_fraction": 0.375,
+          "mean_predicted_gain": 0.021000820497140256,
+          "mean_teacher_gain": -0.007324218968278728,
+          "changed_mean_teacher_gain": -0.01953125058207661,
+          "changed_negative_teacher_fraction": 0.3333333333333333
+        },
+        "validation/3p/building": {
+          "roots": 32,
+          "changed": 4,
+          "changed_fraction": 0.125,
+          "mean_predicted_gain": 0.007168901495818404,
+          "mean_teacher_gain": 0.0030924479360692203,
+          "changed_mean_teacher_gain": 0.024739583488553762,
+          "changed_negative_teacher_fraction": 0.0
+        },
+        "validation/3p/nomination": {
+          "roots": 32,
+          "changed": 7,
+          "changed_fraction": 0.21875,
+          "mean_predicted_gain": 0.010291228331449359,
+          "mean_teacher_gain": -0.007324218895519152,
+          "changed_mean_teacher_gain": -0.03348214352237327,
+          "changed_negative_teacher_fraction": 0.2857142857142857
+        },
+        "train/3p": {
+          "roots": 288,
+          "changed": 78,
+          "changed_fraction": 0.2708333333333333,
+          "mean_predicted_gain": 0.0196990904340732,
+          "mean_teacher_gain": 0.01165545427647885,
+          "changed_mean_teacher_gain": 0.043035523482383445,
+          "changed_negative_teacher_fraction": 0.23076923076923078
+        },
+        "train/3p/bid": {
+          "roots": 96,
+          "changed": 28,
+          "changed_fraction": 0.2916666666666667,
+          "mean_predicted_gain": 0.016205650885931806,
+          "mean_teacher_gain": 0.012424045130804492,
+          "changed_mean_teacher_gain": 0.04259672616275826,
+          "changed_negative_teacher_fraction": 0.21428571428571427
+        },
+        "train/3p/building": {
+          "roots": 96,
+          "changed": 26,
+          "changed_fraction": 0.2708333333333333,
+          "mean_predicted_gain": 0.02304511485237143,
+          "mean_teacher_gain": 0.014838324714219198,
+          "changed_mean_teacher_gain": 0.054787660483270884,
+          "changed_negative_teacher_fraction": 0.23076923076923078
+        },
+        "train/3p/nomination": {
+          "roots": 96,
+          "changed": 24,
+          "changed_fraction": 0.25,
+          "mean_predicted_gain": 0.019846505563916362,
+          "mean_teacher_gain": 0.007703992984412859,
+          "changed_mean_teacher_gain": 0.030815971937651437,
+          "changed_negative_teacher_fraction": 0.25
+        },
+        "validation/4p": {
+          "roots": 96,
+          "changed": 31,
+          "changed_fraction": 0.3229166666666667,
+          "mean_predicted_gain": 0.020929446939396124,
+          "mean_teacher_gain": 0.015733506826412242,
+          "changed_mean_teacher_gain": 0.04872311791405082,
+          "changed_negative_teacher_fraction": 0.2903225806451613
+        },
+        "validation/4p/bid": {
+          "roots": 32,
+          "changed": 10,
+          "changed_fraction": 0.3125,
+          "mean_predicted_gain": 0.020045260080004706,
+          "mean_teacher_gain": 0.039062499592546374,
+          "changed_mean_teacher_gain": 0.12499999869614839,
+          "changed_negative_teacher_fraction": 0.1
+        },
+        "validation/4p/building": {
+          "roots": 32,
+          "changed": 12,
+          "changed_fraction": 0.375,
+          "mean_predicted_gain": 0.024077329671676986,
+          "mean_teacher_gain": -0.007080078139551915,
+          "changed_mean_teacher_gain": -0.01888020837213844,
+          "changed_negative_teacher_fraction": 0.5
+        },
+        "validation/4p/nomination": {
+          "roots": 32,
+          "changed": 9,
+          "changed_fraction": 0.28125,
+          "mean_predicted_gain": 0.01866575106650667,
+          "mean_teacher_gain": 0.015218099026242271,
+          "changed_mean_teacher_gain": 0.054108796537750296,
+          "changed_negative_teacher_fraction": 0.2222222222222222
+        },
+        "train/4p": {
+          "roots": 288,
+          "changed": 111,
+          "changed_fraction": 0.3854166666666667,
+          "mean_predicted_gain": 0.02840156956381567,
+          "mean_teacher_gain": 0.02603262437009511,
+          "changed_mean_teacher_gain": 0.06754410647376029,
+          "changed_negative_teacher_fraction": 0.17117117117117117
+        },
+        "train/4p/bid": {
+          "roots": 96,
+          "changed": 39,
+          "changed_fraction": 0.40625,
+          "mean_predicted_gain": 0.026284336948093106,
+          "mean_teacher_gain": 0.01988389761148331,
+          "changed_mean_teacher_gain": 0.04894497873595892,
+          "changed_negative_teacher_fraction": 0.20512820512820512
+        },
+        "train/4p/building": {
+          "roots": 96,
+          "changed": 32,
+          "changed_fraction": 0.3333333333333333,
+          "mean_predicted_gain": 0.02590156768187633,
+          "mean_teacher_gain": 0.024983723744905244,
+          "changed_mean_teacher_gain": 0.07495117123471573,
+          "changed_negative_teacher_fraction": 0.1875
+        },
+        "train/4p/nomination": {
+          "roots": 96,
+          "changed": 40,
+          "changed_fraction": 0.4166666666666667,
+          "mean_predicted_gain": 0.03301880406147758,
+          "mean_teacher_gain": 0.03323025175389679,
+          "changed_mean_teacher_gain": 0.07975260420935229,
+          "changed_negative_teacher_fraction": 0.125
+        },
+        "validation/5p": {
+          "roots": 96,
+          "changed": 33,
+          "changed_fraction": 0.34375,
+          "mean_predicted_gain": 0.01800248842007652,
+          "mean_teacher_gain": 0.005805121909361333,
+          "changed_mean_teacher_gain": 0.01688762737268751,
+          "changed_negative_teacher_fraction": 0.24242424242424243
+        },
+        "validation/5p/bid": {
+          "roots": 32,
+          "changed": 12,
+          "changed_fraction": 0.375,
+          "mean_predicted_gain": 0.020470801423241664,
+          "mean_teacher_gain": 0.004394531366415322,
+          "changed_mean_teacher_gain": 0.011718750310440859,
+          "changed_negative_teacher_fraction": 0.08333333333333333
+        },
+        "validation/5p/building": {
+          "roots": 32,
+          "changed": 10,
+          "changed_fraction": 0.3125,
+          "mean_predicted_gain": 0.016202876975357043,
+          "mean_teacher_gain": 0.0007324227481149137,
+          "changed_mean_teacher_gain": 0.0023437527939677238,
+          "changed_negative_teacher_fraction": 0.4
+        },
+        "validation/5p/nomination": {
+          "roots": 32,
+          "changed": 11,
+          "changed_fraction": 0.34375,
+          "mean_predicted_gain": 0.017333786861630854,
+          "mean_teacher_gain": 0.012288411613553762,
+          "changed_mean_teacher_gain": 0.0357481065121564,
+          "changed_negative_teacher_fraction": 0.2727272727272727
+        },
+        "train/5p": {
+          "roots": 288,
+          "changed": 78,
+          "changed_fraction": 0.2708333333333333,
+          "mean_predicted_gain": 0.018556994198317474,
+          "mean_teacher_gain": 0.01704463227522663,
+          "changed_mean_teacher_gain": 0.06293402686237524,
+          "changed_negative_teacher_fraction": 0.19230769230769232
+        },
+        "train/5p/bid": {
+          "roots": 96,
+          "changed": 23,
+          "changed_fraction": 0.23958333333333334,
+          "mean_predicted_gain": 0.01108279527223563,
+          "mean_teacher_gain": 0.006347656080227655,
+          "changed_mean_teacher_gain": 0.0264945645087763,
+          "changed_negative_teacher_fraction": 0.2608695652173913
+        },
+        "train/5p/building": {
+          "roots": 96,
+          "changed": 31,
+          "changed_fraction": 0.3229166666666667,
+          "mean_predicted_gain": 0.028536963055132657,
+          "mean_teacher_gain": 0.026177299800716963,
+          "changed_mean_teacher_gain": 0.08106518647963962,
+          "changed_negative_teacher_fraction": 0.12903225806451613
+        },
+        "train/5p/nomination": {
+          "roots": 96,
+          "changed": 24,
+          "changed_fraction": 0.25,
+          "mean_predicted_gain": 0.01605122426758414,
+          "mean_teacher_gain": 0.01860894094473527,
+          "changed_mean_teacher_gain": 0.07443576377894108,
+          "changed_negative_teacher_fraction": 0.20833333333333334
+        },
+        "validation/6p": {
+          "roots": 96,
+          "changed": 31,
+          "changed_fraction": 0.3229166666666667,
+          "mean_predicted_gain": 0.022872868157096538,
+          "mean_teacher_gain": 0.005126953372382559,
+          "changed_mean_teacher_gain": 0.015877016895120184,
+          "changed_negative_teacher_fraction": 0.5161290322580645
+        },
+        "validation/6p/bid": {
+          "roots": 32,
+          "changed": 13,
+          "changed_fraction": 0.40625,
+          "mean_predicted_gain": 0.023889879151144065,
+          "mean_teacher_gain": -0.010009765755967237,
+          "changed_mean_teacher_gain": -0.02463942339930397,
+          "changed_negative_teacher_fraction": 0.5384615384615384
+        },
+        "validation/6p/building": {
+          "roots": 32,
+          "changed": 11,
+          "changed_fraction": 0.34375,
+          "mean_predicted_gain": 0.029837835477942724,
+          "mean_teacher_gain": 0.02189127611927688,
+          "changed_mean_teacher_gain": 0.06368371234698729,
+          "changed_negative_teacher_fraction": 0.45454545454545453
+        },
+        "validation/6p/nomination": {
+          "roots": 32,
+          "changed": 7,
+          "changed_fraction": 0.21875,
+          "mean_predicted_gain": 0.014890889842202822,
+          "mean_teacher_gain": 0.0034993497538380325,
+          "changed_mean_teacher_gain": 0.01599702744611672,
+          "changed_negative_teacher_fraction": 0.5714285714285714
+        },
+        "train/6p": {
+          "roots": 288,
+          "changed": 78,
+          "changed_fraction": 0.2708333333333333,
+          "mean_predicted_gain": 0.01703045494927446,
+          "mean_teacher_gain": 0.014458550433725273,
+          "changed_mean_teacher_gain": 0.05338541698606255,
+          "changed_negative_teacher_fraction": 0.20512820512820512
+        },
+        "train/6p/bid": {
+          "roots": 96,
+          "changed": 26,
+          "changed_fraction": 0.2708333333333333,
+          "mean_predicted_gain": 0.013949116903080266,
+          "mean_teacher_gain": -0.0005425346583554832,
+          "changed_mean_teacher_gain": -0.0020032048923894763,
+          "changed_negative_teacher_fraction": 0.34615384615384615
+        },
+        "train/6p/building": {
+          "roots": 96,
+          "changed": 30,
+          "changed_fraction": 0.3125,
+          "mean_predicted_gain": 0.02137349186069337,
+          "mean_teacher_gain": 0.017605251836357638,
+          "changed_mean_teacher_gain": 0.056336805876344445,
+          "changed_negative_teacher_fraction": 0.1
+        },
+        "train/6p/nomination": {
+          "roots": 96,
+          "changed": 22,
+          "changed_fraction": 0.22916666666666666,
+          "mean_predicted_gain": 0.015768756084049748,
+          "mean_teacher_gain": 0.026312934123173665,
+          "changed_mean_teacher_gain": 0.11482007617384872,
+          "changed_negative_teacher_fraction": 0.18181818181818182
+        }
+      },
+      "records_sha256": "da9205d3ec3ca79e892402c28a42b38279967daacdf744eb781de4bdc448755b"
+    }
+  },
+  "gradients": false,
+  "qualification_eligible": false,
+  "scope": "Post-hoc diagnostic of fixed teacher labels and fixed models. No threshold selection, retraining or whole-game strength claim."
+}

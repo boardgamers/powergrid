@@ -1,10 +1,10 @@
 {
-  "checked_at": "2026-10-23T22:21:19.694786+00:00",
-  "artifact_revision": "c324b32b06af3fdb41d450b6b8029d0899c17670",
+  "checked_at": "2026-10-23T22:25:28.848724+00:00",
+  "artifact_revision": "24123b831f984f8198d9a11bbc04039dbd21c5ae",
   "submitted_shards": 110,
   "status_counts": {
-    "COMPLETED": 102,
-    "RUNNING": 8
+    "COMPLETED": 105,
+    "RUNNING": 5
   },
   "historical_errors_with_completed_replacements": 0,
   "jobs": [
@@ -4819,10 +4819,10 @@
       "qualification_eligible": false,
       "job_id": "6adbd675046eb82b1ecd774c",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/parent-5p-search_geo-12-16.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 21:49:43.525000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 22:24:03.962000+00:00"
     },
     {
       "stage": "launched",
@@ -4875,10 +4875,10 @@
       "qualification_eligible": false,
       "job_id": "6adbd6731e112550ce7d909d",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/parent-5p-search_geo-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 21:49:42.426000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 22:24:28.776000+00:00"
     },
     {
       "stage": "launched",
@@ -4931,10 +4931,10 @@
       "qualification_eligible": false,
       "job_id": "6adbd674046eb82b1ecd774a",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/parent-5p-search_geo-8-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 21:49:43.149000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 22:25:05.697000+00:00"
     },
     {
       "stage": "launched",

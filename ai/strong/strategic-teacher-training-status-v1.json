@@ -1,11 +1,11 @@
 {
-  "checked_at": "2026-10-23T22:01:13.493520+00:00",
-  "artifact_revision": "c05757eb4c1abf3e00d1be81d04c49eb9c8460d0",
+  "checked_at": "2026-10-23T22:08:59.662435+00:00",
+  "artifact_revision": "9e5cfb8a73c5a993cefe0eec707f7b8043d59a4c",
   "submitted_shards": 163,
   "status_counts": {
-    "COMPLETED": 153,
+    "COMPLETED": 158,
     "ERROR": 3,
-    "RUNNING": 7
+    "RUNNING": 2
   },
   "historical_errors_with_completed_replacements": 3,
   "jobs": [
@@ -2733,10 +2733,10 @@
       "qualification_eligible": false,
       "job_id": "6adbcae9046eb82b1ecd72bf",
       "guard": "ai/runs/strategic-teacher-training-launches-v1/4p-snapshot0-neural-14-16.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 21:26:28.277000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 22:05:22.566000+00:00"
     },
     {
       "stage": "launched",
@@ -3175,10 +3175,10 @@
       "qualification_eligible": false,
       "job_id": "6adbcab8046eb82b1ecd7286",
       "guard": "ai/runs/strategic-teacher-training-launches-v1/5p-economic-neural-10-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 21:09:42.924000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 22:01:48.273000+00:00"
     },
     {
       "stage": "launched",
@@ -3873,10 +3873,10 @@
       "qualification_eligible": false,
       "job_id": "6adbca9f1e112550ce7d8a4f",
       "guard": "ai/runs/strategic-teacher-training-launches-v1/5p-snapshot0-neural-8-10.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 21:12:44.742000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 22:02:52.723000+00:00"
     },
     {
       "stage": "launched",
@@ -4379,10 +4379,10 @@
       "qualification_eligible": false,
       "job_id": "6adbcaa21e112550ce7d8a52",
       "guard": "ai/runs/strategic-teacher-training-launches-v1/6p-economic-neural-8-10.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 21:02:46.396000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 22:01:11.633000+00:00"
     },
     {
       "stage": "launched",
@@ -4730,10 +4730,10 @@
       "qualification_eligible": false,
       "job_id": "6adbcac0046eb82b1ecd728e",
       "guard": "ai/runs/strategic-teacher-training-launches-v1/6p-snapshot0-neural-10-12.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 21:13:40.090000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 22:03:10.931000+00:00"
     },
     {
       "stage": "launched",

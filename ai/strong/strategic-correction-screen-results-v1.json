@@ -1,30 +1,18 @@
 {
   "all_shards_verified": false,
   "pending": [
-    "parent-2p-search_geo-0-4",
-    "parent-2p-search_geo-4-8",
-    "parent-2p-search_geo-12-16",
-    "parent-2p-rush-8-12",
-    "parent-3p-search_geo-12-16",
-    "parent-3p-rush-4-8",
     "parent-4p-search_geo-0-4",
     "parent-4p-search_geo-4-8",
     "parent-4p-search_geo-8-12",
     "parent-4p-search_geo-12-16",
-    "parent-4p-legacy-12-16",
-    "parent-5p-economic-4-8",
-    "parent-5p-economic-8-12",
-    "parent-5p-economic-12-16",
     "parent-5p-search_geo-0-4",
     "parent-5p-search_geo-4-8",
     "parent-5p-search_geo-8-12",
     "parent-5p-search_geo-12-16",
-    "parent-6p-economic-4-8",
     "parent-6p-search_geo-0-4",
     "parent-6p-search_geo-4-8",
     "parent-6p-search_geo-8-12",
     "parent-6p-search_geo-12-16",
-    "parent-2p-economic_capacity_v1-4-8",
     "11101-2p-economic-0-4",
     "11101-2p-economic-4-8",
     "11101-2p-economic-8-12",
@@ -294,6 +282,62 @@
           }
         }
       },
+      "search_geo/2p": {
+        "games": 128,
+        "independent_deals": 16,
+        "win_rate": 0.4921875,
+        "deal_bootstrap_95_interval": [
+          0.4296875,
+          0.5546875
+        ],
+        "search_rollouts_reported": true,
+        "search_stats": {
+          "search_geo": {
+            "decisions": 6167,
+            "evaluations": 498336,
+            "truncated": 0
+          }
+        },
+        "stage": "primary",
+        "by_rules": {
+          "original/open": {
+            "games": 32,
+            "independent_deals": 16,
+            "win_rate": 0.5625,
+            "deal_bootstrap_95_interval": [
+              0.375,
+              0.71875
+            ]
+          },
+          "original/sealed": {
+            "games": 32,
+            "independent_deals": 16,
+            "win_rate": 0.53125,
+            "deal_bootstrap_95_interval": [
+              0.375,
+              0.6875
+            ]
+          },
+          "recharged/open": {
+            "games": 32,
+            "independent_deals": 16,
+            "win_rate": 0.5,
+            "deal_bootstrap_95_interval": [
+              0.34375,
+              0.6875
+            ]
+          },
+          "recharged/sealed": {
+            "games": 32,
+            "independent_deals": 16,
+            "win_rate": 0.375,
+            "deal_bootstrap_95_interval": [
+              0.21875,
+              0.53125
+            ]
+          }
+        }
+      },
       "legacy/2p": {
         "games": 128,
         "independent_deals": 16,
@@ -394,6 +438,56 @@
           }
         }
       },
+      "rush/2p": {
+        "games": 128,
+        "independent_deals": 16,
+        "win_rate": 0.66796875,
+        "deal_bootstrap_95_interval": [
+          0.58203125,
+          0.7578125
+        ],
+        "search_rollouts_reported": true,
+        "search_stats": {},
+        "stage": "extension",
+        "by_rules": {
+          "original/open": {
+            "games": 32,
+            "independent_deals": 16,
+            "win_rate": 0.625,
+            "deal_bootstrap_95_interval": [
+              0.4375,
+              0.8125
+            ]
+          },
+          "original/sealed": {
+            "games": 32,
+            "independent_deals": 16,
+            "win_rate": 0.703125,
+            "deal_bootstrap_95_interval": [
+              0.546875,
+              0.84375
+            ]
+          },
+          "recharged/open": {
+            "games": 32,
+            "independent_deals": 16,
+            "win_rate": 0.6875,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              0.84375
+            ]
+          },
+          "recharged/sealed": {
+            "games": 32,
+            "independent_deals": 16,
+            "win_rate": 0.65625,
+            "deal_bootstrap_95_interval": [
+              0.46875,
+              0.84375
+            ]
+          }
+        }
+      },
       "economic/3p": {
         "games": 192,
         "independent_deals": 16,
@@ -440,6 +534,62 @@
             "deal_bootstrap_95_interval": [
               0.5416666666666666,
               0.75
+            ]
+          }
+        }
+      },
+      "search_geo/3p": {
+        "games": 192,
+        "independent_deals": 16,
+        "win_rate": 0.25,
+        "deal_bootstrap_95_interval": [
+          0.1875,
+          0.3125
+        ],
+        "search_rollouts_reported": true,
+        "search_stats": {
+          "search_geo": {
+            "decisions": 18243,
+            "evaluations": 1495568,
+            "truncated": 0
+          }
+        },
+        "stage": "primary",
+        "by_rules": {
+          "original/open": {
+            "games": 48,
+            "independent_deals": 16,
+            "win_rate": 0.2708333333333333,
+            "deal_bootstrap_95_interval": [
+              0.10416666666666666,
+              0.4375
+            ]
+          },
+          "original/sealed": {
+            "games": 48,
+            "independent_deals": 16,
+            "win_rate": 0.35416666666666663,
+            "deal_bootstrap_95_interval": [
+              0.24999999999999997,
+              0.4583333333333333
+            ]
+          },
+          "recharged/open": {
+            "games": 48,
+            "independent_deals": 16,
+            "win_rate": 0.22916666666666666,
+            "deal_bootstrap_95_interval": [
+              0.10416666666666666,
+              0.375
+            ]
+          },
+          "recharged/sealed": {
+            "games": 48,
+            "independent_deals": 16,
+            "win_rate": 0.14583333333333331,
+            "deal_bootstrap_95_interval": [
+              0.0625,
+              0.25
             ]
           }
         }
@@ -544,6 +694,56 @@
           }
         }
       },
+      "rush/3p": {
+        "games": 192,
+        "independent_deals": 16,
+        "win_rate": 0.6458333333333334,
+        "deal_bootstrap_95_interval": [
+          0.5572916666666666,
+          0.7239583333333333
+        ],
+        "search_rollouts_reported": true,
+        "search_stats": {},
+        "stage": "extension",
+        "by_rules": {
+          "original/open": {
+            "games": 48,
+            "independent_deals": 16,
+            "win_rate": 0.625,
+            "deal_bootstrap_95_interval": [
+              0.45833333333333326,
+              0.7916666666666666
+            ]
+          },
+          "original/sealed": {
+            "games": 48,
+            "independent_deals": 16,
+            "win_rate": 0.5833333333333333,
+            "deal_bootstrap_95_interval": [
+              0.43749999999999994,
+              0.7291666666666666
+            ]
+          },
+          "recharged/open": {
+            "games": 48,
+            "independent_deals": 16,
+            "win_rate": 0.6666666666666666,
+            "deal_bootstrap_95_interval": [
+              0.47916666666666663,
+              0.8333333333333333
+            ]
+          },
+          "recharged/sealed": {
+            "games": 48,
+            "independent_deals": 16,
+            "win_rate": 0.7083333333333333,
+            "deal_bootstrap_95_interval": [
+              0.5625,
+              0.8333333333333333
+            ]
+          }
+        }
+      },
       "economic/4p": {
         "games": 256,
         "independent_deals": 16,
@@ -590,6 +790,56 @@
             "deal_bootstrap_95_interval": [
               0.703125,
               0.890625
+            ]
+          }
+        }
+      },
+      "legacy/4p": {
+        "games": 256,
+        "independent_deals": 16,
+        "win_rate": 0.84765625,
+        "deal_bootstrap_95_interval": [
+          0.79296875,
+          0.8984375
+        ],
+        "search_rollouts_reported": true,
+        "search_stats": {},
+        "stage": "extension",
+        "by_rules": {
+          "original/open": {
+            "games": 64,
+            "independent_deals": 16,
+            "win_rate": 0.859375,
+            "deal_bootstrap_95_interval": [
+              0.765625,
+              0.9375
+            ]
+          },
+          "original/sealed": {
+            "games": 64,
+            "independent_deals": 16,
+            "win_rate": 0.859375,
+            "deal_bootstrap_95_interval": [
+              0.75,
+              0.9375
+            ]
+          },
+          "recharged/open": {
+            "games": 64,
+            "independent_deals": 16,
+            "win_rate": 0.8125,
+            "deal_bootstrap_95_interval": [
+              0.703125,
+              0.90625
+            ]
+          },
+          "recharged/sealed": {
+            "games": 64,
+            "independent_deals": 16,
+            "win_rate": 0.859375,
+            "deal_bootstrap_95_interval": [
+              0.765625,
+              0.9375
             ]
           }
         }
@@ -690,6 +940,56 @@
             "deal_bootstrap_95_interval": [
               0.640625,
               0.828125
+            ]
+          }
+        }
+      },
+      "economic/5p": {
+        "games": 320,
+        "independent_deals": 16,
+        "win_rate": 0.7578125,
+        "deal_bootstrap_95_interval": [
+          0.709375,
+          0.8062499999999999
+        ],
+        "search_rollouts_reported": true,
+        "search_stats": {},
+        "stage": "primary",
+        "by_rules": {
+          "original/open": {
+            "games": 80,
+            "independent_deals": 16,
+            "win_rate": 0.6875,
+            "deal_bootstrap_95_interval": [
+              0.5875,
+              0.7875
+            ]
+          },
+          "original/sealed": {
+            "games": 80,
+            "independent_deals": 16,
+            "win_rate": 0.73125,
+            "deal_bootstrap_95_interval": [
+              0.6125,
+              0.8375000000000001
+            ]
+          },
+          "recharged/open": {
+            "games": 80,
+            "independent_deals": 16,
+            "win_rate": 0.8125,
+            "deal_bootstrap_95_interval": [
+              0.7125,
+              0.9
+            ]
+          },
+          "recharged/sealed": {
+            "games": 80,
+            "independent_deals": 16,
+            "win_rate": 0.8,
+            "deal_bootstrap_95_interval": [
+              0.7125,
+              0.875
             ]
           }
         }
@@ -840,6 +1140,56 @@
             "deal_bootstrap_95_interval": [
               0.75,
               0.9125000000000001
+            ]
+          }
+        }
+      },
+      "economic/6p": {
+        "games": 384,
+        "independent_deals": 16,
+        "win_rate": 0.7669270833333333,
+        "deal_bootstrap_95_interval": [
+          0.73046875,
+          0.7994791666666667
+        ],
+        "search_rollouts_reported": true,
+        "search_stats": {},
+        "stage": "primary",
+        "by_rules": {
+          "original/open": {
+            "games": 96,
+            "independent_deals": 16,
+            "win_rate": 0.7708333333333334,
+            "deal_bootstrap_95_interval": [
+              0.6979166666666666,
+              0.84375
+            ]
+          },
+          "original/sealed": {
+            "games": 96,
+            "independent_deals": 16,
+            "win_rate": 0.703125,
+            "deal_bootstrap_95_interval": [
+              0.6041666666666666,
+              0.7916666666666667
+            ]
+          },
+          "recharged/open": {
+            "games": 96,
+            "independent_deals": 16,
+            "win_rate": 0.8125,
+            "deal_bootstrap_95_interval": [
+              0.75,
+              0.875
+            ]
+          },
+          "recharged/sealed": {
+            "games": 96,
+            "independent_deals": 16,
+            "win_rate": 0.78125,
+            "deal_bootstrap_95_interval": [
+              0.6875,
+              0.875
             ]
           }
         }
@@ -1043,6 +1393,56 @@
             ]
           }
         }
+      },
+      "economic_capacity_v1/2p": {
+        "games": 128,
+        "independent_deals": 16,
+        "win_rate": 0.63671875,
+        "deal_bootstrap_95_interval": [
+          0.56640625,
+          0.7109375
+        ],
+        "search_rollouts_reported": true,
+        "search_stats": {},
+        "stage": "primary",
+        "by_rules": {
+          "original/open": {
+            "games": 32,
+            "independent_deals": 16,
+            "win_rate": 0.5625,
+            "deal_bootstrap_95_interval": [
+              0.375,
+              0.75
+            ]
+          },
+          "original/sealed": {
+            "games": 32,
+            "independent_deals": 16,
+            "win_rate": 0.671875,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              0.828125
+            ]
+          },
+          "recharged/open": {
+            "games": 32,
+            "independent_deals": 16,
+            "win_rate": 0.71875,
+            "deal_bootstrap_95_interval": [
+              0.5625,
+              0.875
+            ]
+          },
+          "recharged/sealed": {
+            "games": 32,
+            "independent_deals": 16,
+            "win_rate": 0.59375,
+            "deal_bootstrap_95_interval": [
+              0.40625,
+              0.78125
+            ]
+          }
+        }
       }
     },
     "11101": {},
@@ -1052,7 +1452,7 @@
     "11101-minus-parent": {},
     "11102-minus-parent": {}
   },
-  "games": 4032,
+  "games": 5760,
   "planned_games": 20160,
   "source_revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
   "source_sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb",
@@ -1086,6 +1486,36 @@
         "prefix": "runs/strategic-correction-screen-v1-parent-2p-economic-12-16",
         "verified_sha256": "72e1f4067b9810297cbb2410b3f53a1bdc15b27a007e15d933618e6f5c492a3f",
         "evaluation_sha256": "d14e7cba4b752675f90c8025818e60261a1a1275ecefcf2730d8775dc57295b1"
+      }
+    ],
+    "parent/search_geo/2p": [
+      {
+        "key": "parent-2p-search_geo-0-4",
+        "revision": "b3ebd85abb7fee39a084d74cfe2ad1e1d116bacb",
+        "prefix": "runs/strategic-correction-screen-v1-parent-2p-search_geo-0-4",
+        "verified_sha256": "5c6588cd37d2f705f3fc45e0222dd6a6e0017475f63fc6fc9f6a9509ad509d42",
+        "evaluation_sha256": "6abb2b48df509a9e3a440bf909d27cfa21c3dec3729efd9861c6dbc4c3d23130"
+      },
+      {
+        "key": "parent-2p-search_geo-4-8",
+        "revision": "b3ebd85abb7fee39a084d74cfe2ad1e1d116bacb",
+        "prefix": "runs/strategic-correction-screen-v1-parent-2p-search_geo-4-8",
+        "verified_sha256": "7919ca9ab0f52b0d179c6419b6de912094329b8ecb0a2ecc00f0d026736901a4",
+        "evaluation_sha256": "6d81eea4584d70447dfc0a8fcf60901f326cf3a66dd5c55f8ca5d0bd63f593a1"
+      },
+      {
+        "key": "parent-2p-search_geo-8-12",
+        "revision": "d13ed5a575dba9d4a2adb3cef44eb2cd1022bb80",
+        "prefix": "runs/strategic-correction-screen-v1-parent-2p-search_geo-8-12",
+        "verified_sha256": "16a73e1e03045ae40dc4970a041f23ff0f4268dd9211863372c630c9a99c6350",
+        "evaluation_sha256": "201b8ebf412088494582eb6bffaf77449f15bfa4214f48cfbdf06f445d0c231f"
+      },
+      {
+        "key": "parent-2p-search_geo-12-16",
+        "revision": "111ec57e34f2dfff56b7d20883407585049c8a68",
+        "prefix": "runs/strategic-correction-screen-v1-parent-2p-search_geo-12-16",
+        "verified_sha256": "2be848e04719079ee2a00bc2cd53242684631aa887328161bfd3ac0b1cc5ce2c",
+        "evaluation_sha256": "01b430bd4603a18bff7fe2ce4c8fa8c4f5bb41809489543677ac9fecedab0e7c"
       }
     ],
     "parent/legacy/2p": [
@@ -1148,6 +1578,36 @@
         "evaluation_sha256": "4301bba709e8d2ae302510441d9b30bbeab66654152ac46fccd23c46fe5f49aa"
       }
     ],
+    "parent/rush/2p": [
+      {
+        "key": "parent-2p-rush-0-4",
+        "revision": "10ba755110057282b9ba5832253e7d86c78d92d0",
+        "prefix": "runs/strategic-correction-screen-v1-parent-2p-rush-0-4",
+        "verified_sha256": "d0f65243ecf8c722949e01d26a8a0ce8e9824f73fb7dfb2e11bc780442687a04",
+        "evaluation_sha256": "db6e3cbb24987f855457ef8ec836a62942384414fcbff5df12828b25156e1372"
+      },
+      {
+        "key": "parent-2p-rush-4-8",
+        "revision": "c05757eb4c1abf3e00d1be81d04c49eb9c8460d0",
+        "prefix": "runs/strategic-correction-screen-v1-parent-2p-rush-4-8",
+        "verified_sha256": "ec98349d330667540d793aad30e23b2882cd37095e79643d10a2b26c7794b7e4",
+        "evaluation_sha256": "d2cb81ed77584ea0ed5e77bdb6568fd993d242921363482a0776a7a936f1241a"
+      },
+      {
+        "key": "parent-2p-rush-8-12",
+        "revision": "111ec57e34f2dfff56b7d20883407585049c8a68",
+        "prefix": "runs/strategic-correction-screen-v1-parent-2p-rush-8-12",
+        "verified_sha256": "41f6540d6e508087e1726c6add5e8c44193b414f13a6dbaee39830a2987767c0",
+        "evaluation_sha256": "550b8765dca54450576a87a1ef80625786e519298275d31b36ca6fc693e81675"
+      },
+      {
+        "key": "parent-2p-rush-12-16",
+        "revision": "c05757eb4c1abf3e00d1be81d04c49eb9c8460d0",
+        "prefix": "runs/strategic-correction-screen-v1-parent-2p-rush-12-16",
+        "verified_sha256": "76a7ffaa6f1aa3347d930b7cbe9ccb0a4278585f2dd45804f552c5fcdf1b6d09",
+        "evaluation_sha256": "78be0fe9ecf38473e3277dd119bce482f1a7c445326fefe9af3fb100b1060a42"
+      }
+    ],
     "parent/economic/3p": [
       {
         "key": "parent-3p-economic-0-4",
@@ -1176,6 +1636,36 @@
         "prefix": "runs/strategic-correction-screen-v1-parent-3p-economic-12-16",
         "verified_sha256": "6f9bdecbaf9928ed36b37d9eca9403ae62129945caa9bf4e09a068122b6bff8f",
         "evaluation_sha256": "44b7da7fb65ac74ea0777ac8a38f6d290f3b36cfc7c4b475869720235c678fa4"
+      }
+    ],
+    "parent/search_geo/3p": [
+      {
+        "key": "parent-3p-search_geo-0-4",
+        "revision": "10ba755110057282b9ba5832253e7d86c78d92d0",
+        "prefix": "runs/strategic-correction-screen-v1-parent-3p-search_geo-0-4",
+        "verified_sha256": "476f550105cfcc32402e778199afc1eb0e6bbc41a0ccdba95c7538df0aad81b5",
+        "evaluation_sha256": "ae75fb907fb15ecda7f229253eadd4dd6650943c9b641fd9cf7b62a5cd1d69dd"
+      },
+      {
+        "key": "parent-3p-search_geo-4-8",
+        "revision": "10ba755110057282b9ba5832253e7d86c78d92d0",
+        "prefix": "runs/strategic-correction-screen-v1-parent-3p-search_geo-4-8",
+        "verified_sha256": "3df3add090697a5f3a4a0bc2be2c4074bdb7dc0a5654e397a8910f4cc3db057c",
+        "evaluation_sha256": "b20f93bf38a2bdb72fa95553ae3c78bc1260d463e6bb34c4f93befae7a3c8f4a"
+      },
+      {
+        "key": "parent-3p-search_geo-8-12",
+        "revision": "d13ed5a575dba9d4a2adb3cef44eb2cd1022bb80",
+        "prefix": "runs/strategic-correction-screen-v1-parent-3p-search_geo-8-12",
+        "verified_sha256": "8cbaf8ed0af7967b157f4afb2e7209123d07f863f48d8b5530d17374c7a220ea",
+        "evaluation_sha256": "2203b3d0d7d099c8cde521d32f9d904c10f297272fd7835f778ba6468977f072"
+      },
+      {
+        "key": "parent-3p-search_geo-12-16",
+        "revision": "9e5cfb8a73c5a993cefe0eec707f7b8043d59a4c",
+        "prefix": "runs/strategic-correction-screen-v1-parent-3p-search_geo-12-16",
+        "verified_sha256": "d5d35153227da0f14c3608988c687cf311be36a61c610fb6953cb7486c283572",
+        "evaluation_sha256": "82ede88fbebfc48a4afb2a31482eeb22be5ab5ac268260b9e94730719bed6361"
       }
     ],
     "parent/legacy/3p": [
@@ -1238,6 +1728,36 @@
         "evaluation_sha256": "9ab8c8cf94d2d1e879161c398afb956ee13c813e0071c476b61bb29bfa39eb5f"
       }
     ],
+    "parent/rush/3p": [
+      {
+        "key": "parent-3p-rush-0-4",
+        "revision": "d13ed5a575dba9d4a2adb3cef44eb2cd1022bb80",
+        "prefix": "runs/strategic-correction-screen-v1-parent-3p-rush-0-4",
+        "verified_sha256": "78f0e3f6cdba15dba892e8605ffb036eeece3ff1923d6c92b1751db9de702f64",
+        "evaluation_sha256": "8b18a3e2437188bf0089bf1e602f26a24143ad04bda538fcc843734edb02dc19"
+      },
+      {
+        "key": "parent-3p-rush-4-8",
+        "revision": "111ec57e34f2dfff56b7d20883407585049c8a68",
+        "prefix": "runs/strategic-correction-screen-v1-parent-3p-rush-4-8",
+        "verified_sha256": "0226bdb15ce8326bf3d0f8e69fe0edb762ef083a658fb49273f13e9b44ff0357",
+        "evaluation_sha256": "4b5e9f649e774e56107e137daa1580f0fd4939b7ca4a6432c47eb0401aeb6504"
+      },
+      {
+        "key": "parent-3p-rush-8-12",
+        "revision": "10ba755110057282b9ba5832253e7d86c78d92d0",
+        "prefix": "runs/strategic-correction-screen-v1-parent-3p-rush-8-12",
+        "verified_sha256": "92b8b8d27fdf5c8ccc9a8b8bd7797844d3407312c2c0df853919f6f10c71b92d",
+        "evaluation_sha256": "7f9a920b69f9b7c75c3c4310b131e98de1028c1a142bf191f001cc52350f0dc8"
+      },
+      {
+        "key": "parent-3p-rush-12-16",
+        "revision": "d13ed5a575dba9d4a2adb3cef44eb2cd1022bb80",
+        "prefix": "runs/strategic-correction-screen-v1-parent-3p-rush-12-16",
+        "verified_sha256": "c6616c3866038c8950e89781133f7ab8abb307e2a6d4d9fb9da62d04cb54c833",
+        "evaluation_sha256": "ffeb27ebf00046f27a57752632e33e1021196cad9d4e2a959c1b22a24203e57a"
+      }
+    ],
     "parent/economic/4p": [
       {
         "key": "parent-4p-economic-0-4",
@@ -1266,6 +1786,36 @@
         "prefix": "runs/strategic-correction-screen-v1-parent-4p-economic-12-16",
         "verified_sha256": "f26c801fa920f64f1953c15803a8ad19082db02dfd99e23aad7aa7eb2e9fc6b9",
         "evaluation_sha256": "6edd961f603466141690fd89194f240e3ed2db97be3bca598efac4ce547b658b"
+      }
+    ],
+    "parent/legacy/4p": [
+      {
+        "key": "parent-4p-legacy-0-4",
+        "revision": "c05757eb4c1abf3e00d1be81d04c49eb9c8460d0",
+        "prefix": "runs/strategic-correction-screen-v1-parent-4p-legacy-0-4",
+        "verified_sha256": "e74c70183e5736261e1049cc23380dee7c592c8e6d4276be6f40dbd73764565c",
+        "evaluation_sha256": "76d24cfe1f028e1ce65a9903cbea6ff2f0ea122df68679806be8abacb2041afd"
+      },
+      {
+        "key": "parent-4p-legacy-4-8",
+        "revision": "10ba755110057282b9ba5832253e7d86c78d92d0",
+        "prefix": "runs/strategic-correction-screen-v1-parent-4p-legacy-4-8",
+        "verified_sha256": "6770f9d12821bdd64666eb8821fc61d95a33059d8777fa22b468b1878d29ad54",
+        "evaluation_sha256": "239519c8de14d849b0fdd101aab6395f3ea1a44dc1eb8056c3054164a7b2a2d9"
+      },
+      {
+        "key": "parent-4p-legacy-8-12",
+        "revision": "d13ed5a575dba9d4a2adb3cef44eb2cd1022bb80",
+        "prefix": "runs/strategic-correction-screen-v1-parent-4p-legacy-8-12",
+        "verified_sha256": "de2bf2431bf677f4dcd4b0b81f1b976594f1fe82d78332bb887d0effc7005102",
+        "evaluation_sha256": "2d38ded4e2a21349ef6dfc381d9e9b73391337b69cdbcae4b6d1abefafaf7dcb"
+      },
+      {
+        "key": "parent-4p-legacy-12-16",
+        "revision": "111ec57e34f2dfff56b7d20883407585049c8a68",
+        "prefix": "runs/strategic-correction-screen-v1-parent-4p-legacy-12-16",
+        "verified_sha256": "137706eaab7da3adda675aad27de19c76d11f1550af6aa0d59dfa072703e0249",
+        "evaluation_sha256": "2da0934fb870a5c6865a3e0a8b0898272fc6ebcbd74d0e2d23b24a364e055f78"
       }
     ],
     "parent/heuristic/4p": [
@@ -1326,6 +1876,36 @@
         "prefix": "runs/strategic-correction-screen-v1-parent-4p-rush-12-16",
         "verified_sha256": "bb5dccdc81dfc280c40dacc88cd4824e81a18cd49719a1fa02752038c9d1631c",
         "evaluation_sha256": "f183ec380026b5a2e6096af27442b4f6e8eaa393348a2f84fc47dea3fc280df8"
+      }
+    ],
+    "parent/economic/5p": [
+      {
+        "key": "parent-5p-economic-0-4",
+        "revision": "d13ed5a575dba9d4a2adb3cef44eb2cd1022bb80",
+        "prefix": "runs/strategic-correction-screen-v1-parent-5p-economic-0-4",
+        "verified_sha256": "a1b970dc4d716d2e4b74332f3d3e48410b5581903f2ee3dd5b945262e6d089ed",
+        "evaluation_sha256": "0ebd76bcdf0084a7635ae27190943308f9846be085988c7dcd050ceca8bf33fe"
+      },
+      {
+        "key": "parent-5p-economic-4-8",
+        "revision": "111ec57e34f2dfff56b7d20883407585049c8a68",
+        "prefix": "runs/strategic-correction-screen-v1-parent-5p-economic-4-8",
+        "verified_sha256": "ed5a60ec0df4d18d373e2601cdf2867977cd392a64869084df89492f195585dd",
+        "evaluation_sha256": "1c1c33cf12dc05f1b4fa81d8334525fb5d448d769eb868638e9062f04b8d799c"
+      },
+      {
+        "key": "parent-5p-economic-8-12",
+        "revision": "111ec57e34f2dfff56b7d20883407585049c8a68",
+        "prefix": "runs/strategic-correction-screen-v1-parent-5p-economic-8-12",
+        "verified_sha256": "73685fa32e399b6a156dc163e30d9808643215b22c064be9fa1577f6af6b1812",
+        "evaluation_sha256": "7af8ecd7112fba1fc3c7f0f95effbee5402394fd758976df9b96b64f24c0b444"
+      },
+      {
+        "key": "parent-5p-economic-12-16",
+        "revision": "111ec57e34f2dfff56b7d20883407585049c8a68",
+        "prefix": "runs/strategic-correction-screen-v1-parent-5p-economic-12-16",
+        "verified_sha256": "d4e16af98246e3ccfaaff3f1fcd5f0f23e14abe395b35a2db17ba2b203169ca6",
+        "evaluation_sha256": "3b9ccfd37d2ab5d5161b4a0595a8add17683fec36c8d4b04330e03334097dc94"
       }
     ],
     "parent/legacy/5p": [
@@ -1416,6 +1996,36 @@
         "prefix": "runs/strategic-correction-screen-v1-parent-5p-rush-12-16",
         "verified_sha256": "cd1bc39b014ddf4dec479422f764caeea7dcba7bd6f9a6e98602085a8356915f",
         "evaluation_sha256": "095ca9d88d278dbc6f9ed2c78efe2e4d6f8aa818b6ee22a85ddb9af69ac4c72f"
+      }
+    ],
+    "parent/economic/6p": [
+      {
+        "key": "parent-6p-economic-0-4",
+        "revision": "d13ed5a575dba9d4a2adb3cef44eb2cd1022bb80",
+        "prefix": "runs/strategic-correction-screen-v1-parent-6p-economic-0-4",
+        "verified_sha256": "312798f8cd8e9c3d659e5ab80aab23566be1f7ad2e273af846a5add33fb1e0c9",
+        "evaluation_sha256": "f1747057ddededb1f8743301464a8b740a45b0a4d1093b0ee8243fd7a6c0d554"
+      },
+      {
+        "key": "parent-6p-economic-4-8",
+        "revision": "111ec57e34f2dfff56b7d20883407585049c8a68",
+        "prefix": "runs/strategic-correction-screen-v1-parent-6p-economic-4-8",
+        "verified_sha256": "f8390918feec2d3030ed278f0fc8c4c5f141cd569ee230f747120503f84266c5",
+        "evaluation_sha256": "39608517b87d85b8cd797419680139628c585f6c1f7c2575d245a4d5ad15bc2e"
+      },
+      {
+        "key": "parent-6p-economic-8-12",
+        "revision": "d13ed5a575dba9d4a2adb3cef44eb2cd1022bb80",
+        "prefix": "runs/strategic-correction-screen-v1-parent-6p-economic-8-12",
+        "verified_sha256": "217258edc5bc52327b56aae56f61db7ccfa3810094a7d18a7d1bcd753da3b6e7",
+        "evaluation_sha256": "2089b73324d75299e82e1cc95108a9a15e34ccee677303d11e4ec0f0987f0105"
+      },
+      {
+        "key": "parent-6p-economic-12-16",
+        "revision": "c05757eb4c1abf3e00d1be81d04c49eb9c8460d0",
+        "prefix": "runs/strategic-correction-screen-v1-parent-6p-economic-12-16",
+        "verified_sha256": "bcf71d59f66afca6c9fdb98b06409d79516f3cd8fe1e0b5d3b8d8e27a6ca9c79",
+        "evaluation_sha256": "21aadf8b41b5e3de9b068766709504d7be7bbd3db510b08b4668f66a1b595648"
       }
     ],
     "parent/legacy/6p": [
@@ -1536,6 +2146,36 @@
         "prefix": "runs/strategic-correction-screen-v1-parent-3p-a260-12-16",
         "verified_sha256": "99a2bf02b22758152d55105028523238cc47cee9d1527cef6cf13bd1838036de",
         "evaluation_sha256": "ef4cfd39c100c73804b2da35d1fd8cebbcabb637148eeac9025eb9a5f34bc643"
+      }
+    ],
+    "parent/economic_capacity_v1/2p": [
+      {
+        "key": "parent-2p-economic_capacity_v1-0-4",
+        "revision": "d13ed5a575dba9d4a2adb3cef44eb2cd1022bb80",
+        "prefix": "runs/strategic-correction-screen-v1-parent-2p-economic_capacity_v1-0-4",
+        "verified_sha256": "0540ce67cbe7f3e743fb0e569c8f1b123f6da32263cc1ecb4246863debf0a284",
+        "evaluation_sha256": "ad5a6b5c58a330877b53e2e9bd24e482ad5c1855714a655b8b309fd45b3b4e9b"
+      },
+      {
+        "key": "parent-2p-economic_capacity_v1-4-8",
+        "revision": "111ec57e34f2dfff56b7d20883407585049c8a68",
+        "prefix": "runs/strategic-correction-screen-v1-parent-2p-economic_capacity_v1-4-8",
+        "verified_sha256": "60d83926c4c3a6a266061f13b8f398ea57d500ecb78094f5132a77f1e9bcc017",
+        "evaluation_sha256": "1c632efccda9b80b3b38e5f76bb57c9655f29ee07b9c8b4be13b5a44a74c78cb"
+      },
+      {
+        "key": "parent-2p-economic_capacity_v1-8-12",
+        "revision": "c05757eb4c1abf3e00d1be81d04c49eb9c8460d0",
+        "prefix": "runs/strategic-correction-screen-v1-parent-2p-economic_capacity_v1-8-12",
+        "verified_sha256": "c3c1f2b8324c5ca1e2f6781ed8c54bfa8a23c3194d80b2b80ceb2ade493b9c3b",
+        "evaluation_sha256": "66827bb452f0b65b31c3efebb849641979ad16f335411880024b8e8166e5c627"
+      },
+      {
+        "key": "parent-2p-economic_capacity_v1-12-16",
+        "revision": "c05757eb4c1abf3e00d1be81d04c49eb9c8460d0",
+        "prefix": "runs/strategic-correction-screen-v1-parent-2p-economic_capacity_v1-12-16",
+        "verified_sha256": "7382a9cffe6c077c1cfd114026db74415996edb8cab7b062f02bf9b78b3e6158",
+        "evaluation_sha256": "5ff969def71cc7dc08fc21ac215021b48eb78ae54ba1f79035b97e2a64ff3e4b"
       }
     ]
   },

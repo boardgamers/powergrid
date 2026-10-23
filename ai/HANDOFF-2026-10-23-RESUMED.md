@@ -57,6 +57,20 @@ Machine-readable results:
 - `strong/strategic-training-collection-combined-results-v1.json`
 - `strong/multiplayer-search-transfer-results-v1.json`
 
+## Verified checkpoint at 22:09 UTC, 23 October
+
+- Teacher labels: 158/160 verified shards, 1,812,960 completed rollouts,
+  1,872/1,920 roots with both continuation modes.
+- Parent reference: 24/27 complete opponent/count cells, 5,760/6,720 games.
+- Remaining teacher jobs at this snapshot: `5p-economic-neural-14-16`
+  (`6adbcaeb1e112550ce7d8aec`) and `6p-economic-neural-10-12`
+  (`6adbcabd046eb82b1ecd728c`). Their logs are advancing; do not restart them.
+- GPU training has not started. Require the complete grid before freezing source.
+- This is progress, not a strength qualification. The fresh parent versus A260
+  result is 27.6% win share over 192 games/16 independent deals, with 95% deal
+  interval [21.88%,33.85%], below the 40% point floor. Preserve this weakness in
+  the new candidates' comparisons.
+
 ## Work resumed
 
 All 140 remaining teacher shards (deals 2–16) were submitted using the original
@@ -173,6 +187,12 @@ independent verification does it produce pins for 11101/11102. Each then needs
 its own verified 2p and 6p search runtime probe before launching its 108 shards.
 Neither seed has been trained or entered these arenas yet.
 
+Independent verification records and preflight logs are also archived in the
+private model repository at revision `141ef2843681c3edb883ef79debe8462cf943c70`,
+prefix `runs/strategic-correction-resume-evidence-v1` (258 files). This snapshot
+contains partial results, not a completed training or strength claim. See
+`strong/strategic-correction-resume-evidence-v1.json` for the manifest hash.
+
 ## Ordered continuation
 
 1. Inspect submitted jobs and collect completed teacher shards at an immutable
@@ -195,6 +215,10 @@ Neither seed has been trained or entered these arenas yet.
 5. Report absolute strength and paired gains, including adverse cells. The
    reserved `final-protocol-multiplayer.json` remains unchanged and unused.
    No training-target result or small diagnostic substitutes for that gate.
+   Before a qualified development candidate can enter it, add revision 4.3 to
+   the final launcher contract and freeze/check a matching runtime. The existing
+   October 10 final runtime and launcher were prepared for revision 4.2; do not
+   assume they can serve 4.3. Run contract tests and development-only probes first.
 6. Benchmark the exact selected model/configuration on the actual 8840U and
    verify the extracted standalone serving package before any deployment.
 

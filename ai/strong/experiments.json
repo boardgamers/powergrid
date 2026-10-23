@@ -43128,9 +43128,9 @@
         "job_snapshot_file": "ai/strong/resume-2026-10-23-status.json",
         "live_jobs_at_resume": 0,
         "submitted_teacher_jobs": 140,
-        "verified_teacher_shards": 153,
-        "teacher_evaluations": 1753440,
-        "complete_mixture_roots": 1752,
+        "verified_teacher_shards": 158,
+        "teacher_evaluations": 1812960,
+        "complete_mixture_roots": 1872,
         "all_labels_verified": false,
         "collection_unique_games": 3840,
         "collection_roots": 200775,
@@ -43169,11 +43169,20 @@
         "teacher_job_snapshot_file": "ai/strong/strategic-teacher-training-status-v1.json",
         "screen_job_snapshot_file": "ai/strong/strategic-correction-screen-status-v1.json",
         "submitted_parent_reference_shards": 108,
-        "verified_parent_complete_cell_games": 1728,
+        "verified_parent_complete_cell_games": 5760,
         "screen_source_file": "ai/strong/strategic-correction-screen-source-v1.json",
         "screen_preflight_file": "ai/strong/strategic-correction-screen-preflight-v1.json",
         "private_state_preflight_file": "ai/strong/strategic-correction-private-state-preflight-v1.json",
         "independent_training_collector": "ai/strong/collect-strategic-correction.py",
-        "amd8840u_reachable": true
+        "amd8840u_reachable": true,
+        "evaluation_and_verification_evidence": {
+            "revision": "141ef2843681c3edb883ef79debe8462cf943c70",
+            "prefix": "runs/strategic-correction-resume-evidence-v1",
+            "manifest_sha256": "8602f75c2282302b51815e480baab94a2893c7e73f62199097704e34b3c10efa",
+            "file_count": 258,
+            "qualification_eligible": false
+        },
+        "final_runtime_followup": "Final launcher whitelist and archived October10 runtime cover through4.2; prepare and test matching4.3 runtime with development-only seeds before any final launch.",
+        "parent_complete_cells": 24
     }
 }

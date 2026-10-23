@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-10-23T22:25:28.855409+00:00",
-  "artifact_revision": "24123b831f984f8198d9a11bbc04039dbd21c5ae",
+  "checked_at": "2026-10-23T22:42:26.926704+00:00",
+  "artifact_revision": "3b3044a49826467fd78c389e5166c99b12d52b35",
   "submitted_shards": 1,
   "status_counts": {
-    "SCHEDULING": 1
+    "COMPLETED": 1
   },
   "historical_errors_with_completed_replacements": 0,
   "jobs": [
@@ -23,10 +23,10 @@
       "qualification_eligible": false,
       "job_id": "6adbddc9046eb82b1ecd7ac0",
       "guard": "ai/runs/strategic-correction-launch-v1/launch.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": null,
-      "finished_at": null
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 22:30:24.742000+00:00",
+      "finished_at": "2026-10-23 22:33:50.445000+00:00"
     }
   ],
   "qualification_eligible": false

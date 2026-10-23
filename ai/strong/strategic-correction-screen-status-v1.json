@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-10-23T22:25:28.848724+00:00",
-  "artifact_revision": "24123b831f984f8198d9a11bbc04039dbd21c5ae",
-  "submitted_shards": 110,
+  "checked_at": "2026-10-23T22:42:26.923698+00:00",
+  "artifact_revision": "3b3044a49826467fd78c389e5166c99b12d52b35",
+  "submitted_shards": 114,
   "status_counts": {
-    "COMPLETED": 105,
+    "COMPLETED": 109,
     "RUNNING": 5
   },
   "historical_errors_with_completed_replacements": 0,
@@ -4763,10 +4763,10 @@
       "qualification_eligible": false,
       "job_id": "6adbd6721e112550ce7d909b",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/parent-5p-search_geo-0-4.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 21:49:40.636000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 22:26:28.756000+00:00"
     },
     {
       "stage": "launched",
@@ -5995,10 +5995,10 @@
       "qualification_eligible": false,
       "job_id": "6adbd66d1e112550ce7d9097",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/parent-6p-search_geo-4-8.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 21:49:36.429000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-23 22:40:33.031000+00:00"
     },
     {
       "stage": "launched",
@@ -6054,6 +6054,186 @@
       "authoritative_status": "RUNNING",
       "message": null,
       "started_at": "2026-10-23 21:49:38.471000+00:00",
+      "finished_at": null
+    },
+    {
+      "stage": "launched",
+      "created_at": "2026-10-23T22:38:13.807850+00:00",
+      "key": "11101",
+      "players": 2,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 1,
+      "smoke": true,
+      "source_revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
+      "source_sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb",
+      "protocol_sha256": "cd038070dcf7f875cecab0a9ecfa095447675cfd75bc3584c157fd1d4261787a",
+      "model_pin_sha256": "cfa5b0ed8c183bd43212e4eefb22f6e33ccc917b17d8a1928ed9718f76df0578",
+      "model_pin": {
+        "key": "11101",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "6be6f2af36d3382d43013621eab382c16a4cc1ae",
+        "prefix": "runs/strategic-correction-v1/11101/derivative",
+        "files": {
+          "inference64.onnx": "9f8d87b28dc1ed76770e7ffe8457a87fb3fb014d866b43b571ce838b87ff0f32",
+          "inference64.pt": "d271b7a28a9a33edacbebf3d6e398d18cd97b549768c24557a8b11d57564fb54"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "seed": 11101,
+        "selected_epoch": 30,
+        "training_verified": true,
+        "parent_frozen": true,
+        "strict_parity_positions": 2553,
+        "training_verified_sha256": "40e0495e736942566c15c4dec2fe039d15ac3069e6b605f5e6ebb69051455ea6",
+        "qualification_eligible": false
+      },
+      "runtime_admission": {
+        "timeout_hours": 4,
+        "admitted": true,
+        "scope": "One whole deal for a measured runtime probe."
+      },
+      "timeout_hours": 4,
+      "qualification_eligible": false,
+      "job_id": "6adbe1d61e112550ce7d9755",
+      "guard": "ai/runs/strategic-correction-screen-launches-v1/smoke-11101-2p-search_geo-0-1.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 22:39:27.349000+00:00",
+      "finished_at": "2026-10-23 22:41:45.893000+00:00"
+    },
+    {
+      "stage": "launched",
+      "created_at": "2026-10-23T22:38:12.154610+00:00",
+      "key": "11101",
+      "players": 6,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 1,
+      "smoke": true,
+      "source_revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
+      "source_sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb",
+      "protocol_sha256": "cd038070dcf7f875cecab0a9ecfa095447675cfd75bc3584c157fd1d4261787a",
+      "model_pin_sha256": "cfa5b0ed8c183bd43212e4eefb22f6e33ccc917b17d8a1928ed9718f76df0578",
+      "model_pin": {
+        "key": "11101",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "6be6f2af36d3382d43013621eab382c16a4cc1ae",
+        "prefix": "runs/strategic-correction-v1/11101/derivative",
+        "files": {
+          "inference64.onnx": "9f8d87b28dc1ed76770e7ffe8457a87fb3fb014d866b43b571ce838b87ff0f32",
+          "inference64.pt": "d271b7a28a9a33edacbebf3d6e398d18cd97b549768c24557a8b11d57564fb54"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "seed": 11101,
+        "selected_epoch": 30,
+        "training_verified": true,
+        "parent_frozen": true,
+        "strict_parity_positions": 2553,
+        "training_verified_sha256": "40e0495e736942566c15c4dec2fe039d15ac3069e6b605f5e6ebb69051455ea6",
+        "qualification_eligible": false
+      },
+      "runtime_admission": {
+        "timeout_hours": 4,
+        "admitted": true,
+        "scope": "One whole deal for a measured runtime probe."
+      },
+      "timeout_hours": 4,
+      "qualification_eligible": false,
+      "job_id": "6adbe1d5046eb82b1ecd7c5c",
+      "guard": "ai/runs/strategic-correction-screen-launches-v1/smoke-11101-6p-search_geo-0-1.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-23 22:38:16.554000+00:00",
+      "finished_at": null
+    },
+    {
+      "stage": "launched",
+      "created_at": "2026-10-23T22:38:16.888723+00:00",
+      "key": "11102",
+      "players": 2,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 1,
+      "smoke": true,
+      "source_revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
+      "source_sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb",
+      "protocol_sha256": "cd038070dcf7f875cecab0a9ecfa095447675cfd75bc3584c157fd1d4261787a",
+      "model_pin_sha256": "997c98fcc28b9ffccef242d4ea446ee59103aeb08490f5d7cd7620a5e96a1357",
+      "model_pin": {
+        "key": "11102",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "6be6f2af36d3382d43013621eab382c16a4cc1ae",
+        "prefix": "runs/strategic-correction-v1/11102/derivative",
+        "files": {
+          "inference64.onnx": "85a8885a0f30b32f7f4c131f2d07003724ee4cd5e8c682c4d20d2842ef60ec09",
+          "inference64.pt": "65d95f80e7841bde3438dbd5ba89a03b675715ffaf1d9c1322fcb05fbba49f71"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "seed": 11102,
+        "selected_epoch": 50,
+        "training_verified": true,
+        "parent_frozen": true,
+        "strict_parity_positions": 2553,
+        "training_verified_sha256": "40e0495e736942566c15c4dec2fe039d15ac3069e6b605f5e6ebb69051455ea6",
+        "qualification_eligible": false
+      },
+      "runtime_admission": {
+        "timeout_hours": 4,
+        "admitted": true,
+        "scope": "One whole deal for a measured runtime probe."
+      },
+      "timeout_hours": 4,
+      "qualification_eligible": false,
+      "job_id": "6adbe1d9046eb82b1ecd7c5e",
+      "guard": "ai/runs/strategic-correction-screen-launches-v1/smoke-11102-2p-search_geo-0-1.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 22:39:26.326000+00:00",
+      "finished_at": "2026-10-23 22:41:49.882000+00:00"
+    },
+    {
+      "stage": "launched",
+      "created_at": "2026-10-23T22:38:15.334310+00:00",
+      "key": "11102",
+      "players": 6,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 1,
+      "smoke": true,
+      "source_revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
+      "source_sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb",
+      "protocol_sha256": "cd038070dcf7f875cecab0a9ecfa095447675cfd75bc3584c157fd1d4261787a",
+      "model_pin_sha256": "997c98fcc28b9ffccef242d4ea446ee59103aeb08490f5d7cd7620a5e96a1357",
+      "model_pin": {
+        "key": "11102",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "6be6f2af36d3382d43013621eab382c16a4cc1ae",
+        "prefix": "runs/strategic-correction-v1/11102/derivative",
+        "files": {
+          "inference64.onnx": "85a8885a0f30b32f7f4c131f2d07003724ee4cd5e8c682c4d20d2842ef60ec09",
+          "inference64.pt": "65d95f80e7841bde3438dbd5ba89a03b675715ffaf1d9c1322fcb05fbba49f71"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "seed": 11102,
+        "selected_epoch": 50,
+        "training_verified": true,
+        "parent_frozen": true,
+        "strict_parity_positions": 2553,
+        "training_verified_sha256": "40e0495e736942566c15c4dec2fe039d15ac3069e6b605f5e6ebb69051455ea6",
+        "qualification_eligible": false
+      },
+      "runtime_admission": {
+        "timeout_hours": 4,
+        "admitted": true,
+        "scope": "One whole deal for a measured runtime probe."
+      },
+      "timeout_hours": 4,
+      "qualification_eligible": false,
+      "job_id": "6adbe1d81e112550ce7d9757",
+      "guard": "ai/runs/strategic-correction-screen-launches-v1/smoke-11102-6p-search_geo-0-1.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-23 22:39:26.511000+00:00",
       "finished_at": null
     },
     {

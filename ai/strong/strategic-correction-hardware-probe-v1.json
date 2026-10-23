@@ -1,0 +1,19 @@
+{
+  "stage": "launched",
+  "created_at": "2026-10-23T22:28:55.041139+00:00",
+  "original_job_id": "6adbddc9046eb82b1ecd7ac0",
+  "original_status": "SCHEDULING",
+  "image": "pytorch/pytorch:2.6.0-cuda12.4-cudnn9-runtime",
+  "flavor": "a10g-large",
+  "timeout": "10m",
+  "scope": "GPU/image startup availability only; no source download, data, training or qualification.",
+  "job_id": "6adbdfa7046eb82b1ecd7b29",
+  "cancellation": {
+    "checked_at": "2026-10-23T22:31:36.665289+00:00",
+    "reason": "Original L4 training job allocated first; alternate availability probe no longer needed.",
+    "main_job_status": "RUNNING",
+    "probe_status": "CANCELED",
+    "probe_started_at": null,
+    "probe_finished_at": null
+  }
+}

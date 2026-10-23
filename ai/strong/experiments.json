@@ -43156,7 +43156,9 @@
             "data_manifest_sha256": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57",
             "qualification_eligible": false
         },
-        "training_independently_verified": false
+        "training_independently_verified": true,
+        "training_result_file": "ai/strong/strategic-correction-training-results-v1.json",
+        "trained_model_revision": "6be6f2af36d3382d43013621eab382c16a4cc1ae"
     },
     "pause_2026_10_10": {
         "checked_at": "2026-10-10T18:38:44.834301+00:00",
@@ -43210,7 +43212,7 @@
         "code_preflight_positions": 2553,
         "zero_correction_parent_identical_arena_games": 160,
         "fresh_game_protocol_file": "ai/strong/strategic-correction-screen-protocol-v1.json",
-        "gradient_job_started": false,
+        "gradient_job_started": true,
         "complete_training_source_frozen": true,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
@@ -43224,7 +43226,7 @@
         "teacher_job_snapshot_file": "ai/strong/strategic-teacher-training-status-v1.json",
         "screen_job_snapshot_file": "ai/strong/strategic-correction-screen-status-v1.json",
         "submitted_parent_reference_shards": 108,
-        "verified_parent_complete_cell_games": 6016,
+        "verified_parent_complete_cell_games": 6336,
         "screen_source_file": "ai/strong/strategic-correction-screen-source-v1.json",
         "screen_preflight_file": "ai/strong/strategic-correction-screen-preflight-v1.json",
         "private_state_preflight_file": "ai/strong/strategic-correction-private-state-preflight-v1.json",
@@ -43238,7 +43240,7 @@
             "qualification_eligible": false
         },
         "final_runtime_followup": "The4.3 launcher contract passes11 mocked tests. Frozen strategic development archive has matching encoder/evaluator but old arena-job.py; derive a new archive with provenance wrapper and probe exact selected candidate before final qualification.",
-        "parent_complete_cells": 25,
+        "parent_complete_cells": 26,
         "complete_teacher_manifest_sha256": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57",
         "final_training_split": {
             "train": 1440,
@@ -43255,7 +43257,25 @@
             "manifest_sha256": "d98568f62ca2b653c3ab519077da1dcd5d58312c58c253432b3bd8323d04d712",
             "file_count": 178,
             "qualification_eligible": false
-        }
+        },
+        "training_hardware": "NVIDIA L4",
+        "hardware_probe_file": "ai/strong/strategic-correction-hardware-probe-v1.json",
+        "training_completed": true,
+        "training_independently_verified": true,
+        "training_result_file": "ai/strong/strategic-correction-training-results-v1.json",
+        "trained_model_revision": "6be6f2af36d3382d43013621eab382c16a4cc1ae",
+        "trained_export_evidence": {
+            "revision": "f0a838c5e61534c6f39504dd70639b59aed15ea7",
+            "prefix": "runs/strategic-correction-verified-evidence-v1",
+            "manifest_sha256": "d49f9346d88b37776ffbeb7addb2577bc92dd6c28c319433cbf8d6caa4e4ffcc",
+            "file_count": 39,
+            "qualification_eligible": false
+        },
+        "submitted_trained_model_probes": 4,
+        "candidate_2p_probes_verified": true,
+        "candidate_2p_probe_artifact_revision": "3b3044a49826467fd78c389e5166c99b12d52b35",
+        "candidate_6p_probes_verified": false,
+        "new_model_full_arenas_submitted": 0
     },
     "final_strategic_runtime_v1": {
         "readiness_file": "ai/strong/final-strategic-runtime-readiness-v1.json",

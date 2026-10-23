@@ -9,12 +9,13 @@ and exact handles are in [teacher jobs](strong/strategic-teacher-training-status
 and [development arenas](strong/strategic-correction-screen-status-v1.json).
 The three historical image-pull errors already have completed replacements.
 
-All 160 teacher shards are now verified (1,836,672 completed simulations). The
-full training source/data preflight passed and L4 job `6adbddc9046eb82b1ecd7ac0`
-is submitted for seeds 11101/11102. See [training status](strong/strategic-correction-job-status-v1.json).
-Do not duplicate it or change its frozen design/source/label manifest. Both trained
-exports must pass independent collection before arenas. No model is qualified;
-reserved final-test seeds remain unused.
+All 160 teacher shards are verified (1,836,672 completed simulations). L4 job
+`6adbddc9046eb82b1ecd7ac0` completed and both seeds passed independent verification:
+11101/epoch30 and 11102/epoch50. Their four exact-model runtime probes are now
+submitted. Wait for both endpoints to verify before launching each full screen.
+Do not retrain or duplicate jobs. See the current handoff for exact handles,
+model hashes, evidence revisions and the ordered continuation. No model is
+qualified; reserved final-test seeds remain unused.
 
 ---
 

@@ -57,26 +57,32 @@ Machine-readable results:
 - `strong/strategic-training-collection-combined-results-v1.json`
 - `strong/multiplayer-search-transfer-results-v1.json`
 
-## Verified checkpoint at 22:21 UTC, 23 October
+## Latest verified state
 
 - All 160 teacher shards are verified: **1,836,672 completed rollouts**, 1,920
   complete-mixture roots, 1,440 train and 480 validation. Each player count has
   384 positions; nomination, bid and building each have 640. No truncations.
 - Complete manifest SHA256:
   `6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57`.
-  It is frozen into the training source; do not edit it after submission.
-- Parent reference: 25/27 complete opponent/count cells, 6,016/6,720 games.
-  Five- and six-player search cells still run on their original handles.
-- GPU job **`6adbddc9046eb82b1ecd7ac0`** was submitted at 22:20:56 UTC on L4,
-  three-hour timeout, both seeds 11101/11102. Inspect its exact handle; do not
-  resubmit. No new trained result has been verified yet.
-- Source/data preflight passed: all 1,920 original parent proposals reproduced,
-  3,196 negative action advantages retained, uncertainty weights 0.2733–1.0;
-  all 2,553 serving fixtures and 160 zero-correction/parent games passed.
-- This is progress, not qualification. The fresh parent versus A260 result is
-  27.6% over 192 games/16 deals, 95% interval [21.88%,33.85%], below the 40% floor.
-  Versus geographic search, parent win shares at 2/3/4 players are 49.22/25/23.05%;
-  sealed-auction weaknesses remain. Preserve all adverse cells in comparisons.
+  It is frozen into the training source; do not edit it.
+- Training job **`6adbddc9046eb82b1ecd7ac0`** completed on NVIDIA L4. Both
+  seeds completed 120 epochs/720 updates; fixed validation selection chose
+  epoch 30 for 11101 and epoch 50 for 11102. No retraining is needed for this cohort.
+- Both models passed independent collection at
+  `ai/runs/strategic-correction-verified-v1`: frozen parent tensors, optimizer
+  steps, epoch selection, strict exports, all 2,553 serving requests and all
+  1,920 labeled positions. Values and 1,457 out-of-scope actions are preserved.
+  These checks establish correctness, not strength.
+- Parent reference: 26/27 complete cells, 6,336/6,720 games. Three six-player
+  search shards remain on their original handles. No new-model full arena has
+  been submitted yet; both 2p probes are verified and both 6p probes remain live.
+- The alternate A10G startup probe `6adbdfa7046eb82b1ecd7b29` was cancelled
+  while still queued once the L4 started. It performed no training and needs
+  no retry (`strong/strategic-correction-hardware-probe-v1.json`).
+- No model is qualified. The parent versus A260 result is 27.6% over 192 games/
+  16 deals, 95% interval [21.88%,33.85%], below the 40% floor. Versus geographic
+  search, parent win shares at 2/3/4/5 players are 49.22/25/23.05/38.125%; sealed
+  weaknesses remain (5p Recharged/sealed is 20%). Preserve all adverse cells.
 
 ## Work resumed
 
@@ -131,7 +137,7 @@ teacher engine, parent and base features byte-for-byte, overlays only explicit
 correction/serving files, checks all 1,920 roots, and uploads an immutable source
 archive. The launcher requires that full source/data check and an exclusive
 launch guard before submitting one L4 GPU job for both seeds. Supply the cached
-token through the environment only. The guarded job above is now submitted; do not rerun the launcher.
+token through the environment only. The guarded job above is complete and verified; do not rerun the launcher.
 
 Code-only checks use `build-strategic-correction-source.py --code-only` and
 never upload a training source or admit training. The zero correction passed
@@ -182,6 +188,47 @@ job or check remains failed; inspect its original logs and uploaded status rathe
 than silently retrying or weakening tolerances. The source package intentionally
 keeps the pre-gradient design/manifest flags unchanged as historical metadata.
 
+## Verified trained models and live probes
+
+Raw training/export revision: `6be6f2af36d3382d43013621eab382c16a4cc1ae`,
+model-repo prefix `runs/strategic-correction-v1`. Independent result:
+`strong/strategic-correction-training-results-v1.json`. Exact immutable model pins
+are `strong/strategic-correction-screen-pins-v1/{11101,11102}.json`.
+
+| Seed | Selected epoch | ONNX SHA256 | Held-out simulated advantage |
+| --- | --- | --- | --- |
+| 11101 | 30 | `9f8d87b28dc1ed76770e7ffe8457a87fb3fb014d866b43b571ce838b87ff0f32` | +0.0051812 |
+| 11102 | 50 | `85a8885a0f30b32f7f4c131f2d07003724ee4cd5e8c682c4d20d2842ef60ec09` | +0.0068631 |
+
+Those are modest conditional simulation-target gains, **not real-game win-rate
+improvements**. All negative rule/count cells remain in the result. Native/ONNX
+choices match exactly; 225/257 eligible serving fixtures changed respectively.
+Gradient optimization took 1.91s/1.76s; simulation, data and verification dominate
+this stage. Local serving timing belongs to the HX370, not the target 8840U.
+
+Independent evidence is archived at model-repo revision
+`f0a838c5e61534c6f39504dd70639b59aed15ea7`, prefix
+`runs/strategic-correction-verified-evidence-v1` (39 files). Raw PT/ONNX files stay
+pinned to the original training revision. Keep the original verified result and
+pins; the collector intentionally refuses to overwrite existing model pins.
+
+All four exact-model runtime probes were submitted at 22:38 UTC. Both 2p probes
+are independently verified at artifact revision
+`3b3044a49826467fd78c389e5166c99b12d52b35`: eight games each, 103.41s/108.54s,
+no caps. Both 6p probes still run:
+
+| Seed | Players | HF job |
+| --- | --- | --- |
+| 11101 | 6 | `6adbe1d5046eb82b1ecd7c5c` |
+| 11101 | 2 | `6adbe1d61e112550ce7d9755` |
+| 11102 | 6 | `6adbe1d81e112550ce7d9757` |
+| 11102 | 2 | `6adbe1d9046eb82b1ecd7c5e` |
+
+Do not duplicate them. Collect each with the normal screen collector and
+`--smoke`, using START=0 and END=1 at an immutable artifact revision. Each model
+needs both independently verified probes before its full 108 shards can launch.
+The automatic admission calculation must pass without reducing game horizons.
+
 ## Fresh whole-game evaluation
 
 The evaluation implementation and frozen source are ready. All **108 parent
@@ -218,7 +265,7 @@ Both trained seeds remain separate contrasts with the parent. Training collectio
 uses `collect-strategic-correction.py REVISION NEW_OUTPUT_DIRECTORY`; only after
 independent verification does it produce pins for 11101/11102. Each then needs
 its own verified 2p and 6p search runtime probe before launching its 108 shards.
-Neither seed has entered these arenas yet; their training job is now submitted.
+Both trained seeds now have runtime probes submitted; their full 108-shard screens await verified admission.
 
 Independent verification records and preflight logs are also archived in the
 private model repository at revision `141ef2843681c3edb883ef79debe8462cf943c70`,
@@ -228,37 +275,27 @@ contains partial results, not a completed training or strength claim. See
 
 ## Ordered continuation
 
-1. Inspect submitted jobs and collect completed teacher shards at an immutable
-   artifact revision with `collect-strategic-teacher-training.py N FAMILY MODE
-   START END REVISION`. Existing verified folders should be retained, not
-   overwritten. Reconcile any partial folder before retrying collection.
-2. Run `summarize-strategic-teacher-training.py`. Require 160 verified shards,
-   1,920 complete-mixture roots,1,440 train/480 validation, and no caps. Freeze
-   the complete manifest; do not train from a convenient partial subset.
-3. The frozen source is checked and the HF GPU job is submitted. Inspect and
-   collect both seeds on completion; verify frozen parent tensors, epoch selection,
-   strict exports, legal responses and source/data hashes independently.
-4. Continue the fresh development protocol fixed in
-   `strong/strategic-correction-screen-protocol-v1.json`: 20,160 games across
-   parent and both seeds, 27 count/opponent cells, all four rules and every seat.
-   Economic/search opponents, capacity behavior at 2p and frozen A260 at 3p are
-   primary diagnostics; legacy/heuristic/rush are included. The parent reference
-   is already running. Collect it and run each independently verified new seed
-   with the frozen evaluator and matching deal partitions.
-5. Report absolute strength and paired gains, including adverse cells. The
-   reserved `final-protocol-multiplayer.json` remains unchanged and unused.
-   No training-target result or small diagnostic substitutes for that gate.
-   The final launcher now accepts 4.3 only with matching strategic encoder and
-   evaluator bytes; eleven contract tests passed without real submissions. An
-   archive audit found the development source still has the older arena wrapper
-   (`strong/final-strategic-runtime-readiness-v1.json`). Before final qualification,
-   derive a fresh source from the frozen development evaluator with only the
-   provenance-aware arena-job.py overlay. Verify that wrapper with the exact
-   selected candidate on development-only probes. Neither the older October 10
-   source nor the current development archive is directly ready for final use.
-   No candidate is selected and no reserved seeds have been used.
-6. Benchmark the exact selected model/configuration on the actual 8840U and
-   verify the extracted standalone serving package before any deployment.
+1. Inspect the two remaining 6p runtime probes and the three remaining parent 6p
+   reference shards. Collect completed artifacts at immutable revisions; retain
+   verified folders and reconcile partial folders before any retry.
+2. Once both probes for a model verify, use the guarded screen launcher to submit
+   its 108 full four-deal shards. Exact model pins already exist. The parent
+   reference is already fully submitted. No training or teacher retries are needed.
+3. Continue the fixed `strong/strategic-correction-screen-protocol-v1.json`:
+   20,160 full games across parent and both seeds, 27 count/opponent cells, all
+   four rules and every seat. Preserve both seeds separately and every adverse
+   cell, including 5p Recharged/open and 6p. Run the paired comparison after collection.
+4. Assess actual-game strength before selecting any final candidate. Simulation
+   targets or small probes cannot qualify a model. The reserved final protocol
+   remains unchanged and unused. If development evidence remains weak, diagnose
+   and improve the training rather than lowering the strength requirements.
+5. The final launcher accepts 4.3 only with matching encoder/evaluator bytes;
+   eleven contract tests passed without real submissions. The development source
+   still has the older arena wrapper (`strong/final-strategic-runtime-readiness-v1.json`).
+   Before qualification, derive a fresh source with the provenance-aware
+   arena-job.py overlay and probe the exact selected model on development-only seeds.
+6. Benchmark the exact selected configuration on the actual 8840U and verify
+   the extracted standalone serving package before qualification/deployment.
 
 Scope remains Germany, automatic setup, 2–6 players, original/Recharged and
 open/sealed auctions. All players' money is allowed. Hidden deck order, random

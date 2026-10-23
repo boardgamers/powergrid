@@ -1,0 +1,645 @@
+{
+  "verified": true,
+  "revision": "6be6f2af36d3382d43013621eab382c16a4cc1ae",
+  "prefix": "runs/strategic-correction-v1",
+  "source_revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+  "source_sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5",
+  "design_sha256": "98a616c3c0ce6659b105ccb3b5fe26d662be9cd5b2cdd9805d0b1262258fd1f6",
+  "manifest_sha256": "6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57",
+  "seeds": {
+    "11101": {
+      "training": {
+        "seed": 11101,
+        "best_epoch": 30,
+        "updates": 720,
+        "seconds": 1.905115115000001,
+        "gpu": "NVIDIA L4",
+        "max_allocated_bytes": 70846464,
+        "training_device": "cuda",
+        "tf32": false,
+        "torch_version": "2.6.0+cu124",
+        "head_parameters": 97473,
+        "parent_tensors_identical": true,
+        "train_roots": 1440,
+        "validation_roots": 480,
+        "training_location": "HF Jobs",
+        "qualification_eligible": false
+      },
+      "selected_epoch": 30,
+      "recomputed": {
+        "train": {
+          "roots": 1440,
+          "mean_simulated_regret": 0.04647713899612427,
+          "mean_advantage_over_parent": 0.010159866884350777,
+          "changed_fraction": 0.2923611111111111,
+          "by_rules_count": {
+            "2p/original/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.024269387125968933
+            },
+            "2p/original/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.0027488423511385918
+            },
+            "2p/recharged/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.009910302236676216
+            },
+            "2p/recharged/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.005642361007630825
+            },
+            "3p/original/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.0009403940639458597
+            },
+            "3p/original/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.007052951492369175
+            },
+            "3p/recharged/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.012405961751937866
+            },
+            "3p/recharged/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.006763600278645754
+            },
+            "4p/original/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": -0.0011212382232770324
+            },
+            "4p/original/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.009512442164123058
+            },
+            "4p/recharged/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.04640480503439903
+            },
+            "4p/recharged/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.0246310755610466
+            },
+            "5p/original/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.007848668843507767
+            },
+            "5p/original/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.011393229477107525
+            },
+            "5p/recharged/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.010886863805353642
+            },
+            "5p/recharged/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.0057146986946463585
+            },
+            "6p/original/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": -7.233810174511746e-05
+            },
+            "6p/original/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.021412037312984467
+            },
+            "6p/recharged/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.002821180736646056
+            },
+            "6p/recharged/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": -0.005967882461845875
+            }
+          },
+          "scope": "Fixed continuation-mixture targets; no real-game strength claim."
+        },
+        "validation": {
+          "roots": 480,
+          "mean_simulated_regret": 0.05781792476773262,
+          "mean_advantage_over_parent": 0.005181206855922937,
+          "changed_fraction": 0.23541666666666666,
+          "by_rules_count": {
+            "2p/original/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": -0.0014105901354923844
+            },
+            "2p/original/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.0031467017251998186
+            },
+            "2p/recharged/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.0319010429084301
+            },
+            "2p/recharged/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.0071614584885537624
+            },
+            "3p/original/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.008355035446584225
+            },
+            "3p/original/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.008897569961845875
+            },
+            "3p/recharged/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": -0.013129341416060925
+            },
+            "3p/recharged/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.0067274305038154125
+            },
+            "4p/original/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.0
+            },
+            "4p/original/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.0521918386220932
+            },
+            "4p/recharged/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": -0.0321180559694767
+            },
+            "4p/recharged/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": -0.003689236007630825
+            },
+            "5p/original/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.0045572915114462376
+            },
+            "5p/original/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.0017361111240461469
+            },
+            "5p/recharged/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.0154079869389534
+            },
+            "5p/recharged/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": -0.0047743055038154125
+            },
+            "6p/original/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": -0.015190971083939075
+            },
+            "6p/original/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.0363498292863369
+            },
+            "6p/recharged/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.008572048507630825
+            },
+            "6p/recharged/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": -0.011067708022892475
+            }
+          },
+          "scope": "Fixed continuation-mixture targets; no real-game strength claim."
+        }
+      },
+      "scope": {
+        "positions": 2553,
+        "eligible": 1096,
+        "changed_eligible": 225,
+        "outside_scope_actions_preserved": 1457,
+        "parent_values_preserved": true,
+        "outside_max_logit_error": 0.0,
+        "max_value_error": 0.0,
+        "labels_strict_parity": 1920,
+        "label_max_logit_error": 2.60854449152248e-10,
+        "label_metrics": {
+          "train": {
+            "roots": 1440,
+            "mean_simulated_advantage_over_parent": 0.010159866884350777,
+            "changed_fraction": 0.2923611111111111
+          },
+          "validation": {
+            "roots": 480,
+            "mean_simulated_advantage_over_parent": 0.005181206855922937,
+            "changed_fraction": 0.23541666666666666
+          }
+        },
+        "checkpoint_sha256": "d271b7a28a9a33edacbebf3d6e398d18cd97b549768c24557a8b11d57564fb54",
+        "model_sha256": "9f8d87b28dc1ed76770e7ffe8457a87fb3fb014d866b43b571ce838b87ff0f32",
+        "qualification_eligible": false,
+        "scope": "Actual exported actions stay within the strategic shortlist or parent; other actions/values unchanged. Simulated label metrics are not strength evidence."
+      },
+      "parity": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "inactive_values_zero": true,
+        "feature_revision": "4.3-strategic-correction",
+        "model_sha256": "9f8d87b28dc1ed76770e7ffe8457a87fb3fb014d866b43b571ce838b87ff0f32",
+        "max_logit_error": 4.746425474877469e-10,
+        "max_value_error": 1.0236589353951331e-11,
+        "all_actions_match": true,
+        "specialist_route_counts": {}
+      },
+      "serving": {
+        "hostname": "Mint-FW-13",
+        "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "python_version": "3.11.15",
+        "positions": 2553,
+        "by_player_count": {
+          "2": {
+            "positions": 349,
+            "p95_ms": 5.304268386680632
+          },
+          "3": {
+            "positions": 427,
+            "p95_ms": 5.097088182810693
+          },
+          "4": {
+            "positions": 527,
+            "p95_ms": 13.337747511104677
+          },
+          "5": {
+            "positions": 609,
+            "p95_ms": 8.267199597321452
+          },
+          "6": {
+            "positions": 641,
+            "p95_ms": 7.629487983649597
+          }
+        },
+        "model_sha256": "9f8d87b28dc1ed76770e7ffe8457a87fb3fb014d866b43b571ce838b87ff0f32",
+        "all_moves_legal": true,
+        "search_samples": 0,
+        "search_scope": "all",
+        "geographic_search": false,
+        "cold_start_ms": 252.4554569972679,
+        "warm_roundtrip_p50_ms": 3.918725997209549,
+        "warm_roundtrip_p95_ms": 10.047216601378748,
+        "worker_p95_ms": 6.576601762208155,
+        "max_roundtrip_ms": 252.4554569972679,
+        "search_decisions": 0,
+        "search_evaluations": 0,
+        "search_truncated_rollouts": 0,
+        "search_roundtrip_p50_ms": null,
+        "search_roundtrip_p95_ms": null,
+        "by_phase": {
+          "Auction": {
+            "positions": 840,
+            "p50_ms": 3.9778674981789663,
+            "p95_ms": 10.958588511857666,
+            "max_ms": 252.4554569972679
+          },
+          "Resources": {
+            "positions": 755,
+            "p50_ms": 3.8572310004383326,
+            "p95_ms": 9.089741011848668,
+            "max_ms": 28.78095000050962
+          },
+          "Building": {
+            "positions": 491,
+            "p50_ms": 4.257202002918348,
+            "p95_ms": 9.013647504616529,
+            "max_ms": 15.68696100730449
+          },
+          "Bureaucracy": {
+            "positions": 467,
+            "p50_ms": 3.6743060045409948,
+            "p95_ms": 9.779682799126022,
+            "max_ms": 19.416368013480678
+          }
+        }
+      },
+      "parent_tensors_identical": true,
+      "model_sha256": "9f8d87b28dc1ed76770e7ffe8457a87fb3fb014d866b43b571ce838b87ff0f32",
+      "best_checkpoint_sha256": "281c0a4c3c6a1a138c5490ae7add66ad87bc3d525d7f33703524b6126f550f5c"
+    },
+    "11102": {
+      "training": {
+        "seed": 11102,
+        "best_epoch": 50,
+        "updates": 720,
+        "seconds": 1.7629829129999735,
+        "gpu": "NVIDIA L4",
+        "max_allocated_bytes": 73001984,
+        "training_device": "cuda",
+        "tf32": false,
+        "torch_version": "2.6.0+cu124",
+        "head_parameters": 97473,
+        "parent_tensors_identical": true,
+        "train_roots": 1440,
+        "validation_roots": 480,
+        "training_location": "HF Jobs",
+        "qualification_eligible": false
+      },
+      "selected_epoch": 50,
+      "recomputed": {
+        "train": {
+          "roots": 1440,
+          "mean_simulated_regret": 0.040615957230329514,
+          "mean_advantage_over_parent": 0.01602105051279068,
+          "changed_fraction": 0.2951388888888889,
+          "by_rules_count": {
+            "2p/original/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.020146124064922333
+            },
+            "2p/original/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.011031540110707283
+            },
+            "2p/recharged/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.013888888992369175
+            },
+            "2p/recharged/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": -0.0014105900190770626
+            },
+            "3p/original/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.004593460820615292
+            },
+            "3p/original/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.012767650187015533
+            },
+            "3p/recharged/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.014612268656492233
+            },
+            "3p/recharged/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.0146484375
+            },
+            "4p/original/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.017216434702277184
+            },
+            "4p/original/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.0096571184694767
+            },
+            "4p/recharged/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.048104748129844666
+            },
+            "4p/recharged/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.029152201488614082
+            },
+            "5p/original/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.012080440297722816
+            },
+            "5p/original/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.022931134328246117
+            },
+            "5p/recharged/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.008210358209908009
+            },
+            "5p/recharged/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.02495659701526165
+            },
+            "6p/original/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.0119357630610466
+            },
+            "6p/original/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.028067128732800484
+            },
+            "6p/recharged/open": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.0087890625
+            },
+            "6p/recharged/sealed": {
+              "roots": 72,
+              "mean_advantage_over_parent": 0.009042246267199516
+            }
+          },
+          "scope": "Fixed continuation-mixture targets; no real-game strength claim."
+        },
+        "validation": {
+          "roots": 480,
+          "mean_simulated_regret": 0.05613606795668602,
+          "mean_advantage_over_parent": 0.006863064598292112,
+          "changed_fraction": 0.3,
+          "by_rules_count": {
+            "2p/original/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": -0.0018446178874000907
+            },
+            "2p/original/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.0128038190305233
+            },
+            "2p/recharged/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.02734375
+            },
+            "2p/recharged/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.0077039934694767
+            },
+            "3p/original/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.003797742770984769
+            },
+            "3p/original/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": -0.014105903916060925
+            },
+            "3p/recharged/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": -0.0047743055038154125
+            },
+            "3p/recharged/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": -0.00032552090124227107
+            },
+            "4p/original/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": -0.0013020832557231188
+            },
+            "4p/original/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.0480685718357563
+            },
+            "4p/recharged/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": -0.007595486473292112
+            },
+            "4p/recharged/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.02376302145421505
+            },
+            "5p/original/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": -0.0036892357748001814
+            },
+            "5p/original/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": -0.004123263526707888
+            },
+            "5p/recharged/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.0290798619389534
+            },
+            "5p/recharged/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.001953125698491931
+            },
+            "6p/original/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": -0.01909722201526165
+            },
+            "6p/original/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.0390625
+            },
+            "6p/recharged/open": {
+              "roots": 24,
+              "mean_advantage_over_parent": 0.008572048507630825
+            },
+            "6p/recharged/sealed": {
+              "roots": 24,
+              "mean_advantage_over_parent": -0.008029512129724026
+            }
+          },
+          "scope": "Fixed continuation-mixture targets; no real-game strength claim."
+        }
+      },
+      "scope": {
+        "positions": 2553,
+        "eligible": 1096,
+        "changed_eligible": 257,
+        "outside_scope_actions_preserved": 1457,
+        "parent_values_preserved": true,
+        "outside_max_logit_error": 0.0,
+        "max_value_error": 0.0,
+        "labels_strict_parity": 1920,
+        "label_max_logit_error": 2.60854449152248e-10,
+        "label_metrics": {
+          "train": {
+            "roots": 1440,
+            "mean_simulated_advantage_over_parent": 0.01602105051279068,
+            "changed_fraction": 0.2951388888888889
+          },
+          "validation": {
+            "roots": 480,
+            "mean_simulated_advantage_over_parent": 0.006863064598292112,
+            "changed_fraction": 0.3
+          }
+        },
+        "checkpoint_sha256": "65d95f80e7841bde3438dbd5ba89a03b675715ffaf1d9c1322fcb05fbba49f71",
+        "model_sha256": "85a8885a0f30b32f7f4c131f2d07003724ee4cd5e8c682c4d20d2842ef60ec09",
+        "qualification_eligible": false,
+        "scope": "Actual exported actions stay within the strategic shortlist or parent; other actions/values unchanged. Simulated label metrics are not strength evidence."
+      },
+      "parity": {
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "inactive_values_zero": true,
+        "feature_revision": "4.3-strategic-correction",
+        "model_sha256": "85a8885a0f30b32f7f4c131f2d07003724ee4cd5e8c682c4d20d2842ef60ec09",
+        "max_logit_error": 4.746425474877469e-10,
+        "max_value_error": 1.0236589353951331e-11,
+        "all_actions_match": true,
+        "specialist_route_counts": {}
+      },
+      "serving": {
+        "hostname": "Mint-FW-13",
+        "processor_model": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "python_version": "3.11.15",
+        "positions": 2553,
+        "by_player_count": {
+          "2": {
+            "positions": 349,
+            "p95_ms": 10.403063800185915
+          },
+          "3": {
+            "positions": 427,
+            "p95_ms": 6.412541880854405
+          },
+          "4": {
+            "positions": 527,
+            "p95_ms": 7.321849890286102
+          },
+          "5": {
+            "positions": 609,
+            "p95_ms": 7.392284594243392
+          },
+          "6": {
+            "positions": 641,
+            "p95_ms": 6.479311006842181
+          }
+        },
+        "model_sha256": "85a8885a0f30b32f7f4c131f2d07003724ee4cd5e8c682c4d20d2842ef60ec09",
+        "all_moves_legal": true,
+        "search_samples": 0,
+        "search_scope": "all",
+        "geographic_search": false,
+        "cold_start_ms": 254.41498000873253,
+        "warm_roundtrip_p50_ms": 3.6983260069973767,
+        "warm_roundtrip_p95_ms": 7.217582094017406,
+        "worker_p95_ms": 4.693691784632391,
+        "max_roundtrip_ms": 254.41498000873253,
+        "search_decisions": 0,
+        "search_evaluations": 0,
+        "search_truncated_rollouts": 0,
+        "search_roundtrip_p50_ms": null,
+        "search_roundtrip_p95_ms": null,
+        "by_phase": {
+          "Auction": {
+            "positions": 840,
+            "p50_ms": 3.680925990920514,
+            "p95_ms": 7.548636962019369,
+            "max_ms": 254.41498000873253
+          },
+          "Resources": {
+            "positions": 755,
+            "p50_ms": 3.587225015508011,
+            "p95_ms": 7.139313683728684,
+            "max_ms": 16.050832986366004
+          },
+          "Building": {
+            "positions": 491,
+            "p50_ms": 4.104421997908503,
+            "p95_ms": 8.010956516955048,
+            "max_ms": 15.960922988597304
+          },
+          "Bureaucracy": {
+            "positions": 467,
+            "p50_ms": 3.5041710070800036,
+            "p95_ms": 6.083660083822906,
+            "max_ms": 11.517078994074836
+          }
+        }
+      },
+      "parent_tensors_identical": true,
+      "model_sha256": "85a8885a0f30b32f7f4c131f2d07003724ee4cd5e8c682c4d20d2842ef60ec09",
+      "best_checkpoint_sha256": "332ada3d06d3fe485461eaafe23e4817524a1e071d51758c2fd6edd7d949a7be"
+    }
+  },
+  "qualification_eligible": false,
+  "scope": "Verified tensors, fixed validation selection, native/ONNX actions and unchanged parent behavior outside strategic choices. Full-game strength remains unproven."
+}

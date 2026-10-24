@@ -6,7 +6,21 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: two-player hybrid runtime verified; fixed strength screen prepared.**
+**Latest: current population hybrid passes actual AMD8840U parity and timing.**
+All 5,106 model/filter decisions and eight endpoint searches match the local
+reference exactly; 384 rollouts, no caps. Four-thread/four-worker search takes
+2.9–6.2s on the four existing Recharged/sealed auction/building positions; this
+is a small engineering sample, not gameplay latency or strength evidence.
+Model/filter median is about 5.4/5.7ms. Target PID2927472 completed and is fully
+collected; do not restart it. The initial local receipt-key mismatch, corrected
+package and raw results are archived in `strong/population-policy-8840u-evidence-v2.json`.
+No new HF jobs this turn. Six-player runtime pilot `6adcad7b046eb82b1ecdc9cd`
+remains RUNNING at 13:48 UTC, latest progress22/24 with zero reported caps.
+Collect that same job, then freeze/inspect the prepared plan and launch its
+single coordinator. The 8,400-game hybrid strength grid is still not launched.
+See the latest handoff; final qualification and reserved seeds remain untouched.
+
+**Previous: two-player hybrid runtime verified; fixed strength screen prepared.**
 The two-player pilot completed: eight games, 20,696 full rollouts, zero caps,
 498.465 seconds. Every saved decision and terminal result independently verifies.
 The six-player job `6adcad7b046eb82b1ecdc9cd` is still RUNNING at 13:34:43 UTC;

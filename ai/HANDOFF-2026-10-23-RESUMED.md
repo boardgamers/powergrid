@@ -25,7 +25,74 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: independent runtime verification and hybrid grid prepared
+## Latest checkpoint: current population hybrid verified on the actual 8840U
+
+Previous goal turn: progress (independent runtime verification and prepared grid).
+This turn: progress. The exact current frozen-1 population policy now passes
+the actual AMD8840U benchmark. No gradients or new HF jobs were started. The
+six-player HF runtime pilot `6adcad7b046eb82b1ecdc9cd` remains RUNNING at the
+13:48 UTC snapshot; its last inspected progress log has 22/24 complete games,
+zero reported caps. Continue that same handle; do not restart it. The fixed
+8,400-game hybrid strength screen still awaits its complete verified result.
+
+### New actual-target evidence
+
+`strong/benchmark-population-policy-8840u.py` provides explicit prepare, local,
+launch, inspect, collect and archive stages. It copies the exact frozen runtime
+into an isolated package, with **1,234 unchanged runtime files**, the actual
+frozen-1 ONNX and existing fixtures. Local and target runs execute from `/tmp`,
+without checkout dependencies. The target runner imports no HF training client
+and performs inference only.
+
+The local reference completed in 81.46s, the target in 89.10s. On the actual
+8840U, all 2,553 model and 2,553 filter decisions match the local reference;
+all eight search results match in actions, sampled worlds, terminal-credit
+outcomes, search statistics and certificates. Both one-thread/one-worker and
+four-thread/four-worker settings are semantically identical. All 384 normal
+rollouts complete, with no caps. This does not prove replay identity of every
+internal simulated move, nor any playing-strength gain.
+
+| Existing Recharged/sealed fixture | 1 thread /1 worker | 4 threads /4 workers |
+| --- | ---: | ---: |
+| 2p building | 8.883s | 4.873s |
+| 2p bid | 4.850s | 2.922s |
+| 6p bid | 11.503s | 6.168s |
+| 6p building | 12.261s | 6.206s |
+
+Those are four fixed endpoint positions, not a representative gameplay latency
+distribution or all-count search benchmark. Across the full 2,553 existing
+fixtures, model median/p95 is 5.36/7.82ms and filter median/p95 is 5.74/8.23ms;
+these are warm decision timings and exclude initial model loading. The actual
+target environment is Python3.12.3, NumPy2.5.3, ORT1.30.0, Node24.19.0.
+
+The first local harness failed after all 5,106 model/filter checks: it passed an
+in-memory search object to a verifier for JSON receipts, where integer world
+keys become strings. V2 serializes the receipt before independent verification.
+The failed package, runner, raw local results and diagnosis are preserved;
+no policy/engine/model change or target run occurred in V1. The frozen source
+for the live HF pilot and prepared development screen remains unchanged.
+
+Target PID **2927472** completed successfully in
+`/home/coyotte508/powergrid-ai-population-policy-8840u-v2`. Do not relaunch it.
+Its guard is `strong/population-policy-8840u-launch-v2.json`; collection and
+independent parity are complete under `ai/runs/population-policy-8840u-collected-v2/`.
+Local V2 reference and prepared package are in the corresponding `ai/runs/`
+directories. The private evidence archive has **24 files**, including both
+package versions, failures and raw local/target results:
+
+- Descriptor `strong/population-policy-8840u-evidence-v2.json`.
+- Model-repo revision `d703d37d3668600353b927d46d37d8f253be9b66`.
+- Archive `archives/population-policy-8840u-evidence-v2.tgz`.
+- SHA256 `5f01eda4a4f65c0a3ed4ade1f92db1b888788644e2864fd0c3350bbbc467db55`.
+
+Next action is unchanged: independently collect the existing six-player HF
+pilot, then freeze the prepared development source/plan, inspect measured
+timeout admission and launch the single guarded 8,400-game coordinator. Keep
+all phases/counts/rules and adverse outcomes. This target benchmark does not
+admit a strength claim, final selection or production routing; final seeds
+remain unused. The immediately following checkpoint retains exact commands.
+
+## Previous checkpoint: independent runtime verification and hybrid grid prepared
 
 Previous goal turn: progress (complete model comparison and two runtime pilots).
 This turn: progress. The two-player pilot completed and independently verifies;

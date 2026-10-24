@@ -52760,5 +52760,116 @@
         "new_strength_results": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
+    },
+    "population_policy_actual_8840u_v2": {
+        "checkpoint": "Exact current frozen-1 population-policy target parity and fixed-fixture timing complete; strength screen pending six-player runtime admission",
+        "evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "d703d37d3668600353b927d46d37d8f253be9b66",
+            "archive_path": "archives/population-policy-8840u-evidence-v2.tgz",
+            "archive_sha256": "5f01eda4a4f65c0a3ed4ade1f92db1b888788644e2864fd0c3350bbbc467db55",
+            "manifest_sha256": "21ce9f360da09167034acd216214834737c3e93c926fc613fb0f895f554302a0",
+            "archived_files": 24,
+            "format": "tar.gz",
+            "remote_archive_verified": true,
+            "assessment_sha256": "57892d56d6d3041f09a7b13cf4569ab81ed691756b664b1676b806d016e57ecc",
+            "counts": {
+                "model_positions": 2553,
+                "filter_positions": 2553,
+                "search_cases": 8,
+                "rollouts": 384,
+                "caps": 0
+            },
+            "search_timings": [
+                {
+                    "fixture": "2p-building",
+                    "threads": 1,
+                    "workers": 1,
+                    "seconds": 8.88342610700056
+                },
+                {
+                    "fixture": "2p-bid",
+                    "threads": 1,
+                    "workers": 1,
+                    "seconds": 4.850227551069111
+                },
+                {
+                    "fixture": "6p-bid",
+                    "threads": 1,
+                    "workers": 1,
+                    "seconds": 11.502929464913905
+                },
+                {
+                    "fixture": "6p-building",
+                    "threads": 1,
+                    "workers": 1,
+                    "seconds": 12.261205217335373
+                },
+                {
+                    "fixture": "2p-building",
+                    "threads": 4,
+                    "workers": 4,
+                    "seconds": 4.873259435873479
+                },
+                {
+                    "fixture": "2p-bid",
+                    "threads": 4,
+                    "workers": 4,
+                    "seconds": 2.9217769680544734
+                },
+                {
+                    "fixture": "6p-bid",
+                    "threads": 4,
+                    "workers": 4,
+                    "seconds": 6.168270975816995
+                },
+                {
+                    "fixture": "6p-building",
+                    "threads": 4,
+                    "workers": 4,
+                    "seconds": 6.206418640911579
+                }
+            ],
+            "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+            "model_sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+            "model_filter_decisions_exact": 5106,
+            "search_outcomes_worlds_choices_exact": 8,
+            "scope": "Engineering parity on 2553 existing model/filter positions and four existing endpoint Recharged/sealed search positions, with two execution settings. No fresh strength games or representative gameplay latency distribution.",
+            "new_hf_jobs": 0,
+            "gradients": false,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false
+        },
+        "guard": {
+            "stage": "launched",
+            "host": "minipc",
+            "directory": "/home/coyotte508/powergrid-ai-population-policy-8840u-v2",
+            "package_sha256": "68d66115e144a2736223bb8ab84ee1fd4efe1333cd5ee0199601817e86497d51",
+            "manifest_sha256": "9e4fb783d66b097d4db214c337558fd279ce0e66adee0f2555b1b3e3add0aff1",
+            "model_sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+            "runner_sha256": "a54859b53c6af86712cb7490a1ad72b7e1cd6aaac222962bedacaa78a8fcb312",
+            "exact_runtime_files": 1234,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false,
+            "gradients": false,
+            "new_hf_jobs": 0,
+            "pid": 2927472
+        },
+        "target_stage": "completed_and_independently_collected",
+        "target_pid": 2927472,
+        "six_player_runtime_status": {
+            "case": "population-hybrid-runtime-v2-6p",
+            "job_id": "6adcad7b046eb82b1ecdc9cd",
+            "authoritative_status": "RUNNING",
+            "checked_at": "2026-10-24T13:48:53.256973+00:00",
+            "guard_sha256": "18d497fe22cad9c7d69b9a0d8046d4407fa5899e86a795c0844c53187b85ded8",
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false
+        },
+        "new_hf_jobs": 0,
+        "gradients": false,
+        "strength_grid_launched": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

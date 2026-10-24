@@ -58,7 +58,7 @@ No runtime default, active pipeline dependency or production code was changed.
   `archives/trained-hybrid-profile-evidence-v1.tgz`, SHA256
   `73926eae41527487cd820110ce8f18a8ab8ca7ec4102344666178d1d2f3625e1`. All 13 files remotely verified.
 
-At the 2026-10-24T11:02:49.154991+00:00 snapshot, the only development coordinator remains PID 71261 / session 77604. Its stage is `launch-grid-public-1`; completed submission counts are frozen-0: 108, frozen-1: 108, public-0: 108. All eight runtime probes are verified. All 39 dependency hashes remain unchanged. The coordinator owns all remaining submissions, collection and the complete comparison; do not duplicate them.
+At the 2026-10-24T11:04:58.294716+00:00 snapshot, all four candidate grids are submitted: 108 shards per model, 432 unique jobs / 26,880 candidate games, plus the completed 6,720-game parent reference. All four launch evidence archives are remotely verified. All eight runtime probes passed. The only coordinator remains PID 71261 / session 77604, now collecting the development results; its 39 dependencies are unchanged. Do not duplicate submission or collection. No candidate is selected and final seeds remain unused.
 
 Next: finish the fixed full-game comparison and report whether its small
 validation gains translate. Do not automatically add training epochs. If a

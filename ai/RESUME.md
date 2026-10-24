@@ -50,7 +50,7 @@ No default changed; no target8840U hybrid benchmark or fresh strength claim.
 Evidence: `strong/trained-hybrid-profile-evidence-v1.json`, remotely archived.
 The profile process completed; do not relaunch into its existing output directory.
 
-At the 2026-10-24T11:02:49.154991+00:00 snapshot, the only development coordinator remains PID 71261 / session 77604. Its stage is `launch-grid-public-1`; completed submission counts are frozen-0: 108, frozen-1: 108, public-0: 108. All eight runtime probes are verified. All 39 dependency hashes remain unchanged. The coordinator owns all remaining submissions, collection and the complete comparison; do not duplicate them.
+At the 2026-10-24T11:04:58.294716+00:00 snapshot, all four candidate grids are submitted: 108 shards per model, 432 unique jobs / 26,880 candidate games, plus the completed 6,720-game parent reference. All four launch evidence archives are remotely verified. All eight runtime probes passed. The only coordinator remains PID 71261 / session 77604, now collecting the development results; its 39 dependencies are unchanged. Do not duplicate submission or collection. No candidate is selected and final seeds remain unused.
 
 ## User steering, 24 October: diminishing returns and hybrid play
 

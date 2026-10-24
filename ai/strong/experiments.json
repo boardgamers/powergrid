@@ -49827,12 +49827,13 @@
         "recommendation": "Inference is the dominant measured cost at one thread; four threads improve this existing local fixture without changing any internal decisions. Do not infer a target8840U latency or strength gain, increase samples blindly, or change serving defaults from this one fixture. Finish the running model-only whole-game comparison before another gradient round or fresh bounded hybrid strength study."
     },
     "policy_iteration_candidate_grid_launch_snapshot_v2": {
-        "snapshot_at": "2026-10-24T11:02:49.154991+00:00",
-        "stage": "launch-grid-public-1",
+        "snapshot_at": "2026-10-24T11:04:58.294716+00:00",
+        "stage": "status-008",
         "submitted_counts": {
             "frozen-0": 108,
             "frozen-1": 108,
-            "public-0": 108
+            "public-0": 108,
+            "public-1": 108
         },
         "launch_evidence": {
             "frozen-0": {
@@ -49878,6 +49879,22 @@
                 "remote_archive_verified": true,
                 "keys": [
                     "public-0"
+                ],
+                "complete_development_comparison": false,
+                "qualification_eligible": false,
+                "reserved_final_seeds_used": false
+            },
+            "public-1": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "0ecc793eaf8b441fd80b5058cc255f5d0fa8dd16",
+                "archive_path": "archives/policy-iteration-public-1-grid-launch-evidence-v2.tgz",
+                "archive_sha256": "8d66ac97a7b05c85be45b76e41fb8365bd739eec1c8dc6c65a2cfc7ace73d27f",
+                "manifest_sha256": "e3909e5d1d8271515f1e26833b3cea9f70634908be532ee57485b853797fe573",
+                "archived_files": 140,
+                "format": "tar.gz",
+                "remote_archive_verified": true,
+                "keys": [
+                    "public-1"
                 ],
                 "complete_development_comparison": false,
                 "qualification_eligible": false,

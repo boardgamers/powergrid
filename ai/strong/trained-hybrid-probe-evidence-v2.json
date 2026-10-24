@@ -1,0 +1,473 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "ab777c678e025b0936a6e371dc8ead6b7b1ef082",
+  "archive_path": "archives/trained-hybrid-probe-evidence-v2.tgz",
+  "archive_sha256": "bfa856381debe49caf2a737ec611f1dae4545d72f5355f80c1631c8673d54caa",
+  "manifest_sha256": "4a94d72d3ef034d6e7d7efd25c2321d1d57ca613598503b4cc1f1ebae5ab0367",
+  "archived_files": 16,
+  "format": "tar.gz",
+  "remote_archive_verified": true,
+  "contracts_passed": true,
+  "all_searches_usable": true,
+  "models": {
+    "parent": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+    "frozen-0": "0cbeabb9ec915114f381542d11d652df20e62660bdc9e0932cace6559f2f4b7a",
+    "frozen-1": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+    "public-0": "4d2cf03a847737a392ad6ccf545560b468d93b60b959eee5094ee3c739d130b0",
+    "public-1": "3002f81a5c7a2b9d8f82d62b063333dddd9fbb597e29791fa13e484f2b4b22d6"
+  },
+  "trained_models": 4,
+  "existing_parent_models": 1,
+  "batch_checks": {
+    "parent": {
+      "positions": 80,
+      "cells": 80,
+      "counts": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "serial_and_batched_actions_identical": true
+    },
+    "frozen-0": {
+      "positions": 80,
+      "cells": 80,
+      "counts": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "serial_and_batched_actions_identical": true
+    },
+    "frozen-1": {
+      "positions": 80,
+      "cells": 80,
+      "counts": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "serial_and_batched_actions_identical": true
+    },
+    "public-0": {
+      "positions": 80,
+      "cells": 80,
+      "counts": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "serial_and_batched_actions_identical": true
+    },
+    "public-1": {
+      "positions": 80,
+      "cells": 80,
+      "counts": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "serial_and_batched_actions_identical": true
+    }
+  },
+  "search_cases": 40,
+  "complete_rollouts": 2160,
+  "truncations": 0,
+  "budgets": [
+    1,
+    8
+  ],
+  "shared_sample_prefixes_identical": true,
+  "selected_fixtures": {
+    "2p-building": 86,
+    "2p-bid": 99,
+    "6p-bid": 2019,
+    "6p-building": 2029
+  },
+  "processor": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+  "timings": [
+    {
+      "model": "parent",
+      "players": 2,
+      "phase": "building",
+      "samples_per_mode": 1,
+      "seconds": 1.8356773169944063,
+      "neural_decisions": 2348
+    },
+    {
+      "model": "parent",
+      "players": 2,
+      "phase": "building",
+      "samples_per_mode": 8,
+      "seconds": 10.00639681899338,
+      "neural_decisions": 19478
+    },
+    {
+      "model": "parent",
+      "players": 2,
+      "phase": "bid",
+      "samples_per_mode": 1,
+      "seconds": 1.522014164016582,
+      "neural_decisions": 2009
+    },
+    {
+      "model": "parent",
+      "players": 2,
+      "phase": "bid",
+      "samples_per_mode": 8,
+      "seconds": 7.445601946004899,
+      "neural_decisions": 14756
+    },
+    {
+      "model": "parent",
+      "players": 6,
+      "phase": "bid",
+      "samples_per_mode": 1,
+      "seconds": 2.8498549750074744,
+      "neural_decisions": 3496
+    },
+    {
+      "model": "parent",
+      "players": 6,
+      "phase": "bid",
+      "samples_per_mode": 8,
+      "seconds": 19.57452377601294,
+      "neural_decisions": 29972
+    },
+    {
+      "model": "parent",
+      "players": 6,
+      "phase": "building",
+      "samples_per_mode": 1,
+      "seconds": 3.174964459001785,
+      "neural_decisions": 3458
+    },
+    {
+      "model": "parent",
+      "players": 6,
+      "phase": "building",
+      "samples_per_mode": 8,
+      "seconds": 20.57494317399687,
+      "neural_decisions": 28437
+    },
+    {
+      "model": "frozen-0",
+      "players": 2,
+      "phase": "building",
+      "samples_per_mode": 1,
+      "seconds": 2.767048118985258,
+      "neural_decisions": 2317
+    },
+    {
+      "model": "frozen-0",
+      "players": 2,
+      "phase": "building",
+      "samples_per_mode": 8,
+      "seconds": 16.132408986013616,
+      "neural_decisions": 19254
+    },
+    {
+      "model": "frozen-0",
+      "players": 2,
+      "phase": "bid",
+      "samples_per_mode": 1,
+      "seconds": 2.134939941985067,
+      "neural_decisions": 1804
+    },
+    {
+      "model": "frozen-0",
+      "players": 2,
+      "phase": "bid",
+      "samples_per_mode": 8,
+      "seconds": 10.62477907698485,
+      "neural_decisions": 14046
+    },
+    {
+      "model": "frozen-0",
+      "players": 6,
+      "phase": "bid",
+      "samples_per_mode": 1,
+      "seconds": 4.500801185000455,
+      "neural_decisions": 3959
+    },
+    {
+      "model": "frozen-0",
+      "players": 6,
+      "phase": "bid",
+      "samples_per_mode": 8,
+      "seconds": 30.00511356900097,
+      "neural_decisions": 30700
+    },
+    {
+      "model": "frozen-0",
+      "players": 6,
+      "phase": "building",
+      "samples_per_mode": 1,
+      "seconds": 4.367185425013304,
+      "neural_decisions": 3323
+    },
+    {
+      "model": "frozen-0",
+      "players": 6,
+      "phase": "building",
+      "samples_per_mode": 8,
+      "seconds": 31.03614159100107,
+      "neural_decisions": 28725
+    },
+    {
+      "model": "frozen-1",
+      "players": 2,
+      "phase": "building",
+      "samples_per_mode": 1,
+      "seconds": 2.8327370540064294,
+      "neural_decisions": 2326
+    },
+    {
+      "model": "frozen-1",
+      "players": 2,
+      "phase": "building",
+      "samples_per_mode": 8,
+      "seconds": 16.75504237797577,
+      "neural_decisions": 19294
+    },
+    {
+      "model": "frozen-1",
+      "players": 2,
+      "phase": "bid",
+      "samples_per_mode": 1,
+      "seconds": 1.8876914030115586,
+      "neural_decisions": 1640
+    },
+    {
+      "model": "frozen-1",
+      "players": 2,
+      "phase": "bid",
+      "samples_per_mode": 8,
+      "seconds": 10.906222232995788,
+      "neural_decisions": 14174
+    },
+    {
+      "model": "frozen-1",
+      "players": 6,
+      "phase": "bid",
+      "samples_per_mode": 1,
+      "seconds": 4.389887408004142,
+      "neural_decisions": 3829
+    },
+    {
+      "model": "frozen-1",
+      "players": 6,
+      "phase": "bid",
+      "samples_per_mode": 8,
+      "seconds": 31.405387488019187,
+      "neural_decisions": 31576
+    },
+    {
+      "model": "frozen-1",
+      "players": 6,
+      "phase": "building",
+      "samples_per_mode": 1,
+      "seconds": 4.7750008319853805,
+      "neural_decisions": 3543
+    },
+    {
+      "model": "frozen-1",
+      "players": 6,
+      "phase": "building",
+      "samples_per_mode": 8,
+      "seconds": 33.99890700800461,
+      "neural_decisions": 29149
+    },
+    {
+      "model": "public-0",
+      "players": 2,
+      "phase": "building",
+      "samples_per_mode": 1,
+      "seconds": 3.1432548919983674,
+      "neural_decisions": 2232
+    },
+    {
+      "model": "public-0",
+      "players": 2,
+      "phase": "building",
+      "samples_per_mode": 8,
+      "seconds": 17.61331693001557,
+      "neural_decisions": 18896
+    },
+    {
+      "model": "public-0",
+      "players": 2,
+      "phase": "bid",
+      "samples_per_mode": 1,
+      "seconds": 2.3071177750243805,
+      "neural_decisions": 1631
+    },
+    {
+      "model": "public-0",
+      "players": 2,
+      "phase": "bid",
+      "samples_per_mode": 8,
+      "seconds": 12.112340913008666,
+      "neural_decisions": 14046
+    },
+    {
+      "model": "public-0",
+      "players": 6,
+      "phase": "bid",
+      "samples_per_mode": 1,
+      "seconds": 5.254997215990443,
+      "neural_decisions": 3788
+    },
+    {
+      "model": "public-0",
+      "players": 6,
+      "phase": "bid",
+      "samples_per_mode": 8,
+      "seconds": 33.00810999798705,
+      "neural_decisions": 29238
+    },
+    {
+      "model": "public-0",
+      "players": 6,
+      "phase": "building",
+      "samples_per_mode": 1,
+      "seconds": 5.158978165010922,
+      "neural_decisions": 3238
+    },
+    {
+      "model": "public-0",
+      "players": 6,
+      "phase": "building",
+      "samples_per_mode": 8,
+      "seconds": 34.817125953995856,
+      "neural_decisions": 28073
+    },
+    {
+      "model": "public-1",
+      "players": 2,
+      "phase": "building",
+      "samples_per_mode": 1,
+      "seconds": 3.232957557978807,
+      "neural_decisions": 2360
+    },
+    {
+      "model": "public-1",
+      "players": 2,
+      "phase": "building",
+      "samples_per_mode": 8,
+      "seconds": 18.215845698985504,
+      "neural_decisions": 19285
+    },
+    {
+      "model": "public-1",
+      "players": 2,
+      "phase": "bid",
+      "samples_per_mode": 1,
+      "seconds": 2.626060412003426,
+      "neural_decisions": 2009
+    },
+    {
+      "model": "public-1",
+      "players": 2,
+      "phase": "bid",
+      "samples_per_mode": 8,
+      "seconds": 12.005522123974515,
+      "neural_decisions": 14669
+    },
+    {
+      "model": "public-1",
+      "players": 6,
+      "phase": "bid",
+      "samples_per_mode": 1,
+      "seconds": 5.602812708995771,
+      "neural_decisions": 3873
+    },
+    {
+      "model": "public-1",
+      "players": 6,
+      "phase": "bid",
+      "samples_per_mode": 8,
+      "seconds": 33.868307206983445,
+      "neural_decisions": 29956
+    },
+    {
+      "model": "public-1",
+      "players": 6,
+      "phase": "building",
+      "samples_per_mode": 1,
+      "seconds": 5.443225620983867,
+      "neural_decisions": 3449
+    },
+    {
+      "model": "public-1",
+      "players": 6,
+      "phase": "building",
+      "samples_per_mode": 8,
+      "seconds": 34.29712962199119,
+      "neural_decisions": 28430
+    }
+  ],
+  "total_seconds": 508.66727639501914,
+  "runtime_source": {
+    "archive": "strong-source-policy-iteration-development-20261024-v2.tgz",
+    "revision": "a393d0fa83d9fee8a27a876a217fe97dfea03ff8",
+    "sha256": "c020987f3a05a2c0116dfd52498139f6bb7480e1721ca058caf9771f94d970ce",
+    "bytes": 109411988,
+    "base": {
+      "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+      "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+      "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+      "bytes": 109402244,
+      "base": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+      },
+      "overlays": {
+        "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+        "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+        "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+        "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+      },
+      "unchanged_base_files": 1430,
+      "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+      "qualification_eligible": false
+    },
+    "overlays": {
+      "ai/strong/policy_iteration_development.py": "1bbcec9b3ad236fdaf330627cd31f6c99618642cf657b75207aba365c4c217ea",
+      "ai/strong/preflight-policy-iteration-development.py": "024f1f746eb396a8906664c26e2307224c733ff4b43a75899498efbf65096829",
+      "ai/strong/policy-iteration-development-protocol-v2.json": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+      "ai/strong/policy-iteration-training-design-v2.json": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+      "ai/strong/build-policy-iteration-development-source.py": "6dd5963f0438f0ef7fca6c53c3701acdba99d8e9390e42d9c5f64f4e39287310"
+    },
+    "unchanged_base_files": 1434,
+    "protocol_sha256": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+    "gradients": false,
+    "qualification_eligible": false
+  },
+  "fixture_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+  "code_hashes": {
+    "ai/strong/probe-trained-hybrid-search.py": "c3a6bd508216ce49ce6b1fb49707c67f6085f0b2fde6b920b947239e8a95a567",
+    "ai/strong/hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+    "ai/pool.py": "3b33133425d84430a6376834422478d70fe51a9c855d1e06937f109cd3620dd8",
+    "ai/infer.py": "a86e79c2c87b1909557e69fd8b669ae2c47255d426e692b5d96baafe5c2f680d",
+    "ai/strong/feature_contract.py": "b72b57958e07bcd49c62d7d9b9f8d431b6bd5b52607fae4886b21241692b3c89",
+    "ai/strong/hybrid-continuations.cjs": "2b03c49c8270622e74c333c5e7253d5eb5d21ba1af919bc5f15ebd456109daaf"
+  },
+  "gradients": false,
+  "hf_jobs_submitted": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "scope": "Existing-fixture integration and local timing only. Eighty rule/phase/count cells for batched inference; four endpoint Recharged/sealed bid/building positions for full continuations. No fresh whole-game strength or AMD8840U timing claim.",
+  "previous_attempt": "Initial source check rejected the locally modified features-v4.cjs before creating outputs or running searches; preserved log and source. Successful probe uses frozen trained engine plus isolated experimental adapter."
+}

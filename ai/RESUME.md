@@ -27,9 +27,16 @@ complete. All twelve actual trained technical receipts are also archived in
 `strong/policy-iteration-final-technical-evidence-v2.json`; the reserved final
 gate remains untouched. Source or serving checks do not establish qualification.
 
-The isolated hybrid prototype has only earlier compatibility tests, not fresh
-trained-model strength or target search timings. Those remain follow-up work after
-the current prescribed comparison. Its synthetic cap failure remains recorded.
+The actual trained hybrid prototype now passes 40 searches / 2,160 complete
+simulations, with zero caps, on four endpoint Recharged/sealed bid/building
+fixtures. Inference checks span all 80 count/rule/phase cells per model. At eight
+worlds per mode, trained request times on the local HX370 are 11–18s for two-player
+cases and 30–35s for six-player cases. This is neither target8840U timing nor
+fresh strength evidence. Source and raw outcomes are archived in
+`strong/trained-hybrid-probe-evidence-v2.json`. Profile the cost before scaling
+search; retain the existing full-game comparison as the strength checkpoint.
+The prior synthetic cap failure and first frozen-source admission rejection are
+preserved separately. No active pipeline dependency was changed for this probe.
 
 ## User steering, 24 October: diminishing returns and hybrid play
 

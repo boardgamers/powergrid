@@ -25,7 +25,66 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: trained models verified and measured on the 8840U
+## Latest checkpoint: actual trained hybrid continuations and local cost
+
+The trained hybrid prototype now passes integration checks on the parent and
+all four actual trained ensembles. This is separate from the unchanged model-only
+development pipeline and does not launch any HF job or gradient run.
+
+- Batched inference agrees with serial inference on 80 count/rule/phase cells
+  per model, covering all 2–6-player counts and four rule combinations.
+- Full continuations cover four existing Recharged/sealed positions: bidding
+  with earlier sealed submissions and building, at two and six players.
+- Each model/position uses one and eight worlds per continuation mode, with
+  both neural and neural/economic continuations: **40 searches, 2,160 terminal
+  simulations, zero caps**. Legal actions and original model proposals are checked.
+- Shared sample prefixes match exactly when the budget increases. All adverse
+  outcomes remain recorded; no model or search budget was selected by win credit.
+
+Eight-world request times on the **local HX370**, with four engine workers and
+one inference thread, were:
+
+| Model | 2p building | 2p bid | 6p bid | 6p building |
+| --- | ---: | ---: | ---: | ---: |
+| parent | 10.01s | 7.45s | 19.57s | 20.57s |
+| frozen-0 | 16.13s | 10.62s | 30.01s | 31.04s |
+| frozen-1 | 16.76s | 10.91s | 31.41s | 34.00s |
+| public-0 | 17.61s | 12.11s | 33.01s | 34.82s |
+| public-1 | 18.22s | 12.01s | 33.87s | 34.30s |
+
+Each timing is one fixture run with a loaded model and newly started search
+workers; this is not a latency distribution, a target 8840U measurement or fresh
+whole-game strength. Model-only millisecond latency does not transfer to full
+neural simulation search. This cost is plausible for background jobs, but not
+instant analysis at this budget. Profile policy and engine costs before increasing
+the budget or choosing hardware. The still-uncalibrated value head is not used
+to replace terminal outcomes.
+
+The first admission attempt rejected the current checkout's older
+`features-v4.cjs` difference before creating probe outputs or running searches.
+The completed probe reconstructs the exact trained engine and JavaScript
+helpers, then adds only the isolated hybrid adapter. Used Python inference/pool
+files match the frozen source. Every copied file and experimental-code hash is
+checked again after execution. Existing research files were not reverted.
+
+- Reproduce: `ai/.venv/bin/python ai/strong/probe-trained-hybrid-search.py NEW_OUTPUT`.
+- Results/runtime: `ai/runs/trained-hybrid-probe-v2/`; log:
+  `ai/runs/trained-hybrid-probe-v2.log`. Completed session 52006, elapsed 508.67 s.
+- Evidence: `strong/trained-hybrid-probe-evidence-v2.json`.
+- HF revision `ab777c678e025b0936a6e371dc8ead6b7b1ef082`; archive
+  `archives/trained-hybrid-probe-evidence-v2.tgz`; SHA256
+  `bfa856381debe49caf2a737ec611f1dae4545d72f5355f80c1631c8673d54caa`.
+  All 16 archived files are verified, including per-search outcomes, fixtures,
+  source, versions and the failed first admission log/source.
+
+At the owned 10:51:13 UTC snapshot, all four two-player runtime probes are complete
+and independently verified; the four six-player probes remain RUNNING. The only
+coordinator remains PID 71261 / session 77604, with all 39 dependency hashes unchanged.
+No candidate grid has been submitted yet. It owns the pending probe collection,
+full candidate grids and comparison. No new hybrid jobs, final tests, candidate
+selection or publication have occurred.
+
+## Previous checkpoint: trained models verified and measured on the 8840U
 
 Both original HF training jobs completed. All eight seeds (four per architecture)
 and all four prescribed ensembles passed independent verification. The parent

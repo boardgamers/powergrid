@@ -1,8 +1,6 @@
 {
-  "all_shards_verified": false,
-  "pending": [
-    "11101-6p-search_geo-0-4"
-  ],
+  "all_shards_verified": true,
+  "pending": [],
   "arms": {
     "parent": {
       "economic/2p": {
@@ -2457,6 +2455,62 @@
             "deal_bootstrap_95_interval": [
               0.40625,
               0.6145833333333333
+            ]
+          }
+        }
+      },
+      "search_geo/6p": {
+        "games": 384,
+        "independent_deals": 16,
+        "win_rate": 0.34375,
+        "deal_bootstrap_95_interval": [
+          0.2916666666666667,
+          0.3984375
+        ],
+        "search_rollouts_reported": true,
+        "search_stats": {
+          "search_geo": {
+            "decisions": 87740,
+            "evaluations": 7144016,
+            "truncated": 0
+          }
+        },
+        "stage": "primary",
+        "by_rules": {
+          "original/open": {
+            "games": 96,
+            "independent_deals": 16,
+            "win_rate": 0.5104166666666666,
+            "deal_bootstrap_95_interval": [
+              0.41666666666666663,
+              0.5833333333333333
+            ]
+          },
+          "original/sealed": {
+            "games": 96,
+            "independent_deals": 16,
+            "win_rate": 0.19791666666666666,
+            "deal_bootstrap_95_interval": [
+              0.11458333333333331,
+              0.30208333333333326
+            ]
+          },
+          "recharged/open": {
+            "games": 96,
+            "independent_deals": 16,
+            "win_rate": 0.5104166666666666,
+            "deal_bootstrap_95_interval": [
+              0.39583333333333326,
+              0.625
+            ]
+          },
+          "recharged/sealed": {
+            "games": 96,
+            "independent_deals": 16,
+            "win_rate": 0.15625,
+            "deal_bootstrap_95_interval": [
+              0.10416666666666666,
+              0.21875
             ]
           }
         }
@@ -5126,6 +5180,55 @@
           }
         }
       },
+      "search_geo/6p": {
+        "overall": {
+          "games_per_model": 384,
+          "independent_deals": 16,
+          "win_share_difference": -0.07291666666666667,
+          "paired_deal_bootstrap_95_interval": [
+            -0.13541666666666669,
+            -0.005208333333333332
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games_per_model": 96,
+            "independent_deals": 16,
+            "win_share_difference": -0.06249999999999999,
+            "paired_deal_bootstrap_95_interval": [
+              -0.17708333333333331,
+              0.0625
+            ]
+          },
+          "original/sealed": {
+            "games_per_model": 96,
+            "independent_deals": 16,
+            "win_share_difference": -0.09375,
+            "paired_deal_bootstrap_95_interval": [
+              -0.21875,
+              0.03125000000000001
+            ]
+          },
+          "recharged/open": {
+            "games_per_model": 96,
+            "independent_deals": 16,
+            "win_share_difference": -0.05208333333333333,
+            "paired_deal_bootstrap_95_interval": [
+              -0.15625,
+              0.05208333333333333
+            ]
+          },
+          "recharged/sealed": {
+            "games_per_model": 96,
+            "independent_deals": 16,
+            "win_share_difference": -0.08333333333333333,
+            "paired_deal_bootstrap_95_interval": [
+              -0.17708333333333334,
+              0.010416666666666666
+            ]
+          }
+        }
+      },
       "legacy/6p": {
         "overall": {
           "games_per_model": 384,
@@ -6698,7 +6801,7 @@
       }
     }
   },
-  "games": 19776,
+  "games": 20160,
   "planned_games": 20160,
   "source_revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
   "source_sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb",
@@ -8142,6 +8245,36 @@
         "prefix": "runs/strategic-correction-screen-v1-11101-6p-economic-12-16",
         "verified_sha256": "720ef3a68258ef7769919bb529bbe07b9e17149ac9b0003bef4804ed8efcfe27",
         "evaluation_sha256": "bf36914b00a8b053dc1485d38f5eebd13b672d3617e52e5c38d32c0e7e1d568f"
+      }
+    ],
+    "11101/search_geo/6p": [
+      {
+        "key": "11101-6p-search_geo-0-4",
+        "revision": "4e69660927fea9130df4760177933b24b20b1e46",
+        "prefix": "runs/strategic-correction-screen-v1-11101-6p-search_geo-0-4",
+        "verified_sha256": "4a21e37566f30045b46251264284952d40f81f955eee2f4943ec7b6169ac676d",
+        "evaluation_sha256": "9c5bf4c8776c04f8016586a5d623ef8633f38a39f21b7fc6d381c26d679af8d2"
+      },
+      {
+        "key": "11101-6p-search_geo-4-8",
+        "revision": "0a91856d7bef619928aa533f665b25ea41e7fe7c",
+        "prefix": "runs/strategic-correction-screen-v1-11101-6p-search_geo-4-8",
+        "verified_sha256": "a0f361619ca8bd2698c5fc9f5efde5091744bb5f80e6ffe2d190a963222b02a7",
+        "evaluation_sha256": "2d652c5be0f500d37cc73bbe286b0ed575c90376f309aca33264458ec719bfe3"
+      },
+      {
+        "key": "11101-6p-search_geo-8-12",
+        "revision": "0a91856d7bef619928aa533f665b25ea41e7fe7c",
+        "prefix": "runs/strategic-correction-screen-v1-11101-6p-search_geo-8-12",
+        "verified_sha256": "caafd5c47ce32e9ec1655639108a300b5e25149453dd02846fe0d6e232b9b6b8",
+        "evaluation_sha256": "df5a2ee65a6f83c4416e17f606489825f7204bce469aaedbdef3ffcd62c41720"
+      },
+      {
+        "key": "11101-6p-search_geo-12-16",
+        "revision": "0a91856d7bef619928aa533f665b25ea41e7fe7c",
+        "prefix": "runs/strategic-correction-screen-v1-11101-6p-search_geo-12-16",
+        "verified_sha256": "0729f88cc76ae90378d2691bf7172fbc4b324d032afe98b4013a10148d3cc700",
+        "evaluation_sha256": "1590e4f16bb764323db8445c4d49cdbb931eb6f370ee9ebc451dce99de60d3ea"
       }
     ],
     "11101/legacy/6p": [

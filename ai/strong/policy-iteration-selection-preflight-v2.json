@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "real_input_hash_checks": 192,
+  "split_leakage_contract": true,
+  "order_and_outcome_independent_selection": true,
+  "round_and_deal_balance_contract": true,
+  "shortages_explicit": true,
+  "float32_hash_contract": true,
+  "protocol_sha256": "fc3da9fd41f2bf41a6e264c867ac163882a704b1f4d82049d333a74cddccc010",
+  "files": {
+    "ai/strong/policy-iteration-selection-protocol-v2.json": "fc3da9fd41f2bf41a6e264c867ac163882a704b1f4d82049d333a74cddccc010",
+    "ai/strong/policy_iteration_selection.py": "f47bfb0043ed5a731e70e6c046b9d06be416e1e6883bea1381eeec40b342dbeb",
+    "ai/strong/policy-iteration-input-hashes.cjs": "c9629dafb8cffd0fb26f2a33cf608354512faafaf3b6588db8f850311231e1f4",
+    "ai/strong/test-policy-iteration-selection.py": "13ff222e883718bc574704ed32a1fcb417b0b586e91c6070525c6b5500454892"
+  },
+  "labels_generated": false,
+  "trained": false,
+  "qualification_eligible": false
+}

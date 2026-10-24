@@ -1,23 +1,8 @@
 {
-  "complete": false,
-  "pending": [
-    "6p-economic-neural",
-    "6p-snapshot0-neural",
-    "5p-economic-neural",
-    "5p-snapshot0-neural",
-    "5p-snapshot0-neural_economic",
-    "4p-economic-neural",
-    "4p-snapshot0-neural",
-    "4p-snapshot0-neural_economic",
-    "3p-economic-neural",
-    "3p-economic-neural_economic",
-    "3p-snapshot0-neural",
-    "2p-economic-neural",
-    "2p-economic-neural_economic",
-    "2p-snapshot0-neural_economic"
-  ],
-  "verified_rollouts": 25920,
-  "complete_mixture_roots": 0,
+  "complete": true,
+  "pending": [],
+  "verified_rollouts": 88320,
+  "complete_mixture_roots": 39,
   "source": {
     "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
     "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
@@ -43,14 +28,1321 @@
     "qualification_eligible": false
   },
   "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
-  "records": [],
-  "summary": {},
+  "records": [
+    {
+      "rootId": "2:economic:48:14",
+      "players": 2,
+      "mode": "economic",
+      "variant": "original",
+      "split": "train",
+      "deal": 6,
+      "public_root_sha256": "7153150b2d0877d76d62850e6ab833d9f1f824209a38086906ef3d6bf4dc0568",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 2,
+          "policy_action": 2,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 2,
+          "policy_action": 2,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "2:economic:64:45",
+      "players": 2,
+      "mode": "economic",
+      "variant": "original",
+      "split": "validation",
+      "deal": 8,
+      "public_root_sha256": "8343e1e704b3d1a43de85bd07bd2a22805b0fa36284b2af8e62204c6bbba2524",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 10,
+          "policy_action": 10,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.17708333333333334,
+          "policy_choice_gain_under_policy_belief": 0.17708333333333334,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 10,
+          "policy_action": 10,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.16666666666666666,
+          "policy_choice_gain_under_policy_belief": 0.16666666666666666,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "2:economic:105:12",
+      "players": 2,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 13,
+      "public_root_sha256": "c4da4195e0349a954bde7562b90136e06cc2387e18b2844d52e6f379824930f4",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 7,
+          "policy_action": 43,
+          "different": true,
+          "old_choice_gain_under_policy_belief": -0.08854166666666667,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.08854166666666667
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 21,
+          "policy_action": 43,
+          "different": true,
+          "old_choice_gain_under_policy_belief": -0.13541666666666666,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.13541666666666666
+        }
+      ]
+    },
+    {
+      "rootId": "2:economic:97:24",
+      "players": 2,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 12,
+      "public_root_sha256": "0bd68d954fac4e7b491e88851531708b9f1cdc3d5e74004d1445bd8e1dfcb7e3",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 10,
+          "policy_action": 7,
+          "different": true,
+          "old_choice_gain_under_policy_belief": -0.125,
+          "policy_choice_gain_under_policy_belief": 0.0625,
+          "difference_under_policy_belief": 0.1875
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 7,
+          "policy_action": 7,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.052083333333333336,
+          "policy_choice_gain_under_policy_belief": 0.052083333333333336,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "2:snapshot0:56:48",
+      "players": 2,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "train",
+      "deal": 7,
+      "public_root_sha256": "5b76c8aa292279161657aac3cf58fd062680cce0247131deec08bc72825072f9",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 12,
+          "policy_action": 12,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.4791666666666667,
+          "policy_choice_gain_under_policy_belief": 0.4791666666666667,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 12,
+          "policy_action": 12,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.46875,
+          "policy_choice_gain_under_policy_belief": 0.46875,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "2:snapshot0:4:14",
+      "players": 2,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "validation",
+      "deal": 0,
+      "public_root_sha256": "4c59ca40869cf8f92e2295d772dafb2d42b0c70cbadd8a7e2a865d59bf3bfd9c",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 16,
+          "policy_action": 16,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 5,
+          "policy_action": 13,
+          "different": true,
+          "old_choice_gain_under_policy_belief": -0.036458333333333336,
+          "policy_choice_gain_under_policy_belief": -0.020833333333333332,
+          "difference_under_policy_belief": 0.015625000000000003
+        }
+      ]
+    },
+    {
+      "rootId": "2:snapshot0:41:16",
+      "players": 2,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 5,
+      "public_root_sha256": "cdbb4b131800a26ddbfe12df34fbc40116ff0c50c5c150fc2f7bf34f6c60bac7",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 5,
+          "policy_action": 5,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.03125,
+          "policy_choice_gain_under_policy_belief": 0.03125,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 7,
+          "policy_action": 5,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.052083333333333336,
+          "policy_choice_gain_under_policy_belief": 0.0625,
+          "difference_under_policy_belief": 0.010416666666666664
+        }
+      ]
+    },
+    {
+      "rootId": "2:snapshot0:101:3",
+      "players": 2,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 12,
+      "public_root_sha256": "db38c07749054d95484965460829f6bd9dac7cee05c0fc6481b091e4fdba4999",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 1,
+          "policy_action": 3,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.041666666666666664,
+          "policy_choice_gain_under_policy_belief": 0.08333333333333333,
+          "difference_under_policy_belief": 0.041666666666666664
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 7,
+          "policy_action": 3,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.07291666666666667,
+          "policy_choice_gain_under_policy_belief": 0.07291666666666667,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "3:economic:68:0",
+      "players": 3,
+      "mode": "economic",
+      "variant": "original",
+      "split": "train",
+      "deal": 5,
+      "public_root_sha256": "c77fff7a00a91fcc90906d67267660f6a37bdf08b4b574849dcba0bfd6ac8e88",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 4,
+          "policy_action": 23,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.03125,
+          "difference_under_policy_belief": 0.03125
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 47,
+          "policy_action": 2,
+          "different": true,
+          "old_choice_gain_under_policy_belief": -0.13541666666666666,
+          "policy_choice_gain_under_policy_belief": -0.03125,
+          "difference_under_policy_belief": 0.10416666666666666
+        }
+      ]
+    },
+    {
+      "rootId": "3:economic:8:4",
+      "players": 3,
+      "mode": "economic",
+      "variant": "original",
+      "split": "validation",
+      "deal": 0,
+      "public_root_sha256": "cdac0670177dd473f8421907beb044a42be035ae281d3c7a932925a60f56d88a",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 1,
+          "policy_action": 0,
+          "different": true,
+          "old_choice_gain_under_policy_belief": -0.03125,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.03125
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 4,
+          "policy_action": 0,
+          "different": true,
+          "old_choice_gain_under_policy_belief": -0.09375,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.09375
+        }
+      ]
+    },
+    {
+      "rootId": "3:economic:133:10",
+      "players": 3,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 11,
+      "public_root_sha256": "17d3a646184a7ad1874e6490b40b124749fadea15596138041c4b871c525bf46",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 7,
+          "policy_action": 8,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 1,
+          "policy_action": 8,
+          "different": true,
+          "old_choice_gain_under_policy_belief": -0.0625,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0625
+        }
+      ]
+    },
+    {
+      "rootId": "3:economic:53:22",
+      "players": 3,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 4,
+      "public_root_sha256": "ca8afe03fc7c76a53c9570f8ff31fc857f94644791ac5bd0b33c0d76af056acb",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 8,
+          "policy_action": 7,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.0625,
+          "policy_choice_gain_under_policy_belief": 0.08333333333333333,
+          "difference_under_policy_belief": 0.02083333333333333
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 8,
+          "policy_action": 7,
+          "different": true,
+          "old_choice_gain_under_policy_belief": -0.052083333333333336,
+          "policy_choice_gain_under_policy_belief": 0.0625,
+          "difference_under_policy_belief": 0.11458333333333334
+        }
+      ]
+    },
+    {
+      "rootId": "3:snapshot0:20:1",
+      "players": 3,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "train",
+      "deal": 1,
+      "public_root_sha256": "a24752775d1d5109e0f73d7d93854e2f1934b05d872558e687c426eca4841b16",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 4,
+          "policy_action": 4,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 47,
+          "policy_action": 47,
+          "different": false,
+          "old_choice_gain_under_policy_belief": -0.09375,
+          "policy_choice_gain_under_policy_belief": -0.09375,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "3:snapshot0:48:24",
+      "players": 3,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "validation",
+      "deal": 4,
+      "public_root_sha256": "b87dc3176b2f17e6a34b1ee0f64c7daa6baf8c02762e0500d8c9cb31a82d43e1",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 7,
+          "policy_action": 7,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.08333333333333333,
+          "policy_choice_gain_under_policy_belief": 0.08333333333333333,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 7,
+          "policy_action": 7,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.07291666666666667,
+          "policy_choice_gain_under_policy_belief": 0.07291666666666667,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "3:snapshot0:117:27",
+      "players": 3,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 9,
+      "public_root_sha256": "c4acf9fe5b8323ce747de028c342fa271b662b11f650b72365d882a9a2964c8d",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 14,
+          "policy_action": 14,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 14,
+          "policy_action": 14,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "3:snapshot0:97:26",
+      "players": 3,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 8,
+      "public_root_sha256": "b9608b732591d5c95d8312c1c7d7519fdb4def926a5c8ddbb4d1cb4b116520cb",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 4,
+          "policy_action": 4,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 13,
+          "policy_action": 2,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "4:economic:108:37",
+      "players": 4,
+      "mode": "economic",
+      "variant": "original",
+      "split": "train",
+      "deal": 6,
+      "public_root_sha256": "9abba3dd2e25825604770d44cc53e9d6abbd9ae5f7027d02a936af3bfbaff60b",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 7,
+          "policy_action": 7,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 7,
+          "policy_action": 7,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "4:economic:68:4",
+      "players": 4,
+      "mode": "economic",
+      "variant": "original",
+      "split": "validation",
+      "deal": 4,
+      "public_root_sha256": "f58ebbaafca385c608306571ae6a8506d93abaf7d7daeff2c9db8bb2f0851fec",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 5,
+          "policy_action": 3,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": -0.0625,
+          "difference_under_policy_belief": -0.0625
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 5,
+          "policy_action": 5,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "4:economic:245:30",
+      "players": 4,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 15,
+      "public_root_sha256": "5717901b0f19869a5463136fc2bdd0111d8c7cfa570d7b66b66a7b5f0e43d5a2",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 10,
+          "policy_action": 10,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 10,
+          "policy_action": 10,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "4:economic:5:0",
+      "players": 4,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 0,
+      "public_root_sha256": "6f57a537558f643e5a43b6d9571ad9b58b49f7d31cea01bed32725b72bcfa8ea",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 13,
+          "policy_action": 13,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 13,
+          "policy_action": 13,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "4:snapshot0:244:1",
+      "players": 4,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "train",
+      "deal": 15,
+      "public_root_sha256": "d8648804115435df9da9c6fa92fd2392fa5c8f3b68dbd9719815452df9261484",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 23,
+          "policy_action": 3,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": -0.10416666666666667,
+          "difference_under_policy_belief": -0.10416666666666667
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 23,
+          "policy_action": 4,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "4:snapshot0:128:9",
+      "players": 4,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "validation",
+      "deal": 8,
+      "public_root_sha256": "d538f87197f74b6ba19e8ca4583c6496ff85ced323ae1de693dd71ad78584aa8",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 0,
+          "policy_action": 0,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 4,
+          "policy_action": 2,
+          "different": true,
+          "old_choice_gain_under_policy_belief": -0.20833333333333334,
+          "policy_choice_gain_under_policy_belief": -0.020833333333333332,
+          "difference_under_policy_belief": 0.1875
+        }
+      ]
+    },
+    {
+      "rootId": "4:snapshot0:85:12",
+      "players": 4,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 5,
+      "public_root_sha256": "968e668356aab781f4514534429803f1f2990966c49acc3a74ffd70628f3d99e",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 9,
+          "policy_action": 2,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.020833333333333332,
+          "policy_choice_gain_under_policy_belief": -0.010416666666666666,
+          "difference_under_policy_belief": -0.03125
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 2,
+          "policy_action": 9,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.03125,
+          "policy_choice_gain_under_policy_belief": 0.020833333333333332,
+          "difference_under_policy_belief": -0.010416666666666668
+        }
+      ]
+    },
+    {
+      "rootId": "4:snapshot0:65:16",
+      "players": 4,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 4,
+      "public_root_sha256": "e657a92c257430b89574a997da280d4a805933854299c45ddffd6d8e19153356",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 23,
+          "policy_action": 23,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 26,
+          "policy_action": 26,
+          "different": false,
+          "old_choice_gain_under_policy_belief": -0.010416666666666666,
+          "policy_choice_gain_under_policy_belief": -0.010416666666666666,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "5:economic:260:11",
+      "players": 5,
+      "mode": "economic",
+      "variant": "original",
+      "split": "train",
+      "deal": 13,
+      "public_root_sha256": "5c035bda26fcae228418296efdbf347e71524f35250d4465fbbdba416958f9d4",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 47,
+          "policy_action": 4,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": -0.020833333333333332,
+          "difference_under_policy_belief": -0.020833333333333332
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 47,
+          "policy_action": 47,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "5:economic:201:19",
+      "players": 5,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 10,
+      "public_root_sha256": "76dc4c2a6593190f2e09135e5bda76082335d551fd233e0e44d6ba52d20c963c",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 22,
+          "policy_action": 22,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 22,
+          "policy_action": 22,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "5:economic:93:5",
+      "players": 5,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 4,
+      "public_root_sha256": "1ab85af12d748c7ea1778c0cd0f9c35c6ff3e90b044325d8860b2188810ba01c",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 9,
+          "policy_action": 9,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.052083333333333336,
+          "policy_choice_gain_under_policy_belief": 0.052083333333333336,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 9,
+          "policy_action": 35,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.0625,
+          "policy_choice_gain_under_policy_belief": 0.03125,
+          "difference_under_policy_belief": -0.03125
+        }
+      ]
+    },
+    {
+      "rootId": "5:snapshot0:212:0",
+      "players": 5,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "train",
+      "deal": 10,
+      "public_root_sha256": "3dc0a087ce8e681b4a6b108f3c7a6e29f9dddb725e52ad0039e5a881f1f47141",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 3,
+          "policy_action": 3,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 23,
+          "policy_action": 3,
+          "different": true,
+          "old_choice_gain_under_policy_belief": -0.21875,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.21875
+        }
+      ]
+    },
+    {
+      "rootId": "5:snapshot0:240:33",
+      "players": 5,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "validation",
+      "deal": 12,
+      "public_root_sha256": "ccabcf806cab6cced22ddc2a6538e859e3f12be4e2efab21df84337f6494c52a",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 5,
+          "policy_action": 5,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 5,
+          "policy_action": 5,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "5:snapshot0:285:27",
+      "players": 5,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 14,
+      "public_root_sha256": "e903655efc5bb4dff1a4e563ebf2349fd3b028585372b24f748aef69fd260865",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 8,
+          "policy_action": 8,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 8,
+          "policy_action": 8,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "5:snapshot0:173:10",
+      "players": 5,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 8,
+      "public_root_sha256": "e98d3814d167324e31762870c249fbe791a02fc81c1764797bb8487433b494e1",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 6,
+          "policy_action": 21,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.03125,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": -0.03125
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 10,
+          "policy_action": 12,
+          "different": true,
+          "old_choice_gain_under_policy_belief": -0.046875,
+          "policy_choice_gain_under_policy_belief": -0.046875,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "6:economic:316:29",
+      "players": 6,
+      "mode": "economic",
+      "variant": "original",
+      "split": "train",
+      "deal": 13,
+      "public_root_sha256": "9da010fbeadb6bddb1f6a9d8f47f5c9bb381e8bafdd368b378b95855c375ae06",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 9,
+          "policy_action": 9,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.5,
+          "policy_choice_gain_under_policy_belief": 0.5,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 9,
+          "policy_action": 9,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.5,
+          "policy_choice_gain_under_policy_belief": 0.5,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "6:economic:212:4",
+      "players": 6,
+      "mode": "economic",
+      "variant": "original",
+      "split": "validation",
+      "deal": 8,
+      "public_root_sha256": "6592808878178df3a12fa2e1ba2f2cd83e56c5e3d8d8d64b435ae3511ed87ccc",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 8,
+          "policy_action": 11,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 8,
+          "policy_action": 11,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "6:economic:169:32",
+      "players": 6,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 7,
+      "public_root_sha256": "63ca98cbae0524d130847ffaf19568f2d3ab93133f5a3235938358f1e4b599a9",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 7,
+          "policy_action": 7,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 7,
+          "policy_action": 7,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "6:economic:117:4",
+      "players": 6,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 4,
+      "public_root_sha256": "4acc43155798e2369db7975eb607439d697aa42236b4f7ddc98c1da8352fb3a7",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 40,
+          "policy_action": 40,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 40,
+          "policy_action": 40,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "6:snapshot0:140:28",
+      "players": 6,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "train",
+      "deal": 5,
+      "public_root_sha256": "cdf878ac8b4c785c35f259d7e7d23139a43c456ccc5d7a58636c06e6824fd1e3",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 8,
+          "policy_action": 8,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.6354166666666666,
+          "policy_choice_gain_under_policy_belief": 0.6354166666666666,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 8,
+          "policy_action": 8,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.6979166666666666,
+          "policy_choice_gain_under_policy_belief": 0.6979166666666666,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "6:snapshot0:296:18",
+      "players": 6,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "validation",
+      "deal": 12,
+      "public_root_sha256": "ee456301c1ad5a7b739f86b1fb6820b86b85b46545256f8882522fb5a150f4ae",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 5,
+          "policy_action": 5,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 5,
+          "policy_action": 5,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "6:snapshot0:61:20",
+      "players": 6,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 2,
+      "public_root_sha256": "af2c0056c9777c44eb975bd1b41339224564981a75bdf770be0b1b2385e30875",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 14,
+          "policy_action": 14,
+          "different": false,
+          "old_choice_gain_under_policy_belief": 0.041666666666666664,
+          "policy_choice_gain_under_policy_belief": 0.041666666666666664,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 16,
+          "policy_action": 16,
+          "different": false,
+          "old_choice_gain_under_policy_belief": -0.020833333333333332,
+          "policy_choice_gain_under_policy_belief": -0.020833333333333332,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    },
+    {
+      "rootId": "6:snapshot0:201:4",
+      "players": 6,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 8,
+      "public_root_sha256": "a331046553c7cad7ddac3ea72d633a49dd3401c5b868fc54996dedc72cfe88e7",
+      "directions": [
+        {
+          "selection_batch": "a",
+          "evaluation_batch": "b",
+          "old_action": 15,
+          "policy_action": 17,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        },
+        {
+          "selection_batch": "b",
+          "evaluation_batch": "a",
+          "old_action": 38,
+          "policy_action": 17,
+          "different": true,
+          "old_choice_gain_under_policy_belief": 0.0,
+          "policy_choice_gain_under_policy_belief": 0.0,
+          "difference_under_policy_belief": 0.0
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "all": {
+      "roots": 39,
+      "changed_directions": 31,
+      "old_choice_gain_under_policy_belief": 0.03812767094017094,
+      "policy_choice_gain_under_policy_belief": 0.05161591880341881,
+      "difference_under_policy_belief": 0.013488247863247866
+    },
+    "2p": {
+      "roots": 8,
+      "changed_directions": 7,
+      "old_choice_gain_under_policy_belief": 0.07226562500000001,
+      "policy_choice_gain_under_policy_belief": 0.10221354166666667,
+      "difference_under_policy_belief": 0.029947916666666664
+    },
+    "3p": {
+      "roots": 8,
+      "changed_directions": 9,
+      "old_choice_gain_under_policy_belief": -0.015625,
+      "policy_choice_gain_under_policy_belief": 0.013020833333333332,
+      "difference_under_policy_belief": 0.028645833333333332
+    },
+    "4p": {
+      "roots": 8,
+      "changed_directions": 6,
+      "old_choice_gain_under_policy_belief": -0.010416666666666668,
+      "policy_choice_gain_under_policy_belief": -0.01171875,
+      "difference_under_policy_belief": -0.001302083333333334
+    },
+    "5p": {
+      "roots": 7,
+      "changed_directions": 5,
+      "old_choice_gain_under_policy_belief": -0.008556547619047618,
+      "policy_choice_gain_under_policy_belief": 0.0011160714285714296,
+      "difference_under_policy_belief": 0.009672619047619046
+    },
+    "6p": {
+      "roots": 8,
+      "changed_directions": 4,
+      "old_choice_gain_under_policy_belief": 0.14713541666666666,
+      "policy_choice_gain_under_policy_belief": 0.14713541666666666,
+      "difference_under_policy_belief": 0.0
+    },
+    "source/economic": {
+      "roots": 19,
+      "changed_directions": 16,
+      "old_choice_gain_under_policy_belief": 0.022341008771929825,
+      "policy_choice_gain_under_policy_belief": 0.042214912280701754,
+      "difference_under_policy_belief": 0.01987390350877193
+    },
+    "source/snapshot0": {
+      "roots": 20,
+      "changed_directions": 15,
+      "old_choice_gain_under_policy_belief": 0.053125,
+      "policy_choice_gain_under_policy_belief": 0.060546875,
+      "difference_under_policy_belief": 0.007421875
+    },
+    "split/train": {
+      "roots": 20,
+      "changed_directions": 13,
+      "old_choice_gain_under_policy_belief": 0.067578125,
+      "policy_choice_gain_under_policy_belief": 0.0796875,
+      "difference_under_policy_belief": 0.012109374999999999
+    },
+    "split/validation": {
+      "roots": 19,
+      "changed_directions": 18,
+      "old_choice_gain_under_policy_belief": 0.007127192982456142,
+      "policy_choice_gain_under_policy_belief": 0.02206688596491228,
+      "difference_under_policy_belief": 0.014939692982456138
+    },
+    "variant/original": {
+      "roots": 19,
+      "changed_directions": 13,
+      "old_choice_gain_under_policy_belief": 0.07798793859649122,
+      "policy_choice_gain_under_policy_belief": 0.09100877192982455,
+      "difference_under_policy_belief": 0.013020833333333332
+    },
+    "variant/recharged": {
+      "roots": 20,
+      "changed_directions": 18,
+      "old_choice_gain_under_policy_belief": 0.00026041666666666715,
+      "policy_choice_gain_under_policy_belief": 0.014192708333333331,
+      "difference_under_policy_belief": 0.013932291666666666
+    }
+  },
   "provenance": [
+    {
+      "case": "6p-economic-neural",
+      "revision": "4e69660927fea9130df4760177933b24b20b1e46",
+      "prefix": "runs/sealed-belief-pilot-v1-6p-economic-neural",
+      "verified_sha256": "ae5d41e37717cb6bd98a698d98c85ed5bfc06129e03b7704ed34bf6c62e830f1"
+    },
     {
       "case": "6p-economic-neural_economic",
       "revision": "7439bfd16c8fa571a8a0d2ec067b62ce9e81fa68",
       "prefix": "runs/sealed-belief-pilot-v1-6p-economic-neural_economic",
       "verified_sha256": "29f6e2d11bfab1831f67181e761d0d015784793b7c43dda4a00f74d9514499e1"
+    },
+    {
+      "case": "6p-snapshot0-neural",
+      "revision": "4e69660927fea9130df4760177933b24b20b1e46",
+      "prefix": "runs/sealed-belief-pilot-v1-6p-snapshot0-neural",
+      "verified_sha256": "dc8d3c724356a4f1c20e2681ec3ecdc487f304ab46c8fb559443d99b0619f903"
     },
     {
       "case": "6p-snapshot0-neural_economic",
@@ -59,10 +1351,34 @@
       "verified_sha256": "8bdc49197f1b839bbdc581c2722edd52d25527864c2acae8f97679fd300b821e"
     },
     {
+      "case": "5p-economic-neural",
+      "revision": "4e69660927fea9130df4760177933b24b20b1e46",
+      "prefix": "runs/sealed-belief-pilot-v1-5p-economic-neural",
+      "verified_sha256": "1326aa9d272699dcc1b1e96035a9c0c322f9a6291687f97d03598e8defc11cff"
+    },
+    {
       "case": "5p-economic-neural_economic",
       "revision": "7439bfd16c8fa571a8a0d2ec067b62ce9e81fa68",
       "prefix": "runs/sealed-belief-pilot-v1-5p-economic-neural_economic",
       "verified_sha256": "a6d18425e101608694546c3cdac1cc534cf3c9ea7d7e7d6bb059f4a5a3ec60e5"
+    },
+    {
+      "case": "5p-snapshot0-neural",
+      "revision": "4e69660927fea9130df4760177933b24b20b1e46",
+      "prefix": "runs/sealed-belief-pilot-v1-5p-snapshot0-neural",
+      "verified_sha256": "dc64d46a31b321792f9de1dd36a0254fbc43a157fdeeab5b250b6a2b23b7323c"
+    },
+    {
+      "case": "5p-snapshot0-neural_economic",
+      "revision": "08ebef55565ff6e710bd5851b392dd515a574b0a",
+      "prefix": "runs/sealed-belief-pilot-v1-5p-snapshot0-neural_economic",
+      "verified_sha256": "fb3eb80a21df278d47414f7d7e00a91967bdd5c20cf8c4e2fe9a44d512fb926e"
+    },
+    {
+      "case": "4p-economic-neural",
+      "revision": "4e69660927fea9130df4760177933b24b20b1e46",
+      "prefix": "runs/sealed-belief-pilot-v1-4p-economic-neural",
+      "verified_sha256": "1e39e19db4c6aa4324539a8dbdcddb2e6fbda7fdd9ca3fa016c127e263e9e529"
     },
     {
       "case": "4p-economic-neural_economic",
@@ -71,16 +1387,64 @@
       "verified_sha256": "1805a950755b7a17eac06d96fa772cad3928fed20872e0efbd1132e6604e2a12"
     },
     {
+      "case": "4p-snapshot0-neural",
+      "revision": "d970f48ad6588c4b989552ca4413b79514623f28",
+      "prefix": "runs/sealed-belief-pilot-v1-4p-snapshot0-neural",
+      "verified_sha256": "b75fd95d46576c9b1c0aab64bff5cb6638e6dd42e06cd37e51677059f260296b"
+    },
+    {
+      "case": "4p-snapshot0-neural_economic",
+      "revision": "08ebef55565ff6e710bd5851b392dd515a574b0a",
+      "prefix": "runs/sealed-belief-pilot-v1-4p-snapshot0-neural_economic",
+      "verified_sha256": "1a485bbaf266ddaf29f388f84e726643825492350998469013132abefe4e765f"
+    },
+    {
+      "case": "3p-economic-neural",
+      "revision": "4e69660927fea9130df4760177933b24b20b1e46",
+      "prefix": "runs/sealed-belief-pilot-v1-3p-economic-neural",
+      "verified_sha256": "63ed8b52fb8a2988b6175197b4e9f3d192ad8501d0e27260a28bf7467bc11722"
+    },
+    {
+      "case": "3p-economic-neural_economic",
+      "revision": "08ebef55565ff6e710bd5851b392dd515a574b0a",
+      "prefix": "runs/sealed-belief-pilot-v1-3p-economic-neural_economic",
+      "verified_sha256": "63e82b0e9fda7509893e8f2e705b68c1b9ae095f735315eca9c30fdde4ff239c"
+    },
+    {
+      "case": "3p-snapshot0-neural",
+      "revision": "4e69660927fea9130df4760177933b24b20b1e46",
+      "prefix": "runs/sealed-belief-pilot-v1-3p-snapshot0-neural",
+      "verified_sha256": "755d0eb4dc44817953eccfc6994c7c1ff0decb49bdb0f781f077366eeaa605fb"
+    },
+    {
       "case": "3p-snapshot0-neural_economic",
       "revision": "dee6f22ef5182197fc3474cee784548902d9ea7c",
       "prefix": "runs/sealed-belief-pilot-v1-3p-snapshot0-neural_economic",
       "verified_sha256": "641d0cfaafd6b0ae14969c64800eef1f8a120dfbaa477c3d91df1142a54f2b1a"
     },
     {
+      "case": "2p-economic-neural",
+      "revision": "08ebef55565ff6e710bd5851b392dd515a574b0a",
+      "prefix": "runs/sealed-belief-pilot-v1-2p-economic-neural",
+      "verified_sha256": "422fcea10ab401ab1284d8776568bc9a9f35b5efe11fdcee4d9bc1e734670563"
+    },
+    {
+      "case": "2p-economic-neural_economic",
+      "revision": "08ebef55565ff6e710bd5851b392dd515a574b0a",
+      "prefix": "runs/sealed-belief-pilot-v1-2p-economic-neural_economic",
+      "verified_sha256": "e9aa77959d637a53e31682a759db35d45e2f9c844f0b1ef023c1ed2474989e7d"
+    },
+    {
       "case": "2p-snapshot0-neural",
       "revision": "dee6f22ef5182197fc3474cee784548902d9ea7c",
       "prefix": "runs/sealed-belief-pilot-v1-2p-snapshot0-neural",
       "verified_sha256": "db9e4c19507d8bd6c984bcf42720fc294467518f8240f9aafe54fd0596e71ed8"
+    },
+    {
+      "case": "2p-snapshot0-neural_economic",
+      "revision": "08ebef55565ff6e710bd5851b392dd515a574b0a",
+      "prefix": "runs/sealed-belief-pilot-v1-2p-snapshot0-neural_economic",
+      "verified_sha256": "d7713af6d454003f4f699b8597ffa2466b0344451df1897c83c36c6285dbd28d"
     }
   ],
   "qualification_eligible": false,

@@ -1,0 +1,1510 @@
+{
+  "checked_at": "2026-10-24T00:35:40.804912+00:00",
+  "artifact_revision": "4bf1f103d9ea53ea563d504c4b154ada2705da1d",
+  "jobs": [
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "11101",
+        "economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          2,
+          "11101",
+          "economic"
+        ],
+        "smoke_seconds": 13.847988845984219,
+        "conservative_scaled_seconds": 553.9195538393687,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:38.969927+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa4f046eb82b1ecd8bea",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/2p-11101-economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:55.319000+00:00",
+      "finished_at": "2026-10-24 00:25:30.710000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "11101",
+        "snapshot0"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          2,
+          "11101",
+          "snapshot0"
+        ],
+        "smoke_seconds": 49.85417010000674,
+        "conservative_scaled_seconds": 1994.1668040002696,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:40.065798+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa501e112550ce7daaa8",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/2p-11101-snapshot0.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:56.116000+00:00",
+      "finished_at": "2026-10-24 00:26:00.567000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "11102",
+        "economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          2,
+          "11102",
+          "economic"
+        ],
+        "smoke_seconds": 14.335766919015441,
+        "conservative_scaled_seconds": 573.4306767606176,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:41.161248+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa521e112550ce7daaaa",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/2p-11102-economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:56.533000+00:00",
+      "finished_at": "2026-10-24 00:25:29.924000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "11102",
+        "snapshot0"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          2,
+          "11102",
+          "snapshot0"
+        ],
+        "smoke_seconds": 51.322266439005034,
+        "conservative_scaled_seconds": 2052.8906575602014,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:42.246080+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa531e112550ce7daaac",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/2p-11102-snapshot0.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:57.030000+00:00",
+      "finished_at": "2026-10-24 00:26:06.512000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "parent",
+        "economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          2,
+          "parent",
+          "economic"
+        ],
+        "smoke_seconds": 10.90070779598318,
+        "conservative_scaled_seconds": 436.0283118393272,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:36.731708+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa4d046eb82b1ecd8be6",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/2p-parent-economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:42.264000+00:00",
+      "finished_at": "2026-10-24 00:24:59.629000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "parent",
+        "snapshot0"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          2,
+          "parent",
+          "snapshot0"
+        ],
+        "smoke_seconds": 38.851839796989225,
+        "conservative_scaled_seconds": 1554.073591879569,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:37.839985+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa4e046eb82b1ecd8be8",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/2p-parent-snapshot0.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:40.209000+00:00",
+      "finished_at": "2026-10-24 00:25:30.628000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "11101",
+        "economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          3,
+          "11101",
+          "economic"
+        ],
+        "smoke_seconds": 13.847988845984219,
+        "conservative_scaled_seconds": 553.9195538393687,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:32.369226+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa491e112550ce7daaa0",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/3p-11101-economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:44.855000+00:00",
+      "finished_at": "2026-10-24 00:25:45.319000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "11101",
+        "snapshot0"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          3,
+          "11101",
+          "snapshot0"
+        ],
+        "smoke_seconds": 49.85417010000674,
+        "conservative_scaled_seconds": 1994.1668040002696,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:33.461976+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa4a1e112550ce7daaa2",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/3p-11101-snapshot0.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:41.804000+00:00",
+      "finished_at": "2026-10-24 00:27:18.383000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "11102",
+        "economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          3,
+          "11102",
+          "economic"
+        ],
+        "smoke_seconds": 14.335766919015441,
+        "conservative_scaled_seconds": 573.4306767606176,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:34.579983+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa4b1e112550ce7daaa4",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/3p-11102-economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:39.816000+00:00",
+      "finished_at": "2026-10-24 00:25:38.337000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "11102",
+        "snapshot0"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          3,
+          "11102",
+          "snapshot0"
+        ],
+        "smoke_seconds": 51.322266439005034,
+        "conservative_scaled_seconds": 2052.8906575602014,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:35.650836+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa4c1e112550ce7daaa6",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/3p-11102-snapshot0.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:42.332000+00:00",
+      "finished_at": "2026-10-24 00:27:27.045000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "parent",
+        "economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          3,
+          "parent",
+          "economic"
+        ],
+        "smoke_seconds": 10.90070779598318,
+        "conservative_scaled_seconds": 436.0283118393272,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:30.166853+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa47046eb82b1ecd8be2",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/3p-parent-economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:41.046000+00:00",
+      "finished_at": "2026-10-24 00:25:24.464000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "parent",
+        "snapshot0"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          3,
+          "parent",
+          "snapshot0"
+        ],
+        "smoke_seconds": 38.851839796989225,
+        "conservative_scaled_seconds": 1554.073591879569,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:31.277700+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa48046eb82b1ecd8be4",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/3p-parent-snapshot0.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:42.105000+00:00",
+      "finished_at": "2026-10-24 00:26:54.744000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "11101",
+        "economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          4,
+          "11101",
+          "economic"
+        ],
+        "smoke_seconds": 13.847988845984219,
+        "conservative_scaled_seconds": 553.9195538393687,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:25.741052+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa42046eb82b1ecd8bd6",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/4p-11101-economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:41.667000+00:00",
+      "finished_at": "2026-10-24 00:26:38.313000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "11101",
+        "snapshot0"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          4,
+          "11101",
+          "snapshot0"
+        ],
+        "smoke_seconds": 49.85417010000674,
+        "conservative_scaled_seconds": 1994.1668040002696,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:26.866084+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa43046eb82b1ecd8bd8",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/4p-11101-snapshot0.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:40.591000+00:00",
+      "finished_at": "2026-10-24 00:30:23.767000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "11102",
+        "economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          4,
+          "11102",
+          "economic"
+        ],
+        "smoke_seconds": 14.335766919015441,
+        "conservative_scaled_seconds": 573.4306767606176,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:27.959096+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa44046eb82b1ecd8bda",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/4p-11102-economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:40.085000+00:00",
+      "finished_at": "2026-10-24 00:26:33.764000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "11102",
+        "snapshot0"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          4,
+          "11102",
+          "snapshot0"
+        ],
+        "smoke_seconds": 51.322266439005034,
+        "conservative_scaled_seconds": 2052.8906575602014,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:29.046843+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa45046eb82b1ecd8be0",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/4p-11102-snapshot0.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:39.752000+00:00",
+      "finished_at": "2026-10-24 00:30:14.938000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "parent",
+        "economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          4,
+          "parent",
+          "economic"
+        ],
+        "smoke_seconds": 10.90070779598318,
+        "conservative_scaled_seconds": 436.0283118393272,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:23.580273+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa401e112550ce7daa98",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/4p-parent-economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:40.592000+00:00",
+      "finished_at": "2026-10-24 00:26:05.108000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "parent",
+        "snapshot0"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          4,
+          "parent",
+          "snapshot0"
+        ],
+        "smoke_seconds": 38.851839796989225,
+        "conservative_scaled_seconds": 1554.073591879569,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:24.658798+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa41046eb82b1ecd8bd4",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/4p-parent-snapshot0.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:40.240000+00:00",
+      "finished_at": "2026-10-24 00:29:40.312000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "11101",
+        "economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          5,
+          "11101",
+          "economic"
+        ],
+        "smoke_seconds": 13.847988845984219,
+        "conservative_scaled_seconds": 553.9195538393687,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:19.200048+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa3c046eb82b1ecd8bc9",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/5p-11101-economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:30.785000+00:00",
+      "finished_at": "2026-10-24 00:26:58.539000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "11101",
+        "snapshot0"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          5,
+          "11101",
+          "snapshot0"
+        ],
+        "smoke_seconds": 49.85417010000674,
+        "conservative_scaled_seconds": 1994.1668040002696,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:20.281479+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa3d046eb82b1ecd8bcb",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/5p-11101-snapshot0.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:29.454000+00:00",
+      "finished_at": "2026-10-24 00:32:13.964000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "11102",
+        "economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          5,
+          "11102",
+          "economic"
+        ],
+        "smoke_seconds": 14.335766919015441,
+        "conservative_scaled_seconds": 573.4306767606176,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:21.395470+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa3e046eb82b1ecd8bcd",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/5p-11102-economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:27.473000+00:00",
+      "finished_at": "2026-10-24 00:26:54.150000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "11102",
+        "snapshot0"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          5,
+          "11102",
+          "snapshot0"
+        ],
+        "smoke_seconds": 51.322266439005034,
+        "conservative_scaled_seconds": 2052.8906575602014,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:22.491425+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa3f046eb82b1ecd8bcf",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/5p-11102-snapshot0.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:27.141000+00:00",
+      "finished_at": "2026-10-24 00:32:19.821000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "parent",
+        "economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          5,
+          "parent",
+          "economic"
+        ],
+        "smoke_seconds": 10.90070779598318,
+        "conservative_scaled_seconds": 436.0283118393272,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:16.957563+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa39046eb82b1ecd8bc5",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/5p-parent-economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:22:20.148000+00:00",
+      "finished_at": "2026-10-24 00:25:11.789000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "parent",
+        "snapshot0"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          5,
+          "parent",
+          "snapshot0"
+        ],
+        "smoke_seconds": 38.851839796989225,
+        "conservative_scaled_seconds": 1554.073591879569,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:18.072325+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa3b046eb82b1ecd8bc7",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/5p-parent-snapshot0.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:23:29.077000+00:00",
+      "finished_at": "2026-10-24 00:31:39.484000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "11101",
+        "economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          6,
+          "11101",
+          "economic"
+        ],
+        "smoke_seconds": 13.847988845984219,
+        "conservative_scaled_seconds": 553.9195538393687,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:12.224606+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa35046eb82b1ecd8bc1",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/6p-11101-economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:22:16.174000+00:00",
+      "finished_at": "2026-10-24 00:26:32.960000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "11101",
+        "snapshot0"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          6,
+          "11101",
+          "snapshot0"
+        ],
+        "smoke_seconds": 49.85417010000674,
+        "conservative_scaled_seconds": 1994.1668040002696,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:13.464542+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa361e112550ce7daa93",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/6p-11101-snapshot0.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:22:17.503000+00:00",
+      "finished_at": "2026-10-24 00:35:03.627000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "11102",
+        "economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          6,
+          "11102",
+          "economic"
+        ],
+        "smoke_seconds": 14.335766919015441,
+        "conservative_scaled_seconds": 573.4306767606176,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:14.761850+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa371e112550ce7daa95",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/6p-11102-economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:22:18.550000+00:00",
+      "finished_at": "2026-10-24 00:26:33.378000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "11102",
+        "snapshot0"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          6,
+          "11102",
+          "snapshot0"
+        ],
+        "smoke_seconds": 51.322266439005034,
+        "conservative_scaled_seconds": 2052.8906575602014,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:15.871180+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa38046eb82b1ecd8bc3",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/6p-11102-snapshot0.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:22:19.728000+00:00",
+      "finished_at": "2026-10-24 00:35:01.867000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "parent",
+        "economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          6,
+          "parent",
+          "economic"
+        ],
+        "smoke_seconds": 10.90070779598318,
+        "conservative_scaled_seconds": 436.0283118393272,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:10.508449+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa33046eb82b1ecd8bb9",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/6p-parent-economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:22:14.183000+00:00",
+      "finished_at": "2026-10-24 00:25:38.876000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "parent",
+        "snapshot0"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+        "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+        "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+        "bytes": 22598854,
+        "base": {
+          "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+          "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+          "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+        },
+        "overlays": {
+          "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+          "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+          "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+          "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+          "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+          "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+        },
+        "unchanged_base_files": 1419,
+        "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "timeout_hours": 4,
+      "admission": {
+        "case": [
+          6,
+          "parent",
+          "snapshot0"
+        ],
+        "smoke_seconds": 38.851839796989225,
+        "conservative_scaled_seconds": 1554.073591879569,
+        "timeout_seconds": 14400
+      },
+      "created_at": "2026-10-24T00:22:11.353147+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbfa34046eb82b1ecd8bbf",
+      "guard": "ai/runs/policy-iteration-collection-launches-v2/6p-parent-snapshot0.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:22:15.189000+00:00",
+      "finished_at": "2026-10-24 00:34:19.440000+00:00"
+    }
+  ],
+  "status_counts": {
+    "COMPLETED": 30
+  },
+  "qualification_eligible": false
+}

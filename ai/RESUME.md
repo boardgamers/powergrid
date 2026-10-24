@@ -1,46 +1,28 @@
 # Power Grid AI — ACTIVE, resumed 23 October 2026
 
 **Start with [the current resumption handoff](HANDOFF-2026-10-23-RESUMED.md).**
-The user explicitly resumed training on 23 October. The research goal is active.
-All jobs left at the previous pause completed and their outputs were recovered.
-All 140 remaining teacher shards and 108 parent reference arena shards have
-been submitted. Do not duplicate them. Current authoritative status timestamps
-and exact handles are in [teacher jobs](strong/strategic-teacher-training-status-v1.json)
-and [development arenas](strong/strategic-correction-screen-status-v1.json).
-The three historical image-pull errors already have completed replacements.
+The user resumed training. HF Jobs are authorized; no model is qualified or
+published, and the reserved final-test seeds remain unused.
 
-All 160 teacher shards are verified (1,836,672 completed simulations). L4 job
-`6adbddc9046eb82b1ecd7ac0` completed and both seeds passed independent verification:
-11101/epoch30 and 11102/epoch50. Their four runtime probes are verified and all
-216 full candidate arena shards (13,440 games) are submitted. The 6,720-game
-parent reference is complete. Both standalone models passed all 5,106 requests
-on the actual AMD 8840U, with warm p95 under 6.7ms and identical moves to the
-frozen evaluation runtime. Do not retrain or duplicate jobs. See the handoff for handles,
-model hashes, evidence revisions and the ordered continuation. No model is
-qualified; reserved final-test seeds remain unused.
+Latest 24 October continuation made **progress**:
+- All 20,160 original strategic-model development games are verified. Both
+  candidates regress and are rejected for promotion; the parent also remains
+  below the strength gate. All old teacher/arena/gradient jobs are finished.
+- All 88,320 revised sealed-belief pilot continuations are independently verified.
+  Cross-batch recommendations improve modestly overall under the revised
+  simulated beliefs, with mixed count-level results. This is not real-game strength.
+- Thirty fresh policy-visited collection jobs are submitted:7,680 unique games
+  across 2–6 players/all four rules/three behavior policies/two opponent sources.
+  At 2026-10-24T00:35:40.804912+00:00: {'COMPLETED': 30}.
+  At this checkpoint 4,800 games / 246,426 positions are locally verified.
+- Frozen balanced selection targets at most 17,280 positions, excludes duplicate
+  public states and equivalent model inputs across train/validation, and keeps
+  whole deals together. No new labels or gradients have started.
 
-
-24 October update: **19,392 fixed-screen games are verified**; only the
-8 existing 6p search shards remain. One failed job has one exact live replacement;
-see the handoff and timestamped status, never duplicate it. All 120 phase-isolation
-jobs are complete: 7,680 games, 104,641 independently reproduced disagreement
-states. Both candidates regress, including isolated phases. A read-only 320-root
-sealed-auction audit found the teacher's uniform/no-pass committed-bid assumption
-is inconsistent with its opponent policies. Calibration, full phase results,
-source pins and immutable HF evidence are linked in the handoff. Next: separate
-versioned belief correction and targeted on-policy data/teacher pilots; no new
-candidate is selected. No GPU training or phase-isolation job remains active.
-
-
-Latest continuation: the separate policy-consistent sealed-bid teacher passed
-192 complete rollout checks, 64 archived trajectory checks and 317 public-prompt inference
-checks. All 20 HF pilot jobs are submitted (39 positions, 88,320 continuations).
-At 2026-10-24T00:07:10.411047+00:00, 25,920 rollouts are independently verified;
-there are no complete opponent-mixture root comparisons yet. Use
-`manage-sealed-belief-pilot.py status/collect/compare`; do not relaunch jobs.
-Original candidate screen: 19,776/20,160 complete-cell games, only the existing
-11101 6p replacement remains. New source pins, exact handles, evidence archives,
-limitations and next data-coverage work are in the handoff. The goal is active.
+Use the handoff's exact source pins, handles, logs, evidence revisions and ordered
+continuation. Inspect active local collectors/indexers before starting another;
+never duplicate an HF job on a quiet log. Current job snapshot:
+[collection jobs](strong/policy-iteration-collection-status-v2.json).
 
 ---
 

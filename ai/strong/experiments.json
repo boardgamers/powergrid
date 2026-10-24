@@ -43474,13 +43474,12 @@
         "planned_roots": 39,
         "planned_searches": 312,
         "planned_rollouts": 88320,
-        "status_checked_at": "2026-10-24T00:07:10.411047+00:00",
+        "status_checked_at": "2026-10-24T00:25:14.733173+00:00",
         "status_counts": {
-            "RUNNING": 14,
-            "COMPLETED": 6
+            "COMPLETED": 20
         },
-        "independently_verified_rollouts": 25920,
-        "complete_mixture_roots": 0,
+        "independently_verified_rollouts": 88320,
+        "complete_mixture_roots": 39,
         "evidence": {
             "revision": "584a19ffe3fa83092f8afca81bd141430c77d882",
             "prefix": "runs/sealed-belief-pilot-evidence-v1",
@@ -43489,12 +43488,115 @@
             "qualification_eligible": false,
             "scope": "Launch/preflight and partial pilot snapshot; no trained model or strength claim"
         },
-        "screen_games_verified": 19776,
-        "remaining_screen_job": "6adbed2f046eb82b1ecd8532",
+        "screen_games_verified": 20160,
+        "remaining_screen_job": null,
         "trained": false,
         "candidate_selected": false,
         "qualification_eligible": false,
         "final_seeds_used": false,
-        "next": "Finish the existing paired pilot and original search job; assess conditional recommendations. Then collect broader policy-visited data on fresh seeds with fresh development holdouts before further HF-only gradients."
+        "next": "Use checked revised beliefs in separately frozen broader teacher-label probes; original pilot and screens complete.",
+        "complete": true,
+        "complete_evidence": {
+            "revision": "9dd714c9b1fe94bff256fb6a6cf6be3c3c8035a3",
+            "prefix": "runs/sealed-belief-pilot-complete-evidence-v1",
+            "manifest_sha256": "d0387ab1fefa276e1a08c2b008b4a7820a3b39a579f8398453a9800403b138ab",
+            "file_count": 66,
+            "verified_rollouts": 88320,
+            "roots": 39,
+            "scope": "Complete conditional teacher diagnostic; no candidate or real-game strength claim",
+            "qualification_eligible": false
+        }
+    },
+    "strategic_correction_complete_development_v2": {
+        "date": "2026-10-24",
+        "games": 20160,
+        "assessment": "ai/strong/strategic-correction-development-assessment-v2.json",
+        "evidence": {
+            "revision": "d07927e1d1862d33e95fc20d413c474ee9db1f8f",
+            "prefix": "runs/strategic-correction-complete-arena-evidence-v1",
+            "manifest_sha256": "25f6a6769357ea5b15ee0da23b0ca14c4038e07289d1563ac0df96f416283241",
+            "file_count": 667,
+            "games": 20160,
+            "qualification_eligible": false
+        },
+        "candidate_selected": false,
+        "qualification_eligible": false,
+        "final_seeds_used": false
+    },
+    "policy_iteration_collection_v2": {
+        "date": "2026-10-24",
+        "previous_turn_classification": "progress",
+        "turn_classification": "progress",
+        "source": {
+            "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+            "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+            "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+            "bytes": 22598854,
+            "base": {
+                "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+                "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+                "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+            },
+            "overlays": {
+                "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+                "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+                "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+                "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+                "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+                "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+            },
+            "unchanged_base_files": 1419,
+            "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+            "qualification_eligible": false
+        },
+        "protocol": "ai/strong/policy-iteration-collection-protocol-v2.json",
+        "preflight": "ai/strong/policy-iteration-collection-preflight-v2.json",
+        "jobs_submitted": 30,
+        "planned_unique_games": 7680,
+        "planned_engine_game_runs": 15360,
+        "status_checked_at": "2026-10-24T00:35:40.804912+00:00",
+        "status_counts": {
+            "COMPLETED": 30
+        },
+        "verified_cases": 21,
+        "verified_games": 4800,
+        "verified_roots": 246426,
+        "launch_evidence": {
+            "revision": "c77189f294e79f4f1747dcd08acb742d0fc31140",
+            "prefix": "runs/policy-iteration-collection-launch-evidence-v2",
+            "manifest_sha256": "7af5121df43c8f64310a8fcaa00eef7bd22982997b8667e904d34914e078124e",
+            "file_count": 47,
+            "jobs_submitted": 30,
+            "planned_unique_games": 7680,
+            "scope": "Collection source/preflight and exact launch guards; no labels or gradients",
+            "qualification_eligible": false
+        },
+        "selection_source": {
+            "revision": "6f57f383d84fe1095455371ffa6a0b3c3d6f0809",
+            "prefix": "runs/policy-iteration-selection-source-v2",
+            "manifest_sha256": "63e3e68e96c083ad3c081a7e2256d9c396bbdc020bcda8ae26acb71d88178a4e",
+            "files": {
+                "ai/strong/policy-iteration-selection-protocol-v2.json": "fc3da9fd41f2bf41a6e264c867ac163882a704b1f4d82049d333a74cddccc010",
+                "ai/strong/policy_iteration_selection.py": "f47bfb0043ed5a731e70e6c046b9d06be416e1e6883bea1381eeec40b342dbeb",
+                "ai/strong/policy-iteration-input-hashes.cjs": "c9629dafb8cffd0fb26f2a33cf608354512faafaf3b6588db8f850311231e1f4",
+                "ai/strong/test-policy-iteration-selection.py": "13ff222e883718bc574704ed32a1fcb417b0b586e91c6070525c6b5500454892",
+                "ai/strong/policy-iteration-selection-preflight-v2.json": "19fbd2df69ec99ffa44fe621cf4a46118b36d135e1b8eb6b7c76687cd962ec20",
+                "ai/runs/policy-iteration-selection-preflight-v2.log": "c0d734d37f298a2baf57384a6c190b51f26cf6f2d3e39e1bcab6fa407c115881"
+            },
+            "protocol_sha256": "fc3da9fd41f2bf41a6e264c867ac163882a704b1f4d82049d333a74cddccc010",
+            "labels_generated": false,
+            "trained": false,
+            "qualification_eligible": false
+        },
+        "selection_maximum_roots": 17280,
+        "selection_preflight": "ai/strong/policy-iteration-selection-preflight-v2.json",
+        "labels_generated": false,
+        "trained": false,
+        "qualification_eligible": false,
+        "final_seeds_used": false,
+        "next": "Finish exact existing collection/indexing; select and archive balanced roots; separately freeze and preflight revised teacher-label design before scaling labels or HF gradients.",
+        "collection_results": "ai/strong/policy-iteration-collection-results-v2.json",
+        "local_collection_log": "ai/runs/policy-iteration-collection-collect-pass2-v2.log",
+        "local_index_log": "ai/runs/policy-iteration-selection-index-pass3-v2.log"
     }
 }

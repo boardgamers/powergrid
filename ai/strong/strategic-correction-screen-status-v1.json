@@ -1,13 +1,12 @@
 {
-  "checked_at": "2026-10-24T00:07:14.709558+00:00",
-  "artifact_revision": "dee6f22ef5182197fc3474cee784548902d9ea7c",
+  "checked_at": "2026-10-24T00:20:47.582262+00:00",
+  "artifact_revision": "4e69660927fea9130df4760177933b24b20b1e46",
   "submitted_shards": 331,
   "status_counts": {
-    "COMPLETED": 329,
-    "RUNNING": 1,
+    "COMPLETED": 330,
     "ERROR": 1
   },
-  "historical_errors_with_completed_replacements": 0,
+  "historical_errors_with_completed_replacements": 1,
   "jobs": [
     {
       "stage": "launched",
@@ -6201,10 +6200,10 @@
       "retry_reason": "Job failed with exit code: 137. Reason: Error",
       "job_id": "6adbed2f046eb82b1ecd8532",
       "guard": "ai/runs/strategic-correction-screen-launches-v1/11101-6p-search_geo-0-4-retry1.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-23 23:27:05.835000+00:00",
-      "finished_at": null
+      "finished_at": "2026-10-24 00:18:06.676000+00:00"
     },
     {
       "stage": "launched",
@@ -6264,7 +6263,9 @@
       "message": "Job failed with exit code: 137. Reason: Error",
       "started_at": "2026-10-23 23:01:01.760000+00:00",
       "finished_at": "2026-10-23 23:21:07.729000+00:00",
-      "completed_replacement_job_ids": []
+      "completed_replacement_job_ids": [
+        "6adbed2f046eb82b1ecd8532"
+      ]
     },
     {
       "stage": "launched",

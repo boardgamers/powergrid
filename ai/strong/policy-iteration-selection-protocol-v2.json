@@ -1,0 +1,94 @@
+{
+  "version": 2,
+  "collection_source": {
+    "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+    "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+    "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+    "bytes": 22598854,
+    "base": {
+      "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+      "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+      "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+    },
+    "overlays": {
+      "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+      "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+      "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+      "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+      "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+    },
+    "unchanged_base_files": 1419,
+    "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+    "qualification_eligible": false
+  },
+  "goal": "Broader strategic training positions visited by parent and changed policies; selection does not read game outcomes, teacher values, or policy agreement.",
+  "players": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "behaviors": [
+    "parent",
+    "11101",
+    "11102"
+  ],
+  "opponents": [
+    "economic",
+    "snapshot0"
+  ],
+  "decisions": [
+    "nomination",
+    "bid",
+    "building"
+  ],
+  "variants": [
+    "original",
+    "recharged"
+  ],
+  "auction_modes": [
+    "open",
+    "sealed"
+  ],
+  "per_cell": {
+    "train": 36,
+    "validation": 12
+  },
+  "planned_maximum_roots": 17280,
+  "round_bands": [
+    "early",
+    "middle",
+    "late"
+  ],
+  "round_band_definition": {
+    "early": "round <= 4",
+    "middle": "5 <= round <= 8",
+    "late": "round >= 9"
+  },
+  "selection": "Globally deduplicate public requests and normalized float32 parent inputs. Validation wins any cross-split duplicate; choose hash-ranked representative. In each count/behavior/opponent/variant/auction/decision/split cell, take one third from each round band, balancing deals then games, with SHA256 root-ID ties. Fill missing band quota from the remaining cell; report any cell shortage without replacement or protocol changes.",
+  "split": "Original whole-deal split from collection; never change assignment to fill quotas. Fresh development prefix policy-iteration-development-v2 stays unused.",
+  "input_hash": "SHA256 of JSON [1216,action_count,100], float32 little-endian state, then lexicographically sorted float32 little-endian action rows with multiplicities; normalize signed zero. No model inference or outcome inputs.",
+  "rank_prefix": "policy-iteration-selection-v2:",
+  "index_fields": [
+    "rootId",
+    "rootIndex",
+    "public_root_sha256",
+    "players",
+    "behavior",
+    "mode",
+    "episode",
+    "ordinal",
+    "deal",
+    "split",
+    "gameSeed",
+    "variant",
+    "sealed",
+    "round",
+    "decision"
+  ],
+  "labels_generated": false,
+  "trained": false,
+  "qualification_eligible": false
+}

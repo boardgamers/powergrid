@@ -28,6 +28,124 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
+## Latest continuation: completed evaluations and fresh policy-visited data
+
+This turn made **progress**. The original fixed comparison is now complete:
+**20,160 verified games**, 6,720 per model across all 27 opponent/count cells.
+Both candidates are rejected for promotion. Model 11101 has 11 negative and no
+positive marginal 95% contrasts; model 11102 has 17 negative and one positive
+contrast (4p geographic search). These are exploratory development intervals.
+The parent itself is still below the strength requirements. The exact 6p retry
+completed successfully; no original arena, teacher, phase-ablation or GPU job
+remains active. Do not repeat those jobs or spend reserved final-test seeds.
+
+Complete arena assessment: `strong/strategic-correction-development-assessment-v2.json`.
+Evidence: model-repo revision `d07927e1d1862d33e95fc20d413c474ee9db1f8f`,
+prefix `runs/strategic-correction-complete-arena-evidence-v1` (667 files).
+This preserves every positive/adverse cell and the historical exit137 failure.
+
+The sealed-belief pilot is also **complete**: all 20 jobs, 39 positions,
+312 searches and 88,320 full continuations independently checked, including
+44,160 uniform-control continuations exactly reproducing historical results.
+Cross-batch recommendation gain under policy-consistent worlds is +.013488
+terminal win credit overall; by count: 2p +.029948, 3p +.028646,
+4p −.001302, 5p +.009673, 6p 0. Validation positions average +.014940. Recommendations change
+in 31/78 A-to-B/B-to-A directions. This is a small conditional diagnostic,
+**not real-game improvement or a newly trained model**. The correction is
+principled but cannot explain or repair all nomination/open-auction/building
+regressions. Complete evidence: revision `9dd714c9b1fe94bff256fb6a6cf6be3c3c8035a3`,
+prefix `runs/sealed-belief-pilot-complete-evidence-v1` (66 files).
+
+A new collection now covers states visited by **all three fixed behavior
+policies** (parent, 11101, 11102), versus economic or parent opponents, at every
+player count from 2 through 6, edition, auction variant and focal seat. Opponents are always the
+frozen parent in self-play-source cases, never inadvertently the changed model.
+Every position records the actual behavior action and independently recomputed
+parent action. Public cash is retained; hidden bids/deck/seed/log/plans and all
+lastMove fields are removed. Each game is executed with and without capture;
+every observation, action and terminal result must agree. No outcome filters
+which positions are captured.
+
+All **30 HF cpu-performance jobs** completed (4h timeout, 24 workers each).
+Planned work: 7,680 unique games/15,360 control+capture executions, 16 fresh deals
+per case. At `2026-10-24T00:35:40.804912+00:00` the authoritative snapshot is
+{'COMPLETED': 30}. Locally verified at this document checkpoint:
+21 cases / 4,800 games / 246,426 positions. All HF collection jobs completed successfully. Collection and input
+indexing may still be running locally: inspect their processes and logs before
+starting another collector/indexer. A quiet log is not a job failure.
+
+Frozen source:
+
+- Dataset revision `f430e2269d37d1e705eeffe25e87f007530db920`.
+- Archive `strong-source-policy-iteration-collection-20261024-v2.tgz`.
+- SHA256 `64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75`.
+- Six new files; all 1,419 historical base files retained byte-for-byte.
+- Preflight: 5,106 capture/privacy checks, 192 complete games/384 twins,
+  9,408 independently reproduced positions; parent cases also match the original
+  historical bridge before its actor metadata addition.
+- Launch/preflight evidence: revision `c77189f294e79f4f1747dcd08acb742d0fc31140`,
+  prefix `runs/policy-iteration-collection-launch-evidence-v2` (47 files).
+
+The outcome-blind selection protocol is also frozen. It targets at most
+**17,280 positions** (12,960 train/4,320 validation), balanced by count,
+behavior, opponent, edition, auction mode and nomination/bid/build decision.
+Within cells it balances early/middle/late rounds and deals/seats; shortages
+are reported, never fabricated or filled by reassigning validation deals.
+Public-request duplicates and equivalent float32 model inputs are globally
+removed. Any duplicate appearing in validation is excluded from training.
+Action-row order and signed zero cannot hide identical inputs. Four held-out
+collection deals per case stay together across seats and rules.
+
+Selection code/protocol/tests are frozen at model-repo revision
+`6f57f383d84fe1095455371ffa6a0b3c3d6f0809`, prefix `runs/policy-iteration-selection-source-v2`;
+protocol SHA `fc3da9fd41f2bf41a6e264c867ac163882a704b1f4d82049d333a74cddccc010`. Preflight compares 192
+actual archived inputs to an independent Python hash, and checks split leakage,
+order/outcome independence, balancing and explicit shortages. This is data
+preparation only: **no new labels, gradient runs, selected model or deployment**.
+
+Resume in order:
+
+1. Inspect existing processes and job handles. Collection guards are
+   `ai/runs/policy-iteration-collection-launches-v2`; the manager below only
+   collects completed jobs and preserves immutable revisions for partial downloads.
+2. Finish independent collection verification, then index remaining verified
+   cases with the frozen encoder and complete balanced selection. Never run two
+   collectors or indexers concurrently against the same directories.
+3. Archive verified results and selected positions with exact hashes and
+   update these checkpoint counts. Do not regenerate old teacher manifests.
+4. Freeze a separate teacher-label protocol on these new positions, use the
+   checked policy-consistent belief worker, and first run full-horizon runtime/
+   correctness probes. Decide candidate coverage and uncertainty before scaling
+   labels or selecting a new training design. The old 4.3 serving mask only
+   allows its fixed six-proposal shortlist plus parent; expanding teacher
+   actions alone would not expand what that model can choose at runtime.
+5. Train only on HF Jobs, with fresh development prefix
+   `policy-iteration-development-v2` and the original reserved final gate intact.
+   Broader data is a response to coverage/generalization failures, not proof of
+   a stronger model. No architecture, loss or new gradient run has been admitted yet.
+
+```bash
+ai/.venv/bin/python ai/strong/manage-policy-iteration-collection.py status
+ai/.venv/bin/python ai/strong/manage-policy-iteration-collection.py collect
+ai/.venv/bin/python ai/strong/manage-policy-iteration-collection.py summarize
+ai/.venv/bin/python ai/strong/policy_iteration_selection.py index
+ai/.venv/bin/python ai/strong/policy_iteration_selection.py select
+```
+
+Verified data: `ai/runs/policy-iteration-collection-verified-v2`.
+Frozen verifier runtime: `ai/runs/policy-iteration-collection-collector-v2`.
+Index: `ai/runs/policy-iteration-selection-index-v2`.
+Selected output (only after all 30 cases verify): `ai/runs/policy-iteration-selected-v2`.
+The first local collector finished 21 cases; its results are in
+`strong/policy-iteration-collection-results-v2.json`. The second collector is
+verifying the remaining nine cases with 8 independent processes (one ORT thread
+each), logged at `ai/runs/policy-iteration-collection-collect-pass2-v2.log`.
+The third indexing pass is logged at
+`ai/runs/policy-iteration-selection-index-pass3-v2.log`. Earlier passes finished.
+The collector now holds an exclusive local lock; indexers still require a
+process check before resuming. Do not run the selection until all 30 cases have
+verified and every case has its checked input index.
+
 ## 24 October continuation: revised teacher and 20-job paired pilot
 
 The previous goal turn was **progress** (phase ablations, calibration and the

@@ -1,0 +1,106 @@
+{
+  "purpose": "Fresh policy-visited public roots with parent and both fixed changed policies. No outcome filtering, labels, gradients or strength claims.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "models": {
+    "parent": {
+      "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+      "prefix": "runs/discard-correction-v1/10102/derivative",
+      "files": {
+        "inference64.onnx": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+        "inference64.pt": "25e9995c3998cc9f09e1dafb40f0328ae09e616f791c10e793eaad42cfa5e473"
+      },
+      "feature_revision": "4.2-discard-correction",
+      "selected_epoch": 10,
+      "key": "parent",
+      "repo": "coyotte508/powergrid-ai-germany-v1",
+      "seed": 10102,
+      "training_verified": true,
+      "parent_frozen": true
+    },
+    "11101": {
+      "key": "11101",
+      "repo": "coyotte508/powergrid-ai-germany-v1",
+      "revision": "6be6f2af36d3382d43013621eab382c16a4cc1ae",
+      "prefix": "runs/strategic-correction-v1/11101/derivative",
+      "files": {
+        "inference64.onnx": "9f8d87b28dc1ed76770e7ffe8457a87fb3fb014d866b43b571ce838b87ff0f32",
+        "inference64.pt": "d271b7a28a9a33edacbebf3d6e398d18cd97b549768c24557a8b11d57564fb54"
+      },
+      "feature_revision": "4.3-strategic-correction",
+      "seed": 11101,
+      "selected_epoch": 30,
+      "training_verified": true,
+      "parent_frozen": true,
+      "strict_parity_positions": 2553,
+      "training_verified_sha256": "40e0495e736942566c15c4dec2fe039d15ac3069e6b605f5e6ebb69051455ea6",
+      "qualification_eligible": false
+    },
+    "11102": {
+      "key": "11102",
+      "repo": "coyotte508/powergrid-ai-germany-v1",
+      "revision": "6be6f2af36d3382d43013621eab382c16a4cc1ae",
+      "prefix": "runs/strategic-correction-v1/11102/derivative",
+      "files": {
+        "inference64.onnx": "85a8885a0f30b32f7f4c131f2d07003724ee4cd5e8c682c4d20d2842ef60ec09",
+        "inference64.pt": "65d95f80e7841bde3438dbd5ba89a03b675715ffaf1d9c1322fcb05fbba49f71"
+      },
+      "feature_revision": "4.3-strategic-correction",
+      "seed": 11102,
+      "selected_epoch": 50,
+      "training_verified": true,
+      "parent_frozen": true,
+      "strict_parity_positions": 2553,
+      "training_verified_sha256": "40e0495e736942566c15c4dec2fe039d15ac3069e6b605f5e6ebb69051455ea6",
+      "qualification_eligible": false
+    }
+  },
+  "behaviors": [
+    "parent",
+    "11101",
+    "11102"
+  ],
+  "opponents": [
+    "economic",
+    "snapshot0"
+  ],
+  "opponent_snapshot": "parent",
+  "players": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "deals": 16,
+  "validation_deals": [
+    0,
+    4,
+    8,
+    12
+  ],
+  "workers": 24,
+  "ort_threads": 1,
+  "max_steps": 1600,
+  "seed_template": "policy-iteration-training-v2-{players}p-{behavior}-{opponent}",
+  "smoke_seed_template": "policy-iteration-plumbing-v2-{players}p-{behavior}-{opponent}",
+  "fresh_development_prefix": "policy-iteration-development-v2",
+  "reserved_final_protocol_unchanged": true,
+  "root_capture": "Every designated learner multi-choice nomination/bid/build decision before its action; include negative-policy trajectories without selecting by terminal outcomes.",
+  "root_proposals": "Save the actual behavior action separately. model_proposal/model_move always denote the unchanged parent recomputed at this public state, not the behavior action.",
+  "privacy": "Public money retained. Clear lastMove for every player, current sealed bids, deck/seed/private log and automation; independently reproduce both policies from the sanitized request.",
+  "split": "Whole count/behavior/opponent/deal units including all seats and four rule variants. Fresh namespace disjoint from all historical training/development/final seeds. Later root selection must prevent identical public states crossing splits.",
+  "controls": "Exact plain/captured twin model observations, submitted actions and terminal rows. Bridge differs from frozen base only by adding actor metadata. Focal model and frozen parent opponent use their own feature revision and weights.",
+  "unique_games": 7680,
+  "engine_game_runs": 15360,
+  "full_jobs": 30,
+  "smoke_games": 192,
+  "root_selection_followup": "Freeze balanced round/phase/count/rule selection after coverage audit, without filtering by wins, losses or teacher results. This collection is not an approved label or training campaign.",
+  "trained": false,
+  "labels_generated": false,
+  "qualification_eligible": false,
+  "base_source": {
+    "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+    "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+    "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+  }
+}

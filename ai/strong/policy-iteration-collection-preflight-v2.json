@@ -1,0 +1,421 @@
+{
+  "passed": true,
+  "source": {
+    "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+    "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+    "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75",
+    "bytes": 22598854,
+    "base": {
+      "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+      "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+      "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4"
+    },
+    "overlays": {
+      "ai/strong/capture-policy-iteration.cjs": "8cc90da9ef6033e80b3a0ed77d8ce0e572d5a0736ffd0960ab3f1bc5de2ee9f2",
+      "ai/strong/policy-iteration-bridge.cjs": "6787f17104fe4f2955934b0a6ee91b9c3bf4052815aae2a345dd8c7b968526a6",
+      "ai/strong/policy_iteration_collection.py": "362deb38d91c50246b4b1502eb8d0221f4c4c3393581a86942b2c404297f8442",
+      "ai/strong/policy-iteration-collection-protocol-v2.json": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+      "ai/strong/test-policy-iteration-capture.cjs": "92d69aeb64b00b41d0f9dd819fba254c853fb7147b2256c996d934e9ee31c700",
+      "ai/strong/preflight-policy-iteration-collection.py": "2b7c467c18c0aad7275552d9a3a0d312dbc4829aabfc1619899a3e241412ac2b"
+    },
+    "unchanged_base_files": 1419,
+    "protocol_sha256": "b6d4d5a858bbe7be44ce5f9c46ac7e884116a46c428f7bc651d8505a54fca8ff",
+    "qualification_eligible": false
+  },
+  "capture": {
+    "passed": true,
+    "positions": 2553,
+    "revisions": [
+      "4.2-discard-correction",
+      "4.3-strategic-correction"
+    ],
+    "checks": 5106,
+    "counts": {
+      "4.2-discard-correction/2p/nomination": 31,
+      "4.3-strategic-correction/2p/nomination": 31,
+      "4.2-discard-correction/2p/building": 44,
+      "4.3-strategic-correction/2p/building": 44,
+      "4.2-discard-correction/2p/bid": 50,
+      "4.3-strategic-correction/2p/bid": 50,
+      "4.2-discard-correction/3p/nomination": 39,
+      "4.3-strategic-correction/3p/nomination": 39,
+      "4.2-discard-correction/3p/building": 60,
+      "4.3-strategic-correction/3p/building": 60,
+      "4.2-discard-correction/3p/bid": 62,
+      "4.3-strategic-correction/3p/bid": 62,
+      "4.2-discard-correction/4p/nomination": 46,
+      "4.3-strategic-correction/4p/nomination": 46,
+      "4.2-discard-correction/4p/bid": 124,
+      "4.3-strategic-correction/4p/bid": 124,
+      "4.2-discard-correction/4p/building": 71,
+      "4.3-strategic-correction/4p/building": 71,
+      "4.2-discard-correction/5p/nomination": 50,
+      "4.3-strategic-correction/5p/nomination": 50,
+      "4.2-discard-correction/5p/bid": 144,
+      "4.3-strategic-correction/5p/bid": 144,
+      "4.2-discard-correction/5p/building": 72,
+      "4.3-strategic-correction/5p/building": 72,
+      "4.2-discard-correction/6p/nomination": 49,
+      "4.3-strategic-correction/6p/nomination": 49,
+      "4.2-discard-correction/6p/bid": 184,
+      "4.3-strategic-correction/6p/bid": 184,
+      "4.2-discard-correction/6p/building": 70,
+      "4.3-strategic-correction/6p/building": 70
+    },
+    "bridge_change": "actor metadata only",
+    "qualification_eligible": false
+  },
+  "games": {
+    "passed": true,
+    "cases": [
+      {
+        "players": 2,
+        "behavior": "parent",
+        "opponent": "economic",
+        "original_bridge_control": true,
+        "games": 8,
+        "roots": 438,
+        "public_behavior_and_parent_proposals_verified": 438,
+        "behavior_disagreements_with_parent": 0,
+        "root_counts": {
+          "nomination": {
+            "train": 0,
+            "validation": 106
+          },
+          "bid": {
+            "train": 0,
+            "validation": 139
+          },
+          "building": {
+            "train": 0,
+            "validation": 193
+          }
+        },
+        "seconds": 4.03127926500747,
+        "engine_seconds": 2.0569383081165142,
+        "policy_seconds": 0.9280368941836059,
+        "qualification_eligible": false
+      },
+      {
+        "players": 2,
+        "behavior": "parent",
+        "opponent": "snapshot0",
+        "original_bridge_control": true,
+        "games": 8,
+        "roots": 409,
+        "public_behavior_and_parent_proposals_verified": 409,
+        "behavior_disagreements_with_parent": 0,
+        "root_counts": {
+          "nomination": {
+            "train": 0,
+            "validation": 90
+          },
+          "bid": {
+            "train": 0,
+            "validation": 124
+          },
+          "building": {
+            "train": 0,
+            "validation": 195
+          }
+        },
+        "seconds": 6.213401108019752,
+        "engine_seconds": 3.3037658921675757,
+        "policy_seconds": 1.7373145421152003,
+        "qualification_eligible": false
+      },
+      {
+        "players": 2,
+        "behavior": "11101",
+        "opponent": "economic",
+        "original_bridge_control": false,
+        "games": 8,
+        "roots": 432,
+        "public_behavior_and_parent_proposals_verified": 432,
+        "behavior_disagreements_with_parent": 127,
+        "root_counts": {
+          "nomination": {
+            "train": 0,
+            "validation": 99
+          },
+          "bid": {
+            "train": 0,
+            "validation": 130
+          },
+          "building": {
+            "train": 0,
+            "validation": 203
+          }
+        },
+        "seconds": 4.7595629900170024,
+        "engine_seconds": 2.070309331815224,
+        "policy_seconds": 1.342096274747746,
+        "qualification_eligible": false
+      },
+      {
+        "players": 2,
+        "behavior": "11101",
+        "opponent": "snapshot0",
+        "original_bridge_control": false,
+        "games": 8,
+        "roots": 389,
+        "public_behavior_and_parent_proposals_verified": 389,
+        "behavior_disagreements_with_parent": 114,
+        "root_counts": {
+          "nomination": {
+            "train": 0,
+            "validation": 87
+          },
+          "bid": {
+            "train": 0,
+            "validation": 104
+          },
+          "building": {
+            "train": 0,
+            "validation": 198
+          }
+        },
+        "seconds": 7.498467839002842,
+        "engine_seconds": 3.370569509395864,
+        "policy_seconds": 2.562195575912483,
+        "qualification_eligible": false
+      },
+      {
+        "players": 2,
+        "behavior": "11102",
+        "opponent": "economic",
+        "original_bridge_control": false,
+        "games": 8,
+        "roots": 432,
+        "public_behavior_and_parent_proposals_verified": 432,
+        "behavior_disagreements_with_parent": 130,
+        "root_counts": {
+          "nomination": {
+            "train": 0,
+            "validation": 106
+          },
+          "bid": {
+            "train": 0,
+            "validation": 116
+          },
+          "building": {
+            "train": 0,
+            "validation": 210
+          }
+        },
+        "seconds": 5.000030113995308,
+        "engine_seconds": 2.170032790658297,
+        "policy_seconds": 1.4326216355257202,
+        "qualification_eligible": false
+      },
+      {
+        "players": 2,
+        "behavior": "11102",
+        "opponent": "snapshot0",
+        "original_bridge_control": false,
+        "games": 8,
+        "roots": 375,
+        "public_behavior_and_parent_proposals_verified": 375,
+        "behavior_disagreements_with_parent": 112,
+        "root_counts": {
+          "nomination": {
+            "train": 0,
+            "validation": 82
+          },
+          "bid": {
+            "train": 0,
+            "validation": 99
+          },
+          "building": {
+            "train": 0,
+            "validation": 194
+          }
+        },
+        "seconds": 7.4198562529927585,
+        "engine_seconds": 3.3694244327489287,
+        "policy_seconds": 2.522060010553105,
+        "qualification_eligible": false
+      },
+      {
+        "players": 6,
+        "behavior": "parent",
+        "opponent": "economic",
+        "original_bridge_control": true,
+        "games": 24,
+        "roots": 1170,
+        "public_behavior_and_parent_proposals_verified": 1170,
+        "behavior_disagreements_with_parent": 0,
+        "root_counts": {
+          "nomination": {
+            "train": 0,
+            "validation": 256
+          },
+          "bid": {
+            "train": 0,
+            "validation": 526
+          },
+          "building": {
+            "train": 0,
+            "validation": 388
+          }
+        },
+        "seconds": 10.90070779598318,
+        "engine_seconds": 4.944123818946537,
+        "policy_seconds": 1.9093227786070202,
+        "qualification_eligible": false
+      },
+      {
+        "players": 6,
+        "behavior": "parent",
+        "opponent": "snapshot0",
+        "original_bridge_control": true,
+        "games": 24,
+        "roots": 1073,
+        "public_behavior_and_parent_proposals_verified": 1073,
+        "behavior_disagreements_with_parent": 0,
+        "root_counts": {
+          "nomination": {
+            "train": 0,
+            "validation": 204
+          },
+          "bid": {
+            "train": 0,
+            "validation": 553
+          },
+          "building": {
+            "train": 0,
+            "validation": 316
+          }
+        },
+        "seconds": 38.851839796989225,
+        "engine_seconds": 23.09221370436717,
+        "policy_seconds": 9.09054312366061,
+        "qualification_eligible": false
+      },
+      {
+        "players": 6,
+        "behavior": "11101",
+        "opponent": "economic",
+        "original_bridge_control": false,
+        "games": 24,
+        "roots": 1156,
+        "public_behavior_and_parent_proposals_verified": 1156,
+        "behavior_disagreements_with_parent": 246,
+        "root_counts": {
+          "nomination": {
+            "train": 0,
+            "validation": 277
+          },
+          "bid": {
+            "train": 0,
+            "validation": 487
+          },
+          "building": {
+            "train": 0,
+            "validation": 392
+          }
+        },
+        "seconds": 13.847988845984219,
+        "engine_seconds": 5.314101577940164,
+        "policy_seconds": 3.116372807213338,
+        "qualification_eligible": false
+      },
+      {
+        "players": 6,
+        "behavior": "11101",
+        "opponent": "snapshot0",
+        "original_bridge_control": false,
+        "games": 24,
+        "roots": 1143,
+        "public_behavior_and_parent_proposals_verified": 1143,
+        "behavior_disagreements_with_parent": 231,
+        "root_counts": {
+          "nomination": {
+            "train": 0,
+            "validation": 210
+          },
+          "bid": {
+            "train": 0,
+            "validation": 633
+          },
+          "building": {
+            "train": 0,
+            "validation": 300
+          }
+        },
+        "seconds": 49.85417010000674,
+        "engine_seconds": 27.272814096242655,
+        "policy_seconds": 13.517302406107774,
+        "qualification_eligible": false
+      },
+      {
+        "players": 6,
+        "behavior": "11102",
+        "opponent": "economic",
+        "original_bridge_control": false,
+        "games": 24,
+        "roots": 1238,
+        "public_behavior_and_parent_proposals_verified": 1238,
+        "behavior_disagreements_with_parent": 283,
+        "root_counts": {
+          "nomination": {
+            "train": 0,
+            "validation": 280
+          },
+          "bid": {
+            "train": 0,
+            "validation": 569
+          },
+          "building": {
+            "train": 0,
+            "validation": 389
+          }
+        },
+        "seconds": 14.335766919015441,
+        "engine_seconds": 5.562238600075943,
+        "policy_seconds": 3.0992024224542547,
+        "qualification_eligible": false
+      },
+      {
+        "players": 6,
+        "behavior": "11102",
+        "opponent": "snapshot0",
+        "original_bridge_control": false,
+        "games": 24,
+        "roots": 1153,
+        "public_behavior_and_parent_proposals_verified": 1153,
+        "behavior_disagreements_with_parent": 313,
+        "root_counts": {
+          "nomination": {
+            "train": 0,
+            "validation": 213
+          },
+          "bid": {
+            "train": 0,
+            "validation": 595
+          },
+          "building": {
+            "train": 0,
+            "validation": 345
+          }
+        },
+        "seconds": 51.322266439005034,
+        "engine_seconds": 25.468381504586432,
+        "policy_seconds": 15.567589660553494,
+        "qualification_eligible": false
+      }
+    ],
+    "games": 192,
+    "engine_game_runs": 384,
+    "roots": 9408,
+    "gradients": false,
+    "labels_generated": false,
+    "qualification_eligible": false
+  },
+  "logs": {
+    "ai/runs/source-checks/capture.log": "8878b7089c181f6f6da952fa943266129848bdffce2703303009dc5268558a75",
+    "ai/runs/source-checks/games.log": "69f770b0e1929bd42f10e3a642d7cad3920ce4958cc77b15bfd44a4a55311d2f"
+  },
+  "gradients": false,
+  "qualification_eligible": false
+}

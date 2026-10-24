@@ -53604,5 +53604,31 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "next": "Finish existing fixed hybrid screen before selecting search scopes or starting another sweep. Resource-policy strength remains unmeasured; prefer model-only for immediate feedback, with selective search or teacher use considered after paired evidence."
+    },
+    "resource_development_preflight_v1": {
+        "status": "verified_resource_ablation_preflight_not_launched",
+        "evidence": "ai/strong/resource-development-preflight-evidence-v1.json",
+        "archive_revision": "915e442bbaf540a10d0593eeed42798157047200",
+        "protocol": "ai/strong/resource-replanning-development-protocol-v1.json",
+        "protocol_sha256": "e5e7c8d891a41c9c48ca0ee75d17fcd14b7ceeac827f600e3af6d177ff81e0d8",
+        "tests": 11,
+        "existing_decisions_checked": 652,
+        "existing_rollouts_checked": 11900,
+        "unchanged_complete_controls": 80,
+        "control_decisions": 10207,
+        "planned_games": 3360,
+        "arms": [
+            "filter",
+            "resource-filter"
+        ],
+        "runtime_admitted": false,
+        "source_uploaded_for_jobs": false,
+        "new_hf_jobs": 0,
+        "new_games": 0,
+        "gradients": false,
+        "current_hybrid_screen_unchanged": true,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Finish and review current complete hybrid comparison; only then package the isolated resource runtime, run new full paired endpoint pilots, verify/replay and measure admission before any resource strength jobs. No automatic launch or promotion."
     }
 }

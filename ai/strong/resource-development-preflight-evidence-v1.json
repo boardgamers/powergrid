@@ -1,0 +1,52 @@
+{
+  "status": "verified_resource_ablation_preflight_not_launched",
+  "protocol_sha256": "e5e7c8d891a41c9c48ca0ee75d17fcd14b7ceeac827f600e3af6d177ff81e0d8",
+  "tests": 11,
+  "real_phase_decisions": 112,
+  "real_full_game_decisions": 540,
+  "checked_resource_rollouts": 11900,
+  "unchanged_complete_control_games": 80,
+  "unchanged_control_decisions": 10207,
+  "composed_existing_auction_building_envelopes": 8,
+  "eight_world_resource_plan_checked": true,
+  "single_pass_bundle_searches_checked": 1,
+  "corrupt_decision_mutations_rejected": 24,
+  "consistent_wrong_selection_rejected": true,
+  "corrupt_complete_report_mutations_rejected": 4,
+  "weakened_protocol_mutations_rejected": 20,
+  "stale_pins_rejected": 2,
+  "deliberate_cap_rejected_for_strength": true,
+  "candidate_shard_counts": {
+    "1": 216,
+    "2": 108,
+    "4": 54
+  },
+  "planned_games": 3360,
+  "planned_arms": [
+    "filter",
+    "resource-filter"
+  ],
+  "runtime_admitted": false,
+  "source_uploaded_for_jobs": false,
+  "current_hybrid_screen_unchanged": true,
+  "limits": [
+    "Receipt consistency and recomputed scores do not independently prove engine legality or model inference. Earlier exact replays provide engineering evidence on the four existing games.",
+    "No new full paired resource-specific report exists yet. The complete-game adapter matches the existing 80 base-policy controls; resource decisions are checked separately on the existing four smokes and 23 turns.",
+    "Eight wrapped auction/building receipts test composition only, not newly executed resource-combined games.",
+    "Protocol planning and integrity checks provide no new playing-strength estimate. Four-deal future intervals remain coarse.",
+    "No resource pilot or strength job may launch until the active fixed comparison finishes. Source/job packaging and measured resource-specific runtime admission remain to be done."
+  ],
+  "new_hf_jobs": 0,
+  "new_games": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "915e442bbaf540a10d0593eeed42798157047200",
+  "archive_path": "archives/resource-development-preflight-evidence-v1.tgz",
+  "archive_sha256": "4c271e65c06a41227d3fe47f99ee72cc6a5745cd4752a8e7d8bb18c2065bc333",
+  "manifest_sha256": "bbff9074c427db14d15062ade80587ff537a9cee20d1eabe9cafab65d514238f",
+  "archived_files": 243,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

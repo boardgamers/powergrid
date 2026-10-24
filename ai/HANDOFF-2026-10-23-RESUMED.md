@@ -25,7 +25,94 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: actual 8840U resource stress profiling complete
+## Latest checkpoint: resource comparison preparation verified, unlaunched
+
+Previous goal turn: progress (actual 8840U benchmark archived/pushed as a6f1919).
+This turn: progress. Preregistered a fresh resource ablation and implemented its
+independent decision/report checker. No new games, HF jobs or gradients; all local
+checks and archive upload completed. The active screen stays unchanged.
+
+Coordinator PID 1447977 / session 53211 remains confirmed live. Snapshot
+2026-10-24T16:34:50.655557+00:00: 61 submitted / 29 verified, no failed jobs. Direct
+HF inspection confirmed `6adcba011e112550ce7e0464` RUNNING, using the actual case
+`population-hybrid-development-v1-combined-6p-search_geo-0-4` (not `search`).
+No duplicate coordinator, manual collection, retries or cancellations.
+
+### Prepared experiment, not launch admission
+
+`strong/resource-replanning-development-protocol-v1.json`, SHA256
+`e5e7c8d891a41c9c48ca0ee75d17fcd14b7ceeac827f600e3af6d177ff81e0d8`, fixes:
+
+- `filter` versus `resource-filter`, exact frozen-1 model and original canonical
+  runtime. Outside Resources behavior is identical. No hidden async-repair swap.
+- Germany 2–6; 27 count/opponent cells inherited from the full screen; every seat
+  and all four original/Recharged × open/sealed combinations; four fresh deals.
+  Total 1,680 games per arm, 3,360 games. No per-rule/count routing or partial grid.
+- Eight balanced opponent worlds, 2,400 continuation cap, 1,600 real-game cap.
+  Whole hypothetical bundles are valued, but only the first action is executed;
+  every actual resource request replans. Any cap invalidates the result.
+- Fresh strength seed template `resource-replanning-development-v1-{players}p`;
+  separate runtime-only `resource-replanning-runtime-v1-{players}p`. Neither used.
+- Paired whole-deal bootstrap, 10,000 replicates, seed 12317. Primary descriptive
+  summary averages the five search_geo player counts equally; preserve all cell,
+  rule and opponent contrasts. Four-deal intervals are coarse, never qualification.
+
+`strong/resource_development_v1.py` creates/validates the protocol and enumerates
+1/2/4-deal partitions (216/108/54 potential shards), all preserving 3,360 games.
+It cannot launch jobs. No source package, job wrapper, measured admission, launch
+plan or coordinator for this experiment has been created. First finish/review the
+current complete comparison. Then pin/package the separate runtime and use full
+paired 2p/6p search_geo endpoint pilots with eight worlds to measure hardware and
+runtime, independently check/replay results, and choose shard size/timeout. Existing
+auction/building pilots do not establish resource-policy admission. No automatic
+promotion; favorable screening still requires a larger fresh confirmation.
+
+### Independent checker and tested limits
+
+`strong/resource_policy_verification_v1.py` recomputes resource receipt consistency:
+bundle counts, exact model baseline, selected first action, common sampled worlds,
+balanced roles, common initial cash/holdings/market, continuation counts, terminal
+tie credits, sample means, tie-breaking and cap fallback. A private import binds
+this checker into the unchanged existing whole-game verifier; frozen files and the
+running coordinator's Python module are never modified.
+
+All 11 tests in `test_resource_policy_verification_v1.py` and
+`test_resource_development_v1.py` pass:
+
+- 112 existing phase decisions plus 540 decisions from the four existing full
+  smokes; 11,900 rollout receipts. A genuine single-Pass-bundle search is accepted.
+  The draft's initial two-bundle minimum was corrected from that real receipt
+  before preregistration; no policy behavior changed.
+- 80 existing paired base-policy control games / 10,207 decisions: private report
+  adapter outputs exactly match the old verifier. An existing eight-world resource
+  plan passes; the genuine deliberate one-step cap is rejected for strength.
+- 24 corrupt decision mutations, a coherent but wrong selected plan, four corrupt
+  reports, 20 weakened protocol changes and two stale source/evidence pins rejected.
+  All 1/2/4-deal partitions retain every intended deal, seat and rule.
+- Eight existing auction/building receipts wrapped as resource-combined/filter
+  check envelope composition only; they are not new resource-combined games.
+
+Receipt consistency alone cannot prove legality or reproduce inference. Earlier
+engine replay covers the four smokes; a new full paired resource-specific report
+does not exist yet and must be exercised by the future pilots. These tests and
+preregistration do not establish new playing strength, speed or live integration.
+
+### Evidence and next action
+
+- Collector: `strong/collect-resource-development-preflight-v1.py`.
+- Descriptor: `strong/resource-development-preflight-evidence-v1.json`.
+- Exact tested inputs, source and logs: 243 archive entries; private HF revision
+  `915e442bbaf540a10d0593eeed42798157047200`.
+- Archive: `archives/resource-development-preflight-evidence-v1.tgz`, downloaded
+  and hash-verified:
+  `4c271e65c06a41227d3fe47f99ee72cc6a5745cd4752a8e7d8bb18c2065bc333`.
+- Local assessments/logs: `ai/runs/resource-development-preflight-v1/`.
+
+Continue the current fixed screen. Do not start extra optimization/strength sweeps
+or resource pilots while it remains incomplete. Final protocol/hash/seeds unchanged;
+no candidate selected, qualified or published.
+
+## Previous checkpoint: actual 8840U resource stress profiling complete
 
 Previous goal turn: progress (atomic policy and full-game engineering evidence
 archived/pushed as a79cfa9). This turn: progress. The four saved slow resource roots

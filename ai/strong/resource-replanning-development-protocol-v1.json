@@ -1,0 +1,349 @@
+{
+  "status": "preregistered_not_runtime_admitted_or_launched",
+  "created_at": "2026-10-24T16:36:27.324893+00:00",
+  "purpose": "Isolate the strength/cost effect of stateless resource replanning over the same trained model and strict endgame filter. Fresh development screen, not qualification.",
+  "current_hybrid_plan_sha256": "bd2d80bac1384f6d71a9cc4ee1f71db21ce6d9c8fd95e9a12543cdeceb83859f",
+  "current_hybrid_protocol_sha256": "a86b3cd3bcce25131dde6bf59f980e58bbb35dd2c432090a5ed0acd445988014",
+  "base_source": {
+    "archive": "strong-source-population-hybrid-development-20261024-v1.tgz",
+    "sha256": "ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23",
+    "bytes": 109458675,
+    "overlays": {
+      "ai/strong/hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+      "ai/strong/hybrid-continuations.cjs": "2b03c49c8270622e74c333c5e7253d5eb5d21ba1af919bc5f15ebd456109daaf",
+      "ai/strong/population-hybrid-continuations.cjs": "206cb044ba5057904afddbbbb125d98db319e04f96067e94c7337a36f0f7502c",
+      "ai/strong/endgame-loss-filter.cjs": "28e3eb1a5fb637b7b80c1b7dc4db255c3d93e5ace168ead6dfa386f57a4de70a",
+      "ai/strong/population-hybrid-policy.cjs": "8f9f7ad3306ab2ebdf04eb6aa439e3f3525f4f6569e6d086649bdbd4c86aff16",
+      "ai/strong/population_hybrid_policy.py": "652677d33cc6613680122c9a95a1ba2c0c0915de384b2124c95e3b1b3a0876cf",
+      "ai/strong/public-arena-bridge.cjs": "999bee0a43a219974c5ceb38bc586f6ea2995e248c19eb9fd697d2e199df8391",
+      "ai/strong/evaluate-population-policy.py": "019454d436e1b8e2ace2ed13375c0ad38727bd02678fedea872957518132abc3",
+      "ai/strong/population-hybrid-runtime-job.py": "1c375bc07dd18b80f28ad7c0b4edfff910fcf63d3f7bd413e8e3048a0f733f92",
+      "ai/strong/population-hybrid-development-protocol-v1.json": "a86b3cd3bcce25131dde6bf59f980e58bbb35dd2c432090a5ed0acd445988014",
+      "ai/strong/policy_iteration_evidence_archive.py": "83177b7f9a35af6467e09509e80024ef5fc258a1030ad23ebfd71c876fac635a",
+      "ai/strong/test-population-hybrid-policy.cjs": "faff35e5f6f78104542d4a7a89a5c768597edf0238f27aec9fa49f3f1a6a060f",
+      "ai/strong/probe-population-policy.py": "d361cc61ac663f1a236656b99671ebb4f73a387baece1808cfd4257cd319caaf",
+      "ai/strong/build-population-hybrid-source.py": "f2bcf99663d65330fb3deffb6415b22f31065b5c2567b91575b4857a73a7bac5",
+      "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+      "ai/strong/population_hybrid_development.py": "bc65be5ebe091d56a9b52cef9d238379aff1b7a73398f53e9123b41e6a473fb2",
+      "ai/strong/population-hybrid-development-job.py": "8cf38cf2fc42ac271a528d6bbb091891845e3035eaaecb537a7c6f07a514eef8",
+      "ai/strong/manage-population-hybrid-development.py": "818c8595651a89b81f24e37e3a229e53ffe3567be021ea3d502ca2cff3c139a2",
+      "ai/strong/coordinate-population-hybrid-development.py": "f8a74d1192a053a312b3395e9a4cd818d35771718dcaa0e62908d685207228d1",
+      "ai/strong/compare-population-hybrid-development.py": "8f256ca9d95785e4da80332dc02ff89707ae5a0987825882876302aa38092c1f",
+      "ai/strong/collect-population-hybrid-runtime.py": "0128713f10321983731f3b96f6c8d8c2fe093b739ffec7a62b06bd7d6fb9caa9",
+      "ai/strong/build-population-hybrid-development-source.py": "0b3849196fad27a2faef41f9a11f75770929373085c3c39d899ab4da0357cbab",
+      "ai/strong/test_population_policy_verification.py": "38bd03459c8c5fe6a40d5671a44515d7143feb49eae0bf1a0bbf614600ebceb3",
+      "ai/strong/test_population_hybrid_development.py": "eb2f33046aca15b238703ee60e2d85b79263935e3e8e6b78310f6502e8916f20"
+    },
+    "protocol_sha256": "a86b3cd3bcce25131dde6bf59f980e58bbb35dd2c432090a5ed0acd445988014",
+    "unchanged_base_files": 1453,
+    "layout_check": {
+      "clean_package_without_runs": true,
+      "reached_evaluation_subprocess": true,
+      "nonzero_deal_offset_checked": true,
+      "failure_receipt_written": true,
+      "new_games": 0,
+      "new_jobs": 0
+    },
+    "revision": "cdec1d3079eb9a54b776f6237ec5f93cc1de84d8",
+    "base": {
+      "archive": "strong-source-population-hybrid-20261024-v2.tgz",
+      "revision": "9a49df8a3baa5e5b6b62cae8208ef301b8540ba7",
+      "sha256": "cd5c08165dfecce5753bcab1c9c0bf10ef45797bf3e5e082914fd6634f91a778"
+    },
+    "base_descriptor_sha256": "f71540c07b1e91895e2fb5d922204cc5c3fb9230315a4be1f09052639428484b",
+    "preparation_sha256": "6f543404bdfaea1ba81f0d5165937e294c09740d63d8e9709b20cbc26a4851a3",
+    "gradients": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false
+  },
+  "model_pin": {
+    "key": "frozen-1",
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "6b6009756d7b5968bc5b6425efc84a94aab2a1d6",
+    "prefix": "runs/policy-iteration-training-v2-frozen/ensemble-1/derivative",
+    "files": {
+      "inference64.pt": "3c17d4228e7446f8859aa01e79020ed91f454312925d29c153a76f49f94118da",
+      "inference64.onnx": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+    },
+    "feature_revision": "4.3-strategic-correction",
+    "model_args": {
+      "head_type": "frozen",
+      "heads": 4,
+      "margin": 0.025,
+      "parent_margin": 0.025,
+      "disagreement_penalty": 1.0
+    },
+    "training_verified": true,
+    "parent_frozen": true,
+    "seeds": [
+      12101,
+      12102,
+      12103,
+      12104
+    ],
+    "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+    "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+    "training_verified_sha256": "881c8a4b34f937575cb3f3c851db794f81908621f4a93e47f467be852845974f",
+    "strict_parity_positions": 2553,
+    "cached_positions_checked": 17280,
+    "qualification_eligible": false
+  },
+  "source_overlays": {
+    "ai/strong/resource-turn-plans-v1.cjs": "1540f21cfe0edd19b5cf2a370442228301ac52c7272735677c64c60a0a882d5a",
+    "ai/strong/resource-turn-search-v1.cjs": "7abe95f2b213a1497b65b5fad6487e4cbf6e2c213c72e776fde618663e11b014",
+    "ai/strong/resource_turn_search_v1.py": "8313fce803a3af61a9a18b6d6978920843979c13435135a02ea60245a6d27d7b",
+    "ai/strong/resource_replanning_policy_v1.py": "bd5ceeb67b476031d88a623f990bca45640d63f08c7da46ff6df0a7ffa4bbc0c",
+    "ai/strong/evaluate-resource-replanning-v1.py": "1ed1674945e925c15d32b22ad6a7a14dd7e1f416020478cb0c3fea305367a424",
+    "ai/strong/resource_policy_verification_v1.py": "6925539e946cf4e23a20436d5e33326fcf9581f0c870bc9cc43165da6b127240"
+  },
+  "evidence_hashes": {
+    "ai/strong/resource-replanning-evidence-v1.json": "e2a880cd03506ef483251b7e0a716c1a381e573318436e31d782c0f71a44a134",
+    "ai/strong/resource-replanning-8840u-evidence-v1.json": "1268b9b14469e70109e989490aece6e3268284b0c636c2ffcba8972f1daf84cf",
+    "ai/strong/resource-turn-search-evidence-v1.json": "6827051be337fa1a6a37c1e234de3aec243bc495d6fe9e372900e98802205c3a"
+  },
+  "arms": {
+    "filter": "Frozen-1 model with strict losing-endgame Build filter.",
+    "resource-filter": "Identical filter policy outside Resources; evaluate whole resource bundles but execute only the first atomic action, then replan from the next public request."
+  },
+  "execution_mode": "stateless-atomic-resource-replanning-v1",
+  "seed_template": "resource-replanning-development-v1-{players}p",
+  "smoke_seed_template": "resource-replanning-runtime-v1-{players}p",
+  "deal_offsets": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "screens": [
+    {
+      "players": 2,
+      "opponent": "economic",
+      "deals": 4,
+      "games": 32,
+      "stage": "primary"
+    },
+    {
+      "players": 2,
+      "opponent": "search_geo",
+      "deals": 4,
+      "games": 32,
+      "stage": "primary"
+    },
+    {
+      "players": 2,
+      "opponent": "legacy",
+      "deals": 4,
+      "games": 32,
+      "stage": "extension"
+    },
+    {
+      "players": 2,
+      "opponent": "heuristic",
+      "deals": 4,
+      "games": 32,
+      "stage": "extension"
+    },
+    {
+      "players": 2,
+      "opponent": "rush",
+      "deals": 4,
+      "games": 32,
+      "stage": "extension"
+    },
+    {
+      "players": 3,
+      "opponent": "economic",
+      "deals": 4,
+      "games": 48,
+      "stage": "primary"
+    },
+    {
+      "players": 3,
+      "opponent": "search_geo",
+      "deals": 4,
+      "games": 48,
+      "stage": "primary"
+    },
+    {
+      "players": 3,
+      "opponent": "legacy",
+      "deals": 4,
+      "games": 48,
+      "stage": "extension"
+    },
+    {
+      "players": 3,
+      "opponent": "heuristic",
+      "deals": 4,
+      "games": 48,
+      "stage": "extension"
+    },
+    {
+      "players": 3,
+      "opponent": "rush",
+      "deals": 4,
+      "games": 48,
+      "stage": "extension"
+    },
+    {
+      "players": 4,
+      "opponent": "economic",
+      "deals": 4,
+      "games": 64,
+      "stage": "primary"
+    },
+    {
+      "players": 4,
+      "opponent": "search_geo",
+      "deals": 4,
+      "games": 64,
+      "stage": "primary"
+    },
+    {
+      "players": 4,
+      "opponent": "legacy",
+      "deals": 4,
+      "games": 64,
+      "stage": "extension"
+    },
+    {
+      "players": 4,
+      "opponent": "heuristic",
+      "deals": 4,
+      "games": 64,
+      "stage": "extension"
+    },
+    {
+      "players": 4,
+      "opponent": "rush",
+      "deals": 4,
+      "games": 64,
+      "stage": "extension"
+    },
+    {
+      "players": 5,
+      "opponent": "economic",
+      "deals": 4,
+      "games": 80,
+      "stage": "primary"
+    },
+    {
+      "players": 5,
+      "opponent": "search_geo",
+      "deals": 4,
+      "games": 80,
+      "stage": "primary"
+    },
+    {
+      "players": 5,
+      "opponent": "legacy",
+      "deals": 4,
+      "games": 80,
+      "stage": "extension"
+    },
+    {
+      "players": 5,
+      "opponent": "heuristic",
+      "deals": 4,
+      "games": 80,
+      "stage": "extension"
+    },
+    {
+      "players": 5,
+      "opponent": "rush",
+      "deals": 4,
+      "games": 80,
+      "stage": "extension"
+    },
+    {
+      "players": 6,
+      "opponent": "economic",
+      "deals": 4,
+      "games": 96,
+      "stage": "primary"
+    },
+    {
+      "players": 6,
+      "opponent": "search_geo",
+      "deals": 4,
+      "games": 96,
+      "stage": "primary"
+    },
+    {
+      "players": 6,
+      "opponent": "legacy",
+      "deals": 4,
+      "games": 96,
+      "stage": "extension"
+    },
+    {
+      "players": 6,
+      "opponent": "heuristic",
+      "deals": 4,
+      "games": 96,
+      "stage": "extension"
+    },
+    {
+      "players": 6,
+      "opponent": "rush",
+      "deals": 4,
+      "games": 96,
+      "stage": "extension"
+    },
+    {
+      "players": 3,
+      "opponent": "a260",
+      "model_path": "runs/strong-league-v2-a/best.onnx",
+      "revision": "b38515c29e57826de05b55b645c29591e4a886bf",
+      "sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+      "deals": 4,
+      "games": 48,
+      "stage": "primary"
+    },
+    {
+      "players": 2,
+      "opponent": "economic_capacity_v1",
+      "deals": 4,
+      "games": 32,
+      "stage": "primary"
+    }
+  ],
+  "planned_games_per_arm": 1680,
+  "planned_games_total": 3360,
+  "search": {
+    "samples": 8,
+    "horizon": 2400,
+    "nested_search": false,
+    "candidates": "All generated one/two-identical-cycle fuel bundles plus Pass and the exact model resource turn; retain unusual partial model stockpiles. No construction annotation prunes a bundle.",
+    "focal_continuation": "Complete the hypothetical bundle, then trained model plus strict endgame loss filter. Future replanning is approximated, not recursively searched.",
+    "opponent_continuation": "Each opponent uses neural/economic/legacy/rush twice across eight worlds. Public sampled deck and equal uncalibrated policy mixture.",
+    "selection": "Mean completed terminal credit; ties retain model bundle then original bundle order. Any cap returns model first action and invalidates strength/runtime admission.",
+    "root_execution": "One action per request, no retained plan. Independently verify actual atomic games, not committed-macro scores as playing strength."
+  },
+  "game_max_steps": 1600,
+  "reference_search": "Unchanged search_geo16, six geographic candidates, horizon2400.",
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 12317,
+  "analysis": {
+    "contrast": "resource-filter minus filter, paired by identical deal, seat, count, rules and opponent.",
+    "all_cells": "Report all 27 count/opponent cells and all four rules, full terminal outcomes, caps, decision/search counts and latency. Never use a partial grid or discard adverse cells.",
+    "primary_summary": "Equal-weight average of the five search_geo player-count win-share differences, each averaging all seats and four rules. Bootstrap whole deals independently within each player count; do not overweight six-player counts.",
+    "secondary": "Equal-weight economic summary and all per-count/per-rule/per-opponent contrasts. Descriptive fuel/city deficits are exploratory, not additional selection gates.",
+    "limits": "Four independent deals per cell gives coarse exploratory intervals. No automatic promotion; a favorable completed screen only motivates larger fresh confirmation with all regressions retained. No rule/count-specific routing."
+  },
+  "prerequisites": {
+    "current_comparison_required": true,
+    "current_comparison": "ai/strong/population-hybrid-development-comparison-v1.json",
+    "current_completion": "All 135 shards verified, complete 8400-game comparison, no caps/failures; review before proceeding. Do not launch pilots or jobs while it is incomplete.",
+    "new_resource_runtime_pilots_required": true,
+    "pilots": "After the current comparison: full paired endpoint deals at 2p and 6p, all seats/rules, eight resource worlds, search_geo opponents, fresh runtime-only seeds; exclude outcomes from strength. Verify raw decisions and independently replay representative games.",
+    "admission": "Pin/upload a separate source and job/verifier package, then measure CPU/RAM and complete-game runtime before setting hardware, concurrency and timeout. Split whole deals rather than shortening rollout/game horizons. No assumed reuse of old auction/building runtime admission.",
+    "automatic_launch": false
+  },
+  "sealed_scope": "Canonical arena bidder order using unchanged frozen module. The separately verified asynchronous-order repair is not silently included; a serving candidate must pin/test it separately.",
+  "final_protocol_sha256": "7f0336c8784faf8f18e046b95b88e0ab1be7c2de1c0ec4d3eec96f0a415286ce",
+  "hf_jobs_submitted": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

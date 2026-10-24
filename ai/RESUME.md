@@ -6,7 +6,32 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: resource-search timing and exact parity verified on the actual 8840U.**
+**Latest: resource ablation preregistered and result checker verified; no jobs launched.**
+`strong/resource-replanning-development-protocol-v1.json` fixes filter versus
+resource-filter on 3,360 fresh paired games: 27 count/opponent cells, Germany 2–6,
+four original/Recharged × open/sealed rules, every seat, four independent deals,
+eight balanced search worlds. This isolates resource replanning; combining it
+with auction/building search needs later evidence. The protocol is not runtime
+admitted and cannot launch anything itself. Finish the active 8,400-game comparison
+first, review it, then package and run new resource-specific endpoint pilots before
+choosing job hardware/timeout. Do not reuse the old search runtime admission.
+
+`strong/resource_policy_verification_v1.py` checks actual atomic execution against
+the selected hypothetical plan, all candidate rollout receipts, shared worlds,
+cash/inventory consistency, terminal tie credits, means, choices and caps. Its
+private adapter preserves the existing whole-game pairing/hash/winner checks.
+Eleven tests pass: 652 existing resource-policy decisions / 11,900 rollouts, 80
+unchanged full controls / 10,207 decisions, corrupt receipts/reports, cap rejection
+and all legal shard partitions. No new resource strength evidence is claimed.
+
+Evidence: `strong/resource-development-preflight-evidence-v1.json`, 243 archived
+entries, private HF revision `915e442bbaf540a10d0593eeed42798157047200`. All local work
+completed. No new games, HF jobs or gradients. Sole coordinator PID 1447977 / session
+53211 remains live; snapshot 2026-10-24T16:34:50 UTC: 61 submitted / 29 verified,
+no failed jobs. Combined6psearch was directly confirmed RUNNING. Source/model and
+active screen remain unchanged; no candidate or final qualification.
+
+**Previous: resource-search timing and exact parity verified on the actual 8840U.**
 The four saved slow resource positions completed under three execution settings:
 12 searches / 672 rollouts on each machine, zero caps, identical original decisions,
 sampled worlds and terminal outcomes across local HX370 and target AMD 8840U.

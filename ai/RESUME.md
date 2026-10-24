@@ -6,7 +6,19 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: four-player search gains are now independently verified.** In the
+**Latest: endgame counterfactuals complete; filter stays experimental.** All
+56 single-decision branches finish, with 28 byte-identical original controls.
+Always delaying the threshold build gains six and loses five selected outcomes.
+A narrower strict fuel-output-loss certificate matches eight cases (four recovered
+wins, four unchanged losses), with 26,772 exact root-move checks and the full
+2,553-position serving fixture probe. It is not integrated into serving/evaluation,
+and these outcome-selected examples are not a strength estimate. See
+`strong/policy-iteration-endgame-diagnosis-evidence-v1.json` and the latest handoff.
+Only the 16 six-player search shards remain; all other candidate cells are
+collected (416/432 shards). Keep the live recovery coordinator and complete the
+full comparison before selection or a fresh hybrid study.
+
+**Previous: four-player search gains are independently verified.** In the
 new 25-cell complete subset (30,080 games, 16 deals/cell), frozen-1 rises from
 30.86% to 51.56% overall against search and from 15.63% to 39.06% in Recharged
 sealed. Candidate search is still off. All four models, adverse cells and rule

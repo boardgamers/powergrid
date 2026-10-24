@@ -52513,5 +52513,36 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "assessment": "Six previously missing complete cells are now verified in every arm, including four-player search. Frozen-1 reaches 51.5625% overall and 39.0625% Recharged/sealed versus parent 30.859375% and 15.625%. All four models and adverse rule views retained. Five-/six-player search remain incomplete; two-player weaknesses and four-/five-player legacy regressions remain. No aggregate grid ranking, selection or qualification."
+    },
+    "policy_iteration_endgame_diagnosis_v1": {
+        "evidence": "ai/strong/policy-iteration-endgame-diagnosis-evidence-v1.json",
+        "revision": "7517a821fbb292d89315da3e243d1eccdaeb5698",
+        "archive_sha256": "59395b348c215f1109c814f08c4a6da72473dbe2f3c9a7b8b4e6fc4b44f4a3ff",
+        "counterfactual_cases": 28,
+        "branch_games": 56,
+        "original_traces_identical": 28,
+        "truncations": 0,
+        "universal_delay": {
+            "gains": 6,
+            "losses": 5,
+            "unchanged": 17
+        },
+        "strict_certificate_cases": 8,
+        "strict_certificate_changes": {
+            "gains": 4,
+            "losses": 0,
+            "unchanged": 4
+        },
+        "serving_positions": 2553,
+        "serving_choices": 22597,
+        "serving_integration": false,
+        "new_hf_jobs": 0,
+        "new_strength_games": 0,
+        "gradients": false,
+        "candidate_selected": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "assessment": "A universal one-turn delay gains six and loses five selected outcomes (28 cases), so reject it as a general rule. A narrow current-fuel strict-loss certificate matches eight cases, with four recoveries and four unchanged losses. This is outcome-selected diagnosis, not estimated win-rate improvement. The filter is experimental only, restricted to standard Germany and strict output gaps; ties, already-triggered endings, unsupported maps and dropped players are excluded. Full development comparison still required before candidate selection or a fresh hybrid strength study.",
+        "root_moves_verified": 26772
     }
 }

@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "source_analysis_sha256": "059d1a2a7e233099d1421a7bdde139df3f4a6865c34dc6f21316e0dc9b68df7f",
+  "source": {
+    "archive": "strong-source-policy-iteration-development-20261024-v2.tgz",
+    "revision": "a393d0fa83d9fee8a27a876a217fe97dfea03ff8",
+    "sha256": "c020987f3a05a2c0116dfd52498139f6bb7480e1721ca058caf9771f94d970ce",
+    "bytes": 109411988,
+    "base": {
+      "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+      "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+      "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+      "bytes": 109402244,
+      "base": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+      },
+      "overlays": {
+        "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+        "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+        "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+        "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+      },
+      "unchanged_base_files": 1430,
+      "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+      "qualification_eligible": false
+    },
+    "overlays": {
+      "ai/strong/policy_iteration_development.py": "1bbcec9b3ad236fdaf330627cd31f6c99618642cf657b75207aba365c4c217ea",
+      "ai/strong/preflight-policy-iteration-development.py": "024f1f746eb396a8906664c26e2307224c733ff4b43a75899498efbf65096829",
+      "ai/strong/policy-iteration-development-protocol-v2.json": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+      "ai/strong/policy-iteration-training-design-v2.json": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+      "ai/strong/build-policy-iteration-development-source.py": "6dd5963f0438f0ef7fca6c53c3701acdba99d8e9390e42d9c5f64f4e39287310"
+    },
+    "unchanged_base_files": 1434,
+    "protocol_sha256": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+    "gradients": false,
+    "qualification_eligible": false
+  },
+  "selection_sha256": "ce2aca8db521b9d5269ce7a74dece216858a65a1f23c4b9d064a28e1a1193518",
+  "cases": [
+    {
+      "name": "frozen-0-episode-129",
+      "model": "frozen-0",
+      "episode": 129,
+      "seat": 2,
+      "round": 7,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Aachen",
+          "price": 17
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "edd8ab1ce97f7865c391a57bd176a69be2e3c5eb1e5f5e4f36db1f4a803747c6"
+    },
+    {
+      "name": "frozen-0-episode-230",
+      "model": "frozen-0",
+      "episode": 230,
+      "seat": 2,
+      "round": 10,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Berlin",
+          "price": 25
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "e3e8e9f46408233600b053c4250955ee0bc45b938524eb2d18c23b33ed4d4fda"
+    },
+    {
+      "name": "frozen-0-episode-308",
+      "model": "frozen-0",
+      "episode": 308,
+      "seat": 2,
+      "round": 9,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Lubeck",
+          "price": 16
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "ac2b6abaf62074a9842d1ee7599bb261acccdcce0c275b8f0967d80cc800a8d2"
+    },
+    {
+      "name": "frozen-0-episode-32",
+      "model": "frozen-0",
+      "episode": 32,
+      "seat": 3,
+      "round": 9,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Schwerin",
+          "price": 23
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "82d6e569f70674ef00dfa1c9e52ec6fab805d4e0f180b53ee663f5c460033d31"
+    },
+    {
+      "name": "frozen-0-episode-65",
+      "model": "frozen-0",
+      "episode": 65,
+      "seat": 1,
+      "round": 8,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Magdeburg",
+          "price": 26
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "1e91f2137da83b7f2c69d92d3e22c2ef83f0473c911109630b4911ed3f9ce2b6"
+    },
+    {
+      "name": "frozen-0-episode-71",
+      "model": "frozen-0",
+      "episode": 71,
+      "seat": 2,
+      "round": 8,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Lubeck",
+          "price": 21
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "510afaddce95f1ed5df4bb6f4a6e23a2cb069a8a409f18028a6e3525e1fc9ffb"
+    },
+    {
+      "name": "frozen-1-episode-128",
+      "model": "frozen-1",
+      "episode": 128,
+      "seat": 2,
+      "round": 9,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Schwerin",
+          "price": 21
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "69fae56e00c74d3eda647ddb3f619f0c05e687f6226302025eb2e42bc0162137"
+    },
+    {
+      "name": "frozen-1-episode-129",
+      "model": "frozen-1",
+      "episode": 129,
+      "seat": 2,
+      "round": 7,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Aachen",
+          "price": 17
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "edd8ab1ce97f7865c391a57bd176a69be2e3c5eb1e5f5e4f36db1f4a803747c6"
+    },
+    {
+      "name": "frozen-1-episode-146",
+      "model": "frozen-1",
+      "episode": 146,
+      "seat": 1,
+      "round": 11,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Flensburg",
+          "price": 19
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "a2d320d3c805f16b3f76396ba0a9674377fc2453b20b8303e4dae059e1598fbc"
+    },
+    {
+      "name": "frozen-1-episode-267",
+      "model": "frozen-1",
+      "episode": 267,
+      "seat": 1,
+      "round": 9,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Schwerin",
+          "price": 21
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "0d458a3d56fba599ffd4898607a9f1c651608ab453bece5b073d603fa2851f72"
+    },
+    {
+      "name": "parent-episode-128",
+      "model": "parent",
+      "episode": 128,
+      "seat": 2,
+      "round": 8,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Flensburg",
+          "price": 14
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "b59bc7a430e87dabfae76b4b8c5ae4b436884f62c02dea6ccb88ce65ac81df2c"
+    },
+    {
+      "name": "parent-episode-129",
+      "model": "parent",
+      "episode": 129,
+      "seat": 2,
+      "round": 8,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Hannover",
+          "price": 25
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "10d788fd4c39b19e5c641ab451d704569c164e32b547bbdfa14d4194a8ac1e44"
+    },
+    {
+      "name": "parent-episode-132",
+      "model": "parent",
+      "episode": 132,
+      "seat": 3,
+      "round": 9,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Bremen",
+          "price": 25
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "bfcdd4f76f0f7f5496e73bc56005dee964810ecace8ed2036517c94d6bd265e6"
+    },
+    {
+      "name": "parent-episode-142",
+      "model": "parent",
+      "episode": 142,
+      "seat": 0,
+      "round": 10,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Rostock",
+          "price": 16
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "ceafd895510db52a5c23c469dcf5365fe074d0994ee8f71cc3aaca085b0d2cf9"
+    },
+    {
+      "name": "parent-episode-153",
+      "model": "parent",
+      "episode": 153,
+      "seat": 3,
+      "round": 11,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Fulda",
+          "price": 28
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "d00d8b6d8db1777c650e0158cfab5e9560f8b70c5f5ec046d8c669996d40400a"
+    },
+    {
+      "name": "parent-episode-258",
+      "model": "parent",
+      "episode": 258,
+      "seat": 4,
+      "round": 9,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Frankfurt-M",
+          "price": 20
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "9da20fd44598dd99c5a5a8313e6b816d4d020a26bf14b1325d56429d03017534"
+    },
+    {
+      "name": "parent-episode-32",
+      "model": "parent",
+      "episode": 32,
+      "seat": 3,
+      "round": 10,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Hannover",
+          "price": 25
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "12c2ec19730aab7e7a827f4dbefaf2893ea24435b6e84ff56e3773590301667c"
+    },
+    {
+      "name": "parent-episode-47",
+      "model": "parent",
+      "episode": 47,
+      "seat": 1,
+      "round": 9,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Aachen",
+          "price": 17
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "281ecc44fc76b7ba9f1800a2a1ba13352529508023e8354fbdaac641fdd0f9a6"
+    },
+    {
+      "name": "parent-episode-55",
+      "model": "parent",
+      "episode": 55,
+      "seat": 3,
+      "round": 8,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Hannover",
+          "price": 25
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "20aa37925fdc0c01189c35341571f7cedb6a51230dd7d0814603056716d9c126"
+    },
+    {
+      "name": "parent-episode-65",
+      "model": "parent",
+      "episode": 65,
+      "seat": 1,
+      "round": 10,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "K\u00f6ln",
+          "price": 24
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "ebc53e27359cdf8079962a68e9910e05a80fdcc2eaa82d0a4e94899e05472007"
+    },
+    {
+      "name": "public-0-episode-125",
+      "model": "public-0",
+      "episode": 125,
+      "seat": 1,
+      "round": 8,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "K\u00f6ln",
+          "price": 19
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "1f163b72cc38eb20167334d7dcb595e2af3fb2e235b2f2e644d78dce674653cd"
+    },
+    {
+      "name": "public-0-episode-166",
+      "model": "public-0",
+      "episode": 166,
+      "seat": 1,
+      "round": 9,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Frankfurt-O",
+          "price": 21
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "c292c3948360457bd48cd707146aabe0206d8c88ba506991a4f0e3af43c47803"
+    },
+    {
+      "name": "public-0-episode-308",
+      "model": "public-0",
+      "episode": 308,
+      "seat": 2,
+      "round": 10,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Magdeburg",
+          "price": 26
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "1086c574b431c214f735bccf1994648a4e6385ceae8318eec80d4facedd94072"
+    },
+    {
+      "name": "public-0-episode-47",
+      "model": "public-0",
+      "episode": 47,
+      "seat": 1,
+      "round": 8,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Kiel",
+          "price": 19
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "56aed6c7dc3ad678e13fe95f0b9600815dddc1451ca857a1540d21ef5a96b393"
+    },
+    {
+      "name": "public-0-episode-71",
+      "model": "public-0",
+      "episode": 71,
+      "seat": 2,
+      "round": 8,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Flensburg",
+          "price": 14
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "d66a73222d606e3a6f1f2ba592c70fe6b7267926beb1314b19d8d515bba7bec5"
+    },
+    {
+      "name": "public-1-episode-153",
+      "model": "public-1",
+      "episode": 153,
+      "seat": 3,
+      "round": 10,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Frankfurt-M",
+          "price": 20
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "2d316be74da0e7a7b1587d22dceaa7bb65cf9a585fd7451746455a2a44fe2d3f"
+    },
+    {
+      "name": "public-1-episode-230",
+      "model": "public-1",
+      "episode": 230,
+      "seat": 2,
+      "round": 11,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Schwerin",
+          "price": 26
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "f9933b3f788165fb1e20c03707ace3818982493075d07785e55a89c7ac959a90"
+    },
+    {
+      "name": "public-1-episode-55",
+      "model": "public-1",
+      "episode": 55,
+      "seat": 3,
+      "round": 8,
+      "original": {
+        "name": "Build",
+        "data": {
+          "name": "Cuxhaven",
+          "price": 18
+        }
+      },
+      "threshold": 15,
+      "reference_trace_sha256": "bc6fe44a5a86430e91c3826de71ac50b677895a05ba0d2bc279ac1e8b882345b"
+    }
+  ],
+  "branches": [
+    "original",
+    "pass"
+  ],
+  "branch_games": 56,
+  "max_steps": 1600,
+  "selection": "Every game in the existing 49-game diagnostic selection where the learner is the first player to cross the endgame city threshold. No filtering by final outcome or whether the player currently leads. Compare unchanged choice with Pass at that single Build; all later choices use the same original model.",
+  "purpose": "Single-decision conditional causal diagnosis on reused, outcome-selected five-player legacy trajectories. Actual future deck and opponent RNG retained; not deployment search, training labels, fresh strength evaluation or a calibrated expected value. Original controls must reproduce entire traces and terminal outputs; every branch prefix must match. Keep adverse changes and any caps.",
+  "new_strength_games": 0,
+  "gradients": false,
+  "candidate_selected": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

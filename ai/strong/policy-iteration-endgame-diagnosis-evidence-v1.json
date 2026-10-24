@@ -1,0 +1,477 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "7517a821fbb292d89315da3e243d1eccdaeb5698",
+  "archive_path": "archives/policy-iteration-endgame-diagnosis-evidence-v1.tgz",
+  "archive_sha256": "59395b348c215f1109c814f08c4a6da72473dbe2f3c9a7b8b4e6fc4b44f4a3ff",
+  "manifest_sha256": "b58d3653dade043118d16488b08468c2b63bd566d5eb7fda6e6360f75a9b2454",
+  "archived_files": 132,
+  "format": "tar.gz",
+  "remote_archive_verified": true,
+  "counterfactual": {
+    "games": 56,
+    "cases": 28,
+    "original_controls_with_identical_full_traces": 28,
+    "all_branch_prefixes_identical": true,
+    "all_state_transitions_continuous": true,
+    "truncations": 0,
+    "diagnostic_changes": {
+      "frozen-0": {
+        "unchanged": 4,
+        "gain": 2
+      },
+      "frozen-1": {
+        "gain": 1,
+        "unchanged": 2,
+        "loss": 1
+      },
+      "parent": {
+        "loss": 3,
+        "gain": 2,
+        "unchanged": 5
+      },
+      "public-0": {
+        "unchanged": 5
+      },
+      "public-1": {
+        "loss": 1,
+        "unchanged": 1,
+        "gain": 1
+      }
+    },
+    "code_hashes": {
+      "ai/strong/replay-policy-iteration-endgame-branches.py": "0ecc554ed979c8a7ab57d23cb9eac3be9faa4c4a08ed9440945ea223eb01ba13",
+      "ai/strong/policy-iteration-endgame-counterfactual-protocol-v1.json": "78875fedd35f7cc32023230824710a6c89814cc192af91871c21139ae2d234de",
+      "ai/strong/trace-public-economy.cjs": "4e3296bc7e49626d2f67336ff800ea4a714d26db0ac10d63efbec15b6c55a9ed",
+      "ai/strong/intervene-endgame-build.cjs": "d5799a4245dffa968537b1e07a84da6d467ce84210798c2fe2fa7fb074ef44da"
+    },
+    "source": {
+      "archive": "strong-source-policy-iteration-development-20261024-v2.tgz",
+      "revision": "a393d0fa83d9fee8a27a876a217fe97dfea03ff8",
+      "sha256": "c020987f3a05a2c0116dfd52498139f6bb7480e1721ca058caf9771f94d970ce",
+      "bytes": 109411988,
+      "base": {
+        "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+        "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+        "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+        "bytes": 109402244,
+        "base": {
+          "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+          "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+          "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+          "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+          "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+          "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+        },
+        "unchanged_base_files": 1430,
+        "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+        "qualification_eligible": false
+      },
+      "overlays": {
+        "ai/strong/policy_iteration_development.py": "1bbcec9b3ad236fdaf330627cd31f6c99618642cf657b75207aba365c4c217ea",
+        "ai/strong/preflight-policy-iteration-development.py": "024f1f746eb396a8906664c26e2307224c733ff4b43a75899498efbf65096829",
+        "ai/strong/policy-iteration-development-protocol-v2.json": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+        "ai/strong/policy-iteration-training-design-v2.json": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+        "ai/strong/build-policy-iteration-development-source.py": "6dd5963f0438f0ef7fca6c53c3701acdba99d8e9390e42d9c5f64f4e39287310"
+      },
+      "unchanged_base_files": 1434,
+      "protocol_sha256": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+      "gradients": false,
+      "qualification_eligible": false
+    },
+    "protocol_sha256": "78875fedd35f7cc32023230824710a6c89814cc192af91871c21139ae2d234de",
+    "branches_sha256": "f1e67cd5c9d5b9a0b017a80a1c83f071ab3d931db20a774e72a9493958ee675d",
+    "new_strength_games": 0,
+    "gradients": false,
+    "candidate_selected": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false,
+    "scope": "Single-decision conditional causal diagnosis on reused, outcome-selected five-player legacy trajectories. Actual future deck and opponent RNG retained; not deployment search, training labels, fresh strength evaluation or a calibrated expected value. Original controls must reproduce entire traces and terminal outputs; every branch prefix must match. Keep adverse changes and any caps.",
+    "note": "Arena policyMoves counts the model proposals; the full trace records executed moves after intervention. Do not treat proposal counters as executed-action counts in the changed branch."
+  },
+  "certificate_audit": {
+    "games": 49,
+    "root_moves": 26772,
+    "threshold_cases": 28,
+    "certified_cases": 8,
+    "certified_changes": {
+      "gains": 4,
+      "losses": 0,
+      "unchanged": 4
+    },
+    "all_before_and_after_states_match": true,
+    "all_checks_read_only": true,
+    "private_future_invariance": true,
+    "records": [
+      {
+        "name": "frozen-0-episode-230",
+        "model": "frozen-0",
+        "root_index": 604,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 1
+      },
+      {
+        "name": "parent-episode-32",
+        "model": "parent",
+        "root_index": 523,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 1
+      },
+      {
+        "name": "frozen-0-episode-32",
+        "model": "frozen-0",
+        "root_index": 510,
+        "certificate": null,
+        "original_win": 0,
+        "pass_win": 1
+      },
+      {
+        "name": "frozen-0-episode-308",
+        "model": "frozen-0",
+        "root_index": 467,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 1
+      },
+      {
+        "name": "frozen-0-episode-71",
+        "model": "frozen-0",
+        "root_index": 523,
+        "certificate": {
+          "reason": "strict-fueled-output-loss",
+          "threshold": 15,
+          "fuelUpperBound": 5,
+          "opponentLowerBound": 10,
+          "replacement": {
+            "name": "Pass",
+            "data": true
+          },
+          "qualification_eligible": false
+        },
+        "original_win": 0,
+        "pass_win": 0
+      },
+      {
+        "name": "parent-episode-65",
+        "model": "parent",
+        "root_index": 602,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 0
+      },
+      {
+        "name": "frozen-0-episode-65",
+        "model": "frozen-0",
+        "root_index": 469,
+        "certificate": null,
+        "original_win": 0,
+        "pass_win": 1
+      },
+      {
+        "name": "parent-episode-129",
+        "model": "parent",
+        "root_index": 432,
+        "certificate": {
+          "reason": "strict-fueled-output-loss",
+          "threshold": 15,
+          "fuelUpperBound": 11,
+          "opponentLowerBound": 12,
+          "replacement": {
+            "name": "Pass",
+            "data": true
+          },
+          "qualification_eligible": false
+        },
+        "original_win": 0,
+        "pass_win": 1
+      },
+      {
+        "name": "frozen-0-episode-129",
+        "model": "frozen-0",
+        "root_index": 378,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 1
+      },
+      {
+        "name": "frozen-1-episode-146",
+        "model": "frozen-1",
+        "root_index": 723,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 0
+      },
+      {
+        "name": "parent-episode-128",
+        "model": "parent",
+        "root_index": 462,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 0
+      },
+      {
+        "name": "frozen-1-episode-128",
+        "model": "frozen-1",
+        "root_index": 537,
+        "certificate": {
+          "reason": "strict-fueled-output-loss",
+          "threshold": 15,
+          "fuelUpperBound": 10,
+          "opponentLowerBound": 11,
+          "replacement": {
+            "name": "Pass",
+            "data": true
+          },
+          "qualification_eligible": false
+        },
+        "original_win": 0,
+        "pass_win": 1
+      },
+      {
+        "name": "frozen-1-episode-267",
+        "model": "frozen-1",
+        "root_index": 567,
+        "certificate": {
+          "reason": "strict-fueled-output-loss",
+          "threshold": 15,
+          "fuelUpperBound": 8,
+          "opponentLowerBound": 13,
+          "replacement": {
+            "name": "Pass",
+            "data": true
+          },
+          "qualification_eligible": false
+        },
+        "original_win": 0,
+        "pass_win": 0
+      },
+      {
+        "name": "frozen-1-episode-129",
+        "model": "frozen-1",
+        "root_index": 378,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 1
+      },
+      {
+        "name": "parent-episode-142",
+        "model": "parent",
+        "root_index": 633,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 1
+      },
+      {
+        "name": "public-0-episode-166",
+        "model": "public-0",
+        "root_index": 545,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 1
+      },
+      {
+        "name": "parent-episode-132",
+        "model": "parent",
+        "root_index": 478,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 0
+      },
+      {
+        "name": "public-0-episode-308",
+        "model": "public-0",
+        "root_index": 561,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 1
+      },
+      {
+        "name": "public-0-episode-71",
+        "model": "public-0",
+        "root_index": 512,
+        "certificate": {
+          "reason": "strict-fueled-output-loss",
+          "threshold": 15,
+          "fuelUpperBound": 6,
+          "opponentLowerBound": 10,
+          "replacement": {
+            "name": "Pass",
+            "data": true
+          },
+          "qualification_eligible": false
+        },
+        "original_win": 0,
+        "pass_win": 0
+      },
+      {
+        "name": "parent-episode-47",
+        "model": "parent",
+        "root_index": 507,
+        "certificate": {
+          "reason": "strict-fueled-output-loss",
+          "threshold": 15,
+          "fuelUpperBound": 10,
+          "opponentLowerBound": 11,
+          "replacement": {
+            "name": "Pass",
+            "data": true
+          },
+          "qualification_eligible": false
+        },
+        "original_win": 0,
+        "pass_win": 1
+      },
+      {
+        "name": "public-0-episode-47",
+        "model": "public-0",
+        "root_index": 501,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 1
+      },
+      {
+        "name": "public-0-episode-125",
+        "model": "public-0",
+        "root_index": 424,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 1
+      },
+      {
+        "name": "parent-episode-258",
+        "model": "parent",
+        "root_index": 580,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 1
+      },
+      {
+        "name": "public-1-episode-230",
+        "model": "public-1",
+        "root_index": 633,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 1
+      },
+      {
+        "name": "parent-episode-55",
+        "model": "parent",
+        "root_index": 467,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 1
+      },
+      {
+        "name": "public-1-episode-55",
+        "model": "public-1",
+        "root_index": 471,
+        "certificate": {
+          "reason": "strict-fueled-output-loss",
+          "threshold": 15,
+          "fuelUpperBound": 13,
+          "opponentLowerBound": 14,
+          "replacement": {
+            "name": "Pass",
+            "data": true
+          },
+          "qualification_eligible": false
+        },
+        "original_win": 0,
+        "pass_win": 1
+      },
+      {
+        "name": "parent-episode-153",
+        "model": "parent",
+        "root_index": 622,
+        "certificate": {
+          "reason": "strict-fueled-output-loss",
+          "threshold": 15,
+          "fuelUpperBound": 13,
+          "opponentLowerBound": 14,
+          "replacement": {
+            "name": "Pass",
+            "data": true
+          },
+          "qualification_eligible": false
+        },
+        "original_win": 0,
+        "pass_win": 0
+      },
+      {
+        "name": "public-1-episode-153",
+        "model": "public-1",
+        "root_index": 563,
+        "certificate": null,
+        "original_win": 1,
+        "pass_win": 0
+      }
+    ],
+    "code_hashes": {
+      "ai/strong/audit-endgame-loss-filter.cjs": "dbe0adb948a999d0c9be4e72889a92319fe7983dc8522c37ee58bafbb04d2fa1",
+      "ai/strong/endgame-loss-filter.cjs": "28e3eb1a5fb637b7b80c1b7dc4db255c3d93e5ace168ead6dfa386f57a4de70a"
+    },
+    "new_strength_games": 0,
+    "candidate_selected": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false,
+    "scope": "Engineering certificate audit on 49 fixed outcome-selected five-player Germany games. Full root ledgers replay through the frozen engine with identical states. Certificates do not use outcomes, private bids or deck order. The eight diagnosed certificate branches are not a fresh win-rate sample or qualification; no serving/evaluation integration."
+  },
+  "serving_probe": {
+    "positions": 2553,
+    "choices": 22597,
+    "by_player_count": {
+      "2": {
+        "positions": 349,
+        "choices": 2300,
+        "certified_builds": 0
+      },
+      "3": {
+        "positions": 427,
+        "choices": 2885,
+        "certified_builds": 5
+      },
+      "4": {
+        "positions": 527,
+        "choices": 5024,
+        "certified_builds": 0
+      },
+      "5": {
+        "positions": 609,
+        "choices": 5710,
+        "certified_builds": 19
+      },
+      "6": {
+        "positions": 641,
+        "choices": 6678,
+        "certified_builds": 0
+      }
+    },
+    "all_inputs_unchanged": true,
+    "all_replacements_legal": true,
+    "private_future_invariance": true,
+    "fixtures_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+    "code_hashes": {
+      "ai/strong/probe-endgame-filter-serving.cjs": "b046444df8e5a24dbc2d02a3136cfced6d793c4f8cd18af360c67b5d5bd95fc0",
+      "ai/strong/endgame-loss-filter.cjs": "28e3eb1a5fb637b7b80c1b7dc4db255c3d93e5ace168ead6dfa386f57a4de70a"
+    },
+    "new_strength_games": 0,
+    "candidate_selected": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false,
+    "scope": "All existing serving fixtures and their supplied legal moves, across 2\u20136 players. Read-only legality and scope probe only; no performance, strength or qualification claim."
+  },
+  "unit_tests_passed": 3,
+  "serving_integration": false,
+  "frozen_evaluations_changed": false,
+  "new_hf_jobs": 0,
+  "new_strength_games": 0,
+  "gradients": false,
+  "candidate_selected": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "assessment": "A universal one-turn delay gains six and loses five selected outcomes (28 cases), so reject it as a general rule. A narrow current-fuel strict-loss certificate matches eight cases, with four recoveries and four unchanged losses. This is outcome-selected diagnosis, not estimated win-rate improvement. The filter is experimental only, restricted to standard Germany and strict output gaps; ties, already-triggered endings, unsupported maps and dropped players are excluded. Full development comparison still required before candidate selection or a fresh hybrid strength study."
+}

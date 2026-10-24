@@ -25,7 +25,108 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: four-player gains verified; fuel-market failures reproduced
+## Latest checkpoint: endgame counterfactuals and a strict loss filter
+
+Previous goal turn: progress (four-player gains plus complete fuel-market replays).
+This turn: progress through single-decision counterfactuals and an isolated
+experimental endgame filter. No new HF jobs, gradient updates, candidate selection,
+serving changes or final-test games. The fixed development coordinator stays live.
+
+### Counterfactual diagnosis
+
+From the existing 49 outcome-selected five-player legacy trajectories, take
+**every** game where the learner first crosses the endgame city threshold,
+without further filtering by winner or current lead: 28 cases across the parent
+and all four trained ensembles. For each, replay the original action and replace
+only that threshold-crossing Build with a legal Pass. Later decisions still use
+the same original policy. All 28 original controls reproduce **byte-identical
+full traces** and exact terminal outputs. All 28 changed branches match every
+preceding move and the intervention state; every subsequent public-state
+transition is continuous. All 56 branches finish with zero caps.
+
+The universal delay changes six selected losses into wins, but also changes five
+wins into losses; 17 are unchanged. This rejects "always delay the ending" as a
+general fix. These are conditional counterfactuals on reused, outcome-selected
+deals with the actual future deck/RNG, not a fresh strength sample, training
+labels, a deployment expectation or a representative frequency estimate.
+
+| Model | Delay gains | Delay losses | Unchanged |
+| --- | ---: | ---: | ---: |
+| Parent | 2 | 3 | 5 |
+| frozen-0 | 2 | 0 | 4 |
+| frozen-1 | 1 | 1 | 2 |
+| public-0 | 0 | 0 | 5 |
+| public-1 | 1 | 1 | 1 |
+
+Source: `strong/policy-iteration-endgame-counterfactual-protocol-v1.json`,
+`strong/intervene-endgame-build.cjs`, `strong/replay-policy-iteration-endgame-branches.py`.
+Output/log: `ai/runs/policy-iteration-endgame-branches-v1/` and `.log`.
+Session 51335 completed. The arena's `policyMoves` counts proposals before the
+intervention; use the full trace for executed-action counts in changed branches.
+
+### Experimental certificate: strict fuel-supported output loss only
+
+`strong/endgame-loss-filter.cjs` is **not wired into serving, training, existing
+evaluation or hybrid search**. It proposes Pass only for a legal first
+threshold-crossing Build when the player's maximum output with all current fuel
+and plants (even with enough cities) is strictly lower than an opponent's already
+fuel-supported current cities. It reads no deck, hidden bid or future action.
+
+The reasoning is specific to standard Germany: reaching the city threshold ends
+the game after Building, before fuel is consumed. During the remaining Building
+phase the player's fuel-supported ceiling cannot rise, while the opponent's
+already fueled cities cannot fall. Thus the strict output gap cannot be fixed
+by buying more cities that turn. Equal outputs are deliberately **not** certified
+because money and later construction can affect ties. Already-triggered endings,
+unsupported maps/options, dropped players, illegal actions and unavailable Pass
+are rejected. Do not broaden these conditions without new reasoning and tests.
+
+The 49 original game ledgers were independently replayed as recorded moves through
+the frozen engine: **26,772 root moves have matching before/after states**. All certificate
+calls leave full states unchanged; perturbing private deck/RNG fields does not
+change them. Eight of the 28 threshold cases meet the strict certificate; every
+original is a loss. Their already-computed Pass branches recover four wins and
+leave four losses unchanged. This is diagnostic consistency, not a new win rate.
+No model or production behavior has changed.
+
+Three meaningful unit tests pass, covering all 2–6 player counts/seats, strict
+versus tied output, later possible powering, already-ended scope, legality,
+read-only behavior and private-future invariance. The actual frozen serving
+fixture probe covers **2,553 positions / 22,597 supplied legal choices** across
+2–6 players. It finds 24 certified Build choices in 3p/5p fixtures; all replacement
+Pass moves are legal and inputs remain unchanged. Positive real-game causal
+examples are five-player only; fresh all-count strength evaluation is still needed.
+
+Scripts: `strong/test-endgame-loss-filter.cjs`, `strong/audit-endgame-loss-filter.cjs`,
+`strong/probe-endgame-filter-serving.cjs`. Results: `ai/runs/endgame-loss-filter-audit-v1.json`,
+`endgame-loss-filter-serving-v1.json`, corresponding logs and
+`endgame-loss-filter-tests-v1.log`. Sessions 6300 and 59475 completed.
+
+All raw counterfactual traces, controls, intervention receipts, protocol, source,
+checks and linked prior replay evidence are archived in
+`strong/policy-iteration-endgame-diagnosis-evidence-v1.json`:
+HF revision `7517a821fbb292d89315da3e243d1eccdaeb5698`, archive `archives/policy-iteration-endgame-diagnosis-evidence-v1.tgz`,
+SHA256 `59395b348c215f1109c814f08c4a6da72473dbe2f3c9a7b8b4e6fc4b44f4a3ff` (132 files, remotely verified).
+
+### Remaining comparison and next action
+
+At 2026-10-24T12:27:37.801047+00:00, recovery PID 402796 / session 78444 is live,
+stage `waiting_for_development_jobs`; all 41 dependency hashes match. Each candidate has 104/108
+shards and 6,336/6,720 games verified (416 shards / 25,344 candidate games total).
+The only remaining jobs are the 16 six-player search shards. A direct HF check
+this turn confirmed handles `6adc8f091e112550ce7def98` and
+`6adc90cf046eb82b1ecdc0a9` RUNNING; do not restart them because observation is slow.
+All five-player cells are now collected, but no extra partial ranking or selection
+was performed. Let the same coordinator finish the complete 33,600-game comparison.
+
+After that, determine the bounded hybrid experiment from all model/count/rule
+results. The experimental certificate can be tested as a separate cheap arm;
+fuel-consuming opponent mixtures and earlier provisioning still matter, since
+avoiding a certain terminal loss does not fix an already bad position. Final
+qualification still requires the unchanged full gate and exact serving/8840U
+receipts for any modified policy. The original goal remains incomplete and active.
+
+## Previous checkpoint: four-player gains verified; fuel-market failures reproduced
 
 Previous goal turn: verified wait on the live recovery coordinator. This turn:
 progress through additional complete-cell verification and exact diagnostic replays.

@@ -1,0 +1,32 @@
+{
+  "status": "confirmed_terminal_prestart_failure_preserved",
+  "case": "population-hybrid-development-v1-auction-4p-legacy-0-4",
+  "job_id": "6adce697046eb82b1ecde31d",
+  "authoritative_status": "ERROR",
+  "started_at": null,
+  "cause": "HF reported exit code6 with no start time or application logs; exact underlying cause unknown.",
+  "original_guard_sha256": "5c2a3980ec6e1e6fc7a1e21ca198277cf5c81b8ef6dd2c48bbdd942604752d6b",
+  "original_coordinator_sha256": "dfabca87c7d9e98c6a3eced0f29a21869cf6e2348f128ff5fb9f8780438b1870",
+  "remote_artifact_check": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "44551e4bfff0f4e62430ff487cc580d8a4f778cd",
+    "path": "archives/population-hybrid-development-v1-auction-4p-legacy-0-4.tgz",
+    "exists": false,
+    "checked_at": "2026-10-24T17:24:22.456970+00:00"
+  },
+  "original_plan_sha256": "bd2d80bac1384f6d71a9cc4ee1f71db21ce6d9c8fd95e9a12543cdeceb83859f",
+  "no_partial_results_used": true,
+  "other_unverified_jobs_checked": 31,
+  "additional_failures_found": 0,
+  "new_jobs": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "e3286f02e53834628245b972fda16b20e1d0621c",
+  "archive_path": "archives/population-hybrid-prestart-failure-evidence-v1.tgz",
+  "archive_sha256": "4272642138a3c02327e91572198f22eec601fc05062bc49e511455a8c7a130c5",
+  "manifest_sha256": "4504c3bade5a8f5cae70230a69c336cebb22d152c6be061906b854d97d7a0273",
+  "archived_files": 13,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

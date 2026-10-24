@@ -6,7 +6,28 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: broader live check and conditional timeout partition verified; no recovery launched.**
+**Latest: one confirmed no-start failure replaced exactly; fixed comparison resumed.**
+HF job `6adce697046eb82b1ecde31d` (auction / 4p / legacy) ended ERROR with
+exit code 6, no reported start time and no application logs. Its underlying cause
+is unknown. Original status, logs, guard and stopped coordinator were archived;
+the result archive was absent. The other 31 unverified handles were checked and
+had no additional terminal failures. No partial outcomes were used.
+
+The single replacement, `6adceba41e112550ce7e21fa`, uses exactly the same source,
+model, seeds, hardware, timeout and search settings. Its canonical guard records
+the original failure lineage; the other 69 original guards remain unchanged.
+Four recovery tests passed. The unchanged coordinator resumed as PID **2740649**,
+session **65141**. At 2026-10-24T17:32:42 UTC: **71 submitted / 39 verified**,
+no failed jobs. This includes one further submission from the original fixed grid.
+
+Evidence: `strong/population-hybrid-prestart-failure-evidence-v1.json` and
+`strong/population-hybrid-prestart-recovery-evidence-v1.json`; admission:
+`strong/population-hybrid-prestart-recovery-admission-v1.json`. The recovery helper
+is one-shot and must not be rerun. Continue the resumed coordinator and existing
+jobs. The 8,400-game comparison remains incomplete; source and protocol are frozen.
+Do not start the prepared resource experiment yet. No final seeds or qualification.
+
+**Previous: broader live check and conditional timeout partition verified; no recovery launched at that checkpoint.**
 The 16:59 UTC snapshot inspected 30 running jobs, with zero caps in their completed
 game logs; four newly launched jobs were separately confirmed running at 17:01.
 Five-player combined/search_geo also shows runtime risk: 19/80 games after 10,654s,

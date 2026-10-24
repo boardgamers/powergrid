@@ -25,7 +25,57 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: broader runtime risk and conditional partition spec
+## Latest checkpoint: terminal no-start failure preserved and exact replacement resumed
+
+The original coordinator PID 1447977 / session 53211 exited with a real failure
+at 2026-10-24T17:20:59 UTC (70 submitted / 38 verified). It is absent and must not
+be treated as live. HF reports job `6adce697046eb82b1ecde31d`, case
+`population-hybrid-development-v1-auction-4p-legacy-0-4`, ERROR with exit code 6,
+`started_at=null`, and `No logs available`. The underlying cause is unknown.
+This differs from the still-running 5p/6p combined-search runtime warnings below.
+
+Original failure records are retained in
+`ai/runs/population-hybrid-prestart-failure-v1` and the private HF evidence archive
+pinned by `strong/population-hybrid-prestart-failure-evidence-v1.json`
+(revision `e3286f02e53834628245b972fda16b20e1d0621c`). All 32 previously unverified
+jobs were inspected; this was the only terminal failure. The failed case had no
+saved result archive at the checked HF revision. No partial result was selected.
+
+`strong/recover-population-hybrid-prestart-v1.py` admitted and launched exactly
+one replacement after fresh terminal-status/artifact checks, archived evidence
+hash checks, a stopped coordinator and exclusive locks. It preserved every launch
+field except job ID and creation time, then added original-failure provenance to
+the replacement canonical guard. Its four tests reject live/unknown/completed or
+started jobs, changed guards, repeated replacements, live coordinators and existing
+artifacts. No frozen screen dependency, source, model or protocol was edited.
+
+- Replacement job: `6adceba41e112550ce7e21fa`, same original games and settings.
+- Original guard SHA: `5c2a3980ec6e1e6fc7a1e21ca198277cf5c81b8ef6dd2c48bbdd942604752d6b`.
+- Replacement guard SHA: `b3e47d804a2b8e7378915d2f0a502c33be43ca1d4982a2a4455268bff9193598`.
+- Other 69 original guards verified unchanged before and after resumption.
+- Resumed unchanged coordinator: PID **2740649**, session **65141**.
+- 2026-10-24T17:32:42 UTC: waiting, **71 submitted / 39 verified**, no failures.
+- Coordinator log: `ai/runs/population-hybrid-prestart-recovery-v1/coordinator.log`.
+- Admission/evidence: `strong/population-hybrid-prestart-recovery-admission-v1.json`
+  and `strong/population-hybrid-prestart-recovery-evidence-v1.json`.
+
+The recovery helper does not itself resume the coordinator; that was done once
+after verifying the installed guard. The saved `resumption-check.json` records
+this later action, so the earlier launch state intentionally says not resumed.
+Do not rerun the helper or launch another coordinator. The existing coordinator
+continues the original 135 logical shards / 8,400 games, with no automatic retries.
+The conditional timeout partition below remains unlaunched and is not this recovery.
+
+Current recommendation remains selective model-plus-search, judged by the full
+fixed comparison before adopting any search scope. The completed model-only
+development comparison gives frozen-1 51.5625% against search_geo in 4p overall
+(256 games / 16 deals), 39.0625% Recharged sealed (64 games / 16 deals), versus
+parent 30.8594% / 15.625%. These are development results, not final qualification
+or a measured hybrid improvement. No new independent experiment or gradients,
+no candidate publication, and no final seeds used. Finish this screen before the
+prepared resource experiment or further optimization sweeps.
+
+## Previous checkpoint: broader runtime risk and conditional partition spec
 
 Previous goal turn: verified wait; two shards completed and the existing coordinator
 advanced. This turn: progress from a broader live execution scan and tested timeout

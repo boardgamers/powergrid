@@ -25,7 +25,35 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: storage failure preserved, exact batch replacement, parity gate
+## Latest checkpoint: individual game-error visibility verified
+
+Previous goal turn was a verified wait on the live coordinator and jobs. This turn
+adds a read-only monitoring correction: the runtime observer previously parsed
+completed-game progress but skipped an individual `episode/error` log event until
+HF reported the whole job as failed. It now returns `observed_game_errors`
+separately, validates the episode against the exact shard, and explicitly retains
+the last-200-lines observation limit. An error event never changes authoritative
+job status or automatically cancels/replaces a running job.
+
+Four tests pass, including the actual preserved storage-failure log: 79 completed
+games plus the missing episode 36 error. Tests cover early error visibility,
+irrelevant log messages, bad episode ranges and error shapes. This observer is
+outside the frozen execution dependency set; all 32 frozen hashes were rechecked.
+No policy, source package, evaluation budget, active coordinator or job changed.
+
+The new live scan is
+`ai/runs/population-hybrid-live-runtime-v1/20261024T175837114375Z-game-errors.json`:
+all 32 inspected jobs RUNNING, no observed game errors, caps, truncations or
+observation errors in the bounded log windows. This is execution health evidence,
+not verified full-game outcomes, model strength, or proof of error-free full logs.
+Evidence: `strong/population-hybrid-game-error-observer-evidence-v1.json`.
+
+Continue PID 2812975 / session 5513 through the storage-recovery coordinator
+adapter below. Latest coordinator snapshot at 17:54:36 UTC remained 72 submitted /
+40 verified. Both replacements are running; actual repeated-game parity remains
+pending. No new jobs, gradients, independent experiment or final qualification.
+
+## Previous checkpoint: storage failure preserved, exact batch replacement, parity gate
 
 Previous goal turn: progress (the no-start failure recovery below). This turn:
 progress from discovering and recovering a separate terminal storage failure.

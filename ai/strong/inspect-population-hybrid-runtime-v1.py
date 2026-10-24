@@ -15,6 +15,29 @@ GUARDS = ROOT / 'ai/runs/population-hybrid-development-launches-v1'
 OUTPUT = ROOT / 'ai/runs/population-hybrid-live-runtime-v1'
 
 
+def parse_game_events(lines, row):
+    """Retain explicit game errors without treating them as a terminal HF status."""
+    progress, errors = [], []
+    first, end = row['start'] * 4 * row['players'], row['end'] * 4 * row['players']
+    for line in lines:
+        try:
+            event = json.loads(line)
+        except (ValueError, TypeError):
+            continue
+        if not isinstance(event, dict) or 'episode' not in event:
+            continue
+        if not ('error' in event or {'completed', 'total', 'seconds', 'caps', 'truncated'} <= set(event)):
+            continue
+        assert type(event['episode']) is int and first <= event['episode'] < end
+        if 'error' in event:
+            assert isinstance(event['error'], str) and event['error']
+            errors.append({'episode': event['episode'], 'error': event['error']})
+        else:
+            assert event['total'] == row['games'] and 1 <= event['completed'] <= event['total']
+            progress.append({key: event[key] for key in ['episode', 'completed', 'total', 'seconds', 'caps', 'truncated']})
+    return progress, errors
+
+
 def inspect(case):
     plan = read(PLAN)
     rows = [row for row in plan['shards'] if row['case'] == case]
@@ -24,21 +47,16 @@ def inspect(case):
     assert guard['row'] == rows[0] and guard['source'] == plan['source']
     api = HfApi()
     job = api.inspect_job(job_id=guard['job_id'])
-    progress = []
-    for line in api.fetch_job_logs(job_id=guard['job_id'], follow=False, tail=200):
-        try:
-            row = json.loads(line)
-        except (ValueError, TypeError):
-            continue
-        if isinstance(row, dict) and {'episode', 'completed', 'total', 'seconds', 'caps', 'truncated'} <= set(row):
-            assert row['total'] == rows[0]['games'] and 1 <= row['completed'] <= row['total']
-            progress.append({key: row[key] for key in ['episode', 'completed', 'total', 'seconds', 'caps', 'truncated']})
+    progress, game_errors = parse_game_events(
+        api.fetch_job_logs(job_id=guard['job_id'], follow=False, tail=200), rows[0])
     result = {'case': case, 'job_id': guard['job_id'], 'authoritative_status': job.status.stage,
               'checked_at': datetime.now(timezone.utc).isoformat(),
               'created_at': str(job.created_at), 'started_at': str(job.started_at),
               'running_seconds': job.durations.running_secs,
               'flavor': job.flavor, 'configured_timeout_hours': plan['admission']['timeout_hours'],
-              'guard_sha256': digest(GUARDS / (case + '.json')), 'progress': progress}
+              'guard_sha256': digest(GUARDS / (case + '.json')), 'progress': progress,
+              'observed_game_errors': game_errors,
+              'log_window_limit': 'Last 200 log lines only; an empty error list does not prove the whole run is error-free. Logged game errors are distinct from authoritative HF job status.'}
     if progress:
         assert len({r['episode'] for r in progress}) == len(progress)
         last = max(progress, key=lambda r: r['completed'])

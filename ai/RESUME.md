@@ -6,7 +6,17 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: a second terminal failure recovered; use the parity-gated coordinator.**
+**Latest: read-only monitor now records individual game errors before job termination.**
+`strong/inspect-population-hybrid-runtime-v1.py` now retains explicit episode/error
+events separately from authoritative HF job status. Four tests pass, including
+the original 79-game storage-failure log. Live scan at 2026-10-24T17:58:37 UTC:
+all 32 inspected jobs RUNNING; no game errors, caps or truncations observed in the
+last 200 log lines per job. This bounded scan does not certify the entire run.
+All 32 frozen experiment dependencies remain unchanged. No jobs launched by this
+monitoring change. Evidence: `strong/population-hybrid-game-error-observer-evidence-v1.json`.
+Continue the existing parity-gated coordinator PID 2812975 / session 5513 below.
+
+**Previous: a second terminal failure recovered; use the parity-gated coordinator.**
 Five-player auction/economic job `6adcdcf81e112550ce7e17d3` ended ERROR after
 79/80 games with `OSError: [Errno 28] No space left on device` for episode 36.
 The original partial archive is preserved at HF revision

@@ -1,0 +1,31 @@
+{
+  "status": "read_only_game_error_observer_verified",
+  "observer_sha256": "06fb0cd402126b654713b528e7dd4ee7bbd0a7fdc3f9e9ab26e240435f73ad53",
+  "tests_passed": 4,
+  "historical_failed_log_completed_games": 79,
+  "historical_failed_log_errors_detected": 1,
+  "live_summary": {
+    "checked_at": "2026-10-24T17:58:37.114435+00:00",
+    "status_counts": {
+      "RUNNING": 32
+    },
+    "observed_game_errors": [],
+    "caps_or_truncations": [],
+    "observation_errors": [],
+    "log_window_limit": "Last 200 lines per job; no error observed is not proof the entire run is error-free.",
+    "frozen_dependency_hashes_verified": 32
+  },
+  "new_jobs": 0,
+  "remote_job_mutations": false,
+  "active_experiment_code_unchanged": true,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "ba25426969802325a2689407f7a22f507678bedc",
+  "archive_path": "archives/population-hybrid-game-error-observer-evidence-v1.tgz",
+  "archive_sha256": "a9a8488045f00414332b1d2770478d7986073236836e8589775e9fb6d5573bbc",
+  "manifest_sha256": "4e5a7e4ea9a6987d038a6f772ec45de99e95b27aaf093dbe6d21c87a6e41b617",
+  "archived_files": 8,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

@@ -25,7 +25,44 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: older multiplayer hybrid regression audit
+## Latest checkpoint: hybrid continuation format adapter
+
+The preceding turn was a verified wait on live HF jobs and collector session
+82318. This turn adds an isolated experimental adapter for future hybrid play,
+without changing any frozen teacher, training or development dependency.
+`strong/hybrid-continuations.cjs` supports both4.2 and4.3 feature formats. The
+existing neural teacher only accepts4.2; new ensembles use1217-state/101-action
+4.3 features, so they cannot simply be substituted into that teacher.
+
+The adapter reuses the unchanged public scenario and policy-belief machinery,
+encodes every rollout observation and earlier sealed bidder with the requested
+format, and checks identical action ordering. Root preparation strips private
+information. It does not introduce a new search policy or start any remote job.
+
+- Reproduce: `node --test ai/strong/test-hybrid-continuations.cjs`.
+- All6 tests pass; report/log and exact dependency hashes:
+  `strong/hybrid-continuations-controls-v1.json`.
+-25 positions cover all2–6p auction/rule combinations plus saved building
+  positions. Short controls preserve every transition and truncation record.
+-32 complete paired rollouts at2p/6p across all four rules retain identical
+  terminal outcomes (64 engine executions). Neural-role choices here are fixed
+  legal controls, not actual trained inference or strength evidence.
+- Earlier bidder encoding, hidden-field mutation invariance, worker partitioning,
+  legal passes and invalid/missing bids are checked. The first pass fixture used
+  an opening auction where passing was illegal; the test now reaches a genuine
+  later auction and verifies a valid inferred pass before the rejection checks.
+- A version-aware batched ONNX driver, actual trained rollout integration,
+ 8840U timing and fresh hybrid comparisons remain pending. The current training
+  and model-only development protocol remain unchanged.
+
+All four live local process identities and dependency hashes were rechecked.
+Collector cycle27 is verifying outputs from the latest HF snapshot822COMPLETED /
+126RUNNING; its preceding verified total is753/948. The seven remaining parent
+jobs were inspected directly at09:08UTC and were allRUNNING. No new gradients,
+trained outputs, final-seed use or model qualification yet. Live state supersedes
+these counts; do not start competing collectors or preparation.
+
+## Previous checkpoint: older multiplayer hybrid regression audit
 
 The preceding turn was a verified wait on the three oldest remaining HF label
 jobs and collector session82318. The current turn adds a read-only terminal

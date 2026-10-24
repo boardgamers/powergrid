@@ -47135,5 +47135,17 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "next": "Use the existing pinned final runtime only after full development comparison and exact trained candidate/AMD proof. Convert verified per-candidate parity/CPU/package reports to final verifier inputs; do not substitute synthetic tests or edit final thresholds."
+    },
+    "hybrid_continuations_adapter_v1": {
+        "worker": "ai/strong/hybrid-continuations.cjs",
+        "tests": "ai/strong/test-hybrid-continuations.cjs",
+        "report": "ai/strong/hybrid-continuations-controls-v1.json",
+        "tests_passed": 6,
+        "complete_rollout_pairs": 32,
+        "trained_inference_tested": false,
+        "strength_evaluation": false,
+        "active_training_protocol_changed": false,
+        "remote_jobs_started": 0,
+        "qualification_eligible": false
     }
 }

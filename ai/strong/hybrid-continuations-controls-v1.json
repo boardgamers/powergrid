@@ -1,0 +1,42 @@
+{
+  "checked_at": "2026-10-24T09:16:53.304866+00:00",
+  "passed": true,
+  "command": "node --test ai/strong/test-hybrid-continuations.cjs",
+  "exit_code": 0,
+  "tests": 6,
+  "test_log": "\u2714 both feature revisions preserve every frozen transition and cap record in 25 positions (8186.615455ms)\n\u2714 complete endpoint rollouts retain identical terminal outcomes across all four rules (4871.330389ms)\n\u2714 expanded format covers prior bidders as well as focal and opponent observations (1242.885005ms)\n\u2714 private fields cannot change preparation, beliefs or any expanded-format transition (2106.398767ms)\n\u2714 worker partitioning preserves paired worlds, action outcomes and prior bids (198.912091ms)\n\u2714 unsupported formats and illegal or missing beliefs fail before accepting a rollout (29.021809ms)\n\u2139 tests 6\n\u2139 suites 0\n\u2139 pass 6\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 16924.555307\n",
+  "test_log_sha256": "18abb5e0a95c36b31d89f63c89b0a1ae8d78b2166e52db87e1e42adf8531bd09",
+  "files": {
+    "ai/strong/hybrid-continuations.cjs": "2b03c49c8270622e74c333c5e7253d5eb5d21ba1af919bc5f15ebd456109daaf",
+    "ai/strong/test-hybrid-continuations.cjs": "8e14b0039583c1c89373fe6336380bb19588fd1ca0940d4d4af2cf5d37624c94",
+    "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+    "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+    "ai/strong/strategic-continuations.cjs": "77ef281def63f61c2cac9588d61df4c1a4827b794ff40c5a081b70a687feabb2",
+    "ai/strong/continuation-rollouts.cjs": "8d0fc281725222e1587de9951ac5e5e18aa403b26d1d83de492f4bf18a5b2701",
+    "ai/strong/encoders.cjs": "b1aec9b85ca387c85663dd3aa8ba9aa3916d06a5bb546fa91694f45924f47a72",
+    "ai/strong/features-v4_2.cjs": "40fd236f584b28c8f9c3284a37387a3fa54277132cc46a23761e406556b27bfe",
+    "ai/strong/features-v4_3.cjs": "c103758a436be51f8bb9aa399e3880263b14d743b588858cd177de34f7aac697",
+    "ai/strong/search.cjs": "e92fb27b51ae5fc308fd7787af5991411e939d559473dfd9f9f8294ef1552572",
+    "ai/strong/economics.cjs": "7265923548a15940a33f24d70b2d6419119ef8d759fca1637640f4ff6e9aef58",
+    "ai/strong/fixtures/strategic-teacher-probe-v1.jsonl": "a470245b0b85414c9edffde3cd01523698304e785830334c27f6c59cbb84c1c2"
+  },
+  "core_sha256": "606a398158e936fd0543c3a758293a66f84213ab8d913970d4e55ddc53fb413e",
+  "supported_feature_revisions": [
+    "4.2-discard-correction",
+    "4.3-strategic-correction"
+  ],
+  "contract_positions": 25,
+  "coverage": "20 auction positions:2\u20136p x original/Recharged x open/sealed, plus five saved building positions; earlier sealed bidders present. Short transition comparisons use both neural and neural_economic routing. Eight endpoint configurations (2p/6p x all four rules) each have four complete paired rollouts,32 outcomes per implementation,64 engine runs total. Neural-role test choices are fixed legal controls, not trained inference.",
+  "complete_rollout_pairs": 32,
+  "hidden_state_mutation_invariance": true,
+  "worker_partition_invariance": true,
+  "legal_prior_pass_exercised": true,
+  "invalid_revision_and_bid_rejection": true,
+  "remote_jobs_started": 0,
+  "gradients": false,
+  "trained_inference_tested": false,
+  "strength_evaluation": false,
+  "reserved_final_seeds_used": false,
+  "qualification_eligible": false,
+  "remaining": "Add/reuse a version-aware batched ONNX driver, test actual trained continuations, measure AMD8840U latency and compare fresh whole games before choosing a hybrid."
+}

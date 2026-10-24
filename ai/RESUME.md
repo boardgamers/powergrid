@@ -5,6 +5,12 @@ The final-verifier evidence converter is prepared and its three tests pass.
 Actual trained outputs are still pending. No model is qualified or published;
 reserved final seeds are unused.
 
+An isolated hybrid continuation adapter now supports4.2/4.3 inputs;6 contract
+tests pass, including32 complete paired rollout outcomes. This is engine/feature
+compatibility only: actual trained ONNX continuations, target latency and fresh
+hybrid strength remain untested. See `strong/hybrid-continuations-controls-v1.json`.
+Frozen active pipeline dependencies are unchanged.
+
 ## User steering, 24 October: diminishing returns and hybrid play
 
 The user asks to be told candidly when further work has diminishing returns,

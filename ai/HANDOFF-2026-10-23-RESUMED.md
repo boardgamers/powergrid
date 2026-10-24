@@ -25,7 +25,87 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: terminal no-start failure preserved and exact replacement resumed
+## Latest checkpoint: storage failure preserved, exact batch replacement, parity gate
+
+Previous goal turn: progress (the no-start failure recovery below). This turn:
+progress from discovering and recovering a separate terminal storage failure.
+The fixed hybrid comparison remains incomplete and final seeds remain unused.
+
+A read-only scan of all 32 unverified handles at 17:37 UTC found 30 running,
+one completed and one ERROR: `6adcdcf81e112550ce7e17d3`, case
+`population-hybrid-development-v1-auction-5p-economic-0-4`. The coordinator
+PID 2740649 / session 65141 stopped at 17:37:51, 71 submitted / 40 verified.
+The session exited 1 and the process is absent. Do not resume that direct entry.
+
+### Original failure and recovery decision
+
+The job ran for 3,822 seconds and saved 79/80 completed games, with zero reported
+caps in those games. Episode 36 failed with
+`OSError: [Errno 28] No space left on device`. The logs do not localize the storage
+resource or prove its underlying cause. The saved compressed archive is 552,097
+bytes, so the archive size alone does not explain the failure. No playing-strength
+outcomes were selected from this partial batch.
+
+The failed job itself uploaded its evidence to private HF revision
+`20afd14932631ee54be6bf27b5bc5ae312bf3eb8`, archive SHA
+`88ae0fd0177e006e869ff7b4bc0044c8127392b54c9c95f90b486942cd29ae66`.
+All 163 archived entries were verified and retained in
+`ai/runs/population-hybrid-auction5p-failure-v1/artifacts`.
+Original guard, logs/status, stopped coordinator and all 71 guard hashes are also
+preserved there. The review validates 79 completed records / 9,258 decision
+receipts and all 14 saved decisions from episode 36. This is partial consistency
+evidence, **not** full-cell verification or an accepted strength result.
+
+### Exact replacement and mandatory repetition check
+
+`strong/recover-population-hybrid-storage-v1.py` reuses the original guarded
+one-shot launch implementation, with a separate failure-specific admission.
+The dry run revalidated the terminal job, stopped coordinator, original pinned
+partial archive and hashes. Replacement job **6adcee5f046eb82b1ecde67f** reruns
+the same 80 games; only job ID and launch time differ from the original launch.
+Model, source, seeds, hardware, nine-hour timeout, workers and search budgets are
+unchanged. There is no automatic retry of this replacement.
+
+Original guard SHA: `0c4b3e7c187e081f71a5b8ac950024f88be8ea9d9d613ce3414a8270781f9e45`.
+Replacement guard SHA: `96f153f299c0db83769a23121b38e05692ddcc74846744db2a5c078032ca9644`.
+The other 70 existing guards and all 32 frozen plan dependencies were checked
+unchanged. The first no-start replacement from the previous checkpoint continues.
+
+The new execution adapter imports the unchanged coordinator and adds a strict
+check to both fresh collection and reuse of a saved verified receipt for this
+one case. All 79 repeated terminal results and their full decision receipts, plus
+the failed game's saved prefix, must match. Only timing fields and receipt digests
+that include timing may differ. Any mismatch stops the coordinator before final
+comparison. Actual replacement parity is pending; successful unit tests are not
+represented as a successful remote repetition.
+
+Five tests pass: the actual saved partial records; rejection of changed/capped or
+complete reports; rejection of live/wrong jobs or missing evidence; parity that
+rejects changed moves and simulated outcomes; and failure propagation through
+both coordinator collection paths. They launch no jobs and change no policy.
+
+### Current execution and next action
+
+- Sole active coordinator: **PID 2812975 / session 5513**, via
+  `ai/.venv/bin/python -u ai/strong/recover-population-hybrid-storage-v1.py coordinate --execute`.
+- Log: `ai/runs/population-hybrid-storage-recovery-v1/coordinator.log`.
+- State remains `ai/runs/population-hybrid-development-coordinator-v1/state.json`.
+- Snapshot 2026-10-24T17:44:23 UTC: waiting, **72 submitted / 40 verified**, no failures.
+- Failure evidence: `strong/population-hybrid-storage-failure-evidence-v1.json`,
+  private HF revision `67f14a02db09fb49d00e3794185f8dad3545d772` (178 entries).
+- Admission: `strong/population-hybrid-storage-recovery-admission-v1.json`.
+- Launch/resumption evidence: `strong/population-hybrid-storage-recovery-evidence-v1.json`.
+- On successful replacement collection, inspect
+  `ai/runs/population-hybrid-storage-recovery-v1/repeated-games-verified.json`.
+
+Continue the existing fixed screen. Do not start a direct original coordinator,
+modify the active adapter or frozen sources, rerun a replacement launcher, use
+partial outcomes, or start the prepared resource experiment. The 5p/6p combined
+search jobs were separately confirmed RUNNING at 17:35 UTC, at 24/80 and 31/96
+completed games; runtime risk remains an observation, not a terminal failure.
+No training gradients, independent new experiment, candidate or qualification.
+
+## Previous checkpoint: terminal no-start failure preserved and exact replacement resumed
 
 The original coordinator PID 1447977 / session 53211 exited with a real failure
 at 2026-10-24T17:20:59 UTC (70 submitted / 38 verified). It is absent and must not

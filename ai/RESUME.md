@@ -6,7 +6,33 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: one confirmed no-start failure replaced exactly; fixed comparison resumed.**
+**Latest: a second terminal failure recovered; use the parity-gated coordinator.**
+Five-player auction/economic job `6adcdcf81e112550ce7e17d3` ended ERROR after
+79/80 games with `OSError: [Errno 28] No space left on device` for episode 36.
+The original partial archive is preserved at HF revision
+`20afd14932631ee54be6bf27b5bc5ae312bf3eb8`. Its 9,258 completed-game decision
+receipts and 14 saved decisions from the failed game pass consistency checks.
+The full cell remains unusable; the specific storage resource is unknown.
+
+Replacement `6adcee5f046eb82b1ecde67f` reruns all 80 games with identical source,
+model, seeds, hardware and budgets. Five recovery tests passed. Other 70 existing
+guards and all 32 frozen experiment dependencies are unchanged. Before accepting
+the replacement, the coordinator requires exact repeated-game/decision parity
+with all saved originals, ignoring only elapsed times and time-dependent receipt
+hashes. That actual replacement parity check is **pending**.
+
+Active coordinator: PID **2812975**, session **5513**, launched through
+`strong/recover-population-hybrid-storage-v1.py coordinate --execute`.
+At 2026-10-24T17:44:23 UTC: **72 submitted / 40 verified**, no failed jobs.
+PID 2740649 / session 65141 stopped on this failure and is no longer active.
+Do not start the original coordinator directly: this adapter adds the mandatory
+parity gate. Do not rerun either one-shot replacement launcher or edit the active
+adapter. Continue the fixed comparison; no new experiment or final qualification.
+Evidence: `strong/population-hybrid-storage-failure-evidence-v1.json`,
+`strong/population-hybrid-storage-recovery-evidence-v1.json`; admission:
+`strong/population-hybrid-storage-recovery-admission-v1.json`.
+
+**Previous: one confirmed no-start failure replaced exactly; fixed comparison resumed.**
 HF job `6adce697046eb82b1ecde31d` (auction / 4p / legacy) ended ERROR with
 exit code 6, no reported start time and no application logs. Its underlying cause
 is unknown. Original status, logs, guard and stopped coordinator were archived;

@@ -53706,5 +53706,51 @@
         "original_failure_evidence": "ai/strong/population-hybrid-prestart-failure-evidence-v1.json",
         "admission": "ai/strong/population-hybrid-prestart-recovery-admission-v1.json",
         "next": "Continue unchanged fixed hybrid comparison via resumed coordinator. Do not rerun one-shot recovery, replace live jobs, launch the prepared resource experiment or select a candidate from partial results."
+    },
+    "population_hybrid_storage_recovery_v1": {
+        "status": "exact_storage_replacement_launched_parity_gated_coordinator_resumed",
+        "case": "population-hybrid-development-v1-auction-5p-economic-0-4",
+        "original_job_id": "6adcdcf81e112550ce7e17d3",
+        "replacement_job_id": "6adcee5f046eb82b1ecde67f",
+        "replacement_status": "RUNNING",
+        "original_guard_sha256": "0c4b3e7c187e081f71a5b8ac950024f88be8ea9d9d613ce3414a8270781f9e45",
+        "replacement_guard_sha256": "96f153f299c0db83769a23121b38e05692ddcc74846744db2a5c078032ca9644",
+        "other_original_guards_unchanged": 70,
+        "frozen_dependency_hashes_verified": 32,
+        "partial_review": {
+            "completed_records": 79,
+            "completed_decisions_checked": 9258,
+            "failed_episode": 36,
+            "saved_failed_prefix_decisions": 14,
+            "full_cell_verified": false,
+            "storage_resource_cause_not_localized": true,
+            "partial_archive_bytes": 552097,
+            "source_unchanged": true,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false
+        },
+        "tests_passed": 5,
+        "resumed_coordinator_pid": 2812975,
+        "resumed_coordinator_session": 5513,
+        "coordinator_snapshot": {
+            "pid": 2812975,
+            "stage": "waiting_for_jobs",
+            "updated_at": "2026-10-24T17:44:23.572453+00:00",
+            "jobs_submitted": 72,
+            "jobs_verified": 40,
+            "failed_jobs": []
+        },
+        "replacement_jobs_launched": 1,
+        "new_experiments": 0,
+        "mandatory_original_game_parity": true,
+        "replacement_parity_completed": false,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "evidence": "ai/strong/population-hybrid-storage-recovery-evidence-v1.json",
+        "archive_revision": "90043251b007c4a39d38c522dc1d419d25e4f4b1",
+        "original_failure_evidence": "ai/strong/population-hybrid-storage-failure-evidence-v1.json",
+        "admission": "ai/strong/population-hybrid-storage-recovery-admission-v1.json",
+        "next": "Continue via the parity-gated coordinator adapter. Require every saved original game and failed-game prefix to match the completed replacement before accepting it. Do not rerun one-shot recovery, directly resume the old coordinator, alter the fixed screen, or start the prepared resource experiment."
     }
 }

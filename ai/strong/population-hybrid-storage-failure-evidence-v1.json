@@ -1,0 +1,36 @@
+{
+  "status": "terminal_storage_failure_partial_archive_preserved_and_reviewed",
+  "case": "population-hybrid-development-v1-auction-5p-economic-0-4",
+  "original_job_id": "6adcdcf81e112550ce7e17d3",
+  "original_guard_sha256": "0c4b3e7c187e081f71a5b8ac950024f88be8ea9d9d613ce3414a8270781f9e45",
+  "partial_review": {
+    "completed_records": 79,
+    "completed_decisions_checked": 9258,
+    "failed_episode": 36,
+    "saved_failed_prefix_decisions": 14,
+    "full_cell_verified": false,
+    "storage_resource_cause_not_localized": true,
+    "partial_archive_bytes": 552097,
+    "source_unchanged": true,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false
+  },
+  "tests_passed": 5,
+  "error": {
+    "episode": 36,
+    "error": "OSError: [Errno 28] No space left on device"
+  },
+  "storage_resource_cause_not_localized": true,
+  "full_cell_usable": false,
+  "new_jobs": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "67f14a02db09fb49d00e3794185f8dad3545d772",
+  "archive_path": "archives/population-hybrid-storage-failure-evidence-v1.tgz",
+  "archive_sha256": "1f91bada4e4d31b8ce45b72e13fc0fdbda2abbd55f0f3de4cfa1f26f83fb3454",
+  "manifest_sha256": "272062f8ab679d3a7d760e26f21237cf5680bc8ed6a1aa84e3c266381cef1ab1",
+  "archived_files": 178,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

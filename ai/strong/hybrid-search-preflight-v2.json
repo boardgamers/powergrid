@@ -1,0 +1,662 @@
+{
+  "passed": true,
+  "fixtures_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+  "batch_checks": {
+    "parent": {
+      "model_sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+      "revision": "4.2-discard-correction",
+      "positions": 80,
+      "serial_fixed64_and_single_row_identical": true,
+      "counts": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "rule_phase_cells": 80,
+      "invalid_inputs_rejected": 3,
+      "synthetic_untrained": false
+    },
+    "frozen-0": {
+      "model_sha256": "8a91b4c2ae8f4dd253959e75243d4103ee2c753e15c36b99cd624f0e35fa8795",
+      "revision": "4.3-strategic-correction",
+      "positions": 80,
+      "serial_fixed64_and_single_row_identical": true,
+      "counts": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "rule_phase_cells": 80,
+      "invalid_inputs_rejected": 3,
+      "synthetic_untrained": true
+    },
+    "frozen-1": {
+      "model_sha256": "3e04cfa0350f51b2e7767429c940add98c76950ff3f5cf71a1f4ecdcfb4baaa9",
+      "revision": "4.3-strategic-correction",
+      "positions": 80,
+      "serial_fixed64_and_single_row_identical": true,
+      "counts": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "rule_phase_cells": 80,
+      "invalid_inputs_rejected": 3,
+      "synthetic_untrained": true
+    },
+    "public-0": {
+      "model_sha256": "914cb1ed0838c3dd4b6bccd7dffd7a1d1ece9dbb2e652f42e07dcb2e18d755e8",
+      "revision": "4.3-strategic-correction",
+      "positions": 80,
+      "serial_fixed64_and_single_row_identical": true,
+      "counts": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "rule_phase_cells": 80,
+      "invalid_inputs_rejected": 3,
+      "synthetic_untrained": true
+    },
+    "public-1": {
+      "model_sha256": "d4a66c7dec0f60c64c10517fec8f69b8bf39e0152d25fdd17ad6d2a19f873d48",
+      "revision": "4.3-strategic-correction",
+      "positions": 80,
+      "serial_fixed64_and_single_row_identical": true,
+      "counts": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "rule_phase_cells": 80,
+      "invalid_inputs_rejected": 3,
+      "synthetic_untrained": true
+    }
+  },
+  "search_checks": {
+    "parent-2p": {
+      "index": 22,
+      "move": {
+        "name": "Pass",
+        "data": true
+      },
+      "modelProposal": 22,
+      "modelSha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+      "featureRevision": "4.2-discard-correction",
+      "phase": "auction",
+      "search": {
+        "options": [
+          9,
+          8,
+          7,
+          6,
+          22,
+          5
+        ],
+        "samplesPerMode": 1,
+        "modes": [
+          "neural",
+          "neural_economic"
+        ],
+        "seed": "hybrid-public-v1-033aca271ca3ae2f6cad2110a4ce1650d51f598f192c6a9d50ebae97dcd0cbdf",
+        "evaluations": 12,
+        "truncated": 0,
+        "neuralDecisions": 2009,
+        "maxSteps": 2400,
+        "sampleOutcomes": {
+          "neural": {
+            "9": [
+              0
+            ],
+            "8": [
+              0
+            ],
+            "7": [
+              0
+            ],
+            "6": [
+              0
+            ],
+            "22": [
+              0
+            ],
+            "5": [
+              0
+            ]
+          },
+          "neural_economic": {
+            "9": [
+              1
+            ],
+            "8": [
+              1
+            ],
+            "7": [
+              1
+            ],
+            "6": [
+              1
+            ],
+            "22": [
+              1
+            ],
+            "5": [
+              1
+            ]
+          }
+        },
+        "usable": true,
+        "valueStatus": "simulated-terminal-credits-not-calibrated-win-probabilities",
+        "meanCredits": {
+          "9": 0.5,
+          "8": 0.5,
+          "7": 0.5,
+          "6": 0.5,
+          "22": 0.5,
+          "5": 0.5
+        }
+      },
+      "qualification_eligible": false,
+      "elapsedMs": 1338.935641979333
+    },
+    "public-0-2p": {
+      "index": 8,
+      "move": {
+        "name": "Bid",
+        "data": 35
+      },
+      "modelProposal": 8,
+      "modelSha256": "914cb1ed0838c3dd4b6bccd7dffd7a1d1ece9dbb2e652f42e07dcb2e18d755e8",
+      "featureRevision": "4.3-strategic-correction",
+      "phase": "auction",
+      "search": {
+        "options": [
+          9,
+          8,
+          7,
+          6,
+          22,
+          5
+        ],
+        "samplesPerMode": 1,
+        "modes": [
+          "neural",
+          "neural_economic"
+        ],
+        "seed": "hybrid-public-v1-033aca271ca3ae2f6cad2110a4ce1650d51f598f192c6a9d50ebae97dcd0cbdf",
+        "evaluations": 12,
+        "truncated": 6,
+        "neuralDecisions": 14664,
+        "maxSteps": 2400,
+        "sampleOutcomes": {
+          "neural": {
+            "9": [
+              null
+            ],
+            "8": [
+              null
+            ],
+            "7": [
+              null
+            ],
+            "6": [
+              null
+            ],
+            "22": [
+              null
+            ],
+            "5": [
+              null
+            ]
+          },
+          "neural_economic": {
+            "9": [
+              0
+            ],
+            "8": [
+              0
+            ],
+            "7": [
+              0
+            ],
+            "6": [
+              0
+            ],
+            "22": [
+              0
+            ],
+            "5": [
+              0
+            ]
+          }
+        },
+        "usable": false,
+        "valueStatus": "simulated-terminal-credits-not-calibrated-win-probabilities",
+        "fallbackReason": "incomplete-rollouts"
+      },
+      "qualification_eligible": false,
+      "elapsedMs": 14480.075586005114
+    },
+    "public-0-economic-2p": {
+      "index": 8,
+      "move": {
+        "name": "Bid",
+        "data": 35
+      },
+      "modelProposal": 8,
+      "modelSha256": "914cb1ed0838c3dd4b6bccd7dffd7a1d1ece9dbb2e652f42e07dcb2e18d755e8",
+      "featureRevision": "4.3-strategic-correction",
+      "phase": "auction",
+      "search": {
+        "options": [
+          9,
+          8,
+          7,
+          6,
+          22,
+          5
+        ],
+        "samplesPerMode": 1,
+        "modes": [
+          "neural_economic"
+        ],
+        "seed": "hybrid-public-v1-033aca271ca3ae2f6cad2110a4ce1650d51f598f192c6a9d50ebae97dcd0cbdf",
+        "evaluations": 6,
+        "truncated": 0,
+        "neuralDecisions": 264,
+        "maxSteps": 2400,
+        "sampleOutcomes": {
+          "neural_economic": {
+            "9": [
+              0
+            ],
+            "8": [
+              0
+            ],
+            "7": [
+              0
+            ],
+            "6": [
+              0
+            ],
+            "22": [
+              0
+            ],
+            "5": [
+              0
+            ]
+          }
+        },
+        "usable": true,
+        "valueStatus": "simulated-terminal-credits-not-calibrated-win-probabilities",
+        "meanCredits": {
+          "9": 0.0,
+          "8": 0.0,
+          "7": 0.0,
+          "6": 0.0,
+          "22": 0.0,
+          "5": 0.0
+        }
+      },
+      "qualification_eligible": false,
+      "elapsedMs": 548.1423790042754
+    },
+    "parent-6p": {
+      "index": 20,
+      "move": {
+        "name": "Bid",
+        "data": 30
+      },
+      "modelProposal": 11,
+      "modelSha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+      "featureRevision": "4.2-discard-correction",
+      "phase": "auction",
+      "search": {
+        "options": [
+          11,
+          10,
+          9,
+          8,
+          41,
+          20
+        ],
+        "samplesPerMode": 1,
+        "modes": [
+          "neural",
+          "neural_economic"
+        ],
+        "seed": "hybrid-public-v1-c50c76c1c4ce17e4dbab48cf7fe990657e77b34c701f11fc0649dbb197597bef",
+        "evaluations": 12,
+        "truncated": 0,
+        "neuralDecisions": 3496,
+        "maxSteps": 2400,
+        "sampleOutcomes": {
+          "neural": {
+            "11": [
+              0
+            ],
+            "10": [
+              0
+            ],
+            "9": [
+              0
+            ],
+            "8": [
+              0
+            ],
+            "41": [
+              0
+            ],
+            "20": [
+              1
+            ]
+          },
+          "neural_economic": {
+            "11": [
+              0
+            ],
+            "10": [
+              0
+            ],
+            "9": [
+              0
+            ],
+            "8": [
+              0
+            ],
+            "41": [
+              0
+            ],
+            "20": [
+              1
+            ]
+          }
+        },
+        "usable": true,
+        "valueStatus": "simulated-terminal-credits-not-calibrated-win-probabilities",
+        "meanCredits": {
+          "11": 0.0,
+          "10": 0.0,
+          "9": 0.0,
+          "8": 0.0,
+          "41": 0.0,
+          "20": 1.0
+        }
+      },
+      "qualification_eligible": false,
+      "elapsedMs": 2839.031834999332
+    },
+    "public-0-6p": {
+      "index": 20,
+      "move": {
+        "name": "Bid",
+        "data": 30
+      },
+      "modelProposal": 20,
+      "modelSha256": "914cb1ed0838c3dd4b6bccd7dffd7a1d1ece9dbb2e652f42e07dcb2e18d755e8",
+      "featureRevision": "4.3-strategic-correction",
+      "phase": "auction",
+      "search": {
+        "options": [
+          11,
+          10,
+          9,
+          8,
+          41,
+          20
+        ],
+        "samplesPerMode": 1,
+        "modes": [
+          "neural",
+          "neural_economic"
+        ],
+        "seed": "hybrid-public-v1-c50c76c1c4ce17e4dbab48cf7fe990657e77b34c701f11fc0649dbb197597bef",
+        "evaluations": 12,
+        "truncated": 0,
+        "neuralDecisions": 2967,
+        "maxSteps": 2400,
+        "sampleOutcomes": {
+          "neural": {
+            "11": [
+              0
+            ],
+            "10": [
+              0
+            ],
+            "9": [
+              0
+            ],
+            "8": [
+              0
+            ],
+            "41": [
+              0
+            ],
+            "20": [
+              0
+            ]
+          },
+          "neural_economic": {
+            "11": [
+              0
+            ],
+            "10": [
+              0
+            ],
+            "9": [
+              0
+            ],
+            "8": [
+              0
+            ],
+            "41": [
+              0
+            ],
+            "20": [
+              0
+            ]
+          }
+        },
+        "usable": true,
+        "valueStatus": "simulated-terminal-credits-not-calibrated-win-probabilities",
+        "meanCredits": {
+          "11": 0.0,
+          "10": 0.0,
+          "9": 0.0,
+          "8": 0.0,
+          "41": 0.0,
+          "20": 0.0
+        }
+      },
+      "qualification_eligible": false,
+      "elapsedMs": 3975.3442850196734
+    },
+    "public-0-economic-6p": {
+      "index": 20,
+      "move": {
+        "name": "Bid",
+        "data": 30
+      },
+      "modelProposal": 20,
+      "modelSha256": "914cb1ed0838c3dd4b6bccd7dffd7a1d1ece9dbb2e652f42e07dcb2e18d755e8",
+      "featureRevision": "4.3-strategic-correction",
+      "phase": "auction",
+      "search": {
+        "options": [
+          11,
+          10,
+          9,
+          8,
+          41,
+          20
+        ],
+        "samplesPerMode": 1,
+        "modes": [
+          "neural_economic"
+        ],
+        "seed": "hybrid-public-v1-c50c76c1c4ce17e4dbab48cf7fe990657e77b34c701f11fc0649dbb197597bef",
+        "evaluations": 6,
+        "truncated": 0,
+        "neuralDecisions": 231,
+        "maxSteps": 2400,
+        "sampleOutcomes": {
+          "neural_economic": {
+            "11": [
+              0
+            ],
+            "10": [
+              0
+            ],
+            "9": [
+              0
+            ],
+            "8": [
+              0
+            ],
+            "41": [
+              0
+            ],
+            "20": [
+              0
+            ]
+          }
+        },
+        "usable": true,
+        "valueStatus": "simulated-terminal-credits-not-calibrated-win-probabilities",
+        "meanCredits": {
+          "11": 0.0,
+          "10": 0.0,
+          "9": 0.0,
+          "8": 0.0,
+          "41": 0.0,
+          "20": 0.0
+        }
+      },
+      "qualification_eligible": false,
+      "elapsedMs": 642.7042569848709
+    }
+  },
+  "gradients": false,
+  "remote_jobs_started": 0,
+  "new_trained_models": false,
+  "reserved_final_seeds_used": false,
+  "qualification_eligible": false,
+  "scope": "One existing unqualified parent plus four untrained architecture exports. Local ONNX integration and search correctness only; not playing strength or AMD8840U timing.",
+  "hidden_fields_seed_and_full_search_identical": true,
+  "cap_control": {
+    "index": 20,
+    "move": {
+      "name": "Bid",
+      "data": 30
+    },
+    "modelProposal": 20,
+    "modelSha256": "914cb1ed0838c3dd4b6bccd7dffd7a1d1ece9dbb2e652f42e07dcb2e18d755e8",
+    "featureRevision": "4.3-strategic-correction",
+    "phase": "auction",
+    "search": {
+      "options": [
+        11,
+        10,
+        9,
+        8,
+        41,
+        20
+      ],
+      "samplesPerMode": 1,
+      "modes": [
+        "neural",
+        "neural_economic"
+      ],
+      "seed": "hybrid-public-v1-c50c76c1c4ce17e4dbab48cf7fe990657e77b34c701f11fc0649dbb197597bef",
+      "evaluations": 12,
+      "truncated": 12,
+      "neuralDecisions": 6,
+      "maxSteps": 1,
+      "sampleOutcomes": {
+        "neural": {
+          "11": [
+            null
+          ],
+          "10": [
+            null
+          ],
+          "9": [
+            null
+          ],
+          "8": [
+            null
+          ],
+          "41": [
+            null
+          ],
+          "20": [
+            null
+          ]
+        },
+        "neural_economic": {
+          "11": [
+            null
+          ],
+          "10": [
+            null
+          ],
+          "9": [
+            null
+          ],
+          "8": [
+            null
+          ],
+          "41": [
+            null
+          ],
+          "20": [
+            null
+          ]
+        }
+      },
+      "usable": false,
+      "valueStatus": "simulated-terminal-credits-not-calibrated-win-probabilities",
+      "fallbackReason": "incomplete-rollouts"
+    },
+    "qualification_eligible": false,
+    "elapsedMs": 160.7987809984479
+  },
+  "phase_gating_controls": 3,
+  "budget_rejection_controls": 7,
+  "code": {
+    "hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+    "hybrid-continuations.cjs": "2b03c49c8270622e74c333c5e7253d5eb5d21ba1af919bc5f15ebd456109daaf",
+    "preflight-hybrid-search.py": "1f8a2d0a5d45f48515e118424b46ff04abd97d47f8841d0e8114286489f57f29"
+  },
+  "cli_check": {
+    "passed": true,
+    "cwd": "/",
+    "requestId": "hybrid-cli-contract-v1",
+    "move_legal": true,
+    "search_not_invoked": true,
+    "modelSha256": "914cb1ed0838c3dd4b6bccd7dffd7a1d1ece9dbb2e652f42e07dcb2e18d755e8",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  "checked_at": "2026-10-24T09:29:03.014880+00:00",
+  "log": "{'batch_checked': 'parent', 'positions': 80}\n{'batch_checked': 'frozen-0', 'positions': 80}\n{'batch_checked': 'frozen-1', 'positions': 80}\n{'batch_checked': 'public-0', 'positions': 80}\n{'batch_checked': 'public-1', 'positions': 80}\n{'search_checked': 'parent-2p', 'rollouts': 12, 'truncated': 0, 'seconds': 1.338935641979333}\n{'search_checked': 'public-0-2p', 'rollouts': 12, 'truncated': 6, 'seconds': 14.480075586005114}\n{'search_checked': 'public-0-economic-2p', 'rollouts': 6, 'truncated': 0}\n{'search_checked': 'parent-6p', 'rollouts': 12, 'truncated': 0, 'seconds': 2.839031834999332}\n{'search_checked': 'public-0-6p', 'rollouts': 12, 'truncated': 0, 'seconds': 3.9753442850196734}\n{'search_checked': 'public-0-economic-6p', 'rollouts': 6, 'truncated': 0}\n{'passed': True, 'model_batch_checks': 5, 'search_checks': 6, 'usable_search_checks': 5}\n",
+  "previous_attempt": {
+    "path": "ai/runs/hybrid-search-preflight-v1",
+    "passed": false,
+    "report_sha256": "2ff0bd1114cc5a323969e508bbce49943f8518b722abf979389b1e0b2b0b4244",
+    "log": "{'batch_checked': 'parent', 'positions': 80}\n{'batch_checked': 'frozen-0', 'positions': 80}\n{'batch_checked': 'frozen-1', 'positions': 80}\n{'batch_checked': 'public-0', 'positions': 80}\n{'batch_checked': 'public-1', 'positions': 80}\n{'search_checked': 'parent-2p', 'rollouts': 12, 'seconds': 2.752390526002273}\nTraceback (most recent call last):\n  File \"/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai/ai/strong/preflight-hybrid-search.py\", line 142, in <module>\n    main()\n  File \"/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai/ai/strong/preflight-hybrid-search.py\", line 89, in main\n    assert result['search']['usable'] and result['search']['truncated'] == 0\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+    "reason": "Initial preflight required every untrained self-play rollout to finish. The synthetic public-0 2p case hit its2400-step limit; v2 records that search as unusable and verifies explicit fallback, while separately requiring uncapped economic-opponent continuations. Production strength requirements were not changed."
+  },
+  "synthetic_source_manifest_sha256": "3aaa57a64af93ac0818be969de079ecab3d233ecf62d4c50c6254a18ce4a63e8",
+  "parent_protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271"
+}

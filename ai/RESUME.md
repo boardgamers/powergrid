@@ -5,11 +5,14 @@ The final-verifier evidence converter is prepared and its three tests pass.
 Actual trained outputs are still pending. No model is qualified or published;
 reserved final seeds are unused.
 
-An isolated hybrid continuation adapter now supports4.2/4.3 inputs;6 contract
-tests pass, including32 complete paired rollout outcomes. This is engine/feature
-compatibility only: actual trained ONNX continuations, target latency and fresh
-hybrid strength remain untested. See `strong/hybrid-continuations-controls-v1.json`.
-Frozen active pipeline dependencies are unchanged.
+The isolated hybrid adapter and batched ONNX driver are prepared. Six engine
+contracts pass, and actual inference matches serial choices on80 positions for
+the parent plus four untrained architecture exports. Parent full searches match
+the frozen worker. One untrained2p self-play case caps6/12 rollouts and remains
+unusable; explicit fallback works. See `strong/hybrid-search-preflight-v2.json`
+and the current handoff. These are compatibility checks, not strength evidence.
+Actual new trained-model continuations, target8840U latency and fresh hybrid
+comparisons remain pending. Frozen active pipeline dependencies are unchanged.
 
 ## User steering, 24 October: diminishing returns and hybrid play
 

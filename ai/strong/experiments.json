@@ -47147,5 +47147,22 @@
         "active_training_protocol_changed": false,
         "remote_jobs_started": 0,
         "qualification_eligible": false
+    },
+    "hybrid_neural_inference_preflight_v2": {
+        "driver": "ai/strong/hybrid_search.py",
+        "preflight": "ai/strong/preflight-hybrid-search.py",
+        "report": "ai/strong/hybrid-search-preflight-v2.json",
+        "model_batch_checks": 5,
+        "positions_per_model": 80,
+        "search_checks": 6,
+        "usable_search_checks": 5,
+        "synthetic_2p_neural_caps": 6,
+        "scope": "Existing trained parent and four synthetic untrained new-architecture exports; actual new trained ensembles remain pending. Compatibility only, not strength or AMD8840U latency.",
+        "initial_failed_preflight_retained": true,
+        "remote_jobs_started": 0,
+        "gradients": false,
+        "active_protocol_changed": false,
+        "reserved_final_seeds_used": false,
+        "qualification_eligible": false
     }
 }

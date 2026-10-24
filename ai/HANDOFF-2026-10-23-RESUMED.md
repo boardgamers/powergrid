@@ -25,7 +25,54 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: hybrid continuation format adapter
+## Latest checkpoint: actual ONNX hybrid inference plumbing
+
+The preceding turn added the isolated hybrid continuation adapter. This turn
+adds `strong/hybrid_search.py`: a persistent local JSONL driver using batched
+ONNX decisions, public-only seeds shared between4.2/4.3, the existing six-option
+shortlist plus the model proposal, and neural/economic full continuations.
+Auction-only, building-only and combined scopes are supported for later
+comparisons. Equal-weight mean simulated credits rank moves; exact ties retain
+the model proposal. The current default is8 worlds per continuation mode.
+These are prototype defaults, not a selected or strength-validated configuration.
+
+Every rollout is accounted for. Any cap makes the entire search unusable,
+keeps the original proposal and reports the cap; partial means are not used.
+The frozen teacher/training/development paths were not modified. No HF job or
+new gradient was started by this work.
+
+Reproduce the local integration check in a **new** output directory:
+`ai/.venv/bin/python ai/strong/preflight-hybrid-search.py NEW_OUTPUT`.
+Completed session25931 produced `ai/runs/hybrid-search-preflight-v2/`;
+`strong/hybrid-search-preflight-v2.json` persists the results, CLI check and logs.
+
+- Existing trained, unqualified parent plus all four **untrained** architecture
+  exports:80 positions/model spanning every2–6p/rule/phase cell. Fixed64 batching,
+  single-row batching and serial inference choose identical legal moves.
+- Parent2p/6p Recharged/sealed searches exactly reproduce actual neural rollout
+  outputs from the frozen old worker. The new4.3 public architecture completes
+  economic-opponent continuations at both counts, and its6p mixed search completes.
+- The untrained public-0 model caps **6/12** simulations in2p mixed search (the
+  all-neural mode). That search remains explicitly **unusable**. The first
+  preflight stopped on its too-strong expectation that untrained self-play would
+  always end; its failed log/report are retained. The second check distinguishes
+  correct fallback behavior from uncapped complete continuations. No production
+  gate, rollout horizon or strength threshold was relaxed.
+- A complete hidden-field-mutated search has identical seed/actions/outcomes,
+  including the same caps. A deliberate one-step cap test verifies fallback;
+  three phase-gating and seven budget rejection controls pass. JSONL serving
+  from `/` produces a legal resource move without invoking search.
+- These tiny one-world integration cases are not fresh strength evaluations,
+  search-budget evidence or target8840U timings. Actual newly trained ensembles,
+  their self-play behavior, realistic opponent mixtures, target latency and
+  whole-game hybrid ablations remain pending. Do not use these fixtures as a
+  model selection result.
+
+At09:26UTC, all four existing pipeline processes are live. The collector has
+verified822/948 data batches and103/108 parent batches (6,256 games). Training
+still waits for complete data; no new trained outputs or final-test use.
+
+## Previous checkpoint: hybrid continuation format adapter
 
 The preceding turn was a verified wait on live HF jobs and collector session
 82318. This turn adds an isolated experimental adapter for future hybrid play,

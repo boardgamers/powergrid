@@ -33,6 +33,49 @@ labels, the complete2p search reference, a bounded collector, and recovery from
 an actual HF repository file-count limit. The goal remains active; no new
 model gradients, final-test use, model qualification or production changes.
 
+### Fourth hardware wave complete; collector resumed
+
+This turn made **progress**. The fourth measured capacity expansion admitted
+120 additional queued-job migrations, raising the cap from300 to **420**.
+All300 previous migrations had started. The admission revalidated **50 full
+alternative-hardware batches /2,375,232 continuations**, covering2–6 players,
+both continuation modes, all three behavior policies and both opponents.
+Observed wall times including setup/upload:1,412.845–7,961.616 seconds, all within
+the existing conservative per-shard bounds. The exact source,192 worlds per root,
+fixed inference batches, runtime multiplier1.4454652311275429,12h timeout and25%
+headroom remain unchanged. No additional capacity beyond420 is admitted here.
+
+The first pass moved114 jobs and safely skipped six originals that had already
+started. Six fresh queued originals filled the remaining slots. **420 launched
+migration records +9 skipped original records**, plus the two separate confirmed
+upload-failure retries; all948 effective handles are distinct. Every canceled
+original was confirmed never started. No live HF job was canceled or restarted.
+
+To avoid racing guard reads, the local harvester was temporarily stopped with
+SIGSTOP from05:55:22UTC to06:00:17UTC while its existing child collection and all
+remote jobs continued. It was resumed withSIGCONT and its actual process checked
+running again. **The goal and the training coordinator were never paused.**
+Operation24746 finished; do not relaunch it. Exact durable record:
+`ai/runs/policy-iteration-wave4-capacity-operation-v2.json`. All fourth-wave launch
+and fill attempts are resolved. Both existing long-lived process handles below
+remain the ones to use.
+
+Snapshot `2026-10-24T06:00:14.411662+00:00`: **450 COMPLETED /432 RUNNING /
+66 SCHEDULING**. The archived independently verified label snapshot is
+**418/948 new shards**,15,081 root-mode pairs, **14,545,152 continuations** including
+pilot. The collector is already harvesting further completions. Its next fresh
+snapshot showed119 of the120 new replacements running and one scheduling.
+
+Evidence descriptor: `strong/policy-iteration-wave4-checkpoint-v2.json`, revision
+`93e02587f638fe24edbbccbdbcd53d92e49e157d`, archive
+`archives/policy-iteration-wave4-checkpoint-v2.tgz`, SHA
+`9fd92e6447eadc9ba26f05c61bed5e9af549c19fb5d209a26c333d1837efb13d`.
+It contains all948 original guards,429 migration attempts,two failure-retry
+guards,418 verified label records, exact admission/final status snapshots and
+operation evidence. Raw artifacts retain their original immutable pins. The
+admission status snapshot is preserved separately this time, rather than only
+its hash. Source/model weights and all final-test thresholds remain unchanged.
+
 ### A training coordinator is also ACTIVE — no competing preparation or launch
 
 PID **2536611**, exec session **93205**, started

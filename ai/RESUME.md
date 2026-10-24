@@ -14,15 +14,19 @@ reserved final seeds are unused.
   two four-seedL4 jobs. No local gradients or automatic retries. Do not run
   competing preparation/launch commands. On a future explicit pause, stop this
   coordinator so it cannot submit later. Check actual process liveness first.
-- **395/948 new label shards verified**,13,790,400 continuations including pilot.
-  Snapshot05:40:04UTC:395 completed,328 running,225 queued; all395 completions in that snapshot have been verified.
+- **418/948 new label shards archived as verified**,14,545,152 continuations.
+  Snapshot06:00:14UTC:450 completed,432 running,66 queued. Collector is advancing.
+- Fourth bounded hardware wave finished: **420 queued-job migrations**,9 safely
+  skipped originals, plus2 separate upload-failure retries. All948 effective IDs
+  remain distinct. Harvester was briefly stopped for guard coordination and is
+  **resumed**; coordinator never stopped. Do not rerun operation24746.
 - **96 parent batches /5,760 games verified.**2p search:48.83% wins
   (95% interval38.28–59.77%).3p search:20.31% (14.58–26.56%), below chance.
   Only4–6p search cells remain incomplete; parent remains unqualified.
 - HF file-limit incident fixed:13 duplicated checkpoints compacted,8,158 entries
   freed, all old pinned revisions retained. Two failed uploads have exact retries
   already RUNNING. No live jobs restarted.948 effective handles remain distinct.
-- Latest evidence descriptors: `strong/policy-iteration-labels-395-progress-evidence-v2.json`,
+- Latest evidence descriptors: `strong/policy-iteration-wave4-checkpoint-v2.json`,
   `strong/policy-iteration-training-coordinator-evidence-v2.json` and
   `strong/policy-iteration-storage-recovery-evidence-v2.json`.
 - No new gradients yet. Four trained-candidate evaluation grids, exact trained

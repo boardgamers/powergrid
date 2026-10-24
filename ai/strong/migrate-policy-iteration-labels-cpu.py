@@ -34,19 +34,20 @@ def main():
     wave = parser.add_mutually_exclusive_group()
     wave.add_argument('--wave2', action='store_true', help='Use the recorded first capacity expansion')
     wave.add_argument('--wave3', action='store_true', help='Use the recorded broad full-shard capacity expansion')
+    wave.add_argument('--wave4', action='store_true', help='Use the recorded capacity expansion after300 migrations started')
     args = parser.parse_args()
     total_cap, per_wave_cap, capacity = 60, 60, None
-    if args.wave2 or args.wave3:
-        capacity_wave = 3 if args.wave3 else 2
-        expected_total = 300 if args.wave3 else 180
+    if args.wave2 or args.wave3 or args.wave4:
+        capacity_wave = 4 if args.wave4 else 3 if args.wave3 else 2
+        expected_total = {2: 180, 3: 300, 4: 420}[capacity_wave]
         capacity_path = ROOT/f'ai/strong/policy-iteration-cpu-upgrade-wave{capacity_wave}-admission-v2.json'
         capacity = read(capacity_path)
         assert capacity['admitted'] and capacity['frozen_worker_unchanged']
         assert capacity['maximum_total_replacements'] == expected_total and capacity['maximum_new_replacements'] == 120
         assert capacity['profile_sha256'] == digest(PROFILE)
-        assert len(capacity['verified_full_shards']) >= (10 if args.wave3 else 2)
-        if args.wave3:
-            assert capacity['second_wave_all120_started']
+        assert len(capacity['verified_full_shards']) >= {2: 2, 3: 10, 4: 30}[capacity_wave]
+        if capacity_wave >= 3:
+            assert capacity['third_wave_all120_started' if args.wave4 else 'second_wave_all120_started']
             assert {r['players'] for r in capacity['verified_full_shards']} == {2,3,4,5,6}
             assert {r['mode'] for r in capacity['verified_full_shards']} == {'neural','neural_economic'}
         for row in capacity['verified_full_shards']:

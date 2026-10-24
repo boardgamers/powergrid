@@ -6,7 +6,38 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 24 October: 133 batches verified; hybrid final integration remains separate.**
+**Latest — 24 October, 21:27 UTC: all 8,400 hybrid-screen games verified and archived.**
+The fixed coordinator finished successfully: **135/135 batches**, zero game or
+rollout caps. Session **5513** exited 0; do not restart it or either recovery launcher.
+The unchanged full comparator reproduced exactly and all 17,797 evidence files
+were archived and verified at private HF revision
+`91076fb5f4cffed75bf2ddd22f70f3442f78c00d`. The one-shot archive helper has completed;
+do not rerun its upload. See [the complete review](HYBRID-SCREEN-2026-10-24.md) and
+`strong/population-hybrid-development-review-v1.json`.
+
+Auction search improves the search-opponent overall point estimate at every count:
+2p **62.5→78.1%**, 3p **41.7→66.7%**, 4p **50.0→53.1%**, 5p **47.5→50.0%**,
+6p **45.8→58.3%**. Four-player Recharged sealed improves **43.8→68.8%**.
+However, 4p original/open falls **81.25→31.25%**, 5p Recharged/open **70→50%**,
+and 3p heuristic **100→85.42%**. Only four independent deals per cell: this is a
+development screen, not confirmation or qualification. All adverse cells are retained.
+
+**Decision:** keep frozen-1 plus the strict loss filter as the research reference;
+investigate auction search's regressions before admitting larger fresh confirmation.
+Do not advance this building/combined implementation: building loses to the filtered
+model against search at every count, and combined loses to auction at every count.
+Do not retrofit rule routing from these outcomes or distill the search wholesale.
+9,977/18,813 auction changes had a simulated mean-credit margin of at most 1/8;
+selection noise, opponent-model mismatch and future-policy approximation are hypotheses
+to diagnose, not established causes. Start with exact replays of paired adverse games
+and improved controls using the saved decisions. The resource ablation remains
+unlaunched and needs its own runtime/source admission. No new jobs in this review.
+
+This does not establish a training plateau; there is a promising auction direction
+and specific failures to address. No candidate selected or final seeds used. The
+exact-policy final integration requirements below still apply.
+
+**Previous — 24 October: 133 batches verified; hybrid final integration remains separate.**
 At 20:56 UTC the coordinator had **133/135 batches and 8,208/8,400 games verified**.
 Only six-player auction/search_geo and combined/search_geo remain. Their 20:57
 read-only HF checks reported RUNNING at 82/96 and 81/96 games, respectively, with

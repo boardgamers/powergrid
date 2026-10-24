@@ -25,7 +25,65 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: 133 batches verified; final qualification needs the exact selected policy
+## Latest checkpoint: hybrid screen complete; auction promising, regressions prevent promotion
+
+At **2026-10-24 21:27:05 UTC**, the coordinator reached `comparison_complete`,
+**135/135 verified batches and 8,400 games**, and session **5513** exited 0.
+Both final six-player search-opponent jobs were independently confirmed COMPLETED.
+There are zero game/rollout caps in all accepted results. Do not restart the completed
+coordinator or either historical recovery launcher.
+
+The archive helper completed once, reproduced the unchanged full comparison, verified
+all 32 frozen dependencies and preserved the replacement parity proof. All 17,797 files
+are uploaded with pinned-download/SHA verification:
+
+- Descriptor: `strong/population-hybrid-development-complete-evidence-v1.json`.
+- HF revision: `91076fb5f4cffed75bf2ddd22f70f3442f78c00d`.
+- Archive: `archives/population-hybrid-development-complete-evidence-v1.tgz`.
+- Archive SHA256: `d9f140ced5394b154eaddced865723ca70e064a5e311d5ff098319d0f6f0b1fc`.
+- Comparison SHA256: `6acbd8e57990f4cb9dc775b46b3859db18ccab3cb653dc50552c92f60a86bcbb`.
+
+Do not rerun the one-shot upload. [The full review](HYBRID-SCREEN-2026-10-24.md)
+and `strong/population-hybrid-development-review-v1.json` contain all 27 cell totals,
+all search-opponent rule strata, every adverse auction view, runtime aggregates and
+the paired terminal records for the three principal regression cases. The review
+checks receipt/report/decision hashes against the completed comparison. It generates
+no games, gradients, policy changes or jobs.
+
+Auction search versus the filtered model, overall against search_geo, 2–6 players:
+**62.5→78.125%, 41.667→66.667%, 50→53.125%, 47.5→50%, 45.833→58.333%**.
+Recharged sealed improves at every count; four-player is **43.75→68.75%**.
+But important failures remain: 4p original/open **81.25→31.25%** (8 worse paired
+outcomes, no better, 16 games), 5p Recharged/open **70→50%** (6 worse, 2 better,
+20 games), and 3p heuristic **100→85.417%** (7 worse, no better, 48 games).
+Each cell contains only four independent deals. The marginal whole-deal intervals
+are coarse and exploratory, not multiplicity-adjusted or a qualification claim.
+
+Building-search overall point estimates are below the filtered model against search
+at all five counts. Combined search is below auction-only at all five counts.
+Neither implementation advances. The strict endgame filter has no negative cell/rule
+point estimate in this screen and is retained with frozen-1 as the research reference;
+this is not a guarantee of universal benefit or a final candidate selection.
+
+**Next:** exact replay diagnosis of auction regressions plus improved controls from
+the saved immutable outcomes/decisions, before larger fresh confirmation. Selection
+noise, opponent-policy mismatch and approximating future searches with model-only
+continuations are plausible hypotheses; none is established by terminal summaries.
+9,977 of 18,813 auction changes have simulated mean-credit advantage ≤1/8, a useful
+diagnostic lead rather than a causal explanation. Do not retrofit rule-specific routing
+to favorable outcomes, indiscriminately distill search actions or launch another large
+unchanged grid. Freeze any resulting policy and its confirmation protocol on fresh
+seeds after resolving the regressions. The separate resource ablation is still unlaunched
+and still requires source packaging and resource-specific full-game runtime admission.
+
+All 8,400 games and roughly 7.03 million candidate rollouts are complete. HF search
+decision timings reflect eight concurrent games and are not 8840U serving latency.
+This is evidence of a promising direction and identifiable failures, not a general
+training plateau. No new jobs were launched by this review. No candidate selected,
+no final qualification, no final seeds used; the exact-policy final integration gap
+in the previous checkpoint remains relevant.
+
+## Previous checkpoint: 133 batches verified; final qualification needs the exact selected policy
 
 At **2026-10-24 20:56 UTC**, the coordinator accepted **133/135 batches and
 8,208/8,400 games**. All model-only, filtered and building-search batches are

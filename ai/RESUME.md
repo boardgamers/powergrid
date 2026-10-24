@@ -6,7 +6,26 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 24 October, 19:45 UTC: all 135 batches submitted; 107 verified.**
+**Latest — 24 October, 20:31 UTC: final archive helper prepared; 128 batches verified.**
+The coordinator has **128/135 batches and 7,776/8,400 games verified**, including
+the five-player combined/search batch. All 128 receipt identities were rechecked;
+their summaries contain zero rollout caps. The seven outstanding jobs were freshly
+confirmed RUNNING at 20:30 UTC, with no errors, caps or truncations in their last
+200 log lines. The complete strength comparison is still pending.
+Continue the same coordinator PID **2812975** / session **5513**; no new experiment.
+
+`strong/archive-population-hybrid-development-v1.py` is ready for the completed
+comparison. Without arguments it only reports readiness. With `--execute` it
+requires `comparison_complete`, all 135 verified batches, unchanged frozen
+dependencies, exact reproduction of the full comparison, and the pinned recovery
+proof before archiving all raw results/decisions and uploading a verified HF archive.
+The actual incomplete run was rejected before any archive or upload was created;
+syntax/readiness checks pass and all 32 frozen dependencies remain unchanged.
+**The completed-data archive path has not run yet.** After the coordinator finishes,
+run it once with `--execute`; inspect any existing output/upload before retrying.
+This helper does not launch jobs, select a policy or use final seeds.
+
+**Previous — 24 October, 19:45 UTC: all 135 batches submitted; 107 verified.**
 The fixed comparison now has **6,544/8,400 verified games**. Both exact recovery
 jobs completed and passed full collection. The storage replacement also passed
 the mandatory parity gate: all 79 previously completed games, 9,258 decisions and

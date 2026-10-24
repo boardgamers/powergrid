@@ -25,7 +25,40 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: both recoveries complete, exact parity proven, all batches submitted
+## Latest checkpoint: full-comparison archive helper prepared; remaining jobs continue
+
+At **2026-10-24 20:31 UTC**, the coordinator has 128/135 batches verified (7,776
+games). All 128 saved receipt identities were rechecked; their summaries have
+zero rollout caps. Newly collected combined/5p/search_geo is job
+`6adcba08046eb82b1ecdce06`, with 80 games archived at HF revision
+`a631ae34d4671fbab27499f0a426dcd35afcf5a4`; receipt SHA
+`5a579c85cb864b633bbd2b366c90266318ddaf7b504a313b83e0e4f9ad151101`.
+The seven outstanding jobs were confirmed RUNNING at 20:30 UTC, with no errors,
+caps or truncated games observed in their last 200 log lines. The same
+storage-recovery coordinator PID 2812975 / session 5513 remains live.
+
+Prepared `strong/archive-population-hybrid-development-v1.py` outside the frozen
+experiment dependencies. Default invocation only reports readiness. `--execute`
+first requires `comparison_complete`, all 135 batches/8,400 games, the exact source,
+plan, code and per-batch provenance, and no previous archive outcome. It acquires
+the coordinator lock, reruns the unchanged comparator against all saved decisions
+and checks that every contrast reproduces. It then verifies the pinned recovery
+archive against both canonical replacement guards/receipts and the parity proof.
+The archive includes all raw per-game records and decision receipts, guards,
+collection receipts, frozen verification code, full comparison and recovery proof.
+Upload uses the existing pinned-download/SHA verification helper.
+
+Syntax and default readiness passed. An actual `--execute` attempt while the
+comparison was incomplete correctly failed before creating an archive, changing
+the coordinator state/lock, downloading evidence or launching anything. All 32
+frozen dependencies are unchanged. **The completed-data path is not yet exercised;
+do not claim a full archive or comparison exists.** Once the existing coordinator
+finishes successfully, execute this helper once and inspect its resulting descriptor
+before reviewing the complete strength comparison. Unknown upload outcomes require
+inspection, not an automatic rerun. No new experiment, policy selection or final
+qualification was started.
+
+## Previous checkpoint: both recoveries complete, exact parity proven, all batches submitted
 
 At **2026-10-24 19:45 UTC**, the unchanged coordinator has submitted every one of
 the 135 fixed batches and verified **107 batches / 6,544 games**. The complete

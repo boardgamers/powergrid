@@ -53803,5 +53803,39 @@
         "evidence": "ai/strong/population-hybrid-recovery-completion-evidence-v1.json",
         "archive_revision": "dcde2edaa1ead7128f3dc9a5c0b36c18044f3400",
         "next": "Continue the existing parity-gated coordinator and outstanding fixed-screen jobs; all 135 planned batches are submitted. Await the complete comparison before selection or another experiment."
+    },
+    "population_hybrid_complete_archive_preparation_v1": {
+        "status": "prepared; full-data path awaits completed comparison",
+        "collector": "ai/strong/archive-population-hybrid-development-v1.py",
+        "collector_sha256": "9cbe4ff3151921214ab70293532cc6a08a306278015fe33e80c30d2e6dd50f32",
+        "checks": {
+            "syntax": "passed",
+            "default_readiness": "passed",
+            "actual_incomplete_run_rejected": true,
+            "no_archive_created": true,
+            "coordinator_state_and_lock_unchanged": true,
+            "frozen_dependencies_unchanged": 32,
+            "completed_data_archive_path_exercised": false
+        },
+        "live_observation_at": "2026-10-24T20:30:12.508526+00:00",
+        "verified_batches_at_checkpoint": 128,
+        "verified_games_at_checkpoint": 7776,
+        "remaining_authoritative_statuses": {
+            "RUNNING": 7
+        },
+        "observed_game_errors": 0,
+        "observed_caps_or_truncations": 0,
+        "log_window_limit": "Last 200 lines per outstanding job; not proof of error-free entire runs.",
+        "new_jobs": 0,
+        "remote_job_mutations": false,
+        "gradients": false,
+        "candidate_selected": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Continue coordinator PID 2812975 / session 5513 through its recovery adapter. After comparison_complete, execute the archive helper once; inspect any prior archive/upload outcome before retry. Review the complete comparison before starting another experiment.",
+        "collection_checkpoint_at": "2026-10-24T20:31:14.385022+00:00",
+        "saved_receipt_identities_rechecked": 128,
+        "newly_collected_case": "population-hybrid-development-v1-combined-5p-search_geo-0-4",
+        "newly_collected_evidence_revision": "a631ae34d4671fbab27499f0a426dcd35afcf5a4"
     }
 }

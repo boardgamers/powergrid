@@ -25,7 +25,117 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: whole-resource-turn search integration verified in isolation
+## Latest checkpoint: atomic resource replanning verified; early-game cost exposed
+
+Previous goal turn: progress (complete-turn search archived/pushed as 96c2f50).
+This turn: progress. Implemented the actual one-action-per-request policy, checked
+complete resource turns and four full games, independently replayed their atomic
+moves, and archived the evidence. All local probes, games and collector are terminal.
+No HF jobs or gradients launched; no strength or final qualification claimed.
+
+The sole fixed-grid coordinator remains PID 1447977 / session 53211. At
+2026-10-24T16:03:44.550787+00:00 it reports 49 submitted / 17 verified, no failures.
+Direct inspection confirms combined6psearch job `6adcba011e112550ce7e0464` RUNNING.
+All frozen dependencies remain unchanged. Do not start another coordinator or
+retry/cancel current handles based on quiet logs.
+
+### Actual atomic policy and checks
+
+`strong/resource_replanning_policy_v1.py` wraps the unchanged population policy.
+For resource-filter, other phases use model + strict loss filter; resource-combined
+can compose it with auction/building search. The default resource-filter variant
+was exercised in the checks below. At each resource request it evaluates complete
+bundles, returns only the selected first move, and discards any notion of a pending
+plan. The next request is evaluated afresh. Thus no platform-side plan storage or
+cross-request memory is required. This is explicitly a **different policy** from
+the committed macro teacher. The hypothetical search rollouts still assume the
+complete bundle followed by model continuations, not recursive future replanning.
+
+The module also provides a research JSONL worker with request ID/revision echo,
+one atomic move, errors without a move, and optional diagnostics. The platform's
+authoritative revision/legal-action checks remain necessary. This is not live BGS
+integration or a qualified serving package; the frozen canonical sealed-order
+restriction outside resources still needs the separately tested repair before
+deployment. `strong/evaluate-resource-replanning-v1.py` reuses the unchanged arena
+runner via an explicit process-local policy factory, without editing frozen files.
+
+The isolated runtime in `ai/runs/resource-replanning-v1/runtime` preserves all 1,467
+inherited files (1,463 original frozen files plus the earlier four proposal/search
+files), then adds three separately pinned files. `preparation.json` and
+`selection.json` were saved before testing. Both copies and checks are complete.
+
+`strong/probe-resource-replanning-v1.py` passed:
+
+- 1,798 exact outside-resource model/filter controls.
+- 23 complete existing resource turns, 112 atomic choices, 111 actual searches and
+  4,744 rollouts, zero normal caps. Engine stepping checks prices, legal actions,
+  market depletion, holdings, completion and bounded progress.
+- Fresh-process and interleaved-request identity, request-metadata invariance,
+  standalone JSONL equivalence from `/tmp`, and deliberate-cap model-action fallback.
+- The known omission executes three coal buys for 17 then Pass. One opening differs
+  from its initial hypothetical plan: early 2p Recharged/sealed proposes two coal
+  but actually buys four after replanning. The other 22 quantities/sequences match.
+  Neither that change nor the known repair establishes a general strength gain.
+
+The first run completed all turn checks but failed its standalone assertion by
+comparing integer-keyed live dictionaries with JSON string-keyed dictionaries.
+Reproduction proves identical moves and data after JSON roundtrip. The policy and
+runtime stayed unchanged; only comparator key normalization and the output folder
+changed. Preserve `checks/`, `failed-probe-v1.py`, `standalone-reproduction.json`,
+`serialization-diagnosis.json` and `probe.log`. The complete corrected rerun is in
+`checks-v2/` with `probe-v2.log`; both attempts' actual decisions match exactly.
+
+### Full-game integration and latency finding
+
+`strong/probe-resource-replanning-games-v1.py` completed four predeclared games:
+2p and 6p, original/open and Recharged/sealed, learner seat 0, economic opponents,
+four sampled worlds / one search worker, two game processes locally. These are
+engineering seeds, not strength samples. Results: 540 learner decisions, 167
+resource searches, 7,156 rollouts, zero game/rollout caps. Do not report their win
+rate as strength evidence. Raw decisions, configs and terminal reports are under
+`ai/runs/resource-replanning-v1/games/`; all four passed.
+
+`strong/replay-resource-replanning-games-v1.cjs` independently reconstructs each
+game from setup and seeded economic opponents, checks every saved action against
+its true engine index, and reproduces all terminal fields and policy counts:
+540 learner moves + 1,454 opponent moves. It saves the slowest **public** request
+from each game, with its original decision, under `replays/*-slow-root.json`.
+
+The full games expose a cost hidden by the mostly-late fixture sample:
+
+| Case | Searches | Local median | Local maximum |
+| --- | ---: | ---: | ---: |
+| 2p original/open | 47 | 6.529s | 21.412s |
+| 2p Recharged/sealed | 48 | 1.953s | 4.881s |
+| 6p original/open | 43 | 5.034s | 10.131s |
+| 6p Recharged/sealed | 29 | 2.926s | 6.436s |
+
+These HX370 timings were taken while two game processes ran; they are neither an
+8840U benchmark nor a representative game distribution. The earlier 112-choice
+fixture median was only 609.5ms, maximum 2.771s. Do not use that easier subset as a
+general latency claim. Profile the saved expensive roots and test the actual target
+before deciding whether to optimize live search or use it primarily as a teacher.
+
+### Evidence and continuation
+
+- Descriptor: `strong/resource-replanning-evidence-v1.json`.
+- Private HF revision: `ac7034af7546d5d3ef7ecbc7b26075bce6ec5c31`.
+- Archive: `archives/resource-replanning-evidence-v1.tgz`, 51 files, downloaded and
+  SHA-verified: `04f8becf8445912dd5b9b1ebbc54569f5babc58b78a45bd5aa117fc708aa47cc`.
+- Collector: `strong/collect-resource-replanning-v1.py`; completed log at
+  `ai/runs/resource-replanning-collection-v1.log`. Do not rerun over the archive.
+- Completed sessions: initial probe 38233 (failed comparator only), reproduction
+  72034, corrected probe 1570, games 37641, collector 39784.
+
+Next: continue the unchanged five-arm grid. The saved slow roots support measured
+profiling / actual8840U serving experiments. A later resource study must evaluate
+the **actual atomic replanning policy** on fresh paired games across counts/rules
+and independent opponents, separately from committed-macro teacher experiments.
+Do not infer strength from these four smokes or change the running grid. Any final
+runtime also needs the separately pinned asynchronous sealed-order repair and
+full final serving checks. No candidate, publication or reserved final seeds used.
+
+## Previous checkpoint: whole-resource-turn search integration verified in isolation
 
 Previous goal turn: progress (proposal evidence archived and research pushed as
 f890710). This turn: progress. Added complete resource-turn valuation, ran actual

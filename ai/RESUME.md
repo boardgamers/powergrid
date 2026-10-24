@@ -6,7 +6,35 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: whole-resource-turn search verified in isolation.**
+**Latest: stateless atomic resource replanning verified, with a material latency finding.**
+The separate `strong/resource_replanning_policy_v1.py` returns one move and replans
+from the next public request. It holds no pending purchase plan. This matches the
+existing research worker's atomic contract without platform storage, but differs
+from committing the macro evaluated by resource-turn search. The four-world probe
+changed an opening from two planned coal to four actual buys; the other 22 turns
+matched their initial plans. The known late-game omission still buys three coal.
+
+All 1,798 outside-resource controls match; 23 complete resource turns / 112 atomic
+decisions / 4,744 rollouts passed. Fresh processes, interleaved requests, metadata
+changes, cap fallback and standalone JSONL responses match. A verifier-only JSON
+integer-key/string-key failure was preserved, diagnosed and fixed; no policy change.
+Four predeclared full-game integration smokes passed with 7,156 rollouts and zero
+caps. Independent replay matches 540 learner and 1,454 opponent moves and finals.
+These are engineering checks, not fresh strength estimates.
+
+Full games reveal much slower early decisions than late fixtures: the maximum
+local HX370 resource decision was 21.4s at only four worlds / one search worker.
+Four exact slow public roots are saved under `ai/runs/resource-replanning-v1/replays/`
+for profiling and actual8840U checks. All local processes completed. Evidence:
+`strong/resource-replanning-evidence-v1.json`, 51 archive files, private HF revision
+`ac7034af7546d5d3ef7ecbc7b26075bce6ec5c31`. No new HF jobs or gradients; frozen
+screen dependencies unchanged. Coordinator PID 1447977 / session 53211 continues:
+2026-10-24T16:03:44 UTC, 49 submitted / 17 verified, no failed jobs; combined6psearch
+was directly confirmed RUNNING. Finish the fixed grid; profile actual expensive
+requests before deciding live search versus a training teacher, then evaluate any
+adopted atomic policy on fresh paired games. No final candidate or final seeds used.
+
+**Previous: whole-resource-turn search verified in isolation.**
 The new worker scores complete purchase sequences against the same sampled public
 worlds and balanced neural/economic/legacy/rush opponents. It retains the exact
 model turn, including purchases outside the generated bundle family. Future

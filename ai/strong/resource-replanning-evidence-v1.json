@@ -1,0 +1,97 @@
+{
+  "status": "verified_stateless_resource_replanning_research_only",
+  "outside_resource_exact_controls": 1798,
+  "resource_turns": 23,
+  "atomic_decisions": 112,
+  "resource_searches": 111,
+  "phase_probe_rollouts": 4744,
+  "normal_caps": 0,
+  "observed_initial_plan_changes": [
+    {
+      "label": "early-2p-recharged-sealed",
+      "initial_planned_counts": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "actual_counts": [
+        4,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "known_omission_actual_buys": [
+    3,
+    0,
+    0,
+    0
+  ],
+  "fresh_process_exact": true,
+  "interleaved_request_exact": true,
+  "standalone_exact": true,
+  "deliberate_cap_returns_model_action": true,
+  "full_engineering_games": 4,
+  "game_decisions": 540,
+  "game_resource_searches": 167,
+  "game_rollouts": 7156,
+  "game_caps": 0,
+  "independent_replay_learner_moves": 540,
+  "independent_replay_opponent_moves": 1454,
+  "retained_slow_public_roots": 4,
+  "local_HX370_full_game_resource_timings": {
+    "2p-original-open-economic": {
+      "samples": 47,
+      "median_ms": 6529.243210999994,
+      "maximum_ms": 21412.420761975227
+    },
+    "2p-recharged-sealed-economic": {
+      "samples": 48,
+      "median_ms": 1953.1039005087223,
+      "maximum_ms": 4881.019705004292
+    },
+    "6p-original-open-economic": {
+      "samples": 43,
+      "median_ms": 5034.001637017354,
+      "maximum_ms": 10131.061529973522
+    },
+    "6p-recharged-sealed-economic": {
+      "samples": 29,
+      "median_ms": 2926.064867002424,
+      "maximum_ms": 6435.983583010966
+    }
+  },
+  "source_frozen_files_unchanged": 1463,
+  "all_inherited_files_unchanged": 1467,
+  "active_screen_dependencies_unchanged": true,
+  "preserved_failure": "First standalone assertion compared live integer dictionary keys with JSON string keys. Exact after roundtrip; only verifier normalization and output directory changed. Original failure, checker and reproduction retained.",
+  "local_HX370_atomic_ms": {
+    "samples": 112,
+    "median": 609.4987580145244,
+    "maximum": 2771.329320006771
+  },
+  "limits": [
+    "Stateless replanning is a distinct policy from committing the evaluated macro; four-world valuations assume the macro then model continuations.",
+    "The one changed opening is an observed behavioral difference, not an established improvement or regression.",
+    "Four games are integration smokes only: economic opponent, seat0, 2p/6p and two rule combinations.",
+    "No fresh strength comparison, actual8840U benchmark, live platform integration or deployment qualification.",
+    "Frozen canonical sealed-order limitation outside resources remains; later runtime must include the separately tested repair."
+  ],
+  "next": "Complete existing fixed hybrid screen, then compare the actual stateless resource policy on fresh paired games across all counts/rules/opponents. Preserve macro teacher as a separate policy. Pin any adopted async repair and benchmark the actual final runtime on 8840U.",
+  "new_hf_jobs": 0,
+  "new_strength_games": 0,
+  "new_engineering_games": 4,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "ac7034af7546d5d3ef7ecbc7b26075bce6ec5c31",
+  "archive_path": "archives/resource-replanning-evidence-v1.tgz",
+  "archive_sha256": "04f8becf8445912dd5b9b1ebbc54569f5babc58b78a45bd5aa117fc708aa47cc",
+  "manifest_sha256": "e52ec52b8c5f0d902199cb7e48a1842c79ad2acfc64c6ecb33cbe0a4992bbc05",
+  "archived_files": 51,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

@@ -53512,5 +53512,46 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "next": "Complete unchanged active hybrid grid. Develop and verify an arena execution contract for complete plans, or explicitly evaluate a separately specified replanning policy; use fresh paired games and target serving checks before adoption. The component may also generate resource-turn teacher labels on fresh roots."
+    },
+    "resource_replanning_v1": {
+        "status": "verified_stateless_resource_replanning_research_only",
+        "evidence": "ai/strong/resource-replanning-evidence-v1.json",
+        "archive_revision": "ac7034af7546d5d3ef7ecbc7b26075bce6ec5c31",
+        "outside_resource_exact_controls": 1798,
+        "resource_turns": 23,
+        "atomic_decisions": 112,
+        "phase_probe_rollouts": 4744,
+        "full_engineering_games": 4,
+        "game_decisions": 540,
+        "game_resource_searches": 167,
+        "game_rollouts": 7156,
+        "normal_caps": 0,
+        "independent_replay_moves": 1994,
+        "observed_initial_plan_changes": [
+            {
+                "label": "early-2p-recharged-sealed",
+                "initial_planned_counts": [
+                    2,
+                    0,
+                    0,
+                    0
+                ],
+                "actual_counts": [
+                    4,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ],
+        "local_maximum_atomic_ms": 21412.420761975227,
+        "preserved_verifier_failure": true,
+        "current_hybrid_screen_unchanged": true,
+        "new_hf_jobs": 0,
+        "new_strength_games": 0,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Complete existing fixed hybrid screen, then compare the actual stateless resource policy on fresh paired games across all counts/rules/opponents. Preserve macro teacher as a separate policy. Pin any adopted async repair and benchmark the actual final runtime on 8840U."
     }
 }

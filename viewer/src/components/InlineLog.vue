@@ -25,16 +25,15 @@
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import Card from './pieces/Card.vue';
-import { getPowerPlant } from 'powergrid-engine/src/engine';
+import { journalPlant } from '../util/journal-plant';
+import type { GameState } from 'powergrid-engine';
 import { translateText } from '../localization';
 import { localizeJournal } from '../localization/journal';
 import type { PowerPlant } from 'powergrid-engine/src/gamestate';
 @Component({ components: { Card } })
 export default class InlineLog extends Vue {
     @Prop({ default: () => [] }) entries!: string[];
-    @Prop({ default: '' }) mapName!: string;
-    // Games on the alternate deck number their plants differently; draw them from it.
-    @Prop({ default: false }) alternatePowerPlants!: boolean;
+    @Prop({ required: true }) state!: GameState;
     follow = true;
     private feedObserver?: ResizeObserver;
     locale = 'en';
@@ -43,7 +42,7 @@ export default class InlineLog extends Vue {
         return this.entries.map((entry) => localizeJournal(
             entry,
             (text: string) => translateText(text, this.locale),
-            (number: number) => getPowerPlant(number, this.mapName, this.alternatePowerPlants)
+            (number: number) => journalPlant(this.state, number)
         ));
     }
     plantLabel(plant: PowerPlant) {

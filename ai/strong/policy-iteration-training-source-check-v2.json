@@ -1,0 +1,147 @@
+{
+  "passed": true,
+  "code_only": false,
+  "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+  "gradients": false,
+  "qualification_eligible": false,
+  "data_pin_sha256": "3ffb93d8a8b9cc39e04d86a0e2f24d3fdbd25301115e97d6ccb26e271e76966e",
+  "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+  "label_manifest_sha256": "968f26d35e949a082c0cd43db7339fcb4382d3b5dfde28ad4d2aa62fc6b68449",
+  "positions": 17280,
+  "split_counts": {
+    "validation": 4320,
+    "train": 12960
+  },
+  "model_preflight": {
+    "complete": true,
+    "cases": {
+      "frozen-0": {
+        "complete": true,
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "eligible": 1096,
+        "changed_eligible": 481,
+        "outside_scope_actions_preserved": 1457,
+        "parent_values_preserved": true,
+        "all_moves_legal": true,
+        "all_native_onnx_actions_equal": true,
+        "cached_positions_checked": 17280,
+        "cached_parent_proposals_equal": true,
+        "cached_changed": 8640,
+        "max_logit_error": 4.746425474877469e-10,
+        "max_value_error": 1.4215406629602967e-11,
+        "checkpoint_sha256": "04eae20685b82bc78828c9b6615b42b5b8f3fc337549ef50cbd250f1e41b5941",
+        "model_sha256": "8a91b4c2ae8f4dd253959e75243d4103ee2c753e15c36b99cd624f0e35fa8795",
+        "feature_check_sha256": "49fbc46d87259ca45893e98cca1e47228b477c67c16e9806f96bf4801f792b93",
+        "qualification_eligible": false,
+        "scope": "Inference plumbing only; no model strength evidence.",
+        "trainable_parameters_per_head": 97473
+      },
+      "frozen-1": {
+        "complete": true,
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "eligible": 1096,
+        "changed_eligible": 56,
+        "outside_scope_actions_preserved": 1457,
+        "parent_values_preserved": true,
+        "all_moves_legal": true,
+        "all_native_onnx_actions_equal": true,
+        "cached_positions_checked": 17280,
+        "cached_parent_proposals_equal": true,
+        "cached_changed": 1020,
+        "max_logit_error": 4.746425474877469e-10,
+        "max_value_error": 1.4215406629602967e-11,
+        "checkpoint_sha256": "cb96527a66365841c4143682a90250d0d3a0e1b8cb134b5be7bf6926085b580a",
+        "model_sha256": "3e04cfa0350f51b2e7767429c940add98c76950ff3f5cf71a1f4ecdcfb4baaa9",
+        "feature_check_sha256": "49fbc46d87259ca45893e98cca1e47228b477c67c16e9806f96bf4801f792b93",
+        "qualification_eligible": false,
+        "scope": "Inference plumbing only; no model strength evidence.",
+        "trainable_parameters_per_head": 97473
+      },
+      "public-0": {
+        "complete": true,
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "eligible": 1096,
+        "changed_eligible": 1037,
+        "outside_scope_actions_preserved": 1457,
+        "parent_values_preserved": true,
+        "all_moves_legal": true,
+        "all_native_onnx_actions_equal": true,
+        "cached_positions_checked": 17280,
+        "cached_parent_proposals_equal": true,
+        "cached_changed": 15793,
+        "max_logit_error": 4.746425474877469e-10,
+        "max_value_error": 1.4215406629602967e-11,
+        "checkpoint_sha256": "b2d807b8c2f2d88925a8d81c98012082f5adf1b868802fc0a6339d26e859ccd7",
+        "model_sha256": "914cb1ed0838c3dd4b6bccd7dffd7a1d1ece9dbb2e652f42e07dcb2e18d755e8",
+        "feature_check_sha256": "49fbc46d87259ca45893e98cca1e47228b477c67c16e9806f96bf4801f792b93",
+        "qualification_eligible": false,
+        "scope": "Inference plumbing only; no model strength evidence.",
+        "trainable_parameters_per_head": 482497
+      },
+      "public-1": {
+        "complete": true,
+        "positions": 2553,
+        "by_player_count": {
+          "2": 349,
+          "3": 427,
+          "4": 527,
+          "5": 609,
+          "6": 641
+        },
+        "eligible": 1096,
+        "changed_eligible": 247,
+        "outside_scope_actions_preserved": 1457,
+        "parent_values_preserved": true,
+        "all_moves_legal": true,
+        "all_native_onnx_actions_equal": true,
+        "cached_positions_checked": 17280,
+        "cached_parent_proposals_equal": true,
+        "cached_changed": 3664,
+        "max_logit_error": 4.746425474877469e-10,
+        "max_value_error": 1.4215406629602967e-11,
+        "checkpoint_sha256": "dc3ba9271e8e52107eba414f7adfb8a82b9bf72b5976e3c6bada0f4ff3f9f266",
+        "model_sha256": "d4a66c7dec0f60c64c10517fec8f69b8bf39e0152d25fdd17ad6d2a19f873d48",
+        "feature_check_sha256": "49fbc46d87259ca45893e98cca1e47228b477c67c16e9806f96bf4801f792b93",
+        "qualification_eligible": false,
+        "scope": "Inference plumbing only; no model strength evidence.",
+        "trainable_parameters_per_head": 482497
+      }
+    },
+    "seconds": 170.27891416402417,
+    "gradients": false,
+    "synthetic_untrained": true,
+    "qualification_eligible": false,
+    "code": {
+      "model_policy_iteration.py": "b7555bdbc7fa00987c4825e8f785d065aa987ca72bb2fe6aa5d11ba6c7983fac",
+      "policy_iteration_check.py": "f1a60fd725f579c81ee8928c58f4ec6dab85b345231a7615b3e083a3cc126c1e",
+      "export-policy-iteration.py": "0da70ec12d998fb3f05d3609957fda5790d51c81b9cc40a7154749d7c0d3e3f7",
+      "preflight-policy-iteration-model.py": "8cfb095dac959da24983ef53af20bc5a5506c984568896bea8b6124fa7417d03"
+    }
+  },
+  "logs": {
+    "ai/runs/policy-iteration-training-source-checks-v2/test_policy_iteration_training.py.log": "cc536a8a44629e15785541b4f090dfec2c6e471e7fe4ebb9be65a50c5bd45921",
+    "ai/runs/policy-iteration-training-source-checks-v2/test_model_policy_iteration.py.log": "931ee622acb24d582aa0e2442389b49137ce32c07e9412d1969bff1cbd11a562",
+    "ai/runs/policy-iteration-training-source-checks-v2/preflight-policy-iteration-model.py.log": "b9a8db2aa20d3e7ce10a2d8c68ff80027ee72b468b1740d12801bb6b60eb9e64"
+  }
+}

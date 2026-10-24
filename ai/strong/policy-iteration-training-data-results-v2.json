@@ -1,0 +1,57 @@
+{
+  "complete": true,
+  "positions": 17280,
+  "split_counts": {
+    "validation": 4320,
+    "train": 12960
+  },
+  "label_manifest_sha256": "968f26d35e949a082c0cd43db7339fcb4382d3b5dfde28ad4d2aa62fc6b68449",
+  "label_protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+  "label_source": {
+    "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+    "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+    "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+    "bytes": 109402244,
+    "base": {
+      "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+      "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+      "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+    },
+    "overlays": {
+      "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+      "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+      "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+      "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+    },
+    "unchanged_base_files": 1430,
+    "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+    "qualification_eligible": false
+  },
+  "feature_check_sha256": "49fbc46d87259ca45893e98cca1e47228b477c67c16e9806f96bf4801f792b93",
+  "samples_per_root": 192,
+  "continuation_modes": [
+    "neural",
+    "neural_economic"
+  ],
+  "negative_advantages_retained": 27744,
+  "parent_targets_zero": true,
+  "uncertainty_weight_range": [
+    0.32557203565383114,
+    1.0
+  ],
+  "seconds": 232.97900877898792,
+  "code": {
+    "ai/strong/policy_iteration_data.py": "b31102c4d9f36e04e6904f4849055c2f974edea829697ade3444cdb5ccac014b",
+    "ai/strong/prepare-policy-iteration-training-data.py": "429e787d6955adee02bbabbbb6b8339a9b572c22a74d0062160b0b705ea35bb0",
+    "ai/strong/strategic_correction_targets.py": "0a9f4587471ee865d3d10b57d777abbbed704e99c1331f7bbf2e4fe4b015450a"
+  },
+  "artifacts": {
+    "feature-check.json": "49fbc46d87259ca45893e98cca1e47228b477c67c16e9806f96bf4801f792b93",
+    "features.npz": "0eadfd01b5d59f6f94a8df1fe49f85208ef62d5d661a2e9caf44d0bd8ae5ae41",
+    "metadata.json": "08ca552cb3028142684a16bfcaccd0e534ec7641e7d48052938ed1ff7314d077",
+    "targets.npz": "05d20d76fd8e5bff9322023fe55c9e43682e797f97059ee9635f76e3286a7783",
+    "label-manifest.json": "968f26d35e949a082c0cd43db7339fcb4382d3b5dfde28ad4d2aa62fc6b68449"
+  },
+  "gradients": false,
+  "qualification_eligible": false
+}

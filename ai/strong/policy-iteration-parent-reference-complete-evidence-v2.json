@@ -1,0 +1,37 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "2dc527b0ecb4818484d936a8afdc5b441f29739a",
+  "archive_path": "archives/policy-iteration-parent-reference-complete-evidence-v2.tgz",
+  "archive_sha256": "47a85217a2f8338a51a22a6815882b333f833f13ee81cb8a7b9d7cbc8c682e14",
+  "manifest_sha256": "ffc9628cfe84fc8c56749819927e1a84b440ac635b0299119e2825f6538f31db",
+  "archived_files": 1117,
+  "format": "tar.gz",
+  "remote_archive_verified": true,
+  "shards_submitted": 108,
+  "planned_games": 6720,
+  "plan_sha256": "080893449fde758e1820bf2fe5557dcaf4772343e2395d2adbf788bad840658b",
+  "status_checked_at": "2026-10-24T10:04:40.227465+00:00",
+  "status_counts": {
+    "COMPLETED": 108
+  },
+  "timeout_hours": 9,
+  "flavor": "cpu-upgrade",
+  "both_runtime_probes_verified": true,
+  "probe_games": 32,
+  "parent_is_unqualified": true,
+  "verified_parent_cases": 108,
+  "verified_parent_games": 6720,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "diagnostic": "policy-iteration-parent-reference-complete-v2.json",
+  "diagnostic_sha256": "2bcc02015cf0d548a455898152d752982d543d81a1704ab8fa65c34b291830fb",
+  "development_point_deficits": [
+    "search_geo/2p",
+    "heuristic/2p",
+    "search_geo/3p",
+    "search_geo/4p",
+    "legacy/4p",
+    "a260/3p"
+  ]
+}

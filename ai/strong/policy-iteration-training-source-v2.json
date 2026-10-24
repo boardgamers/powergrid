@@ -1,0 +1,56 @@
+{
+  "archive": "strong-source-policy-iteration-training-20261024-v2.tgz",
+  "revision": "776fc237a19be9789fe160d4406e68cd31adf080",
+  "sha256": "21a162cb75167e3781bcd8e8f2810b4b93f37712775af300abb910fdcccfd958",
+  "bytes": 113464046,
+  "base": {
+    "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+    "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+    "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+    "bytes": 109402244,
+    "base": {
+      "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+      "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+      "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+    },
+    "overlays": {
+      "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+      "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+      "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+      "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+    },
+    "unchanged_base_files": 1430,
+    "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+    "qualification_eligible": false
+  },
+  "overlays": {
+    "ai/strong/policy-iteration-labels-source-v2.json": "d673b958f33750c3ed86097260a3f0a2aaf5d3af477fba9bd24de1429ee0dbcd",
+    "ai/strong/policy-iteration-training-design-v2.json": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+    "ai/strong/model_policy_iteration.py": "b7555bdbc7fa00987c4825e8f785d065aa987ca72bb2fe6aa5d11ba6c7983fac",
+    "ai/strong/policy_iteration_data.py": "b31102c4d9f36e04e6904f4849055c2f974edea829697ade3444cdb5ccac014b",
+    "ai/strong/policy_iteration_training.py": "2ad5e686f4884d971cd88e2ba4f3bc3c056e2d3c27c0353e21b69d1bef5acd98",
+    "ai/strong/train-policy-iteration.py": "96247a6b3719874fbe60e620077ae5d73d09b80654c69c97a429a23b4278ebfe",
+    "ai/strong/export-policy-iteration.py": "0da70ec12d998fb3f05d3609957fda5790d51c81b9cc40a7154749d7c0d3e3f7",
+    "ai/strong/policy_iteration_check.py": "f1a60fd725f579c81ee8928c58f4ec6dab85b345231a7615b3e083a3cc126c1e",
+    "ai/strong/prepare-policy-iteration-training-data.py": "429e787d6955adee02bbabbbb6b8339a9b572c22a74d0062160b0b705ea35bb0",
+    "ai/strong/archive-policy-iteration-training-data.py": "dcda06ad6b2023278f896d088e0dd8ada789bb2fd4ed5c0143d87b94ba69e001",
+    "ai/strong/test_model_policy_iteration.py": "bea23388d028a07e764cc12024b8d759207905445709886d56241a58b6f904be",
+    "ai/strong/test_policy_iteration_training.py": "ca1cbbdf49a2d1b385cb18f229fb82e3720f9886a3c6e03c8d0cf22173064129",
+    "ai/strong/preflight-policy-iteration-model.py": "8cfb095dac959da24983ef53af20bc5a5506c984568896bea8b6124fa7417d03",
+    "ai/strong/policy_iteration_job.py": "14deade1bd6de01d67e3b5d3cd78dc82a8403febd11bcfb88c18eee8ec829b5c",
+    "ai/strong/preflight-policy-iteration-training-source.py": "da55728f6dfb439d4135d69490c7429fc320b8e1da79dc4de22126f36d040ecc",
+    "ai/strong/build-policy-iteration-training-source.py": "af25da7aec16675eeb6973c2bc5480f00b46f796e7907328e61bf54c5b6cef10",
+    "ai/strong/launch-policy-iteration-training.py": "24f788886bf203950e0c64c65a4b3f4395ef8a64374044f47da6f415da5d459c",
+    "ai/strong/policy-iteration-training-data-evidence-v2.json": "3ffb93d8a8b9cc39e04d86a0e2f24d3fdbd25301115e97d6ccb26e271e76966e",
+    "ai/strong/policy-iteration-labels-results-v2.json": "968f26d35e949a082c0cd43db7339fcb4382d3b5dfde28ad4d2aa62fc6b68449",
+    "ai/strong/policy-iteration-training-source-check-v2.json": "8a35ec371c90b4b54d817115bb4833b4f5f36d2d38cd0aef673c0f95482a7601"
+  },
+  "unchanged_base_files": 1434,
+  "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+  "data_pin_sha256": "3ffb93d8a8b9cc39e04d86a0e2f24d3fdbd25301115e97d6ccb26e271e76966e",
+  "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+  "label_manifest_sha256": "968f26d35e949a082c0cd43db7339fcb4382d3b5dfde28ad4d2aa62fc6b68449",
+  "check_sha256": "8a35ec371c90b4b54d817115bb4833b4f5f36d2d38cd0aef673c0f95482a7601",
+  "gradients": false,
+  "qualification_eligible": false
+}

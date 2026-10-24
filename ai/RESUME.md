@@ -14,17 +14,29 @@ and the current handoff. These are compatibility checks, not strength evidence.
 Actual new trained-model continuations, target8840U latency and fresh hybrid
 comparisons remain pending. Frozen active pipeline dependencies are unchanged.
 
-## Latest data and baseline checkpoint
+## Latest data, training and baseline checkpoint
 
-All948 effective label jobs have completed;916 batches are locally verified,
-and the live collector owns the final32. New gradients have not started yet.
-The verified five-player parent baseline against search is34.375% overall
-(95% deal interval30.0–38.4375%), but original/sealed is15.0% and
-Recharged/sealed25.0%; both sealed intervals include20% chance. These320 games
-cover16 independent deals. They do not measure new training gains or qualify
-the parent. Only6p search remains incomplete. The105-batch/6,432-game diagnostic
-and immutable HF archive are in `strong/policy-iteration-parent-reference-105-evidence-v2.json`.
-Live state files supersede these counts; do not duplicate the existing pipeline.
+All 948 new plus 60 pilot label shards are verified: 17,280 roots and 33,351,552
+simulations. Full data and executable source passed admission and are archived.
+The training coordinator submitted the two prescribed four-seed L4x1 / 3-hour jobs:
+`6adc8338046eb82b1ecdbb92` (frozen), `6adc833d1e112550ce7deb4c` (public).
+Both were scheduling at 10:07:17 UTC; no new trained candidate is verified yet.
+
+All 108 parent reference batches are verified: 6,720 games, 27 complete cells.
+Six-player search win share is 37.63% overall, but original/sealed 14.58% and
+Recharged/sealed 27.08%; both sealed intervals include 16.67% chance. The parent
+remains unqualified. Complete raw baseline evidence is archived; see
+`strong/policy-iteration-parent-reference-complete-evidence-v2.json`.
+
+Full label audit: separate-batch simulated gain 0.051495, with 1,740 of 12,284
+changed directions adverse (14.16%). Positive means across all counts/rules
+support finishing this round, but do not establish real-game gains. Evidence:
+`strong/policy-iteration-label-quality-full-evidence-v2.json`.
+
+The collector and launch coordinator completed normally; do not restart them.
+Only the trained-output harvester and development coordinator remain active.
+Live state files supersede these snapshots. Preserve their frozen dependencies
+and exclusive ownership of collection, probes and candidate evaluation.
 
 ## User steering, 24 October: diminishing returns and hybrid play
 
@@ -84,76 +96,37 @@ fresh gains, recommend changing approach or stopping this line instead of
 automatically scaling another training round. No hybrid jobs were launched
 and no active protocol, final threshold or reserved seed was changed here.
 
-- **Collector ACTIVE:** PID2476443 /session82318, every5min, bounded12h.
-  State: `ai/runs/policy-iteration-harvest-recovered-v2/state.json`.
-  Verify its actual process before deciding it stopped; do not duplicate it.
-- **Training coordinator ACTIVE:** PID2536611 /session93205, started05:38:39UTC.
-  State: `ai/runs/policy-iteration-training-coordinator-v2/state.json`.
-  Waiting for all948 new shards +60 pilot cases. Then it prepares/archives full
-  data, builds and checks the complete source, dry-runs admission and submits the
-  two four-seedL4 jobs. No local gradients or automatic retries. Do not run
-  competing preparation/launch commands. On a future explicit pause, stop this
-  coordinator so it cannot submit later. Check actual process liveness first.
-- **Trained-output harvester ACTIVE:** PID2850424 /session65326, started06:29:16UTC.
+- **Collector COMPLETE:** PID 2476443  / session82318 ended normally at 10:04:46 UTC.
+  `ai/runs/policy-iteration-harvest-recovered-v2/state.json` records 948 labels
+  and 108 parent batches verified. Do not restart it.
+- **Training coordinator COMPLETE:** PID 2536611  / session93205 submitted both
+  prescribed HF jobs and archived launch evidence. State:
+  `ai/runs/policy-iteration-training-coordinator-v2/state.json`.
+  Do not duplicate preparation, data/source archives or GPU submissions.
+- **Trained-output harvester ACTIVE:** PID 2850424  / session65326.
   State: `ai/runs/policy-iteration-training-harvest-v2/state.json`.
-  Waits for the coordinator's two archived HF training launches, then independently
-  verifies completed outputs and saves all four candidate pins/evidence archives.
-  No submissions/retries/gradients/promotion. Do not duplicate training collection
-  or edit its28 hashed dependencies while active. Full integration is pending
-  actual trained outputs. Evidence: `strong/policy-iteration-training-harvest-evidence-v2.json`.
-- **Development coordinator ACTIVE:** PID2950746 /session63641, started06:45:25UTC.
+  Waits for the two jobs, verifies all four seeds/head and exact export parity,
+  then archives four candidate pins. No submissions/retries/gradients/promotion.
+  Do not duplicate collection or edit its 28 hashed dependencies.
+- **Development coordinator ACTIVE:** PID 2950746  / session63641.
   State: `ai/runs/policy-iteration-development-coordinator-v2/state.json`.
-  Waits for all four archived trained pins and complete parent reference, then
-  runs8 endpoint runtime probes,4 complete108-shard candidate grids,and the
-  prescribed33,600-game comparison. It takes over only after the original
-  collector releases its lock. Do not run competing development operations or
-  edit its39 hashed dependencies.24h window,no retry/cancel/final test/promotion.
-  Stop it on an explicit pause to prevent later submissions. No candidate jobs
-  launched yet. Evidence: `strong/policy-iteration-development-coordinator-evidence-v2.json`.
-- **643/948 new label shards verified**, 20,150,016 continuations including pilot.
-  The four local processes remain active; all948 jobs have started. Live state
-  files supersede this snapshot. No partial-data training or changed thresholds.
-- **Trained target benchmark tooling prepared**,3 admission tests passed.
-  `strong/benchmark-policy-iteration-trained-8840u.py` supplies explicit check,
-  prepare,run,collect,archive stages after all four trained pins are verified.
-  No fifth coordinator or target run. Actual trained integration is pending.
-  It keeps the old synthetic benchmark separate and rejects unfinished training
-  before creating any outputs. See the latest handoff for exact future paths.
-- **Final evidence converter prepared**,3 rejection/real-verifier schema tests
-  passed. After trained benchmark archival, run
-  `ai/.venv/bin/python ai/strong/prepare-policy-iteration-final-evidence.py prepare`.
-  It writes12 technical receipts for all four models, without selection or jobs.
-  Actual trained integration remains pending; current pending training rejects
-  before output creation. Keep the strength review/final gate separate.
-- A frozen cross-batch audit covers4,520 fully paired roots:conditional gain0.04983;
-  448/3,100 changed directions negative. Scheduling-selected partial cohort;
-  not whole-game strength. Evidence: `strong/policy-iteration-label-quality-progress-evidence-v2.json`.
-- Fourth bounded hardware wave finished: **420 queued-job migrations**,9 safely
-  skipped originals, plus2 separate upload-failure retries. All948 effective IDs
-  remain distinct. Harvester was briefly stopped for guard coordination and is
-  **resumed**; coordinator never stopped. Do not rerun operation24746.
-- **100 parent batches /6,016 games verified.**2p search:48.83% wins
-  (95% interval38.28–59.77%).3p search:20.31% (14.58–26.56%), below chance.
-  New4p search result:30.86% (25.0–36.72%); Recharged/sealed15.625%.
-  Only5p/6p search cells remain incomplete; parent remains unqualified.
-  Evidence: `strong/policy-iteration-parent-reference-100-evidence-v2.json`.
-- **Existing final runtime is compatible with all four new architectures:**128
-  synthetic plumbing games passed the actual provenance wrapper. No new source,
-  trained-model claim or final-seed use. Exact trained admission/AMD evidence and
-  final verifier adapters still remain. Evidence:
-  `strong/policy-iteration-final-runtime-compatibility-evidence-v2.json`.
-- HF file-limit incident fixed:13 duplicated checkpoints compacted,8,158 entries
-  freed, all old pinned revisions retained. Two failed uploads have exact retries
-  already RUNNING. No live jobs restarted.948 effective handles remain distinct.
-- Latest evidence descriptors: `strong/policy-iteration-wave4-checkpoint-v2.json`,
-  `strong/policy-iteration-training-coordinator-evidence-v2.json` and
-  `strong/policy-iteration-storage-recovery-evidence-v2.json`.
-- No new gradients yet. Four trained-candidate evaluation grids, exact trained
-  export/AMD benchmark and the unchanged final strength gate remain.
+  Parent reference is complete. Once four trained pins are archived, it owns 8
+  endpoint runtime probes, four 108-batch candidate grids, and the prescribed
+  33,600-game comparison. Do not duplicate operations or edit its 39 dependencies.
+  No retry/cancel/final test/promotion. Stop it on an explicit future pause.
+- **Trained 8840U tooling prepared:**
+  `strong/benchmark-policy-iteration-trained-8840u.py` provides check/prepare/run/
+  collect/archive after all four trained pins are verified. No target run yet.
+  Synthetic architecture timings do not substitute for the trained benchmark.
+- **Final technical evidence converter prepared:**
+  `ai/.venv/bin/python ai/strong/prepare-policy-iteration-final-evidence.py prepare`
+  is only for after trained target benchmark archival. Its three controls pass;
+  actual trained integration remains pending. No final seeds have been used.
 
-Next: inspect the four existing processes as needed and let the prescribed pipeline
-advance. Keep the full strength objective active; source/model qualification is
-not established by these orchestration controls.
+Next: let the two existing active processes advance; benchmark actual trained
+exports on the 8840U when available. The complete development comparison is the
+candid stop/continue checkpoint, followed by any justified bounded hybrid study.
+No candidate selection, final test or publication is authorized by source checks.
 
 ---
 

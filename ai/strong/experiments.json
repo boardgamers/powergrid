@@ -43797,7 +43797,7 @@
     },
     "policy_iteration_labels_v2": {
         "date": "2026-10-24",
-        "status": "452 new shards independently verified; fourth CPU migration wave complete",
+        "status": "All 948 effective new label jobs completed and verified; full data prepared and archived",
         "planned_roots": 17280,
         "planned_reused_pilot_roots": 360,
         "new_root_mode_pairs": 33840,
@@ -43835,11 +43835,9 @@
         "first_wave_jobs_submitted": 60,
         "first_wave_new_root_mode_pairs": 3318,
         "first_wave_distinct_new_roots": 2538,
-        "status_checked_at": "2026-10-24T06:00:14.411662+00:00",
+        "status_checked_at": "2026-10-24T09:53:18.198648+00:00",
         "status_counts": {
-            "COMPLETED": 450,
-            "RUNNING": 432,
-            "SCHEDULING": 66
+            "COMPLETED": 948
         },
         "preflight": "ai/strong/policy-iteration-labels-preflight-v2.json",
         "preflight_rollouts": 1364,
@@ -43857,12 +43855,12 @@
         "fixed_inference_batch": 64,
         "engine_workers": 24,
         "timeout_hours": 8,
-        "complete_new_shards": 452,
+        "complete_new_shards": 948,
         "verified_reused_root_mode_pairs": 720,
-        "next": "Do not duplicate the active collector or training coordinator. The coordinator advances to the prescribed two L4 jobs only after complete-grid revalidation, compact data archival and actual full-source preflight.",
+        "next": "Two admitted four-seed HF training jobs submitted; trained-output verification and complete development comparison pending",
         "status_snapshot_scope": "All948 effective shard jobs; historical canceled originals preserved separately",
-        "verified_root_mode_pairs": 16002,
-        "rollouts_including_pilot": 15443520,
+        "verified_root_mode_pairs": 34560,
+        "rollouts_including_pilot": 33351552,
         "new_first_wave_rollouts": 3212352,
         "first_wave_evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
@@ -43937,7 +43935,7 @@
             "gradients": false,
             "qualification_eligible": false
         },
-        "collector_active": true,
+        "collector_active": false,
         "latest_progress_evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
             "revision": "b780e34f3a639f25bdf5e6ded75d1183b4ac4483",
@@ -44026,7 +44024,7 @@
     },
     "policy_iteration_training_preparation_v2": {
         "date": "2026-10-24",
-        "status": "Isolated HF job source code check passed; complete-label bundle and admitted full-data source still pending",
+        "status": "Full-data recovery, frozen-package preflight and both launch admissions passed; two HF training jobs submitted",
         "design": "ai/strong/policy-iteration-training-design-v2.json",
         "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
         "head_parameters": {
@@ -44145,7 +44143,142 @@
         "coordinator_pid": 2536611,
         "coordinator_session_id": 93205,
         "coordinator_active": true,
-        "coordinator_state": "waiting_for_complete_labels"
+        "coordinator_state": "waiting_for_complete_labels",
+        "full_data_results": {
+            "complete": true,
+            "positions": 17280,
+            "split_counts": {
+                "validation": 4320,
+                "train": 12960
+            },
+            "label_manifest_sha256": "968f26d35e949a082c0cd43db7339fcb4382d3b5dfde28ad4d2aa62fc6b68449",
+            "label_protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+            "label_source": {
+                "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+                "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+                "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+                "bytes": 109402244,
+                "base": {
+                    "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+                    "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+                    "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+                },
+                "overlays": {
+                    "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+                    "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+                    "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+                    "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+                },
+                "unchanged_base_files": 1430,
+                "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+                "qualification_eligible": false
+            },
+            "feature_check_sha256": "49fbc46d87259ca45893e98cca1e47228b477c67c16e9806f96bf4801f792b93",
+            "samples_per_root": 192,
+            "continuation_modes": [
+                "neural",
+                "neural_economic"
+            ],
+            "negative_advantages_retained": 27744,
+            "parent_targets_zero": true,
+            "uncertainty_weight_range": [
+                0.32557203565383114,
+                1.0
+            ],
+            "seconds": 232.97900877898792,
+            "code": {
+                "ai/strong/policy_iteration_data.py": "b31102c4d9f36e04e6904f4849055c2f974edea829697ade3444cdb5ccac014b",
+                "ai/strong/prepare-policy-iteration-training-data.py": "429e787d6955adee02bbabbbb6b8339a9b572c22a74d0062160b0b705ea35bb0",
+                "ai/strong/strategic_correction_targets.py": "0a9f4587471ee865d3d10b57d777abbbed704e99c1331f7bbf2e4fe4b015450a"
+            },
+            "artifacts": {
+                "feature-check.json": "49fbc46d87259ca45893e98cca1e47228b477c67c16e9806f96bf4801f792b93",
+                "features.npz": "0eadfd01b5d59f6f94a8df1fe49f85208ef62d5d661a2e9caf44d0bd8ae5ae41",
+                "metadata.json": "08ca552cb3028142684a16bfcaccd0e534ec7641e7d48052938ed1ff7314d077",
+                "targets.npz": "05d20d76fd8e5bff9322023fe55c9e43682e797f97059ee9635f76e3286a7783",
+                "label-manifest.json": "968f26d35e949a082c0cd43db7339fcb4382d3b5dfde28ad4d2aa62fc6b68449"
+            },
+            "gradients": false,
+            "qualification_eligible": false
+        },
+        "full_data_evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "eaba4f51ba9b65a52d35bff3d1478e3fbd77742a",
+            "prefix": "runs/policy-iteration-training-data-v2",
+            "files": {
+                "feature-check.json": "49fbc46d87259ca45893e98cca1e47228b477c67c16e9806f96bf4801f792b93",
+                "features.npz": "0eadfd01b5d59f6f94a8df1fe49f85208ef62d5d661a2e9caf44d0bd8ae5ae41",
+                "data-check.json": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+                "metadata.json": "08ca552cb3028142684a16bfcaccd0e534ec7641e7d48052938ed1ff7314d077",
+                "targets.npz": "05d20d76fd8e5bff9322023fe55c9e43682e797f97059ee9635f76e3286a7783",
+                "label-manifest.json": "968f26d35e949a082c0cd43db7339fcb4382d3b5dfde28ad4d2aa62fc6b68449"
+            },
+            "positions": 17280,
+            "split_counts": {
+                "validation": 4320,
+                "train": 12960
+            },
+            "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+            "label_manifest_sha256": "968f26d35e949a082c0cd43db7339fcb4382d3b5dfde28ad4d2aa62fc6b68449",
+            "gradients": false,
+            "qualification_eligible": false
+        },
+        "full_source": {
+            "archive": "strong-source-policy-iteration-training-20261024-v2.tgz",
+            "revision": "776fc237a19be9789fe160d4406e68cd31adf080",
+            "sha256": "21a162cb75167e3781bcd8e8f2810b4b93f37712775af300abb910fdcccfd958",
+            "bytes": 113464046,
+            "base": {
+                "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+                "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+                "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+                "bytes": 109402244,
+                "base": {
+                    "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+                    "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+                    "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+                },
+                "overlays": {
+                    "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+                    "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+                    "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+                    "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+                },
+                "unchanged_base_files": 1430,
+                "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+                "qualification_eligible": false
+            },
+            "overlays": {
+                "ai/strong/policy-iteration-labels-source-v2.json": "d673b958f33750c3ed86097260a3f0a2aaf5d3af477fba9bd24de1429ee0dbcd",
+                "ai/strong/policy-iteration-training-design-v2.json": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+                "ai/strong/model_policy_iteration.py": "b7555bdbc7fa00987c4825e8f785d065aa987ca72bb2fe6aa5d11ba6c7983fac",
+                "ai/strong/policy_iteration_data.py": "b31102c4d9f36e04e6904f4849055c2f974edea829697ade3444cdb5ccac014b",
+                "ai/strong/policy_iteration_training.py": "2ad5e686f4884d971cd88e2ba4f3bc3c056e2d3c27c0353e21b69d1bef5acd98",
+                "ai/strong/train-policy-iteration.py": "96247a6b3719874fbe60e620077ae5d73d09b80654c69c97a429a23b4278ebfe",
+                "ai/strong/export-policy-iteration.py": "0da70ec12d998fb3f05d3609957fda5790d51c81b9cc40a7154749d7c0d3e3f7",
+                "ai/strong/policy_iteration_check.py": "f1a60fd725f579c81ee8928c58f4ec6dab85b345231a7615b3e083a3cc126c1e",
+                "ai/strong/prepare-policy-iteration-training-data.py": "429e787d6955adee02bbabbbb6b8339a9b572c22a74d0062160b0b705ea35bb0",
+                "ai/strong/archive-policy-iteration-training-data.py": "dcda06ad6b2023278f896d088e0dd8ada789bb2fd4ed5c0143d87b94ba69e001",
+                "ai/strong/test_model_policy_iteration.py": "bea23388d028a07e764cc12024b8d759207905445709886d56241a58b6f904be",
+                "ai/strong/test_policy_iteration_training.py": "ca1cbbdf49a2d1b385cb18f229fb82e3720f9886a3c6e03c8d0cf22173064129",
+                "ai/strong/preflight-policy-iteration-model.py": "8cfb095dac959da24983ef53af20bc5a5506c984568896bea8b6124fa7417d03",
+                "ai/strong/policy_iteration_job.py": "14deade1bd6de01d67e3b5d3cd78dc82a8403febd11bcfb88c18eee8ec829b5c",
+                "ai/strong/preflight-policy-iteration-training-source.py": "da55728f6dfb439d4135d69490c7429fc320b8e1da79dc4de22126f36d040ecc",
+                "ai/strong/build-policy-iteration-training-source.py": "af25da7aec16675eeb6973c2bc5480f00b46f796e7907328e61bf54c5b6cef10",
+                "ai/strong/launch-policy-iteration-training.py": "24f788886bf203950e0c64c65a4b3f4395ef8a64374044f47da6f415da5d459c",
+                "ai/strong/policy-iteration-training-data-evidence-v2.json": "3ffb93d8a8b9cc39e04d86a0e2f24d3fdbd25301115e97d6ccb26e271e76966e",
+                "ai/strong/policy-iteration-labels-results-v2.json": "968f26d35e949a082c0cd43db7339fcb4382d3b5dfde28ad4d2aa62fc6b68449",
+                "ai/strong/policy-iteration-training-source-check-v2.json": "8a35ec371c90b4b54d817115bb4833b4f5f36d2d38cd0aef673c0f95482a7601"
+            },
+            "unchanged_base_files": 1434,
+            "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+            "data_pin_sha256": "3ffb93d8a8b9cc39e04d86a0e2f24d3fdbd25301115e97d6ccb26e271e76966e",
+            "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+            "label_manifest_sha256": "968f26d35e949a082c0cd43db7339fcb4382d3b5dfde28ad4d2aa62fc6b68449",
+            "check_sha256": "8a35ec371c90b4b54d817115bb4833b4f5f36d2d38cd0aef673c0f95482a7601",
+            "gradients": false,
+            "qualification_eligible": false
+        }
     },
     "policy_iteration_cpu_upgrade_v2": {
         "date": "2026-10-24",
@@ -44443,55 +44576,55 @@
         "parent_grid_jobs_submitted": 108,
         "parent_grid_launcher_finished": true,
         "parent_grid_timeout_hours": 9,
-        "parent_grid_verified_cases": 96,
-        "parent_grid_verified_games": 5760,
-        "parent_grid_status_checked_at": "2026-10-24T05:43:58.585907+00:00",
+        "parent_grid_verified_cases": 108,
+        "parent_grid_verified_games": 6720,
+        "parent_grid_status_checked_at": "2026-10-24T10:04:40.227465+00:00",
         "parent_grid_status_counts": {
-            "COMPLETED": 96,
-            "RUNNING": 12
+            "COMPLETED": 108
         },
         "latest_parent_evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
-            "revision": "44793a4ae5464d1c190e2484ebe6bdd42080efe1",
-            "archive_path": "archives/policy-iteration-parent-reference-96-evidence-v2.tgz",
-            "archive_sha256": "88fc8eb6b4ccc065c216135d93788109766c4c6a27a15186d6b3b4d4f65eb03b",
-            "manifest_sha256": "86ccbb365674fad5651a5b457a61291897c2a3010f0aa5b00a7ec765ee75a4cb",
-            "archived_files": 1009,
+            "revision": "2dc527b0ecb4818484d936a8afdc5b441f29739a",
+            "archive_path": "archives/policy-iteration-parent-reference-complete-evidence-v2.tgz",
+            "archive_sha256": "47a85217a2f8338a51a22a6815882b333f833f13ee81cb8a7b9d7cbc8c682e14",
+            "manifest_sha256": "ffc9628cfe84fc8c56749819927e1a84b440ac635b0299119e2825f6538f31db",
+            "archived_files": 1117,
             "format": "tar.gz",
             "remote_archive_verified": true,
             "shards_submitted": 108,
             "planned_games": 6720,
             "plan_sha256": "080893449fde758e1820bf2fe5557dcaf4772343e2395d2adbf788bad840658b",
-            "status_checked_at": "2026-10-24T05:43:58.585907+00:00",
+            "status_checked_at": "2026-10-24T10:04:40.227465+00:00",
             "status_counts": {
-                "COMPLETED": 96,
-                "RUNNING": 12
+                "COMPLETED": 108
             },
             "timeout_hours": 9,
             "flavor": "cpu-upgrade",
             "both_runtime_probes_verified": true,
             "probe_games": 32,
             "parent_is_unqualified": true,
-            "verified_parent_cases": 96,
-            "verified_parent_games": 5760,
+            "verified_parent_cases": 108,
+            "verified_parent_games": 6720,
             "gradients": false,
             "qualification_eligible": false,
             "reserved_final_seeds_used": false,
-            "diagnostic": "policy-iteration-parent-reference-progress-96-v2.json",
-            "diagnostic_sha256": "b9a01bb143ed143e3154e9f753853843586503c696a111ddef68b7d9375b0f90",
+            "diagnostic": "policy-iteration-parent-reference-complete-v2.json",
+            "diagnostic_sha256": "2bcc02015cf0d548a455898152d752982d543d81a1704ab8fa65c34b291830fb",
             "development_point_deficits": [
                 "search_geo/2p",
                 "heuristic/2p",
                 "search_geo/3p",
+                "search_geo/4p",
                 "legacy/4p",
                 "a260/3p"
             ]
         },
-        "parent_reference_diagnostic": "ai/strong/policy-iteration-parent-reference-progress-96-v2.json",
+        "parent_reference_diagnostic": "ai/strong/policy-iteration-parent-reference-complete-v2.json",
         "parent_development_point_deficits": [
             "search_geo/2p",
             "heuristic/2p",
             "search_geo/3p",
+            "search_geo/4p",
             "legacy/4p",
             "a260/3p"
         ],
@@ -44511,6 +44644,13 @@
             "search_geo/3p/recharged/open",
             "search_geo/3p/recharged/sealed",
             "economic/4p/original/sealed",
+            "search_geo/4p/original/sealed",
+            "search_geo/4p/recharged/open",
+            "search_geo/4p/recharged/sealed",
+            "search_geo/5p/original/sealed",
+            "search_geo/5p/recharged/sealed",
+            "search_geo/6p/original/sealed",
+            "search_geo/6p/recharged/sealed",
             "a260/3p/original/open",
             "a260/3p/original/sealed",
             "a260/3p/recharged/open",
@@ -44779,7 +44919,7 @@
         "state": {
             "pid": 2536611,
             "started_at": "2026-10-24T05:38:39.856827+00:00",
-            "stage": "waiting_for_complete_labels",
+            "stage": "both_jobs_submitted",
             "execute": true,
             "source_hashes": {
                 "ai/strong/policy-iteration-labels-source-v2.json": "d673b958f33750c3ed86097260a3f0a2aaf5d3af477fba9bd24de1429ee0dbcd",
@@ -44807,21 +44947,73 @@
             "script_sha256": "cb22287171b428220cf22d8d3e567b7e0fff6a8ae1a7c2c90408ffaecc364cb5",
             "max_wait_hours": 12.0,
             "interval_seconds": 60,
-            "commands_started": [],
-            "jobs_submitted": {},
+            "commands_started": [
+                "prepare-data",
+                "archive-data",
+                "build-source",
+                "admit-frozen",
+                "admit-public",
+                "launch-frozen",
+                "launch-public"
+            ],
+            "jobs_submitted": {
+                "frozen": "6adc8338046eb82b1ecdbb92",
+                "public": "6adc833d1e112550ce7deb4c"
+            },
             "local_gradients": false,
             "qualification_eligible": false,
             "reserved_final_seeds_used": false,
-            "label_shards_verified": 552,
-            "labels_complete": false,
-            "rollouts_including_pilot": 17783232,
-            "updated_at": "2026-10-24T06:47:47.621365+00:00"
+            "label_shards_verified": 948,
+            "labels_complete": true,
+            "rollouts_including_pilot": 33351552,
+            "label_manifest_sha256": "968f26d35e949a082c0cd43db7339fcb4382d3b5dfde28ad4d2aa62fc6b68449",
+            "launch_evidence": {
+                "frozen": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "7fd7925f7be052ab5f5fd2681779c60923651107",
+                    "archive_path": "archives/policy-iteration-training-launch-frozen-evidence-v2.tgz",
+                    "archive_sha256": "d09ebb52b0f3c51b6ed9b37f18623a52b1aae506ccc6cad9bbb086fddd21c1cf",
+                    "manifest_sha256": "49b3aa22fab7231b8ac1b3dd712bb4b7fcc276d96730b0e11a537a69a7782a86",
+                    "archived_files": 10,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true,
+                    "head_type": "frozen",
+                    "job_id": "6adc8338046eb82b1ecdbb92",
+                    "seeds": [
+                        12101,
+                        12102,
+                        12103,
+                        12104
+                    ],
+                    "qualification_eligible": false
+                },
+                "public": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "c1befdde62f0cbbfeec95977477f50373b5fc31d",
+                    "archive_path": "archives/policy-iteration-training-launch-public-evidence-v2.tgz",
+                    "archive_sha256": "68764399fd968e18614737bbdc0508154439d3fffa06f53ffa69332add50e152",
+                    "manifest_sha256": "445a3a4882e4bb62663da765df364fb33b33732eb872cf874e09d800ab8d48ad",
+                    "archived_files": 10,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true,
+                    "head_type": "public",
+                    "job_id": "6adc833d1e112550ce7deb4c",
+                    "seeds": [
+                        12101,
+                        12102,
+                        12103,
+                        12104
+                    ],
+                    "qualification_eligible": false
+                }
+            },
+            "updated_at": "2026-10-24T10:06:57.487062+00:00"
         },
         "collector": {
             "pid": 2476443,
             "started_at": "2026-10-24T05:28:50.781195+00:00",
-            "stage": "waiting",
-            "cycle": 9,
+            "stage": "complete",
+            "cycle": 30,
             "interval_seconds": 300,
             "max_hours": 12.0,
             "code_hashes": {
@@ -44836,24 +45028,22 @@
             "gradients": false,
             "qualification_eligible": false,
             "command": null,
-            "label_status_checked_at": "2026-10-24T06:42:31.566642+00:00",
+            "label_status_checked_at": "2026-10-24T09:53:18.198648+00:00",
             "label_status_counts": {
-                "COMPLETED": 552,
-                "RUNNING": 396
+                "COMPLETED": 948
             },
-            "parent_status_checked_at": "2026-10-24T06:45:25.820645+00:00",
+            "parent_status_checked_at": "2026-10-24T10:04:40.227465+00:00",
             "parent_status_counts": {
-                "COMPLETED": 96,
-                "RUNNING": 12
+                "COMPLETED": 108
             },
-            "label_shards_verified": 552,
-            "labels_complete": false,
-            "label_root_mode_pairs": 18414,
-            "rollouts_including_pilot": 17783232,
-            "parent_shards_verified": 96,
-            "parent_reference_complete": false,
-            "parent_games_verified": 5760,
-            "updated_at": "2026-10-24T06:45:25.953816+00:00"
+            "label_shards_verified": 948,
+            "labels_complete": true,
+            "label_root_mode_pairs": 34560,
+            "rollouts_including_pilot": 33351552,
+            "parent_shards_verified": 108,
+            "parent_reference_complete": true,
+            "parent_games_verified": 6720,
+            "updated_at": "2026-10-24T10:04:46.808798+00:00"
         },
         "evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
@@ -44893,7 +45083,10 @@
             "qualification_eligible": false
         },
         "source_code_check_17_overlays_unchanged": true,
-        "jobs_submitted": 0,
+        "jobs_submitted": {
+            "frozen": "6adc8338046eb82b1ecdbb92",
+            "public": "6adc833d1e112550ce7deb4c"
+        },
         "local_gradients": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
@@ -46636,11 +46829,11 @@
         "next": "Continue existing collector/coordinator;only full verified labels admit the prescribed HF training jobs. Conditional teacher gains do not qualify a trained model."
     },
     "policy_iteration_training_harvest_v2": {
-        "stage": "Bounded local collector active;waiting for two prescribed HF training launches",
+        "stage": "waiting_for_training_completion",
         "state": {
             "pid": 2850424,
             "started_at": "2026-10-24T06:29:16.427844+00:00",
-            "stage": "waiting_for_training_submission",
+            "stage": "waiting_for_training_completion",
             "execute": true,
             "code_hashes": {
                 "ai/strong/policy-iteration-labels-source-v2.json": "d673b958f33750c3ed86097260a3f0a2aaf5d3af477fba9bd24de1429ee0dbcd",
@@ -46682,9 +46875,17 @@
             "local_gradients": false,
             "qualification_eligible": false,
             "reserved_final_seeds_used": false,
-            "upstream_stage": "waiting_for_complete_labels",
-            "label_shards_verified": 552,
-            "updated_at": "2026-10-24T06:47:16.467576+00:00"
+            "upstream_stage": "both_jobs_submitted",
+            "label_shards_verified": 948,
+            "training_jobs": {
+                "frozen": "6adc8338046eb82b1ecdbb92",
+                "public": "6adc833d1e112550ce7deb4c"
+            },
+            "job_statuses": {
+                "frozen": "RUNNING",
+                "public": "SCHEDULING"
+            },
+            "updated_at": "2026-10-24T10:09:19.010125+00:00"
         },
         "exec_session": 65326,
         "controls": {
@@ -46773,7 +46974,7 @@
         "next": "Existing training coordinator admits and submits two HF jobs after all labels verify. This harvester only collects completed jobs through exact trained verification and archives all four pins. Development runtime probes/grids,actual8840U benchmark and final gate remain separate."
     },
     "policy_iteration_development_coordinator_v2": {
-        "stage": "Bounded coordinator active;waiting for four trained verified pins and complete parent reference",
+        "stage": "waiting_for_verified_training_and_parent",
         "state": {
             "pid": 2950746,
             "started_at": "2026-10-24T06:45:25.855641+00:00",
@@ -46831,11 +47032,11 @@
             "local_gradients": false,
             "qualification_eligible": false,
             "reserved_final_seeds_used": false,
-            "upstream_label_stage": "running",
+            "upstream_label_stage": "complete",
             "upstream_training_stage": "waiting_for_training_submission",
-            "label_shards_verified": 529,
-            "parent_shards_verified": 96,
-            "updated_at": "2026-10-24T06:45:25.860255+00:00"
+            "label_shards_verified": 948,
+            "parent_shards_verified": 108,
+            "updated_at": "2026-10-24T10:05:26.076795+00:00"
         },
         "exec_session": 63641,
         "controls": {
@@ -47270,5 +47471,990 @@
         },
         "new_gradients": false,
         "qualification_eligible": false
+    },
+    "policy_iteration_training_dispatch_v2": {
+        "status": "Both prescribed HF jobs submitted; no actual trained candidate verified yet",
+        "jobs": {
+            "frozen": "6adc8338046eb82b1ecdbb92",
+            "public": "6adc833d1e112550ce7deb4c"
+        },
+        "heads": {
+            "frozen": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "7fd7925f7be052ab5f5fd2681779c60923651107",
+                "archive_path": "archives/policy-iteration-training-launch-frozen-evidence-v2.tgz",
+                "archive_sha256": "d09ebb52b0f3c51b6ed9b37f18623a52b1aae506ccc6cad9bbb086fddd21c1cf",
+                "manifest_sha256": "49b3aa22fab7231b8ac1b3dd712bb4b7fcc276d96730b0e11a537a69a7782a86",
+                "archived_files": 10,
+                "format": "tar.gz",
+                "remote_archive_verified": true,
+                "head_type": "frozen",
+                "job_id": "6adc8338046eb82b1ecdbb92",
+                "seeds": [
+                    12101,
+                    12102,
+                    12103,
+                    12104
+                ],
+                "qualification_eligible": false
+            },
+            "public": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "c1befdde62f0cbbfeec95977477f50373b5fc31d",
+                "archive_path": "archives/policy-iteration-training-launch-public-evidence-v2.tgz",
+                "archive_sha256": "68764399fd968e18614737bbdc0508154439d3fffa06f53ffa69332add50e152",
+                "manifest_sha256": "445a3a4882e4bb62663da765df364fb33b33732eb872cf874e09d800ab8d48ad",
+                "archived_files": 10,
+                "format": "tar.gz",
+                "remote_archive_verified": true,
+                "head_type": "public",
+                "job_id": "6adc833d1e112550ce7deb4c",
+                "seeds": [
+                    12101,
+                    12102,
+                    12103,
+                    12104
+                ],
+                "qualification_eligible": false
+            }
+        },
+        "flavor": "l4x1",
+        "timeout_hours": 3,
+        "seeds": [
+            12101,
+            12102,
+            12103,
+            12104
+        ],
+        "full_label_roots": 17280,
+        "local_gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
+    },
+    "policy_iteration_label_quality_full_v2": {
+        "status": "Complete planned-cohort read-only diagnostic, with all adverse cases retained",
+        "evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "dc6511fa5bd64158ce9608779e7a50e6d4222de2",
+            "archive_path": "archives/policy-iteration-label-quality-full-v2.tgz",
+            "archive_sha256": "6a2b4b604b03cffe90408c5bcc563f65405700f6c2bf8855ee5aa5f6d42e12fe",
+            "manifest_sha256": "edca8d11ed738830651f3b7c4858c124d8d653a1d5985915291edb49e5cff163",
+            "archived_files": 9,
+            "format": "tar.gz",
+            "remote_archive_verified": true,
+            "checked_at": "2026-10-24T10:08:27.417070+00:00",
+            "snapshot_new_shards": 948,
+            "snapshot_rollouts": 33351552,
+            "roots": 17280,
+            "planned_roots": 17280,
+            "roots_incomplete_modes": 0,
+            "coverage": {
+                "2p/train": {
+                    "planned": 2592,
+                    "both_modes_verified": 2592
+                },
+                "2p/validation": {
+                    "planned": 864,
+                    "both_modes_verified": 864
+                },
+                "3p/train": {
+                    "planned": 2592,
+                    "both_modes_verified": 2592
+                },
+                "3p/validation": {
+                    "planned": 864,
+                    "both_modes_verified": 864
+                },
+                "4p/train": {
+                    "planned": 2592,
+                    "both_modes_verified": 2592
+                },
+                "4p/validation": {
+                    "planned": 864,
+                    "both_modes_verified": 864
+                },
+                "5p/train": {
+                    "planned": 2592,
+                    "both_modes_verified": 2592
+                },
+                "5p/validation": {
+                    "planned": 864,
+                    "both_modes_verified": 864
+                },
+                "6p/train": {
+                    "planned": 2592,
+                    "both_modes_verified": 2592
+                },
+                "6p/validation": {
+                    "planned": 864,
+                    "both_modes_verified": 864
+                }
+            },
+            "summary": {
+                "all": {
+                    "roots": 17280,
+                    "deals_represented": 480,
+                    "unmargined_batch_agreement": 0.7475115740740741,
+                    "margins": {
+                        "0.0": {
+                            "directions": 34560,
+                            "changes": 15926,
+                            "mean_selection_gain": 0.05995061426986882,
+                            "mean_cross_batch_simulated_gain": 0.05174912189750515,
+                            "changed_negative_directions": 3210,
+                            "mean_cross_batch_gain_when_changed": 0.11229747913963191
+                        },
+                        "0.025": {
+                            "directions": 34560,
+                            "changes": 12284,
+                            "mean_selection_gain": 0.058640593854488166,
+                            "mean_cross_batch_simulated_gain": 0.051494934333204734,
+                            "changed_negative_directions": 1740,
+                            "mean_cross_batch_gain_when_changed": 0.14487666318426862
+                        }
+                    }
+                },
+                "new_only": {
+                    "roots": 16920,
+                    "deals_represented": 480,
+                    "unmargined_batch_agreement": 0.7472222222222222,
+                    "margins": {
+                        "0.0": {
+                            "directions": 33840,
+                            "changes": 15620,
+                            "mean_selection_gain": 0.06021681380516155,
+                            "mean_cross_batch_simulated_gain": 0.052021512591935916,
+                            "changed_negative_directions": 3148,
+                            "mean_cross_batch_gain_when_changed": 0.11270217580736948
+                        },
+                        "0.025": {
+                            "directions": 33840,
+                            "changes": 12053,
+                            "mean_selection_gain": 0.05890585496289729,
+                            "mean_cross_batch_simulated_gain": 0.05176691887477016,
+                            "changed_negative_directions": 1704,
+                            "mean_cross_batch_gain_when_changed": 0.14534078940697107
+                        }
+                    }
+                },
+                "pilot_only": {
+                    "roots": 360,
+                    "deals_represented": 260,
+                    "unmargined_batch_agreement": 0.7611111111111111,
+                    "margins": {
+                        "0.0": {
+                            "directions": 720,
+                            "changes": 306,
+                            "mean_selection_gain": 0.04743923611111111,
+                            "mean_cross_batch_simulated_gain": 0.038946759259259264,
+                            "changed_negative_directions": 62,
+                            "mean_cross_batch_gain_when_changed": 0.09163943355119825
+                        },
+                        "0.025": {
+                            "directions": 720,
+                            "changes": 231,
+                            "mean_selection_gain": 0.046173321759259256,
+                            "mean_cross_batch_simulated_gain": 0.03871166087962962,
+                            "changed_negative_directions": 36,
+                            "mean_cross_batch_gain_when_changed": 0.1206597222222222
+                        }
+                    }
+                },
+                "players/2": {
+                    "roots": 3456,
+                    "deals_represented": 96,
+                    "unmargined_batch_agreement": 0.6449652777777778,
+                    "margins": {
+                        "0.0": {
+                            "directions": 6912,
+                            "changes": 4147,
+                            "mean_selection_gain": 0.06352365752797068,
+                            "mean_cross_batch_simulated_gain": 0.051023130063657406,
+                            "changed_negative_directions": 917,
+                            "mean_cross_batch_gain_when_changed": 0.08504265131420304
+                        },
+                        "0.025": {
+                            "directions": 6912,
+                            "changes": 3185,
+                            "mean_selection_gain": 0.06175815911940586,
+                            "mean_cross_batch_simulated_gain": 0.0508618766878858,
+                            "changed_negative_directions": 524,
+                            "mean_cross_batch_gain_when_changed": 0.11037905546834118
+                        }
+                    }
+                },
+                "players/3": {
+                    "roots": 3456,
+                    "deals_represented": 96,
+                    "unmargined_batch_agreement": 0.7207754629629629,
+                    "margins": {
+                        "0.0": {
+                            "directions": 6912,
+                            "changes": 3386,
+                            "mean_selection_gain": 0.06806512526523921,
+                            "mean_cross_batch_simulated_gain": 0.05855908805941358,
+                            "changed_negative_directions": 709,
+                            "mean_cross_batch_gain_when_changed": 0.11953940244142547
+                        },
+                        "0.025": {
+                            "directions": 6912,
+                            "changes": 2654,
+                            "mean_selection_gain": 0.06672009126639661,
+                            "mean_cross_batch_simulated_gain": 0.05834433473186728,
+                            "changed_negative_directions": 416,
+                            "mean_cross_batch_gain_when_changed": 0.1519502794523989
+                        }
+                    }
+                },
+                "players/4": {
+                    "roots": 3456,
+                    "deals_represented": 96,
+                    "unmargined_batch_agreement": 0.7265625,
+                    "margins": {
+                        "0.0": {
+                            "directions": 6912,
+                            "changes": 3262,
+                            "mean_selection_gain": 0.06346714349440587,
+                            "mean_cross_batch_simulated_gain": 0.054568443769290126,
+                            "changed_negative_directions": 723,
+                            "mean_cross_batch_gain_when_changed": 0.11562755466993666
+                        },
+                        "0.025": {
+                            "directions": 6912,
+                            "changes": 2502,
+                            "mean_selection_gain": 0.06211821630658436,
+                            "mean_cross_batch_simulated_gain": 0.05432204258294754,
+                            "changed_negative_directions": 406,
+                            "mean_cross_batch_gain_when_changed": 0.1500695277111644
+                        }
+                    }
+                },
+                "players/5": {
+                    "roots": 3456,
+                    "deals_represented": 96,
+                    "unmargined_batch_agreement": 0.8038194444444444,
+                    "margins": {
+                        "0.0": {
+                            "directions": 6912,
+                            "changes": 2665,
+                            "mean_selection_gain": 0.052312654722865226,
+                            "mean_cross_batch_simulated_gain": 0.04655651202417695,
+                            "changed_negative_directions": 462,
+                            "mean_cross_batch_gain_when_changed": 0.12074994788409421
+                        },
+                        "0.025": {
+                            "directions": 6912,
+                            "changes": 2035,
+                            "mean_selection_gain": 0.05120573318544239,
+                            "mean_cross_batch_simulated_gain": 0.046139940803433636,
+                            "changed_negative_directions": 226,
+                            "mean_cross_batch_gain_when_changed": 0.1567170864045864
+                        }
+                    }
+                },
+                "players/6": {
+                    "roots": 3456,
+                    "deals_represented": 96,
+                    "unmargined_batch_agreement": 0.8414351851851852,
+                    "margins": {
+                        "0.0": {
+                            "directions": 6912,
+                            "changes": 2466,
+                            "mean_selection_gain": 0.05238449033886317,
+                            "mean_cross_batch_simulated_gain": 0.04803843557098766,
+                            "changed_negative_directions": 399,
+                            "mean_cross_batch_gain_when_changed": 0.1346478778048121
+                        },
+                        "0.025": {
+                            "directions": 6912,
+                            "changes": 1908,
+                            "mean_selection_gain": 0.05140076939461163,
+                            "mean_cross_batch_simulated_gain": 0.0478064768598894,
+                            "changed_negative_directions": 168,
+                            "mean_cross_batch_gain_when_changed": 0.17318572749242953
+                        }
+                    }
+                },
+                "decision/bid": {
+                    "roots": 5760,
+                    "deals_represented": 480,
+                    "unmargined_batch_agreement": 0.7159722222222222,
+                    "margins": {
+                        "0.0": {
+                            "directions": 11520,
+                            "changes": 5202,
+                            "mean_selection_gain": 0.050963828004436725,
+                            "mean_cross_batch_simulated_gain": 0.04298849223572531,
+                            "changed_negative_directions": 1186,
+                            "mean_cross_batch_gain_when_changed": 0.09519942917254047
+                        },
+                        "0.025": {
+                            "directions": 11520,
+                            "changes": 3704,
+                            "mean_selection_gain": 0.049349937909915126,
+                            "mean_cross_batch_simulated_gain": 0.04269281081211419,
+                            "changed_negative_directions": 580,
+                            "mean_cross_batch_gain_when_changed": 0.132781096262299
+                        }
+                    }
+                },
+                "decision/building": {
+                    "roots": 5760,
+                    "deals_represented": 480,
+                    "unmargined_batch_agreement": 0.7447916666666666,
+                    "margins": {
+                        "0.0": {
+                            "directions": 11520,
+                            "changes": 4894,
+                            "mean_selection_gain": 0.04425885235821759,
+                            "mean_cross_batch_simulated_gain": 0.03592077184606481,
+                            "changed_negative_directions": 1132,
+                            "mean_cross_batch_gain_when_changed": 0.08455400320119874
+                        },
+                        "0.025": {
+                            "directions": 11520,
+                            "changes": 3567,
+                            "mean_selection_gain": 0.04284215856481482,
+                            "mean_cross_batch_simulated_gain": 0.03572508258584105,
+                            "changed_negative_directions": 601,
+                            "mean_cross_batch_gain_when_changed": 0.11537789497866241
+                        }
+                    }
+                },
+                "decision/nomination": {
+                    "roots": 5760,
+                    "deals_represented": 480,
+                    "unmargined_batch_agreement": 0.7817708333333333,
+                    "margins": {
+                        "0.0": {
+                            "directions": 11520,
+                            "changes": 5830,
+                            "mean_selection_gain": 0.08462916244695216,
+                            "mean_cross_batch_simulated_gain": 0.07633810161072531,
+                            "changed_negative_directions": 892,
+                            "mean_cross_batch_gain_when_changed": 0.15084304126167333
+                        },
+                        "0.025": {
+                            "directions": 11520,
+                            "changes": 5013,
+                            "mean_selection_gain": 0.08372968508873456,
+                            "mean_cross_batch_simulated_gain": 0.07606690960165895,
+                            "changed_negative_directions": 559,
+                            "mean_cross_batch_gain_when_changed": 0.17480367017975484
+                        }
+                    }
+                },
+                "variant/original": {
+                    "roots": 8640,
+                    "deals_represented": 480,
+                    "unmargined_batch_agreement": 0.7128472222222222,
+                    "margins": {
+                        "0.0": {
+                            "directions": 17280,
+                            "changes": 8588,
+                            "mean_selection_gain": 0.06076665179719651,
+                            "mean_cross_batch_simulated_gain": 0.05134659127443415,
+                            "changed_negative_directions": 1842,
+                            "mean_cross_batch_gain_when_changed": 0.10331498570356569
+                        },
+                        "0.025": {
+                            "directions": 17280,
+                            "changes": 6574,
+                            "mean_selection_gain": 0.059319993007330235,
+                            "mean_cross_batch_simulated_gain": 0.05121472519611626,
+                            "changed_negative_directions": 994,
+                            "mean_cross_batch_gain_when_changed": 0.13461978268769226
+                        }
+                    }
+                },
+                "variant/recharged": {
+                    "roots": 8640,
+                    "deals_represented": 480,
+                    "unmargined_batch_agreement": 0.7821759259259259,
+                    "margins": {
+                        "0.0": {
+                            "directions": 17280,
+                            "changes": 7338,
+                            "mean_selection_gain": 0.05913457674254115,
+                            "mean_cross_batch_simulated_gain": 0.05215165252057614,
+                            "changed_negative_directions": 1368,
+                            "mean_cross_batch_gain_when_changed": 0.12281010569031828
+                        },
+                        "0.025": {
+                            "directions": 17280,
+                            "changes": 5710,
+                            "mean_selection_gain": 0.057961194701646096,
+                            "mean_cross_batch_simulated_gain": 0.05177514347029321,
+                            "changed_negative_directions": 746,
+                            "mean_cross_batch_gain_when_changed": 0.15668554801517806
+                        }
+                    }
+                },
+                "sealed/False": {
+                    "roots": 8640,
+                    "deals_represented": 480,
+                    "unmargined_batch_agreement": 0.7163194444444444,
+                    "margins": {
+                        "0.0": {
+                            "directions": 17280,
+                            "changes": 8254,
+                            "mean_selection_gain": 0.05872832875192901,
+                            "mean_cross_batch_simulated_gain": 0.04960254308127572,
+                            "changed_negative_directions": 1842,
+                            "mean_cross_batch_gain_when_changed": 0.10384443232910641
+                        },
+                        "0.025": {
+                            "directions": 17280,
+                            "changes": 6194,
+                            "mean_selection_gain": 0.05723741319444445,
+                            "mean_cross_batch_simulated_gain": 0.04948645069765947,
+                            "changed_negative_directions": 961,
+                            "mean_cross_batch_gain_when_changed": 0.13805713078068382
+                        }
+                    }
+                },
+                "sealed/True": {
+                    "roots": 8640,
+                    "deals_represented": 480,
+                    "unmargined_batch_agreement": 0.7787037037037037,
+                    "margins": {
+                        "0.0": {
+                            "directions": 17280,
+                            "changes": 7672,
+                            "mean_selection_gain": 0.06117289978780864,
+                            "mean_cross_batch_simulated_gain": 0.05389570071373457,
+                            "changed_negative_directions": 1368,
+                            "mean_cross_batch_gain_when_changed": 0.12139177637295794
+                        },
+                        "0.025": {
+                            "directions": 17280,
+                            "changes": 6090,
+                            "mean_selection_gain": 0.060043774514531904,
+                            "mean_cross_batch_simulated_gain": 0.05350341796875,
+                            "changed_negative_directions": 779,
+                            "mean_cross_batch_gain_when_changed": 0.1518126539408867
+                        }
+                    }
+                },
+                "behavior/11101": {
+                    "roots": 5760,
+                    "deals_represented": 160,
+                    "unmargined_batch_agreement": 0.7489583333333333,
+                    "margins": {
+                        "0.0": {
+                            "directions": 11520,
+                            "changes": 5387,
+                            "mean_selection_gain": 0.06037386670524692,
+                            "mean_cross_batch_simulated_gain": 0.05222605010609568,
+                            "changed_negative_directions": 1066,
+                            "mean_cross_batch_gain_when_changed": 0.11168444351628405
+                        },
+                        "0.025": {
+                            "directions": 11520,
+                            "changes": 4156,
+                            "mean_selection_gain": 0.05904895170235339,
+                            "mean_cross_batch_simulated_gain": 0.051829849054783945,
+                            "changed_negative_directions": 587,
+                            "mean_cross_batch_gain_when_changed": 0.1436669540690835
+                        }
+                    }
+                },
+                "behavior/11102": {
+                    "roots": 5760,
+                    "deals_represented": 160,
+                    "unmargined_batch_agreement": 0.7446180555555556,
+                    "margins": {
+                        "0.0": {
+                            "directions": 11520,
+                            "changes": 5137,
+                            "mean_selection_gain": 0.055716884283371924,
+                            "mean_cross_batch_simulated_gain": 0.047405629099151234,
+                            "changed_negative_directions": 1067,
+                            "mean_cross_batch_gain_when_changed": 0.10630968410010165
+                        },
+                        "0.025": {
+                            "directions": 11520,
+                            "changes": 3971,
+                            "mean_selection_gain": 0.054470862871334874,
+                            "mean_cross_batch_simulated_gain": 0.04734097704475308,
+                            "changed_negative_directions": 573,
+                            "mean_cross_batch_gain_when_changed": 0.13733771230308625
+                        }
+                    }
+                },
+                "behavior/parent": {
+                    "roots": 5760,
+                    "deals_represented": 160,
+                    "unmargined_batch_agreement": 0.7489583333333333,
+                    "margins": {
+                        "0.0": {
+                            "directions": 11520,
+                            "changes": 5402,
+                            "mean_selection_gain": 0.06376109182098766,
+                            "mean_cross_batch_simulated_gain": 0.055615686487268515,
+                            "changed_negative_directions": 1077,
+                            "mean_cross_batch_gain_when_changed": 0.11860287085030237
+                        },
+                        "0.025": {
+                            "directions": 11520,
+                            "changes": 4157,
+                            "mean_selection_gain": 0.06240196698977623,
+                            "mean_cross_batch_simulated_gain": 0.05531397690007716,
+                            "changed_negative_directions": 580,
+                            "mean_cross_batch_gain_when_changed": 0.1532877108224414
+                        }
+                    }
+                },
+                "mode/economic": {
+                    "roots": 8640,
+                    "deals_represented": 240,
+                    "unmargined_batch_agreement": 0.7636574074074074,
+                    "margins": {
+                        "0.0": {
+                            "directions": 17280,
+                            "changes": 7549,
+                            "mean_selection_gain": 0.058496495627572025,
+                            "mean_cross_batch_simulated_gain": 0.0507886345003858,
+                            "changed_negative_directions": 1473,
+                            "mean_cross_batch_gain_when_changed": 0.11625746511679251
+                        },
+                        "0.025": {
+                            "directions": 17280,
+                            "changes": 5894,
+                            "mean_selection_gain": 0.057295785911779834,
+                            "mean_cross_batch_simulated_gain": 0.050498077015817905,
+                            "changed_negative_directions": 819,
+                            "mean_cross_batch_gain_when_changed": 0.14805001201787127
+                        }
+                    }
+                },
+                "mode/snapshot0": {
+                    "roots": 8640,
+                    "deals_represented": 240,
+                    "unmargined_batch_agreement": 0.7313657407407408,
+                    "margins": {
+                        "0.0": {
+                            "directions": 17280,
+                            "changes": 8377,
+                            "mean_selection_gain": 0.061404732912165645,
+                            "mean_cross_batch_simulated_gain": 0.05270960929462448,
+                            "changed_negative_directions": 1737,
+                            "mean_cross_batch_gain_when_changed": 0.10872890636398606
+                        },
+                        "0.025": {
+                            "directions": 17280,
+                            "changes": 6390,
+                            "mean_selection_gain": 0.05998540179719651,
+                            "mean_cross_batch_simulated_gain": 0.05249179165059156,
+                            "changed_negative_directions": 921,
+                            "mean_cross_batch_gain_when_changed": 0.1419496337593462
+                        }
+                    }
+                },
+                "split/train": {
+                    "roots": 12960,
+                    "deals_represented": 360,
+                    "unmargined_batch_agreement": 0.7501543209876543,
+                    "margins": {
+                        "0.0": {
+                            "directions": 25920,
+                            "changes": 11903,
+                            "mean_selection_gain": 0.059826308513374477,
+                            "mean_cross_batch_simulated_gain": 0.051721342110339505,
+                            "changed_negative_directions": 2396,
+                            "mean_cross_batch_gain_when_changed": 0.11262851276988994
+                        },
+                        "0.025": {
+                            "directions": 25920,
+                            "changes": 9214,
+                            "mean_selection_gain": 0.058546696834276414,
+                            "mean_cross_batch_simulated_gain": 0.051441601830418376,
+                            "changed_negative_directions": 1304,
+                            "mean_cross_batch_gain_when_changed": 0.1447109094252707
+                        }
+                    }
+                },
+                "split/validation": {
+                    "roots": 4320,
+                    "deals_represented": 120,
+                    "unmargined_batch_agreement": 0.7395833333333334,
+                    "margins": {
+                        "0.0": {
+                            "directions": 8640,
+                            "changes": 4023,
+                            "mean_selection_gain": 0.060323531539351855,
+                            "mean_cross_batch_simulated_gain": 0.05183246125900206,
+                            "changed_negative_directions": 814,
+                            "mean_cross_batch_gain_when_changed": 0.11131803760322591
+                        },
+                        "0.025": {
+                            "directions": 8640,
+                            "changes": 3070,
+                            "mean_selection_gain": 0.058922284915123455,
+                            "mean_cross_batch_simulated_gain": 0.051654931841563785,
+                            "changed_negative_directions": 436,
+                            "mean_cross_batch_gain_when_changed": 0.145374140427072
+                        }
+                    }
+                },
+                "players/2/train": {
+                    "roots": 2592,
+                    "deals_represented": 72,
+                    "unmargined_batch_agreement": 0.6547067901234568,
+                    "margins": {
+                        "0.0": {
+                            "directions": 5184,
+                            "changes": 3103,
+                            "mean_selection_gain": 0.06301289625128602,
+                            "mean_cross_batch_simulated_gain": 0.05084354102366256,
+                            "changed_negative_directions": 682,
+                            "mean_cross_batch_gain_when_changed": 0.08494132022773661
+                        },
+                        "0.025": {
+                            "directions": 5184,
+                            "changes": 2402,
+                            "mean_selection_gain": 0.06131245177469136,
+                            "mean_cross_batch_simulated_gain": 0.050505461516203706,
+                            "changed_negative_directions": 404,
+                            "mean_cross_batch_gain_when_changed": 0.10900096273938385
+                        }
+                    }
+                },
+                "players/2/validation": {
+                    "roots": 864,
+                    "deals_represented": 24,
+                    "unmargined_batch_agreement": 0.6157407407407407,
+                    "margins": {
+                        "0.0": {
+                            "directions": 1728,
+                            "changes": 1044,
+                            "mean_selection_gain": 0.06505594135802469,
+                            "mean_cross_batch_simulated_gain": 0.05156189718364198,
+                            "changed_negative_directions": 235,
+                            "mean_cross_batch_gain_when_changed": 0.08534382982120052
+                        },
+                        "0.025": {
+                            "directions": 1728,
+                            "changes": 783,
+                            "mean_selection_gain": 0.06309528115354938,
+                            "mean_cross_batch_simulated_gain": 0.05193112220293209,
+                            "changed_negative_directions": 120,
+                            "mean_cross_batch_gain_when_changed": 0.11460661451681566
+                        }
+                    }
+                },
+                "players/3/train": {
+                    "roots": 2592,
+                    "deals_represented": 72,
+                    "unmargined_batch_agreement": 0.722608024691358,
+                    "margins": {
+                        "0.0": {
+                            "directions": 5184,
+                            "changes": 2548,
+                            "mean_selection_gain": 0.06830411683384773,
+                            "mean_cross_batch_simulated_gain": 0.05886250562628601,
+                            "changed_negative_directions": 525,
+                            "mean_cross_batch_gain_when_changed": 0.11975793923338565
+                        },
+                        "0.025": {
+                            "directions": 5184,
+                            "changes": 2016,
+                            "mean_selection_gain": 0.06701258278677982,
+                            "mean_cross_batch_simulated_gain": 0.05863745418595679,
+                            "changed_negative_directions": 313,
+                            "mean_cross_batch_gain_when_changed": 0.15078202504960317
+                        }
+                    }
+                },
+                "players/3/validation": {
+                    "roots": 864,
+                    "deals_represented": 24,
+                    "unmargined_batch_agreement": 0.7152777777777778,
+                    "margins": {
+                        "0.0": {
+                            "directions": 1728,
+                            "changes": 838,
+                            "mean_selection_gain": 0.06734815055941358,
+                            "mean_cross_batch_simulated_gain": 0.057648835358796294,
+                            "changed_negative_directions": 184,
+                            "mean_cross_batch_gain_when_changed": 0.11887492541766109
+                        },
+                        "0.025": {
+                            "directions": 1728,
+                            "changes": 638,
+                            "mean_selection_gain": 0.06584261670524691,
+                            "mean_cross_batch_simulated_gain": 0.05746497636959877,
+                            "changed_negative_directions": 103,
+                            "mean_cross_batch_gain_when_changed": 0.1556418168756531
+                        }
+                    }
+                },
+                "players/4/train": {
+                    "roots": 2592,
+                    "deals_represented": 72,
+                    "unmargined_batch_agreement": 0.7283950617283951,
+                    "margins": {
+                        "0.0": {
+                            "directions": 5184,
+                            "changes": 2445,
+                            "mean_selection_gain": 0.06406631783693414,
+                            "mean_cross_batch_simulated_gain": 0.055280771765689296,
+                            "changed_negative_directions": 537,
+                            "mean_cross_batch_gain_when_changed": 0.11720880197682347
+                        },
+                        "0.025": {
+                            "directions": 5184,
+                            "changes": 1857,
+                            "mean_selection_gain": 0.06266912347822359,
+                            "mean_cross_batch_simulated_gain": 0.054924607767489704,
+                            "changed_negative_directions": 292,
+                            "mean_cross_batch_gain_when_changed": 0.15332749955124755
+                        }
+                    }
+                },
+                "players/4/validation": {
+                    "roots": 864,
+                    "deals_represented": 24,
+                    "unmargined_batch_agreement": 0.7210648148148148,
+                    "margins": {
+                        "0.0": {
+                            "directions": 1728,
+                            "changes": 817,
+                            "mean_selection_gain": 0.06166962046682099,
+                            "mean_cross_batch_simulated_gain": 0.052431459780092594,
+                            "changed_negative_directions": 186,
+                            "mean_cross_batch_gain_when_changed": 0.11089542533659731
+                        },
+                        "0.025": {
+                            "directions": 1728,
+                            "changes": 645,
+                            "mean_selection_gain": 0.060465494791666664,
+                            "mean_cross_batch_simulated_gain": 0.05251434702932099,
+                            "changed_negative_directions": 114,
+                            "mean_cross_batch_gain_when_changed": 0.14068959948320414
+                        }
+                    }
+                },
+                "players/5/train": {
+                    "roots": 2592,
+                    "deals_represented": 72,
+                    "unmargined_batch_agreement": 0.8032407407407407,
+                    "margins": {
+                        "0.0": {
+                            "directions": 5184,
+                            "changes": 2003,
+                            "mean_selection_gain": 0.053352596664951984,
+                            "mean_cross_batch_simulated_gain": 0.047571085444530176,
+                            "changed_negative_directions": 353,
+                            "mean_cross_batch_gain_when_changed": 0.12311957411105565
+                        },
+                        "0.025": {
+                            "directions": 5184,
+                            "changes": 1536,
+                            "mean_selection_gain": 0.05226049436299724,
+                            "mean_cross_batch_simulated_gain": 0.04727838461291152,
+                            "changed_negative_directions": 165,
+                            "mean_cross_batch_gain_when_changed": 0.1595645480685764
+                        }
+                    }
+                },
+                "players/5/validation": {
+                    "roots": 864,
+                    "deals_represented": 24,
+                    "unmargined_batch_agreement": 0.8055555555555556,
+                    "margins": {
+                        "0.0": {
+                            "directions": 1728,
+                            "changes": 662,
+                            "mean_selection_gain": 0.049192828896604944,
+                            "mean_cross_batch_simulated_gain": 0.04351279176311728,
+                            "changed_negative_directions": 109,
+                            "mean_cross_batch_gain_when_changed": 0.11358021777442096
+                        },
+                        "0.025": {
+                            "directions": 1728,
+                            "changes": 499,
+                            "mean_selection_gain": 0.048041449652777776,
+                            "mean_cross_batch_simulated_gain": 0.042724609375,
+                            "changed_negative_directions": 61,
+                            "mean_cross_batch_gain_when_changed": 0.14795215430861725
+                        }
+                    }
+                },
+                "players/6/train": {
+                    "roots": 2592,
+                    "deals_represented": 72,
+                    "unmargined_batch_agreement": 0.841820987654321,
+                    "margins": {
+                        "0.0": {
+                            "directions": 5184,
+                            "changes": 1804,
+                            "mean_selection_gain": 0.05039561497985254,
+                            "mean_cross_batch_simulated_gain": 0.0460488066915295,
+                            "changed_negative_directions": 299,
+                            "mean_cross_batch_gain_when_changed": 0.13232650437299828
+                        },
+                        "0.025": {
+                            "directions": 5184,
+                            "changes": 1403,
+                            "mean_selection_gain": 0.049478831768689994,
+                            "mean_cross_batch_simulated_gain": 0.04586210106953018,
+                            "changed_negative_directions": 130,
+                            "mean_cross_batch_gain_when_changed": 0.16945768492120059
+                        }
+                    }
+                },
+                "players/6/validation": {
+                    "roots": 864,
+                    "deals_represented": 24,
+                    "unmargined_batch_agreement": 0.8402777777777778,
+                    "margins": {
+                        "0.0": {
+                            "directions": 1728,
+                            "changes": 662,
+                            "mean_selection_gain": 0.058351116415895056,
+                            "mean_cross_batch_simulated_gain": 0.054007322209362135,
+                            "changed_negative_directions": 100,
+                            "mean_cross_batch_gain_when_changed": 0.14097379573682442
+                        },
+                        "0.025": {
+                            "directions": 1728,
+                            "changes": 505,
+                            "mean_selection_gain": 0.057166582272376545,
+                            "mean_cross_batch_simulated_gain": 0.05363960423096708,
+                            "changed_negative_directions": 38,
+                            "mean_cross_batch_gain_when_changed": 0.18354304180418043
+                        }
+                    }
+                }
+            },
+            "controls": {
+                "selection_noise_evaluates_negative": true,
+                "zero_and_margin_ties_keep_parent": true,
+                "consistent_gain_preserved": true,
+                "incomplete_modes_rejected": true,
+                "gradients": false
+            },
+            "full_cohort": true,
+            "scope": "Complete planned label cohort, with independent A/B simulation batches per root; descriptive conditional gains, not independent full-game wins or qualification. No changes to training or final protocols. No gradients or new jobs from this audit.",
+            "gradients": false,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false
+        },
+        "no_new_remote_jobs_from_audit": true,
+        "training_design_changed": false,
+        "final_protocol_changed": false,
+        "qualification_eligible": false,
+        "interpretation": "Conditional simulation gains remain positive in every player-count and rule aggregate, but do not establish full-game policy strength or calibrated deployment search."
+    },
+    "policy_iteration_parent_reference_complete_v2": {
+        "diagnostic": "ai/strong/policy-iteration-parent-reference-complete-v2.json",
+        "evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "2dc527b0ecb4818484d936a8afdc5b441f29739a",
+            "archive_path": "archives/policy-iteration-parent-reference-complete-evidence-v2.tgz",
+            "archive_sha256": "47a85217a2f8338a51a22a6815882b333f833f13ee81cb8a7b9d7cbc8c682e14",
+            "manifest_sha256": "ffc9628cfe84fc8c56749819927e1a84b440ac635b0299119e2825f6538f31db",
+            "archived_files": 1117,
+            "format": "tar.gz",
+            "remote_archive_verified": true,
+            "shards_submitted": 108,
+            "planned_games": 6720,
+            "plan_sha256": "080893449fde758e1820bf2fe5557dcaf4772343e2395d2adbf788bad840658b",
+            "status_checked_at": "2026-10-24T10:04:40.227465+00:00",
+            "status_counts": {
+                "COMPLETED": 108
+            },
+            "timeout_hours": 9,
+            "flavor": "cpu-upgrade",
+            "both_runtime_probes_verified": true,
+            "probe_games": 32,
+            "parent_is_unqualified": true,
+            "verified_parent_cases": 108,
+            "verified_parent_games": 6720,
+            "gradients": false,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false,
+            "diagnostic": "policy-iteration-parent-reference-complete-v2.json",
+            "diagnostic_sha256": "2bcc02015cf0d548a455898152d752982d543d81a1704ab8fa65c34b291830fb",
+            "development_point_deficits": [
+                "search_geo/2p",
+                "heuristic/2p",
+                "search_geo/3p",
+                "search_geo/4p",
+                "legacy/4p",
+                "a260/3p"
+            ]
+        },
+        "verified_shards": 108,
+        "verified_games": 6720,
+        "complete_cells": 27,
+        "search_6p": {
+            "overall": {
+                "games": 384,
+                "independent_deals": 16,
+                "win_rate": 0.3763020833333333,
+                "deal_bootstrap_95_interval": [
+                    0.328125,
+                    0.42578125
+                ]
+            },
+            "by_rules": {
+                "original/open": {
+                    "games": 96,
+                    "independent_deals": 16,
+                    "win_rate": 0.515625,
+                    "deal_bootstrap_95_interval": [
+                        0.4270833333333333,
+                        0.6041666666666667
+                    ]
+                },
+                "original/sealed": {
+                    "games": 96,
+                    "independent_deals": 16,
+                    "win_rate": 0.14583333333333331,
+                    "deal_bootstrap_95_interval": [
+                        0.07291666666666666,
+                        0.21875
+                    ]
+                },
+                "recharged/open": {
+                    "games": 96,
+                    "independent_deals": 16,
+                    "win_rate": 0.5729166666666666,
+                    "deal_bootstrap_95_interval": [
+                        0.45833333333333337,
+                        0.6666666666666667
+                    ]
+                },
+                "recharged/sealed": {
+                    "games": 96,
+                    "independent_deals": 16,
+                    "win_rate": 0.2708333333333333,
+                    "deal_bootstrap_95_interval": [
+                        0.16666666666666666,
+                        0.3854166666666667
+                    ]
+                }
+            },
+            "chance": 0.16666666666666666,
+            "final_point_floor_for_orientation_only": 0.25,
+            "development_point_below_final_floor": false,
+            "overall_interval_excludes_chance": true,
+            "rules_not_excluding_chance": [
+                "original/sealed",
+                "recharged/sealed"
+            ]
+        },
+        "development_point_deficits": [
+            "search_geo/2p",
+            "heuristic/2p",
+            "search_geo/3p",
+            "search_geo/4p",
+            "legacy/4p",
+            "a260/3p"
+        ],
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

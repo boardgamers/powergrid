@@ -1,0 +1,808 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "dc6511fa5bd64158ce9608779e7a50e6d4222de2",
+  "archive_path": "archives/policy-iteration-label-quality-full-v2.tgz",
+  "archive_sha256": "6a2b4b604b03cffe90408c5bcc563f65405700f6c2bf8855ee5aa5f6d42e12fe",
+  "manifest_sha256": "edca8d11ed738830651f3b7c4858c124d8d653a1d5985915291edb49e5cff163",
+  "archived_files": 9,
+  "format": "tar.gz",
+  "remote_archive_verified": true,
+  "checked_at": "2026-10-24T10:08:27.417070+00:00",
+  "snapshot_new_shards": 948,
+  "snapshot_rollouts": 33351552,
+  "roots": 17280,
+  "planned_roots": 17280,
+  "roots_incomplete_modes": 0,
+  "coverage": {
+    "2p/train": {
+      "planned": 2592,
+      "both_modes_verified": 2592
+    },
+    "2p/validation": {
+      "planned": 864,
+      "both_modes_verified": 864
+    },
+    "3p/train": {
+      "planned": 2592,
+      "both_modes_verified": 2592
+    },
+    "3p/validation": {
+      "planned": 864,
+      "both_modes_verified": 864
+    },
+    "4p/train": {
+      "planned": 2592,
+      "both_modes_verified": 2592
+    },
+    "4p/validation": {
+      "planned": 864,
+      "both_modes_verified": 864
+    },
+    "5p/train": {
+      "planned": 2592,
+      "both_modes_verified": 2592
+    },
+    "5p/validation": {
+      "planned": 864,
+      "both_modes_verified": 864
+    },
+    "6p/train": {
+      "planned": 2592,
+      "both_modes_verified": 2592
+    },
+    "6p/validation": {
+      "planned": 864,
+      "both_modes_verified": 864
+    }
+  },
+  "summary": {
+    "all": {
+      "roots": 17280,
+      "deals_represented": 480,
+      "unmargined_batch_agreement": 0.7475115740740741,
+      "margins": {
+        "0.0": {
+          "directions": 34560,
+          "changes": 15926,
+          "mean_selection_gain": 0.05995061426986882,
+          "mean_cross_batch_simulated_gain": 0.05174912189750515,
+          "changed_negative_directions": 3210,
+          "mean_cross_batch_gain_when_changed": 0.11229747913963191
+        },
+        "0.025": {
+          "directions": 34560,
+          "changes": 12284,
+          "mean_selection_gain": 0.058640593854488166,
+          "mean_cross_batch_simulated_gain": 0.051494934333204734,
+          "changed_negative_directions": 1740,
+          "mean_cross_batch_gain_when_changed": 0.14487666318426862
+        }
+      }
+    },
+    "new_only": {
+      "roots": 16920,
+      "deals_represented": 480,
+      "unmargined_batch_agreement": 0.7472222222222222,
+      "margins": {
+        "0.0": {
+          "directions": 33840,
+          "changes": 15620,
+          "mean_selection_gain": 0.06021681380516155,
+          "mean_cross_batch_simulated_gain": 0.052021512591935916,
+          "changed_negative_directions": 3148,
+          "mean_cross_batch_gain_when_changed": 0.11270217580736948
+        },
+        "0.025": {
+          "directions": 33840,
+          "changes": 12053,
+          "mean_selection_gain": 0.05890585496289729,
+          "mean_cross_batch_simulated_gain": 0.05176691887477016,
+          "changed_negative_directions": 1704,
+          "mean_cross_batch_gain_when_changed": 0.14534078940697107
+        }
+      }
+    },
+    "pilot_only": {
+      "roots": 360,
+      "deals_represented": 260,
+      "unmargined_batch_agreement": 0.7611111111111111,
+      "margins": {
+        "0.0": {
+          "directions": 720,
+          "changes": 306,
+          "mean_selection_gain": 0.04743923611111111,
+          "mean_cross_batch_simulated_gain": 0.038946759259259264,
+          "changed_negative_directions": 62,
+          "mean_cross_batch_gain_when_changed": 0.09163943355119825
+        },
+        "0.025": {
+          "directions": 720,
+          "changes": 231,
+          "mean_selection_gain": 0.046173321759259256,
+          "mean_cross_batch_simulated_gain": 0.03871166087962962,
+          "changed_negative_directions": 36,
+          "mean_cross_batch_gain_when_changed": 0.1206597222222222
+        }
+      }
+    },
+    "players/2": {
+      "roots": 3456,
+      "deals_represented": 96,
+      "unmargined_batch_agreement": 0.6449652777777778,
+      "margins": {
+        "0.0": {
+          "directions": 6912,
+          "changes": 4147,
+          "mean_selection_gain": 0.06352365752797068,
+          "mean_cross_batch_simulated_gain": 0.051023130063657406,
+          "changed_negative_directions": 917,
+          "mean_cross_batch_gain_when_changed": 0.08504265131420304
+        },
+        "0.025": {
+          "directions": 6912,
+          "changes": 3185,
+          "mean_selection_gain": 0.06175815911940586,
+          "mean_cross_batch_simulated_gain": 0.0508618766878858,
+          "changed_negative_directions": 524,
+          "mean_cross_batch_gain_when_changed": 0.11037905546834118
+        }
+      }
+    },
+    "players/3": {
+      "roots": 3456,
+      "deals_represented": 96,
+      "unmargined_batch_agreement": 0.7207754629629629,
+      "margins": {
+        "0.0": {
+          "directions": 6912,
+          "changes": 3386,
+          "mean_selection_gain": 0.06806512526523921,
+          "mean_cross_batch_simulated_gain": 0.05855908805941358,
+          "changed_negative_directions": 709,
+          "mean_cross_batch_gain_when_changed": 0.11953940244142547
+        },
+        "0.025": {
+          "directions": 6912,
+          "changes": 2654,
+          "mean_selection_gain": 0.06672009126639661,
+          "mean_cross_batch_simulated_gain": 0.05834433473186728,
+          "changed_negative_directions": 416,
+          "mean_cross_batch_gain_when_changed": 0.1519502794523989
+        }
+      }
+    },
+    "players/4": {
+      "roots": 3456,
+      "deals_represented": 96,
+      "unmargined_batch_agreement": 0.7265625,
+      "margins": {
+        "0.0": {
+          "directions": 6912,
+          "changes": 3262,
+          "mean_selection_gain": 0.06346714349440587,
+          "mean_cross_batch_simulated_gain": 0.054568443769290126,
+          "changed_negative_directions": 723,
+          "mean_cross_batch_gain_when_changed": 0.11562755466993666
+        },
+        "0.025": {
+          "directions": 6912,
+          "changes": 2502,
+          "mean_selection_gain": 0.06211821630658436,
+          "mean_cross_batch_simulated_gain": 0.05432204258294754,
+          "changed_negative_directions": 406,
+          "mean_cross_batch_gain_when_changed": 0.1500695277111644
+        }
+      }
+    },
+    "players/5": {
+      "roots": 3456,
+      "deals_represented": 96,
+      "unmargined_batch_agreement": 0.8038194444444444,
+      "margins": {
+        "0.0": {
+          "directions": 6912,
+          "changes": 2665,
+          "mean_selection_gain": 0.052312654722865226,
+          "mean_cross_batch_simulated_gain": 0.04655651202417695,
+          "changed_negative_directions": 462,
+          "mean_cross_batch_gain_when_changed": 0.12074994788409421
+        },
+        "0.025": {
+          "directions": 6912,
+          "changes": 2035,
+          "mean_selection_gain": 0.05120573318544239,
+          "mean_cross_batch_simulated_gain": 0.046139940803433636,
+          "changed_negative_directions": 226,
+          "mean_cross_batch_gain_when_changed": 0.1567170864045864
+        }
+      }
+    },
+    "players/6": {
+      "roots": 3456,
+      "deals_represented": 96,
+      "unmargined_batch_agreement": 0.8414351851851852,
+      "margins": {
+        "0.0": {
+          "directions": 6912,
+          "changes": 2466,
+          "mean_selection_gain": 0.05238449033886317,
+          "mean_cross_batch_simulated_gain": 0.04803843557098766,
+          "changed_negative_directions": 399,
+          "mean_cross_batch_gain_when_changed": 0.1346478778048121
+        },
+        "0.025": {
+          "directions": 6912,
+          "changes": 1908,
+          "mean_selection_gain": 0.05140076939461163,
+          "mean_cross_batch_simulated_gain": 0.0478064768598894,
+          "changed_negative_directions": 168,
+          "mean_cross_batch_gain_when_changed": 0.17318572749242953
+        }
+      }
+    },
+    "decision/bid": {
+      "roots": 5760,
+      "deals_represented": 480,
+      "unmargined_batch_agreement": 0.7159722222222222,
+      "margins": {
+        "0.0": {
+          "directions": 11520,
+          "changes": 5202,
+          "mean_selection_gain": 0.050963828004436725,
+          "mean_cross_batch_simulated_gain": 0.04298849223572531,
+          "changed_negative_directions": 1186,
+          "mean_cross_batch_gain_when_changed": 0.09519942917254047
+        },
+        "0.025": {
+          "directions": 11520,
+          "changes": 3704,
+          "mean_selection_gain": 0.049349937909915126,
+          "mean_cross_batch_simulated_gain": 0.04269281081211419,
+          "changed_negative_directions": 580,
+          "mean_cross_batch_gain_when_changed": 0.132781096262299
+        }
+      }
+    },
+    "decision/building": {
+      "roots": 5760,
+      "deals_represented": 480,
+      "unmargined_batch_agreement": 0.7447916666666666,
+      "margins": {
+        "0.0": {
+          "directions": 11520,
+          "changes": 4894,
+          "mean_selection_gain": 0.04425885235821759,
+          "mean_cross_batch_simulated_gain": 0.03592077184606481,
+          "changed_negative_directions": 1132,
+          "mean_cross_batch_gain_when_changed": 0.08455400320119874
+        },
+        "0.025": {
+          "directions": 11520,
+          "changes": 3567,
+          "mean_selection_gain": 0.04284215856481482,
+          "mean_cross_batch_simulated_gain": 0.03572508258584105,
+          "changed_negative_directions": 601,
+          "mean_cross_batch_gain_when_changed": 0.11537789497866241
+        }
+      }
+    },
+    "decision/nomination": {
+      "roots": 5760,
+      "deals_represented": 480,
+      "unmargined_batch_agreement": 0.7817708333333333,
+      "margins": {
+        "0.0": {
+          "directions": 11520,
+          "changes": 5830,
+          "mean_selection_gain": 0.08462916244695216,
+          "mean_cross_batch_simulated_gain": 0.07633810161072531,
+          "changed_negative_directions": 892,
+          "mean_cross_batch_gain_when_changed": 0.15084304126167333
+        },
+        "0.025": {
+          "directions": 11520,
+          "changes": 5013,
+          "mean_selection_gain": 0.08372968508873456,
+          "mean_cross_batch_simulated_gain": 0.07606690960165895,
+          "changed_negative_directions": 559,
+          "mean_cross_batch_gain_when_changed": 0.17480367017975484
+        }
+      }
+    },
+    "variant/original": {
+      "roots": 8640,
+      "deals_represented": 480,
+      "unmargined_batch_agreement": 0.7128472222222222,
+      "margins": {
+        "0.0": {
+          "directions": 17280,
+          "changes": 8588,
+          "mean_selection_gain": 0.06076665179719651,
+          "mean_cross_batch_simulated_gain": 0.05134659127443415,
+          "changed_negative_directions": 1842,
+          "mean_cross_batch_gain_when_changed": 0.10331498570356569
+        },
+        "0.025": {
+          "directions": 17280,
+          "changes": 6574,
+          "mean_selection_gain": 0.059319993007330235,
+          "mean_cross_batch_simulated_gain": 0.05121472519611626,
+          "changed_negative_directions": 994,
+          "mean_cross_batch_gain_when_changed": 0.13461978268769226
+        }
+      }
+    },
+    "variant/recharged": {
+      "roots": 8640,
+      "deals_represented": 480,
+      "unmargined_batch_agreement": 0.7821759259259259,
+      "margins": {
+        "0.0": {
+          "directions": 17280,
+          "changes": 7338,
+          "mean_selection_gain": 0.05913457674254115,
+          "mean_cross_batch_simulated_gain": 0.05215165252057614,
+          "changed_negative_directions": 1368,
+          "mean_cross_batch_gain_when_changed": 0.12281010569031828
+        },
+        "0.025": {
+          "directions": 17280,
+          "changes": 5710,
+          "mean_selection_gain": 0.057961194701646096,
+          "mean_cross_batch_simulated_gain": 0.05177514347029321,
+          "changed_negative_directions": 746,
+          "mean_cross_batch_gain_when_changed": 0.15668554801517806
+        }
+      }
+    },
+    "sealed/False": {
+      "roots": 8640,
+      "deals_represented": 480,
+      "unmargined_batch_agreement": 0.7163194444444444,
+      "margins": {
+        "0.0": {
+          "directions": 17280,
+          "changes": 8254,
+          "mean_selection_gain": 0.05872832875192901,
+          "mean_cross_batch_simulated_gain": 0.04960254308127572,
+          "changed_negative_directions": 1842,
+          "mean_cross_batch_gain_when_changed": 0.10384443232910641
+        },
+        "0.025": {
+          "directions": 17280,
+          "changes": 6194,
+          "mean_selection_gain": 0.05723741319444445,
+          "mean_cross_batch_simulated_gain": 0.04948645069765947,
+          "changed_negative_directions": 961,
+          "mean_cross_batch_gain_when_changed": 0.13805713078068382
+        }
+      }
+    },
+    "sealed/True": {
+      "roots": 8640,
+      "deals_represented": 480,
+      "unmargined_batch_agreement": 0.7787037037037037,
+      "margins": {
+        "0.0": {
+          "directions": 17280,
+          "changes": 7672,
+          "mean_selection_gain": 0.06117289978780864,
+          "mean_cross_batch_simulated_gain": 0.05389570071373457,
+          "changed_negative_directions": 1368,
+          "mean_cross_batch_gain_when_changed": 0.12139177637295794
+        },
+        "0.025": {
+          "directions": 17280,
+          "changes": 6090,
+          "mean_selection_gain": 0.060043774514531904,
+          "mean_cross_batch_simulated_gain": 0.05350341796875,
+          "changed_negative_directions": 779,
+          "mean_cross_batch_gain_when_changed": 0.1518126539408867
+        }
+      }
+    },
+    "behavior/11101": {
+      "roots": 5760,
+      "deals_represented": 160,
+      "unmargined_batch_agreement": 0.7489583333333333,
+      "margins": {
+        "0.0": {
+          "directions": 11520,
+          "changes": 5387,
+          "mean_selection_gain": 0.06037386670524692,
+          "mean_cross_batch_simulated_gain": 0.05222605010609568,
+          "changed_negative_directions": 1066,
+          "mean_cross_batch_gain_when_changed": 0.11168444351628405
+        },
+        "0.025": {
+          "directions": 11520,
+          "changes": 4156,
+          "mean_selection_gain": 0.05904895170235339,
+          "mean_cross_batch_simulated_gain": 0.051829849054783945,
+          "changed_negative_directions": 587,
+          "mean_cross_batch_gain_when_changed": 0.1436669540690835
+        }
+      }
+    },
+    "behavior/11102": {
+      "roots": 5760,
+      "deals_represented": 160,
+      "unmargined_batch_agreement": 0.7446180555555556,
+      "margins": {
+        "0.0": {
+          "directions": 11520,
+          "changes": 5137,
+          "mean_selection_gain": 0.055716884283371924,
+          "mean_cross_batch_simulated_gain": 0.047405629099151234,
+          "changed_negative_directions": 1067,
+          "mean_cross_batch_gain_when_changed": 0.10630968410010165
+        },
+        "0.025": {
+          "directions": 11520,
+          "changes": 3971,
+          "mean_selection_gain": 0.054470862871334874,
+          "mean_cross_batch_simulated_gain": 0.04734097704475308,
+          "changed_negative_directions": 573,
+          "mean_cross_batch_gain_when_changed": 0.13733771230308625
+        }
+      }
+    },
+    "behavior/parent": {
+      "roots": 5760,
+      "deals_represented": 160,
+      "unmargined_batch_agreement": 0.7489583333333333,
+      "margins": {
+        "0.0": {
+          "directions": 11520,
+          "changes": 5402,
+          "mean_selection_gain": 0.06376109182098766,
+          "mean_cross_batch_simulated_gain": 0.055615686487268515,
+          "changed_negative_directions": 1077,
+          "mean_cross_batch_gain_when_changed": 0.11860287085030237
+        },
+        "0.025": {
+          "directions": 11520,
+          "changes": 4157,
+          "mean_selection_gain": 0.06240196698977623,
+          "mean_cross_batch_simulated_gain": 0.05531397690007716,
+          "changed_negative_directions": 580,
+          "mean_cross_batch_gain_when_changed": 0.1532877108224414
+        }
+      }
+    },
+    "mode/economic": {
+      "roots": 8640,
+      "deals_represented": 240,
+      "unmargined_batch_agreement": 0.7636574074074074,
+      "margins": {
+        "0.0": {
+          "directions": 17280,
+          "changes": 7549,
+          "mean_selection_gain": 0.058496495627572025,
+          "mean_cross_batch_simulated_gain": 0.0507886345003858,
+          "changed_negative_directions": 1473,
+          "mean_cross_batch_gain_when_changed": 0.11625746511679251
+        },
+        "0.025": {
+          "directions": 17280,
+          "changes": 5894,
+          "mean_selection_gain": 0.057295785911779834,
+          "mean_cross_batch_simulated_gain": 0.050498077015817905,
+          "changed_negative_directions": 819,
+          "mean_cross_batch_gain_when_changed": 0.14805001201787127
+        }
+      }
+    },
+    "mode/snapshot0": {
+      "roots": 8640,
+      "deals_represented": 240,
+      "unmargined_batch_agreement": 0.7313657407407408,
+      "margins": {
+        "0.0": {
+          "directions": 17280,
+          "changes": 8377,
+          "mean_selection_gain": 0.061404732912165645,
+          "mean_cross_batch_simulated_gain": 0.05270960929462448,
+          "changed_negative_directions": 1737,
+          "mean_cross_batch_gain_when_changed": 0.10872890636398606
+        },
+        "0.025": {
+          "directions": 17280,
+          "changes": 6390,
+          "mean_selection_gain": 0.05998540179719651,
+          "mean_cross_batch_simulated_gain": 0.05249179165059156,
+          "changed_negative_directions": 921,
+          "mean_cross_batch_gain_when_changed": 0.1419496337593462
+        }
+      }
+    },
+    "split/train": {
+      "roots": 12960,
+      "deals_represented": 360,
+      "unmargined_batch_agreement": 0.7501543209876543,
+      "margins": {
+        "0.0": {
+          "directions": 25920,
+          "changes": 11903,
+          "mean_selection_gain": 0.059826308513374477,
+          "mean_cross_batch_simulated_gain": 0.051721342110339505,
+          "changed_negative_directions": 2396,
+          "mean_cross_batch_gain_when_changed": 0.11262851276988994
+        },
+        "0.025": {
+          "directions": 25920,
+          "changes": 9214,
+          "mean_selection_gain": 0.058546696834276414,
+          "mean_cross_batch_simulated_gain": 0.051441601830418376,
+          "changed_negative_directions": 1304,
+          "mean_cross_batch_gain_when_changed": 0.1447109094252707
+        }
+      }
+    },
+    "split/validation": {
+      "roots": 4320,
+      "deals_represented": 120,
+      "unmargined_batch_agreement": 0.7395833333333334,
+      "margins": {
+        "0.0": {
+          "directions": 8640,
+          "changes": 4023,
+          "mean_selection_gain": 0.060323531539351855,
+          "mean_cross_batch_simulated_gain": 0.05183246125900206,
+          "changed_negative_directions": 814,
+          "mean_cross_batch_gain_when_changed": 0.11131803760322591
+        },
+        "0.025": {
+          "directions": 8640,
+          "changes": 3070,
+          "mean_selection_gain": 0.058922284915123455,
+          "mean_cross_batch_simulated_gain": 0.051654931841563785,
+          "changed_negative_directions": 436,
+          "mean_cross_batch_gain_when_changed": 0.145374140427072
+        }
+      }
+    },
+    "players/2/train": {
+      "roots": 2592,
+      "deals_represented": 72,
+      "unmargined_batch_agreement": 0.6547067901234568,
+      "margins": {
+        "0.0": {
+          "directions": 5184,
+          "changes": 3103,
+          "mean_selection_gain": 0.06301289625128602,
+          "mean_cross_batch_simulated_gain": 0.05084354102366256,
+          "changed_negative_directions": 682,
+          "mean_cross_batch_gain_when_changed": 0.08494132022773661
+        },
+        "0.025": {
+          "directions": 5184,
+          "changes": 2402,
+          "mean_selection_gain": 0.06131245177469136,
+          "mean_cross_batch_simulated_gain": 0.050505461516203706,
+          "changed_negative_directions": 404,
+          "mean_cross_batch_gain_when_changed": 0.10900096273938385
+        }
+      }
+    },
+    "players/2/validation": {
+      "roots": 864,
+      "deals_represented": 24,
+      "unmargined_batch_agreement": 0.6157407407407407,
+      "margins": {
+        "0.0": {
+          "directions": 1728,
+          "changes": 1044,
+          "mean_selection_gain": 0.06505594135802469,
+          "mean_cross_batch_simulated_gain": 0.05156189718364198,
+          "changed_negative_directions": 235,
+          "mean_cross_batch_gain_when_changed": 0.08534382982120052
+        },
+        "0.025": {
+          "directions": 1728,
+          "changes": 783,
+          "mean_selection_gain": 0.06309528115354938,
+          "mean_cross_batch_simulated_gain": 0.05193112220293209,
+          "changed_negative_directions": 120,
+          "mean_cross_batch_gain_when_changed": 0.11460661451681566
+        }
+      }
+    },
+    "players/3/train": {
+      "roots": 2592,
+      "deals_represented": 72,
+      "unmargined_batch_agreement": 0.722608024691358,
+      "margins": {
+        "0.0": {
+          "directions": 5184,
+          "changes": 2548,
+          "mean_selection_gain": 0.06830411683384773,
+          "mean_cross_batch_simulated_gain": 0.05886250562628601,
+          "changed_negative_directions": 525,
+          "mean_cross_batch_gain_when_changed": 0.11975793923338565
+        },
+        "0.025": {
+          "directions": 5184,
+          "changes": 2016,
+          "mean_selection_gain": 0.06701258278677982,
+          "mean_cross_batch_simulated_gain": 0.05863745418595679,
+          "changed_negative_directions": 313,
+          "mean_cross_batch_gain_when_changed": 0.15078202504960317
+        }
+      }
+    },
+    "players/3/validation": {
+      "roots": 864,
+      "deals_represented": 24,
+      "unmargined_batch_agreement": 0.7152777777777778,
+      "margins": {
+        "0.0": {
+          "directions": 1728,
+          "changes": 838,
+          "mean_selection_gain": 0.06734815055941358,
+          "mean_cross_batch_simulated_gain": 0.057648835358796294,
+          "changed_negative_directions": 184,
+          "mean_cross_batch_gain_when_changed": 0.11887492541766109
+        },
+        "0.025": {
+          "directions": 1728,
+          "changes": 638,
+          "mean_selection_gain": 0.06584261670524691,
+          "mean_cross_batch_simulated_gain": 0.05746497636959877,
+          "changed_negative_directions": 103,
+          "mean_cross_batch_gain_when_changed": 0.1556418168756531
+        }
+      }
+    },
+    "players/4/train": {
+      "roots": 2592,
+      "deals_represented": 72,
+      "unmargined_batch_agreement": 0.7283950617283951,
+      "margins": {
+        "0.0": {
+          "directions": 5184,
+          "changes": 2445,
+          "mean_selection_gain": 0.06406631783693414,
+          "mean_cross_batch_simulated_gain": 0.055280771765689296,
+          "changed_negative_directions": 537,
+          "mean_cross_batch_gain_when_changed": 0.11720880197682347
+        },
+        "0.025": {
+          "directions": 5184,
+          "changes": 1857,
+          "mean_selection_gain": 0.06266912347822359,
+          "mean_cross_batch_simulated_gain": 0.054924607767489704,
+          "changed_negative_directions": 292,
+          "mean_cross_batch_gain_when_changed": 0.15332749955124755
+        }
+      }
+    },
+    "players/4/validation": {
+      "roots": 864,
+      "deals_represented": 24,
+      "unmargined_batch_agreement": 0.7210648148148148,
+      "margins": {
+        "0.0": {
+          "directions": 1728,
+          "changes": 817,
+          "mean_selection_gain": 0.06166962046682099,
+          "mean_cross_batch_simulated_gain": 0.052431459780092594,
+          "changed_negative_directions": 186,
+          "mean_cross_batch_gain_when_changed": 0.11089542533659731
+        },
+        "0.025": {
+          "directions": 1728,
+          "changes": 645,
+          "mean_selection_gain": 0.060465494791666664,
+          "mean_cross_batch_simulated_gain": 0.05251434702932099,
+          "changed_negative_directions": 114,
+          "mean_cross_batch_gain_when_changed": 0.14068959948320414
+        }
+      }
+    },
+    "players/5/train": {
+      "roots": 2592,
+      "deals_represented": 72,
+      "unmargined_batch_agreement": 0.8032407407407407,
+      "margins": {
+        "0.0": {
+          "directions": 5184,
+          "changes": 2003,
+          "mean_selection_gain": 0.053352596664951984,
+          "mean_cross_batch_simulated_gain": 0.047571085444530176,
+          "changed_negative_directions": 353,
+          "mean_cross_batch_gain_when_changed": 0.12311957411105565
+        },
+        "0.025": {
+          "directions": 5184,
+          "changes": 1536,
+          "mean_selection_gain": 0.05226049436299724,
+          "mean_cross_batch_simulated_gain": 0.04727838461291152,
+          "changed_negative_directions": 165,
+          "mean_cross_batch_gain_when_changed": 0.1595645480685764
+        }
+      }
+    },
+    "players/5/validation": {
+      "roots": 864,
+      "deals_represented": 24,
+      "unmargined_batch_agreement": 0.8055555555555556,
+      "margins": {
+        "0.0": {
+          "directions": 1728,
+          "changes": 662,
+          "mean_selection_gain": 0.049192828896604944,
+          "mean_cross_batch_simulated_gain": 0.04351279176311728,
+          "changed_negative_directions": 109,
+          "mean_cross_batch_gain_when_changed": 0.11358021777442096
+        },
+        "0.025": {
+          "directions": 1728,
+          "changes": 499,
+          "mean_selection_gain": 0.048041449652777776,
+          "mean_cross_batch_simulated_gain": 0.042724609375,
+          "changed_negative_directions": 61,
+          "mean_cross_batch_gain_when_changed": 0.14795215430861725
+        }
+      }
+    },
+    "players/6/train": {
+      "roots": 2592,
+      "deals_represented": 72,
+      "unmargined_batch_agreement": 0.841820987654321,
+      "margins": {
+        "0.0": {
+          "directions": 5184,
+          "changes": 1804,
+          "mean_selection_gain": 0.05039561497985254,
+          "mean_cross_batch_simulated_gain": 0.0460488066915295,
+          "changed_negative_directions": 299,
+          "mean_cross_batch_gain_when_changed": 0.13232650437299828
+        },
+        "0.025": {
+          "directions": 5184,
+          "changes": 1403,
+          "mean_selection_gain": 0.049478831768689994,
+          "mean_cross_batch_simulated_gain": 0.04586210106953018,
+          "changed_negative_directions": 130,
+          "mean_cross_batch_gain_when_changed": 0.16945768492120059
+        }
+      }
+    },
+    "players/6/validation": {
+      "roots": 864,
+      "deals_represented": 24,
+      "unmargined_batch_agreement": 0.8402777777777778,
+      "margins": {
+        "0.0": {
+          "directions": 1728,
+          "changes": 662,
+          "mean_selection_gain": 0.058351116415895056,
+          "mean_cross_batch_simulated_gain": 0.054007322209362135,
+          "changed_negative_directions": 100,
+          "mean_cross_batch_gain_when_changed": 0.14097379573682442
+        },
+        "0.025": {
+          "directions": 1728,
+          "changes": 505,
+          "mean_selection_gain": 0.057166582272376545,
+          "mean_cross_batch_simulated_gain": 0.05363960423096708,
+          "changed_negative_directions": 38,
+          "mean_cross_batch_gain_when_changed": 0.18354304180418043
+        }
+      }
+    }
+  },
+  "controls": {
+    "selection_noise_evaluates_negative": true,
+    "zero_and_margin_ties_keep_parent": true,
+    "consistent_gain_preserved": true,
+    "incomplete_modes_rejected": true,
+    "gradients": false
+  },
+  "full_cohort": true,
+  "scope": "Complete planned label cohort, with independent A/B simulation batches per root; descriptive conditional gains, not independent full-game wins or qualification. No changes to training or final protocols. No gradients or new jobs from this audit.",
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

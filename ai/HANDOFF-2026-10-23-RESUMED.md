@@ -25,7 +25,103 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: all label jobs complete; five-player baseline verified
+## Latest checkpoint: full labels and baseline verified; two GPU jobs submitted
+
+All **948 new label shards plus 60 pilot shards** are independently verified:
+17,280 roots, both continuation modes, and 33,351,552 completed simulations.
+The full data bundle has 12,960 training / 4,320 validation roots, split by deal;
+27,744 negative action advantages were retained. The complete source package
+passed data recovery, four model tests, four synthetic export/parity checks and
+three training-contract tests. These checks did not run local gradients.
+
+The prescribed training coordinator submitted exactly two HF jobs at 10:06 UTC:
+
+| Head | HF job | Seeds | Hardware / timeout |
+| --- | --- | --- | --- |
+| Frozen representation | `6adc8338046eb82b1ecdbb92` | 12101–12104 |L4x1 / 3 hours|
+| Full public representation | `6adc833d1e112550ce7deb4c` | 12101–12104 |L4x1 / 3 hours|
+
+Both were scheduling at the harvester's10:07:17 UTC snapshot. This is submission,
+not a completed gradient run or verified trained candidate. Each job trains four
+seeds; the frozen design exports both prescribed ensemble uncertainty penalties.
+Do not launch replacements or manually collect their outputs while the existing
+trained-output harvester owns them.
+
+- Data evidence: `strong/policy-iteration-training-data-evidence-v2.json`, HF
+  revision `eaba4f51ba9b65a52d35bff3d1478e3fbd77742a`.
+- Full source: `strong/policy-iteration-training-source-v2.json`, dataset revision
+  `776fc237a19be9789fe160d4406e68cd31adf080`, archive
+  `strong-source-policy-iteration-training-20261024-v2.tgz`, SHA256
+  `21a162cb75167e3781bcd8e8f2810b4b93f37712775af300abb910fdcccfd958`.
+- Launch evidence: `strong/policy-iteration-training-launch-frozen-evidence-v2.json`
+  and `strong/policy-iteration-training-launch-public-evidence-v2.json`.
+  Their verified archive revisions are respectively
+  `7fd7925f7be052ab5f5fd2681779c60923651107` and
+  `c1befdde62f0cbbfeec95977477f50373b5fc31d`.
+
+The original collector completed normally at 10:04:46 UTC: **108/108 parent
+batches, 6,720 games, all 27 cells**. The training coordinator also completed its
+prescribed launch sequence. Do not restart either completed process. The two
+remaining active processes are trained-output harvester PID 2850424  / session65326
+and development coordinator PID 2950746  / session63641. Verify actual process
+identities and their state files before acting. Frozen dependencies remain
+unchanged. Trained AMD8840U measurement, full development comparisons and the
+reserved final gate remain pending; no model is selected or qualified.
+
+### Complete parent baseline
+
+The newly complete six-player search cell has 384 games over 16 independent deals:
+
+| Rules | Win share | Exploratory 95% whole-deal interval |
+| --- | ---: | ---: |
+| Overall |37.6302%|32.8125–42.5781%|
+| Original/open |51.5625%|42.7083–60.4167%|
+| Original/sealed |14.5833%|7.2917–21.8750%|
+| Recharged/open |57.2917%|45.8333–66.6667%|
+| Recharged/sealed |27.0833%|16.6667–38.5417%|
+
+Both sealed-rule intervals include the 16.6667% chance baseline. Six-player
+aggregate performance is clearly better than chance in this development sample,
+but sealed play and the previously identified 2–4p deficits prevent qualification.
+This is the unchanged model-only parent, not new training improvement.
+
+- Diagnostic: `strong/policy-iteration-parent-reference-complete-v2.json`.
+- Evidence: `strong/policy-iteration-parent-reference-complete-evidence-v2.json`.
+- HF revision `2dc527b0ecb4818484d936a8afdc5b441f29739a`; archive
+  `archives/policy-iteration-parent-reference-complete-evidence-v2.tgz`;
+  SHA256 `47a85217a2f8338a51a22a6815882b333f833f13ee81cb8a7b9d7cbc8c682e14`.
+  All 1,117 archived files and the remote archive were verified.
+
+### Full teacher-label diagnostic
+
+The existing read-only audit now covers all 17,280 planned roots. It selects a
+move with simulation batch A and measures that move on B, then reverses the roles,
+with continuation modes averaged within each world. At the fixed 0.025 margin,
+mean selection gain is 0.058641 and separate-batch simulated gain 0.051495.
+There are 12,284 changed directions; 1,740 are adverse on the other batch (14.16%).
+Train/validation means are 0.051442/0.051655; player-count means range 0.046140
+through 0.058344. Both open and sealed aggregates remain positive. These are
+conditional simulated credits on selected positions, not independent real-game
+win-rate improvements, significance tests, or evidence of model generalization.
+The design and margin were not adjusted from this audit.
+
+- Reproduce to a fresh directory with
+  `ai/.venv/bin/python ai/strong/inspect-policy-iteration-label-quality.py --output NEW_PATH`.
+- Evidence: `strong/policy-iteration-label-quality-full-evidence-v2.json`.
+- HF revision `dc6511fa5bd64158ce9608779e7a50e6d4222de2`; archive
+  `archives/policy-iteration-label-quality-full-v2.tgz`; SHA256
+  `6a2b4b604b03cffe90408c5bcc563f65405700f6c2bf8855ee5aa5f6d42e12fe`.
+  Nine archived files include per-root records, complete provenance and audit code.
+  The reused audit's generic scope text describes partial snapshots; its
+  `full_cohort:true` and complete coverage establish that this run is the full
+  planned cohort. It is still not a representative sample of all game positions.
+
+The signal supports completing the already prescribed learning/evaluation round.
+It does not justify another training round automatically. Fresh full-game gains,
+sealed-auction performance, 5–6p regressions and actual 8840U cost remain the
+stop/continue criteria for this approach and any later bounded hybrid study.
+
+## Previous checkpoint: all label jobs complete; five-player baseline verified
 
 The preceding turn was a verified wait on the final live label job and the four
 local pipeline processes. This turn confirms the last label job completed and

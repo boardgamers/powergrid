@@ -1,0 +1,1180 @@
+{
+  "key": "frozen-1",
+  "source": {
+    "archive": "strong-source-policy-iteration-development-20261024-v2.tgz",
+    "revision": "a393d0fa83d9fee8a27a876a217fe97dfea03ff8",
+    "sha256": "c020987f3a05a2c0116dfd52498139f6bb7480e1721ca058caf9771f94d970ce",
+    "bytes": 109411988,
+    "base": {
+      "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+      "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+      "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+      "bytes": 109402244,
+      "base": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+      },
+      "overlays": {
+        "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+        "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+        "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+        "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+      },
+      "unchanged_base_files": 1430,
+      "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+      "qualification_eligible": false
+    },
+    "overlays": {
+      "ai/strong/policy_iteration_development.py": "1bbcec9b3ad236fdaf330627cd31f6c99618642cf657b75207aba365c4c217ea",
+      "ai/strong/preflight-policy-iteration-development.py": "024f1f746eb396a8906664c26e2307224c733ff4b43a75899498efbf65096829",
+      "ai/strong/policy-iteration-development-protocol-v2.json": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+      "ai/strong/policy-iteration-training-design-v2.json": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+      "ai/strong/build-policy-iteration-development-source.py": "6dd5963f0438f0ef7fca6c53c3701acdba99d8e9390e42d9c5f64f4e39287310"
+    },
+    "unchanged_base_files": 1434,
+    "protocol_sha256": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+    "gradients": false,
+    "qualification_eligible": false
+  },
+  "model_pin": {
+    "key": "frozen-1",
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "6b6009756d7b5968bc5b6425efc84a94aab2a1d6",
+    "prefix": "runs/policy-iteration-training-v2-frozen/ensemble-1/derivative",
+    "files": {
+      "inference64.pt": "3c17d4228e7446f8859aa01e79020ed91f454312925d29c153a76f49f94118da",
+      "inference64.onnx": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+    },
+    "feature_revision": "4.3-strategic-correction",
+    "model_args": {
+      "head_type": "frozen",
+      "heads": 4,
+      "margin": 0.025,
+      "parent_margin": 0.025,
+      "disagreement_penalty": 1.0
+    },
+    "training_verified": true,
+    "parent_frozen": true,
+    "seeds": [
+      12101,
+      12102,
+      12103,
+      12104
+    ],
+    "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+    "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+    "training_verified_sha256": "881c8a4b34f937575cb3f3c851db794f81908621f4a93e47f467be852845974f",
+    "strict_parity_positions": 2553,
+    "cached_positions_checked": 17280,
+    "qualification_eligible": false
+  },
+  "model_pin_sha256": "29323a41fd268a6838d9261b98b3489c446665bdf181c65bbd9b77f9dd43eb74",
+  "protocol_sha256": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+  "manager_sha256": "552ed0abc47cfb3d97da65abdf6c20933d74075babb5034395783ddca8270e1f",
+  "bootstrap_sha256": "10b978ad1a2b670275fede39113bf39c59ceb9a0608bbf692081eb277b2a0615",
+  "runtime_admission": {
+    "probes": [
+      {
+        "players": 2,
+        "seconds": 113.96398278098786,
+        "verified_sha256": "f38e7e8546d05ce1bd7e67bf29b289539477efc355e367a16e8636b55b9e9371"
+      },
+      {
+        "players": 6,
+        "seconds": 1640.6618117830003,
+        "verified_sha256": "fb6b2a642467f8da7976299dc35a24f13de1c7b60d14ab01367a8045a3e5182f"
+      }
+    ],
+    "projected_seconds": 13245.294494264002,
+    "timeout_hours": 5,
+    "admitted": true,
+    "scope": "Same candidate/source/hardware;2x slower endpoint for four whole deals plus120s setup and25% timeout headroom. Never shorten games or search."
+  },
+  "flavor": "cpu-upgrade",
+  "shards": [
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-2p-economic-0-4",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-2p-search_geo-0-4",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-2p-legacy-0-4",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-2p-heuristic-0-4",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-2p-rush-0-4",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-3p-economic-0-4",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-3p-search_geo-0-4",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-3p-legacy-0-4",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-3p-heuristic-0-4",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-3p-rush-0-4",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-4p-economic-0-4",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-4p-search_geo-0-4",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-4p-legacy-0-4",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-4p-heuristic-0-4",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-4p-rush-0-4",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-5p-economic-0-4",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-5p-search_geo-0-4",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-5p-legacy-0-4",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-5p-heuristic-0-4",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-5p-rush-0-4",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-6p-economic-0-4",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-6p-search_geo-0-4",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-6p-legacy-0-4",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-6p-heuristic-0-4",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-6p-rush-0-4",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "a260",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-3p-a260-0-4",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "economic_capacity_v1",
+      "start": 0,
+      "end": 4,
+      "mode": "development",
+      "case": "development-frozen-1-2p-economic_capacity_v1-0-4",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "economic",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-2p-economic-4-8",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "search_geo",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-2p-search_geo-4-8",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "legacy",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-2p-legacy-4-8",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "heuristic",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-2p-heuristic-4-8",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "rush",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-2p-rush-4-8",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "economic",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-3p-economic-4-8",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "search_geo",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-3p-search_geo-4-8",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "legacy",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-3p-legacy-4-8",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "heuristic",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-3p-heuristic-4-8",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "rush",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-3p-rush-4-8",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "economic",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-4p-economic-4-8",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "search_geo",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-4p-search_geo-4-8",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "legacy",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-4p-legacy-4-8",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "heuristic",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-4p-heuristic-4-8",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "rush",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-4p-rush-4-8",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "economic",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-5p-economic-4-8",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "search_geo",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-5p-search_geo-4-8",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "legacy",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-5p-legacy-4-8",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "heuristic",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-5p-heuristic-4-8",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "rush",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-5p-rush-4-8",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "economic",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-6p-economic-4-8",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "search_geo",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-6p-search_geo-4-8",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "legacy",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-6p-legacy-4-8",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "heuristic",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-6p-heuristic-4-8",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "rush",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-6p-rush-4-8",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "a260",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-3p-a260-4-8",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "economic_capacity_v1",
+      "start": 4,
+      "end": 8,
+      "mode": "development",
+      "case": "development-frozen-1-2p-economic_capacity_v1-4-8",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "economic",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-2p-economic-8-12",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "search_geo",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-2p-search_geo-8-12",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "legacy",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-2p-legacy-8-12",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "heuristic",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-2p-heuristic-8-12",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "rush",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-2p-rush-8-12",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "economic",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-3p-economic-8-12",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "search_geo",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-3p-search_geo-8-12",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "legacy",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-3p-legacy-8-12",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "heuristic",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-3p-heuristic-8-12",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "rush",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-3p-rush-8-12",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "economic",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-4p-economic-8-12",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "search_geo",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-4p-search_geo-8-12",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "legacy",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-4p-legacy-8-12",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "heuristic",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-4p-heuristic-8-12",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "rush",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-4p-rush-8-12",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "economic",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-5p-economic-8-12",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "search_geo",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-5p-search_geo-8-12",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "legacy",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-5p-legacy-8-12",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "heuristic",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-5p-heuristic-8-12",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "rush",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-5p-rush-8-12",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "economic",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-6p-economic-8-12",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "search_geo",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-6p-search_geo-8-12",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "legacy",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-6p-legacy-8-12",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "heuristic",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-6p-heuristic-8-12",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "rush",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-6p-rush-8-12",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "a260",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-3p-a260-8-12",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "economic_capacity_v1",
+      "start": 8,
+      "end": 12,
+      "mode": "development",
+      "case": "development-frozen-1-2p-economic_capacity_v1-8-12",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "economic",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-2p-economic-12-16",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "search_geo",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-2p-search_geo-12-16",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "legacy",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-2p-legacy-12-16",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "heuristic",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-2p-heuristic-12-16",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "rush",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-2p-rush-12-16",
+      "games": 32
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "economic",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-3p-economic-12-16",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "search_geo",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-3p-search_geo-12-16",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "legacy",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-3p-legacy-12-16",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "heuristic",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-3p-heuristic-12-16",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "rush",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-3p-rush-12-16",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "economic",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-4p-economic-12-16",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "search_geo",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-4p-search_geo-12-16",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "legacy",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-4p-legacy-12-16",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "heuristic",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-4p-heuristic-12-16",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 4,
+      "opponent": "rush",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-4p-rush-12-16",
+      "games": 64
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "economic",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-5p-economic-12-16",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "search_geo",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-5p-search_geo-12-16",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "legacy",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-5p-legacy-12-16",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "heuristic",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-5p-heuristic-12-16",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 5,
+      "opponent": "rush",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-5p-rush-12-16",
+      "games": 80
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "economic",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-6p-economic-12-16",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "search_geo",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-6p-search_geo-12-16",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "legacy",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-6p-legacy-12-16",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "heuristic",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-6p-heuristic-12-16",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 6,
+      "opponent": "rush",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-6p-rush-12-16",
+      "games": 96
+    },
+    {
+      "key": "frozen-1",
+      "players": 3,
+      "opponent": "a260",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-3p-a260-12-16",
+      "games": 48
+    },
+    {
+      "key": "frozen-1",
+      "players": 2,
+      "opponent": "economic_capacity_v1",
+      "start": 12,
+      "end": 16,
+      "mode": "development",
+      "case": "development-frozen-1-2p-economic_capacity_v1-12-16",
+      "games": 32
+    }
+  ],
+  "games": 6720,
+  "independent_deals_per_cell": 16,
+  "qualification_eligible": false
+}

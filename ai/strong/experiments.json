@@ -49763,5 +49763,130 @@
         "new_hf_jobs_from_probe": 0,
         "frozen_development_pipeline_changed": false,
         "next": "Profile policy/engine cost before increasing search budgets; full model-only game comparison remains owned by the existing coordinator. No hybrid strength or target latency claim."
+    },
+    "trained_hybrid_profile_v1": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "7d3a6046f6ca7a0fed2531835ff1e5df82796c56",
+        "archive_path": "archives/trained-hybrid-profile-evidence-v1.tgz",
+        "archive_sha256": "73926eae41527487cd820110ce8f18a8ab8ca7ec4102344666178d1d2f3625e1",
+        "manifest_sha256": "95f2338656641b21545a1ce72c8a206ee5fddbbfa8e44e052ac4ef540f536ece",
+        "archived_files": 13,
+        "format": "tar.gz",
+        "remote_archive_verified": true,
+        "passed": true,
+        "model": "public-0",
+        "model_sha256": "4d2cf03a847737a392ad6ccf545560b468d93b60b959eee5094ee3c739d130b0",
+        "fixture_index": 2029,
+        "thread_order": [
+            1,
+            4,
+            4,
+            1
+        ],
+        "workers": 4,
+        "samples_per_mode": 8,
+        "max_steps": 2400,
+        "timings_by_threads": {
+            "1": {
+                "seconds": [
+                    34.14893286299775,
+                    35.61167024000315
+                ],
+                "mean_seconds": 34.88030155150045,
+                "mean_onnx_seconds": 24.89055399384233,
+                "mean_engine_ipc_json_seconds": 8.131839641791885
+            },
+            "4": {
+                "seconds": [
+                    22.79263829800766,
+                    23.543244656000752
+                ],
+                "mean_seconds": 23.167941477004206,
+                "mean_onnx_seconds": 11.484824801213108,
+                "mean_engine_ipc_json_seconds": 9.256009937584167
+            }
+        },
+        "local_mean_speedup": 1.5055416807799509,
+        "policy_rows_per_request": 28074,
+        "choice_transcript_sha256": "42bae565561128cedc90dcf162645c7c826551ae87d7caf5cf9231148ed23dca",
+        "legal_action_slots": 236334,
+        "padded_action_slots": 972136,
+        "action_slot_utilization": 0.24310796020309916,
+        "terminal_rollouts_per_request": 96,
+        "all_internal_choices_and_terminal_outcomes_identical": true,
+        "truncations": 0,
+        "processor": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+        "defaults_changed": false,
+        "target_8840u_tested": false,
+        "gradients": false,
+        "hf_jobs_submitted": 0,
+        "candidate_selected": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "scope": "Repeated existing six-player Recharged/sealed building fixture on the local HX370. No fresh strength, target8840U latency distribution or default thread change. Policy time includes ONNX; engine time includes IPC, JSON and simulator work.",
+        "recommendation": "Inference is the dominant measured cost at one thread; four threads improve this existing local fixture without changing any internal decisions. Do not infer a target8840U latency or strength gain, increase samples blindly, or change serving defaults from this one fixture. Finish the running model-only whole-game comparison before another gradient round or fresh bounded hybrid strength study."
+    },
+    "policy_iteration_candidate_grid_launch_snapshot_v2": {
+        "snapshot_at": "2026-10-24T11:02:49.154991+00:00",
+        "stage": "launch-grid-public-1",
+        "submitted_counts": {
+            "frozen-0": 108,
+            "frozen-1": 108,
+            "public-0": 108
+        },
+        "launch_evidence": {
+            "frozen-0": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "8957368398b2fe9ed330a92f16c483e3d13202e3",
+                "archive_path": "archives/policy-iteration-frozen-0-grid-launch-evidence-v2.tgz",
+                "archive_sha256": "cc5008ec6a268ea1577f3328da320a59dd60c9bc2b5bcee3dffa19b912373316",
+                "manifest_sha256": "3876e95304a09ab9521d3a485cfb9cdbc0e4f88c13d8a8ff8f84a2c427e8fd0b",
+                "archived_files": 140,
+                "format": "tar.gz",
+                "remote_archive_verified": true,
+                "keys": [
+                    "frozen-0"
+                ],
+                "complete_development_comparison": false,
+                "qualification_eligible": false,
+                "reserved_final_seeds_used": false
+            },
+            "frozen-1": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "41b90d2a1ce40922be9b6be12715ceb0249d06da",
+                "archive_path": "archives/policy-iteration-frozen-1-grid-launch-evidence-v2.tgz",
+                "archive_sha256": "5fb10b5390546d91c3892183b5f6a459a78aaee4f2714323b437753daefe822a",
+                "manifest_sha256": "a1da1c3b36bf0c64470a0ca41f5b99947fa2a8dbe788c9a13de86bb36c1f9078",
+                "archived_files": 140,
+                "format": "tar.gz",
+                "remote_archive_verified": true,
+                "keys": [
+                    "frozen-1"
+                ],
+                "complete_development_comparison": false,
+                "qualification_eligible": false,
+                "reserved_final_seeds_used": false
+            },
+            "public-0": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "f6740a65fc6a28b10c4c5f4d5e89d988342f0629",
+                "archive_path": "archives/policy-iteration-public-0-grid-launch-evidence-v2.tgz",
+                "archive_sha256": "626845a958c6fe413a93e97e808175c9a9a86ffc07c1119ddea625fb530292ca",
+                "manifest_sha256": "55185d8c4fc2a56aa38e8e40cb1d469d3326812f0e9897b39433941661851405",
+                "archived_files": 140,
+                "format": "tar.gz",
+                "remote_archive_verified": true,
+                "keys": [
+                    "public-0"
+                ],
+                "complete_development_comparison": false,
+                "qualification_eligible": false,
+                "reserved_final_seeds_used": false
+            }
+        },
+        "coordinator_pid": 71261,
+        "automatic_retries": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

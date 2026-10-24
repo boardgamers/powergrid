@@ -25,7 +25,51 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: actual trained hybrid continuations and local cost
+## Latest checkpoint: trained hybrid cost profile and development grids
+
+The bounded local cost investigation is complete. It repeats the existing
+six-player Recharged/sealed building fixture (2029) with the verified public-0
+ensemble, eight worlds per continuation mode and four engine workers. ORT
+thread order is 1, 4, 4, 1. No fresh game seed, HF job or gradient run is involved.
+
+| ORT threads | Two request times | Mean ONNX time | Mean engine / IPC / JSON time |
+| --- | --- | ---: | ---: |
+| 1 | 34.15s, 35.61s | 24.89s | 8.13s |
+| 4 | 22.79s, 23.54s | 11.48s | 9.26s |
+
+Mean whole-request speedup is **1.506x**. Every internal policy-choice transcript
+matches across the four profiled runs. Root decisions and terminal outcomes also
+match the earlier probe; no rollout is capped. There are 28,074 policy rows per request including
+the root proposal. Only 24.3% of padded action slots are legal actions, suggesting
+batch packing as another possible optimization, not an established speedup.
+
+This is one repeated fixture on the local **HX370**, not a latency distribution,
+a target 8840U result or evidence of stronger play. Model loading is separately
+recorded. ONNX time is included in total policy time; do not double-count it.
+The pool timer combines simulator work, IPC and JSON; it does not isolate those
+three costs. At one thread, inference accounts for about 71% of request time.
+No runtime default, active pipeline dependency or production code was changed.
+
+- Reproduce: `ai/.venv/bin/python ai/strong/profile-trained-hybrid-search.py NEW_OUTPUT`.
+- Local results: `ai/runs/trained-hybrid-profile-v1/profile.json` and fixture/log.
+  Process 322789 / session 76412 completed normally.
+- Evidence: `strong/trained-hybrid-profile-evidence-v1.json`.
+- HF revision `7d3a6046f6ca7a0fed2531835ff1e5df82796c56`, archive
+  `archives/trained-hybrid-profile-evidence-v1.tgz`, SHA256
+  `73926eae41527487cd820110ce8f18a8ab8ca7ec4102344666178d1d2f3625e1`. All 13 files remotely verified.
+
+At the 2026-10-24T11:02:49.154991+00:00 snapshot, the only development coordinator remains PID 71261 / session 77604. Its stage is `launch-grid-public-1`; completed submission counts are frozen-0: 108, frozen-1: 108, public-0: 108. All eight runtime probes are verified. All 39 dependency hashes remain unchanged. The coordinator owns all remaining submissions, collection and the complete comparison; do not duplicate them.
+
+Next: finish the fixed full-game comparison and report whether its small
+validation gains translate. Do not automatically add training epochs. If a
+bounded hybrid study is justified, retain all player counts and rule combinations,
+including the earlier five/six-player open-auction regressions; compare auction-only,
+building-only and combined search against model-only and independent search.
+Use realistic opponent mixtures and hidden-bid beliefs. Profile and benchmark
+any proposed inference optimization on the actual 8840U before setting a budget.
+More simulations alone do not correct inaccurate continuation policies.
+
+## Previous checkpoint: actual trained hybrid continuations and local cost
 
 The trained hybrid prototype now passes integration checks on the parent and
 all four actual trained ensembles. This is separate from the unchanged model-only

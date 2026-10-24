@@ -33,10 +33,24 @@ fixtures. Inference checks span all 80 count/rule/phase cells per model. At eigh
 worlds per mode, trained request times on the local HX370 are 11–18s for two-player
 cases and 30–35s for six-player cases. This is neither target8840U timing nor
 fresh strength evidence. Source and raw outcomes are archived in
-`strong/trained-hybrid-probe-evidence-v2.json`. Profile the cost before scaling
-search; retain the existing full-game comparison as the strength checkpoint.
+`strong/trained-hybrid-probe-evidence-v2.json`. The cost profile is now complete (below); retain the existing full-game comparison
+as the strength checkpoint.
 The prior synthetic cap failure and first frozen-source admission rejection are
 preserved separately. No active pipeline dependency was changed for this probe.
+
+## Latest hybrid profile and development progress
+
+The repeated trained six-player fixture takes 34.15–35.61s at one ORT thread
+and 22.79–23.54s at four threads on the local HX370 (1.506x mean speedup).
+Every internal neural choice and terminal outcome matches; zero caps. At one
+thread ONNX inference is about 71% of total time. Only 24.3% of padded action
+slots are legal actions. This points to inference threading/batch packing as
+optimization candidates, not a reason to rewrite the engine or add samples yet.
+No default changed; no target8840U hybrid benchmark or fresh strength claim.
+Evidence: `strong/trained-hybrid-profile-evidence-v1.json`, remotely archived.
+The profile process completed; do not relaunch into its existing output directory.
+
+At the 2026-10-24T11:02:49.154991+00:00 snapshot, the only development coordinator remains PID 71261 / session 77604. Its stage is `launch-grid-public-1`; completed submission counts are frozen-0: 108, frozen-1: 108, public-0: 108. All eight runtime probes are verified. All 39 dependency hashes remain unchanged. The coordinator owns all remaining submissions, collection and the complete comparison; do not duplicate them.
 
 ## User steering, 24 October: diminishing returns and hybrid play
 
@@ -63,7 +77,7 @@ intervals use8 independent older deals; they are not final-test evidence.
 
 Recommendation: finish the already running policy-iteration round, then compare
 its model-only agent with a bounded hybrid on fresh development deals. Keep
-the current frozen model-only protocol and its four coordinators unchanged.
+the current frozen model-only protocol and its single development coordinator unchanged.
 The quoted30.86% overall /15.625% Recharged-sealed4p results have candidate
 search OFF. Current training learns from search continuations; it does not
 perform search when making a deployed move.

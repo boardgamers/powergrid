@@ -1,0 +1,78 @@
+{
+  "created_at": "2026-10-24T23:01:01.081656+00:00",
+  "purpose": "Full paired endpoint runtime and execution validation. Exclude all pilot outcomes from strength.",
+  "protocol_sha256": "e5e7c8d891a41c9c48ca0ee75d17fcd14b7ceeac827f600e3af6d177ff81e0d8",
+  "completed_comparison_sha256": "6acbd8e57990f4cb9dc775b46b3859db18ccab3cb653dc50552c92f60a86bcbb",
+  "completed_comparison_evidence_revision": "91076fb5f4cffed75bf2ddd22f70f3442f78c00d",
+  "preflight_evidence_revision": "915e442bbaf540a10d0593eeed42798157047200",
+  "cells": [
+    {
+      "players": 2,
+      "arm": "filter",
+      "games": 8,
+      "replay_episodes": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "players": 2,
+      "arm": "resource-filter",
+      "games": 8,
+      "replay_episodes": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "players": 6,
+      "arm": "filter",
+      "games": 24,
+      "replay_episodes": [
+        20,
+        21,
+        22,
+        23
+      ]
+    },
+    {
+      "players": 6,
+      "arm": "resource-filter",
+      "games": 24,
+      "replay_episodes": [
+        20,
+        21,
+        22,
+        23
+      ]
+    }
+  ],
+  "games": 64,
+  "samples": 8,
+  "workers": 8,
+  "search_workers": 1,
+  "game_max_steps": 1600,
+  "rollout_max_steps": 2400,
+  "opponent": "search_geo",
+  "deals_per_cell": 1,
+  "start": 0,
+  "seed_template": "resource-replanning-runtime-v1-{players}p",
+  "cell_order": "2p filter, 2p resource-filter, 6p filter, 6p resource-filter; one cell at a time.",
+  "replay_selection": "All four rule combinations at the last seat of each endpoint/arm, fixed before running: 16 games.",
+  "measurement": "Process-tree RSS every 100 ms plus waited process CPU and complete-cell wall time. Local HX370 engineering measurements, not target AMD8840U latency or HF hardware performance.",
+  "admission": "No HF strength admission is made by this plan. Any error/cap or failed complete replay stops for review; no automatic retries. Decide hardware/timeout from the complete measured pilot, keeping both horizons and whole deals.",
+  "runtime_code": {
+    "resource-replanning-runtime-pilot-v1.py": "9866074099f29b7cf33c78b8475bff243ded325fe597c030ce18249b117e58c8",
+    "build-resource-replanning-runtime-source-v1.py": "209b749ac56f8038140544c05c7af0f225013cede69c5e06e721f7d84bfa1ba0"
+  },
+  "automatic_retries": false,
+  "new_strength_games": 0,
+  "new_hf_jobs": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

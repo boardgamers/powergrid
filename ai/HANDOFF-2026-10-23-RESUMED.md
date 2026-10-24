@@ -25,7 +25,80 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: complete-results audit prepared; existing jobs continue
+## Latest checkpoint: pinned resource pilot running, 25 October
+
+This turn advanced the separate resource-planning work while the seven-root auction
+diagnostic continued. The complete 8,400-game comparison already satisfied the
+resource protocol's prerequisite. Its source/model/arms/seeds/horizons and 3,360-game
+future development design remain unchanged; no development or final games started.
+
+New runtime plan: `strong/resource-replanning-runtime-plan-v1.json`, SHA
+`60bfb71d31464e360a6c5d38468cb99cd7a8786bfd38c9089c264ec2ae6b17fb`.
+It fixes four sequential cells: 2p filter, 2p resource-filter, 6p filter,
+6p resource-filter. Each has one complete deal, every seat and four rule combinations
+against the unchanged search_geo opponent: **64 games total**, eight concurrent game
+workers and one search worker per game, eight resource worlds, 2400 rollout/1600 game
+horizons. Seeds are `resource-replanning-runtime-v1-{players}p`, disjoint from the
+future development and reserved final seeds. The last seat's four rules in every
+cell are fixed in advance for **16 exact replays**, including model proposals and
+legal atomic choices. Runtime results are not strength estimates.
+
+New scripts: `strong/build-resource-replanning-runtime-source-v1.py` and
+`strong/resource-replanning-runtime-pilot-v1.py`. The first preparation stopped before
+archive/upload/games: `collect-population-screen.py` in the current research plan had
+a different hash from its older frozen-source counterpart. These are reporting
+tools, not playing-policy changes. The failed preparation, original script copies,
+plan and failure receipt are preserved at
+`ai/runs/resource-replanning-runtime-source-preparation-failed-v1/`.
+The explicit correction checks current reporting dependencies on the host, keeps
+all historical source files intact, and verifies the full package manifest plus
+resource overlays inside the runtime. No engine or frozen policy file was replaced.
+
+The corrected clean package has **1,463 unchanged base files + 18 added files**.
+Clean-layout initialization verified all four commands and the actual float64 model,
+without starting games. A new replay preflight reproduced one existing 2p/filter
+search-opponent game exactly: **159 learner decisions**, all legal choices/model
+proposals/public observations and terminal state matched. This is an existing game,
+not an extra runtime deal or strength result.
+
+Source upload session **70559** completed exit 0, uploaded once and downloaded for
+hash verification. Descriptor `strong/resource-replanning-runtime-source-v1.json`:
+private dataset `coyotte508/powergrid-ai-training-v1`, revision
+`6950d0baffdbb1e2a91bb09849c68b9c15db9fbf`, archive
+`strong-source-resource-replanning-runtime-v1.tgz`, SHA
+`5e3a402b03e26d93d6741d6879024c49bc5b7ca7db3a01b575c3c8d6461a684c`,
+109,606,680 bytes. Manifest SHA
+`35f85462b63798fccc4134feceba73485e0c8fb102479ef133f23883047eb630`.
+Preparation and upload receipts: `ai/runs/resource-replanning-runtime-source-prepared-v1/`.
+Do not rerun the builder or uploader, and do not alter pinned source files while live.
+
+**Active local pilot: session 75756, PID 559327**, started
+`2026-10-24T23:02:46.683303+00:00`, AMD Ryzen AI 9 HX 370. Output lives inside the
+clean package, at
+`ai/runs/resource-replanning-runtime-source-prepared-v1/layout/ai/runs/resource-replanning-runtime-v1/`.
+Its `status.json` records the current cell, evaluator PID and complete-cell summaries.
+It does not automatically retry failures. At the explicit **23:04:53 UTC** snapshot,
+the 2p/filter cell completed all eight games and verified **1,371 decisions**, no
+game/rollout/nested caps. Measured wall time 28.18 seconds, CPU 247.09 seconds and
+sampled summed RSS 3,307,708,416 bytes. These are parallel local engineering timings,
+not 8840U timings or HF hardware predictions. The **2p/resource-filter** cell is
+running; the 6p cells and 16 replays are still pending. No runtime admission yet.
+
+The auction diagnostic is also still live: **session 76600 / PID 443128**, 10 submitted,
+three verified, seven running, no failures at the same snapshot. Both processes were
+checked live. Full exact snapshot:
+`ai/runs/resource-replanning-runtime-source-prepared-v1/turn-checkpoint.json`.
+
+Next: continue both existing handles. For the resource pilot, require all 64 games,
+four complete receipt summaries, 16 exact replays, no caps and unchanged manifest;
+then archive the full evidence including the initial packaging failure and replay
+preflight. Only after those checks should measured runtime determine hardware,
+concurrency and timeout for the separate 3,360-game development screen. For auctions,
+use the already prepared complete-result collector after all 28 shards finish.
+Do not turn fast partial results into policy selection or strength claims. No
+gradients, production changes, qualified model or final seeds were used this turn.
+
+## Previous checkpoint: complete-results audit prepared; existing jobs continue
 
 At **2026-10-24T22:53:31 UTC** (25 October locally), coordinator **session 76600 /
 PID 443128** remained alive with **10/28 submitted, three verified, seven running,

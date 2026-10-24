@@ -6,7 +6,45 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October: HF diagnostic continues; complete-results audit prepared.**
+**Latest — 25 October: resource runtime pilot started; auction diagnostic continues.**
+The prior turn added and checked the complete-results audit. This turn prepared,
+uploaded and verified a separate resource-policy runtime package, then started the
+preregistered full paired endpoint pilot. No gradients or fresh strength games.
+
+**Continue local session 75756 / PID 559327**, started **23:02:46 UTC, 24 October**
+(25 October locally). At **23:04:53 UTC**, the eight-game 2p/filter cell had completed
+and verified 1,371 decisions, zero caps; **2p/resource-filter is running**. The pilot
+will continue to both 6p cells and then 16 predeclared independent replays: **64 games
+total**, every seat and all four rule combinations, eight resource worlds, 2400-step
+rollouts and unchanged 1600-step games. Pilot outcomes are excluded from strength.
+It runs eight games at a time on the local HX370, not the AMD8840U target or HF.
+
+Source: `strong/resource-replanning-runtime-source-v1.json`, private HF dataset
+revision `6950d0baffdbb1e2a91bb09849c68b9c15db9fbf`, SHA
+`5e3a402b03e26d93d6741d6879024c49bc5b7ca7db3a01b575c3c8d6461a684c`.
+All 1,463 base files remain unchanged; 18 files were added. A clean-package check
+and exact replay of an existing 159-decision game passed before launch.
+Do not edit the pinned pilot, builder, protocol, plan or packaged runtime while live.
+Output is **inside the clean layout**:
+`ai/runs/resource-replanning-runtime-source-prepared-v1/layout/ai/runs/resource-replanning-runtime-v1/`.
+Checkpoint: `ai/runs/resource-replanning-runtime-source-prepared-v1/turn-checkpoint.json`.
+
+The first local package preparation stopped before games/upload because a current
+reporting script differed from its historical packaged version. The failed files
+are preserved in `ai/runs/resource-replanning-runtime-source-preparation-failed-v1/`.
+The correction keeps the historical runtime intact and checks current reporting
+dependencies on the host, separately from runtime overlays. The corrected source
+upload completed once; do not repeat it.
+
+**Also continue auction coordinator session 76600 / PID 443128.** At the same snapshot,
+10/28 jobs were submitted, three verified, seven running, no failures. Its complete
+audit/archiver remains ready but unrun. No duplicate/retried/canceled jobs were started.
+After both complete, verify/archive each full result separately. The resource
+3360-game development screen is still unlaunched and requires measured admission;
+the runtime pilot is not that screen. No candidate selection, production changes or
+final seeds. The strong-model goal remains active.
+
+**Previous — 25 October: HF diagnostic continues; complete-results audit prepared.**
 The same coordinator, **session 76600 / PID 443128**, is alive. At the explicit
 **22:53:31 UTC, 24 October** snapshot, **10/28 jobs were submitted, three verified,
 seven running, no failures**. The three verified batches contain 96 continuations;

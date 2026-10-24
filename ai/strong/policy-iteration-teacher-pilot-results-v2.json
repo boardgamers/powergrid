@@ -1,0 +1,5836 @@
+{
+  "complete": false,
+  "stage": "pilot",
+  "pending": [
+    "6p-parent-economic-neural",
+    "6p-parent-snapshot0-neural",
+    "6p-11101-economic-neural",
+    "6p-11101-snapshot0-neural",
+    "6p-11102-economic-neural",
+    "6p-11102-snapshot0-neural",
+    "5p-parent-economic-neural",
+    "5p-parent-snapshot0-neural",
+    "5p-11101-economic-neural",
+    "5p-11101-snapshot0-neural",
+    "5p-11102-economic-neural",
+    "5p-11102-snapshot0-neural",
+    "4p-parent-economic-neural",
+    "4p-parent-snapshot0-neural",
+    "4p-parent-snapshot0-neural_economic",
+    "4p-11101-economic-neural",
+    "4p-11101-economic-neural_economic",
+    "4p-11101-snapshot0-neural",
+    "4p-11102-economic-neural",
+    "4p-11102-snapshot0-neural",
+    "3p-parent-economic-neural",
+    "3p-parent-snapshot0-neural",
+    "3p-parent-snapshot0-neural_economic",
+    "3p-11101-economic-neural",
+    "3p-11101-snapshot0-neural",
+    "3p-11101-snapshot0-neural_economic",
+    "3p-11102-economic-neural",
+    "3p-11102-snapshot0-neural",
+    "3p-11102-snapshot0-neural_economic",
+    "2p-parent-economic-neural",
+    "2p-parent-economic-neural_economic",
+    "2p-parent-snapshot0-neural",
+    "2p-parent-snapshot0-neural_economic",
+    "2p-11101-economic-neural",
+    "2p-11101-economic-neural_economic",
+    "2p-11101-snapshot0-neural",
+    "2p-11101-snapshot0-neural_economic",
+    "2p-11102-economic-neural",
+    "2p-11102-economic-neural_economic",
+    "2p-11102-snapshot0-neural",
+    "2p-11102-snapshot0-neural_economic"
+  ],
+  "source": {
+    "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+    "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+    "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+    "bytes": 109279870,
+    "base": {
+      "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+      "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+      "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+    },
+    "overlays": {
+      "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+      "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+      "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+      "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+    },
+    "unchanged_base_files": 1425,
+    "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+    "qualification_eligible": false
+  },
+  "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+  "cases": {
+    "6p-parent-economic-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 10752,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "validation": 3,
+        "train": 9
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:6:parent:economic:112:3",
+          "batch": "a",
+          "seconds": 33.10249012299994,
+          "engine_seconds": 10.091538818999766,
+          "policy_seconds": 21.98936244799995,
+          "policy_decisions": 44396
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:112:3",
+          "batch": "b",
+          "seconds": 32.87670364999997,
+          "engine_seconds": 10.134178515000485,
+          "policy_seconds": 21.815990648000025,
+          "policy_decisions": 43826
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:181:5",
+          "batch": "a",
+          "seconds": 28.718213160999994,
+          "engine_seconds": 8.180884995999463,
+          "policy_seconds": 19.722927304000223,
+          "policy_decisions": 32857
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:181:5",
+          "batch": "b",
+          "seconds": 28.55521849999991,
+          "engine_seconds": 8.195081516999721,
+          "policy_seconds": 19.520240282000486,
+          "policy_decisions": 32931
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:303:14",
+          "batch": "a",
+          "seconds": 24.423179858000026,
+          "engine_seconds": 7.493920179000611,
+          "policy_seconds": 16.126949947001094,
+          "policy_decisions": 26324
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:303:14",
+          "batch": "b",
+          "seconds": 24.74611814299999,
+          "engine_seconds": 7.567229970001222,
+          "policy_seconds": 16.35939046300018,
+          "policy_decisions": 26609
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:254:15",
+          "batch": "a",
+          "seconds": 40.80058723399998,
+          "engine_seconds": 12.343246917000442,
+          "policy_seconds": 27.41937194200068,
+          "policy_decisions": 49127
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:254:15",
+          "batch": "b",
+          "seconds": 39.908820374000015,
+          "engine_seconds": 12.210246724999706,
+          "policy_seconds": 26.647987319000094,
+          "policy_decisions": 48878
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:152:12",
+          "batch": "a",
+          "seconds": 17.76910338999994,
+          "engine_seconds": 5.855681184000673,
+          "policy_seconds": 11.240556771999081,
+          "policy_decisions": 21913
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:152:12",
+          "batch": "b",
+          "seconds": 17.877952269000048,
+          "engine_seconds": 5.86051154400036,
+          "policy_seconds": 11.36743133900029,
+          "policy_decisions": 21911
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:240:14",
+          "batch": "a",
+          "seconds": 27.36567362800008,
+          "engine_seconds": 8.745685848000335,
+          "policy_seconds": 17.763411241999734,
+          "policy_decisions": 35549
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:240:14",
+          "batch": "b",
+          "seconds": 26.881906715000014,
+          "engine_seconds": 8.726876049000111,
+          "policy_seconds": 17.29451904300049,
+          "policy_decisions": 35611
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:101:15",
+          "batch": "a",
+          "seconds": 18.425933224000005,
+          "engine_seconds": 6.377724589000081,
+          "policy_seconds": 11.35144447600021,
+          "policy_decisions": 22612
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:101:15",
+          "batch": "b",
+          "seconds": 18.514690812999902,
+          "engine_seconds": 6.471589311999651,
+          "policy_seconds": 11.365207383999405,
+          "policy_decisions": 23363
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:275:30",
+          "batch": "a",
+          "seconds": 21.82592652200003,
+          "engine_seconds": 7.638152932000253,
+          "policy_seconds": 13.428618236000034,
+          "policy_decisions": 28531
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:275:30",
+          "batch": "b",
+          "seconds": 21.778880828999945,
+          "engine_seconds": 7.558653758000105,
+          "policy_seconds": 13.447400585999844,
+          "policy_decisions": 28413
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:318:31",
+          "batch": "a",
+          "seconds": 27.557852206999996,
+          "engine_seconds": 8.458560801999965,
+          "policy_seconds": 18.24171071499984,
+          "policy_decisions": 29430
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:318:31",
+          "batch": "b",
+          "seconds": 27.252039652999997,
+          "engine_seconds": 8.372220586999674,
+          "policy_seconds": 18.02985872599936,
+          "policy_decisions": 29326
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:242:50",
+          "batch": "a",
+          "seconds": 19.90622448700003,
+          "engine_seconds": 7.261657409000236,
+          "policy_seconds": 11.885185880999074,
+          "policy_decisions": 25779
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:242:50",
+          "batch": "b",
+          "seconds": 19.90668752600004,
+          "engine_seconds": 7.298053987999992,
+          "policy_seconds": 11.849661871000762,
+          "policy_decisions": 26065
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:161:43",
+          "batch": "a",
+          "seconds": 3.556579237000051,
+          "engine_seconds": 2.0114594220001436,
+          "policy_seconds": 1.0951693040003647,
+          "policy_decisions": 4320
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:161:43",
+          "batch": "b",
+          "seconds": 3.4588824709999244,
+          "engine_seconds": 1.9598958819999552,
+          "policy_seconds": 1.0868420069996318,
+          "policy_decisions": 4320
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:355:47",
+          "batch": "a",
+          "seconds": 2.455771327000093,
+          "engine_seconds": 1.253929547000098,
+          "policy_seconds": 0.8790050780000911,
+          "policy_decisions": 2304
+        },
+        {
+          "rootId": "policy-v2:6:parent:economic:355:47",
+          "batch": "b",
+          "seconds": 2.4665579259999504,
+          "engine_seconds": 1.2116070639995087,
+          "policy_seconds": 0.9073062049999407,
+          "policy_decisions": 2304
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:6:parent:economic:112:3": [
+          48,
+          0,
+          1,
+          2,
+          24
+        ],
+        "policy-v2:6:parent:economic:181:5": [
+          3,
+          0,
+          1,
+          2
+        ],
+        "policy-v2:6:parent:economic:303:14": [
+          2,
+          0,
+          1
+        ],
+        "policy-v2:6:parent:economic:254:15": [
+          2,
+          5,
+          4,
+          3,
+          1,
+          0
+        ],
+        "policy-v2:6:parent:economic:152:12": [
+          0,
+          2,
+          1
+        ],
+        "policy-v2:6:parent:economic:240:14": [
+          4,
+          0,
+          1,
+          2,
+          3
+        ],
+        "policy-v2:6:parent:economic:101:15": [
+          26,
+          25,
+          24,
+          23,
+          35,
+          14
+        ],
+        "policy-v2:6:parent:economic:275:30": [
+          0,
+          1,
+          2,
+          3,
+          43,
+          21
+        ],
+        "policy-v2:6:parent:economic:318:31": [
+          3,
+          4,
+          0,
+          1
+        ],
+        "policy-v2:6:parent:economic:242:50": [
+          0,
+          1,
+          2,
+          3,
+          47,
+          23
+        ],
+        "policy-v2:6:parent:economic:161:43": [
+          1,
+          14,
+          9,
+          5,
+          10,
+          13
+        ],
+        "policy-v2:6:parent:economic:355:47": [
+          1,
+          0
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-6p-parent-economic-neural_economic",
+      "verified_sha256": "0ba9adb2d3c7f4799610e4fbfd13b1ad3c90c4cbcb95e0c9b4d4d4f37c63798c",
+      "artifacts": {
+        "labels.jsonl.gz": "ea3c927e92cab161508bc06a32b26ba23d9488eba8bea408f3d3074837b38d28",
+        "independent-check.log": "354cfa083ed1c89684e5ac863e970a3d8c3833650a5f138b3e003244d08d723b",
+        "collection-intent.json": "48b298920936dcedb194b9937d8bbffbc7f71d6fba02017baa6834cdf0736a7e",
+        "label-check.json": "b8625f69c9feed813d32fdb334c23ce7b40d3670a0bca9fa641b36335c52c77c"
+      }
+    },
+    "6p-parent-snapshot0-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 11712,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "train": 11,
+        "validation": 1
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:257:4",
+          "batch": "a",
+          "seconds": 48.91861219500004,
+          "engine_seconds": 13.866162453000243,
+          "policy_seconds": 33.82840715000043,
+          "policy_decisions": 55942
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:257:4",
+          "batch": "b",
+          "seconds": 49.67541448399993,
+          "engine_seconds": 14.201155915000072,
+          "policy_seconds": 34.2720045249996,
+          "policy_decisions": 57011
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:276:20",
+          "batch": "a",
+          "seconds": 12.839115263000053,
+          "engine_seconds": 4.3434505240001045,
+          "policy_seconds": 7.921427144000063,
+          "policy_decisions": 13013
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:276:20",
+          "batch": "b",
+          "seconds": 12.67297659999997,
+          "engine_seconds": 4.252420489000087,
+          "policy_seconds": 7.84631339800012,
+          "policy_decisions": 12834
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:177:23",
+          "batch": "a",
+          "seconds": 21.89486523000005,
+          "engine_seconds": 7.574767614999814,
+          "policy_seconds": 13.581531008000297,
+          "policy_decisions": 27206
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:177:23",
+          "batch": "b",
+          "seconds": 22.85948839899993,
+          "engine_seconds": 7.819038184999613,
+          "policy_seconds": 14.292164620000221,
+          "policy_decisions": 28138
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:346:24",
+          "batch": "a",
+          "seconds": 34.18281673199999,
+          "engine_seconds": 11.781703278999089,
+          "policy_seconds": 21.427415053000118,
+          "policy_decisions": 43476
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:346:24",
+          "batch": "b",
+          "seconds": 34.25744816700001,
+          "engine_seconds": 11.932821795999416,
+          "policy_seconds": 21.32281849600031,
+          "policy_decisions": 43776
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:103:22",
+          "batch": "a",
+          "seconds": 32.00135405100002,
+          "engine_seconds": 10.802201365999167,
+          "policy_seconds": 20.30882516500037,
+          "policy_decisions": 33081
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:103:22",
+          "batch": "b",
+          "seconds": 31.22051443299995,
+          "engine_seconds": 10.570828309000149,
+          "policy_seconds": 19.754736313999388,
+          "policy_decisions": 32249
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:143:34",
+          "batch": "a",
+          "seconds": 30.577951549999966,
+          "engine_seconds": 11.954815553000344,
+          "policy_seconds": 17.605370482000694,
+          "policy_decisions": 40386
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:143:34",
+          "batch": "b",
+          "seconds": 30.700444531000016,
+          "engine_seconds": 12.019685697000341,
+          "policy_seconds": 17.67102280300014,
+          "policy_decisions": 40667
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:358:29",
+          "batch": "a",
+          "seconds": 17.79501039899992,
+          "engine_seconds": 7.265504501999885,
+          "policy_seconds": 9.77021308899964,
+          "policy_decisions": 23904
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:358:29",
+          "batch": "b",
+          "seconds": 18.124284403000047,
+          "engine_seconds": 7.452397110000561,
+          "policy_seconds": 9.925918290999107,
+          "policy_decisions": 24348
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:224:35",
+          "batch": "a",
+          "seconds": 4.219475232000036,
+          "engine_seconds": 2.0272206299997606,
+          "policy_seconds": 1.7605997840003056,
+          "policy_decisions": 4946
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:224:35",
+          "batch": "b",
+          "seconds": 4.267868492000048,
+          "engine_seconds": 2.0801016819998495,
+          "policy_seconds": 1.7847188269997787,
+          "policy_decisions": 4945
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:180:29",
+          "batch": "a",
+          "seconds": 8.013463124000054,
+          "engine_seconds": 3.9300980550002578,
+          "policy_seconds": 3.5575853790002157,
+          "policy_decisions": 9594
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:180:29",
+          "batch": "b",
+          "seconds": 8.17432184300003,
+          "engine_seconds": 4.013990005999631,
+          "policy_seconds": 3.632611261000079,
+          "policy_decisions": 9864
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:349:32",
+          "batch": "a",
+          "seconds": 4.679028474000006,
+          "engine_seconds": 2.3450282280000465,
+          "policy_seconds": 1.8514945930000977,
+          "policy_decisions": 6432
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:349:32",
+          "batch": "b",
+          "seconds": 4.6785372370000005,
+          "engine_seconds": 2.3490030410002873,
+          "policy_seconds": 1.8650280430005068,
+          "policy_decisions": 6432
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:135:50",
+          "batch": "a",
+          "seconds": 6.375918016000014,
+          "engine_seconds": 2.9703116520001913,
+          "policy_seconds": 2.9028420740002048,
+          "policy_decisions": 7584
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:135:50",
+          "batch": "b",
+          "seconds": 6.322904748000042,
+          "engine_seconds": 2.971282303000521,
+          "policy_seconds": 2.8835513000002493,
+          "policy_decisions": 7584
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:178:64",
+          "batch": "a",
+          "seconds": 4.919141563999915,
+          "engine_seconds": 2.4519327480002175,
+          "policy_seconds": 2.027541390999886,
+          "policy_decisions": 5840
+        },
+        {
+          "rootId": "policy-v2:6:parent:snapshot0:178:64",
+          "batch": "b",
+          "seconds": 4.87980844599997,
+          "engine_seconds": 2.41960518600024,
+          "policy_seconds": 2.005105055999934,
+          "policy_decisions": 5837
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:6:parent:snapshot0:257:4": [
+          0,
+          27,
+          2,
+          10,
+          13,
+          25,
+          16
+        ],
+        "policy-v2:6:parent:snapshot0:276:20": [
+          0,
+          1
+        ],
+        "policy-v2:6:parent:snapshot0:177:23": [
+          17,
+          16,
+          15,
+          14,
+          34,
+          0
+        ],
+        "policy-v2:6:parent:snapshot0:346:24": [
+          0,
+          1,
+          2,
+          3,
+          15,
+          7
+        ],
+        "policy-v2:6:parent:snapshot0:103:22": [
+          5,
+          13,
+          3,
+          8,
+          10,
+          11
+        ],
+        "policy-v2:6:parent:snapshot0:143:34": [
+          0,
+          1,
+          2,
+          3,
+          16,
+          8
+        ],
+        "policy-v2:6:parent:snapshot0:358:29": [
+          9,
+          20,
+          14,
+          12,
+          4,
+          10
+        ],
+        "policy-v2:6:parent:snapshot0:224:35": [
+          6,
+          0,
+          1,
+          2,
+          5
+        ],
+        "policy-v2:6:parent:snapshot0:180:29": [
+          14,
+          0,
+          1,
+          2,
+          4,
+          7
+        ],
+        "policy-v2:6:parent:snapshot0:349:32": [
+          2,
+          0,
+          1
+        ],
+        "policy-v2:6:parent:snapshot0:135:50": [
+          1,
+          0,
+          3,
+          4
+        ],
+        "policy-v2:6:parent:snapshot0:178:64": [
+          5,
+          3,
+          6,
+          0
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-6p-parent-snapshot0-neural_economic",
+      "verified_sha256": "bf79f4954db17b28c7b909bd83df9a3fec134477830592464a700cb3e697b0ff",
+      "artifacts": {
+        "labels.jsonl.gz": "b20b858561bc322fbc0f2522012dcdceabb44f1c81c17fc999d8d569949f022b",
+        "independent-check.log": "9ce91fcfac31ddc3a0e4af337e84d29c2d90a555b9bc9320226db2fa54dc53dc",
+        "collection-intent.json": "304ed0afe68d340b00b820175bc55a632e27dcc15678560a76a97edd11ac5b5d",
+        "label-check.json": "8c0315a374b832d59a2aa69fec8932edf5dc6b7881fc70b4210d313dbeaf3a0e"
+      }
+    },
+    "6p-11101-economic-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 12096,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "train": 8,
+        "validation": 4
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:6:11101:economic:151:9",
+          "batch": "a",
+          "seconds": 45.910215999,
+          "engine_seconds": 12.874683084999674,
+          "policy_seconds": 31.918215009999813,
+          "policy_decisions": 48858
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:151:9",
+          "batch": "b",
+          "seconds": 46.25856792000002,
+          "engine_seconds": 12.983650331999797,
+          "policy_seconds": 32.2231593599995,
+          "policy_decisions": 48915
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:74:11",
+          "batch": "a",
+          "seconds": 54.39502074400002,
+          "engine_seconds": 15.293919692999907,
+          "policy_seconds": 37.91162121499997,
+          "policy_decisions": 59373
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:74:11",
+          "batch": "b",
+          "seconds": 53.77190269000005,
+          "engine_seconds": 15.436846586999991,
+          "policy_seconds": 37.11808736199919,
+          "policy_decisions": 59082
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:178:17",
+          "batch": "a",
+          "seconds": 41.97772623800006,
+          "engine_seconds": 12.86026569300077,
+          "policy_seconds": 27.94854528799965,
+          "policy_decisions": 47055
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:178:17",
+          "batch": "b",
+          "seconds": 44.655343260999985,
+          "engine_seconds": 13.880220178000059,
+          "policy_seconds": 29.615826335000406,
+          "policy_decisions": 48796
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:13:20",
+          "batch": "a",
+          "seconds": 16.803714847999913,
+          "engine_seconds": 6.243780535000155,
+          "policy_seconds": 9.848988313999712,
+          "policy_decisions": 22119
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:13:20",
+          "batch": "b",
+          "seconds": 16.6949048539999,
+          "engine_seconds": 6.106901963999462,
+          "policy_seconds": 9.89154561999976,
+          "policy_decisions": 21916
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:212:18",
+          "batch": "a",
+          "seconds": 18.381694020000054,
+          "engine_seconds": 6.710407944000281,
+          "policy_seconds": 10.901578434999124,
+          "policy_decisions": 23894
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:212:18",
+          "batch": "b",
+          "seconds": 19.305754327000045,
+          "engine_seconds": 7.054390893999312,
+          "policy_seconds": 11.478601089999756,
+          "policy_decisions": 23947
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:229:22",
+          "batch": "a",
+          "seconds": 11.018678731000023,
+          "engine_seconds": 5.544942818000095,
+          "policy_seconds": 4.819091071000116,
+          "policy_decisions": 19518
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:229:22",
+          "batch": "b",
+          "seconds": 11.143641262000074,
+          "engine_seconds": 5.637299628999472,
+          "policy_seconds": 4.814987366000082,
+          "policy_decisions": 19500
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:11:39",
+          "batch": "a",
+          "seconds": 24.479543376000038,
+          "engine_seconds": 8.238481267000338,
+          "policy_seconds": 15.363460650000661,
+          "policy_decisions": 27513
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:11:39",
+          "batch": "b",
+          "seconds": 24.486460963000013,
+          "engine_seconds": 8.288544439998873,
+          "policy_seconds": 15.323762355999861,
+          "policy_decisions": 27072
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:28:31",
+          "batch": "a",
+          "seconds": 8.655258163999974,
+          "engine_seconds": 4.2702168010000605,
+          "policy_seconds": 3.7904503660003,
+          "policy_decisions": 14035
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:28:31",
+          "batch": "b",
+          "seconds": 8.76753440999994,
+          "engine_seconds": 4.3104128160001665,
+          "policy_seconds": 3.8549072050004725,
+          "policy_decisions": 14010
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:224:31",
+          "batch": "a",
+          "seconds": 14.52371037499995,
+          "engine_seconds": 6.5509983709999915,
+          "policy_seconds": 7.2173188160002155,
+          "policy_decisions": 22705
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:224:31",
+          "batch": "b",
+          "seconds": 14.049664349999944,
+          "engine_seconds": 6.481765221999922,
+          "policy_seconds": 6.844810326999891,
+          "policy_decisions": 22448
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:73:36",
+          "batch": "a",
+          "seconds": 1.3154694460000655,
+          "engine_seconds": 0.9269845229999873,
+          "policy_seconds": 0.0,
+          "policy_decisions": 0
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:73:36",
+          "batch": "b",
+          "seconds": 1.3103401259999146,
+          "engine_seconds": 0.9384111409999605,
+          "policy_seconds": 0.0,
+          "policy_decisions": 0
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:99:55",
+          "batch": "a",
+          "seconds": 3.5254479249999804,
+          "engine_seconds": 1.8999673150000262,
+          "policy_seconds": 1.202285833000019,
+          "policy_decisions": 3034
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:99:55",
+          "batch": "b",
+          "seconds": 3.552817733999973,
+          "engine_seconds": 1.8992764809993332,
+          "policy_seconds": 1.2133488439999383,
+          "policy_decisions": 3029
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:126:64",
+          "batch": "a",
+          "seconds": 6.699110966000035,
+          "engine_seconds": 3.2928264000001946,
+          "policy_seconds": 2.7588421650000328,
+          "policy_decisions": 7776
+        },
+        {
+          "rootId": "policy-v2:6:11101:economic:126:64",
+          "batch": "b",
+          "seconds": 6.568681706999996,
+          "engine_seconds": 3.22612521200017,
+          "policy_seconds": 2.7278238240000974,
+          "policy_decisions": 7776
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:6:11101:economic:151:9": [
+          0,
+          1,
+          2,
+          3,
+          20
+        ],
+        "policy-v2:6:11101:economic:74:11": [
+          0,
+          35,
+          16,
+          22,
+          7,
+          2
+        ],
+        "policy-v2:6:11101:economic:178:17": [
+          0,
+          1,
+          2,
+          3,
+          19,
+          9
+        ],
+        "policy-v2:6:11101:economic:13:20": [
+          3,
+          1,
+          4,
+          0
+        ],
+        "policy-v2:6:11101:economic:212:18": [
+          4,
+          0,
+          1,
+          2
+        ],
+        "policy-v2:6:11101:economic:229:22": [
+          24,
+          23,
+          22,
+          21,
+          19,
+          0
+        ],
+        "policy-v2:6:11101:economic:11:39": [
+          2,
+          0,
+          4,
+          1
+        ],
+        "policy-v2:6:11101:economic:28:31": [
+          8,
+          7,
+          6,
+          5,
+          1
+        ],
+        "policy-v2:6:11101:economic:224:31": [
+          2,
+          6,
+          5,
+          0,
+          4,
+          1
+        ],
+        "policy-v2:6:11101:economic:73:36": [
+          5,
+          16,
+          7,
+          4,
+          6,
+          10
+        ],
+        "policy-v2:6:11101:economic:99:55": [
+          1,
+          23,
+          3,
+          15,
+          11,
+          20
+        ],
+        "policy-v2:6:11101:economic:126:64": [
+          5,
+          4,
+          1,
+          0,
+          6
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-6p-11101-economic-neural_economic",
+      "verified_sha256": "c2eddbf8dfe0e1ce9e490f77e15e6f3fa24152b6a7f85a632ba3407ad98f72b3",
+      "artifacts": {
+        "labels.jsonl.gz": "0477ad609bd91b191646c39a38c4dc1f9cb69ba29d076d96ab318935caa82a3b",
+        "independent-check.log": "26f24fc10bc73c34710d73db9b96acff8dea1df6612ac04a0e5a9849d955b90d",
+        "collection-intent.json": "019e40170e7af45b03335e73d4ef98cdeed3359854f2c29534d0aafbabbd8b45",
+        "label-check.json": "e8e445d90ddf36ad036f913fb6a5b1e00e155e3a8dad990bffd8b6aa897cd7ce"
+      }
+    },
+    "6p-11101-snapshot0-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 12096,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "validation": 5,
+        "train": 7
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:209:4",
+          "batch": "a",
+          "seconds": 40.168786264000005,
+          "engine_seconds": 11.307274155999949,
+          "policy_seconds": 27.863613289999876,
+          "policy_decisions": 47767
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:209:4",
+          "batch": "b",
+          "seconds": 40.781755137999994,
+          "engine_seconds": 11.599720228999445,
+          "policy_seconds": 28.175778607000098,
+          "policy_decisions": 48047
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:249:11",
+          "batch": "a",
+          "seconds": 38.27821465399995,
+          "engine_seconds": 12.442117501999633,
+          "policy_seconds": 24.801196782000602,
+          "policy_decisions": 52713
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:249:11",
+          "batch": "b",
+          "seconds": 38.453670055999964,
+          "engine_seconds": 12.299658034999766,
+          "policy_seconds": 25.134870294999928,
+          "policy_decisions": 51939
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:367:23",
+          "batch": "a",
+          "seconds": 32.92112527200004,
+          "engine_seconds": 10.591351047999638,
+          "policy_seconds": 21.380288015999668,
+          "policy_decisions": 36788
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:367:23",
+          "batch": "b",
+          "seconds": 31.681926696000005,
+          "engine_seconds": 10.28309016299977,
+          "policy_seconds": 20.477674258000206,
+          "policy_decisions": 35370
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:186:14",
+          "batch": "a",
+          "seconds": 41.993046608999975,
+          "engine_seconds": 12.958244203999698,
+          "policy_seconds": 27.963657505000356,
+          "policy_decisions": 45880
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:186:14",
+          "batch": "b",
+          "seconds": 42.28229103900003,
+          "engine_seconds": 13.053840628999865,
+          "policy_seconds": 28.123011037000992,
+          "policy_decisions": 45784
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:72:29",
+          "batch": "a",
+          "seconds": 19.443438234999917,
+          "engine_seconds": 7.147614920000251,
+          "policy_seconds": 11.535974878999582,
+          "policy_decisions": 27578
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:72:29",
+          "batch": "b",
+          "seconds": 19.16136010999992,
+          "engine_seconds": 7.090775593999979,
+          "policy_seconds": 11.315624771000103,
+          "policy_decisions": 27486
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:172:34",
+          "batch": "a",
+          "seconds": 5.467271557999993,
+          "engine_seconds": 2.795742074000259,
+          "policy_seconds": 1.9740426820000039,
+          "policy_decisions": 7072
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:172:34",
+          "batch": "b",
+          "seconds": 5.57322279899995,
+          "engine_seconds": 2.8383265449999726,
+          "policy_seconds": 2.0177007300002288,
+          "policy_decisions": 7346
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:301:36",
+          "batch": "a",
+          "seconds": 2.660529201000031,
+          "engine_seconds": 1.4086828160001232,
+          "policy_seconds": 0.9038560019999977,
+          "policy_decisions": 3168
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:301:36",
+          "batch": "b",
+          "seconds": 2.7315185270000484,
+          "engine_seconds": 1.427621701000021,
+          "policy_seconds": 0.9262366189998374,
+          "policy_decisions": 3168
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:4:37",
+          "batch": "a",
+          "seconds": 1.3355424940000375,
+          "engine_seconds": 0.9745257340000535,
+          "policy_seconds": 0.0,
+          "policy_decisions": 0
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:4:37",
+          "batch": "b",
+          "seconds": 1.3304777270000159,
+          "engine_seconds": 0.9616808559999299,
+          "policy_seconds": 0.0,
+          "policy_decisions": 0
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:15:39",
+          "batch": "a",
+          "seconds": 6.603901985999983,
+          "engine_seconds": 3.051463929999386,
+          "policy_seconds": 3.048361368000087,
+          "policy_decisions": 8473
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:15:39",
+          "batch": "b",
+          "seconds": 6.615226882999991,
+          "engine_seconds": 3.0878035509998654,
+          "policy_seconds": 3.0315100070002927,
+          "policy_decisions": 8476
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:78:43",
+          "batch": "a",
+          "seconds": 5.522946219000005,
+          "engine_seconds": 2.6847494259998257,
+          "policy_seconds": 2.360540976000152,
+          "policy_decisions": 6277
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:78:43",
+          "batch": "b",
+          "seconds": 5.426324333000025,
+          "engine_seconds": 2.635500244999548,
+          "policy_seconds": 2.3086977080002953,
+          "policy_decisions": 6136
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:26:58",
+          "batch": "a",
+          "seconds": 6.777595324999993,
+          "engine_seconds": 3.1493174820002423,
+          "policy_seconds": 3.0552551719998746,
+          "policy_decisions": 7551
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:26:58",
+          "batch": "b",
+          "seconds": 6.803430185000025,
+          "engine_seconds": 3.107473156999845,
+          "policy_seconds": 3.071957121000196,
+          "policy_decisions": 7569
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:111:44",
+          "batch": "a",
+          "seconds": 1.3414886179999712,
+          "engine_seconds": 0.9764496249999866,
+          "policy_seconds": 0.0,
+          "policy_decisions": 0
+        },
+        {
+          "rootId": "policy-v2:6:11101:snapshot0:111:44",
+          "batch": "b",
+          "seconds": 1.3624206120000508,
+          "engine_seconds": 0.9838414650000686,
+          "policy_seconds": 0.0,
+          "policy_decisions": 0
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:6:11101:snapshot0:209:4": [
+          7,
+          2,
+          6,
+          4,
+          3,
+          1
+        ],
+        "policy-v2:6:11101:snapshot0:249:11": [
+          6,
+          5,
+          4,
+          3,
+          7,
+          17,
+          0
+        ],
+        "policy-v2:6:11101:snapshot0:367:23": [
+          0,
+          1,
+          2,
+          3,
+          12
+        ],
+        "policy-v2:6:11101:snapshot0:186:14": [
+          1,
+          5,
+          0,
+          2,
+          4,
+          3
+        ],
+        "policy-v2:6:11101:snapshot0:72:29": [
+          2,
+          3,
+          0,
+          1,
+          4
+        ],
+        "policy-v2:6:11101:snapshot0:172:34": [
+          7,
+          6,
+          5,
+          4,
+          8,
+          0
+        ],
+        "policy-v2:6:11101:snapshot0:301:36": [
+          1,
+          0
+        ],
+        "policy-v2:6:11101:snapshot0:4:37": [
+          4,
+          8,
+          1,
+          0,
+          7,
+          6
+        ],
+        "policy-v2:6:11101:snapshot0:15:39": [
+          4,
+          1,
+          3,
+          5
+        ],
+        "policy-v2:6:11101:snapshot0:78:43": [
+          26,
+          0,
+          1,
+          2,
+          13
+        ],
+        "policy-v2:6:11101:snapshot0:26:58": [
+          2,
+          4,
+          5,
+          3,
+          6
+        ],
+        "policy-v2:6:11101:snapshot0:111:44": [
+          6,
+          2,
+          5,
+          0,
+          1,
+          3
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-6p-11101-snapshot0-neural_economic",
+      "verified_sha256": "d81380270ebad511b657b03897a691190ec337377d80eedef72569b9f4677c92",
+      "artifacts": {
+        "labels.jsonl.gz": "42daf5189cd0630166183107dc0e79c9d9c5a0fe980cd6c5924a0acb1923d456",
+        "independent-check.log": "14bb067348b353af8e6ee2b783a959800bf92bb75a468925add211ef6b634f44",
+        "collection-intent.json": "22a9b190993633de2461af66cf8fdb8581367f4ac73763e7da63e777056f1776",
+        "label-check.json": "9e8c57211e4fded52678ea78a2d811b39e2ce20833b8d903f6f245b535292cf1"
+      }
+    },
+    "6p-11102-economic-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 11520,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "train": 10,
+        "validation": 2
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:6:11102:economic:169:6",
+          "batch": "a",
+          "seconds": 29.83175267931074,
+          "engine_seconds": 8.558200645260513,
+          "policy_seconds": 20.383489541709423,
+          "policy_decisions": 33671
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:169:6",
+          "batch": "b",
+          "seconds": 29.308077784255147,
+          "engine_seconds": 8.584702499210835,
+          "policy_seconds": 19.88211108930409,
+          "policy_decisions": 33333
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:231:18",
+          "batch": "a",
+          "seconds": 34.0057617649436,
+          "engine_seconds": 9.932787042111158,
+          "policy_seconds": 23.17451600730419,
+          "policy_decisions": 34954
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:231:18",
+          "batch": "b",
+          "seconds": 33.907885091379285,
+          "engine_seconds": 9.865332392044365,
+          "policy_seconds": 23.141752384603024,
+          "policy_decisions": 34649
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:217:16",
+          "batch": "a",
+          "seconds": 29.957668229937553,
+          "engine_seconds": 9.640221601352096,
+          "policy_seconds": 19.446563254110515,
+          "policy_decisions": 39056
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:217:16",
+          "batch": "b",
+          "seconds": 30.01568577159196,
+          "engine_seconds": 9.717122695408762,
+          "policy_seconds": 19.391476335935295,
+          "policy_decisions": 38542
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:363:22",
+          "batch": "a",
+          "seconds": 42.06409140769392,
+          "engine_seconds": 12.937556047923863,
+          "policy_seconds": 28.033284558914602,
+          "policy_decisions": 49142
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:363:22",
+          "batch": "b",
+          "seconds": 42.96277188882232,
+          "engine_seconds": 13.177325908094645,
+          "policy_seconds": 28.70599941816181,
+          "policy_decisions": 49369
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:180:19",
+          "batch": "a",
+          "seconds": 11.362911724485457,
+          "engine_seconds": 3.9229197101667523,
+          "policy_seconds": 6.848874553106725,
+          "policy_decisions": 13236
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:180:19",
+          "batch": "b",
+          "seconds": 11.099011513404548,
+          "engine_seconds": 3.901251553557813,
+          "policy_seconds": 6.617994452826679,
+          "policy_decisions": 13449
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:382:43",
+          "batch": "a",
+          "seconds": 11.002875580452383,
+          "engine_seconds": 5.066893617622554,
+          "policy_seconds": 5.305826450698078,
+          "policy_decisions": 16548
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:382:43",
+          "batch": "b",
+          "seconds": 10.913793352432549,
+          "engine_seconds": 5.052873770706356,
+          "policy_seconds": 5.252364281564951,
+          "policy_decisions": 16530
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:90:34",
+          "batch": "a",
+          "seconds": 10.052923681214452,
+          "engine_seconds": 4.462455223314464,
+          "policy_seconds": 5.0289824372157454,
+          "policy_decisions": 13008
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:90:34",
+          "batch": "b",
+          "seconds": 10.080640340223908,
+          "engine_seconds": 4.463587261736393,
+          "policy_seconds": 5.047541010193527,
+          "policy_decisions": 13043
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:300:30",
+          "batch": "a",
+          "seconds": 8.169498995877802,
+          "engine_seconds": 3.6883287550881505,
+          "policy_seconds": 3.941598025150597,
+          "policy_decisions": 10733
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:300:30",
+          "batch": "b",
+          "seconds": 8.175388485193253,
+          "engine_seconds": 3.630016158334911,
+          "policy_seconds": 3.9918306274339557,
+          "policy_decisions": 10733
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:116:30",
+          "batch": "a",
+          "seconds": 4.903716675005853,
+          "engine_seconds": 2.4794185869395733,
+          "policy_seconds": 1.9699478959664702,
+          "policy_decisions": 5604
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:116:30",
+          "batch": "b",
+          "seconds": 4.99832066334784,
+          "engine_seconds": 2.5002658870071173,
+          "policy_seconds": 2.035432263277471,
+          "policy_decisions": 5688
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:381:38",
+          "batch": "a",
+          "seconds": 1.4936361629515886,
+          "engine_seconds": 1.10605682246387,
+          "policy_seconds": 0.0,
+          "policy_decisions": 0
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:381:38",
+          "batch": "b",
+          "seconds": 1.490872128866613,
+          "engine_seconds": 1.113579978235066,
+          "policy_seconds": 0.0,
+          "policy_decisions": 0
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:315:75",
+          "batch": "a",
+          "seconds": 2.099274003878236,
+          "engine_seconds": 1.3066883701831102,
+          "policy_seconds": 0.3940117387101054,
+          "policy_decisions": 960
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:315:75",
+          "batch": "b",
+          "seconds": 2.044728117994964,
+          "engine_seconds": 1.27084827888757,
+          "policy_seconds": 0.39330422785133123,
+          "policy_decisions": 960
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:262:53",
+          "batch": "a",
+          "seconds": 1.3160883458331227,
+          "engine_seconds": 0.8858807990327477,
+          "policy_seconds": 0.0601916778832674,
+          "policy_decisions": 288
+        },
+        {
+          "rootId": "policy-v2:6:11102:economic:262:53",
+          "batch": "b",
+          "seconds": 1.327590798959136,
+          "engine_seconds": 0.8875814378261566,
+          "policy_seconds": 0.0617310656234622,
+          "policy_decisions": 288
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:6:11102:economic:169:6": [
+          3,
+          0,
+          1,
+          2
+        ],
+        "policy-v2:6:11102:economic:231:18": [
+          3,
+          1,
+          4,
+          0
+        ],
+        "policy-v2:6:11102:economic:217:16": [
+          8,
+          7,
+          6,
+          5,
+          9,
+          14
+        ],
+        "policy-v2:6:11102:economic:363:22": [
+          0,
+          1,
+          2,
+          3,
+          19,
+          9
+        ],
+        "policy-v2:6:11102:economic:180:19": [
+          0,
+          1
+        ],
+        "policy-v2:6:11102:economic:382:43": [
+          0,
+          1,
+          2,
+          3,
+          7
+        ],
+        "policy-v2:6:11102:economic:90:34": [
+          2,
+          5,
+          3,
+          1,
+          6
+        ],
+        "policy-v2:6:11102:economic:300:30": [
+          3,
+          1,
+          2,
+          4
+        ],
+        "policy-v2:6:11102:economic:116:30": [
+          7,
+          6,
+          5,
+          4,
+          16,
+          9
+        ],
+        "policy-v2:6:11102:economic:381:38": [
+          4,
+          9,
+          1,
+          7,
+          3,
+          0
+        ],
+        "policy-v2:6:11102:economic:315:75": [
+          4,
+          24,
+          7,
+          2,
+          21,
+          15
+        ],
+        "policy-v2:6:11102:economic:262:53": [
+          3,
+          13,
+          2,
+          8,
+          5,
+          6
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-6p-11102-economic-neural_economic",
+      "verified_sha256": "a811e1412ba3ba9c5f7d428301a3cc855884380c6cec5d64b2c4c00e9e92c967",
+      "artifacts": {
+        "labels.jsonl.gz": "a834021dcefdef3a9af8679a322a639ed0e99fef7afbeb0287b8586d7aeb500d",
+        "independent-check.log": "4912d7fcccadbd444d3fc53213a7c3a10a5b28b37e66999a22f0c7928afb0da2",
+        "collection-intent.json": "1caeb75112dfc9ab801005d25b1ef33da144f84a02cd13c0435366adfa1abed5",
+        "label-check.json": "bbfbc0ba9f724c52f11af9a7690e957fb82fccd8680583fae0a0f4c498744971"
+      }
+    },
+    "6p-11102-snapshot0-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 12480,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "train": 7,
+        "validation": 5
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:271:19",
+          "batch": "a",
+          "seconds": 34.3392053959999,
+          "engine_seconds": 10.445893595000143,
+          "policy_seconds": 22.891327589000525,
+          "policy_decisions": 37521
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:271:19",
+          "batch": "b",
+          "seconds": 34.79861754000001,
+          "engine_seconds": 10.595886670999448,
+          "policy_seconds": 23.279261371999723,
+          "policy_decisions": 37607
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:372:23",
+          "batch": "a",
+          "seconds": 20.965866197999958,
+          "engine_seconds": 6.6819026349996875,
+          "policy_seconds": 13.587668686000256,
+          "policy_decisions": 23067
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:372:23",
+          "batch": "b",
+          "seconds": 21.35284372000001,
+          "engine_seconds": 6.736298145000887,
+          "policy_seconds": 13.90403094400017,
+          "policy_decisions": 23339
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:159:20",
+          "batch": "a",
+          "seconds": 19.670236636000027,
+          "engine_seconds": 7.436364330000629,
+          "policy_seconds": 11.474681114000532,
+          "policy_decisions": 25728
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:159:20",
+          "batch": "b",
+          "seconds": 20.163463847000003,
+          "engine_seconds": 7.60794410499966,
+          "policy_seconds": 11.775060503999839,
+          "policy_decisions": 26260
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:202:25",
+          "batch": "a",
+          "seconds": 21.467669846000035,
+          "engine_seconds": 7.82962307199989,
+          "policy_seconds": 12.865366869000013,
+          "policy_decisions": 28709
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:202:25",
+          "batch": "b",
+          "seconds": 21.561648920999914,
+          "engine_seconds": 7.7690099039995175,
+          "policy_seconds": 13.011814290999837,
+          "policy_decisions": 28730
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:152:32",
+          "batch": "a",
+          "seconds": 13.839193550999994,
+          "engine_seconds": 5.532568144999914,
+          "policy_seconds": 7.668654102999994,
+          "policy_decisions": 18782
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:152:32",
+          "batch": "b",
+          "seconds": 14.144652377000057,
+          "engine_seconds": 5.66557032500009,
+          "policy_seconds": 7.846844345000022,
+          "policy_decisions": 19478
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:245:33",
+          "batch": "a",
+          "seconds": 8.710733459999915,
+          "engine_seconds": 4.273813497000106,
+          "policy_seconds": 3.8634190579999768,
+          "policy_decisions": 15280
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:245:33",
+          "batch": "b",
+          "seconds": 8.704126132999932,
+          "engine_seconds": 4.292657733000169,
+          "policy_seconds": 3.8498527550002564,
+          "policy_decisions": 15310
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:97:36",
+          "batch": "a",
+          "seconds": 9.238948194000045,
+          "engine_seconds": 4.370226406999677,
+          "policy_seconds": 4.308376197000143,
+          "policy_decisions": 14160
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:97:36",
+          "batch": "b",
+          "seconds": 9.224166735999916,
+          "engine_seconds": 4.373279748999948,
+          "policy_seconds": 4.298385726999982,
+          "policy_decisions": 14052
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:210:28",
+          "batch": "a",
+          "seconds": 5.349406619999968,
+          "engine_seconds": 2.4460625420001634,
+          "policy_seconds": 2.466759693999734,
+          "policy_decisions": 6094
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:210:28",
+          "batch": "b",
+          "seconds": 5.347239499000011,
+          "engine_seconds": 2.453425703000221,
+          "policy_seconds": 2.4761725199998637,
+          "policy_decisions": 6059
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:137:33",
+          "batch": "a",
+          "seconds": 9.199342849999994,
+          "engine_seconds": 4.163384382000004,
+          "policy_seconds": 4.454050523000433,
+          "policy_decisions": 13330
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:137:33",
+          "batch": "b",
+          "seconds": 9.18839893400002,
+          "engine_seconds": 4.18696278799996,
+          "policy_seconds": 4.430200734999971,
+          "policy_decisions": 13279
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:199:56",
+          "batch": "a",
+          "seconds": 6.2084583969999585,
+          "engine_seconds": 3.1159795940003505,
+          "policy_seconds": 2.4479940760003274,
+          "policy_decisions": 7872
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:199:56",
+          "batch": "b",
+          "seconds": 6.2554205139999794,
+          "engine_seconds": 3.133298984000021,
+          "policy_seconds": 2.475245758999904,
+          "policy_decisions": 7872
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:118:43",
+          "batch": "a",
+          "seconds": 1.3767311259999815,
+          "engine_seconds": 0.922382953000124,
+          "policy_seconds": 0.10071961299991017,
+          "policy_decisions": 384
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:118:43",
+          "batch": "b",
+          "seconds": 1.396592399000042,
+          "engine_seconds": 0.9163977759999398,
+          "policy_seconds": 0.11601458100005857,
+          "policy_decisions": 384
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:32:44",
+          "batch": "a",
+          "seconds": 3.3875307099999645,
+          "engine_seconds": 1.9551669710001534,
+          "policy_seconds": 1.0039532769998232,
+          "policy_decisions": 2784
+        },
+        {
+          "rootId": "policy-v2:6:11102:snapshot0:32:44",
+          "batch": "b",
+          "seconds": 3.409317613999974,
+          "engine_seconds": 1.9717511200000217,
+          "policy_seconds": 1.0052892109999902,
+          "policy_decisions": 2784
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:6:11102:snapshot0:271:19": [
+          2,
+          3,
+          0,
+          1
+        ],
+        "policy-v2:6:11102:snapshot0:372:23": [
+          2,
+          1,
+          4,
+          0,
+          3
+        ],
+        "policy-v2:6:11102:snapshot0:159:20": [
+          3,
+          2,
+          1,
+          0,
+          4
+        ],
+        "policy-v2:6:11102:snapshot0:202:25": [
+          2,
+          3,
+          0,
+          1,
+          4
+        ],
+        "policy-v2:6:11102:snapshot0:152:32": [
+          7,
+          6,
+          5,
+          4,
+          18,
+          9
+        ],
+        "policy-v2:6:11102:snapshot0:245:33": [
+          7,
+          5,
+          0,
+          2,
+          1,
+          4
+        ],
+        "policy-v2:6:11102:snapshot0:97:36": [
+          3,
+          2,
+          1,
+          0,
+          15,
+          8
+        ],
+        "policy-v2:6:11102:snapshot0:210:28": [
+          17,
+          0,
+          1,
+          2,
+          8
+        ],
+        "policy-v2:6:11102:snapshot0:137:33": [
+          4,
+          1,
+          3,
+          2,
+          5
+        ],
+        "policy-v2:6:11102:snapshot0:199:56": [
+          0,
+          1,
+          2,
+          3,
+          20,
+          10
+        ],
+        "policy-v2:6:11102:snapshot0:118:43": [
+          12,
+          19,
+          16,
+          5,
+          0,
+          8
+        ],
+        "policy-v2:6:11102:snapshot0:32:44": [
+          16,
+          23,
+          2,
+          5,
+          21,
+          17
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-6p-11102-snapshot0-neural_economic",
+      "verified_sha256": "28f82fceb15b962fbe69c3f8b28dc4049ee40404c2b05e3abb5892626d01c35f",
+      "artifacts": {
+        "labels.jsonl.gz": "0c08887d7fa28d809748dd2f5d0a7aa2ab28858b1603a8f0d3bed752e8e84270",
+        "independent-check.log": "c3edf2a61ed86d45aedc55135f2f4c20a28176e90845a17c45450528f69e7877",
+        "collection-intent.json": "97755ad7ce630911159704a793c2b4a2e4d96c0dbb2cc081c5d8a584c3bbf017",
+        "label-check.json": "7f46affcdd321a97645fa52c076da7273160b78e8d41e745294959422d679f4d"
+      }
+    },
+    "5p-parent-economic-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 12288,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "train": 10,
+        "validation": 2
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:5:parent:economic:129:6",
+          "batch": "a",
+          "seconds": 25.715001263999966,
+          "engine_seconds": 7.771823861999792,
+          "policy_seconds": 17.038887995000778,
+          "policy_decisions": 33041
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:129:6",
+          "batch": "b",
+          "seconds": 25.558457387999965,
+          "engine_seconds": 7.7760226510006305,
+          "policy_seconds": 16.979125584999792,
+          "policy_decisions": 32524
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:282:11",
+          "batch": "a",
+          "seconds": 65.39351319499997,
+          "engine_seconds": 18.506900531999804,
+          "policy_seconds": 45.21607498600031,
+          "policy_decisions": 75223
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:282:11",
+          "batch": "b",
+          "seconds": 66.04450594999992,
+          "engine_seconds": 18.750278905998925,
+          "policy_seconds": 45.55484144200125,
+          "policy_decisions": 75440
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:318:16",
+          "batch": "a",
+          "seconds": 26.121375458999978,
+          "engine_seconds": 8.343497322999497,
+          "policy_seconds": 16.944182450000426,
+          "policy_decisions": 30370
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:318:16",
+          "batch": "b",
+          "seconds": 25.958076333999998,
+          "engine_seconds": 8.295433497000545,
+          "policy_seconds": 16.844953003999535,
+          "policy_decisions": 30068
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:76:22",
+          "batch": "a",
+          "seconds": 12.887623810000036,
+          "engine_seconds": 4.639704359000007,
+          "policy_seconds": 7.65350012999977,
+          "policy_decisions": 17346
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:76:22",
+          "batch": "b",
+          "seconds": 13.139719280000008,
+          "engine_seconds": 4.709513743999992,
+          "policy_seconds": 7.835485497999912,
+          "policy_decisions": 17423
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:67:38",
+          "batch": "a",
+          "seconds": 19.29748287299992,
+          "engine_seconds": 7.527625248000049,
+          "policy_seconds": 11.011747213000149,
+          "policy_decisions": 27953
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:67:38",
+          "batch": "b",
+          "seconds": 19.16939603800006,
+          "engine_seconds": 7.498480257999745,
+          "policy_seconds": 10.917947883000465,
+          "policy_decisions": 27669
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:20:33",
+          "batch": "a",
+          "seconds": 9.672884194000062,
+          "engine_seconds": 4.1908672089999754,
+          "policy_seconds": 4.926202789000058,
+          "policy_decisions": 15316
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:20:33",
+          "batch": "b",
+          "seconds": 9.226445031999901,
+          "engine_seconds": 4.015776360000018,
+          "policy_seconds": 4.654437392999284,
+          "policy_decisions": 14634
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:145:32",
+          "batch": "a",
+          "seconds": 1.1693722589999425,
+          "engine_seconds": 0.8115545629998451,
+          "policy_seconds": 0.03777677599998697,
+          "policy_decisions": 192
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:145:32",
+          "batch": "b",
+          "seconds": 1.1868633560000035,
+          "engine_seconds": 0.8149997169999779,
+          "policy_seconds": 0.03301013299994793,
+          "policy_decisions": 192
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:314:49",
+          "batch": "a",
+          "seconds": 3.8880518390000134,
+          "engine_seconds": 2.014398449000055,
+          "policy_seconds": 1.460022763999973,
+          "policy_decisions": 6144
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:314:49",
+          "batch": "b",
+          "seconds": 3.9205662389999816,
+          "engine_seconds": 2.0218104269998776,
+          "policy_seconds": 1.4864388349998308,
+          "policy_decisions": 6144
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:249:40",
+          "batch": "a",
+          "seconds": 7.162529586000005,
+          "engine_seconds": 3.709792139999877,
+          "policy_seconds": 2.926243147999571,
+          "policy_decisions": 12300
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:249:40",
+          "batch": "b",
+          "seconds": 7.147098278000044,
+          "engine_seconds": 3.7157713090001607,
+          "policy_seconds": 2.90974591600002,
+          "policy_decisions": 12252
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:132:42",
+          "batch": "a",
+          "seconds": 2.290760133000049,
+          "engine_seconds": 1.3521189020000293,
+          "policy_seconds": 0.5688716279998971,
+          "policy_decisions": 1536
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:132:42",
+          "batch": "b",
+          "seconds": 2.273224164999988,
+          "engine_seconds": 1.3618321310000283,
+          "policy_seconds": 0.5700857959999439,
+          "policy_decisions": 1536
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:11:70",
+          "batch": "a",
+          "seconds": 6.74595535900005,
+          "engine_seconds": 3.1774862730003406,
+          "policy_seconds": 3.068606122000233,
+          "policy_decisions": 9696
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:11:70",
+          "batch": "b",
+          "seconds": 6.793461030000003,
+          "engine_seconds": 3.206739528000071,
+          "policy_seconds": 3.0783563230004347,
+          "policy_decisions": 9696
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:127:62",
+          "batch": "a",
+          "seconds": 2.5185886209999353,
+          "engine_seconds": 1.4481584389999398,
+          "policy_seconds": 0.6899216870000373,
+          "policy_decisions": 1632
+        },
+        {
+          "rootId": "policy-v2:5:parent:economic:127:62",
+          "batch": "b",
+          "seconds": 2.550119400999961,
+          "engine_seconds": 1.4837559349998628,
+          "policy_seconds": 0.6831022730000313,
+          "policy_decisions": 1632
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:5:parent:economic:129:6": [
+          1,
+          4,
+          0,
+          2
+        ],
+        "policy-v2:5:parent:economic:282:11": [
+          0,
+          32,
+          22,
+          1,
+          6,
+          13,
+          28
+        ],
+        "policy-v2:5:parent:economic:318:16": [
+          3,
+          1,
+          2,
+          4
+        ],
+        "policy-v2:5:parent:economic:76:22": [
+          3,
+          4,
+          0,
+          1
+        ],
+        "policy-v2:5:parent:economic:67:38": [
+          0,
+          1,
+          2,
+          3,
+          15,
+          7
+        ],
+        "policy-v2:5:parent:economic:20:33": [
+          8,
+          7,
+          6,
+          5,
+          0
+        ],
+        "policy-v2:5:parent:economic:145:32": [
+          8,
+          10,
+          1,
+          5,
+          7,
+          0
+        ],
+        "policy-v2:5:parent:economic:314:49": [
+          0,
+          1,
+          2,
+          3,
+          9
+        ],
+        "policy-v2:5:parent:economic:249:40": [
+          7,
+          6,
+          5,
+          4,
+          8,
+          10
+        ],
+        "policy-v2:5:parent:economic:132:42": [
+          1,
+          16,
+          3,
+          9,
+          7,
+          13
+        ],
+        "policy-v2:5:parent:economic:11:70": [
+          4,
+          0,
+          1,
+          2,
+          3
+        ],
+        "policy-v2:5:parent:economic:127:62": [
+          18,
+          20,
+          11,
+          3,
+          14,
+          16
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-5p-parent-economic-neural_economic",
+      "verified_sha256": "8e1e0b39bb82be8a1ae7a83fff1ab3921392803428f8923cb747ab8cea8a38ec",
+      "artifacts": {
+        "labels.jsonl.gz": "4c37ea57ea11c253f0bc9a2c3ac05eb8ab0dc098272d70ce0ac29058af929b99",
+        "independent-check.log": "b1b32cb0e808a6966ee456927236e595aa6d7a95bb4e1661bfb6ff4c91b130ba",
+        "collection-intent.json": "051bc0956870b519b55c8734e8e49cd6185c3f7d68e85b609efd1c8f25719bfc",
+        "label-check.json": "c674614f05f89b63ce2ba494129f3e314b4639acbb15dfd03bd160ed4d2591d6"
+      }
+    },
+    "5p-parent-snapshot0-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 12288,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "train": 9,
+        "validation": 3
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:211:9",
+          "batch": "a",
+          "seconds": 37.43703911600005,
+          "engine_seconds": 11.366339180999375,
+          "policy_seconds": 24.959888526000213,
+          "policy_decisions": 47685
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:211:9",
+          "batch": "b",
+          "seconds": 37.580676228000016,
+          "engine_seconds": 11.499813372000858,
+          "policy_seconds": 25.063983852999854,
+          "policy_decisions": 47858
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:210:19",
+          "batch": "a",
+          "seconds": 32.022551504000035,
+          "engine_seconds": 11.009884685999396,
+          "policy_seconds": 20.07751970500044,
+          "policy_decisions": 40007
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:210:19",
+          "batch": "b",
+          "seconds": 33.03430455,
+          "engine_seconds": 11.270376022999244,
+          "policy_seconds": 20.789494268,
+          "policy_decisions": 40331
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:305:23",
+          "batch": "a",
+          "seconds": 16.53470705799998,
+          "engine_seconds": 6.285154158999717,
+          "policy_seconds": 9.57100186200023,
+          "policy_decisions": 23058
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:305:23",
+          "batch": "b",
+          "seconds": 16.40449950699997,
+          "engine_seconds": 6.233198911999921,
+          "policy_seconds": 9.497725424000578,
+          "policy_decisions": 23097
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:20:31",
+          "batch": "a",
+          "seconds": 13.713635210999996,
+          "engine_seconds": 5.414372892999836,
+          "policy_seconds": 7.654914665000206,
+          "policy_decisions": 19468
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:20:31",
+          "batch": "b",
+          "seconds": 15.062521308999976,
+          "engine_seconds": 5.828714569999761,
+          "policy_seconds": 8.563118921999944,
+          "policy_decisions": 21045
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:69:32",
+          "batch": "a",
+          "seconds": 8.277480061000006,
+          "engine_seconds": 4.054934265999691,
+          "policy_seconds": 3.6755354269997724,
+          "policy_decisions": 13248
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:69:32",
+          "batch": "b",
+          "seconds": 8.25164991400004,
+          "engine_seconds": 4.005458158999772,
+          "policy_seconds": 3.698240134999992,
+          "policy_decisions": 13248
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:208:29",
+          "batch": "a",
+          "seconds": 6.6410447209999575,
+          "engine_seconds": 3.0646810140001435,
+          "policy_seconds": 3.130980282000678,
+          "policy_decisions": 9534
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:208:29",
+          "batch": "b",
+          "seconds": 6.8733239860000594,
+          "engine_seconds": 3.099774290000596,
+          "policy_seconds": 3.261641153999676,
+          "policy_decisions": 10036
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:14:37",
+          "batch": "a",
+          "seconds": 6.147909397000035,
+          "engine_seconds": 2.869774858000369,
+          "policy_seconds": 2.808736624999824,
+          "policy_decisions": 8412
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:14:37",
+          "batch": "b",
+          "seconds": 6.107304530999954,
+          "engine_seconds": 2.824785411000448,
+          "policy_seconds": 2.7941965880002044,
+          "policy_decisions": 8402
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:316:36",
+          "batch": "a",
+          "seconds": 7.702346368000008,
+          "engine_seconds": 3.359198408999873,
+          "policy_seconds": 3.838526058999946,
+          "policy_decisions": 10516
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:316:36",
+          "batch": "b",
+          "seconds": 7.86437361000003,
+          "engine_seconds": 3.4041252170001144,
+          "policy_seconds": 3.924812501000133,
+          "policy_decisions": 10747
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:177:33",
+          "batch": "a",
+          "seconds": 8.345743494999965,
+          "engine_seconds": 3.726980941999841,
+          "policy_seconds": 4.09830192499976,
+          "policy_decisions": 12523
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:177:33",
+          "batch": "b",
+          "seconds": 8.3150081,
+          "engine_seconds": 3.705284920000281,
+          "policy_seconds": 4.105803321999929,
+          "policy_decisions": 12528
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:150:45",
+          "batch": "a",
+          "seconds": 12.32347991000006,
+          "engine_seconds": 4.980220185000235,
+          "policy_seconds": 6.737850388999959,
+          "policy_decisions": 15353
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:150:45",
+          "batch": "b",
+          "seconds": 12.70719506699993,
+          "engine_seconds": 5.110788821000028,
+          "policy_seconds": 6.989596641999924,
+          "policy_decisions": 15637
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:307:53",
+          "batch": "a",
+          "seconds": 5.467209089999983,
+          "engine_seconds": 2.622101889999726,
+          "policy_seconds": 2.443808389999731,
+          "policy_decisions": 7470
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:307:53",
+          "batch": "b",
+          "seconds": 5.519774237999968,
+          "engine_seconds": 2.633784374000129,
+          "policy_seconds": 2.439758774999632,
+          "policy_decisions": 7488
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:15:63",
+          "batch": "a",
+          "seconds": 1.356496681000067,
+          "engine_seconds": 0.9392131009999503,
+          "policy_seconds": 0.03849600499995631,
+          "policy_decisions": 192
+        },
+        {
+          "rootId": "policy-v2:5:parent:snapshot0:15:63",
+          "batch": "b",
+          "seconds": 1.340909226000008,
+          "engine_seconds": 0.9417460290000008,
+          "policy_seconds": 0.03552068600004077,
+          "policy_decisions": 192
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:5:parent:snapshot0:211:9": [
+          0,
+          1,
+          2,
+          3,
+          15
+        ],
+        "policy-v2:5:parent:snapshot0:210:19": [
+          0,
+          1,
+          2,
+          3,
+          7
+        ],
+        "policy-v2:5:parent:snapshot0:305:23": [
+          22,
+          29,
+          10,
+          26,
+          15,
+          3
+        ],
+        "policy-v2:5:parent:snapshot0:20:31": [
+          0,
+          9,
+          4,
+          6,
+          7,
+          5
+        ],
+        "policy-v2:5:parent:snapshot0:69:32": [
+          17,
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        "policy-v2:5:parent:snapshot0:208:29": [
+          4,
+          3,
+          2,
+          1,
+          7,
+          9
+        ],
+        "policy-v2:5:parent:snapshot0:14:37": [
+          1,
+          4,
+          0,
+          3,
+          2
+        ],
+        "policy-v2:5:parent:snapshot0:316:36": [
+          3,
+          4,
+          0,
+          1
+        ],
+        "policy-v2:5:parent:snapshot0:177:33": [
+          4,
+          5,
+          1,
+          3,
+          6
+        ],
+        "policy-v2:5:parent:snapshot0:150:45": [
+          4,
+          0,
+          1,
+          2,
+          3
+        ],
+        "policy-v2:5:parent:snapshot0:307:53": [
+          1,
+          5,
+          2,
+          4,
+          6
+        ],
+        "policy-v2:5:parent:snapshot0:15:63": [
+          3,
+          19,
+          2,
+          4,
+          14,
+          18
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-5p-parent-snapshot0-neural_economic",
+      "verified_sha256": "cc6dc3c96993acec8a46e3e00c1b10f96a0458baa20309f919b8671b39451269",
+      "artifacts": {
+        "labels.jsonl.gz": "1bfc1b61fa06c6b26e6d6ad30b9026a0e3eea2a24a96a416fa54071163164620",
+        "independent-check.log": "cbc5cb54d1c4caea3f7dc29e52174c668db274077aabe08ca396d634ff9ab241",
+        "collection-intent.json": "e5d2d5fd2f3057ec7b0f50bc5066dcb7c423d24caa2d49c05961bc37c8e9aed1",
+        "label-check.json": "8510a34cfbda8a437942020403c744b582fcd8defc9e58c621463b22d1433a20"
+      }
+    },
+    "5p-11101-economic-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 11904,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "train": 8,
+        "validation": 4
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:5:11101:economic:217:10",
+          "batch": "a",
+          "seconds": 32.06208726900002,
+          "engine_seconds": 10.761086481000007,
+          "policy_seconds": 20.286896883999702,
+          "policy_decisions": 46074
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:217:10",
+          "batch": "b",
+          "seconds": 31.57597772700001,
+          "engine_seconds": 10.613521156000274,
+          "policy_seconds": 20.047560207000288,
+          "policy_decisions": 45636
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:220:9",
+          "batch": "a",
+          "seconds": 18.298362400999963,
+          "engine_seconds": 5.368007405999492,
+          "policy_seconds": 12.276878400000442,
+          "policy_decisions": 21039
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:220:9",
+          "batch": "b",
+          "seconds": 18.64206191300002,
+          "engine_seconds": 5.495959307999669,
+          "policy_seconds": 12.511938724000629,
+          "policy_decisions": 21719
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:167:28",
+          "batch": "a",
+          "seconds": 26.40866836500004,
+          "engine_seconds": 8.30969152600153,
+          "policy_seconds": 17.28333499199971,
+          "policy_decisions": 31779
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:167:28",
+          "batch": "b",
+          "seconds": 26.997428825000043,
+          "engine_seconds": 8.643292603000077,
+          "policy_seconds": 17.48827811800038,
+          "policy_decisions": 32489
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:8:20",
+          "batch": "a",
+          "seconds": 17.34272850900004,
+          "engine_seconds": 6.441657682000368,
+          "policy_seconds": 10.218156864999969,
+          "policy_decisions": 24821
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:8:20",
+          "batch": "b",
+          "seconds": 17.317833128000075,
+          "engine_seconds": 6.554978081000854,
+          "policy_seconds": 10.06928986000105,
+          "policy_decisions": 24741
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:247:47",
+          "batch": "a",
+          "seconds": 18.177204394,
+          "engine_seconds": 6.734316183999681,
+          "policy_seconds": 10.71865748599987,
+          "policy_decisions": 26425
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:247:47",
+          "batch": "b",
+          "seconds": 18.229773653999928,
+          "engine_seconds": 6.8256790969998065,
+          "policy_seconds": 10.676480415999777,
+          "policy_decisions": 26397
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:158:37",
+          "batch": "a",
+          "seconds": 14.353635541000017,
+          "engine_seconds": 5.655614805999562,
+          "policy_seconds": 8.017565124000384,
+          "policy_decisions": 19729
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:158:37",
+          "batch": "b",
+          "seconds": 14.405677439999977,
+          "engine_seconds": 5.667560369999364,
+          "policy_seconds": 8.062344780000103,
+          "policy_decisions": 19950
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:238:36",
+          "batch": "a",
+          "seconds": 13.749411871000007,
+          "engine_seconds": 5.733381940000072,
+          "policy_seconds": 7.358352679999825,
+          "policy_decisions": 18128
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:238:36",
+          "batch": "b",
+          "seconds": 13.97494339100001,
+          "engine_seconds": 5.815593734000117,
+          "policy_seconds": 7.483115296999699,
+          "policy_decisions": 18419
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:141:27",
+          "batch": "a",
+          "seconds": 6.5587447899999916,
+          "engine_seconds": 3.0563386119996494,
+          "policy_seconds": 3.0027039119999017,
+          "policy_decisions": 9408
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:141:27",
+          "batch": "b",
+          "seconds": 6.595772819999979,
+          "engine_seconds": 3.142379518000098,
+          "policy_seconds": 3.00011061400005,
+          "policy_decisions": 9408
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:215:58",
+          "batch": "a",
+          "seconds": 5.356127324999989,
+          "engine_seconds": 2.421647536000364,
+          "policy_seconds": 2.452427238000041,
+          "policy_decisions": 5917
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:215:58",
+          "batch": "b",
+          "seconds": 5.330184373999941,
+          "engine_seconds": 2.4404446559998405,
+          "policy_seconds": 2.436360455000113,
+          "policy_decisions": 5909
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:281:40",
+          "batch": "a",
+          "seconds": 3.867699005000077,
+          "engine_seconds": 1.9923809790000178,
+          "policy_seconds": 1.4516408310001907,
+          "policy_decisions": 3456
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:281:40",
+          "batch": "b",
+          "seconds": 3.823326965999968,
+          "engine_seconds": 1.955434743999831,
+          "policy_seconds": 1.4511132460000908,
+          "policy_decisions": 3456
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:4:34",
+          "batch": "a",
+          "seconds": 9.358022592999987,
+          "engine_seconds": 4.609844993000252,
+          "policy_seconds": 4.1813512410001294,
+          "policy_decisions": 14400
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:4:34",
+          "batch": "b",
+          "seconds": 9.369092501000068,
+          "engine_seconds": 4.60626058399987,
+          "policy_seconds": 4.184027215000128,
+          "policy_decisions": 14400
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:286:54",
+          "batch": "a",
+          "seconds": 1.103055960000006,
+          "engine_seconds": 0.7452077710000822,
+          "policy_seconds": 0.042800392999993164,
+          "policy_decisions": 192
+        },
+        {
+          "rootId": "policy-v2:5:11101:economic:286:54",
+          "batch": "b",
+          "seconds": 1.1565247989999534,
+          "engine_seconds": 0.7657906940000885,
+          "policy_seconds": 0.04425504300002103,
+          "policy_decisions": 192
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:5:11101:economic:217:10": [
+          8,
+          7,
+          6,
+          5,
+          17,
+          2
+        ],
+        "policy-v2:5:11101:economic:220:9": [
+          3,
+          0,
+          1,
+          2
+        ],
+        "policy-v2:5:11101:economic:167:28": [
+          2,
+          3,
+          1,
+          0
+        ],
+        "policy-v2:5:11101:economic:8:20": [
+          5,
+          8,
+          2,
+          7,
+          3,
+          1
+        ],
+        "policy-v2:5:11101:economic:247:47": [
+          0,
+          1,
+          2,
+          3,
+          13,
+          6
+        ],
+        "policy-v2:5:11101:economic:158:37": [
+          3,
+          1,
+          2,
+          4
+        ],
+        "policy-v2:5:11101:economic:238:36": [
+          18,
+          0,
+          1,
+          2,
+          9
+        ],
+        "policy-v2:5:11101:economic:141:27": [
+          6,
+          0,
+          1,
+          2
+        ],
+        "policy-v2:5:11101:economic:215:58": [
+          4,
+          2,
+          5,
+          1,
+          6
+        ],
+        "policy-v2:5:11101:economic:281:40": [
+          4,
+          22,
+          2,
+          5,
+          13,
+          9
+        ],
+        "policy-v2:5:11101:economic:4:34": [
+          18,
+          0,
+          1,
+          2,
+          8,
+          9
+        ],
+        "policy-v2:5:11101:economic:286:54": [
+          17,
+          19,
+          3,
+          9,
+          14,
+          2
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-5p-11101-economic-neural_economic",
+      "verified_sha256": "b82429f7b54e8456c6a6231286ea695fd81e42809daa2495efac9064d1273099",
+      "artifacts": {
+        "labels.jsonl.gz": "801e93965071322dddb42534b5e883b67f23c57af4f98b5271e89b65021b13df",
+        "independent-check.log": "9bb1e2e635de77035519d58226d4e72f108b817a23a84b50e61bd983739d5050",
+        "collection-intent.json": "95ed987ba37979d5e86931ed0d0e278abacc109a8a537770ca403552411d22be",
+        "label-check.json": "354e7581b5bbee51cb7d70022027efa447f879e835e85e4f0f78625ff165ece2"
+      }
+    },
+    "5p-11101-snapshot0-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 11712,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "train": 9,
+        "validation": 3
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:145:2",
+          "batch": "a",
+          "seconds": 42.451746476999915,
+          "engine_seconds": 11.985768853000081,
+          "policy_seconds": 29.38558426900022,
+          "policy_decisions": 51570
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:145:2",
+          "batch": "b",
+          "seconds": 42.04593057400007,
+          "engine_seconds": 12.001426236999237,
+          "policy_seconds": 29.016398666999976,
+          "policy_decisions": 51483
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:126:5",
+          "batch": "a",
+          "seconds": 53.929343095000036,
+          "engine_seconds": 15.636817345000622,
+          "policy_seconds": 37.04384630999891,
+          "policy_decisions": 63398
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:126:5",
+          "batch": "b",
+          "seconds": 54.834303239000064,
+          "engine_seconds": 15.951312089999533,
+          "policy_seconds": 37.60953128900064,
+          "policy_decisions": 64308
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:201:5",
+          "batch": "a",
+          "seconds": 33.63321516799999,
+          "engine_seconds": 11.970370040001171,
+          "policy_seconds": 20.60607416400012,
+          "policy_decisions": 53358
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:201:5",
+          "batch": "b",
+          "seconds": 33.62410661199999,
+          "engine_seconds": 11.822361733000662,
+          "policy_seconds": 20.775514043000726,
+          "policy_decisions": 52338
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:47:7",
+          "batch": "a",
+          "seconds": 37.69987129100002,
+          "engine_seconds": 11.212528210000073,
+          "policy_seconds": 25.477498853999577,
+          "policy_decisions": 40768
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:47:7",
+          "batch": "b",
+          "seconds": 37.38745006500005,
+          "engine_seconds": 11.15753727599963,
+          "policy_seconds": 25.232802877000154,
+          "policy_decisions": 40652
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:171:16",
+          "batch": "a",
+          "seconds": 32.70713882999996,
+          "engine_seconds": 10.382767092999984,
+          "policy_seconds": 21.370206003999897,
+          "policy_decisions": 39248
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:171:16",
+          "batch": "b",
+          "seconds": 32.6770775330001,
+          "engine_seconds": 10.431018406000703,
+          "policy_seconds": 21.293615004000344,
+          "policy_decisions": 39121
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:129:11",
+          "batch": "a",
+          "seconds": 20.59445645300002,
+          "engine_seconds": 6.755021043000056,
+          "policy_seconds": 13.10718646999976,
+          "policy_decisions": 25345
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:129:11",
+          "batch": "b",
+          "seconds": 21.033440713999994,
+          "engine_seconds": 6.760192920000009,
+          "policy_seconds": 13.528824059999693,
+          "policy_decisions": 25611
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:228:27",
+          "batch": "a",
+          "seconds": 14.348135442999933,
+          "engine_seconds": 5.680559115999927,
+          "policy_seconds": 7.991216456999837,
+          "policy_decisions": 21538
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:228:27",
+          "batch": "b",
+          "seconds": 14.407903544000078,
+          "engine_seconds": 5.7111420090004685,
+          "policy_seconds": 8.03116002899992,
+          "policy_decisions": 21775
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:188:42",
+          "batch": "a",
+          "seconds": 10.799857996000014,
+          "engine_seconds": 4.591641509000851,
+          "policy_seconds": 5.63408245100004,
+          "policy_decisions": 14845
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:188:42",
+          "batch": "b",
+          "seconds": 10.830426924999983,
+          "engine_seconds": 4.6403270810003505,
+          "policy_seconds": 5.599472210999693,
+          "policy_decisions": 15039
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:88:29",
+          "batch": "a",
+          "seconds": 3.750591773999986,
+          "engine_seconds": 1.9653231379998033,
+          "policy_seconds": 1.3755107569995744,
+          "policy_decisions": 4221
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:88:29",
+          "batch": "b",
+          "seconds": 3.8149324609998985,
+          "engine_seconds": 2.016696322999451,
+          "policy_seconds": 1.3589084660004573,
+          "policy_decisions": 4194
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:310:45",
+          "batch": "a",
+          "seconds": 2.3991751030000614,
+          "engine_seconds": 1.325241152000217,
+          "policy_seconds": 0.7502637520003645,
+          "policy_decisions": 2880
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:310:45",
+          "batch": "b",
+          "seconds": 2.343568530000084,
+          "engine_seconds": 1.2677565310002592,
+          "policy_seconds": 0.7404290819997641,
+          "policy_decisions": 2880
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:6:46",
+          "batch": "a",
+          "seconds": 10.143469550999953,
+          "engine_seconds": 4.19476461800059,
+          "policy_seconds": 5.357161926999879,
+          "policy_decisions": 13886
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:6:46",
+          "batch": "b",
+          "seconds": 10.70197048099999,
+          "engine_seconds": 4.416788701000087,
+          "policy_seconds": 5.672301629999765,
+          "policy_decisions": 14452
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:107:55",
+          "batch": "a",
+          "seconds": 10.027154461999999,
+          "engine_seconds": 4.345498756001007,
+          "policy_seconds": 5.073181823000368,
+          "policy_decisions": 14697
+        },
+        {
+          "rootId": "policy-v2:5:11101:snapshot0:107:55",
+          "batch": "b",
+          "seconds": 10.030830499000103,
+          "engine_seconds": 4.4093244209998375,
+          "policy_seconds": 5.017791804000126,
+          "policy_decisions": 14655
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:5:11101:snapshot0:145:2": [
+          5,
+          2,
+          0,
+          4,
+          1,
+          3
+        ],
+        "policy-v2:5:11101:snapshot0:126:5": [
+          0,
+          33,
+          23,
+          1,
+          7,
+          14
+        ],
+        "policy-v2:5:11101:snapshot0:201:5": [
+          15,
+          14,
+          13,
+          12,
+          36,
+          11
+        ],
+        "policy-v2:5:11101:snapshot0:47:7": [
+          3,
+          1,
+          4,
+          0
+        ],
+        "policy-v2:5:11101:snapshot0:171:16": [
+          1,
+          3,
+          2,
+          0
+        ],
+        "policy-v2:5:11101:snapshot0:129:11": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "policy-v2:5:11101:snapshot0:228:27": [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        "policy-v2:5:11101:snapshot0:188:42": [
+          6,
+          0,
+          1,
+          2
+        ],
+        "policy-v2:5:11101:snapshot0:88:29": [
+          3,
+          8,
+          1,
+          6,
+          7,
+          4
+        ],
+        "policy-v2:5:11101:snapshot0:310:45": [
+          6,
+          0,
+          1,
+          2
+        ],
+        "policy-v2:5:11101:snapshot0:6:46": [
+          0,
+          1,
+          2,
+          3,
+          16,
+          8
+        ],
+        "policy-v2:5:11101:snapshot0:107:55": [
+          0,
+          1,
+          2,
+          3,
+          15,
+          7
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-5p-11101-snapshot0-neural_economic",
+      "verified_sha256": "7e6a0e1e173d288ade48055cc89e484ea7cfcf0d3c0b25c8827795345964938e",
+      "artifacts": {
+        "labels.jsonl.gz": "4d33c5258d7ac0fb8dc198dfdb5e01aa2cb289623f996bd7ad5394478b98a7cc",
+        "independent-check.log": "7cd062941ffba5fb470f72c8344132aa5648eb3c5bc65bcf47af321cd35d51cc",
+        "collection-intent.json": "f38e1b0d5794ded5fbedb082ef8aeabb7b6c6638ba8436306714ee260f998419",
+        "label-check.json": "0038cb9af4aec9c4eb88e1ae95de78b20160ac97bf28cbf566e0e4bfdbafe91c"
+      }
+    },
+    "5p-11102-economic-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 11712,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "train": 9,
+        "validation": 3
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:5:11102:economic:273:4",
+          "batch": "a",
+          "seconds": 26.721142200999907,
+          "engine_seconds": 8.26526141900058,
+          "policy_seconds": 17.538890253999398,
+          "policy_decisions": 34324
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:273:4",
+          "batch": "b",
+          "seconds": 27.483943685999975,
+          "engine_seconds": 8.659324822999679,
+          "policy_seconds": 17.994850936999683,
+          "policy_decisions": 34973
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:204:5",
+          "batch": "a",
+          "seconds": 35.64579954299995,
+          "engine_seconds": 11.382470041001056,
+          "policy_seconds": 23.279514128999722,
+          "policy_decisions": 48700
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:204:5",
+          "batch": "b",
+          "seconds": 36.53125162599997,
+          "engine_seconds": 11.743684421000694,
+          "policy_seconds": 23.74146589299994,
+          "policy_decisions": 49275
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:91:10",
+          "batch": "a",
+          "seconds": 53.684385862,
+          "engine_seconds": 15.307860766999397,
+          "policy_seconds": 37.17427615000054,
+          "policy_decisions": 60353
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:91:10",
+          "batch": "b",
+          "seconds": 53.76449651600001,
+          "engine_seconds": 15.235893659999647,
+          "policy_seconds": 37.317307476000224,
+          "policy_decisions": 59862
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:25:9",
+          "batch": "a",
+          "seconds": 18.859588508,
+          "engine_seconds": 6.238196811000535,
+          "policy_seconds": 11.911034414000255,
+          "policy_decisions": 23491
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:25:9",
+          "batch": "b",
+          "seconds": 18.508265438999956,
+          "engine_seconds": 6.13935887899936,
+          "policy_seconds": 11.664425432000371,
+          "policy_decisions": 23221
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:122:28",
+          "batch": "a",
+          "seconds": 23.343799374000014,
+          "engine_seconds": 8.075363661999631,
+          "policy_seconds": 14.461844179000082,
+          "policy_decisions": 30443
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:122:28",
+          "batch": "b",
+          "seconds": 23.07314582899994,
+          "engine_seconds": 8.114739907999933,
+          "policy_seconds": 14.145365466999692,
+          "policy_decisions": 30321
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:84:32",
+          "batch": "a",
+          "seconds": 6.118718048000005,
+          "engine_seconds": 2.883275514000161,
+          "policy_seconds": 2.7615958769996496,
+          "policy_decisions": 7202
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:84:32",
+          "batch": "b",
+          "seconds": 6.083719454999937,
+          "engine_seconds": 2.8601199460000544,
+          "policy_seconds": 2.745122472000162,
+          "policy_decisions": 7203
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:159:40",
+          "batch": "a",
+          "seconds": 4.7157771870000715,
+          "engine_seconds": 2.3983856729998934,
+          "policy_seconds": 1.8934341810000888,
+          "policy_decisions": 5124
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:159:40",
+          "batch": "b",
+          "seconds": 4.6843921670000555,
+          "engine_seconds": 2.3388527769999428,
+          "policy_seconds": 1.8992579740004203,
+          "policy_decisions": 5058
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:270:46",
+          "batch": "a",
+          "seconds": 2.9156191420000823,
+          "engine_seconds": 1.4766797700000325,
+          "policy_seconds": 1.0833813790001159,
+          "policy_decisions": 2976
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:270:46",
+          "batch": "b",
+          "seconds": 2.8493432720000555,
+          "engine_seconds": 1.4240119649997496,
+          "policy_seconds": 1.0890142220000598,
+          "policy_decisions": 2976
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:298:51",
+          "batch": "a",
+          "seconds": 14.292314067999996,
+          "engine_seconds": 5.570761000000175,
+          "policy_seconds": 8.055594774999577,
+          "policy_decisions": 18024
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:298:51",
+          "batch": "b",
+          "seconds": 13.855568322999943,
+          "engine_seconds": 5.473568337000074,
+          "policy_seconds": 7.7162454770000295,
+          "policy_decisions": 17240
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:12:33",
+          "batch": "a",
+          "seconds": 1.1135609889998932,
+          "engine_seconds": 0.7643456719999904,
+          "policy_seconds": 0.0,
+          "policy_decisions": 0
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:12:33",
+          "batch": "b",
+          "seconds": 1.1622247609999476,
+          "engine_seconds": 0.8244094359999963,
+          "policy_seconds": 0.0,
+          "policy_decisions": 0
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:305:39",
+          "batch": "a",
+          "seconds": 4.472212900000045,
+          "engine_seconds": 2.3192642169998408,
+          "policy_seconds": 1.7209589209995784,
+          "policy_decisions": 6336
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:305:39",
+          "batch": "b",
+          "seconds": 4.475807348999979,
+          "engine_seconds": 2.317667199000084,
+          "policy_seconds": 1.707438658000001,
+          "policy_decisions": 6336
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:59:42",
+          "batch": "a",
+          "seconds": 5.9398593329999585,
+          "engine_seconds": 2.7952199479999535,
+          "policy_seconds": 2.689421035999885,
+          "policy_decisions": 7584
+        },
+        {
+          "rootId": "policy-v2:5:11102:economic:59:42",
+          "batch": "b",
+          "seconds": 6.015830492000077,
+          "engine_seconds": 2.86268367699995,
+          "policy_seconds": 2.6814894479999793,
+          "policy_decisions": 7584
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:5:11102:economic:273:4": [
+          3,
+          4,
+          0,
+          1
+        ],
+        "policy-v2:5:11102:economic:204:5": [
+          4,
+          3,
+          2,
+          1,
+          43,
+          21
+        ],
+        "policy-v2:5:11102:economic:91:10": [
+          8,
+          2,
+          7,
+          4,
+          3,
+          1
+        ],
+        "policy-v2:5:11102:economic:25:9": [
+          0,
+          2,
+          1
+        ],
+        "policy-v2:5:11102:economic:122:28": [
+          0,
+          1,
+          2,
+          3,
+          18
+        ],
+        "policy-v2:5:11102:economic:84:32": [
+          5,
+          4,
+          3,
+          1,
+          6
+        ],
+        "policy-v2:5:11102:economic:159:40": [
+          5,
+          4,
+          2,
+          3,
+          6
+        ],
+        "policy-v2:5:11102:economic:270:46": [
+          3,
+          1,
+          2,
+          0,
+          4
+        ],
+        "policy-v2:5:11102:economic:298:51": [
+          10,
+          23,
+          14,
+          17,
+          4,
+          7
+        ],
+        "policy-v2:5:11102:economic:12:33": [
+          5,
+          0,
+          3,
+          1,
+          2,
+          4
+        ],
+        "policy-v2:5:11102:economic:305:39": [
+          12,
+          11,
+          10,
+          9,
+          1
+        ],
+        "policy-v2:5:11102:economic:59:42": [
+          0,
+          1,
+          2,
+          3,
+          9
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-5p-11102-economic-neural_economic",
+      "verified_sha256": "cd41d21fb09977b5d73938831dbee272f8fc17d7ad6f9cdbad00c068b8658762",
+      "artifacts": {
+        "labels.jsonl.gz": "99e6f8ce10a7ba67a48ebf5716ba56a1c25f3d3813f1f39651ffb47a84867f98",
+        "independent-check.log": "6d60a28e11a89f1bc61c040d938c580c8885056c85dcef74c3a8c991aa958be1",
+        "collection-intent.json": "6f0050a7cc475aa526cb646f71fd1c11fde38587e396c6f8ad9a4aab7ba95f75",
+        "label-check.json": "8346f51c16035c39a773f54bda6e2faf11e04bb3637f722ba19c1eca2c9b2d41"
+      }
+    },
+    "5p-11102-snapshot0-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 12864,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "validation": 3,
+        "train": 9
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:92:1",
+          "batch": "a",
+          "seconds": 49.35567009099998,
+          "engine_seconds": 14.357025592000127,
+          "policy_seconds": 33.80266050400053,
+          "policy_decisions": 61491
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:92:1",
+          "batch": "b",
+          "seconds": 51.283848243999955,
+          "engine_seconds": 15.064186272000597,
+          "policy_seconds": 35.03824404599982,
+          "policy_decisions": 63606
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:188:7",
+          "batch": "a",
+          "seconds": 33.85836386799997,
+          "engine_seconds": 10.906385857999567,
+          "policy_seconds": 22.01851803300019,
+          "policy_decisions": 46161
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:188:7",
+          "batch": "b",
+          "seconds": 35.193381028999966,
+          "engine_seconds": 11.23698753799988,
+          "policy_seconds": 23.001845744000434,
+          "policy_decisions": 47527
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:177:13",
+          "batch": "a",
+          "seconds": 28.648907975000043,
+          "engine_seconds": 8.840878288999193,
+          "policy_seconds": 18.989930408000646,
+          "policy_decisions": 33410
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:177:13",
+          "batch": "b",
+          "seconds": 27.98843315099998,
+          "engine_seconds": 8.764519163999694,
+          "policy_seconds": 18.407297307999556,
+          "policy_decisions": 33048
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:254:12",
+          "batch": "a",
+          "seconds": 32.299867629999994,
+          "engine_seconds": 11.010932724999634,
+          "policy_seconds": 20.33501747099956,
+          "policy_decisions": 40768
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:254:12",
+          "batch": "b",
+          "seconds": 32.555225597,
+          "engine_seconds": 11.003262169999857,
+          "policy_seconds": 20.598526566999794,
+          "policy_decisions": 40873
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:197:16",
+          "batch": "a",
+          "seconds": 25.65955455400001,
+          "engine_seconds": 8.908521205000397,
+          "policy_seconds": 15.91904724699998,
+          "policy_decisions": 32795
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:197:16",
+          "batch": "b",
+          "seconds": 25.80333433599992,
+          "engine_seconds": 9.027426351000145,
+          "policy_seconds": 15.925217013000179,
+          "policy_decisions": 33541
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:311:32",
+          "batch": "a",
+          "seconds": 26.070423448000042,
+          "engine_seconds": 8.427563863000046,
+          "policy_seconds": 16.809740656000713,
+          "policy_decisions": 27748
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:311:32",
+          "batch": "b",
+          "seconds": 26.162536843999987,
+          "engine_seconds": 8.633948616999419,
+          "policy_seconds": 16.6985562400007,
+          "policy_decisions": 28135
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:239:31",
+          "batch": "a",
+          "seconds": 19.17024686299999,
+          "engine_seconds": 7.557316812999829,
+          "policy_seconds": 10.863539193000179,
+          "policy_decisions": 27544
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:239:31",
+          "batch": "b",
+          "seconds": 19.074384871999882,
+          "engine_seconds": 7.517750201000922,
+          "policy_seconds": 10.813750191000054,
+          "policy_decisions": 27474
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:203:37",
+          "batch": "a",
+          "seconds": 12.324282584000002,
+          "engine_seconds": 4.543783663000568,
+          "policy_seconds": 7.223475054001028,
+          "policy_decisions": 10984
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:203:37",
+          "batch": "b",
+          "seconds": 12.338232029999972,
+          "engine_seconds": 4.533890431000373,
+          "policy_seconds": 7.242844905000084,
+          "policy_decisions": 10982
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:46:38",
+          "batch": "a",
+          "seconds": 16.463638944999957,
+          "engine_seconds": 6.91476313999965,
+          "policy_seconds": 8.827034065999896,
+          "policy_decisions": 25947
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:46:38",
+          "batch": "b",
+          "seconds": 16.506747415999826,
+          "engine_seconds": 6.944168562000186,
+          "policy_seconds": 8.851670776000446,
+          "policy_decisions": 26056
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:28:36",
+          "batch": "a",
+          "seconds": 6.073889818999987,
+          "engine_seconds": 2.884725640000397,
+          "policy_seconds": 2.73781980899912,
+          "policy_decisions": 8160
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:28:36",
+          "batch": "b",
+          "seconds": 6.022291904999975,
+          "engine_seconds": 2.832608659000016,
+          "policy_seconds": 2.6982280140002786,
+          "policy_decisions": 8160
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:213:31",
+          "batch": "a",
+          "seconds": 7.2786321779999525,
+          "engine_seconds": 3.4243463029997656,
+          "policy_seconds": 3.321743443000287,
+          "policy_decisions": 11104
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:213:31",
+          "batch": "b",
+          "seconds": 7.2765180159999545,
+          "engine_seconds": 3.427781820999826,
+          "policy_seconds": 3.3453068169997096,
+          "policy_decisions": 11184
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:46:43",
+          "batch": "a",
+          "seconds": 11.152748539000186,
+          "engine_seconds": 4.866223663999335,
+          "policy_seconds": 5.677154467999799,
+          "policy_decisions": 16067
+        },
+        {
+          "rootId": "policy-v2:5:11102:snapshot0:46:43",
+          "batch": "b",
+          "seconds": 11.052956019000021,
+          "engine_seconds": 4.823577470000146,
+          "policy_seconds": 5.62810782199972,
+          "policy_decisions": 16004
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:5:11102:snapshot0:92:1": [
+          0,
+          34,
+          23,
+          1,
+          7,
+          14,
+          30
+        ],
+        "policy-v2:5:11102:snapshot0:188:7": [
+          10,
+          9,
+          8,
+          7,
+          32,
+          16
+        ],
+        "policy-v2:5:11102:snapshot0:177:13": [
+          30,
+          29,
+          28,
+          27,
+          43,
+          10
+        ],
+        "policy-v2:5:11102:snapshot0:254:12": [
+          0,
+          1,
+          2,
+          3,
+          28,
+          14
+        ],
+        "policy-v2:5:11102:snapshot0:197:16": [
+          0,
+          6,
+          3,
+          5,
+          2,
+          4
+        ],
+        "policy-v2:5:11102:snapshot0:311:32": [
+          4,
+          0,
+          1,
+          2,
+          3
+        ],
+        "policy-v2:5:11102:snapshot0:239:31": [
+          0,
+          1,
+          2,
+          3,
+          13,
+          6
+        ],
+        "policy-v2:5:11102:snapshot0:203:37": [
+          5,
+          32,
+          14,
+          19,
+          10,
+          26
+        ],
+        "policy-v2:5:11102:snapshot0:46:38": [
+          1,
+          5,
+          0,
+          4,
+          2,
+          3
+        ],
+        "policy-v2:5:11102:snapshot0:28:36": [
+          1,
+          2,
+          6,
+          0
+        ],
+        "policy-v2:5:11102:snapshot0:213:31": [
+          4,
+          2,
+          5,
+          0,
+          6
+        ],
+        "policy-v2:5:11102:snapshot0:46:43": [
+          3,
+          4,
+          0,
+          1
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-5p-11102-snapshot0-neural_economic",
+      "verified_sha256": "ed74537c28eacd1fe7e8a0ece53c48a455132a884b54d48a8aee6ad5d9d5c777",
+      "artifacts": {
+        "labels.jsonl.gz": "3cd783ba9ff3bf2297f19a6873f9cf57ffd0e12217b4153f84d426b05d1c302c",
+        "independent-check.log": "4fd5b9dc4990a9e35978d2de393d9a340a45e3996307cad0ddf50b5640269d52",
+        "collection-intent.json": "c72e2a715911fbd8a43dddf760f98075bb61f077c2ff466ac25fac74c0e666a1",
+        "label-check.json": "20848d5b57682c6f6e741b9f0dedabbaf6f2ce3625cf900101c653256e062723"
+      }
+    },
+    "4p-parent-economic-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 10944,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "train": 10,
+        "validation": 2
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:4:parent:economic:222:2",
+          "batch": "a",
+          "seconds": 56.041344630000026,
+          "engine_seconds": 16.38734141400073,
+          "policy_seconds": 38.282690839999646,
+          "policy_decisions": 65305
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:222:2",
+          "batch": "b",
+          "seconds": 55.50611134299993,
+          "engine_seconds": 15.700635248998992,
+          "policy_seconds": 38.581388932000095,
+          "policy_decisions": 65119
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:244:3",
+          "batch": "a",
+          "seconds": 47.43985209699997,
+          "engine_seconds": 13.94772884300005,
+          "policy_seconds": 32.33438111299927,
+          "policy_decisions": 64184
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:244:3",
+          "batch": "b",
+          "seconds": 48.001044140999966,
+          "engine_seconds": 14.357050210000011,
+          "policy_seconds": 32.466652037000244,
+          "policy_decisions": 63653
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:201:4",
+          "batch": "a",
+          "seconds": 36.81953652699997,
+          "engine_seconds": 12.148149745999717,
+          "policy_seconds": 23.599789941000154,
+          "policy_decisions": 52848
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:201:4",
+          "batch": "b",
+          "seconds": 37.819681307999986,
+          "engine_seconds": 12.281574255999772,
+          "policy_seconds": 24.490701438000315,
+          "policy_decisions": 54054
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:17:10",
+          "batch": "a",
+          "seconds": 26.792789927999934,
+          "engine_seconds": 8.524296900000309,
+          "policy_seconds": 17.414343387999565,
+          "policy_decisions": 37894
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:17:10",
+          "batch": "b",
+          "seconds": 27.06671720399993,
+          "engine_seconds": 8.726285536999512,
+          "policy_seconds": 17.46566256299957,
+          "policy_decisions": 38009
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:186:17",
+          "batch": "a",
+          "seconds": 35.59592145399995,
+          "engine_seconds": 10.861888497998962,
+          "policy_seconds": 23.750020865000238,
+          "policy_decisions": 41886
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:186:17",
+          "batch": "b",
+          "seconds": 34.75616828099999,
+          "engine_seconds": 10.667427829999156,
+          "policy_seconds": 23.121407732999273,
+          "policy_decisions": 42211
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:190:19",
+          "batch": "a",
+          "seconds": 17.680199259000005,
+          "engine_seconds": 5.869833531000495,
+          "policy_seconds": 11.167163997999978,
+          "policy_decisions": 21331
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:190:19",
+          "batch": "b",
+          "seconds": 17.801740795,
+          "engine_seconds": 5.946794604000047,
+          "policy_seconds": 11.247869699999,
+          "policy_decisions": 21629
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:83:27",
+          "batch": "a",
+          "seconds": 37.64452775699988,
+          "engine_seconds": 12.008625743000266,
+          "policy_seconds": 24.60537358999909,
+          "policy_decisions": 50391
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:83:27",
+          "batch": "b",
+          "seconds": 38.83206904300005,
+          "engine_seconds": 12.443197954000652,
+          "policy_seconds": 25.316367803000503,
+          "policy_decisions": 51391
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:220:21",
+          "batch": "a",
+          "seconds": 15.060103282,
+          "engine_seconds": 5.793265771999586,
+          "policy_seconds": 8.57908682300149,
+          "policy_decisions": 22241
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:220:21",
+          "batch": "b",
+          "seconds": 15.157416626999975,
+          "engine_seconds": 5.803561409001077,
+          "policy_seconds": 8.67291754799976,
+          "policy_decisions": 22423
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:104:38",
+          "batch": "a",
+          "seconds": 8.591794468999979,
+          "engine_seconds": 3.625747216999798,
+          "policy_seconds": 4.427222542999971,
+          "policy_decisions": 11630
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:104:38",
+          "batch": "b",
+          "seconds": 8.709936721000076,
+          "engine_seconds": 3.705843873999811,
+          "policy_seconds": 4.477425353000626,
+          "policy_decisions": 12017
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:89:32",
+          "batch": "a",
+          "seconds": 1.6948333499999535,
+          "engine_seconds": 1.0023134710002068,
+          "policy_seconds": 0.367355626999597,
+          "policy_decisions": 1536
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:89:32",
+          "batch": "b",
+          "seconds": 1.696840089000034,
+          "engine_seconds": 0.9956794349991469,
+          "policy_seconds": 0.36142674799953056,
+          "policy_decisions": 1536
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:163:59",
+          "batch": "a",
+          "seconds": 3.204962119999891,
+          "engine_seconds": 1.7040595860003123,
+          "policy_seconds": 1.095819939000421,
+          "policy_decisions": 4945
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:163:59",
+          "batch": "b",
+          "seconds": 3.169095051000113,
+          "engine_seconds": 1.7178570479993596,
+          "policy_seconds": 1.066467138000462,
+          "policy_decisions": 4935
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:203:60",
+          "batch": "a",
+          "seconds": 5.110287645999961,
+          "engine_seconds": 2.1863738310000826,
+          "policy_seconds": 2.555279930000097,
+          "policy_decisions": 5952
+        },
+        {
+          "rootId": "policy-v2:4:parent:economic:203:60",
+          "batch": "b",
+          "seconds": 5.111901765000084,
+          "engine_seconds": 2.1903200109998124,
+          "policy_seconds": 2.5595675600004597,
+          "policy_decisions": 5952
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:4:parent:economic:222:2": [
+          0,
+          1,
+          44,
+          2,
+          22
+        ],
+        "policy-v2:4:parent:economic:244:3": [
+          5,
+          2,
+          4,
+          3,
+          1,
+          0
+        ],
+        "policy-v2:4:parent:economic:201:4": [
+          1,
+          0,
+          41,
+          2,
+          3,
+          20
+        ],
+        "policy-v2:4:parent:economic:17:10": [
+          3,
+          2,
+          1,
+          4
+        ],
+        "policy-v2:4:parent:economic:186:17": [
+          3,
+          4,
+          0,
+          1
+        ],
+        "policy-v2:4:parent:economic:190:19": [
+          1,
+          0
+        ],
+        "policy-v2:4:parent:economic:83:27": [
+          3,
+          9,
+          7,
+          2,
+          8,
+          0
+        ],
+        "policy-v2:4:parent:economic:220:21": [
+          2,
+          3,
+          1,
+          4
+        ],
+        "policy-v2:4:parent:economic:104:38": [
+          8,
+          7,
+          6,
+          5,
+          11
+        ],
+        "policy-v2:4:parent:economic:89:32": [
+          3,
+          5,
+          1,
+          2,
+          4,
+          0
+        ],
+        "policy-v2:4:parent:economic:163:59": [
+          0,
+          1,
+          2,
+          3,
+          10
+        ],
+        "policy-v2:4:parent:economic:203:60": [
+          2,
+          4,
+          0,
+          1
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-4p-parent-economic-neural_economic",
+      "verified_sha256": "6486a95ae6dfdbc4621610db9505e28dad2e8882b96b5e233847ed3bcafd5dc6",
+      "artifacts": {
+        "labels.jsonl.gz": "23eff497576fc3464083a8b5bd77f07ee8145ba49879759fd6edea236d36a0ee",
+        "independent-check.log": "67873fcbc918a28aae8c15f9980ae98103ff728e7e48807b263b057615b5b6af",
+        "collection-intent.json": "ea117e519fc80f2e8c3c7af8270aec52af41b6f330d4ab7dfc8d2295dfbe1a81",
+        "label-check.json": "bf682f3eba5a2971b770de159948583160dddb6282646a78d61e5f6dee496bdf"
+      }
+    },
+    "4p-11101-snapshot0-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 12288,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "validation": 6,
+        "train": 6
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:4:5",
+          "batch": "a",
+          "seconds": 39.40056233000007,
+          "engine_seconds": 13.433215375000373,
+          "policy_seconds": 24.801981215999717,
+          "policy_decisions": 62310
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:4:5",
+          "batch": "b",
+          "seconds": 40.101118204000045,
+          "engine_seconds": 13.588321958000165,
+          "policy_seconds": 25.40220441700069,
+          "policy_decisions": 61860
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:250:7",
+          "batch": "a",
+          "seconds": 48.36614710799995,
+          "engine_seconds": 14.366100322999841,
+          "policy_seconds": 32.817787536000196,
+          "policy_decisions": 62185
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:250:7",
+          "batch": "b",
+          "seconds": 48.20694055800004,
+          "engine_seconds": 14.338020457999733,
+          "policy_seconds": 32.73078858100018,
+          "policy_decisions": 62930
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:130:21",
+          "batch": "a",
+          "seconds": 37.13832146200002,
+          "engine_seconds": 12.01098599400052,
+          "policy_seconds": 24.104978293000613,
+          "policy_decisions": 49862
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:130:21",
+          "batch": "b",
+          "seconds": 37.166589754999904,
+          "engine_seconds": 11.84019805700143,
+          "policy_seconds": 24.29506288899995,
+          "policy_decisions": 49238
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:214:18",
+          "batch": "a",
+          "seconds": 38.605856561999985,
+          "engine_seconds": 12.834556723000105,
+          "policy_seconds": 24.710353413000576,
+          "policy_decisions": 54824
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:214:18",
+          "batch": "b",
+          "seconds": 38.24434847700002,
+          "engine_seconds": 12.757834043999878,
+          "policy_seconds": 24.40372615299964,
+          "policy_decisions": 54145
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:193:28",
+          "batch": "a",
+          "seconds": 14.516853018000006,
+          "engine_seconds": 5.435738868000499,
+          "policy_seconds": 8.422887407999838,
+          "policy_decisions": 21523
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:193:28",
+          "batch": "b",
+          "seconds": 14.584002298999962,
+          "engine_seconds": 5.476878560999921,
+          "policy_seconds": 8.446123576000105,
+          "policy_decisions": 21580
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:188:23",
+          "batch": "a",
+          "seconds": 17.76784380999993,
+          "engine_seconds": 6.779524998000738,
+          "policy_seconds": 10.263054986999464,
+          "policy_decisions": 28249
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:188:23",
+          "batch": "b",
+          "seconds": 16.96986886600007,
+          "engine_seconds": 6.502659190000031,
+          "policy_seconds": 9.767399903000296,
+          "policy_decisions": 26953
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:217:26",
+          "batch": "a",
+          "seconds": 10.086364250999964,
+          "engine_seconds": 4.328324659000259,
+          "policy_seconds": 5.165625801999795,
+          "policy_decisions": 17447
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:217:26",
+          "batch": "b",
+          "seconds": 10.101144724999926,
+          "engine_seconds": 4.3851869899996245,
+          "policy_seconds": 5.136427614999889,
+          "policy_decisions": 17461
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:200:33",
+          "batch": "a",
+          "seconds": 8.979520668000077,
+          "engine_seconds": 3.7168825990002006,
+          "policy_seconds": 4.72896007400027,
+          "policy_decisions": 13706
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:200:33",
+          "batch": "b",
+          "seconds": 8.866376273000014,
+          "engine_seconds": 3.6760557969996626,
+          "policy_seconds": 4.654655194000156,
+          "policy_decisions": 13464
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:67:50",
+          "batch": "a",
+          "seconds": 9.30707934399993,
+          "engine_seconds": 3.891997646999698,
+          "policy_seconds": 4.856760841999744,
+          "policy_decisions": 14790
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:67:50",
+          "batch": "b",
+          "seconds": 9.319807535999871,
+          "engine_seconds": 3.895116833999623,
+          "policy_seconds": 4.8658062779988995,
+          "policy_decisions": 14790
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:19:51",
+          "batch": "a",
+          "seconds": 6.991084534000038,
+          "engine_seconds": 3.2623640130004787,
+          "policy_seconds": 3.2141978619997644,
+          "policy_decisions": 11328
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:19:51",
+          "batch": "b",
+          "seconds": 6.959871082999825,
+          "engine_seconds": 3.324450726000123,
+          "policy_seconds": 3.1840253180000673,
+          "policy_decisions": 11328
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:1:37",
+          "batch": "a",
+          "seconds": 4.577056792000121,
+          "engine_seconds": 2.264995605000877,
+          "policy_seconds": 1.9025001259994951,
+          "policy_decisions": 6408
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:1:37",
+          "batch": "b",
+          "seconds": 4.571042869000166,
+          "engine_seconds": 2.255756587000178,
+          "policy_seconds": 1.9144706230003976,
+          "policy_decisions": 6404
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:147:49",
+          "batch": "a",
+          "seconds": 2.362939494000102,
+          "engine_seconds": 1.3974935279998135,
+          "policy_seconds": 0.5704933710001114,
+          "policy_decisions": 2163
+        },
+        {
+          "rootId": "policy-v2:4:11101:snapshot0:147:49",
+          "batch": "b",
+          "seconds": 2.278343930000119,
+          "engine_seconds": 1.3294544449995556,
+          "policy_seconds": 0.5764745950000361,
+          "policy_decisions": 2159
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:4:11101:snapshot0:4:5": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          22
+        ],
+        "policy-v2:4:11101:snapshot0:250:7": [
+          0,
+          1,
+          2,
+          3,
+          15
+        ],
+        "policy-v2:4:11101:snapshot0:130:21": [
+          3,
+          2,
+          0,
+          1,
+          4
+        ],
+        "policy-v2:4:11101:snapshot0:214:18": [
+          1,
+          5,
+          3,
+          4,
+          0,
+          2
+        ],
+        "policy-v2:4:11101:snapshot0:193:28": [
+          2,
+          4,
+          0,
+          1,
+          3
+        ],
+        "policy-v2:4:11101:snapshot0:188:23": [
+          9,
+          12,
+          3,
+          7,
+          10,
+          0
+        ],
+        "policy-v2:4:11101:snapshot0:217:26": [
+          7,
+          6,
+          5,
+          4,
+          8
+        ],
+        "policy-v2:4:11101:snapshot0:200:33": [
+          4,
+          0,
+          1,
+          2
+        ],
+        "policy-v2:4:11101:snapshot0:67:50": [
+          5,
+          0,
+          1,
+          2,
+          4
+        ],
+        "policy-v2:4:11101:snapshot0:19:51": [
+          16,
+          0,
+          1,
+          2,
+          8
+        ],
+        "policy-v2:4:11101:snapshot0:1:37": [
+          14,
+          11,
+          3,
+          0,
+          9,
+          5
+        ],
+        "policy-v2:4:11101:snapshot0:147:49": [
+          4,
+          15,
+          2,
+          9,
+          12,
+          1
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-4p-11101-snapshot0-neural_economic",
+      "verified_sha256": "b1fb397c50c35616e6bd7d9a9273e9b0f9f7ce61b3c405bce979bd7d4c037b0c",
+      "artifacts": {
+        "labels.jsonl.gz": "90895fc0d6d3b1f462813c45757e62445a355f6a08b6ce5f9c38ea86c22fddf6",
+        "independent-check.log": "71f2cd89a31ddd008d5aab60a31a204ba5deee0706b515ef26e83cf66f31711d",
+        "collection-intent.json": "277da5bc1a35d0a4f9f8adc572871831494306fdd3ae2bc7c4a6d3882013f88b",
+        "label-check.json": "a497eacd15309f2ce8fc0f831f905b6e11b71339e0f9ec93fc3abb7e9e595e27"
+      }
+    },
+    "4p-11102-economic-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 11520,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "train": 6,
+        "validation": 6
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:4:11102:economic:179:0",
+          "batch": "a",
+          "seconds": 44.875027646000035,
+          "engine_seconds": 12.946423126000468,
+          "policy_seconds": 30.77208107099932,
+          "policy_decisions": 50821
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:179:0",
+          "batch": "b",
+          "seconds": 45.10660395399998,
+          "engine_seconds": 12.991982246999669,
+          "policy_seconds": 31.03256773500027,
+          "policy_decisions": 51401
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:201:11",
+          "batch": "a",
+          "seconds": 27.012140476000013,
+          "engine_seconds": 9.504837592000172,
+          "policy_seconds": 16.601318029000595,
+          "policy_decisions": 43413
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:201:11",
+          "batch": "b",
+          "seconds": 26.855538076000016,
+          "engine_seconds": 9.521027092998793,
+          "policy_seconds": 16.415318720000528,
+          "policy_decisions": 43304
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:146:18",
+          "batch": "a",
+          "seconds": 47.52473678000001,
+          "engine_seconds": 14.594632754999225,
+          "policy_seconds": 31.76282386400044,
+          "policy_decisions": 62263
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:146:18",
+          "batch": "b",
+          "seconds": 47.24568558499993,
+          "engine_seconds": 14.510186740000677,
+          "policy_seconds": 31.56701398899918,
+          "policy_decisions": 61099
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:162:23",
+          "batch": "a",
+          "seconds": 19.209644456999968,
+          "engine_seconds": 6.172826914000211,
+          "policy_seconds": 12.333974380000313,
+          "policy_decisions": 23143
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:162:23",
+          "batch": "b",
+          "seconds": 19.27740091999999,
+          "engine_seconds": 6.146626410000067,
+          "policy_seconds": 12.426140924000379,
+          "policy_decisions": 23143
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:140:22",
+          "batch": "a",
+          "seconds": 25.871478311000033,
+          "engine_seconds": 9.25517246400102,
+          "policy_seconds": 15.736500525000338,
+          "policy_decisions": 41013
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:140:22",
+          "batch": "b",
+          "seconds": 26.01935224800002,
+          "engine_seconds": 9.343741509000438,
+          "policy_seconds": 15.793705576000434,
+          "policy_decisions": 41048
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:121:22",
+          "batch": "a",
+          "seconds": 20.964021199999934,
+          "engine_seconds": 7.756566671999167,
+          "policy_seconds": 12.446196805999648,
+          "policy_decisions": 31482
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:121:22",
+          "batch": "b",
+          "seconds": 20.874290350000024,
+          "engine_seconds": 7.659148986999639,
+          "policy_seconds": 12.431937827000297,
+          "policy_decisions": 31773
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:3:35",
+          "batch": "a",
+          "seconds": 20.34871804499994,
+          "engine_seconds": 7.5247254979999525,
+          "policy_seconds": 12.05355900900031,
+          "policy_decisions": 29680
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:3:35",
+          "batch": "b",
+          "seconds": 20.103857983000125,
+          "engine_seconds": 7.5555882559999645,
+          "policy_seconds": 11.77875194999956,
+          "policy_decisions": 29760
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:188:35",
+          "batch": "a",
+          "seconds": 15.617472026000087,
+          "engine_seconds": 5.941004935000365,
+          "policy_seconds": 8.999255983000012,
+          "policy_decisions": 23681
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:188:35",
+          "batch": "b",
+          "seconds": 15.18769592600006,
+          "engine_seconds": 5.827540899998667,
+          "policy_seconds": 8.69088085399926,
+          "policy_decisions": 22870
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:201:39",
+          "batch": "a",
+          "seconds": 3.646764978999954,
+          "engine_seconds": 1.727201332000277,
+          "policy_seconds": 1.4900214510005299,
+          "policy_decisions": 4969
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:201:39",
+          "batch": "b",
+          "seconds": 3.6083559629998945,
+          "engine_seconds": 1.755018464999921,
+          "policy_seconds": 1.4863462490002348,
+          "policy_decisions": 4971
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:27:48",
+          "batch": "a",
+          "seconds": 13.696268566000072,
+          "engine_seconds": 5.802294200000006,
+          "policy_seconds": 7.232753781000156,
+          "policy_decisions": 22657
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:27:48",
+          "batch": "b",
+          "seconds": 13.61304159700012,
+          "engine_seconds": 5.725600191999547,
+          "policy_seconds": 7.225577535999946,
+          "policy_decisions": 22686
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:4:39",
+          "batch": "a",
+          "seconds": 3.3923319949999495,
+          "engine_seconds": 1.6927948969994304,
+          "policy_seconds": 1.3227783890006322,
+          "policy_decisions": 4897
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:4:39",
+          "batch": "b",
+          "seconds": 3.2575774379999984,
+          "engine_seconds": 1.6529334720003135,
+          "policy_seconds": 1.2357491620000474,
+          "policy_decisions": 4671
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:202:60",
+          "batch": "a",
+          "seconds": 4.969967838999992,
+          "engine_seconds": 2.4190467969999645,
+          "policy_seconds": 2.0867057260002184,
+          "policy_decisions": 7488
+        },
+        {
+          "rootId": "policy-v2:4:11102:economic:202:60",
+          "batch": "b",
+          "seconds": 4.923477301000048,
+          "engine_seconds": 2.431031598999425,
+          "policy_seconds": 2.1077627639997445,
+          "policy_decisions": 7488
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:4:11102:economic:179:0": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "policy-v2:4:11102:economic:201:11": [
+          15,
+          14,
+          13,
+          12,
+          20
+        ],
+        "policy-v2:4:11102:economic:146:18": [
+          0,
+          1,
+          2,
+          3,
+          35,
+          17
+        ],
+        "policy-v2:4:11102:economic:162:23": [
+          0,
+          1
+        ],
+        "policy-v2:4:11102:economic:140:22": [
+          27,
+          26,
+          25,
+          24,
+          15,
+          6
+        ],
+        "policy-v2:4:11102:economic:121:22": [
+          9,
+          11,
+          2,
+          4,
+          6,
+          8
+        ],
+        "policy-v2:4:11102:economic:3:35": [
+          12,
+          2,
+          6,
+          11,
+          5,
+          1
+        ],
+        "policy-v2:4:11102:economic:188:35": [
+          20,
+          17,
+          13,
+          11,
+          4,
+          18
+        ],
+        "policy-v2:4:11102:economic:201:39": [
+          1,
+          5,
+          0,
+          2
+        ],
+        "policy-v2:4:11102:economic:27:48": [
+          0,
+          1,
+          2,
+          3,
+          25,
+          12
+        ],
+        "policy-v2:4:11102:economic:4:39": [
+          4,
+          5,
+          2,
+          6
+        ],
+        "policy-v2:4:11102:economic:202:60": [
+          0,
+          1,
+          3,
+          2,
+          6
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-4p-11102-economic-neural_economic",
+      "verified_sha256": "dfd9fe846393f2e0dad816bf2d5316593cfbf7d7f9396b94ee4f19d184427389",
+      "artifacts": {
+        "labels.jsonl.gz": "7a970f5d45adea2896e7ba309e6f16fb3f84817d0d6b3b644d751dd2ef54c518",
+        "independent-check.log": "7ad8d3fb859e75fa96205d2f20c20991ecf2999f43183d490080d39ac6ab1af6",
+        "collection-intent.json": "b9e4336f4c4ad317788111f3d509162d9b97d426f5a987eaf789ebd38ff00390",
+        "label-check.json": "d20c69121ceed895e8fb247955a275909d71f12fd8aa6a471559878cfca665d3"
+      }
+    },
+    "4p-11102-snapshot0-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 11520,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "validation": 4,
+        "train": 8
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:2:14",
+          "batch": "a",
+          "seconds": 40.750974144,
+          "engine_seconds": 11.823323014999914,
+          "policy_seconds": 27.85561157400025,
+          "policy_decisions": 48435
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:2:14",
+          "batch": "b",
+          "seconds": 41.17239891199995,
+          "engine_seconds": 11.867859342000315,
+          "policy_seconds": 28.307376073999194,
+          "policy_decisions": 48468
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:193:14",
+          "batch": "a",
+          "seconds": 25.98786140599998,
+          "engine_seconds": 8.725546894000331,
+          "policy_seconds": 16.447423591999836,
+          "policy_decisions": 36218
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:193:14",
+          "batch": "b",
+          "seconds": 25.76196118300004,
+          "engine_seconds": 8.643767676000152,
+          "policy_seconds": 16.31083738500115,
+          "policy_decisions": 35726
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:167:24",
+          "batch": "a",
+          "seconds": 13.557717532000083,
+          "engine_seconds": 4.685494671000811,
+          "policy_seconds": 8.308480773999577,
+          "policy_decisions": 16222
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:167:24",
+          "batch": "b",
+          "seconds": 13.667911591999996,
+          "engine_seconds": 4.760317000999862,
+          "policy_seconds": 8.331350108000493,
+          "policy_decisions": 16465
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:178:31",
+          "batch": "a",
+          "seconds": 26.50360045700006,
+          "engine_seconds": 9.5460655090003,
+          "policy_seconds": 16.071548591000692,
+          "policy_decisions": 38503
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:178:31",
+          "batch": "b",
+          "seconds": 27.24294256500002,
+          "engine_seconds": 9.830314881999698,
+          "policy_seconds": 16.524429283999893,
+          "policy_decisions": 39460
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:157:22",
+          "batch": "a",
+          "seconds": 13.864631540000005,
+          "engine_seconds": 5.748494899999969,
+          "policy_seconds": 7.462992632999544,
+          "policy_decisions": 23358
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:157:22",
+          "batch": "b",
+          "seconds": 13.95324777899998,
+          "engine_seconds": 5.788262683999847,
+          "policy_seconds": 7.500144495000086,
+          "policy_decisions": 23434
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:184:31",
+          "batch": "a",
+          "seconds": 14.105291710000074,
+          "engine_seconds": 5.480694020000101,
+          "policy_seconds": 7.993277874999762,
+          "policy_decisions": 21456
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:184:31",
+          "batch": "b",
+          "seconds": 14.179116472000032,
+          "engine_seconds": 5.489845504000641,
+          "policy_seconds": 8.03605857999969,
+          "policy_decisions": 21431
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:75:36",
+          "batch": "a",
+          "seconds": 19.709653296000056,
+          "engine_seconds": 7.144111292999696,
+          "policy_seconds": 11.824180500000011,
+          "policy_decisions": 27069
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:75:36",
+          "batch": "b",
+          "seconds": 18.970936511000104,
+          "engine_seconds": 6.919283633999953,
+          "policy_seconds": 11.319437702999494,
+          "policy_decisions": 26439
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:201:34",
+          "batch": "a",
+          "seconds": 12.165159565000067,
+          "engine_seconds": 5.5276651450000145,
+          "policy_seconds": 6.014404914000011,
+          "policy_decisions": 21812
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:201:34",
+          "batch": "b",
+          "seconds": 12.181389699999954,
+          "engine_seconds": 5.493650379999735,
+          "policy_seconds": 6.054508398999928,
+          "policy_decisions": 21519
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:228:42",
+          "batch": "a",
+          "seconds": 10.520746841000005,
+          "engine_seconds": 4.739856549999786,
+          "policy_seconds": 5.165085714999691,
+          "policy_decisions": 19015
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:228:42",
+          "batch": "b",
+          "seconds": 10.327021013000035,
+          "engine_seconds": 4.663960456000154,
+          "policy_seconds": 5.065979518999939,
+          "policy_decisions": 18830
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:122:30",
+          "batch": "a",
+          "seconds": 18.50393033799992,
+          "engine_seconds": 6.610377608000363,
+          "policy_seconds": 11.192977087999907,
+          "policy_decisions": 26410
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:122:30",
+          "batch": "b",
+          "seconds": 18.79197706100001,
+          "engine_seconds": 6.749801287000423,
+          "policy_seconds": 11.324215077999611,
+          "policy_decisions": 26508
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:59:40",
+          "batch": "a",
+          "seconds": 4.894359874000088,
+          "engine_seconds": 2.1742050290000634,
+          "policy_seconds": 2.2991619779994608,
+          "policy_decisions": 5856
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:59:40",
+          "batch": "b",
+          "seconds": 4.875948671999936,
+          "engine_seconds": 2.16801117600005,
+          "policy_seconds": 2.3013386830001537,
+          "policy_decisions": 5856
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:104:37",
+          "batch": "a",
+          "seconds": 5.059037894000085,
+          "engine_seconds": 2.5459783269999434,
+          "policy_seconds": 2.0826146439998183,
+          "policy_decisions": 7584
+        },
+        {
+          "rootId": "policy-v2:4:11102:snapshot0:104:37",
+          "batch": "b",
+          "seconds": 5.103846590999979,
+          "engine_seconds": 2.575620911000101,
+          "policy_seconds": 2.0901460279999355,
+          "policy_decisions": 7584
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:4:11102:snapshot0:2:14": [
+          2,
+          3,
+          1,
+          4
+        ],
+        "policy-v2:4:11102:snapshot0:193:14": [
+          0,
+          6,
+          2,
+          4,
+          3,
+          5
+        ],
+        "policy-v2:4:11102:snapshot0:167:24": [
+          0,
+          1
+        ],
+        "policy-v2:4:11102:snapshot0:178:31": [
+          0,
+          1,
+          2,
+          3,
+          22,
+          11
+        ],
+        "policy-v2:4:11102:snapshot0:157:22": [
+          3,
+          2,
+          1,
+          0,
+          4
+        ],
+        "policy-v2:4:11102:snapshot0:184:31": [
+          3,
+          4,
+          0,
+          1,
+          2
+        ],
+        "policy-v2:4:11102:snapshot0:75:36": [
+          0,
+          1,
+          2,
+          3,
+          8
+        ],
+        "policy-v2:4:11102:snapshot0:201:34": [
+          4,
+          3,
+          2,
+          1,
+          23,
+          10
+        ],
+        "policy-v2:4:11102:snapshot0:228:42": [
+          8,
+          7,
+          6,
+          5,
+          9
+        ],
+        "policy-v2:4:11102:snapshot0:122:30": [
+          2,
+          9,
+          0,
+          8,
+          3,
+          5
+        ],
+        "policy-v2:4:11102:snapshot0:59:40": [
+          1,
+          5,
+          0,
+          2
+        ],
+        "policy-v2:4:11102:snapshot0:104:37": [
+          0,
+          16,
+          11,
+          5,
+          14,
+          12
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-4p-11102-snapshot0-neural_economic",
+      "verified_sha256": "a0b666ee996ad561ced85a805da6a802c0db8452f930bf07feb18fee080a45da",
+      "artifacts": {
+        "labels.jsonl.gz": "4cca3d8ff05190a30b969309e6bcb699295252d4ccc5a4728776840c5dd2c6d6",
+        "independent-check.log": "35067f1aae15bde2f9fe0113e02533cc42c7ebc28e46aed8ad4089eeb70a9cbf",
+        "collection-intent.json": "457adfe90be738edaf8d1c85e7c7cec14a17a40476f1cdec8149cb9e7811068f",
+        "label-check.json": "088c919f37ef0d757b5fb29cacea7dbd91786ad8d5b16fc56f14ecc5a226e775"
+      }
+    },
+    "3p-parent-economic-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 11712,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "train": 11,
+        "validation": 1
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:3:parent:economic:62:10",
+          "batch": "a",
+          "seconds": 43.42117361199996,
+          "engine_seconds": 12.30855836000012,
+          "policy_seconds": 30.000555855000584,
+          "policy_decisions": 56981
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:62:10",
+          "batch": "b",
+          "seconds": 43.31652724100002,
+          "engine_seconds": 12.134415197000749,
+          "policy_seconds": 30.126199033000148,
+          "policy_decisions": 56245
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:35:24",
+          "batch": "a",
+          "seconds": 23.223231309000084,
+          "engine_seconds": 7.902457272001129,
+          "policy_seconds": 14.538318457999594,
+          "policy_decisions": 34112
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:35:24",
+          "batch": "b",
+          "seconds": 23.0912720770001,
+          "engine_seconds": 7.864803216000041,
+          "policy_seconds": 14.41599314099983,
+          "policy_decisions": 34016
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:165:20",
+          "batch": "a",
+          "seconds": 17.26141737499995,
+          "engine_seconds": 6.2527269889997115,
+          "policy_seconds": 10.282664706999867,
+          "policy_decisions": 29855
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:165:20",
+          "batch": "b",
+          "seconds": 17.027203944000007,
+          "engine_seconds": 6.156420259000583,
+          "policy_seconds": 10.159917704000236,
+          "policy_decisions": 29285
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:169:28",
+          "batch": "a",
+          "seconds": 10.899429274999989,
+          "engine_seconds": 4.5692637009995,
+          "policy_seconds": 5.763581211000201,
+          "policy_decisions": 21663
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:169:28",
+          "batch": "b",
+          "seconds": 10.791592994999974,
+          "engine_seconds": 4.600523310999961,
+          "policy_seconds": 5.617354302999843,
+          "policy_decisions": 21507
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:31:33",
+          "batch": "a",
+          "seconds": 16.937225668999986,
+          "engine_seconds": 6.488212066000074,
+          "policy_seconds": 9.74372133999998,
+          "policy_decisions": 25334
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:31:33",
+          "batch": "b",
+          "seconds": 15.748505364000039,
+          "engine_seconds": 6.142098195998756,
+          "policy_seconds": 8.924880920999726,
+          "policy_decisions": 24333
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:48:31",
+          "batch": "a",
+          "seconds": 14.559112913000035,
+          "engine_seconds": 5.60526265799956,
+          "policy_seconds": 8.29060891300037,
+          "policy_decisions": 26035
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:48:31",
+          "batch": "b",
+          "seconds": 15.002209948000086,
+          "engine_seconds": 5.8522012599995605,
+          "policy_seconds": 8.467404998999541,
+          "policy_decisions": 26855
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:118:41",
+          "batch": "a",
+          "seconds": 12.722517601999925,
+          "engine_seconds": 4.633312875999877,
+          "policy_seconds": 7.551808785999924,
+          "policy_decisions": 19244
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:118:41",
+          "batch": "b",
+          "seconds": 12.916121609000015,
+          "engine_seconds": 4.647951531000217,
+          "policy_seconds": 7.652488382999536,
+          "policy_decisions": 19076
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:33:33",
+          "batch": "a",
+          "seconds": 4.6675724770000215,
+          "engine_seconds": 2.2480573710000726,
+          "policy_seconds": 1.9880695110000488,
+          "policy_decisions": 9377
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:33:33",
+          "batch": "b",
+          "seconds": 4.726170029000059,
+          "engine_seconds": 2.2628413250005224,
+          "policy_seconds": 2.0320821950003847,
+          "policy_decisions": 9373
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:27:41",
+          "batch": "a",
+          "seconds": 2.577850040000044,
+          "engine_seconds": 1.320999477000214,
+          "policy_seconds": 0.9150040689999059,
+          "policy_decisions": 4704
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:27:41",
+          "batch": "b",
+          "seconds": 2.5926849649999895,
+          "engine_seconds": 1.350979718000076,
+          "policy_seconds": 0.9290391820001105,
+          "policy_decisions": 4704
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:132:35",
+          "batch": "a",
+          "seconds": 5.294759581999983,
+          "engine_seconds": 2.4563908409996884,
+          "policy_seconds": 2.432301459999735,
+          "policy_decisions": 9856
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:132:35",
+          "batch": "b",
+          "seconds": 5.333540448000008,
+          "engine_seconds": 2.51843858799964,
+          "policy_seconds": 2.3936593710000125,
+          "policy_decisions": 9870
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:156:39",
+          "batch": "a",
+          "seconds": 2.099608245000013,
+          "engine_seconds": 1.1797496070000761,
+          "policy_seconds": 0.6320621929999106,
+          "policy_decisions": 3360
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:156:39",
+          "batch": "b",
+          "seconds": 2.0893770259999656,
+          "engine_seconds": 1.124746211999991,
+          "policy_seconds": 0.6282941819999905,
+          "policy_decisions": 3360
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:66:92",
+          "batch": "a",
+          "seconds": 1.005651303000036,
+          "engine_seconds": 0.6480196669999714,
+          "policy_seconds": 0.0755286049999313,
+          "policy_decisions": 384
+        },
+        {
+          "rootId": "policy-v2:3:parent:economic:66:92",
+          "batch": "b",
+          "seconds": 1.0571324670000877,
+          "engine_seconds": 0.6402953809999872,
+          "policy_seconds": 0.07778789299993605,
+          "policy_decisions": 384
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:3:parent:economic:62:10": [
+          35,
+          0,
+          1,
+          2,
+          17
+        ],
+        "policy-v2:3:parent:economic:35:24": [
+          3,
+          1,
+          4,
+          0
+        ],
+        "policy-v2:3:parent:economic:165:20": [
+          4,
+          3,
+          2,
+          1,
+          7
+        ],
+        "policy-v2:3:parent:economic:169:28": [
+          6,
+          0,
+          1,
+          2,
+          3
+        ],
+        "policy-v2:3:parent:economic:31:33": [
+          10,
+          11,
+          6,
+          1,
+          3,
+          7
+        ],
+        "policy-v2:3:parent:economic:48:31": [
+          7,
+          13,
+          6,
+          1,
+          12,
+          2
+        ],
+        "policy-v2:3:parent:economic:118:41": [
+          5,
+          2,
+          3,
+          1,
+          6
+        ],
+        "policy-v2:3:parent:economic:33:33": [
+          5,
+          6,
+          1,
+          4,
+          3,
+          0
+        ],
+        "policy-v2:3:parent:economic:27:41": [
+          0,
+          1,
+          2,
+          3,
+          9
+        ],
+        "policy-v2:3:parent:economic:132:35": [
+          4,
+          5,
+          3,
+          6
+        ],
+        "policy-v2:3:parent:economic:156:39": [
+          6,
+          5,
+          4,
+          3,
+          10
+        ],
+        "policy-v2:3:parent:economic:66:92": [
+          0,
+          4,
+          2,
+          3,
+          1
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-3p-parent-economic-neural_economic",
+      "verified_sha256": "d11544d9a046a046e97c75b0d126fc2e5bf0a7887345fd04a4a24d0020561071",
+      "artifacts": {
+        "labels.jsonl.gz": "89d8cd04fb6bf0cab9e60d225eb273960f6ac42204e399f9a47a3af4be164404",
+        "independent-check.log": "81873edf9b11921032c0d76c52977dd191d83e07a4f9c595228e8d369b3717e6",
+        "collection-intent.json": "d8f3292d4cb05070f7736bd7baa94f0c3d0cf1595d9af6e217a67f1828e08169",
+        "label-check.json": "9c9167e9230b3619917e10b9b70e6168d12dd7deec3b84a7b61c63462e7695d2"
+      }
+    },
+    "3p-11101-economic-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 11328,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "validation": 4,
+        "train": 8
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:3:11101:economic:8:0",
+          "batch": "a",
+          "seconds": 45.581953047999946,
+          "engine_seconds": 13.813086846000374,
+          "policy_seconds": 30.538113935000524,
+          "policy_decisions": 69312
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:8:0",
+          "batch": "b",
+          "seconds": 46.06103343500001,
+          "engine_seconds": 13.972359442000197,
+          "policy_seconds": 30.99026381699889,
+          "policy_decisions": 69666
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:1:5",
+          "batch": "a",
+          "seconds": 36.49947821000001,
+          "engine_seconds": 11.080802307999647,
+          "policy_seconds": 24.44669204099978,
+          "policy_decisions": 56310
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:1:5",
+          "batch": "b",
+          "seconds": 35.847625547999996,
+          "engine_seconds": 10.903335510000261,
+          "policy_seconds": 23.94862048000107,
+          "policy_decisions": 55777
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:187:10",
+          "batch": "a",
+          "seconds": 49.88141948200007,
+          "engine_seconds": 13.997561784000936,
+          "policy_seconds": 34.722023691000345,
+          "policy_decisions": 65930
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:187:10",
+          "batch": "b",
+          "seconds": 50.45629126199992,
+          "engine_seconds": 14.026538628000594,
+          "policy_seconds": 35.267070390000754,
+          "policy_decisions": 66088
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:44:10",
+          "batch": "a",
+          "seconds": 31.517105345999994,
+          "engine_seconds": 9.914484123999955,
+          "policy_seconds": 20.675971861000335,
+          "policy_decisions": 47889
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:44:10",
+          "batch": "b",
+          "seconds": 31.772651110000083,
+          "engine_seconds": 10.046536771000092,
+          "policy_seconds": 20.78518879699959,
+          "policy_decisions": 48671
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:44:11",
+          "batch": "a",
+          "seconds": 26.18670221900004,
+          "engine_seconds": 8.09630303999927,
+          "policy_seconds": 17.264068218000148,
+          "policy_decisions": 37775
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:44:11",
+          "batch": "b",
+          "seconds": 26.41538195399994,
+          "engine_seconds": 8.091875388999938,
+          "policy_seconds": 17.465549057999624,
+          "policy_decisions": 37620
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:67:15",
+          "batch": "a",
+          "seconds": 32.266779348,
+          "engine_seconds": 9.23955924400002,
+          "policy_seconds": 22.139427179000222,
+          "policy_decisions": 40312
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:67:15",
+          "batch": "b",
+          "seconds": 32.33399323700007,
+          "engine_seconds": 9.334236740000506,
+          "policy_seconds": 22.10823023399894,
+          "policy_decisions": 40757
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:54:16",
+          "batch": "a",
+          "seconds": 40.770933673999934,
+          "engine_seconds": 12.604465805001382,
+          "policy_seconds": 27.117267173000528,
+          "policy_decisions": 55472
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:54:16",
+          "batch": "b",
+          "seconds": 40.150637090000146,
+          "engine_seconds": 12.300363053999035,
+          "policy_seconds": 26.82375493600125,
+          "policy_decisions": 54740
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:77:22",
+          "batch": "a",
+          "seconds": 13.487787173000015,
+          "engine_seconds": 5.818088254000713,
+          "policy_seconds": 6.994958239998823,
+          "policy_decisions": 28715
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:77:22",
+          "batch": "b",
+          "seconds": 13.4622319529999,
+          "engine_seconds": 5.809229994001726,
+          "policy_seconds": 6.97447556699899,
+          "policy_decisions": 28670
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:97:29",
+          "batch": "a",
+          "seconds": 0.9274153320000096,
+          "engine_seconds": 0.5038510729998507,
+          "policy_seconds": 0.2205178340002476,
+          "policy_decisions": 864
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:97:29",
+          "batch": "b",
+          "seconds": 0.9279869639999561,
+          "engine_seconds": 0.5102166310002758,
+          "policy_seconds": 0.21824914199987688,
+          "policy_decisions": 864
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:143:46",
+          "batch": "a",
+          "seconds": 0.5723062880001635,
+          "engine_seconds": 0.3803346520001014,
+          "policy_seconds": 0.0,
+          "policy_decisions": 0
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:143:46",
+          "batch": "b",
+          "seconds": 0.5877137940001376,
+          "engine_seconds": 0.38160029499999837,
+          "policy_seconds": 0.0,
+          "policy_decisions": 0
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:162:34",
+          "batch": "a",
+          "seconds": 1.387757036000039,
+          "engine_seconds": 0.8038912049996725,
+          "policy_seconds": 0.23927757599994948,
+          "policy_decisions": 960
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:162:34",
+          "batch": "b",
+          "seconds": 1.3533236829998714,
+          "engine_seconds": 0.7616119819999767,
+          "policy_seconds": 0.24539009299974168,
+          "policy_decisions": 960
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:114:48",
+          "batch": "a",
+          "seconds": 14.682264198999974,
+          "engine_seconds": 5.053136354999424,
+          "policy_seconds": 8.983624567999414,
+          "policy_decisions": 20492
+        },
+        {
+          "rootId": "policy-v2:3:11101:economic:114:48",
+          "batch": "b",
+          "seconds": 14.454991932999974,
+          "engine_seconds": 5.044165352000618,
+          "policy_seconds": 8.800809495000522,
+          "policy_decisions": 20315
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:3:11101:economic:8:0": [
+          4,
+          3,
+          2,
+          1,
+          47,
+          23
+        ],
+        "policy-v2:3:11101:economic:1:5": [
+          0,
+          19,
+          14,
+          6,
+          2,
+          15
+        ],
+        "policy-v2:3:11101:economic:187:10": [
+          0,
+          1,
+          2,
+          3,
+          35,
+          17
+        ],
+        "policy-v2:3:11101:economic:44:10": [
+          4,
+          1,
+          3,
+          2,
+          0
+        ],
+        "policy-v2:3:11101:economic:44:11": [
+          4,
+          0,
+          1,
+          2
+        ],
+        "policy-v2:3:11101:economic:67:15": [
+          3,
+          2,
+          4,
+          0
+        ],
+        "policy-v2:3:11101:economic:54:16": [
+          0,
+          1,
+          2,
+          3,
+          48,
+          24
+        ],
+        "policy-v2:3:11101:economic:77:22": [
+          0,
+          1,
+          2,
+          3,
+          7
+        ],
+        "policy-v2:3:11101:economic:97:29": [
+          1,
+          0
+        ],
+        "policy-v2:3:11101:economic:143:46": [
+          3,
+          1,
+          2,
+          0
+        ],
+        "policy-v2:3:11101:economic:162:34": [
+          4,
+          8,
+          3,
+          6,
+          0,
+          1
+        ],
+        "policy-v2:3:11101:economic:114:48": [
+          4,
+          3,
+          5,
+          1,
+          6
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-3p-11101-economic-neural_economic",
+      "verified_sha256": "e2674c2d5b1a6bdf5250f0bc39bfd750d185cdb20492b23d4306858fd48dad55",
+      "artifacts": {
+        "labels.jsonl.gz": "63634b7cfed53cadf3b50c955be0b8c0047ed0b90a07b077947c49f06100a1a2",
+        "independent-check.log": "49f2f5e82de929a9292b3f0c4fbed6bc2998d2080a964f8c5881bf7076a51824",
+        "collection-intent.json": "985b716a0aae0d364cb9dd9b03c8356a08357cab19bec08cfb2c45bbee8d1474",
+        "label-check.json": "bc031df84ac3f8ae93c6dbe9321afbfbc30da33530e8bdbd52663ffd84c4fdde"
+      }
+    },
+    "3p-11102-economic-neural_economic": {
+      "roots": 12,
+      "searches": 24,
+      "rollouts": 10560,
+      "samples_per_batch": 96,
+      "root_splits": {
+        "train": 12
+      },
+      "timings": [
+        {
+          "rootId": "policy-v2:3:11102:economic:73:4",
+          "batch": "a",
+          "seconds": 29.494315784999912,
+          "engine_seconds": 8.441233678999652,
+          "policy_seconds": 20.238958114000184,
+          "policy_decisions": 41406
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:73:4",
+          "batch": "b",
+          "seconds": 29.879523991999918,
+          "engine_seconds": 8.905722227998922,
+          "policy_seconds": 20.156939161000537,
+          "policy_decisions": 41484
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:61:6",
+          "batch": "a",
+          "seconds": 20.902454407999926,
+          "engine_seconds": 6.514589327999374,
+          "policy_seconds": 13.710922896000284,
+          "policy_decisions": 28127
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:61:6",
+          "batch": "b",
+          "seconds": 20.98862265899993,
+          "engine_seconds": 6.473068442000226,
+          "policy_seconds": 13.852127048999478,
+          "policy_decisions": 28402
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:30:6",
+          "batch": "a",
+          "seconds": 27.04950714100005,
+          "engine_seconds": 8.110913278000567,
+          "policy_seconds": 18.152746634999744,
+          "policy_decisions": 33086
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:30:6",
+          "batch": "b",
+          "seconds": 27.702805412999965,
+          "engine_seconds": 8.288894359999176,
+          "policy_seconds": 18.598360765999246,
+          "policy_decisions": 33610
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:64:7",
+          "batch": "a",
+          "seconds": 35.72191928500001,
+          "engine_seconds": 11.180029364999314,
+          "policy_seconds": 23.566606100998456,
+          "policy_decisions": 54081
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:64:7",
+          "batch": "b",
+          "seconds": 35.627803920999895,
+          "engine_seconds": 11.413101134000499,
+          "policy_seconds": 23.203978840001128,
+          "policy_decisions": 53889
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:139:20",
+          "batch": "a",
+          "seconds": 27.344162407,
+          "engine_seconds": 8.85783946800018,
+          "policy_seconds": 17.615643786000646,
+          "policy_decisions": 37096
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:139:20",
+          "batch": "b",
+          "seconds": 26.747718265000003,
+          "engine_seconds": 8.656875967000133,
+          "policy_seconds": 17.22916690400075,
+          "policy_decisions": 36428
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:23:23",
+          "batch": "a",
+          "seconds": 16.45531830499999,
+          "engine_seconds": 6.4685896230001845,
+          "policy_seconds": 9.270830268999475,
+          "policy_decisions": 31381
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:23:23",
+          "batch": "b",
+          "seconds": 16.91453862100002,
+          "engine_seconds": 6.528738361000137,
+          "policy_seconds": 9.703244995000432,
+          "policy_decisions": 31589
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:28:23",
+          "batch": "a",
+          "seconds": 13.467620054999998,
+          "engine_seconds": 5.0150021630000765,
+          "policy_seconds": 7.835798715999999,
+          "policy_decisions": 21303
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:28:23",
+          "batch": "b",
+          "seconds": 13.760988725999937,
+          "engine_seconds": 5.125115959000482,
+          "policy_seconds": 8.005714058000422,
+          "policy_decisions": 21358
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:182:41",
+          "batch": "a",
+          "seconds": 15.81076710900004,
+          "engine_seconds": 5.675503572998878,
+          "policy_seconds": 9.49055543299994,
+          "policy_decisions": 23230
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:182:41",
+          "batch": "b",
+          "seconds": 15.874120141999924,
+          "engine_seconds": 5.600817214000017,
+          "policy_seconds": 9.612539012999719,
+          "policy_decisions": 23364
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:117:36",
+          "batch": "a",
+          "seconds": 8.447840953999957,
+          "engine_seconds": 3.9468116909999935,
+          "policy_seconds": 3.9853523930004258,
+          "policy_decisions": 15744
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:117:36",
+          "batch": "b",
+          "seconds": 8.32659089799995,
+          "engine_seconds": 3.8493315689996734,
+          "policy_seconds": 3.961897442999998,
+          "policy_decisions": 15744
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:162:44",
+          "batch": "a",
+          "seconds": 3.3305015989999447,
+          "engine_seconds": 1.6330284979999306,
+          "policy_seconds": 1.2767189209998833,
+          "policy_decisions": 5760
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:162:44",
+          "batch": "b",
+          "seconds": 3.3185591879999947,
+          "engine_seconds": 1.6461637450000808,
+          "policy_seconds": 1.2860261210000772,
+          "policy_decisions": 5742
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:75:49",
+          "batch": "a",
+          "seconds": 4.755634742999973,
+          "engine_seconds": 2.251848151999866,
+          "policy_seconds": 2.102578960000187,
+          "policy_decisions": 8064
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:75:49",
+          "batch": "b",
+          "seconds": 4.717172813999923,
+          "engine_seconds": 2.2527361780004185,
+          "policy_seconds": 2.093487686000003,
+          "policy_decisions": 8064
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:136:42",
+          "batch": "a",
+          "seconds": 2.5211693019999757,
+          "engine_seconds": 1.2919393459998219,
+          "policy_seconds": 0.8683239320001803,
+          "policy_decisions": 4032
+        },
+        {
+          "rootId": "policy-v2:3:11102:economic:136:42",
+          "batch": "b",
+          "seconds": 2.4377878569999893,
+          "engine_seconds": 1.2451348700000153,
+          "policy_seconds": 0.8685960330001308,
+          "policy_decisions": 4032
+        }
+      ],
+      "options_by_root": {
+        "policy-v2:3:11102:economic:73:4": [
+          3,
+          1,
+          0,
+          2
+        ],
+        "policy-v2:3:11102:economic:61:6": [
+          1,
+          2,
+          0
+        ],
+        "policy-v2:3:11102:economic:30:6": [
+          0,
+          2,
+          1
+        ],
+        "policy-v2:3:11102:economic:64:7": [
+          9,
+          8,
+          7,
+          6,
+          13,
+          3
+        ],
+        "policy-v2:3:11102:economic:139:20": [
+          3,
+          2,
+          0,
+          4
+        ],
+        "policy-v2:3:11102:economic:23:23": [
+          0,
+          1,
+          2,
+          3,
+          16
+        ],
+        "policy-v2:3:11102:economic:28:23": [
+          10,
+          12,
+          7,
+          0,
+          6,
+          3
+        ],
+        "policy-v2:3:11102:economic:182:41": [
+          3,
+          2,
+          1,
+          0,
+          4
+        ],
+        "policy-v2:3:11102:economic:117:36": [
+          24,
+          0,
+          1,
+          2,
+          8,
+          12
+        ],
+        "policy-v2:3:11102:economic:162:44": [
+          0,
+          1,
+          2,
+          3,
+          10
+        ],
+        "policy-v2:3:11102:economic:75:49": [
+          0,
+          3,
+          2,
+          1
+        ],
+        "policy-v2:3:11102:economic:136:42": [
+          5,
+          0,
+          1,
+          2
+        ]
+      },
+      "game_truncations": 0,
+      "gradients": false,
+      "qualification_eligible": false,
+      "revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+      "prefix": "runs/policy-iteration-teacher-v2-pilot-3p-11102-economic-neural_economic",
+      "verified_sha256": "a2a843229255cb7af3b56ea9ad88657e2ef1b1a362b9a3902a03935b2f9fac3f",
+      "artifacts": {
+        "labels.jsonl.gz": "ccfa91d758b385f53ef61fc58292e75b35b98a549a8e1bf5d06c5a290d6fe668",
+        "independent-check.log": "07ecb3792bf6db40e39f7a5b42628cfa61cc1d37d0910b8731a90e16e2646a44",
+        "collection-intent.json": "27894a584096f73c1eff4093df00cb6962d119c90777beae746a614b6c3fdcbf",
+        "label-check.json": "fa39facd782e3ca6cfc8e55407f1340ea4d4eec7d1902861f586709242a53318"
+      }
+    }
+  },
+  "complete_cases": 19,
+  "planned_cases": 60,
+  "rollouts": 223296,
+  "trained": false,
+  "qualification_eligible": false
+}

@@ -1,0 +1,2771 @@
+{
+  "checked_at": "2026-10-24T01:15:48.386961+00:00",
+  "artifact_revision": "7a29547b4e7d7c52811b9c3a3f93b22343ec1937",
+  "jobs": [
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "11101",
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 3726.2696249279998,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:19.090951+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0450046eb82b1ecd90cf",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/2p-11101-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:22.409000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "11101",
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2378.458817856,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:20.180272+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0451046eb82b1ecd90d1",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/2p-11101-economic-neural_economic.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:24.223000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "11101",
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 3639.0341792640006,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:21.284767+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0452046eb82b1ecd90d7",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/2p-11101-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:24.780000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "11101",
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2330.664148512001,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:22.428417+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04531e112550ce7db18c",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/2p-11101-snapshot0-neural_economic.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:25.787000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "11102",
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 4109.266464384002,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:23.544932+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0454046eb82b1ecd90d9",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/2p-11102-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:26.718000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "11102",
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2600.5448505600007,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:24.445139+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04551e112550ce7db18e",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/2p-11102-economic-neural_economic.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:27.554000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "11102",
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 3273.286732032003,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:25.515432+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0456046eb82b1ecd90db",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/2p-11102-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:28.817000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "11102",
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2220.005429664003,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:26.633823+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0457046eb82b1ecd90de",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/2p-11102-snapshot0-neural_economic.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:29.961000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "parent",
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 3834.526639008007,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:14.681478+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc044b046eb82b1ecd90c5",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/2p-parent-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:18.795000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "parent",
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2542.140406560001,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:15.779542+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc044c046eb82b1ecd90c9",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/2p-parent-economic-neural_economic.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:19.114000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "parent",
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 3780.8931137279956,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:16.860559+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc044d046eb82b1ecd90cb",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/2p-parent-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:20.691000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "parent",
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2492.265119423998,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:17.974965+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc044e046eb82b1ecd90cd",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/2p-parent-snapshot0-neural_economic.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:21.378000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "11101",
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 4546.986455519998,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:05.873749+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0442046eb82b1ecd90bd",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/3p-11101-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:09.338000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "11101",
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2113.2928022399974,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:06.997675+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04431e112550ce7db170",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/3p-11101-economic-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:05:10.954000+00:00",
+      "finished_at": "2026-10-24 01:15:41.777000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "11101",
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 5068.619520287999,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:08.091762+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04451e112550ce7db17a",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/3p-11101-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:11.850000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "11101",
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2293.8952309439996,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:09.214915+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0446046eb82b1ecd90c1",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/3p-11101-snapshot0-neural_economic.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:12.919000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "11102",
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 3452.6540981759963,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:10.316742+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0447046eb82b1ecd90c3",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/3p-11102-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:14.455000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "11102",
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 1793.0270285759962,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:11.416737+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04481e112550ce7db17c",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/3p-11102-economic-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:05:15.145000+00:00",
+      "finished_at": "2026-10-24 01:12:47.558000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "11102",
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 4654.037295456004,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:12.519807+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04491e112550ce7db17e",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/3p-11102-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:16.352000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "11102",
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2240.0726850239976,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:13.596545+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc044a1e112550ce7db180",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/3p-11102-snapshot0-neural_economic.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:17.421000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "parent",
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2688.0864649919963,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:01.447163+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc043e046eb82b1ecd90b1",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/3p-parent-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:04.518000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "parent",
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 1569.9776980800061,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:02.557716+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc043f046eb82b1ecd90b3",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/3p-parent-economic-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:05:06.843000+00:00",
+      "finished_at": "2026-10-24 01:10:58.976000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "parent",
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 4803.083547936001,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:03.686802+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04401e112550ce7db16a",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/3p-parent-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:06.876000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "parent",
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2384.402710944001,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:04.780883+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04411e112550ce7db16e",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/3p-parent-snapshot0-neural_economic.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:08.481000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "11101",
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 6956.794351584005,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:53.852203+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0436046eb82b1ecd90a0",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/4p-11101-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:57.511000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "11101",
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2611.7856118080053,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:54.689152+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0437046eb82b1ecd90a6",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/4p-11101-economic-neural_economic.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:58.340000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "11101",
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 4958.224838400001,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:55.552772+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04381e112550ce7db14a",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/4p-11101-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:59.020000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "11101",
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 1993.1144199360015,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:56.386122+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04391e112550ce7db14c",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/4p-11101-snapshot0-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:05:00.063000+00:00",
+      "finished_at": "2026-10-24 01:13:41.630000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "11102",
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 4996.442964287993,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:57.168411+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04391e112550ce7db14e",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/4p-11102-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:00.437000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "11102",
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2411.783092608001,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:57.982577+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc043a046eb82b1ecd90a9",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/4p-11102-economic-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:05:01.193000+00:00",
+      "finished_at": "2026-10-24 01:13:58.784000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "11102",
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 5204.750394048006,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:59.016164+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc043b046eb82b1ecd90ab",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/4p-11102-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:05:02.948000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "11102",
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 1890.5592057599965,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:05:00.333546+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc043d046eb82b1ecd90ad",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/4p-11102-snapshot0-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:05:03.644000+00:00",
+      "finished_at": "2026-10-24 01:12:41.020000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "parent",
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 5650.096696320003,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:50.621128+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0433046eb82b1ecd909a",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/4p-parent-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:53.697000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "parent",
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2210.8246989120025,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:51.435290+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0434046eb82b1ecd909c",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/4p-parent-economic-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:04:54.461000+00:00",
+      "finished_at": "2026-10-24 01:15:22.307000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "parent",
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 6356.867293343999,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:52.225088+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0434046eb82b1ecd909e",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/4p-parent-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:55.975000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "parent",
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2298.477057119998,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:53.071903+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04351e112550ce7db146",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/4p-parent-snapshot0-neural_economic.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:56.272000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "11101",
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 4192.871655935996,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:43.123758+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc042c1e112550ce7db13c",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/5p-11101-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:47.319000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "11101",
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 1699.615003007997,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:44.182670+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc042d1e112550ce7db13e",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/5p-11101-economic-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:04:47.616000+00:00",
+      "finished_at": "2026-10-24 01:11:08.812000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "11101",
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 6221.301775392004,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:45.277889+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc042e1e112550ce7db140",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/5p-11101-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:48.580000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "11101",
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2215.061393183998,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:46.364544+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc042f046eb82b1ecd9094",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/5p-11101-snapshot0-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:04:50.522000+00:00",
+      "finished_at": "2026-10-24 01:14:43.239000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "11102",
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 4797.6518096639975,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:47.349507+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0430046eb82b1ecd9096",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/5p-11102-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:50.949000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "11102",
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 1836.9611165759984,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:48.170547+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04301e112550ce7db142",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/5p-11102-economic-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:04:51.572000+00:00",
+      "finished_at": "2026-10-24 01:12:13.952000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "11102",
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 6218.8726570559975,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:48.993393+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0431046eb82b1ecd9098",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/5p-11102-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:52.691000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "11102",
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2329.184335679998,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:49.799507+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04321e112550ce7db144",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/5p-11102-snapshot0-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:04:53.135000+00:00",
+      "finished_at": "2026-10-24 01:14:40.883000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "parent",
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 4486.162742592003,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:39.392628+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04281e112550ce7db135",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/5p-parent-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:43.741000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "parent",
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 1768.4640172800023,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:40.514899+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0429046eb82b1ecd908e",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/5p-parent-economic-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:04:43.800000+00:00",
+      "finished_at": "2026-10-24 01:11:37.064000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "parent",
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 4066.889863775996,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:41.514403+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc042a1e112550ce7db138",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/5p-parent-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:44.653000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "parent",
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 1774.821457824,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:42.275010+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc042a1e112550ce7db13a",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/5p-parent-snapshot0-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:04:45.643000+00:00",
+      "finished_at": "2026-10-24 01:10:50.776000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "11101",
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 6414.989245919999,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:30.594978+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc041f1e112550ce7db11f",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/6p-11101-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:34.015000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "11101",
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2049.9596645759993,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:31.701048+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04201e112550ce7db121",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/6p-11101-economic-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:04:35.094000+00:00",
+      "finished_at": "2026-10-24 01:13:39.849000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "11101",
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 5397.827585472009,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:32.801335+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc0421046eb82b1ecd908c",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/6p-11101-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:36.661000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "11101",
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 1871.0343192959954,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:33.909403+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04221e112550ce7db12b",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/6p-11101-snapshot0-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:04:37.727000+00:00",
+      "finished_at": "2026-10-24 01:12:12.113000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "11102",
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 4946.911816032001,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:35.009407+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04231e112550ce7db12d",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/6p-11102-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:38.089000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "11102",
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 1823.9815507200055,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:36.083047+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04251e112550ce7db12f",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/6p-11102-economic-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:04:39.232000+00:00",
+      "finished_at": "2026-10-24 01:11:40.700000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "11102",
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 3967.9914743039994,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:37.160439+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04261e112550ce7db131",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/6p-11102-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:40.525000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "11102",
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 1755.574469280004,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:38.247441+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc04271e112550ce7db133",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/6p-11102-snapshot0-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:04:42.563000+00:00",
+      "finished_at": "2026-10-24 01:10:44.735000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "parent",
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 7212.548320233822,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:26.018769+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc041b1e112550ce7db119",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/6p-parent-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:30.279000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "parent",
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 2124.8660954880015,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:27.237421+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc041c1e112550ce7db11b",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/6p-parent-economic-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:04:30.941000+00:00",
+      "finished_at": "2026-10-24 01:14:06.638000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "parent",
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 5999.46952368,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:28.377622+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc041d1e112550ce7db11d",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/6p-parent-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 01:04:31.993000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "parent",
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+        "bytes": 109279870,
+        "base": {
+          "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+          "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+          "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+          "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+          "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+          "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+          "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+        },
+        "unchanged_base_files": 1425,
+        "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+      "stage_kind": "pilot",
+      "admission": {
+        "probe_results_sha256": "170128f09324eefe3b5ec4c6b42fe85bad46d53374b72babcb0254ce1c5132e8",
+        "conservative_seconds": 1995.696399936001,
+        "timeout_seconds": 14400
+      },
+      "timeout_hours": 4,
+      "created_at": "2026-10-24T01:04:29.493361+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adc041e046eb82b1ecd9088",
+      "guard": "ai/runs/policy-iteration-teacher-pilot-launches-v2/6p-parent-snapshot0-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 01:04:33.671000+00:00",
+      "finished_at": "2026-10-24 01:12:58.230000+00:00"
+    }
+  ],
+  "status_counts": {
+    "RUNNING": 41,
+    "COMPLETED": 19
+  },
+  "qualification_eligible": false
+}

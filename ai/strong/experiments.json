@@ -43558,9 +43558,9 @@
         "status_counts": {
             "COMPLETED": 30
         },
-        "verified_cases": 21,
-        "verified_games": 4800,
-        "verified_roots": 246426,
+        "verified_cases": 30,
+        "verified_games": 7680,
+        "verified_roots": 383135,
         "launch_evidence": {
             "revision": "c77189f294e79f4f1747dcd08acb742d0fc31140",
             "prefix": "runs/policy-iteration-collection-launch-evidence-v2",
@@ -43594,9 +43594,141 @@
         "trained": false,
         "qualification_eligible": false,
         "final_seeds_used": false,
-        "next": "Finish exact existing collection/indexing; select and archive balanced roots; separately freeze and preflight revised teacher-label design before scaling labels or HF gradients.",
+        "next": "Collection and selection complete; follow policy_iteration_teacher_v2. No duplicate collection/index work.",
         "collection_results": "ai/strong/policy-iteration-collection-results-v2.json",
         "local_collection_log": "ai/runs/policy-iteration-collection-collect-pass2-v2.log",
-        "local_index_log": "ai/runs/policy-iteration-selection-index-pass3-v2.log"
+        "local_index_log": "ai/runs/policy-iteration-selection-index-pass3-v2.log",
+        "complete": true,
+        "complete_evidence": {
+            "revision": "483afab378c99ff6d33710e5bcbc1eb7130e6da0",
+            "prefix": "runs/policy-iteration-collection-complete-evidence-v2",
+            "manifest_sha256": "8aae0d345ada79204edeb25ebf94ee6d2443713e42828b2d0bc927f38d7fc1f4",
+            "file_count": 66,
+            "games": 7680,
+            "roots": 383135,
+            "qualification_eligible": false
+        },
+        "selection_complete": true,
+        "selection_roots": 17280,
+        "selection_splits": {
+            "validation": 4320,
+            "train": 12960
+        },
+        "selection_artifacts": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "96d59920f004d85016c063eb466a1a66611ec593",
+            "prefix": "runs/policy-iteration-selected-v2",
+            "files": {
+                "roots.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902",
+                "selected-index.json": "d6519b92f1da2a20a512444093f040c6a543d48ced1a12a1e89294e9c5e46450",
+                "selection.json": "067c27e80ea61a3cc7dab38bd14904ff72978c08cad8f2b9082e893bbca98769"
+            },
+            "count": 17280,
+            "split_counts": {
+                "validation": 4320,
+                "train": 12960
+            },
+            "selection_protocol_sha256": "fc3da9fd41f2bf41a6e264c867ac163882a704b1f4d82049d333a74cddccc010",
+            "qualification_eligible": false
+        }
+    },
+    "policy_iteration_teacher_v2": {
+        "date": "2026-10-24",
+        "previous_turn_classification": "progress",
+        "turn_classification": "progress",
+        "source": {
+            "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+            "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+            "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+            "bytes": 109279870,
+            "base": {
+                "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+                "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+                "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+            },
+            "overlays": {
+                "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+                "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+                "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+                "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+                "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+            },
+            "unchanged_base_files": 1425,
+            "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+            "qualification_eligible": false
+        },
+        "selected_roots": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "96d59920f004d85016c063eb466a1a66611ec593",
+            "prefix": "runs/policy-iteration-selected-v2",
+            "files": {
+                "roots.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902",
+                "selected-index.json": "d6519b92f1da2a20a512444093f040c6a543d48ced1a12a1e89294e9c5e46450",
+                "selection.json": "067c27e80ea61a3cc7dab38bd14904ff72978c08cad8f2b9082e893bbca98769"
+            },
+            "count": 17280,
+            "split_counts": {
+                "validation": 4320,
+                "train": 12960
+            },
+            "selection_protocol_sha256": "fc3da9fd41f2bf41a6e264c867ac163882a704b1f4d82049d333a74cddccc010",
+            "qualification_eligible": false
+        },
+        "pilot_roots": 360,
+        "pilot_splits": {
+            "train": 265,
+            "validation": 95
+        },
+        "preflight": "ai/strong/policy-iteration-teacher-preflight-v2.json",
+        "controls_rollouts": 584,
+        "smoke_shard_rollouts": 236,
+        "complete_probe_jobs": 60,
+        "verified_probe_rollouts": 14696,
+        "probe_evidence": {
+            "revision": "85952b6ff5e002880e10d0b7ad8d035e3452ada9",
+            "prefix": "runs/policy-iteration-teacher-probe-complete-evidence-v2",
+            "manifest_sha256": "232699a8960c577190d9fb5f17c65d684afd91d4a0caf209aef9edbf70c5acfc",
+            "file_count": 123,
+            "complete_cases": 60,
+            "rollouts": 14696,
+            "planned_pilot_rollouts": 705408,
+            "qualification_eligible": false
+        },
+        "pilot_jobs_submitted": 60,
+        "planned_pilot_rollouts": 705408,
+        "pilot_status_checked_at": "2026-10-24T01:15:48.386961+00:00",
+        "pilot_status_counts": {
+            "RUNNING": 41,
+            "COMPLETED": 19
+        },
+        "pilot_launch_evidence": {
+            "revision": "25e42c503449e8f69601aa4eb0225640bcad3f78",
+            "prefix": "runs/policy-iteration-teacher-pilot-launch-evidence-v2",
+            "manifest_sha256": "1e5eb754d9a4b307e8a0e94012af05e36602f11d24052c9d9537be86166dad7e",
+            "file_count": 67,
+            "jobs_submitted": 60,
+            "planned_rollouts": 705408,
+            "maximum_conservative_seconds": 7212.548320233822,
+            "qualification_eligible": false
+        },
+        "assessment_contracts": "ai/strong/policy-iteration-teacher-assessment-preflight-v2.json",
+        "trained": false,
+        "qualification_eligible": false,
+        "final_seeds_used": false,
+        "next": "Collect and independently verify all existing pilot jobs including exact first2 probe trajectories; assess conditional label quality without qualification claims. Separately freeze full-data labels and HF-only training design; fresh development and reserved final seeds unchanged.",
+        "verified_pilot_cases": 19,
+        "verified_pilot_rollouts": 223296,
+        "partial_pilot_evidence": {
+            "revision": "39c34c637642fcbc2ee340eefca2d4228b97df29",
+            "prefix": "runs/policy-iteration-teacher-pilot-partial-evidence-v2",
+            "manifest_sha256": "f61e529e9e1fab578b885cd6c20c374d672f10257f402b7f3fd8bea4f7a4d2b4",
+            "file_count": 41,
+            "verified_cases": 19,
+            "rollouts": 223296,
+            "complete": false,
+            "qualification_eligible": false
+        },
+        "pilot_results": "ai/strong/policy-iteration-teacher-pilot-results-v2.json",
+        "partial_throughput": "ai/strong/policy-iteration-teacher-throughput-partial-v2.json"
     }
 }

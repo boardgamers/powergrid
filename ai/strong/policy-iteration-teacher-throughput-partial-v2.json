@@ -1,0 +1,180 @@
+{
+  "complete_pilot": false,
+  "verified_cases": 19,
+  "cases": {
+    "6p-parent-economic-neural_economic": {
+      "rollouts": 10752,
+      "search_wall_seconds": 530.1319932669999,
+      "engine_rpc_seconds": 171.27858755500256,
+      "policy_seconds": 340.8355492180009,
+      "large_to_probe_wall_ratio": 27.88844150234617,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 20.28174140885094
+    },
+    "6p-parent-snapshot0-neural_economic": {
+      "rollouts": 11712,
+      "search_wall_seconds": 454.250763613,
+      "engine_rpc_seconds": 163.3955263239999,
+      "policy_seconds": 273.79924524600176,
+      "large_to_probe_wall_ratio": 25.716910944962706,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 25.783115710902944
+    },
+    "6p-11101-economic-neural_economic": {
+      "rollouts": 12096,
+      "search_wall_seconds": 498.25120443599997,
+      "engine_rpc_seconds": 170.951319340998,
+      "policy_seconds": 308.78725685199856,
+      "large_to_probe_wall_ratio": 27.33326749987996,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 24.276910707505824
+    },
+    "6p-11101-snapshot0-neural_economic": {
+      "rollouts": 12096,
+      "search_wall_seconds": 404.7175105399999,
+      "engine_rpc_seconds": 138.85686508699712,
+      "policy_seconds": 249.46984782500238,
+      "large_to_probe_wall_ratio": 24.730765289233506,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 29.887513351870407
+    },
+    "6p-11102-economic-neural_economic": {
+      "rollouts": 11520,
+      "search_wall_seconds": 372.58496518805623,
+      "engine_rpc_seconds": 128.15189504250884,
+      "policy_seconds": 229.1088232975453,
+      "large_to_probe_wall_ratio": 23.47020319317824,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 30.919122016062744
+    },
+    "6p-11102-snapshot0-neural_economic": {
+      "rollouts": 12480,
+      "search_wall_seconds": 309.2998112179996,
+      "engine_rpc_seconds": 118.87585112600073,
+      "policy_seconds": 175.60114354300129,
+      "large_to_probe_wall_ratio": 20.399356064286714,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 40.34920018494253
+    },
+    "5p-parent-economic-neural_economic": {
+      "rollouts": 12288,
+      "search_wall_seconds": 365.83107108299976,
+      "engine_rpc_seconds": 127.14434176199904,
+      "policy_seconds": 223.08956776900163,
+      "large_to_probe_wall_ratio": 23.915998220385024,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 33.58927376951013
+    },
+    "5p-parent-snapshot0-neural_economic": {
+      "rollouts": 12288,
+      "search_wall_seconds": 315.0311828780001,
+      "engine_rpc_seconds": 120.2507056819993,
+      "policy_seconds": 180.19945213000062,
+      "large_to_probe_wall_ratio": 20.506206629858447,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 39.005662511697096
+    },
+    "5p-11101-economic-neural_economic": {
+      "rollouts": 11904,
+      "search_wall_seconds": 334.0543455610001,
+      "engine_rpc_seconds": 124.35607046100097,
+      "policy_seconds": 194.7456400210025,
+      "large_to_probe_wall_ratio": 22.912884689671174,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 35.63492036006539
+    },
+    "5p-11101-snapshot0-neural_economic": {
+      "rollouts": 11712,
+      "search_wall_seconds": 546.2160968200003,
+      "engine_rpc_seconds": 180.6321846010046,
+      "policy_seconds": 347.0485623999998,
+      "large_to_probe_wall_ratio": 27.38123460759565,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 21.44206307391114
+    },
+    "5p-11102-economic-neural_economic": {
+      "rollouts": 11712,
+      "search_wall_seconds": 396.3107660699998,
+      "engine_rpc_seconds": 135.4713995220004,
+      "policy_seconds": 245.27192875099945,
+      "large_to_probe_wall_ratio": 24.753933676264683,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 29.55256582136688
+    },
+    "5p-11102-snapshot0-neural_economic": {
+      "rollouts": 12864,
+      "search_wall_seconds": 539.6141159529996,
+      "engine_rpc_seconds": 186.45257401099957,
+      "policy_seconds": 334.7752757950027,
+      "large_to_probe_wall_ratio": 25.528954772917817,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 23.83925775789093
+    },
+    "4p-parent-economic-neural_economic": {
+      "rollouts": 10944,
+      "search_wall_seconds": 585.3048748869996,
+      "engine_rpc_seconds": 188.59585196899786,
+      "policy_seconds": 378.00638314999935,
+      "large_to_probe_wall_ratio": 29.405768106904503,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 18.697947803890877
+    },
+    "4p-11101-snapshot0-neural_economic": {
+      "rollouts": 12288,
+      "search_wall_seconds": 475.46908394800016,
+      "engine_rpc_seconds": 167.09211397900333,
+      "policy_seconds": 290.9367460719999,
+      "large_to_probe_wall_ratio": 26.959212869224377,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 25.843951615041036
+    },
+    "4p-11102-economic-neural_economic": {
+      "rollouts": 11520,
+      "search_wall_seconds": 493.2014496610002,
+      "engine_rpc_seconds": 170.45795305199738,
+      "policy_seconds": 305.0297223000024,
+      "large_to_probe_wall_ratio": 22.42055035537916,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 23.3575955786793
+    },
+    "4p-11102-snapshot0-neural_economic": {
+      "rollouts": 11520,
+      "search_wall_seconds": 411.85166264800046,
+      "engine_rpc_seconds": 149.70250789400222,
+      "policy_seconds": 245.88358121399813,
+      "large_to_probe_wall_ratio": 24.857772958735115,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 27.971235871508092
+    },
+    "3p-parent-economic-neural_economic": {
+      "rollouts": 11712,
+      "search_wall_seconds": 308.3618875150004,
+      "engine_rpc_seconds": 110.90872507900008,
+      "policy_seconds": 183.63932641499935,
+      "large_to_probe_wall_ratio": 23.309654371249536,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 37.98134748228335
+    },
+    "3p-11101-economic-neural_economic": {
+      "rollouts": 11328,
+      "search_wall_seconds": 587.5857633180002,
+      "engine_rpc_seconds": 182.48763447800457,
+      "policy_seconds": 386.96954432499956,
+      "large_to_probe_wall_ratio": 31.108176908244374,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 19.278887793388062
+    },
+    "3p-11102-economic-neural_economic": {
+      "rollouts": 10560,
+      "search_wall_seconds": 411.5974435889992,
+      "engine_rpc_seconds": 139.37302819099762,
+      "policy_seconds": 256.6871142250013,
+      "large_to_probe_wall_ratio": 26.465264076451827,
+      "linear_sample_ratio": 48,
+      "rollouts_per_search_wall_second": 25.656136024364358
+    }
+  },
+  "median_large_to_probe_wall_ratio": 24.857772958735115,
+  "note": "Measured completed-case timing only; engine RPC includes serialization, pipe waits and JS computation, so this does not isolate the CPU bottleneck. No GPU gradients or model-strength conclusion.",
+  "qualification_eligible": false
+}

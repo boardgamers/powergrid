@@ -1,0 +1,21 @@
+{
+  "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+  "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+  "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc",
+  "bytes": 109279870,
+  "base": {
+    "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",
+    "revision": "f430e2269d37d1e705eeffe25e87f007530db920",
+    "sha256": "64dc537f5386bb6690a7f673d8bdcd14f22de250b2156b096fec4a250b6ada75"
+  },
+  "overlays": {
+    "ai/strong/policy_iteration_teacher.py": "96e847e29d9a753ea5a40d545161ab3ab1e5542b99922ac5177654c81e7b6007",
+    "ai/strong/policy-iteration-belief-traces.cjs": "9805a788b744ffa7aef8f0222f5ef75a28eb098d0889990488246225fefac233",
+    "ai/strong/preflight-policy-iteration-teacher.py": "b9453d8bbf5c99d2fb7a67fb4c2d5fe77b31922a599015c5cfce2d5725328c1c",
+    "ai/strong/policy-iteration-teacher-protocol-v2.json": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+    "ai/strong/data/policy-iteration-roots-v2.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+  },
+  "unchanged_base_files": 1425,
+  "protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+  "qualification_eligible": false
+}

@@ -1,16 +1,6 @@
 {
-  "complete": false,
-  "pending": [
-    "6p-parent-snapshot0",
-    "6p-11101-snapshot0",
-    "6p-11102-snapshot0",
-    "5p-parent-snapshot0",
-    "5p-11101-snapshot0",
-    "5p-11102-snapshot0",
-    "4p-parent-snapshot0",
-    "4p-11101-snapshot0",
-    "4p-11102-snapshot0"
-  ],
+  "complete": true,
+  "pending": [],
   "cases": {
     "6p-parent-economic": {
       "games": 384,
@@ -44,6 +34,40 @@
         "independent-check.log": "5ef1ec9c8fda32f15f71517d3c62aa2cd4fcbc92c375f979218ba3b65d451ca6",
         "collection-intent.json": "0bbfaacf2505c526f18492a33dc1ad2568bc0964466702302e6a7bf7d0a8ea2c",
         "games.json": "6d05b85f120e9b8b05449b156342ad75d93a652a222f88636b8b9aa8a7d310fc"
+      }
+    },
+    "6p-parent-snapshot0": {
+      "games": 384,
+      "roots": 18325,
+      "public_behavior_and_parent_proposals_verified": 18325,
+      "behavior_disagreements_with_parent": 0,
+      "root_counts": {
+        "nomination": {
+          "train": 2554,
+          "validation": 852
+        },
+        "bid": {
+          "train": 7129,
+          "validation": 2258
+        },
+        "building": {
+          "train": 4166,
+          "validation": 1366
+        }
+      },
+      "seconds": 703.46148591,
+      "engine_seconds": 334.52763031899894,
+      "policy_seconds": 205.72479885694634,
+      "qualification_eligible": false,
+      "revision": "4bf1f103d9ea53ea563d504c4b154ada2705da1d",
+      "prefix": "runs/policy-iteration-collection-v2-6p-parent-snapshot0",
+      "verified_sha256": "93b1c87643b8ac630f7ac558b9ec82b8160ced96efde71c62b8c13163822be8e",
+      "artifacts": {
+        "roots.jsonl.gz": "c3fe61dd8d07b9e0cf301e304a8f13a0d0bb3e35e6db832be3595d08bf2ab1ce",
+        "collection-check.json": "dea7f8ae1a5e584cc28976322510f12a047bdc766a9ed477d019035c08929d2e",
+        "independent-check.log": "4f705d36291e73831ca294694e684d52fb34ba9d703a0d30267d2c3427c4e408",
+        "collection-intent.json": "993ffe7deb1679d83211c2818d9fb522fea74a8d9d066d54ac47389663f8073a",
+        "games.json": "be47dbeeb82e1775d0cea1dd5fdc34c0a2c74593ce56e5d9f8f73fade40e0ccc"
       }
     },
     "6p-11101-economic": {
@@ -80,6 +104,40 @@
         "games.json": "ad8ad5645688d6befc9d652b705ba832cdb7a8dedb88734408cf92b128633916"
       }
     },
+    "6p-11101-snapshot0": {
+      "games": 384,
+      "roots": 17628,
+      "public_behavior_and_parent_proposals_verified": 17628,
+      "behavior_disagreements_with_parent": 3451,
+      "root_counts": {
+        "nomination": {
+          "train": 2660,
+          "validation": 851
+        },
+        "bid": {
+          "train": 6955,
+          "validation": 2261
+        },
+        "building": {
+          "train": 3672,
+          "validation": 1229
+        }
+      },
+      "seconds": 746.2202461690003,
+      "engine_seconds": 323.14897079401726,
+      "policy_seconds": 245.3009128177091,
+      "qualification_eligible": false,
+      "revision": "4bf1f103d9ea53ea563d504c4b154ada2705da1d",
+      "prefix": "runs/policy-iteration-collection-v2-6p-11101-snapshot0",
+      "verified_sha256": "885912d4deee711e1e7db25aeac1bb1df576e1104209e0b641320583242cd7fc",
+      "artifacts": {
+        "roots.jsonl.gz": "24caad5d86736d2fb940f723e0610e0d9772c090f3d0af7e146186949546acd3",
+        "collection-check.json": "30771a55d1fbc033df05a2d57731bbe610ea738963a18be3f2ad943a403c8dac",
+        "independent-check.log": "794ebff18540a857796f33e858e1eb813295485957fe2f0e08d043b43cecd758",
+        "collection-intent.json": "3ea4cc5a483d0e5220a95d714b29c01c6b7cef28d011673e1247e7f8a95bacc0",
+        "games.json": "42aa6953918f708949e74b4ffa888c37e61b06b43aedd315788df68751e11978"
+      }
+    },
     "6p-11102-economic": {
       "games": 384,
       "roots": 19729,
@@ -112,6 +170,40 @@
         "independent-check.log": "2a2e3bf6a184ebdbeff46521f2c9d85be47b3003b93c01dc3f72ab3b1b52cc20",
         "collection-intent.json": "5ae803a8782c929f2dec0e8c84713197fdacf1a8584c782f8787bece3df6358f",
         "games.json": "5da22d9691ff563bd4ecdb1a2b1adfcb871f94b5a52e575b284d30efa7a59dd5"
+      }
+    },
+    "6p-11102-snapshot0": {
+      "games": 384,
+      "roots": 17449,
+      "public_behavior_and_parent_proposals_verified": 17449,
+      "behavior_disagreements_with_parent": 4700,
+      "root_counts": {
+        "nomination": {
+          "train": 2603,
+          "validation": 848
+        },
+        "bid": {
+          "train": 6607,
+          "validation": 2092
+        },
+        "building": {
+          "train": 4011,
+          "validation": 1288
+        }
+      },
+      "seconds": 741.5883320080002,
+      "engine_seconds": 321.8367623459926,
+      "policy_seconds": 241.22114102971045,
+      "qualification_eligible": false,
+      "revision": "4bf1f103d9ea53ea563d504c4b154ada2705da1d",
+      "prefix": "runs/policy-iteration-collection-v2-6p-11102-snapshot0",
+      "verified_sha256": "8a87b545ac74e9e94f90f5acd7aac9aa5e438e9c932e05db2f8ad204660e6fe7",
+      "artifacts": {
+        "roots.jsonl.gz": "e92f2a7f538d14e7843312b3e39bc558a7bd55e69d759241984db47a362a3458",
+        "collection-check.json": "8021b2da3e2f2f1f07588b546d95d33e89ab5800ef47232b5fccb50ac0c05ec8",
+        "independent-check.log": "f48ac8a466256df101d9552e0ce796d23440396cbd698dd8a5233d02b4e17196",
+        "collection-intent.json": "831470cf9485990fa2141b4770ff292e1a3464c3874bb256b614958853622ab6",
+        "games.json": "d6dde9bf790e35397af4abfe88ca85ee2669bc771587ec3c0a6b1537619c684d"
       }
     },
     "5p-parent-economic": {
@@ -148,6 +240,40 @@
         "games.json": "8905433989155074877e1753bdb042cdeeddd2a8d201da1a22390da9980caf8e"
       }
     },
+    "5p-parent-snapshot0": {
+      "games": 320,
+      "roots": 15261,
+      "public_behavior_and_parent_proposals_verified": 15261,
+      "behavior_disagreements_with_parent": 0,
+      "root_counts": {
+        "nomination": {
+          "train": 2220,
+          "validation": 715
+        },
+        "bid": {
+          "train": 5457,
+          "validation": 1780
+        },
+        "building": {
+          "train": 3823,
+          "validation": 1266
+        }
+      },
+      "seconds": 469.967969038,
+      "engine_seconds": 206.91364380900063,
+      "policy_seconds": 145.88765762899928,
+      "qualification_eligible": false,
+      "revision": "4bf1f103d9ea53ea563d504c4b154ada2705da1d",
+      "prefix": "runs/policy-iteration-collection-v2-5p-parent-snapshot0",
+      "verified_sha256": "ec0db1ca1c1bdaad135aa24d4b0fcc8cff1a9f41d8c8321b6324687e83fe265d",
+      "artifacts": {
+        "roots.jsonl.gz": "1b2f22fff0f2dc765e2a67cdb62c50afc1851c329d71dfd626ba24247029543b",
+        "collection-check.json": "45875587c8523f462fbc555c3bbe646ac099fdac006a626559f51ec7753b7f76",
+        "independent-check.log": "c73cb6866f0da6fc996c7b316c45be4afc62cbf36409367cd9a951faf43c26ed",
+        "collection-intent.json": "cf2d1f97997b119366c4d08b03674e5e2e022d31a379b9397cf9447a2941f8dc",
+        "games.json": "322fc58ed932c560c9b70ac91789de9cabaefa35cfb2a0b6b9a012f08eedfeeb"
+      }
+    },
     "5p-11101-economic": {
       "games": 320,
       "roots": 16159,
@@ -180,6 +306,40 @@
         "independent-check.log": "a917a1c919ba9bce239333ea25d97f254f158a92d8475f781074b2707b77280d",
         "collection-intent.json": "df78b9d4f9912f9739669eefcc963e139e65c76943a431d52172b6723624c182",
         "games.json": "b22c7659b4542f61bc81ec6e0d55a973c6b742e9c3b326b2e5fb8734687d33b0"
+      }
+    },
+    "5p-11101-snapshot0": {
+      "games": 320,
+      "roots": 14265,
+      "public_behavior_and_parent_proposals_verified": 14265,
+      "behavior_disagreements_with_parent": 3460,
+      "root_counts": {
+        "nomination": {
+          "train": 2240,
+          "validation": 703
+        },
+        "bid": {
+          "train": 5095,
+          "validation": 1690
+        },
+        "building": {
+          "train": 3451,
+          "validation": 1086
+        }
+      },
+      "seconds": 503.900023909,
+      "engine_seconds": 207.21023934799896,
+      "policy_seconds": 168.6799359289787,
+      "qualification_eligible": false,
+      "revision": "4bf1f103d9ea53ea563d504c4b154ada2705da1d",
+      "prefix": "runs/policy-iteration-collection-v2-5p-11101-snapshot0",
+      "verified_sha256": "d1d8a6a49aa93c32cbd330d9d8b8b06b7cd14dd316be5c555b9bc8e2b80d39b0",
+      "artifacts": {
+        "roots.jsonl.gz": "ce408c4cb85859991b19a24d1629737087bd34f9cdda6e08bbee8214327629a4",
+        "collection-check.json": "f5a2d861964dc8c9e0d97ef2f0c7cdbce9c44f611d0baa335fee5f5b183739a3",
+        "independent-check.log": "cc2c201524d78be02ba9c9fd3c1c74cc51c5331aef89f9a72fcc91004a538b37",
+        "collection-intent.json": "9dd5a502b31f4b4c3ef704c5a55f13667760fc9924ee401a0a18f166315c1ec3",
+        "games.json": "84231cef69e837b9ac681f61d30a85cb5befb2fccfefec4d249ececd5f5e8411"
       }
     },
     "5p-11102-economic": {
@@ -216,6 +376,40 @@
         "games.json": "7631a17445f4d4c4e0d658594e23a62b78c6d1f2507a6d929df7ae03a5e7bb3e"
       }
     },
+    "5p-11102-snapshot0": {
+      "games": 320,
+      "roots": 14651,
+      "public_behavior_and_parent_proposals_verified": 14651,
+      "behavior_disagreements_with_parent": 4601,
+      "root_counts": {
+        "nomination": {
+          "train": 2120,
+          "validation": 751
+        },
+        "bid": {
+          "train": 5176,
+          "validation": 1748
+        },
+        "building": {
+          "train": 3638,
+          "validation": 1218
+        }
+      },
+      "seconds": 511.36277229800004,
+      "engine_seconds": 209.22261791300105,
+      "policy_seconds": 170.140015386993,
+      "qualification_eligible": false,
+      "revision": "4bf1f103d9ea53ea563d504c4b154ada2705da1d",
+      "prefix": "runs/policy-iteration-collection-v2-5p-11102-snapshot0",
+      "verified_sha256": "4451aa81af3456e57d4c44cc1bad7ba4d78a72b1b7c656640ce88b5cfd4d96a3",
+      "artifacts": {
+        "roots.jsonl.gz": "3afa16ce76eb706ab215db3f398d425adfab6b624743e33d708b199a0fb08a79",
+        "collection-check.json": "1084dadba4176e425768b6b0637958b3e562c85043710a9277ffc5427eb21dfe",
+        "independent-check.log": "27c24862ddb6270a80eb3752576281facd8147ced468f4c26c917ac800832ce3",
+        "collection-intent.json": "aa97bc96b8838cfe59b9896ad2512b203fe7fa7ad867bf7c5663c53bd1ee87b0",
+        "games.json": "b937158bfd05c0bb36b1974f546fd07c87a3af4d1d86dd28ee1f07ffc3b2e990"
+      }
+    },
     "4p-parent-economic": {
       "games": 256,
       "roots": 14313,
@@ -248,6 +442,40 @@
         "independent-check.log": "f311c377cb262a76762228f84ef8066a8126280f58bf340079278bbc96bac955",
         "collection-intent.json": "d25cc48f84dd45f5293771cf3d68ccb5b0b0fb1fa1eef770dc4f2193233cadd0",
         "games.json": "47cd36c94ed8ad8924d81fd4bdc82b45af3c8a668428b1b83f1a6dcdbc3576d0"
+      }
+    },
+    "4p-parent-snapshot0": {
+      "games": 256,
+      "roots": 13598,
+      "public_behavior_and_parent_proposals_verified": 13598,
+      "behavior_disagreements_with_parent": 0,
+      "root_counts": {
+        "nomination": {
+          "train": 2053,
+          "validation": 662
+        },
+        "bid": {
+          "train": 4391,
+          "validation": 1365
+        },
+        "building": {
+          "train": 3877,
+          "validation": 1250
+        }
+      },
+      "seconds": 341.411855914,
+      "engine_seconds": 140.54704676499972,
+      "policy_seconds": 109.4537943220063,
+      "qualification_eligible": false,
+      "revision": "4bf1f103d9ea53ea563d504c4b154ada2705da1d",
+      "prefix": "runs/policy-iteration-collection-v2-4p-parent-snapshot0",
+      "verified_sha256": "7f81b5d1a2fe4d8987007216c9c4999b5aa3bdafcd52f5996a559809f32dc913",
+      "artifacts": {
+        "roots.jsonl.gz": "65fa48ff5734b123d9adb86acfa55cc4eeeb4cb30162aef9502d5344a32f10ed",
+        "collection-check.json": "78324b42021e4886f582da16d54ec4eb29b1ba20533a62bebf976152b4bb2aa5",
+        "independent-check.log": "29e518dfd61d2297c0b472edb86e5d7ad6b925c31b73d920ffedbcd26e0fdfbf",
+        "collection-intent.json": "26ff59a783c1bb65aa96f6b529f4d61a51327982fc3eb6405f27a32d2dfc083e",
+        "games.json": "934c789ed59cbaa60c65b59f59cb5bc00cf70d890c1030e2b46f30cd47c67e11"
       }
     },
     "4p-11101-economic": {
@@ -284,6 +512,40 @@
         "games.json": "40a5fb010c0428367f671802cbb607c4ca22a10cfba96ab40d20a07747f632c9"
       }
     },
+    "4p-11101-snapshot0": {
+      "games": 256,
+      "roots": 12661,
+      "public_behavior_and_parent_proposals_verified": 12661,
+      "behavior_disagreements_with_parent": 3171,
+      "root_counts": {
+        "nomination": {
+          "train": 1925,
+          "validation": 649
+        },
+        "bid": {
+          "train": 4129,
+          "validation": 1293
+        },
+        "building": {
+          "train": 3499,
+          "validation": 1166
+        }
+      },
+      "seconds": 382.94887529000005,
+      "engine_seconds": 147.59965788600027,
+      "policy_seconds": 135.37537334499223,
+      "qualification_eligible": false,
+      "revision": "4bf1f103d9ea53ea563d504c4b154ada2705da1d",
+      "prefix": "runs/policy-iteration-collection-v2-4p-11101-snapshot0",
+      "verified_sha256": "1a78dba9a2ff708a5f0cc56db8cd12e9d781d77a7e0388677dcdc97f50cdde69",
+      "artifacts": {
+        "roots.jsonl.gz": "89fcd3cf466c1b4cdf519d05ba0b4ddc1ad3ab122fafa963cdc25625428366a4",
+        "collection-check.json": "3b7ad31dfa55c33d0adcec1538f89388b7f6265d1611687cb474804cfec65d95",
+        "independent-check.log": "c39f026bae8183252943a8f896caff70ebce211bff6203180efa43a5b3d46205",
+        "collection-intent.json": "d2840870f98c5b0d9f870418015652819acb170ec454925f20d375914b687f0e",
+        "games.json": "739739561ddbfde60d146afcbb746eef4b0d24399f08aa40c35930fca55360e8"
+      }
+    },
     "4p-11102-economic": {
       "games": 256,
       "roots": 13895,
@@ -316,6 +578,40 @@
         "independent-check.log": "2791dca8b975ddcf50a236f33c0aa4be11c49d57ef481c3197dc6e7a45434cb0",
         "collection-intent.json": "0c1653c7480e7c423bbc419f6a1368e1dd17197c2fbc6aaf3d0f8f9f20227157",
         "games.json": "a2e9db6448dd17c5b5974dd7422e9883e98fecc61eae7783a9bdca53a13dc8db"
+      }
+    },
+    "4p-11102-snapshot0": {
+      "games": 256,
+      "roots": 12871,
+      "public_behavior_and_parent_proposals_verified": 12871,
+      "behavior_disagreements_with_parent": 3695,
+      "root_counts": {
+        "nomination": {
+          "train": 1910,
+          "validation": 624
+        },
+        "bid": {
+          "train": 3998,
+          "validation": 1393
+        },
+        "building": {
+          "train": 3690,
+          "validation": 1256
+        }
+      },
+      "seconds": 374.722798781,
+      "engine_seconds": 143.74059150599956,
+      "policy_seconds": 129.184014017987,
+      "qualification_eligible": false,
+      "revision": "4bf1f103d9ea53ea563d504c4b154ada2705da1d",
+      "prefix": "runs/policy-iteration-collection-v2-4p-11102-snapshot0",
+      "verified_sha256": "f4f65ac635cfa85efc63ae3c677fb61a8bc98f68a2470059072d8622bea2b7ce",
+      "artifacts": {
+        "roots.jsonl.gz": "b0e0d3aa7349a1c78fcf47b5515000fa0142e64a868c74b1297137ecbdf281cd",
+        "collection-check.json": "09867152267d28de10983f62f1444a77c362c00623a1917875cfb8af30e770a8",
+        "independent-check.log": "e7312d3ba86f84fed0ff4aea9b7d4cada6eb851f449f10fec814b9a8d7725d77",
+        "collection-intent.json": "f6d9b5397abb9526559bf86c434cbf133aabaff445ad1735327256a0dc000bab",
+        "games.json": "1f4696cb2a2376d76b741a682a45c2ae8a2c885dac2e2767ac39f5fe409216d2"
       }
     },
     "3p-parent-economic": {
@@ -727,9 +1023,9 @@
       }
     }
   },
-  "games": 4800,
-  "engine_game_runs": 9600,
-  "roots": 246426,
+  "games": 7680,
+  "engine_game_runs": 15360,
+  "roots": 383135,
   "planned_games": 7680,
   "source": {
     "archive": "strong-source-policy-iteration-collection-20261024-v2.tgz",

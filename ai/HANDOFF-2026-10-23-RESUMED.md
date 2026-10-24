@@ -28,7 +28,127 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest continuation: completed evaluations and fresh policy-visited data
+## Latest checkpoint: balanced data complete; larger teacher pilot running
+
+The previous goal turn made **progress** (complete old evaluations and new
+collection/selection machinery). This turn also made **progress**: all fresh
+positions are verified, the balanced selection is frozen, every runtime probe
+passed, and all 60 larger label jobs were submitted. The goal remains active.
+**No new model has been gradient-trained or qualified, and nothing is deployed.**
+The original 20,160-game model comparison still rejects both 11101/11102;
+the parent also remains below the full strength requirements.
+
+### Completed collection and selection
+
+- All 30 collection jobs completed: **7,680 unique games / 15,360 capture-control
+  executions / 383,135 public positions**. Every recorded behavior and parent
+  proposal was independently reproduced with the frozen runtime. No caps.
+- Complete collection evidence: model-repo revision
+  `483afab378c99ff6d33710e5bcbc1eb7130e6da0`, prefix
+  `runs/policy-iteration-collection-complete-evidence-v2` (66 files).
+- Selection is exactly **17,280 roots: 12,960 train / 4,320 validation**.
+  All 720 count/behavior/opponent/edition/auction/decision/split cells hit their
+  quota. All early/middle/late round quotas also hit exactly; no fallback.
+  Each player count contributes 3,456 roots, 1,152 per round band.
+- Global input de-duplication removed 9,147 duplicate occurrences from the raw
+  collection. Identical public requests and equivalent float32 parent inputs
+  cannot cross the split. A validation occurrence excludes the equivalent
+  input from training; whole deal assignments remain fixed.
+- Selected data: revision `96d59920f004d85016c063eb466a1a66611ec593`,
+  prefix `runs/policy-iteration-selected-v2`. Root gzip SHA256:
+  `09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902`.
+  Descriptor: `strong/policy-iteration-selected-roots-v2.json`.
+  Full selection and provenance: `strong/policy-iteration-selection-results-v2.json`.
+- All local collection/index/selection processes have finished. The local
+  outputs under `ai/runs/policy-iteration-selected-v2` are frozen; do not rerun
+  selection into the same directory or regenerate old teacher manifests.
+
+### New teacher pilot and live work
+
+The first pilot uses 360 fixed hash-selected positions, one per
+count/behavior/opponent/edition/auction/decision cell, with 265 train and 95
+validation positions. It preserves the fixed parent, six-proposal shortlist
+plus parent, both continuation modes and 2,400-step full-game horizon.
+The policy-consistent sealed-bid belief correction includes legal passes and
+uses public balances; no real hidden submissions or future deck are replayed.
+
+This is a controlled data/teacher iteration, not a permanent restriction on
+what a strong model may do. The current menu still has historical bid pruning.
+A previous unchanged-weight expanded-menu experiment (`sealed_menu_v1` in the
+ledger, 15,040 paired games) had no robust benefit and was not promoted; do not
+blindly reapply it or claim that every legal bid is covered here.
+
+- Source dataset revision: `e661d2f43fcedec24ffff4bf1180758e614e2a8f`.
+- Archive: `strong-source-policy-iteration-teacher-20261024-v2.tgz`.
+- SHA256: `40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc`.
+- Protocol SHA256: `b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce`.
+- Five new files/assets; all 1,425 base files preserved byte-for-byte.
+- Preflight passed **584 full control continuations**, including nomination,
+  open/sealed bidding and building at 2p/6p, both modes, exact old-control
+  trajectories, unaffected-policy equivalence, 96-world belief traces and
+  first-two-world equality across larger inference batches/worker offsets.
+  A complete 12-root probe shard (236 rollouts) was independently checked too.
+- All **60 runtime probe jobs are complete and independently verified**:
+  **14,696 full continuations**, 2 samples per A/B batch, all 360 positions/modes.
+  Probe evidence revision `85952b6ff5e002880e10d0b7ad8d035e3452ada9`,
+  prefix `runs/policy-iteration-teacher-probe-complete-evidence-v2` (123 files).
+- All **60 larger pilot jobs** are submitted: 96 samples per A/B batch,
+  192 paired worlds after mixing modes, **705,408 planned continuations**.
+  Each uses 24 workers on cpu-performance and a 4h timeout. Per-case admission
+  multiplies exact measured probe runtime by 96/2 and a 2x margin, plus 300s;
+  the largest projection is 7,212.55s. No horizon was shortened.
+- At `2026-10-24T01:15:48.386961+00:00` the authoritative pilot snapshot is
+  `{'RUNNING': 41, 'COMPLETED': 19}`. Inspect those exact handles before any recovery;
+  do not duplicate jobs because logs are quiet or an observation times out.
+- Pilot launch/admission/scorer evidence: revision `25e42c503449e8f69601aa4eb0225640bcad3f78`,
+  prefix `runs/policy-iteration-teacher-pilot-launch-evidence-v2` (67 files).
+
+The first **19 pilot cases / 223,296 continuations** are
+independently verified, including exact first-two-probe trajectory agreement.
+This partial snapshot is archived at revision `39c34c637642fcbc2ee340eefca2d4228b97df29`,
+prefix `runs/policy-iteration-teacher-pilot-partial-evidence-v2` (41 files).
+The full pilot remains incomplete; do not run its assessment early or infer
+whole-pilot quality from the faster completed cases. Completed-case throughput
+is recorded in `strong/policy-iteration-teacher-throughput-partial-v2.json`:
+median runtime grows 24.86x for 48x as many samples. Engine RPC timing includes
+serialization, pipe waits and JS computation; it does not isolate the bottleneck.
+The first collector finished successfully, so no local collector is currently
+active. Its log is `ai/runs/policy-iteration-teacher-pilot-collection-v2.log`.
+
+The collector independently reconstructs beliefs and parent proposals, checks
+all terminal samples and paired arithmetic, and requires every large pilot
+batch to reproduce its exact first two probe trajectories. A mismatch fails
+verification; do not waive it or rewrite frozen results. The assessment uses
+A to select/B to evaluate and then reverses, with fixed 0/.025 margins. Its
+adverse-cross-batch and tie-routing contracts passed. It reports conditional
+simulation diagnostics only, never real-game improvement or final qualification.
+
+```bash
+ai/.venv/bin/python ai/strong/manage-policy-iteration-teacher.py pilot status
+ai/.venv/bin/python ai/strong/manage-policy-iteration-teacher.py pilot collect
+ai/.venv/bin/python ai/strong/manage-policy-iteration-teacher.py pilot summarize
+# Only after every pilot case verifies:
+ai/.venv/bin/python ai/strong/manage-policy-iteration-teacher.py pilot assess
+```
+
+Guards: `ai/runs/policy-iteration-teacher-pilot-launches-v2`.
+Verified results: `ai/runs/policy-iteration-teacher-pilot-verified-v2`.
+Frozen collector runtime: `ai/runs/policy-iteration-teacher-collector-v2`.
+The probe directories use `probe` instead of `pilot`; all 60 probes are already
+complete and should never be relaunched. Job handles and all immutable pins
+are also preserved in the evidence archives. No GPU training job is running.
+
+Next: finish this pilot, retain every adverse count/phase/rule cell, inspect
+label stability and measured throughput, then separately freeze/admit labels
+for the full 17,280-root dataset and the next HF-only training design. The 360
+pilot roots already belong to that dataset; reuse their verified labels when
+compatible rather than silently resimulating them. No full-data label job or
+new training design has been admitted yet. Keep fresh development prefix
+`policy-iteration-development-v2` and all original reserved final seeds unused
+until their proper stages. Actual full-game strength and the final exact-model
+8840U benchmark remain required before qualification.
+
+## Historical collection checkpoint earlier on24October
 
 This turn made **progress**. The original fixed comparison is now complete:
 **20,160 verified games**, 6,720 per model across all 27 opponent/count cells.

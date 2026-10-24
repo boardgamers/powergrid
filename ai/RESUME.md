@@ -6,7 +6,38 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October: opponent-model pilot found a nested sealed-history failure.**
+**Latest — 25 October: repaired opponent-model pilot passed; HF diagnostic running.**
+The v2 worker scopes `analysis-public-balances-v1.cjs` to the reference opponent's
+nested search through `reference-search-public-balances-v1.cjs`. Historical modules,
+outer world sampling and mixture controls remain unchanged. JSONL errors now exit
+immediately. Six worker tests passed, including arena parity and failure isolation.
+All **896** mixture continuations matched again. All **16** reference pilot
+continuations completed with no caps, including the previously failing 6p sealed
+case; the 12 previously completed v1 rows reproduced exactly. Session **67264**
+finished exit 0. The full pilot is archived once and verified at private HF revision
+`59243d245597ebd4034d187bf9b07e3c8b3f952b` (74 files), descriptor
+`strong/reference-opponent-pilot-evidence-v2.json`. Do not rerun its collector.
+
+The fixed **896-continuation** comparison is now admitted as **28 CPU Basic jobs**,
+16 worlds/two actions each, at most seven concurrent, three-hour timeouts. No new
+candidate actions, roots or seeds were selected from the pilot. An infrastructure
+canary completed and verified 32 continuations before expanding the job queue.
+**Continue coordinator session 76600 / PID 443128**, started 22:43:31 UTC on 24 October
+(25 October locally). At the explicit 22:44:48 UTC check, eight jobs had been submitted:
+the canary was verified and the other seven were RUNNING. State and exact job handles:
+`ai/runs/reference-opponent-coordinator-v2/{state,turn-checkpoint}.json`; guards:
+`ai/runs/reference-opponent-launches-v2/`. The coordinator collects every shard and
+only then writes `strong/reference-opponent-comparison-v2.json`. No automatic retries
+or cancellations. Do not duplicate or restart a live coordinator or job.
+
+**Next:** monitor the existing handle, verify the complete fixed comparison, then
+assess the original chosen-versus-model action margins on worlds 8..63 against the
+unchanged mixture. These are outcome-selected, conditional diagnostics, not fresh
+strength games; known opponent identity is diagnostic only. Preserve all seven roots
+and adverse cases. The separate resource ablation remains unlaunched. No new gradients,
+candidate selection, production changes or final seeds; the strong-model goal is active.
+
+**Previous — 25 October: opponent-model pilot found a nested sealed-history failure.**
 The new isolated reference-opponent worker reproduced all **896** fixed-action
 mixture controls exactly across the seven roots and 64 worlds. Three complete
 reference pilots (2p/4p search, 3p heuristic), **12 continuations**, passed with zero

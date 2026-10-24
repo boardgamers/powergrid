@@ -25,7 +25,83 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: opponent-model pilot failure isolated, 25 October
+## Latest checkpoint: complete repaired pilot and active HF diagnostic, 25 October
+
+The prior turn was substantive progress: it isolated a nested sealed-history failure
+and verified a sampler component. This turn integrated that component into a new
+diagnostic worker, completed its full pilot, archived it, and launched the admitted
+fixed public-world comparison. This changes research evidence, not production or
+the selected model.
+
+`strong/reference-opponent-continuations-v2.cjs` differs from v1 only in its isolated
+nested-search import and immediate nonzero exit on JSONL failures. The new
+`reference-search-public-balances-v1.cjs` loads the frozen search in a private module
+with the repaired sampler; it does not change `require.cache`, historical module
+exports, outer world sampling, or the original source files. Six tests pass: all 80
+control cells, 32 exact comparisons with the actual frozen arena implementation,
+seven-root hidden-input and world sharing checks, partition identity, the captured
+failure with the original search still failing unchanged, and immediate process exit
+on invalid input with stdin left open.
+
+The v2 protocol is `ai/runs/reference-opponent-diagnostic-v2/protocol.json`, SHA
+`88c1f9e78c41bfa6c8b11fec87d4692a221dfee65181f473047da2a4da9a9d77`.
+All seven original candidate pairs and public seeds are preserved. **896** full
+mixture controls matched their saved credits, roles, beliefs and sampled worlds.
+All **16** reference pilot continuations finished with zero outer/nested caps.
+All terminal rows of the three previously complete v1 pilot cases matched exactly;
+the four previously failing 6p sealed continuations are now complete. Seven corrupt
+receipt variants were rejected. Session **67264** finished exit 0.
+
+Local HX370 runtime for four continuations each: 4p search 230.42 seconds, 3p heuristic
+0.91 seconds, 2p search 31.49 seconds, 6p search 233.11 seconds. The maximum observed
+CPU time was 458.39 seconds and summed process RSS about 1.46 GB. These are runtime
+admission measurements, not AMD8840U timings or strength results. The complete pilot
+and clean-package check are archived and verified at private HF revision
+`59243d245597ebd4034d187bf9b07e3c8b3f952b`, archive SHA
+`ef94026a3131a088293e014514ecd7688ed50263a9257a2898e2488386d74b76`, 74 files,
+descriptor `strong/reference-opponent-pilot-evidence-v2.json`. The one-shot collector
+has completed; do not rerun it. All 1,463 historical runtime files and 32 frozen
+development-screen dependencies remain unchanged.
+
+The admission fixes 28 `cpu-basic` jobs (2 vCPU / 16 GB each), four worker processes,
+16 worlds × two actions per job, a three-hour timeout, and at most seven concurrent
+jobs. CPU timing, completeness and memory determined admission; pilot scores did not.
+The first infrastructure canary was root 2 / worlds 0..15:
+`6add3494046eb82b1ece0468`. It completed and independently verified 32 continuations,
+3,524 neural decisions and 11,918 outer moves, zero caps, and exact pilot-prefix rows.
+Its evidence is private HF revision `e74bbfe45bb9179604104175abf1373c348c8da9`, SHA
+`8f23c9f8b9c2fc4eaf0f2c7f54b59612cd7dc940f1b686d7c9797fb712a97875`.
+Only after verification did the coordinator expand to seven concurrent jobs.
+
+**Active coordinator:** session **76600**, PID **443128**, started
+`2026-10-24T22:43:31.799020+00:00` (25 October locally).
+`ai/runs/reference-opponent-coordinator-v2/state.json` records pinned code and progress;
+`turn-checkpoint.json` contains the explicit HF status snapshot at 22:44:48 UTC.
+At that check eight jobs had been submitted, one verified, and seven were RUNNING:
+root 0 `6add34c4046eb82b1ece048b`, root 1 `6add34c5046eb82b1ece048d`, root 3
+`6add34c6046eb82b1ece048f`, root 4 `6add34c7046eb82b1ece0491`, root 5
+`6add34c9046eb82b1ece0493`, root 6 `6add34cb046eb82b1ece049b` (all worlds 0..15),
+and root 2 / worlds 16..31 `6add34cd046eb82b1ece049d`.
+Guards are in `ai/runs/reference-opponent-launches-v2/`; verified shard evidence is in
+`ai/runs/reference-opponent-collected-v2/`. These are a timestamped checkpoint, not a
+claim that the status can never change. Read the current handles before acting.
+
+The coordinator checks source identity, collects immutable HF archives and validates
+every terminal row before allowing comparison. It stops for review on any failed or
+uncertain submission; it does not retry or cancel remote jobs. Its 12-hour observation
+window is distinct from remote job failure. Do not duplicate a live coordinator or
+existing job. On full completion it writes `strong/reference-opponent-comparison-v2.json`:
+all seven roots, both original fixed actions, all 64 worlds, with the original primary
+worlds 8..63 and paired four-world block bootstrap. Every adverse result is retained.
+
+Next: monitor the existing coordinator, revalidate the complete comparison and assess
+whether known stronger-opponent continuation changes the fixed action ranking.
+These remain outcome-selected conditional diagnostics; no conclusion about fresh
+game strength or calibrated win probability follows directly. No new gradients,
+candidate selection, production/UI edits, deployment or reserved final seeds occurred.
+The separate resource ablation remains unlaunched and the full strong-model goal active.
+
+## Previous checkpoint: opponent-model pilot failure isolated, 25 October
 
 The opponent-model diagnostic now has an isolated worker and a frozen pilot
 protocol at `ai/runs/reference-opponent-diagnostic-v1/protocol.json`, SHA

@@ -55579,5 +55579,374 @@
         "hf_job_tools": "Prepared only; no successful admission descriptor exists and no jobs were launched.",
         "next": "Version a new nested-reference worker with this isolated sampler repair and explicit process exit on JSONL failure. Recheck control/arena parity and run a fresh complete pilot, including the failed 6p sealed root, before new HF admission. Preserve v1 evidence as failed; no automatic rerun or partial strength claim.",
         "final_seed_prefix_used": false
+    },
+    "reference_opponent_diagnostic_v2": {
+        "status": "complete_repaired_pilot_archived_fixed_hf_diagnostic_running",
+        "pilot_session": 67264,
+        "pilot_exit_code": 0,
+        "pilot_evidence": {
+            "protocol_sha256": "88c1f9e78c41bfa6c8b11fec87d4692a221dfee65181f473047da2a4da9a9d77",
+            "controls": [
+                {
+                    "root": 0,
+                    "label": "4p-search_geo-original-False-worse-2",
+                    "mode": "neural_population",
+                    "begin": 0,
+                    "count": 64,
+                    "options": [
+                        2,
+                        1
+                    ],
+                    "seconds": 33.958490395045374,
+                    "cpu_seconds": 54.27,
+                    "sampled_peak_total_rss_bytes": 1191686144,
+                    "memory_sampling_period_seconds": 0.1,
+                    "protocol_sha256": "88c1f9e78c41bfa6c8b11fec87d4692a221dfee65181f473047da2a4da9a9d77"
+                },
+                {
+                    "root": 1,
+                    "label": "5p-search_geo-recharged-False-worse-11",
+                    "mode": "neural_population",
+                    "begin": 0,
+                    "count": 64,
+                    "options": [
+                        1,
+                        2
+                    ],
+                    "seconds": 33.58457363501657,
+                    "cpu_seconds": 55.040000000000006,
+                    "sampled_peak_total_rss_bytes": 1200402432,
+                    "memory_sampling_period_seconds": 0.1,
+                    "protocol_sha256": "88c1f9e78c41bfa6c8b11fec87d4692a221dfee65181f473047da2a4da9a9d77"
+                },
+                {
+                    "root": 2,
+                    "label": "3p-heuristic-all-None-worse-4",
+                    "mode": "neural_population",
+                    "begin": 0,
+                    "count": 64,
+                    "options": [
+                        2,
+                        1
+                    ],
+                    "seconds": 20.74599848804064,
+                    "cpu_seconds": 35.660000000000025,
+                    "sampled_peak_total_rss_bytes": 1159233536,
+                    "memory_sampling_period_seconds": 0.1,
+                    "protocol_sha256": "88c1f9e78c41bfa6c8b11fec87d4692a221dfee65181f473047da2a4da9a9d77"
+                },
+                {
+                    "root": 3,
+                    "label": "4p-search_geo-recharged-True-better-1",
+                    "mode": "neural_population",
+                    "begin": 0,
+                    "count": 64,
+                    "options": [
+                        1,
+                        0
+                    ],
+                    "seconds": 27.75276973802829,
+                    "cpu_seconds": 45.06,
+                    "sampled_peak_total_rss_bytes": 1168113664,
+                    "memory_sampling_period_seconds": 0.1,
+                    "protocol_sha256": "88c1f9e78c41bfa6c8b11fec87d4692a221dfee65181f473047da2a4da9a9d77"
+                },
+                {
+                    "root": 4,
+                    "label": "4p-search_geo-original-True-better-8",
+                    "mode": "neural_population",
+                    "begin": 0,
+                    "count": 64,
+                    "options": [
+                        3,
+                        2
+                    ],
+                    "seconds": 26.67778328503482,
+                    "cpu_seconds": 45.180000000000035,
+                    "sampled_peak_total_rss_bytes": 1185558528,
+                    "memory_sampling_period_seconds": 0.1,
+                    "protocol_sha256": "88c1f9e78c41bfa6c8b11fec87d4692a221dfee65181f473047da2a4da9a9d77"
+                },
+                {
+                    "root": 5,
+                    "label": "2p-search_geo-recharged-True-better-1",
+                    "mode": "neural_population",
+                    "begin": 0,
+                    "count": 64,
+                    "options": [
+                        1,
+                        0
+                    ],
+                    "seconds": 18.45526771398727,
+                    "cpu_seconds": 33.129999999999995,
+                    "sampled_peak_total_rss_bytes": 1125335040,
+                    "memory_sampling_period_seconds": 0.1,
+                    "protocol_sha256": "88c1f9e78c41bfa6c8b11fec87d4692a221dfee65181f473047da2a4da9a9d77"
+                },
+                {
+                    "root": 6,
+                    "label": "6p-search_geo-recharged-True-better-9",
+                    "mode": "neural_population",
+                    "begin": 0,
+                    "count": 64,
+                    "options": [
+                        10,
+                        9
+                    ],
+                    "seconds": 28.724024834984448,
+                    "cpu_seconds": 47.81,
+                    "sampled_peak_total_rss_bytes": 1201082368,
+                    "memory_sampling_period_seconds": 0.1,
+                    "protocol_sha256": "88c1f9e78c41bfa6c8b11fec87d4692a221dfee65181f473047da2a4da9a9d77"
+                }
+            ],
+            "pilot": [
+                {
+                    "root": 0,
+                    "label": "4p-search_geo-original-False-worse-2",
+                    "mode": "reference_opponent_v1",
+                    "begin": 0,
+                    "count": 2,
+                    "options": [
+                        2,
+                        1
+                    ],
+                    "seconds": 230.4198826699867,
+                    "cpu_seconds": 365.12999999999994,
+                    "sampled_peak_total_rss_bytes": 1299845120,
+                    "memory_sampling_period_seconds": 0.1,
+                    "protocol_sha256": "88c1f9e78c41bfa6c8b11fec87d4692a221dfee65181f473047da2a4da9a9d77",
+                    "checks": {
+                        "complete": true,
+                        "rollouts": 4,
+                        "neural_decisions": 615,
+                        "outer_steps": 2403,
+                        "nested_evaluations": 53152,
+                        "prior_bid_evaluations_per_candidate": 0,
+                        "caps": 0,
+                        "terminal_scores_verified": true,
+                        "shared_sampled_worlds_verified": true
+                    }
+                },
+                {
+                    "root": 2,
+                    "label": "3p-heuristic-all-None-worse-4",
+                    "mode": "reference_opponent_v1",
+                    "begin": 0,
+                    "count": 2,
+                    "options": [
+                        2,
+                        1
+                    ],
+                    "seconds": 0.9141549490159377,
+                    "cpu_seconds": 2.6399999999999864,
+                    "sampled_peak_total_rss_bytes": 597221376,
+                    "memory_sampling_period_seconds": 0.1,
+                    "protocol_sha256": "88c1f9e78c41bfa6c8b11fec87d4692a221dfee65181f473047da2a4da9a9d77",
+                    "checks": {
+                        "complete": true,
+                        "rollouts": 4,
+                        "neural_decisions": 444,
+                        "outer_steps": 1532,
+                        "nested_evaluations": 0,
+                        "prior_bid_evaluations_per_candidate": 0,
+                        "caps": 0,
+                        "terminal_scores_verified": true,
+                        "shared_sampled_worlds_verified": true
+                    }
+                },
+                {
+                    "root": 5,
+                    "label": "2p-search_geo-recharged-True-better-1",
+                    "mode": "reference_opponent_v1",
+                    "begin": 0,
+                    "count": 2,
+                    "options": [
+                        1,
+                        0
+                    ],
+                    "seconds": 31.48898491502041,
+                    "cpu_seconds": 59.06000000000006,
+                    "sampled_peak_total_rss_bytes": 1212891136,
+                    "memory_sampling_period_seconds": 0.1,
+                    "protocol_sha256": "88c1f9e78c41bfa6c8b11fec87d4692a221dfee65181f473047da2a4da9a9d77",
+                    "checks": {
+                        "complete": true,
+                        "rollouts": 4,
+                        "neural_decisions": 583,
+                        "outer_steps": 1205,
+                        "nested_evaluations": 12096,
+                        "prior_bid_evaluations_per_candidate": 0,
+                        "caps": 0,
+                        "terminal_scores_verified": true,
+                        "shared_sampled_worlds_verified": true
+                    }
+                },
+                {
+                    "root": 6,
+                    "label": "6p-search_geo-recharged-True-better-9",
+                    "mode": "reference_opponent_v1",
+                    "begin": 0,
+                    "count": 2,
+                    "options": [
+                        10,
+                        9
+                    ],
+                    "seconds": 233.10754698200617,
+                    "cpu_seconds": 458.3899999999999,
+                    "sampled_peak_total_rss_bytes": 1457917952,
+                    "memory_sampling_period_seconds": 0.1,
+                    "protocol_sha256": "88c1f9e78c41bfa6c8b11fec87d4692a221dfee65181f473047da2a4da9a9d77",
+                    "checks": {
+                        "complete": true,
+                        "rollouts": 4,
+                        "neural_decisions": 350,
+                        "outer_steps": 2185,
+                        "nested_evaluations": 56048,
+                        "prior_bid_evaluations_per_candidate": 384,
+                        "caps": 0,
+                        "terminal_scores_verified": true,
+                        "shared_sampled_worlds_verified": true
+                    }
+                }
+            ],
+            "frozen_dependency_checks": 32,
+            "collector_sha256": "9c7f7cd2a815e39033985e99f53449e16732ec7fa89a86bfb44467f0cbafaea3",
+            "admission": {
+                "purpose": "Seven fixed roots, 64 worlds and two fixed actions each; 896 reference continuations. Diagnostic only.",
+                "flavor": "cpu-basic",
+                "cpu": "2 vCPU",
+                "ram": "16 GB",
+                "ephemeral_storage": "50 GB",
+                "workers_per_job": 4,
+                "jobs": 28,
+                "max_concurrent_jobs": 7,
+                "worlds_per_job": 16,
+                "timeout_hours": 3,
+                "max_pilot_cpu_seconds_per_rollout": 114.59749999999997,
+                "estimated_max_cpu_seconds_per_root": 14668.479999999996,
+                "timeout_rule": "Start at 16 worlds/job. Measured maximum CPU per rollout × (2 × worlds/job) / 2 vCPU × 4 margin + 600 seconds setup; round up to hours. Halve worlds/job if above six hours, down to four. This is an admission estimate, not a runtime guarantee.",
+                "sampled_peak_total_rss_bytes": 1457917952,
+                "memory_limitations": "100 ms sampled sum of process RSS, including shared pages; not a hard upper bound. Fourfold headroom required.",
+                "workers_note": "Four independent worker processes share the two vCPUs; unchanged simulation partitioning, no GPU required.",
+                "automatic_retries": false,
+                "jobs_launched": 0,
+                "gradients": false,
+                "qualification_eligible": false,
+                "reserved_final_seeds_used": false
+            },
+            "limitations": [
+                "Outcome-selected public roots, not a representative strength sample.",
+                "Known arena opponent identity is diagnostic knowledge, unavailable in deployment.",
+                "Prior bid inference and future opponent continuation change together; effects are not separately identified.",
+                "Search opponents retain their own historical internal rollout assumptions; only the outer opponent behavior changes."
+            ],
+            "no_pilot_strength_claim": true,
+            "new_hf_jobs": 0,
+            "previous_complete_pilot_rows_exact": true,
+            "six_player_sealed_failure_repaired": true,
+            "repair_scope": "Only the reference opponent nested search uses the isolated sampler; all public roots, outer world sampling, model inference and control continuations retain the frozen source. Known balances skip unused history replay; unknown balances still replay.",
+            "repair_dependencies": {
+                "ai/strong/analysis-public-balances-v1.cjs": "3e8eaf26bc21be7e2284e4838f743731a269e8d18badbb8adc0af882f3b3ccb5",
+                "ai/strong/reference-search-public-balances-v1.cjs": "ba53afcc0a06d25f776c27ba017e14026a28c9928bcde68b05effe64a715b010"
+            },
+            "failed_v1_evidence": "e2605d3e6f5d3ef2b43eb6713504f08ae496c449",
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "59243d245597ebd4034d187bf9b07e3c8b3f952b",
+            "archive_path": "archives/reference-opponent-pilot-evidence-v2.tgz",
+            "archive_sha256": "ef94026a3131a088293e014514ecd7688ed50263a9257a2898e2488386d74b76",
+            "manifest_sha256": "7d73c66e9ec4aea2298a6b505fb1182a302a0f1ee9aef3322c17c01fd44728d2",
+            "archived_files": 74,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "coordinator_session": 76600,
+        "coordinator_pid": 443128,
+        "checkpoint": {
+            "checked_at": "2026-10-24T22:44:48.056998+00:00",
+            "coordinator_pid": 443128,
+            "session_id": 76600,
+            "jobs": [
+                {
+                    "case": "reference-opponent-full-v2-root-0-worlds-0-16",
+                    "job_id": "6add34c4046eb82b1ece048b",
+                    "stage": "RUNNING",
+                    "flavor": "cpu-basic"
+                },
+                {
+                    "case": "reference-opponent-full-v2-root-1-worlds-0-16",
+                    "job_id": "6add34c5046eb82b1ece048d",
+                    "stage": "RUNNING",
+                    "flavor": "cpu-basic"
+                },
+                {
+                    "case": "reference-opponent-full-v2-root-2-worlds-0-16",
+                    "job_id": "6add3494046eb82b1ece0468",
+                    "stage": "COMPLETED",
+                    "flavor": "cpu-basic"
+                },
+                {
+                    "case": "reference-opponent-full-v2-root-2-worlds-16-32",
+                    "job_id": "6add34cd046eb82b1ece049d",
+                    "stage": "RUNNING",
+                    "flavor": "cpu-basic"
+                },
+                {
+                    "case": "reference-opponent-full-v2-root-3-worlds-0-16",
+                    "job_id": "6add34c6046eb82b1ece048f",
+                    "stage": "RUNNING",
+                    "flavor": "cpu-basic"
+                },
+                {
+                    "case": "reference-opponent-full-v2-root-4-worlds-0-16",
+                    "job_id": "6add34c7046eb82b1ece0491",
+                    "stage": "RUNNING",
+                    "flavor": "cpu-basic"
+                },
+                {
+                    "case": "reference-opponent-full-v2-root-5-worlds-0-16",
+                    "job_id": "6add34c9046eb82b1ece0493",
+                    "stage": "RUNNING",
+                    "flavor": "cpu-basic"
+                },
+                {
+                    "case": "reference-opponent-full-v2-root-6-worlds-0-16",
+                    "job_id": "6add34cb046eb82b1ece049b",
+                    "stage": "RUNNING",
+                    "flavor": "cpu-basic"
+                }
+            ],
+            "canary": {
+                "verified": true,
+                "summary": {
+                    "complete": true,
+                    "rollouts": 32,
+                    "neural_decisions": 3524,
+                    "outer_steps": 11918,
+                    "nested_evaluations": 0,
+                    "prior_bid_evaluations_per_candidate": 0,
+                    "caps": 0,
+                    "terminal_scores_verified": true,
+                    "shared_sampled_worlds_verified": true
+                },
+                "evidence": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "e74bbfe45bb9179604104175abf1373c348c8da9",
+                    "archive_path": "archives/reference-opponent-full-v2-root-2-worlds-0-16.tgz",
+                    "archive_sha256": "8f23c9f8b9c2fc4eaf0f2c7f54b59612cd7dc940f1b686d7c9797fb712a97875",
+                    "manifest_sha256": "426521a82f302efc12743afd3206756918949152b7f5f539198f41bb774a37e5",
+                    "archived_files": 5,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                }
+            }
+        },
+        "planned_reference_continuations": 896,
+        "planned_hf_jobs": 28,
+        "max_concurrent_jobs": 7,
+        "next": "Continue the existing coordinator, verify every fixed shard and the complete seven-root comparison. No retries or partial strength claims.",
+        "gradients": false,
+        "candidate_selected": false,
+        "final_seed_prefix_used": false
     }
 }

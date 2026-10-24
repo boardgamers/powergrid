@@ -27,11 +27,66 @@ This document supersedes the pause instruction in the
 
 ## Latest checkpoint: collection and full-data training handoff are active
 
-Previous goal turn: **progress** (312 verified shards,90 reference batches and
-bounded CPU expansion saved). This turn also made **progress**: more verified
-labels, the complete2p search reference, a bounded collector, and recovery from
-an actual HF repository file-count limit. The goal remains active; no new
-model gradients, final-test use, model qualification or production changes.
+Previous goal turn: **verified wait** (the existing collector and five exact HF
+handles were confirmed live;one of the oldest jobs then finished). This turn
+made **progress**: a bounded trained-output harvester is tested and active, and
+collection reached509 verified label shards. The goal remains active. There are
+still no new model gradients, final-test use, qualification or production changes.
+
+### Trained-output harvester ACTIVE — third local process
+
+PID **2850424**, exec session **65326**, started
+`2026-10-24T06:29:16.427844+00:00`. Command:
+
+```sh
+ai/.venv/bin/python -u ai/strong/harvest-policy-iteration-training.py \
+  --run-name policy-iteration-training-harvest-v2 --execute \
+  --interval-seconds 120 --max-wait-hours 12
+```
+
+State: `ai/runs/policy-iteration-training-harvest-v2/state.json`; log:
+`ai/runs/policy-iteration-training-harvest-v2.log`. It currently waits for the
+existing training coordinator's **both_jobs_submitted** handoff. No collection
+command, training model or candidate pin exists yet. Its28 code dependencies are
+hashed, including the existing training collector/verifier, source-admission
+code and development pin contract. Do not edit those while it is active.
+
+Once both exact prescribed jobs have archived launch evidence, it polls their
+actual HF handles. Each completed job goes through
+`collect-policy-iteration-training.py`, which independently checks all four
+seed checkpoints, frozen parent tensors, epoch selection, exact exports and
+2,553 serving/17,280 cached positions. Only verified results produce the two
+ensemble pins for that representation. The harvester then stores one compact
+HF evidence archive per representation. Raw trained weights stay at their
+immutable HF pins rather than being duplicated in the archive.
+
+It **cannot submit, cancel or retry jobs**, launch development/final evaluations,
+run gradients locally or promote a candidate. Errors, unknown handles, changed
+code and expired waits stop the local harvester with intermediates preserved.
+It terminates after both heads are verified and archived, or its12h wait window.
+Do not manually run competing training collection while it is active. Verify
+actual PID/command or session before deciding it stopped;never restart from a
+quiet log. On an explicit pause, reconcile and stop local pipeline processes;
+existing remote jobs require a separate cancellation decision.
+
+Validation:3 contract test suites passed;incomplete/failed upstream handoffs,
+wrong/duplicate jobs, mismatched source/data/recipe and changed verification code
+are rejected. A real-data one-shot check at493 shards started no collection;
+a duplicate harvester was rejected by its lock before creating an output tree.
+**Full trained-artifact integration remains pending the actual HF outputs.**
+Controls: `strong/policy-iteration-training-harvest-controls-v2.json`.
+Evidence: `strong/policy-iteration-training-harvest-evidence-v2.json`, revision
+`ef815eab00f394cfc70aef1767d2137dc7ae9b2b`, archive
+`archives/policy-iteration-training-harvest-evidence-v2.tgz`, SHA
+`9ac0a7a95ea51e1b415931eb4c93cc7cd1e84532da5e7f9752cce1c4dd6de70d`.
+Archive operation25526 finished and downloaded bytes were verified.
+
+Latest completed collection cycle7: **509/948 new label shards verified**,
+**16,819,584 continuations including pilot**. Snapshot06:26:44UTC had509 completed,
+430 running and9 queued;96 parent batches/5,760 reference games are verified.
+The earlier475-shard audit remains a separate frozen cohort. Both original
+processes(PID2476443 collector,PID2536611 training coordinator) are still alive;
+this third process does not replace them. Training submissions are still0.
 
 ### Broader cross-batch label audit — completed, still no strength claim
 

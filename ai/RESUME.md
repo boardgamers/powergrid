@@ -1,7 +1,7 @@
 # Power Grid AI — ACTIVE, resumed 23 October 2026
 
 **Start with [the current resumption handoff](HANDOFF-2026-10-23-RESUMED.md).**
-Previous turn and this turn made **progress**. No model is qualified or published;
+Previous turn: **verified wait**;this turn: **progress**. No model is qualified or published;
 reserved final seeds are unused.
 
 - **Collector ACTIVE:** PID2476443 /session82318, every5min, bounded12h.
@@ -14,12 +14,20 @@ reserved final seeds are unused.
   two four-seedL4 jobs. No local gradients or automatic retries. Do not run
   competing preparation/launch commands. On a future explicit pause, stop this
   coordinator so it cannot submit later. Check actual process liveness first.
-- **475/948 new label shards verified**,16,072,704 continuations including pilot.
+- **Trained-output harvester ACTIVE:** PID2850424 /session65326, started06:29:16UTC.
+  State: `ai/runs/policy-iteration-training-harvest-v2/state.json`.
+  Waits for the coordinator's two archived HF training launches, then independently
+  verifies completed outputs and saves all four candidate pins/evidence archives.
+  No submissions/retries/gradients/promotion. Do not duplicate training collection
+  or edit its28 hashed dependencies while active. Full integration is pending
+  actual trained outputs. Evidence: `strong/policy-iteration-training-harvest-evidence-v2.json`.
+- **509/948 new label shards verified**,16,819,584 continuations including pilot.
+  Snapshot06:26:44UTC:509 completed,430 running,9 queued.
   A frozen cross-batch audit covers4,520 fully paired roots:conditional gain0.04983;
   448/3,100 changed directions negative. Partial scheduling-selected cohort;not
   whole-game model strength. No partial-data training or changed thresholds.
   Evidence: `strong/policy-iteration-label-quality-progress-evidence-v2.json`.
-  Collector and training coordinator are still active. Last capacity archive
+  The three local processes are still active. Last capacity archive
   preserves418 shards;this audit also preserves the475-shard manifest.
 - Fourth bounded hardware wave finished: **420 queued-job migrations**,9 safely
   skipped originals, plus2 separate upload-failure retries. All948 effective IDs
@@ -37,7 +45,7 @@ reserved final seeds are unused.
 - No new gradients yet. Four trained-candidate evaluation grids, exact trained
   export/AMD benchmark and the unchanged final strength gate remain.
 
-Next: inspect the two existing processes as needed and let the prescribed pipeline
+Next: inspect the three existing processes as needed and let the prescribed pipeline
 advance. Keep the full strength objective active; source/model qualification is
 not established by these orchestration controls.
 

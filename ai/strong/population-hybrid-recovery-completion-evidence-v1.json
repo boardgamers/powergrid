@@ -1,0 +1,67 @@
+{
+  "checked_at": "2026-10-24T19:45:16.979382+00:00",
+  "status": "both_exact_recoveries_complete_and_storage_parity_verified",
+  "jobs": [
+    {
+      "case": "population-hybrid-development-v1-auction-4p-legacy-0-4",
+      "job_id": "6adceba41e112550ce7e21fa",
+      "status": "COMPLETED",
+      "original_job_id": "6adce697046eb82b1ecde31d"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-5p-economic-0-4",
+      "job_id": "6adcee5f046eb82b1ecde67f",
+      "status": "COMPLETED",
+      "original_job_id": "6adcdcf81e112550ce7e17d3"
+    }
+  ],
+  "verified_games": 144,
+  "storage_repeated_games": 79,
+  "storage_repeated_decisions": 9258,
+  "storage_failed_prefix_decisions": 14,
+  "frozen_dependencies_checked": 32,
+  "plan_sha256": "bd2d80bac1384f6d71a9cc4ee1f71db21ce6d9c8fd95e9a12543cdeceb83859f",
+  "full_collection_receipts": [
+    {
+      "repo": "coyotte508/powergrid-ai-germany-v1",
+      "revision": "2c510d6dc6daaac50194a15b625047ed60e24d90",
+      "archive_path": "archives/population-hybrid-development-v1-auction-4p-legacy-0-4.tgz",
+      "archive_sha256": "57422b1cc78b859de3601d6d42b165dcc761896cfcbbd7c2675d0995c86e7fab",
+      "manifest_sha256": "dda836c4411e1c351c91a51f9ac74ca7a89fab19b234245ec056cd5d44c816b4",
+      "archived_files": 133,
+      "format": "tar.gz",
+      "remote_archive_verified": true
+    },
+    {
+      "repo": "coyotte508/powergrid-ai-germany-v1",
+      "revision": "91ca1306f60bda164d7ea0da1281499eddd3e1ea",
+      "archive_path": "archives/population-hybrid-development-v1-auction-5p-economic-0-4.tgz",
+      "archive_sha256": "080a23e91404a5673e4c0f488af6f5264f238ee8215241b9ee6736a6ec94942e",
+      "manifest_sha256": "32439206728edb713fb34811860e6f9b9efaa5bda451b8cc9ddaf9ae0e0e2efd",
+      "archived_files": 165,
+      "format": "tar.gz",
+      "remote_archive_verified": true
+    }
+  ],
+  "coordinator_snapshot": {
+    "pid": 2812975,
+    "stage": "waiting_for_jobs",
+    "jobs_submitted": 135,
+    "jobs_verified": 107,
+    "updated_at": "2026-10-24T19:45:03.854530+00:00"
+  },
+  "scope": "Recovery completion and exact replay parity only; full hybrid comparison remains required.",
+  "new_jobs": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "collector_sha256": "b595e5b35c898a3b5d7fc3e36c472e665af236f4fee9e69aefc3d6e76061d411",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "dcde2edaa1ead7128f3dc9a5c0b36c18044f3400",
+  "archive_path": "archives/population-hybrid-recovery-completion-evidence-v1.tgz",
+  "archive_sha256": "b1ff5e5387e7d61c3dbcd34969a3f1e5a815498cb480aa0f93882c91a85cf349",
+  "manifest_sha256": "cb48aee26b100754dfc41ee1fdc56393914f7dcd29d9446e8815181d7a659852",
+  "archived_files": 13,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

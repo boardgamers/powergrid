@@ -6,7 +6,24 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest execution checkpoint — 24 October, 19:03 UTC: 50/135 batches verified.**
+**Latest — 24 October, 19:45 UTC: all 135 batches submitted; 107 verified.**
+The fixed comparison now has **6,544/8,400 verified games**. Both exact recovery
+jobs completed and passed full collection. The storage replacement also passed
+the mandatory parity gate: all 79 previously completed games, 9,258 decisions and
+the 14 saved decisions from the interrupted game match, excluding timing only.
+An independent read-only comparison repeated these checks and verified the
+original/replacement artifact manifests. All 32 frozen dependencies are unchanged.
+
+Proof is archived in private HF revision
+`dcde2edaa1ead7128f3dc9a5c0b36c18044f3400`; descriptor:
+`strong/population-hybrid-recovery-completion-evidence-v1.json`.
+The collector is one-shot: do not rerun its upload after an existing outcome.
+Continue the same coordinator PID **2812975** / session **5513** through the
+storage-recovery adapter. All planned guards are present, so no further grid
+submissions are needed. Remaining jobs and collection continue. Full comparison,
+policy selection and final qualification remain outstanding; final seeds are unused.
+
+**Previous execution checkpoint — 24 October, 19:03 UTC: 50/135 batches verified.**
 The fixed hybrid comparison has 2,880 verified games out of 8,400, with zero
 rollout caps in those batches. All 50 saved receipt identities and all 32 frozen
 dependencies were rechecked. Of 82 submitted batches, HF reported 31 still

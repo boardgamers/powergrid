@@ -25,7 +25,49 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest execution checkpoint: 50 verified batches, comparison still running
+## Latest checkpoint: both recoveries complete, exact parity proven, all batches submitted
+
+At **2026-10-24 19:45 UTC**, the unchanged coordinator has submitted every one of
+the 135 fixed batches and verified **107 batches / 6,544 games**. The complete
+8,400-game comparison remains unfinished. No partial strength comparison or
+candidate selection was performed. Final qualification seeds remain unused.
+
+Both exact replacements are now authoritatively COMPLETED and fully collected:
+
+- Four-player auction/legacy: `6adceba41e112550ce7e21fa`, 64 games.
+- Five-player auction/economic: `6adcee5f046eb82b1ecde67f`, 80 games.
+
+The storage-recovery coordinator's mandatory parity gate passed. Its receipt is
+`ai/runs/population-hybrid-storage-recovery-v1/repeated-games-verified.json`.
+All 79 saved original games, **9,258 decisions**, and the **14-decision prefix**
+from the originally failed episode 36 are identical, excluding elapsed times and
+the decision-file hash affected by those times. The failed episode now completes.
+The original failure evidence remains preserved; the storage resource that caused
+the original error is still unidentified.
+
+`strong/collect-population-hybrid-recovery-completion-v1.py` independently repeated
+the saved-record/decision comparisons without invoking or rewriting the active
+coordinator's parity check. It verified original and replacement artifact manifests,
+fresh HF terminal statuses, both collection receipts and all 32 frozen dependency
+hashes. It archived 13 evidence files, uploaded the archive, and downloaded the
+pinned revision to verify its SHA. This collector launches no jobs and performs no
+strength selection. Its one-shot archive must not be blindly rerun.
+
+Evidence: `strong/population-hybrid-recovery-completion-evidence-v1.json`;
+private HF revision `dcde2edaa1ead7128f3dc9a5c0b36c18044f3400`, archive
+`archives/population-hybrid-recovery-completion-evidence-v1.tgz`, SHA
+`b1ff5e5387e7d61c3dbcd34969a3f1e5a815498cb480aa0f93882c91a85cf349`.
+The subsequent collection review checked all 15 newly accepted batch receipts,
+confirmed the full 135-case guard set, and inspected the final 11 submissions:
+six RUNNING and five already COMPLETED at 19:45:52 UTC. Local snapshot:
+`ai/runs/population-hybrid-live-runtime-v1/20261024T194552649430Z-collection-review.json`.
+
+Continue PID **2812975** / session **5513** through the existing storage-recovery
+adapter. No further planned grid submissions remain; await/collect existing jobs.
+Do not bypass the adapter, duplicate a job, select from partial results, or start
+the prepared resource experiment before reviewing the completed fixed comparison.
+
+## Previous execution checkpoint: 50 verified batches, comparison still running
 
 At **2026-10-24 19:03 UTC**, the fixed hybrid screen has 50/135 verified batches,
 containing **2,880/8,400 games**, with zero rollout caps in those verified batches.

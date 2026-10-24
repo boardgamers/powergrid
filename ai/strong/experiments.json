@@ -55976,6 +55976,15 @@
             "jobs_verified": 3,
             "failed_jobs": [],
             "current_stage": "waiting_for_jobs"
+        },
+        "live_runtime_observation": {
+            "path": "ai/runs/reference-opponent-live-runtime-v2/20261024T231143Z.json",
+            "sha256": "f10881fe0193052915b69415cab8b865a4b286495b534f836c5e98fcc8e4238a",
+            "checked_at": "2026-10-24T23:11:43.618975+00:00",
+            "read_only": true,
+            "jobs_submitted_at_checkpoint": 12,
+            "jobs_verified_at_checkpoint": 5,
+            "failed_jobs_at_checkpoint": []
         }
     },
     "resource_replanning_runtime_v1": {
@@ -56063,6 +56072,68 @@
         "new_strength_games": 0,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
-        "next": "Continue existing session 75756. Require all four endpoint/arm cells (64 complete games), all 16 predeclared replays, zero caps and exact frozen source before resource runtime admission. Archive full evidence including initial packaging failure; do not infer strength from pilots. Continue reference coordinator 76600 independently."
+        "next": "Continue existing session 75756. Require all four endpoint/arm cells (64 complete games), all 16 predeclared replays, zero caps and exact frozen source before resource runtime admission. Archive full evidence including initial packaging failure; do not infer strength from pilots. Continue reference coordinator 76600 independently.",
+        "collection_preparation": {
+            "script": "ai/strong/collect-resource-replanning-runtime-v1.py",
+            "preflight": {
+                "collector_sha256": "a2487777cacbbbeebaba0e6909f3041c32f3b774a2b1fb2fa2291fa187ded21f",
+                "partial_endpoint_pilot_rejected": true,
+                "no_evidence_written": true,
+                "no_uploads": true
+            },
+            "archive_attempted": false,
+            "checkpoint": "ai/runs/resource-replanning-runtime-source-prepared-v1/collection-preparation-checkpoint.json",
+            "checkpoint_sha256": "4bba9f50c1e770a567c063f4206260581a5018d5a2b1c0c99211b8f30b059581",
+            "checked_at": "2026-10-24T23:16:43.165035+00:00",
+            "completed_game_files": {
+                "2p-filter": 8,
+                "2p-resource-filter": 7
+            },
+            "fully_verified_cells": [
+                "2p-filter"
+            ]
+        }
+    },
+    "resource_replanning_development_wrapper_v1": {
+        "status": "clean_package_preflight_passed_no_source_or_runtime_admission_yet",
+        "script": "ai/strong/resource-replanning-development-job-v1.py",
+        "receipt": {
+            "job_contracts_checked": 378,
+            "invalid_contracts_rejected": 13,
+            "execution_boundaries_checked": 3,
+            "real_model_and_opponent_hashes_checked": true,
+            "nonzero_deal_offsets_checked": true,
+            "runtime_and_development_seeds_distinct": true,
+            "frozen_files_unchanged": 1481,
+            "receipts": [
+                {
+                    "case": "resource-replanning-hf-runtime-v1-6p-resource-filter",
+                    "status_sha256": "1392f22fce823e443db3d8a912a8ec2f074da806587365826f8d580aa20e9ec2",
+                    "expected_failure_recorded": true
+                },
+                {
+                    "case": "resource-replanning-development-v1-resource-filter-2p-economic_capacity_v1-2-4",
+                    "status_sha256": "1e9b9e6843b94a7770b63e3cddb55324b2006aae9559c30773551a143f5cc956",
+                    "expected_failure_recorded": true
+                },
+                {
+                    "case": "resource-replanning-development-v1-filter-3p-a260-2-4",
+                    "status_sha256": "d1a7e2fa698a55c369bfd5935d4dae464e5d6c83acbb96544e87501de75b3b54",
+                    "expected_failure_recorded": true
+                }
+            ],
+            "new_games": 0,
+            "new_hf_jobs": 0,
+            "external_uploads": 0,
+            "runner_sha256": "c711da9db3b8c20ee75c7469e76f3b27026771e2336351246f09aaf4874ff08c",
+            "harness_sha256": "26e35f50166991ef1b2bcacb8c0a633ea82a49057ce0b7b940684c543b50fa78"
+        },
+        "preflight_directory": "ai/runs/resource-development-wrapper-preflight-v1",
+        "new_hf_jobs": 0,
+        "new_strength_games": 0,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "After the complete local pilot and archive, package this tested runner with the pinned source. Use explicitly admitted HF runtime calibration before the full 3360-game development screen. No launcher or automatic submission exists."
     }
 }

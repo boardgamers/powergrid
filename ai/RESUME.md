@@ -7,6 +7,28 @@ median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. Thes
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
 **Latest — 25 October: resource runtime pilot started; auction diagnostic continues.**
+**23:16:43 UTC update:** both handles were checked live. Auction coordinator
+**76600 / PID 443128** has **12/28 submitted, five verified, seven running**, no
+failures. Resource pilot **75756 / PID 559327** has completed/verified 2p/filter;
+**seven of eight 2p/resource-filter games have ended**, but that cell is not yet
+fully verified. Keep the 6p cells and 16 replays pending, not complete.
+
+`strong/collect-resource-replanning-runtime-v1.py` now requires the entire 64-game
+pilot and all 16 replays, rechecks pairing/receipts/source identity and preserves
+runtime/resource-search distributions. Its partial-pilot rejection check passed.
+Run it without arguments only after pilot completion, inspect all cells, then use
+`--archive` once. No archive has been attempted.
+
+`strong/resource-replanning-development-job-v1.py` is a tested **unlaunched** job
+wrapper, including a separate runtime-calibration mode. Its clean-package preflight
+checked 378 valid partitions, rejected 13 invalid requests, and exercised three
+execution boundaries with real pinned model hashes and injected stops before games.
+No external uploads/jobs/games occurred in that preflight. Inputs/receipt:
+`ai/runs/resource-development-wrapper-preflight-v1/`. It still needs a new pinned
+source/launcher and measured runtime admission; do not call it a launched screen.
+Exact current checkpoint:
+`ai/runs/resource-replanning-runtime-source-prepared-v1/collection-preparation-checkpoint.json`.
+
 The prior turn added and checked the complete-results audit. This turn prepared,
 uploaded and verified a separate resource-policy runtime package, then started the
 preregistered full paired endpoint pilot. No gradients or fresh strength games.

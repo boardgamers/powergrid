@@ -25,7 +25,67 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: pinned resource pilot running, 25 October
+## Latest checkpoint: collectors and HF wrapper prepared; both runs remain live
+
+The previous goal turn made substantive progress by pinning the resource runtime
+source and starting the full pilot. This turn added the complete resource evidence
+collector, exercised the future HF execution wrapper, and checked actual live HF
+progress/metrics. Neither live runtime was modified or restarted.
+
+At **2026-10-24T23:16:43 UTC** (25 October locally), local **session 75756 / PID 559327**
+remained in `2p-resource-filter`: the baseline eight-game cell was complete/verified,
+and seven of eight resource games had ended. This is partial progress, not a verified
+resource cell or strength result. The 6p cells and all 16 replays remain pending.
+Auction **session 76600 / PID 443128** had **12 submitted, five verified, seven running**,
+no failures. Exact snapshot:
+`ai/runs/resource-replanning-runtime-source-prepared-v1/collection-preparation-checkpoint.json`.
+
+Read-only HF inspection at **23:11:43 UTC** confirmed continued neural-decision
+progress in the jobs queried. Its full evidence is
+`ai/runs/reference-opponent-live-runtime-v2/20261024T231143Z.json`.
+A three-frame sample of root 1/worlds 16..31 showed a median CPU utilization of
+68.5% after the first frame, about 1.93 GB maximum RAM on CPU Basic. This is only a
+brief observation, not a sustained-utilization estimate or reason to restart jobs.
+The coordinator subsequently collected the completed root 3 and root 4 first shards
+and admitted their next fixed shards normally. No timeout, cancellation or retry.
+
+New `strong/collect-resource-replanning-runtime-v1.py` requires `stage=complete`,
+all 64 endpoint games and 16 predeclared replays before any audit/archive. It
+revalidates the frozen package, complete-game decision receipts, terminal scoring,
+paired arms and replay identities; it reports resource search latency/bundle/simulation
+distributions and raw evidence size alongside CPU/RSS measurements. It does not
+produce a pilot win-rate comparison. Its partial-pilot refusal passed before any
+evidence directory/upload, receipt
+`ai/runs/resource-replanning-runtime-source-prepared-v1/collector-preflight.json`.
+Collector SHA `a2487777cacbbbeebaba0e6909f3041c32f3b774a2b1fb2fa2291fa187ded21f`.
+After full completion, run without arguments, inspect, then run once with `--archive`.
+The descriptor `strong/resource-replanning-runtime-evidence-v1.json` does not yet exist.
+
+New `strong/resource-replanning-development-job-v1.py` is **not launched or included
+in an uploaded job source yet**. It uses the unchanged atomic evaluator and resource
+verifier, eight worlds, eight game workers, one search worker, and the same horizons.
+Normal jobs use only the fixed resource development seeds/partitions. Its explicit
+`--runtime-pilot` mode is restricted to one full 2p or 6p resource-filter/search_geo
+deal using the separate runtime seeds, allowing later HF calibration and exact
+comparison with the local pilot. No automatic launcher or admission was added.
+
+Clean-package wrapper preflight completed **378 valid job contracts, 13 rejected
+invalid contracts and three execution-boundary checks**: 6p runtime, nonzero-offset
+2p resource/economic-capacity development, and 3p filter/a260 development. Real model
+and independent-opponent file hashes were checked. An injected `ReachedEvaluation`
+exception stopped each command before any game, with failure records/manifests
+preserved and uploads stubbed out. These three intentional preflight failures are
+not failed HF jobs. All 1,481 packaged files remained unchanged. Evidence/harness:
+`ai/runs/resource-development-wrapper-preflight-v1/`, receipt `receipt.json`.
+Wrapper SHA `c711da9db3b8c20ee75c7469e76f3b27026771e2336351246f09aaf4874ff08c`.
+
+Next: continue both existing processes. Complete/verify/archive the local resource
+pilot, then package the tested wrapper and use explicit measured HF runtime
+calibration to set the resource development admission. The fresh 3,360-game screen
+is still unlaunched. Auction comparison/archive also remains pending all 28 shards.
+No gradients, candidate selection, production edits or final seeds this turn.
+
+## Previous checkpoint: pinned resource pilot running, 25 October
 
 This turn advanced the separate resource-planning work while the seven-root auction
 diagnostic continued. The complete 8,400-game comparison already satisfied the

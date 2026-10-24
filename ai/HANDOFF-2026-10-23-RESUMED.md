@@ -25,7 +25,42 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: four-player baseline and final-wrapper compatibility
+## Latest checkpoint: final evidence conversion and hybrid decision point
+
+The preceding turn was a verified wait and a review of historical hybrid
+evidence. The user wants candid advice when strength gains taper off; they have
+not paused work. Finish the current round and judge fresh complete-game results,
+not label throughput. A bounded hybrid comparison is a sensible follow-up, but
+the older6p regression must not be hidden. See the user-steering section in
+`RESUME.md` for the exact earlier results and8840U timings. No hybrid jobs have
+been launched and the active model-only evaluation stays unchanged.
+
+Added `strong/prepare-policy-iteration-final-evidence.py` with `check` and
+`prepare` stages. After all four trained ensembles have been independently
+verified, benchmarked on the8840U and archived, it creates12 per-model parity,
+CPU and standalone-package receipts in
+`ai/runs/policy-iteration-final-evidence-v2`. These match the unchanged final
+verifier's input schema. It checks pinned training/target/package identities,
+every archived input receipt, all2553 fixtures/counts,17280 cached parity cases,
+and every packaged engine/inference file against the actual frozen final
+archive. The inactive-value claim traces to the admitted immutable native
+parity checker, which asserts zeros on every serving/cache batch.
+
+Three tests passed: reject mixed models/incomplete coverage/wrong CPU/search;
+exercise the real final verifier with converted unit-test receipts (it still
+rejects missing games); and reject pending training before filesystem/network
+side effects. A real `prepare` invocation also rejected the current pending
+training before creating the output directory. Full integration remains pending
+actual trained outputs. No candidate JSON, selection, jobs, gradients, final
+seeds or publication are produced by this converter.
+
+All four existing process identities and all their frozen dependencies were
+rechecked unchanged. The latest completed collection snapshot is643/948 labels,
+20,150,016 continuations including the pilot,100/108 parent batches and6,016
+parent games; collector cycle23 is active. Training is still waiting on the
+remaining labels. Live state files supersede these counts.
+
+## Previous checkpoint: four-player baseline and final-wrapper compatibility
 
 Previous turn was a verified wait. This turn produced new diagnostic and runtime
 compatibility evidence. The four pipeline processes are still active and their

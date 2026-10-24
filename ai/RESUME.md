@@ -1,9 +1,51 @@
 # Power Grid AI — ACTIVE, resumed 23 October 2026
 
 **Start with [the current resumption handoff](HANDOFF-2026-10-23-RESUMED.md).**
-This turn completed the4p baseline diagnosis and128 final-wrapper compatibility
-games. Actual trained outputs are still pending. No model is qualified or
-published; reserved final seeds are unused.
+The final-verifier evidence converter is prepared and its three tests pass.
+Actual trained outputs are still pending. No model is qualified or published;
+reserved final seeds are unused.
+
+## User steering, 24 October: diminishing returns and hybrid play
+
+The user asks to be told candidly when further work has diminishing returns,
+and asks whether hybrid search/AI is the right direction after the fresh4p
+parent result. This is not a pause. Judge progress by fresh complete-game
+strength and target latency, not numbers of generated labels or jobs.
+
+Recommendation: finish the already running policy-iteration round, then compare
+its model-only agent with a bounded hybrid on fresh development deals. Keep
+the current frozen model-only protocol and its four coordinators unchanged.
+The quoted30.86% overall /15.625% Recharged-sealed4p results have candidate
+search OFF. Current training learns from search continuations; it does not
+perform search when making a deployed move.
+
+Hybrid is already supported by preliminary evidence, not a wholly new idea:
+the earlier10102 paired search-transfer experiment against search_geo raised
+4p share24.21875% to35.15625%, but lowered6p38.54167% to29.16667%.
+Each had only8 independent deals. Auction-only3p raised20.83333% to43.75%
+(paired gain22.91667pp, exploratory95% deal interval9.375–36.45833).
+These use older development deals and cannot be compared directly to the
+current30.86% reference. Reports: `strong/multiplayer-search-transfer-results-v1.json`
+and `strong/phase-search-ablation-results-v1.json`.
+
+The old hybrid adds the neural proposal to a heuristic shortlist and rolls out
+heuristic/economic continuations. It is not a fully neural policy/value tree
+search. Its10102 actual8840U probe measured60 searched positions: median1.113s,
+p952.064s, max2.346s at48 samples. This supports job-based feasibility only
+for that implementation, not latency promises for neural continuations.
+Report: `strong/search-transfer-8840u-probe-v1.json`.
+
+A follow-up should compare raw neural, independent search, and hybrid at
+measured compute budgets, with all counts/rules retained. Prioritize auctions
+and building; use policy-consistent hidden-bid beliefs (including passes),
+public balances and plausible opponent-policy mixtures. Do not replay hidden
+bids or hidden deck order. The learned value head is not yet calibrated for
+truncated search; validate it before substituting it for complete outcomes.
+More search alone is not an answer to inaccurate rollout/opponent models.
+If completed training and a bounded hybrid comparison fail to produce useful
+fresh gains, recommend changing approach or stopping this line instead of
+automatically scaling another training round. No hybrid jobs were launched
+and no active protocol, final threshold or reserved seed was changed here.
 
 - **Collector ACTIVE:** PID2476443 /session82318, every5min, bounded12h.
   State: `ai/runs/policy-iteration-harvest-recovered-v2/state.json`.
@@ -31,7 +73,7 @@ published; reserved final seeds are unused.
   edit its39 hashed dependencies.24h window,no retry/cancel/final test/promotion.
   Stop it on an explicit pause to prevent later submissions. No candidate jobs
   launched yet. Evidence: `strong/policy-iteration-development-coordinator-evidence-v2.json`.
-- **614/948 new label shards verified**, 19,099,392 continuations including pilot.
+- **643/948 new label shards verified**, 20,150,016 continuations including pilot.
   The four local processes remain active; all948 jobs have started. Live state
   files supersede this snapshot. No partial-data training or changed thresholds.
 - **Trained target benchmark tooling prepared**,3 admission tests passed.
@@ -40,6 +82,12 @@ published; reserved final seeds are unused.
   No fifth coordinator or target run. Actual trained integration is pending.
   It keeps the old synthetic benchmark separate and rejects unfinished training
   before creating any outputs. See the latest handoff for exact future paths.
+- **Final evidence converter prepared**,3 rejection/real-verifier schema tests
+  passed. After trained benchmark archival, run
+  `ai/.venv/bin/python ai/strong/prepare-policy-iteration-final-evidence.py prepare`.
+  It writes12 technical receipts for all four models, without selection or jobs.
+  Actual trained integration remains pending; current pending training rejects
+  before output creation. Keep the strength review/final gate separate.
 - A frozen cross-batch audit covers4,520 fully paired roots:conditional gain0.04983;
   448/3,100 changed directions negative. Scheduling-selected partial cohort;
   not whole-game strength. Evidence: `strong/policy-iteration-label-quality-progress-evidence-v2.json`.

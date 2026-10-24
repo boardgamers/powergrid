@@ -1,0 +1,1361 @@
+{
+  "created_at": "2026-10-24T13:59:16.054846+00:00",
+  "protocol_sha256": "a86b3cd3bcce25131dde6bf59f980e58bbb35dd2c432090a5ed0acd445988014",
+  "source": {
+    "archive": "strong-source-population-hybrid-development-20261024-v1.tgz",
+    "sha256": "ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23",
+    "bytes": 109458675,
+    "overlays": {
+      "ai/strong/hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+      "ai/strong/hybrid-continuations.cjs": "2b03c49c8270622e74c333c5e7253d5eb5d21ba1af919bc5f15ebd456109daaf",
+      "ai/strong/population-hybrid-continuations.cjs": "206cb044ba5057904afddbbbb125d98db319e04f96067e94c7337a36f0f7502c",
+      "ai/strong/endgame-loss-filter.cjs": "28e3eb1a5fb637b7b80c1b7dc4db255c3d93e5ace168ead6dfa386f57a4de70a",
+      "ai/strong/population-hybrid-policy.cjs": "8f9f7ad3306ab2ebdf04eb6aa439e3f3525f4f6569e6d086649bdbd4c86aff16",
+      "ai/strong/population_hybrid_policy.py": "652677d33cc6613680122c9a95a1ba2c0c0915de384b2124c95e3b1b3a0876cf",
+      "ai/strong/public-arena-bridge.cjs": "999bee0a43a219974c5ceb38bc586f6ea2995e248c19eb9fd697d2e199df8391",
+      "ai/strong/evaluate-population-policy.py": "019454d436e1b8e2ace2ed13375c0ad38727bd02678fedea872957518132abc3",
+      "ai/strong/population-hybrid-runtime-job.py": "1c375bc07dd18b80f28ad7c0b4edfff910fcf63d3f7bd413e8e3048a0f733f92",
+      "ai/strong/population-hybrid-development-protocol-v1.json": "a86b3cd3bcce25131dde6bf59f980e58bbb35dd2c432090a5ed0acd445988014",
+      "ai/strong/policy_iteration_evidence_archive.py": "83177b7f9a35af6467e09509e80024ef5fc258a1030ad23ebfd71c876fac635a",
+      "ai/strong/test-population-hybrid-policy.cjs": "faff35e5f6f78104542d4a7a89a5c768597edf0238f27aec9fa49f3f1a6a060f",
+      "ai/strong/probe-population-policy.py": "d361cc61ac663f1a236656b99671ebb4f73a387baece1808cfd4257cd319caaf",
+      "ai/strong/build-population-hybrid-source.py": "f2bcf99663d65330fb3deffb6415b22f31065b5c2567b91575b4857a73a7bac5",
+      "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+      "ai/strong/population_hybrid_development.py": "bc65be5ebe091d56a9b52cef9d238379aff1b7a73398f53e9123b41e6a473fb2",
+      "ai/strong/population-hybrid-development-job.py": "8cf38cf2fc42ac271a528d6bbb091891845e3035eaaecb537a7c6f07a514eef8",
+      "ai/strong/manage-population-hybrid-development.py": "818c8595651a89b81f24e37e3a229e53ffe3567be021ea3d502ca2cff3c139a2",
+      "ai/strong/coordinate-population-hybrid-development.py": "f8a74d1192a053a312b3395e9a4cd818d35771718dcaa0e62908d685207228d1",
+      "ai/strong/compare-population-hybrid-development.py": "8f256ca9d95785e4da80332dc02ff89707ae5a0987825882876302aa38092c1f",
+      "ai/strong/collect-population-hybrid-runtime.py": "0128713f10321983731f3b96f6c8d8c2fe093b739ffec7a62b06bd7d6fb9caa9",
+      "ai/strong/build-population-hybrid-development-source.py": "0b3849196fad27a2faef41f9a11f75770929373085c3c39d899ab4da0357cbab",
+      "ai/strong/test_population_policy_verification.py": "38bd03459c8c5fe6a40d5671a44515d7143feb49eae0bf1a0bbf614600ebceb3",
+      "ai/strong/test_population_hybrid_development.py": "eb2f33046aca15b238703ee60e2d85b79263935e3e8e6b78310f6502e8916f20"
+    },
+    "protocol_sha256": "a86b3cd3bcce25131dde6bf59f980e58bbb35dd2c432090a5ed0acd445988014",
+    "unchanged_base_files": 1453,
+    "layout_check": {
+      "clean_package_without_runs": true,
+      "reached_evaluation_subprocess": true,
+      "nonzero_deal_offset_checked": true,
+      "failure_receipt_written": true,
+      "new_games": 0,
+      "new_jobs": 0
+    },
+    "revision": "cdec1d3079eb9a54b776f6237ec5f93cc1de84d8",
+    "base": {
+      "archive": "strong-source-population-hybrid-20261024-v2.tgz",
+      "revision": "9a49df8a3baa5e5b6b62cae8208ef301b8540ba7",
+      "sha256": "cd5c08165dfecce5753bcab1c9c0bf10ef45797bf3e5e082914fd6634f91a778"
+    },
+    "base_descriptor_sha256": "f71540c07b1e91895e2fb5d922204cc5c3fb9230315a4be1f09052639428484b",
+    "preparation_sha256": "6f543404bdfaea1ba81f0d5165937e294c09740d63d8e9709b20cbc26a4851a3",
+    "gradients": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false
+  },
+  "admission": {
+    "admitted": true,
+    "probes": [
+      {
+        "players": 2,
+        "seconds": 498.46519396499934,
+        "verified_sha256": "a5d66ee8509ae842a37d82825b413cf393b1430a9980f45481d10ddba13e8d02",
+        "job_id": "6adcad711e112550ce7dfe8d",
+        "evidence": {
+          "repo": "coyotte508/powergrid-ai-germany-v1",
+          "revision": "065379fd84a562717e26864f7e0220f132187064",
+          "archive_path": "archives/population-hybrid-runtime-v2-2p.tgz",
+          "archive_sha256": "38224cf1cec76d6ff717c056c7825558deaf3be0dd549f8783f61da322a6d2f3",
+          "manifest_sha256": "4617fae24759fcce738cf3d74b41f0a12319b8ac09366df6881978fad048ecda",
+          "archived_files": 20,
+          "format": "tar.gz",
+          "remote_archive_verified": true
+        }
+      },
+      {
+        "players": 6,
+        "seconds": 2862.5063830000036,
+        "verified_sha256": "01c572a9e6d6052820f4fcf22cdb58421ff153e2286ac25de71fe862f61df613",
+        "job_id": "6adcad7b046eb82b1ecdc9cd",
+        "evidence": {
+          "repo": "coyotte508/powergrid-ai-germany-v1",
+          "revision": "4aeb3747d691b6eae7d4b08c9248be8f0016a663",
+          "archive_path": "archives/population-hybrid-runtime-v2-6p.tgz",
+          "archive_sha256": "8e01166682b0a3ec6d9c118f71198d34b56638316a6a0647fd8644160d11a325",
+          "manifest_sha256": "fb571a4f91e7a21380cf6a840ed1ffd4b648533c9cd2fc9b543d7a31caf2d448",
+          "archived_files": 52,
+          "format": "tar.gz",
+          "remote_archive_verified": true
+        }
+      }
+    ],
+    "deals_per_shard": 4,
+    "projected_seconds": 23020.05106400003,
+    "timeout_hours": 9,
+    "flavor": "cpu-upgrade",
+    "workers": 8,
+    "search_workers": 1,
+    "max_in_flight": 32,
+    "metrics_sha256": "840de1dcd07b694345e7f63ee67b8f2274aeeb6c1e3343eed0fa2a9e24a0aead",
+    "calculation": "120s setup + 2x the slower complete endpoint deal times deals per shard; reserve 25% timeout headroom. Split 4/2/1 whole deals if needed; preserve every seat/rule and fixed horizons.",
+    "resource_observation": "One short live sample, retained in full: initial CPU0 then99/100%, about5.7GB/32GB. Keep the measured 8-process CPU execution; scale independent jobs, not GPU count.",
+    "limitation": "Endpoint runtime pilots are not a bound on every future game. Any timeout or cap remains a failed/unverified cell; no automatic retry, truncation-based scoring or partial promotion.",
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false
+  },
+  "shards": [
+    {
+      "case": "population-hybrid-development-v1-combined-6p-economic-0-4",
+      "arm": "combined",
+      "players": 6,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-6p-heuristic-0-4",
+      "arm": "combined",
+      "players": 6,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-6p-legacy-0-4",
+      "arm": "combined",
+      "players": 6,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-6p-rush-0-4",
+      "arm": "combined",
+      "players": 6,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-6p-search_geo-0-4",
+      "arm": "combined",
+      "players": 6,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-5p-economic-0-4",
+      "arm": "combined",
+      "players": 5,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-5p-heuristic-0-4",
+      "arm": "combined",
+      "players": 5,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-5p-legacy-0-4",
+      "arm": "combined",
+      "players": 5,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-5p-rush-0-4",
+      "arm": "combined",
+      "players": 5,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-5p-search_geo-0-4",
+      "arm": "combined",
+      "players": 5,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-4p-economic-0-4",
+      "arm": "combined",
+      "players": 4,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-4p-heuristic-0-4",
+      "arm": "combined",
+      "players": 4,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-4p-legacy-0-4",
+      "arm": "combined",
+      "players": 4,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-4p-rush-0-4",
+      "arm": "combined",
+      "players": 4,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-4p-search_geo-0-4",
+      "arm": "combined",
+      "players": 4,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-3p-a260-0-4",
+      "arm": "combined",
+      "players": 3,
+      "opponent": "a260",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-3p-economic-0-4",
+      "arm": "combined",
+      "players": 3,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-3p-heuristic-0-4",
+      "arm": "combined",
+      "players": 3,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-3p-legacy-0-4",
+      "arm": "combined",
+      "players": 3,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-3p-rush-0-4",
+      "arm": "combined",
+      "players": 3,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-3p-search_geo-0-4",
+      "arm": "combined",
+      "players": 3,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-2p-economic-0-4",
+      "arm": "combined",
+      "players": 2,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-2p-economic_capacity_v1-0-4",
+      "arm": "combined",
+      "players": 2,
+      "opponent": "economic_capacity_v1",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-2p-heuristic-0-4",
+      "arm": "combined",
+      "players": 2,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-2p-legacy-0-4",
+      "arm": "combined",
+      "players": 2,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-2p-rush-0-4",
+      "arm": "combined",
+      "players": 2,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-2p-search_geo-0-4",
+      "arm": "combined",
+      "players": 2,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-building-6p-economic-0-4",
+      "arm": "building",
+      "players": 6,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-building-6p-heuristic-0-4",
+      "arm": "building",
+      "players": 6,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-building-6p-legacy-0-4",
+      "arm": "building",
+      "players": 6,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-building-6p-rush-0-4",
+      "arm": "building",
+      "players": 6,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-building-6p-search_geo-0-4",
+      "arm": "building",
+      "players": 6,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-building-5p-economic-0-4",
+      "arm": "building",
+      "players": 5,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-building-5p-heuristic-0-4",
+      "arm": "building",
+      "players": 5,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-building-5p-legacy-0-4",
+      "arm": "building",
+      "players": 5,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-building-5p-rush-0-4",
+      "arm": "building",
+      "players": 5,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-building-5p-search_geo-0-4",
+      "arm": "building",
+      "players": 5,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-building-4p-economic-0-4",
+      "arm": "building",
+      "players": 4,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-building-4p-heuristic-0-4",
+      "arm": "building",
+      "players": 4,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-building-4p-legacy-0-4",
+      "arm": "building",
+      "players": 4,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-building-4p-rush-0-4",
+      "arm": "building",
+      "players": 4,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-building-4p-search_geo-0-4",
+      "arm": "building",
+      "players": 4,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-building-3p-a260-0-4",
+      "arm": "building",
+      "players": 3,
+      "opponent": "a260",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-building-3p-economic-0-4",
+      "arm": "building",
+      "players": 3,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-building-3p-heuristic-0-4",
+      "arm": "building",
+      "players": 3,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-building-3p-legacy-0-4",
+      "arm": "building",
+      "players": 3,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-building-3p-rush-0-4",
+      "arm": "building",
+      "players": 3,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-building-3p-search_geo-0-4",
+      "arm": "building",
+      "players": 3,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-building-2p-economic-0-4",
+      "arm": "building",
+      "players": 2,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-building-2p-economic_capacity_v1-0-4",
+      "arm": "building",
+      "players": 2,
+      "opponent": "economic_capacity_v1",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-building-2p-heuristic-0-4",
+      "arm": "building",
+      "players": 2,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-building-2p-legacy-0-4",
+      "arm": "building",
+      "players": 2,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-building-2p-rush-0-4",
+      "arm": "building",
+      "players": 2,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-building-2p-search_geo-0-4",
+      "arm": "building",
+      "players": 2,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-6p-economic-0-4",
+      "arm": "auction",
+      "players": 6,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-6p-heuristic-0-4",
+      "arm": "auction",
+      "players": 6,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-6p-legacy-0-4",
+      "arm": "auction",
+      "players": 6,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-6p-rush-0-4",
+      "arm": "auction",
+      "players": 6,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-6p-search_geo-0-4",
+      "arm": "auction",
+      "players": 6,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-5p-economic-0-4",
+      "arm": "auction",
+      "players": 5,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-5p-heuristic-0-4",
+      "arm": "auction",
+      "players": 5,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-5p-legacy-0-4",
+      "arm": "auction",
+      "players": 5,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-5p-rush-0-4",
+      "arm": "auction",
+      "players": 5,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-5p-search_geo-0-4",
+      "arm": "auction",
+      "players": 5,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-4p-economic-0-4",
+      "arm": "auction",
+      "players": 4,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-4p-heuristic-0-4",
+      "arm": "auction",
+      "players": 4,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-4p-legacy-0-4",
+      "arm": "auction",
+      "players": 4,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-4p-rush-0-4",
+      "arm": "auction",
+      "players": 4,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-4p-search_geo-0-4",
+      "arm": "auction",
+      "players": 4,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-3p-a260-0-4",
+      "arm": "auction",
+      "players": 3,
+      "opponent": "a260",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-3p-economic-0-4",
+      "arm": "auction",
+      "players": 3,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-3p-heuristic-0-4",
+      "arm": "auction",
+      "players": 3,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-3p-legacy-0-4",
+      "arm": "auction",
+      "players": 3,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-3p-rush-0-4",
+      "arm": "auction",
+      "players": 3,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-3p-search_geo-0-4",
+      "arm": "auction",
+      "players": 3,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-2p-economic-0-4",
+      "arm": "auction",
+      "players": 2,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-2p-economic_capacity_v1-0-4",
+      "arm": "auction",
+      "players": 2,
+      "opponent": "economic_capacity_v1",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-2p-heuristic-0-4",
+      "arm": "auction",
+      "players": 2,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-2p-legacy-0-4",
+      "arm": "auction",
+      "players": 2,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-2p-rush-0-4",
+      "arm": "auction",
+      "players": 2,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-2p-search_geo-0-4",
+      "arm": "auction",
+      "players": 2,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-model-6p-economic-0-4",
+      "arm": "model",
+      "players": 6,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-model-6p-heuristic-0-4",
+      "arm": "model",
+      "players": 6,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-model-6p-legacy-0-4",
+      "arm": "model",
+      "players": 6,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-model-6p-rush-0-4",
+      "arm": "model",
+      "players": 6,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-model-6p-search_geo-0-4",
+      "arm": "model",
+      "players": 6,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-model-5p-economic-0-4",
+      "arm": "model",
+      "players": 5,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-model-5p-heuristic-0-4",
+      "arm": "model",
+      "players": 5,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-model-5p-legacy-0-4",
+      "arm": "model",
+      "players": 5,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-model-5p-rush-0-4",
+      "arm": "model",
+      "players": 5,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-model-5p-search_geo-0-4",
+      "arm": "model",
+      "players": 5,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-model-4p-economic-0-4",
+      "arm": "model",
+      "players": 4,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-model-4p-heuristic-0-4",
+      "arm": "model",
+      "players": 4,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-model-4p-legacy-0-4",
+      "arm": "model",
+      "players": 4,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-model-4p-rush-0-4",
+      "arm": "model",
+      "players": 4,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-model-4p-search_geo-0-4",
+      "arm": "model",
+      "players": 4,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-model-3p-a260-0-4",
+      "arm": "model",
+      "players": 3,
+      "opponent": "a260",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-model-3p-economic-0-4",
+      "arm": "model",
+      "players": 3,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-model-3p-heuristic-0-4",
+      "arm": "model",
+      "players": 3,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-model-3p-legacy-0-4",
+      "arm": "model",
+      "players": 3,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-model-3p-rush-0-4",
+      "arm": "model",
+      "players": 3,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-model-3p-search_geo-0-4",
+      "arm": "model",
+      "players": 3,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-model-2p-economic-0-4",
+      "arm": "model",
+      "players": 2,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-model-2p-economic_capacity_v1-0-4",
+      "arm": "model",
+      "players": 2,
+      "opponent": "economic_capacity_v1",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-model-2p-heuristic-0-4",
+      "arm": "model",
+      "players": 2,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-model-2p-legacy-0-4",
+      "arm": "model",
+      "players": 2,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-model-2p-rush-0-4",
+      "arm": "model",
+      "players": 2,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-model-2p-search_geo-0-4",
+      "arm": "model",
+      "players": 2,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-6p-economic-0-4",
+      "arm": "filter",
+      "players": 6,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-6p-heuristic-0-4",
+      "arm": "filter",
+      "players": 6,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-6p-legacy-0-4",
+      "arm": "filter",
+      "players": 6,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-6p-rush-0-4",
+      "arm": "filter",
+      "players": 6,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-6p-search_geo-0-4",
+      "arm": "filter",
+      "players": 6,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 96
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-5p-economic-0-4",
+      "arm": "filter",
+      "players": 5,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-5p-heuristic-0-4",
+      "arm": "filter",
+      "players": 5,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-5p-legacy-0-4",
+      "arm": "filter",
+      "players": 5,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-5p-rush-0-4",
+      "arm": "filter",
+      "players": 5,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-5p-search_geo-0-4",
+      "arm": "filter",
+      "players": 5,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 80
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-4p-economic-0-4",
+      "arm": "filter",
+      "players": 4,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-4p-heuristic-0-4",
+      "arm": "filter",
+      "players": 4,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-4p-legacy-0-4",
+      "arm": "filter",
+      "players": 4,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-4p-rush-0-4",
+      "arm": "filter",
+      "players": 4,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-4p-search_geo-0-4",
+      "arm": "filter",
+      "players": 4,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 64
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-3p-a260-0-4",
+      "arm": "filter",
+      "players": 3,
+      "opponent": "a260",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-3p-economic-0-4",
+      "arm": "filter",
+      "players": 3,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-3p-heuristic-0-4",
+      "arm": "filter",
+      "players": 3,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-3p-legacy-0-4",
+      "arm": "filter",
+      "players": 3,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-3p-rush-0-4",
+      "arm": "filter",
+      "players": 3,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-3p-search_geo-0-4",
+      "arm": "filter",
+      "players": 3,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 48
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-2p-economic-0-4",
+      "arm": "filter",
+      "players": 2,
+      "opponent": "economic",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-2p-economic_capacity_v1-0-4",
+      "arm": "filter",
+      "players": 2,
+      "opponent": "economic_capacity_v1",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-2p-heuristic-0-4",
+      "arm": "filter",
+      "players": 2,
+      "opponent": "heuristic",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-2p-legacy-0-4",
+      "arm": "filter",
+      "players": 2,
+      "opponent": "legacy",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-2p-rush-0-4",
+      "arm": "filter",
+      "players": 2,
+      "opponent": "rush",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    },
+    {
+      "case": "population-hybrid-development-v1-filter-2p-search_geo-0-4",
+      "arm": "filter",
+      "players": 2,
+      "opponent": "search_geo",
+      "start": 0,
+      "end": 4,
+      "games": 32
+    }
+  ],
+  "planned_games": 8400,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "dependency_hashes": {
+    "ai/strong/arena_statistics.py": "9d32085cc68d417067346e1b74147749f155db3dc7766139659b2ad6bac66bda",
+    "ai/strong/build-population-hybrid-development-source.py": "0b3849196fad27a2faef41f9a11f75770929373085c3c39d899ab4da0357cbab",
+    "ai/strong/build-population-hybrid-source.py": "f2bcf99663d65330fb3deffb6415b22f31065b5c2567b91575b4857a73a7bac5",
+    "ai/strong/collect-population-hybrid-runtime.py": "0128713f10321983731f3b96f6c8d8c2fe093b739ffec7a62b06bd7d6fb9caa9",
+    "ai/strong/collect-population-screen.py": "21e36dc55f5f0344ee6f7059f1b13c5e82b7005e5b51cf54a60d906fcd17911d",
+    "ai/strong/compare-population-hybrid-development.py": "8f256ca9d95785e4da80332dc02ff89707ae5a0987825882876302aa38092c1f",
+    "ai/strong/compare-population-screens.py": "b74bac5c403d5a96e79fddf43b4dcd9b715d5124e9c2681983ad519e2177d887",
+    "ai/strong/coordinate-population-hybrid-development.py": "f8a74d1192a053a312b3395e9a4cd818d35771718dcaa0e62908d685207228d1",
+    "ai/strong/endgame-loss-filter.cjs": "28e3eb1a5fb637b7b80c1b7dc4db255c3d93e5ace168ead6dfa386f57a4de70a",
+    "ai/strong/evaluate-population-policy.py": "019454d436e1b8e2ace2ed13375c0ad38727bd02678fedea872957518132abc3",
+    "ai/strong/final-protocol-multiplayer.json": "7f0336c8784faf8f18e046b95b88e0ab1be7c2de1c0ec4d3eec96f0a415286ce",
+    "ai/strong/hybrid-continuations.cjs": "2b03c49c8270622e74c333c5e7253d5eb5d21ba1af919bc5f15ebd456109daaf",
+    "ai/strong/hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+    "ai/strong/manage-population-hybrid-development.py": "818c8595651a89b81f24e37e3a229e53ffe3567be021ea3d502ca2cff3c139a2",
+    "ai/strong/policy_iteration_development.py": "1bbcec9b3ad236fdaf330627cd31f6c99618642cf657b75207aba365c4c217ea",
+    "ai/strong/policy_iteration_evidence_archive.py": "83177b7f9a35af6467e09509e80024ef5fc258a1030ad23ebfd71c876fac635a",
+    "ai/strong/population-hybrid-continuations.cjs": "206cb044ba5057904afddbbbb125d98db319e04f96067e94c7337a36f0f7502c",
+    "ai/strong/population-hybrid-development-job.py": "8cf38cf2fc42ac271a528d6bbb091891845e3035eaaecb537a7c6f07a514eef8",
+    "ai/strong/population-hybrid-development-protocol-v1.json": "a86b3cd3bcce25131dde6bf59f980e58bbb35dd2c432090a5ed0acd445988014",
+    "ai/strong/population-hybrid-development-source-v1.json": "d725404605da2928cf236ad7b4e7cd7d5081c7a1741e9f57206725d5f122bd23",
+    "ai/strong/population-hybrid-policy.cjs": "8f9f7ad3306ab2ebdf04eb6aa439e3f3525f4f6569e6d086649bdbd4c86aff16",
+    "ai/strong/population-hybrid-runtime-job.py": "1c375bc07dd18b80f28ad7c0b4edfff910fcf63d3f7bd413e8e3048a0f733f92",
+    "ai/strong/population-hybrid-source-v2.json": "f71540c07b1e91895e2fb5d922204cc5c3fb9230315a4be1f09052639428484b",
+    "ai/strong/population_hybrid_development.py": "bc65be5ebe091d56a9b52cef9d238379aff1b7a73398f53e9123b41e6a473fb2",
+    "ai/strong/population_hybrid_policy.py": "652677d33cc6613680122c9a95a1ba2c0c0915de384b2124c95e3b1b3a0876cf",
+    "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+    "ai/strong/probe-population-policy.py": "d361cc61ac663f1a236656b99671ebb4f73a387baece1808cfd4257cd319caaf",
+    "ai/strong/public-arena-bridge.cjs": "999bee0a43a219974c5ceb38bc586f6ea2995e248c19eb9fd697d2e199df8391",
+    "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+    "ai/strong/test-population-hybrid-policy.cjs": "faff35e5f6f78104542d4a7a89a5c768597edf0238f27aec9fa49f3f1a6a060f",
+    "ai/strong/test_population_hybrid_development.py": "eb2f33046aca15b238703ee60e2d85b79263935e3e8e6b78310f6502e8916f20",
+    "ai/strong/test_population_policy_verification.py": "38bd03459c8c5fe6a40d5671a44515d7143feb49eae0bf1a0bbf614600ebceb3"
+  },
+  "preparation_sha256": "6f543404bdfaea1ba81f0d5165937e294c09740d63d8e9709b20cbc26a4851a3"
+}

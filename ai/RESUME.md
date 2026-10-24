@@ -6,7 +6,26 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: current population hybrid passes actual AMD8840U parity and timing.**
+**Latest: both runtime pilots verified; 8,400-game hybrid screen running.**
+The six-player pilot finished in 47.7 minutes: 24 games, 53,312 rollouts, zero caps,
+all decision/terminal receipts independently verified. Together the endpoint
+pilots cover 32 games / 74,008 rollouts. Neither enters strength estimates. A separate
+12-game A260 callback/nonzero-offset compatibility check also passed.
+
+The fixed source and plan are now published: 135 four-deal shards, five arms,
+27 opponent/count cells, all seats/rules, 1,680 games per arm. Measured admission
+uses cpu-upgrade / 8 game processes / 9h timeout and at most 32 live jobs. All 32 initial
+jobs were checked through HF and are RUNNING. **Sole active coordinator:
+PID 1447977 / session 53211**, state/log under
+`ai/runs/population-hybrid-development-coordinator-v1`. It polls every 300 seconds,
+fills slots and independently collects the whole grid. Do not launch duplicates,
+edit frozen dependencies or retry failures automatically. Inspect the existing
+handles; quiet output does not mean a stopped job. Evidence:
+`strong/population-hybrid-development-launch-evidence-v1.json` (185 verified files).
+Source/plan and exact continuation instructions are in the latest handoff.
+No hybrid strength result, final selection or qualification is established yet.
+
+**Previous: current population hybrid passes actual AMD8840U parity and timing.**
 All 5,106 model/filter decisions and eight endpoint searches match the local
 reference exactly; 384 rollouts, no caps. Four-thread/four-worker search takes
 2.9–6.2s on the four existing Recharged/sealed auction/building positions; this

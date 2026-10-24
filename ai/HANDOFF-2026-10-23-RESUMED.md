@@ -25,7 +25,93 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: current population hybrid verified on the actual 8840U
+## Latest checkpoint: both runtime pilots verified; full hybrid screen running
+
+Previous goal turn: progress (actual 8840U parity/timing and archived evidence).
+This turn: progress. The six-player runtime pilot completed and independently
+verified. The measured execution plan is frozen and the **8,400-game initial
+hybrid screen is now launched**. Its first 32 HF jobs are authoritatively RUNNING
+at the recorded launch snapshot. No fresh strength comparison is complete, no
+candidate is qualified, and reserved final seeds remain unused.
+
+### Completed runtime admission
+
+The original two v2 endpoint handles are both COMPLETED; do not relaunch them:
+
+| Players | HF job | Games | Full rollouts | Wall time | Caps |
+| --- | --- | ---: | ---: | ---: | ---: |
+| 2 | `6adcad711e112550ce7dfe8d` | 8 | 20,696 | 498.465s | 0 |
+| 6 | `6adcad7b046eb82b1ecdc9cd` | 24 | 53,312 | 2,862.506s | 0 |
+
+The six-player verification checks 2,904 learner decisions, 1,301 searches,
+434 search changes, two root filter overrides and 6,372,955 neural continuation
+decisions. It recomputes receipt choices, means, terminal credits, pairing and
+all counts; it does not replay every internal simulation. These runtime games
+remain excluded from strength estimates. The six-player raw archive is at model
+revision `4aeb3747d691b6eae7d4b08c9248be8f0016a663`,
+`archives/population-hybrid-runtime-v2-6p.tgz`, SHA256
+`8e01166682b0a3ec6d9c118f71198d34b56638316a6a0647fd8644160d11a325`.
+Both local `verified.json` receipts are under
+`ai/runs/population-hybrid-runtime-collected-v2/`. The bounded observer PID1423275
+/ session78637 completed collection successfully and exited; do not restart it.
+
+The new evaluator's snapshot-model opponent path also passed 12 separate local
+compatibility games (3p, all seats/rules, nonzero deal offset1, 1,643 learner
+decisions). Exact pinned A260 loading and callbacks work. Results are under
+`ai/runs/population-policy-a260-compatibility-v1/`, excluded from strength results.
+They are engineering-only inference; no local gradients or extra HF jobs.
+
+### Frozen source, plan and sole active coordinator
+
+- Source descriptor: `strong/population-hybrid-development-source-v1.json`.
+- Dataset revision `cdec1d3079eb9a54b776f6237ec5f93cc1de84d8`.
+- Archive `strong-source-population-hybrid-development-20261024-v1.tgz`, SHA256
+  `ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23`.
+- Plan: `strong/population-hybrid-development-plan-v1.json`, SHA256
+  `bd2d80bac1384f6d71a9cc4ee1f71db21ce6d9c8fd95e9a12543cdeceb83859f`.
+- **135 shards, 8,400 games**: five arms ×27 cells ×four independent fresh deals,
+  all seats and all four rules. Each arm has 1,680 games.
+- Admission: cpu-upgrade, eight game processes, one simulation worker per game,
+  eight worlds, four deals per shard, **9-hour timeout**, at most **32 live jobs**.
+  Calculation: 120s setup +2×4×2,862.506s =23,020.051s projected, then 25%
+  timeout headroom. Endpoint pilots are not a hard bound on every later game;
+  preserve failures, never truncate/scored-cap or automatically retry.
+- The **sole coordinator is PID1447977 / exec session53211**. It is confirmed
+  alive through `/proc` with the expected command. State:
+  `ai/runs/population-hybrid-development-coordinator-v1/state.json`; log:
+  `ai/runs/population-hybrid-development-coordinator-v1.log`.
+- Its launch used `--execute --interval-seconds 300 --max-hours 48`. The local
+  lock and unique guards prevent duplicates. All 32 initial handles were checked
+  through HF, all RUNNING; snapshot:
+  `ai/runs/population-hybrid-development-launch-snapshot-v1.json`.
+
+**Do not start a second coordinator or submit shards manually.** Inspect the
+existing process/session and its exact HF handles. The coordinator fills freed
+slots, collects immutable result archives, independently verifies every receipt
+and compares only after all 135 planned shards verify. It stops new submissions
+on failed/uncertain jobs without cancelling live jobs or creating replacements.
+An observation timeout or quiet log is not a terminal job. A 48h coordinator
+window ending also does not cancel remote jobs. Source/plan/dependency hashes
+are frozen: do not edit their overlays while this screen runs.
+
+After completion, read the full five-arm paired comparison, retaining all adverse
+counts, rules and opponents. Four independent deals is a coarse first screen;
+require separately frozen fresh confirmation before final model selection.
+There is no automatic promotion or extra training from partial results.
+
+### Persistent evidence
+
+Descriptor `strong/population-hybrid-development-launch-evidence-v1.json` points
+to model-repo revision `bd602457ca45e684980842fc25a8dbec7c42852c`, archive
+`archives/population-hybrid-development-launch-evidence-v1.tgz`, SHA256
+`ba93bf4bd6defcfdc4b94d2095906bb9dc9235d5dbe0d6b709ab32490f620893`.
+All **185 files** are remotely verified: both runtime pilots and receipts,
+execution/source pins, admission, initial 32 guards/HF status snapshot,
+compatibility check and supporting code. The complete source archive is also
+pinned in the dataset above. This is an initial-launch snapshot, not evidence
+that all 135 jobs have already been submitted or completed.
+
+## Previous checkpoint: current population hybrid verified on the actual 8840U
 
 Previous goal turn: progress (independent runtime verification and prepared grid).
 This turn: progress. The exact current frozen-1 population policy now passes

@@ -7,12 +7,12 @@ median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. Thes
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
 **Latest — 25 October: resource HF source and preflight archived; both 2p pilot cells verified.**
-At **23:37:38 UTC, 24 October** (25 October locally), both existing processes were
+At **23:42:32 UTC, 24 October** (25 October locally), both existing processes were
 checked live. Resource **session 75756 / PID 559327** has verified all eight
-2p/filter games and all eight 2p/resource-filter games, zero caps. It is running
-6p/filter (**18/24 game files complete**, not yet a verified cell). The 6p resource
-cell and 16 independent replays remain pending. Auction **session 76600 / PID
-443128** has **17/28 submitted, ten verified, seven running**, no failures.
+2p/filter games, eight 2p/resource-filter games and **24 6p/filter games**, zero caps.
+It is now running **6p/resource-filter**; its games and all 16 independent replays
+remain pending. Auction **session 76600 / PID 443128** has **18/28 submitted,
+eleven verified, seven running**, no failures.
 
 The tested HF wrapper is now in an immutable, remotely verified source:
 `strong/resource-replanning-job-source-v1.json`, dataset revision
@@ -31,11 +31,21 @@ measurements, not 8840U latency, HF hardware admission or playing-strength resul
 Raw cost summary: `ai/runs/resource-replanning-runtime-source-prepared-v1/completed-2p-resource-cost.json`.
 Exact checkpoint: `ai/runs/resource-replanning-runtime-source-prepared-v1/job-source-checkpoint.json`.
 
+The new `strong/launch-resource-replanning-runtime-v1.py` prepares a separate HF
+calibration admission only after the full pilot archive exists, then can submit
+one 2p and one 6p resource job. **No admission file or submission exists yet.**
+Five tests passed, including incomplete-pilot refusal, measured-budget bounds,
+duplicate submission and an ambiguous submission that remains blocked from retry.
+The success/timeout submission cases use a fake API; they are not actual HF jobs.
+Receipt: `ai/runs/resource-hf-runtime-launcher-preflight-v1/receipt.json`.
+The source bootstrap and both offered CPU hardware sizes were also checked.
+Latest snapshot: `ai/runs/resource-replanning-runtime-source-prepared-v1/hf-launcher-preparation-checkpoint.json`.
+
 **Next:** continue the two existing processes. Require all 64 local games and
 16 replays before running `collect-resource-replanning-runtime-v1.py`, then archive
-once. Use that complete evidence to prepare explicit HF calibration admission and
-launcher; neither calibration nor the 3,360-game resource development screen has
-been launched. The source descriptor's `runtime_admitted=false` describes preparation
+once. Use that complete evidence to choose/review the calibration hardware and
+run the prepared launcher's `prepare` command, followed by both dry runs before
+submission. Neither calibration nor the 3,360-game development screen has launched. The source descriptor's `runtime_admitted=false` describes preparation
 and must not be edited into an admission. After all 28 auction shards verify, run
 the prepared reference collector and archive the complete comparison. No gradients,
 production changes, candidate selection or final seeds. This is not a plateau claim.

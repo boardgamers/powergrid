@@ -55996,6 +55996,17 @@
             "jobs_verified": 10,
             "running": 7,
             "failed_jobs": []
+        },
+        "hf_launcher_preparation_checkpoint": {
+            "path": "ai/runs/resource-replanning-runtime-source-prepared-v1/hf-launcher-preparation-checkpoint.json",
+            "sha256": "23fcb89bec55a10a624c9e69be1e82e4bf0fb900e903f23689730a8d3ea0904f",
+            "checked_at": "2026-10-24T23:42:32.876198+00:00",
+            "pid": 443128,
+            "live": true,
+            "jobs_submitted": 18,
+            "jobs_verified": 11,
+            "running": 7,
+            "failed_jobs": []
         }
     },
     "resource_replanning_runtime_v1": {
@@ -56035,9 +56046,9 @@
         "pilot_pid": 559327,
         "pilot_started_at": "2026-10-24T23:02:46.683303+00:00",
         "output": "ai/runs/resource-replanning-runtime-source-prepared-v1/layout/ai/runs/resource-replanning-runtime-v1",
-        "checkpoint": "ai/runs/resource-replanning-runtime-source-prepared-v1/job-source-checkpoint.json",
-        "checkpoint_sha256": "e54fcc65c39172b05655e00739068bc3ee109cd683e9b4dc64d17c939a1c21ab",
-        "checked_at": "2026-10-24T23:37:38.036821+00:00",
+        "checkpoint": "ai/runs/resource-replanning-runtime-source-prepared-v1/hf-launcher-preparation-checkpoint.json",
+        "checkpoint_sha256": "23fcb89bec55a10a624c9e69be1e82e4bf0fb900e903f23689730a8d3ea0904f",
+        "checked_at": "2026-10-24T23:42:32.876198+00:00",
         "planned_games": 64,
         "planned_independent_replays": 16,
         "complete_cells": {
@@ -56105,10 +56116,42 @@
                     "memory_samples": 11757,
                     "memory_sampling_period_seconds": 0.1
                 }
+            },
+            "6p-filter": {
+                "complete": true,
+                "summary": {
+                    "games": 24,
+                    "independent_deals": 1,
+                    "counts": {
+                        "decisions": 2798,
+                        "root_filter_overrides": 0,
+                        "rollouts": 0,
+                        "rollout_caps": 0,
+                        "neural_decisions": 0,
+                        "search_changes": 0,
+                        "search_decisions": 0
+                    },
+                    "wall_seconds": 955.68929922604,
+                    "sum_game_seconds": 6897.444610165025,
+                    "max_game_seconds": 409.84926455799723,
+                    "decision_p50_ms": 17.510387988295406,
+                    "decision_p95_ms": 28.86326340958476,
+                    "report_sha256": "fa2a291cb06fc4260642834b7405879569175e1c5b209a4fc0d1c279aad675db",
+                    "all_receipts_verified": true,
+                    "qualification_eligible": false,
+                    "reserved_final_seeds_used": false
+                },
+                "runtime": {
+                    "seconds": 955.8398717939854,
+                    "cpu_seconds": 7532.72,
+                    "sampled_peak_total_rss_bytes": 4032208896,
+                    "memory_samples": 9332,
+                    "memory_sampling_period_seconds": 0.1
+                }
             }
         },
         "current_stage": "evaluating",
-        "current_cell": "6p-filter",
+        "current_cell": "6p-resource-filter",
         "processor": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
         "new_hf_jobs": 0,
         "automatic_retries": false,
@@ -56116,7 +56159,7 @@
         "new_strength_games": 0,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
-        "next": "Continue existing session 75756/PID 559327. Both 2p cells verified; 6p baseline partial. Require all 64 games and 16 replays before complete archive and measured HF calibration admission. Source/wrapper are uploaded, not launch admission. No pilot strength claims.",
+        "next": "Continue existing session 75756/PID 559327. Three cells verified; 6p resource-filter running. Require all 64 games and 16 replays before complete archive. Then inspect complete costs and use the prepared guarded HF calibration launcher; no admission or resource HF submissions yet.",
         "collection_preparation": {
             "script": "ai/strong/collect-resource-replanning-runtime-v1.py",
             "preflight": {
@@ -56140,7 +56183,7 @@
         "completed_game_files": {
             "2p-filter": 8,
             "2p-resource-filter": 8,
-            "6p-filter": 18,
+            "6p-filter": 24,
             "6p-resource-filter": 0
         },
         "completed_2p_resource_cost": {
@@ -56216,7 +56259,7 @@
         "gradients": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
-        "next": "After complete local pilot and archive, prepare explicit measured HF runtime calibration admission and launcher using the already verified source. No source/preflight reupload. Full 3360-game development remains unlaunched.",
+        "next": "Complete/archive local pilot, then use the separate guarded runtime launcher for measured HF calibration. The verified source needs no reupload. Full 3360-game development remains unlaunched.",
         "source_descriptor": "ai/strong/resource-replanning-job-source-v1.json",
         "source_descriptor_sha256": "c8adbc5de6be53769270c5345684551073c072ef1318a0bc578ef9913b346369",
         "source_revision": "8d3697dec0845aa6ded857f3e00d91a8ff4406c0",
@@ -56227,5 +56270,68 @@
         "preflight_evidence_archive_sha256": "d2dc0dd44777e02456c145c4833ce84ee0523e15ec818cc22a78435577f3d350",
         "preflight_archived_files": 30,
         "remote_archives_reverified": true
+    },
+    "resource_replanning_hf_runtime_launcher_v1": {
+        "status": "prepared_and_tested_no_admission_or_submissions",
+        "script": "ai/strong/launch-resource-replanning-runtime-v1.py",
+        "script_sha256": "b096b30eb8a60fbf6b1696e4ee5a1552aebeec819551fb8446d7101761c21587",
+        "tests": "ai/strong/test_resource_runtime_launcher_v1.py",
+        "test_sha256": "c625ffc43bd9fc76efc01c34483db09cd6fa694bfef236e12541d032b789e045",
+        "preflight_receipt": "ai/runs/resource-hf-runtime-launcher-preflight-v1/receipt.json",
+        "preflight_receipt_sha256": "4ccd340b12ce7cefeac2a36da86aa22e473ba741e97f28f87d1197fddaa1eccc",
+        "preflight": {
+            "launcher_sha256": "b096b30eb8a60fbf6b1696e4ee5a1552aebeec819551fb8446d7101761c21587",
+            "bootstrap_sha256": "c448974f90012bdf530ad066fc2e6b342a15088f7d430696803503cc54dcb866",
+            "shell_syntax_checked": true,
+            "pending_pilot_refusals": [
+                "prepare_without_complete_pilot",
+                "2p_submit_without_complete_pilot",
+                "6p_submit_without_complete_pilot"
+            ],
+            "synthetic_budget_boundary_rejections": [
+                "memory",
+                "wall",
+                "cpu",
+                "storage",
+                "players:True",
+                "players:3",
+                "players:5"
+            ],
+            "synthetic_boundary_fixture_not_admission": true,
+            "admission_file_created": false,
+            "launch_directory_created": false,
+            "new_hf_jobs": 0,
+            "external_uploads": 0,
+            "next": "Actual complete-pilot admission and launch boundary remain untested until the pilot archive is available.",
+            "tested_at": "2026-10-24T23:42:32.875672+00:00",
+            "test_file": "ai/strong/test_resource_runtime_launcher_v1.py",
+            "test_sha256": "c625ffc43bd9fc76efc01c34483db09cd6fa694bfef236e12541d032b789e045",
+            "tests_passed": 5,
+            "duplicate_submission_rejected": true,
+            "unknown_submission_preserved_and_not_retried": true,
+            "remote_api_stubbed": true,
+            "actual_hf_submission_tested": false
+        },
+        "hardware_catalog_check": "ai/runs/resource-hf-runtime-launcher-preflight-v1/hardware-catalog-check.json",
+        "hardware_catalog_check_sha256": "7a8d51f590e691ff2cff6b6ce0d0ce108aa319adf67b73e2bd5d14c0f1ae5f67",
+        "verified_hf_hardware": {
+            "cpu-upgrade": {
+                "vcpus": 8,
+                "ram_gb": 32,
+                "disk_gb": 50
+            },
+            "cpu-xl": {
+                "vcpus": 16,
+                "ram_gb": 124,
+                "disk_gb": 1000
+            }
+        },
+        "admission_file_created": false,
+        "new_hf_jobs": 0,
+        "new_strength_games": 0,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Full local runtime pilot and immutable archive required before prepare. Choose hardware/timeout from complete measurements; review both dry runs before any execution. No automatic continuation or retry."
     }
 }

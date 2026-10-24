@@ -25,7 +25,53 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: verified resource job source; complete two-player runtime pair
+## Latest checkpoint: HF calibration launcher prepared; six-player resource cell running
+
+At **2026-10-24T23:42:32 UTC**, the existing resource pilot **75756 / PID 559327**
+has verified three complete cells: both 2p arms and the 24-game 6p/filter baseline.
+That baseline verified 2,798 learner decisions, zero caps; wall 955.840 s, CPU
+7,532.72 s, sampled summed RSS 4,032,208,896 bytes. The pilot is now running
+**6p/resource-filter**. All 16 independent replays remain pending. The existing
+reference coordinator **76600 / PID 443128** has **18 submitted, eleven verified,
+seven running**, no failures. Both processes were checked live. Exact snapshot:
+`ai/runs/resource-replanning-runtime-source-prepared-v1/hf-launcher-preparation-checkpoint.json`.
+
+Prepared `strong/launch-resource-replanning-runtime-v1.py` without changing any live
+source. It first requires the complete archived local pilot (64 games, 16 replays,
+all pairs, zero caps), verified source/preflight hashes and unchanged runtime files.
+`prepare --flavor cpu-upgrade|cpu-xl --timeout-hours N` writes a separate immutable
+calibration admission. It requires twice measured summed RSS, 15 minutes setup plus
+twice max(local wall, CPU/vCPU), and four times raw evidence storage. These are
+calibration margins, not measured HF performance or guarantees. The hardware API
+confirmed CPU Upgrade 8 vCPU/32 GB/50 GB and CPU XL 16 vCPU/124 GB/1000 GB.
+Choose from the complete measurements, not the current partial resource results.
+
+Then `launch 2` and `launch 6` are dry runs; add `--execute` only after inspecting
+those plans. Each submits the existing tested wrapper's runtime-only mode against
+search_geo, one whole deal/all seats/all rules, eight worlds, eight game workers and
+one search worker. Both fixed endpoints total 32 calibration games, excluded from
+strength. The bootstrap verifies all 1,484 packaged source hashes. A lock and
+exclusive per-case guards prevent duplicates; ambiguous or failed submissions stop
+for reconciliation rather than being retried. No launcher for the development grid
+is included in this step.
+
+Five tests passed in `strong/test_resource_runtime_launcher_v1.py`. They exercise
+incomplete-pilot refusal before network access, invalid endpoints, CPU/wall/memory/
+storage headroom, duplicate submission, and an injected timeout after submission.
+The ambiguous guard remains `launch_unknown` and a second attempt never calls the
+fake API. Shell syntax also passed. No remote job was created by the tests; actual
+complete-pilot admission/submission are still pending. Preflight receipt and later
+read-only hardware catalog check are in
+`ai/runs/resource-hf-runtime-launcher-preflight-v1/`.
+**The admission file and launch directory do not exist yet.**
+
+Next: let both live runs finish. Audit/archive the complete resource pilot first,
+then use this launcher for explicit runtime calibration and verify parity with the
+local games before admitting the 3,360-game development screen. The 28-shard
+reference comparison and complete archive remain pending independently. No new
+resource HF jobs, gradients, candidate selection or final seeds were introduced.
+
+## Previous checkpoint: verified resource job source; complete two-player runtime pair
 
 The source/preflight work is complete and durable. New source descriptor
 `strong/resource-replanning-job-source-v1.json` pins dataset revision

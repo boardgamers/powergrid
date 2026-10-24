@@ -25,7 +25,102 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: current engine compatibility audited; hybrid grid continues
+## Latest checkpoint: asynchronous sealed-order research repair verified
+
+Previous goal turn: progress (current-engine compatibility audit). This turn:
+progress. A real serving boundary problem was reproduced and repaired in a separate
+runtime while the frozen 8,400-game strength grid continues unchanged. At
+2026-10-24T14:41:49.409272+00:00 the same coordinator PID 1447977 / session 53211 reports
+33 submitted, 1 verified, no failures. The existing coordinator filled one
+new slot automatically. This separate repair launched no HF jobs or gradients. Final seeds remain untouched; no candidate is qualified.
+
+### Diagnosis and platform relevance
+
+`strong/audit-live-sealed-order-v1.cjs` checks the frozen research runtime and the
+previously pinned engine 2.0.17 build. All 2,553 canonical fixture preparations pass.
+From its 161 sealed-auction roots, **446 legal requests** reproduce two failures:
+223 requests from a non-first pending bidder, and 223 requests after a different
+pending bidder legally submitted first. Both engines accept the actions with
+matching transitions. The frozen adapter rejects them before inference, including
+its model/filter arms. There are examples in every Germany 2–6p original/Recharged
+cell. The cases are constructed legal transitions, not a prevalence estimate.
+
+Read-only BGS source inspection at `ebd02b74b0ecba1806f2ec15e990f8b2430d0fe9`
+shows `apps/game-server/app/services/bots.ts` selecting the first bot by seat index
+among all current seats, not requiring it to be first in the engine's pending list.
+Thus a bot may be called while an earlier human is still pending. The exact clean
+source and SHA are archived. This does not assert which commit is deployed or test
+platform transport. Production/BGS files were not changed.
+
+### Isolated repair and evidence
+
+`strong/sealed-policy-beliefs-order-v2.cjs` is an experimental replacement for the
+belief module, copied **only** to
+`ai/runs/live-sealed-order-repair-v2/runtime/ai/strong/sealed-policy-beliefs.cjs`.
+All 1,463 source archive files were verified; only that module differs in this copy.
+The live/frozen source and all current plan dependency hashes are unchanged.
+
+The repair determines submitted bidders as eligible minus pending. It permits any
+pending focal bidder, validates the pending set/order and never reorders the real
+player order or auctioning seat. Public state lacks the actual submission history,
+so previous policy prompts assume committed bidders acted in their public player
+order, then leave the actual pending bidders. **That is an explicit uncalibrated
+belief approximation**, not recovered history. Canonical behavior is exactly retained.
+
+`strong/test-live-sealed-order-v2.cjs` passed:
+
+- 2,553 identical preparations and original prior prompts.
+- All 446 known failure requests, plus all 640 pending-subset/actor combinations
+   across ten full-seat fixtures, Germany 2–6 players, original/Recharged.
+- 1,967 legal inferred-bid prompts and 1,086 hidden-data invariance checks.
+- 80 fixed-bid submission-order resolutions with identical strategic outcome;
+   40 malformed/out-of-turn/hidden-money requests rejected.
+
+`strong/probe-live-sealed-order-v2.py` uses the actual frozen-1 model
+`55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530`:
+
+- 2,172 model/filter decisions across 1,086 constructed requests, all legal.
+- 12 noncanonical search requests across all ten cells plus two pending-only cases.
+- Two canonical old/new search pairs; identical choices, worlds, credit outcomes
+   and statistics, excluding elapsed time.
+- One hidden-data search pair and one 1-worker/4-worker partition pair, identical.
+- Total 18 full searches / 840 rollouts, zero caps, 88.1s on the local HX370.
+   These are reused-fixture integration checks, not strength or 8840U latency estimates.
+
+The independent collector rechecks every persisted decision, exact legal action,
+committed actor list, all paired controls, immutable source and frozen dependencies.
+It then archives 69 files, including scripts, complete constructed requests, raw
+results, logs, original failures and BGS source provenance:
+
+- Descriptor: `strong/live-sealed-order-evidence-v2.json`.
+- Private model repo: `coyotte508/powergrid-ai-germany-v1`.
+- Revision: `ae31a5c7b0aec86ca4e96d72dd4c7282973970ac`.
+- Archive: `archives/live-sealed-order-evidence-v2.tgz`.
+- SHA256: `bf91b6fafe78a616139dfdd6018b48d2c17fce48b21aa79c4ad55ac42993d125`.
+- Local audit: `ai/runs/live-sealed-order-audit-v1/`.
+- Local repair/checks/trained results: `ai/runs/live-sealed-order-repair-v2/`.
+- All local audit/probe/collection processes finished. No additional observer or
+   coordinator was started. The existing screen coordinator is the only active one.
+
+### Continue without changing the active experiment
+
+1. Keep coordinator 1447977 / session 53211 as the sole collector/launcher. Inspect
+   its existing state/guards/handles. Do not restart quiet jobs, edit frozen inputs,
+   collect behind it, or retry/cancel automatically.
+2. Complete the whole fixed canonical grid and compare all five arms/opponent
+   cells. Do not choose from partial results or claim strength from this repair.
+3. If the hybrid merits fresh larger confirmation, pin a new runtime that explicitly
+   adopts this repaired module. Preserve exact canonical controls and add a separately
+   frozen asynchronous-submission-order comparison before claiming platform readiness.
+   The current grid cannot establish strength for previously unsupported orderings.
+4. The prior 8840U result remains evidence for the old canonical runtime. Any eventual
+   selected runtime still needs exact standalone target checks and platform integration;
+   the production engine/BGS driver and final candidate were not changed here.
+5. Continue the unchanged qualification gate only after development selection;
+   final reserved seeds are still unused. This work neither proves nor rejects a
+   training plateau; the independent-game hybrid strength results remain pending.
+
+## Previous checkpoint: current engine compatibility audited; hybrid grid continues
 
 Previous goal turn: progress (runtime admission and launch of the fixed screen).
 This turn: progress. A current-engine compatibility audit removes an unresolved

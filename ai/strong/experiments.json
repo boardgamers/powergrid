@@ -53438,5 +53438,21 @@
         "production_checkout_changed": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
+    },
+    "live_sealed_order_repair_v2": {
+        "status": "isolated_repair_verified_not_adopted",
+        "evidence": "ai/strong/live-sealed-order-evidence-v2.json",
+        "archive_revision": "ae31a5c7b0aec86ca4e96d72dd4c7282973970ac",
+        "canonical_controls_identical": 2553,
+        "known_legal_failures_fixed": 446,
+        "actual_model_filter_decisions": 2172,
+        "search_rollouts": 840,
+        "caps": 0,
+        "running_hybrid_grid_unchanged": true,
+        "new_hf_jobs": 0,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Complete unchanged five-arm grid; separately pin/confirm asynchronous serving runtime before adoption."
     }
 }

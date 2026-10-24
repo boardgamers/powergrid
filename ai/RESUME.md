@@ -6,7 +6,28 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: current engine 2.0.17 compatibility passed; hybrid grid continues.**
+**Latest: asynchronous sealed-bid serving gap reproduced and repaired in isolation.**
+The frozen adapter rejects legal requests when a bidder acts before the first pending
+seat or when earlier submissions are not a prefix of player order. The current BGS
+source can dispatch such a bot. The research/current engines accept all 446 reproduced
+cases. A separately versioned belief module now handles them, preserving all 2,553
+canonical preparations exactly. Checks cover 640 pending-subset/actor combinations,
+2,172 actual-model/filter decisions and 18 full searches / 840 rollouts, zero caps.
+Canonical searches, hidden-data perturbation and worker partition controls match.
+All 1,463 original source files and running-screen dependencies remain unchanged.
+
+This is an isolated research repair, not a BGS change or strength result. For missing
+submission history it assumes committed bidders acted in their public order; the real
+order is unknown. It preserves true player/auction order. Evidence and the repair are
+archived in `strong/live-sealed-order-evidence-v2.json` (69 files). Do not overwrite
+frozen screen code. The sole coordinator remains PID 1447977 / session 53211; latest
+snapshot 2026-10-24T14:41:49.409272+00:00: 33 submitted, 1 verified, no failed jobs.
+Finish the complete fixed grid before selection; separately pin/test any later use
+of the new adapter, including asynchronous-order strength and actual-target serving.
+No HF jobs, gradients or final seeds were used for this repair; the existing
+coordinator automatically filled a slot as the first shard completed.
+
+**Previous: current engine 2.0.17 compatibility passed; hybrid grid continues.**
 An isolated build of fetched master 537e41e matches the active research engine on
 2,553 positions, 7,659 feature checks, 2,553 sampled public-information worlds,
 32,770 action transitions, 2,553 default-bot steps and 80 complete Germany games

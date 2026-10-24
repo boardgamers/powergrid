@@ -65,6 +65,38 @@ read-only hardware catalog check are in
 `ai/runs/resource-hf-runtime-launcher-preflight-v1/`.
 **The admission file and launch directory do not exist yet.**
 
+**Collector addition, 2026-10-24T23:53:14.144101+00:00:** both existing process commands were checked live.
+The 6p resource cell has **6/24 game files** complete, still unverified; all 16
+replays remain pending. Reference diagnostic: **23/28 submitted, 16 verified**,
+no failures. Snapshot:
+`ai/runs/resource-replanning-runtime-source-prepared-v1/hf-collector-preparation-checkpoint.json`.
+
+Prepared `strong/collect-resource-replanning-hf-runtime-v1.py`. It calls the launcher's
+read-only admission review, requires the original per-endpoint guard, reads actual HF
+status, and collects only complete jobs as verified outcomes. Any failure preserves
+the logs for review; it cannot submit/cancel/retry. It verifies the immutable remote
+archive, manifest, wrapper/source/model/protocol identities, full resource receipts,
+terminal scoring and measured CPU/RSS/wall times. It then compares the HF evaluation
+with the archived local endpoint: every learner proposal/action, sampled world,
+resource continuation, game count/statistic and terminal must match exactly. Only
+host paths, two named decision timing fields, and report/game durations are excluded.
+Raw receipt hashes are checked separately; new or unexpected fields are not ignored.
+
+Five tests in `strong/test_resource_hf_runtime_collection_v1.py` passed: altered
+moves/model proposals, sampled worlds, resource costs, rollout terminals, seeds,
+terminal results, added fields and corrupt raw hashes are rejected, and no HF call
+occurs before the full local pilot is archived. A separate full-data preflight
+independently verified both reports after converting the saved 2p batch to synthetic
+HF paths and doubled timings. All **8 games / 1,306 learner decisions / 450 resource
+decisions / 41,632 continuations** matched. This reuses existing records, executes no
+engine games and is not evidence that actual HF calibration has run. Harness/receipt:
+`ai/runs/resource-hf-runtime-collector-preflight-v1/`. No resource HF jobs exist yet.
+
+After actual calibration jobs are submitted, use
+`ai/.venv/bin/python ai/strong/collect-resource-replanning-hf-runtime-v1.py 2`
+and the same command with `6`; `--inspect` reads status only. Require both complete
+verified endpoint records and cost review before preparing any development launch.
+
 Next: let both live runs finish. Audit/archive the complete resource pilot first,
 then use this launcher for explicit runtime calibration and verify parity with the
 local games before admitting the 3,360-game development screen. The 28-shard

@@ -56007,6 +56007,16 @@
             "jobs_verified": 11,
             "running": 7,
             "failed_jobs": []
+        },
+        "hf_collector_preparation_checkpoint": {
+            "path": "ai/runs/resource-replanning-runtime-source-prepared-v1/hf-collector-preparation-checkpoint.json",
+            "sha256": "d4253a7a6d3a1010b962382c8d721d97b357edee490bd7e92cedd08617cf4dd4",
+            "checked_at": "2026-10-24T23:53:14.144101+00:00",
+            "pid": 443128,
+            "live": true,
+            "jobs_submitted": 23,
+            "jobs_verified": 16,
+            "failed_jobs": []
         }
     },
     "resource_replanning_runtime_v1": {
@@ -56046,9 +56056,9 @@
         "pilot_pid": 559327,
         "pilot_started_at": "2026-10-24T23:02:46.683303+00:00",
         "output": "ai/runs/resource-replanning-runtime-source-prepared-v1/layout/ai/runs/resource-replanning-runtime-v1",
-        "checkpoint": "ai/runs/resource-replanning-runtime-source-prepared-v1/hf-launcher-preparation-checkpoint.json",
-        "checkpoint_sha256": "23fcb89bec55a10a624c9e69be1e82e4bf0fb900e903f23689730a8d3ea0904f",
-        "checked_at": "2026-10-24T23:42:32.876198+00:00",
+        "checkpoint": "ai/runs/resource-replanning-runtime-source-prepared-v1/hf-collector-preparation-checkpoint.json",
+        "checkpoint_sha256": "d4253a7a6d3a1010b962382c8d721d97b357edee490bd7e92cedd08617cf4dd4",
+        "checked_at": "2026-10-24T23:53:14.144101+00:00",
         "planned_games": 64,
         "planned_independent_replays": 16,
         "complete_cells": {
@@ -56184,7 +56194,7 @@
             "2p-filter": 8,
             "2p-resource-filter": 8,
             "6p-filter": 24,
-            "6p-resource-filter": 0
+            "6p-resource-filter": 6
         },
         "completed_2p_resource_cost": {
             "path": "ai/runs/resource-replanning-runtime-source-prepared-v1/completed-2p-resource-cost.json",
@@ -56333,5 +56343,115 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "next": "Full local runtime pilot and immutable archive required before prepare. Choose hardware/timeout from complete measurements; review both dry runs before any execution. No automatic continuation or retry."
+    },
+    "resource_replanning_hf_runtime_collector_v1": {
+        "status": "prepared_preflight_passed_no_actual_hf_calibration",
+        "script": "ai/strong/collect-resource-replanning-hf-runtime-v1.py",
+        "script_sha256": "383a98b1fcbac421acdbb7c68e2fbb3c342ac28f74dfb95ff053acd6cf278bd3",
+        "test_file": "ai/strong/test_resource_hf_runtime_collection_v1.py",
+        "test_sha256": "78b0d36fea29d6773477bf18e5327e198304e6e9152e685edbf8c6d2b21d5029",
+        "preflight_receipt": "ai/runs/resource-hf-runtime-collector-preflight-v1/receipt.json",
+        "preflight_receipt_sha256": "93e1a163a8c9d71a3511b3a3273e463c97b364da2f3097bdd48ed2d6ffacc407",
+        "preflight": {
+            "checked_at": "2026-10-24T23:49:28.990000+00:00",
+            "scope": "Full saved two-player resource batch copied with synthetic host paths and doubled timings; no new engine execution and no actual HF comparison.",
+            "source_report_sha256": "ee37e2882a03d96828cdf46d1cb1145cdcfe5cf3522e1c0f9526c1c41ad26372",
+            "collector_sha256": "383a98b1fcbac421acdbb7c68e2fbb3c342ac28f74dfb95ff053acd6cf278bd3",
+            "test_sha256": "78b0d36fea29d6773477bf18e5327e198304e6e9152e685edbf8c6d2b21d5029",
+            "harness_sha256": "7160cf22b7036e2d47e85678a45ed60787523afca1b3e8d588099c39e26295df",
+            "tests_passed": 5,
+            "both_reports_independently_verified": true,
+            "parity": {
+                "exact": true,
+                "games": 8,
+                "learner_decisions": 1306,
+                "resource_decisions": 450,
+                "resource_rollouts": 41632,
+                "per_game": [
+                    {
+                        "episode": 0,
+                        "decisions": 152,
+                        "normalized_decisions_sha256": "617f316a1f6122854d180fd615224edc2c5a8ec133e77edb7a690e41ec26dcbf",
+                        "local_receipt_sha256": "9071e75b301101536ce9f2c0a09f8525f8f431f4d8ce0dd98b34af289c5d6822",
+                        "hf_receipt_sha256": "42a4b3baac32c8fc8c91bfe5bca53e0eb902db1de0fa28d85ed8975230529c38"
+                    },
+                    {
+                        "episode": 1,
+                        "decisions": 170,
+                        "normalized_decisions_sha256": "aeae3acee409634d3296b2af80e38ee07f8c5043b66bdc86eaace235d0160d28",
+                        "local_receipt_sha256": "8b1b058077f1aace659a9c94034e31e5b8deb5da53d5c58de812a9d7a2d8bae2",
+                        "hf_receipt_sha256": "954166c4e2ff01f40d0e6534a2536e004c7bedc02b60b0ac50f49eefdaf66e65"
+                    },
+                    {
+                        "episode": 2,
+                        "decisions": 166,
+                        "normalized_decisions_sha256": "f872b15c6e304bb65cf476794be5f9aa7a1459a204d1ef1f3b7fea9b7f7b4885",
+                        "local_receipt_sha256": "4fb1e5240da80c79ab9b1bb2b5f749951412bfa5963e3b616ef340e8287928ae",
+                        "hf_receipt_sha256": "7d83de85bd69407e398c778d1ba63f9b12212c85300d66d844de858bb49da116"
+                    },
+                    {
+                        "episode": 3,
+                        "decisions": 167,
+                        "normalized_decisions_sha256": "7fa3b8f08c81f9186730278b54fcc3a111da9c8bca17dc8d22ca86feac9eb049",
+                        "local_receipt_sha256": "dd48a4f7d893a46732443118a6599978c70bcbdc6ce048843a5f7e2499124556",
+                        "hf_receipt_sha256": "f274c3d4129655247a27861e947588156786eb9d7e8caf79703257ffb08448dd"
+                    },
+                    {
+                        "episode": 4,
+                        "decisions": 160,
+                        "normalized_decisions_sha256": "4c5186dca429ab2d0e2157f0dc2e933b171671fcc5aa23650d74a3c8dd72b100",
+                        "local_receipt_sha256": "aaabb5984ea5a40e8e18c4f8ac9a30d0ec30679f1a0c12e7836f220ce2d5f6f7",
+                        "hf_receipt_sha256": "c7e0bc6c925db9ccf0def33deb97c295159d2c6c17a776730d557ba5d56ffbb4"
+                    },
+                    {
+                        "episode": 5,
+                        "decisions": 165,
+                        "normalized_decisions_sha256": "2cf056ef24a9f00b4664616338df83fe32041cc0514e4b7521b0c8a1c1036a0c",
+                        "local_receipt_sha256": "c155c79824032a7b564898eb774657449b4b92d44f3e27d4a17efe0b20766c7d",
+                        "hf_receipt_sha256": "f4ce08e7b3af61826aa56dabd19035eca39a9fde73a7a1037dcaf30f652d0914"
+                    },
+                    {
+                        "episode": 6,
+                        "decisions": 166,
+                        "normalized_decisions_sha256": "99cc089132c024fd142a7dd2c8075b06b58730b8a0ca35edccb41d953fa41ef3",
+                        "local_receipt_sha256": "edb24a95c769a02cf77ed3bae880083d62354dfd8af6ed17e28c36c107eaaf0a",
+                        "hf_receipt_sha256": "2bfbb9bbaa5ddc702df9e5de0f4069cb17eb577dc1007193ecdaad420611e213"
+                    },
+                    {
+                        "episode": 7,
+                        "decisions": 160,
+                        "normalized_decisions_sha256": "da91ff84461d72ab617add822ef48658207ac0600b7a01b63d5b64d2aeedab15",
+                        "local_receipt_sha256": "90ee6190161a368fe34b37b47db1c39b41ff0a823a4f052bce8652b2843ff937",
+                        "hf_receipt_sha256": "4834c2fc2336e8173e6f05ebf23147e9ac36a97248c38f93712620fa990de5f1"
+                    }
+                ],
+                "local_report_sha256": "ee37e2882a03d96828cdf46d1cb1145cdcfe5cf3522e1c0f9526c1c41ad26372",
+                "hf_report_sha256": "2c7c2ab5ac9b70ac55b0bbf724f696e915c05333d7e54169b846ae401aa99616",
+                "excluded_fields": [
+                    "config.model",
+                    "config.runtime",
+                    "config.output",
+                    "report.seconds",
+                    "game.seconds",
+                    "game.decision_receipt_sha256 (checked separately)",
+                    "decision.elapsedMs",
+                    "decision.resourcePlan.elapsedMs"
+                ],
+                "scope": "Exact recorded choices, world draws, every resource continuation receipt and actual-game terminals across hosts. No new engine replay of every simulated trajectory."
+            },
+            "fixtures_are_synthetic_host_conversion": true,
+            "actual_hf_runtime_collected": false,
+            "new_games": 0,
+            "new_hf_jobs": 0,
+            "gradients": false,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false
+        },
+        "new_games": 0,
+        "new_hf_jobs": 0,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Full local pilot/archive, measured admission and explicit HF calibration submission remain required. Collect original jobs only; both endpoint records must pass exact local/HF parity before separate development admission."
     }
 }

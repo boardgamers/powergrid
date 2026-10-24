@@ -7,12 +7,12 @@ median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. Thes
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
 **Latest — 25 October: resource HF source and preflight archived; both 2p pilot cells verified.**
-At **23:42:32 UTC, 24 October** (25 October locally), both existing processes were
+At **23:53:14 UTC, 24 October** (25 October locally), both existing processes were
 checked live. Resource **session 75756 / PID 559327** has verified all eight
 2p/filter games, eight 2p/resource-filter games and **24 6p/filter games**, zero caps.
-It is now running **6p/resource-filter**; its games and all 16 independent replays
-remain pending. Auction **session 76600 / PID 443128** has **18/28 submitted,
-eleven verified, seven running**, no failures.
+It is running **6p/resource-filter** (**6/24 game files complete**, cell unverified);
+all 16 independent replays remain pending. Auction **session 76600 / PID 443128**
+has **23/28 submitted, 16 verified**, no failures at this checkpoint.
 
 The tested HF wrapper is now in an immutable, remotely verified source:
 `strong/resource-replanning-job-source-v1.json`, dataset revision
@@ -41,11 +41,24 @@ Receipt: `ai/runs/resource-hf-runtime-launcher-preflight-v1/receipt.json`.
 The source bootstrap and both offered CPU hardware sizes were also checked.
 Latest snapshot: `ai/runs/resource-replanning-runtime-source-prepared-v1/hf-launcher-preparation-checkpoint.json`.
 
+`strong/collect-resource-replanning-hf-runtime-v1.py` is now prepared. It only
+inspects/collects existing admitted calibration jobs, verifies their complete raw
+reports and archive identity, and requires exact recorded local/HF behavior. Only
+host paths and the explicitly named timing fields are excluded; all resource worlds,
+continuations, actions and terminals must match. Five corruption/boundary tests
+passed. A full saved 2p batch converted to synthetic HF paths/timings also passed:
+8 games, 1,306 learner decisions, 450 resource decisions, 41,632 continuations.
+This is a collector preflight, **not actual HF calibration or new game execution**.
+Proof: `ai/runs/resource-hf-runtime-collector-preflight-v1/receipt.json`.
+Current snapshot: `ai/runs/resource-replanning-runtime-source-prepared-v1/hf-collector-preparation-checkpoint.json`.
+
 **Next:** continue the two existing processes. Require all 64 local games and
 16 replays before running `collect-resource-replanning-runtime-v1.py`, then archive
 once. Use that complete evidence to choose/review the calibration hardware and
 run the prepared launcher's `prepare` command, followed by both dry runs before
-submission. Neither calibration nor the 3,360-game development screen has launched. The source descriptor's `runtime_admitted=false` describes preparation
+submission. Use the new collector on those existing jobs after completion; require
+both exact endpoint comparisons before any separate development admission. Neither
+calibration nor the 3,360-game development screen has launched. The source descriptor's `runtime_admitted=false` describes preparation
 and must not be edited into an admission. After all 28 auction shards verify, run
 the prepared reference collector and archive the complete comparison. No gradients,
 production changes, candidate selection or final seeds. This is not a plateau claim.

@@ -53471,5 +53471,25 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "next": "Finish fixed hybrid grid; investigate separately frozen public resource/city planning rather than using this selected branch as a rule or label."
+    },
+    "resource_turn_proposals_v1": {
+        "status": "verified_unintegrated_candidate_generator",
+        "evidence": "ai/strong/resource-turn-proposal-evidence-v1.json",
+        "archive_revision": "6c366e1a9f6230099e0af40d22ad2be7cb2ce1b8",
+        "public_resource_positions": 755,
+        "engine_legal_bundles": 7185,
+        "real_engine_purchase_transitions": 28177,
+        "construction_cases": 41,
+        "executed_joint_witnesses": 336,
+        "known_omission_recovered_as_proposal": true,
+        "selected_move": null,
+        "preserved_failed_attempts": 2,
+        "current_hybrid_screen_unchanged": true,
+        "new_hf_jobs": 0,
+        "new_strength_games": 0,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "In a separate research adapter, preserve the exact existing model resource turn as an additional baseline, then score complete legal bundles with public sampled worlds and realistic opponent continuations. Keep the running five-arm screen frozen; use fresh paired games before any adoption."
     }
 }

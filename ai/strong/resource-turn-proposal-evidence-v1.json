@@ -1,0 +1,69 @@
+{
+  "revision": "6c366e1a9f6230099e0af40d22ad2be7cb2ce1b8",
+  "status": "verified_unintegrated_candidate_generator",
+  "public_resource_positions": 755,
+  "rule_count_cells": 20,
+  "engine_legal_bundles": 7185,
+  "real_engine_purchase_transitions": 28177,
+  "zero_purchase_baselines": 755,
+  "secret_invariance_cases": 755,
+  "construction_cases": 41,
+  "conditional_construction_paths": 184,
+  "executed_joint_witnesses": 336,
+  "exhaustively_checked_inventory_states": 1870,
+  "minimum_fuel_price_target_checks": 422,
+  "independent_saved_bundle_checks": 336,
+  "independent_joint_budget_checks": 1342,
+  "known_omission_recovered_as_proposal": {
+    "prefix_moves_replayed": 326,
+    "reference_trace_sha256": "6df0de329164549a7a7d84b4f9e7182ab3feca0e062c33992d816d7d486cb74a",
+    "bundle": "3,0,0,0",
+    "cost": 17,
+    "fuelSupportedOutput": 24,
+    "witness": {
+      "cities": 21,
+      "constructionCost": 161,
+      "totalCost": 178,
+      "remainingMoney": 61,
+      "powered": 21
+    }
+  },
+  "unchanged_source_files": 1463,
+  "active_screen_dependencies_unchanged": true,
+  "source_module_sha256": "1540f21cfe0edd19b5cf2a370442228301ac52c7272735677c64c60a0a882d5a",
+  "engineering_timings_local_HX370_ms": {
+    "enumerationMs": {
+      "samples": 755,
+      "median": 0.38700599999992846,
+      "maximum": 2.411807999999837
+    },
+    "constructionMs": {
+      "samples": 41,
+      "median": 6.477772000000186,
+      "maximum": 204.70732700000008
+    }
+  },
+  "preserved_failures": [
+    "Initial guard omitted standard free-fuel fusion plant50/type6; fixed and complete suite passed.",
+    "An initial v2 test invocation preceded completion of the copy and failed on a missing engine module; its log is retained. The completed package was then checked."
+  ],
+  "limits": [
+    "No selected move, neural bundle valuation or fresh strength evidence.",
+    "Fuel enumeration covers one/two identical-cycle plant requirements, not all possible stockpiles.",
+    "Construction witnesses assume no intervening opponent action/deck draw; bounded beam search is not an optimum or impossibility proof.",
+    "Local engineering timings are not representative gameplay latency or an AMD8840U benchmark."
+  ],
+  "next": "In a separate research adapter, preserve the exact existing model resource turn as an additional baseline, then score complete legal bundles with public sampled worlds and realistic opponent continuations. Keep the running five-arm screen frozen; use fresh paired games before any adoption.",
+  "new_strength_games": 0,
+  "new_hf_jobs": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "archive_path": "archives/resource-turn-proposal-evidence-v1.tgz",
+  "archive_sha256": "d6265bd708c5d659f6c9bb57c5f1f69f5f87965afe204549df4d2ccdeded6c36",
+  "manifest_sha256": "9f039f5b28d0187be927343551d5815abc709007588cf8fb781e6b9193aff6da",
+  "archived_files": 58,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

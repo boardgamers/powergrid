@@ -25,7 +25,89 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: resource-planning weak-cell diagnosis verified
+## Latest checkpoint: resource-turn proposals verified, not integrated
+
+Progress: the isolated public fuel/construction proposal generator and its evidence
+collection completed. All local tests and the archive upload are terminal; do not
+restart the collector. No new HF jobs, gradients or fresh strength games were
+launched for this prototype. Existing coordinator PID 1447977 / session 53211 is
+alive: at 2026-10-24T15:22:39.465618+00:00, 40 submitted, 8 verified, no failed jobs.
+All running-screen dependency hashes remain unchanged.
+
+### Proposal mechanics and limitations
+
+- `strong/resource-turn-plans-v1.cjs` accepts public, money-visible, standard
+  Germany resource turns with 2–6 players. It enumerates each plant subset and
+  hybrid allocation's requirements for one or two identical fuel cycles, subtracts
+  existing holdings, and checks exact market prices, affordability and shared
+  storage. The zero-purchase candidate is always retained. This is not every
+  stockpile or every combination of different allocations across two rounds.
+- A bounded native-engine construction beam (width 8, branch width 6) finds legal
+  routes at different city counts. These annotate each fuel bundle's remaining
+  budget and possible powered cities. They assume the current board with no
+  intervening opponent actions or deck draws. They are neither optimal routes nor
+  proofs that an absent route is impossible; no fuel candidates are pruned by them.
+- `selectedMove` remains null. No neural score, opponent valuation, serving
+  integration or changed policy is claimed.
+
+### Verification and preserved failures
+
+`strong/test-resource-turn-plans-v1.cjs` checks an isolated copy of all 1,463 frozen
+source files plus only the new module. The corrected runtime is in
+`ai/runs/resource-turn-proposals-v2/`; its complete checks passed:
+
+- 755 public resource positions covering 20 player-count/rule cells; 7,185 legal
+  bundles and 28,177 real-engine purchase transitions. Every position retains zero
+  purchases and passes hidden-data invariance.
+- 41 construction cases, 184 conditional paths and 336 executed joint witnesses.
+  Independent exhaustive inventory checks cover 1,870 states and 422 minimum-fuel
+  price targets. Four unsupported requests are rejected.
+- The known omission is reconstructed through all 326 recorded moves, checking
+  every public transition. A three-coal bundle costs 17, supports output 24 and
+  includes a route to 21 cities costing 161, leaving 61 cash. This recovers a
+  candidate; it does not imply the generator chooses it or predicts the win.
+- The separate Python collector independently rechecks 336 saved bundles and
+  1,342 joint budget annotations, verifies source/checker hashes and the unchanged
+  running-screen dependencies, then archives and download-verifies all evidence.
+
+Initial v1 rejected valid fusion plant 50/type 6 after 23 fixtures. Its module and
+failure are retained in `ai/runs/resource-turn-proposals-v1/`. An initial v2 test was
+started before its copy finished and failed on a missing engine module; that log
+is retained too. The subsequent completed package passed the full suite. Do not
+overwrite these failures or describe the first attempt as passing.
+
+Local HX370 engineering medians: 0.387 ms fuel enumeration (755 samples), 6.478 ms
+construction (41 samples); maxima 2.412 and 204.707 ms respectively. These measure
+proposal generation only, not search latency or actual AMD8840U performance.
+
+### Evidence and continuation
+
+- Descriptor: `strong/resource-turn-proposal-evidence-v1.json`.
+- Collector: `strong/collect-resource-turn-plans-v1.py`; completed output in
+  `ai/runs/resource-turn-proposal-collection-v1.log`. Do not rerun it over its archive.
+- Private model repo revision: `6c366e1a9f6230099e0af40d22ad2be7cb2ce1b8`.
+- Archive: `archives/resource-turn-proposal-evidence-v1.tgz`, 58 files.
+- SHA256: `d6265bd708c5d659f6c9bb57c5f1f69f5f87965afe204549df4d2ccdeded6c36`.
+- Proposal module SHA256:
+  `1540f21cfe0edd19b5cf2a370442228301ac52c7272735677c64c60a0a882d5a`.
+
+Continue the existing fixed five-arm grid without modifying its source or launching
+a second coordinator. A separate resource-search adapter should preserve the exact
+existing model's full resource turn as an additional candidate, then score complete
+bundles using public sampled worlds and varied realistic opponent continuations.
+Fuel denial, future refill, player order and opponents' building must enter those
+continuations. Select fresh evaluation roots before seeing outcomes; retain all
+adverse cells and compare on fresh paired games before adopting it. Do not train
+on the selected hindsight example as though it were an unbiased teacher label.
+
+User asks whether hybrid AI/search is worthwhile: yes, as an empirically tested
+direction. The quoted four-player 30.9% overall / 15.6% Recharged-sealed numbers
+are the parent. Frozen-1 model-only development results are 51.6% / 39.1% against
+search, with only 16 independent deals per cell. Hybrid strength remains pending;
+actual8840U endpoint search measurements exist but do not prove strength. No final
+candidate, publication or reserved final seeds used.
+
+## Previous checkpoint: resource-planning weak-cell diagnosis verified
 
 Previous goal turn: progress (isolated asynchronous sealed-bid repair). This turn:
 progress. Reused the completed model-only grid to investigate remaining weaknesses,

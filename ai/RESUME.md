@@ -6,7 +6,28 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: resource-planning failure reproduced and causally checked.**
+**Latest: public resource-turn proposals verified and archived, not integrated.**
+The isolated `strong/resource-turn-plans-v1.cjs` enumerates legal fuel bundles and
+annotates them with affordable construction routes. All 7,185 bundles at 755
+resource positions passed 28,177 real-engine purchases across 2–6 players and all
+four rules. Forty-one construction cases passed, including recovery of the known
+three-coal omission as a proposal. This does not select or score a move, account
+for intervening opponents, prove an optimal route, or establish a strength gain.
+
+Evidence: `strong/resource-turn-proposal-evidence-v1.json`, 58 files archived and
+download-verified at private HF revision `6c366e1a9f6230099e0af40d22ad2be7cb2ce1b8`.
+Initial fusion-plant guard failure and premature-copy startup failure are retained;
+the corrected complete package passed. All 1,463 frozen source files and active
+screen dependencies are unchanged. No new jobs or gradients for this prototype.
+
+Next: keep the running five-arm comparison frozen. A separate resource-search
+adapter must include the existing model's complete resource turn as a candidate,
+then compare whole bundles against public sampled worlds and varied opponent
+continuations. Use fresh paired games before adoption. Coordinator PID 1447977 /
+session 53211 remains active: 2026-10-24T15:22:39.465618+00:00, 40 submitted / 8
+verified, no failures. No candidate qualified; reserved final seeds unused.
+
+**Previous: resource-planning failure reproduced and causally checked.**
 The complete 33,600-game model-only grid now has a verified terminal-economy
 analysis retaining every model/cell/rule. In two-player Recharged/open, frozen-1
 has unused nominal output in 9/21 losses (parent: 4/19). In six-player

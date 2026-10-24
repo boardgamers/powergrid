@@ -25,7 +25,73 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: seven one-action counterfactual pairs complete, 25 October
+## Latest checkpoint: opponent-model pilot failure isolated, 25 October
+
+The opponent-model diagnostic now has an isolated worker and a frozen pilot
+protocol at `ai/runs/reference-opponent-diagnostic-v1/protocol.json`, SHA
+`121dd85f2d9bd9e8cb10d170c74857ccb783d02ea90eb92bb1878382163de9f5`.
+It keeps the same seven outcome-selected public roots, the original model/search
+action pair, public sampled-world seeds, frozen-1 model, focal loss filter and full
+2,400-move horizons. The treatment replaces the outer opponent mixture and inferred
+prior sealed bids with the known arena reference policy. This is diagnostic knowledge,
+not a deployment assumption about an opponent's identity.
+
+`strong/reference-opponent-continuations-v1.cjs` loads the historical runtime without
+editing it. Four tests passed: 80 rule/count/phase control cells, 32 exact comparisons
+with the frozen arena's actual `applyBot`, public-only world/bid construction, and
+partition identity. The full **896** mixture continuations (seven roots × two fixed
+actions × 64 worlds) matched every saved credit, role, inferred bid and shared world.
+Terminal scores are independently recomputed from powered cities, money and cities.
+
+Three full reference pilot cases completed: 4p search took 218.29 seconds for four
+continuations, 3p heuristic 0.94 seconds, and 2p search 30.65 seconds. These are local
+HX370 runtime observations, not AMD8840U timings or strength estimates. They include
+65,248 nested candidate evaluations in the two search cases, with zero caps. The
+6p Recharged/sealed case failed during initialization; no result was imputed.
+
+The failure was reproduced on sample 0 / original model action index 10. Earlier
+actor 1 had an inferred bid of 15 on plant 8, but its assignment to `player.bid` did
+not append a hidden-history move. After the simulated auction, the public history
+contains bids by actors 2, 3 and 5, followed by actor 1 nominating plant 5. Replaying
+that incomplete hypothetical history cannot finish the first auction. Nested search's
+sampler unconditionally attempted that replay to recover balances, although every
+balance was already known. This finding concerns the new nested diagnostic; it does
+not invalidate the completed population-mixture screen or establish a live game bug.
+
+Pilot session **5175** exited 1. The worker error handler set `process.exitCode` but
+left readline alive; after all four exceptions were observed and recorded, the four
+failed workers were explicitly terminated so the parent could observe EOF and exit.
+All those processes are gone. The v1 pilot is failed and must not be restarted.
+
+`strong/analysis-public-balances-v1.cjs` is a proposed isolated repair: load the
+historical sampler in a separate module and skip only the unused reconstruction when
+all money is public. Unknown money still requires the original replay. Tests passed:
+**2,553** ordinary sampled worlds identical, **24** hidden-money recovery cases
+identical, and the captured failure repaired with unchanged public history and hidden
+input invariance. This component is **not integrated into the worker or adopted**.
+The first test-source guard caught a compiler-expression spelling mismatch before
+simulation; the corrected exact-source guard and all three tests pass. Both logs are
+preserved. All 1,463 historical runtime files and 32 frozen screen dependencies remain
+unchanged. Seven intentionally corrupted result checks were also rejected.
+
+The failure and repair evidence were archived once and verified:
+`strong/reference-opponent-pilot-failure-evidence-v1.json`, private HF revision
+`e2605d3e6f5d3ef2b43eb6713504f08ae496c449`, archive SHA
+`5e58a38c12c7667419ac4371521de3ee87c2ecc79ce2546dfe18b810b252a3ea`, 70 files.
+The collector has completed; do not repeat it. Draft success collector/job/launcher
+code was prepared, but its required successful admission descriptor is absent and
+**no HF jobs were submitted**. No gradients, new strength games, candidate selection,
+deployment or reserved final seeds occurred.
+
+Next: version a new reference worker with the isolated sampler scoped to nested
+reference search, and make JSONL failures close immediately. Verify its normal arena
+behavior and controls again; run a fresh complete pilot, including all four 6p failed
+continuations, before admitting the larger fixed 64-world comparison. Preserve the
+same action pair and sampled worlds. Do not score the partial v1 set, fit switches to
+these seven positions, or silently change the historical engine. The resource ablation
+remains independent and unlaunched. The goal remains active; this is not a plateau.
+
+## Previous checkpoint: seven one-action counterfactual pairs complete, 25 October
 
 The preceding replay/holdout-world turn was substantive progress. This turn completed
 the next fixed causal diagnostic, preserving all seven positions rather than choosing

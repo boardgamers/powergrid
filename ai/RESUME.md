@@ -6,7 +6,41 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October: all seven one-action counterfactual pairs complete.**
+**Latest — 25 October: opponent-model pilot found a nested sealed-history failure.**
+The new isolated reference-opponent worker reproduced all **896** fixed-action
+mixture controls exactly across the seven roots and 64 worlds. Three complete
+reference pilots (2p/4p search, 3p heuristic), **12 continuations**, passed with zero
+caps. The 6p Recharged/sealed pilot failed inside nested `createAnalysisScenario`:
+an inferred earlier bid was assigned to the hypothetical state without a matching
+history entry, so unconditional money reconstruction could not replay the next
+nomination. All balances were already public; that reconstruction was unused.
+
+Session **5175** is finished, exit 1. Its four failed workers printed exceptions
+but kept stdin alive; they were explicitly terminated after recording the failure,
+allowing the parent to exit. No HF jobs were launched, no strength comparison was
+made, and no policy or frozen dependency changed. Do not rerun the v1 pilot.
+The one-shot failure collector completed and verified 70 evidence files:
+`strong/reference-opponent-pilot-failure-evidence-v1.json`, private HF revision
+`e2605d3e6f5d3ef2b43eb6713504f08ae496c449`. Do not repeat its upload.
+
+An isolated proposed sampler repair, `strong/analysis-public-balances-v1.cjs`, skips
+balance replay only if every balance is already known. It preserves **2,553** normal
+fixture worlds exactly and **24** unknown-money recoveries, and repairs the captured
+failure without changing its public history or leaking hidden fields. It is **not
+integrated or adopted**. All 1,463 historical runtime files and 32 frozen dependencies
+remain unchanged. The draft HF job/launcher/success-collector files are unlaunched;
+their required successful admission descriptor does not exist.
+
+**Next:** build a versioned reference worker using the isolated sampler only for its
+nested search, with immediate JSONL process exit on errors. Recheck arena/control
+parity and run a fresh complete runtime pilot, including the 6p sealed failure, before
+admitting the 64-world HF diagnostic. Keep the same seven roots, original action
+pairs and public seeds. Preserve the failed v1 record; do not treat its three finished
+pilots as a successful comparison. No new gradients, candidate selection or final
+seeds. The separate resource ablation remains unlaunched. This is an engineering
+failure in a new diagnostic, not evidence of a training plateau.
+
+**Previous — 25 October: all seven one-action counterfactual pairs complete.**
 `strong/auction-first-action-counterfactual-v1.py` ran the filtered model throughout
 seven controls (every original decision/public root and terminal report matched),
 and seven branches changing exactly the saved first differing action before returning

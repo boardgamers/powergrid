@@ -1,0 +1,412 @@
+{
+  "status": "pilot_failed_no_admission",
+  "protocol_sha256": "121dd85f2d9bd9e8cb10d170c74857ccb783d02ea90eb92bb1878382163de9f5",
+  "completed_controls": 896,
+  "completed_reference_pilot_rollouts": 12,
+  "required_reference_pilot_rollouts": 16,
+  "completed": [
+    {
+      "root": 0,
+      "label": "4p-search_geo-original-False-worse-2",
+      "mode": "neural_population",
+      "begin": 0,
+      "count": 64,
+      "options": [
+        2,
+        1
+      ],
+      "seconds": 32.390940151992254,
+      "cpu_seconds": 52.44,
+      "sampled_peak_total_rss_bytes": 1206530048,
+      "memory_sampling_period_seconds": 0.1,
+      "protocol_sha256": "121dd85f2d9bd9e8cb10d170c74857ccb783d02ea90eb92bb1878382163de9f5",
+      "checks": {
+        "complete": true,
+        "rollouts": 128,
+        "neural_decisions": 31359,
+        "outer_steps": 75273,
+        "nested_evaluations": 0,
+        "prior_bid_evaluations_per_candidate": 0,
+        "caps": 0,
+        "terminal_scores_verified": true,
+        "shared_sampled_worlds_verified": true
+      }
+    },
+    {
+      "root": 1,
+      "label": "5p-search_geo-recharged-False-worse-11",
+      "mode": "neural_population",
+      "begin": 0,
+      "count": 64,
+      "options": [
+        1,
+        2
+      ],
+      "seconds": 32.47094644396566,
+      "cpu_seconds": 53.19000000000001,
+      "sampled_peak_total_rss_bytes": 1191780352,
+      "memory_sampling_period_seconds": 0.1,
+      "protocol_sha256": "121dd85f2d9bd9e8cb10d170c74857ccb783d02ea90eb92bb1878382163de9f5",
+      "checks": {
+        "complete": true,
+        "rollouts": 128,
+        "neural_decisions": 28046,
+        "outer_steps": 71278,
+        "nested_evaluations": 0,
+        "prior_bid_evaluations_per_candidate": 0,
+        "caps": 0,
+        "terminal_scores_verified": true,
+        "shared_sampled_worlds_verified": true
+      }
+    },
+    {
+      "root": 2,
+      "label": "3p-heuristic-all-None-worse-4",
+      "mode": "neural_population",
+      "begin": 0,
+      "count": 64,
+      "options": [
+        2,
+        1
+      ],
+      "seconds": 20.300516229995992,
+      "cpu_seconds": 34.78000000000003,
+      "sampled_peak_total_rss_bytes": 1170014208,
+      "memory_sampling_period_seconds": 0.1,
+      "protocol_sha256": "121dd85f2d9bd9e8cb10d170c74857ccb783d02ea90eb92bb1878382163de9f5",
+      "checks": {
+        "complete": true,
+        "rollouts": 128,
+        "neural_decisions": 22274,
+        "outer_steps": 50355,
+        "nested_evaluations": 0,
+        "prior_bid_evaluations_per_candidate": 0,
+        "caps": 0,
+        "terminal_scores_verified": true,
+        "shared_sampled_worlds_verified": true
+      }
+    },
+    {
+      "root": 3,
+      "label": "4p-search_geo-recharged-True-better-1",
+      "mode": "neural_population",
+      "begin": 0,
+      "count": 64,
+      "options": [
+        1,
+        0
+      ],
+      "seconds": 27.049967954983003,
+      "cpu_seconds": 44.17999999999998,
+      "sampled_peak_total_rss_bytes": 1155092480,
+      "memory_sampling_period_seconds": 0.1,
+      "protocol_sha256": "121dd85f2d9bd9e8cb10d170c74857ccb783d02ea90eb92bb1878382163de9f5",
+      "checks": {
+        "complete": true,
+        "rollouts": 128,
+        "neural_decisions": 25060,
+        "outer_steps": 60284,
+        "nested_evaluations": 0,
+        "prior_bid_evaluations_per_candidate": 0,
+        "caps": 0,
+        "terminal_scores_verified": true,
+        "shared_sampled_worlds_verified": true
+      }
+    },
+    {
+      "root": 4,
+      "label": "4p-search_geo-original-True-better-8",
+      "mode": "neural_population",
+      "begin": 0,
+      "count": 64,
+      "options": [
+        3,
+        2
+      ],
+      "seconds": 26.719059372029733,
+      "cpu_seconds": 45.329999999999984,
+      "sampled_peak_total_rss_bytes": 1196294144,
+      "memory_sampling_period_seconds": 0.1,
+      "protocol_sha256": "121dd85f2d9bd9e8cb10d170c74857ccb783d02ea90eb92bb1878382163de9f5",
+      "checks": {
+        "complete": true,
+        "rollouts": 128,
+        "neural_decisions": 26693,
+        "outer_steps": 65093,
+        "nested_evaluations": 0,
+        "prior_bid_evaluations_per_candidate": 0,
+        "caps": 0,
+        "terminal_scores_verified": true,
+        "shared_sampled_worlds_verified": true
+      }
+    },
+    {
+      "root": 5,
+      "label": "2p-search_geo-recharged-True-better-1",
+      "mode": "neural_population",
+      "begin": 0,
+      "count": 64,
+      "options": [
+        1,
+        0
+      ],
+      "seconds": 18.308571041969117,
+      "cpu_seconds": 33.23000000000002,
+      "sampled_peak_total_rss_bytes": 1125765120,
+      "memory_sampling_period_seconds": 0.1,
+      "protocol_sha256": "121dd85f2d9bd9e8cb10d170c74857ccb783d02ea90eb92bb1878382163de9f5",
+      "checks": {
+        "complete": true,
+        "rollouts": 128,
+        "neural_decisions": 21376,
+        "outer_steps": 35760,
+        "nested_evaluations": 0,
+        "prior_bid_evaluations_per_candidate": 0,
+        "caps": 0,
+        "terminal_scores_verified": true,
+        "shared_sampled_worlds_verified": true
+      }
+    },
+    {
+      "root": 6,
+      "label": "6p-search_geo-recharged-True-better-9",
+      "mode": "neural_population",
+      "begin": 0,
+      "count": 64,
+      "options": [
+        10,
+        9
+      ],
+      "seconds": 29.29013209999539,
+      "cpu_seconds": 49.110000000000014,
+      "sampled_peak_total_rss_bytes": 1184415744,
+      "memory_sampling_period_seconds": 0.1,
+      "protocol_sha256": "121dd85f2d9bd9e8cb10d170c74857ccb783d02ea90eb92bb1878382163de9f5",
+      "checks": {
+        "complete": true,
+        "rollouts": 128,
+        "neural_decisions": 24024,
+        "outer_steps": 68640,
+        "nested_evaluations": 0,
+        "prior_bid_evaluations_per_candidate": 0,
+        "caps": 0,
+        "terminal_scores_verified": true,
+        "shared_sampled_worlds_verified": true
+      }
+    },
+    {
+      "root": 0,
+      "label": "4p-search_geo-original-False-worse-2",
+      "mode": "reference_opponent_v1",
+      "begin": 0,
+      "count": 2,
+      "options": [
+        2,
+        1
+      ],
+      "seconds": 218.29247089201817,
+      "cpu_seconds": 351.3499999999999,
+      "sampled_peak_total_rss_bytes": 1378299904,
+      "memory_sampling_period_seconds": 0.1,
+      "protocol_sha256": "121dd85f2d9bd9e8cb10d170c74857ccb783d02ea90eb92bb1878382163de9f5",
+      "checks": {
+        "complete": true,
+        "rollouts": 4,
+        "neural_decisions": 615,
+        "outer_steps": 2403,
+        "nested_evaluations": 53152,
+        "prior_bid_evaluations_per_candidate": 0,
+        "caps": 0,
+        "terminal_scores_verified": true,
+        "shared_sampled_worlds_verified": true
+      }
+    },
+    {
+      "root": 2,
+      "label": "3p-heuristic-all-None-worse-4",
+      "mode": "reference_opponent_v1",
+      "begin": 0,
+      "count": 2,
+      "options": [
+        2,
+        1
+      ],
+      "seconds": 0.9442752659670077,
+      "cpu_seconds": 2.5,
+      "sampled_peak_total_rss_bytes": 598867968,
+      "memory_sampling_period_seconds": 0.1,
+      "protocol_sha256": "121dd85f2d9bd9e8cb10d170c74857ccb783d02ea90eb92bb1878382163de9f5",
+      "checks": {
+        "complete": true,
+        "rollouts": 4,
+        "neural_decisions": 444,
+        "outer_steps": 1532,
+        "nested_evaluations": 0,
+        "prior_bid_evaluations_per_candidate": 0,
+        "caps": 0,
+        "terminal_scores_verified": true,
+        "shared_sampled_worlds_verified": true
+      }
+    },
+    {
+      "root": 5,
+      "label": "2p-search_geo-recharged-True-better-1",
+      "mode": "reference_opponent_v1",
+      "begin": 0,
+      "count": 2,
+      "options": [
+        1,
+        0
+      ],
+      "seconds": 30.652170140994713,
+      "cpu_seconds": 57.33000000000004,
+      "sampled_peak_total_rss_bytes": 1207898112,
+      "memory_sampling_period_seconds": 0.1,
+      "protocol_sha256": "121dd85f2d9bd9e8cb10d170c74857ccb783d02ea90eb92bb1878382163de9f5",
+      "checks": {
+        "complete": true,
+        "rollouts": 4,
+        "neural_decisions": 583,
+        "outer_steps": 1205,
+        "nested_evaluations": 12096,
+        "prior_bid_evaluations_per_candidate": 0,
+        "caps": 0,
+        "terminal_scores_verified": true,
+        "shared_sampled_worlds_verified": true
+      }
+    }
+  ],
+  "failed_root": 6,
+  "failed_session": 5175,
+  "process_exit_code": 1,
+  "failure": {
+    "stage": "failed",
+    "root": 6,
+    "reason": "All four reference workers reported ChoosePowerPlant not allowed during nested createAnalysisScenario -> reconstructState. Worker catch set exitCode but left the readline input alive, so the parent was waiting for JSON/EOF. Explicitly terminate only these failed pilot processes; do not retry.",
+    "time": 1792880475.9055412,
+    "parent_pid": 256242,
+    "child_pids": [
+      301438,
+      301439,
+      301440,
+      301441
+    ],
+    "successful_control_rollouts": 896,
+    "completed_reference_rollouts": 12,
+    "new_hf_jobs": 0,
+    "automatic_retry": false
+  },
+  "diagnosis": {
+    "priorBelief": {
+      "kind": "reference_opponent_v1",
+      "committed": [
+        {
+          "actor": 1,
+          "role": "search_geo",
+          "action": {
+            "name": "Bid",
+            "data": 15
+          },
+          "searchStats": {
+            "decisions": 1,
+            "evaluations": 96,
+            "truncated": 0
+          }
+        }
+      ]
+    },
+    "capturedSubsequentMoves": [
+      {
+        "player": 1,
+        "move": {
+          "name": "ChoosePowerPlant",
+          "data": 8
+        }
+      },
+      {
+        "player": 2,
+        "move": {
+          "name": "Bid",
+          "data": 18
+        }
+      },
+      {
+        "player": 3,
+        "move": {
+          "name": "Bid",
+          "data": 18
+        }
+      },
+      {
+        "player": 5,
+        "move": {
+          "name": "Bid",
+          "data": 18
+        }
+      },
+      {
+        "player": 1,
+        "move": {
+          "name": "ChoosePowerPlant",
+          "data": 5
+        }
+      }
+    ],
+    "allBalancesPublic": true,
+    "missingEarlierActor": 1,
+    "diagnosis": "Inferred prior sealed bid was assigned to player.bid without a corresponding hidden-log move. Once revealed, the simulated history omits that submission. Unconditional balance replay therefore cannot reach the next nomination; it is unnecessary when all balances are already public."
+  },
+  "rejected_corruptions": [
+    "outer_cap",
+    "nested_cap",
+    "prior_cap",
+    "invalid_score",
+    "wrong_world",
+    "wrong_action",
+    "missing_result"
+  ],
+  "worker_tests": {
+    "test_exit_code": 0,
+    "tests_passed": 4,
+    "tests_failed": 0,
+    "test_sha256": "1ab3b944e110db8722942e7f7f22b5746397fdbad58ca0fc53cf1d081361540c",
+    "worker_sha256": "14ed00f17331be3e6767406c4e4f280be64ea600482b96ad97872b3ce25bd750",
+    "frozen_runtime_files": 1463,
+    "control_cells": 80,
+    "arena_move_checks": 32,
+    "seven_roots_privacy_and_world_checks": true,
+    "partition_offsets_verified": true,
+    "test_duration_seconds": 12.68515202,
+    "earlier_test_harness_issue": "Two initial deep equality assertions crossed VM prototypes; normalized the reference stats through structuredClone. No gameplay code changed for this repair."
+  },
+  "isolated_sampler_repair": {
+    "file": "ai/strong/analysis-public-balances-v1.cjs",
+    "sha256": "3e8eaf26bc21be7e2284e4838f743731a269e8d18badbb8adc0af882f3b3ccb5",
+    "test_sha256": "6aac0a1ce25e2c46a47ed4c401949954cdbdf6442a7557019db4407e5ba8e016",
+    "ordinary_fixture_worlds_exact": 2553,
+    "unknown_balance_cases_exact": 24,
+    "captured_failure_repaired": true,
+    "hidden_fields_invariant": true,
+    "integrated_into_rollout_worker": false,
+    "adopted": false,
+    "scope": "Skip unused balance replay only when every balance is public; keep existing replay for unknown money."
+  },
+  "frozen_runtime_files_unchanged": 1463,
+  "frozen_dependencies_unchanged": 32,
+  "next": "Version a new nested-reference worker with this isolated sampler repair and explicit process exit on JSONL failure. Recheck control/arena parity and run a fresh complete pilot, including the failed 6p sealed root, before new HF admission. Preserve v1 evidence as failed; no automatic rerun or partial strength claim.",
+  "draft_job_tools": "Prepared only. The successful-pilot admission descriptor is absent, so the launcher cannot submit jobs.",
+  "new_hf_jobs": 0,
+  "gradients": false,
+  "new_strength_games": 0,
+  "candidate_selected": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "e2605d3e6f5d3ef2b43eb6713504f08ae496c449",
+  "archive_path": "archives/reference-opponent-pilot-failure-evidence-v1.tgz",
+  "archive_sha256": "5e58a38c12c7667419ac4371521de3ee87c2ecc79ce2546dfe18b810b252a3ea",
+  "manifest_sha256": "01737cebbd0f578c4fe35bc363c1caf9f310cdcbb36e590db24fba5776095d58",
+  "archived_files": 70,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

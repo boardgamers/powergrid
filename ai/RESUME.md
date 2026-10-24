@@ -6,7 +6,31 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: asynchronous sealed-bid serving gap reproduced and repaired in isolation.**
+**Latest: resource-planning failure reproduced and causally checked.**
+The complete 33,600-game model-only grid now has a verified terminal-economy
+analysis retaining every model/cell/rule. In two-player Recharged/open, frozen-1
+has unused nominal output in 9/21 losses (parent: 4/19). In six-player
+Recharged/sealed, 53/73 losses have fewer cities than the winner powers; categories
+overlap and these are descriptive development counts.
+
+Four selected full replays match exactly. In the two-player example, frozen-1
+passes resources with 239 cash, 10 coal still available and fuel for 18 cities, then
+builds 21. Buying three more coal for 17 changes that selected loss to a win:
+21 powered / 61 cash versus 21 / 58, with the original full trace and 326-move prefix
+verified. The selected six-player parent/current traces are identical, showing an
+inherited city-growth weakness, not a new regression. These reused, outcome-selected
+branches are not strength estimates or training labels.
+
+Evidence: `strong/weak-cell-economy-evidence-v1.json` (57 files); all local analysis,
+replay and intervention processes completed. The latest fine-tuning roots and
+current hybrid scopes cover auctions/building; consider a separately frozen
+resource-planning experiment after the unchanged full screen. Do not hard-code the
+three-coal intervention or promote it from one example. No gradients or HF jobs
+were launched for this diagnosis. Existing coordinator PID 1447977 / session 53211
+continues: 2026-10-24T15:02:20.384283+00:00, 40 submitted/8 verified, no failures.
+Final seeds remain unused; no candidate or AI publication.
+
+**Previous: asynchronous sealed-bid serving gap reproduced and repaired in isolation.**
 The frozen adapter rejects legal requests when a bidder acts before the first pending
 seat or when earlier submissions are not a prefix of player order. The current BGS
 source can dispatch such a bot. The research/current engines accept all 446 reproduced

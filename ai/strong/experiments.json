@@ -53454,5 +53454,22 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "next": "Complete unchanged five-arm grid; separately pin/confirm asynchronous serving runtime before adoption."
+    },
+    "weak_cell_resource_economy_v1": {
+        "status": "diagnosis_verified_no_policy_change",
+        "complete_grid_games_described": 33600,
+        "exact_replays": 4,
+        "conditional_counterfactual_cases": 1,
+        "branch_games": 2,
+        "counterfactual_loss_to_win": true,
+        "evidence": "ai/strong/weak-cell-economy-evidence-v1.json",
+        "archive_revision": "f9a067364f6d3ae8a4dce3a4cce76d84ccb95209",
+        "current_hybrid_screen_unchanged": true,
+        "new_hf_jobs": 0,
+        "new_strength_games": 0,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Finish fixed hybrid grid; investigate separately frozen public resource/city planning rather than using this selected branch as a rule or label."
     }
 }

@@ -1,0 +1,137 @@
+{
+  "complete_grid_games_described": 33600,
+  "all_models": 5,
+  "all_cells": 27,
+  "independent_deals_per_cell": 16,
+  "independently_recomputed_absolute_views": true,
+  "exact_diagnostic_replays": 4,
+  "continuous_root_moves": 1983,
+  "two_player_recharged_open": {
+    "games": 32,
+    "win_share": 0.34375,
+    "failures": {
+      "losses": 21,
+      "sole_wins": 11,
+      "shared_wins": 0,
+      "capacity_below_winner_powered": 5,
+      "cities_below_winner_powered": 8,
+      "unused_nominal_potential": 9,
+      "powered_tie_cash_loss": 6,
+      "powered_cash_tie_city_loss": 0
+    },
+    "means": {
+      "win_credit": 0.34375,
+      "round": 11.4375,
+      "cities": 20.65625,
+      "powered": 19.28125,
+      "capacity": 21.90625,
+      "cash": 66.28125,
+      "powered_gap": 0.0,
+      "capacity_gap": 1.40625,
+      "unused_nominal_potential": 0.9375
+    },
+    "mean_move_counts": {
+      "Bid": 16.53125,
+      "Build": 20.65625,
+      "BuyResource": 50.5,
+      "ChoosePowerPlant": 12.0625,
+      "DiscardPowerPlant": 5.1875,
+      "Pass": 41.78125,
+      "UsePowerPlant": 25.90625
+    }
+  },
+  "six_player_recharged_sealed": {
+    "games": 96,
+    "win_share": 0.23958333333333334,
+    "failures": {
+      "losses": 73,
+      "sole_wins": 23,
+      "shared_wins": 0,
+      "capacity_below_winner_powered": 22,
+      "cities_below_winner_powered": 53,
+      "unused_nominal_potential": 7,
+      "powered_tie_cash_loss": 10,
+      "powered_cash_tie_city_loss": 0
+    },
+    "means": {
+      "win_credit": 0.23958333333333334,
+      "round": 8.895833333333334,
+      "cities": 13.427083333333334,
+      "powered": 12.979166666666666,
+      "capacity": 15.427083333333334,
+      "cash": 13.958333333333334,
+      "powered_gap": -1.28125,
+      "capacity_gap": -1.9895833333333333,
+      "unused_nominal_potential": 0.125
+    },
+    "mean_move_counts": {
+      "Bid": 10.875,
+      "Build": 13.427083333333334,
+      "BuyResource": 26.322916666666668,
+      "ChoosePowerPlant": 5.78125,
+      "DiscardPowerPlant": 1.59375,
+      "Pass": 36.302083333333336,
+      "UsePowerPlant": 12.333333333333334
+    }
+  },
+  "counterfactual": {
+    "cases": 1,
+    "branches": 2,
+    "original_full_trace_identical": true,
+    "prefix_moves_identical": 326,
+    "bundle": "Three legal coal purchases before the selected resource Pass",
+    "cost": 17,
+    "fuel_supported_before": 18,
+    "fuel_supported_after": 24,
+    "outcomes": {
+      "original": {
+        "win": 0,
+        "ranks": [
+          [
+            18,
+            78,
+            21
+          ],
+          [
+            21,
+            60,
+            21
+          ]
+        ]
+      },
+      "buy_coal_3": {
+        "win": 1.0,
+        "ranks": [
+          [
+            21,
+            61,
+            21
+          ],
+          [
+            21,
+            58,
+            21
+          ]
+        ]
+      }
+    },
+    "caps": 0
+  },
+  "six_player_selected_pair_entire_public_trace_identical": true,
+  "interpretation": "An available-fuel purchasing omission causally changes the selected two-player loss into a win. The selected six-player loss is an unchanged parent/current trajectory with insufficient cities; it is not evidence of a new regression.",
+  "next_action": "Keep the five-arm hybrid screen frozen. Check resource planning and capacity/city growth jointly in future development; do not infer a general resource-buying rule or strength gain from one selected branch.",
+  "new_strength_games": 0,
+  "new_hf_jobs": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "limits": "Counts describe reused development games; categories overlap. Marginal paired intervals are exploratory. Replays and the conditional intervention are outcome-selected and reuse the actual future, so they are not fresh strength estimates, teacher targets, deployment values or causal attribution for the whole weak cell.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "f9a067364f6d3ae8a4dce3a4cce76d84ccb95209",
+  "archive_path": "archives/weak-cell-economy-evidence-v1.tgz",
+  "archive_sha256": "6635a373e4e173b78e7a5087f1c8f030739d9a8d1e78c26c6bf13f5e0141918e",
+  "manifest_sha256": "18c93927c81e78c9e4d554b5580d13cc1b5bc02da44ed13e00b17e9f0a8f404a",
+  "archived_files": 57,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

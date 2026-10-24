@@ -1,0 +1,49 @@
+{
+  "reference_directory": "ai/runs/weak-cell-economy-replays-v1",
+  "case": "frozen-1-2p-recharged-open-unused-episode-35",
+  "selection_sha256": "da0cc25ea4dbe5083caa036a949ff9e69af6d6824afb8c5f825dc7f2ace9e048",
+  "reference_trace_sha256": "6df0de329164549a7a7d84b4f9e7182ab3feca0e062c33992d816d7d486cb74a",
+  "reference_result_sha256": "cf4bce91d984f0d404b672800b2348d6882d24091c65ef5a3e2dace3506635b9",
+  "root_index": 326,
+  "branches": [
+    "original",
+    "buy_coal_3"
+  ],
+  "target": {
+    "round": 12,
+    "seat": 0,
+    "before": {
+      "round": 12,
+      "phase": "Resources",
+      "seat": 0,
+      "money": 239,
+      "cities": 15,
+      "resources": {
+        "coal": 3,
+        "oil": 5,
+        "garbage": 0,
+        "uranium": 0
+      },
+      "plants": [
+        31,
+        36,
+        46,
+        37
+      ],
+      "market": {
+        "coal": 10,
+        "oil": 18,
+        "garbage": 15,
+        "uranium": 7
+      },
+      "threshold": 21
+    }
+  },
+  "rationale": "At the selected final resource Pass the learner holds three coal for two coal plants requiring six in total; oil already fuels its hybrid plant. Three additional coal can raise fuel-supported output from18 to24, above the public end threshold21. Test that explicit bundle, retain the control and every outcome.",
+  "scope": "One conditional causal diagnostic on an outcome-selected development trajectory. Actual future deck and seeded opponent randomness retained. The bundle is motivated by public fuel/capacity/threshold data, but the case is selected in hindsight. It is not deployment search, a training label, an expected value or a strength estimate. Original full trace and branch prefix must match exactly.",
+  "new_strength_games": 0,
+  "new_hf_jobs": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

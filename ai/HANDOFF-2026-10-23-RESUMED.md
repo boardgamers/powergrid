@@ -25,7 +25,112 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: asynchronous sealed-order research repair verified
+## Latest checkpoint: resource-planning weak-cell diagnosis verified
+
+Previous goal turn: progress (isolated asynchronous sealed-bid repair). This turn:
+progress. Reused the completed model-only grid to investigate remaining weaknesses,
+then verified four full replays and one controlled resource-purchase intervention.
+All local diagnostic processes finished. No new HF jobs, gradients, candidate
+promotion or final seeds were used for this work. The separate existing coordinator
+PID 1447977 / session 53211 continues at 2026-10-24T15:02:20.384283+00:00: 40 submitted,
+8 verified, no failures. It may continue filling its already authorized slots.
+
+### Complete descriptive analysis
+
+`strong/analyze-complete-policy-economy-v1.py` re-verifies the immutable 33,600-game
+model comparison, retaining all five models, 27 opponent/count cells and all four
+rules. New terminal summaries and paired whole-deal intervals are in
+`ai/runs/complete-policy-economy-v1/assessment.json`. The collector independently
+recomputes absolute counts from all pinned raw reports and checks rank outcomes.
+
+Two remaining weak cells for frozen-1 illustrate different problems:
+
+- 2p Recharged/open: 11/32 win credit. Of 21 losses, 9 have unused nominal output,
+   8 insufficient cities, 5 insufficient plant capacity and 6 powered ties lost on cash.
+   Parent has unused output in 4/19 losses. Mean unused output increases 0.531 cities,
+   marginal paired 95% interval [0.188,0.906]. The win-share difference is −6.25pp with
+   interval [−18.75,+6.25]pp, so a true win-rate regression is not established.
+- 6p Recharged/sealed: 23/96 win credit. Of 73 losses, 53 have fewer cities than the
+   winner powers, 22 insufficient plant capacity, 7 unused output and 10 cash tie losses.
+   Relative to parent, mean cities rise 0.615 while nominal capacity falls 0.531 and cash
+   falls 7.57. This is not simply “always build more”; budget/capacity timing matters.
+   The win-share difference is −3.125pp, interval [−11.46,+5.21]pp, also inconclusive.
+
+Categories overlap. These are reused development results with only 16 independent
+deals per cell. Marginal intervals are exploratory and not multiplicity-adjusted.
+No causal phase attribution follows from these terminal counts alone.
+
+### Fixed four-game replay and controlled resource branch
+
+The full analysis freezes two hash-ranked cohorts before replay: one current-model
+2p Recharged/open loss with unused potential (9 eligible cases), and one 6p
+Recharged/sealed loss with insufficient cities but enough nominal capacity to match
+the winner (38 eligible cases). The corresponding parent is retained for each.
+`strong/replay-weak-cell-economy-v1.py` executes all four, with the existing public
+economy observer and unchanged frozen model/engine/opponent policies.
+
+All four replays match every recorded terminal field, policy counters and opponent
+search statistics. The enhanced analysis checks every root move and continuous
+before/after state: 1,983 moves total. Selected cases are diagnostic examples, not
+frequency estimates. The six-player parent/current **entire public traces match**;
+the learner finishes 11 cities / 18 plant capacity / 9 cash while opponents power 14.
+This is an inherited weak trajectory, not evidence that the new correction caused it.
+
+In the two-player frozen-1 case (episode 35, seat 0), the final resource Pass is root 326,
+round 12. Public state has 15 cities, 239 cash, 10 coal left in the market, two coal plants
+requiring six coal in total but only three held, a hybrid already covered by oil,
+and a free plant. Nominal capacity is 24, fuel-supported capacity 18. It then builds
+six more cities and ends with 21 cities / 18 powered / 78 cash; the opponent powers 21.
+
+The separate frozen protocol `strong/weak-cell-resource-counterfactual-v1.json`
+compares the original action with **three legal coal purchases then the same Pass**.
+All future model/opponent policies, real future deck and seeded randomness are kept.
+`strong/replay-resource-bundle-v1.py` and an independent collector verify:
+
+- Original full public trace is byte-identical to its reference.
+- Both branches share all 326 preceding root moves and the exact decision state.
+- All subsequent root-state transitions are continuous; no truncations.
+- The inserted purchases are legal and independently price-checked: 5+6+6=17.
+   An independent plant-subset fuel calculation confirms 18→24 available output.
+- The changed branch wins: learner 21 powered / 61 cash / 21 cities, opponent
+   21 powered / 58 cash / 21 cities. Original branch loses 18/78 versus 21/60.
+   The opponent reacts to the changed market, explaining its changed cash.
+
+This establishes a conditional causal effect **on that selected trajectory only**.
+It is not a deployment policy, teacher label, calibrated value or fresh strength
+estimate. It does not justify blindly buying all fuel or infer a general win-rate gain.
+Arena counters count policy proposals; the executed trace includes three inserted
+purchases, so its trace length is the arena step count plus three.
+
+### Preserved evidence and next action
+
+- Descriptor: `strong/weak-cell-economy-evidence-v1.json`.
+- Private model repo revision: `f9a067364f6d3ae8a4dce3a4cce76d84ccb95209`.
+- Archive: `archives/weak-cell-economy-evidence-v1.tgz`; 57 files, downloaded and hash-verified.
+- SHA256: `6635a373e4e173b78e7a5087f1c8f030739d9a8d1e78c26c6bf13f5e0141918e`.
+- Complete descriptive report/selection: `ai/runs/complete-policy-economy-v1/`.
+- Four replay traces: `ai/runs/weak-cell-economy-replays-v1/`.
+- Verified phase/economy summary: `ai/runs/weak-cell-economy-analysis-v1.json`.
+- Controlled branches: `ai/runs/weak-cell-resource-counterfactual-v1/`.
+
+The latest fine-tuning roots are explicitly auction/building only
+(`strong/strategic-training-collection-protocol-v1.json`, `strategic_collection.phase`).
+The active population policy also searches only auction/building; BuyResource/Pass
+uses the existing model. This does not mean the historical parent never trained on
+resources. The causal result makes joint fuel/city planning a justified future
+experiment, rather than automatically extending the same auction/build training.
+
+**Next:** keep the current five-arm grid/source/protocol frozen and finish all cells.
+If further development is needed, design a separately pinned resource-turn study
+with public fuel bundles and feasible city targets, preserving ordinary cases,
+all counts/rules, affordable storage/legal moves and resource denial effects. Select
+fresh roots before outcomes; do not reuse this hindsight branch as a label. Compare
+against the unchanged model/hybrid on paired fresh deals, retaining adverse cases.
+Asynchronous-order repair and actual 8840U/standalone serving requirements also
+remain as recorded below. No final candidate or strength qualification yet.
+
+
+## Previous checkpoint: asynchronous sealed-order research repair verified
 
 Previous goal turn: progress (current-engine compatibility audit). This turn:
 progress. A real serving boundary problem was reproduced and repaired in a separate

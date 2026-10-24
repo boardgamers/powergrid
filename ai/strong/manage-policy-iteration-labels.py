@@ -15,6 +15,7 @@ import tarfile
 
 from huggingface_hub import HfApi, get_token, hf_hub_download
 from strategic_collection import ROOT, read, write, digest
+from policy_iteration_label_attempts import effective_guard
 
 PROTOCOL = ROOT/'ai/strong/policy-iteration-labels-protocol-v2.json'
 SOURCE = ROOT/'ai/strong/policy-iteration-labels-source-v2.json'
@@ -128,7 +129,7 @@ def launch(wave, execute, limit):
 def status():
     api = HfApi()
     def inspect(path):
-        row = read(path)
+        row = effective_guard(path)
         assert row['stage'] == 'launched'
         job = api.inspect_job(job_id=row['job_id'])
         return {**row, 'guard': str(path.relative_to(ROOT)), 'authoritative_status': job.status.stage,

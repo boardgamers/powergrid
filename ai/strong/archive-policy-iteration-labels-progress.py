@@ -17,7 +17,8 @@ def main():
     for file in ['policy-iteration-labels-results-v2.json', 'policy-iteration-labels-status-v2.json',
                  'policy-iteration-labels-source-v2.json', 'policy-iteration-labels-protocol-v2.json',
                  'policy-iteration-labels-launch-evidence-v2.json', 'policy-iteration-data-first-labels-preflight-v2.json',
-                 'manage-policy-iteration-labels.py', 'archive-policy-iteration-labels-progress.py']:
+                 'manage-policy-iteration-labels.py', 'policy_iteration_label_attempts.py',
+                 'archive-policy-iteration-labels-progress.py']:
         shutil.copy2(ROOT/'ai/strong'/file, out/file)
     first_parser_manifest = ROOT/'ai/runs/policy-iteration-data-first-labels-manifest-v2.json'
     assert digest(first_parser_manifest) == read(out/'policy-iteration-data-first-labels-preflight-v2.json')['manifest_sha256']

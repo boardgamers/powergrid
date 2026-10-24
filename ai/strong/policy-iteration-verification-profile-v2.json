@@ -1,0 +1,63 @@
+{
+  "complete": true,
+  "source": {
+    "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+    "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+    "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+    "bytes": 109402244,
+    "base": {
+      "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+      "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+      "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+    },
+    "overlays": {
+      "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+      "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+      "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+      "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+    },
+    "unchanged_base_files": 1430,
+    "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+    "qualification_eligible": false
+  },
+  "cases": [
+    {
+      "shard": "2p-parent-economic-neural-0000",
+      "roots": 42,
+      "rollouts": 39360,
+      "load_roots_seconds": 8.072150504012825,
+      "model_init_seconds": 0.019697868992807344,
+      "check_seconds": 9.831179683998926,
+      "total_seconds": 17.923028057004558,
+      "max_rss_kib": 259376,
+      "summary_identical": true
+    },
+    {
+      "shard": "4p-parent-snapshot0-neural_economic-0000",
+      "roots": 83,
+      "rollouts": 83328,
+      "load_roots_seconds": 8.695691695000278,
+      "model_init_seconds": 0.01781487400876358,
+      "check_seconds": 32.57646645899513,
+      "total_seconds": 41.28997302800417,
+      "max_rss_kib": 273068,
+      "summary_identical": true
+    },
+    {
+      "shard": "6p-parent-economic-neural_economic-0000",
+      "roots": 96,
+      "rollouts": 92160,
+      "load_roots_seconds": 8.967293516994687,
+      "model_init_seconds": 0.018900897994171828,
+      "check_seconds": 47.00791030700202,
+      "total_seconds": 55.99410472199088,
+      "max_rss_kib": 357560,
+      "summary_identical": true
+    }
+  ],
+  "gradients": false,
+  "new_continuations": 0,
+  "qualification_eligible": false,
+  "script_sha256": "989cbb3e0260e784d54abe286ec850a23bc460d1f3d983f755f97eefdf48e39b",
+  "scope": "Serial verification timing on this local host, not training throughput or model strength."
+}

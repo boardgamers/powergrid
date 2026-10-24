@@ -5,32 +5,32 @@ The goal remains active. No candidate has passed the strength gate, no AI is
 published, and the reserved final-test seeds remain unused.
 
 Latest continuation made **progress**:
-- **All 60 first-wave full-data jobs completed and independently verified**:
-  3,212,352 new continuations; **3,917,760 including the pilot**, no accepted caps.
-- The remaining-wave admission passed: **888 jobs / 30,522 root-mode pairs**.
-  **LIVE launcher: unified exec session62283**, log
-  `ai/runs/policy-iteration-labels-remaining-launch-v2.log`. Wait for it and inspect
-  guards before attempting any launch. The current status JSON covers only the
-  completed first60, **not** the newly submitted live jobs. No collector is active.
-- A partial remaining-wave snapshot with **205 confirmed new handles** is already
-  archived in HF; submission continues. The first three new handles were inspected
-  and RUNNING. This is not a whole-fleet status snapshot.
-- All **17,280 public feature inputs** cached, verified and privately archived.
-- Next design fixed: old97,473 vs richer482,497-parameter heads; four seeds each;
-  mean and fixed disagreement-penalized ensembles. No threshold fitting.
-- New targets checked on all705,408 pilot continuations plus195,072 initial new
-  records. Four untrained export configurations each passed2553 full-menu
-  fixtures and17280 cached positions. Seven model/training-contract tests passed.
-- HF-only trainer and guarded data reducer implemented, **not gradient-tested or
-  admitted as a job source yet**. Full948-shard labels and pinned compact bundle
-  are required first. No new trained/qualified model; old11101/11102 remain rejected.
-- Persistent feature/preparation/first-wave evidence pins and the exact next steps
-  are in the handoff. All frozen label overlays and the reserved final protocol
-  remain unchanged.
+- **All948 original labeling jobs submitted and archived**; old launcher62283
+  finished. First119 new shards verified: **5,113,344 continuations including the
+  reused pilot**, no accepted caps. Both latest local collectors finished.
+- CPU Performance hardware is queued. Exact CPU Upgrade profiling completed:
+  all3,072 continuation outcomes/choice transcripts match the pinned original;
+  only8.48% slower overall. A bounded first migration of60 queued shards finished;
+  original jobs were confirmed canceled before replacements launched.
+  All60 replacements are RUNNING. Whole fleet:119 completed,129 running,700
+  scheduling at03:39:57UTC. All119 completed outputs are now independently verified.
+  Read `ai/runs/policy-iteration-labels-cpu-upgrade-v2` and its launch log before
+  starting anything. Original guards remain intact; the manager resolves attempts.
+- All17,280 public feature inputs remain cached/pinned. The four-seed richer/control
+  experiment remains fixed. Full-data training admission stays closed until every
+  required label verifies; **no new gradients or qualified model**.
+- The isolated HF training package passes model/ONNX/legal checks and contract
+  tests. The first failed test-order attempt is preserved; corrected scratch tree
+  is `ai/runs/policy-iteration-training-source-code-v3`. It is code-only, not an
+  admitted full-data training archive. No GPU training jobs have launched.
+- Persistent pins, exact live handles and ordered commands are in the current
+  handoff. Frozen label runtime and reserved final protocol remain unchanged.
 
-After the active launcher finishes: `manage-policy-iteration-labels.py status`,
-archive all guards, then `collect` / `summarize`. Never blindly retry a live or
-ambiguous handle. Do not start the GPU training from partial data.
+Next: refresh effective fleet status and collect newly completed labels. No local
+collector or submission launcher is active.
+Verify the first CPU Upgrade full shards before expanding it. Then reduce/pin the
+complete bundle, build the actual HF source and launch the two representation jobs.
+Never retry an unknown/live job.
 
 ---
 

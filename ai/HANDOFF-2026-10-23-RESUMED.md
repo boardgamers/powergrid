@@ -16,8 +16,8 @@ This document supersedes the pause instruction in the
 - Source dataset: `coyotte508/powergrid-ai-training-v1`.
 - Target: `ssh minipc`, AMD 8840U. The local HX370 is not the target benchmark.
 - Latest explicit job snapshot: [full-data labels](strong/policy-iteration-labels-status-v2.json).
-  During remaining-wave submission this snapshot covers only the original 60
-  completed jobs. Read the live-launch note below before interpreting it. Guards are in
+  This now covers all 948 effective shard handles, including explicitly recorded
+  hardware replacements. Original guards remain in
   `ai/runs/policy-iteration-labels-launches-v2/`; use
   `ai/.venv/bin/python ai/strong/manage-policy-iteration-labels.py status`.
   Older teacher, collection, inference-profile and development jobs are complete;
@@ -25,55 +25,84 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: larger data and representation comparison prepared
+## Latest checkpoint: full fleet submitted; second CPU tier verified
 
-This continuation made **progress**. The first full-data labels are independently
-verified, all 17,280 public inputs are cached and archived, and the next training
-design is fixed. **No new gradients, qualified model, production changes, or
-reserved final-test use.** The existing goal remains active.
+This continuation made **progress**: all 948 original label jobs were submitted
+and archived, more outputs were independently verified, the same workload was
+validated on another CPU tier, and the HF training package passed isolated code
+checks. **No new gradients, qualified model, production changes, or reserved
+final-test use.** The goal remains active.
 
-### Label jobs and collection
+### Label jobs and hardware capacity
 
-At `2026-10-24T02:52:53.617474+00:00`, HF reported **all 60 original jobs COMPLETED**.
-All 60 then independently verified: **3,212,352 new continuations**; including
-the pilot, **3,917,760 continuations / 4,038 root-mode pairs**. No caps were
-accepted. This is partial training-label coverage, not strength evidence.
+The remaining-wave launcher (old session62283) finished successfully. **All 948
+original guards are `launched`, with unique handles and exact planned shard IDs**.
+There is no active original submission launcher. Complete launch evidence is
+model-repo revision `4a0cedfcb7cd7ac6e4b0ec0b72b57109fb82ee7a`, prefix
+`runs/policy-iteration-labels-complete-launch-evidence-v2`.
 
-First-wave evidence: model-repo revision
-`cd0ec1a2b4feaf8d5279c9aafb31291a7f3eb8ea`, prefix
-`runs/policy-iteration-labels-first-wave-evidence-v2`. The manifest still says
-`complete: false` because only 60 of the full 948 new shards are verified.
+All 60 first-wave shards plus 59 subsequent shards are independently verified:
+**119/948 new shards; 5,281 root-mode pairs; 5,113,344 continuations including the
+705,408 reused pilot continuations**. No caps were accepted. This remains partial
+training data, not strength evidence. The local26-shard and33-shard collectors both finished successfully;
+no collector remains active at this checkpoint.
+The119-shard checkpoint is archived at model-repo revision
+`a6c91fba94065f5e07bde6f51727d0be02b94831`, prefix
+`runs/policy-iteration-labels-119-progress-evidence-v2`, manifest SHA
+`9d40b2e4706383490053b98eef9d2839e719851e6b9c81bc5a6b952939f55d55`.
 
-The immutable 20-shard checkpoint is at model-repo revision
-`84079ae01a877988a59e8aab38c4e18f3131d51b`, prefix
-`runs/policy-iteration-labels-first-progress-evidence-v2`.
-It includes the precise seven-shard snapshot used for the new parser check:
-195,072 terminal records, 402 searches and 19 positions with both modes,
-all accepted without dropping negative targets.
+At `2026-10-24T03:31:46.448219+00:00`, the original fleet had 86 COMPLETED,
+69 RUNNING and 793 SCHEDULING. Queued jobs explicitly reported “Waiting for
+requested hardware to become available”. This establishes hardware waiting,
+not an account quota or a guarantee about queue timeouts. The newer effective
+fleet snapshot in `strong/policy-iteration-labels-status-v2.json` takes priority.
 
-No local collector remains active. Five collection passes finished; the latest
-manifest includes all 60. The dry-run admission for the remaining wave passed:
-**888 new jobs / 30,522 new root-mode pairs**.
+CPU Upgrade profiling job **6adc24af046eb82b1ecd9f1f** COMPLETED and was independently
+verified. It used the exact frozen inference-profile source and the same 3,072
+serial/concurrent continuations, plus 2,553 microbenchmark positions. Every
+recorded terminal result and policy-choice transcript matches the original
+CPU Performance workload. Concurrent runtime was **1.08479x** overall, worst
+case **1.15637x**. The observed cgroup quota was 8 CPUs / 32GB, despite host
+CPU/affinity reporting64. Do not infer usable cores from affinity alone.
 
-**LIVE submission:** unified exec session **62283**, command
-`ai/.venv/bin/python ai/strong/manage-policy-iteration-labels.py launch --wave remaining --execute`,
-log `ai/runs/policy-iteration-labels-remaining-launch-v2.log`.
-It is still submitting sequentially. At `2026-10-24T03:00:52.691575+00:00`, 205 new
-handles were confirmed; this is a lower bound, not the final total. Read the log,
-wait/poll that session, and check guards before doing anything else. Do not start
-a second launcher while its `.launch.lock` is held. A transient `launch_intent`
-is normal during an active submission; `launch_unknown` after a failed process
-must be reconciled with HF before retrying. **The status JSON currently predates
-these new jobs and must not be interpreted as an idle fleet.** After submission
-finishes, refresh status and archive all launch guards before collecting.
-The 205-handle partial remaining-wave snapshot is already persistent at revision
-`0453e0f985962b8a2a17c86a94339f66ca8a6f03`, prefix
-`runs/policy-iteration-labels-remaining-launch-progress-v2` (it also retains all first60 guards).
-Later handles remain in local guards until the complete launch archive is saved.
+A bounded first batch of up to60 queued shards was moved to CPU Upgrade.
+`migrate-policy-iteration-labels-cpu.py` rechecks each original handle immediately
+before cancellation and requires an authoritative canceled terminal state before
+submitting its replacement. Originals that are no longer queued are skipped.
+Original guards are never overwritten. Exact attempts are in
+`ai/runs/policy-iteration-labels-cpu-upgrade-v2/`; the manager resolves those
+explicit attempts for status and collection. The data, engine, source, action
+choices and artifact prefixes remain unchanged. Timeout is12h; admission applies
+1.25x the worst observed hardware slowdown to the already-conservative shard
+bound and retains25% headroom. First hardware wave is capped at60 pending actual
+full-shard verification; do not expand it blindly or relaunch ambiguous attempts.
 
-The source/protocol and first-wave launch plan below remain unchanged. The
-60-shard admission gate is passed. All 948 new shards plus the 60 reused pilot
-shards must verify before gradient training. No live job was duplicated/retried.
+The migration launcher (session66785) is finished: **60 replacements submitted,
+60 original cancellations confirmed, zero original jobs had started**. At
+`2026-10-24T03:39:57.560773+00:00`, all60 replacements were RUNNING. The whole
+effective fleet had **119 COMPLETED / 129 RUNNING / 700 SCHEDULING**, no failed
+handles. The latest33 completed shards were independently verified by the now
+finished session37663, log `ai/runs/policy-iteration-labels-collect-119-v2.log`.
+No collector is active. Do not resubmit the original948 or the completed
+60-replacement wave. The first full CPU Upgrade shards are not verified yet.
+
+Hardware profile raw revision: `aac063cb7d805345d3b6f9780800aea2066688aa`, prefix
+`runs/policy-iteration-cpu-upgrade-profile-v2`. The complete capacity checkpoint
+is model-repo revision **1d6850b531d5586a4bd75cce3dad11f6d9f7dd44**, prefix
+`runs/policy-iteration-capacity-checkpoint-v2`, manifest SHA
+`0b86051f4c4b3f1e7f40f6e128318ab42a3528426e3b67c2810205f45d736c4a`.
+It preserves all60 attempt guards,86 verified-shard pins, effective fleet status,
+raw hardware comparison, source-package code/checks, and failed/successful test
+logs. It is preparation/throughput evidence, not model qualification.
+
+Local verifier profiling rechecked existing2p/4p/6p shards unchanged. Serial
+wall times were17.92/41.29/55.99seconds; loading/scanning the full root set took
+8–9seconds each. Four collector workers remain unchanged. Verification has not
+been shown to be the bottleneck; no speculative indexing/cache rewrite was made.
+
+All 948 new shards plus all60 reused pilot shards must verify before gradients.
+No full compact training bundle exists yet. All historical failed/replaced job
+identities remain preserved; never retry a handle just because logs are quiet.
 
 ### Complete public feature cache
 
@@ -129,9 +158,9 @@ a full training bundle yet. `archive-policy-iteration-training-data.py` is ready
 to revalidate/upload the complete bundle and refuses the current incomplete grid.
 `policy_iteration_training.py` and
 `train-policy-iteration.py` implement loading, calibration, four-seed HF training
-and strict member assembly; the gradient loop has **not** run. A pinned HF training
-source, data bundle pin and job launcher/admission still need preparation after
-the full labels finish. The future source must include the explicit
+and strict member assembly; the gradient loop has **not** run. A pinned full-data HF training source and data bundle remain pending. The
+source builder, data recovery, admission and two-representation launcher are now
+implemented and code-checked; they reject the current incomplete label grid. The source builder includes the explicit
 `policy-iteration-labels-source-v2.json` descriptor as well as the new modules;
 the base archive cannot contain its own subsequently written descriptor.
 Do not run gradients locally.
@@ -157,10 +186,43 @@ Preparation evidence: model-repo revision
 `strong/policy-iteration-training-preparation-evidence-v2.json`. This is a
 reproducible preparation archive, **not an admitted HF training source**.
 
-Next: finish the active remaining-wave submission and archive its guards;
-collect the entire label grid; reduce and pin the compact bundle; build/preflight
-the actual training source; run the two representation jobs on HF, four seeds each;
-independently collect/check all four ensembles before fresh whole-game evaluation.
+### Training job package and ordered continuation
+
+`build-policy-iteration-training-source.py --code-only` passed in the isolated
+scratch tree `ai/runs/policy-iteration-training-source-code-v3`, preserving all
+1,434 frozen base files and adding17 explicit files. It ran four model tests,
+all four synthetic native/ONNX configurations on2,553 fixtures +17,280 cached
+positions each, then three training-contract tests. The earlier failed scratch
+`...source-code-v2` is preserved: one test consumed synthetic export fixtures
+before they were created. The order is fixed both locally and in the HF
+bootstrap. These are code/inference checks; the gradient loop remains unexecuted.
+
+The package recovers the complete compact data from immutable HF pins and
+revalidates it before training. The two jobs will each train all four prescribed
+seeds, on `l4x1`, with a3h timeout. The richer model and control remain separate;
+all four ensemble candidates require evaluation. The package refuses partial
+labels, a code-only source check or drifted source/data/design hashes. Its shell
+bootstrap and embedded Python syntax were checked; original/skipped/canceled
+attempt resolution and rejection of unresolved/live originals were exercised.
+All frozen label overlays and the final protocol hash remain unchanged.
+
+1. Inspect effective fleet status with `manage-policy-iteration-labels.py status`;
+   collect only COMPLETED jobs and `summarize`. Read exact guards/logs first;
+   do not start another collector while locked.
+2. Independently verify completed CPU Upgrade shards before considering a larger
+   migration. Preserve the cancellation evidence, original handles and immutable
+   raw-data pins. Do not cancel running jobs to fill the alternative pool.
+3. Once all948 new shards verify: run `prepare-policy-iteration-training-data.py`,
+   then `archive-policy-iteration-training-data.py`. Never synthesize a complete
+   manifest or use partial data for this fixed experiment.
+4. Run `build-policy-iteration-training-source.py` without `--code-only`; it
+   validates the real bundle and entire isolated package before uploading a
+   source archive. Then dry-run and execute `launch-policy-iteration-training.py
+   --head-type frozen` and `--head-type public` (add `--execute` only for launch).
+   Guards prevent duplicate submissions; reconcile any unknown outcome.
+5. Independently collect/check every trained ensemble and run fresh whole-game
+   development evaluation. Actual8840U measurement and the untouched final
+   gate remain required. Conditional training targets do not establish strength.
 
 ## Previous checkpoint: full pilot verified; larger labeling wave launched
 

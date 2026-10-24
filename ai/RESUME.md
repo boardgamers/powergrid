@@ -14,8 +14,13 @@ reserved final seeds are unused.
   two four-seedL4 jobs. No local gradients or automatic retries. Do not run
   competing preparation/launch commands. On a future explicit pause, stop this
   coordinator so it cannot submit later. Check actual process liveness first.
-- **418/948 new label shards archived as verified**,14,545,152 continuations.
-  Snapshot06:00:14UTC:450 completed,432 running,66 queued. Collector is advancing.
+- **475/948 new label shards verified**,16,072,704 continuations including pilot.
+  A frozen cross-batch audit covers4,520 fully paired roots:conditional gain0.04983;
+  448/3,100 changed directions negative. Partial scheduling-selected cohort;not
+  whole-game model strength. No partial-data training or changed thresholds.
+  Evidence: `strong/policy-iteration-label-quality-progress-evidence-v2.json`.
+  Collector and training coordinator are still active. Last capacity archive
+  preserves418 shards;this audit also preserves the475-shard manifest.
 - Fourth bounded hardware wave finished: **420 queued-job migrations**,9 safely
   skipped originals, plus2 separate upload-failure retries. All948 effective IDs
   remain distinct. Harvester was briefly stopped for guard coordination and is

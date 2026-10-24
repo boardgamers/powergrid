@@ -33,6 +33,47 @@ labels, the complete2p search reference, a bounded collector, and recovery from
 an actual HF repository file-count limit. The goal remains active; no new
 model gradients, final-test use, model qualification or production changes.
 
+### Broader cross-batch label audit — completed, still no strength claim
+
+This turn made **progress**: a read-only diagnostic froze the manifest at
+**475/948 new shards /16,072,704 continuations including pilot**. It independently
+reduced every fully paired position available in that snapshot: **4,520 roots**
+(4,160 new +360 pilot), across all player counts and train/validation splits.
+Another7,615 roots have only one continuation mode verified and are excluded,
+without imputation. Data collection and the existing training coordinator remain
+active; neither was duplicated or interrupted. No extra HF compute jobs were
+submitted for this diagnostic, and no training inputs were prepared from it.
+
+At the already fixed0.025 margin, A-select/B-evaluate and B-select/A-evaluate
+produce a mean conditional fractional-win-score gain of **0.04983387875** over
+all9,040 directions, versus0.05688068461 on the selection batches. There are
+3,100 changed directions, including **448 negative evaluation outcomes (14.45%)**.
+The4,160 new roots yield0.050796; the1,098 validation roots yield0.052953.
+Every player-count group is positive descriptively. These are **conditional
+simulated action-label results, not a trained model's whole-game win rate**.
+The partial cohort is selected by runtime/scheduling and cannot represent the
+full planned population. Directions share roots/deals; no independent-games
+confidence interval or new acceptance threshold is claimed.
+
+Controls confirm that selection noise can evaluate negatively, zero/margin ties
+keep the parent, consistent gain survives, and incomplete modes are rejected.
+The360 reused pilot roots reproduce the original assessment's gain, change and
+negative counts at both fixed margins exactly (within1e-15 for floating means).
+The worker, training design and final gate are unchanged. The next action remains
+complete labels -> two prescribed HF training jobs -> whole-game evaluation;
+this audit supports that experiment, not a shortcut to qualification.
+
+New read-only helper: `strong/inspect-policy-iteration-label-quality.py`.
+Run39065 and archive51360 finished successfully; do not restart those outputs.
+Evidence: `strong/policy-iteration-label-quality-progress-evidence-v2.json`,
+revision`b9e6773c6fbc17dd537638572ad667c389d8a342`, archive
+`archives/policy-iteration-label-quality-progress-v2.tgz`, SHA
+`acc844716cb04f33a5ed972a233760fcd3f15fcbd16f6ffbf03b7a213e4ba342`.
+The one-file archive includes the exact475-shard manifest, per-root diagnostics,
+coverage, provenance, assessment code, and pilot-replication check. Downloaded
+archive bytes were verified. The earlier418-shard capacity checkpoint remains
+intact. Both live process identities below were confirmed again after this work.
+
 ### Fourth hardware wave complete; collector resumed
 
 This turn made **progress**. The fourth measured capacity expansion admitted

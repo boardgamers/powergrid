@@ -44812,16 +44812,16 @@
             "local_gradients": false,
             "qualification_eligible": false,
             "reserved_final_seeds_used": false,
-            "label_shards_verified": 452,
+            "label_shards_verified": 475,
             "labels_complete": false,
-            "rollouts_including_pilot": 15443520,
-            "updated_at": "2026-10-24T06:06:42.717003+00:00"
+            "rollouts_including_pilot": 16072704,
+            "updated_at": "2026-10-24T06:18:44.115004+00:00"
         },
         "collector": {
             "pid": 2476443,
             "started_at": "2026-10-24T05:28:50.781195+00:00",
-            "stage": "waiting",
-            "cycle": 4,
+            "stage": "running",
+            "cycle": 6,
             "interval_seconds": 300,
             "max_hours": 12.0,
             "code_hashes": {
@@ -44835,26 +44835,26 @@
             "remote_cancellations_allowed": false,
             "gradients": false,
             "qualification_eligible": false,
-            "command": null,
-            "label_status_checked_at": "2026-10-24T06:00:43.866747+00:00",
+            "command": "label-collect",
+            "label_status_checked_at": "2026-10-24T06:10:36.964554+00:00",
             "label_status_counts": {
-                "COMPLETED": 452,
-                "RUNNING": 433,
-                "SCHEDULING": 63
+                "COMPLETED": 475,
+                "RUNNING": 429,
+                "SCHEDULING": 44
             },
-            "parent_status_checked_at": "2026-10-24T06:05:09.051980+00:00",
+            "parent_status_checked_at": "2026-10-24T06:13:31.338790+00:00",
             "parent_status_counts": {
                 "COMPLETED": 96,
                 "RUNNING": 12
             },
-            "label_shards_verified": 452,
+            "label_shards_verified": 475,
             "labels_complete": false,
-            "label_root_mode_pairs": 16002,
-            "rollouts_including_pilot": 15443520,
+            "label_root_mode_pairs": 16655,
+            "rollouts_including_pilot": 16072704,
             "parent_shards_verified": 96,
             "parent_reference_complete": false,
             "parent_games_verified": 5760,
-            "updated_at": "2026-10-24T06:05:09.179176+00:00"
+            "updated_at": "2026-10-24T06:18:59.438081+00:00"
         },
         "evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
@@ -45813,5 +45813,827 @@
         "gradients": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
+    },
+    "policy_iteration_label_quality_progress_v2": {
+        "stage": "Complete read-only partial-cohort diagnostic;actual training/evaluation still pending",
+        "evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "b9e6773c6fbc17dd537638572ad667c389d8a342",
+            "archive_path": "archives/policy-iteration-label-quality-progress-v2.tgz",
+            "archive_sha256": "acc844716cb04f33a5ed972a233760fcd3f15fcbd16f6ffbf03b7a213e4ba342",
+            "manifest_sha256": "e8faea3a0c19dc96b5b04582d0beec3f6a47fc05c8b40a41ece672ba49ff5da0",
+            "archived_files": 10,
+            "format": "tar.gz",
+            "remote_archive_verified": true,
+            "checked_at": "2026-10-24T06:16:32.610965+00:00",
+            "snapshot_new_shards": 475,
+            "snapshot_rollouts": 16072704,
+            "roots": 4520,
+            "planned_roots": 17280,
+            "roots_incomplete_modes": 7615,
+            "coverage": {
+                "2p/train": {
+                    "planned": 2592,
+                    "both_modes_verified": 647
+                },
+                "2p/validation": {
+                    "planned": 864,
+                    "both_modes_verified": 187
+                },
+                "3p/train": {
+                    "planned": 2592,
+                    "both_modes_verified": 619
+                },
+                "3p/validation": {
+                    "planned": 864,
+                    "both_modes_verified": 209
+                },
+                "4p/train": {
+                    "planned": 2592,
+                    "both_modes_verified": 501
+                },
+                "4p/validation": {
+                    "planned": 864,
+                    "both_modes_verified": 167
+                },
+                "5p/train": {
+                    "planned": 2592,
+                    "both_modes_verified": 673
+                },
+                "5p/validation": {
+                    "planned": 864,
+                    "both_modes_verified": 203
+                },
+                "6p/train": {
+                    "planned": 2592,
+                    "both_modes_verified": 982
+                },
+                "6p/validation": {
+                    "planned": 864,
+                    "both_modes_verified": 332
+                }
+            },
+            "summary": {
+                "all": {
+                    "roots": 4520,
+                    "deals_represented": 480,
+                    "unmargined_batch_agreement": 0.7592920353982301,
+                    "margins": {
+                        "0.0": {
+                            "directions": 9040,
+                            "changes": 4031,
+                            "mean_selection_gain": 0.05818881744714847,
+                            "mean_cross_batch_simulated_gain": 0.05016122403515241,
+                            "changed_negative_directions": 806,
+                            "mean_cross_batch_gain_when_changed": 0.11249254906419692
+                        },
+                        "0.025": {
+                            "directions": 9040,
+                            "changes": 3100,
+                            "mean_selection_gain": 0.056880684611602755,
+                            "mean_cross_batch_simulated_gain": 0.0498338787487709,
+                            "changed_negative_directions": 448,
+                            "mean_cross_batch_gain_when_changed": 0.145322020609319
+                        }
+                    }
+                },
+                "new_only": {
+                    "roots": 4160,
+                    "deals_represented": 478,
+                    "unmargined_batch_agreement": 0.7591346153846154,
+                    "margins": {
+                        "0.0": {
+                            "directions": 8320,
+                            "changes": 3725,
+                            "mean_selection_gain": 0.05911906967815171,
+                            "mean_cross_batch_simulated_gain": 0.05113170656383548,
+                            "changed_negative_directions": 744,
+                            "mean_cross_batch_gain_when_changed": 0.11420558351976137
+                        },
+                        "0.025": {
+                            "directions": 8320,
+                            "changes": 2869,
+                            "mean_selection_gain": 0.057807283319978635,
+                            "mean_cross_batch_simulated_gain": 0.05079637837206197,
+                            "changed_negative_directions": 412,
+                            "mean_cross_batch_gain_when_changed": 0.14730772675341774
+                        }
+                    }
+                },
+                "pilot_only": {
+                    "roots": 360,
+                    "deals_represented": 260,
+                    "unmargined_batch_agreement": 0.7611111111111111,
+                    "margins": {
+                        "0.0": {
+                            "directions": 720,
+                            "changes": 306,
+                            "mean_selection_gain": 0.04743923611111111,
+                            "mean_cross_batch_simulated_gain": 0.038946759259259264,
+                            "changed_negative_directions": 62,
+                            "mean_cross_batch_gain_when_changed": 0.09163943355119825
+                        },
+                        "0.025": {
+                            "directions": 720,
+                            "changes": 231,
+                            "mean_selection_gain": 0.046173321759259256,
+                            "mean_cross_batch_simulated_gain": 0.03871166087962962,
+                            "changed_negative_directions": 36,
+                            "mean_cross_batch_gain_when_changed": 0.1206597222222222
+                        }
+                    }
+                },
+                "players/2": {
+                    "roots": 834,
+                    "deals_represented": 96,
+                    "unmargined_batch_agreement": 0.6462829736211031,
+                    "margins": {
+                        "0.0": {
+                            "directions": 1668,
+                            "changes": 944,
+                            "mean_selection_gain": 0.06112141536770583,
+                            "mean_cross_batch_simulated_gain": 0.048330085931255,
+                            "changed_negative_directions": 225,
+                            "mean_cross_batch_gain_when_changed": 0.08539680437853107
+                        },
+                        "0.025": {
+                            "directions": 1668,
+                            "changes": 728,
+                            "mean_selection_gain": 0.059393110511590734,
+                            "mean_cross_batch_simulated_gain": 0.047961630695443645,
+                            "changed_negative_directions": 139,
+                            "mean_cross_batch_gain_when_changed": 0.10989010989010989
+                        }
+                    }
+                },
+                "players/3": {
+                    "roots": 828,
+                    "deals_represented": 96,
+                    "unmargined_batch_agreement": 0.711352657004831,
+                    "margins": {
+                        "0.0": {
+                            "directions": 1656,
+                            "changes": 830,
+                            "mean_selection_gain": 0.06908432719404187,
+                            "mean_cross_batch_simulated_gain": 0.05898217340982286,
+                            "changed_negative_directions": 176,
+                            "mean_cross_batch_gain_when_changed": 0.11768009538152609
+                        },
+                        "0.025": {
+                            "directions": 1656,
+                            "changes": 644,
+                            "mean_selection_gain": 0.0675998263888889,
+                            "mean_cross_batch_simulated_gain": 0.05891298057568438,
+                            "changed_negative_directions": 103,
+                            "mean_cross_batch_gain_when_changed": 0.15149052148033126
+                        }
+                    }
+                },
+                "players/4": {
+                    "roots": 668,
+                    "deals_represented": 96,
+                    "unmargined_batch_agreement": 0.718562874251497,
+                    "margins": {
+                        "0.0": {
+                            "directions": 1336,
+                            "changes": 622,
+                            "mean_selection_gain": 0.05797584518463073,
+                            "mean_cross_batch_simulated_gain": 0.04817903255988024,
+                            "changed_negative_directions": 140,
+                            "mean_cross_batch_gain_when_changed": 0.10348422427652733
+                        },
+                        "0.025": {
+                            "directions": 1336,
+                            "changes": 463,
+                            "mean_selection_gain": 0.05647494074351298,
+                            "mean_cross_batch_simulated_gain": 0.04789054703093812,
+                            "changed_negative_directions": 84,
+                            "mean_cross_batch_gain_when_changed": 0.13818956983441327
+                        }
+                    }
+                },
+                "players/5": {
+                    "roots": 876,
+                    "deals_represented": 96,
+                    "unmargined_batch_agreement": 0.8116438356164384,
+                    "margins": {
+                        "0.0": {
+                            "directions": 1752,
+                            "changes": 663,
+                            "mean_selection_gain": 0.050632114884576356,
+                            "mean_cross_batch_simulated_gain": 0.0449154339485033,
+                            "changed_negative_directions": 111,
+                            "mean_cross_batch_gain_when_changed": 0.1186905584883526
+                        },
+                        "0.025": {
+                            "directions": 1752,
+                            "changes": 517,
+                            "mean_selection_gain": 0.04963771562658549,
+                            "mean_cross_batch_simulated_gain": 0.04413259845890411,
+                            "changed_negative_directions": 64,
+                            "mean_cross_batch_gain_when_changed": 0.14955573017408125
+                        }
+                    }
+                },
+                "players/6": {
+                    "roots": 1314,
+                    "deals_represented": 96,
+                    "unmargined_batch_agreement": 0.8470319634703196,
+                    "margins": {
+                        "0.0": {
+                            "directions": 2628,
+                            "changes": 972,
+                            "mean_selection_gain": 0.05460789520970743,
+                            "mean_cross_batch_simulated_gain": 0.0502699296042618,
+                            "changed_negative_directions": 154,
+                            "mean_cross_batch_gain_when_changed": 0.1359149948559671
+                        },
+                        "0.025": {
+                            "directions": 2628,
+                            "changes": 748,
+                            "mean_selection_gain": 0.05356642672924066,
+                            "mean_cross_batch_simulated_gain": 0.0500899104726873,
+                            "changed_negative_directions": 58,
+                            "mean_cross_batch_gain_when_changed": 0.17598433786393347
+                        }
+                    }
+                },
+                "decision/bid": {
+                    "roots": 1555,
+                    "deals_represented": 451,
+                    "unmargined_batch_agreement": 0.735048231511254,
+                    "margins": {
+                        "0.0": {
+                            "directions": 3110,
+                            "changes": 1360,
+                            "mean_selection_gain": 0.04892651393354769,
+                            "mean_cross_batch_simulated_gain": 0.041429695873526254,
+                            "changed_negative_directions": 299,
+                            "mean_cross_batch_gain_when_changed": 0.09473996629901962
+                        },
+                        "0.025": {
+                            "directions": 3110,
+                            "changes": 957,
+                            "mean_selection_gain": 0.04729032690246517,
+                            "mean_cross_batch_simulated_gain": 0.04090802518756698,
+                            "changed_negative_directions": 153,
+                            "mean_cross_batch_gain_when_changed": 0.1329403953326367
+                        }
+                    }
+                },
+                "decision/building": {
+                    "roots": 1471,
+                    "deals_represented": 450,
+                    "unmargined_batch_agreement": 0.7620666213460231,
+                    "margins": {
+                        "0.0": {
+                            "directions": 2942,
+                            "changes": 1193,
+                            "mean_selection_gain": 0.04546935191479718,
+                            "mean_cross_batch_simulated_gain": 0.03737448306140947,
+                            "changed_negative_directions": 269,
+                            "mean_cross_batch_gain_when_changed": 0.09216741757474155
+                        },
+                        "0.025": {
+                            "directions": 2942,
+                            "changes": 871,
+                            "mean_selection_gain": 0.04408317754362112,
+                            "mean_cross_batch_simulated_gain": 0.03734733788428129,
+                            "changed_negative_directions": 142,
+                            "mean_cross_batch_gain_when_changed": 0.12614910224518433
+                        }
+                    }
+                },
+                "decision/nomination": {
+                    "roots": 1494,
+                    "deals_represented": 448,
+                    "unmargined_batch_agreement": 0.7817938420348058,
+                    "margins": {
+                        "0.0": {
+                            "directions": 2988,
+                            "changes": 1478,
+                            "mean_selection_gain": 0.08035295115647775,
+                            "mean_cross_batch_simulated_gain": 0.07183915058381675,
+                            "changed_negative_directions": 238,
+                            "mean_cross_batch_gain_when_changed": 0.14523368196511804
+                        },
+                        "0.025": {
+                            "directions": 2988,
+                            "changes": 1272,
+                            "mean_selection_gain": 0.07946310705786107,
+                            "mean_cross_batch_simulated_gain": 0.07141848644578314,
+                            "changed_negative_directions": 153,
+                            "mean_cross_batch_gain_when_changed": 0.16776606721698112
+                        }
+                    }
+                },
+                "variant/original": {
+                    "roots": 2248,
+                    "deals_represented": 473,
+                    "unmargined_batch_agreement": 0.722864768683274,
+                    "margins": {
+                        "0.0": {
+                            "directions": 4496,
+                            "changes": 2217,
+                            "mean_selection_gain": 0.06266198812524713,
+                            "mean_cross_batch_simulated_gain": 0.05345260602016607,
+                            "changed_negative_directions": 465,
+                            "mean_cross_batch_gain_when_changed": 0.10840005262366562
+                        },
+                        "0.025": {
+                            "directions": 4496,
+                            "changes": 1695,
+                            "mean_selection_gain": 0.06119888203094108,
+                            "mean_cross_batch_simulated_gain": 0.05318037329478054,
+                            "changed_negative_directions": 254,
+                            "mean_cross_batch_gain_when_changed": 0.14106133235004914
+                        }
+                    }
+                },
+                "variant/recharged": {
+                    "roots": 2272,
+                    "deals_represented": 469,
+                    "unmargined_batch_agreement": 0.7953345070422535,
+                    "margins": {
+                        "0.0": {
+                            "directions": 4544,
+                            "changes": 1814,
+                            "mean_selection_gain": 0.053762898571987475,
+                            "mean_cross_batch_simulated_gain": 0.04690461016969875,
+                            "changed_negative_directions": 341,
+                            "mean_cross_batch_gain_when_changed": 0.11749423848462576
+                        },
+                        "0.025": {
+                            "directions": 4544,
+                            "changes": 1405,
+                            "mean_selection_gain": 0.0526081019537363,
+                            "mean_cross_batch_simulated_gain": 0.046522734497261346,
+                            "changed_negative_directions": 194,
+                            "mean_cross_batch_gain_when_changed": 0.15046213918544882
+                        }
+                    }
+                },
+                "sealed/False": {
+                    "roots": 2290,
+                    "deals_represented": 471,
+                    "unmargined_batch_agreement": 0.7262008733624454,
+                    "margins": {
+                        "0.0": {
+                            "directions": 4580,
+                            "changes": 2119,
+                            "mean_selection_gain": 0.056489757702571565,
+                            "mean_cross_batch_simulated_gain": 0.04749401079573023,
+                            "changed_negative_directions": 470,
+                            "mean_cross_batch_gain_when_changed": 0.10265340700540088
+                        },
+                        "0.025": {
+                            "directions": 4580,
+                            "changes": 1602,
+                            "mean_selection_gain": 0.05504779991508976,
+                            "mean_cross_batch_simulated_gain": 0.04752736838913149,
+                            "changed_negative_directions": 255,
+                            "mean_cross_batch_gain_when_changed": 0.13587724545706756
+                        }
+                    }
+                },
+                "sealed/True": {
+                    "roots": 2230,
+                    "deals_represented": 468,
+                    "unmargined_batch_agreement": 0.7932735426008969,
+                    "margins": {
+                        "0.0": {
+                            "directions": 4460,
+                            "changes": 1912,
+                            "mean_selection_gain": 0.0599335918036871,
+                            "mean_cross_batch_simulated_gain": 0.052900200859491785,
+                            "changed_negative_directions": 336,
+                            "mean_cross_batch_gain_when_changed": 0.12339691204672244
+                        },
+                        "0.025": {
+                            "directions": 4460,
+                            "changes": 1498,
+                            "mean_selection_gain": 0.05876288459143,
+                            "mean_cross_batch_simulated_gain": 0.052202447683109124,
+                            "changed_negative_directions": 193,
+                            "mean_cross_batch_gain_when_changed": 0.155422507788162
+                        }
+                    }
+                },
+                "behavior/11101": {
+                    "roots": 1316,
+                    "deals_represented": 160,
+                    "unmargined_batch_agreement": 0.7317629179331308,
+                    "margins": {
+                        "0.0": {
+                            "directions": 2632,
+                            "changes": 1251,
+                            "mean_selection_gain": 0.0623839074636947,
+                            "mean_cross_batch_simulated_gain": 0.053414769609084756,
+                            "changed_negative_directions": 261,
+                            "mean_cross_batch_gain_when_changed": 0.11238023470112801
+                        },
+                        "0.025": {
+                            "directions": 2632,
+                            "changes": 963,
+                            "mean_selection_gain": 0.060974966227625806,
+                            "mean_cross_batch_simulated_gain": 0.05277988855116515,
+                            "changed_negative_directions": 156,
+                            "mean_cross_batch_gain_when_changed": 0.1442540671512634
+                        }
+                    }
+                },
+                "behavior/11102": {
+                    "roots": 1186,
+                    "deals_represented": 160,
+                    "unmargined_batch_agreement": 0.7537942664418212,
+                    "margins": {
+                        "0.0": {
+                            "directions": 2372,
+                            "changes": 1046,
+                            "mean_selection_gain": 0.05396948777403036,
+                            "mean_cross_batch_simulated_gain": 0.045564133642495785,
+                            "changed_negative_directions": 202,
+                            "mean_cross_batch_gain_when_changed": 0.1033251673040153
+                        },
+                        "0.025": {
+                            "directions": 2372,
+                            "changes": 818,
+                            "mean_selection_gain": 0.05276840921866217,
+                            "mean_cross_batch_simulated_gain": 0.04560914664137156,
+                            "changed_negative_directions": 112,
+                            "mean_cross_batch_gain_when_changed": 0.1322553738793806
+                        }
+                    }
+                },
+                "behavior/parent": {
+                    "roots": 2018,
+                    "deals_represented": 160,
+                    "unmargined_batch_agreement": 0.7804757185332012,
+                    "margins": {
+                        "0.0": {
+                            "directions": 4036,
+                            "changes": 1734,
+                            "mean_selection_gain": 0.057932814736813124,
+                            "mean_cross_batch_simulated_gain": 0.05074124545754873,
+                            "changed_negative_directions": 343,
+                            "mean_cross_batch_gain_when_changed": 0.11810361399461745
+                        },
+                        "0.025": {
+                            "directions": 4036,
+                            "changes": 1319,
+                            "mean_selection_gain": 0.05662750523070146,
+                            "mean_cross_batch_simulated_gain": 0.05039561481389714,
+                            "changed_negative_directions": 180,
+                            "mean_cross_batch_gain_when_changed": 0.15420523228877098
+                        }
+                    }
+                },
+                "mode/economic": {
+                    "roots": 2241,
+                    "deals_represented": 240,
+                    "unmargined_batch_agreement": 0.7599286033020973,
+                    "margins": {
+                        "0.0": {
+                            "directions": 4482,
+                            "changes": 1925,
+                            "mean_selection_gain": 0.0565789392136447,
+                            "mean_cross_batch_simulated_gain": 0.048468952972383364,
+                            "changed_negative_directions": 383,
+                            "mean_cross_batch_gain_when_changed": 0.11285082972582973
+                        },
+                        "0.025": {
+                            "directions": 4482,
+                            "changes": 1512,
+                            "mean_selection_gain": 0.05542734208438693,
+                            "mean_cross_batch_simulated_gain": 0.04821736792850414,
+                            "changed_negative_directions": 228,
+                            "mean_cross_batch_gain_when_changed": 0.14293005493092298
+                        }
+                    }
+                },
+                "mode/snapshot0": {
+                    "roots": 2279,
+                    "deals_represented": 240,
+                    "unmargined_batch_agreement": 0.7586660816147434,
+                    "margins": {
+                        "0.0": {
+                            "directions": 4558,
+                            "changes": 2106,
+                            "mean_selection_gain": 0.05977185260348105,
+                            "mean_cross_batch_simulated_gain": 0.051825278204378135,
+                            "changed_negative_directions": 423,
+                            "mean_cross_batch_gain_when_changed": 0.1121650608051071
+                        },
+                        "0.025": {
+                            "directions": 4558,
+                            "changes": 1588,
+                            "mean_selection_gain": 0.05830979413485447,
+                            "mean_cross_batch_simulated_gain": 0.05142343590024865,
+                            "changed_negative_directions": 220,
+                            "mean_cross_batch_gain_when_changed": 0.14759950934089
+                        }
+                    }
+                },
+                "split/train": {
+                    "roots": 3422,
+                    "deals_represented": 360,
+                    "unmargined_batch_agreement": 0.7594973699590882,
+                    "margins": {
+                        "0.0": {
+                            "directions": 6844,
+                            "changes": 3038,
+                            "mean_selection_gain": 0.0572617337164751,
+                            "mean_cross_batch_simulated_gain": 0.04925568421650756,
+                            "changed_negative_directions": 608,
+                            "mean_cross_batch_gain_when_changed": 0.11096310163850488
+                        },
+                        "0.025": {
+                            "directions": 6844,
+                            "changes": 2347,
+                            "mean_selection_gain": 0.056007213333658025,
+                            "mean_cross_batch_simulated_gain": 0.0488331983813884,
+                            "changed_negative_directions": 342,
+                            "mean_cross_batch_gain_when_changed": 0.1424006858637504
+                        }
+                    }
+                },
+                "split/validation": {
+                    "roots": 1098,
+                    "deals_represented": 120,
+                    "unmargined_batch_agreement": 0.7586520947176685,
+                    "margins": {
+                        "0.0": {
+                            "directions": 2196,
+                            "changes": 993,
+                            "mean_selection_gain": 0.06107814397389192,
+                            "mean_cross_batch_simulated_gain": 0.05298340733151184,
+                            "changed_negative_directions": 198,
+                            "mean_cross_batch_gain_when_changed": 0.11717176485397784
+                        },
+                        "0.025": {
+                            "directions": 2196,
+                            "changes": 753,
+                            "mean_selection_gain": 0.05960292387674559,
+                            "mean_cross_batch_simulated_gain": 0.05295257475713418,
+                            "changed_negative_directions": 106,
+                            "mean_cross_batch_gain_when_changed": 0.1544274291722001
+                        }
+                    }
+                },
+                "players/2/train": {
+                    "roots": 647,
+                    "deals_represented": 72,
+                    "unmargined_batch_agreement": 0.652241112828439,
+                    "margins": {
+                        "0.0": {
+                            "directions": 1294,
+                            "changes": 737,
+                            "mean_selection_gain": 0.062598612184441,
+                            "mean_cross_batch_simulated_gain": 0.050038639876352396,
+                            "changed_negative_directions": 173,
+                            "mean_cross_batch_gain_when_changed": 0.0878561736770692
+                        },
+                        "0.025": {
+                            "directions": 1294,
+                            "changes": 570,
+                            "mean_selection_gain": 0.06093428001030397,
+                            "mean_cross_batch_simulated_gain": 0.049420804353426065,
+                            "changed_negative_directions": 111,
+                            "mean_cross_batch_gain_when_changed": 0.1121938961988304
+                        }
+                    }
+                },
+                "players/2/validation": {
+                    "roots": 187,
+                    "deals_represented": 24,
+                    "unmargined_batch_agreement": 0.6256684491978609,
+                    "margins": {
+                        "0.0": {
+                            "directions": 374,
+                            "changes": 207,
+                            "mean_selection_gain": 0.05601047237076648,
+                            "mean_cross_batch_simulated_gain": 0.04241867201426025,
+                            "changed_negative_directions": 52,
+                            "mean_cross_batch_gain_when_changed": 0.07664049919484701
+                        },
+                        "0.025": {
+                            "directions": 374,
+                            "changes": 158,
+                            "mean_selection_gain": 0.05406082887700535,
+                            "mean_cross_batch_simulated_gain": 0.042913045900178255,
+                            "changed_negative_directions": 28,
+                            "mean_cross_batch_gain_when_changed": 0.10157898206751055
+                        }
+                    }
+                },
+                "players/3/train": {
+                    "roots": 619,
+                    "deals_represented": 72,
+                    "unmargined_batch_agreement": 0.7140549273021002,
+                    "margins": {
+                        "0.0": {
+                            "directions": 1238,
+                            "changes": 619,
+                            "mean_selection_gain": 0.06654928984921918,
+                            "mean_cross_batch_simulated_gain": 0.056513361604738827,
+                            "changed_negative_directions": 130,
+                            "mean_cross_batch_gain_when_changed": 0.11302672320947764
+                        },
+                        "0.025": {
+                            "directions": 1238,
+                            "changes": 487,
+                            "mean_selection_gain": 0.06517779011847065,
+                            "mean_cross_batch_simulated_gain": 0.05625883481421648,
+                            "changed_negative_directions": 80,
+                            "mean_cross_batch_gain_when_changed": 0.14301527207392198
+                        }
+                    }
+                },
+                "players/3/validation": {
+                    "roots": 209,
+                    "deals_represented": 24,
+                    "unmargined_batch_agreement": 0.7033492822966507,
+                    "margins": {
+                        "0.0": {
+                            "directions": 418,
+                            "changes": 211,
+                            "mean_selection_gain": 0.0765924043062201,
+                            "mean_cross_batch_simulated_gain": 0.06629410885167464,
+                            "changed_negative_directions": 46,
+                            "mean_cross_batch_gain_when_changed": 0.13133145734597157
+                        },
+                        "0.025": {
+                            "directions": 418,
+                            "changes": 157,
+                            "mean_selection_gain": 0.07477322567783093,
+                            "mean_cross_batch_simulated_gain": 0.06677382376395534,
+                            "changed_negative_directions": 23,
+                            "mean_cross_batch_gain_when_changed": 0.17777998938428877
+                        }
+                    }
+                },
+                "players/4/train": {
+                    "roots": 501,
+                    "deals_represented": 72,
+                    "unmargined_batch_agreement": 0.720558882235529,
+                    "margins": {
+                        "0.0": {
+                            "directions": 1002,
+                            "changes": 467,
+                            "mean_selection_gain": 0.05456534846972721,
+                            "mean_cross_batch_simulated_gain": 0.04496735695276115,
+                            "changed_negative_directions": 99,
+                            "mean_cross_batch_gain_when_changed": 0.09648242326909351
+                        },
+                        "0.025": {
+                            "directions": 1002,
+                            "changes": 349,
+                            "mean_selection_gain": 0.05307873835662009,
+                            "mean_cross_batch_simulated_gain": 0.044281229208250165,
+                            "changed_negative_directions": 61,
+                            "mean_cross_batch_gain_when_changed": 0.12713407354345752
+                        }
+                    }
+                },
+                "players/4/validation": {
+                    "roots": 167,
+                    "deals_represented": 24,
+                    "unmargined_batch_agreement": 0.7125748502994012,
+                    "margins": {
+                        "0.0": {
+                            "directions": 334,
+                            "changes": 155,
+                            "mean_selection_gain": 0.06820733532934131,
+                            "mean_cross_batch_simulated_gain": 0.05781405938123752,
+                            "changed_negative_directions": 41,
+                            "mean_cross_batch_gain_when_changed": 0.12457997311827959
+                        },
+                        "0.025": {
+                            "directions": 334,
+                            "changes": 114,
+                            "mean_selection_gain": 0.06666354790419161,
+                            "mean_cross_batch_simulated_gain": 0.05871850049900199,
+                            "changed_negative_directions": 23,
+                            "mean_cross_batch_gain_when_changed": 0.1720349049707602
+                        }
+                    }
+                },
+                "players/5/train": {
+                    "roots": 673,
+                    "deals_represented": 72,
+                    "unmargined_batch_agreement": 0.8068350668647846,
+                    "margins": {
+                        "0.0": {
+                            "directions": 1346,
+                            "changes": 520,
+                            "mean_selection_gain": 0.053605332672940396,
+                            "mean_cross_batch_simulated_gain": 0.04771983861647681,
+                            "changed_negative_directions": 91,
+                            "mean_cross_batch_gain_when_changed": 0.12352096688034189
+                        },
+                        "0.025": {
+                            "directions": 1346,
+                            "changes": 407,
+                            "mean_selection_gain": 0.052620547507016675,
+                            "mean_cross_batch_simulated_gain": 0.04698334571570084,
+                            "changed_negative_directions": 48,
+                            "mean_cross_batch_gain_when_changed": 0.15537981162981165
+                        }
+                    }
+                },
+                "players/5/validation": {
+                    "roots": 203,
+                    "deals_represented": 24,
+                    "unmargined_batch_agreement": 0.8275862068965517,
+                    "margins": {
+                        "0.0": {
+                            "directions": 406,
+                            "changes": 143,
+                            "mean_selection_gain": 0.04077509236453202,
+                            "mean_cross_batch_simulated_gain": 0.035618072660098525,
+                            "changed_negative_directions": 20,
+                            "mean_cross_batch_gain_when_changed": 0.10112543706293707
+                        },
+                        "0.025": {
+                            "directions": 406,
+                            "changes": 110,
+                            "mean_selection_gain": 0.03974881978653531,
+                            "mean_cross_batch_simulated_gain": 0.03468159893267652,
+                            "changed_negative_directions": 16,
+                            "mean_cross_batch_gain_when_changed": 0.12800662878787877
+                        }
+                    }
+                },
+                "players/6/train": {
+                    "roots": 982,
+                    "deals_represented": 72,
+                    "unmargined_batch_agreement": 0.8462321792260692,
+                    "margins": {
+                        "0.0": {
+                            "directions": 1964,
+                            "changes": 695,
+                            "mean_selection_gain": 0.051772618946594254,
+                            "mean_cross_batch_simulated_gain": 0.047405380176510525,
+                            "changed_negative_directions": 115,
+                            "mean_cross_batch_gain_when_changed": 0.13396282973621104
+                        },
+                        "0.025": {
+                            "directions": 1964,
+                            "changes": 534,
+                            "mean_selection_gain": 0.05079539347137361,
+                            "mean_cross_batch_simulated_gain": 0.047355436043222454,
+                            "changed_negative_directions": 42,
+                            "mean_cross_batch_gain_when_changed": 0.17416868237619645
+                        }
+                    }
+                },
+                "players/6/validation": {
+                    "roots": 332,
+                    "deals_represented": 24,
+                    "unmargined_batch_agreement": 0.8493975903614458,
+                    "margins": {
+                        "0.0": {
+                            "directions": 664,
+                            "changes": 277,
+                            "mean_selection_gain": 0.06299416415662651,
+                            "mean_cross_batch_simulated_gain": 0.058742783634538144,
+                            "changed_negative_directions": 39,
+                            "mean_cross_batch_gain_when_changed": 0.14081302647412755
+                        },
+                        "0.025": {
+                            "directions": 664,
+                            "changes": 214,
+                            "mean_selection_gain": 0.06176267570281125,
+                            "mean_cross_batch_simulated_gain": 0.05817802459839358,
+                            "changed_negative_directions": 16,
+                            "mean_cross_batch_gain_when_changed": 0.18051499221183798
+                        }
+                    }
+                }
+            },
+            "full_cohort": false,
+            "gradients": false,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false,
+            "scope": "Descriptive conditional simulated label quality on a frozen completion snapshot. A chooses/B evaluates and B chooses/A evaluates, with continuation modes averaged within sampled worlds. Every adverse direction retained;fixed margins0/.025. Partial roots are excluded without imputation and listed in coverage. Completion depends on runtime/scheduling,so this cohort is not representative and its directions are not independent games. No confidence intervals,threshold tuning,new training admission,or strength claim.",
+            "assessment_sha256": "478c1399fa1f24b66a16c75da89c80ff6756a9ea79b95e1fe5830372ec65af94",
+            "records_sha256": "b6e58a7482eaa8bf776f38f216cd7cee9e05a61bb1fde93889167c13edb75483",
+            "label_manifest_sha256": "844934751f2510e5ea687730de12931184292cd2ee865aad2d09b074dffcf0e7",
+            "replication_check": {
+                "passed": true,
+                "pilot_roots_reproduced": 360,
+                "pilot_assessment_sha256": "6b0d6f9b0f2154f2a6d58b2fe97480c30a972ad760b6b6e92d4a85b471961351",
+                "both_fixed_margins_and_negative_counts_match": true,
+                "coverage_and_count_checks_passed": true,
+                "gradients": false,
+                "qualification_eligible": false
+            }
+        },
+        "code": "ai/strong/inspect-policy-iteration-label-quality.py",
+        "no_new_remote_jobs": true,
+        "no_partial_training_data_prepared": true,
+        "training_design_changed": false,
+        "final_protocol_changed": false,
+        "next": "Continue existing collector/coordinator;only full verified labels admit the prescribed HF training jobs. Conditional teacher gains do not qualify a trained model."
     }
 }

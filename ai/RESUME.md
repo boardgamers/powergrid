@@ -5,32 +5,30 @@ The goal remains active. No candidate has passed the strength gate, no AI is
 published, and the reserved final-test seeds remain unused.
 
 Latest continuation made **progress**:
-- **All948 original labeling jobs submitted and archived**; old launcher62283
-  finished. First119 new shards verified: **5,113,344 continuations including the
-  reused pilot**, no accepted caps. Both latest local collectors finished.
-- CPU Performance hardware is queued. Exact CPU Upgrade profiling completed:
-  all3,072 continuation outcomes/choice transcripts match the pinned original;
-  only8.48% slower overall. A bounded first migration of60 queued shards finished;
-  original jobs were confirmed canceled before replacements launched.
-  All60 replacements are RUNNING. Whole fleet:119 completed,129 running,700
-  scheduling at03:39:57UTC. All119 completed outputs are now independently verified.
-  Read `ai/runs/policy-iteration-labels-cpu-upgrade-v2` and its launch log before
-  starting anything. Original guards remain intact; the manager resolves attempts.
-- All17,280 public feature inputs remain cached/pinned. The four-seed richer/control
-  experiment remains fixed. Full-data training admission stays closed until every
-  required label verifies; **no new gradients or qualified model**.
-- The isolated HF training package passes model/ONNX/legal checks and contract
-  tests. The first failed test-order attempt is preserved; corrected scratch tree
-  is `ai/runs/policy-iteration-training-source-code-v3`. It is code-only, not an
-  admitted full-data training archive. No GPU training jobs have launched.
-- Persistent pins, exact live handles and ordered commands are in the current
-  handoff. Frozen label runtime and reserved final protocol remain unchanged.
+- **159/948 new label shards verified**,6,448,512 continuations including the
+  pilot. Latest HF snapshot04:06:03UTC:159 completed,129 running,660 scheduling.
+  All60 CPU Upgrade replacements remain running; no full replacement shard has
+  verified yet. Do not expand the migration yet.
+- **Collector57232 finished**; all159 completed label outputs independently
+  verify. No local collector or submission launcher remains active. The new
+  progress archive is pinned in the handoff.
+- The fresh five-arm development protocol is fixed: parent plus four prescribed
+  ensembles,27 cells each,16 whole deals, all seats/rules,33,600 games total.
+- Actual isolated evaluation runner passed160 full plumbing games and12 malformed
+  report checks. The nonzero-offset verifier mismatch was fixed in a new wrapper;
+  all1,434 frozen base files remain unchanged. Exact source and evidence are pinned.
+- HF parent runtime probes:2p **6adc2d29046eb82b1ecda152** completed and verified
+  (8 games,30,496 search evaluations,no caps);6p **6adc2d2a1e112550ce7dc710**
+  is RUNNING. Use `manage-policy-iteration-development.py collect` on that handle;
+  do not launch another probe. Both must verify before parent development admission.
+- No new gradients, qualified model, production change or reserved final-test use.
+  Full labels still precede the two four-seed training jobs. Fresh-game comparison,
+  actual8840U benchmark and untouched final gate remain mandatory.
 
-Next: refresh effective fleet status and collect newly completed labels. No local
-collector or submission launcher is active.
-Verify the first CPU Upgrade full shards before expanding it. Then reduce/pin the
-complete bundle, build the actual HF source and launch the two representation jobs.
-Never retry an unknown/live job.
+Next: refresh label status and collect completions; collect the existing6p runtime
+probe when it finishes.
+Then prepare the admitted parent reference grid while labels finish. The current
+handoff contains exact source/evidence pins, recovery paths and outstanding work.
 
 ---
 

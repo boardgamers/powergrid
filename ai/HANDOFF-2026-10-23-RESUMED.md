@@ -25,7 +25,119 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: full fleet submitted; second CPU tier verified
+## Latest checkpoint: fresh development runner verified and HF probes running
+
+This goal turn made **progress**. Verified labels reached **159 new shards /
+6,448,512 continuations including the reused pilot**. The next complete-game
+comparison is fixed and its actual packaged runner passed160 plumbing games.
+No new gradients or trained candidate; old candidates remain unqualified. No
+production change, final-test use or AI publication.
+
+At `2026-10-24T04:06:03.975032+00:00`, the948 effective label handles were
+**159 COMPLETED /129 RUNNING /660 SCHEDULING**, with all60 CPU Upgrade replacements
+still RUNNING. Their first full shards have not yet verified, so the migration
+has not expanded. **Local collector session57232 finished successfully**, verifying23 newly
+completed shards; log `ai/runs/policy-iteration-labels-collect-159-v2.log`.
+Earlier collectors65807 (to130) and46472 (to136) are also finished. No local
+collector or submission launcher is active. The manifest now includes all159.
+Their immutable progress archive is model-repo revision
+`e781647d9739303cd876a9cb95672979d5eb14a8`, prefix
+`runs/policy-iteration-labels-159-progress-evidence-v2`, manifest SHA
+`8a1723722d5827bbd2097c8845651dddbe819de61d90f0ef4186fb7abff91445`.
+
+### Fresh full-game evaluation
+
+`strong/policy-iteration-development-protocol-v2.json` fixes five arms: parent,
+`frozen-0`, `frozen-1`, `public-0`, `public-1`. Each has27 opponent/count cells,
+16 independent deals per cell, all seats and all four edition/auction rules:
+**6,720 games per arm /33,600 total**. The independent baselines and their
+settings remain the earlier fixed legacy, heuristic, economic, rush and
+search_geo opponents, plus3p A260 and2p economic_capacity_v1. All adverse cells
+must remain visible. Comparison/aggregation across all arms still needs its
+manager entry point; the actual execution and independent collector are ready.
+
+Fresh development namespace: `policy-iteration-development-v2-{players}p`.
+Runtime probes use `policy-iteration-runtime-v2-{players}p`; local synthetic
+checks use `policy-iteration-plumbing-v2-{players}p`, with nonzero deal offset4.
+Neither training deals nor reserved final deals are used. Four ensembles are
+prespecified; individual seeds cannot be selected instead.
+
+The new wrapper admits real candidates only with independently verified training,
+all four prescribed seeds, exact architecture/design/data hashes and complete
+native/export checks. Synthetic weights are explicitly local plumbing only and
+cannot be uploaded as development or smoke candidates. The parent is pinned
+exactly to the existing10102 derivative.
+
+Accepted source:
+
+- Dataset revision `a393d0fa83d9fee8a27a876a217fe97dfea03ff8`.
+- Archive `strong-source-policy-iteration-development-20261024-v2.tgz`.
+- SHA `c020987f3a05a2c0116dfd52498139f6bb7480e1721ca058caf9771f94d970ce`.
+- All1,434 base files unchanged; five added files. Do not edit those frozen additions.
+- Accepted scratch: `ai/runs/policy-iteration-development-source-v3`.
+
+The first scratch `...source-v2` is preserved. Its historical population verifier
+assumed deal offset0 and rejected a correctly generated offset4 game batch.
+The new wrapper independently checks the actual offset and exact deal/seat/rule
+identities without modifying the frozen base checker. All8 terminal records of
+that first batch exactly match the accepted rerun. This was an integration
+check failure, not a game-engine or label-data change.
+
+The accepted preflight ran the actual wrapper, serving interface and evaluator
+for all five model routes at2p/6p, all rules: **160 full games**, plus2,553 serving
+fixtures per route/count. Twelve corrupted-report cases are rejected, including
+missing/duplicated games, wrong model/deal/offset, altered credit, truncations,
+wrong opponent/workers and seed-namespace mixing. Bootstrap syntax and refusal
+to launch a full screen without runtime probes or an unverified candidate were
+also checked. Gradient behavior and model strength are not established by this.
+
+### HF runtime probes and exact next actions
+
+Both are CPU Upgrade jobs with4h timeouts, using the original pinned parent:
+
+- **2p: `6adc2d29046eb82b1ecda152` COMPLETED and independently verified**.
+  Eight full games,146.1888seconds,369 search decisions /30,496 search evaluations,
+  zero game or search caps. Raw revision `832e7af1d7404838b2f4075392a02046a3df1c89`,
+  prefix `runs/policy-iteration-development-v2-smoke-parent-2p-search_geo-0-1`.
+- **6p: `6adc2d2a1e112550ce7dc710` RUNNING** at04:13:39UTC. Do not restart it.
+
+`strong/policy-iteration-development-runtime-probes-v2.json` retains the complete
+verified2p record. These probes measure runtime, not strength. Both endpoint
+probes must independently verify before the parent reference grid is admitted.
+The launcher projects four whole deals using2x the slower endpoint plus120s and
+25% timeout headroom, on the same hardware;12h maximum. If admission fails,
+partition execution with verified parity while preserving every deal and horizon.
+No full parent-development batch or trained-candidate job has launched yet.
+
+1. Refresh exact label handles, collect further completions and run the label
+   manager `summarize`. No local collector is currently active. Do not expand CPU Upgrade migration
+   before its actual full shards verify.
+2. Inspect/collect the existing6p probe with
+   `ai/.venv/bin/python ai/strong/manage-policy-iteration-development.py collect parent 6 search_geo 0 1 --mode smoke`.
+   The2p probe is complete. Never resubmit either merely because it is quiet.
+3. After both probes verify, the same manager can dry-run and launch parent
+   reference shards: `launch parent N OPPONENT START END`, adding `--execute`
+   only for submission. Use all27 protocol cells and all16 deals, in four-deal
+   pieces. Each launch has an exclusive guard. Freeze/review a bulk launch plan
+   before submitting the108 parent shards; no such bulk launcher exists yet.
+4. Label completion still precedes the compact training bundle and HF gradients.
+   Use the existing full-data source builder and two-representation trainer;
+   then independently collect/check all four trained ensembles and create their
+   development pins. The new training-output collector is still to be implemented.
+5. Complete the actual fresh development comparisons, diagnose every adverse
+   result, benchmark the exact candidate on AMD8840U and satisfy the unchanged
+   final protocol. Parent compatibility alone is insufficient.
+
+Preparation evidence is archived privately at model-repo revision
+**8d124c173a41660b29f40f24b73d528f4676e45d**, prefix
+`runs/policy-iteration-development-preparation-evidence-v2`, manifest SHA
+`daf39c4f637dd9ab8a414770b4f35fac04f059e1048bf00b5ee3a7a6eb716f4f`.
+It includes both probe guards, raw passed/failed plumbing cases, the exact
+synthetic fixtures, source/controls, and136 verified label records. Its probe
+status was captured at04:02:30UTC, when both jobs were running; the newer runtime
+probe report and live HF status supersede that historical snapshot.
+
+## Previous checkpoint: full fleet submitted; second CPU tier verified
 
 This continuation made **progress**: all 948 original label jobs were submitted
 and archived, more outputs were independently verified, the same workload was

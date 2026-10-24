@@ -1,0 +1,304 @@
+{
+  "purpose": "Fresh full-game development for the four prespecified policy-iteration ensembles and retained parent. Fixed before new gradients; not final qualification.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "models": [
+    "parent",
+    "frozen-0",
+    "frozen-1",
+    "public-0",
+    "public-1"
+  ],
+  "parent": "Frozen discard-correction10102 epoch10; candidate search off for every arm. Parent is unqualified, so preserving it does not establish strength.",
+  "seed_template": "policy-iteration-development-v2-{players}p",
+  "smoke_seed_template": "policy-iteration-runtime-v2-{players}p",
+  "deal_offsets": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 12197,
+  "workers": 24,
+  "max_steps": 2400,
+  "screens": [
+    {
+      "players": 2,
+      "opponent": "economic",
+      "deals": 16,
+      "games": 128,
+      "stage": "primary"
+    },
+    {
+      "players": 2,
+      "opponent": "search_geo",
+      "deals": 16,
+      "games": 128,
+      "stage": "primary"
+    },
+    {
+      "players": 2,
+      "opponent": "legacy",
+      "deals": 16,
+      "games": 128,
+      "stage": "extension"
+    },
+    {
+      "players": 2,
+      "opponent": "heuristic",
+      "deals": 16,
+      "games": 128,
+      "stage": "extension"
+    },
+    {
+      "players": 2,
+      "opponent": "rush",
+      "deals": 16,
+      "games": 128,
+      "stage": "extension"
+    },
+    {
+      "players": 3,
+      "opponent": "economic",
+      "deals": 16,
+      "games": 192,
+      "stage": "primary"
+    },
+    {
+      "players": 3,
+      "opponent": "search_geo",
+      "deals": 16,
+      "games": 192,
+      "stage": "primary"
+    },
+    {
+      "players": 3,
+      "opponent": "legacy",
+      "deals": 16,
+      "games": 192,
+      "stage": "extension"
+    },
+    {
+      "players": 3,
+      "opponent": "heuristic",
+      "deals": 16,
+      "games": 192,
+      "stage": "extension"
+    },
+    {
+      "players": 3,
+      "opponent": "rush",
+      "deals": 16,
+      "games": 192,
+      "stage": "extension"
+    },
+    {
+      "players": 4,
+      "opponent": "economic",
+      "deals": 16,
+      "games": 256,
+      "stage": "primary"
+    },
+    {
+      "players": 4,
+      "opponent": "search_geo",
+      "deals": 16,
+      "games": 256,
+      "stage": "primary"
+    },
+    {
+      "players": 4,
+      "opponent": "legacy",
+      "deals": 16,
+      "games": 256,
+      "stage": "extension"
+    },
+    {
+      "players": 4,
+      "opponent": "heuristic",
+      "deals": 16,
+      "games": 256,
+      "stage": "extension"
+    },
+    {
+      "players": 4,
+      "opponent": "rush",
+      "deals": 16,
+      "games": 256,
+      "stage": "extension"
+    },
+    {
+      "players": 5,
+      "opponent": "economic",
+      "deals": 16,
+      "games": 320,
+      "stage": "primary"
+    },
+    {
+      "players": 5,
+      "opponent": "search_geo",
+      "deals": 16,
+      "games": 320,
+      "stage": "primary"
+    },
+    {
+      "players": 5,
+      "opponent": "legacy",
+      "deals": 16,
+      "games": 320,
+      "stage": "extension"
+    },
+    {
+      "players": 5,
+      "opponent": "heuristic",
+      "deals": 16,
+      "games": 320,
+      "stage": "extension"
+    },
+    {
+      "players": 5,
+      "opponent": "rush",
+      "deals": 16,
+      "games": 320,
+      "stage": "extension"
+    },
+    {
+      "players": 6,
+      "opponent": "economic",
+      "deals": 16,
+      "games": 384,
+      "stage": "primary"
+    },
+    {
+      "players": 6,
+      "opponent": "search_geo",
+      "deals": 16,
+      "games": 384,
+      "stage": "primary"
+    },
+    {
+      "players": 6,
+      "opponent": "legacy",
+      "deals": 16,
+      "games": 384,
+      "stage": "extension"
+    },
+    {
+      "players": 6,
+      "opponent": "heuristic",
+      "deals": 16,
+      "games": 384,
+      "stage": "extension"
+    },
+    {
+      "players": 6,
+      "opponent": "rush",
+      "deals": 16,
+      "games": 384,
+      "stage": "extension"
+    },
+    {
+      "players": 3,
+      "opponent": "a260",
+      "model_path": "runs/strong-league-v2-a/best.onnx",
+      "revision": "b38515c29e57826de05b55b645c29591e4a886bf",
+      "sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+      "deals": 16,
+      "games": 192,
+      "stage": "primary"
+    },
+    {
+      "players": 2,
+      "opponent": "economic_capacity_v1",
+      "deals": 16,
+      "games": 128,
+      "stage": "primary"
+    }
+  ],
+  "planned_games_per_model": 6720,
+  "planned_games_total": 33600,
+  "pairing": "Identical fresh deal/rule/seat/opponent grid for all four ensembles and parent. Bootstrap whole deals retaining seat/rule repetitions. All four prespecified candidates are reported; no single-seed cherry-picking.",
+  "search_reference": "Unchanged search_geo16 samples,6 candidates,geographic proposals,2400-step horizon. Candidate search remains off.",
+  "analysis": "Report absolute win shares and paired candidate-minus-parent differences in all27 opponent/count cells and their four rules, including every adverse result. Compare both representations and both disagreement penalties. Marginal95% deal-cluster bootstrap intervals are exploratory, not a simultaneous guarantee.",
+  "promotion": "All prescribed development cells must complete and verify. Parent preservation alone is insufficient. Resolve adverse or uncertain independent-opponent cells with diagnosis or further fresh development before final selection; do not tune on reserved final deals. No candidate is qualified by this screen: unchanged final floors, exact serving package and AMD8840U measurements remain mandatory.",
+  "caps": "Every game and search rollout must finish legally. Preserve failures and capped results; never omit or score as normal.",
+  "final_protocol_sha256": "7f0336c8784faf8f18e046b95b88e0ab1be7c2de1c0ec4d3eec96f0a415286ce",
+  "reserved_final_seeds_used": false,
+  "qualification_eligible": false,
+  "game_max_steps": 1600,
+  "search_max_steps": 2400,
+  "horizon_note": "Preserve frozen arena1600-step outer game cap and2400-step search horizon. Any cap invalidates the cell; never score a truncated game as normal.",
+  "plumbing_seed_template": "policy-iteration-plumbing-v2-{players}p",
+  "training_design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+  "candidate_heads": {
+    "frozen-0": {
+      "head_type": "frozen",
+      "penalty": 0.0
+    },
+    "frozen-1": {
+      "head_type": "frozen",
+      "penalty": 1.0
+    },
+    "public-0": {
+      "head_type": "public",
+      "penalty": 0.0
+    },
+    "public-1": {
+      "head_type": "public",
+      "penalty": 1.0
+    }
+  },
+  "candidate_seeds": [
+    12101,
+    12102,
+    12103,
+    12104
+  ],
+  "parent_pin": {
+    "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+    "prefix": "runs/discard-correction-v1/10102/derivative",
+    "files": {
+      "inference64.onnx": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+      "inference64.pt": "25e9995c3998cc9f09e1dafb40f0328ae09e616f791c10e793eaad42cfa5e473"
+    },
+    "feature_revision": "4.2-discard-correction",
+    "selected_epoch": 10,
+    "key": "parent",
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "seed": 10102,
+    "training_verified": true,
+    "parent_frozen": true
+  },
+  "base_source": {
+    "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+    "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+    "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+    "bytes": 109402244,
+    "base": {
+      "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+      "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+      "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+    },
+    "overlays": {
+      "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+      "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+      "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+      "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+    },
+    "unchanged_base_files": 1430,
+    "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+    "qualification_eligible": false
+  }
+}

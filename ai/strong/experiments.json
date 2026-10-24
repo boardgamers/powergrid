@@ -43797,7 +43797,7 @@
     },
     "policy_iteration_labels_v2": {
         "date": "2026-10-24",
-        "status": "All948 original jobs submitted;119 new shards verified;60 queued originals canceled and replacements RUNNING on verified CPU Upgrade",
+        "status": "All948 original jobs submitted;159 new shards independently verified;60 CPU Upgrade replacements still running at latest label snapshot",
         "planned_roots": 17280,
         "planned_reused_pilot_roots": 360,
         "new_root_mode_pairs": 33840,
@@ -43835,11 +43835,11 @@
         "first_wave_jobs_submitted": 60,
         "first_wave_new_root_mode_pairs": 3318,
         "first_wave_distinct_new_roots": 2538,
-        "status_checked_at": "2026-10-24T03:39:57.560773+00:00",
+        "status_checked_at": "2026-10-24T04:06:03.975032+00:00",
         "status_counts": {
-            "COMPLETED": 119,
+            "COMPLETED": 159,
             "RUNNING": 129,
-            "SCHEDULING": 700
+            "SCHEDULING": 660
         },
         "preflight": "ai/strong/policy-iteration-labels-preflight-v2.json",
         "preflight_rollouts": 1364,
@@ -43857,12 +43857,12 @@
         "fixed_inference_batch": 64,
         "engine_workers": 24,
         "timeout_hours": 8,
-        "complete_new_shards": 119,
+        "complete_new_shards": 159,
         "verified_reused_root_mode_pairs": 720,
         "next": "Collect completed jobs through the effective-handle manager. Verify first CPU Upgrade full shards before expanding the bounded migration. All948 new shards plus reused pilot coverage remain required before HF gradients.",
         "status_snapshot_scope": "All948 effective shard jobs; historical canceled originals preserved separately",
-        "verified_root_mode_pairs": 5281,
-        "rollouts_including_pilot": 5113344,
+        "verified_root_mode_pairs": 6662,
+        "rollouts_including_pilot": 6448512,
         "new_first_wave_rollouts": 3212352,
         "first_wave_evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
@@ -43940,12 +43940,12 @@
         "collector_active": false,
         "latest_progress_evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
-            "revision": "a6c91fba94065f5e07bde6f51727d0be02b94831",
-            "prefix": "runs/policy-iteration-labels-119-progress-evidence-v2",
-            "manifest_sha256": "9d40b2e4706383490053b98eef9d2839e719851e6b9c81bc5a6b952939f55d55",
-            "complete_new_shards": 119,
-            "verified_root_mode_pairs": 5281,
-            "rollouts_including_pilot": 5113344,
+            "revision": "e781647d9739303cd876a9cb95672979d5eb14a8",
+            "prefix": "runs/policy-iteration-labels-159-progress-evidence-v2",
+            "manifest_sha256": "8a1723722d5827bbd2097c8845651dddbe819de61d90f0ef4186fb7abff91445",
+            "complete_new_shards": 159,
+            "verified_root_mode_pairs": 6662,
+            "rollouts_including_pilot": 6448512,
             "full_labels_complete": false,
             "gradients": false,
             "qualification_eligible": false
@@ -44083,7 +44083,7 @@
         "admission_multiplier": 1.4454652311275429,
         "attempts": "ai/runs/policy-iteration-labels-cpu-upgrade-v2",
         "new_attempt_launcher_finished": true,
-        "status_checked_at": "2026-10-24T03:39:57.560773+00:00",
+        "status_checked_at": "2026-10-24T04:06:03.975032+00:00",
         "gradients": false,
         "qualification_eligible": false,
         "next": "Independently collect completed full shards on this tier before any larger migration; keep queued/live attempts reconciled and avoid duplicates.",
@@ -44106,7 +44106,8 @@
             "full_training_source_admitted": false,
             "gradients": false,
             "qualification_eligible": false
-        }
+        },
+        "full_upgrade_shards_verified": 0
     },
     "policy_iteration_verification_profile_v2": {
         "report": "ai/strong/policy-iteration-verification-profile-v2.json",
@@ -44124,5 +44125,139 @@
         "collector_workers": 4,
         "gradients": false,
         "qualification_eligible": false
+    },
+    "policy_iteration_development_v2": {
+        "date": "2026-10-24",
+        "status": "Fresh five-arm protocol frozen;160 local full-game plumbing checks passed;parent2p HF runtime probe verified and6p probe running",
+        "protocol": "ai/strong/policy-iteration-development-protocol-v2.json",
+        "source": {
+            "archive": "strong-source-policy-iteration-development-20261024-v2.tgz",
+            "revision": "a393d0fa83d9fee8a27a876a217fe97dfea03ff8",
+            "sha256": "c020987f3a05a2c0116dfd52498139f6bb7480e1721ca058caf9771f94d970ce",
+            "bytes": 109411988,
+            "base": {
+                "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+                "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+                "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+                "bytes": 109402244,
+                "base": {
+                    "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+                    "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+                    "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+                },
+                "overlays": {
+                    "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+                    "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+                    "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+                    "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+                },
+                "unchanged_base_files": 1430,
+                "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+                "qualification_eligible": false
+            },
+            "overlays": {
+                "ai/strong/policy_iteration_development.py": "1bbcec9b3ad236fdaf330627cd31f6c99618642cf657b75207aba365c4c217ea",
+                "ai/strong/preflight-policy-iteration-development.py": "024f1f746eb396a8906664c26e2307224c733ff4b43a75899498efbf65096829",
+                "ai/strong/policy-iteration-development-protocol-v2.json": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+                "ai/strong/policy-iteration-training-design-v2.json": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+                "ai/strong/build-policy-iteration-development-source.py": "6dd5963f0438f0ef7fca6c53c3701acdba99d8e9390e42d9c5f64f4e39287310"
+            },
+            "unchanged_base_files": 1434,
+            "protocol_sha256": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+            "gradients": false,
+            "qualification_eligible": false
+        },
+        "preflight": "ai/strong/policy-iteration-development-preflight-v2.json",
+        "controls": "ai/strong/policy-iteration-development-job-controls-v2.json",
+        "evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "8d124c173a41660b29f40f24b73d528f4676e45d",
+            "prefix": "runs/policy-iteration-development-preparation-evidence-v2",
+            "manifest_sha256": "daf39c4f637dd9ab8a414770b4f35fac04f059e1048bf00b5ee3a7a6eb716f4f",
+            "source": {
+                "archive": "strong-source-policy-iteration-development-20261024-v2.tgz",
+                "revision": "a393d0fa83d9fee8a27a876a217fe97dfea03ff8",
+                "sha256": "c020987f3a05a2c0116dfd52498139f6bb7480e1721ca058caf9771f94d970ce",
+                "bytes": 109411988,
+                "base": {
+                    "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+                    "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+                    "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+                    "bytes": 109402244,
+                    "base": {
+                        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+                        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+                        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+                    },
+                    "overlays": {
+                        "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+                        "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+                        "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+                        "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+                    },
+                    "unchanged_base_files": 1430,
+                    "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+                    "qualification_eligible": false
+                },
+                "overlays": {
+                    "ai/strong/policy_iteration_development.py": "1bbcec9b3ad236fdaf330627cd31f6c99618642cf657b75207aba365c4c217ea",
+                    "ai/strong/preflight-policy-iteration-development.py": "024f1f746eb396a8906664c26e2307224c733ff4b43a75899498efbf65096829",
+                    "ai/strong/policy-iteration-development-protocol-v2.json": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+                    "ai/strong/policy-iteration-training-design-v2.json": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+                    "ai/strong/build-policy-iteration-development-source.py": "6dd5963f0438f0ef7fca6c53c3701acdba99d8e9390e42d9c5f64f4e39287310"
+                },
+                "unchanged_base_files": 1434,
+                "protocol_sha256": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+                "gradients": false,
+                "qualification_eligible": false
+            },
+            "plumbing_games": 160,
+            "models_are_synthetic_or_parent": true,
+            "new_candidate_development_games": 0,
+            "live_parent_probe_handles": [
+                "6adc2d29046eb82b1ecda152",
+                "6adc2d2a1e112550ce7dc710"
+            ],
+            "parent_probe_status_checked_at": "2026-10-24T04:02:30.025376+00:00",
+            "parent_probe_status_counts": {
+                "RUNNING": 2
+            },
+            "verified_label_shards": 136,
+            "label_rollouts_including_pilot": 5798976,
+            "gradients": false,
+            "reserved_final_seeds_used": false,
+            "qualification_eligible": false
+        },
+        "models": [
+            "parent",
+            "frozen-0",
+            "frozen-1",
+            "public-0",
+            "public-1"
+        ],
+        "independent_deals_per_cell": 16,
+        "cells_per_model": 27,
+        "games_per_model": 6720,
+        "planned_total_development_games": 33600,
+        "completed_candidate_development_games": 0,
+        "runtime_probes": "ai/strong/policy-iteration-development-runtime-probes-v2.json",
+        "probe_status_checked_at": "2026-10-24T04:13:39.021358+00:00",
+        "probe_status_counts": {
+            "COMPLETED": 1,
+            "RUNNING": 1
+        },
+        "jobs": {
+            "smoke-parent-2p-search_geo-0-1": "6adc2d29046eb82b1ecda152",
+            "smoke-parent-6p-search_geo-0-1": "6adc2d2a1e112550ce7dc710"
+        },
+        "probe_flavor": "cpu-upgrade",
+        "probe_timeout_hours": 4,
+        "failed_scratch": "ai/runs/policy-iteration-development-source-v2",
+        "accepted_scratch": "ai/runs/policy-iteration-development-source-v3",
+        "failure_fixed": "Frozen historical population checker required offset0. New wrapper independently validates actual offsets; all8 initial terminal records match the accepted offset4 rerun. All1434 base files preserved.",
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Collect original6p runtime handle on completion; use both verified endpoint probes to admit parent development shards. Candidate pins require independent training/export checks. Preserve all four ensembles, every count/rule/opponent cell, adverse results, and the unchanged final gate."
     }
 }

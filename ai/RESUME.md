@@ -12,6 +12,22 @@ and asks whether hybrid search/AI is the right direction after the fresh4p
 parent result. This is not a pause. Judge progress by fresh complete-game
 strength and target latency, not numbers of generated labels or jobs.
 
+The complete older3–6p terminal audit is now saved in
+`strong/multiplayer-search-terminal-analysis-v1.json`, reproducible with
+`strong/analyze-multiplayer-search-outcomes.py --output NEW_PATH`. All12
+model/count cells, raw hashes/provenance and existing paired win summaries were
+rechecked; no new games. For10102 at6p Recharged/open, search changes58.33% wins
+to33.33% (paired−25pp, exploratory95% interval−35.42 to−14.58), with18 wins lost
+and6 losses converted to wins. It ends with2.1667 fewer cities,1.8958 fewer
+powered cities and10.0625 more cash on average. At5p Recharged/open the win
+change is also−25pp and cities−2.35, but cash falls14.675. Thus neither sealed
+belief correction alone nor a universal spending rule addresses this evidence.
+Terminal states do not identify the causal phase. In a follow-up hybrid study,
+retain5–6p open cases and distinguish auction-only/building-only/combined search
+with realistic continuations before increasing budget or choosing phase gates.
+This is a diagnostic recommendation, not a new launched experiment. All
+intervals use8 independent older deals; they are not final-test evidence.
+
 Recommendation: finish the already running policy-iteration round, then compare
 its model-only agent with a bounded hybrid on fresh development deals. Keep
 the current frozen model-only protocol and its four coordinators unchanged.

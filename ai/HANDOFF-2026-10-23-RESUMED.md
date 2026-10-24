@@ -25,7 +25,39 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: final evidence conversion and hybrid decision point
+## Latest checkpoint: older multiplayer hybrid regression audit
+
+The preceding turn was a verified wait on the three oldest remaining HF label
+jobs and collector session82318. The current turn adds a read-only terminal
+audit of all12 completed hybrid model/count cells at3–6p, reusing the existing
+paired statistics. It revalidates every saved raw hash, source/model protocol,
+pairing and earlier win summary. No simulations, gradients, final seeds or
+additional jobs were launched.
+
+- Script: `strong/analyze-multiplayer-search-outcomes.py --output NEW_PATH`.
+- Result: `strong/multiplayer-search-terminal-analysis-v1.json`.
+- For10102, the6p overall−9.375pp hybrid regression (exploratory95% interval
+  −17.1875 to−1.5625) is entirely in the aggregate open-auction cells; both
+  sealed cells have unchanged win share, although individual games change.
+- Recharged/open6p:28/48 raw wins versus16/48 hybrid wins;18 wins lost,6 gained.
+  Mean terminal cities14.375→12.2083, powered14.0208→12.125,
+  cash21.1042→31.1667. Paired city change−2.1667 [−2.8542,−1.375],
+  cash+10.0625 [3.7708,16.9589]. Capacity change−0.75 includes zero.
+- Recharged/open5p also loses25pp (52.5→27.5%) with2.35 fewer terminal cities,
+  but14.675 less cash. This does not support a universal cash-spending rule.
+- These are8 reused independent development deals/cell, marginal bootstrap
+  intervals and overlapping failure categories. End states cannot attribute
+  the failure causally to auctions versus building. No new model-strength claim.
+
+Follow-up implication: a bounded hybrid comparison should retain5–6p open
+cases and distinguish auction-only, building-only and combined search with
+realistic continuations. Increasing sample count or only correcting sealed
+beliefs is not enough to address the observed failure pattern. The existing
+training/development protocols remain frozen. All four processes are live with
+unchanged dependencies; collector cycle24 is active, with656/948 labels and
+100/108 parent batches at its preceding completed snapshot.
+
+## Previous checkpoint: final evidence conversion and hybrid decision point
 
 The preceding turn was a verified wait and a review of historical hybrid
 evidence. The user wants candid advice when strength gains taper off; they have

@@ -54016,5 +54016,365 @@
         "new_jobs": 0,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
+    },
+    "population_auction_regression_replays_v1": {
+        "status": "complete_exact_replays_archived",
+        "completed_session": 19372,
+        "process_exit_code": 0,
+        "evidence": {
+            "exact_replays": 14,
+            "paired_cases": 7,
+            "root_moves_checked": 7083,
+            "learner_moves_checked": 1908,
+            "all_model_proposals_match": true,
+            "all_legal_moves_match": true,
+            "all_search_seeds_match": true,
+            "all_root_trace_chains_match": true,
+            "all_public_roots_checked": true,
+            "shared_first_divergence_roots_verified": 7,
+            "frozen_runtime_files": 1463,
+            "selection_sha256": "26af3c92fe21fab8cd4f419b936cf2bb537f88fc277c47aaeb9d87673654d77e",
+            "assessment_sha256": "c6ae70186ca7951b74bb6150e61b0f10cb766750514af47c4ffcfb1543ba92e2",
+            "analysis_sha256": "4d28df67d3ec894f2ff381983085a93662b2ba57281ee28d3b0a33c919f39052",
+            "collector_sha256": "c92c253d2b49f7ff887b752ae5f7f7f2b5a03c05d55297bd1b07037546d88772",
+            "limits": [
+                "Outcome-selected examples from the exploratory screen, not a strength estimate.",
+                "All subsequent learner decisions follow the original saved policy trajectory; the terminal difference is not the causal effect of the first differing move.",
+                "World credits and action margins are simulated scores, not calibrated win probabilities.",
+                "Traces include actual opponent moves for diagnosis; policy roots are separately verified public observations with hidden bids/deck removed."
+            ],
+            "new_hf_jobs": 0,
+            "new_strength_games": 0,
+            "gradients": false,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false,
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "b51a1f40428adc6d83da9e4341165e7b8c8378bb",
+            "archive_path": "archives/population-auction-regression-replays-evidence-v1.tgz",
+            "archive_sha256": "77f1eaa00e253828b8645539827f7ce65d1beeb3858b542ad608d63775579635",
+            "manifest_sha256": "72b321110259b03f2d23608ca552c58eb2c59bda48ca00e4ddb3629af3481f67",
+            "archived_files": 99,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "frozen_dependencies_checked": 32,
+        "final_protocol_unchanged": true,
+        "new_hf_jobs": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
+    },
+    "auction_world_generalization_v1": {
+        "status": "complete_fixed_action_holdout_worlds_archived",
+        "completed_session": 71292,
+        "process_exit_code": 0,
+        "sign_reversals": 3,
+        "roots": 7,
+        "interpretation": "Conditional simulation noise exists in outcome-selected examples; no causal explanation of whole-game changes or strength promotion.",
+        "next": "Seven one-action counterfactual pairs, with exact filtered-model controls and unchanged actual arena opponents. Do not expose hidden state to the policy.",
+        "evidence": {
+            "protocol_sha256": "ffd05be775f21dbb9961608bb1e536b238e4953ec1459606fd09a866c4053119",
+            "all_complete": true,
+            "checks": [
+                {
+                    "label": "4p-search_geo-original-False-worse-2",
+                    "direction": "worse",
+                    "original_selected_action": {
+                        "name": "ChoosePowerPlant",
+                        "data": 4
+                    },
+                    "original_selected_index": 1,
+                    "model_baseline_index": 2,
+                    "original_eight_world_margin": 0.125,
+                    "heldout_56_world_margin": 0.125,
+                    "heldout_block_bootstrap_95_interval": [
+                        0.017857142857142856,
+                        0.23214285714285715
+                    ],
+                    "heldout_better_worlds": 13,
+                    "heldout_worse_worlds": 6,
+                    "heldout_equal_worlds": 37,
+                    "heldout_block_means": [
+                        0.25,
+                        -0.25,
+                        0.0,
+                        -0.25,
+                        0.25,
+                        0.0,
+                        0.5,
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.0,
+                        0.25,
+                        0.25,
+                        0.0
+                    ],
+                    "all_original_candidate_outcomes_match": true,
+                    "all_original_roles_beliefs_match": true,
+                    "rollouts": 256,
+                    "caps": 0
+                },
+                {
+                    "label": "5p-search_geo-recharged-False-worse-11",
+                    "direction": "worse",
+                    "original_selected_action": {
+                        "name": "Bid",
+                        "data": 14
+                    },
+                    "original_selected_index": 2,
+                    "model_baseline_index": 1,
+                    "original_eight_world_margin": 0.3125,
+                    "heldout_56_world_margin": -0.08928571428571429,
+                    "heldout_block_bootstrap_95_interval": [
+                        -0.25,
+                        0.07142857142857142
+                    ],
+                    "heldout_better_worlds": 11,
+                    "heldout_worse_worlds": 16,
+                    "heldout_equal_worlds": 29,
+                    "heldout_block_means": [
+                        -0.75,
+                        0.25,
+                        0.0,
+                        0.0,
+                        -0.25,
+                        -0.25,
+                        -0.5,
+                        0.0,
+                        0.0,
+                        0.0,
+                        -0.25,
+                        0.5,
+                        -0.25,
+                        0.25
+                    ],
+                    "all_original_candidate_outcomes_match": true,
+                    "all_original_roles_beliefs_match": true,
+                    "rollouts": 384,
+                    "caps": 0
+                },
+                {
+                    "label": "3p-heuristic-all-None-worse-4",
+                    "direction": "worse",
+                    "original_selected_action": {
+                        "name": "Bid",
+                        "data": 8
+                    },
+                    "original_selected_index": 1,
+                    "model_baseline_index": 2,
+                    "original_eight_world_margin": 0.125,
+                    "heldout_56_world_margin": 0.03571428571428571,
+                    "heldout_block_bootstrap_95_interval": [
+                        -0.05357142857142857,
+                        0.14285714285714285
+                    ],
+                    "heldout_better_worlds": 5,
+                    "heldout_worse_worlds": 3,
+                    "heldout_equal_worlds": 48,
+                    "heldout_block_means": [
+                        -0.25,
+                        0.25,
+                        0.25,
+                        0.0,
+                        0.0,
+                        -0.25,
+                        0.0,
+                        0.0,
+                        0.0,
+                        0.5,
+                        0.0,
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "all_original_candidate_outcomes_match": true,
+                    "all_original_roles_beliefs_match": true,
+                    "rollouts": 384,
+                    "caps": 0
+                },
+                {
+                    "label": "4p-search_geo-recharged-True-better-1",
+                    "direction": "better",
+                    "original_selected_action": {
+                        "name": "ChoosePowerPlant",
+                        "data": 4
+                    },
+                    "original_selected_index": 0,
+                    "model_baseline_index": 1,
+                    "original_eight_world_margin": 0.25,
+                    "heldout_56_world_margin": -0.125,
+                    "heldout_block_bootstrap_95_interval": [
+                        -0.25,
+                        0.0
+                    ],
+                    "heldout_better_worlds": 4,
+                    "heldout_worse_worlds": 11,
+                    "heldout_equal_worlds": 41,
+                    "heldout_block_means": [
+                        -0.25,
+                        0.0,
+                        -0.25,
+                        0.0,
+                        0.25,
+                        -0.5,
+                        -0.5,
+                        -0.25,
+                        0.25,
+                        0.0,
+                        -0.25,
+                        -0.25,
+                        0.0,
+                        0.0
+                    ],
+                    "all_original_candidate_outcomes_match": true,
+                    "all_original_roles_beliefs_match": true,
+                    "rollouts": 256,
+                    "caps": 0
+                },
+                {
+                    "label": "4p-search_geo-original-True-better-8",
+                    "direction": "better",
+                    "original_selected_action": {
+                        "name": "Bid",
+                        "data": 7
+                    },
+                    "original_selected_index": 2,
+                    "model_baseline_index": 3,
+                    "original_eight_world_margin": 0.125,
+                    "heldout_56_world_margin": 0.16071428571428573,
+                    "heldout_block_bootstrap_95_interval": [
+                        0.08928571428571429,
+                        0.25
+                    ],
+                    "heldout_better_worlds": 9,
+                    "heldout_worse_worlds": 0,
+                    "heldout_equal_worlds": 47,
+                    "heldout_block_means": [
+                        0.0,
+                        0.5,
+                        0.25,
+                        0.0,
+                        0.0,
+                        0.0,
+                        0.0,
+                        0.0,
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.25
+                    ],
+                    "all_original_candidate_outcomes_match": true,
+                    "all_original_roles_beliefs_match": true,
+                    "rollouts": 384,
+                    "caps": 0
+                },
+                {
+                    "label": "2p-search_geo-recharged-True-better-1",
+                    "direction": "better",
+                    "original_selected_action": {
+                        "name": "ChoosePowerPlant",
+                        "data": 6
+                    },
+                    "original_selected_index": 0,
+                    "model_baseline_index": 1,
+                    "original_eight_world_margin": 0.25,
+                    "heldout_56_world_margin": -0.017857142857142856,
+                    "heldout_block_bootstrap_95_interval": [
+                        -0.14285714285714285,
+                        0.125
+                    ],
+                    "heldout_better_worlds": 9,
+                    "heldout_worse_worlds": 10,
+                    "heldout_equal_worlds": 37,
+                    "heldout_block_means": [
+                        0.25,
+                        0.0,
+                        -0.5,
+                        0.0,
+                        -0.25,
+                        0.5,
+                        0.25,
+                        0.25,
+                        0.0,
+                        0.0,
+                        0.0,
+                        -0.25,
+                        -0.25,
+                        -0.25
+                    ],
+                    "all_original_candidate_outcomes_match": true,
+                    "all_original_roles_beliefs_match": true,
+                    "rollouts": 256,
+                    "caps": 0
+                },
+                {
+                    "label": "6p-search_geo-recharged-True-better-9",
+                    "direction": "better",
+                    "original_selected_action": {
+                        "name": "Bid",
+                        "data": 17
+                    },
+                    "original_selected_index": 9,
+                    "model_baseline_index": 10,
+                    "original_eight_world_margin": 0.125,
+                    "heldout_56_world_margin": 0.125,
+                    "heldout_block_bootstrap_95_interval": [
+                        -0.017857142857142856,
+                        0.25
+                    ],
+                    "heldout_better_worlds": 12,
+                    "heldout_worse_worlds": 5,
+                    "heldout_equal_worlds": 39,
+                    "heldout_block_means": [
+                        0.25,
+                        0.25,
+                        0.0,
+                        0.0,
+                        0.0,
+                        0.5,
+                        0.0,
+                        0.5,
+                        0.0,
+                        -0.5,
+                        0.25,
+                        0.5,
+                        0.0,
+                        0.0
+                    ],
+                    "all_original_candidate_outcomes_match": true,
+                    "all_original_roles_beliefs_match": true,
+                    "rollouts": 384,
+                    "caps": 0
+                }
+            ],
+            "rollouts": 2304,
+            "caps": 0,
+            "new_hf_jobs": 0,
+            "gradients": false,
+            "new_strength_games": 0,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false,
+            "scope": "Test whether the original selected action beats its original model baseline on new sampled worlds, conditional on these seven public roots and unchanged continuation policies.",
+            "limitations": [
+                "All seven first-divergence roots from the fixed exact replay set. Outcome-selected diagnostics, never strength estimates.",
+                "10,000 bootstrap samples of the 14 consecutive four-world balanced-role blocks, seed 12343. Exploratory conditional simulation interval, not game strength or multiplicity-adjusted."
+            ],
+            "runner_sha256": "db1e7fe4c5d26527f35bd34eaeb7e028c1269d161b5d3af611d9ef911051b2e7",
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "467a2250d6343e20a58eb365baa0798c88294fc5",
+            "archive_path": "archives/auction-world-generalization-evidence-v1.tgz",
+            "archive_sha256": "d6ac9ff112f5be7dcc41927a919bc15806bff4e2702434bfae9e8389f6b3e1dc",
+            "manifest_sha256": "46966bd5021dc68024029c155a46b07659a5fdf52903f2e35a19d8797d0d2fb4",
+            "archived_files": 20,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "frozen_dependencies_checked": 32,
+        "final_protocol_unchanged": true,
+        "new_hf_jobs": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

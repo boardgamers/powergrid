@@ -6,7 +6,38 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 24 October, 21:27 UTC: all 8,400 hybrid-screen games verified and archived.**
+**Latest — 24 October: exact auction replays and holdout-world diagnostic complete.**
+Fourteen replayed games (seven fixed adverse/improved pairs) match their saved
+outcomes exactly: **7,083 root moves, 1,908 learner decisions**, all legal moves,
+model proposals, search seeds and public-state/economy trace checks passed.
+All 1,463 frozen runtime files are unchanged. Replays are complete, session **19372**
+exited 0. Evidence: `strong/population-auction-regression-replays-evidence-v1.json`,
+private HF revision `b51a1f40428adc6d83da9e4341165e7b8c8378bb`.
+
+At all seven first-divergence positions, a fixed-action audit expanded from 8 to
+64 sampled worlds: **2,304 terminal continuations, zero caps**, with every original
+candidate's first eight outcomes and opponent roles/beliefs reproduced exactly.
+It compared the originally chosen action against the original model action on
+the remaining 56 worlds, without reselecting those actions. **Three of seven
+advantages changed sign**, including two examples where the complete hybrid game
+had improved. The 4p original/open regression's opening advantage remained +0.125;
+the 5p Recharged/open example went +0.3125→−0.0893. These are conditional simulated
+credit differences, not win-rate improvements or causes of the complete game result.
+Session **71292** exited 0. Evidence: `strong/auction-world-generalization-evidence-v1.json`,
+private HF revision `467a2250d6343e20a58eb365baa0798c88294fc5`.
+
+**Next:** run fixed one-action counterfactuals for all seven saved first-divergence
+roots. Baseline control must reproduce the original filtered-model game; change
+only the first differing action in the paired branch, then use the same filtered
+model for all later learner decisions against unchanged actual arena opponents.
+Preserve the original deal/seat/rules and hidden engine state, but keep hidden bids
+and deck out of policy requests. This isolates an action's effect within a known
+deal; it is still diagnostic, not fresh strength. No threshold/rule routing should
+be fitted to these seven outcome-selected examples. No policy change, new HF job,
+training, candidate selection or final seed use occurred in these diagnostics.
+Both archive uploads completed; do not rerun their one-shot collectors.
+
+**Previous — 24 October, 21:27 UTC: all 8,400 hybrid-screen games verified and archived.**
 The fixed coordinator finished successfully: **135/135 batches**, zero game or
 rollout caps. Session **5513** exited 0; do not restart it or either recovery launcher.
 The unchanged full comparator reproduced exactly and all 17,797 evidence files

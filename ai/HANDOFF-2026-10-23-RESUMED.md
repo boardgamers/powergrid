@@ -25,7 +25,103 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: hybrid screen complete; auction promising, regressions prevent promotion
+## Latest checkpoint: exact auction replays and fixed-action holdout worlds
+
+The previous goal turn completed the full screen and changed the next research
+action; it was substantive progress. This turn added exact replay evidence and
+a completed conditional simulation audit. No policy, training or strength gate
+was changed, and no HF jobs were launched.
+
+`strong/replay-population-auction-regressions-v1.py` selected the lowest eligible
+episode in each of seven stated categories, retaining every eligible episode ID.
+Three adverse pairs: 4p original/open versus search, 5p Recharged/open versus search,
+3p heuristic overall. Four improved controls: 4p Recharged/sealed, 4p original/sealed,
+2p Recharged/sealed and 6p Recharged/sealed versus search. Both filter and auction
+trajectories were replayed for each pair through the immutable 1,463-file source.
+
+All **14 games, 7,083 root moves and 1,908 learner decisions** reproduce exactly.
+Checks cover terminal players/outcomes, opponent search counts, legal moves, original
+model proposals, original public search seeds, full chained economy traces, and the
+public-root correspondence for each learner decision. Every player's money/cities/
+plants match the trace; policy inputs exclude the hidden deck and sealed bids.
+`analyze-population-auction-replays-v1.py` proves that the first differing learner
+action in each pair has the same public state, legal menu and model proposal.
+All later trajectory differences remain confounded; the whole-game result is not
+the causal effect of that first action.
+
+Replay output: `ai/runs/population-auction-regression-replays-v1/`.
+Session **19372** exited 0. The separate collector repeated hash, trace-chain,
+public-root and move checks and archived 99 files with pinned download verification:
+
+- Descriptor: `strong/population-auction-regression-replays-evidence-v1.json`.
+- HF revision: `b51a1f40428adc6d83da9e4341165e7b8c8378bb`.
+- Archive: `archives/population-auction-regression-replays-evidence-v1.tgz`.
+- SHA256: `77f1eaa00e253828b8645539827f7ce65d1beeb3858b542ad608d63775579635`.
+
+The descriptive spending evidence does not support a universal overbidding fix.
+In the selected 4p original/open regression, auction search spent 211 on plants
+versus 230 for filter, and both powered 18 cities. In the selected 5p regression,
+search ended at 15 cities / 17 capacity versus filter's 16 cities / 14 capacity;
+the games ended in different rounds. These are examples, not general causal claims.
+
+`strong/probe-auction-world-generalization-v1.py` then froze all seven first-divergence
+positions, candidates, original selected actions and original model baselines before
+generating additional worlds. It used the same model/source/public seed/opponent
+mixture, 64 worlds, four JS workers and unchanged 2,400-step horizon. Every candidate's
+original eight outcomes and their roles/prior-bid beliefs matched exactly. The
+original selected action was compared to its original baseline on worlds 8–63;
+it was not reselected using those outcomes. All **2,304 continuations** completed
+with **zero caps**. This was local CPU inference, not gradient training.
+
+| Selected example | Original 8-world margin | New 56-world margin | Conditional 95% block interval |
+|---|---:|---:|---:|
+| 4p original/open regression | +0.1250 | +0.1250 | [+0.0179, +0.2321] |
+| 5p Recharged/open regression | +0.3125 | −0.0893 | [−0.2500, +0.0714] |
+| 3p heuristic regression | +0.1250 | +0.0357 | [−0.0536, +0.1429] |
+| 4p Recharged/sealed improvement | +0.2500 | −0.1250 | [−0.2500, 0.0000] |
+| 4p original/sealed improvement | +0.1250 | +0.1607 | [+0.0893, +0.2500] |
+| 2p Recharged/sealed improvement | +0.2500 | −0.0179 | [−0.1429, +0.1250] |
+| 6p Recharged/sealed improvement | +0.1250 | +0.1250 | [−0.0179, +0.2500] |
+
+These margins are simulated terminal-credit differences conditional on selected
+public states and the existing continuation model. Intervals resample 14 balanced
+four-world blocks (10,000 draws, seed 12343); they are exploratory, not multiplicity
+adjusted, not calibrated win probabilities and not fresh game-strength evidence.
+Three signs reversed, including two improved whole-game examples. Thus eight-world
+values can be unstable, but this does not explain every policy loss or justify an
+uncertainty threshold fitted to these seven examples. More samples alone have not
+been established as a strength improvement.
+
+World-audit output: `ai/runs/auction-world-generalization-v1/`.
+Session **71292** exited 0. The diagnostic checks were repeated from saved outcomes;
+twenty evidence files were uploaded with pinned-download verification:
+
+- Protocol SHA: `ffd05be775f21dbb9961608bb1e536b238e4953ec1459606fd09a866c4053119`.
+- Descriptor: `strong/auction-world-generalization-evidence-v1.json`.
+- HF revision: `467a2250d6343e20a58eb365baa0798c88294fc5`.
+- Archive: `archives/auction-world-generalization-evidence-v1.tgz`.
+- SHA256: `d6ac9ff112f5be7dcc41927a919bc15806bff4e2702434bfae9e8389f6b3e1dc`.
+
+Both one-shot uploads completed; do not rerun them. Preparation initially rejected
+a nonexistent dependency path before creating its output directory; correcting the
+path to `ai/strong/feature_contract.py` allowed preparation. No policy/runtime change
+or failed simulation was involved.
+
+**Next concrete diagnostic:** all seven first-action counterfactual pairs. Recreate
+the original full engine state from the fixed deal and saved prefix, verify the
+same public root, then compare (a) the filtered model throughout, requiring exact
+reproduction of its saved reference, and (b) only the first search-selected action
+followed by the filtered model for all subsequent decisions. Keep actual frozen
+arena opponent policies, rules, seat and game seed identical. Do not expose actual
+hidden deck/bids to the policy or use this known-deal intervention for strength
+claims. This distinguishes a first-move effect from later search decisions;
+opponent-model mismatch and repeated replanning remain hypotheses to investigate.
+Only then decide whether a separately frozen confidence/continuation improvement
+is ready for fresh development. Resource replanning remains separately unlaunched.
+No candidate selected, no final seeds or final qualification; the final-adapter
+requirements and original strength gate remain unchanged.
+
+## Previous checkpoint: hybrid screen complete; auction promising, regressions prevent promotion
 
 At **2026-10-24 21:27:05 UTC**, the coordinator reached `comparison_complete`,
 **135/135 verified batches and 8,400 games**, and session **5513** exited 0.

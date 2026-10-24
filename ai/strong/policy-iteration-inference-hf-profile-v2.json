@@ -1,0 +1,149 @@
+{
+  "verified": true,
+  "job_id": "6adc0c1d046eb82b1ecd9459",
+  "source": {
+    "archive": "strong-source-policy-iteration-inference-profile-20261024-v2.tgz",
+    "revision": "905504b868e14c78889b618add91fde57ae373a5",
+    "sha256": "0a02ef10be12d64ac6f5fc05bcdec1297fd6e651dc9db390e041e7cedb27579c",
+    "bytes": 109282531,
+    "base": {
+      "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+      "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+      "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+    },
+    "overlays": {
+      "ai/strong/profile-policy-iteration-inference.py": "4f40079ee483df379fc05abb67cdfb7fb0bc72a8b09904488cf84765b1dbd5ac",
+      "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9",
+      "ai/strong/policy-iteration-inference-profile-protocol-v2.json": "468dd3576b8dae3d91748950d416ce1514408efe09589286cc8004d80ee4e58e"
+    },
+    "unchanged_base_files": 1430,
+    "protocol_sha256": "468dd3576b8dae3d91748950d416ce1514408efe09589286cc8004d80ee4e58e",
+    "qualification_eligible": false
+  },
+  "revision": "c777f3d7a1d510713fa8a491216c786c0488a2ca",
+  "prefix": "runs/policy-iteration-inference-hf-profile-v2",
+  "rollouts": 3072,
+  "full_continuation_cases": 4,
+  "cases": [
+    {
+      "rootId": "policy-v2:2:parent:snapshot0:57:5",
+      "players": 2,
+      "mode": "neural",
+      "samples": 96,
+      "rollouts_per_condition": 384,
+      "all_outcomes_identical": true,
+      "choice_trace": {
+        "calls": 315,
+        "decisions": 98860,
+        "choice_transcript_sha256": "15898955011b5fd73a0bbcb887884e058fe9e8774decc92eaa8a99cb887bea8b"
+      },
+      "serial": {
+        "seconds": 63.75660534200006,
+        "engine_seconds": 18.752556166998147,
+        "policy_seconds": 43.43784621199711,
+        "policy_decisions": 98860
+      },
+      "concurrent": {
+        "seconds": 37.93037068099966,
+        "engine_seconds": 18.69884657500188,
+        "policy_seconds": 17.747373404001337,
+        "policy_decisions": 98860
+      },
+      "wall_speedup": 1.6808853748939885,
+      "policy_speedup": 2.4475647873731883
+    },
+    {
+      "rootId": "policy-v2:2:parent:snapshot0:57:5",
+      "players": 2,
+      "mode": "neural_economic",
+      "samples": 96,
+      "rollouts_per_condition": 384,
+      "all_outcomes_identical": true,
+      "choice_trace": {
+        "calls": 167,
+        "decisions": 50397,
+        "choice_transcript_sha256": "91a9423107b6029bcd128e2fc6ea07a5ac9359e6b39d6054c836244f9de67cef"
+      },
+      "serial": {
+        "seconds": 33.75197365699978,
+        "engine_seconds": 9.90956804699863,
+        "policy_seconds": 22.887363221997475,
+        "policy_decisions": 50397
+      },
+      "concurrent": {
+        "seconds": 20.031340263999937,
+        "engine_seconds": 9.842919251002058,
+        "policy_seconds": 9.261976972001776,
+        "policy_decisions": 50397
+      },
+      "wall_speedup": 1.6849583309040177,
+      "policy_speedup": 2.4711099251471005
+    },
+    {
+      "rootId": "policy-v2:6:11102:economic:169:6",
+      "players": 6,
+      "mode": "neural",
+      "samples": 96,
+      "rollouts_per_condition": 384,
+      "all_outcomes_identical": true,
+      "choice_trace": {
+        "calls": 647,
+        "decisions": 205388,
+        "choice_transcript_sha256": "4fc3fc2450070fca4767c7e0acdc588c2866d5a9d66a0a51671ea7774cfa2fd9"
+      },
+      "serial": {
+        "seconds": 171.30458163599997,
+        "engine_seconds": 48.48862543299356,
+        "policy_seconds": 119.37974146199394,
+        "policy_decisions": 205388
+      },
+      "concurrent": {
+        "seconds": 101.06841510099957,
+        "engine_seconds": 47.97152761999632,
+        "policy_seconds": 49.52151900999843,
+        "policy_decisions": 205388
+      },
+      "wall_speedup": 1.6949368550482569,
+      "policy_speedup": 2.4106639668684453
+    },
+    {
+      "rootId": "policy-v2:6:11102:economic:169:6",
+      "players": 6,
+      "mode": "neural_economic",
+      "samples": 96,
+      "rollouts_per_condition": 384,
+      "all_outcomes_identical": true,
+      "choice_trace": {
+        "calls": 125,
+        "decisions": 33671,
+        "choice_transcript_sha256": "a3fdce1fbb4d6d466d7ea66384c3430e2e65b6795707c9f851a32bb2349d57f5"
+      },
+      "serial": {
+        "seconds": 29.506340924000142,
+        "engine_seconds": 8.551710255996568,
+        "policy_seconds": 20.11732051600029,
+        "policy_decisions": 33671
+      },
+      "concurrent": {
+        "seconds": 17.826448775000244,
+        "engine_seconds": 8.574479228995187,
+        "policy_seconds": 8.39708265299987,
+        "policy_decisions": 33671
+      },
+      "wall_speedup": 1.6552001633314506,
+      "policy_speedup": 2.3957511611265785
+    }
+  ],
+  "microbenchmark_positions": 2553,
+  "all_microbenchmark_raw_outputs_identical": true,
+  "wall_speedup": 1.6867877366783561,
+  "cpu_count": 32,
+  "affinity_count": 32,
+  "artifact_sha256": {
+    "profile.json": "07219f1aab8e1b5893d18af5f9e132b5b438e80c8c668d00af23c96b84a35c1d",
+    "microbenchmark.json": "c33d5bcaae40bfc502498dcda356cd7ee2685b8fd4906350e094d5d2d6713418",
+    "continuations.jsonl.gz": "c4c4050ca30b7fd5c1efe3b7745aa75879ad8b6a9853f266e767a712114eba3c"
+  },
+  "scope": "HF CPU inference-concurrency experiment; exact logged policy-choice transcripts checked inside the frozen worker, terminal data and pairing independently checked here. Not gradients, an8840U benchmark, or model strength.",
+  "qualification_eligible": false
+}

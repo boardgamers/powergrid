@@ -1,0 +1,22 @@
+{
+  "root_ids": [
+    "policy-v2:2:parent:snapshot0:57:5",
+    "policy-v2:6:11102:economic:169:6"
+  ],
+  "teacher_protocol_sha256": "b9fc9807172a518b019a5bdc30f6cb1b04b643c75adc7af9d0f6ac59f9678bce",
+  "threads": [
+    1,
+    4
+  ],
+  "fixed_inference_batch": 64,
+  "modes": [
+    "neural",
+    "neural_economic"
+  ],
+  "samples": 96,
+  "control_samples": 2,
+  "max_steps": 2400,
+  "workers": 24,
+  "purpose": "Inference-only concurrency profiling; require exact full policy-choice transcripts and terminal outcomes. No trained model or teacher change is admitted by this experiment.",
+  "qualification_eligible": false
+}

@@ -1,0 +1,51 @@
+{
+  "positions": 2553,
+  "model_sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+  "fixtures_sha256": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+  "feature_revision": "4.2-discard-correction",
+  "platform": "Linux-6.17.0-14-generic-x86_64-with-glibc2.39",
+  "times_seconds": {
+    "1": [
+      1.1435676740074996,
+      1.2358131039945874,
+      1.1584794590016827,
+      1.1609868139785249
+    ],
+    "2": [
+      0.6692663209978491,
+      0.7360035840247292,
+      0.6723552289768122,
+      0.7608818009903189
+    ],
+    "4": [
+      0.4509341330267489,
+      0.5126331330102403,
+      0.47760231400025077,
+      0.4867904679849744
+    ],
+    "8": [
+      0.3821245360013563,
+      0.36993828701088205,
+      0.3689883329789154,
+      0.37935178200132214
+    ]
+  },
+  "median_seconds": {
+    "1": 1.1597331364901038,
+    "2": 0.7041794065007707,
+    "4": 0.4821963909926126,
+    "8": 0.3746450345061021
+  },
+  "speedup": {
+    "1": 1.0,
+    "2": 1.6469285039917374,
+    "4": 2.4051053847640085,
+    "8": 3.095551868234395
+  },
+  "fixed_batch_size": 64,
+  "all_decisions_identical": true,
+  "all_raw_outputs_identical": true,
+  "scope": "Local CPU inference microbenchmark only, not full-game teacher throughput, HF performance, 8840U acceptance, gradients, or model strength.",
+  "gradients": false,
+  "qualification_eligible": false
+}

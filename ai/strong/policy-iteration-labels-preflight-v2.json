@@ -1,0 +1,140 @@
+{
+  "passed": true,
+  "source": {
+    "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+    "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+    "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+    "bytes": 109402244,
+    "base": {
+      "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+      "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+      "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+    },
+    "overlays": {
+      "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+      "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+      "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+      "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+    },
+    "unchanged_base_files": 1430,
+    "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+    "qualification_eligible": false
+  },
+  "controls": {
+    "passed": true,
+    "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+    "model_sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+    "planned_root_mode_pairs": 34560,
+    "new_root_mode_pairs": 33840,
+    "reused_root_mode_pairs": 720,
+    "control_cases": [
+      {
+        "rootId": "policy-v2:2:parent:snapshot0:71:16",
+        "decision": "nomination",
+        "mode": "neural",
+        "players": 2,
+        "rollouts": 16,
+        "exact_pilot_prefix": true,
+        "labels_sha256": "3f90b9f6c6350f76ee7cc597f83318af431e5d8ff4fe8fe85867fc506a33fc7b"
+      },
+      {
+        "rootId": "policy-v2:2:parent:snapshot0:71:16",
+        "decision": "nomination",
+        "mode": "neural_economic",
+        "players": 2,
+        "rollouts": 16,
+        "exact_pilot_prefix": true,
+        "labels_sha256": "6e2268c0adf754b931576389484ab901b7f1da1f2fa24132e544348ed3db2c06"
+      },
+      {
+        "rootId": "policy-v2:2:11102:snapshot0:1:25",
+        "decision": "bid",
+        "mode": "neural",
+        "players": 2,
+        "rollouts": 24,
+        "exact_pilot_prefix": true,
+        "labels_sha256": "b96ddc1bfd82aa3025286601ba2059627d036344e9c2080b6352494d820b7c4d"
+      },
+      {
+        "rootId": "policy-v2:2:11102:snapshot0:1:25",
+        "decision": "bid",
+        "mode": "neural_economic",
+        "players": 2,
+        "rollouts": 24,
+        "exact_pilot_prefix": true,
+        "labels_sha256": "82ba0c6c45980f1af0684a75e0879e0971d9a58dc695f2dbeb401873a8724afc"
+      },
+      {
+        "rootId": "policy-v2:6:parent:snapshot0:346:24",
+        "decision": "bid",
+        "mode": "neural",
+        "players": 6,
+        "rollouts": 24,
+        "exact_pilot_prefix": true,
+        "labels_sha256": "db0c468ca213f9cb37b3cf6153ce286ba8de819d9ae3b6c8345956134ba6f2de"
+      },
+      {
+        "rootId": "policy-v2:6:parent:snapshot0:346:24",
+        "decision": "bid",
+        "mode": "neural_economic",
+        "players": 6,
+        "rollouts": 24,
+        "exact_pilot_prefix": true,
+        "labels_sha256": "a1dcc7278242f53b2a9a6c76d6dce930987e20c6e919d821de3a249fa0322c3a"
+      },
+      {
+        "rootId": "policy-v2:6:parent:snapshot0:257:4",
+        "decision": "building",
+        "mode": "neural",
+        "players": 6,
+        "rollouts": 28,
+        "exact_pilot_prefix": true,
+        "labels_sha256": "902690e86a1d5b2bf0b22fec47a9f17e54e1ca5cecd033a05ec4d1cd783a3165"
+      },
+      {
+        "rootId": "policy-v2:6:parent:snapshot0:257:4",
+        "decision": "building",
+        "mode": "neural_economic",
+        "players": 6,
+        "rollouts": 28,
+        "exact_pilot_prefix": true,
+        "labels_sha256": "e35ac9c269201ed9b067b93be024c15d93c41715c8bce71c6561a852c2518493"
+      },
+      {
+        "rootId": "policy-v2:2:parent:snapshot0:119:11",
+        "players": 2,
+        "mode": "neural",
+        "new_root_routing": true,
+        "rollouts": 20,
+        "labels_sha256": "371070f5947fad9876be315213edfd44b649e3b7f12debb7e79bc0c6e3f96964"
+      },
+      {
+        "rootId": "policy-v2:6:parent:snapshot0:289:27",
+        "players": 6,
+        "mode": "neural_economic",
+        "new_root_routing": true,
+        "rollouts": 8,
+        "labels_sha256": "e0c5614389e09d0331579d070e0f4779e4cbbb6a07f46e1f128ee5a652d92a6e"
+      },
+      {
+        "rootId": "policy-v2:6:11101:snapshot0:172:34",
+        "players": 6,
+        "mode": "neural",
+        "exact_full_96_world_pilot": true,
+        "rollouts": 1152,
+        "labels_sha256": "1d2b61beb60ac5615f62c5d9ba161757e2e4fa8985c45ea01dcdabffb30b7e00"
+      }
+    ],
+    "rollouts": 1364,
+    "exact_pilot_controls": 8,
+    "new_root_controls": 2,
+    "full_96_world_pilot_controls": 1,
+    "gradients": false,
+    "qualification_eligible": false
+  },
+  "logs": {
+    "ai/runs/full-label-source-checks-v2/preflight.log": "1b62d7fafbdec8e501a1680664cc112a312e578abf20e623381af7ebe4d595b0"
+  },
+  "gradients": false,
+  "qualification_eligible": false
+}

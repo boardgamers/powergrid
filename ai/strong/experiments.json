@@ -43696,10 +43696,9 @@
         },
         "pilot_jobs_submitted": 60,
         "planned_pilot_rollouts": 705408,
-        "pilot_status_checked_at": "2026-10-24T01:15:48.386961+00:00",
+        "pilot_status_checked_at": "2026-10-24T01:52:47.589756+00:00",
         "pilot_status_counts": {
-            "RUNNING": 41,
-            "COMPLETED": 19
+            "COMPLETED": 60
         },
         "pilot_launch_evidence": {
             "revision": "25e42c503449e8f69601aa4eb0225640bcad3f78",
@@ -43715,9 +43714,9 @@
         "trained": false,
         "qualification_eligible": false,
         "final_seeds_used": false,
-        "next": "Collect and independently verify all existing pilot jobs including exact first2 probe trajectories; assess conditional label quality without qualification claims. Separately freeze full-data labels and HF-only training design; fresh development and reserved final seeds unchanged.",
-        "verified_pilot_cases": 19,
-        "verified_pilot_rollouts": 223296,
+        "next": "Pilot complete. Follow policy_iteration_labels_v2; all adverse cells retained. Conditional gains are not model strength.",
+        "verified_pilot_cases": 60,
+        "verified_pilot_rollouts": 705408,
         "partial_pilot_evidence": {
             "revision": "39c34c637642fcbc2ee340eefca2d4228b97df29",
             "prefix": "runs/policy-iteration-teacher-pilot-partial-evidence-v2",
@@ -43729,6 +43728,136 @@
             "qualification_eligible": false
         },
         "pilot_results": "ai/strong/policy-iteration-teacher-pilot-results-v2.json",
-        "partial_throughput": "ai/strong/policy-iteration-teacher-throughput-partial-v2.json"
+        "partial_throughput": "ai/strong/policy-iteration-teacher-throughput-partial-v2.json",
+        "complete_pilot_evidence": {
+            "revision": "c01dd8c0498d53f3f2723bb5658f98633511f10f",
+            "prefix": "runs/policy-iteration-teacher-pilot-complete-evidence-v2",
+            "manifest_sha256": "6dbb129afd66299a5cc5c649e61b8b1c126dd92e72ddf6855383353df004e237",
+            "file_count": 130,
+            "complete_cases": 60,
+            "rollouts": 705408,
+            "assessment_sha256": "6b0d6f9b0f2154f2a6d58b2fe97480c30a972ad760b6b6e92d4a85b471961351",
+            "trained": false,
+            "qualification_eligible": false
+        },
+        "pilot_assessment": "ai/strong/policy-iteration-teacher-pilot-assessment-v2.json",
+        "pilot_intersections": "ai/strong/policy-iteration-teacher-pilot-intersections-v2.json",
+        "complete_throughput": "ai/strong/policy-iteration-teacher-throughput-complete-v2.json"
+    },
+    "policy_iteration_inference_profile_v2": {
+        "date": "2026-10-24",
+        "status": "Complete and independently verified; four fixed concurrent batches adopted in the full-data source",
+        "source": {
+            "archive": "strong-source-policy-iteration-inference-profile-20261024-v2.tgz",
+            "revision": "905504b868e14c78889b618add91fde57ae373a5",
+            "sha256": "0a02ef10be12d64ac6f5fc05bcdec1297fd6e651dc9db390e041e7cedb27579c",
+            "bytes": 109282531,
+            "base": {
+                "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+                "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+                "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+            },
+            "overlays": {
+                "ai/strong/profile-policy-iteration-inference.py": "4f40079ee483df379fc05abb67cdfb7fb0bc72a8b09904488cf84765b1dbd5ac",
+                "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9",
+                "ai/strong/policy-iteration-inference-profile-protocol-v2.json": "468dd3576b8dae3d91748950d416ce1514408efe09589286cc8004d80ee4e58e"
+            },
+            "unchanged_base_files": 1430,
+            "protocol_sha256": "468dd3576b8dae3d91748950d416ce1514408efe09589286cc8004d80ee4e58e",
+            "qualification_eligible": false
+        },
+        "job_id": "6adc0c1d046eb82b1ecd9459",
+        "local_profile": "ai/strong/policy-iteration-inference-local-profile-v2.json",
+        "preflight": "ai/strong/policy-iteration-inference-profile-preflight-v2.json",
+        "launch_evidence": {
+            "revision": "5930e5ae5d7d316dcdca63db34c75fac295bc4e6",
+            "prefix": "runs/policy-iteration-inference-profile-launch-evidence-v2",
+            "manifest_sha256": "d3a411ca0517bbed9458b0a86d177e82516f68480bb52d51d379c36fc7a3ffd6",
+            "file_count": 10,
+            "job_id": "6adc0c1d046eb82b1ecd9459",
+            "qualification_eligible": false
+        },
+        "local_fixture_raw_parity_positions": 2553,
+        "small_control_rollouts": 64,
+        "planned_full_control_rollouts": 3072,
+        "gradients": false,
+        "qualification_eligible": false,
+        "next": "Completed; never relaunch. Exact helper is pinned by the full-data protocol and source.",
+        "verified_report": "ai/strong/policy-iteration-inference-hf-profile-v2.json",
+        "complete_evidence": {
+            "revision": "32dc9270fea8a850b08ba15db2b5eb6442bdc0ff",
+            "prefix": "runs/policy-iteration-inference-profile-complete-evidence-v2",
+            "manifest_sha256": "025e18add1702213fce1016239f32f7747ac65503cab8b16561315c7ae5977ff",
+            "file_count": 9,
+            "full_control_rollouts": 3072,
+            "qualification_eligible": false
+        },
+        "full_control_rollouts": 3072,
+        "wall_speedup": 1.6867877366783561
+    },
+    "policy_iteration_labels_v2": {
+        "date": "2026-10-24",
+        "status": "Full protocol/source frozen and preflight passed; first60 HF jobs launched, remaining888 gated on first-wave verification",
+        "planned_roots": 17280,
+        "planned_reused_pilot_roots": 360,
+        "new_root_mode_pairs": 33840,
+        "tests": "ai/strong/policy-iteration-label-plan-contracts-v2.json",
+        "gates": [
+            "All60 pilot cases independently verified and complete assessment reviewed",
+            "HF fixed-batch concurrency profile independently verified",
+            "Immutable full-data protocol/source and actual wrapper preflight",
+            "First60 full-data shards independently verified before remaining shards"
+        ],
+        "trained": false,
+        "qualification_eligible": false,
+        "source": {
+            "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+            "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+            "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+            "bytes": 109402244,
+            "base": {
+                "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+                "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+                "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+            },
+            "overlays": {
+                "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+                "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+                "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+                "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+            },
+            "unchanged_base_files": 1430,
+            "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+            "qualification_eligible": false
+        },
+        "protocol": "ai/strong/policy-iteration-labels-protocol-v2.json",
+        "planned_total_shards": 948,
+        "first_wave_jobs_submitted": 60,
+        "first_wave_new_root_mode_pairs": 3318,
+        "first_wave_distinct_new_roots": 2538,
+        "status_checked_at": "2026-10-24T02:01:22.708263+00:00",
+        "status_counts": {
+            "SCHEDULING": 27,
+            "RUNNING": 33
+        },
+        "preflight": "ai/strong/policy-iteration-labels-preflight-v2.json",
+        "preflight_rollouts": 1364,
+        "launch_evidence": {
+            "revision": "075183b8d5733737a43e47db6759ec02e62b9c63",
+            "prefix": "runs/policy-iteration-labels-launch-evidence-v2",
+            "manifest_sha256": "e94c807552b8bdb86c0df68bc0e40d3d74199de2fc66de7da276fd1bf938f2d5",
+            "file_count": 78,
+            "first_wave_jobs": 60,
+            "new_root_mode_pairs": 3318,
+            "planned_total_shards": 948,
+            "qualification_eligible": false
+        },
+        "inference_threads": 4,
+        "fixed_inference_batch": 64,
+        "engine_workers": 24,
+        "timeout_hours": 8,
+        "complete_new_shards": 0,
+        "verified_reused_root_mode_pairs": 720,
+        "next": "Inspect existing handles, collect completed shards independently, summarize. After all60 first shards verify, launch the remaining planned shards without duplicates. Design next HF-only training separately; fresh development and final seeds unused."
     }
 }

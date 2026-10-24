@@ -5,24 +5,20 @@ The goal remains active. No candidate has passed the strength gate, no AI is
 published, and the reserved final-test seeds remain unused.
 
 Latest continuation made **progress**:
-- Complete fresh collection: **7,680 games / 383,135 independently verified
-  public positions**, 2–6 players, both editions and open/sealed auctions.
-- **17,280 balanced positions frozen** (12,960 train / 4,320 validation),
-  with no duplicate public/model inputs across splits and no quota fallback.
-- All **60 teacher runtime probes** passed: 14,696 full continuations.
-- All **60 larger teacher-pilot jobs** are submitted: 705,408 planned
-  continuations using public policy-consistent sealed bids and fixed parent
-  continuations. At 2026-10-24T01:15:48.386961+00:00: {'RUNNING': 41, 'COMPLETED': 19}.
-- First **223,296 pilot continuations** independently verified (19 cases);
-  the rest remain pending. No local collector is currently active.
-- No new gradients have started. Both earlier strategic candidates remain
-  rejected after the complete 20,160-game development screen.
+- All 60 teacher pilot jobs completed and verified: **705,408 continuations**.
+  Conditional cross-batch gains are positive on average at every player count;
+  adverse individual/intersection results remain included. This is not model strength.
+- HF inference-concurrency comparison passed: **1.69x faster end to end**, exact
+  choice/outcome checks on 3,072 continuations and raw-score parity on 2,553 fixtures.
+- Full **17,280-position** label plan and source frozen; 360 pilot positions reused.
+- **First 60 of 948 planned HF labeling shards submitted**, 3,318 new root/mode pairs.
+  At `2026-10-24T02:01:22.708263+00:00`: `{'SCHEDULING': 27, 'RUNNING': 33}`.
+  Remaining 888 shards require all first-wave verification. No local collector active.
+- No new gradients or qualified model. Old 11101/11102 candidates remain rejected.
 
-Use `manage-policy-iteration-teacher.py pilot status/collect/summarize`, then
-`pilot assess` only when all cases verify. Do not relaunch completed probes or
-live pilot jobs. Exact source pins, handles, evidence archives, verification
-requirements and the ordered continuation are in the handoff. The next larger
-data-labeling and HF training designs still need separate admission.
+Use `manage-policy-iteration-labels.py status/collect/summarize`. Never relaunch
+old pilot/profile jobs or duplicate live full-data jobs. Exact source pins,
+handles, evidence archives, verification and remaining-wave commands are in the handoff.
 
 ---
 

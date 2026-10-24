@@ -28,7 +28,114 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: balanced data complete; larger teacher pilot running
+## Latest checkpoint: full pilot verified; larger labeling wave launched
+
+This goal turn made **progress**: completed and assessed the full pilot, measured
+and verified faster inference, froze the full-data source, and launched its
+first 60 HF jobs. The goal remains active. **No new gradient training, qualified
+model, production publication, or reserved final-test use.** Both old strategic
+candidates remain rejected by the complete 20,160-game screen.
+
+### Completed pilot and label quality
+
+All 60 original pilot jobs are COMPLETED and independently verified:
+**360 positions / 705,408 full continuations**, with exact recorded first-two
+probe outcomes, steps and beliefs. The complete pilot evidence is at model-repo
+revision `c01dd8c0498d53f3f2723bb5658f98633511f10f`, prefix `runs/policy-iteration-teacher-pilot-complete-evidence-v2`.
+
+At the fixed .025 margin, disjoint A-select/B-evaluate (then reversed) yields
+mean conditional simulated gain .03871166 terminal win credit; validation
+positions 0.05881305. All five marginal player-count means are positive.
+There are still **36 negative changed directions out of 231 changes**, and
+six negative count/decision/edition/auction intersections beyond numerical
+roundoff. Every adverse result is retained. These six-root intersection cells
+are descriptive, not confidence statements. Batch choice agreement is 76.1%.
+**These are simulated label diagnostics, not whole-game model improvements.**
+Reports: `policy-iteration-teacher-pilot-assessment-v2.json` and
+`policy-iteration-teacher-pilot-intersections-v2.json`. All old pilot and probe
+jobs are finished; do not relaunch them.
+
+### Verified throughput improvement
+
+HF profiling job `6adc0c1d046eb82b1ecd9459` is COMPLETED, not running.
+Four concurrent inference batches retain the same 64-row batches, with the
+same frozen parent, full simulation horizon and engine. The HF checks compared
+all raw scores/values on **2,553 fixtures**, and exact complete model-choice
+transcripts plus terminal outcomes on **3,072 continuations**, 2p/6p and both
+continuation modes. End-to-end wall speedup: **1.6868x** overall (1.655–1.695x
+across the four cases); inference alone roughly 2.4x. The HF CPU had 32 CPUs
+in its affinity. This is not an AMD 8840U serving benchmark or model strength.
+
+- Raw profile revision `c777f3d7a1d510713fa8a491216c786c0488a2ca`, prefix `runs/policy-iteration-inference-hf-profile-v2`.
+- Complete evidence revision `32dc9270fea8a850b08ba15db2b5eb6442bdc0ff`, prefix
+  `runs/policy-iteration-inference-profile-complete-evidence-v2`.
+- The exact tested helper is included in the full-data source; do not edit it
+  or any other frozen overlay. The old pilot engine/evaluator files stay intact.
+- Clarification: prior pilot “trajectory” wording referred to complete recorded
+  terminal records, steps, outcomes and initial beliefs. The concurrency profile
+  additionally hashes every model choice and call boundary.
+
+### Live larger labeling work
+
+The full dataset is still exactly **17,280 positions** (12,960 train / 4,320
+validation). It reuses the original 360 pilot positions and all their immutable
+pins. The 16,920 remaining positions require 33,840 new root/mode pairs, partitioned
+into **948 planned shards**. Every selected position remains included; no gain,
+uncertainty or disagreement filtering.
+
+- **First 60 shards submitted**, one per count/behavior/source-opponent/mode.
+  They contain 3,318 new root/mode pairs, 2,538 distinct new positions.
+- At `2026-10-24T02:01:22.708263+00:00`: `{'SCHEDULING': 27, 'RUNNING': 33}`.
+  Inspect these exact handles before recovery. Scheduling/quiet logs are not
+  failures; do not duplicate jobs. No local collector is currently running.
+- Each job: cpu-performance, 24 engine workers, four concurrent fixed inference
+  batches, **8h timeout**. The plan conservatively uses the slower serial pilot:
+  twice the slowest same-count/mode A+B position, plus 600s overhead, within 75%
+  of the timeout. Max projected cost is 21,540.42s. No horizon is shortened.
+- The remaining **888 shards are blocked by a launch guard until all first 60
+  independently verify**. A deliberate dry admission attempt was rejected.
+- Source preflight passed **1,364 full continuations**: eight exact pilot-prefix
+  cases, two genuinely new root-routing cases, and one production-size 96-world
+  A/B case exactly matching the old serial pilot terminal records. All 34,560
+  total root/mode assignments are covered exactly once including reused data.
+- Source dataset revision `716d70b1e8049c95f9575cd27799c9359e7b3e7a`.
+  Archive `strong-source-policy-iteration-labels-20261024-v2.tgz`.
+  SHA256 `aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598`.
+  All 1,430 base files unchanged; four new frozen overlays.
+- Protocol SHA256 `9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271`.
+- Launch/admission evidence revision `075183b8d5733737a43e47db6759ec02e62b9c63`, prefix
+  `runs/policy-iteration-labels-launch-evidence-v2` (78 files).
+
+```bash
+ai/.venv/bin/python ai/strong/manage-policy-iteration-labels.py status
+ai/.venv/bin/python ai/strong/manage-policy-iteration-labels.py collect
+ai/.venv/bin/python ai/strong/manage-policy-iteration-labels.py summarize
+# Only once every first-wave shard verifies; dry-run first:
+ai/.venv/bin/python ai/strong/manage-policy-iteration-labels.py launch --wave remaining
+ai/.venv/bin/python ai/strong/manage-policy-iteration-labels.py launch --wave remaining --execute
+```
+
+The launcher supports `--limit N` to submit a subset of pending planned shards;
+existing guards prevent duplicate submissions. Paths:
+`ai/runs/policy-iteration-labels-launches-v2`,
+`ai/runs/policy-iteration-labels-verified-v2`,
+`ai/runs/policy-iteration-labels-collector-v2` (created on collection),
+`strong/policy-iteration-labels-status-v2.json` and
+`strong/policy-iteration-labels-results-v2.json`.
+The source builder and launch process have finished. No local collector is
+active. Results currently contain only the 720 reused pilot root/mode pairs;
+none of the new first-wave shards has been independently collected yet.
+
+Next: verify the existing first wave; admit/finish remaining labels; then freeze
+an HF-only gradient-training design and evaluate fresh models on untouched
+`policy-iteration-development-v2` deals. No new training design is frozen yet.
+Actual full-game strength and an exact-model AMD 8840U benchmark still gate
+qualification. The final protocol SHA256 remains
+`7f0336c8784faf8f18e046b95b88e0ab1be7c2de1c0ec4d3eec96f0a415286ce`;
+the reserved final seeds are unspent. The original teacher manifest also remains
+byte-identical (`6135dba264e18bdc0d8002ca50719bb3340f94b05e22221812864295fe651e57`).
+
+## Historical: balanced data complete; larger teacher pilot running
 
 The previous goal turn made **progress** (complete old evaluations and new
 collection/selection machinery). This turn also made **progress**: all fresh

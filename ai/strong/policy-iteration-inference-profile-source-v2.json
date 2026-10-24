@@ -1,0 +1,19 @@
+{
+  "archive": "strong-source-policy-iteration-inference-profile-20261024-v2.tgz",
+  "revision": "905504b868e14c78889b618add91fde57ae373a5",
+  "sha256": "0a02ef10be12d64ac6f5fc05bcdec1297fd6e651dc9db390e041e7cedb27579c",
+  "bytes": 109282531,
+  "base": {
+    "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+    "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+    "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+  },
+  "overlays": {
+    "ai/strong/profile-policy-iteration-inference.py": "4f40079ee483df379fc05abb67cdfb7fb0bc72a8b09904488cf84765b1dbd5ac",
+    "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9",
+    "ai/strong/policy-iteration-inference-profile-protocol-v2.json": "468dd3576b8dae3d91748950d416ce1514408efe09589286cc8004d80ee4e58e"
+  },
+  "unchanged_base_files": 1430,
+  "protocol_sha256": "468dd3576b8dae3d91748950d416ce1514408efe09589286cc8004d80ee4e58e",
+  "qualification_eligible": false
+}

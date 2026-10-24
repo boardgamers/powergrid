@@ -1,0 +1,20 @@
+{
+  "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+  "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+  "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+  "bytes": 109402244,
+  "base": {
+    "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+    "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+    "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+  },
+  "overlays": {
+    "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+    "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+    "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+    "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+  },
+  "unchanged_base_files": 1430,
+  "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+  "qualification_eligible": false
+}

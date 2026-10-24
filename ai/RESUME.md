@@ -6,6 +6,24 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
+**Latest: four-player search gains are now independently verified.** In the
+new 25-cell complete subset (30,080 games, 16 deals/cell), frozen-1 rises from
+30.86% to 51.56% overall against search and from 15.63% to 39.06% in Recharged
+sealed. Candidate search is still off. All four models, adverse cells and rule
+views remain; five-/six-player search are pending. Four-player legacy remains
+below the 90% point floor for every model. No selection or qualification.
+See `strong/policy-iteration-interim-complete-cells-evidence-v2.json`.
+
+**Fuel-market/endgame failures are reproduced.** All 49 fixed diagnostic games
+replay exactly with both observers; the enhanced observer records every root
+move and verifies state continuity. One loss builds to 19 cities with capacity
+16 but fuel for 10 because coal is already sold out. Plan realistic resource-
+consuming opponent continuations and inspect resource policy/endgame timing
+before scaling hybrid samples. Selected examples are not prevalence estimates
+or causal interventions. Evidence: `strong/policy-iteration-terminal-economy-evidence-v1.json`.
+All diagnostic processes are complete and archived. Keep the one live recovery
+coordinator; finish the full comparison before further training or selection.
+
 **New complete-cell evidence shows substantial three-player gains.** Against
 search, frozen-0/frozen-1 rise from the parent's 20.31% win share to 40.10%/44.79%;
 against a260 they rise from 34.38% to 48.44%/46.35%. This contradicts a blanket

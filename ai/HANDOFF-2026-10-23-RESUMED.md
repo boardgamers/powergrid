@@ -25,7 +25,109 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: substantial complete-cell strength gains, with regressions retained
+## Latest checkpoint: four-player gains verified; fuel-market failures reproduced
+
+Previous goal turn: verified wait on the live recovery coordinator. This turn:
+progress through additional complete-cell verification and exact diagnostic replays.
+No new HF jobs, training updates, model selection or final-test games were started.
+
+Six previously missing cells are now complete in all five arms. The new fixed
+cutoff is 2026-10-24T12:10:34.702104+00:00: **25/27 cells, 30,080 games, 6,016 per arm**.
+This includes all four-player search games (16 independent deals, all seats,
+all four rules). Five- and six-player search are still incomplete in this snapshot.
+All previous cells, all four candidates, adverse results and eight paired
+contrasts remain in the full report. No incomplete-grid ranking or aggregate
+win rate is used. This is a new completed group, not a rerun of the same sample.
+
+| Model | 4p search overall | Original open | Original sealed | Recharged open | Recharged sealed | 4p legacy/default |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Parent | 30.86% | 45.31% | 25.00% | 37.50% | 15.63% | 88.28% |
+| frozen-0 | 48.24% | 57.81% | 29.69% | 67.19% | 38.28% | 89.06% |
+| frozen-1 | 51.56% | 67.19% | 34.38% | 65.63% | 39.06% | 86.72% |
+| public-0 | 38.28% | 56.25% | 25.00% | 45.31% | 26.56% | 82.03% |
+| public-1 | 39.84% | 51.56% | 34.38% | 54.69% | 18.75% | 89.06% |
+
+Frozen-1's paired four-player search gain is +20.70 pp, exploratory 95% whole-deal
+interval +14.06 to +26.96. Its Recharged/sealed gain is +23.44 pp, interval +14.06
+to +32.81. These are **model-only** gains: candidate search remains off. Original
+sealed improvements are less certain (paired interval includes zero), and none
+of these models reaches the fixed 90% legacy point floor in this four-player
+sample. Two-player Recharged/open and five-player legacy problems remain.
+Do not select a model or claim qualification from the stronger search result.
+
+Evidence: `strong/policy-iteration-interim-complete-cells-evidence-v2.json`.
+Report/log: `ai/runs/policy-iteration-interim-complete-cells-v2.json` / `.log`;
+independent verification session 34994 completed. All 500 included raw batches,
+verification records, effective guards, plans and comparison source are archived:
+HF revision `25143658a84e2ff15027f7d014fde385f96118ef`, archive `archives/policy-iteration-interim-complete-cells-evidence-v2.tgz`,
+SHA256 `ca8fdcc0128ee18b1631389a06b1e0825ccc8a4622965313c59ba7c1b72678fc` (1515 files, remotely verified).
+Archive preparation initially missed the plans directory and stopped before any
+upload; the empty staging directory was repaired and the single upload verified.
+
+### Concrete regression diagnosis: fuel competition and endgame timing
+
+The prior fixed 19-cell snapshot was analyzed without adding or reselecting
+win-rate observations. All models, cells and rule views are retained. Terminal
+metrics show frozen-1 gaining 0.83 powered cities / 1.22 nominal capacity against
+three-player search while ending with 51.82 less cash. Capacity-below-winner
+losses fall from 116 to 44. Against five-player legacy, frozen-0 instead ends
+with 0.96 fewer powered cities, 0.66 less nominal capacity and 20.93 less cash;
+it loses 39 parent wins and gains six. Frozen-1 loses 15 and gains four.
+The two-player Recharged/open fuel-supported shortfall also grows. Terminal
+metrics alone do not locate a causal decision.
+
+We hash-selected at most one lost and one gained outcome per model/rule from
+five-player legacy: **27 diagnostic pairs, 49 unique games**. Every terminal
+field exactly reproduces the original evaluation. The first observer records
+learner moves only and its old `p.resources` field is absent in this engine;
+no fuel claim relies on that field. A new read-only observer records actual
+coal/oil/garbage/uranium holdings, market availability, public spending totals,
+and the frozen engine's fuel-supported capacity, including legacy root moves.
+All 49 games were repeated: every terminal output matches again, every root move
+is present, and every consecutive public-state transition is continuous.
+
+Concrete example: frozen-1 episode 128 (5p original/sealed) ends with 19 cities,
+plant capacity 16, but only 10 powered. At its last resource pass it has 159 cash,
+one uranium, zero coal, and **zero coal remaining in the market**. Plant 31 needs
+three coal and therefore cannot be fueled that turn even ignoring price. The bot
+then buys five more cities. Other selected losses similarly lack enough coal
+in the entire remaining market. This is not evidence for a blanket "buy more
+resources now" rule: some fuel is already unobtainable. Earlier plant choice,
+resource reserves, purchase order and endgame-triggering expansion need to be
+modeled together. Other examples have different causes; the selected-case counts
+are diagnostic, not representative failure frequencies or causal interventions.
+
+Implication for the bounded hybrid study: test realistic fuel-consuming opponent
+continuations, including stockpiling/rushing behavior, before increasing sample
+counts. Neural/economic-only continuations can miss this pressure. Check the
+resource-buying policy and endgame timing as well as auction/building search;
+there is no justification yet for a universal spend-more or spend-less rule.
+Finish the fixed full comparison first; do not blindly add training epochs.
+
+Scripts: `analyze-policy-iteration-terminal-outcomes.py`,
+`replay-policy-iteration-legacy-diagnosis.py`,
+`analyze-policy-iteration-legacy-replays.py`, `trace-public-economy.cjs`,
+`replay-policy-iteration-economy.py`, `analyze-policy-iteration-economy.py`
+(all under `ai/strong`). Results: `ai/runs/policy-iteration-terminal-diagnosis-v1.json`,
+`policy-iteration-legacy-replays-v1/`, `policy-iteration-legacy-replay-analysis-v1.json`,
+`policy-iteration-economy-replays-v1/`, `policy-iteration-economy-analysis-v1.json`.
+Sessions 84471, 58947, 50688 and 9768 completed; do not restart into these paths.
+Evidence: `strong/policy-iteration-terminal-economy-evidence-v1.json`, HF revision
+`d7fbe5fda02f46104a99fd320b6a4908eae2c8b9`, archive `archives/policy-iteration-terminal-economy-evidence-v1.tgz`,
+SHA256 `745bc719322a18fc121547cf9f98553c23d24f32697786e9493fbd176ca2255f` (120 files, verified remotely).
+Raw traces from both observers, all analyses and source are preserved.
+
+### Active work
+
+At 2026-10-24T12:10:33.444273+00:00, the sole recovery coordinator PID 402796
+(session 78444) is live, stage `waiting_for_development_jobs`. All 41 dependency hashes match.
+Verified collection: `{"frozen-0": {"verified_games": 6256, "verified_shards": 103}, "frozen-1": {"verified_games": 6336, "verified_shards": 104}, "public-0": {"verified_games": 6256, "verified_shards": 103}, "public-1": {"verified_games": 6096, "verified_shards": 101}}`.
+All ten reviewed replacements were submitted; the original failed handles remain
+preserved. The coordinator owns all remaining collection and the required
+33,600-game full comparison. Do not duplicate it. No candidate, final-test run,
+production change or publication has been made. Full objective remains active.
+
+## Previous checkpoint: substantial complete-cell strength gains, with regressions retained
 
 The small simulation-validation gains did **not** imply uniformly small whole-game
 improvement. A read-only interim diagnostic now includes every opponent/count

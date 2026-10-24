@@ -1,0 +1,159 @@
+{
+  "status": "conditional_timeout_partition_verified_not_admitted_or_executable",
+  "tests": 6,
+  "original_shards_checked": 135,
+  "hypothetical_one_deal_children": 540,
+  "exact_original_games_retained": 8400,
+  "source_sha256": "ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23",
+  "plan_sha256": "bd2d80bac1384f6d71a9cc4ee1f71db21ce6d9c8fd95e9a12543cdeceb83859f",
+  "protocol_sha256": "a86b3cd3bcce25131dde6bf59f980e58bbb35dd2c432090a5ed0acd445988014",
+  "live_checks": [
+    {
+      "case": "population-hybrid-development-v1-combined-5p-search_geo-0-4",
+      "job_id": "6adcba08046eb82b1ecdce06",
+      "authoritative_status": "RUNNING",
+      "coordinator_present": true,
+      "coordinator_stage": "waiting_for_jobs",
+      "terminal_failure_review_required": true,
+      "potential_children": [
+        {
+          "case": "population-hybrid-development-v1-combined-5p-search_geo-0-1",
+          "arm": "combined",
+          "players": 5,
+          "opponent": "search_geo",
+          "start": 0,
+          "end": 1,
+          "games": 20
+        },
+        {
+          "case": "population-hybrid-development-v1-combined-5p-search_geo-1-2",
+          "arm": "combined",
+          "players": 5,
+          "opponent": "search_geo",
+          "start": 1,
+          "end": 2,
+          "games": 20
+        },
+        {
+          "case": "population-hybrid-development-v1-combined-5p-search_geo-2-3",
+          "arm": "combined",
+          "players": 5,
+          "opponent": "search_geo",
+          "start": 2,
+          "end": 3,
+          "games": 20
+        },
+        {
+          "case": "population-hybrid-development-v1-combined-5p-search_geo-3-4",
+          "arm": "combined",
+          "players": 5,
+          "opponent": "search_geo",
+          "start": 3,
+          "end": 4,
+          "games": 20
+        }
+      ],
+      "original_games": 80,
+      "admitted": false,
+      "admission_rejection": "Only a confirmed terminal error can be reviewed for replacement",
+      "new_jobs": 0,
+      "remote_mutations": false
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-6p-search_geo-0-4",
+      "job_id": "6adcba011e112550ce7e0464",
+      "authoritative_status": "RUNNING",
+      "coordinator_present": true,
+      "coordinator_stage": "waiting_for_jobs",
+      "terminal_failure_review_required": true,
+      "potential_children": [
+        {
+          "case": "population-hybrid-development-v1-combined-6p-search_geo-0-1",
+          "arm": "combined",
+          "players": 6,
+          "opponent": "search_geo",
+          "start": 0,
+          "end": 1,
+          "games": 24
+        },
+        {
+          "case": "population-hybrid-development-v1-combined-6p-search_geo-1-2",
+          "arm": "combined",
+          "players": 6,
+          "opponent": "search_geo",
+          "start": 1,
+          "end": 2,
+          "games": 24
+        },
+        {
+          "case": "population-hybrid-development-v1-combined-6p-search_geo-2-3",
+          "arm": "combined",
+          "players": 6,
+          "opponent": "search_geo",
+          "start": 2,
+          "end": 3,
+          "games": 24
+        },
+        {
+          "case": "population-hybrid-development-v1-combined-6p-search_geo-3-4",
+          "arm": "combined",
+          "players": 6,
+          "opponent": "search_geo",
+          "start": 3,
+          "end": 4,
+          "games": 24
+        }
+      ],
+      "original_games": 96,
+      "admitted": false,
+      "admission_rejection": "Only a confirmed terminal error can be reviewed for replacement",
+      "new_jobs": 0,
+      "remote_mutations": false
+    }
+  ],
+  "live_snapshot": {
+    "jobs_observed": 30,
+    "additional_recent_jobs_observed": 4,
+    "risk_flags": [
+      {
+        "case": "population-hybrid-development-v1-combined-5p-search_geo-0-4",
+        "job_id": "6adcba08046eb82b1ecdce06",
+        "completed": 19,
+        "total": 80,
+        "running_seconds": 10654,
+        "crude_total_hours": 12.460818713450292
+      },
+      {
+        "case": "population-hybrid-development-v1-combined-6p-search_geo-0-4",
+        "job_id": "6adcba011e112550ce7e0464",
+        "completed": 25,
+        "total": 96,
+        "running_seconds": 10655,
+        "crude_total_hours": 11.365333333333332
+      }
+    ],
+    "scope": "Staggered read-only snapshots, not one simultaneous all-job census. Rate extrapolation is only a risk flag, never a terminal status or reliable ETA."
+  },
+  "positive_failure_test_synthetic": true,
+  "real_failure_admission_created": false,
+  "launcher_collector_comparator_integration_implemented": false,
+  "guards_sources_and_current_coordinator_unchanged": true,
+  "limits": [
+    "No currently running job may be replaced. Only an actual terminal timeout, stopped original coordinator, preserved/reviewed failure and absence of recoverable artifacts can support a later reviewed specification.",
+    "A specification is not launch admission: a future recovery implementation must verify stored failure files/hashes and fresh statuses, preserve original guard lineage, collect every child, and integrate all unchanged logical shards into a truthful complete comparator.",
+    "No strength results were inspected or selected; no new games, jobs or gradients."
+  ],
+  "new_jobs": 0,
+  "new_games": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "44551e4bfff0f4e62430ff487cc580d8a4f778cd",
+  "archive_path": "archives/population-hybrid-timeout-partition-evidence-v1.tgz",
+  "archive_sha256": "c34aff3b882df8502f0592e6b3273d3bb496abac1e5a709b4679492d74d426bd",
+  "manifest_sha256": "cd4e53d0b6192f8b773ec24bda90e3d742db522874c96277021cc1a41ec313bd",
+  "archived_files": 46,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

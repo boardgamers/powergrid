@@ -53652,5 +53652,26 @@
         "current_hybrid_screen_unchanged": true,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
+    },
+    "population_hybrid_timeout_partition_v1": {
+        "status": "conditional_timeout_partition_verified_not_admitted_or_executable",
+        "tests": 6,
+        "original_shards_checked": 135,
+        "hypothetical_one_deal_children": 540,
+        "exact_original_games_retained": 8400,
+        "plan_sha256": "bd2d80bac1384f6d71a9cc4ee1f71db21ce6d9c8fd95e9a12543cdeceb83859f",
+        "protocol_sha256": "a86b3cd3bcce25131dde6bf59f980e58bbb35dd2c432090a5ed0acd445988014",
+        "positive_failure_test_synthetic": true,
+        "real_failure_admission_created": false,
+        "launcher_collector_comparator_integration_implemented": false,
+        "guards_sources_and_current_coordinator_unchanged": true,
+        "new_jobs": 0,
+        "new_games": 0,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "evidence": "ai/strong/population-hybrid-timeout-partition-evidence-v1.json",
+        "archive_revision": "44551e4bfff0f4e62430ff487cc580d8a4f778cd",
+        "next": "Continue live jobs. Only after a real terminal timeout: preserve/review evidence and inspect artifacts, then implement a reviewed recovery with unchanged games/source and truthful original/child collection provenance. No automatic replacement or partial comparison."
     }
 }

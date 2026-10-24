@@ -6,7 +6,30 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: live combined-search runtime risk observed; existing jobs continue.**
+**Latest: broader live check and conditional timeout partition verified; no recovery launched.**
+The 16:59 UTC snapshot inspected 30 running jobs, with zero caps in their completed
+game logs; four newly launched jobs were separately confirmed running at 17:01.
+Five-player combined/search_geo also shows runtime risk: 19/80 games after 10,654s,
+alongside six-player 25/96. Their crude rate projections exceed 9h, but are neither
+ETAs nor terminal failures. Coordinator PID 1447977 / session 53211 remains active:
+2026-10-24T17:05:36 UTC, 66 submitted / 34 verified, no failed jobs.
+
+`strong/hybrid_timeout_partition_v1.py` specifies a possible whole-deal split only
+after a confirmed terminal timeout, stopped coordinator, preserved/reviewed failure
+and artifact check. It has **no launch, collection or comparator implementation**.
+Six tests verify exact coverage of all 8,400 original games and reject live/unknown
+jobs, changed source/protocol, repeated replacement and incomplete review. Real
+read-only checks reject both currently running 5p/6p jobs; no admission created.
+
+Evidence: `strong/population-hybrid-timeout-partition-evidence-v1.json`, 46 archived
+entries, private HF revision `44551e4bfff0f4e62430ff487cc580d8a4f778cd`. Continue existing
+jobs/coordinator. If a real timeout occurs, preserve its evidence and inspect saved
+artifacts before implementing any reviewed recovery; retain original guards and
+require every replacement child in the complete comparison. This preparation
+launched no recovery jobs/games and changed no running source. The existing
+coordinator continues its original grid; no candidate or final qualification.
+
+**Previous: live combined-search runtime risk observed; existing jobs continue.**
 Read-only HF checks at 2026-10-24T16:47 UTC confirm combined6psearch RUNNING,
 25/96 games completed after 9,978s, with zero caps in those completed games.
 Its 20-frame CPU sample has a 40% median after the initial frame, about 4.8GB/32GB

@@ -25,7 +25,85 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: live runtime risk, no remote mutation
+## Latest checkpoint: broader runtime risk and conditional partition spec
+
+Previous goal turn: verified wait; two shards completed and the existing coordinator
+advanced. This turn: progress from a broader live execution scan and tested timeout
+partition specification. All local checks/archive work completed. This preparation
+launched no recovery jobs/games or gradients. The existing coordinator continued
+its original grid; no running guards, source, model, plan or coordinator modified.
+
+Coordinator PID 1447977 / session 53211 remains active. At
+2026-10-24T17:05:36.253591+00:00 it reports 66 submitted / 34 verified, no failed jobs.
+Both slow search jobs were directly confirmed RUNNING again, with the coordinator
+present, and explicitly rejected by the new recovery-spec gate.
+
+### Broader execution observation
+
+`ai/runs/population-hybrid-live-runtime-v1/20261024T165902795776Z-live-grid.json`
+contains 30 jobs from the coordinator's prior live snapshot. All 30 were RUNNING;
+no observation errors or caps in completed-game logs. Four newer jobs absent from
+that snapshot were separately confirmed RUNNING in
+`20261024T170134979081Z-observation.json`. These are staggered observations, not a
+single simultaneous all-job census or independent result collection.
+
+The 30-job scan found two completed-rate warnings after 30 minutes of execution:
+
+- Five-player combined/search_geo, `6adcba08046eb82b1ecdce06`: 19/80 games after
+  10,654s; crude extrapolation 12.46h against the 9h configured budget.
+- Six-player combined/search_geo, `6adcba011e112550ce7e0464`: 25/96 after 10,655s;
+  crude extrapolation 11.37h. The earlier short CPU observation is below.
+
+These remain risk flags from ordered, concurrent, censored games—not ETAs, proof
+of timeout or reasons to replace an active job. No playing-strength outcomes were
+compared or selected. Continue the same handles and sole coordinator.
+
+### Prepared partition, deliberately not an executable recovery system
+
+`strong/hybrid_timeout_partition_v1.py` uses the frozen job's existing one-deal
+range support to specify splitting a failed four-deal shard into four one-deal
+jobs. It retains the source/model/bootstrap, hardware, nine-hour per-job budget,
+eight game workers, one search worker, eight sampled worlds, horizons, absolute
+episodes and every seat/rule. Original failed guard and lineage must be preserved.
+
+The specification requires a confirmed terminal ERROR identified as timeout,
+unchanged canonical guard, stopped/absent original coordinator, preserved/reviewed
+failure and no recoverable artifacts. A live/unknown/finished job, low-CPU warning,
+unrelated error, repeated replacement or missing review is rejected. A real future
+launcher must still verify the actual failure files/hashes and fresh remote state;
+the pure unit-test review declarations are not evidence of a real failure.
+
+`test_hybrid_timeout_partition_v1.py`: six tests pass. Applying the hypothetical
+partition to all 135 original rows preserves all 8,400 episodes exactly with no
+duplicates, omissions or scope changes (540 potential one-deal rows). This is a
+coverage test, not a plan to launch 540 jobs. The positive failure test is explicitly
+synthetic. Actual read-only checks of the 5p/6p jobs reject them as RUNNING; no real
+failure admission exists.
+
+No submission, guard replacement, collection or comparator integration is
+implemented. If an actual timeout occurs, first retain/review its logs/status and
+look for recoverable complete artifacts. Only then implement and verify the
+necessary launcher/collector/comparator using explicit original/child provenance,
+complete all children, and retain every other unchanged logical shard. Never label
+the original ERROR job as COMPLETED or count a partial child as its full shard.
+Do not restart the original coordinator against changed guards/code.
+
+### Persistent evidence
+
+- Descriptor: `strong/population-hybrid-timeout-partition-evidence-v1.json`.
+- Local tests and live rejections: `ai/runs/population-hybrid-timeout-partition-v1/`.
+- Private HF revision: `44551e4bfff0f4e62430ff487cc580d8a4f778cd`, 46 archive entries,
+  including source, tests, exact frozen dependencies, original 5p/6p guards and both
+  broader execution snapshots.
+- Archive: `archives/population-hybrid-timeout-partition-evidence-v1.tgz`, downloaded
+  and SHA-verified:
+  `c34aff3b882df8502f0592e6b3273d3bb496abac1e5a709b4679492d74d426bd`.
+
+No candidate, AI publication or final qualification. Final protocol/seeds and all
+32 active-screen dependencies are unchanged. Resource-specific experiments remain
+unlaunched pending the complete fixed comparison.
+
+## Previous checkpoint: live runtime risk, no remote mutation
 
 Previous goal turn: progress (resource preflight pushed as 104b635). This turn:
 progress, from live evidence that changes runtime expectations. The sole

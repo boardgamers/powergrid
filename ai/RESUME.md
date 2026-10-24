@@ -6,7 +6,41 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October: resource runtime pilot started; auction diagnostic continues.**
+**Latest — 25 October: resource HF source and preflight archived; both 2p pilot cells verified.**
+At **23:37:38 UTC, 24 October** (25 October locally), both existing processes were
+checked live. Resource **session 75756 / PID 559327** has verified all eight
+2p/filter games and all eight 2p/resource-filter games, zero caps. It is running
+6p/filter (**18/24 game files complete**, not yet a verified cell). The 6p resource
+cell and 16 independent replays remain pending. Auction **session 76600 / PID
+443128** has **17/28 submitted, ten verified, seven running**, no failures.
+
+The tested HF wrapper is now in an immutable, remotely verified source:
+`strong/resource-replanning-job-source-v1.json`, dataset revision
+`8d3697dec0845aa6ded857f3e00d91a8ff4406c0`. All 1,482 prior package files remain
+unchanged; only the wrapper and builder were added. Its 378 valid / 13 rejected
+contract checks and three intentional execution-boundary stops are archived once
+at model revision `ed9f76066b7d858e7b5ad1603ffa54012f354a74` (30 files), descriptor
+`strong/resource-job-source-preflight-evidence-v1.json`. Both uploads were verified;
+do not repeat them. The ended archive session 4420 is reconciled by that descriptor
+and the downloaded archive hash, not by an assumption about the expired handle.
+
+The complete 2p resource cell used **41,632 continuations**, 450 resource searches,
+**1203.34 s wall / 6352.42 s CPU**, sampled summed RSS 6.97 GB. Resource-only decision
+median **9.81 s**, p95 **33.01 s**. These are parallel local HX370 engineering
+measurements, not 8840U latency, HF hardware admission or playing-strength results.
+Raw cost summary: `ai/runs/resource-replanning-runtime-source-prepared-v1/completed-2p-resource-cost.json`.
+Exact checkpoint: `ai/runs/resource-replanning-runtime-source-prepared-v1/job-source-checkpoint.json`.
+
+**Next:** continue the two existing processes. Require all 64 local games and
+16 replays before running `collect-resource-replanning-runtime-v1.py`, then archive
+once. Use that complete evidence to prepare explicit HF calibration admission and
+launcher; neither calibration nor the 3,360-game resource development screen has
+been launched. The source descriptor's `runtime_admitted=false` describes preparation
+and must not be edited into an admission. After all 28 auction shards verify, run
+the prepared reference collector and archive the complete comparison. No gradients,
+production changes, candidate selection or final seeds. This is not a plateau claim.
+
+**Previous — 25 October: resource runtime pilot started; auction diagnostic continues.**
 **23:16:43 UTC update:** both handles were checked live. Auction coordinator
 **76600 / PID 443128** has **12/28 submitted, five verified, seven running**, no
 failures. Resource pilot **75756 / PID 559327** has completed/verified 2p/filter;

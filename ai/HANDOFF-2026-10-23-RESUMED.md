@@ -25,7 +25,54 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: collectors and HF wrapper prepared; both runs remain live
+## Latest checkpoint: verified resource job source; complete two-player runtime pair
+
+The source/preflight work is complete and durable. New source descriptor
+`strong/resource-replanning-job-source-v1.json` pins dataset revision
+`8d3697dec0845aa6ded857f3e00d91a8ff4406c0`, archive
+`strong-source-resource-replanning-jobs-v1.tgz`, SHA
+`e26f742778fa48796e7226f24dcea2591597d4a12f01dced2d8283711a295152`.
+All 1,482 files from the local-pilot package remain identical; the tested HF wrapper
+and its builder add two files (1,484 manifest entries, 1,485 archive files including
+the manifest). No generated run outputs are packaged. Its false admission flags
+record this preparation stage; a separate measured admission is still required.
+
+`strong/collect-resource-job-preflight-v1.py` archived the clean-package tests,
+intentional stopped-before-evaluation records, source manifest and upload receipts.
+Descriptor `strong/resource-job-source-preflight-evidence-v1.json` pins model repo
+revision `ed9f76066b7d858e7b5ad1603ffa54012f354a74`, archive SHA
+`d2dc0dd44777e02456c145c4833ce84ee0523e15ec818cc22a78435577f3d350`, **30 files**.
+The 378 valid contracts, 13 rejected contracts and three execution-boundary checks
+are preflight evidence, not games or failed HF jobs. Session 4420's terminal output
+was unavailable after compaction; both immutable remote archives and all local
+evidence-manifest files were checked against their completed descriptors. Do not
+repeat the source or evidence upload. No new resource HF jobs or strength games.
+
+At **2026-10-24T23:37:38 UTC**, resource **session 75756 / PID 559327** and reference
+**session 76600 / PID 443128** were checked alive with matching process commands.
+The resource pilot has completed and verified **2p/filter and 2p/resource-filter**
+(eight games each, zero caps). It is in 6p/filter, with **18/24 game files** at this
+snapshot; the 6p resource cell and 16 replays remain pending. The reference coordinator
+has **17/28 submitted, ten verified, seven running**, no failed jobs. Full snapshot:
+`ai/runs/resource-replanning-runtime-source-prepared-v1/job-source-checkpoint.json`.
+
+Completed 2p resource runtime: 1,306 learner decisions, 450 resource searches,
+41,632 continuations / 2,701,343 simulated neural decisions, 99 search changes,
+zero caps. Cell wall 1203.341 s, CPU 6352.42 s, sampled summed RSS 6,971,523,072 bytes.
+Resource-only elapsed median 9.809 s, p95 33.008 s, max 81.521 s; bundle median nine,
+p95 29.55, max 44. This measures parallel HX370 execution, not AMD8840U serving
+latency or HF performance. Pilot outcomes are excluded from strength. Cost evidence:
+`ai/runs/resource-replanning-runtime-source-prepared-v1/completed-2p-resource-cost.json`.
+
+Next: leave both existing processes running. Complete and archive the full local
+64-game / 16-replay resource pilot before choosing HF calibration hardware/timeout
+and implementing its explicit launcher. The tested source is ready for that step;
+the 3,360-game development screen remains unlaunched. Continue the complete
+28-shard auction diagnostic and prepared audit separately. No final seeds or
+candidate selection. The unchanged-building/combined search results remain adverse;
+auction search remains promising but unqualified, pending regression diagnosis.
+
+## Previous checkpoint: collectors and HF wrapper prepared; both runs remain live
 
 The previous goal turn made substantive progress by pinning the resource runtime
 source and starting the full pilot. This turn added the complete resource evidence

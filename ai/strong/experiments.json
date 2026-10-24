@@ -55985,6 +55985,17 @@
             "jobs_submitted_at_checkpoint": 12,
             "jobs_verified_at_checkpoint": 5,
             "failed_jobs_at_checkpoint": []
+        },
+        "job_source_checkpoint": {
+            "path": "ai/runs/resource-replanning-runtime-source-prepared-v1/job-source-checkpoint.json",
+            "sha256": "e54fcc65c39172b05655e00739068bc3ee109cd683e9b4dc64d17c939a1c21ab",
+            "checked_at": "2026-10-24T23:37:38.036821+00:00",
+            "pid": 443128,
+            "live": true,
+            "jobs_submitted": 17,
+            "jobs_verified": 10,
+            "running": 7,
+            "failed_jobs": []
         }
     },
     "resource_replanning_runtime_v1": {
@@ -56024,9 +56035,9 @@
         "pilot_pid": 559327,
         "pilot_started_at": "2026-10-24T23:02:46.683303+00:00",
         "output": "ai/runs/resource-replanning-runtime-source-prepared-v1/layout/ai/runs/resource-replanning-runtime-v1",
-        "checkpoint": "ai/runs/resource-replanning-runtime-source-prepared-v1/turn-checkpoint.json",
-        "checkpoint_sha256": "50f4bfb94d00589b7844b483a89059506f0432f4670affc16c9a701d2e9d275d",
-        "checked_at": "2026-10-24T23:04:53.764607+00:00",
+        "checkpoint": "ai/runs/resource-replanning-runtime-source-prepared-v1/job-source-checkpoint.json",
+        "checkpoint_sha256": "e54fcc65c39172b05655e00739068bc3ee109cd683e9b4dc64d17c939a1c21ab",
+        "checked_at": "2026-10-24T23:37:38.036821+00:00",
         "planned_games": 64,
         "planned_independent_replays": 16,
         "complete_cells": {
@@ -56061,10 +56072,43 @@
                     "memory_samples": 277,
                     "memory_sampling_period_seconds": 0.1
                 }
+            },
+            "2p-resource-filter": {
+                "complete": true,
+                "summary": {
+                    "games": 8,
+                    "independent_deals": 1,
+                    "counts": {
+                        "decisions": 1306,
+                        "root_filter_overrides": 0,
+                        "rollouts": 41632,
+                        "rollout_caps": 0,
+                        "neural_decisions": 2701343,
+                        "search_changes": 99,
+                        "search_decisions": 450,
+                        "resource_search_decisions": 450
+                    },
+                    "wall_seconds": 1203.2145080209593,
+                    "sum_game_seconds": 5938.094905628997,
+                    "max_game_seconds": 1203.038083311054,
+                    "decision_p50_ms": 13.984223507577553,
+                    "decision_p95_ms": 22310.63386646565,
+                    "report_sha256": "ee37e2882a03d96828cdf46d1cb1145cdcfe5cf3522e1c0f9526c1c41ad26372",
+                    "all_receipts_verified": true,
+                    "qualification_eligible": false,
+                    "reserved_final_seeds_used": false
+                },
+                "runtime": {
+                    "seconds": 1203.341361314,
+                    "cpu_seconds": 6352.42,
+                    "sampled_peak_total_rss_bytes": 6971523072,
+                    "memory_samples": 11757,
+                    "memory_sampling_period_seconds": 0.1
+                }
             }
         },
         "current_stage": "evaluating",
-        "current_cell": "2p-resource-filter",
+        "current_cell": "6p-filter",
         "processor": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
         "new_hf_jobs": 0,
         "automatic_retries": false,
@@ -56072,7 +56116,7 @@
         "new_strength_games": 0,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
-        "next": "Continue existing session 75756. Require all four endpoint/arm cells (64 complete games), all 16 predeclared replays, zero caps and exact frozen source before resource runtime admission. Archive full evidence including initial packaging failure; do not infer strength from pilots. Continue reference coordinator 76600 independently.",
+        "next": "Continue existing session 75756/PID 559327. Both 2p cells verified; 6p baseline partial. Require all 64 games and 16 replays before complete archive and measured HF calibration admission. Source/wrapper are uploaded, not launch admission. No pilot strength claims.",
         "collection_preparation": {
             "script": "ai/strong/collect-resource-replanning-runtime-v1.py",
             "preflight": {
@@ -56092,10 +56136,48 @@
             "fully_verified_cells": [
                 "2p-filter"
             ]
+        },
+        "completed_game_files": {
+            "2p-filter": 8,
+            "2p-resource-filter": 8,
+            "6p-filter": 18,
+            "6p-resource-filter": 0
+        },
+        "completed_2p_resource_cost": {
+            "path": "ai/runs/resource-replanning-runtime-source-prepared-v1/completed-2p-resource-cost.json",
+            "sha256": "c8453c9963065976c7e6448e967da0b44eea380a122f68bdfa6b9bbf2d876e88",
+            "data": {
+                "checked_at": "2026-10-24T23:27:01.449894+00:00",
+                "cell": "2p-resource-filter",
+                "games": 8,
+                "verified_sha256": "aa362c5bf4980bf48da3920e9528144c657ef59fd5e72d091b7c903ecda95a15",
+                "resource_searches": 450,
+                "resource_latency_ms": {
+                    "p50": 9808.89156498597,
+                    "p95": 33007.657050559625,
+                    "max": 81521.26823598519
+                },
+                "candidate_bundles": {
+                    "p50": 9.0,
+                    "p95": 29.549999999999955,
+                    "max": 44
+                },
+                "runtime": {
+                    "seconds": 1203.341361314,
+                    "cpu_seconds": 6352.42,
+                    "sampled_peak_total_rss_bytes": 6971523072,
+                    "memory_samples": 11757,
+                    "memory_sampling_period_seconds": 0.1
+                },
+                "scope": "Completed 2p runtime cell only; parallel HX370 timings, not target latency or full-pilot admission. No scores used.",
+                "full_pilot_complete": false,
+                "new_strength_claim": false,
+                "new_hf_jobs": 0
+            }
         }
     },
     "resource_replanning_development_wrapper_v1": {
-        "status": "clean_package_preflight_passed_no_source_or_runtime_admission_yet",
+        "status": "clean_package_preflight_and_job_source_archived_no_runtime_admission",
         "script": "ai/strong/resource-replanning-development-job-v1.py",
         "receipt": {
             "job_contracts_checked": 378,
@@ -56134,6 +56216,16 @@
         "gradients": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
-        "next": "After the complete local pilot and archive, package this tested runner with the pinned source. Use explicitly admitted HF runtime calibration before the full 3360-game development screen. No launcher or automatic submission exists."
+        "next": "After complete local pilot and archive, prepare explicit measured HF runtime calibration admission and launcher using the already verified source. No source/preflight reupload. Full 3360-game development remains unlaunched.",
+        "source_descriptor": "ai/strong/resource-replanning-job-source-v1.json",
+        "source_descriptor_sha256": "c8adbc5de6be53769270c5345684551073c072ef1318a0bc578ef9913b346369",
+        "source_revision": "8d3697dec0845aa6ded857f3e00d91a8ff4406c0",
+        "source_archive_sha256": "e26f742778fa48796e7226f24dcea2591597d4a12f01dced2d8283711a295152",
+        "preflight_evidence_descriptor": "ai/strong/resource-job-source-preflight-evidence-v1.json",
+        "preflight_evidence_descriptor_sha256": "5de68e8c01a637c9f4163af030d46475078ffdfebffb30c31cebc74d0ba91d62",
+        "preflight_evidence_revision": "ed9f76066b7d858e7b5ad1603ffa54012f354a74",
+        "preflight_evidence_archive_sha256": "d2dc0dd44777e02456c145c4833ce84ee0523e15ec818cc22a78435577f3d350",
+        "preflight_archived_files": 30,
+        "remote_archives_reverified": true
     }
 }

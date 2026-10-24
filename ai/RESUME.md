@@ -6,7 +6,32 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: stateless atomic resource replanning verified, with a material latency finding.**
+**Latest: resource-search timing and exact parity verified on the actual 8840U.**
+The four saved slow resource positions completed under three execution settings:
+12 searches / 672 rollouts on each machine, zero caps, identical original decisions,
+sampled worlds and terminal outcomes across local HX370 and target AMD 8840U.
+With four ONNX threads and four engine workers, target times were 9.341s (2p
+original/open), 2.519s (2p Recharged/sealed), 3.733s (6p original/open), and 2.277s
+(6p Recharged/sealed). One-thread/one-worker times were 17.352/4.144/6.509/3.478s.
+These are four-world stress positions, not representative latency or strength.
+
+Passive timing finds both prediction (array packing + ONNX) and engine/IPC costs
+material. More JS workers alone gives only a modest improvement; extra inference
+threads help on this target. No runtime defaults, model or search behavior changed.
+Do not infer that a Rust rewrite alone solves the latency. Prefer model-only for
+instant feedback, with selective search considered for bot jobs/analysis only if
+the fixed strength comparison supports it; whole-turn search also remains a
+potential training teacher. Do not start another optimization or strength sweep
+before the existing frozen comparison finishes.
+
+Evidence: `strong/resource-replanning-8840u-evidence-v1.json`, 15 archive entries,
+private HF revision `2f6051a13a666ffa5cd94914bc1f866b819791a4`. Target PID 2929509,
+local run and archive process are completed. No HF jobs or gradients launched by
+this benchmark. Sole screen coordinator PID 1447977 / session 53211 remains active:
+2026-10-24T16:24:29 UTC, 56 submitted / 24 verified, no failed jobs. All screen
+dependencies remain frozen; final qualification seeds are unused.
+
+**Previous: stateless atomic resource replanning verified, with a material latency finding.**
 The separate `strong/resource_replanning_policy_v1.py` returns one move and replans
 from the next public request. It holds no pending purchase plan. This matches the
 existing research worker's atomic contract without platform storage, but differs

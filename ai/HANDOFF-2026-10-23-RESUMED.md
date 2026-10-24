@@ -25,7 +25,100 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: atomic resource replanning verified; early-game cost exposed
+## Latest checkpoint: actual 8840U resource stress profiling complete
+
+Previous goal turn: progress (atomic policy and full-game engineering evidence
+archived/pushed as a79cfa9). This turn: progress. The four saved slow resource roots
+were profiled locally and on the actual target without changing the policy, model
+or active comparison. Both runs and the evidence collector/archive are completed.
+No gradients, new HF jobs, new strength games or final qualification seeds used.
+
+The sole fixed-grid coordinator remains PID 1447977 / session 53211. Snapshot
+2026-10-24T16:24:29.083368+00:00: 56 submitted / 24 verified, no failures; process
+confirmed present. Do not start another coordinator, collect behind it, or retry
+quiet jobs. Finish all arms/cells before selecting or launching another sweep.
+
+### Fixed package and checks
+
+`strong/benchmark-resource-replanning-8840u-v1.py` prepares and guards the one-shot
+local/remote run, collects cross-machine equality, and archives evidence.
+`strong/profile-resource-replanning-runtime-v1.py` wraps prediction, EnginePool and
+root Node calls in passive timers, restoring them after each search. The package
+contains 1,238 unchanged runtime files from the independently verified atomic
+runtime, exact frozen-1 ONNX, four saved public roots, and the timing runner.
+
+- Package: `ai/runs/resource-replanning-8840u-prepared-v1/package.tgz`, SHA256
+  `73356e16b33ac9f98da3ccf829354d9d559ebabd784548dcc0c39e5b2ebbcc6c`.
+- Package manifest SHA256:
+  `cdebd3353d4bcc4aacd8cde5dce260428830bc5ff5e6314646f28d1b9abc8e39`.
+- Model SHA256:
+  `55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530`.
+- Local output: `ai/runs/resource-replanning-profile-local-v1/`.
+- Collected target: `ai/runs/resource-replanning-8840u-collected-v1/`.
+- Guard: `strong/resource-replanning-8840u-launch-v1.json`.
+- Remote: `minipc:/home/coyotte508/powergrid-ai-resource-replanning-8840u-v1`;
+  PID 2929509 terminal, status passed, command no longer present.
+
+Each machine completed 12 searches and 672 rollouts with zero caps: the four
+slowest resource decisions from the earlier four integration games, under settings
+(ORT threads, JS workers) = (1,1), (1,4), (4,4). Samples remain four worlds and
+continuation cap 2,400. Every complete result matches its original recorded
+decision and all settings/machines after JSON-key normalization and exclusion of
+elapsedMs only. Local and remote receipt/output hashes pass. No behavior/default
+changes, no inference approximation and no new rollout seeds.
+
+Target reported AMD Ryzen 7 8840U, Python 3.12.3, NumPy 2.5.3, ONNX Runtime 1.30.0,
+Node 24.19.0. Total target run 77.785s, finished 2026-10-24T16:24:03.335496+00:00.
+HX370 local run 91.070s; neither elapsed total is a strength or typical-latency claim.
+
+### Target measurements and interpretation
+
+| Fixed slow resource root | 1 thread / 1 worker | 1 thread / 4 workers | 4 threads / 4 workers |
+| --- | ---: | ---: | ---: |
+| 2p original/open | 17.352s | 15.175s | 9.341s |
+| 2p Recharged/sealed | 4.144s | 3.630s | 2.519s |
+| 6p original/open | 6.509s | 5.812s | 3.733s |
+| 6p Recharged/sealed | 3.478s | 3.280s | 2.277s |
+
+This is a single run per setting on four selected slow roots, not a representative
+latency distribution. Settings run in fixed order; timing noise/thermal effects
+are not isolated. Do not claim these speedups universally or compare the two CPUs
+as a hardware ranking.
+
+At 1/1, prediction takes 10.465/2.265/4.031/2.011s and engine-pool calls
+6.614/1.825/2.403/1.430s respectively. At 4/4, prediction takes
+4.679/1.168/2.030/1.217s and engine-pool calls 4.381/1.294/1.626/1.021s.
+Prediction includes array packing and ONNX; engine calls include JS, IPC and JSON.
+These are serial wall-duration attributions, not CPU utilization or pure inference
+kernel timings. Root preparation and remaining Python are small in these cases.
+
+More JS workers alone modestly helps; the ONNX thread increase matters on the
+8840U. Both major paths remain costly. A Rust rewrite cannot remove prediction
+time by itself. Do not change defaults or start another optimization sweep while
+the fixed 8,400-game strength screen is incomplete. The provisional product
+direction remains a fast model for instant feedback, selective deeper search for
+bot jobs or analysis if fresh paired evidence supports it, and search-generated
+teaching labels to improve the fast model. The resource wrapper's full-game
+strength still requires a separate frozen comparison after the active screen.
+
+### Durable evidence
+
+- Descriptor: `strong/resource-replanning-8840u-evidence-v1.json`.
+- Private HF model repo revision: `2f6051a13a666ffa5cd94914bc1f866b819791a4`.
+- Archive: `archives/resource-replanning-8840u-evidence-v1.tgz`, 15 entries,
+  downloaded and SHA-verified:
+  `cc1b97196b2737c820f516d75466ce059aace56b6ff304e2c6403f20baa641a5`.
+- Raw target results SHA256:
+  `2ca3baa4b2c42a456e4ebeb0b47a24b311540ac0703bbda8ecd0a7809ca127bb`.
+- Raw local results SHA256:
+  `646851b6508232cd08f50133192a80f70119d5b4f09233911cfc800f5e78ef22`.
+
+No candidate is qualified/published. Keep the final protocol and reserved seeds
+unchanged. Existing research serving still needs the separately verified async
+sealed-order repair pinned into any later adopted runtime; this benchmark did not
+silently apply it or alter the frozen screen source.
+
+## Previous checkpoint: atomic resource replanning verified; early-game cost exposed
 
 Previous goal turn: progress (complete-turn search archived/pushed as 96c2f50).
 This turn: progress. Implemented the actual one-action-per-request policy, checked

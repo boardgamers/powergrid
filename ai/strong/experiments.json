@@ -53553,5 +53553,56 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "next": "Complete existing fixed hybrid screen, then compare the actual stateless resource policy on fresh paired games across all counts/rules/opponents. Preserve macro teacher as a separate policy. Pin any adopted async repair and benchmark the actual final runtime on 8840U."
+    },
+    "resource_replanning_actual_8840u_v1": {
+        "status": "verified_exact_actual8840u_stress_timing_research_only",
+        "evidence": "ai/strong/resource-replanning-8840u-evidence-v1.json",
+        "archive_revision": "2f6051a13a666ffa5cd94914bc1f866b819791a4",
+        "target_processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+        "roots": 4,
+        "settings": [
+            [
+                1,
+                1
+            ],
+            [
+                1,
+                4
+            ],
+            [
+                4,
+                4
+            ]
+        ],
+        "samples": 4,
+        "searches_per_machine": 12,
+        "rollouts_per_machine": 672,
+        "normal_caps": 0,
+        "original_and_cross_machine_results_exact": true,
+        "target_times_4threads_4workers_seconds": {
+            "2p-original-open-economic": 9.34065337618813,
+            "2p-recharged-sealed-economic": 2.51909133605659,
+            "6p-original-open-economic": 3.732789186295122,
+            "6p-recharged-sealed-economic": 2.2773507949896157
+        },
+        "scope": "Four slow public roots selected from four engineering games; 4-world resource-filter, three thread/worker settings. Stress sample, not representative gameplay latency or strength.",
+        "source_model_and_defaults_unchanged": true,
+        "target_process_completed": true,
+        "target_pid": 2929509,
+        "coordinator_snapshot": {
+            "pid": 1447977,
+            "stage": "waiting_for_jobs",
+            "jobs_submitted": 56,
+            "jobs_verified": 24,
+            "failed_jobs": [],
+            "updated_at": "2026-10-24T16:24:29.083368+00:00"
+        },
+        "current_hybrid_screen_unchanged": true,
+        "new_hf_jobs": 0,
+        "new_strength_games": 0,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Finish existing fixed hybrid screen before selecting search scopes or starting another sweep. Resource-policy strength remains unmeasured; prefer model-only for immediate feedback, with selective search or teacher use considered after paired evidence."
     }
 }

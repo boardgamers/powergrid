@@ -1,0 +1,250 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "2f6051a13a666ffa5cd94914bc1f866b819791a4",
+  "archive_path": "archives/resource-replanning-8840u-evidence-v1.tgz",
+  "archive_sha256": "cc1b97196b2737c820f516d75466ce059aace56b6ff304e2c6403f20baa641a5",
+  "manifest_sha256": "eecf0546b4567ffa1d2c2d8947360e07c6ce15963ae61987a4f8d5b01aa0c76b",
+  "archived_files": 15,
+  "format": "tar.gz",
+  "remote_archive_verified": true,
+  "status": "verified_actual8840u_resource_stress_benchmark",
+  "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+  "exact_searches": 12,
+  "rollouts": 672,
+  "timings": [
+    {
+      "case": "2p-original-open-economic",
+      "threads": 1,
+      "workers": 1,
+      "model_load_ms": 34.55918515101075,
+      "profile": {
+        "prediction_seconds": 10.46507508167997,
+        "prediction_calls": 257,
+        "predicted_rows": 17257,
+        "engine_pool_seconds": 6.613743319641799,
+        "engine_pool_calls": 249,
+        "engine_observation_rows": 17248,
+        "root_node_seconds": 0.13885244447737932,
+        "root_node_calls": 12,
+        "wall_seconds": 17.35227917600423,
+        "python_other_seconds": 0.1346083302050829,
+        "scope": "Prediction includes array packing and ONNX execution. Engine pool includes JS work, IPC and JSON handling. Timers are serial outer-call durations, not CPU utilization."
+      }
+    },
+    {
+      "case": "2p-recharged-sealed-economic",
+      "threads": 1,
+      "workers": 1,
+      "model_load_ms": 34.55918515101075,
+      "profile": {
+        "prediction_seconds": 2.26484009437263,
+        "prediction_calls": 145,
+        "predicted_rows": 4538,
+        "engine_pool_seconds": 1.8245825339108706,
+        "engine_pool_calls": 141,
+        "engine_observation_rows": 4533,
+        "root_node_seconds": 0.014297982677817345,
+        "root_node_calls": 8,
+        "wall_seconds": 4.143975639715791,
+        "python_other_seconds": 0.04025502875447273,
+        "scope": "Prediction includes array packing and ONNX execution. Engine pool includes JS work, IPC and JSON handling. Timers are serial outer-call durations, not CPU utilization."
+      }
+    },
+    {
+      "case": "6p-original-open-economic",
+      "threads": 1,
+      "workers": 1,
+      "model_load_ms": 34.55918515101075,
+      "profile": {
+        "prediction_seconds": 4.0308037819340825,
+        "prediction_calls": 308,
+        "predicted_rows": 4673,
+        "engine_pool_seconds": 2.4027056684717536,
+        "engine_pool_calls": 305,
+        "engine_observation_rows": 4669,
+        "root_node_seconds": 0.01321407314389944,
+        "root_node_calls": 7,
+        "wall_seconds": 6.509403565898538,
+        "python_other_seconds": 0.06268004234880209,
+        "scope": "Prediction includes array packing and ONNX execution. Engine pool includes JS work, IPC and JSON handling. Timers are serial outer-call durations, not CPU utilization."
+      }
+    },
+    {
+      "case": "6p-recharged-sealed-economic",
+      "threads": 1,
+      "workers": 1,
+      "model_load_ms": 34.55918515101075,
+      "profile": {
+        "prediction_seconds": 2.0110149583779275,
+        "prediction_calls": 400,
+        "predicted_rows": 2275,
+        "engine_pool_seconds": 1.4298594980500638,
+        "engine_pool_calls": 398,
+        "engine_observation_rows": 2272,
+        "root_node_seconds": 0.009093252941966057,
+        "root_node_calls": 6,
+        "wall_seconds": 3.478072625119239,
+        "python_other_seconds": 0.028104915749281645,
+        "scope": "Prediction includes array packing and ONNX execution. Engine pool includes JS work, IPC and JSON handling. Timers are serial outer-call durations, not CPU utilization."
+      }
+    },
+    {
+      "case": "2p-original-open-economic",
+      "threads": 1,
+      "workers": 4,
+      "model_load_ms": 36.39277908951044,
+      "profile": {
+        "prediction_seconds": 10.586207532789558,
+        "prediction_calls": 257,
+        "predicted_rows": 17257,
+        "engine_pool_seconds": 4.30423182528466,
+        "engine_pool_calls": 249,
+        "engine_observation_rows": 17248,
+        "root_node_seconds": 0.13587271608412266,
+        "root_node_calls": 12,
+        "wall_seconds": 15.175004228018224,
+        "python_other_seconds": 0.14869215385988355,
+        "scope": "Prediction includes array packing and ONNX execution. Engine pool includes JS work, IPC and JSON handling. Timers are serial outer-call durations, not CPU utilization."
+      }
+    },
+    {
+      "case": "2p-recharged-sealed-economic",
+      "threads": 1,
+      "workers": 4,
+      "model_load_ms": 36.39277908951044,
+      "profile": {
+        "prediction_seconds": 2.292668822221458,
+        "prediction_calls": 145,
+        "predicted_rows": 4538,
+        "engine_pool_seconds": 1.2760673677548766,
+        "engine_pool_calls": 141,
+        "engine_observation_rows": 4533,
+        "root_node_seconds": 0.015222132205963135,
+        "root_node_calls": 8,
+        "wall_seconds": 3.629821917042136,
+        "python_other_seconds": 0.045863594859838486,
+        "scope": "Prediction includes array packing and ONNX execution. Engine pool includes JS work, IPC and JSON handling. Timers are serial outer-call durations, not CPU utilization."
+      }
+    },
+    {
+      "case": "6p-original-open-economic",
+      "threads": 1,
+      "workers": 4,
+      "model_load_ms": 36.39277908951044,
+      "profile": {
+        "prediction_seconds": 4.032129296567291,
+        "prediction_calls": 308,
+        "predicted_rows": 4673,
+        "engine_pool_seconds": 1.700270771048963,
+        "engine_pool_calls": 305,
+        "engine_observation_rows": 4669,
+        "root_node_seconds": 0.014385059475898743,
+        "root_node_calls": 7,
+        "wall_seconds": 5.811933355871588,
+        "python_other_seconds": 0.06514822877943516,
+        "scope": "Prediction includes array packing and ONNX execution. Engine pool includes JS work, IPC and JSON handling. Timers are serial outer-call durations, not CPU utilization."
+      }
+    },
+    {
+      "case": "6p-recharged-sealed-economic",
+      "threads": 1,
+      "workers": 4,
+      "model_load_ms": 36.39277908951044,
+      "profile": {
+        "prediction_seconds": 2.112861362285912,
+        "prediction_calls": 400,
+        "predicted_rows": 2275,
+        "engine_pool_seconds": 1.123093543574214,
+        "engine_pool_calls": 398,
+        "engine_observation_rows": 2272,
+        "root_node_seconds": 0.010057901032269001,
+        "root_node_calls": 6,
+        "wall_seconds": 3.2796034207567573,
+        "python_other_seconds": 0.03359061386436224,
+        "scope": "Prediction includes array packing and ONNX execution. Engine pool includes JS work, IPC and JSON handling. Timers are serial outer-call durations, not CPU utilization."
+      }
+    },
+    {
+      "case": "2p-original-open-economic",
+      "threads": 4,
+      "workers": 4,
+      "model_load_ms": 34.39069027081132,
+      "profile": {
+        "prediction_seconds": 4.679190620779991,
+        "prediction_calls": 257,
+        "predicted_rows": 17257,
+        "engine_pool_seconds": 4.380533241201192,
+        "engine_pool_calls": 249,
+        "engine_observation_rows": 17248,
+        "root_node_seconds": 0.13388397311791778,
+        "root_node_calls": 12,
+        "wall_seconds": 9.34065337618813,
+        "python_other_seconds": 0.14704554108902812,
+        "scope": "Prediction includes array packing and ONNX execution. Engine pool includes JS work, IPC and JSON handling. Timers are serial outer-call durations, not CPU utilization."
+      }
+    },
+    {
+      "case": "2p-recharged-sealed-economic",
+      "threads": 4,
+      "workers": 4,
+      "model_load_ms": 34.39069027081132,
+      "profile": {
+        "prediction_seconds": 1.1678045042790473,
+        "prediction_calls": 145,
+        "predicted_rows": 4538,
+        "engine_pool_seconds": 1.2941775103099644,
+        "engine_pool_calls": 141,
+        "engine_observation_rows": 4533,
+        "root_node_seconds": 0.014620481990277767,
+        "root_node_calls": 8,
+        "wall_seconds": 2.51909133605659,
+        "python_other_seconds": 0.042488839477300644,
+        "scope": "Prediction includes array packing and ONNX execution. Engine pool includes JS work, IPC and JSON handling. Timers are serial outer-call durations, not CPU utilization."
+      }
+    },
+    {
+      "case": "6p-original-open-economic",
+      "threads": 4,
+      "workers": 4,
+      "model_load_ms": 34.39069027081132,
+      "profile": {
+        "prediction_seconds": 2.02966826595366,
+        "prediction_calls": 308,
+        "predicted_rows": 4673,
+        "engine_pool_seconds": 1.6261683087795973,
+        "engine_pool_calls": 305,
+        "engine_observation_rows": 4669,
+        "root_node_seconds": 0.012125044595450163,
+        "root_node_calls": 7,
+        "wall_seconds": 3.732789186295122,
+        "python_other_seconds": 0.06482756696641445,
+        "scope": "Prediction includes array packing and ONNX execution. Engine pool includes JS work, IPC and JSON handling. Timers are serial outer-call durations, not CPU utilization."
+      }
+    },
+    {
+      "case": "6p-recharged-sealed-economic",
+      "threads": 4,
+      "workers": 4,
+      "model_load_ms": 34.39069027081132,
+      "profile": {
+        "prediction_seconds": 1.2174256495200098,
+        "prediction_calls": 400,
+        "predicted_rows": 2275,
+        "engine_pool_seconds": 1.0206734607927501,
+        "engine_pool_calls": 398,
+        "engine_observation_rows": 2272,
+        "root_node_seconds": 0.008576004765927792,
+        "root_node_calls": 6,
+        "wall_seconds": 2.2773507949896157,
+        "python_other_seconds": 0.03067567991092801,
+        "scope": "Prediction includes array packing and ONNX execution. Engine pool includes JS work, IPC and JSON handling. Timers are serial outer-call durations, not CPU utilization."
+      }
+    }
+  ],
+  "scope": "Four slow public roots selected from four engineering games; 4-world resource-filter, three thread/worker settings. Stress sample, not representative gameplay latency or strength.",
+  "model_sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+  "new_hf_jobs": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

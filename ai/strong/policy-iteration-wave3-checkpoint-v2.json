@@ -1,0 +1,35 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "981a5dbf0fc8368ef503bdc8778771ee891ff25c",
+  "prefix": "runs/policy-iteration-wave3-checkpoint-v2",
+  "manifest_sha256": "8d8b59e547a719ffd1daaf94888dda9917fad7e3bc9180e69e710233b3230915",
+  "status_checked_at": "2026-10-24T05:10:51.941074+00:00",
+  "status_counts": {
+    "COMPLETED": 320,
+    "RUNNING": 341,
+    "SCHEDULING": 287
+  },
+  "replacement_jobs": 300,
+  "skipped_started_originals": 3,
+  "all_replaced_originals_canceled_before_start": true,
+  "original_guards_preserved": true,
+  "complete_new_shards": 312,
+  "root_mode_pairs": 11388,
+  "rollouts_including_pilot": 10986048,
+  "parent_status_checked_at": "2026-10-24T05:10:32.063653+00:00",
+  "parent_status_counts": {
+    "COMPLETED": 92,
+    "RUNNING": 16
+  },
+  "verified_parent_shards": 90,
+  "verified_parent_games": 5504,
+  "parent_complete_cells": 22,
+  "parent_development_point_deficits": [
+    "heuristic/2p",
+    "legacy/4p",
+    "a260/3p"
+  ],
+  "gradients": false,
+  "reserved_final_seeds_used": false,
+  "qualification_eligible": false
+}

@@ -25,75 +25,95 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: parent reference grid running; AMD architecture cost verified
+## Latest checkpoint: 312 verified label shards; fresh baseline weaknesses measured
 
-This turn made **progress**: additional labels independently verified, both parent
-runtime probes passed, the complete parent development grid was submitted, and
-all four untrained ensemble architectures were measured on the actual AMD8840U.
-**No new gradients, trained candidate, qualified model, final-test use or
-production change.** The goal remains active.
+This turn made **progress**: 312 label shards and 90 parent-reference batches now
+verify, a bounded third CPU capacity wave completed, and the fresh baseline
+results expose concrete remaining weaknesses. **No new gradients, trained
+candidate, qualified model, final-test use or production change.** The goal
+remains active.
 
-### Labels
+### Labels and CPU capacity
 
-**268/948 new shards verified**,9,793 root-mode pairs and **9,460,416 continuations**
-including the reused pilot. Last snapshot `2026-10-24T04:50:08.962224+00:00`:
-**268 COMPLETED /235 RUNNING /445 SCHEDULING**. CPU Upgrade replacements remain
-capped at180;166 were running and14 completed at that snapshot. All14 completed
-upgrade shards verify, totaling565,440 continuations. Do not expand beyond180
-without a new measured capacity decision.
+**312/948 new shards verified**, 11,388 root-mode pairs and **10,986,048
+continuations** including the reused pilot. The authoritative snapshot at
+`2026-10-24T05:10:51.941074+00:00` is **320 COMPLETED /341 RUNNING /287 SCHEDULING**.
+Eight completed jobs still need independent collection. Collector48591 (to312)
+and all previous collectors finished. No local label collector is active.
+Use `manage-policy-iteration-labels.py status`, then `collect`, then `summarize`.
+All948 new shards plus60 pilot shards are still required before gradients.
 
-Collectors6153 (to230),14497 (to250) and70849 (to268) have all finished. **No local
-label collector is active.** Their logs use
-`ai/runs/policy-iteration-labels-collect-230-v2.log`, `...collect-250-v2.log` and
-`...collect-268-v2.log`. Use the effective-handle manager for future status/collection.
+The third CPU Upgrade wave is **complete: 300 total replacements**, within its
+recorded cap. Its admission used15 verified full shards /640,512 continuations,
+covering2–6 players, both continuation modes, all three behavior policies and both
+opponents. Observed wall times including setup/upload were2,799–4,725 seconds.
+All120 previous additional replacements had started, while430 original jobs were
+waiting for requested hardware. The exact cross-hardware controls and original
+conservative bounds remain unchanged: multiplier1.4454652311275429,12h timeouts,
+25% headroom, identical frozen workers/worlds/actions/output prefixes.
 
-Latest label evidence: model-repo revision **b780e34f3a639f25bdf5e6ded75d1183b4ac4483**,
-prefix `runs/policy-iteration-labels-268-progress-evidence-v2`, manifest SHA
-`99f8084458651df26e43b7b073a3c656753616ca82d02d10a2378de1643be793`. This supersedes the250-shard label snapshot
-inside the architecture benchmark archive and the219-shard previous checkpoint.
+The main wave launched117 replacements and safely skipped three originals that
+had already started. A refreshed snapshot admitted the final three slots.
+**303 attempt records =300 launched +3 skipped; no unresolved submissions.**
+Every replaced original was confirmed canceled and never started; every original
+guard is preserved. Skipped originals remain their effective handles. Both
+launchers48109/63227 finished. Do not expand beyond300 from this admission.
+New decision: `strong/policy-iteration-cpu-upgrade-wave3-admission-v2.json`.
 
-### Parent runtime probes and full reference grid
+### Parent reference grid
 
-Both exact probes are **COMPLETED and independently verified**. The6p job
-`6adc2d2a1e112550ce7dc710` ran24 full games in **2,786.6924s**, with5,375 search
-decisions /439,328 search evaluations and zero game/search truncations. Its raw
-revision is `ff018d27d92b4c600f0e5f1ab4d9c58d21c4b4b8`, prefix
-`runs/policy-iteration-development-v2-smoke-parent-6p-search_geo-0-1`.
-The earlier2p job `6adc2d29046eb82b1ecda152` remains verified (8 games,146.1888s).
-These32 probe games establish runtime, not strength.
+Both original runtime probes remain **COMPLETED/verified**:2p job
+`6adc2d29046eb82b1ecda152` (8 games,146.19s),6p job
+`6adc2d2a1e112550ce7dc710` (24 games,2,786.69s). These32 games establish runtime only.
+All108 parent reference jobs are already submitted with9h timeouts on CPU Upgrade.
+Plan: `strong/policy-iteration-development-plans-v2/parent.json`, SHA
+`080893449fde758e1820bf2fe5557dcaf4772343e2395d2adbf788bad840658b`.
+Do not resubmit probes or grid jobs.
 
-The admitted plan is `strong/policy-iteration-development-plans-v2/parent.json`,
-SHA `080893449fde758e1820bf2fe5557dcaf4772343e2395d2adbf788bad840658b`. Its conservative four-deal projection is
-22,413.5395s; the prescribed headroom gives **9h timeouts** on CPU Upgrade.
-The dry run admitted all108 shards. **Launcher78626 finished successfully**;
-all108 unique parent reference handles are recorded, with no unknown submissions.
-Planned total: **6,720 games**,27 opponent/count cells,16 independent deals per
-cell, all seats and all four edition/auction combinations. No trained-candidate
-arm has launched yet.
+At `2026-10-24T05:10:32.063653+00:00`, parent-reference jobs were
+**92 COMPLETED /16 RUNNING**, plus the two completed runtime probes.
+**90 batches /5,504 fresh games independently verify**. Collectors64829/31476
+finished; two additional completed batches await collection. Every remaining
+batch is against search_geo. The full arm requires108 batches /6,720 games.
 
-At `2026-10-24T04:51:33.985349+00:00`, the108 parent reference jobs were
-**8 COMPLETED /100 RUNNING**. The separate two runtime probes were also completed.
-**All eight completed parent shards independently verified:320 fresh games.**
-These are the0–4-deal batches for2p/3p economic,legacy,heuristic,rush. Local grid
-collector52030 finished. No full arm or cross-model comparison is complete yet.
+The diagnostic `strong/policy-iteration-parent-reference-progress-90-v2.json`
+revalidates all raw hashes, guards and games. It summarizes only the22 cells with
+all16 independent deals; all five search cells remain incomplete in this snapshot.
+All seats and four edition/auction combinations remain paired. Whole-deal
+bootstrap intervals are exploratory, not simultaneous guarantees. The following
+fresh parent point estimates fall below the unchanged final-protocol floors:
 
-Reference-grid evidence: revision **e2e278e0c520aa42d021844a865a8ad15d36c94b**, prefix
-`runs/policy-iteration-parent-grid-launch-evidence-v2`, manifest SHA
-`df5354757ced53417d4e2563624e480f796c86a64879762f3c185dd522533e01`. It contains all108 parent guards, both probe
-guards/raw verified results, the immutable plan, and the eight verified full
-reference batches. Descriptor: `strong/policy-iteration-parent-grid-launch-evidence-v2.json`.
+| Cell | Parent win rate | 95% deal-bootstrap interval | Final floor, orientation only |
+| --- | --- | --- | --- |
+| 2p heuristic | 73.44% | 64.06–83.59% | 77.5% |
+| 4p legacy | 88.28% | 83.59–92.97% | 90% |
+| 3p independent A260 | 34.38% | 26.04–42.71% | 40% |
+
+The A260 interval includes random-seat chance (one third). Fourteen rule-specific
+intervals across the complete cells do not exclude chance; all remain in the
+report. This is developmental diagnosis, **not a final-test failure or pass**.
+No thresholds changed and final reserved deals remain unused. All four future
+trained candidates still require their own runtime probes and full matching grids.
+
+New evidence descriptor: `strong/policy-iteration-wave3-checkpoint-v2.json`.
+Private model-repo revision **981a5dbf0fc8368ef503bdc8778771ee891ff25c**, prefix
+`runs/policy-iteration-wave3-checkpoint-v2`, manifest SHA
+`8d8b59e547a719ffd1daaf94888dda9917fad7e3bc9180e69e710233b3230915`.
+It archives all948 original label guards,303 migration attempts,312 verified label
+records with immutable raw pins, all110 reference/probe handles,90 raw verified
+reference batches, both partial diagnostics and the capacity decision/code.
+Older launch and AMD evidence remain available below. No local HF launcher or
+collector from this checkpoint remains active; HF jobs continue remotely.
 
 Next collection commands:
 
 ```sh
+ai/.venv/bin/python ai/strong/manage-policy-iteration-labels.py status
+ai/.venv/bin/python ai/strong/manage-policy-iteration-labels.py collect
+ai/.venv/bin/python ai/strong/manage-policy-iteration-labels.py summarize
 ai/.venv/bin/python ai/strong/manage-policy-iteration-development.py status
 ai/.venv/bin/python ai/strong/manage-policy-iteration-development-grid.py collect parent
 ```
-
-Do not relaunch the probes or the full grid. The grid launcher can reconcile and
-skip exact existing guards, but there are no missing submissions to fill here.
-A complete parent summary requires all108 verified shards. All four candidate
-arms still require their trained pins and their own2p/6p runtime probes.
 
 ### AMD8840U architecture benchmark
 

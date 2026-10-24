@@ -43797,7 +43797,7 @@
     },
     "policy_iteration_labels_v2": {
         "date": "2026-10-24",
-        "status": "268 new shards independently verified;full grid still incomplete",
+        "status": "312 new shards independently verified; full grid still incomplete",
         "planned_roots": 17280,
         "planned_reused_pilot_roots": 360,
         "new_root_mode_pairs": 33840,
@@ -43835,11 +43835,11 @@
         "first_wave_jobs_submitted": 60,
         "first_wave_new_root_mode_pairs": 3318,
         "first_wave_distinct_new_roots": 2538,
-        "status_checked_at": "2026-10-24T04:50:08.962224+00:00",
+        "status_checked_at": "2026-10-24T05:10:51.941074+00:00",
         "status_counts": {
-            "COMPLETED": 268,
-            "RUNNING": 235,
-            "SCHEDULING": 445
+            "COMPLETED": 320,
+            "RUNNING": 341,
+            "SCHEDULING": 287
         },
         "preflight": "ai/strong/policy-iteration-labels-preflight-v2.json",
         "preflight_rollouts": 1364,
@@ -43857,12 +43857,12 @@
         "fixed_inference_batch": 64,
         "engine_workers": 24,
         "timeout_hours": 8,
-        "complete_new_shards": 268,
+        "complete_new_shards": 312,
         "verified_reused_root_mode_pairs": 720,
-        "next": "Refresh effective handles and collect completions;all948 new shards plus reused pilot remain required before HF gradients. All prior local collectors and replacement launchers finished.",
+        "next": "Collect eight completed but unverified shards and later completions using effective handles; all948 new shards plus60 pilot cases remain required before HF gradients. All prior local collectors and replacement launchers finished.",
         "status_snapshot_scope": "All948 effective shard jobs; historical canceled originals preserved separately",
-        "verified_root_mode_pairs": 9793,
-        "rollouts_including_pilot": 9460416,
+        "verified_root_mode_pairs": 11388,
+        "rollouts_including_pilot": 10986048,
         "new_first_wave_rollouts": 3212352,
         "first_wave_evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
@@ -43948,6 +43948,41 @@
             "rollouts_including_pilot": 9460416,
             "full_labels_complete": false,
             "gradients": false,
+            "qualification_eligible": false
+        },
+        "latest_evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "981a5dbf0fc8368ef503bdc8778771ee891ff25c",
+            "prefix": "runs/policy-iteration-wave3-checkpoint-v2",
+            "manifest_sha256": "8d8b59e547a719ffd1daaf94888dda9917fad7e3bc9180e69e710233b3230915",
+            "status_checked_at": "2026-10-24T05:10:51.941074+00:00",
+            "status_counts": {
+                "COMPLETED": 320,
+                "RUNNING": 341,
+                "SCHEDULING": 287
+            },
+            "replacement_jobs": 300,
+            "skipped_started_originals": 3,
+            "all_replaced_originals_canceled_before_start": true,
+            "original_guards_preserved": true,
+            "complete_new_shards": 312,
+            "root_mode_pairs": 11388,
+            "rollouts_including_pilot": 10986048,
+            "parent_status_checked_at": "2026-10-24T05:10:32.063653+00:00",
+            "parent_status_counts": {
+                "COMPLETED": 92,
+                "RUNNING": 16
+            },
+            "verified_parent_shards": 90,
+            "verified_parent_games": 5504,
+            "parent_complete_cells": 22,
+            "parent_development_point_deficits": [
+                "heuristic/2p",
+                "legacy/4p",
+                "a260/3p"
+            ],
+            "gradients": false,
+            "reserved_final_seeds_used": false,
             "qualification_eligible": false
         }
     },
@@ -44077,9 +44112,9 @@
         "exact_reference_continuations": 3072,
         "upgrade_slowdown": 1.0847907502857694,
         "worst_case_upgrade_slowdown": 1.1563721849020343,
-        "replacement_jobs": 180,
-        "replacements_running_at_snapshot": 166,
-        "originals_confirmed_canceled": 180,
+        "replacement_jobs": 300,
+        "replacements_running_at_snapshot": 272,
+        "originals_confirmed_canceled": 300,
         "originals_that_had_started": 0,
         "original_guards_preserved": true,
         "first_hardware_wave_limit": 60,
@@ -44087,10 +44122,10 @@
         "admission_multiplier": 1.4454652311275429,
         "attempts": "ai/runs/policy-iteration-labels-cpu-upgrade-v2",
         "new_attempt_launcher_finished": true,
-        "status_checked_at": "2026-10-24T04:50:08.962224+00:00",
+        "status_checked_at": "2026-10-24T05:10:51.941074+00:00",
         "gradients": false,
         "qualification_eligible": false,
-        "next": "The bounded expansion to180 total replacements is complete. Continue independent collection; no further hardware expansion is admitted by this decision.",
+        "next": "The bounded expansion to300 replacements is complete;3 started originals were preserved. Continue independent collection. No further hardware expansion is admitted by this decision.",
         "evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
             "revision": "1d6850b531d5586a4bd75cce3dad11f6d9f7dd44",
@@ -44111,34 +44146,55 @@
             "gradients": false,
             "qualification_eligible": false
         },
-        "full_upgrade_shards_verified": 14,
+        "full_upgrade_shards_verified": 26,
         "replacement_status_counts": {
-            "RUNNING": 166,
-            "COMPLETED": 14
+            "RUNNING": 272,
+            "COMPLETED": 28
         },
-        "maximum_total_replacements": 180,
+        "maximum_total_replacements": 300,
         "second_wave_jobs": 120,
         "second_wave_admission": "ai/strong/policy-iteration-cpu-upgrade-wave2-admission-v2.json",
-        "full_upgrade_rollouts_verified": 565440,
+        "full_upgrade_rollouts_verified": 1201920,
         "latest_evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
-            "revision": "969786e971f9f1b84f71eb378a66467d9c03aa2d",
-            "prefix": "runs/policy-iteration-wave2-checkpoint-v2",
-            "manifest_sha256": "cebd7f3828aef896747a3137d210ad0da6718cf76ca06eeadeb2d6512b88029b",
-            "status_checked_at": "2026-10-24T04:34:16.621265+00:00",
+            "revision": "981a5dbf0fc8368ef503bdc8778771ee891ff25c",
+            "prefix": "runs/policy-iteration-wave3-checkpoint-v2",
+            "manifest_sha256": "8d8b59e547a719ffd1daaf94888dda9917fad7e3bc9180e69e710233b3230915",
+            "status_checked_at": "2026-10-24T05:10:51.941074+00:00",
             "status_counts": {
-                "COMPLETED": 219,
-                "RUNNING": 243,
-                "SCHEDULING": 486
+                "COMPLETED": 320,
+                "RUNNING": 341,
+                "SCHEDULING": 287
             },
-            "replacement_jobs": 180,
-            "complete_new_shards": 219,
-            "rollouts_including_pilot": 7988544,
-            "new_collector_and_grid_contracts_passed": true,
+            "replacement_jobs": 300,
+            "skipped_started_originals": 3,
+            "all_replaced_originals_canceled_before_start": true,
+            "original_guards_preserved": true,
+            "complete_new_shards": 312,
+            "root_mode_pairs": 11388,
+            "rollouts_including_pilot": 10986048,
+            "parent_status_checked_at": "2026-10-24T05:10:32.063653+00:00",
+            "parent_status_counts": {
+                "COMPLETED": 92,
+                "RUNNING": 16
+            },
+            "verified_parent_shards": 90,
+            "verified_parent_games": 5504,
+            "parent_complete_cells": 22,
+            "parent_development_point_deficits": [
+                "heuristic/2p",
+                "legacy/4p",
+                "a260/3p"
+            ],
             "gradients": false,
             "reserved_final_seeds_used": false,
             "qualification_eligible": false
-        }
+        },
+        "skipped_started_originals": 3,
+        "third_wave_jobs": 120,
+        "third_wave_admission": "ai/strong/policy-iteration-cpu-upgrade-wave3-admission-v2.json",
+        "third_wave_initial_replacements": 117,
+        "third_wave_fill_replacements": 3
     },
     "policy_iteration_verification_profile_v2": {
         "report": "ai/strong/policy-iteration-verification-profile-v2.json",
@@ -44159,7 +44215,7 @@
     },
     "policy_iteration_development_v2": {
         "date": "2026-10-24",
-        "status": "Both parent runtime probes verified;all108 parent reference shards submitted;first8 shards/320 games independently verified",
+        "status": "90 parent reference shards/5504 games independently verified;22 non-search cells complete, all search cells still partial",
         "protocol": "ai/strong/policy-iteration-development-protocol-v2.json",
         "source": {
             "archive": "strong-source-policy-iteration-development-20261024-v2.tgz",
@@ -44339,13 +44395,70 @@
         "parent_grid_jobs_submitted": 108,
         "parent_grid_launcher_finished": true,
         "parent_grid_timeout_hours": 9,
-        "parent_grid_verified_cases": 8,
-        "parent_grid_verified_games": 320,
-        "parent_grid_status_checked_at": "2026-10-24T04:51:33.985349+00:00",
+        "parent_grid_verified_cases": 90,
+        "parent_grid_verified_games": 5504,
+        "parent_grid_status_checked_at": "2026-10-24T05:10:32.063653+00:00",
         "parent_grid_status_counts": {
-            "COMPLETED": 8,
-            "RUNNING": 100
-        }
+            "COMPLETED": 92,
+            "RUNNING": 16
+        },
+        "latest_parent_evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "981a5dbf0fc8368ef503bdc8778771ee891ff25c",
+            "prefix": "runs/policy-iteration-wave3-checkpoint-v2",
+            "manifest_sha256": "8d8b59e547a719ffd1daaf94888dda9917fad7e3bc9180e69e710233b3230915",
+            "status_checked_at": "2026-10-24T05:10:51.941074+00:00",
+            "status_counts": {
+                "COMPLETED": 320,
+                "RUNNING": 341,
+                "SCHEDULING": 287
+            },
+            "replacement_jobs": 300,
+            "skipped_started_originals": 3,
+            "all_replaced_originals_canceled_before_start": true,
+            "original_guards_preserved": true,
+            "complete_new_shards": 312,
+            "root_mode_pairs": 11388,
+            "rollouts_including_pilot": 10986048,
+            "parent_status_checked_at": "2026-10-24T05:10:32.063653+00:00",
+            "parent_status_counts": {
+                "COMPLETED": 92,
+                "RUNNING": 16
+            },
+            "verified_parent_shards": 90,
+            "verified_parent_games": 5504,
+            "parent_complete_cells": 22,
+            "parent_development_point_deficits": [
+                "heuristic/2p",
+                "legacy/4p",
+                "a260/3p"
+            ],
+            "gradients": false,
+            "reserved_final_seeds_used": false,
+            "qualification_eligible": false
+        },
+        "parent_reference_diagnostic": "ai/strong/policy-iteration-parent-reference-progress-90-v2.json",
+        "parent_development_point_deficits": [
+            "heuristic/2p",
+            "legacy/4p",
+            "a260/3p"
+        ],
+        "parent_rule_intervals_not_excluding_chance": [
+            "economic/2p/original/sealed",
+            "economic/2p/recharged/open",
+            "economic/2p/recharged/sealed",
+            "heuristic/2p/original/sealed",
+            "rush/2p/original/sealed",
+            "rush/2p/recharged/sealed",
+            "economic/4p/original/sealed",
+            "a260/3p/original/open",
+            "a260/3p/original/sealed",
+            "a260/3p/recharged/open",
+            "a260/3p/recharged/sealed",
+            "economic_capacity_v1/2p/original/sealed",
+            "economic_capacity_v1/2p/recharged/open",
+            "economic_capacity_v1/2p/recharged/sealed"
+        ]
     },
     "policy_iteration_architecture_8840u_v2": {
         "date": "2026-10-24",
@@ -44419,5 +44532,47 @@
         "gradients": false,
         "qualification_eligible": false,
         "scope": "Untrained architecture cost only. Exact trained candidate must be benchmarked again;not browser or strength evidence."
+    },
+    "policy_iteration_wave3_checkpoint_v2": {
+        "date": "2026-10-24",
+        "turn_classification": "progress",
+        "evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "981a5dbf0fc8368ef503bdc8778771ee891ff25c",
+            "prefix": "runs/policy-iteration-wave3-checkpoint-v2",
+            "manifest_sha256": "8d8b59e547a719ffd1daaf94888dda9917fad7e3bc9180e69e710233b3230915",
+            "status_checked_at": "2026-10-24T05:10:51.941074+00:00",
+            "status_counts": {
+                "COMPLETED": 320,
+                "RUNNING": 341,
+                "SCHEDULING": 287
+            },
+            "replacement_jobs": 300,
+            "skipped_started_originals": 3,
+            "all_replaced_originals_canceled_before_start": true,
+            "original_guards_preserved": true,
+            "complete_new_shards": 312,
+            "root_mode_pairs": 11388,
+            "rollouts_including_pilot": 10986048,
+            "parent_status_checked_at": "2026-10-24T05:10:32.063653+00:00",
+            "parent_status_counts": {
+                "COMPLETED": 92,
+                "RUNNING": 16
+            },
+            "verified_parent_shards": 90,
+            "verified_parent_games": 5504,
+            "parent_complete_cells": 22,
+            "parent_development_point_deficits": [
+                "heuristic/2p",
+                "legacy/4p",
+                "a260/3p"
+            ],
+            "gradients": false,
+            "reserved_final_seeds_used": false,
+            "qualification_eligible": false
+        },
+        "gradients": false,
+        "qualification_eligible": false,
+        "final_seeds_used": false
     }
 }

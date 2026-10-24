@@ -4,28 +4,31 @@
 No candidate has passed the strength gate. No AI is published; final seeds remain
 unused. This turn made **progress**.
 
-- **268/948 new label shards verified**,9,460,416 continuations including the pilot.
-  Snapshot04:50:08UTC:268 completed,235 running,445 scheduling. The180 CPU Upgrade
-  replacement cap remains;14 upgrade shards verify. No local label collector active.
-- Both original parent runtime probes are **complete/verified**. Do not restart
-  `6adc2d29046eb82b1ecda152` or `6adc2d2a1e112550ce7dc710`.
-- **All108 parent reference jobs submitted**,6,720 planned fresh games,9h timeouts.
-  Snapshot04:51:33UTC:8 completed/100 running. The first8 batches /320 games verify.
-  Launcher78626 and collector52030 finished; use development status then grid
-  manager `collect parent`. No missing reference submissions.
-- **Actual AMD8840U architecture probe passed all10,212 requests** with exact moves
-  and values versus frozen runtime. Richer untrained ensembles:~5.9ms warm median,
-  ~8.7–9.0ms p95. This is architecture cost only; trained candidate still needs its
-  own benchmark. Remote/local probe processes all finished.
-- Private HF evidence: labels `b780e34f3a639f25bdf5e6ded75d1183b4ac4483`;
-  parent reference `e2e278e0c520aa42d021844a865a8ad15d36c94b`;
-  AMD architecture `d4af1c8d92a0ff1f42835c0e48a382113337836f`. Exact prefixes/manifests are in
-  the handoff.
-- No new gradients yet. Complete labels precede the two four-seedL4 jobs; all four
-  trained candidate grids, adverse-result diagnosis and untouched final gate remain.
+- **312/948 new label shards verified**,10,986,048 continuations including pilot.
+  Snapshot05:10:51UTC:320 completed,341 running,287 scheduling. Eight completions
+  await collection. All previous local collectors finished.
+- The measured third CPU wave finished: **300 replacements +3 safely skipped
+  started originals**. Replaced originals were confirmed canceled before start.
+  All948 effective handles are distinct. No unresolved submissions or new wave
+  authorized beyond the300 cap.
+- **90 parent reference batches /5,504 fresh games verify**. Snapshot05:10:32UTC:
+  92 completed /16 running out of108, plus both completed runtime probes. Two
+  completed batches await collection. Do not relaunch any reference jobs.
+- Complete-cell baseline diagnostics expose weaknesses:3p A26034.38%
+  (95% interval26.04–42.71%, includes chance);2p heuristic and4p legacy also have
+  point estimates below the final floors. This is exploratory development data;
+  final test deals remain unused. Search cells are still incomplete.
+- Current recoverable checkpoint: `strong/policy-iteration-wave3-checkpoint-v2.json`.
+  Includes312 label verification records, all original/replacement handles and
+  90 raw verified reference batches. Exact HF revision/manifest in the descriptor.
+- **AMD8840U architecture probe already complete**:10,212 exact requests; richer
+  untrained ensembles ~5.9ms median/~9ms p95. No target process remains active.
+  Evidence `d4af1c8d92a0ff1f42835c0e48a382113337836f`; trained model must be retested.
+- No new gradients yet. Complete labels precede two four-seedL4 jobs; all four
+  candidate grids and the untouched final gate remain.
 
-Next: collect labels/reference games while the live HF jobs finish, then advance
-the complete-data training pipeline. Keep the goal active; no model is qualified.
+Next: collect labels/reference completions from existing handles, then advance
+the complete-data HF training pipeline. Keep the goal active; no model qualified.
 
 ---
 

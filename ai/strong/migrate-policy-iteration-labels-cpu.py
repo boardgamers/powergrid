@@ -31,16 +31,24 @@ def main():
     parser = argparse.ArgumentParser(__doc__)
     parser.add_argument('--limit', type=int, default=60)
     parser.add_argument('--execute', action='store_true')
-    parser.add_argument('--wave2', action='store_true', help='Use the recorded full-shard capacity admission')
+    wave = parser.add_mutually_exclusive_group()
+    wave.add_argument('--wave2', action='store_true', help='Use the recorded first capacity expansion')
+    wave.add_argument('--wave3', action='store_true', help='Use the recorded broad full-shard capacity expansion')
     args = parser.parse_args()
     total_cap, per_wave_cap, capacity = 60, 60, None
-    if args.wave2:
-        capacity_path = ROOT/'ai/strong/policy-iteration-cpu-upgrade-wave2-admission-v2.json'
+    if args.wave2 or args.wave3:
+        capacity_wave = 3 if args.wave3 else 2
+        expected_total = 300 if args.wave3 else 180
+        capacity_path = ROOT/f'ai/strong/policy-iteration-cpu-upgrade-wave{capacity_wave}-admission-v2.json'
         capacity = read(capacity_path)
         assert capacity['admitted'] and capacity['frozen_worker_unchanged']
-        assert capacity['maximum_total_replacements'] == 180 and capacity['maximum_new_replacements'] == 120
+        assert capacity['maximum_total_replacements'] == expected_total and capacity['maximum_new_replacements'] == 120
         assert capacity['profile_sha256'] == digest(PROFILE)
-        assert len(capacity['verified_full_shards']) >= 2
+        assert len(capacity['verified_full_shards']) >= (10 if args.wave3 else 2)
+        if args.wave3:
+            assert capacity['second_wave_all120_started']
+            assert {r['players'] for r in capacity['verified_full_shards']} == {2,3,4,5,6}
+            assert {r['mode'] for r in capacity['verified_full_shards']} == {'neural','neural_economic'}
         for row in capacity['verified_full_shards']:
             assert digest(ATTEMPTS/(row['shard']+'.json')) == row['attempt_sha256']
             directory = ROOT/'ai/runs/policy-iteration-labels-verified-v2'/row['shard']
@@ -49,7 +57,7 @@ def main():
             assert checked['verified'] and checked['source'] == capacity['source']
             for file, sha in checked['artifacts'].items():
                 assert digest(directory/file) == sha
-        total_cap, per_wave_cap = 180, 120
+        total_cap, per_wave_cap = expected_total, 120
     assert 1 <= args.limit <= per_wave_cap, 'Hardware waves are deliberately bounded'
     profile = read(PROFILE)
     assert profile['verified'] and profile['rollouts'] == 3072
@@ -115,6 +123,7 @@ def main():
                       'qualification_eligible': False}
             if capacity:
                 record['capacity_admission_sha256'] = digest(capacity_path)
+                record['capacity_wave'] = capacity_wave
             path = ATTEMPTS/original_path.name
             with path.open('x') as stream:
                 json.dump(record, stream, indent=2)

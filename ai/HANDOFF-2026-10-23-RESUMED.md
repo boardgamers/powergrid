@@ -15,20 +15,154 @@ This document supersedes the pause instruction in the
 - Artifact repo: `coyotte508/powergrid-ai-germany-v1` (private).
 - Source dataset: `coyotte508/powergrid-ai-training-v1`.
 - Target: `ssh minipc`, AMD 8840U. The local HX370 is not the target benchmark.
-- Latest explicit job snapshots:
-  [teacher jobs](strong/strategic-teacher-training-status-v1.json) and
-  [development arenas](strong/strategic-correction-screen-status-v1.json).
-  Read its timestamps and inspect those exact handles; do not infer current
-  state from this document. Local launch guards are under
-  `ai/runs/strategic-teacher-training-launches-v1/` and
-  `ai/runs/strategic-correction-screen-launches-v1/`. Refresh these safely with
-  `ai/.venv/bin/python ai/strong/refresh-strategic-correction-jobs.py`;
-  this only inspects existing jobs. The three historical image-pull failures
-  retain explicit links to their completed replacement jobs. Do not retry them.
+- Latest explicit job snapshot: [full-data labels](strong/policy-iteration-labels-status-v2.json).
+  During remaining-wave submission this snapshot covers only the original 60
+  completed jobs. Read the live-launch note below before interpreting it. Guards are in
+  `ai/runs/policy-iteration-labels-launches-v2/`; use
+  `ai/.venv/bin/python ai/strong/manage-policy-iteration-labels.py status`.
+  Older teacher, collection, inference-profile and development jobs are complete;
+  their failed/replaced historical handles must not be retried.
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: full pilot verified; larger labeling wave launched
+## Latest checkpoint: larger data and representation comparison prepared
+
+This continuation made **progress**. The first full-data labels are independently
+verified, all 17,280 public inputs are cached and archived, and the next training
+design is fixed. **No new gradients, qualified model, production changes, or
+reserved final-test use.** The existing goal remains active.
+
+### Label jobs and collection
+
+At `2026-10-24T02:52:53.617474+00:00`, HF reported **all 60 original jobs COMPLETED**.
+All 60 then independently verified: **3,212,352 new continuations**; including
+the pilot, **3,917,760 continuations / 4,038 root-mode pairs**. No caps were
+accepted. This is partial training-label coverage, not strength evidence.
+
+First-wave evidence: model-repo revision
+`cd0ec1a2b4feaf8d5279c9aafb31291a7f3eb8ea`, prefix
+`runs/policy-iteration-labels-first-wave-evidence-v2`. The manifest still says
+`complete: false` because only 60 of the full 948 new shards are verified.
+
+The immutable 20-shard checkpoint is at model-repo revision
+`84079ae01a877988a59e8aab38c4e18f3131d51b`, prefix
+`runs/policy-iteration-labels-first-progress-evidence-v2`.
+It includes the precise seven-shard snapshot used for the new parser check:
+195,072 terminal records, 402 searches and 19 positions with both modes,
+all accepted without dropping negative targets.
+
+No local collector remains active. Five collection passes finished; the latest
+manifest includes all 60. The dry-run admission for the remaining wave passed:
+**888 new jobs / 30,522 new root-mode pairs**.
+
+**LIVE submission:** unified exec session **62283**, command
+`ai/.venv/bin/python ai/strong/manage-policy-iteration-labels.py launch --wave remaining --execute`,
+log `ai/runs/policy-iteration-labels-remaining-launch-v2.log`.
+It is still submitting sequentially. At `2026-10-24T03:00:52.691575+00:00`, 205 new
+handles were confirmed; this is a lower bound, not the final total. Read the log,
+wait/poll that session, and check guards before doing anything else. Do not start
+a second launcher while its `.launch.lock` is held. A transient `launch_intent`
+is normal during an active submission; `launch_unknown` after a failed process
+must be reconciled with HF before retrying. **The status JSON currently predates
+these new jobs and must not be interpreted as an idle fleet.** After submission
+finishes, refresh status and archive all launch guards before collecting.
+The 205-handle partial remaining-wave snapshot is already persistent at revision
+`0453e0f985962b8a2a17c86a94339f66ca8a6f03`, prefix
+`runs/policy-iteration-labels-remaining-launch-progress-v2` (it also retains all first60 guards).
+Later handles remain in local guards until the complete launch archive is saved.
+
+The source/protocol and first-wave launch plan below remain unchanged. The
+60-shard admission gate is passed. All 948 new shards plus the 60 reused pilot
+shards must verify before gradient training. No live job was duplicated/retried.
+
+### Complete public feature cache
+
+`ai/runs/policy-iteration-features-v2/` contains `features.npz`, `metadata.json`
+and `feature-check.json`. Row order is the frozen selected index, not gzip order.
+Arrays are state `[17280,1217]`, shortlisted actions `[17280,7,101]`, mask,
+parent proposal index within that shortlist, and original legal-menu indices.
+Splits remain 12,960 train / 4,320 validation by whole deal.
+
+All 17,280 full-menu parent proposals and public/model input hashes were
+reproduced. Every old 4.2 prefix matches, all 360 reused pilot menus match, and
+global public/model input deduplication remains intact. Cache generation took
+67.25 seconds locally with **no gradients**.
+
+Immutable private artifact pin:
+
+- Revision `213dcd7400f643fde7368b7c140bd5b7f7b79a55`.
+- Prefix `runs/policy-iteration-feature-cache-evidence-v2`.
+- Descriptor `strong/policy-iteration-feature-cache-evidence-v2.json`.
+- Feature check SHA `49fbc46d87259ca45893e98cca1e47228b477c67c16e9806f96bf4801f792b93`.
+
+The archived cache-generation code and frozen teacher/profile overlays must not
+be silently edited. Recover the pinned cache rather than regenerating it.
+
+### Prespecified next experiment, not yet trained
+
+`strong/policy-iteration-training-design-v2.json`, SHA
+`987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e`, fixes:
+
+- The old **97,473-parameter** head as the data-expansion control, and a new
+  **482,497-parameter** head with direct access to all 1,215 raw public state
+  features plus the frozen ordered-player context and action embeddings.
+- Four seeds per representation: **12101, 12102, 12103, 12104**.
+- Four development candidates: each representation with the mean of all four
+  heads, and the mean minus one population standard deviation. Seed disagreement
+  is **not** a calibrated confidence interval. No best-seed selection.
+- The fixed 0.025 switching margin, original scope (nomination/bid/build), same
+  teacher shortlist plus parent fallback, and unchanged parent values/other phases.
+- Soft paired targets: average the two continuation modes within each world,
+  then concatenate A/B into 192 samples. Retain adverse/uncertain evidence.
+- 120 epochs, batch256, AdamW learning rate0.0003/weight decay0.001, gradient
+  norm1, evaluation every fifth epoch, epoch0 included. Each seed selects the
+  lowest validation simulated regret, ties keeping the earlier checkpoint.
+- Fresh development prefix `policy-iteration-development-v2`. Parent preservation
+  is insufficient: the parent itself is unqualified. Independent full-game tests,
+  actual8840U measurements and the untouched final gate remain mandatory.
+
+`model_policy_iteration.py` adds the representations/ensembles without changing
+historical factories. `policy_iteration_data.py` requires the complete exact label
+manifest before downloading/reducing raw data. `prepare-policy-iteration-training-data.py`
+will create the compact bundle only after that admission. It has **not** produced
+a full training bundle yet. `archive-policy-iteration-training-data.py` is ready
+to revalidate/upload the complete bundle and refuses the current incomplete grid.
+`policy_iteration_training.py` and
+`train-policy-iteration.py` implement loading, calibration, four-seed HF training
+and strict member assembly; the gradient loop has **not** run. A pinned HF training
+source, data bundle pin and job launcher/admission still need preparation after
+the full labels finish. The future source must include the explicit
+`policy-iteration-labels-source-v2.json` descriptor as well as the new modules;
+the base archive cannot contain its own subsequently written descriptor.
+Do not run gradients locally.
+
+Checks completed:
+
+- New reduction independently matched all 705,408 original pilot terminal
+  records; common-world covariance, negative evidence and malformed-input
+  rejection were exercised. Incomplete data fails before downloads/output.
+- Four inference-only synthetic ensembles (two representations × two penalties)
+  each passed **2,553 full-menu fixtures + 17,280 cached positions**. Actual changed
+  decisions were exercised; every native/ONNX choice and parent fallback matched,
+  values and out-of-scope actions remained preserved. No trained strength claim.
+- Four model tests and three metric/assembly/calibration tests passed. Missing,
+  duplicated or inconsistent seed members are rejected. Calibration decisions
+  match exported policy decisions on 512 additional synthetic cases.
+- The trainer refuses local gradient entry. Full gradient behavior and learned
+  candidate strength remain untested, explicitly recorded in the preflight.
+
+Preparation evidence: model-repo revision
+`1fc7d8eb321fd39d882fb9cdd432436035108b63`, prefix
+`runs/policy-iteration-training-preparation-evidence-v2`, 20 files. Descriptor:
+`strong/policy-iteration-training-preparation-evidence-v2.json`. This is a
+reproducible preparation archive, **not an admitted HF training source**.
+
+Next: finish the active remaining-wave submission and archive its guards;
+collect the entire label grid; reduce and pin the compact bundle; build/preflight
+the actual training source; run the two representation jobs on HF, four seeds each;
+independently collect/check all four ensembles before fresh whole-game evaluation.
+
+## Previous checkpoint: full pilot verified; larger labeling wave launched
 
 This goal turn made **progress**: completed and assessed the full pilot, measured
 and verified faster inference, froze the full-data source, and launched its

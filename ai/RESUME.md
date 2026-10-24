@@ -5,20 +5,32 @@ The goal remains active. No candidate has passed the strength gate, no AI is
 published, and the reserved final-test seeds remain unused.
 
 Latest continuation made **progress**:
-- All 60 teacher pilot jobs completed and verified: **705,408 continuations**.
-  Conditional cross-batch gains are positive on average at every player count;
-  adverse individual/intersection results remain included. This is not model strength.
-- HF inference-concurrency comparison passed: **1.69x faster end to end**, exact
-  choice/outcome checks on 3,072 continuations and raw-score parity on 2,553 fixtures.
-- Full **17,280-position** label plan and source frozen; 360 pilot positions reused.
-- **First 60 of 948 planned HF labeling shards submitted**, 3,318 new root/mode pairs.
-  At `2026-10-24T02:01:22.708263+00:00`: `{'SCHEDULING': 27, 'RUNNING': 33}`.
-  Remaining 888 shards require all first-wave verification. No local collector active.
-- No new gradients or qualified model. Old 11101/11102 candidates remain rejected.
+- **All 60 first-wave full-data jobs completed and independently verified**:
+  3,212,352 new continuations; **3,917,760 including the pilot**, no accepted caps.
+- The remaining-wave admission passed: **888 jobs / 30,522 root-mode pairs**.
+  **LIVE launcher: unified exec session62283**, log
+  `ai/runs/policy-iteration-labels-remaining-launch-v2.log`. Wait for it and inspect
+  guards before attempting any launch. The current status JSON covers only the
+  completed first60, **not** the newly submitted live jobs. No collector is active.
+- A partial remaining-wave snapshot with **205 confirmed new handles** is already
+  archived in HF; submission continues. The first three new handles were inspected
+  and RUNNING. This is not a whole-fleet status snapshot.
+- All **17,280 public feature inputs** cached, verified and privately archived.
+- Next design fixed: old97,473 vs richer482,497-parameter heads; four seeds each;
+  mean and fixed disagreement-penalized ensembles. No threshold fitting.
+- New targets checked on all705,408 pilot continuations plus195,072 initial new
+  records. Four untrained export configurations each passed2553 full-menu
+  fixtures and17280 cached positions. Seven model/training-contract tests passed.
+- HF-only trainer and guarded data reducer implemented, **not gradient-tested or
+  admitted as a job source yet**. Full948-shard labels and pinned compact bundle
+  are required first. No new trained/qualified model; old11101/11102 remain rejected.
+- Persistent feature/preparation/first-wave evidence pins and the exact next steps
+  are in the handoff. All frozen label overlays and the reserved final protocol
+  remain unchanged.
 
-Use `manage-policy-iteration-labels.py status/collect/summarize`. Never relaunch
-old pilot/profile jobs or duplicate live full-data jobs. Exact source pins,
-handles, evidence archives, verification and remaining-wave commands are in the handoff.
+After the active launcher finishes: `manage-policy-iteration-labels.py status`,
+archive all guards, then `collect` / `summarize`. Never blindly retry a live or
+ambiguous handle. Do not start the GPU training from partial data.
 
 ---
 

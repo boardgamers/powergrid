@@ -1,0 +1,27 @@
+{
+  "complete": true,
+  "incomplete_label_manifest_rejected": true,
+  "no_partial_training_bundle_created": true,
+  "local_gradient_entry_rejected": true,
+  "unit_tests": {
+    "model_inference": 4,
+    "training_metrics_assembly_calibration": 3
+  },
+  "export_fixtures_per_configuration": 2553,
+  "export_cached_positions_per_configuration": 17280,
+  "export_configurations": 4,
+  "model_preflight_sha256": "f7afd772efbc666d325790c5053208cc5382f2468e28af5c36e1163cc5582ffb",
+  "target_preflight_sha256": "5ed7bee201e715f1754cb5e200f00bd1a0018f9b5cab5c52380feca49b362aa2",
+  "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+  "code": {
+    "prepare-policy-iteration-training-data.py": "429e787d6955adee02bbabbbb6b8339a9b572c22a74d0062160b0b705ea35bb0",
+    "train-policy-iteration.py": "96247a6b3719874fbe60e620077ae5d73d09b80654c69c97a429a23b4278ebfe",
+    "policy_iteration_training.py": "2ad5e686f4884d971cd88e2ba4f3bc3c056e2d3c27c0353e21b69d1bef5acd98",
+    "test_policy_iteration_training.py": "ca1cbbdf49a2d1b385cb18f229fb82e3720f9886a3c6e03c8d0cf22173064129",
+    "test_model_policy_iteration.py": "bea23388d028a07e764cc12024b8d759207905445709886d56241a58b6f904be"
+  },
+  "gradient_loop_executed": false,
+  "hf_training_source_built": false,
+  "gradients": false,
+  "qualification_eligible": false
+}

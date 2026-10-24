@@ -1,0 +1,30 @@
+{
+  "complete": true,
+  "pilot_positions": 360,
+  "searches": 1440,
+  "raw_terminal_records_checked": 705408,
+  "independent_target_and_variance_checks": true,
+  "common_world_covariance_preserved": true,
+  "incomplete_manifest_rejected_before_download": true,
+  "rejected_mutations": [
+    "public_identity",
+    "whole_deal_split",
+    "sample_seed",
+    "missing_terminal",
+    "duplicate_terminal",
+    "capped_terminal",
+    "wrong_roles",
+    "wrong_outcome",
+    "extra_unchecked_action",
+    "missing_batch"
+  ],
+  "negative_advantages_retained": 571,
+  "code": {
+    "ai/strong/policy_iteration_data.py": "b31102c4d9f36e04e6904f4849055c2f974edea829697ade3444cdb5ccac014b",
+    "ai/strong/preflight-policy-iteration-data.py": "834285718283553e2c4fefa3f0d3f91e67e945ed6ff67f56e49a17d5993584cb"
+  },
+  "feature_check_sha256": "49fbc46d87259ca45893e98cca1e47228b477c67c16e9806f96bf4801f792b93",
+  "pilot_results_sha256": "a05490d356c434e6708ef1452f64a58c2304f8aba36c06cfed1001a759fadceb",
+  "gradients": false,
+  "qualification_eligible": false
+}

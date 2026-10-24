@@ -1,0 +1,22 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "213dcd7400f643fde7368b7c140bd5b7f7b79a55",
+  "prefix": "runs/policy-iteration-feature-cache-evidence-v2",
+  "files": {
+    "feature-check.json": "49fbc46d87259ca45893e98cca1e47228b477c67c16e9806f96bf4801f792b93",
+    "features.npz": "0eadfd01b5d59f6f94a8df1fe49f85208ef62d5d661a2e9caf44d0bd8ae5ae41",
+    "metadata.json": "08ca552cb3028142684a16bfcaccd0e534ec7641e7d48052938ed1ff7314d077",
+    "manifest.json": "d8741d7f303ac30facf6883d52eb7661704e30dace19f922fb70180436d2f904",
+    "code/ai/strong/policy-iteration-feature-cache.cjs": "63e4c78c5d49cd579eb15d5b68aae383e688484c3afb492be81ffe759ce8b332",
+    "code/ai/strong/policy-iteration-input-hashes.cjs": "c9629dafb8cffd0fb26f2a33cf608354512faafaf3b6588db8f850311231e1f4",
+    "code/ai/strong/cache-policy-iteration-features.py": "d23e49fcc6f809255f25ec5a55406717ce6c9b77cebe8f2c6efdab056659f489"
+  },
+  "positions": 17280,
+  "split_counts": {
+    "validation": 4320,
+    "train": 12960
+  },
+  "label_protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+  "gradients": false,
+  "qualification_eligible": false
+}

@@ -1,0 +1,66 @@
+{
+  "complete": true,
+  "positions": 17280,
+  "split_counts": {
+    "validation": 4320,
+    "train": 12960
+  },
+  "runtime_source": {
+    "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+    "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+    "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+    "bytes": 109402244,
+    "base": {
+      "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+      "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+      "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+    },
+    "overlays": {
+      "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+      "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+      "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+      "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+    },
+    "unchanged_base_files": 1430,
+    "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+    "qualification_eligible": false
+  },
+  "selected_roots": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "96d59920f004d85016c063eb466a1a66611ec593",
+    "prefix": "runs/policy-iteration-selected-v2",
+    "files": {
+      "roots.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902",
+      "selected-index.json": "d6519b92f1da2a20a512444093f040c6a543d48ced1a12a1e89294e9c5e46450",
+      "selection.json": "067c27e80ea61a3cc7dab38bd14904ff72978c08cad8f2b9082e893bbca98769"
+    },
+    "count": 17280,
+    "split_counts": {
+      "validation": 4320,
+      "train": 12960
+    },
+    "selection_protocol_sha256": "fc3da9fd41f2bf41a6e264c867ac163882a704b1f4d82049d333a74cddccc010",
+    "qualification_eligible": false
+  },
+  "label_protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+  "feature_revision": "4.3-strategic-correction",
+  "state_dim": 1217,
+  "action_dim": 101,
+  "parent_proposals_reproduced": 17280,
+  "full_menu_input_hashes_matched": 17280,
+  "old_prefixes_equal": 17280,
+  "pilot_option_sets_matched": 360,
+  "global_public_and_input_duplicates": 0,
+  "seconds": 67.2523918049992,
+  "code": {
+    "ai/strong/cache-policy-iteration-features.py": "d23e49fcc6f809255f25ec5a55406717ce6c9b77cebe8f2c6efdab056659f489",
+    "ai/strong/policy-iteration-feature-cache.cjs": "63e4c78c5d49cd579eb15d5b68aae383e688484c3afb492be81ffe759ce8b332",
+    "ai/strong/policy-iteration-input-hashes.cjs": "c9629dafb8cffd0fb26f2a33cf608354512faafaf3b6588db8f850311231e1f4"
+  },
+  "artifacts": {
+    "features.npz": "0eadfd01b5d59f6f94a8df1fe49f85208ef62d5d661a2e9caf44d0bd8ae5ae41",
+    "metadata.json": "08ca552cb3028142684a16bfcaccd0e534ec7641e7d48052938ed1ff7314d077"
+  },
+  "gradients": false,
+  "qualification_eligible": false
+}

@@ -1,0 +1,113 @@
+{
+  "stage": "Design fixed before gradients; full label data and HF training source still required",
+  "purpose": "Separate the effect of broader balanced data from richer public-state representation; test fixed seed-ensemble disagreement handling against the previous overconfidence failure.",
+  "feature_revision": "4.3-strategic-correction",
+  "state_dim": 1217,
+  "action_dim": 101,
+  "parent": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+    "path": "runs/discard-correction-v1/10102/best.pt",
+    "sha256": "66a10b831a54843063bbca89743a542ed1f89515a16452a40483eef369c59bd8",
+    "architecture": "multiplayer_discard_correction",
+    "seed": 10102,
+    "epoch": 10,
+    "inference_only": false
+  },
+  "features": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "213dcd7400f643fde7368b7c140bd5b7f7b79a55",
+    "prefix": "runs/policy-iteration-feature-cache-evidence-v2",
+    "files": {
+      "feature-check.json": "49fbc46d87259ca45893e98cca1e47228b477c67c16e9806f96bf4801f792b93",
+      "features.npz": "0eadfd01b5d59f6f94a8df1fe49f85208ef62d5d661a2e9caf44d0bd8ae5ae41",
+      "metadata.json": "08ca552cb3028142684a16bfcaccd0e534ec7641e7d48052938ed1ff7314d077",
+      "manifest.json": "d8741d7f303ac30facf6883d52eb7661704e30dace19f922fb70180436d2f904",
+      "code/ai/strong/policy-iteration-feature-cache.cjs": "63e4c78c5d49cd579eb15d5b68aae383e688484c3afb492be81ffe759ce8b332",
+      "code/ai/strong/policy-iteration-input-hashes.cjs": "c9629dafb8cffd0fb26f2a33cf608354512faafaf3b6588db8f850311231e1f4",
+      "code/ai/strong/cache-policy-iteration-features.py": "d23e49fcc6f809255f25ec5a55406717ce6c9b77cebe8f2c6efdab056659f489"
+    },
+    "positions": 17280,
+    "split_counts": {
+      "validation": 4320,
+      "train": 12960
+    },
+    "label_protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+    "gradients": false,
+    "qualification_eligible": false
+  },
+  "label_protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+  "label_source": {
+    "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+    "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+    "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+    "bytes": 109402244,
+    "base": {
+      "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+      "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+      "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+    },
+    "overlays": {
+      "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+      "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+      "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+      "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+    },
+    "unchanged_base_files": 1430,
+    "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+    "qualification_eligible": false
+  },
+  "required_new_label_shards": 948,
+  "reused_pilot_shards": 60,
+  "train_roots": 12960,
+  "validation_roots": 4320,
+  "representations": {
+    "frozen": {
+      "parameters_per_head": 97473,
+      "description": "Control: frozen ordered-player context384 plus66 public suffix features; frozen action128 plus raw action100."
+    },
+    "public": {
+      "parameters_per_head": 482497,
+      "description": "Frozen context384 plus all1215 raw public state features through a new256/128 encoder; frozen action128 plus raw action100. Direct access can recover information lost by the parent embeddings."
+    }
+  },
+  "heads_per_ensemble": 4,
+  "seeds": [
+    12101,
+    12102,
+    12103,
+    12104
+  ],
+  "ensemble_disagreement_penalties": [
+    0.0,
+    1.0
+  ],
+  "ensemble_rule": "Four equally weighted independently initialized seed heads. Subtract each head parent utility before aggregating. Compare mean advantage and mean minus one population standard deviation. Disagreement is not a calibrated confidence interval; no threshold fitting.",
+  "development_candidates": "Exactly four ensembles: both representations, each with penalties0 and1. All four seed checkpoints participate, no best-seed cherry-picking. Individual seeds are diagnostics only.",
+  "scope": "Multi-choice nomination, bidding and building only. Fixed six-proposal geographic/economic teacher shortlist plus frozen parent fallback. Other phases and value outputs remain frozen this iteration; this does not restrict the broader strength goal.",
+  "continuation_mixture": "Equal neural and neural_economic, per sampled world before estimating uncertainty. Concatenate independent96-world A/B batches into192 paired samples. Keep every adverse or uncertain target.",
+  "loss": "Subtract predicted utility of the exact teacher parent proposal. MSE against the mean paired action advantage, no hard winner labels. Normalize uncertainty weights inside each root, then average roots equally.",
+  "uncertainty": {
+    "noise_floor": 0.05,
+    "minimum_weight": 0.25,
+    "maximum_weight": 1.0,
+    "formula": "clip(0.05^2/(0.05^2 + sample_variance/192),0.25,1)"
+  },
+  "margin": 0.025,
+  "parent_margin": 0.025,
+  "epochs": 120,
+  "batch_size": 256,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.001,
+  "max_grad_norm": 1.0,
+  "evaluate_every": 5,
+  "validation_selection": "Each seed: epoch0 plus every fifth epoch; smallest mean validation simulated regret, ties keep earlier epoch. Whole-deal validation split is fixed. No validation gradients or margin tuning.",
+  "calibration": "Report predicted versus measured paired gain, root-normalized RMSE, negative changes and separate A/B outcomes globally and by count/rules/decision. These diagnostics do not qualify a model.",
+  "training_device": "CUDA on HF Jobs only",
+  "tf32": false,
+  "export": "Unchanged stored float32 weights with float64-exp-div-silu-v1 arithmetic. Strict native/ONNX/legal checks on2553 full-menu fixtures and17280 cached positions, frozen values/out-of-scope actions and parent fallback preserved.",
+  "development_seed_prefix": "policy-iteration-development-v2",
+  "acceptance": "Fresh whole-game held-out comparisons with parent and independent strong baselines across2\u20136players and allfour rules; retain every adverse cell. Parent itself is unqualified, so merely preserving it is insufficient. Actual8840U benchmark of the exact candidate and untouched reserved final gate remain mandatory.",
+  "gradients_started": false,
+  "qualification_eligible": false
+}

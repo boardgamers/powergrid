@@ -1,34 +1,36 @@
 # Power Grid AI — ACTIVE, resumed 23 October 2026
 
 **Start with [the current resumption handoff](HANDOFF-2026-10-23-RESUMED.md).**
-No model has passed the strength gate or been published. Final seeds are unused.
-Previous turn and this turn both made **progress**.
+Previous turn and this turn made **progress**. No model is qualified or published;
+reserved final seeds are unused.
 
-- **Collector ACTIVE:** PID2476443 /exec session82318, started05:28:50UTC.
-  `ai/runs/policy-iteration-harvest-recovered-v2/state.json` records progress.
-  It checks/collects every5min, bounded12h, with no HF submission/cancellation.
-  Verify actual process liveness; do not start a competing collector.
-- **333/948 new label shards verified at last complete cycle**,11,679,168
-  continuations including pilot. Snapshot05:29:17UTC:364 completed,332 running,
-  252 queued; the collector is verifying more. Current results may be newer.
-- **92 parent batches /5,568 games verified.**2p search complete:48.83% wins,
-  95% interval38.28–59.77%. It does not exclude chance; the parent remains weak.
-  3–6p search cells and all trained-candidate arms remain incomplete.
-- HF's20,000-file limit was reached.13 duplicate evidence folders were compacted,
-  freeing8,158 entries, with all pinned historical revisions preserved. No raw
-  job outputs or model files removed. New progress evidence uses one archive.
-- Two actual failed uploads have exact retries already submitted:
-  `6adc41e8046eb82b1ecda91d` and `6adc41e91e112550ce7dd171`. No live jobs restarted.
-  Distinct effective handles remain948;300 queued-job migrations remain unchanged.
-  Original collector19853 stopped on these errors; recovered collector82318 is active.
-- Recovery evidence: `strong/policy-iteration-storage-recovery-evidence-v2.json`.
-  Label evidence: `strong/policy-iteration-labels-333-progress-evidence-v2.json`.
-  Reference evidence: `strong/policy-iteration-parent-reference-92-evidence-v2.json`.
-- AMD8840U architecture benchmark already complete (~5.9ms median/~9ms p95 for
-  untrained richer ensembles). Exact trained candidate must be retested.
+- **Collector ACTIVE:** PID2476443 /session82318, every5min, bounded12h.
+  State: `ai/runs/policy-iteration-harvest-recovered-v2/state.json`.
+  Verify its actual process before deciding it stopped; do not duplicate it.
+- **Training coordinator ACTIVE:** PID2536611 /session93205, started05:38:39UTC.
+  State: `ai/runs/policy-iteration-training-coordinator-v2/state.json`.
+  Waiting for all948 new shards +60 pilot cases. Then it prepares/archives full
+  data, builds and checks the complete source, dry-runs admission and submits the
+  two four-seedL4 jobs. No local gradients or automatic retries. Do not run
+  competing preparation/launch commands. On a future explicit pause, stop this
+  coordinator so it cannot submit later. Check actual process liveness first.
+- **395/948 new label shards verified**,13,790,400 continuations including pilot.
+  Snapshot05:40:04UTC:395 completed,328 running,225 queued; all395 completions in that snapshot have been verified.
+- **96 parent batches /5,760 games verified.**2p search:48.83% wins
+  (95% interval38.28–59.77%).3p search:20.31% (14.58–26.56%), below chance.
+  Only4–6p search cells remain incomplete; parent remains unqualified.
+- HF file-limit incident fixed:13 duplicated checkpoints compacted,8,158 entries
+  freed, all old pinned revisions retained. Two failed uploads have exact retries
+  already RUNNING. No live jobs restarted.948 effective handles remain distinct.
+- Latest evidence descriptors: `strong/policy-iteration-labels-395-progress-evidence-v2.json`,
+  `strong/policy-iteration-training-coordinator-evidence-v2.json` and
+  `strong/policy-iteration-storage-recovery-evidence-v2.json`.
+- No new gradients yet. Four trained-candidate evaluation grids, exact trained
+  export/AMD benchmark and the unchanged final strength gate remain.
 
-Next: let the collector finish the balanced labels, then prepare the full dataset
-and two four-seedHF L4 jobs. No new gradients yet. Keep the goal active.
+Next: inspect the two existing processes as needed and let the prescribed pipeline
+advance. Keep the full strength objective active; source/model qualification is
+not established by these orchestration controls.
 
 ---
 

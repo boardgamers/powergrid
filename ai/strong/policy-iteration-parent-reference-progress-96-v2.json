@@ -1,0 +1,2030 @@
+{
+  "complete_parent_reference": false,
+  "planned_shards": 108,
+  "verified_shards": 96,
+  "planned_games": 6720,
+  "verified_games": 5760,
+  "source": {
+    "archive": "strong-source-policy-iteration-development-20261024-v2.tgz",
+    "revision": "a393d0fa83d9fee8a27a876a217fe97dfea03ff8",
+    "sha256": "c020987f3a05a2c0116dfd52498139f6bb7480e1721ca058caf9771f94d970ce",
+    "bytes": 109411988,
+    "base": {
+      "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+      "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+      "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+      "bytes": 109402244,
+      "base": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+      },
+      "overlays": {
+        "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+        "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+        "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+        "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+      },
+      "unchanged_base_files": 1430,
+      "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+      "qualification_eligible": false
+    },
+    "overlays": {
+      "ai/strong/policy_iteration_development.py": "1bbcec9b3ad236fdaf330627cd31f6c99618642cf657b75207aba365c4c217ea",
+      "ai/strong/preflight-policy-iteration-development.py": "024f1f746eb396a8906664c26e2307224c733ff4b43a75899498efbf65096829",
+      "ai/strong/policy-iteration-development-protocol-v2.json": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+      "ai/strong/policy-iteration-training-design-v2.json": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+      "ai/strong/build-policy-iteration-development-source.py": "6dd5963f0438f0ef7fca6c53c3701acdba99d8e9390e42d9c5f64f4e39287310"
+    },
+    "unchanged_base_files": 1434,
+    "protocol_sha256": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+    "gradients": false,
+    "qualification_eligible": false
+  },
+  "parent_pin": {
+    "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+    "prefix": "runs/discard-correction-v1/10102/derivative",
+    "files": {
+      "inference64.onnx": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+      "inference64.pt": "25e9995c3998cc9f09e1dafb40f0328ae09e616f791c10e793eaad42cfa5e473"
+    },
+    "feature_revision": "4.2-discard-correction",
+    "selected_epoch": 10,
+    "key": "parent",
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "seed": 10102,
+    "training_verified": true,
+    "parent_frozen": true
+  },
+  "protocol_sha256": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+  "final_protocol_sha256": "7f0336c8784faf8f18e046b95b88e0ab1be7c2de1c0ec4d3eec96f0a415286ce",
+  "provenance": {
+    "development-parent-2p-economic-0-4": {
+      "job_id": "6adc38cb046eb82b1ecda545",
+      "revision": "5f6206141fc632adfe5b9e9dc41996cfe3cdae7c",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-economic-0-4",
+      "verified_sha256": "47b008e2904b31ea80bb2e11d6e5b064a446b93a73d696c7b8d923425b57dfab"
+    },
+    "development-parent-2p-search_geo-0-4": {
+      "job_id": "6adc38cc046eb82b1ecda549",
+      "revision": "e6c4615fcfe6fe3ed55b153df3a9f7046d999143",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-search_geo-0-4",
+      "verified_sha256": "be9bcbf971942188e02a0bbc0aaf0c265a24f41e9616a176b0d6a3acbbd7497d"
+    },
+    "development-parent-2p-legacy-0-4": {
+      "job_id": "6adc38cd1e112550ce7dcc6a",
+      "revision": "5f6206141fc632adfe5b9e9dc41996cfe3cdae7c",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-legacy-0-4",
+      "verified_sha256": "b5a80098625e556c51e1023d1af0f1a4a0bc096218f982ce9b9e07949b3a925c"
+    },
+    "development-parent-2p-heuristic-0-4": {
+      "job_id": "6adc38cd1e112550ce7dcc6c",
+      "revision": "5f6206141fc632adfe5b9e9dc41996cfe3cdae7c",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-heuristic-0-4",
+      "verified_sha256": "7325a88a19b6a99631945ba46410568d208e9cc3d65b1636424053e55ebe085c"
+    },
+    "development-parent-2p-rush-0-4": {
+      "job_id": "6adc38ce1e112550ce7dcc6e",
+      "revision": "5f6206141fc632adfe5b9e9dc41996cfe3cdae7c",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-rush-0-4",
+      "verified_sha256": "c53a1f6ba5289ed7a1ec942dd3183020a03cbbadd65dfc9d7a810437980c2262"
+    },
+    "development-parent-3p-economic-0-4": {
+      "job_id": "6adc38cf1e112550ce7dcc70",
+      "revision": "150c9c1f2192ea2bccf986452542691a1ac3b9be",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-economic-0-4",
+      "verified_sha256": "2f5e5a258b3c8f6cb38f1bf050843a0a75dfecc9e64519d844cead009099b225"
+    },
+    "development-parent-3p-search_geo-0-4": {
+      "job_id": "6adc38d01e112550ce7dcc72",
+      "revision": "4b78f824f496e1d0319c16f8f3a4ac8013b40d05",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-search_geo-0-4",
+      "verified_sha256": "091325404cb69aa840ca85b5d209cdd959a7d64d59949d5eee0a7cee0d1bda7c"
+    },
+    "development-parent-3p-legacy-0-4": {
+      "job_id": "6adc38d1046eb82b1ecda54d",
+      "revision": "150c9c1f2192ea2bccf986452542691a1ac3b9be",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-legacy-0-4",
+      "verified_sha256": "608b84c3d00bea08da93f0b04dbb05969138f9bd7b7fa0f9916b134a6e7a220d"
+    },
+    "development-parent-3p-heuristic-0-4": {
+      "job_id": "6adc38d21e112550ce7dcc74",
+      "revision": "150c9c1f2192ea2bccf986452542691a1ac3b9be",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-heuristic-0-4",
+      "verified_sha256": "5de0ede4f4caa596852a0d73965aa43c4cf2a2cdc1950f1e1912691fc1ce3f49"
+    },
+    "development-parent-3p-rush-0-4": {
+      "job_id": "6adc38d3046eb82b1ecda550",
+      "revision": "150c9c1f2192ea2bccf986452542691a1ac3b9be",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-rush-0-4",
+      "verified_sha256": "2f34d52ffc4b86fd40cf648d95e55e72536a0a28923b35d4e96377e6109e2bbc"
+    },
+    "development-parent-4p-economic-0-4": {
+      "job_id": "6adc38d4046eb82b1ecda552",
+      "revision": "bdc8897fcc1a10fc8f312614ee6b32ae7482b27d",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-4p-economic-0-4",
+      "verified_sha256": "5e6c41f6542f20f01a1a7fc952f8d92b022c4b6ed8a13d0f04295172a5005aa4"
+    },
+    "development-parent-4p-legacy-0-4": {
+      "job_id": "6adc38d6046eb82b1ecda556",
+      "revision": "bdc8897fcc1a10fc8f312614ee6b32ae7482b27d",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-4p-legacy-0-4",
+      "verified_sha256": "baa87a62783d64ed03d6c95731ca8b5f393bba245ba7ca0babade64edc42b8ab"
+    },
+    "development-parent-4p-heuristic-0-4": {
+      "job_id": "6adc38d71e112550ce7dcc78",
+      "revision": "bdc8897fcc1a10fc8f312614ee6b32ae7482b27d",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-4p-heuristic-0-4",
+      "verified_sha256": "110cbd73a51114c841f8d4063c783a255d12a3691fda528f37a3e19d03d8105e"
+    },
+    "development-parent-4p-rush-0-4": {
+      "job_id": "6adc38d9046eb82b1ecda558",
+      "revision": "bdc8897fcc1a10fc8f312614ee6b32ae7482b27d",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-4p-rush-0-4",
+      "verified_sha256": "e60c1b96d1aafeaa0b95b6fc92ffb8f0fd233a9f5f2002d814e7c42031987b0b"
+    },
+    "development-parent-5p-economic-0-4": {
+      "job_id": "6adc38da046eb82b1ecda55c",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-5p-economic-0-4",
+      "verified_sha256": "f32a1e0110e609197d8ba207ccaa01ffeaa21d0b267ecb2ea08fcbeb4332d060"
+    },
+    "development-parent-5p-legacy-0-4": {
+      "job_id": "6adc38dc1e112550ce7dcc7a",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-5p-legacy-0-4",
+      "verified_sha256": "258cc788742398f1f0c15f9f7e6ca72444dfa598970d4055709332c9d947e60d"
+    },
+    "development-parent-5p-heuristic-0-4": {
+      "job_id": "6adc38dd1e112550ce7dcc7c",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-5p-heuristic-0-4",
+      "verified_sha256": "be9a810fdc790fb642fab08cda7ac8f5883b31f457f2e35f03c76857d5eb93b2"
+    },
+    "development-parent-5p-rush-0-4": {
+      "job_id": "6adc38de1e112550ce7dcc7e",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-5p-rush-0-4",
+      "verified_sha256": "36b1c79a07ade2d80cbf1f42530b287c7db57050d4048450bd26674b5f95d5d9"
+    },
+    "development-parent-6p-economic-0-4": {
+      "job_id": "6adc38df046eb82b1ecda560",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-6p-economic-0-4",
+      "verified_sha256": "1669157bf8c26e008eb96ac96c7b90936eda5d02545dba10420cdc69467519a7"
+    },
+    "development-parent-6p-legacy-0-4": {
+      "job_id": "6adc38e11e112550ce7dcc84",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-6p-legacy-0-4",
+      "verified_sha256": "d6766928736d4b493feec085e795aa3c1dfcfe9b8e8a67b62d004bc289b83c0a"
+    },
+    "development-parent-6p-heuristic-0-4": {
+      "job_id": "6adc38e2046eb82b1ecda562",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-6p-heuristic-0-4",
+      "verified_sha256": "3b97e39a835334497153acb66c9084fcabb1987a9d0fadea5093e6c33317c711"
+    },
+    "development-parent-6p-rush-0-4": {
+      "job_id": "6adc38e3046eb82b1ecda568",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-6p-rush-0-4",
+      "verified_sha256": "bf96c52edbf82e90c91401d6d6897a29ab527af33d368c256c3b7a590d61620f"
+    },
+    "development-parent-3p-a260-0-4": {
+      "job_id": "6adc38e41e112550ce7dcc8b",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-a260-0-4",
+      "verified_sha256": "67121daab8cc89f7b00211393ab8afd8425f29d1e67979e2f1c83ee457cb8058"
+    },
+    "development-parent-2p-economic_capacity_v1-0-4": {
+      "job_id": "6adc38e6046eb82b1ecda571",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-economic_capacity_v1-0-4",
+      "verified_sha256": "904bcd5ef5239e56e30f7eaaa2697dc139551e01f86ede3a687fdae2507839cc"
+    },
+    "development-parent-2p-economic-4-8": {
+      "job_id": "6adc38e71e112550ce7dcc93",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-economic-4-8",
+      "verified_sha256": "f05f88908ace1cfa2ca330373a2d32c7c1312f898e2429e0d628b5fb4e960347"
+    },
+    "development-parent-2p-search_geo-4-8": {
+      "job_id": "6adc38e81e112550ce7dcc95",
+      "revision": "e6c4615fcfe6fe3ed55b153df3a9f7046d999143",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-search_geo-4-8",
+      "verified_sha256": "bcf4fa2942ada17f1c6b08ad5d5451228bbefb622fd43bad94fcbb80eb421826"
+    },
+    "development-parent-2p-legacy-4-8": {
+      "job_id": "6adc38e9046eb82b1ecda573",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-legacy-4-8",
+      "verified_sha256": "f855c75656686e9091988f65d21ef5e2478938d792d786b1e9d88983cebaf314"
+    },
+    "development-parent-2p-heuristic-4-8": {
+      "job_id": "6adc38ea046eb82b1ecda575",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-heuristic-4-8",
+      "verified_sha256": "edfa818bac60c040b440679e49af8a844dfbe0088c13024d31ab637386c1e163"
+    },
+    "development-parent-2p-rush-4-8": {
+      "job_id": "6adc38eb1e112550ce7dcc97",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-rush-4-8",
+      "verified_sha256": "24f2d269e87c1d62ce081269b711e5bea1d788fc9bda987664ccf5f9e291d9e3"
+    },
+    "development-parent-3p-economic-4-8": {
+      "job_id": "6adc38ec046eb82b1ecda577",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-economic-4-8",
+      "verified_sha256": "6bf529e6b141354f6ed0daa833a71939deb436585d2743b47714341ae8e07542"
+    },
+    "development-parent-3p-search_geo-4-8": {
+      "job_id": "6adc38ee046eb82b1ecda579",
+      "revision": "2f92b1be2f00264f7f2a3a03a9964a03e462c204",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-search_geo-4-8",
+      "verified_sha256": "624b754ece18138af8b37a9af91e3391509e2b5adb70baa757eb4387273e769d"
+    },
+    "development-parent-3p-legacy-4-8": {
+      "job_id": "6adc38ef046eb82b1ecda57b",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-legacy-4-8",
+      "verified_sha256": "1cec95b6213b50d23b3e933c8ff1347f6a1c61674a442d769a1b19d178acfd59"
+    },
+    "development-parent-3p-heuristic-4-8": {
+      "job_id": "6adc38f01e112550ce7dcc99",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-heuristic-4-8",
+      "verified_sha256": "92ac98657cc7e82dbabbcb713a3292e4c8a76b112fabaaf029e72dc922c5fa38"
+    },
+    "development-parent-3p-rush-4-8": {
+      "job_id": "6adc38f1046eb82b1ecda57d",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-rush-4-8",
+      "verified_sha256": "261adad3d84b19d720c510b724adf30227f80561064a46805887a7d0cff37efb"
+    },
+    "development-parent-4p-economic-4-8": {
+      "job_id": "6adc38f2046eb82b1ecda57f",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-4p-economic-4-8",
+      "verified_sha256": "9eeb517f41f9cda38d4811f756e576e948735765f6f15c0b835d98e30541b6bb"
+    },
+    "development-parent-4p-legacy-4-8": {
+      "job_id": "6adc38f41e112550ce7dcc9b",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-4p-legacy-4-8",
+      "verified_sha256": "b1742c008ce201c8c613b06825e12a1f2dc10a9f62f31d8bcc4750e68d4599cc"
+    },
+    "development-parent-4p-heuristic-4-8": {
+      "job_id": "6adc38f51e112550ce7dcc9d",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-4p-heuristic-4-8",
+      "verified_sha256": "280fa6917e66475cbe005aba17505b620c612ba668590d2c3d4cefc659dc5d1a"
+    },
+    "development-parent-4p-rush-4-8": {
+      "job_id": "6adc38f6046eb82b1ecda584",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-4p-rush-4-8",
+      "verified_sha256": "28749ad2ad11462f4d9bb2e6bbef3d85166e6908b390eea0dae483e4d206b7b4"
+    },
+    "development-parent-5p-economic-4-8": {
+      "job_id": "6adc38f71e112550ce7dcca1",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-5p-economic-4-8",
+      "verified_sha256": "5e1c1e4f474337332df50a7841f74239b9a327d18beec48e2d706fb66fd255b0"
+    },
+    "development-parent-5p-legacy-4-8": {
+      "job_id": "6adc38fa1e112550ce7dcca5",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-5p-legacy-4-8",
+      "verified_sha256": "caf74dd72069e65bcb015c0389413647db4c5937226d498e64e3892a1734658e"
+    },
+    "development-parent-5p-heuristic-4-8": {
+      "job_id": "6adc38fb1e112550ce7dcccd",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-5p-heuristic-4-8",
+      "verified_sha256": "60bf25c1c033ad505acdd859e89fa299805c151f88f7d0412b9563125964870c"
+    },
+    "development-parent-5p-rush-4-8": {
+      "job_id": "6adc38fc1e112550ce7dcccf",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-5p-rush-4-8",
+      "verified_sha256": "d31b4a1f245f382680ad2d17af67ffa61203cfad851ffb1fd4059641367c3ad0"
+    },
+    "development-parent-6p-economic-4-8": {
+      "job_id": "6adc38fd1e112550ce7dccd1",
+      "revision": "205472021a74c693ea5e1f2bb832de049cced6bc",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-6p-economic-4-8",
+      "verified_sha256": "de2f069cbd7827e5f75b2acf42b2ddef255b901c9225aba20cb7f7684112aad3"
+    },
+    "development-parent-6p-legacy-4-8": {
+      "job_id": "6adc38ff1e112550ce7dccd5",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-6p-legacy-4-8",
+      "verified_sha256": "7f82b680f96962c79acd272c10c750af97182ab51e74ef41822d7979765d8350"
+    },
+    "development-parent-6p-heuristic-4-8": {
+      "job_id": "6adc39001e112550ce7dccd7",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-6p-heuristic-4-8",
+      "verified_sha256": "b77fe2052be07748f07c31ca44b7ccb84b47e7f23837afffe0fa78e0ac6dca86"
+    },
+    "development-parent-6p-rush-4-8": {
+      "job_id": "6adc3901046eb82b1ecda586",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-6p-rush-4-8",
+      "verified_sha256": "4ac40dbe706e478b68e53a14160533960c5b0dd1208ed048df5f20c4f16965b5"
+    },
+    "development-parent-3p-a260-4-8": {
+      "job_id": "6adc39021e112550ce7dccd9",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-a260-4-8",
+      "verified_sha256": "8e646d48cca057ecd57a42a6d37d21f82ebe2074a187f9377ab808bff493461a"
+    },
+    "development-parent-2p-economic_capacity_v1-4-8": {
+      "job_id": "6adc3903046eb82b1ecda588",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-economic_capacity_v1-4-8",
+      "verified_sha256": "588420ddfe250bee580b2c3d3c5d1c6cec5269240d82b3c6a4cfd1a9028c25ca"
+    },
+    "development-parent-2p-economic-8-12": {
+      "job_id": "6adc3904046eb82b1ecda58a",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-economic-8-12",
+      "verified_sha256": "797a06c3179697a8a037175633530f0445d12aefae8417187b2e6611ea4584c6"
+    },
+    "development-parent-2p-search_geo-8-12": {
+      "job_id": "6adc3905046eb82b1ecda58c",
+      "revision": "e280b30a49eafb91e89503f3c78143c76882dc28",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-search_geo-8-12",
+      "verified_sha256": "b51bca1284f02d01c10cb7d76733be2a0690eb24a29f618dba5b95029322d14f"
+    },
+    "development-parent-2p-legacy-8-12": {
+      "job_id": "6adc3907046eb82b1ecda58e",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-legacy-8-12",
+      "verified_sha256": "269ede6847bb05bf85e1213a5a7113b87e2ed2d15332fcd1789ee324942a5341"
+    },
+    "development-parent-2p-heuristic-8-12": {
+      "job_id": "6adc3908046eb82b1ecda590",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-heuristic-8-12",
+      "verified_sha256": "bf4629f16e50a8afd3d0484e944bc535154919c75d715fbe825b25350f70cbf1"
+    },
+    "development-parent-2p-rush-8-12": {
+      "job_id": "6adc39091e112550ce7dccdd",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-rush-8-12",
+      "verified_sha256": "40d53a0dde12088842cae7217e74500991f14dfa82176304f9cf828d2fdcd9bc"
+    },
+    "development-parent-3p-economic-8-12": {
+      "job_id": "6adc390a1e112550ce7dcce1",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-economic-8-12",
+      "verified_sha256": "8df5ab5c16f4957c39a8da353c622fc7347ff0f50cc5672e9d4e94948c5e1e64"
+    },
+    "development-parent-3p-search_geo-8-12": {
+      "job_id": "6adc390a046eb82b1ecda592",
+      "revision": "4b78f824f496e1d0319c16f8f3a4ac8013b40d05",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-search_geo-8-12",
+      "verified_sha256": "7a281bbc1da3d5c2fab3f7b5fe7f85eae5c0d8da773128e89281a1cb5d76960d"
+    },
+    "development-parent-3p-legacy-8-12": {
+      "job_id": "6adc390b1e112550ce7dcce3",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-legacy-8-12",
+      "verified_sha256": "86193fa390d062e7badac4ca3f901fb87c4e8090d0c0a468650ef50a821ad437"
+    },
+    "development-parent-3p-heuristic-8-12": {
+      "job_id": "6adc390c1e112550ce7dcce5",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-heuristic-8-12",
+      "verified_sha256": "9f882b5888385bbd37bb4e5adc9453efbdd4212bbc6587dae565c11ec509b723"
+    },
+    "development-parent-3p-rush-8-12": {
+      "job_id": "6adc390d046eb82b1ecda594",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-rush-8-12",
+      "verified_sha256": "d668ebdd0ec234b7a50e04a425f21f952c2315448f8e44e2f01dcbe5e63ea548"
+    },
+    "development-parent-4p-economic-8-12": {
+      "job_id": "6adc390e046eb82b1ecda596",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-4p-economic-8-12",
+      "verified_sha256": "65f6309d28102376a5f3816dadd9407ac162cc3caed5ea4f6f9b0cee63af4f4a"
+    },
+    "development-parent-4p-legacy-8-12": {
+      "job_id": "6adc39101e112550ce7dcceb",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-4p-legacy-8-12",
+      "verified_sha256": "a68806f0d674bc1dc7eeacaf6a6a47a998b343602aa98e1ade664dd2c8e71729"
+    },
+    "development-parent-4p-heuristic-8-12": {
+      "job_id": "6adc39121e112550ce7dcced",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-4p-heuristic-8-12",
+      "verified_sha256": "6cd93641df5fac2db90bc4896d6783620235c09494b84ea43ef89aa8c8a7dc16"
+    },
+    "development-parent-4p-rush-8-12": {
+      "job_id": "6adc39131e112550ce7dccef",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-4p-rush-8-12",
+      "verified_sha256": "e8a0122efbde71493cea8f413755dd119c6a838acf8944ba723c74dc6f329eab"
+    },
+    "development-parent-5p-economic-8-12": {
+      "job_id": "6adc39141e112550ce7dccf1",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-5p-economic-8-12",
+      "verified_sha256": "7a9d7fdec8d41e72b384e3212b34fb99f51fb83da3ff11f2436cc4e6c36dfd50"
+    },
+    "development-parent-5p-legacy-8-12": {
+      "job_id": "6adc3916046eb82b1ecda59a",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-5p-legacy-8-12",
+      "verified_sha256": "07f969a2fbfd480ed023996e8d8ab67457a8d011a5543e4738dad0db04214da4"
+    },
+    "development-parent-5p-heuristic-8-12": {
+      "job_id": "6adc39171e112550ce7dccf3",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-5p-heuristic-8-12",
+      "verified_sha256": "9b6d82cb1405a6da2e3658c4a6b8c16dea56f9156a9d07af92207f5da63865ce"
+    },
+    "development-parent-5p-rush-8-12": {
+      "job_id": "6adc39181e112550ce7dccfb",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-5p-rush-8-12",
+      "verified_sha256": "7304e72d8f9882ac9e90ced9c1b239b6d78724ca4ea2b1e1b157e593365baffd"
+    },
+    "development-parent-6p-economic-8-12": {
+      "job_id": "6adc39191e112550ce7dccfd",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-6p-economic-8-12",
+      "verified_sha256": "1961ff6ecf7ed0ac67c93a18f597d855f442a06a85691cfc786025f1e25655df"
+    },
+    "development-parent-6p-legacy-8-12": {
+      "job_id": "6adc391b046eb82b1ecda5a1",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-6p-legacy-8-12",
+      "verified_sha256": "e13e1369d0d71382bd1421669ab24502fe583ce7fb52071ad85c3b0e5d5bb7da"
+    },
+    "development-parent-6p-heuristic-8-12": {
+      "job_id": "6adc391c046eb82b1ecda5a3",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-6p-heuristic-8-12",
+      "verified_sha256": "41a2fb03752094a4bac67eb6ba14bf1b0d3223180f9a7d51fdafcc5dce342fff"
+    },
+    "development-parent-6p-rush-8-12": {
+      "job_id": "6adc391d046eb82b1ecda5a5",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-6p-rush-8-12",
+      "verified_sha256": "66c08442ae34526380f078257686614e6187f92c9022124a9eae6aab73f658b2"
+    },
+    "development-parent-3p-a260-8-12": {
+      "job_id": "6adc391e1e112550ce7dcd01",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-a260-8-12",
+      "verified_sha256": "ca244316d2104f09a0a0d111625f68a28ca153ed8798a3400a1a8a533a65d96e"
+    },
+    "development-parent-2p-economic_capacity_v1-8-12": {
+      "job_id": "6adc3920046eb82b1ecda5a9",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-economic_capacity_v1-8-12",
+      "verified_sha256": "3e9ab4e15e57db371874314a177a08d320d12b092526e90fb56f1f883934c0de"
+    },
+    "development-parent-2p-economic-12-16": {
+      "job_id": "6adc3921046eb82b1ecda5ab",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-economic-12-16",
+      "verified_sha256": "2de785843bde2a07d70e64c4bb6eebef9a9d857a677fb58f9e24ed0c85109e6e"
+    },
+    "development-parent-2p-search_geo-12-16": {
+      "job_id": "6adc3922046eb82b1ecda5ad",
+      "revision": "e280b30a49eafb91e89503f3c78143c76882dc28",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-search_geo-12-16",
+      "verified_sha256": "e4d5f10e7527a1b97615c0c7ed8e3f85b90285550d82d989e3e36bc0a6120acd"
+    },
+    "development-parent-2p-legacy-12-16": {
+      "job_id": "6adc3923046eb82b1ecda5af",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-legacy-12-16",
+      "verified_sha256": "bab8144e19dd143a0b3e7f8e4b3ca90a097975e294bac00a782fac5cc8ddfa66"
+    },
+    "development-parent-2p-heuristic-12-16": {
+      "job_id": "6adc3923046eb82b1ecda5b1",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-heuristic-12-16",
+      "verified_sha256": "4f23e82926f4a2c16088406fedbab5c92fc4eacb6c38672ad3f7e8ac1619205b"
+    },
+    "development-parent-2p-rush-12-16": {
+      "job_id": "6adc39241e112550ce7dcd05",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-rush-12-16",
+      "verified_sha256": "70c52e2cb586a5934ef9b81d92da3a49c2d09e4f946f77e378b49b3f9069e8f3"
+    },
+    "development-parent-3p-economic-12-16": {
+      "job_id": "6adc3925046eb82b1ecda5b3",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-economic-12-16",
+      "verified_sha256": "22779a11064997f76879cb97bb00c6b56adacc6fe55dede496e9649a757ff42f"
+    },
+    "development-parent-3p-search_geo-12-16": {
+      "job_id": "6adc39261e112550ce7dcd07",
+      "revision": "4b78f824f496e1d0319c16f8f3a4ac8013b40d05",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-search_geo-12-16",
+      "verified_sha256": "388285190713e63afb2ad280a941f3f6a599680d83dbca90a7519d158ecb8d46"
+    },
+    "development-parent-3p-legacy-12-16": {
+      "job_id": "6adc39271e112550ce7dcd0b",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-legacy-12-16",
+      "verified_sha256": "ea9c08ba3a6237430cd6913b9cf7392ef0839f387e9f83c8736d2eeda9735bc5"
+    },
+    "development-parent-3p-heuristic-12-16": {
+      "job_id": "6adc39281e112550ce7dcd0d",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-heuristic-12-16",
+      "verified_sha256": "57750c98128ca00548bf9b528eddf565b994fea2d62d3fa922f6d1bf8ea9ace1"
+    },
+    "development-parent-3p-rush-12-16": {
+      "job_id": "6adc392a1e112550ce7dcd0f",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-rush-12-16",
+      "verified_sha256": "c2ebc32a1e85c36d11ffc589986429ef97068858f9aaca37370dab2a9ca09abc"
+    },
+    "development-parent-4p-economic-12-16": {
+      "job_id": "6adc392b1e112550ce7dcd11",
+      "revision": "c40d82937a85518f72da9b5b28e40da0f07b04c9",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-4p-economic-12-16",
+      "verified_sha256": "557bb2785e0379e01d057b49106c776aba26d735a005450d54a38297dac6fc60"
+    },
+    "development-parent-4p-legacy-12-16": {
+      "job_id": "6adc392e1e112550ce7dcd15",
+      "revision": "4f3d786a23472a372c619d04ba77f5b9712b23d8",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-4p-legacy-12-16",
+      "verified_sha256": "a21147a1d3800735d9c225662caf0abcc6b5ffd7c44ea672ee4b5a84d13be803"
+    },
+    "development-parent-4p-heuristic-12-16": {
+      "job_id": "6adc392f046eb82b1ecda5b6",
+      "revision": "ce4df6fda2868e428ae0ebb339a97a882a8cc705",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-4p-heuristic-12-16",
+      "verified_sha256": "c6cc2fedd4557bdb2de1910a1ca31ca595c9ef6dc0ecad74d4dae38e040c0f7a"
+    },
+    "development-parent-4p-rush-12-16": {
+      "job_id": "6adc392f1e112550ce7dcd17",
+      "revision": "ce4df6fda2868e428ae0ebb339a97a882a8cc705",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-4p-rush-12-16",
+      "verified_sha256": "230f8ca334fcef26d86a92379357f0d31a040613cc8e8e0d190b8366b82103bd"
+    },
+    "development-parent-5p-economic-12-16": {
+      "job_id": "6adc3930046eb82b1ecda5b8",
+      "revision": "ce4df6fda2868e428ae0ebb339a97a882a8cc705",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-5p-economic-12-16",
+      "verified_sha256": "4c31c9a03e5e32f0bc1f59f75e7464316e9b80527ee7ac7aa65339a940c1e3db"
+    },
+    "development-parent-5p-legacy-12-16": {
+      "job_id": "6adc39321e112550ce7dcd19",
+      "revision": "ce4df6fda2868e428ae0ebb339a97a882a8cc705",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-5p-legacy-12-16",
+      "verified_sha256": "a7693765ca0f51b01734788a765d905fd3cd7e219ab72e9f7a2dd1870f7afe40"
+    },
+    "development-parent-5p-heuristic-12-16": {
+      "job_id": "6adc3933046eb82b1ecda5bc",
+      "revision": "ce4df6fda2868e428ae0ebb339a97a882a8cc705",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-5p-heuristic-12-16",
+      "verified_sha256": "f011e8a4fb099134c0b14ddd418f38ea21aa82a7ed4652c4beb5fbfbfc02fb74"
+    },
+    "development-parent-5p-rush-12-16": {
+      "job_id": "6adc39351e112550ce7dcd1b",
+      "revision": "ce4df6fda2868e428ae0ebb339a97a882a8cc705",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-5p-rush-12-16",
+      "verified_sha256": "9a65d11ccd503195bff95ca5afbe18591fb6c63a7f1c9e0dcab8e49aae80d9b6"
+    },
+    "development-parent-6p-economic-12-16": {
+      "job_id": "6adc3935046eb82b1ecda5be",
+      "revision": "ce4df6fda2868e428ae0ebb339a97a882a8cc705",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-6p-economic-12-16",
+      "verified_sha256": "a0af00c59071d102eb52a9c2c25f4c5645fa376ec1e5bbbaa842204f380d47d0"
+    },
+    "development-parent-6p-legacy-12-16": {
+      "job_id": "6adc3937046eb82b1ecda5c0",
+      "revision": "ce4df6fda2868e428ae0ebb339a97a882a8cc705",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-6p-legacy-12-16",
+      "verified_sha256": "40f3eb84e63c970a9a3ff009bb08618e095f31580596552f512b9f917dd4850d"
+    },
+    "development-parent-6p-heuristic-12-16": {
+      "job_id": "6adc3938046eb82b1ecda5c2",
+      "revision": "ce4df6fda2868e428ae0ebb339a97a882a8cc705",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-6p-heuristic-12-16",
+      "verified_sha256": "f34ed25db5f7d26debf538ec942ce44a4bd53422ddef103767a798dfb5e1c6d3"
+    },
+    "development-parent-6p-rush-12-16": {
+      "job_id": "6adc39391e112550ce7dcd21",
+      "revision": "ce4df6fda2868e428ae0ebb339a97a882a8cc705",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-6p-rush-12-16",
+      "verified_sha256": "c48ebb88e31a51995ebaa7e5c94c308599df80f898ad5caf52f66b61b3d10087"
+    },
+    "development-parent-3p-a260-12-16": {
+      "job_id": "6adc393a046eb82b1ecda5c4",
+      "revision": "ce4df6fda2868e428ae0ebb339a97a882a8cc705",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-3p-a260-12-16",
+      "verified_sha256": "1747023e3f9f19aaadbaf095e3851b74d8ead0f2bb8f05d3b7561118558274d8"
+    },
+    "development-parent-2p-economic_capacity_v1-12-16": {
+      "job_id": "6adc393b1e112550ce7dcd26",
+      "revision": "ce4df6fda2868e428ae0ebb339a97a882a8cc705",
+      "prefix": "runs/policy-iteration-development-v2-development-parent-2p-economic_capacity_v1-12-16",
+      "verified_sha256": "8b5bfe160ed562bdb8d0cf7e4520eb1fcf3e5cc9e6b4b5410c1caa0e7406ace3"
+    }
+  },
+  "complete_cells": {
+    "economic/2p": {
+      "overall": {
+        "games": 128,
+        "independent_deals": 16,
+        "win_rate": 0.703125,
+        "deal_bootstrap_95_interval": [
+          0.6015625,
+          0.796875
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.84375,
+          "deal_bootstrap_95_interval": [
+            0.71875,
+            0.9375
+          ]
+        },
+        "original/sealed": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.6875,
+          "deal_bootstrap_95_interval": [
+            0.5,
+            0.875
+          ]
+        },
+        "recharged/open": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.65625,
+          "deal_bootstrap_95_interval": [
+            0.46875,
+            0.84375
+          ]
+        },
+        "recharged/sealed": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.625,
+          "deal_bootstrap_95_interval": [
+            0.4375,
+            0.8125
+          ]
+        }
+      },
+      "chance": 0.5,
+      "final_point_floor_for_orientation_only": 0.6625,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": [
+        "original/sealed",
+        "recharged/open",
+        "recharged/sealed"
+      ]
+    },
+    "search_geo/2p": {
+      "overall": {
+        "games": 128,
+        "independent_deals": 16,
+        "win_rate": 0.48828125,
+        "deal_bootstrap_95_interval": [
+          0.3828125,
+          0.59765625
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.625,
+          "deal_bootstrap_95_interval": [
+            0.46875,
+            0.78125
+          ]
+        },
+        "original/sealed": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.453125,
+          "deal_bootstrap_95_interval": [
+            0.265625,
+            0.640625
+          ]
+        },
+        "recharged/open": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.40625,
+          "deal_bootstrap_95_interval": [
+            0.25,
+            0.59375
+          ]
+        },
+        "recharged/sealed": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.46875,
+          "deal_bootstrap_95_interval": [
+            0.28125,
+            0.65625
+          ]
+        }
+      },
+      "chance": 0.5,
+      "final_point_floor_for_orientation_only": 0.55,
+      "development_point_below_final_floor": true,
+      "overall_interval_excludes_chance": false,
+      "rules_not_excluding_chance": [
+        "original/open",
+        "original/sealed",
+        "recharged/open",
+        "recharged/sealed"
+      ]
+    },
+    "legacy/2p": {
+      "overall": {
+        "games": 128,
+        "independent_deals": 16,
+        "win_rate": 0.9296875,
+        "deal_bootstrap_95_interval": [
+          0.875,
+          0.9765625
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.90625,
+          "deal_bootstrap_95_interval": [
+            0.75,
+            1.0
+          ]
+        },
+        "original/sealed": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.96875,
+          "deal_bootstrap_95_interval": [
+            0.90625,
+            1.0
+          ]
+        },
+        "recharged/open": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.875,
+          "deal_bootstrap_95_interval": [
+            0.71875,
+            1.0
+          ]
+        },
+        "recharged/sealed": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.96875,
+          "deal_bootstrap_95_interval": [
+            0.90625,
+            1.0
+          ]
+        }
+      },
+      "chance": 0.5,
+      "final_point_floor_for_orientation_only": 0.9,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": []
+    },
+    "heuristic/2p": {
+      "overall": {
+        "games": 128,
+        "independent_deals": 16,
+        "win_rate": 0.734375,
+        "deal_bootstrap_95_interval": [
+          0.640625,
+          0.8359375
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.75,
+          "deal_bootstrap_95_interval": [
+            0.5625,
+            0.90625
+          ]
+        },
+        "original/sealed": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.59375,
+          "deal_bootstrap_95_interval": [
+            0.40625,
+            0.78125
+          ]
+        },
+        "recharged/open": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.78125,
+          "deal_bootstrap_95_interval": [
+            0.59375,
+            0.9375
+          ]
+        },
+        "recharged/sealed": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.8125,
+          "deal_bootstrap_95_interval": [
+            0.6875,
+            0.9375
+          ]
+        }
+      },
+      "chance": 0.5,
+      "final_point_floor_for_orientation_only": 0.775,
+      "development_point_below_final_floor": true,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": [
+        "original/sealed"
+      ]
+    },
+    "rush/2p": {
+      "overall": {
+        "games": 128,
+        "independent_deals": 16,
+        "win_rate": 0.70703125,
+        "deal_bootstrap_95_interval": [
+          0.63671875,
+          0.78125
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.9375,
+          "deal_bootstrap_95_interval": [
+            0.84375,
+            1.0
+          ]
+        },
+        "original/sealed": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.59375,
+          "deal_bootstrap_95_interval": [
+            0.4375,
+            0.75
+          ]
+        },
+        "recharged/open": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.71875,
+          "deal_bootstrap_95_interval": [
+            0.53125,
+            0.875
+          ]
+        },
+        "recharged/sealed": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.578125,
+          "deal_bootstrap_95_interval": [
+            0.4375,
+            0.734375
+          ]
+        }
+      },
+      "chance": 0.5,
+      "final_point_floor_for_orientation_only": 0.625,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": [
+        "original/sealed",
+        "recharged/sealed"
+      ]
+    },
+    "economic/3p": {
+      "overall": {
+        "games": 192,
+        "independent_deals": 16,
+        "win_rate": 0.5885416666666666,
+        "deal_bootstrap_95_interval": [
+          0.5208333333333334,
+          0.6510416666666667
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.5,
+          "deal_bootstrap_95_interval": [
+            0.41666666666666663,
+            0.5833333333333333
+          ]
+        },
+        "original/sealed": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.5416666666666666,
+          "deal_bootstrap_95_interval": [
+            0.35416666666666663,
+            0.7291666666666666
+          ]
+        },
+        "recharged/open": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.625,
+          "deal_bootstrap_95_interval": [
+            0.5,
+            0.75
+          ]
+        },
+        "recharged/sealed": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.6875,
+          "deal_bootstrap_95_interval": [
+            0.5416666666666666,
+            0.8125
+          ]
+        }
+      },
+      "chance": 0.3333333333333333,
+      "final_point_floor_for_orientation_only": 0.55,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": []
+    },
+    "search_geo/3p": {
+      "overall": {
+        "games": 192,
+        "independent_deals": 16,
+        "win_rate": 0.203125,
+        "deal_bootstrap_95_interval": [
+          0.14583333333333331,
+          0.265625
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.22916666666666663,
+          "deal_bootstrap_95_interval": [
+            0.10416666666666666,
+            0.35416666666666663
+          ]
+        },
+        "original/sealed": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.16666666666666666,
+          "deal_bootstrap_95_interval": [
+            0.0625,
+            0.2708333333333333
+          ]
+        },
+        "recharged/open": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.22916666666666663,
+          "deal_bootstrap_95_interval": [
+            0.10416666666666666,
+            0.35416666666666663
+          ]
+        },
+        "recharged/sealed": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.1875,
+          "deal_bootstrap_95_interval": [
+            0.08333333333333333,
+            0.29166666666666663
+          ]
+        }
+      },
+      "chance": 0.3333333333333333,
+      "final_point_floor_for_orientation_only": 0.4,
+      "development_point_below_final_floor": true,
+      "overall_interval_excludes_chance": false,
+      "rules_not_excluding_chance": [
+        "original/open",
+        "original/sealed",
+        "recharged/open",
+        "recharged/sealed"
+      ]
+    },
+    "legacy/3p": {
+      "overall": {
+        "games": 192,
+        "independent_deals": 16,
+        "win_rate": 0.9270833333333334,
+        "deal_bootstrap_95_interval": [
+          0.890625,
+          0.9635416666666666
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.9166666666666666,
+          "deal_bootstrap_95_interval": [
+            0.8125,
+            1.0
+          ]
+        },
+        "original/sealed": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.9791666666666666,
+          "deal_bootstrap_95_interval": [
+            0.9375,
+            1.0
+          ]
+        },
+        "recharged/open": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.9166666666666666,
+          "deal_bootstrap_95_interval": [
+            0.8333333333333333,
+            0.9791666666666666
+          ]
+        },
+        "recharged/sealed": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.8958333333333333,
+          "deal_bootstrap_95_interval": [
+            0.8125,
+            0.9583333333333333
+          ]
+        }
+      },
+      "chance": 0.3333333333333333,
+      "final_point_floor_for_orientation_only": 0.9,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": []
+    },
+    "heuristic/3p": {
+      "overall": {
+        "games": 192,
+        "independent_deals": 16,
+        "win_rate": 0.875,
+        "deal_bootstrap_95_interval": [
+          0.8125,
+          0.9322916666666666
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.8333333333333333,
+          "deal_bootstrap_95_interval": [
+            0.7083333333333333,
+            0.9375
+          ]
+        },
+        "original/sealed": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.875,
+          "deal_bootstrap_95_interval": [
+            0.7291666666666666,
+            0.9791666666666666
+          ]
+        },
+        "recharged/open": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.9583333333333333,
+          "deal_bootstrap_95_interval": [
+            0.8958333333333333,
+            1.0
+          ]
+        },
+        "recharged/sealed": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.8333333333333333,
+          "deal_bootstrap_95_interval": [
+            0.6875,
+            0.9583333333333333
+          ]
+        }
+      },
+      "chance": 0.3333333333333333,
+      "final_point_floor_for_orientation_only": 0.7000000000000001,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": []
+    },
+    "rush/3p": {
+      "overall": {
+        "games": 192,
+        "independent_deals": 16,
+        "win_rate": 0.65625,
+        "deal_bootstrap_95_interval": [
+          0.5833333333333334,
+          0.7239583333333333
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.625,
+          "deal_bootstrap_95_interval": [
+            0.45833333333333326,
+            0.7708333333333333
+          ]
+        },
+        "original/sealed": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.5625,
+          "deal_bootstrap_95_interval": [
+            0.41666666666666663,
+            0.7083333333333333
+          ]
+        },
+        "recharged/open": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.7291666666666666,
+          "deal_bootstrap_95_interval": [
+            0.6041666666666666,
+            0.8333333333333333
+          ]
+        },
+        "recharged/sealed": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.7083333333333333,
+          "deal_bootstrap_95_interval": [
+            0.5833333333333333,
+            0.8333333333333333
+          ]
+        }
+      },
+      "chance": 0.3333333333333333,
+      "final_point_floor_for_orientation_only": 0.5,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": []
+    },
+    "economic/4p": {
+      "overall": {
+        "games": 256,
+        "independent_deals": 16,
+        "win_rate": 0.51171875,
+        "deal_bootstrap_95_interval": [
+          0.44921875,
+          0.5703125
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 64,
+          "independent_deals": 16,
+          "win_rate": 0.53125,
+          "deal_bootstrap_95_interval": [
+            0.421875,
+            0.640625
+          ]
+        },
+        "original/sealed": {
+          "games": 64,
+          "independent_deals": 16,
+          "win_rate": 0.1875,
+          "deal_bootstrap_95_interval": [
+            0.09375,
+            0.296875
+          ]
+        },
+        "recharged/open": {
+          "games": 64,
+          "independent_deals": 16,
+          "win_rate": 0.65625,
+          "deal_bootstrap_95_interval": [
+            0.5625,
+            0.75
+          ]
+        },
+        "recharged/sealed": {
+          "games": 64,
+          "independent_deals": 16,
+          "win_rate": 0.671875,
+          "deal_bootstrap_95_interval": [
+            0.546875,
+            0.796875
+          ]
+        }
+      },
+      "chance": 0.25,
+      "final_point_floor_for_orientation_only": 0.49375,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": [
+        "original/sealed"
+      ]
+    },
+    "legacy/4p": {
+      "overall": {
+        "games": 256,
+        "independent_deals": 16,
+        "win_rate": 0.8828125,
+        "deal_bootstrap_95_interval": [
+          0.8359375,
+          0.9296875
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 64,
+          "independent_deals": 16,
+          "win_rate": 0.84375,
+          "deal_bootstrap_95_interval": [
+            0.75,
+            0.921875
+          ]
+        },
+        "original/sealed": {
+          "games": 64,
+          "independent_deals": 16,
+          "win_rate": 0.890625,
+          "deal_bootstrap_95_interval": [
+            0.828125,
+            0.953125
+          ]
+        },
+        "recharged/open": {
+          "games": 64,
+          "independent_deals": 16,
+          "win_rate": 0.875,
+          "deal_bootstrap_95_interval": [
+            0.78125,
+            0.953125
+          ]
+        },
+        "recharged/sealed": {
+          "games": 64,
+          "independent_deals": 16,
+          "win_rate": 0.921875,
+          "deal_bootstrap_95_interval": [
+            0.828125,
+            1.0
+          ]
+        }
+      },
+      "chance": 0.25,
+      "final_point_floor_for_orientation_only": 0.9,
+      "development_point_below_final_floor": true,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": []
+    },
+    "heuristic/4p": {
+      "overall": {
+        "games": 256,
+        "independent_deals": 16,
+        "win_rate": 0.8671875,
+        "deal_bootstrap_95_interval": [
+          0.8125,
+          0.91796875
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 64,
+          "independent_deals": 16,
+          "win_rate": 0.90625,
+          "deal_bootstrap_95_interval": [
+            0.84375,
+            0.96875
+          ]
+        },
+        "original/sealed": {
+          "games": 64,
+          "independent_deals": 16,
+          "win_rate": 0.765625,
+          "deal_bootstrap_95_interval": [
+            0.65625,
+            0.859375
+          ]
+        },
+        "recharged/open": {
+          "games": 64,
+          "independent_deals": 16,
+          "win_rate": 0.875,
+          "deal_bootstrap_95_interval": [
+            0.75,
+            0.984375
+          ]
+        },
+        "recharged/sealed": {
+          "games": 64,
+          "independent_deals": 16,
+          "win_rate": 0.921875,
+          "deal_bootstrap_95_interval": [
+            0.859375,
+            0.96875
+          ]
+        }
+      },
+      "chance": 0.25,
+      "final_point_floor_for_orientation_only": 0.6625000000000001,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": []
+    },
+    "rush/4p": {
+      "overall": {
+        "games": 256,
+        "independent_deals": 16,
+        "win_rate": 0.560546875,
+        "deal_bootstrap_95_interval": [
+          0.48046875,
+          0.634765625
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 64,
+          "independent_deals": 16,
+          "win_rate": 0.453125,
+          "deal_bootstrap_95_interval": [
+            0.328125,
+            0.59375
+          ]
+        },
+        "original/sealed": {
+          "games": 64,
+          "independent_deals": 16,
+          "win_rate": 0.4453125,
+          "deal_bootstrap_95_interval": [
+            0.3125,
+            0.578125
+          ]
+        },
+        "recharged/open": {
+          "games": 64,
+          "independent_deals": 16,
+          "win_rate": 0.796875,
+          "deal_bootstrap_95_interval": [
+            0.671875,
+            0.90625
+          ]
+        },
+        "recharged/sealed": {
+          "games": 64,
+          "independent_deals": 16,
+          "win_rate": 0.546875,
+          "deal_bootstrap_95_interval": [
+            0.4375,
+            0.65625
+          ]
+        }
+      },
+      "chance": 0.25,
+      "final_point_floor_for_orientation_only": 0.4375,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": []
+    },
+    "economic/5p": {
+      "overall": {
+        "games": 320,
+        "independent_deals": 16,
+        "win_rate": 0.7125,
+        "deal_bootstrap_95_interval": [
+          0.6625000000000001,
+          0.759375
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 80,
+          "independent_deals": 16,
+          "win_rate": 0.6875,
+          "deal_bootstrap_95_interval": [
+            0.5625,
+            0.8
+          ]
+        },
+        "original/sealed": {
+          "games": 80,
+          "independent_deals": 16,
+          "win_rate": 0.675,
+          "deal_bootstrap_95_interval": [
+            0.5625,
+            0.7875
+          ]
+        },
+        "recharged/open": {
+          "games": 80,
+          "independent_deals": 16,
+          "win_rate": 0.7,
+          "deal_bootstrap_95_interval": [
+            0.625,
+            0.775
+          ]
+        },
+        "recharged/sealed": {
+          "games": 80,
+          "independent_deals": 16,
+          "win_rate": 0.7875000000000001,
+          "deal_bootstrap_95_interval": [
+            0.7000000000000001,
+            0.8625
+          ]
+        }
+      },
+      "chance": 0.2,
+      "final_point_floor_for_orientation_only": 0.46,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": []
+    },
+    "legacy/5p": {
+      "overall": {
+        "games": 320,
+        "independent_deals": 16,
+        "win_rate": 0.9406249999999999,
+        "deal_bootstrap_95_interval": [
+          0.91875,
+          0.9624999999999999
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 80,
+          "independent_deals": 16,
+          "win_rate": 0.9375,
+          "deal_bootstrap_95_interval": [
+            0.8875,
+            0.975
+          ]
+        },
+        "original/sealed": {
+          "games": 80,
+          "independent_deals": 16,
+          "win_rate": 0.95,
+          "deal_bootstrap_95_interval": [
+            0.9,
+            0.9875
+          ]
+        },
+        "recharged/open": {
+          "games": 80,
+          "independent_deals": 16,
+          "win_rate": 0.9375,
+          "deal_bootstrap_95_interval": [
+            0.8875,
+            0.975
+          ]
+        },
+        "recharged/sealed": {
+          "games": 80,
+          "independent_deals": 16,
+          "win_rate": 0.9375,
+          "deal_bootstrap_95_interval": [
+            0.875,
+            0.9875
+          ]
+        }
+      },
+      "chance": 0.2,
+      "final_point_floor_for_orientation_only": 0.9,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": []
+    },
+    "heuristic/5p": {
+      "overall": {
+        "games": 320,
+        "independent_deals": 16,
+        "win_rate": 0.990625,
+        "deal_bootstrap_95_interval": [
+          0.98125,
+          1.0
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 80,
+          "independent_deals": 16,
+          "win_rate": 1.0,
+          "deal_bootstrap_95_interval": [
+            1.0,
+            1.0
+          ]
+        },
+        "original/sealed": {
+          "games": 80,
+          "independent_deals": 16,
+          "win_rate": 0.9875,
+          "deal_bootstrap_95_interval": [
+            0.9624999999999999,
+            1.0
+          ]
+        },
+        "recharged/open": {
+          "games": 80,
+          "independent_deals": 16,
+          "win_rate": 0.9875,
+          "deal_bootstrap_95_interval": [
+            0.9624999999999999,
+            1.0
+          ]
+        },
+        "recharged/sealed": {
+          "games": 80,
+          "independent_deals": 16,
+          "win_rate": 0.9875,
+          "deal_bootstrap_95_interval": [
+            0.9624999999999999,
+            1.0
+          ]
+        }
+      },
+      "chance": 0.2,
+      "final_point_floor_for_orientation_only": 0.6400000000000001,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": []
+    },
+    "rush/5p": {
+      "overall": {
+        "games": 320,
+        "independent_deals": 16,
+        "win_rate": 0.7546875,
+        "deal_bootstrap_95_interval": [
+          0.7046874999999999,
+          0.809375
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 80,
+          "independent_deals": 16,
+          "win_rate": 0.7125,
+          "deal_bootstrap_95_interval": [
+            0.6125,
+            0.8
+          ]
+        },
+        "original/sealed": {
+          "games": 80,
+          "independent_deals": 16,
+          "win_rate": 0.8562500000000001,
+          "deal_bootstrap_95_interval": [
+            0.7875000000000001,
+            0.91875
+          ]
+        },
+        "recharged/open": {
+          "games": 80,
+          "independent_deals": 16,
+          "win_rate": 0.7375,
+          "deal_bootstrap_95_interval": [
+            0.6625,
+            0.8125
+          ]
+        },
+        "recharged/sealed": {
+          "games": 80,
+          "independent_deals": 16,
+          "win_rate": 0.7124999999999999,
+          "deal_bootstrap_95_interval": [
+            0.6125,
+            0.8125
+          ]
+        }
+      },
+      "chance": 0.2,
+      "final_point_floor_for_orientation_only": 0.4,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": []
+    },
+    "economic/6p": {
+      "overall": {
+        "games": 384,
+        "independent_deals": 16,
+        "win_rate": 0.7109375,
+        "deal_bootstrap_95_interval": [
+          0.6588541666666666,
+          0.765625
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 96,
+          "independent_deals": 16,
+          "win_rate": 0.7395833333333334,
+          "deal_bootstrap_95_interval": [
+            0.625,
+            0.84375
+          ]
+        },
+        "original/sealed": {
+          "games": 96,
+          "independent_deals": 16,
+          "win_rate": 0.625,
+          "deal_bootstrap_95_interval": [
+            0.5208333333333333,
+            0.7291666666666667
+          ]
+        },
+        "recharged/open": {
+          "games": 96,
+          "independent_deals": 16,
+          "win_rate": 0.7395833333333333,
+          "deal_bootstrap_95_interval": [
+            0.6041666666666666,
+            0.8645833333333333
+          ]
+        },
+        "recharged/sealed": {
+          "games": 96,
+          "independent_deals": 16,
+          "win_rate": 0.7395833333333334,
+          "deal_bootstrap_95_interval": [
+            0.6666666666666667,
+            0.8125
+          ]
+        }
+      },
+      "chance": 0.16666666666666666,
+      "final_point_floor_for_orientation_only": 0.4375,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": []
+    },
+    "legacy/6p": {
+      "overall": {
+        "games": 384,
+        "independent_deals": 16,
+        "win_rate": 0.9270833333333333,
+        "deal_bootstrap_95_interval": [
+          0.90625,
+          0.9479166666666667
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 96,
+          "independent_deals": 16,
+          "win_rate": 0.90625,
+          "deal_bootstrap_95_interval": [
+            0.8541666666666667,
+            0.9583333333333334
+          ]
+        },
+        "original/sealed": {
+          "games": 96,
+          "independent_deals": 16,
+          "win_rate": 0.9270833333333334,
+          "deal_bootstrap_95_interval": [
+            0.875,
+            0.96875
+          ]
+        },
+        "recharged/open": {
+          "games": 96,
+          "independent_deals": 16,
+          "win_rate": 0.9479166666666667,
+          "deal_bootstrap_95_interval": [
+            0.90625,
+            0.9791666666666667
+          ]
+        },
+        "recharged/sealed": {
+          "games": 96,
+          "independent_deals": 16,
+          "win_rate": 0.9270833333333334,
+          "deal_bootstrap_95_interval": [
+            0.875,
+            0.96875
+          ]
+        }
+      },
+      "chance": 0.16666666666666666,
+      "final_point_floor_for_orientation_only": 0.9,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": []
+    },
+    "heuristic/6p": {
+      "overall": {
+        "games": 384,
+        "independent_deals": 16,
+        "win_rate": 0.984375,
+        "deal_bootstrap_95_interval": [
+          0.9713541666666667,
+          0.9947916666666667
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 96,
+          "independent_deals": 16,
+          "win_rate": 0.9791666666666667,
+          "deal_bootstrap_95_interval": [
+            0.9479166666666667,
+            1.0
+          ]
+        },
+        "original/sealed": {
+          "games": 96,
+          "independent_deals": 16,
+          "win_rate": 0.9791666666666667,
+          "deal_bootstrap_95_interval": [
+            0.9479166666666667,
+            1.0
+          ]
+        },
+        "recharged/open": {
+          "games": 96,
+          "independent_deals": 16,
+          "win_rate": 0.9791666666666667,
+          "deal_bootstrap_95_interval": [
+            0.9479166666666667,
+            1.0
+          ]
+        },
+        "recharged/sealed": {
+          "games": 96,
+          "independent_deals": 16,
+          "win_rate": 1.0,
+          "deal_bootstrap_95_interval": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "chance": 0.16666666666666666,
+      "final_point_floor_for_orientation_only": 0.625,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": []
+    },
+    "rush/6p": {
+      "overall": {
+        "games": 384,
+        "independent_deals": 16,
+        "win_rate": 0.7369791666666667,
+        "deal_bootstrap_95_interval": [
+          0.6927083333333333,
+          0.78125
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 96,
+          "independent_deals": 16,
+          "win_rate": 0.6666666666666667,
+          "deal_bootstrap_95_interval": [
+            0.5833333333333334,
+            0.75
+          ]
+        },
+        "original/sealed": {
+          "games": 96,
+          "independent_deals": 16,
+          "win_rate": 0.7291666666666666,
+          "deal_bootstrap_95_interval": [
+            0.6666666666666666,
+            0.7916666666666667
+          ]
+        },
+        "recharged/open": {
+          "games": 96,
+          "independent_deals": 16,
+          "win_rate": 0.75,
+          "deal_bootstrap_95_interval": [
+            0.6145833333333333,
+            0.8645833333333333
+          ]
+        },
+        "recharged/sealed": {
+          "games": 96,
+          "independent_deals": 16,
+          "win_rate": 0.8020833333333334,
+          "deal_bootstrap_95_interval": [
+            0.7291666666666667,
+            0.8645833333333334
+          ]
+        }
+      },
+      "chance": 0.16666666666666666,
+      "final_point_floor_for_orientation_only": 0.375,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": []
+    },
+    "a260/3p": {
+      "overall": {
+        "games": 192,
+        "independent_deals": 16,
+        "win_rate": 0.34375,
+        "deal_bootstrap_95_interval": [
+          0.2604166666666667,
+          0.42708333333333337
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.29166666666666663,
+          "deal_bootstrap_95_interval": [
+            0.14583333333333331,
+            0.4583333333333333
+          ]
+        },
+        "original/sealed": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.2708333333333333,
+          "deal_bootstrap_95_interval": [
+            0.14583333333333331,
+            0.41666666666666663
+          ]
+        },
+        "recharged/open": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.4375,
+          "deal_bootstrap_95_interval": [
+            0.2708333333333333,
+            0.6041666666666666
+          ]
+        },
+        "recharged/sealed": {
+          "games": 48,
+          "independent_deals": 16,
+          "win_rate": 0.375,
+          "deal_bootstrap_95_interval": [
+            0.2708333333333333,
+            0.47916666666666663
+          ]
+        }
+      },
+      "chance": 0.3333333333333333,
+      "final_point_floor_for_orientation_only": 0.4,
+      "development_point_below_final_floor": true,
+      "overall_interval_excludes_chance": false,
+      "rules_not_excluding_chance": [
+        "original/open",
+        "original/sealed",
+        "recharged/open",
+        "recharged/sealed"
+      ]
+    },
+    "economic_capacity_v1/2p": {
+      "overall": {
+        "games": 128,
+        "independent_deals": 16,
+        "win_rate": 0.6640625,
+        "deal_bootstrap_95_interval": [
+          0.5859375,
+          0.75
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.71875,
+          "deal_bootstrap_95_interval": [
+            0.5625,
+            0.84375
+          ]
+        },
+        "original/sealed": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.65625,
+          "deal_bootstrap_95_interval": [
+            0.5,
+            0.8125
+          ]
+        },
+        "recharged/open": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.65625,
+          "deal_bootstrap_95_interval": [
+            0.5,
+            0.8125
+          ]
+        },
+        "recharged/sealed": {
+          "games": 32,
+          "independent_deals": 16,
+          "win_rate": 0.625,
+          "deal_bootstrap_95_interval": [
+            0.4375,
+            0.8125
+          ]
+        }
+      },
+      "chance": 0.5,
+      "final_point_floor_for_orientation_only": null,
+      "development_point_below_final_floor": false,
+      "overall_interval_excludes_chance": true,
+      "rules_not_excluding_chance": [
+        "original/sealed",
+        "recharged/open",
+        "recharged/sealed"
+      ]
+    }
+  },
+  "incomplete_cells": {
+    "search_geo/4p": {
+      "verified_games": 0,
+      "required_games": 256
+    },
+    "search_geo/5p": {
+      "verified_games": 0,
+      "required_games": 320
+    },
+    "search_geo/6p": {
+      "verified_games": 0,
+      "required_games": 384
+    }
+  },
+  "pending_verification": [
+    "development-parent-4p-search_geo-0-4",
+    "development-parent-5p-search_geo-0-4",
+    "development-parent-6p-search_geo-0-4",
+    "development-parent-4p-search_geo-4-8",
+    "development-parent-5p-search_geo-4-8",
+    "development-parent-6p-search_geo-4-8",
+    "development-parent-4p-search_geo-8-12",
+    "development-parent-5p-search_geo-8-12",
+    "development-parent-6p-search_geo-8-12",
+    "development-parent-4p-search_geo-12-16",
+    "development-parent-5p-search_geo-12-16",
+    "development-parent-6p-search_geo-12-16"
+  ],
+  "development_point_deficits": [
+    "search_geo/2p",
+    "heuristic/2p",
+    "search_geo/3p",
+    "legacy/4p",
+    "a260/3p"
+  ],
+  "rule_intervals_not_excluding_chance": [
+    "economic/2p/original/sealed",
+    "economic/2p/recharged/open",
+    "economic/2p/recharged/sealed",
+    "search_geo/2p/original/open",
+    "search_geo/2p/original/sealed",
+    "search_geo/2p/recharged/open",
+    "search_geo/2p/recharged/sealed",
+    "heuristic/2p/original/sealed",
+    "rush/2p/original/sealed",
+    "rush/2p/recharged/sealed",
+    "search_geo/3p/original/open",
+    "search_geo/3p/original/sealed",
+    "search_geo/3p/recharged/open",
+    "search_geo/3p/recharged/sealed",
+    "economic/4p/original/sealed",
+    "a260/3p/original/open",
+    "a260/3p/original/sealed",
+    "a260/3p/recharged/open",
+    "a260/3p/recharged/sealed",
+    "economic_capacity_v1/2p/original/sealed",
+    "economic_capacity_v1/2p/recharged/open",
+    "economic_capacity_v1/2p/recharged/sealed"
+  ],
+  "independent_deals_per_complete_cell": 16,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "scope": "Parent development diagnostic only. Summaries require all16 paired deals in a cell;incomplete cells remain listed without a strength summary. Final protocol floors are orientation only:final held-out deals and larger sample counts are unspent. Marginal intervals are exploratory,not simultaneous guarantees. No candidate comparison or promotion is possible from this report."
+}

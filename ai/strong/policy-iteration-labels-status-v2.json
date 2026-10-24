@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-10-24T05:29:17.154498+00:00",
-  "artifact_revision": "a94b52f4ad27bfaf6c8e4ec3ff945d68f752ebf9",
+  "checked_at": "2026-10-24T05:40:04.630602+00:00",
+  "artifact_revision": "9ebf3fe26a8278a28a63e0172b9e2b80ef3bddb5",
   "jobs": [
     {
       "stage": "launched",
@@ -652,10 +652,10 @@
       "qualification_eligible": false,
       "job_id": "6adc222c046eb82b1ecd9e39",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/2p-11101-economic-neural-0252.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 04:48:00.328000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:34:54.879000+00:00"
     },
     {
       "stage": "launched",
@@ -3542,9 +3542,9 @@
       "qualification_eligible": false,
       "job_id": "6adc221d1e112550ce7dc2c7",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/2p-11101-snapshot0-neural-0546.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:30:20.290000+00:00",
       "finished_at": "None"
     },
     {
@@ -5550,9 +5550,9 @@
       "qualification_eligible": false,
       "job_id": "6adc2204046eb82b1ecd9e10",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/2p-11102-economic-neural-0420.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:38:55.187000+00:00",
       "finished_at": "None"
     },
     {
@@ -5640,10 +5640,10 @@
       "qualification_eligible": false,
       "job_id": "6adc22051e112550ce7dc2b2",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/2p-11102-economic-neural-0462.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 04:55:14.707000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:30:18.403000+00:00"
     },
     {
       "stage": "launched",
@@ -13652,10 +13652,10 @@
       "flavor": "cpu-upgrade",
       "timeout_hours": 12,
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-11101-economic-neural-0030.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 03:36:34.543000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:31:11.796000+00:00"
     },
     {
       "stage": "launched",
@@ -13896,10 +13896,10 @@
       "qualification_eligible": false,
       "job_id": "6adc21a31e112550ce7dc240",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-11101-economic-neural-0120.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 04:57:48.493000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:33:18.158000+00:00"
     },
     {
       "stage": "launched",
@@ -14992,9 +14992,9 @@
       "qualification_eligible": false,
       "job_id": "6adc21b21e112550ce7dc256",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-11101-economic-neural-0540.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:38:22.109000+00:00",
       "finished_at": "None"
     },
     {
@@ -17034,9 +17034,9 @@
       "qualification_eligible": false,
       "job_id": "6adc21931e112550ce7dc232",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-11101-snapshot0-neural-0390.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:29:38.054000+00:00",
       "finished_at": "None"
     },
     {
@@ -17346,10 +17346,10 @@
       "qualification_eligible": false,
       "job_id": "6adc2197046eb82b1ecd9db5",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-11101-snapshot0-neural-0510.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 05:01:54.372000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:35:19.859000+00:00"
     },
     {
       "stage": "launched",
@@ -19460,9 +19460,9 @@
       "qualification_eligible": false,
       "job_id": "6adc2179046eb82b1ecd9d97",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-11102-economic-neural-0390.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:33:54.310000+00:00",
       "finished_at": "None"
     },
     {
@@ -19694,9 +19694,9 @@
       "qualification_eligible": false,
       "job_id": "6adc217c046eb82b1ecd9d99",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-11102-economic-neural-0480.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:34:00.296000+00:00",
       "finished_at": "None"
     },
     {
@@ -19772,9 +19772,9 @@
       "qualification_eligible": false,
       "job_id": "6adc217d1e112550ce7dc1fc",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-11102-economic-neural-0510.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:34:14.065000+00:00",
       "finished_at": "None"
     },
     {
@@ -21418,9 +21418,9 @@
       "qualification_eligible": false,
       "job_id": "6adc21581e112550ce7dc1e3",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-11102-snapshot0-neural-0210.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:30:10.947000+00:00",
       "finished_at": "None"
     },
     {
@@ -22042,9 +22042,9 @@
       "qualification_eligible": false,
       "job_id": "6adc21611e112550ce7dc1e9",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-11102-snapshot0-neural-0450.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:38:43.417000+00:00",
       "finished_at": "None"
     },
     {
@@ -22270,10 +22270,10 @@
       "qualification_eligible": false,
       "job_id": "6adc2164046eb82b1ecd9d78",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-11102-snapshot0-neural-0540.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 05:01:34.771000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:30:09.048000+00:00"
     },
     {
       "stage": "launched",
@@ -24312,10 +24312,10 @@
       "qualification_eligible": false,
       "job_id": "6adc21461e112550ce7dc1cd",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-parent-economic-neural-0390.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 04:53:01.605000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:31:46.882000+00:00"
     },
     {
       "stage": "launched",
@@ -24468,10 +24468,10 @@
       "qualification_eligible": false,
       "job_id": "6adc2148046eb82b1ecd9d5a",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-parent-economic-neural-0450.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 05:01:28.758000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:38:13.667000+00:00"
     },
     {
       "stage": "launched",
@@ -24624,9 +24624,9 @@
       "qualification_eligible": false,
       "job_id": "6adc214a1e112550ce7dc1d3",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-parent-economic-neural-0510.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:30:05.216000+00:00",
       "finished_at": "None"
     },
     {
@@ -24696,9 +24696,9 @@
       "qualification_eligible": false,
       "job_id": "6adc214b046eb82b1ecd9d5e",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-parent-economic-neural-0540.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:30:11.736000+00:00",
       "finished_at": "None"
     },
     {
@@ -26431,10 +26431,10 @@
       "qualification_eligible": false,
       "job_id": "6adc21271e112550ce7dc1b1",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-parent-snapshot0-neural-0270.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 05:03:41.361000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:36:22.756000+00:00"
     },
     {
       "stage": "launched",
@@ -26587,10 +26587,10 @@
       "qualification_eligible": false,
       "job_id": "6adc212a046eb82b1ecd9d33",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-parent-snapshot0-neural-0330.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 05:04:03.623000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:38:52.285000+00:00"
     },
     {
       "stage": "launched",
@@ -26743,10 +26743,10 @@
       "qualification_eligible": false,
       "job_id": "6adc212c046eb82b1ecd9d3d",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/3p-parent-snapshot0-neural-0390.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 05:04:29.927000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:37:58.351000+00:00"
     },
     {
       "stage": "launched",
@@ -28560,10 +28560,10 @@
       "qualification_eligible": false,
       "job_id": "6adc2101046eb82b1ecd9d11",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/4p-11101-economic-neural-0126.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 05:00:35.863000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:37:27.891000+00:00"
     },
     {
       "stage": "launched",
@@ -32129,9 +32129,9 @@
       "qualification_eligible": false,
       "job_id": "6adc20eb046eb82b1ecd9cfb",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/4p-11101-snapshot0-neural-0357.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:35:19.077000+00:00",
       "finished_at": "None"
     },
     {
@@ -33014,10 +33014,10 @@
       "flavor": "cpu-upgrade",
       "timeout_hours": 12,
       "guard": "ai/runs/policy-iteration-labels-launches-v2/4p-11101-snapshot0-neural_economic-0083.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 03:37:03.060000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:32:51.261000+00:00"
     },
     {
       "stage": "launched",
@@ -34387,10 +34387,10 @@
       "qualification_eligible": false,
       "job_id": "6adc20c0046eb82b1ecd9cce",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/4p-11102-economic-neural-0189.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 04:43:53.854000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:30:02.326000+00:00"
     },
     {
       "stage": "launched",
@@ -35146,10 +35146,10 @@
       "qualification_eligible": false,
       "job_id": "6adc20cb046eb82b1ecd9ce3",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/4p-11102-economic-neural-0420.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 05:10:27.086000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:35:14.179000+00:00"
     },
     {
       "stage": "launched",
@@ -37542,9 +37542,9 @@
       "qualification_eligible": false,
       "job_id": "6adc20a4046eb82b1ecd9cb1",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/4p-11102-snapshot0-neural-0294.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:36:24.656000+00:00",
       "finished_at": "None"
     },
     {
@@ -37956,9 +37956,9 @@
       "qualification_eligible": false,
       "job_id": "6adc20a9046eb82b1ecd9cb5",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/4p-11102-snapshot0-neural-0420.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:35:22.687000+00:00",
       "finished_at": "None"
     },
     {
@@ -38025,9 +38025,9 @@
       "qualification_eligible": false,
       "job_id": "6adc20aa046eb82b1ecd9cb7",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/4p-11102-snapshot0-neural-0441.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:35:32.930000+00:00",
       "finished_at": "None"
     },
     {
@@ -39652,10 +39652,10 @@
       "qualification_eligible": false,
       "job_id": "6adc2076046eb82b1ecd9c82",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/4p-parent-economic-neural-0084.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 04:56:26.386000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:33:57.397000+00:00"
     },
     {
       "stage": "launched",
@@ -42097,10 +42097,10 @@
       "qualification_eligible": false,
       "job_id": "6adc2094046eb82b1ecd9ca0",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/4p-parent-economic-neural_economic-0498.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 05:02:13.158000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:31:49.703000+00:00"
     },
     {
       "stage": "launched",
@@ -43364,9 +43364,9 @@
       "qualification_eligible": false,
       "job_id": "6adc20611e112550ce7dc0e1",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/4p-parent-snapshot0-neural-0357.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:34:25.724000+00:00",
       "finished_at": "None"
     },
     {
@@ -43982,9 +43982,9 @@
       "qualification_eligible": false,
       "job_id": "6adc206b046eb82b1ecd9c72",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/4p-parent-snapshot0-neural-0546.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:38:15.557000+00:00",
       "finished_at": "None"
     },
     {
@@ -47195,10 +47195,10 @@
       "flavor": "cpu-upgrade",
       "timeout_hours": 12,
       "guard": "ai/runs/policy-iteration-labels-launches-v2/5p-11101-economic-neural_economic-0079.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 03:37:20.693000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:30:59.487000+00:00"
     },
     {
       "stage": "launched",
@@ -51472,9 +51472,9 @@
       "qualification_eligible": false,
       "job_id": "6adc1fe9046eb82b1ecd9bd4",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/5p-11102-economic-neural-0133.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:38:00.241000+00:00",
       "finished_at": "None"
     },
     {
@@ -51539,9 +51539,9 @@
       "qualification_eligible": false,
       "job_id": "6adc1fea1e112550ce7dc03c",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/5p-11102-economic-neural-0152.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:38:04.880000+00:00",
       "finished_at": "None"
     },
     {
@@ -51874,10 +51874,10 @@
       "qualification_eligible": false,
       "job_id": "6adc1fef046eb82b1ecd9bda",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/5p-11102-economic-neural-0247.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 05:02:53.777000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:33:34.867000+00:00"
     },
     {
       "stage": "launched",
@@ -52477,10 +52477,10 @@
       "qualification_eligible": false,
       "job_id": "6adc1ff9046eb82b1ecd9be4",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/5p-11102-economic-neural-0418.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 05:13:44.730000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:34:12.173000+00:00"
     },
     {
       "stage": "launched",
@@ -54742,9 +54742,9 @@
       "qualification_eligible": false,
       "job_id": "6adc1fc71e112550ce7dc011",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/5p-11102-snapshot0-neural-0209.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:36:14.385000+00:00",
       "finished_at": "None"
     },
     {
@@ -57054,10 +57054,10 @@
       "flavor": "cpu-upgrade",
       "timeout_hours": 12,
       "guard": "ai/runs/policy-iteration-labels-launches-v2/5p-parent-economic-neural-0019.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 03:37:33.825000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:39:49.069000+00:00"
     },
     {
       "stage": "launched",
@@ -58017,9 +58017,9 @@
       "qualification_eligible": false,
       "job_id": "6adc1fa31e112550ce7dbfee",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/5p-parent-economic-neural-0285.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:33:00.742000+00:00",
       "finished_at": "None"
     },
     {
@@ -58553,10 +58553,10 @@
       "qualification_eligible": false,
       "job_id": "6adc1fac1e112550ce7dbff6",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/5p-parent-economic-neural-0437.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 05:07:49.518000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:38:41.527000+00:00"
     },
     {
       "stage": "launched",
@@ -58754,10 +58754,10 @@
       "qualification_eligible": false,
       "job_id": "6adc1fb0046eb82b1ecd9b9a",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/5p-parent-economic-neural-0494.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 04:54:05.877000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:33:51.416000+00:00"
     },
     {
       "stage": "launched",
@@ -59922,10 +59922,10 @@
       "flavor": "cpu-upgrade",
       "timeout_hours": 12,
       "guard": "ai/runs/policy-iteration-labels-launches-v2/5p-parent-economic-neural_economic-0553.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 05:03:28.571000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:36:11.739000+00:00"
     },
     {
       "stage": "launched",
@@ -60751,10 +60751,10 @@
       "qualification_eligible": false,
       "job_id": "6adc1f791e112550ce7dbfb6",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/5p-parent-snapshot0-neural-0209.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 04:56:58.989000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:32:58.850000+00:00"
     },
     {
       "stage": "launched",
@@ -61488,9 +61488,9 @@
       "qualification_eligible": false,
       "job_id": "6adc1f841e112550ce7dbfbf",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/5p-parent-snapshot0-neural-0418.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:34:57.768000+00:00",
       "finished_at": "None"
     },
     {
@@ -61555,10 +61555,10 @@
       "qualification_eligible": false,
       "job_id": "6adc1f851e112550ce7dbfc3",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/5p-parent-snapshot0-neural-0437.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 04:52:17.069000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:35:31.034000+00:00"
     },
     {
       "stage": "launched",
@@ -63873,10 +63873,10 @@
       "qualification_eligible": false,
       "job_id": "6adc1f56046eb82b1ecd9b34",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/6p-11101-economic-neural-0234.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 05:00:11.985000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:38:18.275000+00:00"
     },
     {
       "stage": "launched",
@@ -64335,10 +64335,10 @@
       "qualification_eligible": false,
       "job_id": "6adc1f5d1e112550ce7dbf93",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/6p-11101-economic-neural-0360.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 04:56:08.416000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:38:20.214000+00:00"
     },
     {
       "stage": "launched",
@@ -64863,9 +64863,9 @@
       "qualification_eligible": false,
       "job_id": "6adc1f661e112550ce7dbf9b",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/6p-11101-economic-neural-0504.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:38:21.039000+00:00",
       "finished_at": "None"
     },
     {
@@ -64929,10 +64929,10 @@
       "qualification_eligible": false,
       "job_id": "6adc1f661e112550ce7dbf9d",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/6p-11101-economic-neural-0522.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 04:59:12.801000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:30:08.838000+00:00"
     },
     {
       "stage": "launched",
@@ -69410,9 +69410,9 @@
       "qualification_eligible": false,
       "job_id": "6adc1f001e112550ce7dbee1",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/6p-11102-economic-neural-0108.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:33:37.768000+00:00",
       "finished_at": "None"
     },
     {
@@ -69608,9 +69608,9 @@
       "qualification_eligible": false,
       "job_id": "6adc1f03046eb82b1ecd9ac2",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/6p-11102-economic-neural-0162.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:33:20.050000+00:00",
       "finished_at": "None"
     },
     {
@@ -70994,9 +70994,9 @@
       "qualification_eligible": false,
       "job_id": "6adc1f1a1e112550ce7dbef5",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/6p-11102-economic-neural-0540.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 05:31:48.768000+00:00",
       "finished_at": "None"
     },
     {
@@ -71048,10 +71048,10 @@
       "qualification_eligible": false,
       "job_id": "6adc1f1b1e112550ce7dbef8",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/6p-11102-economic-neural-0558.json",
-      "authoritative_status": "SCHEDULING",
-      "message": "Waiting for requested hardware to become available",
-      "started_at": "None",
-      "finished_at": "None"
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 05:31:51.591000+00:00",
+      "finished_at": "2026-10-24 05:36:11.491000+00:00"
     },
     {
       "stage": "launched",
@@ -73067,10 +73067,10 @@
       "qualification_eligible": false,
       "job_id": "6adc1ee31e112550ce7dbeb8",
       "guard": "ai/runs/policy-iteration-labels-launches-v2/6p-11102-snapshot0-neural-0288.json",
-      "authoritative_status": "RUNNING",
+      "authoritative_status": "COMPLETED",
       "message": null,
       "started_at": "2026-10-24 05:02:32.654000+00:00",
-      "finished_at": "None"
+      "finished_at": "2026-10-24 05:34:23.833000+00:00"
     },
     {
       "stage": "launched",
@@ -80858,9 +80858,9 @@
     }
   ],
   "status_counts": {
-    "COMPLETED": 364,
-    "RUNNING": 332,
-    "SCHEDULING": 252
+    "COMPLETED": 395,
+    "RUNNING": 328,
+    "SCHEDULING": 225
   },
   "qualification_eligible": false
 }

@@ -25,7 +25,7 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: automatic collection, search weakness and storage recovery
+## Latest checkpoint: collection and full-data training handoff are active
 
 Previous goal turn: **progress** (312 verified shards,90 reference batches and
 bounded CPU expansion saved). This turn also made **progress**: more verified
@@ -33,7 +33,41 @@ labels, the complete2p search reference, a bounded collector, and recovery from
 an actual HF repository file-count limit. The goal remains active; no new
 model gradients, final-test use, model qualification or production changes.
 
-### A local collector is ACTIVE — do not start another one
+### A training coordinator is also ACTIVE — no competing preparation or launch
+
+PID **2536611**, exec session **93205**, started
+`2026-10-24T05:38:39.856827+00:00`. Its actual process was checked alive. State:
+`ai/runs/policy-iteration-training-coordinator-v2/state.json`; log:
+`ai/runs/policy-iteration-training-coordinator-v2.log`.
+It is currently **waiting for complete labels**, with no preparation commands or
+GPU jobs submitted. `coordinate-policy-iteration-training.py --execute` checks
+readiness every60 seconds, bounded12h. Do not start another coordinator or manually
+prepare/archive/build/launch the same training inputs while it is active.
+
+Once all948 new shards plus60 pilot cases pass the strict coverage/identity/cap
+checks, it invokes the existing data reducer, immutable data uploader, full source
+builder and both launch dry runs. The complete packaged preflight must pass on
+real complete inputs. Only then may it launch exactly two prescribedL4x1 jobs:
+frozen/public representations, four fixed seeds each,3h timeouts. No local
+training or changed hyperparameters. Each launch guard is archived immediately as
+one HF file. Any failure/unknown result stops the pipeline with intermediates
+preserved; no automatic retries or candidate promotion.
+
+The partial real grid and a forged-complete grid were both rejected before any
+preparation commands or submissions; a competing coordinator also failed before
+creating outputs. All17 preflight-checked source overlays still match. Controls:
+`strong/policy-iteration-training-coordinator-controls-v2.json`. Evidence:
+`strong/policy-iteration-training-coordinator-evidence-v2.json`, revision
+`e0f7d4b11b85dcb605129a13d7ff94d40cd714c6`, archive
+`archives/policy-iteration-training-coordinator-evidence-v2.tgz`, SHA
+`bb0a6f0593cee5bdf064a45abeae4674b85b5bfe58cfb221c000123463457a27`.
+
+On a future explicit pause/no-new-jobs request, stop this local coordinator after
+confirming its PID/command, so it cannot submit later. Do not interpret a stale
+state file as a live process, or rerun blindly after a failure. If preparation
+outputs or training guards exist, inspect/recover those exact stages first.
+
+### A label/reference collector is ACTIVE — do not duplicate it
 
 `harvest-policy-iteration-jobs.py` runs existing status/collection/summarization
 commands every300 seconds, for at most12 hours. It cannot submit, cancel or
@@ -54,19 +88,22 @@ The earlier collector PID2404541/session19853 **ended with error as intended**
 after observing two actual HF job failures. Its state/log remain preserved under
 `ai/runs/policy-iteration-harvest-v2`; do not restart that directory. Its first
 cycle verified **333/948 new shards**,12,112 root-mode pairs and **11,679,168
-continuations including pilot**. Latest fresh effective-job snapshot at
-`2026-10-24T05:29:17.154498+00:00`: **364 COMPLETED /332 RUNNING /252 SCHEDULING**,
-no unresolved ERROR handles. The recovered collector is verifying those new
-completions. Read its current state/results for later progress.
+continuations including pilot**. The recovered collector then verified **395/948 new shards**,14,291 root-mode
+pairs and **13,790,400 continuations**. Latest fresh effective-job snapshot at
+`2026-10-24T05:40:04.630602+00:00`: **395 COMPLETED /328 RUNNING /225 SCHEDULING**,
+no ERROR handles. It finished verifying all395 completions and is waiting between collection
+cycles. Read current process state/results for later progress.
 
-333-shard evidence: `strong/policy-iteration-labels-333-progress-evidence-v2.json`,
-private HF revision `03231c902048a5c91fe12424142758d43453bba2`, archive
-`archives/policy-iteration-labels-333-progress-evidence-v2.tgz`, SHA
-`ee244e73671c5877db79c01fe87e9ff7132e2fb3607a65cbfa308e1e126097f4`.
+Latest label evidence: `strong/policy-iteration-labels-395-progress-evidence-v2.json`,
+revision `bb85f3dacc9ed3119f41ca2fa493b630651d597e`, archive
+`archives/policy-iteration-labels-395-progress-evidence-v2.tgz`, SHA
+`8e406ed7c29713be2908f8bb74e701b93cc67c482ebd547ab95d4913c4b22120`.
 
-### Fresh parent reference: two-player search is not convincingly beaten
+### Fresh parent reference: search exposes large baseline weaknesses
 
-**92 batches /5,568 fresh games independently verify**, with23 complete cells.
+**96 batches /5,760 fresh games independently verify**, with24 complete cells.
+The latest partial diagnostic is `strong/policy-iteration-parent-reference-progress-96-v2.json`;
+the latest full raw checkpoint below contains all96 batches /5,760 games.
 All 128 two-player search_geo games across16 paired deals are now complete: parent win rate
 **48.83%**,95% whole-deal bootstrap interval **38.28–59.77%**. This does not exclude
 50% chance and is below the55% final point floor. Original/open62.5%,
@@ -74,14 +111,21 @@ original/sealed45.31%,Recharged/open40.63%,Recharged/sealed46.88%; all four marg
 intervals include chance. These are exploratory developmental results, not a
 final-test pass/failure. The prior A260,2p heuristic and4p legacy deficits remain.
 
-Diagnostic: `strong/policy-iteration-parent-reference-progress-92-v2.json`.
-Evidence: `strong/policy-iteration-parent-reference-92-evidence-v2.json`, revision
-`3df972b391728184ff7d3921cae465c0616336a1`, archive
-`archives/policy-iteration-parent-reference-92-evidence-v2.tgz`, SHA
-`266be50f184746b8ce44545e74bd28f909e5d28039b0e893d166c6c28d48de39`.
-It contains all972 files of the full local92-batch checkpoint. Its initial
-folder upload was partial; the complete compact archive is verified.
-Parent3–6p search cells remain incomplete; collect only existing submitted handles.
+The complete3p search cell is considerably worse: **20.31% wins in192 games**,
+95% whole-deal interval **14.58–26.56%**, entirely below one-third chance.
+Original/open22.92%,original/sealed16.67%,Recharged/open22.92%,
+Recharged/sealed18.75%. This additional deficit remains in the report; no cells
+or rule combinations were dropped. The new training experiment still needs the
+full fresh-game comparison to establish whether its corrections actually help.
+
+Diagnostic: `strong/policy-iteration-parent-reference-progress-96-v2.json`.
+Evidence: `strong/policy-iteration-parent-reference-96-evidence-v2.json`, revision
+`44793a4ae5464d1c190e2484ebe6bdd42080efe1`, archive
+`archives/policy-iteration-parent-reference-96-evidence-v2.tgz`, SHA
+`88fc8eb6b4ccc065c216135d93788109766c4c6a27a15186d6b3b4d4f65eb03b`.
+This compact archive includes all96 independently verified raw reference batches.
+The previous92-batch partial-upload incident remains documented in the recovery
+archive. Only4–6p search cells remain incomplete; use existing submitted handles.
 
 ### HF file limit fixed; two confirmed upload failures recovered
 
@@ -130,10 +174,10 @@ Revision `016d3bacfa6f7f679a259d20aae530c94204d93f`, archive
 `b80eec1d50723be0faece3e2eb407ff763ea394881e3b7ac5525cf0ec36f4f47`. It saves all13
 compaction proofs, retry guards/logs, collector controls/state and updated code.
 
-Next: let the active collector harvest existing jobs. Once all948 new labels and
-60 reused pilot shards verify, build/archive the full compact training bundle and
-admitted frozen source, then launch the two four-seedL4 jobs. Do not wait for the
-collector's12h deadline if labels complete sooner. Parent full comparison still
+Next: let the active collector harvest existing jobs and the existing coordinator
+advance the prescribed full-data training pipeline. Do not duplicate either
+process. Inspect their actual state if progress stops; training launches do not
+need to wait for the collector's12h deadline if labels complete sooner. Parent full comparison still
 requires108 verified shards; four trained candidate arms and the untouched final
 strength gate remain. No final thresholds were weakened.
 

@@ -1,14 +1,7 @@
 {
   "all_shards_verified": false,
   "pending": [
-    "11101-6p-search_geo-0-4",
-    "11101-6p-search_geo-4-8",
-    "11101-6p-search_geo-8-12",
-    "11101-6p-search_geo-12-16",
-    "11102-6p-search_geo-0-4",
-    "11102-6p-search_geo-4-8",
-    "11102-6p-search_geo-8-12",
-    "11102-6p-search_geo-12-16"
+    "11101-6p-search_geo-0-4"
   ],
   "arms": {
     "parent": {
@@ -3794,6 +3787,62 @@
           }
         }
       },
+      "search_geo/6p": {
+        "games": 384,
+        "independent_deals": 16,
+        "win_rate": 0.28515625,
+        "deal_bootstrap_95_interval": [
+          0.234375,
+          0.3346354166666667
+        ],
+        "search_rollouts_reported": true,
+        "search_stats": {
+          "search_geo": {
+            "decisions": 88047,
+            "evaluations": 7169264,
+            "truncated": 0
+          }
+        },
+        "stage": "primary",
+        "by_rules": {
+          "original/open": {
+            "games": 96,
+            "independent_deals": 16,
+            "win_rate": 0.44791666666666663,
+            "deal_bootstrap_95_interval": [
+              0.35416666666666663,
+              0.5416666666666666
+            ]
+          },
+          "original/sealed": {
+            "games": 96,
+            "independent_deals": 16,
+            "win_rate": 0.15625,
+            "deal_bootstrap_95_interval": [
+              0.08333333333333333,
+              0.23958333333333331
+            ]
+          },
+          "recharged/open": {
+            "games": 96,
+            "independent_deals": 16,
+            "win_rate": 0.35416666666666663,
+            "deal_bootstrap_95_interval": [
+              0.29166666666666663,
+              0.42708333333333326
+            ]
+          },
+          "recharged/sealed": {
+            "games": 96,
+            "independent_deals": 16,
+            "win_rate": 0.18229166666666666,
+            "deal_bootstrap_95_interval": [
+              0.08854166666666666,
+              0.2864583333333333
+            ]
+          }
+        }
+      },
       "legacy/6p": {
         "games": 384,
         "independent_deals": 16,
@@ -6353,6 +6402,55 @@
           }
         }
       },
+      "search_geo/6p": {
+        "overall": {
+          "games_per_model": 384,
+          "independent_deals": 16,
+          "win_share_difference": -0.13151041666666669,
+          "paired_deal_bootstrap_95_interval": [
+            -0.19401041666666666,
+            -0.07161458333333334
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games_per_model": 96,
+            "independent_deals": 16,
+            "win_share_difference": -0.12499999999999999,
+            "paired_deal_bootstrap_95_interval": [
+              -0.26041666666666663,
+              0.010416666666666663
+            ]
+          },
+          "original/sealed": {
+            "games_per_model": 96,
+            "independent_deals": 16,
+            "win_share_difference": -0.13541666666666666,
+            "paired_deal_bootstrap_95_interval": [
+              -0.24999999999999997,
+              -0.020833333333333336
+            ]
+          },
+          "recharged/open": {
+            "games_per_model": 96,
+            "independent_deals": 16,
+            "win_share_difference": -0.20833333333333334,
+            "paired_deal_bootstrap_95_interval": [
+              -0.3125,
+              -0.10416666666666666
+            ]
+          },
+          "recharged/sealed": {
+            "games_per_model": 96,
+            "independent_deals": 16,
+            "win_share_difference": -0.057291666666666664,
+            "paired_deal_bootstrap_95_interval": [
+              -0.1875,
+              0.0625
+            ]
+          }
+        }
+      },
       "legacy/6p": {
         "overall": {
           "games_per_model": 384,
@@ -6600,7 +6698,7 @@
       }
     }
   },
-  "games": 19392,
+  "games": 19776,
   "planned_games": 20160,
   "source_revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
   "source_sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb",
@@ -8824,6 +8922,36 @@
         "prefix": "runs/strategic-correction-screen-v1-11102-6p-economic-12-16",
         "verified_sha256": "f53cf93cc6bf9eb59fc211e148bd36005e1428a9f289a553a505dc8582803205",
         "evaluation_sha256": "67bab2fd68d50d9ad190b0892bd1f2ee51bb816d877c9e057f31508cf7be6d9a"
+      }
+    ],
+    "11102/search_geo/6p": [
+      {
+        "key": "11102-6p-search_geo-0-4",
+        "revision": "0a91856d7bef619928aa533f665b25ea41e7fe7c",
+        "prefix": "runs/strategic-correction-screen-v1-11102-6p-search_geo-0-4",
+        "verified_sha256": "d38e5086028395810cd8c065588c641286db5b567165dd81bc0dba1815d494db",
+        "evaluation_sha256": "8456b1bfea6ad1adcfbb2d06280e371f01f719223fc7f8c22f7e97712d953477"
+      },
+      {
+        "key": "11102-6p-search_geo-4-8",
+        "revision": "0a91856d7bef619928aa533f665b25ea41e7fe7c",
+        "prefix": "runs/strategic-correction-screen-v1-11102-6p-search_geo-4-8",
+        "verified_sha256": "23b6ed51a89eec57b81657ec6da9c64e728aaed2485ebe1e1f81d31ae08bc0aa",
+        "evaluation_sha256": "21804a640dbd5db1c42e0cc88cc29875e945175f4856c0b9667265fc66ee5f80"
+      },
+      {
+        "key": "11102-6p-search_geo-8-12",
+        "revision": "0a91856d7bef619928aa533f665b25ea41e7fe7c",
+        "prefix": "runs/strategic-correction-screen-v1-11102-6p-search_geo-8-12",
+        "verified_sha256": "e65d4f03c07b2acd754e69e77cd822555170afd772ae14332e5098cb891d52eb",
+        "evaluation_sha256": "819e273093ae039410110b4c8c8d6098325240c97e61587aa57a2e8f5a8c0ab4"
+      },
+      {
+        "key": "11102-6p-search_geo-12-16",
+        "revision": "7439bfd16c8fa571a8a0d2ec067b62ce9e81fa68",
+        "prefix": "runs/strategic-correction-screen-v1-11102-6p-search_geo-12-16",
+        "verified_sha256": "778e318b2b3078cdfea69bd81257a4cd26dc7d09504f9dc37659028bb4fdec22",
+        "evaluation_sha256": "cc7a35bd6119a183a9ce8a0f3f14b76af73c8494a462c81feecac8fdcdf10cd9"
       }
     ],
     "11102/legacy/6p": [

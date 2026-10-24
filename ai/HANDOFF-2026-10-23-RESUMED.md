@@ -28,6 +28,107 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
+## 24 October continuation: revised teacher and 20-job paired pilot
+
+The previous goal turn was **progress** (phase ablations, calibration and the
+sealed-bid audit). This turn also made **progress**: a separate belief teacher is
+implemented and tested, and all 20 diagnostic jobs were submitted. There are no
+new gradient-trained models or production changes. The goal remains active.
+
+The new teacher reconstructs each earlier bidder's public prompt and uses the
+same frozen neural or economic policy as its continuation. It includes legal
+passes. It clears current sealed bids, private deck/seed/log/plans and `lastMove`,
+and preserves permitted public cash. Economic tie-breaking gets a separate
+public sample/actor seed, shared across all candidate actions. This is an
+inferred opponent model, not access to actual historical sealed submissions.
+The helper explicitly requires the simulator's canonical submission order;
+it rejects non-prefix submission orders. It is research teacher code, not a
+new general-purpose live-game analysis API.
+
+The historical engine and teacher remain unchanged. The new source overlays
+eight files while retaining **1,411 base files byte-for-byte**. It passed:
+
+- Five Node contracts, including all 320 public prompt reconstructions, private
+  field mutations, legal passes, invalid inputs, worker-offset parity and
+  old-control transition parity.
+- Batched versus individual inference for all 317 reconstructed opponent prompts.
+- **192 complete rollout checks** at 2p/6p, both editions and both continuation
+  modes, with the full 2,400-step horizon and no caps. Uniform controls match the
+  old worker; unchanged positions reproduce it under both belief variants.
+- 64 terminal trajectories matching their immutable original teacher labels and
+  128 independently checked initial-belief traces.
+
+Frozen pilot source:
+
+- Dataset revision `08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc`.
+- Archive `strong-source-sealed-belief-pilot-20261024-v1.tgz`.
+- SHA256 `5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4`.
+- Protocol SHA256 `6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912`.
+- Descriptor `strong/sealed-belief-pilot-source-v1.json`; preflight and exact
+  work plan are in the matching `preflight-v1` and `plan-v1` JSON files.
+
+The diagnostic selects **39 affected positions**, one fixed root-ID hash per
+count/source/edition/train-or-validation cell. The 5p/economic/original/validation
+cell has no affected root and is explicitly absent. No outcome influenced
+selection. These are diagnostic roots, not a newly enlarged training set.
+
+There are **20 HF cpu-performance jobs**, each with a 4h timeout and 24 workers:
+2–6 players × economic/self-play root source × neural/neural-economic continuation.
+Both old uniform controls and new policy beliefs use the same 48 worlds per A/B batch and
+all original candidate actions. Planned work is **312 searches / 88,320 complete
+continuations**. Every job must reproduce its old-control sample outcomes and
+terminal traces exactly before it can finish successfully. Collector rechecks
+those artifacts against immutable original labels and the archived runtime.
+No old labels, existing models or validation splits are overwritten.
+
+At `2026-10-24T00:07:10.411047+00:00`: 6 completed,
+14 running and 0 queued.
+**25,920 rollouts are independently verified**.
+Only roots with both continuation modes enter the recommendation comparison;
+the current report has 0 complete-mixture roots, so no recommendation
+quality conclusion is available yet. Read the timestamped status for current
+handles, not these historical counts. Do not duplicate or restart live jobs.
+
+```bash
+ai/.venv/bin/python ai/strong/manage-sealed-belief-pilot.py status
+ai/.venv/bin/python ai/strong/manage-sealed-belief-pilot.py collect
+ai/.venv/bin/python ai/strong/manage-sealed-belief-pilot.py compare
+```
+
+Launch guards: `ai/runs/sealed-belief-pilot-launches-v1/`. Verified artifacts:
+`ai/runs/sealed-belief-pilot-verified-v1/`. `launch` defaults to a dry run; all 20
+jobs are already submitted. Preserve partial collections' pinned revisions and
+inspect unknown/failed handles before any recovery. The manager uses the frozen
+source for verification, not current-checkout engine or feature files.
+
+The comparer selects on batch A and evaluates on B, then reverses, using an equal
+mixture of both continuation modes and fixed original candidate-list order for
+ties. It reports old versus new recommendations under policy-consistent beliefs.
+These are conditional simulation diagnostics, never real-game strength or a
+reason to select a trained candidate. Keep every negative or uncertain result.
+
+Launch/preflight and first-three-shard verification evidence is archived at
+model-repo revision `584a19ffe3fa83092f8afca81bd141430c77d882`, prefix
+`runs/sealed-belief-pilot-evidence-v1` (50 files). Later
+verified results have their own exact immutable model-repo revisions in the
+results/verification records. The first archive is a partial snapshot.
+
+The original fixed candidate screen now has **19,776/20,160 complete-cell
+games**. Only `11101-6p-search_geo-0-4` remains, on its exact replacement
+`6adbed2f046eb82b1ecd8532`. The original exit137 failure remains recorded.
+Model 11102 is fully evaluated across all 27 cells: at 6p against geographic search,
+win share is 28.52%, down 13.15pp from parent (paired 95% interval [-19.40,-7.16]pp).
+It also has a positive 4p search contrast; retain the full report rather than
+cherry-picking either direction. Neither candidate is selected or qualified.
+
+The broader learning problem is still unresolved: sealed-bid consistency alone
+cannot fix open-auction, nomination or building regressions. Next training data
+should cover states reached by the changing policies, all counts and all three
+decision types, using **fresh training seeds and fresh development holdouts**.
+Do not quietly train on the phase-diagnostic development deals and then reuse
+them as evidence of generalization. Pilot the corrected teacher and data
+coverage first; do not simply retrain the same small head on the same old roots.
+
 ## 24 October checkpoint: regressions isolated, teacher assumption audited
 
 This goal turn made **progress**. No model is selected or qualified, no final
@@ -114,7 +215,7 @@ policy choose 24.51 and 26.94 respectively, including passes as zero. They choos
 
 These are **hypothetical policy choices at reconstructed prompts**, not reads
 of historical hidden bids. The diagnostic clears bids, private logs/deck/seed,
-plans and `lastMove`. All320 cases passed engine-forward public-feature parity
+plans and `lastMove`. All 320 cases passed engine-forward public-feature parity
 and invariance to deliberately changed private fields. No gradients, production
 engine changes or old-label edits were made. This establishes a mismatch with
 the specified continuation policies, not its causal contribution to losses.
@@ -442,8 +543,8 @@ model-repo revision `555d4ab983369dfe183fc68b9d555690f5f3d583`, prefix
 
 ## Ordered continuation
 
-1. Inspect and finish collecting the eight existing 6p geographic-search jobs.
-   All other fixed screen cells are verified. The one failed job has exactly
+1. Inspect and collect the existing replacement 6p search job
+   `6adbed2f046eb82b1ecd8532`. All other fixed screen cells are verified. The one failed job has exactly
    one live replacement; never rerun either merely because it is quiet. Refresh
    with `ai/.venv/bin/python ai/strong/refresh-strategic-correction-jobs.py`, then
    collect complete cases at immutable revisions and regenerate the comparison.
@@ -453,12 +554,11 @@ model-repo revision `555d4ab983369dfe183fc68b9d555690f5f3d583`, prefix
 2. Phase isolation is fully complete. Do not relaunch its 120 jobs. Read
    `strong/strategic-correction-ablation-assessment-v1.json`, calibration and the
    sealed-belief audit. Neither candidate or phase-gated derivative is selected.
-3. Implement the sealed-belief correction in a separate versioned research
-   teacher, retaining the old engine/runtime for controls. Reconstruct earlier
-   public bid prompts and use the same opponent policy as the continuation;
-   include passing and verify private-field invariance. Never read actual hidden
-   submissions. First run matched diagnostic pilots, not an immediate full
-   replacement label campaign. Existing labels remain immutable historical data.
+3. The separate policy-consistent sealed-belief teacher is now implemented and
+   its 20 paired diagnostic jobs are submitted. Collect them with the committed
+   manager, inspect complete-mixture A/B results, and preserve all old control
+   checks and negative findings. Do not restart live jobs or overwrite old labels.
+   Full training is not yet admitted by this diagnostic alone.
 4. Address the broader repeated-policy/generalization problem too. Capture new
    policy-visited public states, including all three decision types and every
    count/rule, with new whole-deal train/validation splits. Keep parent proposals

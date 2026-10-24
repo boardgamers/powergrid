@@ -31,6 +31,17 @@ source pins and immutable HF evidence are linked in the handoff. Next: separate
 versioned belief correction and targeted on-policy data/teacher pilots; no new
 candidate is selected. No GPU training or phase-isolation job remains active.
 
+
+Latest continuation: the separate policy-consistent sealed-bid teacher passed
+192 complete rollout checks, 64 archived trajectory checks and 317 public-prompt inference
+checks. All 20 HF pilot jobs are submitted (39 positions, 88,320 continuations).
+At 2026-10-24T00:07:10.411047+00:00, 25,920 rollouts are independently verified;
+there are no complete opponent-mixture root comparisons yet. Use
+`manage-sealed-belief-pilot.py status/collect/compare`; do not relaunch jobs.
+Original candidate screen: 19,776/20,160 complete-cell games, only the existing
+11101 6p replacement remains. New source pins, exact handles, evidence archives,
+limitations and next data-coverage work are in the handoff. The goal is active.
+
 ---
 
 ## Historical pause snapshot — 10 October 2026
@@ -275,7 +286,7 @@ labeling. Exact parity artifacts pinned at model revision
 Replacement handles:3p/self-play/neural_economic `6aca7fb3fee2c9007018b207`,
 4p/economic/neural_economic `6aca7fb5fee2c9007018b209`,
 6p/economic/neural_economic `6aca7fb7fee2c9007018b20d`.
-**All20 effective label jobs were confirmed RUNNING** at the saved status time;
+**All 20 effective label jobs were confirmed RUNNING** at the saved status time;
 three original ERROR records remain as history, not three unhandled cases.
 The exclusive `.retry-image-pull-1.json` guards retain each original handle.
 Retry evidence revision `6a4fb8a59d7cc52f7dd34276752d9a4a7eb275cb`, prefix
@@ -350,7 +361,7 @@ rule-cell reliability study:** notably the selected auction roots are open.
 Broader teacher-label experiments still need explicit sealed/open and variant
 coverage. These two-sample probes establish runtime only, not label reliability.
 
-All20 jobs (five counts ×four continuation modes) were dispatched with exclusive
+All 20 jobs (five counts ×four continuation modes) were dispatched with exclusive
 guards under `ai/runs/strategic-teacher-probe-launches-v1`; inspect
 `strong/strategic-teacher-probe-status-v1.json` for exact handles. Four completed
 cases have independently verified172 outer rollouts,0 caps:2p/neural7.732s,

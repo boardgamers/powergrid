@@ -43439,5 +43439,62 @@
         "qualification_eligible": false,
         "final_seeds_used": false,
         "next": "Finish existing6p search jobs. New versioned public-policy sealed-bid beliefs with matched teacher pilots, plus broader policy-visited root coverage. No promotion of11101/11102 from these regressions."
+    },
+    "sealed_belief_pilot_v1": {
+        "date": "2026-10-24",
+        "previous_turn_classification": "progress",
+        "turn_classification": "progress",
+        "source": {
+            "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+            "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+            "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+            "bytes": 22590087,
+            "base": {
+                "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+                "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+                "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+            },
+            "overlays": {
+                "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+                "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+                "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+                "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+                "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+                "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+                "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+                "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+            },
+            "unchanged_base_files": 1411,
+            "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+            "qualification_eligible": false
+        },
+        "protocol": "ai/strong/sealed-belief-pilot-protocol-v1.json",
+        "preflight": "ai/strong/sealed-belief-pilot-preflight-v1.json",
+        "jobs_submitted": 20,
+        "planned_roots": 39,
+        "planned_searches": 312,
+        "planned_rollouts": 88320,
+        "status_checked_at": "2026-10-24T00:07:10.411047+00:00",
+        "status_counts": {
+            "RUNNING": 14,
+            "COMPLETED": 6
+        },
+        "independently_verified_rollouts": 25920,
+        "complete_mixture_roots": 0,
+        "evidence": {
+            "revision": "584a19ffe3fa83092f8afca81bd141430c77d882",
+            "prefix": "runs/sealed-belief-pilot-evidence-v1",
+            "manifest_sha256": "0009685741bc37ff72905307b1f9cece551bfd699570048728495307dbf63e9e",
+            "file_count": 50,
+            "qualification_eligible": false,
+            "scope": "Launch/preflight and partial pilot snapshot; no trained model or strength claim"
+        },
+        "screen_games_verified": 19776,
+        "remaining_screen_job": "6adbed2f046eb82b1ecd8532",
+        "trained": false,
+        "candidate_selected": false,
+        "qualification_eligible": false,
+        "final_seeds_used": false,
+        "next": "Finish the existing paired pilot and original search job; assess conditional recommendations. Then collect broader policy-visited data on fresh seeds with fresh development holdouts before further HF-only gradients."
     }
 }

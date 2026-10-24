@@ -1,0 +1,851 @@
+{
+  "checked_at": "2026-10-24T00:07:10.411047+00:00",
+  "artifact_revision": "dee6f22ef5182197fc3474cee784548902d9ea7c",
+  "jobs": [
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:38.553579+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4af1e112550ce7da6ea",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/2p-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 00:01:58.319000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:39.363139+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4b01e112550ce7da6ec",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/2p-economic-neural_economic.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 00:04:10.686000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:40.203437+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4b01e112550ce7da6ee",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/2p-snapshot0-neural.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:59:16.090000+00:00",
+      "finished_at": "2026-10-24 00:06:43.364000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        2,
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:41.144844+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4b11e112550ce7da6f0",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/2p-snapshot0-neural_economic.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 00:04:11.503000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:35.337501+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4ab1e112550ce7da6dc",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/3p-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 00:04:11.104000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:36.131281+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4ac1e112550ce7da6e5",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/3p-economic-neural_economic.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 00:04:11.561000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:36.938437+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4ad1e112550ce7da6e8",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/3p-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 00:04:09.670000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        3,
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:37.735365+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4ae046eb82b1ecd8974",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/3p-snapshot0-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:02:25.960000+00:00",
+      "finished_at": "2026-10-24 00:05:35.592000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:31.496461+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4a81e112550ce7da6d8",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/4p-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 00:04:10.599000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:32.529999+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4a9046eb82b1ecd896e",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/4p-economic-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-24 00:02:01.714000+00:00",
+      "finished_at": "2026-10-24 00:06:01.569000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:33.382892+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4aa046eb82b1ecd8970",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/4p-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 00:04:10.538000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        4,
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:34.215422+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4ab1e112550ce7da6da",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/4p-snapshot0-neural_economic.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 00:04:10.812000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:27.418746+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4a4046eb82b1ecd8964",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/5p-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-23 23:58:30.908000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:28.503185+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4a5046eb82b1ecd8966",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/5p-economic-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:58:32.684000+00:00",
+      "finished_at": "2026-10-24 00:01:55.423000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:29.589246+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4a6046eb82b1ecd8969",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/5p-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-23 23:58:32.678000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        5,
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:30.465803+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4a71e112550ce7da6d4",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/5p-snapshot0-neural_economic.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-24 00:04:11.188000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "economic",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:23.461146+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4a01e112550ce7da6d0",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/6p-economic-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-23 23:58:27.405000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "economic",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:24.441761+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4a1046eb82b1ecd8960",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/6p-economic-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:58:28.012000+00:00",
+      "finished_at": "2026-10-24 00:01:59.829000+00:00"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "snapshot0",
+        "neural"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:25.285787+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4a2046eb82b1ecd8962",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/6p-snapshot0-neural.json",
+      "authoritative_status": "RUNNING",
+      "message": null,
+      "started_at": "2026-10-23 23:58:29.012000+00:00",
+      "finished_at": "None"
+    },
+    {
+      "stage": "launched",
+      "case": [
+        6,
+        "snapshot0",
+        "neural_economic"
+      ],
+      "source": {
+        "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+        "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+        "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+        "bytes": 22590087,
+        "base": {
+          "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+          "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+          "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+        },
+        "overlays": {
+          "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+          "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+          "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+          "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+          "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+          "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+          "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+          "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+        },
+        "unchanged_base_files": 1411,
+        "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+        "qualification_eligible": false
+      },
+      "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+      "timeout_hours": 4,
+      "created_at": "2026-10-23T23:58:26.331952+00:00",
+      "qualification_eligible": false,
+      "job_id": "6adbf4a31e112550ce7da6d2",
+      "guard": "ai/runs/sealed-belief-pilot-launches-v1/6p-snapshot0-neural_economic.json",
+      "authoritative_status": "COMPLETED",
+      "message": null,
+      "started_at": "2026-10-23 23:58:30.310000+00:00",
+      "finished_at": "2026-10-24 00:02:23.058000+00:00"
+    }
+  ],
+  "status_counts": {
+    "RUNNING": 14,
+    "COMPLETED": 6
+  },
+  "qualification_eligible": false
+}

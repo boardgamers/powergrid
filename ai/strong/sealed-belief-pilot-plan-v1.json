@@ -1,0 +1,753 @@
+{
+  "roots": 39,
+  "jobs": 20,
+  "searches": 312,
+  "rollouts": 88320,
+  "cases": [
+    {
+      "case": [
+        2,
+        "economic",
+        "neural"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4416
+    },
+    {
+      "case": [
+        2,
+        "economic",
+        "neural_economic"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4416
+    },
+    {
+      "case": [
+        2,
+        "snapshot0",
+        "neural"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4608
+    },
+    {
+      "case": [
+        2,
+        "snapshot0",
+        "neural_economic"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4608
+    },
+    {
+      "case": [
+        3,
+        "economic",
+        "neural"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4608
+    },
+    {
+      "case": [
+        3,
+        "economic",
+        "neural_economic"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4608
+    },
+    {
+      "case": [
+        3,
+        "snapshot0",
+        "neural"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4608
+    },
+    {
+      "case": [
+        3,
+        "snapshot0",
+        "neural_economic"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4608
+    },
+    {
+      "case": [
+        4,
+        "economic",
+        "neural"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4224
+    },
+    {
+      "case": [
+        4,
+        "economic",
+        "neural_economic"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4224
+    },
+    {
+      "case": [
+        4,
+        "snapshot0",
+        "neural"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4608
+    },
+    {
+      "case": [
+        4,
+        "snapshot0",
+        "neural_economic"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4608
+    },
+    {
+      "case": [
+        5,
+        "economic",
+        "neural"
+      ],
+      "roots": 3,
+      "searches": 12,
+      "rollouts": 3456
+    },
+    {
+      "case": [
+        5,
+        "economic",
+        "neural_economic"
+      ],
+      "roots": 3,
+      "searches": 12,
+      "rollouts": 3456
+    },
+    {
+      "case": [
+        5,
+        "snapshot0",
+        "neural"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4608
+    },
+    {
+      "case": [
+        5,
+        "snapshot0",
+        "neural_economic"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4608
+    },
+    {
+      "case": [
+        6,
+        "economic",
+        "neural"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4416
+    },
+    {
+      "case": [
+        6,
+        "economic",
+        "neural_economic"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4416
+    },
+    {
+      "case": [
+        6,
+        "snapshot0",
+        "neural"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4608
+    },
+    {
+      "case": [
+        6,
+        "snapshot0",
+        "neural_economic"
+      ],
+      "roots": 4,
+      "searches": 16,
+      "rollouts": 4608
+    }
+  ],
+  "root_options": [
+    {
+      "rootId": "2:economic:48:14",
+      "players": 2,
+      "source": "economic",
+      "options": [
+        2,
+        1,
+        0,
+        35,
+        17
+      ],
+      "rollouts_per_mode": 960
+    },
+    {
+      "rootId": "2:economic:64:45",
+      "players": 2,
+      "source": "economic",
+      "options": [
+        7,
+        6,
+        5,
+        4,
+        21,
+        10
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "2:economic:97:24",
+      "players": 2,
+      "source": "economic",
+      "options": [
+        2,
+        1,
+        0,
+        21,
+        7,
+        10
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "2:economic:105:12",
+      "players": 2,
+      "source": "economic",
+      "options": [
+        7,
+        6,
+        5,
+        4,
+        43,
+        21
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "2:snapshot0:4:14",
+      "players": 2,
+      "source": "snapshot0",
+      "options": [
+        16,
+        15,
+        14,
+        13,
+        41,
+        5
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "2:snapshot0:41:16",
+      "players": 2,
+      "source": "snapshot0",
+      "options": [
+        7,
+        6,
+        5,
+        4,
+        14,
+        0
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "2:snapshot0:56:48",
+      "players": 2,
+      "source": "snapshot0",
+      "options": [
+        9,
+        8,
+        24,
+        7,
+        12,
+        10
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "2:snapshot0:101:3",
+      "players": 2,
+      "source": "snapshot0",
+      "options": [
+        2,
+        1,
+        0,
+        14,
+        3,
+        7
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "3:economic:8:4",
+      "players": 3,
+      "source": "economic",
+      "options": [
+        0,
+        46,
+        1,
+        2,
+        4,
+        23
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "3:economic:53:22",
+      "players": 3,
+      "source": "economic",
+      "options": [
+        1,
+        0,
+        14,
+        2,
+        8,
+        7
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "3:economic:68:0",
+      "players": 3,
+      "source": "economic",
+      "options": [
+        4,
+        3,
+        2,
+        1,
+        47,
+        23
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "3:economic:133:10",
+      "players": 3,
+      "source": "economic",
+      "options": [
+        8,
+        7,
+        6,
+        5,
+        14,
+        1
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "3:snapshot0:20:1",
+      "players": 3,
+      "source": "snapshot0",
+      "options": [
+        4,
+        3,
+        2,
+        1,
+        47,
+        23
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "3:snapshot0:48:24",
+      "players": 3,
+      "source": "snapshot0",
+      "options": [
+        8,
+        7,
+        6,
+        5,
+        14,
+        1
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "3:snapshot0:97:26",
+      "players": 3,
+      "source": "snapshot0",
+      "options": [
+        4,
+        3,
+        2,
+        1,
+        13,
+        5
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "3:snapshot0:117:27",
+      "players": 3,
+      "source": "snapshot0",
+      "options": [
+        14,
+        0,
+        1,
+        2,
+        5,
+        7
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "4:economic:5:0",
+      "players": 4,
+      "source": "economic",
+      "options": [
+        13,
+        0,
+        1,
+        2,
+        6
+      ],
+      "rollouts_per_mode": 960
+    },
+    {
+      "rootId": "4:economic:68:4",
+      "players": 4,
+      "source": "economic",
+      "options": [
+        5,
+        4,
+        3,
+        2,
+        41,
+        6
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "4:economic:108:37",
+      "players": 4,
+      "source": "economic",
+      "options": [
+        7,
+        6,
+        5,
+        4,
+        16,
+        8
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "4:economic:245:30",
+      "players": 4,
+      "source": "economic",
+      "options": [
+        10,
+        9,
+        22,
+        8,
+        11
+      ],
+      "rollouts_per_mode": 960
+    },
+    {
+      "rootId": "4:snapshot0:65:16",
+      "players": 4,
+      "source": "snapshot0",
+      "options": [
+        26,
+        25,
+        24,
+        23,
+        45,
+        19
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "4:snapshot0:85:12",
+      "players": 4,
+      "source": "snapshot0",
+      "options": [
+        4,
+        3,
+        2,
+        1,
+        19,
+        9
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "4:snapshot0:128:9",
+      "players": 4,
+      "source": "snapshot0",
+      "options": [
+        0,
+        44,
+        1,
+        2,
+        4,
+        22
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "4:snapshot0:244:1",
+      "players": 4,
+      "source": "snapshot0",
+      "options": [
+        4,
+        3,
+        2,
+        1,
+        47,
+        23
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "5:economic:93:5",
+      "players": 5,
+      "source": "economic",
+      "options": [
+        11,
+        10,
+        9,
+        8,
+        35,
+        17
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "5:economic:201:19",
+      "players": 5,
+      "source": "economic",
+      "options": [
+        22,
+        0,
+        1,
+        2,
+        6,
+        11
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "5:economic:260:11",
+      "players": 5,
+      "source": "economic",
+      "options": [
+        47,
+        0,
+        1,
+        2,
+        4,
+        23
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "5:snapshot0:173:10",
+      "players": 5,
+      "source": "snapshot0",
+      "options": [
+        12,
+        11,
+        10,
+        9,
+        21,
+        6
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "5:snapshot0:212:0",
+      "players": 5,
+      "source": "snapshot0",
+      "options": [
+        3,
+        2,
+        1,
+        0,
+        46,
+        23
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "5:snapshot0:240:33",
+      "players": 5,
+      "source": "snapshot0",
+      "options": [
+        5,
+        4,
+        3,
+        2,
+        17,
+        6
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "5:snapshot0:285:27",
+      "players": 5,
+      "source": "snapshot0",
+      "options": [
+        8,
+        7,
+        6,
+        5,
+        16,
+        0
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "6:economic:117:4",
+      "players": 6,
+      "source": "economic",
+      "options": [
+        40,
+        0,
+        1,
+        2,
+        20
+      ],
+      "rollouts_per_mode": 960
+    },
+    {
+      "rootId": "6:economic:169:32",
+      "players": 6,
+      "source": "economic",
+      "options": [
+        7,
+        6,
+        5,
+        4,
+        15,
+        0
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "6:economic:212:4",
+      "players": 6,
+      "source": "economic",
+      "options": [
+        11,
+        10,
+        9,
+        8,
+        41,
+        20
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "6:economic:316:29",
+      "players": 6,
+      "source": "economic",
+      "options": [
+        0,
+        18,
+        1,
+        2,
+        8,
+        9
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "6:snapshot0:61:20",
+      "players": 6,
+      "source": "snapshot0",
+      "options": [
+        17,
+        16,
+        15,
+        14,
+        36,
+        18
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "6:snapshot0:140:28",
+      "players": 6,
+      "source": "snapshot0",
+      "options": [
+        2,
+        1,
+        0,
+        13,
+        8,
+        6
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "6:snapshot0:201:4",
+      "players": 6,
+      "source": "snapshot0",
+      "options": [
+        17,
+        16,
+        15,
+        14,
+        38,
+        13
+      ],
+      "rollouts_per_mode": 1152
+    },
+    {
+      "rootId": "6:snapshot0:296:18",
+      "players": 6,
+      "source": "snapshot0",
+      "options": [
+        5,
+        4,
+        3,
+        2,
+        35,
+        10
+      ],
+      "rollouts_per_mode": 1152
+    }
+  ],
+  "qualification_eligible": false
+}

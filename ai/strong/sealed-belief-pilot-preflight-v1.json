@@ -1,0 +1,233 @@
+{
+  "passed": true,
+  "source": {
+    "archive": "strong-source-sealed-belief-pilot-20261024-v1.tgz",
+    "revision": "08ebc7df7a4d221fc04a0f4e2b99be59dbf046fc",
+    "sha256": "5e31ebbdbba9cf8f035f7339fbc763e536912fb5c77a72b2ada417dc69a47ff4",
+    "bytes": 22590087,
+    "base": {
+      "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+      "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+      "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+    },
+    "overlays": {
+      "ai/strong/sealed-policy-beliefs.cjs": "4e4359a21e6a554eb65ab5906894156b99b1ea82c267eaf3398db0b310c3d55c",
+      "ai/strong/sealed-belief-continuations.cjs": "02d7dd0986c95aa580b9b1c2f8c7f168511c0a48785c6cbcac5143431919b261",
+      "ai/strong/sealed_belief_teacher.py": "0a408cb8945922ece8289de8d5f7da96a2d68beb3e49b90151efbb1469cd25cb",
+      "ai/strong/sealed_belief_pilot.py": "921163df20855df6ee61c968c88b78282e5cb62e1316c1abcdef196d7c84b75f",
+      "ai/strong/test-sealed-policy-beliefs.cjs": "948f74e3f87ecd650a1c2ee64b90791bc9327dc3d9de9c7b36b7f7c55cfd9c32",
+      "ai/strong/preflight-sealed-belief-teacher.py": "ced0c030cf94ceeaf67fe5cf924fe570163c352812e3480c537cc2aa70606a07",
+      "ai/strong/check-sealed-belief-reference.py": "2136076a386965423b7af2343082b76e4806c441a25d15e275483f4e7bed944a",
+      "ai/strong/sealed-belief-pilot-protocol-v1.json": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912"
+    },
+    "unchanged_base_files": 1411,
+    "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+    "qualification_eligible": false
+  },
+  "controls": {
+    "passed": true,
+    "model_sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+    "protocol_sha256": "6cf77cd0d0055ad776f91524ac4758855fd5df5f211e3e58e4ab84a668789912",
+    "root_sha256": "f0fd62b4dd75c6b6c0936adeb1ffc75a2747cb2c62debe6b5d0aba60dbb4a091",
+    "public_roots_verified": 320,
+    "batched_prior_prompts_verified": 317,
+    "rollouts": 192,
+    "cases": [
+      {
+        "rootId": "2:economic:16:27",
+        "players": 2,
+        "variant": "original",
+        "mode": "neural",
+        "affected": true,
+        "old_control_identical": true,
+        "policy_unchanged_when_unaffected": false,
+        "rollouts": 12,
+        "policy_seconds": 0.5358663820079528
+      },
+      {
+        "rootId": "2:economic:16:27",
+        "players": 2,
+        "variant": "original",
+        "mode": "neural_economic",
+        "affected": true,
+        "old_control_identical": true,
+        "policy_unchanged_when_unaffected": false,
+        "rollouts": 12,
+        "policy_seconds": 0.5567232579924166
+      },
+      {
+        "rootId": "2:economic:97:24",
+        "players": 2,
+        "variant": "recharged",
+        "mode": "neural",
+        "affected": true,
+        "old_control_identical": true,
+        "policy_unchanged_when_unaffected": false,
+        "rollouts": 12,
+        "policy_seconds": 0.5584923900023568
+      },
+      {
+        "rootId": "2:economic:97:24",
+        "players": 2,
+        "variant": "recharged",
+        "mode": "neural_economic",
+        "affected": true,
+        "old_control_identical": true,
+        "policy_unchanged_when_unaffected": false,
+        "rollouts": 12,
+        "policy_seconds": 0.42325630199047737
+      },
+      {
+        "rootId": "2:economic:4:5",
+        "players": 2,
+        "variant": "original",
+        "mode": "neural",
+        "affected": false,
+        "old_control_identical": true,
+        "policy_unchanged_when_unaffected": true,
+        "rollouts": 12,
+        "policy_seconds": 0.9035376739921048
+      },
+      {
+        "rootId": "2:economic:4:5",
+        "players": 2,
+        "variant": "original",
+        "mode": "neural_economic",
+        "affected": false,
+        "old_control_identical": true,
+        "policy_unchanged_when_unaffected": true,
+        "rollouts": 12,
+        "policy_seconds": 0.6009967880090699
+      },
+      {
+        "rootId": "2:economic:6:22",
+        "players": 2,
+        "variant": "original",
+        "mode": "neural",
+        "affected": false,
+        "old_control_identical": true,
+        "policy_unchanged_when_unaffected": true,
+        "rollouts": 12,
+        "policy_seconds": 0.784156373993028
+      },
+      {
+        "rootId": "2:economic:6:22",
+        "players": 2,
+        "variant": "original",
+        "mode": "neural_economic",
+        "affected": false,
+        "old_control_identical": true,
+        "policy_unchanged_when_unaffected": true,
+        "rollouts": 12,
+        "policy_seconds": 0.5379685350053478
+      },
+      {
+        "rootId": "6:economic:44:0",
+        "players": 6,
+        "variant": "original",
+        "mode": "neural",
+        "affected": true,
+        "old_control_identical": true,
+        "policy_unchanged_when_unaffected": false,
+        "rollouts": 12,
+        "policy_seconds": 2.066841177002061
+      },
+      {
+        "rootId": "6:economic:44:0",
+        "players": 6,
+        "variant": "original",
+        "mode": "neural_economic",
+        "affected": true,
+        "old_control_identical": true,
+        "policy_unchanged_when_unaffected": false,
+        "rollouts": 12,
+        "policy_seconds": 0.6010069460025989
+      },
+      {
+        "rootId": "6:economic:13:2",
+        "players": 6,
+        "variant": "recharged",
+        "mode": "neural",
+        "affected": true,
+        "old_control_identical": true,
+        "policy_unchanged_when_unaffected": false,
+        "rollouts": 12,
+        "policy_seconds": 1.9656567529891618
+      },
+      {
+        "rootId": "6:economic:13:2",
+        "players": 6,
+        "variant": "recharged",
+        "mode": "neural_economic",
+        "affected": true,
+        "old_control_identical": true,
+        "policy_unchanged_when_unaffected": false,
+        "rollouts": 12,
+        "policy_seconds": 0.5670126159966458
+      },
+      {
+        "rootId": "6:economic:8:10",
+        "players": 6,
+        "variant": "original",
+        "mode": "neural",
+        "affected": false,
+        "old_control_identical": true,
+        "policy_unchanged_when_unaffected": true,
+        "rollouts": 12,
+        "policy_seconds": 1.6590867690101732
+      },
+      {
+        "rootId": "6:economic:8:10",
+        "players": 6,
+        "variant": "original",
+        "mode": "neural_economic",
+        "affected": false,
+        "old_control_identical": true,
+        "policy_unchanged_when_unaffected": true,
+        "rollouts": 12,
+        "policy_seconds": 0.5647588400170207
+      },
+      {
+        "rootId": "6:economic:10:20",
+        "players": 6,
+        "variant": "original",
+        "mode": "neural",
+        "affected": false,
+        "old_control_identical": true,
+        "policy_unchanged_when_unaffected": true,
+        "rollouts": 12,
+        "policy_seconds": 1.374568180006463
+      },
+      {
+        "rootId": "6:economic:10:20",
+        "players": 6,
+        "variant": "original",
+        "mode": "neural_economic",
+        "affected": false,
+        "old_control_identical": true,
+        "policy_unchanged_when_unaffected": true,
+        "rollouts": 12,
+        "policy_seconds": 0.532364354992751
+      }
+    ],
+    "seconds": 44.55768116301624,
+    "artifacts": {
+      "controls.jsonl.gz": "9a5b5eba9a8f6ed3fcf4268e1255ea3054228d9ea06d86fda48b56f0838e3d33"
+    },
+    "gradients": false,
+    "qualification_eligible": false
+  },
+  "archived_reference": {
+    "passed": true,
+    "old_teacher_terminal_rollouts_reproduced": 64,
+    "belief_trace_rollouts_checked": 128,
+    "qualification_eligible": false
+  },
+  "logs": {
+    "ai/runs/source-checks/1.log": "373ae39264132f6d3d31f63cd3a270a64af9461fee29f9cf048fa00d7f3ce2f8",
+    "ai/runs/source-checks/0.log": "76705dd965878fb638079318e1a0d59ce6fa4e097944efb7c34882df6f0e4a62",
+    "ai/runs/source-checks/2.log": "a5b4ebc6ab14ae0b5989b8ccf70fea0d069d5379aab6c7e244934357c9e782bf"
+  },
+  "gradients": false,
+  "qualification_eligible": false
+}

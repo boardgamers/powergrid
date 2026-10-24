@@ -1,0 +1,411 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "model": {
+    "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+    "path": "runs/discard-correction-v1/10102/derivative/inference64.onnx",
+    "sha256": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+    "feature_revision": "4.2-discard-correction",
+    "selection": "Fixed10102 used throughout phase diagnostics; not a new model selected from these games."
+  },
+  "ort_threads": 1,
+  "players": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "source_modes": [
+    "economic",
+    "snapshot0"
+  ],
+  "modes": [
+    "neural",
+    "neural_economic"
+  ],
+  "batches": [
+    "a",
+    "b"
+  ],
+  "samples": 48,
+  "workers": 24,
+  "roots_sha256": "f0fd62b4dd75c6b6c0936adeb1ffc75a2747cb2c62debe6b5d0aba60dbb4a091",
+  "beliefs": [
+    "uniform_control",
+    "policy"
+  ],
+  "max_steps": 2400,
+  "selected": [
+    {
+      "rootId": "2:economic:48:14",
+      "players": 2,
+      "mode": "economic",
+      "variant": "original",
+      "split": "train",
+      "deal": 6,
+      "public_root_sha256": "7153150b2d0877d76d62850e6ab833d9f1f824209a38086906ef3d6bf4dc0568"
+    },
+    {
+      "rootId": "2:economic:64:45",
+      "players": 2,
+      "mode": "economic",
+      "variant": "original",
+      "split": "validation",
+      "deal": 8,
+      "public_root_sha256": "8343e1e704b3d1a43de85bd07bd2a22805b0fa36284b2af8e62204c6bbba2524"
+    },
+    {
+      "rootId": "2:economic:105:12",
+      "players": 2,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 13,
+      "public_root_sha256": "c4da4195e0349a954bde7562b90136e06cc2387e18b2844d52e6f379824930f4"
+    },
+    {
+      "rootId": "2:economic:97:24",
+      "players": 2,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 12,
+      "public_root_sha256": "0bd68d954fac4e7b491e88851531708b9f1cdc3d5e74004d1445bd8e1dfcb7e3"
+    },
+    {
+      "rootId": "2:snapshot0:56:48",
+      "players": 2,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "train",
+      "deal": 7,
+      "public_root_sha256": "5b76c8aa292279161657aac3cf58fd062680cce0247131deec08bc72825072f9"
+    },
+    {
+      "rootId": "2:snapshot0:4:14",
+      "players": 2,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "validation",
+      "deal": 0,
+      "public_root_sha256": "4c59ca40869cf8f92e2295d772dafb2d42b0c70cbadd8a7e2a865d59bf3bfd9c"
+    },
+    {
+      "rootId": "2:snapshot0:41:16",
+      "players": 2,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 5,
+      "public_root_sha256": "cdbb4b131800a26ddbfe12df34fbc40116ff0c50c5c150fc2f7bf34f6c60bac7"
+    },
+    {
+      "rootId": "2:snapshot0:101:3",
+      "players": 2,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 12,
+      "public_root_sha256": "db38c07749054d95484965460829f6bd9dac7cee05c0fc6481b091e4fdba4999"
+    },
+    {
+      "rootId": "3:economic:68:0",
+      "players": 3,
+      "mode": "economic",
+      "variant": "original",
+      "split": "train",
+      "deal": 5,
+      "public_root_sha256": "c77fff7a00a91fcc90906d67267660f6a37bdf08b4b574849dcba0bfd6ac8e88"
+    },
+    {
+      "rootId": "3:economic:8:4",
+      "players": 3,
+      "mode": "economic",
+      "variant": "original",
+      "split": "validation",
+      "deal": 0,
+      "public_root_sha256": "cdac0670177dd473f8421907beb044a42be035ae281d3c7a932925a60f56d88a"
+    },
+    {
+      "rootId": "3:economic:133:10",
+      "players": 3,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 11,
+      "public_root_sha256": "17d3a646184a7ad1874e6490b40b124749fadea15596138041c4b871c525bf46"
+    },
+    {
+      "rootId": "3:economic:53:22",
+      "players": 3,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 4,
+      "public_root_sha256": "ca8afe03fc7c76a53c9570f8ff31fc857f94644791ac5bd0b33c0d76af056acb"
+    },
+    {
+      "rootId": "3:snapshot0:20:1",
+      "players": 3,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "train",
+      "deal": 1,
+      "public_root_sha256": "a24752775d1d5109e0f73d7d93854e2f1934b05d872558e687c426eca4841b16"
+    },
+    {
+      "rootId": "3:snapshot0:48:24",
+      "players": 3,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "validation",
+      "deal": 4,
+      "public_root_sha256": "b87dc3176b2f17e6a34b1ee0f64c7daa6baf8c02762e0500d8c9cb31a82d43e1"
+    },
+    {
+      "rootId": "3:snapshot0:117:27",
+      "players": 3,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 9,
+      "public_root_sha256": "c4acf9fe5b8323ce747de028c342fa271b662b11f650b72365d882a9a2964c8d"
+    },
+    {
+      "rootId": "3:snapshot0:97:26",
+      "players": 3,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 8,
+      "public_root_sha256": "b9608b732591d5c95d8312c1c7d7519fdb4def926a5c8ddbb4d1cb4b116520cb"
+    },
+    {
+      "rootId": "4:economic:108:37",
+      "players": 4,
+      "mode": "economic",
+      "variant": "original",
+      "split": "train",
+      "deal": 6,
+      "public_root_sha256": "9abba3dd2e25825604770d44cc53e9d6abbd9ae5f7027d02a936af3bfbaff60b"
+    },
+    {
+      "rootId": "4:economic:68:4",
+      "players": 4,
+      "mode": "economic",
+      "variant": "original",
+      "split": "validation",
+      "deal": 4,
+      "public_root_sha256": "f58ebbaafca385c608306571ae6a8506d93abaf7d7daeff2c9db8bb2f0851fec"
+    },
+    {
+      "rootId": "4:economic:245:30",
+      "players": 4,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 15,
+      "public_root_sha256": "5717901b0f19869a5463136fc2bdd0111d8c7cfa570d7b66b66a7b5f0e43d5a2"
+    },
+    {
+      "rootId": "4:economic:5:0",
+      "players": 4,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 0,
+      "public_root_sha256": "6f57a537558f643e5a43b6d9571ad9b58b49f7d31cea01bed32725b72bcfa8ea"
+    },
+    {
+      "rootId": "4:snapshot0:244:1",
+      "players": 4,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "train",
+      "deal": 15,
+      "public_root_sha256": "d8648804115435df9da9c6fa92fd2392fa5c8f3b68dbd9719815452df9261484"
+    },
+    {
+      "rootId": "4:snapshot0:128:9",
+      "players": 4,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "validation",
+      "deal": 8,
+      "public_root_sha256": "d538f87197f74b6ba19e8ca4583c6496ff85ced323ae1de693dd71ad78584aa8"
+    },
+    {
+      "rootId": "4:snapshot0:85:12",
+      "players": 4,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 5,
+      "public_root_sha256": "968e668356aab781f4514534429803f1f2990966c49acc3a74ffd70628f3d99e"
+    },
+    {
+      "rootId": "4:snapshot0:65:16",
+      "players": 4,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 4,
+      "public_root_sha256": "e657a92c257430b89574a997da280d4a805933854299c45ddffd6d8e19153356"
+    },
+    {
+      "rootId": "5:economic:260:11",
+      "players": 5,
+      "mode": "economic",
+      "variant": "original",
+      "split": "train",
+      "deal": 13,
+      "public_root_sha256": "5c035bda26fcae228418296efdbf347e71524f35250d4465fbbdba416958f9d4"
+    },
+    {
+      "rootId": "5:economic:201:19",
+      "players": 5,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 10,
+      "public_root_sha256": "76dc4c2a6593190f2e09135e5bda76082335d551fd233e0e44d6ba52d20c963c"
+    },
+    {
+      "rootId": "5:economic:93:5",
+      "players": 5,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 4,
+      "public_root_sha256": "1ab85af12d748c7ea1778c0cd0f9c35c6ff3e90b044325d8860b2188810ba01c"
+    },
+    {
+      "rootId": "5:snapshot0:212:0",
+      "players": 5,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "train",
+      "deal": 10,
+      "public_root_sha256": "3dc0a087ce8e681b4a6b108f3c7a6e29f9dddb725e52ad0039e5a881f1f47141"
+    },
+    {
+      "rootId": "5:snapshot0:240:33",
+      "players": 5,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "validation",
+      "deal": 12,
+      "public_root_sha256": "ccabcf806cab6cced22ddc2a6538e859e3f12be4e2efab21df84337f6494c52a"
+    },
+    {
+      "rootId": "5:snapshot0:285:27",
+      "players": 5,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 14,
+      "public_root_sha256": "e903655efc5bb4dff1a4e563ebf2349fd3b028585372b24f748aef69fd260865"
+    },
+    {
+      "rootId": "5:snapshot0:173:10",
+      "players": 5,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 8,
+      "public_root_sha256": "e98d3814d167324e31762870c249fbe791a02fc81c1764797bb8487433b494e1"
+    },
+    {
+      "rootId": "6:economic:316:29",
+      "players": 6,
+      "mode": "economic",
+      "variant": "original",
+      "split": "train",
+      "deal": 13,
+      "public_root_sha256": "9da010fbeadb6bddb1f6a9d8f47f5c9bb381e8bafdd368b378b95855c375ae06"
+    },
+    {
+      "rootId": "6:economic:212:4",
+      "players": 6,
+      "mode": "economic",
+      "variant": "original",
+      "split": "validation",
+      "deal": 8,
+      "public_root_sha256": "6592808878178df3a12fa2e1ba2f2cd83e56c5e3d8d8d64b435ae3511ed87ccc"
+    },
+    {
+      "rootId": "6:economic:169:32",
+      "players": 6,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 7,
+      "public_root_sha256": "63ca98cbae0524d130847ffaf19568f2d3ab93133f5a3235938358f1e4b599a9"
+    },
+    {
+      "rootId": "6:economic:117:4",
+      "players": 6,
+      "mode": "economic",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 4,
+      "public_root_sha256": "4acc43155798e2369db7975eb607439d697aa42236b4f7ddc98c1da8352fb3a7"
+    },
+    {
+      "rootId": "6:snapshot0:140:28",
+      "players": 6,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "train",
+      "deal": 5,
+      "public_root_sha256": "cdf878ac8b4c785c35f259d7e7d23139a43c456ccc5d7a58636c06e6824fd1e3"
+    },
+    {
+      "rootId": "6:snapshot0:296:18",
+      "players": 6,
+      "mode": "snapshot0",
+      "variant": "original",
+      "split": "validation",
+      "deal": 12,
+      "public_root_sha256": "ee456301c1ad5a7b739f86b1fb6820b86b85b46545256f8882522fb5a150f4ae"
+    },
+    {
+      "rootId": "6:snapshot0:61:20",
+      "players": 6,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "train",
+      "deal": 2,
+      "public_root_sha256": "af2c0056c9777c44eb975bd1b41339224564981a75bdf770be0b1b2385e30875"
+    },
+    {
+      "rootId": "6:snapshot0:201:4",
+      "players": 6,
+      "mode": "snapshot0",
+      "variant": "recharged",
+      "split": "validation",
+      "deal": 8,
+      "public_root_sha256": "a331046553c7cad7ddac3ea72d633a49dd3401c5b868fc54996dedc72cfe88e7"
+    }
+  ],
+  "selection": "Lowest SHA256 of sealed-policy-pilot-v1:rootId in each count/source/variant/split cell with an earlier committed bidder. No outcomes used. 5p/economic/original/validation has no affected root and is explicitly absent.",
+  "missing_cells": [
+    [
+      5,
+      "economic",
+      "original",
+      "validation"
+    ]
+  ],
+  "seeds": "Reuse strategic-teacher-public-v1-{rootId}-{batch} and all48 A/B worlds, preserving original controls. Independent seeded economic belief tie-breaking by sample and actor.",
+  "source_base": {
+    "archive": "strong-source-strategic-correction-20261023-v1.tgz",
+    "revision": "46d6986a28db0db26122b7188d833bcfb2ce8c8b",
+    "sha256": "bea355639fa669217bd2636d8aa755976f4a291c0abb7daa9c4a00f35462cce5"
+  },
+  "purpose": "Matched diagnostic of changed public sealed-bid beliefs. These39 roots are not a new training set and no candidate is selected.",
+  "controls": "Every uniform_control sample outcome and terminal trace must equal its immutable old teacher label. Policy with no committed actors must reproduce control in preflight.",
+  "metrics": "Within each belief, select an action using batchA and evaluate its paired gain onB, and reverse. Compare recommendations and gains under the policy-consistent world. Preserve all negative results by count/source/variant/split; conditional targets are not whole-game strength.",
+  "trained": false,
+  "qualification_eligible": false
+}

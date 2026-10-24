@@ -25,7 +25,50 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: actual ONNX hybrid inference plumbing
+## Latest checkpoint: all label jobs complete; five-player baseline verified
+
+The preceding turn was a verified wait on the final live label job and the four
+local pipeline processes. This turn confirms the last label job completed and
+adds a new verified five-player baseline diagnostic. **No new gradients yet.**
+
+All948 effective label jobs are now complete: the owned09:29 status had916
+complete;09:43 direct checks completed28 of the remaining32;09:46 checks completed
+three more; final job `6adc48851e112550ce7dd47a` completed at09:47:33UTC, confirmed
+by HF at09:48:51. Local verification has reached916/948. The existing collector
+will verify the remaining32 on its next pass; do not duplicate that work or start
+partial-data training. All four pipeline process identities remain live.
+
+The parent reference now has105/108 verified batches and6,432 games. Five-player
+search coverage is complete:320 games,16 independent deals, all seats/four rules.
+The model-only parent wins34.375% overall, exploratory95% whole-deal interval
+30.0–38.4375%, above20% chance. Rule splits are:
+
+| Rules | Win share | Exploratory95% interval |
+| --- | ---: | ---: |
+| Original/open |51.25%|40.0–62.5%|
+| Original/sealed |15.0%|7.5–23.75%|
+| Recharged/open |46.25%|35.0–56.25%|
+| Recharged/sealed |25.0%|18.75–31.25%|
+
+Both sealed-rule intervals include chance. This is not evidence of improvement
+from the pending new training, nor qualification; other2–4p deficits remain.
+It reinforces treating sealed auctions separately at every player count, rather
+than assuming the weakness only concerns4p Recharged. Only6p search remains
+incomplete (96/384 verified games); do not summarize that partial cell.
+
+- Diagnostic: `strong/policy-iteration-parent-reference-progress-105-v2.json`.
+- Evidence: `strong/policy-iteration-parent-reference-105-evidence-v2.json`.
+- Immutable HF revision `85372928a30a944c1b90ef208e7bb5031d8a282b`;
+  archive `archives/policy-iteration-parent-reference-105-evidence-v2.tgz`.
+- Archive SHA256 `edb87cf5f388e0855633116480e58f6f20c026032237a3a2125a255f79ba61d4`;
+ 1,090 files, remote download/hash verified. Includes raw105 batches, provenance,
+  runtime admission, diagnostic and code. No existing artifact was overwritten.
+- Six-player parent jobs remaining at the owned09:47 snapshot:
+  `6adc39361e112550ce7dcd1f`, `6adc38fe1e112550ce7dccd3`,
+  `6adc391a1e112550ce7dccff`. Latest inspected statuses remainRUNNING; quiet
+  evaluator logs do not imply failure. The collector owns their verification.
+
+## Previous checkpoint: actual ONNX hybrid inference plumbing
 
 The preceding turn added the isolated hybrid continuation adapter. This turn
 adds `strong/hybrid_search.py`: a persistent local JSONL driver using batched

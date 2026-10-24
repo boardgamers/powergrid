@@ -47164,5 +47164,111 @@
         "active_protocol_changed": false,
         "reserved_final_seeds_used": false,
         "qualification_eligible": false
+    },
+    "policy_iteration_parent_reference_105_v2": {
+        "diagnostic": "ai/strong/policy-iteration-parent-reference-progress-105-v2.json",
+        "evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "85372928a30a944c1b90ef208e7bb5031d8a282b",
+            "archive_path": "archives/policy-iteration-parent-reference-105-evidence-v2.tgz",
+            "archive_sha256": "edb87cf5f388e0855633116480e58f6f20c026032237a3a2125a255f79ba61d4",
+            "manifest_sha256": "df620ce219ecfa71cd226ff4c2a94353c150be97efaba48d38c4881fff2b914d",
+            "archived_files": 1090,
+            "format": "tar.gz",
+            "remote_archive_verified": true,
+            "shards_submitted": 108,
+            "planned_games": 6720,
+            "plan_sha256": "080893449fde758e1820bf2fe5557dcaf4772343e2395d2adbf788bad840658b",
+            "status_checked_at": "2026-10-24T09:47:45.250754+00:00",
+            "status_counts": {
+                "COMPLETED": 105,
+                "RUNNING": 3
+            },
+            "timeout_hours": 9,
+            "flavor": "cpu-upgrade",
+            "both_runtime_probes_verified": true,
+            "probe_games": 32,
+            "parent_is_unqualified": true,
+            "verified_parent_cases": 105,
+            "verified_parent_games": 6432,
+            "gradients": false,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false,
+            "diagnostic": "policy-iteration-parent-reference-progress-105-v2.json",
+            "diagnostic_sha256": "ea07c0e06ea695f67c2b43c301aa991f5d8d48c677a09a0c6dd367c5c1163a98",
+            "development_point_deficits": [
+                "search_geo/2p",
+                "heuristic/2p",
+                "search_geo/3p",
+                "search_geo/4p",
+                "legacy/4p",
+                "a260/3p"
+            ]
+        },
+        "search_5p": {
+            "overall": {
+                "games": 320,
+                "independent_deals": 16,
+                "win_rate": 0.34375,
+                "deal_bootstrap_95_interval": [
+                    0.3,
+                    0.384375
+                ]
+            },
+            "by_rules": {
+                "original/open": {
+                    "games": 80,
+                    "independent_deals": 16,
+                    "win_rate": 0.5125000000000001,
+                    "deal_bootstrap_95_interval": [
+                        0.4,
+                        0.625
+                    ]
+                },
+                "original/sealed": {
+                    "games": 80,
+                    "independent_deals": 16,
+                    "win_rate": 0.15000000000000002,
+                    "deal_bootstrap_95_interval": [
+                        0.07500000000000001,
+                        0.2375
+                    ]
+                },
+                "recharged/open": {
+                    "games": 80,
+                    "independent_deals": 16,
+                    "win_rate": 0.4625,
+                    "deal_bootstrap_95_interval": [
+                        0.35,
+                        0.5625
+                    ]
+                },
+                "recharged/sealed": {
+                    "games": 80,
+                    "independent_deals": 16,
+                    "win_rate": 0.25000000000000006,
+                    "deal_bootstrap_95_interval": [
+                        0.1875,
+                        0.31250000000000006
+                    ]
+                }
+            },
+            "chance": 0.2,
+            "final_point_floor_for_orientation_only": 0.28,
+            "development_point_below_final_floor": false,
+            "overall_interval_excludes_chance": true,
+            "rules_not_excluding_chance": [
+                "original/sealed",
+                "recharged/sealed"
+            ]
+        },
+        "incomplete_cells": {
+            "search_geo/6p": {
+                "verified_games": 96,
+                "required_games": 384
+            }
+        },
+        "new_gradients": false,
+        "qualification_eligible": false
     }
 }

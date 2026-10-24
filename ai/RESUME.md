@@ -14,6 +14,18 @@ and the current handoff. These are compatibility checks, not strength evidence.
 Actual new trained-model continuations, target8840U latency and fresh hybrid
 comparisons remain pending. Frozen active pipeline dependencies are unchanged.
 
+## Latest data and baseline checkpoint
+
+All948 effective label jobs have completed;916 batches are locally verified,
+and the live collector owns the final32. New gradients have not started yet.
+The verified five-player parent baseline against search is34.375% overall
+(95% deal interval30.0–38.4375%), but original/sealed is15.0% and
+Recharged/sealed25.0%; both sealed intervals include20% chance. These320 games
+cover16 independent deals. They do not measure new training gains or qualify
+the parent. Only6p search remains incomplete. The105-batch/6,432-game diagnostic
+and immutable HF archive are in `strong/policy-iteration-parent-reference-105-evidence-v2.json`.
+Live state files supersede these counts; do not duplicate the existing pipeline.
+
 ## User steering, 24 October: diminishing returns and hybrid play
 
 The user asks to be told candidly when further work has diminishing returns,

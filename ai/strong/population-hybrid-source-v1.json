@@ -1,0 +1,66 @@
+{
+  "archive": "strong-source-population-hybrid-20261024-v1.tgz",
+  "revision": "2d0a41df850799fba0f7d832324e24c369eeb341",
+  "sha256": "1423b61bf52d975b30ddd6fdc48181035b4587a772b93d64a64a353635fae749",
+  "bytes": 109436869,
+  "base": {
+    "archive": "strong-source-policy-iteration-development-20261024-v2.tgz",
+    "revision": "a393d0fa83d9fee8a27a876a217fe97dfea03ff8",
+    "sha256": "c020987f3a05a2c0116dfd52498139f6bb7480e1721ca058caf9771f94d970ce",
+    "bytes": 109411988,
+    "base": {
+      "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+      "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+      "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+      "bytes": 109402244,
+      "base": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+      },
+      "overlays": {
+        "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+        "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+        "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+        "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+      },
+      "unchanged_base_files": 1430,
+      "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+      "qualification_eligible": false
+    },
+    "overlays": {
+      "ai/strong/policy_iteration_development.py": "1bbcec9b3ad236fdaf330627cd31f6c99618642cf657b75207aba365c4c217ea",
+      "ai/strong/preflight-policy-iteration-development.py": "024f1f746eb396a8906664c26e2307224c733ff4b43a75899498efbf65096829",
+      "ai/strong/policy-iteration-development-protocol-v2.json": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+      "ai/strong/policy-iteration-training-design-v2.json": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+      "ai/strong/build-policy-iteration-development-source.py": "6dd5963f0438f0ef7fca6c53c3701acdba99d8e9390e42d9c5f64f4e39287310"
+    },
+    "unchanged_base_files": 1434,
+    "protocol_sha256": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+    "gradients": false,
+    "qualification_eligible": false
+  },
+  "unchanged_base_files": 1439,
+  "overlays": {
+    "ai/strong/hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+    "ai/strong/hybrid-continuations.cjs": "2b03c49c8270622e74c333c5e7253d5eb5d21ba1af919bc5f15ebd456109daaf",
+    "ai/strong/population-hybrid-continuations.cjs": "206cb044ba5057904afddbbbb125d98db319e04f96067e94c7337a36f0f7502c",
+    "ai/strong/endgame-loss-filter.cjs": "28e3eb1a5fb637b7b80c1b7dc4db255c3d93e5ace168ead6dfa386f57a4de70a",
+    "ai/strong/population-hybrid-policy.cjs": "8f9f7ad3306ab2ebdf04eb6aa439e3f3525f4f6569e6d086649bdbd4c86aff16",
+    "ai/strong/population_hybrid_policy.py": "652677d33cc6613680122c9a95a1ba2c0c0915de384b2124c95e3b1b3a0876cf",
+    "ai/strong/public-arena-bridge.cjs": "999bee0a43a219974c5ceb38bc586f6ea2995e248c19eb9fd697d2e199df8391",
+    "ai/strong/evaluate-population-policy.py": "019454d436e1b8e2ace2ed13375c0ad38727bd02678fedea872957518132abc3",
+    "ai/strong/population-hybrid-runtime-job.py": "7fba2783c0a829bdb09396292a5aa86e9c308d68cbc690f21d821c9315ebf9f2",
+    "ai/strong/population-hybrid-development-protocol-v1.json": "a86b3cd3bcce25131dde6bf59f980e58bbb35dd2c432090a5ed0acd445988014",
+    "ai/strong/policy_iteration_evidence_archive.py": "83177b7f9a35af6467e09509e80024ef5fc258a1030ad23ebfd71c876fac635a",
+    "ai/strong/test-population-hybrid-policy.cjs": "faff35e5f6f78104542d4a7a89a5c768597edf0238f27aec9fa49f3f1a6a060f",
+    "ai/strong/probe-population-policy.py": "d361cc61ac663f1a236656b99671ebb4f73a387baece1808cfd4257cd319caaf",
+    "ai/strong/build-population-hybrid-source.py": "ab63b79852f9808553d9affb4314b54de76e851ac5ea741efae4ed6817038160"
+  },
+  "protocol_sha256": "a86b3cd3bcce25131dde6bf59f980e58bbb35dd2c432090a5ed0acd445988014",
+  "controls_sha256": "1fccb414bc1d3a7f0a0dacce620374182421c850ee8562abbc29ed67d1a18dfc",
+  "probe_sha256": "a2ccfdc300f113acb8958ef1f9461bde80622ecb0244fe3c500016b107846cd3",
+  "preflight_sha256": "dc52cf1b59806cb7322ed6441ce6974f3c2e3cbe0571bb4275b6e946d1d245bb",
+  "gradients": false,
+  "qualification_eligible": false
+}

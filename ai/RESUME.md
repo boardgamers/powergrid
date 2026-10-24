@@ -6,7 +6,29 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: broader hybrid opponent continuations pass actual-model integration.**
+**Latest: all 33,600 development games are verified; two hybrid CPU pilots are live.**
+Recovery PID 402796 completed and exited; do not restart it. All four trained
+ensembles improve overall search results at 3p/4p to varying degrees. Frozen-1
+also improves 5p/6p overall and becomes the single development base, not a final
+candidate. Its search shares at 2–6p are 52.73 / 44.79 / 51.56 / 45.31 / 45.31%.
+2p Recharged/open, 4p default and 6p Recharged/sealed remain unresolved; retain
+all adverse cells. Full comparison and decision are under `strong/policy-iteration-development-*v2.json`.
+
+New isolated model/filter/auction/building/combined arms pass four worker tests,
+all 2,553 fixtures, 80 exact control games / 10,207 model decisions, and actual
+trained search/partition/cap checks. The unchanged engine plus new source is
+pinned. Two `cpu-upgrade` runtime pilots against search_geo are RUNNING:
+2p `6adcad711e112550ce7dfe8d`, 6p `6adcad7b046eb82b1ecdc9cd`; timeout 6h.
+Inspect those same HF handles. These are runtime pilots, not strength games.
+The fixed 8,400-game initial hybrid screen is **not launched**. Collect and verify
+both pilot archives, set measured runtime/resource admission, then proceed with
+the fixed paired screen. See the latest handoff for paths and exact next actions.
+The first two pilots failed before evaluation because the clean package lacked
+`ai/runs`; v2 creates parent directories and passes a clean-package startup check.
+Failure guards/logs are retained. Evidence: `strong/population-hybrid-runtime-launch-evidence-v2.json`
+(repair and replacement handles) plus v1 (full controls/preflight).
+
+**Previous: broader hybrid opponent continuations pass actual-model integration.**
 The isolated worker adds legacy, rush and mixed-population opponents, with
 shared sampled worlds and policy-consistent sealed bids. Five contract tests and
 60 actual-model cases / 480 complete rollouts pass with zero caps. All five

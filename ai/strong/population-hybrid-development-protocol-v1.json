@@ -1,0 +1,321 @@
+{
+  "purpose": "Bounded fresh development ablation, not final selection or qualification. Model choice follows the completed 33600-game comparison.",
+  "decision_sha256": "22e4895537ae879e57da9a80251bb01ec02b53b57d39b0b5d2e4f8d8b47312a9",
+  "model_pin": {
+    "key": "frozen-1",
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "6b6009756d7b5968bc5b6425efc84a94aab2a1d6",
+    "prefix": "runs/policy-iteration-training-v2-frozen/ensemble-1/derivative",
+    "files": {
+      "inference64.pt": "3c17d4228e7446f8859aa01e79020ed91f454312925d29c153a76f49f94118da",
+      "inference64.onnx": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+    },
+    "feature_revision": "4.3-strategic-correction",
+    "model_args": {
+      "head_type": "frozen",
+      "heads": 4,
+      "margin": 0.025,
+      "parent_margin": 0.025,
+      "disagreement_penalty": 1.0
+    },
+    "training_verified": true,
+    "parent_frozen": true,
+    "seeds": [
+      12101,
+      12102,
+      12103,
+      12104
+    ],
+    "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+    "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+    "training_verified_sha256": "881c8a4b34f937575cb3f3c851db794f81908621f4a93e47f467be852845974f",
+    "strict_parity_positions": 2553,
+    "cached_positions_checked": 17280,
+    "qualification_eligible": false
+  },
+  "base_source": {
+    "archive": "strong-source-policy-iteration-development-20261024-v2.tgz",
+    "revision": "a393d0fa83d9fee8a27a876a217fe97dfea03ff8",
+    "sha256": "c020987f3a05a2c0116dfd52498139f6bb7480e1721ca058caf9771f94d970ce",
+    "bytes": 109411988,
+    "base": {
+      "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+      "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+      "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+      "bytes": 109402244,
+      "base": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+      },
+      "overlays": {
+        "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+        "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+        "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+        "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+      },
+      "unchanged_base_files": 1430,
+      "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+      "qualification_eligible": false
+    },
+    "overlays": {
+      "ai/strong/policy_iteration_development.py": "1bbcec9b3ad236fdaf330627cd31f6c99618642cf657b75207aba365c4c217ea",
+      "ai/strong/preflight-policy-iteration-development.py": "024f1f746eb396a8906664c26e2307224c733ff4b43a75899498efbf65096829",
+      "ai/strong/policy-iteration-development-protocol-v2.json": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+      "ai/strong/policy-iteration-training-design-v2.json": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+      "ai/strong/build-policy-iteration-development-source.py": "6dd5963f0438f0ef7fca6c53c3701acdba99d8e9390e42d9c5f64f4e39287310"
+    },
+    "unchanged_base_files": 1434,
+    "protocol_sha256": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+    "gradients": false,
+    "qualification_eligible": false
+  },
+  "arms": {
+    "model": {
+      "filter": false,
+      "scope": null
+    },
+    "filter": {
+      "filter": true,
+      "scope": null
+    },
+    "auction": {
+      "filter": true,
+      "scope": "auction"
+    },
+    "building": {
+      "filter": true,
+      "scope": "building"
+    },
+    "combined": {
+      "filter": true,
+      "scope": "combined"
+    }
+  },
+  "seed_template": "population-hybrid-development-v1-{players}p",
+  "smoke_seed_template": "population-hybrid-runtime-v1-{players}p",
+  "deal_offsets": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "screens": [
+    {
+      "players": 2,
+      "opponent": "economic",
+      "deals": 4,
+      "games": 32,
+      "stage": "primary"
+    },
+    {
+      "players": 2,
+      "opponent": "search_geo",
+      "deals": 4,
+      "games": 32,
+      "stage": "primary"
+    },
+    {
+      "players": 2,
+      "opponent": "legacy",
+      "deals": 4,
+      "games": 32,
+      "stage": "extension"
+    },
+    {
+      "players": 2,
+      "opponent": "heuristic",
+      "deals": 4,
+      "games": 32,
+      "stage": "extension"
+    },
+    {
+      "players": 2,
+      "opponent": "rush",
+      "deals": 4,
+      "games": 32,
+      "stage": "extension"
+    },
+    {
+      "players": 3,
+      "opponent": "economic",
+      "deals": 4,
+      "games": 48,
+      "stage": "primary"
+    },
+    {
+      "players": 3,
+      "opponent": "search_geo",
+      "deals": 4,
+      "games": 48,
+      "stage": "primary"
+    },
+    {
+      "players": 3,
+      "opponent": "legacy",
+      "deals": 4,
+      "games": 48,
+      "stage": "extension"
+    },
+    {
+      "players": 3,
+      "opponent": "heuristic",
+      "deals": 4,
+      "games": 48,
+      "stage": "extension"
+    },
+    {
+      "players": 3,
+      "opponent": "rush",
+      "deals": 4,
+      "games": 48,
+      "stage": "extension"
+    },
+    {
+      "players": 4,
+      "opponent": "economic",
+      "deals": 4,
+      "games": 64,
+      "stage": "primary"
+    },
+    {
+      "players": 4,
+      "opponent": "search_geo",
+      "deals": 4,
+      "games": 64,
+      "stage": "primary"
+    },
+    {
+      "players": 4,
+      "opponent": "legacy",
+      "deals": 4,
+      "games": 64,
+      "stage": "extension"
+    },
+    {
+      "players": 4,
+      "opponent": "heuristic",
+      "deals": 4,
+      "games": 64,
+      "stage": "extension"
+    },
+    {
+      "players": 4,
+      "opponent": "rush",
+      "deals": 4,
+      "games": 64,
+      "stage": "extension"
+    },
+    {
+      "players": 5,
+      "opponent": "economic",
+      "deals": 4,
+      "games": 80,
+      "stage": "primary"
+    },
+    {
+      "players": 5,
+      "opponent": "search_geo",
+      "deals": 4,
+      "games": 80,
+      "stage": "primary"
+    },
+    {
+      "players": 5,
+      "opponent": "legacy",
+      "deals": 4,
+      "games": 80,
+      "stage": "extension"
+    },
+    {
+      "players": 5,
+      "opponent": "heuristic",
+      "deals": 4,
+      "games": 80,
+      "stage": "extension"
+    },
+    {
+      "players": 5,
+      "opponent": "rush",
+      "deals": 4,
+      "games": 80,
+      "stage": "extension"
+    },
+    {
+      "players": 6,
+      "opponent": "economic",
+      "deals": 4,
+      "games": 96,
+      "stage": "primary"
+    },
+    {
+      "players": 6,
+      "opponent": "search_geo",
+      "deals": 4,
+      "games": 96,
+      "stage": "primary"
+    },
+    {
+      "players": 6,
+      "opponent": "legacy",
+      "deals": 4,
+      "games": 96,
+      "stage": "extension"
+    },
+    {
+      "players": 6,
+      "opponent": "heuristic",
+      "deals": 4,
+      "games": 96,
+      "stage": "extension"
+    },
+    {
+      "players": 6,
+      "opponent": "rush",
+      "deals": 4,
+      "games": 96,
+      "stage": "extension"
+    },
+    {
+      "players": 3,
+      "opponent": "a260",
+      "model_path": "runs/strong-league-v2-a/best.onnx",
+      "revision": "b38515c29e57826de05b55b645c29591e4a886bf",
+      "sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+      "deals": 4,
+      "games": 48,
+      "stage": "primary"
+    },
+    {
+      "players": 2,
+      "opponent": "economic_capacity_v1",
+      "deals": 4,
+      "games": 32,
+      "stage": "primary"
+    }
+  ],
+  "planned_games_per_arm": 1680,
+  "planned_games_total": 8400,
+  "search": {
+    "samples": 8,
+    "mode": "neural_population",
+    "shortlist": "Six frozen geographic/heuristic choices plus filtered model proposal; exclude strictly certified losing threshold Builds.",
+    "focal_continuation": "Same trained model plus the strict-loss filter; future search is approximated by this policy.",
+    "opponent_continuation": "Each opponent spans neural/economic/legacy/rush twice across eight worlds; uncalibrated equal mixture.",
+    "sealed_beliefs": "Policy-consistent inferred prior submissions from public observations. Actual hidden bids and future deck are never used.",
+    "selection": "Mean completed terminal credit; ties retain filtered model action, then original shortlist order. Any cap returns filtered model action and invalidates the strength cell.",
+    "horizon": 2400,
+    "nested_search": false
+  },
+  "game_max_steps": 1600,
+  "reference_search": "Unchanged search_geo16, six geographic candidates, horizon2400.",
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 12297,
+  "analysis": "All five arms, 27 count/opponent cells, all rules. Paired whole-deal bootstrap. Four independent deals is only an initial screen with coarse intervals, never a qualification or final model-selection basis. Retain all adverse results. Compare filter-minus-model, auction/building/combined-minus-filter and combined-minus-each-single-phase.",
+  "promotion": "No automatic promotion or additional jobs based on partial results. Finish the grid; require promising all-count behavior without unresolved regressions before a separately frozen larger fresh confirmation. Final protocol and reserved seeds stay unchanged.",
+  "admission": "Verify baseline bridge control equivalence and trained-policy legality/privacy/cap behavior. Measure full-game runtime before setting CPU job flavor, concurrency and timeout. Runtime pilot outcomes are excluded from strength comparisons.",
+  "hf_jobs_submitted": 0,
+  "final_protocol_sha256": "7f0336c8784faf8f18e046b95b88e0ab1be7c2de1c0ec4d3eec96f0a415286ce",
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

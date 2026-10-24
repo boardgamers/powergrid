@@ -25,7 +25,164 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: trained population continuations verified
+## Latest checkpoint: full comparison complete; hybrid runtime pilots running
+
+Previous goal turn: progress (population worker integration and archived evidence).
+This turn: progress. The sole recovery coordinator completed all remaining jobs,
+verified every result, produced the complete comparison and archived it. PID
+402796 / session 78444 is terminal and no longer exists; do not restart it.
+All 550 effective development/smoke job handles are COMPLETED. No GPU training
+is running. Two **new CPU-only hybrid runtime pilots** are the active jobs below.
+
+### Complete model-only comparison
+
+`strong/policy-iteration-development-comparison-v2.json` covers all five models,
+27 opponent/count cells, all four rules and every seat: **33,600 games**, 6,720
+per model, 16 independent deals per cell. Source/model/artifact pins and raw game
+records are verified. The eight prespecified paired contrasts retain all adverse
+cells. Intervals resample whole deals and are exploratory marginal intervals.
+
+| Players | Parent vs search | frozen-0 | frozen-1 | public-0 | public-1 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 2 | 48.83% | 53.52% | 52.73% | 45.31% | 51.95% |
+| 3 | 20.31% | 40.10% | 44.79% | 39.58% | 29.69% |
+| 4 | 30.86% | 48.24% | 51.56% | 38.28% | 39.84% |
+| 5 | 34.38% | 47.19% | 45.31% | 41.56% | 36.72% |
+| 6 | 37.63% | 47.79% | 45.31% | 38.67% | 44.01% |
+
+Frozen-1's paired search gains over parent are +24.48 / +20.70 / +10.94 / +7.68
+percentage points at 3/4/5/6 players; their exploratory intervals exclude zero.
+Two-player overall change is inconclusive (+3.91 pp, interval −0.78 to +8.59).
+The gains do not establish universal strength or qualification:
+
+- 2p Recharged/open search is only 34.38% (parent 40.62%).
+- 4p legacy/default is 86.72%, below the unchanged 90% point floor.
+- 5p legacy is 90.62% but drops 3.44 pp from parent; interval −5.31 to −1.56.
+- 6p Recharged/sealed search is 23.96%, with lower interval 14.58%, below 1/6.
+
+`strong/policy-iteration-development-decision-v2.json` retains every negative
+paired frozen-1 view and chooses **frozen-1 only as the next development base**:
+large 3p/4p gains and smaller legacy regressions than frozen-0. No per-rule model
+routing, final candidate selection or promotion. Whole-game gains contradict a
+blanket plateau claim; additional epochs are not automatically justified.
+
+Complete evidence: HF revision `23cf5dfe1d7adc0d6ec62fe56a99f252634708a3`,
+`archives/policy-iteration-development-complete-evidence-v2.tgz`,
+SHA256 `e59b6c786504335f9d3ba7e9af38b9ab847f903eb694f1b30a4695b76568343d`
+(5520 files, remotely verified). Comparison SHA256
+`b85e900c30b70d523d8e2beb4e8ecf9f3bdb1a03c14924b0041ec45b3c422cb2`.
+
+### New isolated policy and admission checks
+
+`population_hybrid_policy.py` plus `population-hybrid-policy.cjs` implement five
+arms: model only, strict-loss filter, filter+auction search, filter+building
+search, and filter+combined search. The filter also applies to future focal
+neural decisions during rollouts. Neural opponents retain their own unfiltered
+policy. Certified losing root Builds are excluded; equal simulated scores keep
+the filtered model proposal. Any incomplete rollout falls back safely and still
+invalidates a strength cell. No existing serving/evaluation code was modified.
+
+`public-arena-bridge.cjs` is the frozen arena with one observation-only addition:
+public sanitized game requests for the external policy. The original bridge is
+preserved. `evaluate-population-policy.py` checks every root model proposal
+against the original arena's encoded observation and stores per-decision receipts.
+
+Four worker tests pass: all **2,553 fixtures**, 24 certified legal Build choices,
+future filter behavior, all 80 count/rule/phase cells with exact filter-off
+compatibility, cap retention, and root rejection. Whole-game adapter controls
+replay the first existing legacy development deal for every count/rule/seat:
+**80 games / 10,207 learner decisions**, identical terminal states, move counts
+and opponent statistics. These are reused controls, not fresh strength results.
+
+The actual frozen-1 selector probe checks all 2,553 model/filter positions (two
+proposals changed), eight normal-budget searches / 384 complete rollouts with
+zero caps, phase routing, shared public-world prefixes, worker partition equality,
+and a deliberate one-step cap fallback. All checks pass. These are engineering
+checks on the local HX370, not representative latency or target8840U evidence.
+
+Preflight: `ai/runs/population-policy-preflight-v1/` (session 42038 complete).
+Controls: `ai/runs/population-policy-arena-controls-v1/` plus `.log`
+(session 43997 complete). Selector probe: `ai/runs/population-policy-trained-probe-v1/`
+plus `.log` (session 15858 complete). Do not rerun those processes.
+
+### Fresh experiment and active runtime jobs
+
+`strong/population-hybrid-development-protocol-v1.json` fixes five arms and all
+27 count/opponent cells on four fresh paired deals: **8,400 planned games**.
+It is an initial screen with coarse uncertainty, not final selection. A larger
+separately frozen fresh confirmation is required before final qualification.
+The 8-world population spans neural/economic/default/rush twice per opponent,
+with policy-consistent prior sealed bids. Equal population weights remain
+uncalibrated. Keep all adverse cells; do not pick from partial screens.
+
+**The strength grid is NOT launched.** First measure the most expensive combined
+arm against the unchanged search_geo reference on one distinct runtime deal per
+endpoint, all seats/rules. Both guards were created once and both handles were
+confirmed RUNNING at 2026-10-24T13:07:33 UTC (replacement handles):
+
+- 2p: `6adcad711e112550ce7dfe8d` (8 games).
+- 6p: `6adcad7b046eb82b1ecdc9cd` (24 games).
+
+Both use `cpu-upgrade`, eight game processes, one simulation worker per game,
+eight worlds, full 2400-step continuation horizon, 1600-step outer game cap and
+6-hour job timeout. Jobs terminate automatically. No gradients/GPU jobs were
+started. Runtime outcomes must be excluded from strength comparisons.
+
+Launcher: `strong/launch-population-hybrid-runtime.py`; worker:
+`strong/population-hybrid-runtime-job.py`. Guards/logs:
+`ai/runs/population-hybrid-runtime-launches-v2/`; last status:
+`ai/runs/population-hybrid-runtime-status-v2.json`. Source:
+`strong/population-hybrid-source-v2.json` pins dataset revision
+`9a49df8a3baa5e5b6b62cae8208ef301b8540ba7`, archive
+`strong-source-population-hybrid-20261024-v2.tgz`, SHA256
+`cd5c08165dfecce5753bcab1c9c0bf10ef45797bf3e5e082914fd6634f91a778`.
+All 1,439 base source files remain byte-identical; only new research overlays
+were added. Do not edit the pinned overlays while jobs are running.
+
+On completion the worker prints an immutable evidence receipt and uploads one
+archive to private model repo `coyotte508/powergrid-ai-germany-v1` at
+`archives/population-hybrid-runtime-v2-2p.tgz` or `...-6p.tgz`, including failures.
+Read the same authoritative HF handles; do not relaunch for quiet logs/timeouts.
+`HfApi.fetch_job_logs(..., tail=...)` returns strings in this environment.
+A collector/runtime-admission driver has **not yet been written**. Next: verify
+complete archives and every game/decision receipt, measure throughput, then set
+strength-job batching/concurrency/timeouts without shortening games/search.
+Do not launch the full grid before both runtime pilots pass and resource use is
+reviewed. No final seeds or candidate.json exist; the full goal stays active.
+
+The original v1 pilots `6adcab91046eb82b1ecdc943` and
+`6adcab9b1e112550ce7dfd96` are **ERROR**, not live. Both failed before game
+evaluation because the extracted package had no `ai/runs` directory. Their
+complete logs and guards are preserved in `ai/runs/population-hybrid-runtime-failures-v1/`
+and the v1 launch evidence. The v2 repair creates parent directories and versions
+the output receipt path; model, engine, samples, horizons and deals are unchanged.
+A clean-package admission now reaches the evaluation subprocess using the actual
+trained model and writes a failure receipt on an intentional preflight stop.
+The first layout-test harness accidentally intercepted `platform.processor()`;
+its failed tree/log are preserved, and the corrected harness intercepts only the
+evaluation command. These tests launched no games or remote jobs.
+
+Repaired source staging: `ai/runs/population-hybrid-source-v2-layoutfix/`;
+failed layout staging: `...source-v2/`. Build logs use the same suffixes.
+Sessions 57092 (failed local layout harness), 33372 (successful source v2) and
+68902 (repair evidence) are terminal. There were four new remote submissions
+this turn: two startup failures, then exactly two guarded replacements.
+No automatic retry or strength-grid launch is scheduled.
+
+Repair/launch evidence: `strong/population-hybrid-runtime-launch-evidence-v2.json`,
+HF revision `466e862d976299ebfc04bae0ef60a68de6aa0edf`, archive `archives/population-hybrid-runtime-launch-evidence-v2.tgz`,
+SHA256 `77efdfd619a2d254791fc4cbcf3010940c11bb6a2e477c010577fe8391a4bfac` (34 files,
+remotely verified). This references the full v1 preflight/control evidence below.
+
+All new source, raw controls/probes, admissions, full comparison reference and
+launch guards/status are archived in
+`strong/population-hybrid-runtime-launch-evidence-v1.json`: HF revision
+`76d09db43973089c4904685bee44af76061f19af`, `archives/population-hybrid-runtime-launch-evidence-v1.tgz`,
+SHA256 `52db6807e0c6f7ee4f205b0620f75511e10d3214626b0d9206be48a5392d82d7` (209 files,
+remotely verified). Source-building session 74192 and evidence session 24181 are
+complete. This checkpoint belongs to `ai/germany-baseline`; production remains unchanged.
+
+## Previous checkpoint: trained population continuations verified
 
 Previous goal turn: progress (endgame counterfactuals and isolated loss filter).
 This turn: progress through a broader experimental continuation worker. No new

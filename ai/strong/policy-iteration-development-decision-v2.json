@@ -1,0 +1,381 @@
+{
+  "comparison_sha256": "b85e900c30b70d523d8e2beb4e8ecf9f3bdb1a03c14924b0041ec45b3c422cb2",
+  "evidence": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "23cf5dfe1d7adc0d6ec62fe56a99f252634708a3",
+    "archive_path": "archives/policy-iteration-development-complete-evidence-v2.tgz",
+    "archive_sha256": "e59b6c786504335f9d3ba7e9af38b9ab847f903eb694f1b30a4695b76568343d",
+    "manifest_sha256": "99374f48697185025fd43be9096157f73ac796431614886c865fc689660e02e3",
+    "archived_files": 5520,
+    "format": "tar.gz",
+    "remote_archive_verified": true,
+    "keys": [
+      "parent",
+      "frozen-0",
+      "frozen-1",
+      "public-0",
+      "public-1"
+    ],
+    "complete_development_comparison": true,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false
+  },
+  "full_comparison_complete": true,
+  "games": 33600,
+  "independent_deals_per_cell": 16,
+  "development_anchor": "frozen-1",
+  "model_pin": {
+    "key": "frozen-1",
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "6b6009756d7b5968bc5b6425efc84a94aab2a1d6",
+    "prefix": "runs/policy-iteration-training-v2-frozen/ensemble-1/derivative",
+    "files": {
+      "inference64.pt": "3c17d4228e7446f8859aa01e79020ed91f454312925d29c153a76f49f94118da",
+      "inference64.onnx": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+    },
+    "feature_revision": "4.3-strategic-correction",
+    "model_args": {
+      "head_type": "frozen",
+      "heads": 4,
+      "margin": 0.025,
+      "parent_margin": 0.025,
+      "disagreement_penalty": 1.0
+    },
+    "training_verified": true,
+    "parent_frozen": true,
+    "seeds": [
+      12101,
+      12102,
+      12103,
+      12104
+    ],
+    "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+    "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+    "training_verified_sha256": "881c8a4b34f937575cb3f3c851db794f81908621f4a93e47f467be852845974f",
+    "strict_parity_positions": 2553,
+    "cached_positions_checked": 17280,
+    "qualification_eligible": false
+  },
+  "rationale": "Choose a single balanced development base: large 3p/4p search gains, significant positive 5p/6p paired overall changes, and smaller legacy regressions than frozen-0. This is a development choice using the complete grid, not final candidate qualification. No per-rule model routing or cherry-picked public/frozen ensemble.",
+  "negative_paired_views": [
+    {
+      "cell": "economic/2p",
+      "view": "original/sealed",
+      "games_per_model": 32,
+      "independent_deals": 16,
+      "win_share_difference": -0.03125,
+      "paired_deal_bootstrap_95_interval": [
+        -0.125,
+        0.0625
+      ]
+    },
+    {
+      "cell": "search_geo/2p",
+      "view": "recharged/open",
+      "games_per_model": 32,
+      "independent_deals": 16,
+      "win_share_difference": -0.0625,
+      "paired_deal_bootstrap_95_interval": [
+        -0.1875,
+        0.0625
+      ]
+    },
+    {
+      "cell": "legacy/2p",
+      "view": "recharged/sealed",
+      "games_per_model": 32,
+      "independent_deals": 16,
+      "win_share_difference": -0.0625,
+      "paired_deal_bootstrap_95_interval": [
+        -0.15625,
+        0.0
+      ]
+    },
+    {
+      "cell": "rush/2p",
+      "view": "original/open",
+      "games_per_model": 32,
+      "independent_deals": 16,
+      "win_share_difference": -0.0625,
+      "paired_deal_bootstrap_95_interval": [
+        -0.21875,
+        0.0625
+      ]
+    },
+    {
+      "cell": "legacy/3p",
+      "view": "overall",
+      "games_per_model": 192,
+      "independent_deals": 16,
+      "win_share_difference": -0.010416666666666664,
+      "paired_deal_bootstrap_95_interval": [
+        -0.06249999999999999,
+        0.03645833333333333
+      ]
+    },
+    {
+      "cell": "legacy/3p",
+      "view": "original/open",
+      "games_per_model": 48,
+      "independent_deals": 16,
+      "win_share_difference": -0.041666666666666664,
+      "paired_deal_bootstrap_95_interval": [
+        -0.20833333333333331,
+        0.08333333333333333
+      ]
+    },
+    {
+      "cell": "legacy/3p",
+      "view": "original/sealed",
+      "games_per_model": 48,
+      "independent_deals": 16,
+      "win_share_difference": -0.041666666666666664,
+      "paired_deal_bootstrap_95_interval": [
+        -0.10416666666666666,
+        0.0
+      ]
+    },
+    {
+      "cell": "economic/4p",
+      "view": "original/open",
+      "games_per_model": 64,
+      "independent_deals": 16,
+      "win_share_difference": -0.046875,
+      "paired_deal_bootstrap_95_interval": [
+        -0.1875,
+        0.09375
+      ]
+    },
+    {
+      "cell": "legacy/4p",
+      "view": "overall",
+      "games_per_model": 256,
+      "independent_deals": 16,
+      "win_share_difference": -0.015625,
+      "paired_deal_bootstrap_95_interval": [
+        -0.0546875,
+        0.0234375
+      ]
+    },
+    {
+      "cell": "legacy/4p",
+      "view": "recharged/open",
+      "games_per_model": 64,
+      "independent_deals": 16,
+      "win_share_difference": -0.109375,
+      "paired_deal_bootstrap_95_interval": [
+        -0.21875,
+        0.015625
+      ]
+    },
+    {
+      "cell": "economic/5p",
+      "view": "original/open",
+      "games_per_model": 80,
+      "independent_deals": 16,
+      "win_share_difference": -0.0125,
+      "paired_deal_bootstrap_95_interval": [
+        -0.0875,
+        0.0625
+      ]
+    },
+    {
+      "cell": "economic/5p",
+      "view": "original/sealed",
+      "games_per_model": 80,
+      "independent_deals": 16,
+      "win_share_difference": -0.05,
+      "paired_deal_bootstrap_95_interval": [
+        -0.125,
+        0.025
+      ]
+    },
+    {
+      "cell": "legacy/5p",
+      "view": "overall",
+      "games_per_model": 320,
+      "independent_deals": 16,
+      "win_share_difference": -0.034375,
+      "paired_deal_bootstrap_95_interval": [
+        -0.053125000000000006,
+        -0.015625
+      ]
+    },
+    {
+      "cell": "legacy/5p",
+      "view": "original/open",
+      "games_per_model": 80,
+      "independent_deals": 16,
+      "win_share_difference": -0.037500000000000006,
+      "paired_deal_bootstrap_95_interval": [
+        -0.1,
+        0.025
+      ]
+    },
+    {
+      "cell": "legacy/5p",
+      "view": "original/sealed",
+      "games_per_model": 80,
+      "independent_deals": 16,
+      "win_share_difference": -0.0625,
+      "paired_deal_bootstrap_95_interval": [
+        -0.125,
+        -0.0125
+      ]
+    },
+    {
+      "cell": "legacy/5p",
+      "view": "recharged/open",
+      "games_per_model": 80,
+      "independent_deals": 16,
+      "win_share_difference": -0.0125,
+      "paired_deal_bootstrap_95_interval": [
+        -0.037500000000000006,
+        0.0
+      ]
+    },
+    {
+      "cell": "legacy/5p",
+      "view": "recharged/sealed",
+      "games_per_model": 80,
+      "independent_deals": 16,
+      "win_share_difference": -0.025,
+      "paired_deal_bootstrap_95_interval": [
+        -0.0875,
+        0.037500000000000006
+      ]
+    },
+    {
+      "cell": "heuristic/5p",
+      "view": "overall",
+      "games_per_model": 320,
+      "independent_deals": 16,
+      "win_share_difference": -0.00625,
+      "paired_deal_bootstrap_95_interval": [
+        -0.015625,
+        0.0
+      ]
+    },
+    {
+      "cell": "heuristic/5p",
+      "view": "original/sealed",
+      "games_per_model": 80,
+      "independent_deals": 16,
+      "win_share_difference": -0.0125,
+      "paired_deal_bootstrap_95_interval": [
+        -0.037500000000000006,
+        0.0
+      ]
+    },
+    {
+      "cell": "heuristic/5p",
+      "view": "recharged/sealed",
+      "games_per_model": 80,
+      "independent_deals": 16,
+      "win_share_difference": -0.0125,
+      "paired_deal_bootstrap_95_interval": [
+        -0.037500000000000006,
+        0.0
+      ]
+    },
+    {
+      "cell": "rush/5p",
+      "view": "original/sealed",
+      "games_per_model": 80,
+      "independent_deals": 16,
+      "win_share_difference": -0.05625,
+      "paired_deal_bootstrap_95_interval": [
+        -0.14390624999999987,
+        0.0125
+      ]
+    },
+    {
+      "cell": "economic/6p",
+      "view": "original/sealed",
+      "games_per_model": 96,
+      "independent_deals": 16,
+      "win_share_difference": -0.0625,
+      "paired_deal_bootstrap_95_interval": [
+        -0.14583333333333331,
+        0.03125
+      ]
+    },
+    {
+      "cell": "search_geo/6p",
+      "view": "recharged/sealed",
+      "games_per_model": 96,
+      "independent_deals": 16,
+      "win_share_difference": -0.03125,
+      "paired_deal_bootstrap_95_interval": [
+        -0.11458333333333334,
+        0.05208333333333333
+      ]
+    },
+    {
+      "cell": "legacy/6p",
+      "view": "recharged/open",
+      "games_per_model": 96,
+      "independent_deals": 16,
+      "win_share_difference": -0.010416666666666666,
+      "paired_deal_bootstrap_95_interval": [
+        -0.05208333333333333,
+        0.03125
+      ]
+    },
+    {
+      "cell": "legacy/6p",
+      "view": "recharged/sealed",
+      "games_per_model": 96,
+      "independent_deals": 16,
+      "win_share_difference": -0.010416666666666666,
+      "paired_deal_bootstrap_95_interval": [
+        -0.0625,
+        0.041666666666666664
+      ]
+    },
+    {
+      "cell": "heuristic/6p",
+      "view": "recharged/open",
+      "games_per_model": 96,
+      "independent_deals": 16,
+      "win_share_difference": -0.010416666666666666,
+      "paired_deal_bootstrap_95_interval": [
+        -0.03125,
+        0.0
+      ]
+    },
+    {
+      "cell": "rush/6p",
+      "view": "original/sealed",
+      "games_per_model": 96,
+      "independent_deals": 16,
+      "win_share_difference": -0.026041666666666664,
+      "paired_deal_bootstrap_95_interval": [
+        -0.10416666666666666,
+        0.05208333333333333
+      ]
+    },
+    {
+      "cell": "economic_capacity_v1/2p",
+      "view": "original/sealed",
+      "games_per_model": 32,
+      "independent_deals": 16,
+      "win_share_difference": -0.03125,
+      "paired_deal_bootstrap_95_interval": [
+        -0.125,
+        0.0625
+      ]
+    }
+  ],
+  "unresolved": [
+    "2p search remains inconclusive overall; Recharged/open win share 34.375%, below 50% chance.",
+    "4p legacy/default 86.71875% misses the unchanged 90% point floor.",
+    "5p legacy falls 3.4375 points versus parent, with paired interval below zero.",
+    "6p Recharged/sealed search 23.9583% has exploratory lower interval 14.5833%, below 1/6.",
+    "All results use 16 independent development deals per cell; no final gate has run."
+  ],
+  "candidate_selected": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "next_action": "Fresh paired ablation of model, loss filter, auction search, building search and combined population search; preserve all counts/rules/opponents and cap/failure receipts. Admission requires unchanged model-control replay and actual trained integration. Profile before launching the strength screen."
+}

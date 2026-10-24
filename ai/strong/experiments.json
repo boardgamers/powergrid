@@ -52574,5 +52574,130 @@
             "public-1"
         ],
         "assessment": "Actual-model integration on four reused endpoint fixtures; no strength claim, mixture selection or serving integration. Preserve the first incorrect open-bid privacy test and corrected passing tests. Finish the full model-only development comparison before a bounded fresh hybrid study."
+    },
+    "policy_iteration_full_development_v2": {
+        "evidence": "ai/strong/policy-iteration-development-complete-evidence-v2.json",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "23cf5dfe1d7adc0d6ec62fe56a99f252634708a3",
+        "archive_path": "archives/policy-iteration-development-complete-evidence-v2.tgz",
+        "archive_sha256": "e59b6c786504335f9d3ba7e9af38b9ab847f903eb694f1b30a4695b76568343d",
+        "manifest_sha256": "99374f48697185025fd43be9096157f73ac796431614886c865fc689660e02e3",
+        "archived_files": 5520,
+        "format": "tar.gz",
+        "remote_archive_verified": true,
+        "keys": [
+            "parent",
+            "frozen-0",
+            "frozen-1",
+            "public-0",
+            "public-1"
+        ],
+        "complete_development_comparison": true,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "comparison": "ai/strong/policy-iteration-development-comparison-v2.json",
+        "decision": "ai/strong/policy-iteration-development-decision-v2.json",
+        "games": 33600,
+        "development_anchor": "frozen-1",
+        "candidate_selected": false
+    },
+    "population_hybrid_runtime_launch_v1": {
+        "evidence": "ai/strong/population-hybrid-runtime-launch-evidence-v1.json",
+        "revision": "76d09db43973089c4904685bee44af76061f19af",
+        "archive_sha256": "52db6807e0c6f7ee4f205b0620f75511e10d3214626b0d9206be48a5392d82d7",
+        "controls": {
+            "games": 80,
+            "decisions": 10207,
+            "all_controls_identical": true
+        },
+        "selector_probe": {
+            "positions": 2553,
+            "normal_search_cases": 8,
+            "normal_rollouts": 384,
+            "normal_caps": 0
+        },
+        "jobs": {
+            "checked_at": "2026-10-24T12:59:27.534763+00:00",
+            "jobs": [
+                {
+                    "case": "population-hybrid-runtime-v1-2p",
+                    "job_id": "6adcab91046eb82b1ecdc943",
+                    "authoritative_status": "RUNNING",
+                    "flavor": "cpu-upgrade",
+                    "timeout_hours": 6
+                },
+                {
+                    "case": "population-hybrid-runtime-v1-6p",
+                    "job_id": "6adcab9b1e112550ce7dfd96",
+                    "authoritative_status": "RUNNING",
+                    "flavor": "cpu-upgrade",
+                    "timeout_hours": 6
+                }
+            ]
+        },
+        "new_hf_jobs": 2,
+        "strength_grid_launched": false,
+        "planned_strength_games": 8400,
+        "gradients": false,
+        "candidate_selected": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "status": "Both original pilots ERROR before evaluation; preserved in v2 repair evidence."
+    },
+    "population_hybrid_runtime_launch_v2": {
+        "evidence": "ai/strong/population-hybrid-runtime-launch-evidence-v2.json",
+        "revision": "466e862d976299ebfc04bae0ef60a68de6aa0edf",
+        "archive_sha256": "77efdfd619a2d254791fc4cbcf3010940c11bb6a2e477c010577fe8391a4bfac",
+        "jobs": {
+            "checked_at": "2026-10-24T13:07:33.717153+00:00",
+            "jobs": [
+                {
+                    "case": "population-hybrid-runtime-v2-2p",
+                    "job_id": "6adcad711e112550ce7dfe8d",
+                    "authoritative_status": "RUNNING",
+                    "replaces_job_id": "6adcab91046eb82b1ecdc943",
+                    "flavor": "cpu-upgrade",
+                    "timeout_hours": 6
+                },
+                {
+                    "case": "population-hybrid-runtime-v2-6p",
+                    "job_id": "6adcad7b046eb82b1ecdc9cd",
+                    "authoritative_status": "RUNNING",
+                    "replaces_job_id": "6adcab9b1e112550ce7dfd96",
+                    "flavor": "cpu-upgrade",
+                    "timeout_hours": 6
+                }
+            ]
+        },
+        "prior_startup_failures": {
+            "checked_at": "2026-10-24T13:04:20.259091+00:00",
+            "jobs": [
+                {
+                    "case": "population-hybrid-runtime-v1-2p",
+                    "job_id": "6adcab91046eb82b1ecdc943",
+                    "authoritative_status": "ERROR",
+                    "guard_sha256": "8645a393620ff82c679a81f2584fb1c543ee747a4a7232be797ad6f70af881a7",
+                    "log_sha256": "ba08808b5a0260dae878c4c9d68df81f50950beae643ebc5898f1d985e953a49",
+                    "reason": "Missing ai/runs parent in clean extracted package; fails before evaluation subprocess."
+                },
+                {
+                    "case": "population-hybrid-runtime-v1-6p",
+                    "job_id": "6adcab9b1e112550ce7dfd96",
+                    "authoritative_status": "ERROR",
+                    "guard_sha256": "ec31075da3baef00e5fce99240f9c33aeb6780711b9165f1b05e20c6a90bfaa7",
+                    "log_sha256": "17082701f06296f84e8eaf3077fe6e0c5181dcd1d308f04a6957355f850218ab",
+                    "reason": "Missing ai/runs parent in clean extracted package; fails before evaluation subprocess."
+                }
+            ],
+            "game_evaluation_started": false,
+            "replacement_allowed_after_source_repair": true
+        },
+        "repair": "Create missing output parent and version the job receipt path. First clean-layout test mistakenly intercepted platform.processor subprocess; repaired test intercepts only the actual evaluation command. All failures retained. Model/engine/search/protocol unchanged.",
+        "new_replacement_jobs": 2,
+        "strength_grid_launched": false,
+        "gradients": false,
+        "candidate_selected": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

@@ -44,6 +44,7 @@ export interface GameOptions {
     variant?: Variant;
     showMoney?: boolean;
     useNewRechargedSetup?: boolean;
+    endPlantDiscountAtStep3?: boolean;
     trackTotalSpent?: boolean;
     randomizeMap?: boolean;
     // When set, the regions in play are drafted by the players at the start of

@@ -126,6 +126,7 @@ export function setup(
         variant = 'original',
         showMoney = false,
         useNewRechargedSetup = true,
+        endPlantDiscountAtStep3 = false,
         trackTotalSpent = true,
         randomizeMap = false,
         chooseRegions = false,
@@ -439,6 +440,7 @@ export function setup(
             variant,
             showMoney,
             useNewRechargedSetup,
+            ...(variant === 'recharged' && endPlantDiscountAtStep3 ? { endPlantDiscountAtStep3: true } : {}),
             trackTotalSpent,
             chooseRegions,
             chooseColors,
@@ -1431,6 +1433,7 @@ export function move(
 
                             G.plantDiscountActive =
                                 G.options.variant == 'recharged' &&
+                                !(G.options.endPlantDiscountAtStep3 && G.step === 3) &&
                                 G.map.name != 'China' &&
                                 G.map.name != 'Russia' &&
                                 G.map.name != 'Baden-Württemberg';
@@ -2580,6 +2583,9 @@ function removePlantsForMiddleEastStep1(G: GameState) {
 function startStep(G: GameState, step: 2 | 3, event = `Starting Step ${step}.`) {
     if (G.step === step) return;
     G.step = step;
+    if (step === 3 && G.options.variant === 'recharged' && G.options.endPlantDiscountAtStep3) {
+        G.plantDiscountActive = false;
+    }
     G.log.push({ type: 'event', event });
     (G.pendingMessages ??= []).push(`Starting Step ${step}.`);
 }

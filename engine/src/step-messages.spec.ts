@@ -134,3 +134,43 @@ describe('step announcements', () => {
         });
     }
 });
+
+describe('optional Recharged discount cutoff', () => {
+    for (const phase of [Phase.Auction, Phase.Building, Phase.Bureaucracy]) {
+        it(`removes the discount when Step 3 begins after ${phase}`, () => {
+            const G = lastPlayerIn(phase);
+            G.options.variant = 'recharged';
+            G.options.endPlantDiscountAtStep3 = true;
+            G.plantDiscountActive = true;
+            G.step = 2;
+            G.actualMarket.shift();
+            G.powerPlantsDeck.unshift(getPowerPlant(99));
+            addPowerPlant(G);
+            const result = move(G, pass, 0);
+            expect(result.step).to.equal(3);
+            expect(result.plantDiscountActive).to.equal(false);
+        });
+    }
+    for (const enabled of [false, true]) {
+        it(`sets the next Step 3 auction discount with cutoff=${enabled}`, () => {
+            const G = lastPlayerIn(Phase.Bureaucracy);
+            G.options.variant = 'recharged';
+            G.options.endPlantDiscountAtStep3 = enabled;
+            G.step = 3;
+            G.futureMarket = [];
+            const result = move(G, pass, 0);
+            expect(result.phase).to.equal(Phase.Auction);
+            expect(result.plantDiscountActive).to.equal(!enabled);
+        });
+    }
+    it('stores the option only for opted-in Recharged games', () => {
+        expect(
+            setup(3, { variant: 'original', endPlantDiscountAtStep3: true }, 'discount').options.endPlantDiscountAtStep3
+        ).to.equal(undefined);
+        expect(
+            setup(3, { variant: 'recharged', endPlantDiscountAtStep3: true }, 'discount').options
+                .endPlantDiscountAtStep3
+        ).to.equal(true);
+        expect(setup(3, { variant: 'recharged' }, 'discount').options.endPlantDiscountAtStep3).to.equal(undefined);
+    });
+});

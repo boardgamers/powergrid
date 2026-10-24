@@ -27,11 +27,74 @@ This document supersedes the pause instruction in the
 
 ## Latest checkpoint: collection and full-data training handoff are active
 
-Previous goal turn: **verified wait** (the existing collector and five exact HF
-handles were confirmed live;one of the oldest jobs then finished). This turn
-made **progress**: a bounded trained-output harvester is tested and active, and
-collection reached509 verified label shards. The goal remains active. There are
-still no new model gradients, final-test use, qualification or production changes.
+Previous goal turn: **verified wait** (the live collector completed another
+verification cycle). This turn made **progress**: the bounded development
+coordinator is tested and active, and collection reached552 verified label
+shards. The goal remains active. There are still no new model gradients,
+final-test use, qualification or production changes.
+
+### Development coordinator ACTIVE — fourth local process
+
+PID **2950746**, exec session **63641**, started
+`2026-10-24T06:45:25.855641+00:00`. Command:
+
+```sh
+ai/.venv/bin/python -u ai/strong/coordinate-policy-iteration-development.py \
+  --run-name policy-iteration-development-coordinator-v2 --execute \
+  --interval-seconds 300 --max-hours 24
+```
+
+State: `ai/runs/policy-iteration-development-coordinator-v2/state.json`; log:
+`ai/runs/policy-iteration-development-coordinator-v2.log`. It currently waits for
+**both** upstreams: all948 labels plus108 parent reference batches verified, and
+all four exact trained ensemble pins independently verified and archived. It
+checks actual upstream process identities while waiting. No candidate runtime
+probe or development job has been submitted yet;commands started are empty.
+
+It freezes39 code dependencies. Once the prerequisites pass, it obtains the
+original collector's lock before changing development guards, preventing that
+collector from reading a partly written launch intent. Do not run competing
+development launch/status/collection commands or edit hashed dependencies while
+this coordinator is active. Existing parent jobs and all three older local
+processes remain untouched.
+
+Its only planned submissions are **8 complete-deal runtime probes** (each of
+four ensembles at2p and6p;128 probe games) and, only after same-candidate/source/
+hardware runtime admission, **4 ×108 full development shards**. The existing
+manager's conservative projection and at-most12h job bound remain unchanged;
+a failed admission stops instead of shortening games/search or weakening opponents.
+Every ensemble gets the complete27-cell/6,720-game grid. All five arms including
+the parent then enter the already frozen **33,600-game,8-contrast comparison**.
+All rule/count/opponent cells, adverse results and all four prespecified seed
+ensembles are retained;there is no automatic best-model selection.
+
+The coordinator archives the probe guards, each full grid's guards/runtime
+proof, and finally the full verified comparison as compact HF archives. It
+terminates at `development_comparison_complete` or its24h window. Errors and
+ambiguous handles stop with intermediates preserved;**no retries,cancellations,
+local gradients,final evaluation or candidate promotion**. Actual trained AMD
+benchmark/standalone export and the untouched final gate still remain. On a
+future explicit pause, stop this coordinator too so it cannot submit later.
+
+Three contract test suites passed:both complete upstream handoffs are required,
+all four archived candidate identities are required,and probes cover the exact
+2p/6p endpoints with a separate runtime seed namespace. A real-data one-shot
+check started no commands; a second coordinator was lock-rejected before output
+creation. **Full trained/runtime/grid integration is pending real trained data.**
+Controls: `strong/policy-iteration-development-coordinator-controls-v2.json`.
+Evidence: `strong/policy-iteration-development-coordinator-evidence-v2.json`,
+revision`a2269d800d44d62dbc868e41decdece52bc0a322`, archive
+`archives/policy-iteration-development-coordinator-evidence-v2.tgz`, SHA
+`55c22d8507e2439ea977055e9b5dcaa85a12739490eca6d4b8de061ae3f846aa`.
+Archive55965 finished successfully and downloaded bytes were verified.
+
+Latest completed label cycle9: **552/948 shards /17,783,232 continuations**.
+Snapshot06:42:31UTC:552 completed,396 running,**none queued**. All948 effective
+jobs have started;no additional hardware migration is needed. Parent remains
+96 verified batches/5,760 games. The earlier label-quality audit remains frozen
+at475 shards. Training submissions are still0;none of this infrastructure is
+model-strength evidence. Verify the four actual local PIDs/sessions before any
+recovery action;do not recreate them just because logs are quiet.
 
 ### Trained-output harvester ACTIVE — third local process
 

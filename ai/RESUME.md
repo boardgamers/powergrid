@@ -21,13 +21,22 @@ reserved final seeds are unused.
   No submissions/retries/gradients/promotion. Do not duplicate training collection
   or edit its28 hashed dependencies while active. Full integration is pending
   actual trained outputs. Evidence: `strong/policy-iteration-training-harvest-evidence-v2.json`.
-- **509/948 new label shards verified**,16,819,584 continuations including pilot.
-  Snapshot06:26:44UTC:509 completed,430 running,9 queued.
+- **Development coordinator ACTIVE:** PID2950746 /session63641, started06:45:25UTC.
+  State: `ai/runs/policy-iteration-development-coordinator-v2/state.json`.
+  Waits for all four archived trained pins and complete parent reference, then
+  runs8 endpoint runtime probes,4 complete108-shard candidate grids,and the
+  prescribed33,600-game comparison. It takes over only after the original
+  collector releases its lock. Do not run competing development operations or
+  edit its39 hashed dependencies.24h window,no retry/cancel/final test/promotion.
+  Stop it on an explicit pause to prevent later submissions. No candidate jobs
+  launched yet. Evidence: `strong/policy-iteration-development-coordinator-evidence-v2.json`.
+- **552/948 new label shards verified**,17,783,232 continuations including pilot.
+  Snapshot06:42:31UTC:552 completed,396 running,none queued. All948 jobs have started.
   A frozen cross-batch audit covers4,520 fully paired roots:conditional gain0.04983;
   448/3,100 changed directions negative. Partial scheduling-selected cohort;not
   whole-game model strength. No partial-data training or changed thresholds.
   Evidence: `strong/policy-iteration-label-quality-progress-evidence-v2.json`.
-  The three local processes are still active. Last capacity archive
+  The four local processes are still active. Last capacity archive
   preserves418 shards;this audit also preserves the475-shard manifest.
 - Fourth bounded hardware wave finished: **420 queued-job migrations**,9 safely
   skipped originals, plus2 separate upload-failure retries. All948 effective IDs
@@ -45,7 +54,7 @@ reserved final seeds are unused.
 - No new gradients yet. Four trained-candidate evaluation grids, exact trained
   export/AMD benchmark and the unchanged final strength gate remain.
 
-Next: inspect the three existing processes as needed and let the prescribed pipeline
+Next: inspect the four existing processes as needed and let the prescribed pipeline
 advance. Keep the full strength objective active; source/model qualification is
 not established by these orchestration controls.
 

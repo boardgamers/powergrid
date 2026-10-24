@@ -25,7 +25,85 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: exact auction replays and fixed-action holdout worlds
+## Latest checkpoint: seven one-action counterfactual pairs complete, 25 October
+
+The preceding replay/holdout-world turn was substantive progress. This turn completed
+the next fixed causal diagnostic, preserving all seven positions rather than choosing
+only examples that supported a hypothesis. No deployed or research policy was changed.
+
+`strong/auction-first-action-counterfactual-v1.py` prepared seven filtered-model
+controls and seven single-action branches from the previously verified first-divergence
+roots. Every control used live filtered-model inference and exactly matched all saved
+control decisions, public roots and complete terminal reports. Each branch matched
+the original public prefix, injected its one saved auction-search action, and then
+returned to filtered-model inference for every subsequent learner decision. Opponents
+continued their unchanged frozen arena policies and could respond to the intervention.
+The full engine state was recreated from the original seed/rules/seat; the policy
+only received public observations, with hidden deck and sealed bids removed.
+
+All **14 games / seven controls / seven intervention branches** completed, covering
+**1,886 learner decisions and 6,919 root moves**. The chained economy traces match
+executed moves, and all game/opponent-search cap counts are zero. The seven controls
+match the original evaluations exactly; each intervention branch has precisely one
+override and uses the same filtered policy without search everywhere else.
+Session **82545** exited 0. Output directory:
+`ai/runs/auction-first-action-counterfactual-v1/`.
+
+| Selected case | Filter control | One changed action | Interpretation on this deal |
+|---|---:|---:|---|
+| 4p original/open regression | 1 | 0 | Opening nomination alone is sufficient for this loss under model continuation. |
+| 5p Recharged/open regression | 1 | 1 | Complete terminal player summaries unchanged. |
+| 3p heuristic regression | 1 | 1 | Complete terminal player summaries unchanged. |
+| 4p Recharged/sealed improvement | 0 | 0 | Different terminal state, same loss. |
+| 4p original/sealed improvement | 0 | 0 | Complete terminal player summaries unchanged. |
+| 2p Recharged/sealed improvement | 0 | 1 | First change alone recovers this win under model continuation. |
+| 6p Recharged/sealed improvement | 0 | 1 | First change alone recovers this win under model continuation. |
+
+The 4p original/open opening still had a +0.125 mean advantage in the earlier
+56-world mixture diagnostic, despite losing this known-deal intervention. Conversely,
+the 2p sealed opening had a slightly negative heldout mixture mean but wins this
+known-deal intervention. This does not by itself prove an incorrectly estimated
+expected value: a single actual deck can differ from its sampled expectation, and
+these examples were selected by prior outcomes. It does establish that later search
+is not necessary for those particular changes in outcome. In the other cases, the
+full search-policy outcome cannot be attributed to its first change alone.
+
+Evidence was checked again from saved receipts and uploaded with pinned download
+verification; 107 archived files, including source, protocol, full controls/branches,
+public requests and economy traces:
+
+- Descriptor: `strong/auction-first-action-counterfactual-evidence-v1.json`.
+- Protocol SHA: `c163db683f2e5b29036880e818df72c6176e08e4bc09f2f5d7be16243bf5ba45`.
+- HF revision: `f9dc1f9f1092e9a36809001486bac0daa8111866`.
+- Archive: `archives/auction-first-action-counterfactual-evidence-v1.tgz`.
+- SHA256: `4c3f304209521bc4fc17f223441f7246b0fdf3dbb19330db97a2ac524fb02d80`.
+
+The one-shot archive succeeded; do not rerun it. No new HF jobs, gradients, fresh
+strength games, final candidate or reserved seeds were used. Do not turn these
+outcome-selected known-deal labels into a training target or a strength claim.
+All 1,463 frozen runtime files and current Python dependencies remain unchanged.
+
+**Next:** a controlled opponent-model diagnostic on the same seven public roots and
+the same original two candidate actions. Preserve the existing 64 sampled-world
+seeds and model/engine/horizons. Compare the equal neural/economic/legacy/rush mixture
+with the frozen actual arena opponent policy (search_geo16 for six pairs, heuristic
+for the 3p pair), including policy-consistent inferred prior sealed bids. Never use
+actual hidden bids/deck, and never treat this diagnostic knowledge of arena roles
+as a deployable ability to know a live opponent's strategy. The original expanded
+mixture results remain immutable controls. Use a separate worker rather than editing
+the 32 frozen dependencies. Verify pure control parity, candidate/shared-world
+identity, public-only beliefs, full terminal scoring and cap rejection; measure a
+small complete rollout pilot before CPU HF job admission because reference search
+inside continuations can be expensive. Do not shorten horizons or silently fall back.
+This tests whether assumed opponent behavior contributes to candidate ranking;
+it does not yet establish a stronger search policy or eliminate sampling uncertainty.
+
+The separately preregistered resource ablation remains unlaunched and still needs
+its own source and runtime admission. A read-only review this turn confirmed those
+requirements; nothing was changed or submitted. Final gate and adapter requirements
+remain unchanged, and larger confirmation still needs an improved, frozen policy.
+
+## Previous checkpoint: exact auction replays and fixed-action holdout worlds
 
 The previous goal turn completed the full screen and changed the next research
 action; it was substantive progress. This turn added exact replay evidence and

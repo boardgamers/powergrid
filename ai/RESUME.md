@@ -6,7 +6,38 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 24 October: exact auction replays and holdout-world diagnostic complete.**
+**Latest — 25 October: all seven one-action counterfactual pairs complete.**
+`strong/auction-first-action-counterfactual-v1.py` ran the filtered model throughout
+seven controls (every original decision/public root and terminal report matched),
+and seven branches changing exactly the saved first differing action before returning
+to the filtered model. All **1,886 learner decisions / 6,919 root moves** passed;
+zero game/opponent-search caps. Session **82545** exited 0. Evidence is archived and
+verified: `strong/auction-first-action-counterfactual-evidence-v1.json`, private HF
+revision `f9dc1f9f1092e9a36809001486bac0daa8111866`.
+
+Effects within these fixed deals: the 4p original/open opening change turns a win
+into a loss; the 2p and 6p Recharged/sealed changes turn losses into wins. The other
+four cases keep the same win result. Three of those also have identical complete
+terminal player summaries. These are outcome-selected, known-deal counterfactuals,
+not fresh strength results or hindsight training labels. Opponent reactions are
+allowed to change after the intervention; all later learner actions use the same
+filtered policy rather than replaying a different trajectory's moves.
+
+**Next:** test opponent-model mismatch using sampled public worlds, not actual
+future decks. On the same seven fixed roots and the same original candidate pair,
+compare the current equal opponent mixture with continuations using the frozen
+arena reference policy (search_geo16, or heuristic for the 3p case), including
+policy-consistent inferred sealed bids. This is a diagnostic use of known arena
+roles, not a deployable policy that knows opponents' identities. Preserve the
+model, candidate pair, sampled-world seeds and full horizons; keep the existing
+64-world results as the mixture reference. Build an isolated worker, verify control
+parity/privacy and measure complete rollout runtime before admitting CPU HF jobs;
+nested reference search may be costly. Do not fit a rule switch or confidence
+threshold to these seven examples. The separate resource ablation remains unlaunched.
+No policy changed, no HF jobs launched, no gradients or final seeds used. The archive
+collector completed once and must not be rerun.
+
+**Previous — 24 October: exact auction replays and holdout-world diagnostic complete.**
 Fourteen replayed games (seven fixed adverse/improved pairs) match their saved
 outcomes exactly: **7,083 root moves, 1,908 learner decisions**, all legal moves,
 model proposals, search seeds and public-state/economy trace checks passed.

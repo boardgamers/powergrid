@@ -1,0 +1,1621 @@
+{
+  "observer_sha256": "6ac6b214856ee5dc68871ccf1653025ef88961b272e5537d7c294c4b9de20c51",
+  "plan_sha256": "bd2d80bac1384f6d71a9cc4ee1f71db21ce6d9c8fd95e9a12543cdeceb83859f",
+  "purpose": "Read-only execution progress; no result collection or strength selection.",
+  "jobs": [
+    {
+      "case": "population-hybrid-development-v1-combined-6p-search_geo-0-4",
+      "job_id": "6adcba011e112550ce7e0464",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T16:47:00.207614+00:00",
+      "created_at": "2026-10-24 14:00:33.911000+00:00",
+      "started_at": "2026-10-24 14:00:36.774000+00:00",
+      "running_seconds": 9978,
+      "flavor": "cpu-upgrade",
+      "configured_timeout_hours": 9,
+      "guard_sha256": "defdde2f66218c781035d84f303061bc6b6a969fe22e9d022e3495f5bdd8c471",
+      "progress": [
+        {
+          "episode": 1,
+          "completed": 1,
+          "total": 96,
+          "seconds": 1587.91,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 5,
+          "completed": 2,
+          "total": 96,
+          "seconds": 1954.43,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 4,
+          "completed": 3,
+          "total": 96,
+          "seconds": 1975.19,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 0,
+          "completed": 4,
+          "total": 96,
+          "seconds": 2074.19,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 3,
+          "completed": 5,
+          "total": 96,
+          "seconds": 2701.71,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 7,
+          "completed": 6,
+          "total": 96,
+          "seconds": 2984.11,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 2,
+          "completed": 7,
+          "total": 96,
+          "seconds": 3290.84,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 6,
+          "completed": 8,
+          "total": 96,
+          "seconds": 3449.31,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 8,
+          "completed": 9,
+          "total": 96,
+          "seconds": 2034.75,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 9,
+          "completed": 10,
+          "total": 96,
+          "seconds": 1971.92,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 13,
+          "completed": 11,
+          "total": 96,
+          "seconds": 1851.18,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 12,
+          "completed": 12,
+          "total": 96,
+          "seconds": 2173.49,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 11,
+          "completed": 13,
+          "total": 96,
+          "seconds": 3425.67,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 16,
+          "completed": 14,
+          "total": 96,
+          "seconds": 2205.75,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 10,
+          "completed": 15,
+          "total": 96,
+          "seconds": 4253.76,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 17,
+          "completed": 16,
+          "total": 96,
+          "seconds": 2412.32,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 18,
+          "completed": 17,
+          "total": 96,
+          "seconds": 2317.21,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 20,
+          "completed": 18,
+          "total": 96,
+          "seconds": 1972.56,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 14,
+          "completed": 19,
+          "total": 96,
+          "seconds": 4321.5,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 21,
+          "completed": 20,
+          "total": 96,
+          "seconds": 2042.52,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 15,
+          "completed": 21,
+          "total": 96,
+          "seconds": 4764.85,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 19,
+          "completed": 22,
+          "total": 96,
+          "seconds": 3826.33,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 22,
+          "completed": 23,
+          "total": 96,
+          "seconds": 2687.51,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 25,
+          "completed": 24,
+          "total": 96,
+          "seconds": 1601.98,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 24,
+          "completed": 25,
+          "total": 96,
+          "seconds": 2465.35,
+          "caps": 0,
+          "truncated": false
+        }
+      ],
+      "last_progress": {
+        "episode": 24,
+        "completed": 25,
+        "total": 96,
+        "seconds": 2465.35,
+        "caps": 0,
+        "truncated": false
+      },
+      "observed_completed_caps": 0,
+      "observed_truncated": 0,
+      "observed_game_seconds_median": 2317.21,
+      "observed_game_seconds_max": 4764.85,
+      "crude_total_seconds_at_completed_rate": 38315.52,
+      "rate_exceeds_configured_timeout": true,
+      "projection_limit": "Censored, ordered, concurrent games; completed-game rate is only a timeout-risk indicator, not a reliable ETA or proof of eventual timeout.",
+      "metrics": [
+        {
+          "cpu_usage_pct": 0,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4811177984,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 48,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4813209600,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 45,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4811464704,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 51,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4808749056,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 43,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4809101312,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 49,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4810301440,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 40,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4808740864,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 34,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4808855552,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 37,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4808388608,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 35,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4812136448,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 39,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4813877248,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 38,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4813180928,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 45,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4810465280,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 43,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4810215424,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 43,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4808736768,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 38,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4806492160,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 46,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4807696384,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 38,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4807380992,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 40,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4807639040,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        },
+        {
+          "cpu_usage_pct": 33,
+          "cpu_millicores": 8000,
+          "memory_used_bytes": 4809113600,
+          "memory_total_bytes": 32000000000,
+          "rx_bps": 0,
+          "tx_bps": 0,
+          "gpus": {},
+          "replica": "49mx4"
+        }
+      ],
+      "cpu_percent_median_after_first_frame": 40,
+      "memory_bytes_max": 4813877248
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-6p-rush-0-4",
+      "job_id": "6adcba00046eb82b1ecdce00",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T16:47:00.220730+00:00",
+      "created_at": "2026-10-24 14:00:32.580000+00:00",
+      "started_at": "2026-10-24 14:00:35.785000+00:00",
+      "running_seconds": 9979,
+      "flavor": "cpu-upgrade",
+      "configured_timeout_hours": 9,
+      "guard_sha256": "283e6488dc81b8db65f558dac4c5171fc97c33dd297f90c05b7023f7e27fd9f4",
+      "progress": [
+        {
+          "episode": 1,
+          "completed": 1,
+          "total": 96,
+          "seconds": 912.92,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 5,
+          "completed": 2,
+          "total": 96,
+          "seconds": 1061.57,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 6,
+          "completed": 3,
+          "total": 96,
+          "seconds": 1235.6,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 4,
+          "completed": 4,
+          "total": 96,
+          "seconds": 1297.34,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 0,
+          "completed": 5,
+          "total": 96,
+          "seconds": 1337.35,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 9,
+          "completed": 6,
+          "total": 96,
+          "seconds": 872.21,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 7,
+          "completed": 7,
+          "total": 96,
+          "seconds": 2082.31,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 3,
+          "completed": 8,
+          "total": 96,
+          "seconds": 2247.81,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 8,
+          "completed": 9,
+          "total": 96,
+          "seconds": 1525.41,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 2,
+          "completed": 10,
+          "total": 96,
+          "seconds": 2546.22,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 12,
+          "completed": 11,
+          "total": 96,
+          "seconds": 1256.99,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 13,
+          "completed": 12,
+          "total": 96,
+          "seconds": 861.88,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 10,
+          "completed": 13,
+          "total": 96,
+          "seconds": 1761.7,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 16,
+          "completed": 14,
+          "total": 96,
+          "seconds": 1014.59,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 14,
+          "completed": 15,
+          "total": 96,
+          "seconds": 1591.35,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 17,
+          "completed": 16,
+          "total": 96,
+          "seconds": 1344.62,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 11,
+          "completed": 17,
+          "total": 96,
+          "seconds": 2617.38,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 15,
+          "completed": 18,
+          "total": 96,
+          "seconds": 1976.76,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 21,
+          "completed": 19,
+          "total": 96,
+          "seconds": 1053.19,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 20,
+          "completed": 20,
+          "total": 96,
+          "seconds": 1887.16,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 25,
+          "completed": 21,
+          "total": 96,
+          "seconds": 1114.64,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 18,
+          "completed": 22,
+          "total": 96,
+          "seconds": 3024.35,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 19,
+          "completed": 23,
+          "total": 96,
+          "seconds": 3057.32,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 22,
+          "completed": 24,
+          "total": 96,
+          "seconds": 2192.53,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 24,
+          "completed": 25,
+          "total": 96,
+          "seconds": 2038.37,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 28,
+          "completed": 26,
+          "total": 96,
+          "seconds": 970.07,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 29,
+          "completed": 27,
+          "total": 96,
+          "seconds": 1104.75,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 23,
+          "completed": 28,
+          "total": 96,
+          "seconds": 3008.14,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 26,
+          "completed": 29,
+          "total": 96,
+          "seconds": 2454.46,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 32,
+          "completed": 30,
+          "total": 96,
+          "seconds": 1160.03,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 33,
+          "completed": 31,
+          "total": 96,
+          "seconds": 1164.56,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 27,
+          "completed": 32,
+          "total": 96,
+          "seconds": 2673.81,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 31,
+          "completed": 33,
+          "total": 96,
+          "seconds": 1921.78,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 35,
+          "completed": 34,
+          "total": 96,
+          "seconds": 1064.99,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 30,
+          "completed": 35,
+          "total": 96,
+          "seconds": 2291.64,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 36,
+          "completed": 36,
+          "total": 96,
+          "seconds": 1227.68,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 37,
+          "completed": 37,
+          "total": 96,
+          "seconds": 1150.54,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 34,
+          "completed": 38,
+          "total": 96,
+          "seconds": 1891.56,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 41,
+          "completed": 39,
+          "total": 96,
+          "seconds": 822.34,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 40,
+          "completed": 40,
+          "total": 96,
+          "seconds": 1387.86,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 44,
+          "completed": 41,
+          "total": 96,
+          "seconds": 1328.67,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 42,
+          "completed": 42,
+          "total": 96,
+          "seconds": 1540.91,
+          "caps": 0,
+          "truncated": false
+        }
+      ],
+      "last_progress": {
+        "episode": 42,
+        "completed": 42,
+        "total": 96,
+        "seconds": 1540.91,
+        "caps": 0,
+        "truncated": false
+      },
+      "observed_completed_caps": 0,
+      "observed_truncated": 0,
+      "observed_game_seconds_median": 1366.2399999999998,
+      "observed_game_seconds_max": 3057.32,
+      "crude_total_seconds_at_completed_rate": 22809.14285714286,
+      "rate_exceeds_configured_timeout": false,
+      "projection_limit": "Censored, ordered, concurrent games; completed-game rate is only a timeout-risk indicator, not a reliable ETA or proof of eventual timeout."
+    },
+    {
+      "case": "population-hybrid-development-v1-building-6p-search_geo-0-4",
+      "job_id": "6adcba26046eb82b1ecdce1e",
+      "authoritative_status": "COMPLETED",
+      "checked_at": "2026-10-24T16:46:55.352052+00:00",
+      "created_at": "2026-10-24 14:01:10.602000+00:00",
+      "started_at": "2026-10-24 14:01:13.585000+00:00",
+      "running_seconds": 8502,
+      "flavor": "cpu-upgrade",
+      "configured_timeout_hours": 9,
+      "guard_sha256": "9d22bd9bd24844128dd64af831fd7c4af24227e969211828fe9ddcc8f259c6fd",
+      "progress": [
+        {
+          "episode": 5,
+          "completed": 1,
+          "total": 96,
+          "seconds": 367.7,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 4,
+          "completed": 2,
+          "total": 96,
+          "seconds": 433.71,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 1,
+          "completed": 3,
+          "total": 96,
+          "seconds": 433.74,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 3,
+          "completed": 4,
+          "total": 96,
+          "seconds": 436.96,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 0,
+          "completed": 5,
+          "total": 96,
+          "seconds": 464.18,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 2,
+          "completed": 6,
+          "total": 96,
+          "seconds": 533.17,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 6,
+          "completed": 7,
+          "total": 96,
+          "seconds": 612.36,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 7,
+          "completed": 8,
+          "total": 96,
+          "seconds": 683.27,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 8,
+          "completed": 9,
+          "total": 96,
+          "seconds": 484.41,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 12,
+          "completed": 10,
+          "total": 96,
+          "seconds": 425.46,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 9,
+          "completed": 11,
+          "total": 96,
+          "seconds": 481.85,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 13,
+          "completed": 12,
+          "total": 96,
+          "seconds": 442.06,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 11,
+          "completed": 13,
+          "total": 96,
+          "seconds": 672.96,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 10,
+          "completed": 14,
+          "total": 96,
+          "seconds": 708.58,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 14,
+          "completed": 15,
+          "total": 96,
+          "seconds": 593.82,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 15,
+          "completed": 16,
+          "total": 96,
+          "seconds": 549.75,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 17,
+          "completed": 17,
+          "total": 96,
+          "seconds": 563.8,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 16,
+          "completed": 18,
+          "total": 96,
+          "seconds": 647.04,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 18,
+          "completed": 19,
+          "total": 96,
+          "seconds": 712.36,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 20,
+          "completed": 20,
+          "total": 96,
+          "seconds": 546.41,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 19,
+          "completed": 21,
+          "total": 96,
+          "seconds": 722.6,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 21,
+          "completed": 22,
+          "total": 96,
+          "seconds": 568.15,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 22,
+          "completed": 23,
+          "total": 96,
+          "seconds": 852.56,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 24,
+          "completed": 24,
+          "total": 96,
+          "seconds": 685.29,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 23,
+          "completed": 25,
+          "total": 96,
+          "seconds": 945.39,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 28,
+          "completed": 26,
+          "total": 96,
+          "seconds": 501.37,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 25,
+          "completed": 27,
+          "total": 96,
+          "seconds": 715.75,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 29,
+          "completed": 28,
+          "total": 96,
+          "seconds": 696.22,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 26,
+          "completed": 29,
+          "total": 96,
+          "seconds": 879.33,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 27,
+          "completed": 30,
+          "total": 96,
+          "seconds": 932.88,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 33,
+          "completed": 31,
+          "total": 96,
+          "seconds": 552.34,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 32,
+          "completed": 32,
+          "total": 96,
+          "seconds": 605.51,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 30,
+          "completed": 33,
+          "total": 96,
+          "seconds": 785.23,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 34,
+          "completed": 34,
+          "total": 96,
+          "seconds": 732.13,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 31,
+          "completed": 35,
+          "total": 96,
+          "seconds": 871.87,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 36,
+          "completed": 36,
+          "total": 96,
+          "seconds": 647.54,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 35,
+          "completed": 37,
+          "total": 96,
+          "seconds": 804.56,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 37,
+          "completed": 38,
+          "total": 96,
+          "seconds": 664.58,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 40,
+          "completed": 39,
+          "total": 96,
+          "seconds": 669.11,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 41,
+          "completed": 40,
+          "total": 96,
+          "seconds": 839.95,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 39,
+          "completed": 41,
+          "total": 96,
+          "seconds": 1047.95,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 38,
+          "completed": 42,
+          "total": 96,
+          "seconds": 1150.1,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 42,
+          "completed": 43,
+          "total": 96,
+          "seconds": 1002.78,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 43,
+          "completed": 44,
+          "total": 96,
+          "seconds": 948.25,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 45,
+          "completed": 45,
+          "total": 96,
+          "seconds": 865.48,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 44,
+          "completed": 46,
+          "total": 96,
+          "seconds": 991.27,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 46,
+          "completed": 47,
+          "total": 96,
+          "seconds": 1166.4,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 47,
+          "completed": 48,
+          "total": 96,
+          "seconds": 912.23,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 49,
+          "completed": 49,
+          "total": 96,
+          "seconds": 889.85,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 48,
+          "completed": 50,
+          "total": 96,
+          "seconds": 1037.28,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 52,
+          "completed": 51,
+          "total": 96,
+          "seconds": 840.6,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 51,
+          "completed": 52,
+          "total": 96,
+          "seconds": 946.29,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 53,
+          "completed": 53,
+          "total": 96,
+          "seconds": 894.5,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 50,
+          "completed": 54,
+          "total": 96,
+          "seconds": 1139.6,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 54,
+          "completed": 55,
+          "total": 96,
+          "seconds": 724.3,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 57,
+          "completed": 56,
+          "total": 96,
+          "seconds": 624.21,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 56,
+          "completed": 57,
+          "total": 96,
+          "seconds": 711.97,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 55,
+          "completed": 58,
+          "total": 96,
+          "seconds": 899.16,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 61,
+          "completed": 59,
+          "total": 96,
+          "seconds": 569.95,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 60,
+          "completed": 60,
+          "total": 96,
+          "seconds": 627.91,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 58,
+          "completed": 61,
+          "total": 96,
+          "seconds": 768.38,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 59,
+          "completed": 62,
+          "total": 96,
+          "seconds": 710.89,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 64,
+          "completed": 63,
+          "total": 96,
+          "seconds": 616.43,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 62,
+          "completed": 64,
+          "total": 96,
+          "seconds": 718.38,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 65,
+          "completed": 65,
+          "total": 96,
+          "seconds": 569.42,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 63,
+          "completed": 66,
+          "total": 96,
+          "seconds": 740.36,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 69,
+          "completed": 67,
+          "total": 96,
+          "seconds": 590.11,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 68,
+          "completed": 68,
+          "total": 96,
+          "seconds": 668.08,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 66,
+          "completed": 69,
+          "total": 96,
+          "seconds": 799.79,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 67,
+          "completed": 70,
+          "total": 96,
+          "seconds": 869.29,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 73,
+          "completed": 71,
+          "total": 96,
+          "seconds": 514.06,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 71,
+          "completed": 72,
+          "total": 96,
+          "seconds": 636.9,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 72,
+          "completed": 73,
+          "total": 96,
+          "seconds": 591.0,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 70,
+          "completed": 74,
+          "total": 96,
+          "seconds": 669.49,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 76,
+          "completed": 75,
+          "total": 96,
+          "seconds": 499.83,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 74,
+          "completed": 76,
+          "total": 96,
+          "seconds": 715.11,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 77,
+          "completed": 77,
+          "total": 96,
+          "seconds": 479.1,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 75,
+          "completed": 78,
+          "total": 96,
+          "seconds": 920.26,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 80,
+          "completed": 79,
+          "total": 96,
+          "seconds": 565.14,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 81,
+          "completed": 80,
+          "total": 96,
+          "seconds": 540.9,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 79,
+          "completed": 81,
+          "total": 96,
+          "seconds": 708.93,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 78,
+          "completed": 82,
+          "total": 96,
+          "seconds": 761.07,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 84,
+          "completed": 83,
+          "total": 96,
+          "seconds": 488.59,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 82,
+          "completed": 84,
+          "total": 96,
+          "seconds": 671.72,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 83,
+          "completed": 85,
+          "total": 96,
+          "seconds": 631.18,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 85,
+          "completed": 86,
+          "total": 96,
+          "seconds": 401.76,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 88,
+          "completed": 87,
+          "total": 96,
+          "seconds": 339.05,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 86,
+          "completed": 88,
+          "total": 96,
+          "seconds": 535.33,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 87,
+          "completed": 89,
+          "total": 96,
+          "seconds": 613.3,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 89,
+          "completed": 90,
+          "total": 96,
+          "seconds": 451.71,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 90,
+          "completed": 91,
+          "total": 96,
+          "seconds": 582.59,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 92,
+          "completed": 92,
+          "total": 96,
+          "seconds": 529.35,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 93,
+          "completed": 93,
+          "total": 96,
+          "seconds": 541.54,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 91,
+          "completed": 94,
+          "total": 96,
+          "seconds": 597.7,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 94,
+          "completed": 95,
+          "total": 96,
+          "seconds": 653.9,
+          "caps": 0,
+          "truncated": false
+        },
+        {
+          "episode": 95,
+          "completed": 96,
+          "total": 96,
+          "seconds": 615.68,
+          "caps": 0,
+          "truncated": false
+        }
+      ],
+      "last_progress": {
+        "episode": 95,
+        "completed": 96,
+        "total": 96,
+        "seconds": 615.68,
+        "caps": 0,
+        "truncated": false
+      },
+      "observed_completed_caps": 0,
+      "observed_truncated": 0,
+      "observed_game_seconds_median": 666.33,
+      "observed_game_seconds_max": 1166.4
+    }
+  ],
+  "new_hf_jobs": 0,
+  "remote_mutations": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "status": "live_runtime_risk_observation_not_strength_evidence",
+  "huggingface_hub_version": "2.0.0",
+  "source_snapshot_sha256": "accfc2a12a38f89c3de16c210c53755aaad38db72c0f02456841c65fe602ae8d",
+  "previous_goal_turn": "progress: resource ablation preregistered, tested, archived and pushed as 104b635",
+  "this_goal_turn": "progress: live runtime observation identifies a potential timeout risk not predicted by endpoint admission",
+  "current_screen_unchanged": true,
+  "decision": "Continue existing jobs and sole coordinator. No cancellation, restart, timeout modification, new experiment or policy change. Recheck progress; any actual failure must be retained and reconciled before a deliberately documented replacement, with identical games and policy.",
+  "inference_limits": [
+    "Short CPU sample cannot establish the cause of reduced utilization or rank hardware. No per-process profiler/SSH access was available.",
+    "Completed games are censored, ordered and concurrent. The simple projection is a risk signal, not an ETA or proof of eventual timeout.",
+    "Only completed-game logs were inspected; all reported completed games have zero caps. In-flight games and the full-grid strength remain unverified."
+  ],
+  "timeout_interface": {
+    "installed_sdk_live_timeout_extension_method_found": false,
+    "remote_ssh_available": false,
+    "official_documentation": "https://huggingface.co/docs/hub/jobs-configuration",
+    "documented_behavior": "Timeout is specified when launching a job; no live extension was found in the installed API or the inspected documentation. No speculative endpoint was called."
+  }
+}

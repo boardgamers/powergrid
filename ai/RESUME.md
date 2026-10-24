@@ -6,7 +6,26 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: resource ablation preregistered and result checker verified; no jobs launched.**
+**Latest: live combined-search runtime risk observed; existing jobs continue.**
+Read-only HF checks at 2026-10-24T16:47 UTC confirm combined6psearch RUNNING,
+25/96 games completed after 9,978s, with zero caps in those completed games.
+Its 20-frame CPU sample has a 40% median after the initial frame, about 4.8GB/32GB
+RAM, eight allocated vCPUs. Combined6prush is RUNNING at 42/96; building6psearch
+is COMPLETED at 96/96. The slow completed-game rate flags potential overrun of the
+nine-hour job budget; it is not a reliable ETA, a stall, or a terminal failure.
+
+Snapshot: `strong/population-hybrid-runtime-observation-v1.json`; observer:
+`strong/inspect-population-hybrid-runtime-v1.py` (read-only, bounded metrics).
+Do not infer why CPU use is lower from this short sample. No exposed job SSH or
+supported installed-SDK timeout extension was found. No remote changes were made.
+Continue/recheck existing handles and coordinator PID 1447977 / session 53211.
+Retain any actual failure before deliberately planning a replacement with the
+same games/policy; never restart from a projection or quiet logs. Future resource
+runtime admission must not reuse the old endpoint estimate. This is execution
+evidence, not evidence of a strength plateau. No new experiment, candidate or
+qualification; all frozen dependencies/final seeds remain unchanged.
+
+**Previous: resource ablation preregistered and result checker verified; no jobs launched.**
 `strong/resource-replanning-development-protocol-v1.json` fixes filter versus
 resource-filter on 3,360 fresh paired games: 27 count/opponent cells, Germany 2–6,
 four original/Recharged × open/sealed rules, every seat, four independent deals,

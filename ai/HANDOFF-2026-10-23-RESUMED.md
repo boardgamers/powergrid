@@ -25,7 +25,59 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: resource comparison preparation verified, unlaunched
+## Latest checkpoint: live runtime risk, no remote mutation
+
+Previous goal turn: progress (resource preflight pushed as 104b635). This turn:
+progress, from live evidence that changes runtime expectations. The sole
+coordinator remains PID 1447977 / session 53211, confirmed via its actual process.
+At 2026-10-24T16:45:02 UTC it reports 62 submitted / 30 verified, no failed jobs.
+No additional experiment, job retry, cancellation or changed search budget.
+
+`strong/inspect-population-hybrid-runtime-v1.py` verifies the original plan/guard,
+inspects the existing job ID, reads a finite tail of progress logs, and optionally
+takes at most 30 metrics frames under a 40s alarm. It never collects results or
+mutates jobs. All output is whitelisted execution metadata; no environment/secrets.
+`strong/population-hybrid-runtime-observation-v1.json` preserves the actual raw
+progress and 20-frame metrics observation, source hash, SDK version and limitations.
+
+At 2026-10-24T16:47 UTC:
+
+| Existing shard | Authoritative status | Games completed | Completed-game median / max |
+| --- | --- | ---: | ---: |
+| combined6psearch_geo, `6adcba011e112550ce7e0464` | RUNNING | 25/96 | 2,317 / 4,765s |
+| combined6prush, `6adcba00046eb82b1ecdce00` | RUNNING | 42/96 | 1,366 / 3,057s |
+| building6psearch_geo, `6adcba26046eb82b1ecdce1e` | COMPLETED | 96/96 | 666 / 1,166s |
+
+All observed completed-game progress rows report zero rollout/game caps. This does
+not certify the remaining games or bypass the coordinator's independent collection.
+Combined6psearch had run for 9,978s on cpu-upgrade; 20 raw metrics frames show eight
+allocated vCPUs, median reported CPU40% after the initial frame, peak RAM4.814GB of
+32GB, no GPU. An earlier five-frame observation had roughly48–61% CPU. These short
+samples cannot identify the cause, represent its entire runtime, or prove hardware
+throttling. No per-process/SSH access was exposed for this job.
+
+The simple completed-rate extrapolation is 38,316s (10.64h), above the fixed 9h
+timeout; this is a **risk indicator only**. Games are ordered, concurrent and
+censored by completion, so neither that estimate nor the current median is an
+ETA or proof of a future timeout. The old endpoint pilot underestimated some
+observed game costs. Do not shorten games/search, score incomplete games, cancel,
+retry, or change the frozen plan because of this projection. Continue the same
+handles and sole coordinator. If a real terminal failure occurs, retain it and
+reconcile the stopped coordinator before deliberately designing a documented
+replacement with identical source, seeds, all seats/rules and no partial promotion.
+
+The installed HF API has no live timeout-extension method; inspected
+[official configuration docs](https://huggingface.co/docs/hub/jobs-configuration)
+describe setting timeout at launch. No unsupported endpoint was attempted. This
+is not a universal claim about every HF interface. No automatic recovery or extra
+jobs were started. Building-only completion is runtime evidence, not a policy
+strength conclusion. This is also not evidence that training has plateaued.
+
+All 32 frozen screen dependencies and final protocol remain unchanged. Current
+runtime measurements reinforce requiring new resource-specific admission after
+the fixed comparison completes. No qualified candidate or final seeds used.
+
+## Previous checkpoint: resource comparison preparation verified, unlaunched
 
 Previous goal turn: progress (actual 8840U benchmark archived/pushed as a6f1919).
 This turn: progress. Preregistered a fresh resource ablation and implemented its

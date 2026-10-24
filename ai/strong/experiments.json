@@ -53630,5 +53630,27 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "next": "Finish and review current complete hybrid comparison; only then package the isolated resource runtime, run new full paired endpoint pilots, verify/replay and measure admission before any resource strength jobs. No automatic launch or promotion."
+    },
+    "population_hybrid_live_runtime_risk_v1": {
+        "status": "live_runtime_risk_observation_not_strength_evidence",
+        "observation": "ai/strong/population-hybrid-runtime-observation-v1.json",
+        "observer": "ai/strong/inspect-population-hybrid-runtime-v1.py",
+        "source_snapshot_sha256": "accfc2a12a38f89c3de16c210c53755aaad38db72c0f02456841c65fe602ae8d",
+        "slow_job_id": "6adcba011e112550ce7e0464",
+        "authoritative_status": "RUNNING",
+        "completed_games": 25,
+        "planned_games": 96,
+        "running_seconds": 9978,
+        "cpu_frames": 20,
+        "cpu_percent_median_after_first": 40,
+        "memory_peak_bytes": 4813877248,
+        "configured_timeout_hours": 9,
+        "projection_is_only_risk_signal": true,
+        "decision": "Continue existing jobs and sole coordinator. No cancellation, restart, timeout modification, new experiment or policy change. Recheck progress; any actual failure must be retained and reconciled before a deliberately documented replacement, with identical games and policy.",
+        "new_hf_jobs": 0,
+        "remote_mutations": false,
+        "current_hybrid_screen_unchanged": true,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

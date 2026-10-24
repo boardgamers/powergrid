@@ -1,0 +1,90 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "cdd474cc52caab02bceb9a955351bf967dcddee8",
+  "archive_path": "archives/population-hybrid-continuations-evidence-v1.tgz",
+  "archive_sha256": "5daf12ad4017df29a0d5c1e1ec317b8568a8fcdd7cdd7957280be6e4b170d92d",
+  "manifest_sha256": "a139b2398b268934b2b97d692620213d05d54b967c2a9c503af2e50202fe7685",
+  "archived_files": 25,
+  "format": "tar.gz",
+  "remote_archive_verified": true,
+  "probe": {
+    "cases": 60,
+    "expected_cases": 60,
+    "complete": true,
+    "rollouts": 480,
+    "truncations": 0,
+    "results_sha256": "d941cb6020ba35edaf29f3eac4e1d49b7b7f94c0f789cdd3acca6b5aa4f9f0a2",
+    "models": {
+      "parent": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+      "frozen-0": "0cbeabb9ec915114f381542d11d652df20e62660bdc9e0932cace6559f2f4b7a",
+      "frozen-1": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+      "public-0": "4d2cf03a847737a392ad6ccf545560b468d93b60b959eee5094ee3c739d130b0",
+      "public-1": "3002f81a5c7a2b9d8f82d62b063333dddd9fbb597e29791fa13e484f2b4b22d6"
+    },
+    "source": {
+      "archive": "strong-source-policy-iteration-development-20261024-v2.tgz",
+      "revision": "a393d0fa83d9fee8a27a876a217fe97dfea03ff8",
+      "sha256": "c020987f3a05a2c0116dfd52498139f6bb7480e1721ca058caf9771f94d970ce",
+      "bytes": 109411988,
+      "base": {
+        "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+        "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+        "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+        "bytes": 109402244,
+        "base": {
+          "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+          "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+          "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+          "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+          "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+          "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+        },
+        "unchanged_base_files": 1430,
+        "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+        "qualification_eligible": false
+      },
+      "overlays": {
+        "ai/strong/policy_iteration_development.py": "1bbcec9b3ad236fdaf330627cd31f6c99618642cf657b75207aba365c4c217ea",
+        "ai/strong/preflight-policy-iteration-development.py": "024f1f746eb396a8906664c26e2307224c733ff4b43a75899498efbf65096829",
+        "ai/strong/policy-iteration-development-protocol-v2.json": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+        "ai/strong/policy-iteration-training-design-v2.json": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+        "ai/strong/build-policy-iteration-development-source.py": "6dd5963f0438f0ef7fca6c53c3701acdba99d8e9390e42d9c5f64f4e39287310"
+      },
+      "unchanged_base_files": 1434,
+      "protocol_sha256": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+      "gradients": false,
+      "qualification_eligible": false
+    },
+    "preflight_admission_sha256": "58c9ec398fabbc78aa27557d17acf344a5c84aebe22ca28375d2fe0b44ebf904",
+    "preflight_tests_sha256": "0d7e6687d1e9c5fef749fef2a622895297b0758c24a2628aa9de6f88fd5c8002",
+    "fixture_selection_sha256": "390c444a0d691fc842e05cfab3879b1bef336c61763f92edb04440ef26d8fa8a",
+    "probe_code_sha256": "94c539f7a2efcc212c3f4b1efcfcc89479a1a04e4a3c6b7f948d90b87994f94c",
+    "seconds": 66.28363389198785,
+    "processor": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+    "host": "Mint-FW-13",
+    "new_strength_games": 0,
+    "new_hf_jobs": 0,
+    "gradients": false,
+    "candidate_selected": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false,
+    "scope": "Actual five-model integration on four existing 2p/6p Recharged-sealed bid/building fixtures. Three new opponent modes, four shared worlds and two root actions; no strength comparison, weights selection, representative latency distribution or AMD8840U timing claim."
+  },
+  "unit_tests_passed": 5,
+  "historical_modes_unchanged": true,
+  "new_modes": [
+    "neural_legacy",
+    "neural_rush",
+    "neural_population"
+  ],
+  "weights_selected": false,
+  "serving_integration": false,
+  "new_strength_games": 0,
+  "new_hf_jobs": 0,
+  "candidate_selected": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

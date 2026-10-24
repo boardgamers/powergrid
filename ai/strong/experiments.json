@@ -52544,5 +52544,35 @@
         "reserved_final_seeds_used": false,
         "assessment": "A universal one-turn delay gains six and loses five selected outcomes (28 cases), so reject it as a general rule. A narrow current-fuel strict-loss certificate matches eight cases, with four recoveries and four unchanged losses. This is outcome-selected diagnosis, not estimated win-rate improvement. The filter is experimental only, restricted to standard Germany and strict output gaps; ties, already-triggered endings, unsupported maps and dropped players are excluded. Full development comparison still required before candidate selection or a fresh hybrid strength study.",
         "root_moves_verified": 26772
+    },
+    "population_hybrid_continuations_v1": {
+        "revision": "cdd474cc52caab02bceb9a955351bf967dcddee8",
+        "archive_sha256": "5daf12ad4017df29a0d5c1e1ec317b8568a8fcdd7cdd7957280be6e4b170d92d",
+        "unit_tests_passed": 5,
+        "historical_modes_unchanged": true,
+        "new_modes": [
+            "neural_legacy",
+            "neural_rush",
+            "neural_population"
+        ],
+        "weights_selected": false,
+        "serving_integration": false,
+        "new_strength_games": 0,
+        "new_hf_jobs": 0,
+        "candidate_selected": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "evidence": "ai/strong/population-hybrid-continuations-evidence-v1.json",
+        "cases": 60,
+        "rollouts": 480,
+        "truncations": 0,
+        "models": [
+            "parent",
+            "frozen-0",
+            "frozen-1",
+            "public-0",
+            "public-1"
+        ],
+        "assessment": "Actual-model integration on four reused endpoint fixtures; no strength claim, mixture selection or serving integration. Preserve the first incorrect open-bid privacy test and corrected passing tests. Finish the full model-only development comparison before a bounded fresh hybrid study."
     }
 }

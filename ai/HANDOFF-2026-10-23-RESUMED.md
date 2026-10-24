@@ -25,7 +25,77 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: endgame counterfactuals and a strict loss filter
+## Latest checkpoint: trained population continuations verified
+
+Previous goal turn: progress (endgame counterfactuals and isolated loss filter).
+This turn: progress through a broader experimental continuation worker. No new
+HF jobs, gradients, fresh strength games, candidate selection or final-test games.
+Production and historical evaluation/serving behavior remain unchanged.
+
+`strong/population-hybrid-continuations.cjs` adds three isolated modes:
+`neural_legacy`, `neural_rush`, and `neural_population`. The focal player uses the
+actual trained model. Population mode assigns each opponent neural, economic,
+legacy/default and rush policies once per four sampled worlds, with per-seat
+seeded offsets. Assignments, future-world seeds and inferred prior sealed bids
+are shared across candidate actions and remain stable across worker partitions
+and budget prefixes. This is an uncalibrated experimental mixture, not a chosen
+optimal weighting or a calibrated sealed-bid distribution. Legacy continuations
+use the actual default bot; its legal bids are validated against the complete
+legal menu rather than the pruned neural menu.
+
+Five meaningful tests pass in the pinned frozen evaluation runtime: exact
+historical-mode compatibility for both feature revisions, 40 positions spanning
+2–6 players/all rules/auction/building, input immutability and private-future
+invariance, role routing, action-order/worker-partition invariance, and 96 complete
+heuristic-driven endpoint continuations. The first test run failed because the
+test changed public open-auction bids while demanding invariant observations.
+Only that test was corrected to perturb sealed bids; both versions and logs are
+retained. The worker implementation did not change between those runs.
+
+`strong/probe-trained-population-continuations.py` then exercised the parent and
+all four actual trained ensembles on the four existing endpoint Recharged/sealed
+bid/building fixtures: **60 cases / 480 terminal rollouts, zero caps**. All neural
+actors use actual batched model inference. It checks exact model/source hashes,
+serial/batch root decisions, legal menus, public seeds, role assignments, shared
+worlds/beliefs and decision accounting. Results are plumbing evidence on reused
+fixtures, not a fresh win-rate study or representative latency distribution.
+The host is the local HX370, not the target AMD8840U.
+
+Outputs: `ai/runs/population-hybrid-preflight-v1/` (preserved failed test),
+`population-hybrid-preflight-v2/` (five passing tests), and
+`trained-population-continuations-probe-v1/` plus its `.log` (completed).
+No probe is still running. No filter or new mode has been wired into the Python
+hybrid selector, serving or the existing development evaluation.
+
+All new source, both test versions/logs, admissions, raw results and fixture/model
+references are archived in `strong/population-hybrid-continuations-evidence-v1.json`.
+HF revision `cdd474cc52caab02bceb9a955351bf967dcddee8`, archive
+`archives/population-hybrid-continuations-evidence-v1.tgz`,
+SHA256 `5daf12ad4017df29a0d5c1e1ec317b8568a8fcdd7cdd7957280be6e4b170d92d`
+(25 files; remote content hash verified).
+
+### Comparison and next decision
+
+At 2026-10-24T12:39:55.583176+00:00, recovery PID 402796 / session 78444 remains live.
+Frozen-0 and frozen-1 are complete (108/108 shards, 6,720 games each);
+public-0 has 106/108 and public-1 107/108. All 41 pinned dependencies still match.
+Only three six-player search shards remain; keep the same coordinator as sole
+collector/comparator. Do not choose an arm from this partial grid. Its next
+artifact is `strong/policy-iteration-development-comparison-v2.json`.
+
+The recommendation remains a bounded hybrid experiment after that comparison:
+compare model-only, a cheap strict-loss filter, auction search, building search,
+and combined search on fresh development deals. Include 2–6 players and all four
+rules, retain default/rush/economic/search opposition and adverse cells, and
+measure the actual target CPU for the exact policy. Opponent-mixture and sealed-
+bid calibration matter more than merely increasing rollout counts. The earlier
+hybrid helped 3p/4p but harmed 6p, so broader modes are an experiment, not evidence
+of improvement. The current model-only 4p search gains are already substantial
+(30.86→51.56% overall, 15.63→39.06% Recharged/sealed for frozen-1); two-player
+weaknesses and legacy regressions still need attention. Do not automatically add
+training epochs. No candidate is qualified; reserved final seeds remain unused.
+
+## Previous checkpoint: endgame counterfactuals and a strict loss filter
 
 Previous goal turn: progress (four-player gains plus complete fuel-market replays).
 This turn: progress through single-decision counterfactuals and an isolated

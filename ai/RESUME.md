@@ -6,7 +6,20 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: endgame counterfactuals complete; filter stays experimental.** All
+**Latest: broader hybrid opponent continuations pass actual-model integration.**
+The isolated worker adds legacy, rush and mixed-population opponents, with
+shared sampled worlds and policy-consistent sealed bids. Five contract tests and
+60 actual-model cases / 480 complete rollouts pass with zero caps. All five
+models are retained. This is engineering validation, not fresh strength evidence;
+weights are uncalibrated and no serving/search default changed. Source, both
+failed/repaired test versions and raw outputs are archived in
+`strong/population-hybrid-continuations-evidence-v1.json`. The probe is complete.
+At 12:39:55 UTC only three six-player search shards remain: frozen arms are fully
+collected, public-0 106/108, public-1 107/108. Keep recovery PID 402796 as sole
+collector/comparator and finish the full grid before candidate selection or a
+fresh hybrid experiment. See the latest handoff for exact provenance and limits.
+
+**Previous: endgame counterfactuals complete; filter stays experimental.** All
 56 single-decision branches finish, with 28 byte-identical original controls.
 Always delaying the threshold build gains six and loses five selected outcomes.
 A narrower strict fuel-output-loss certificate matches eight cases (four recovered
@@ -14,8 +27,8 @@ wins, four unchanged losses), with 26,772 exact root-move checks and the full
 2,553-position serving fixture probe. It is not integrated into serving/evaluation,
 and these outcome-selected examples are not a strength estimate. See
 `strong/policy-iteration-endgame-diagnosis-evidence-v1.json` and the latest handoff.
-Only the 16 six-player search shards remain; all other candidate cells are
-collected (416/432 shards). Keep the live recovery coordinator and complete the
+At that earlier snapshot, 16 six-player search shards remained (416/432 shards
+collected); the latest status is above. Keep the live recovery coordinator and complete the
 full comparison before selection or a fresh hybrid study.
 
 **Previous: four-player search gains are independently verified.** In the

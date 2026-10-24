@@ -1,0 +1,95 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "aa1d62fcdeaa99b67bc22894b84a556be738d21e",
+  "archive_path": "archives/hybrid-batch-packing-evidence-v1.tgz",
+  "archive_sha256": "c72c31d9b9ea1851e90a434d01e80c4075995f647eeb11a89a5777b5c1f35248",
+  "manifest_sha256": "b5e4acd093fbf7546386eec8d7e0bae582db272190c12e6da081663d13c87616",
+  "archived_files": 10,
+  "format": "tar.gz",
+  "remote_archive_verified": true,
+  "passed": true,
+  "batch_checks": {
+    "parent": {
+      "rows": 80,
+      "cells": 80,
+      "root_fixtures": 80,
+      "serial_plain_packed_and_reversed_rows_identical": true
+    },
+    "frozen-0": {
+      "rows": 80,
+      "cells": 80,
+      "root_fixtures": 80,
+      "serial_plain_packed_and_reversed_rows_identical": true
+    },
+    "frozen-1": {
+      "rows": 80,
+      "cells": 80,
+      "root_fixtures": 80,
+      "serial_plain_packed_and_reversed_rows_identical": true
+    },
+    "public-0": {
+      "rows": 2793,
+      "cells": 80,
+      "root_fixtures": 2553,
+      "serial_plain_packed_and_reversed_rows_identical": true
+    },
+    "public-1": {
+      "rows": 80,
+      "cells": 80,
+      "root_fixtures": 80,
+      "serial_plain_packed_and_reversed_rows_identical": true
+    }
+  },
+  "timings": {
+    "plain64": {
+      "seconds": [
+        20.858396294002887,
+        22.548789046006277
+      ],
+      "mean_seconds": 21.703592670004582,
+      "mean_onnx_seconds": 10.507592259062221,
+      "onnx_calls_per_request": 702,
+      "action_slot_utilization": 0.24310796020309916
+    },
+    "packed16": {
+      "seconds": [
+        19.193110644002445,
+        21.199895106983604
+      ],
+      "mean_seconds": 20.196502875493024,
+      "mean_onnx_seconds": 9.186216042158776,
+      "onnx_calls_per_request": 1881,
+      "action_slot_utilization": 0.5441371498038349,
+      "mean_speedup_vs_plain64": 1.074621324483869,
+      "time_reduction_percent": 6.94396461187935
+    },
+    "packed8": {
+      "seconds": [
+        21.003541881014826,
+        21.50476953398902
+      ],
+      "mean_seconds": 21.254155707501923,
+      "mean_onnx_seconds": 10.162895015149843,
+      "onnx_calls_per_request": 3622,
+      "action_slot_utilization": 0.7364999626037745,
+      "mean_speedup_vs_plain64": 1.0211458393684405,
+      "time_reduction_percent": 2.0707952334721225
+    }
+  },
+  "complete_rollouts": 576,
+  "truncations": 0,
+  "all_internal_choices_and_terminal_outcomes_identical": true,
+  "processor": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+  "threads": 4,
+  "workers": 4,
+  "samples_per_mode": 8,
+  "defaults_changed": false,
+  "target_8840u_tested": false,
+  "hf_jobs_submitted": 0,
+  "gradients": false,
+  "candidate_selected": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "scope": "All 2553 existing serving roots plus prior-bid observations for public-0; 80 rule/count/phase cells for all five models. Six repetitions of one existing six-player Recharged/sealed building fixture measure cost and internal trace parity. No fresh strength or representative latency claim.",
+  "assessment": "Packing reduces unused action slots but creates more ONNX calls. Only modest gains on this one repeated fixture, with overlapping timing ranges. Retain as experimental; do not change defaults, claim representative speedups or launch more optimization experiments before the strength comparison."
+}

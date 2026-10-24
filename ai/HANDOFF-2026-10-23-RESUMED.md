@@ -25,7 +25,94 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: actual 8840U hybrid speed and restored collection
+## Latest checkpoint: substantial complete-cell strength gains, with regressions retained
+
+The small simulation-validation gains did **not** imply uniformly small whole-game
+improvement. A read-only interim diagnostic now includes every opponent/count
+cell whose four shards were already verified in **all five arms** at a fixed
+cutoff (2026-10-24T11:38:32.300371+00:00). It includes 19 of 27 cells, 21,120 games in total,
+4,224 per arm. Each included cell has all 16 independent deals, every seat and
+all four rule combinations. No incomplete cell contributes a result. Missing
+cells are listed explicitly. Nothing was selected using their outcomes.
+
+| Model | 2p vs search | 3p vs search | 3p vs older neural a260 | 5p vs legacy/default |
+| --- | ---: | ---: | ---: | ---: |
+| Parent | 48.83% | 20.31% | 34.38% | 94.06% |
+| frozen-0 | 53.52% | 40.10% | 48.44% | 83.75% |
+| frozen-1 | 52.73% | 44.79% | 46.35% | 90.62% |
+| public-0 | 45.31% | 39.58% | 38.54% | 85.94% |
+| public-1 | 51.95% | 29.69% | 35.42% | 93.12% |
+
+These are development win shares, not qualification results. All arms, all 19
+ready cells and all adverse rule views are retained in the report and archive.
+Against three-player search, paired gains over the parent are +19.79 pp for
+frozen-0 (exploratory 95% deal interval +8.85 to +31.25) and +24.48 pp for frozen-1
+(+15.63 to +33.85). Against a260 they gain +14.06 and +11.98 pp respectively.
+Two-player search improvements are not established: all paired intervals include
+zero. Recharged/open remains particularly weak there: parent 40.63%, frozen-0
+37.50%, frozen-1 34.38%. Keep this rule/count failure visible in the later hybrid
+study; an overall two-player gain does not fix it. The larger public-state model
+is also not uniformly stronger.
+
+The five-player default-bot regression is material: frozen-0 changes -10.31 pp
+(interval -14.69 to -6.25), frozen-1 -3.44 pp (-5.31 to -1.56), and public-0
+-8.13 pp (-13.44 to -3.13). Public-1 changes -0.94 pp, with an interval including
+zero. Do not suppress these losses or equate an improved search-opponent result
+with broad qualification. The confidence intervals are exploratory, marginal
+and based on 16 deals; repeated interim views are not independent confirmatory
+tests. Four-, five- and six-player search cells remain unavailable in this snapshot.
+
+This evidence changes the progress assessment: there is meaningful real-game
+improvement to pursue, rather than evidence of a blanket training plateau.
+It does not justify simply adding epochs; validation still peaked early, and
+larger-player robustness and the untouched final gate remain unresolved.
+Finish the prescribed full comparison before model selection, another gradient
+round or the bounded hybrid strength study. No candidate has been selected.
+
+- Script: `strong/inspect-policy-iteration-complete-cells.py --output NEW_PATH`.
+- Report/log: `ai/runs/policy-iteration-interim-complete-cells-v1.json` and `.log`.
+  Session 3317 completed. The initial console formatter used a wrong display key;
+  the report itself completed successfully and was not changed or rerun.
+- Evidence: `strong/policy-iteration-interim-complete-cells-evidence-v1.json`.
+- HF revision `4433355d1c38ae63bbc6592afdcd4c743bf87000`, archive
+  `archives/policy-iteration-interim-complete-cells-evidence-v1.tgz`, SHA256
+  `61b8618dd1cd9b661dddae701cfdab3907bc232e81b823ab38b5db1a43a9b01e`. All 1155 files verified remotely,
+  including all 380 included batches' raw evaluation rows, verification records,
+  effective launch guards, plans, analysis source and complete diagnostic.
+
+### Bounded batch-packing experiment: correct, only modest local gains
+
+New experimental batch packing sorts observations by legal-menu length, evaluates
+small groups, then restores their original order. Serial, ordinary batched,
+packed and reversed-input choices agree on all 2,553 serving roots plus 240
+prior-bid observations for public-0, and on all 80 count/rule/phase cells for each
+of the other four models. All five models and both feature formats are covered.
+Six full-search repetitions in order plain64, packed16, packed8, packed8,
+packed16, plain64 preserve every internal decision and terminal outcome; 576
+complete simulations and zero caps. No engine, model, protocol or default changed.
+
+On the local HX370 at four ORT threads, mean request times are 21.704s ordinary,
+20.197s packed16 and 21.254s packed8. That is 6.94% and 2.07% less elapsed time,
+with overlapping timing ranges. Legal action-slot utilization rises from 24.3%
+to 54.4% / 73.6%, but ONNX calls rise from 702 to 1,881 / 3,622. These are
+one-fixture engineering observations, not representative speedup estimates.
+Packing remains experimental and was not measured on the 8840U. There is no
+reason to prioritize another optimization round over the strength comparison.
+
+- Source: `strong/hybrid_packed_inference.py`, `strong/probe-hybrid-batch-packing.py`.
+- Completed session 10364; results `ai/runs/hybrid-batch-packing-v1`.
+- Evidence: `strong/hybrid-batch-packing-evidence-v1.json`.
+- HF revision `aa1d62fcdeaa99b67bc22894b84a556be738d21e`, archive
+  `archives/hybrid-batch-packing-evidence-v1.tgz`, SHA256
+  `c72c31d9b9ea1851e90a434d01e80c4075995f647eeb11a89a5777b5c1f35248`. Raw outcomes, traces, source and environment saved.
+
+At 2026-10-24T11:47:09.829964+00:00, recovery PID 402796 / session 78444 remains live,
+stage `waiting_for_development_jobs`, with 10/10 reviewed replacements submitted.
+Its 41 dependency hashes match. Completed collection progress:
+`{"frozen-0": {"verified_games": 5952, "verified_shards": 99}, "frozen-1": {"verified_games": 5760, "verified_shards": 97}, "public-0": {"verified_games": 6016, "verified_shards": 100}, "public-1": {"verified_games": 5824, "verified_shards": 97}}`. The coordinator alone owns the
+remaining replacements, collection and full comparison. Do not start another.
+
+## Previous checkpoint: actual 8840U hybrid speed and restored collection
 
 The trained hybrid cost profile now passes on the actual **AMD Ryzen 7 8840U**.
 It uses only public-0 and the same existing six-player Recharged/sealed building

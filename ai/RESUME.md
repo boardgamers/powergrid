@@ -6,6 +6,17 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
+**New complete-cell evidence shows substantial three-player gains.** Against
+search, frozen-0/frozen-1 rise from the parent's 20.31% win share to 40.10%/44.79%;
+against a260 they rise from 34.38% to 48.44%/46.35%. This contradicts a blanket
+plateau interpretation of the small validation metric. However, two-player search
+remains inconclusive, and five-player legacy/default regresses from 94.06% to
+83.75%/90.62% for those variants. All four ensembles, adverse rule views and all
+19 cells complete in all five arms are retained. This is an interim diagnosis
+(21,120 games, 16 independent deals/cell), not the full comparison or selection.
+Four–six-player search cells remain pending in that snapshot. Evidence:
+`strong/policy-iteration-interim-complete-cells-evidence-v1.json`.
+
 Validation simulation gains are small: +0.192 / +0.386 pp for frozen ensembles,
 +0.325 / +0.171 pp for public ensembles. All frozen seeds peaked at epoch 10;
 public epochs are 35, 5, 5, 60. These deals selected the checkpoints. They do not
@@ -57,14 +68,20 @@ recovery owns the remaining eight and all collection. See
 `strong/policy-iteration-development-recovery-active-evidence-v1.json`. No
 partial win-rate ranking or selection is made. Finish the same full comparison.
 
+The bounded packing experiment is complete: all checked moves and internal
+search traces match, but packed16 saves only 6.94% elapsed time on one repeated
+HX370 fixture (packed8: 2.07%). No default change or target benchmark. Source and
+raw evidence are in `strong/hybrid-batch-packing-evidence-v1.json`. Keep it
+experimental; prioritize the full strength comparison.
+
 ## Previous hybrid profile and development progress
 
 The repeated trained six-player fixture takes 34.15–35.61s at one ORT thread
 and 22.79–23.54s at four threads on the local HX370 (1.506x mean speedup).
 Every internal neural choice and terminal outcome matches; zero caps. At one
 thread ONNX inference is about 71% of total time. Only 24.3% of padded action
-slots are legal actions. This points to inference threading/batch packing as
-optimization candidates, not a reason to rewrite the engine or add samples yet.
+slots are legal actions. The completed packing experiment below found only modest local savings,
+so further optimization is lower priority than the strength comparison.
 No default changed; no target8840U hybrid benchmark or fresh strength claim.
 Evidence: `strong/trained-hybrid-profile-evidence-v1.json`, remotely archived.
 The profile process completed; do not relaunch into its existing output directory.

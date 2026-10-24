@@ -1,8 +1,8 @@
 """Preserve a partial-label checkpoint without changing immutable raw shard pins."""
 import argparse
 import shutil
-from huggingface_hub import HfApi, hf_hub_download
 from strategic_collection import ROOT, read, write, digest
+from policy_iteration_evidence_archive import upload_evidence
 
 
 def main():
@@ -18,8 +18,9 @@ def main():
                  'policy-iteration-labels-source-v2.json', 'policy-iteration-labels-protocol-v2.json',
                  'policy-iteration-labels-launch-evidence-v2.json', 'policy-iteration-data-first-labels-preflight-v2.json',
                  'manage-policy-iteration-labels.py', 'policy_iteration_label_attempts.py',
-                 'archive-policy-iteration-labels-progress.py']:
+                 'archive-policy-iteration-labels-progress.py', 'policy_iteration_evidence_archive.py']:
         shutil.copy2(ROOT/'ai/strong'/file, out/file)
+    assert read(out/'policy-iteration-labels-results-v2.json') == result, 'Labels changed while copying; preserve and inspect snapshot'
     first_parser_manifest = ROOT/'ai/runs/policy-iteration-data-first-labels-manifest-v2.json'
     assert digest(first_parser_manifest) == read(out/'policy-iteration-data-first-labels-preflight-v2.json')['manifest_sha256']
     shutil.copy2(first_parser_manifest, out/first_parser_manifest.name)
@@ -30,11 +31,8 @@ def main():
         destination.parent.mkdir(exist_ok=True)
         shutil.copy2(source, destination)
     write(out/'manifest.json', {str(f.relative_to(out)): digest(f) for f in out.rglob('*') if f.is_file()})
-    repo, prefix = 'coyotte508/powergrid-ai-germany-v1', 'runs/' + out.name
-    commit = HfApi().upload_folder(repo_id=repo, folder_path=out, path_in_repo=prefix)
-    sha = digest(out/'manifest.json')
-    assert digest(hf_hub_download(repo, prefix + '/manifest.json', revision=commit.oid)) == sha
-    descriptor = {'repo': repo, 'revision': commit.oid, 'prefix': prefix, 'manifest_sha256': sha,
+    archive = upload_evidence(out)
+    descriptor = {**archive,
                   'complete_new_shards': result['complete_shards'], 'verified_root_mode_pairs': result['verified_root_mode_pairs'],
                   'rollouts_including_pilot': result['rollouts'], 'full_labels_complete': False,
                   'gradients': False, 'qualification_eligible': False}

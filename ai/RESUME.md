@@ -1,34 +1,34 @@
 # Power Grid AI — ACTIVE, resumed 23 October 2026
 
 **Start with [the current resumption handoff](HANDOFF-2026-10-23-RESUMED.md).**
-No candidate has passed the strength gate. No AI is published; final seeds remain
-unused. This turn made **progress**.
+No model has passed the strength gate or been published. Final seeds are unused.
+Previous turn and this turn both made **progress**.
 
-- **312/948 new label shards verified**,10,986,048 continuations including pilot.
-  Snapshot05:10:51UTC:320 completed,341 running,287 scheduling. Eight completions
-  await collection. All previous local collectors finished.
-- The measured third CPU wave finished: **300 replacements +3 safely skipped
-  started originals**. Replaced originals were confirmed canceled before start.
-  All948 effective handles are distinct. No unresolved submissions or new wave
-  authorized beyond the300 cap.
-- **90 parent reference batches /5,504 fresh games verify**. Snapshot05:10:32UTC:
-  92 completed /16 running out of108, plus both completed runtime probes. Two
-  completed batches await collection. Do not relaunch any reference jobs.
-- Complete-cell baseline diagnostics expose weaknesses:3p A26034.38%
-  (95% interval26.04–42.71%, includes chance);2p heuristic and4p legacy also have
-  point estimates below the final floors. This is exploratory development data;
-  final test deals remain unused. Search cells are still incomplete.
-- Current recoverable checkpoint: `strong/policy-iteration-wave3-checkpoint-v2.json`.
-  Includes312 label verification records, all original/replacement handles and
-  90 raw verified reference batches. Exact HF revision/manifest in the descriptor.
-- **AMD8840U architecture probe already complete**:10,212 exact requests; richer
-  untrained ensembles ~5.9ms median/~9ms p95. No target process remains active.
-  Evidence `d4af1c8d92a0ff1f42835c0e48a382113337836f`; trained model must be retested.
-- No new gradients yet. Complete labels precede two four-seedL4 jobs; all four
-  candidate grids and the untouched final gate remain.
+- **Collector ACTIVE:** PID2476443 /exec session82318, started05:28:50UTC.
+  `ai/runs/policy-iteration-harvest-recovered-v2/state.json` records progress.
+  It checks/collects every5min, bounded12h, with no HF submission/cancellation.
+  Verify actual process liveness; do not start a competing collector.
+- **333/948 new label shards verified at last complete cycle**,11,679,168
+  continuations including pilot. Snapshot05:29:17UTC:364 completed,332 running,
+  252 queued; the collector is verifying more. Current results may be newer.
+- **92 parent batches /5,568 games verified.**2p search complete:48.83% wins,
+  95% interval38.28–59.77%. It does not exclude chance; the parent remains weak.
+  3–6p search cells and all trained-candidate arms remain incomplete.
+- HF's20,000-file limit was reached.13 duplicate evidence folders were compacted,
+  freeing8,158 entries, with all pinned historical revisions preserved. No raw
+  job outputs or model files removed. New progress evidence uses one archive.
+- Two actual failed uploads have exact retries already submitted:
+  `6adc41e8046eb82b1ecda91d` and `6adc41e91e112550ce7dd171`. No live jobs restarted.
+  Distinct effective handles remain948;300 queued-job migrations remain unchanged.
+  Original collector19853 stopped on these errors; recovered collector82318 is active.
+- Recovery evidence: `strong/policy-iteration-storage-recovery-evidence-v2.json`.
+  Label evidence: `strong/policy-iteration-labels-333-progress-evidence-v2.json`.
+  Reference evidence: `strong/policy-iteration-parent-reference-92-evidence-v2.json`.
+- AMD8840U architecture benchmark already complete (~5.9ms median/~9ms p95 for
+  untrained richer ensembles). Exact trained candidate must be retested.
 
-Next: collect labels/reference completions from existing handles, then advance
-the complete-data HF training pipeline. Keep the goal active; no model qualified.
+Next: let the collector finish the balanced labels, then prepare the full dataset
+and two four-seedHF L4 jobs. No new gradients yet. Keep the goal active.
 
 ---
 

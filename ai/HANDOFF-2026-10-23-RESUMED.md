@@ -25,7 +25,119 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: 312 verified label shards; fresh baseline weaknesses measured
+## Latest checkpoint: automatic collection, search weakness and storage recovery
+
+Previous goal turn: **progress** (312 verified shards,90 reference batches and
+bounded CPU expansion saved). This turn also made **progress**: more verified
+labels, the complete2p search reference, a bounded collector, and recovery from
+an actual HF repository file-count limit. The goal remains active; no new
+model gradients, final-test use, model qualification or production changes.
+
+### A local collector is ACTIVE — do not start another one
+
+`harvest-policy-iteration-jobs.py` runs existing status/collection/summarization
+commands every300 seconds, for at most12 hours. It cannot submit, cancel or
+restart HF jobs. It stops on failed jobs, duplicate handles, changed collector
+code or verification errors. It preserves status snapshots and command logs per
+cycle. It stops successfully when both labels and the parent reference are fully
+verified; that does not itself train or qualify a model.
+
+Current process: **PID2476443**, exec session **82318**, started
+`2026-10-24T05:28:50.781195+00:00`. State and logs:
+`ai/runs/policy-iteration-harvest-recovered-v2/state.json` and
+`ai/runs/policy-iteration-harvest-recovered-v2.log`.
+Confirm its actual PID/command or poll session82318 before deciding it stopped.
+Do not infer liveness from the state file alone. Do not run competing manual
+collectors or modify its dependency files while it is active.
+
+The earlier collector PID2404541/session19853 **ended with error as intended**
+after observing two actual HF job failures. Its state/log remain preserved under
+`ai/runs/policy-iteration-harvest-v2`; do not restart that directory. Its first
+cycle verified **333/948 new shards**,12,112 root-mode pairs and **11,679,168
+continuations including pilot**. Latest fresh effective-job snapshot at
+`2026-10-24T05:29:17.154498+00:00`: **364 COMPLETED /332 RUNNING /252 SCHEDULING**,
+no unresolved ERROR handles. The recovered collector is verifying those new
+completions. Read its current state/results for later progress.
+
+333-shard evidence: `strong/policy-iteration-labels-333-progress-evidence-v2.json`,
+private HF revision `03231c902048a5c91fe12424142758d43453bba2`, archive
+`archives/policy-iteration-labels-333-progress-evidence-v2.tgz`, SHA
+`ee244e73671c5877db79c01fe87e9ff7132e2fb3607a65cbfa308e1e126097f4`.
+
+### Fresh parent reference: two-player search is not convincingly beaten
+
+**92 batches /5,568 fresh games independently verify**, with23 complete cells.
+All 128 two-player search_geo games across16 paired deals are now complete: parent win rate
+**48.83%**,95% whole-deal bootstrap interval **38.28–59.77%**. This does not exclude
+50% chance and is below the55% final point floor. Original/open62.5%,
+original/sealed45.31%,Recharged/open40.63%,Recharged/sealed46.88%; all four marginal
+intervals include chance. These are exploratory developmental results, not a
+final-test pass/failure. The prior A260,2p heuristic and4p legacy deficits remain.
+
+Diagnostic: `strong/policy-iteration-parent-reference-progress-92-v2.json`.
+Evidence: `strong/policy-iteration-parent-reference-92-evidence-v2.json`, revision
+`3df972b391728184ff7d3921cae465c0616336a1`, archive
+`archives/policy-iteration-parent-reference-92-evidence-v2.tgz`, SHA
+`266be50f184746b8ce44545e74bd28f909e5d28039b0e893d166c6c28d48de39`.
+It contains all972 files of the full local92-batch checkpoint. Its initial
+folder upload was partial; the complete compact archive is verified.
+Parent3–6p search cells remain incomplete; collect only existing submitted handles.
+
+### HF file limit fixed; two confirmed upload failures recovered
+
+A checkpoint upload hit the model repository's **20,000-file HEAD limit**.
+Thirteen duplicate evidence folders were packed into content-verified archives,
+then each archive addition and duplicate-folder removal was committed atomically.
+**8,158 file entries freed**;11,886 files remained at the retry admission snapshot.
+All previous pinned Git revisions remain accessible and were retrieval-checked.
+No raw job-output folders, model weights or source archives were removed.
+The AMD benchmark folder used a different manifest format and was safely left
+untouched; its attempted compaction stopped before any remote mutation.
+
+Old checkpoint descriptors still resolve at their original pinned revisions.
+`strong/*-compacted.json` records compact archive locations and checksums. Future
+label/reference progress uploads now use one `.tgz` file via
+`policy_iteration_evidence_archive.py`, instead of duplicating hundreds of files.
+`model_info(...,files_metadata=True)` truncated its listing at10,000 entries;
+use paginated `list_repo_tree` for true repository file counts.
+
+Exactly two label jobs failed at their upload step and left no remote artifacts:
+
+| Shard | Failed job | Exact retry |
+| --- | --- | --- |
+| 2p-11101-snapshot0-neural-0504 | 6adc221c1e112550ce7dc2c5 | 6adc41e8046eb82b1ecda91d |
+| 5p-parent-economic-neural-0095 | 6adc1f98046eb82b1ecd9b84 | 6adc41e91e112550ce7dd171 |
+
+Both failures were authoritatively ERROR with finished timestamps. Their logs
+show the file-limit rejection; no simulation assertion preceded it. After
+compaction, the two retries use the identical frozen source, world seeds,
+root/action sets, output prefixes and fixed inference batches on proven CPU
+Upgrade hardware,12h timeout and the existing conservative runtime multiplier.
+**No live job was canceled or restarted.** These are two failure recoveries in
+addition to the300 bounded queued-job migrations; the migration cap is unchanged.
+
+Retry records/logs: `ai/runs/policy-iteration-labels-upload-retries-v2`.
+`policy_iteration_label_attempts.py` resolves them after ordinary capacity
+migration guards. All948 effective handles remain distinct; original guards are
+unchanged. Ten negative controls reject live/ambiguous/same-ID/altered-source or
+already-published retry cases. `retry-policy-iteration-upload-errors.py` is scoped
+to these exact two failed jobs and now refuses resubmission. No missing launches.
+
+Combined recovery archive descriptor:
+`strong/policy-iteration-storage-recovery-evidence-v2.json`.
+Revision `016d3bacfa6f7f679a259d20aae530c94204d93f`, archive
+`archives/policy-iteration-storage-recovery-evidence-v2.tgz`, SHA
+`b80eec1d50723be0faece3e2eb407ff763ea394881e3b7ac5525cf0ec36f4f47`. It saves all13
+compaction proofs, retry guards/logs, collector controls/state and updated code.
+
+Next: let the active collector harvest existing jobs. Once all948 new labels and
+60 reused pilot shards verify, build/archive the full compact training bundle and
+admitted frozen source, then launch the two four-seedL4 jobs. Do not wait for the
+collector's12h deadline if labels complete sooner. Parent full comparison still
+requires108 verified shards; four trained candidate arms and the untouched final
+strength gate remain. No final thresholds were weakened.
+
+## Previous checkpoint: 312 verified label shards; fresh baseline weaknesses measured
 
 This turn made **progress**: 312 label shards and 90 parent-reference batches now
 verify, a bounded third CPU capacity wave completed, and the fresh baseline

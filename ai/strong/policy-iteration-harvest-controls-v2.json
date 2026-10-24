@@ -1,0 +1,15 @@
+{
+  "script_sha256": "4b2bab3b398df23489f98df0a381cef3277a79c4f9dd178610aae37fffa47264",
+  "actual_live_snapshots_accepted": true,
+  "negative_controls": [
+    "label-failure-rejected",
+    "label-duplicate-rejected",
+    "parent-failure-rejected",
+    "parent-duplicate-rejected"
+  ],
+  "remote_mutations": false,
+  "gradients": false,
+  "qualification_eligible": false,
+  "live_process_caught_actual_upload_errors": true,
+  "previous_process_stopped_before_recovery": true
+}

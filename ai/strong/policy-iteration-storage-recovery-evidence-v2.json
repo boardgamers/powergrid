@@ -1,0 +1,52 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "016d3bacfa6f7f679a259d20aae530c94204d93f",
+  "archive_path": "archives/policy-iteration-storage-recovery-evidence-v2.tgz",
+  "archive_sha256": "b80eec1d50723be0faece3e2eb407ff763ea394881e3b7ac5525cf0ec36f4f47",
+  "manifest_sha256": "49b857d73f14397305f4a565ca382e96941457d71a0cbc0665c938ffb22af478",
+  "archived_files": 38,
+  "format": "tar.gz",
+  "remote_archive_verified": true,
+  "head_compactions": 13,
+  "net_head_files_freed": 8158,
+  "files_at_retry_admission": 11886,
+  "compacted_revisions": {
+    "policy-iteration-capacity-checkpoint-v2": "2e61a8dc2232aa89432a132598d70bb0203fe39d",
+    "policy-iteration-development-preparation-evidence-v2": "248150d7c4a30cbc281612b0a055074807ad59ae",
+    "policy-iteration-labels-119-progress-evidence-v2": "95e0ab62d8c676326a2f51a94cf893de8c92f472",
+    "policy-iteration-labels-159-progress-evidence-v2": "a59387118617f82dc71b79f44748e46395d793e9",
+    "policy-iteration-labels-268-progress-evidence-v2": "410cff2e8442770fd282ecb5ab9a21a522068739",
+    "policy-iteration-labels-complete-launch-evidence-v2": "5494671f0cc34fc1492c5844160c0a41de8dcf03",
+    "policy-iteration-labels-remaining-launch-progress-v2": "16d3a520b91424f21a7d2f17d5218a7e1ea69c82",
+    "policy-iteration-parent-grid-launch-evidence-v2": "a925df48320fc4fb8625780a722fd15cce22f455",
+    "policy-iteration-parent-reference-92-evidence-v2": "3df972b391728184ff7d3921cae465c0616336a1",
+    "policy-iteration-wave2-checkpoint-v2": "9bf316483ac76f2d7fb4c6095ee7f463b82de439",
+    "policy-iteration-wave3-checkpoint-v2": "68e8f913616b1428cf74e89a16fa196f450cce4e",
+    "strategic-correction-ablation-evidence-v1": "92fb8ed5684e4b788bc549183403f9a2862bf987",
+    "strategic-correction-complete-arena-evidence-v1": "f79baeba7157c4cd3688e8f71cd4681380bcc22d"
+  },
+  "original_pins_preserved": true,
+  "raw_job_outputs_removed": false,
+  "failure_retries": [
+    {
+      "shard": "2p-11101-snapshot0-neural-0504",
+      "job_id": "6adc41e8046eb82b1ecda91d",
+      "failed_job_id": "6adc221c1e112550ce7dc2c5",
+      "status": "RUNNING"
+    },
+    {
+      "shard": "5p-parent-economic-neural-0095",
+      "job_id": "6adc41e91e112550ce7dd171",
+      "failed_job_id": "6adc1f98046eb82b1ecd9b84",
+      "status": "RUNNING"
+    }
+  ],
+  "collector_pid": 2476443,
+  "collector_process_checked_alive": true,
+  "collector_directory": "ai/runs/policy-iteration-harvest-recovered-v2",
+  "collector_started_at": "2026-10-24T05:28:50.781195+00:00",
+  "collector_session_id": 82318,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

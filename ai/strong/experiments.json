@@ -52699,5 +52699,66 @@
         "candidate_selected": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
+    },
+    "population_hybrid_development_preparation_v1": {
+        "checkpoint": "Independent two-player runtime verification and fixed-grid preparation; six-player pilot remains running",
+        "evidence_descriptor": "ai/strong/population-hybrid-development-preparation-evidence-v1.json",
+        "evidence": {
+            "created_at": "2026-10-24T13:34:43.898419+00:00",
+            "engineering_checks_passed": true,
+            "independent_verifier_tests": 6,
+            "development_execution_tests": 8,
+            "clean_package_layout_passed": true,
+            "unchanged_runtime_source_files": 1453,
+            "two_player_runtime": {
+                "games": 8,
+                "independent_deals": 1,
+                "counts": {
+                    "decisions": 1446,
+                    "root_filter_overrides": 0,
+                    "rollouts": 20696,
+                    "rollout_caps": 0,
+                    "neural_decisions": 1786457,
+                    "search_changes": 240,
+                    "search_decisions": 530
+                },
+                "wall_seconds": 498.46519396499934,
+                "sum_game_seconds": 3092.367188284996,
+                "max_game_seconds": 498.2888391589986,
+                "decision_p50_ms": 8.841079001285834,
+                "decision_p95_ms": 10802.358559997629,
+                "report_sha256": "b48e0885232e45e6858ab34bd3945fa19ef5f6f274619c5204872e1d5f688457",
+                "all_receipts_verified": true,
+                "qualification_eligible": false,
+                "reserved_final_seeds_used": false
+            },
+            "six_player_runtime": {
+                "job_id": "6adcad7b046eb82b1ecdc9cd",
+                "authoritative_status": "RUNNING",
+                "strength_eligible": false
+            },
+            "prepared_archive_sha256": "ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23",
+            "development_grid_launched": false,
+            "new_jobs": 0,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false,
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "4f045dfaf5c03efe7a5d5058938e342af313bbe3",
+            "archive_path": "archives/population-hybrid-development-preparation-evidence-v1.tgz",
+            "archive_sha256": "f4e68ba9e00d0db29aa8da7766b8fdf926889f96e91e2e176bf9618f36e91568",
+            "manifest_sha256": "f561208bbd5565ab46d39ae07bc443217aed0899028bdceca2100bad2d706b6d",
+            "archived_files": 54,
+            "format": "tar.gz",
+            "remote_archive_verified": true,
+            "assessment_sha256": "f4df1509cb35dcc67da41e99200b40103454fbf6983e3d717f9a88cf0bea6706"
+        },
+        "prepared_manifest": "ai/runs/population-hybrid-development-source-prepared-v1/prepared.json",
+        "source_freeze_pending_six_player_verification": true,
+        "automatic_job_retries": false,
+        "new_hf_jobs": 0,
+        "new_gradients": false,
+        "new_strength_results": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

@@ -6,7 +6,24 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: all 33,600 development games are verified; two hybrid CPU pilots are live.**
+**Latest: two-player hybrid runtime verified; fixed strength screen prepared.**
+The two-player pilot completed: eight games, 20,696 full rollouts, zero caps,
+498.465 seconds. Every saved decision and terminal result independently verifies.
+The six-player job `6adcad7b046eb82b1ecdc9cd` is still RUNNING at 13:34:43 UTC;
+13/24 games appear in the latest log. Inspect/collect that same handle with
+`strong/collect-population-hybrid-runtime.py 6`; never restart it on quiet logs.
+No new jobs this turn. Fourteen tests and clean-package initialization pass.
+The new immutable source package preserves all 1,453 runtime base files.
+The 8,400-game hybrid screen is not launched: collect/verify the six-player pilot,
+then run `strong/build-population-hybrid-development-source.py freeze` to derive
+the measured timeout, publish source and create the fixed plan. Review its dry
+run, then use the single lock-protected coordinator (at most 32 live CPU jobs,
+no automatic retries). See the latest handoff for commands and exact provenance.
+All prepared code, tests, runtime receipts and the source archive are preserved
+in `strong/population-hybrid-development-preparation-evidence-v1.json`.
+No hybrid strength gain or final qualification has been claimed.
+
+**Previous: all 33,600 development games are verified; two hybrid CPU pilots launched.**
 Recovery PID 402796 completed and exited; do not restart it. All four trained
 ensembles improve overall search results at 3p/4p to varying degrees. Frozen-1
 also improves 5p/6p overall and becomes the single development base, not a final

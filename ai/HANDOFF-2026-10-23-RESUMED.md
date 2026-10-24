@@ -25,7 +25,99 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: full comparison complete; hybrid runtime pilots running
+## Latest checkpoint: independent runtime verification and hybrid grid prepared
+
+Previous goal turn: progress (complete model comparison and two runtime pilots).
+This turn: progress. The two-player pilot completed and independently verifies;
+the same six-player handle remains RUNNING at 13:34:43 UTC on 24 October.
+No new HF jobs or gradients were started this turn. The fixed 8,400-game strength
+screen has **not launched**; source preparation is complete, but final runtime
+admission and source/plan publication wait for the six-player pilot. No candidate
+is qualified, and final seeds remain unused.
+
+### Completed two-player runtime pilot
+
+- Job `6adcad711e112550ce7dfe8d`, COMPLETED, eight games / one runtime deal.
+- 1,446 learner decisions, 530 searched decisions, 20,696 full rollouts, zero
+  caps; 1,786,457 neural continuation decisions. Wall time 498.465 seconds.
+- Independent verification: `ai/runs/population-hybrid-runtime-collected-v2/population-hybrid-runtime-v2-2p/verified.json`.
+  Every saved decision, terminal credit, pairing and aggregate is checked.
+  Search means and selected actions are recomputed from raw terminal credits.
+  This is not independent replay of every simulated trajectory or strength evidence.
+- Raw archive revision `065379fd84a562717e26864f7e0220f132187064`,
+  `archives/population-hybrid-runtime-v2-2p.tgz`, SHA256
+  `38224cf1cec76d6ff717c056c7825558deaf3be0dd549f8783f61da322a6d2f3`.
+- The first collection is retained as `verified-initial.json`. The current
+  receipt was independently repeated after closing test receipt streams and
+  pinning collector/verifier hashes; the policy and running source never changed.
+
+### Continue the existing six-player pilot
+
+Job **`6adcad7b046eb82b1ecdc9cd`** is still the only active pilot. The latest log
+snapshot has 13/24 games complete, no reported caps. Do not restart or duplicate
+it. Collect with `ai/.venv/bin/python ai/strong/collect-population-hybrid-runtime.py 6`.
+The collector is read-only and returns immediately for a running job. When it
+completes, it downloads the immutable archive, verifies all file hashes and
+independently verifies every game/decision before writing `verified.json`.
+
+The retained short live metrics sample is
+`ai/runs/population-hybrid-runtime-metrics-v1.json`: cpu-upgrade has 8 vCPU /32 GB,
+initial CPU 0 followed by 99/100%, about 5.7 GB RAM, no GPU. This is not a time
+average. It supports retaining eight game processes and scaling independent CPU
+jobs; no evidence supports adding GPUs for this evaluator.
+
+### Prepared next execution, not yet launched
+
+`build-population-hybrid-development-source.py prepare` completed successfully.
+All **1,453 base files are unchanged**; new files supply verification, the shard
+wrapper, guarded manager/coordinator, comparison and tests. The exact source
+archive is `ai/runs/strong-source-population-hybrid-development-20261024-v1.tgz`,
+SHA256 `ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23`.
+Preparation manifest and logs are in
+`ai/runs/population-hybrid-development-source-prepared-v1/`.
+
+Six independent-verifier tests and eight execution/analysis tests pass. They
+cover real controls/receipts, corruption rejection, balanced 8,400-game coverage,
+nonzero deal offsets, retained adverse comparisons, duplicate/ambiguous submission
+guards and the 32-job concurrency bound. A clean extracted-package check reaches
+the real evaluation subprocess with the actual frozen-1 model, then deliberately
+stops before playing; its expected failure receipt is retained. No extra games
+or jobs are produced by these tests.
+
+After the existing six-player pilot completes and verifies:
+
+1. Run `ai/.venv/bin/python ai/strong/build-population-hybrid-development-source.py freeze`.
+   It rechecks both runtime receipts, all prepared hashes and the unchanged final
+   protocol. Timeout admission uses 120 seconds setup plus twice the slower
+   endpoint's complete runtime times deals per shard, with 25% timeout headroom.
+   It partitions into four, two or one whole deals to remain within 12 hours.
+   It never shortens games or search. Inspect the resulting source/plan and
+   measured timeout before launching; `freeze` itself submits no jobs.
+2. Review the dry run of `coordinate-population-hybrid-development.py`. Only one
+   coordinator may run: it holds a filesystem lock, retains unique launch guards,
+   checks all pinned dependencies and validates saved receipt identities on resume.
+   The fixed maximum is 32 live jobs; no automatic retries or cancellations.
+3. Launch the fixed grid with `--execute` only after that concrete admission.
+   The five arms, all 27 cells and all four fresh deals remain unchanged. The
+   coordinator stops new submissions on failed/uncertain jobs, retaining every
+   handle. All complete results are independently verified before a full paired
+   comparison. Four deals is coarse development evidence, not final selection.
+
+Evidence is remotely verified at private model-repo revision
+`4f045dfaf5c03efe7a5d5058938e342af313bbe3`, archive
+`archives/population-hybrid-development-preparation-evidence-v1.tgz`, SHA256
+`f4e68ba9e00d0db29aa8da7766b8fdf926889f96e91e2e176bf9618f36e91568`.
+All 54 files include the exact prepared source archive, verifier/tests, initial
+and repeated two-player receipts/raw results, metrics and six-player progress.
+Descriptor: `strong/population-hybrid-development-preparation-evidence-v1.json`.
+
+The user's quoted 30.9% /15.6% rates refer to the old four-player baseline.
+The completed new model-only comparison is 51.56% overall /39.06% Recharged
+sealed for frozen-1 against search. Those are meaningful development gains,
+not qualification and not new hybrid gains. The hybrid strength experiment
+must establish whether selective search improves them across all counts/rules.
+
+## Previous checkpoint: full comparison complete; hybrid runtime pilots running
 
 Previous goal turn: progress (population worker integration and archived evidence).
 This turn: progress. The sole recovery coordinator completed all remaining jobs,

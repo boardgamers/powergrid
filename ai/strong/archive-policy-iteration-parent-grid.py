@@ -1,0 +1,71 @@
+"""Save all parent reference handles and the exact verified runtime admission."""
+from collections import Counter
+import importlib.util
+import shutil
+from huggingface_hub import HfApi, hf_hub_download
+from strategic_collection import ROOT, read, write, digest
+
+
+def main():
+    spec = importlib.util.spec_from_file_location('grid_archive_manager', ROOT/'ai/strong/manage-policy-iteration-development-grid.py')
+    grid = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(grid)
+    plan = grid.require_plan('parent')
+    status = read(ROOT/'ai/strong/policy-iteration-development-status-v2.json')
+    current = {j['case']: j for j in status['jobs']}
+    guards = []
+    for row in plan['shards']:
+        path = grid.manager.GUARDS/(row['case']+'.json')
+        guard = grid.matching_guard(path, row, plan)
+        assert current[row['case']]['job_id'] == guard['job_id']
+        guards.append(path)
+    assert len(guards) == len({read(p)['job_id'] for p in guards}) == 108
+    out = ROOT/'ai/runs/policy-iteration-parent-grid-launch-evidence-v2'
+    out.mkdir(exist_ok=False)
+    names = ['policy-iteration-development-protocol-v2.json', 'policy-iteration-development-source-v2.json',
+             'policy-iteration-development-preflight-v2.json', 'policy-iteration-development-runtime-probes-v2.json',
+             'policy-iteration-development-status-v2.json', 'manage-policy-iteration-development.py',
+             'manage-policy-iteration-development-grid.py', 'compare-policy-iteration-development.py',
+             'policy-iteration-collection-grid-controls-v2.json', 'archive-policy-iteration-parent-grid.py']
+    for name in names:
+        shutil.copy2(ROOT/'ai/strong'/name, out/name)
+    shutil.copy2(grid.plan_path('parent'), out/'parent-plan.json')
+    (out/'guards').mkdir()
+    for path in grid.manager.GUARDS.glob('*.json'):
+        shutil.copy2(path, out/'guards'/path.name)
+    for n in [2,6]:
+        name=f'smoke-parent-{n}p-search_geo-0-1'
+        shutil.copytree(grid.manager.VERIFIED/name, out/name)
+    verified_parent = []
+    for row in plan['shards']:
+        directory = grid.manager.VERIFIED/row['case']
+        if (directory/'verified.json').exists():
+            report = read(directory/'verified.json')
+            assert report['verified'] and report['source'] == plan['source']
+            assert report['model_pin_sha256'] == plan['model_pin_sha256']
+            for file, sha in report['artifacts'].items():
+                assert digest(directory/file) == sha
+            shutil.copytree(directory, out/row['case'])
+            verified_parent.append(report)
+    for name in ['policy-iteration-development-parent-grid-dry-v2.log', 'policy-iteration-development-parent-grid-launch-v2.log']:
+        shutil.copy2(ROOT/'ai/runs'/name, out/name)
+    write(out/'manifest.json', {str(p.relative_to(out)): digest(p) for p in out.rglob('*') if p.is_file()})
+    repo, prefix = 'coyotte508/powergrid-ai-germany-v1', 'runs/'+out.name
+    commit = HfApi().upload_folder(repo_id=repo, folder_path=out, path_in_repo=prefix)
+    sha = digest(out/'manifest.json')
+    assert digest(hf_hub_download(repo, prefix+'/manifest.json', revision=commit.oid)) == sha
+    report = {'repo':repo, 'revision':commit.oid, 'prefix':prefix, 'manifest_sha256':sha,
+              'shards_submitted':108, 'planned_games':6720, 'plan_sha256':digest(grid.plan_path('parent')),
+              'status_checked_at':status['checked_at'],
+              'status_counts':dict(Counter(current[row['case']]['authoritative_status'] for row in plan['shards'])),
+              'timeout_hours':plan['runtime_admission']['timeout_hours'], 'flavor':'cpu-upgrade',
+              'both_runtime_probes_verified':True, 'probe_games':32, 'parent_is_unqualified':True,
+              'verified_parent_cases':len(verified_parent),
+              'verified_parent_games':sum(r['summary']['games'] for r in verified_parent),
+              'gradients':False, 'qualification_eligible':False, 'reserved_final_seeds_used':False}
+    write(ROOT/'ai/strong/policy-iteration-parent-grid-launch-evidence-v2.json',report)
+    print(report,flush=True)
+
+
+if __name__ == '__main__':
+    main()

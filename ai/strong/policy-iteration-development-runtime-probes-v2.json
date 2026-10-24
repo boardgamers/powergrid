@@ -36,10 +36,9 @@
     "gradients": false,
     "qualification_eligible": false
   },
-  "status_checked_at": "2026-10-24T04:33:07.944210+00:00",
+  "status_checked_at": "2026-10-24T04:49:06.755953+00:00",
   "status_counts": {
-    "COMPLETED": 1,
-    "RUNNING": 1
+    "COMPLETED": 2
   },
   "verified_cases": {
     "smoke-parent-2p-search_geo-0-1": {
@@ -155,10 +154,142 @@
         "development-check.json": "c6c9acf7ca10a1953bde2aff5f74a7581e01b76d336eaf121d6bc356dd854fb0"
       },
       "qualification_eligible": false
+    },
+    "smoke-parent-6p-search_geo-0-1": {
+      "verified": true,
+      "job_id": "6adc2d2a1e112550ce7dc710",
+      "source": {
+        "archive": "strong-source-policy-iteration-development-20261024-v2.tgz",
+        "revision": "a393d0fa83d9fee8a27a876a217fe97dfea03ff8",
+        "sha256": "c020987f3a05a2c0116dfd52498139f6bb7480e1721ca058caf9771f94d970ce",
+        "bytes": 109411988,
+        "base": {
+          "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+          "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+          "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+          "bytes": 109402244,
+          "base": {
+            "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+            "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+            "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+          },
+          "overlays": {
+            "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+            "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+            "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+            "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+          },
+          "unchanged_base_files": 1430,
+          "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+          "qualification_eligible": false
+        },
+        "overlays": {
+          "ai/strong/policy_iteration_development.py": "1bbcec9b3ad236fdaf330627cd31f6c99618642cf657b75207aba365c4c217ea",
+          "ai/strong/preflight-policy-iteration-development.py": "024f1f746eb396a8906664c26e2307224c733ff4b43a75899498efbf65096829",
+          "ai/strong/policy-iteration-development-protocol-v2.json": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+          "ai/strong/policy-iteration-training-design-v2.json": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+          "ai/strong/build-policy-iteration-development-source.py": "6dd5963f0438f0ef7fca6c53c3701acdba99d8e9390e42d9c5f64f4e39287310"
+        },
+        "unchanged_base_files": 1434,
+        "protocol_sha256": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+        "gradients": false,
+        "qualification_eligible": false
+      },
+      "revision": "ff018d27d92b4c600f0e5f1ab4d9c58d21c4b4b8",
+      "prefix": "runs/policy-iteration-development-v2-smoke-parent-6p-search_geo-0-1",
+      "model_pin_sha256": "f7d090a1a878171eca95bcc5db3233f4a47b7d7887b8a0dd6f9d1bb6216c8979",
+      "model_pin": {
+        "revision": "b115a2d78aae095e51fb72a5535b3507abdf90c0",
+        "prefix": "runs/discard-correction-v1/10102/derivative",
+        "files": {
+          "inference64.onnx": "57f8255e79b991ba466f91e953d0bca6868144bb543577fc0dad8ade387ebf68",
+          "inference64.pt": "25e9995c3998cc9f09e1dafb40f0328ae09e616f791c10e793eaad42cfa5e473"
+        },
+        "feature_revision": "4.2-discard-correction",
+        "selected_epoch": 10,
+        "key": "parent",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "seed": 10102,
+        "training_verified": true,
+        "parent_frozen": true
+      },
+      "protocol_sha256": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+      "summary": {
+        "games": 24,
+        "independent_deals": 1,
+        "win_rate": 0.3333333333333333,
+        "deal_bootstrap_95_interval": null,
+        "seconds": 2786.6924389945343,
+        "search_stats": {
+          "search_geo": {
+            "decisions": 5375,
+            "evaluations": 439328,
+            "truncated": 0
+          }
+        },
+        "game_truncations": 0,
+        "search_truncations": 0,
+        "by_rules": {
+          "original/open": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.8333333333333334,
+            "deal_bootstrap_95_interval": null
+          },
+          "original/sealed": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/open": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.3333333333333333,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/sealed": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.16666666666666666,
+            "deal_bootstrap_95_interval": null
+          }
+        }
+      },
+      "flavor": "cpu-upgrade",
+      "artifacts": {
+        "evaluation.log": "caf2f9756f45cc826907b45586109009d269b4e470363565eb0c4c0452507137",
+        "serving.json": "3f0e65c71e5558e54f0e00e03617a987f456f721c0bf4a0b5ad73bc79306f37d",
+        "collection-intent.json": "1156c2b52a8b523eb5c2d260e591ede3afd4d9a457d45575837602cd2d1762cb",
+        "serving.log": "a21daaa7d63cab0f4c971099dfa84d77ae2f55d82f057823ccd03bb1698e59d6",
+        "checkpoint.json": "167b113dc9ddcb4c8a95b84eeac0df20f6330981247bef748e4a6803cabdaba8",
+        "evaluation.json": "f8b52676b82df8bec638591bcc13e29451daa7f82ab65b0a27361e67ef84b79c",
+        "summary.json": "19bdc76e21854bd18ae84cccdc80b0498a53bcca99d5f66505cf8679402b32dd",
+        "development-check.json": "bcf013448bc12d04942d6736612248b487cb07679fa6c77d84469b616a32d57c"
+      },
+      "qualification_eligible": false
     }
   },
-  "games": 8,
-  "parent_full_development_admitted": false,
+  "games": 32,
+  "parent_full_development_admitted": true,
   "qualification_eligible": false,
-  "scope": "Hardware/runtime probes on a separate seed namespace; not candidate training or strength qualification."
+  "scope": "Hardware/runtime probes on a separate seed namespace; not candidate training or strength qualification.",
+  "runtime_admission": {
+    "probes": [
+      {
+        "players": 2,
+        "seconds": 146.18882324825972,
+        "verified_sha256": "eac359ff19a2adf7a44490f7b70d600279f16aba89b8ba24f84ddc6d7a8f9bc9"
+      },
+      {
+        "players": 6,
+        "seconds": 2786.6924389945343,
+        "verified_sha256": "7af7520a6d4ad6f7277e068f7cbaeafb384c43901e424ec5ddcd0e455cbf313d"
+      }
+    ],
+    "projected_seconds": 22413.539511956275,
+    "timeout_hours": 9,
+    "admitted": true,
+    "scope": "Same candidate/source/hardware;2x slower endpoint for four whole deals plus120s setup and25% timeout headroom. Never shorten games or search."
+  }
 }

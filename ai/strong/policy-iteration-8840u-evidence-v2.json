@@ -1,0 +1,19 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "d4af1c8d92a0ff1f42835c0e48a382113337836f",
+  "prefix": "runs/policy-iteration-8840u-evidence-v2",
+  "manifest_sha256": "19215960a4d5bad56da7baf7a2fa310ebfe28ee6d6d0da78d1596ab412a7bc76",
+  "synthetic_untrained": true,
+  "requests": 10212,
+  "all_target_moves_match_frozen_runtime": true,
+  "label_shards_verified": 250,
+  "rollouts_including_pilot": 8842752,
+  "label_status_checked_at": "2026-10-24T04:44:20.358183+00:00",
+  "label_status_counts": {
+    "COMPLETED": 250,
+    "RUNNING": 240,
+    "SCHEDULING": 458
+  },
+  "gradients": false,
+  "qualification_eligible": false
+}

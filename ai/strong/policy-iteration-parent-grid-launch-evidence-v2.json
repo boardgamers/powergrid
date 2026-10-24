@@ -1,0 +1,24 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "e2e278e0c520aa42d021844a865a8ad15d36c94b",
+  "prefix": "runs/policy-iteration-parent-grid-launch-evidence-v2",
+  "manifest_sha256": "df5354757ced53417d4e2563624e480f796c86a64879762f3c185dd522533e01",
+  "shards_submitted": 108,
+  "planned_games": 6720,
+  "plan_sha256": "080893449fde758e1820bf2fe5557dcaf4772343e2395d2adbf788bad840658b",
+  "status_checked_at": "2026-10-24T04:51:33.985349+00:00",
+  "status_counts": {
+    "COMPLETED": 8,
+    "RUNNING": 100
+  },
+  "timeout_hours": 9,
+  "flavor": "cpu-upgrade",
+  "both_runtime_probes_verified": true,
+  "probe_games": 32,
+  "parent_is_unqualified": true,
+  "verified_parent_cases": 8,
+  "verified_parent_games": 320,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

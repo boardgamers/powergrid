@@ -1,33 +1,31 @@
 # Power Grid AI — ACTIVE, resumed 23 October 2026
 
 **Start with [the current resumption handoff](HANDOFF-2026-10-23-RESUMED.md).**
-No candidate has passed the strength gate. No AI is published; reserved final
-seeds remain unused.
+No candidate has passed the strength gate. No AI is published; final seeds remain
+unused. This turn made **progress**.
 
-Latest continuation made **progress**:
-- **219/948 new shards verified**,7,988,544 continuations including the pilot.
-  Snapshot04:34:16UTC:219 completed,243 running,486 scheduling.
-- **120 additional CPU Upgrade replacements submitted**,180 total. All original
-  handles were confirmed canceled without starting. Five full upgrade shards
-  independently verify (96,000 continuations);175 were running at the snapshot.
-  Current capacity decision stops at180 replacements; no further expansion admitted.
-- Migration78951 and all collectors have finished. **No local launcher/collector
-  is active.** Do not resubmit any of those jobs.
-- Training collector and full development-grid launcher/comparison are implemented.
-  Five contract tests pass; incomplete data/unchecked6p runtime are rejected.
-  Real trained-output collection and full-grid aggregation remain unexecuted.
-- Existing parent probe2p **6adc2d29046eb82b1ecda152** is complete/verified.
-  Existing6p **6adc2d2a1e112550ce7dc710** remains RUNNING. Collect this exact handle;
-  once both probes verify, use the new grid manager to plan and launch108 parent
-  shards /6,720 games. Four trained ensembles later use the identical fresh grid.
-- Private HF checkpoint **969786e971f9f1b84f71eb378a66467d9c03aa2d**,
-  prefix `runs/policy-iteration-wave2-checkpoint-v2`. Full immutable pins are in the handoff.
-- No new gradients yet. Full labels still precede two four-seedL4 training jobs;
-  all-arm development, exact AMD8840U benchmark and untouched final gate remain.
+- **268/948 new label shards verified**,9,460,416 continuations including the pilot.
+  Snapshot04:50:08UTC:268 completed,235 running,445 scheduling. The180 CPU Upgrade
+  replacement cap remains;14 upgrade shards verify. No local label collector active.
+- Both original parent runtime probes are **complete/verified**. Do not restart
+  `6adc2d29046eb82b1ecda152` or `6adc2d2a1e112550ce7dc710`.
+- **All108 parent reference jobs submitted**,6,720 planned fresh games,9h timeouts.
+  Snapshot04:51:33UTC:8 completed/100 running. The first8 batches /320 games verify.
+  Launcher78626 and collector52030 finished; use development status then grid
+  manager `collect parent`. No missing reference submissions.
+- **Actual AMD8840U architecture probe passed all10,212 requests** with exact moves
+  and values versus frozen runtime. Richer untrained ensembles:~5.9ms warm median,
+  ~8.7–9.0ms p95. This is architecture cost only; trained candidate still needs its
+  own benchmark. Remote/local probe processes all finished.
+- Private HF evidence: labels `b780e34f3a639f25bdf5e6ded75d1183b4ac4483`;
+  parent reference `e2e278e0c520aa42d021844a865a8ad15d36c94b`;
+  AMD architecture `d4af1c8d92a0ff1f42835c0e48a382113337836f`. Exact prefixes/manifests are in
+  the handoff.
+- No new gradients yet. Complete labels precede the two four-seedL4 jobs; all four
+  trained candidate grids, adverse-result diagnosis and untouched final gate remain.
 
-Next: refresh effective label handles, collect completions and summarize. Inspect
-and collect the existing6p probe on completion. The handoff contains recovery
-commands, source pins and the remaining training/evaluation steps.
+Next: collect labels/reference games while the live HF jobs finish, then advance
+the complete-data training pipeline. Keep the goal active; no model is qualified.
 
 ---
 

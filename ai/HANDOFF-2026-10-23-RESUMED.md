@@ -25,7 +25,129 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: second CPU wave and complete evaluation tooling
+## Latest checkpoint: parent reference grid running; AMD architecture cost verified
+
+This turn made **progress**: additional labels independently verified, both parent
+runtime probes passed, the complete parent development grid was submitted, and
+all four untrained ensemble architectures were measured on the actual AMD8840U.
+**No new gradients, trained candidate, qualified model, final-test use or
+production change.** The goal remains active.
+
+### Labels
+
+**268/948 new shards verified**,9,793 root-mode pairs and **9,460,416 continuations**
+including the reused pilot. Last snapshot `2026-10-24T04:50:08.962224+00:00`:
+**268 COMPLETED /235 RUNNING /445 SCHEDULING**. CPU Upgrade replacements remain
+capped at180;166 were running and14 completed at that snapshot. All14 completed
+upgrade shards verify, totaling565,440 continuations. Do not expand beyond180
+without a new measured capacity decision.
+
+Collectors6153 (to230),14497 (to250) and70849 (to268) have all finished. **No local
+label collector is active.** Their logs use
+`ai/runs/policy-iteration-labels-collect-230-v2.log`, `...collect-250-v2.log` and
+`...collect-268-v2.log`. Use the effective-handle manager for future status/collection.
+
+Latest label evidence: model-repo revision **b780e34f3a639f25bdf5e6ded75d1183b4ac4483**,
+prefix `runs/policy-iteration-labels-268-progress-evidence-v2`, manifest SHA
+`99f8084458651df26e43b7b073a3c656753616ca82d02d10a2378de1643be793`. This supersedes the250-shard label snapshot
+inside the architecture benchmark archive and the219-shard previous checkpoint.
+
+### Parent runtime probes and full reference grid
+
+Both exact probes are **COMPLETED and independently verified**. The6p job
+`6adc2d2a1e112550ce7dc710` ran24 full games in **2,786.6924s**, with5,375 search
+decisions /439,328 search evaluations and zero game/search truncations. Its raw
+revision is `ff018d27d92b4c600f0e5f1ab4d9c58d21c4b4b8`, prefix
+`runs/policy-iteration-development-v2-smoke-parent-6p-search_geo-0-1`.
+The earlier2p job `6adc2d29046eb82b1ecda152` remains verified (8 games,146.1888s).
+These32 probe games establish runtime, not strength.
+
+The admitted plan is `strong/policy-iteration-development-plans-v2/parent.json`,
+SHA `080893449fde758e1820bf2fe5557dcaf4772343e2395d2adbf788bad840658b`. Its conservative four-deal projection is
+22,413.5395s; the prescribed headroom gives **9h timeouts** on CPU Upgrade.
+The dry run admitted all108 shards. **Launcher78626 finished successfully**;
+all108 unique parent reference handles are recorded, with no unknown submissions.
+Planned total: **6,720 games**,27 opponent/count cells,16 independent deals per
+cell, all seats and all four edition/auction combinations. No trained-candidate
+arm has launched yet.
+
+At `2026-10-24T04:51:33.985349+00:00`, the108 parent reference jobs were
+**8 COMPLETED /100 RUNNING**. The separate two runtime probes were also completed.
+**All eight completed parent shards independently verified:320 fresh games.**
+These are the0–4-deal batches for2p/3p economic,legacy,heuristic,rush. Local grid
+collector52030 finished. No full arm or cross-model comparison is complete yet.
+
+Reference-grid evidence: revision **e2e278e0c520aa42d021844a865a8ad15d36c94b**, prefix
+`runs/policy-iteration-parent-grid-launch-evidence-v2`, manifest SHA
+`df5354757ced53417d4e2563624e480f796c86a64879762f3c185dd522533e01`. It contains all108 parent guards, both probe
+guards/raw verified results, the immutable plan, and the eight verified full
+reference batches. Descriptor: `strong/policy-iteration-parent-grid-launch-evidence-v2.json`.
+
+Next collection commands:
+
+```sh
+ai/.venv/bin/python ai/strong/manage-policy-iteration-development.py status
+ai/.venv/bin/python ai/strong/manage-policy-iteration-development-grid.py collect parent
+```
+
+Do not relaunch the probes or the full grid. The grid launcher can reconcile and
+skip exact existing guards, but there are no missing submissions to fill here.
+A complete parent summary requires all108 verified shards. All four candidate
+arms still require their trained pins and their own2p/6p runtime probes.
+
+### AMD8840U architecture benchmark
+
+This used the four already archived **synthetic, untrained** configurations,
+not newly trained candidates. The current frozen development source supplied
+all engine/worker/encoder/inference files byte-for-byte. Four standalone archives
+passed local package smoke checks and then all2,553 public fixtures each on
+`ssh minipc`, from an unrelated working directory. No target software installation
+or production routing was changed. The target load was low before the probe.
+
+Independent local collection verified **all10,212 moves exactly match the frozen
+runtime**, with maximum value difference **0**. Every move was legal; request,
+revision, schema and player-value ordering were checked. Actual CPU: AMD Ryzen7
+8840U. Timings are sequential engineering measurements, not statistical rankings.
+
+| Untrained configuration | Warm median | Warm p95 | First request |
+| --- | --- | --- | --- |
+| frozen-0 | 4.39ms | 6.98ms | 217.62ms |
+| frozen-1 | 4.49ms | 7.18ms | 221.52ms |
+| public-0 | 5.95ms | 8.71ms | 247.86ms |
+| public-1 | 5.94ms | 8.97ms | 253.70ms |
+
+The richer architecture's measured cost looks practical on this CPU. **The actual
+trained candidate still needs its own exact package benchmark.** This says
+nothing about strength or browser performance. Report:
+`strong/policy-iteration-8840u-results-v2.json`; scripts:
+`prepare-policy-iteration-8840u.py`, `launch-policy-iteration-8840u.py`,
+`collect-policy-iteration-8840u.py`, `archive-policy-iteration-8840u.py`.
+
+Local preparation `ai/runs/policy-iteration-8840u-prepared-v2`; recovered raw results
+`ai/runs/policy-iteration-8840u-results-v2`. Remote directory
+`/home/coyotte508/powergrid-ai-policy-iteration-architecture-v2` completed;
+launcher86400 and collector67581 finished. Its recorded PID no longer exists.
+**No target benchmark remains active.** Do not restart the completed benchmark.
+
+Benchmark evidence: revision **d4af1c8d92a0ff1f42835c0e48a382113337836f**, prefix
+`runs/policy-iteration-8840u-evidence-v2`, manifest SHA
+`19215960a4d5bad56da7baf7a2fa310ebfe28ee6d6d0da78d1596ab412a7bc76`. Exact standalone packages, raw responses,
+timings, local checks and preparation/collection code are preserved there.
+
+### Next work
+
+1. Refresh/collect labels and parent reference completions, then summarize labels.
+   All local launchers/collectors from this turn are finished; HF jobs remain live.
+2. Once all948 new labels and60 reused pilot shards verify, prepare/archive the
+   full compact data bundle, build the admitted HF training source, and launch the
+   two four-seedL4 training jobs. No incomplete-data shortcut.
+3. Independently verify both trained ensembles per representation, launch their
+   endpoint probes and matching108-shard grids, and compare all33,600 fresh games.
+4. Diagnose every adverse result, benchmark the exact selected trained package
+   on AMD8840U, and satisfy the unchanged final gate. Parent preservation,
+   synthetic timing and raw label volume do not establish strong play.
+
+## Previous checkpoint: second CPU wave and complete evaluation tooling
 
 This turn made **progress**. The first two CPU Upgrade full shards independently
 verified, allowing a bounded second hardware wave. The training-output collector,

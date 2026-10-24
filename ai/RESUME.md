@@ -6,7 +6,20 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: both runtime pilots verified; 8,400-game hybrid screen running.**
+**Latest: current engine 2.0.17 compatibility passed; hybrid grid continues.**
+An isolated build of fetched master 537e41e matches the active research engine on
+2,553 positions, 7,659 feature checks, 2,553 sampled public-information worlds,
+32,770 action transitions, 2,553 default-bot steps and 80 complete Germany games
+/ 40,464 transitions. All 1,463 frozen source files were independently rechecked.
+The production checkout and live evaluation code remain unchanged. This covers
+automatic standard-deck Germany with 2–6 players / all four rules, with documented metadata
+exclusions; it does not certify alternate decks, other maps or platform transport.
+Evidence: `strong/production-engine-compatibility-v2.json` (1,244 archived files).
+At 14:16:22 UTC coordinator PID 1447977 / session 53211 is confirmed alive: 32 jobs
+submitted, zero fully collected shards, no failures. Keep that same coordinator;
+no new jobs or gradients this turn. Full strength comparison is still pending.
+
+**Previous: both runtime pilots verified; 8,400-game hybrid screen running.**
 The six-player pilot finished in 47.7 minutes: 24 games, 53,312 rollouts, zero caps,
 all decision/terminal receipts independently verified. Together the endpoint
 pilots cover 32 games / 74,008 rollouts. Neither enters strength estimates. A separate

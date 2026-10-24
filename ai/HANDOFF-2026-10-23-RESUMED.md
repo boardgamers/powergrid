@@ -25,7 +25,67 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: both runtime pilots verified; full hybrid screen running
+## Latest checkpoint: current engine compatibility audited; hybrid grid continues
+
+Previous goal turn: progress (runtime admission and launch of the fixed screen).
+This turn: progress. A current-engine compatibility audit removes an unresolved
+deployment concern while the unchanged hybrid screen runs. At 14:16:22 UTC the
+sole coordinator PID 1447977 / session 53211 is confirmed alive, with 32 submitted
+jobs, zero fully collected shards and no failed jobs. Representative HF handles
+were independently confirmed RUNNING and producing completed games. No jobs,
+gradients, source changes or candidate promotions were added this turn.
+
+The earlier audit covered engine 2.0.14. A read-only fetch now identifies current
+master `537e41e3184208c580afbd25077faf3264fc1678`, engine **2.0.17**. Its intervening
+changes include alternate-deck/fuel-storage logic and colour selection. The
+engine was compiled in an isolated diagnostic directory; the production checkout
+remains clean, and every frozen evaluation dependency retains its hash. This is
+the current repository engine, not a check of which version a live BGS game uses.
+
+`strong/check-production-engine-compat-v2.cjs` compares this build with the exact
+frozen source used by the active hybrid screen. It passed:
+
+- 2,553 legal-menu checks and 7,659 feature checks, including the current 4.3
+  feature revision and presentation-metadata invariance.
+- 2,553 deterministic hidden-information scenarios reconstructed from public
+  positions, identical across both engines.
+- All **32,770** distinct legal/neural-candidate root action transitions in those
+  scenarios, with identical resulting strategic states.
+- 2,553 seeded default-bot transitions, zero differences.
+- **80 complete games / 40,464 transitions**, covering Germany with 2–6 players, original/
+  Recharged, open/sealed and four deals per cell, all states/outcomes identical.
+  The whole-game trace policy is the existing mixed heuristic/economic policy;
+  these games are compatibility checks, excluded from strength comparisons.
+
+Independent collection rechecked **all 1,463 source-archive files** against the
+runtime used by the checker. Lodash 4.17.21, seedrandom 3.0.5 and delaunator 4.0.1
+versions and resolved entry hashes also match the current production checkout.
+The audit uses the pinned complete dependency modules from the research source.
+Only the earlier explicitly documented presentation/revision metadata exclusions
+remain: root.poweringChoices, root.pendingMessages, and Starting Step 2/3 event text.
+No exclusion was added to make this new audit pass.
+
+Limits: automatic Germany setup with the standard deck, ordinary current-player
+decisions. Alternate decks, other maps, manual colour/region drafting, pending
+choice revisions and platform transport remain outside this certification.
+This is compatibility evidence, not stronger play or production routing.
+
+Evidence descriptor: `strong/production-engine-compatibility-v2.json`. All
+**1,244 files** (source snapshot, compiled current engine, dependencies, checker,
+raw results and hash receipts) are archived at model-repo revision
+`6a36212303c706341e725bdba07d0fd7cd967984`, archive
+`archives/production-engine-compatibility-evidence-v2.tgz`, SHA256
+`474245b9e67df52803a1368aaeba13c81715b348922758033ca2c00244396a0b`.
+Local evidence is under `ai/runs/production-engine-compatibility-v2/` and
+`ai/runs/production-engine-compatibility-evidence-v2/`; its checker and upload
+processes are terminal. Do not repeat the audit unless relevant source changes.
+
+Next: keep the existing coordinator as sole collector/launcher, inspect its
+specific handles and wait for the full prescribed comparison. Do not edit frozen
+dependencies, choose from partial results, rerun quiet live jobs, or use final
+seeds. The immediately following checkpoint records the execution plan.
+
+## Previous checkpoint: both runtime pilots verified; full hybrid screen running
 
 Previous goal turn: progress (actual 8840U parity/timing and archived evidence).
 This turn: progress. The six-player runtime pilot completed and independently

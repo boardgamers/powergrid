@@ -46942,5 +46942,34 @@
             "full_trained_integration_pending": true
         },
         "next": "Exact trained verification and complete parent reference must finish before8 runtime probes and432 candidate development shards. Existing runtime/source gates and full33600-game comparison apply. No final evaluation,promotion or source weakening."
+    },
+    "policy_iteration_trained_8840u_preparation_v2": {
+        "status": "tooling prepared; actual trained integration pending",
+        "script": "ai/strong/benchmark-policy-iteration-trained-8840u.py",
+        "controls": "ai/strong/policy-iteration-trained-8840u-controls-v2.json",
+        "evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "dcb1faaa982ec01735e54f53b6c1c578e721b469",
+            "archive_path": "archives/policy-iteration-trained-8840u-preparation-evidence-v2.tgz",
+            "archive_sha256": "d13b1ed7653071a36957e6386cdd6ad8b8061c0ccc7c95be492e8bfcac2314bb",
+            "manifest_sha256": "ae12f79bd40499acbdad270bdf2befaf311ddc6e31d93a81d565c358bb5307ed",
+            "archived_files": 11,
+            "format": "tar.gz",
+            "remote_archive_verified": true,
+            "kind": "trained target benchmark preparation only",
+            "contract_tests_passed": 3,
+            "pending_actual_trained_integration": true,
+            "remote_benchmark_started": false,
+            "hf_jobs_submitted": false,
+            "gradients": false,
+            "qualification_eligible": false
+        },
+        "tests_passed": 3,
+        "prepared_packages": false,
+        "remote_benchmark_started": false,
+        "hf_jobs_submitted": false,
+        "gradients": false,
+        "qualification_eligible": false,
+        "next": "After both trained heads are verified and archived, explicitly run prepare, run, collect, archive. Do not reuse synthetic benchmark evidence as trained-model timing."
     }
 }

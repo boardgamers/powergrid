@@ -25,7 +25,46 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: collection and full-data training handoff are active
+## Latest checkpoint: trained target benchmark tooling prepared
+
+The four existing local pipeline processes remain active and unchanged. The
+latest completed collection cycle verified **595/948** new label batches and
+**18,656,064** continuations including the pilot; parent evaluation has
+**97/108 batches /5,824 games**. Read their live state files for newer counts.
+The training coordinator still waits for the complete dataset. No new gradients,
+trained candidates, final-test use or publication yet.
+
+`ai/strong/benchmark-policy-iteration-trained-8840u.py` now supplies explicit
+`check`, `prepare`, `run`, `collect`, and `archive` stages for **actual trained**
+exports. It is not a fifth background process. Do not run it until both trained
+heads are independently verified and archived. It revalidates the exact training
+guards, data/source identities, all four candidate pins and verification artifacts;
+synthetic or incomplete handoffs fail before creating packages or contacting the
+8840U. Existing ambiguous target-launch records cannot be retried automatically.
+
+After admission, it packages byte-identical frozen development runtime plus each
+trained ONNX export, verifies standalone serving from an unrelated working
+directory, and runs the existing2553-fixture harness per model on `minipc`.
+Collection checks all10,212 target responses, legal moves, exact reference moves,
+values and hashes before archiving packages and raw timing evidence as one HF
+tar. It reports every candidate and does not select or promote a model. The old
+synthetic architecture benchmark remains separate and cannot substitute for this.
+
+Three admission/duplicate-launch tests passed. A real preparation attempt while
+training is pending was rejected before any output tree or remote launch. All
+four live processes' dependencies remain unchanged. **Actual trained packaging
+and target execution are still untested until those outputs exist.**
+
+- Controls: `strong/policy-iteration-trained-8840u-controls-v2.json`.
+- Preparation evidence: `strong/policy-iteration-trained-8840u-preparation-evidence-v2.json`.
+- HF revision: `dcb1faaa982ec01735e54f53b6c1c578e721b469`; archive: `archives/policy-iteration-trained-8840u-preparation-evidence-v2.tgz`.
+- Future outputs: `ai/runs/policy-iteration-trained-8840u-prepared-v2` and
+  `ai/runs/policy-iteration-trained-8840u-results-v2`.
+- Future target guard: `ai/strong/policy-iteration-trained-8840u-launch-v2.json`;
+  target directory: `/home/coyotte508/powergrid-ai-policy-iteration-trained-v2`.
+  None exists yet. Inspect recorded actual processes before any later recovery.
+
+## Earlier checkpoint: collection and full-data training handoff are active
 
 Previous goal turn: **verified wait** (the live collector completed another
 verification cycle). This turn made **progress**: the bounded development

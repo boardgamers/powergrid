@@ -1,8 +1,9 @@
 # Power Grid AI — ACTIVE, resumed 23 October 2026
 
 **Start with [the current resumption handoff](HANDOFF-2026-10-23-RESUMED.md).**
-Previous turn: **verified wait**;this turn: **progress**. No model is qualified or published;
-reserved final seeds are unused.
+This turn prepared the exact trained-model target benchmark; actual trained
+outputs are still pending. No model is qualified or published; reserved final
+seeds are unused.
 
 - **Collector ACTIVE:** PID2476443 /session82318, every5min, bounded12h.
   State: `ai/runs/policy-iteration-harvest-recovered-v2/state.json`.
@@ -30,19 +31,23 @@ reserved final seeds are unused.
   edit its39 hashed dependencies.24h window,no retry/cancel/final test/promotion.
   Stop it on an explicit pause to prevent later submissions. No candidate jobs
   launched yet. Evidence: `strong/policy-iteration-development-coordinator-evidence-v2.json`.
-- **552/948 new label shards verified**,17,783,232 continuations including pilot.
-  Snapshot06:42:31UTC:552 completed,396 running,none queued. All948 jobs have started.
-  A frozen cross-batch audit covers4,520 fully paired roots:conditional gain0.04983;
-  448/3,100 changed directions negative. Partial scheduling-selected cohort;not
-  whole-game model strength. No partial-data training or changed thresholds.
-  Evidence: `strong/policy-iteration-label-quality-progress-evidence-v2.json`.
-  The four local processes are still active. Last capacity archive
-  preserves418 shards;this audit also preserves the475-shard manifest.
+- **595/948 new label shards verified**, 18,656,064 continuations including pilot.
+  The four local processes remain active; all948 jobs have started. Live state
+  files supersede this snapshot. No partial-data training or changed thresholds.
+- **Trained target benchmark tooling prepared**,3 admission tests passed.
+  `strong/benchmark-policy-iteration-trained-8840u.py` supplies explicit check,
+  prepare,run,collect,archive stages after all four trained pins are verified.
+  No fifth coordinator or target run. Actual trained integration is pending.
+  It keeps the old synthetic benchmark separate and rejects unfinished training
+  before creating any outputs. See the latest handoff for exact future paths.
+- A frozen cross-batch audit covers4,520 fully paired roots:conditional gain0.04983;
+  448/3,100 changed directions negative. Scheduling-selected partial cohort;
+  not whole-game strength. Evidence: `strong/policy-iteration-label-quality-progress-evidence-v2.json`.
 - Fourth bounded hardware wave finished: **420 queued-job migrations**,9 safely
   skipped originals, plus2 separate upload-failure retries. All948 effective IDs
   remain distinct. Harvester was briefly stopped for guard coordination and is
   **resumed**; coordinator never stopped. Do not rerun operation24746.
-- **96 parent batches /5,760 games verified.**2p search:48.83% wins
+- **97 parent batches /5,824 games verified.**2p search:48.83% wins
   (95% interval38.28–59.77%).3p search:20.31% (14.58–26.56%), below chance.
   Only4–6p search cells remain incomplete; parent remains unqualified.
 - HF file-limit incident fixed:13 duplicated checkpoints compacted,8,158 entries

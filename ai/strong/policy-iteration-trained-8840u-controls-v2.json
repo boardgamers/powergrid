@@ -1,0 +1,35 @@
+{
+  "tests_passed": 3,
+  "test_output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.003s\n\nOK\n",
+  "real_pending_training_prepare_rejected": true,
+  "no_prepared_output_created": true,
+  "no_target_launch_created": true,
+  "no_hf_jobs_submitted": true,
+  "actual_trained_integration": "pending actual verified training outputs",
+  "active_pipeline_unchanged": {
+    "policy-iteration-harvest-recovered-v2": {
+      "pid": 2476443,
+      "stage": "waiting",
+      "all_dependencies_unchanged": true
+    },
+    "policy-iteration-training-coordinator-v2": {
+      "pid": 2536611,
+      "stage": "waiting_for_complete_labels",
+      "all_dependencies_unchanged": true
+    },
+    "policy-iteration-training-harvest-v2": {
+      "pid": 2850424,
+      "stage": "waiting_for_training_submission",
+      "all_dependencies_unchanged": true
+    },
+    "policy-iteration-development-coordinator-v2": {
+      "pid": 2950746,
+      "stage": "waiting_for_verified_training_and_parent",
+      "all_dependencies_unchanged": true
+    }
+  },
+  "gradients": false,
+  "qualification_eligible": false,
+  "script_sha256": "19d3543d9bcb54b9652118b39bf33d8603852109391ba3c5edaf08ce8d765893",
+  "tests_sha256": "85e985b3b444318816c9edb7ccb9a9f920c79051dacffa30d255fb1ed500ded5"
+}

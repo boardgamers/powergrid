@@ -1,0 +1,71 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "7c5b6d96037bf3cc31b543f80d8015e7e49588d3",
+  "archive_path": "archives/policy-iteration-development-recovery-evidence-v1.tgz",
+  "archive_sha256": "97f75f02a1a3c6fe9f03effd101283787eb3cb93bb34e775cdb63e5f04791a07",
+  "manifest_sha256": "8539af9ea4d077b31a7740bea832ae15a65507f15f964945e177180a500e5862",
+  "archived_files": 30,
+  "format": "tar.gz",
+  "remote_archive_verified": true,
+  "unit_tests_passed": 5,
+  "actual_admission_passed": true,
+  "admitted_replacements": 10,
+  "maximum_in_flight": 2,
+  "rejected_cases": [
+    "live or unknown or completed job",
+    "second replacement",
+    "existing artifacts",
+    "changed source",
+    "non-development run"
+  ],
+  "source_model_protocol_seeds_unchanged": true,
+  "training_jobs_restarted": 0,
+  "qualification_eligible": false,
+  "admission_sha256": "e840a40e30e00bcb73ea7cf876a3f3d8877a8d254819e1fd45b7e5e728c4dffc",
+  "original_coordinator_pid": 71261,
+  "original_coordinator_terminal": true,
+  "original_failures": [
+    {
+      "case": "development-frozen-1-2p-economic_capacity_v1-12-16",
+      "job_id": "6adc8fdb046eb82b1ecdbf9f"
+    },
+    {
+      "case": "development-frozen-1-3p-a260-8-12",
+      "job_id": "6adc8fbb046eb82b1ecdbf61"
+    },
+    {
+      "case": "development-frozen-1-3p-economic-12-16",
+      "job_id": "6adc8fc31e112550ce7df0e0"
+    },
+    {
+      "case": "development-frozen-1-3p-rush-12-16",
+      "job_id": "6adc8fc8046eb82b1ecdbf83"
+    },
+    {
+      "case": "development-frozen-1-4p-economic-8-12",
+      "job_id": "6adc8fab046eb82b1ecdbf43"
+    },
+    {
+      "case": "development-frozen-1-4p-legacy-12-16",
+      "job_id": "6adc8fcb1e112550ce7df0fc"
+    },
+    {
+      "case": "development-frozen-1-4p-rush-8-12",
+      "job_id": "6adc8faf046eb82b1ecdbf51"
+    },
+    {
+      "case": "development-frozen-1-6p-economic-4-8",
+      "job_id": "6adc8f9a1e112550ce7df052"
+    },
+    {
+      "case": "development-frozen-1-6p-economic-8-12",
+      "job_id": "6adc8fb5046eb82b1ecdbf59"
+    },
+    {
+      "case": "development-frozen-1-6p-legacy-8-12",
+      "job_id": "6adc8fb8046eb82b1ecdbf5d"
+    }
+  ],
+  "failure_reason": "HF upload HTTP429: maximum queue size reached; all ten result prefixes absent at inspected revision",
+  "reserved_final_seeds_used": false
+}

@@ -1,0 +1,49 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "14128918fbd0620d618f325462187d6f212645e2",
+  "archive_path": "archives/policy-iteration-development-recovery-active-evidence-v1.tgz",
+  "archive_sha256": "7ff1d37c4bdbf11a14c7d392110b294fae2f20fb8fd7e59fa435c6c7a168c746",
+  "manifest_sha256": "9b6728cc692f29a4b074a7aae23da1d1bcc7e31f2252b8ce2d00020951cc2cd8",
+  "archived_files": 9,
+  "format": "tar.gz",
+  "remote_archive_verified": true,
+  "checked_at": "2026-10-24T11:23:17.373063+00:00",
+  "live_pid": 402796,
+  "live_command": "ai/.venv/bin/python -u ai/strong/recover-policy-iteration-development.py --execute --interval-seconds 300 --max-hours 12 ",
+  "stage": "waiting_for_development_jobs",
+  "independently_verified_progress": {
+    "frozen-0": {
+      "verified_shards": 93,
+      "verified_games": 5616
+    },
+    "frozen-1": {
+      "verified_shards": 82,
+      "verified_games": 4912
+    },
+    "public-0": {
+      "verified_shards": 91,
+      "verified_games": 5536
+    },
+    "public-1": {
+      "verified_shards": 91,
+      "verified_games": 5536
+    }
+  },
+  "replacement_statuses": [
+    {
+      "case": "development-frozen-1-2p-economic_capacity_v1-12-16",
+      "job_id": "6adc92d91e112550ce7df2e6",
+      "status": "COMPLETED",
+      "message": null
+    },
+    {
+      "case": "development-frozen-1-3p-a260-8-12",
+      "job_id": "6adc92db046eb82b1ecdc147",
+      "status": "COMPLETED",
+      "message": null
+    }
+  ],
+  "frozen_dependencies_unchanged": true,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

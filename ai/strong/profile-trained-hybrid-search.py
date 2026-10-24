@@ -12,7 +12,20 @@ import platform
 import time
 
 import hybrid_search as hybrid
-from strategic_collection import ROOT, read, write, digest
+
+ROOT = Path(__file__).resolve().parents[2]
+
+
+def read(path):
+    return json.loads(Path(path).read_text())
+
+
+def write(path, data):
+    Path(path).write_text(json.dumps(data, indent=2)+'\n')
+
+
+def digest(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
 @contextmanager
@@ -83,7 +96,12 @@ def comparable(result):
 def main():
     parser = argparse.ArgumentParser(__doc__)
     parser.add_argument('output', type=Path)
+    parser.add_argument('--require-cpu', help='Reject a benchmark on an unintended CPU before running it')
     args = parser.parse_args()
+    processor = next(line.split(':', 1)[1].strip() for line in
+        Path('/proc/cpuinfo').read_text().splitlines() if line.startswith('model name'))
+    if args.require_cpu:
+        assert args.require_cpu in processor, (args.require_cpu, processor)
     previous = ROOT/'ai/runs/trained-hybrid-probe-v2'
     probe = read(previous/'assessment.json')
     assert probe['contracts_passed'] and probe['all_searches_usable']
@@ -112,13 +130,12 @@ def main():
         'trained_manifest_sha256': digest(prepared/'manifest.json'),
         'source_probe_archive': read(ROOT/'ai/strong/trained-hybrid-probe-evidence-v2.json'),
         'code_hashes': {str(p.relative_to(ROOT)): sha for p, sha in hashes.items()},
-        'host': platform.node(), 'processor': next(line.split(':', 1)[1].strip()
-            for line in Path('/proc/cpuinfo').read_text().splitlines() if line.startswith('model name')),
+        'host': platform.node(), 'processor': processor, 'required_cpu': args.require_cpu,
         'thread_order': [1, 4, 4, 1], 'workers': 4, 'samples_per_mode': 8, 'max_steps': 2400,
         'records': [], 'gradients': False, 'hf_jobs_submitted': 0, 'candidate_selected': False,
         'qualification_eligible': False, 'reserved_final_seeds_used': False,
-        'scope': 'Repeated existing six-player Recharged/sealed building fixture on the local HX370. '
-            'No fresh strength, target8840U latency distribution or default thread change. '
+        'scope': 'Repeated existing six-player Recharged/sealed building fixture on the recorded CPU host. '
+            'No fresh strength, representative latency distribution or default thread change. '
             'Policy time includes ONNX; engine time includes IPC, JSON and simulator work.'}
     transcript = None
     try:

@@ -25,7 +25,115 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: trained hybrid cost profile and development grids
+## Latest checkpoint: actual 8840U hybrid speed and restored collection
+
+The trained hybrid cost profile now passes on the actual **AMD Ryzen 7 8840U**.
+It uses only public-0 and the same existing six-player Recharged/sealed building
+fixture (2029), eight worlds per continuation mode and four engine workers.
+Thread order is 1, 4, 4, 1; each request starts new search workers with a loaded
+model. No default or search budget was changed.
+
+| ORT threads | Two request times | Mean ONNX time | Mean engine / IPC / JSON time |
+| --- | --- | ---: | ---: |
+| 1 | 34.616s, 34.949s | 24.735s | 8.016s |
+| 4 | 19.484s, 19.541s | 9.398s | 8.061s |
+
+Mean whole-request speedup is **1.783x**. All four internal policy-choice
+transcripts and all terminal outcomes match each other **and the local HX370
+profile**; 28,074 policy rows per request, zero caps. This supports feasibility
+for background bot jobs. It is one repeated fixture, not a representative latency
+distribution, a fresh strength result or a justified default for every model/count.
+Python 3.12.3, ORT 1.30.0, NumPy 2.5.3, Node v24.19.0 were recorded on target.
+
+The first target attempt failed before simulations because the profiling script
+imported an HF training client through generic file helpers. Its terminal PID,
+logs, source and guard are retained. The repaired profiler uses standard-library
+file helpers and an explicit CPU admission check. Model, frozen engine, search
+and inference files are unchanged. No package was installed on the target.
+
+- Completed target: PID 2925814, SSH session 73745; no process to restart.
+- Remote: `/home/coyotte508/powergrid-ai-trained-hybrid-8840u-v2`.
+- Guard: `strong/trained-hybrid-8840u-launch-v2.json` (`completed`).
+- Prepared/results: `ai/runs/trained-hybrid-8840u-prepared-v2` and
+  `ai/runs/trained-hybrid-8840u-results-v2`.
+- Evidence: `strong/trained-hybrid-8840u-evidence-v2.json`.
+- HF revision `2351a59ac0fb49d17686079559e10bf81ed54361`, archive
+  `archives/trained-hybrid-8840u-evidence-v2.tgz`, SHA256
+  `894fa571b9e861b9ca08629e601857d0244e45706d08fc5d8fdde1a900ff9a01`. All 19 files verified remotely,
+  including the standalone package, raw results, source and first failure.
+
+At 2026-10-24T11:23:17.373063+00:00, the development recovery is live as
+**PID 402796 / session 78444**, stage `waiting_for_development_jobs`. The two first
+replacement jobs are authoritatively COMPLETED. Eight reviewed replacements
+remain to be submitted by this same coordinator, at most two at a time. Its
+41 frozen dependency hashes match. There are **357 / 432 candidate shards and
+21,600 / 26,880 candidate games independently verified**, plus all 6,720 parent
+games. No partial win-rate ranking or model choice is made.
+
+Recovery progress and actual first replacement handles are durably archived:
+`strong/policy-iteration-development-recovery-active-evidence-v1.json`, HF revision
+`14128918fbd0620d618f325462187d6f212645e2`, archive `archives/policy-iteration-development-recovery-active-evidence-v1.tgz`,
+SHA256 `7ff1d37c4bdbf11a14c7d392110b294fae2f20fb8fd7e59fa435c6c7a168c746`. Original failed handles remain failures,
+with the replacements linked explicitly. Do not rerun or duplicate its tasks.
+
+Next: complete the unchanged whole-game comparison before selecting a candidate,
+starting another gradient round or launching the bounded hybrid strength study.
+The untouched final strength gate still has to pass; no candidate is qualified.
+For future large grids, improve artifact-upload queuing/backoff before submitting
+another synchronized burst; the observed upload failures are not evidence for a
+model or simulator change. No active job's source was modified.
+
+## Previous checkpoint: reviewed artifact-upload failures and bounded recovery
+
+The original development coordinator (PID 71261 / session 77604) stopped at
+11:05:39 UTC on ten ERROR jobs; the PID was absent and its 39 dependencies
+were unchanged. Do not restart the original launcher. All 432 candidate shards
+were submitted and their launch archives remain valid.
+
+All ten errors are on frozen-1 jobs, with HF artifact commit HTTP 429:
+`maximum queue size reached`. Their exact original handles, sanitized full logs,
+guards, terminal statuses and the stopped coordinator are preserved. All ten
+remote result prefixes were absent at the inspected repository revision. Because
+upload runs in a finally block, upload errors alone do not prove that their games
+completed correctly; no result or strength credit is assumed for these batches.
+
+A separately admitted recovery replaces only these ten terminal jobs, once each,
+with **at most two replacements in flight**. It uses the unchanged source,
+bootstrap, models, hardware, seeds, rules, horizons and per-case timeout. Original
+guards are preserved in the failure evidence; canonical guards now name each
+replacement and reference its original job. Completed and running jobs are not
+rerun. Five recovery-control tests and the real ten-case admission passed.
+
+- Current coordinator: **PID 402796 / session 78444**.
+- Script: `strong/recover-policy-iteration-development.py`.
+- State: `ai/runs/policy-iteration-development-recovered-v1/state.json`.
+- Log: `ai/runs/policy-iteration-development-recovered-v1.log`.
+- Admission: `strong/policy-iteration-development-recovery-admission-v1.json`.
+- Evidence: `strong/policy-iteration-development-recovery-evidence-v1.json`.
+- HF revision `7c5b6d96037bf3cc31b543f80d8015e7e49588d3`, archive
+  `archives/policy-iteration-development-recovery-evidence-v1.tgz`, SHA256
+  `97f75f02a1a3c6fe9f03effd101283787eb3cb93bb34e775cdb63e5f04791a07`. All 30 files verified remotely.
+
+At 2026-10-24T11:16:30.126359+00:00, the stage is `collect-001-public-0` and
+2/10 replacements are submitted. The first two are
+`6adc92d91e112550ce7df2e6` (2p economic-capacity deals 12–16) and
+`6adc92db046eb82b1ecdc147` (3p a260 deals 8–12). Current completed
+collection progress by model: `{"frozen-0": {"verified_games": 5616, "verified_shards": 93}, "frozen-1": {"verified_games": 4912, "verified_shards": 82}}`.
+The independent initial frozen-0 collection completed 90 shards / 5,504 games;
+the recovery collector has since advanced it. Do not start a second collector
+or submit any of the remaining eight replacements manually.
+
+The recovery owns collection of all four grids and the same complete 33,600-game
+comparison. Its fixed list cannot silently grow; any new failure stops for review.
+It cannot cancel jobs, retry replacements, alter the final gate, select a model,
+or publish. It has a 12-hour observation window. Final seeds remain unused.
+
+The first target timing attempt described at this checkpoint subsequently failed
+before simulations on the missing HF training-client dependency. Its PID 2925654
+and SSH session 13220 ended. Preserve `trained-hybrid-8840u-launch-v1.json` and
+`ai/runs/trained-hybrid-8840u-failed-v1`; the separate v2 attempt above completed.
+
+## Previous checkpoint: trained hybrid cost profile and development grids
 
 The bounded local cost investigation is complete. It repeats the existing
 six-player Recharged/sealed building fixture (2029) with the verified public-0

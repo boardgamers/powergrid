@@ -1,0 +1,120 @@
+{
+  "created_at": "2026-10-24T11:11:40.960703+00:00",
+  "original_coordinator_sha256": "48ae35e9a79e0ac29d45308bf4855982b3815c542863fa0bf57ad95c087cb613",
+  "maximum_replacements": 10,
+  "maximum_in_flight": 2,
+  "cases": [
+    {
+      "case": "development-frozen-1-2p-economic_capacity_v1-12-16",
+      "job_id": "6adc8fdb046eb82b1ecdbf9f",
+      "original_guard_sha256": "761e7c423ce98a9839e8af549f477792681c58c85a3e390c86a91f5518f36f20",
+      "log_sha256": "b66fb83d13aba690f53dd07074fe49a879b2ad8ed098e62366ebbfbbcfe213f7",
+      "failure_reason": "HF artifact commit HTTP429: maximum queue size reached",
+      "missing_artifacts_revision": "0c7da4b0ba62bba5836a9e311defd35114ec50c0"
+    },
+    {
+      "case": "development-frozen-1-3p-a260-8-12",
+      "job_id": "6adc8fbb046eb82b1ecdbf61",
+      "original_guard_sha256": "f363eed048b7a5365f3bd50c5b2c52c39ae6ff8566e048c3ebf60f08b0d3d5a1",
+      "log_sha256": "c19cc1af47beb4fb84bfcc5473130bbb5ef8feefce6b11acbc49ae5ff605bf1b",
+      "failure_reason": "HF artifact commit HTTP429: maximum queue size reached",
+      "missing_artifacts_revision": "0c7da4b0ba62bba5836a9e311defd35114ec50c0"
+    },
+    {
+      "case": "development-frozen-1-3p-economic-12-16",
+      "job_id": "6adc8fc31e112550ce7df0e0",
+      "original_guard_sha256": "339a68584cd92b5790167c5d51f199016e1591349f4fe14310e919674c038615",
+      "log_sha256": "61a91c158ed8c47b1adf61805b21f512c24149b86d79ab3d5ff340e81c37ff55",
+      "failure_reason": "HF artifact commit HTTP429: maximum queue size reached",
+      "missing_artifacts_revision": "0c7da4b0ba62bba5836a9e311defd35114ec50c0"
+    },
+    {
+      "case": "development-frozen-1-3p-rush-12-16",
+      "job_id": "6adc8fc8046eb82b1ecdbf83",
+      "original_guard_sha256": "169292083b497379bf39a7166d7a77b49097cb34cb7ee485e330ee9d4a8913e0",
+      "log_sha256": "a5eec97e8f8b6e2e744a2e5dfff58493248b43be97362da77f9ff3194c580b03",
+      "failure_reason": "HF artifact commit HTTP429: maximum queue size reached",
+      "missing_artifacts_revision": "0c7da4b0ba62bba5836a9e311defd35114ec50c0"
+    },
+    {
+      "case": "development-frozen-1-4p-economic-8-12",
+      "job_id": "6adc8fab046eb82b1ecdbf43",
+      "original_guard_sha256": "e3683f3f2f0cc63997c15e59b2287fcf9ad792861d926f14ee95440ae3652563",
+      "log_sha256": "22cb1fe4074832450117ccc0a9fa544b6fa169300661eec13693f7bbdd4dc1e8",
+      "failure_reason": "HF artifact commit HTTP429: maximum queue size reached",
+      "missing_artifacts_revision": "0c7da4b0ba62bba5836a9e311defd35114ec50c0"
+    },
+    {
+      "case": "development-frozen-1-4p-legacy-12-16",
+      "job_id": "6adc8fcb1e112550ce7df0fc",
+      "original_guard_sha256": "b0f0a5e7b9e9dd42171ef11493bbb93015daed510f371980bf1be1518174b043",
+      "log_sha256": "4de3e0940a1f0849e9b20e96651ff5d55801e0a77553cb7c9041151ad11abf1c",
+      "failure_reason": "HF artifact commit HTTP429: maximum queue size reached",
+      "missing_artifacts_revision": "0c7da4b0ba62bba5836a9e311defd35114ec50c0"
+    },
+    {
+      "case": "development-frozen-1-4p-rush-8-12",
+      "job_id": "6adc8faf046eb82b1ecdbf51",
+      "original_guard_sha256": "f92e5737fc217a69d326ef70893e5ee2cce07cd8f3b4477ab4d1bb8717a67298",
+      "log_sha256": "7e5d7df9d2b85aad74a572ea0f8df0c1e794ec3daedd98d7060f4b9b7eafbf53",
+      "failure_reason": "HF artifact commit HTTP429: maximum queue size reached",
+      "missing_artifacts_revision": "0c7da4b0ba62bba5836a9e311defd35114ec50c0"
+    },
+    {
+      "case": "development-frozen-1-6p-economic-4-8",
+      "job_id": "6adc8f9a1e112550ce7df052",
+      "original_guard_sha256": "136cd417863fc6154f04a00299faef830894558bf63a4aa6308cf22339c3ecff",
+      "log_sha256": "b8abe8312d34eea72b781bc353ef0952afc2fd084f442a786613d37dbaa20600",
+      "failure_reason": "HF artifact commit HTTP429: maximum queue size reached",
+      "missing_artifacts_revision": "0c7da4b0ba62bba5836a9e311defd35114ec50c0"
+    },
+    {
+      "case": "development-frozen-1-6p-economic-8-12",
+      "job_id": "6adc8fb5046eb82b1ecdbf59",
+      "original_guard_sha256": "f04805c4c3a0a48d1b3372b13b8cea50a5c53de8b49eef4fb34fa09188c89f0d",
+      "log_sha256": "753e9bbfb52f181f1117537638c7e44f3e42c4659c1fa0b5e90e16e692011629",
+      "failure_reason": "HF artifact commit HTTP429: maximum queue size reached",
+      "missing_artifacts_revision": "0c7da4b0ba62bba5836a9e311defd35114ec50c0"
+    },
+    {
+      "case": "development-frozen-1-6p-legacy-8-12",
+      "job_id": "6adc8fb8046eb82b1ecdbf5d",
+      "original_guard_sha256": "ff3912b5020626a786f2c87270bc9b1a1f14e79d5894d4a8b9255896dd5f49c4",
+      "log_sha256": "99ae1c0f1053e2e1e48646078bea6e9fc8b0bfd718b2061677740fbaa63ace3e",
+      "failure_reason": "HF artifact commit HTTP429: maximum queue size reached",
+      "missing_artifacts_revision": "0c7da4b0ba62bba5836a9e311defd35114ec50c0"
+    }
+  ],
+  "evidence_files": {
+    "development-frozen-1-4p-economic-8-12.log": "22cb1fe4074832450117ccc0a9fa544b6fa169300661eec13693f7bbdd4dc1e8",
+    "development-frozen-1-3p-rush-12-16.log": "a5eec97e8f8b6e2e744a2e5dfff58493248b43be97362da77f9ff3194c580b03",
+    "development-frozen-1-3p-a260-8-12-guard.json": "f363eed048b7a5365f3bd50c5b2c52c39ae6ff8566e048c3ebf60f08b0d3d5a1",
+    "development-frozen-1-4p-rush-8-12-guard.json": "f92e5737fc217a69d326ef70893e5ee2cce07cd8f3b4477ab4d1bb8717a67298",
+    "policy-iteration-development-coordinator-verifier-repaired-v2.log": "74aee62ee7031df7aa2ea9b9dc041fed32e0d19a223a5c4f07bef38cb59aa67c",
+    "development-frozen-1-4p-economic-8-12-guard.json": "e3683f3f2f0cc63997c15e59b2287fcf9ad792861d926f14ee95440ae3652563",
+    "development-frozen-1-3p-economic-12-16-guard.json": "339a68584cd92b5790167c5d51f199016e1591349f4fe14310e919674c038615",
+    "development-frozen-1-3p-rush-12-16-guard.json": "169292083b497379bf39a7166d7a77b49097cb34cb7ee485e330ee9d4a8913e0",
+    "development-frozen-1-6p-economic-4-8-guard.json": "136cd417863fc6154f04a00299faef830894558bf63a4aa6308cf22339c3ecff",
+    "development-frozen-1-6p-economic-8-12-guard.json": "f04805c4c3a0a48d1b3372b13b8cea50a5c53de8b49eef4fb34fa09188c89f0d",
+    "inspections.json": "5ea6bc38d50e7b27adbabdef74329dbfcb1f41e492d2eb4dc06df0c073146bad",
+    "development-frozen-1-3p-a260-8-12.log": "c19cc1af47beb4fb84bfcc5473130bbb5ef8feefce6b11acbc49ae5ff605bf1b",
+    "state.json": "48ae35e9a79e0ac29d45308bf4855982b3815c542863fa0bf57ad95c087cb613",
+    "development-frozen-1-6p-legacy-8-12-guard.json": "ff3912b5020626a786f2c87270bc9b1a1f14e79d5894d4a8b9255896dd5f49c4",
+    "development-frozen-1-4p-rush-8-12.log": "7e5d7df9d2b85aad74a572ea0f8df0c1e794ec3daedd98d7060f4b9b7eafbf53",
+    "development-frozen-1-3p-economic-12-16.log": "61a91c158ed8c47b1adf61805b21f512c24149b86d79ab3d5ff340e81c37ff55",
+    "development-frozen-1-2p-economic_capacity_v1-12-16.log": "b66fb83d13aba690f53dd07074fe49a879b2ad8ed098e62366ebbfbbcfe213f7",
+    "development-frozen-1-2p-economic_capacity_v1-12-16-guard.json": "761e7c423ce98a9839e8af549f477792681c58c85a3e390c86a91f5518f36f20",
+    "policy-iteration-development-status-v2.json": "472e01003f57529d83a1c8cbd7689d40a1de1d9f47496135ba95d4c0652b937a",
+    "development-frozen-1-6p-economic-4-8.log": "b8abe8312d34eea72b781bc353ef0952afc2fd084f442a786613d37dbaa20600",
+    "development-frozen-1-6p-economic-8-12.log": "753e9bbfb52f181f1117537638c7e44f3e42c4659c1fa0b5e90e16e692011629",
+    "development-frozen-1-4p-legacy-12-16-guard.json": "b0f0a5e7b9e9dd42171ef11493bbb93015daed510f371980bf1be1518174b043",
+    "remote-artifact-inspection.json": "9ca7e9e293458e6857e432043db6312bdcfa483a32bdabfffd03a6d4f360a205",
+    "development-frozen-1-4p-legacy-12-16.log": "4de3e0940a1f0849e9b20e96651ff5d55801e0a77553cb7c9041151ad11abf1c",
+    "development-frozen-1-6p-legacy-8-12.log": "99ae1c0f1053e2e1e48646078bea6e9fc8b0bfd718b2061677740fbaa63ace3e"
+  },
+  "source_model_protocol_seeds_unchanged": true,
+  "original_guards_preserved": true,
+  "automatic_retries": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

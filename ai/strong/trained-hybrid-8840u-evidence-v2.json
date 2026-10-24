@@ -1,0 +1,59 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "2351a59ac0fb49d17686079559e10bf81ed54361",
+  "archive_path": "archives/trained-hybrid-8840u-evidence-v2.tgz",
+  "archive_sha256": "894fa571b9e861b9ca08629e601857d0244e45706d08fc5d8fdde1a900ff9a01",
+  "manifest_sha256": "ca4e7bb1f187441aa17821600c54fc0d1793a4e062d8dd6585597ff89f670dfe",
+  "archived_files": 19,
+  "format": "tar.gz",
+  "remote_archive_verified": true,
+  "passed": true,
+  "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+  "host": "coyotte508-4X4-BOX-8840U",
+  "model": "public-0",
+  "fixture_index": 2029,
+  "threads": [
+    1,
+    4,
+    4,
+    1
+  ],
+  "workers": 4,
+  "samples_per_mode": 8,
+  "max_steps": 2400,
+  "timings_by_threads": {
+    "1": {
+      "seconds": [
+        34.61631321720779,
+        34.94881533971056
+      ],
+      "mean_seconds": 34.782564278459176,
+      "mean_onnx_seconds": 24.735444290563464,
+      "mean_engine_ipc_json_seconds": 8.015716886147857
+    },
+    "4": {
+      "seconds": [
+        19.483909969218075,
+        19.541227540001273
+      ],
+      "mean_seconds": 19.512568754609674,
+      "mean_onnx_seconds": 9.398235919186845,
+      "mean_engine_ipc_json_seconds": 8.060653555905446
+    }
+  },
+  "mean_speedup": 1.7825722853759118,
+  "all_internal_choices_and_terminal_outcomes_match_local": true,
+  "truncations": 0,
+  "policy_rows_per_request": 28074,
+  "choice_transcript_sha256": "42bae565561128cedc90dcf162645c7c826551ae87d7caf5cf9231148ed23dca",
+  "versions": {
+    "python": "3.12.3",
+    "onnxruntime": "1.30.0",
+    "numpy": "2.5.3",
+    "node": "v24.19.0"
+  },
+  "defaults_changed": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "scope": "One existing six-player Recharged/sealed building fixture, public-0 only. Actual8840U cost and parity; no fresh strength or representative latency distribution."
+}

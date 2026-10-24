@@ -15,11 +15,15 @@ extend training. See `strong/policy-iteration-training-results-v2.json`.
 The independent verifier's JSON player-key mismatch was fixed with four regression
 tests. Both actual trained integrations passed, without changing weights or
 training jobs. Failure records and repair evidence are archived. The collector
-completed; the **only active coordinator is development PID 71261 / session 77604**.
-State: `ai/runs/policy-iteration-development-coordinator-v2/state.json`.
-It owns eight runtime probes and then all four candidate evaluation grids. Do not
-duplicate those tasks or edit its 39 frozen dependencies. The canonical path is
-unchanged despite the recovery; old PIDs in historical notes are no longer active.
+completed. The original development coordinator PID 71261 stopped on ten HF
+artifact-upload HTTP429 errors after all 432 candidate jobs were submitted.
+The **only active development coordinator is recovery PID 402796 / session 78444**.
+State: `ai/runs/policy-iteration-development-recovered-v1/state.json`. It owns
+collection plus exactly ten reviewed replacements, at most two in flight.
+All original failed handles/guards/logs are preserved; do not duplicate collection
+or submit replacements manually. Frozen evaluation dependencies remain unchanged.
+See `strong/policy-iteration-development-recovery-evidence-v1.json` and the
+latest handoff section. No result is assumed for the failed uploads.
 
 Trained packages/results are archived at
 `strong/policy-iteration-trained-8840u-evidence-v2.json`. The target process is
@@ -38,7 +42,22 @@ as the strength checkpoint.
 The prior synthetic cap failure and first frozen-source admission rejection are
 preserved separately. No active pipeline dependency was changed for this probe.
 
-## Latest hybrid profile and development progress
+Actual 8840U hybrid profiling is **COMPLETE**: the existing public-0 six-player
+case takes 34.616–34.949s at one ORT thread, 19.484–19.541s at four (1.783x mean
+speedup). All internal decisions and terminal outcomes match the local profile;
+zero caps. This is one repeated fixture, not fresh strength or a latency
+distribution. No default changed. Evidence and standalone package are archived
+in `strong/trained-hybrid-8840u-evidence-v2.json`. The first attempt's unnecessary
+HF-client dependency was removed from the profiler; its failure is preserved.
+Target PID 2925814 / SSH session 73745 completed; do not restart it.
+
+At the archived recovery snapshot, 357/432 candidate shards and 21,600/26,880
+candidate games are verified. The first two replacements completed; the live
+recovery owns the remaining eight and all collection. See
+`strong/policy-iteration-development-recovery-active-evidence-v1.json`. No
+partial win-rate ranking or selection is made. Finish the same full comparison.
+
+## Previous hybrid profile and development progress
 
 The repeated trained six-player fixture takes 34.15–35.61s at one ORT thread
 and 22.79–23.54s at four threads on the local HX370 (1.506x mean speedup).
@@ -116,9 +135,10 @@ and no active protocol, final threshold or reserved seed was changed here.
   in `strong/policy-iteration-development-pins-v2/`. No seed cherry-picking.
 - **Trained 8840U benchmark COMPLETE:** reports and standalone packages are
   archived; the target process ended normally. Do not restart it.
-- **Development coordinator ACTIVE:** PID 71261 / session 77604. Eight CPU
-  runtime probes precede four complete candidate grids and the 33,600-game
-  comparison. No automatic retry, final test, selection or publication.
+- **Development recovery ACTIVE:** PID 402796 / session 78444. All four grids
+  are submitted; exactly ten reviewed upload failures can be replaced once,
+  two at a time. Collection and the 33,600-game comparison remain unchanged.
+  No final test, selection or publication.
 - **Final technical receipts COMPLETE:** all twelve records are prepared and
   archived. No candidate is selected, and no final game has run.
 - **Next:** let the coordinator complete the game comparison, then make a candid

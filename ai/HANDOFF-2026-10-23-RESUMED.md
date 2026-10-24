@@ -25,7 +25,135 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: fresh development runner verified and HF probes running
+## Latest checkpoint: second CPU wave and complete evaluation tooling
+
+This turn made **progress**. The first two CPU Upgrade full shards independently
+verified, allowing a bounded second hardware wave. The training-output collector,
+full development-grid launcher and all-arm comparison code are now implemented
+and their contract tests pass. **No new gradients or strength-qualified model.**
+The old parent and old rejected candidates remain unqualified; no production
+change or final-test use occurred.
+
+### Verified labels and capacity
+
+Final snapshot at `2026-10-24T04:34:16.621265+00:00`: **219 COMPLETED /243 RUNNING /
+486 SCHEDULING** across948 unique effective job handles. All219 completed shards
+independently verified: **8,254 root-mode pairs /7,988,544 continuations**, including
+the reused pilot. The complete manifest is still false; all948 new shard
+identities plus60 reused pilot shards are required before gradients.
+
+The second migration launcher **session78951 finished successfully**:120 new
+replacements,180 total. All180 originals were confirmed canceled without starting.
+At the snapshot the CPU Upgrade tier had **175 RUNNING /5 COMPLETED**. All five
+completed upgrade shards verify, totaling96,000 continuations across4p/5p/6p.
+No pending cancellation or unknown submission intent remains.
+
+Collectors89101 (to195),46865 (to207) and46432 (to219) all finished successfully;
+**no local collector or submission launcher is active**. Their logs are
+`ai/runs/policy-iteration-labels-collect-195-v2.log`, `...collect-207-v2.log` and
+`...collect-219-v2.log`. Use `manage-policy-iteration-labels.py status` to resolve
+effective replacement handles; do not reuse historical canceled originals.
+
+The6p runtime probe remains **RUNNING**; the last persisted development snapshot
+is `2026-10-24T04:33:07.944210+00:00`, with2p COMPLETED/verified and6p RUNNING. No complete
+parent-grid plan or full parent/candidate development job has been admitted.
+
+Immutable checkpoint: private model repo revision **969786e971f9f1b84f71eb378a66467d9c03aa2d**,
+prefix `runs/policy-iteration-wave2-checkpoint-v2`, manifest SHA
+`cebd7f3828aef896747a3137d210ad0da6718cf76ca06eeadeb2d6512b88029b`. It includes all948 original guards,180 replacement
+attempts,219 verified label records, the two development guards, verified2p raw
+probe output, the full-shard capacity decision, new collector/grid/comparison
+code and contract logs. Descriptor: `strong/policy-iteration-wave2-checkpoint-v2.json`.
+Local archive/upload session45934 finished; manifest was downloaded by revision
+and hash-checked. This supersedes earlier159/136-shard evidence snapshots.
+
+`policy-iteration-cpu-upgrade-wave2-admission-v2.json` records the first two full
+CPU Upgrade shards: `6p-11101-economic-neural-0018` and
+`6p-11102-snapshot0-neural-0018`, **34,176 continuations** in total. Full job times,
+including setup/upload, were **2,799.335s and2,896.730s**. Both passed the unchanged
+independent raw verifier. Original jobs had never started and were confirmed
+canceled. The earlier2p/6p × both-mode hardware controls remain exact.
+
+This small full-shard runtime sample supports one bounded expansion; it does not
+prove every shard runs this quickly. The existing conservative per-shard
+estimate, hardware multiplier1.4454652311275429,12h timeout and25% headroom remain.
+The maximum bound is31,136s. New capacity is limited to **180 total replacements**
+(60 first wave plus at most120 second wave). No further expansion is admitted by
+this decision. The worker source, inference batches, root selections, worlds,
+policy choices and artifact prefixes are unchanged.
+
+Launcher: `migrate-policy-iteration-labels-cpu.py --wave2 --limit 120 --execute`.
+It persists exclusive cancellation/replacement intents, checks original status
+again, waits for confirmed cancellation, and rejects an original that starts
+during cancellation. A partial/unknown intent must be reconciled, never blindly
+retried. Its final session state is in the snapshot above.
+
+### Training collection now implemented
+
+`collect-policy-iteration-training.py --head-type frozen|public` requires the
+complete dataset and admitted training source before touching outputs. After a
+COMPLETED HF job, it pins one immutable artifact revision, verifies the archived
+worker source and recovers the exact data bundle. Its independent verifier:
+
+- checks all120 epochs/6,120 updates per seed and the earliest minimum validation
+  regret checkpoint, retaining all four prescribed seeds;
+- checks exact parent tensors and source/design/data identities in best/latest
+  checkpoints, plus optimizer step counts;
+- rebuilds both ensembles from the exact four individual checkpoints and checks
+  every stored tensor and float64 export provenance;
+- reruns2,553 real serving fixtures and17,280 cached positions, including exact
+  native/ONNX choices, legality, parent fallback/value preservation;
+- recomputes exported ensemble calibration and creates both development pins
+  only after verification.
+
+These checks ran on synthetic contract fixtures only: **no actual new trained
+output exists yet**, so full training-collector integration remains pending the
+HF training jobs. The collector refuses the current incomplete label grid before
+creating output/pin directories. `policy-iteration-collection-grid-controls-v2.json`
+records five passing contract tests and this negative admission check. No local
+gradients were run.
+
+### Complete fresh-game execution and comparison tooling
+
+The frozen development source/protocol remain unchanged. New local orchestration:
+
+- `manage-policy-iteration-development-grid.py plan parent` builds an immutable
+  108-shard plan only after the exact2p and6p endpoint probes verify.
+- `... launch parent` is a dry run; add `--execute` to submit. `--limit` can bound
+  submissions. Each existing guard must match the plan before it is skipped;
+  unknown submissions halt the run. Every arm has16 deals in all27 cells,
+  **6,720 games**. The same commands accept each prescribed candidate key once
+  its training/export pin and both runtime probes exist.
+- After `manage-policy-iteration-development.py status`, use the grid manager's
+  `collect KEY` to independently collect completed shards with four local workers.
+- `compare-policy-iteration-development.py --arm parent --output NEW_PATH` can
+  summarize a complete parent arm. Omit `--arm` only when all five arms complete:
+  **33,600 games**, absolute cell/rule results, four candidate-minus-parent
+  contrasts, two representation contrasts and two disagreement-penalty contrasts.
+  Whole deals are resampling units; every adverse rule/count/opponent cell remains.
+  Marginal intervals are exploratory. Incomplete arms fail before report creation.
+
+The grid/statistics tests verify exact16-deal coverage and preserve a deliberately
+negative rule slice even when the overall difference is zero. Real full-grid
+aggregation has not run yet. All frozen source additions still match their hashes.
+
+### Next actions
+
+1. Refresh label status and collect new completions; summarize after collection.
+   The previous migration and collectors have all finished; do not repeat their submissions.
+2. Inspect/collect existing6p probe **6adc2d2a1e112550ce7dc710**; never relaunch it
+   merely because evaluator logs are quiet.2p **6adc2d29046eb82b1ecda152** is already
+   complete/verified. Once both verify, prepare, review and launch the108 parent
+   shards using the new grid manager. Runtime admission may require execution
+   repartitioning; preserve every deal and full search/game horizon.
+3. Once all labels verify, prepare/archive the compact training bundle, build the
+   full-data source, and launch the two four-seedL4 jobs. Independently collect
+   them with the new collector, then execute all four prescribed development arms.
+4. Diagnose every adverse result, benchmark the exact selected package on AMD8840U,
+   and pass the unchanged reserved final gate. No threshold relaxation or parent
+   compatibility shortcut.
+
+## Previous checkpoint: fresh development runner verified and HF probes running
 
 This goal turn made **progress**. Verified labels reached **159 new shards /
 6,448,512 continuations including the reused pilot**. The next complete-game

@@ -31,14 +31,34 @@ def main():
     parser = argparse.ArgumentParser(__doc__)
     parser.add_argument('--limit', type=int, default=60)
     parser.add_argument('--execute', action='store_true')
+    parser.add_argument('--wave2', action='store_true', help='Use the recorded full-shard capacity admission')
     args = parser.parse_args()
-    assert 1 <= args.limit <= 60, 'First hardware wave is deliberately limited'
+    total_cap, per_wave_cap, capacity = 60, 60, None
+    if args.wave2:
+        capacity_path = ROOT/'ai/strong/policy-iteration-cpu-upgrade-wave2-admission-v2.json'
+        capacity = read(capacity_path)
+        assert capacity['admitted'] and capacity['frozen_worker_unchanged']
+        assert capacity['maximum_total_replacements'] == 180 and capacity['maximum_new_replacements'] == 120
+        assert capacity['profile_sha256'] == digest(PROFILE)
+        assert len(capacity['verified_full_shards']) >= 2
+        for row in capacity['verified_full_shards']:
+            assert digest(ATTEMPTS/(row['shard']+'.json')) == row['attempt_sha256']
+            directory = ROOT/'ai/runs/policy-iteration-labels-verified-v2'/row['shard']
+            assert digest(directory/'verified.json') == row['verified_sha256']
+            checked = read(directory/'verified.json')
+            assert checked['verified'] and checked['source'] == capacity['source']
+            for file, sha in checked['artifacts'].items():
+                assert digest(directory/file) == sha
+        total_cap, per_wave_cap = 180, 120
+    assert 1 <= args.limit <= per_wave_cap, 'Hardware waves are deliberately bounded'
     profile = read(PROFILE)
     assert profile['verified'] and profile['rollouts'] == 3072
     assert profile['full_trajectories_and_choice_transcripts_match_reference']
     assert profile['microbenchmark_positions'] == 2553 and profile['all_microbenchmark_raw_outputs_identical']
     assert profile['worst_case_upgrade_slowdown'] < 1.5
     source = read(ROOT/'ai/strong/policy-iteration-labels-source-v2.json')
+    if capacity:
+        assert capacity['source'] == source
     protocol = read(ROOT/'ai/strong/policy-iteration-labels-protocol-v2.json')
     assert profile['source'] == protocol['inference_profile']['source']
     assert source['protocol_sha256'] == digest(ROOT/'ai/strong/policy-iteration-labels-protocol-v2.json')
@@ -61,10 +81,12 @@ def main():
             candidates.append(groups[key].pop(0))
         groups = {key: rows for key, rows in groups.items() if rows}
     multiplier = max(1., profile['worst_case_upgrade_slowdown'])*1.25
+    if capacity:
+        assert capacity['admission_multiplier'] == multiplier and capacity['timeout_hours'] == 12
     for job in candidates:
         assert math.ceil(job['shard']['admission']['conservative_seconds']*multiplier) <= .75*12*3600
     print({'planned': len(candidates), 'flavor': 'cpu-upgrade', 'timeout_hours': 12,
-           'admission_multiplier': multiplier, 'executed': args.execute}, flush=True)
+           'admission_multiplier': multiplier, 'total_replacement_cap': total_cap, 'executed': args.execute}, flush=True)
     if not args.execute:
         return
     env = os.environ.copy()
@@ -77,7 +99,7 @@ def main():
         # Stop on any unresolved earlier submission rather than guessing.
         previous = [read(path) for path in ATTEMPTS.glob('*.json')]
         assert all(r['stage'] in ['launched', 'skipped'] for r in previous)
-        assert sum(r['stage'] == 'launched' for r in previous) + len(candidates) <= 60
+        assert sum(r['stage'] == 'launched' for r in previous) + len(candidates) <= total_cap
         for job in candidates:
             shard = job['shard']
             original_path = GUARDS/(shard['id']+'.json')
@@ -91,11 +113,13 @@ def main():
                       'conservative_seconds': math.ceil(shard['admission']['conservative_seconds']*multiplier),
                       'bootstrap_sha256': hashlib.sha256(manager.BOOTSTRAP.encode()).hexdigest(),
                       'qualification_eligible': False}
+            if capacity:
+                record['capacity_admission_sha256'] = digest(capacity_path)
             path = ATTEMPTS/original_path.name
             with path.open('x') as stream:
                 json.dump(record, stream, indent=2)
-            if before['stage'] != 'SCHEDULING':
-                record.update(stage='skipped', reason='Original job is no longer queued')
+            if before['stage'] != 'SCHEDULING' or before['started_at'] != 'None':
+                record.update(stage='skipped', reason='Original job is not a never-started queued job')
                 write(path, record)
                 print({'shard': shard['id'], 'skipped': before['stage']}, flush=True)
                 continue
@@ -112,6 +136,7 @@ def main():
                 write(path, record)
                 continue
             assert after['stage'] in ['CANCELED', 'CANCELLED'], 'No replacement until cancellation is confirmed'
+            assert after['started_at'] == 'None', 'Original started during cancellation; reconcile before replacement'
             record.update(stage='replacement_intent', replacement_created_at=datetime.now(timezone.utc).isoformat())
             write(path, record)
             command = ['hf', 'jobs', 'run', '--detach', '--flavor', 'cpu-upgrade', '--timeout', '12h',

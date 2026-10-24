@@ -1,0 +1,69 @@
+{
+  "admitted": true,
+  "source": {
+    "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+    "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+    "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+    "bytes": 109402244,
+    "base": {
+      "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+      "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+      "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+    },
+    "overlays": {
+      "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+      "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+      "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+      "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+    },
+    "unchanged_base_files": 1430,
+    "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+    "qualification_eligible": false
+  },
+  "profile_sha256": "c9f75c41fc12b813b551e44cd8f9820074be25d28604751ca1c9f85f79df863e",
+  "status_checked_at": "2026-10-24T04:26:26.167258+00:00",
+  "status_sha256": "11bd4e7282f196c8c50e8fe9180933a71c5d9e07eea3f965fa5e6214e9fee715",
+  "verified_full_shards": [
+    {
+      "job_id": "6adc2802046eb82b1ecda018",
+      "shard": "6p-11101-economic-neural-0018",
+      "players": 6,
+      "behavior": "11101",
+      "opponent": "economic",
+      "mode": "neural",
+      "seconds_including_setup_and_upload": 2799.335,
+      "admission_seconds": 30687,
+      "roots": 18,
+      "rollouts": 16512,
+      "revision": "875a603204639bebefe849ed859f9a7e27d1ea67",
+      "prefix": "runs/policy-iteration-labels-v2-6p-11101-economic-neural-0018",
+      "attempt_sha256": "44f3c93769e425c1dc8a6490a349dbffdb8bb9e117e29c46f49aaadfa0766736",
+      "verified_sha256": "aee73a90fbaf2b2421f8fdcef0c92ad7119ded4ac07a44bf1eeabf617b1d549c"
+    },
+    {
+      "job_id": "6adc280e046eb82b1ecda025",
+      "shard": "6p-11102-snapshot0-neural-0018",
+      "players": 6,
+      "behavior": "11102",
+      "opponent": "snapshot0",
+      "mode": "neural",
+      "seconds_including_setup_and_upload": 2896.73,
+      "admission_seconds": 30687,
+      "roots": 18,
+      "rollouts": 17664,
+      "revision": "875a603204639bebefe849ed859f9a7e27d1ea67",
+      "prefix": "runs/policy-iteration-labels-v2-6p-11102-snapshot0-neural-0018",
+      "attempt_sha256": "4130bbffe21a664854414e6963eaa304a9e621d8268ee5dccadc8385aff89705",
+      "verified_sha256": "46df055c6e233627f341fe7f12bd8560efcc000e589560cf5b7880196eb61d86"
+    }
+  ],
+  "rollouts": 34176,
+  "maximum_total_replacements": 180,
+  "maximum_new_replacements": 120,
+  "timeout_hours": 12,
+  "admission_multiplier": 1.4454652311275429,
+  "largest_admission_seconds": 31136,
+  "frozen_worker_unchanged": true,
+  "scope": "One additional bounded wave after two complete verified shards and the prior exact 2p/6p both-mode hardware controls. Small runtime sample is not evidence that all shards have this speed; retain original conservative bounds with hardware margin. Only canceled, never-started originals may be replaced.",
+  "qualification_eligible": false
+}

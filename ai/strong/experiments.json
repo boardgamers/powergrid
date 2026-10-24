@@ -43797,7 +43797,7 @@
     },
     "policy_iteration_labels_v2": {
         "date": "2026-10-24",
-        "status": "All948 original jobs submitted;159 new shards independently verified;60 CPU Upgrade replacements still running at latest label snapshot",
+        "status": "All948 effective jobs retained;219 new shards independently verified;180 reconciled CPU Upgrade replacements",
         "planned_roots": 17280,
         "planned_reused_pilot_roots": 360,
         "new_root_mode_pairs": 33840,
@@ -43835,11 +43835,11 @@
         "first_wave_jobs_submitted": 60,
         "first_wave_new_root_mode_pairs": 3318,
         "first_wave_distinct_new_roots": 2538,
-        "status_checked_at": "2026-10-24T04:06:03.975032+00:00",
+        "status_checked_at": "2026-10-24T04:34:16.621265+00:00",
         "status_counts": {
-            "COMPLETED": 159,
-            "RUNNING": 129,
-            "SCHEDULING": 660
+            "COMPLETED": 219,
+            "RUNNING": 243,
+            "SCHEDULING": 486
         },
         "preflight": "ai/strong/policy-iteration-labels-preflight-v2.json",
         "preflight_rollouts": 1364,
@@ -43857,12 +43857,12 @@
         "fixed_inference_batch": 64,
         "engine_workers": 24,
         "timeout_hours": 8,
-        "complete_new_shards": 159,
+        "complete_new_shards": 219,
         "verified_reused_root_mode_pairs": 720,
-        "next": "Collect completed jobs through the effective-handle manager. Verify first CPU Upgrade full shards before expanding the bounded migration. All948 new shards plus reused pilot coverage remain required before HF gradients.",
+        "next": "Refresh effective handles and collect completions. All948 new shards plus reused pilot coverage remain required before HF gradients. The second hardware wave is finished; do not repeat it.",
         "status_snapshot_scope": "All948 effective shard jobs; historical canceled originals preserved separately",
-        "verified_root_mode_pairs": 6662,
-        "rollouts_including_pilot": 6448512,
+        "verified_root_mode_pairs": 8254,
+        "rollouts_including_pilot": 7988544,
         "new_first_wave_rollouts": 3212352,
         "first_wave_evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
@@ -43940,14 +43940,21 @@
         "collector_active": false,
         "latest_progress_evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
-            "revision": "e781647d9739303cd876a9cb95672979d5eb14a8",
-            "prefix": "runs/policy-iteration-labels-159-progress-evidence-v2",
-            "manifest_sha256": "8a1723722d5827bbd2097c8845651dddbe819de61d90f0ef4186fb7abff91445",
-            "complete_new_shards": 159,
-            "verified_root_mode_pairs": 6662,
-            "rollouts_including_pilot": 6448512,
-            "full_labels_complete": false,
+            "revision": "969786e971f9f1b84f71eb378a66467d9c03aa2d",
+            "prefix": "runs/policy-iteration-wave2-checkpoint-v2",
+            "manifest_sha256": "cebd7f3828aef896747a3137d210ad0da6718cf76ca06eeadeb2d6512b88029b",
+            "status_checked_at": "2026-10-24T04:34:16.621265+00:00",
+            "status_counts": {
+                "COMPLETED": 219,
+                "RUNNING": 243,
+                "SCHEDULING": 486
+            },
+            "replacement_jobs": 180,
+            "complete_new_shards": 219,
+            "rollouts_including_pilot": 7988544,
+            "new_collector_and_grid_contracts_passed": true,
             "gradients": false,
+            "reserved_final_seeds_used": false,
             "qualification_eligible": false
         }
     },
@@ -44063,7 +44070,11 @@
             "full_training_source_admitted": false,
             "gradients": false,
             "qualification_eligible": false
-        }
+        },
+        "collector": "ai/strong/collect-policy-iteration-training.py",
+        "collector_verifier": "ai/strong/policy_iteration_training_verification.py",
+        "collector_contracts": "ai/strong/policy-iteration-collection-grid-controls-v2.json",
+        "collector_real_training_integration_complete": false
     },
     "policy_iteration_cpu_upgrade_v2": {
         "date": "2026-10-24",
@@ -44073,9 +44084,9 @@
         "exact_reference_continuations": 3072,
         "upgrade_slowdown": 1.0847907502857694,
         "worst_case_upgrade_slowdown": 1.1563721849020343,
-        "replacement_jobs": 60,
-        "replacements_running_at_snapshot": 60,
-        "originals_confirmed_canceled": 60,
+        "replacement_jobs": 180,
+        "replacements_running_at_snapshot": 175,
+        "originals_confirmed_canceled": 180,
         "originals_that_had_started": 0,
         "original_guards_preserved": true,
         "first_hardware_wave_limit": 60,
@@ -44083,10 +44094,10 @@
         "admission_multiplier": 1.4454652311275429,
         "attempts": "ai/runs/policy-iteration-labels-cpu-upgrade-v2",
         "new_attempt_launcher_finished": true,
-        "status_checked_at": "2026-10-24T04:06:03.975032+00:00",
+        "status_checked_at": "2026-10-24T04:34:16.621265+00:00",
         "gradients": false,
         "qualification_eligible": false,
-        "next": "Independently collect completed full shards on this tier before any larger migration; keep queued/live attempts reconciled and avoid duplicates.",
+        "next": "The bounded expansion to180 total replacements is complete. Continue independent collection; no further hardware expansion is admitted by this decision.",
         "evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
             "revision": "1d6850b531d5586a4bd75cce3dad11f6d9f7dd44",
@@ -44107,7 +44118,34 @@
             "gradients": false,
             "qualification_eligible": false
         },
-        "full_upgrade_shards_verified": 0
+        "full_upgrade_shards_verified": 5,
+        "replacement_status_counts": {
+            "RUNNING": 175,
+            "COMPLETED": 5
+        },
+        "maximum_total_replacements": 180,
+        "second_wave_jobs": 120,
+        "second_wave_admission": "ai/strong/policy-iteration-cpu-upgrade-wave2-admission-v2.json",
+        "full_upgrade_rollouts_verified": 96000,
+        "latest_evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "969786e971f9f1b84f71eb378a66467d9c03aa2d",
+            "prefix": "runs/policy-iteration-wave2-checkpoint-v2",
+            "manifest_sha256": "cebd7f3828aef896747a3137d210ad0da6718cf76ca06eeadeb2d6512b88029b",
+            "status_checked_at": "2026-10-24T04:34:16.621265+00:00",
+            "status_counts": {
+                "COMPLETED": 219,
+                "RUNNING": 243,
+                "SCHEDULING": 486
+            },
+            "replacement_jobs": 180,
+            "complete_new_shards": 219,
+            "rollouts_including_pilot": 7988544,
+            "new_collector_and_grid_contracts_passed": true,
+            "gradients": false,
+            "reserved_final_seeds_used": false,
+            "qualification_eligible": false
+        }
     },
     "policy_iteration_verification_profile_v2": {
         "report": "ai/strong/policy-iteration-verification-profile-v2.json",
@@ -44128,7 +44166,7 @@
     },
     "policy_iteration_development_v2": {
         "date": "2026-10-24",
-        "status": "Fresh five-arm protocol frozen;160 local full-game plumbing checks passed;parent2p HF runtime probe verified and6p probe running",
+        "status": "Full-grid launcher/comparison implemented and contract-tested;parent6p runtime probe pending",
         "protocol": "ai/strong/policy-iteration-development-protocol-v2.json",
         "source": {
             "archive": "strong-source-policy-iteration-development-20261024-v2.tgz",
@@ -44241,7 +44279,7 @@
         "planned_total_development_games": 33600,
         "completed_candidate_development_games": 0,
         "runtime_probes": "ai/strong/policy-iteration-development-runtime-probes-v2.json",
-        "probe_status_checked_at": "2026-10-24T04:13:39.021358+00:00",
+        "probe_status_checked_at": "2026-10-24T04:33:07.944210+00:00",
         "probe_status_counts": {
             "COMPLETED": 1,
             "RUNNING": 1
@@ -44258,6 +44296,28 @@
         "gradients": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
-        "next": "Collect original6p runtime handle on completion; use both verified endpoint probes to admit parent development shards. Candidate pins require independent training/export checks. Preserve all four ensembles, every count/rule/opponent cell, adverse results, and the unchanged final gate."
+        "next": "Collect original6p runtime handle on completion; after both endpoint probes verify, plan/review/launch the108 parent reference shards. Training collector creates both pins per representation only after independent checks. All five complete arms required for final development comparison; final gate unchanged.",
+        "grid_manager": "ai/strong/manage-policy-iteration-development-grid.py",
+        "comparison": "ai/strong/compare-policy-iteration-development.py",
+        "collection_grid_controls": "ai/strong/policy-iteration-collection-grid-controls-v2.json",
+        "latest_tools_evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "969786e971f9f1b84f71eb378a66467d9c03aa2d",
+            "prefix": "runs/policy-iteration-wave2-checkpoint-v2",
+            "manifest_sha256": "cebd7f3828aef896747a3137d210ad0da6718cf76ca06eeadeb2d6512b88029b",
+            "status_checked_at": "2026-10-24T04:34:16.621265+00:00",
+            "status_counts": {
+                "COMPLETED": 219,
+                "RUNNING": 243,
+                "SCHEDULING": 486
+            },
+            "replacement_jobs": 180,
+            "complete_new_shards": 219,
+            "rollouts_including_pilot": 7988544,
+            "new_collector_and_grid_contracts_passed": true,
+            "gradients": false,
+            "reserved_final_seeds_used": false,
+            "qualification_eligible": false
+        }
     }
 }

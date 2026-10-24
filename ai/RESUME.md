@@ -1,34 +1,33 @@
 # Power Grid AI — ACTIVE, resumed 23 October 2026
 
 **Start with [the current resumption handoff](HANDOFF-2026-10-23-RESUMED.md).**
-The goal remains active. No candidate has passed the strength gate, no AI is
-published, and the reserved final-test seeds remain unused.
+No candidate has passed the strength gate. No AI is published; reserved final
+seeds remain unused.
 
 Latest continuation made **progress**:
-- **159/948 new label shards verified**,6,448,512 continuations including the
-  pilot. Latest HF snapshot04:06:03UTC:159 completed,129 running,660 scheduling.
-  All60 CPU Upgrade replacements remain running; no full replacement shard has
-  verified yet. Do not expand the migration yet.
-- **Collector57232 finished**; all159 completed label outputs independently
-  verify. No local collector or submission launcher remains active. The new
-  progress archive is pinned in the handoff.
-- The fresh five-arm development protocol is fixed: parent plus four prescribed
-  ensembles,27 cells each,16 whole deals, all seats/rules,33,600 games total.
-- Actual isolated evaluation runner passed160 full plumbing games and12 malformed
-  report checks. The nonzero-offset verifier mismatch was fixed in a new wrapper;
-  all1,434 frozen base files remain unchanged. Exact source and evidence are pinned.
-- HF parent runtime probes:2p **6adc2d29046eb82b1ecda152** completed and verified
-  (8 games,30,496 search evaluations,no caps);6p **6adc2d2a1e112550ce7dc710**
-  is RUNNING. Use `manage-policy-iteration-development.py collect` on that handle;
-  do not launch another probe. Both must verify before parent development admission.
-- No new gradients, qualified model, production change or reserved final-test use.
-  Full labels still precede the two four-seed training jobs. Fresh-game comparison,
-  actual8840U benchmark and untouched final gate remain mandatory.
+- **219/948 new shards verified**,7,988,544 continuations including the pilot.
+  Snapshot04:34:16UTC:219 completed,243 running,486 scheduling.
+- **120 additional CPU Upgrade replacements submitted**,180 total. All original
+  handles were confirmed canceled without starting. Five full upgrade shards
+  independently verify (96,000 continuations);175 were running at the snapshot.
+  Current capacity decision stops at180 replacements; no further expansion admitted.
+- Migration78951 and all collectors have finished. **No local launcher/collector
+  is active.** Do not resubmit any of those jobs.
+- Training collector and full development-grid launcher/comparison are implemented.
+  Five contract tests pass; incomplete data/unchecked6p runtime are rejected.
+  Real trained-output collection and full-grid aggregation remain unexecuted.
+- Existing parent probe2p **6adc2d29046eb82b1ecda152** is complete/verified.
+  Existing6p **6adc2d2a1e112550ce7dc710** remains RUNNING. Collect this exact handle;
+  once both probes verify, use the new grid manager to plan and launch108 parent
+  shards /6,720 games. Four trained ensembles later use the identical fresh grid.
+- Private HF checkpoint **969786e971f9f1b84f71eb378a66467d9c03aa2d**,
+  prefix `runs/policy-iteration-wave2-checkpoint-v2`. Full immutable pins are in the handoff.
+- No new gradients yet. Full labels still precede two four-seedL4 training jobs;
+  all-arm development, exact AMD8840U benchmark and untouched final gate remain.
 
-Next: refresh label status and collect completions; collect the existing6p runtime
-probe when it finishes.
-Then prepare the admitted parent reference grid while labels finish. The current
-handoff contains exact source/evidence pins, recovery paths and outstanding work.
+Next: refresh effective label handles, collect completions and summarize. Inspect
+and collect the existing6p probe on completion. The handoff contains recovery
+commands, source pins and the remaining training/evaluation steps.
 
 ---
 

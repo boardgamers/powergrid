@@ -1,0 +1,31 @@
+{
+  "code_checks_passed": true,
+  "unit_tests": 5,
+  "no_gradients": true,
+  "training_collector_incomplete_grid_rejected": true,
+  "development_shards_per_arm": 108,
+  "games_per_arm": 6720,
+  "comparison_arms": 5,
+  "comparisons": 8,
+  "whole_deal_bootstrap_and_adverse_rules_tested": true,
+  "code": {
+    "policy_iteration_training_verification.py": "2bfc4052dc5d0ad9b18371691de0d7bc11267a99cb853c483d65a1eea2b12500",
+    "collect-policy-iteration-training.py": "7e8789c51d5a44abf2756ff7f300e065ef4bb6d899348802cedf33a2c4bf605b",
+    "test_policy_iteration_training_verification.py": "7e350d5fa25c302888d01d0f1ab9649bab0f6cf0c76eab130f5c6c0a56449a39",
+    "manage-policy-iteration-development-grid.py": "aba1790552954ad4d52b1a6af561b8e0c74fc95118b6295bb48518361576eb41",
+    "compare-policy-iteration-development.py": "44751c937eb6a8e8c68021844be6145156ad8c6317a6ca5a93ee2d3e8b981090",
+    "test_policy_iteration_development_grid.py": "6af89ce4b34ea68a13e5c837d79f130fa853ef6da3236348abfd73ca1645c317"
+  },
+  "logs": {
+    "policy-iteration-training-collector-tests-v2.log": "2885f984f7b7e9d40db78b082087af9808a87140b90876b114533743306b9e64",
+    "policy-iteration-development-grid-tests-v2.log": "d9b7d85467ae812bc6b0f2b086dc2a9180509c041948b52912432a0bd3ed543b",
+    "policy-iteration-training-collector-incomplete-grid-v2.log": "f458ac3a3ff063347a0f0e553a048c9ecb841cbf068d005a3433fc5e9dfeee70"
+  },
+  "limitations": [
+    "No actual new trained output exists yet; full collector integration is pending those HF jobs.",
+    "The complete 33,600-game aggregation is unexecuted until every required arm finishes."
+  ],
+  "qualification_eligible": false,
+  "full_parent_grid_without_6p_verification_rejected": true,
+  "frozen_development_source_additions_unchanged": 5
+}

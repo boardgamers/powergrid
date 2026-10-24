@@ -1,0 +1,78 @@
+{
+  "status": "verified_isolated_resource_turn_search_not_integrated",
+  "source_files_unchanged": 1463,
+  "running_screen_dependencies_unchanged": true,
+  "contract_resource_positions": 755,
+  "contract_baseline_steps": 2840,
+  "partial_baselines_outside_generator_preserved": 329,
+  "contract_macro_controls": 236,
+  "contract_continuation_controls": 186,
+  "invalid_requests_rejected": 100,
+  "actual_model_baselines": 755,
+  "actual_model_baseline_decisions": 2251,
+  "normal_search_cases": 23,
+  "normal_rollouts": 1232,
+  "additional_control_rollouts": 464,
+  "normal_rollout_caps": 0,
+  "deliberate_one_step_caps": 116,
+  "hidden_data_invariant": true,
+  "worker_partition_exact": true,
+  "sample_prefix_exact": true,
+  "selected_changes_in_engineering_cases": 4,
+  "known_omission": {
+    "baseline": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "selected": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "cost": 17,
+    "baseline_sample_credits": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "selected_sample_credits": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "scope": "Outcome-selected diagnostic; four uncalibrated opponent/deck worlds, not a strength estimate."
+  },
+  "local_HX370_ms": {
+    "samples": 23,
+    "median": 765.8823310048319,
+    "maximum": 2794.852902996354
+  },
+  "model_sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+  "limits": [
+    "Requires committing a complete returned resource turn; executing just firstMove and replanning changes the policy.",
+    "No full-game arena adapter or platform persistence contract yet. Not production-ready.",
+    "Public candidate family is one/two identical-cycle fuel requirements plus exact model baseline, not exhaustive stockpiles.",
+    "Future building uses the model and existing strict loss filter; no forced construction route.",
+    "Four-world engineering probes and equal opponent mixture are not calibrated values or strength evidence.",
+    "Local HX370 timings are not target8840U latency."
+  ],
+  "next": "Complete unchanged active hybrid grid. Develop and verify an arena execution contract for complete plans, or explicitly evaluate a separately specified replanning policy; use fresh paired games and target serving checks before adoption. The component may also generate resource-turn teacher labels on fresh roots.",
+  "new_hf_jobs": 0,
+  "new_strength_games": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "ec76db0d6fe37a4fd94aa620e86ba9a06f35939c",
+  "archive_path": "archives/resource-turn-search-evidence-v1.tgz",
+  "archive_sha256": "5eeac23003cbc8ef510dea3282257c7718334b0d7e67ba27e737809951fbae7d",
+  "manifest_sha256": "8ab50886d76c0652fff3b968c51ca6f24d5b7af06f2c592ff9f2f4207f3bb4a9",
+  "archived_files": 25,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

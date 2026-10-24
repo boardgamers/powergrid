@@ -25,7 +25,91 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: resource-turn proposals verified, not integrated
+## Latest checkpoint: whole-resource-turn search integration verified in isolation
+
+Previous goal turn: progress (proposal evidence archived and research pushed as
+f890710). This turn: progress. Added complete resource-turn valuation, ran actual
+model integration and independent engine controls, and archived verified evidence.
+No new HF jobs, gradients, fresh strength games or final seeds used for this work.
+Existing coordinator PID 1447977 / session 53211 remains active; its 15:38:03 UTC
+snapshot is 44 submitted / 12 verified, no failed jobs. The combined six-player
+search opponent handle `6adcba011e112550ce7e0464` was directly confirmed RUNNING
+this turn. Do not start a duplicate coordinator or change its frozen sources.
+
+### New resource search and execution contract
+
+- `strong/resource-turn-search-v1.cjs` adds an exact model-turn state machine,
+  retaining the model's actual purchase order through its final Pass. If that
+  stockpile is absent from the one/two-cycle candidate family, it is appended.
+  Zero purchases is also always present. No candidate is pruned on construction
+  route assumptions. Every root macro is executed through the actual engine.
+- `strong/resource_turn_search_v1.py` evaluates every complete bundle in shared
+  public sampled deck worlds. Each opponent spans neural/economic/legacy/rush
+  roles evenly. The focal future policy is the model with the existing strict
+  endgame-loss filter. No nested search and no forced building route. Exact
+  terminal win credits determine the choice; ties prefer the original model turn.
+- Search receipts include the common pre-action world hash, every root purchase,
+  prices, post-purchase money/stock/market, roles, continuation action counts and
+  terminal powered cities/cash/city counts. Any capped rollout invalidates the
+  search and returns the model's **whole** turn. The cap counts continuation moves;
+  root macro actions are recorded separately and do not consume that horizon.
+- **The returned complete plan must be committed.** Calling this anew after each
+  purchase and executing only `firstMove` is a different policy. No complete-game
+  arena adapter or stateless platform persistence contract exists yet. Do not
+  present it as production-ready or silently equate these execution modes. It
+  could instead be used as a teacher on fresh roots and distilled into the model.
+
+### Checks completed
+
+The isolated package is `ai/runs/resource-turn-search-v1/runtime`; all 1,463 frozen
+source files were copied unchanged, with separately pinned new modules only.
+Preparation completed before any tests started. All processes are terminal:
+contract session 41490, actual-model probe 13624, evidence collector 73434.
+
+`strong/test-resource-turn-search-v1.cjs` checks 755 resource positions across all
+20 count/rule cells, 2,840 arbitrary baseline steps, 755 hidden-data preparations,
+329 partial baselines outside the generated menu, 236 independent root macro
+replays, 186 continuation response comparisons and 100 invalid requests. All pass.
+
+`strong/probe-resource-turn-search-v1.py` verifies all 755 actual model baselines
+(2,251 decisions), including exact first-action parity with the unchanged model
+adapter. Before search, `selection.json` fixed 20 late positions using public
+round/city count, two opening Recharged-sealed endpoint fixtures, and the separate
+known outcome-selected fuel omission. The 23 searches complete 1,232 rollouts.
+Partition, hidden-data and sample-prefix controls add 464 complete rollouts, all
+exact with zero normal caps. The intentional one-step test has 116 capped rollouts
+and correctly preserves the full model baseline. No selected probes are strength
+games; no claims generalize from these samples to a win-rate improvement.
+
+Four of the 23 positions change plan. In the known omission, search selects three
+coal costing 17 rather than Pass. The baseline scores [0,0,0,0] and that bundle
+[1,1,1,1] over the four sampled opponent/deck worlds. These are simulated credits
+under an uncalibrated equal opponent mixture, not estimated true win probability.
+Local HX370 timings over the 23 engineering positions: median 765.9 ms, maximum
+2,794.9 ms. These are mostly late positions with four worlds, not representative
+gameplay latency and not an AMD8840U benchmark.
+
+### Preserved evidence and next action
+
+- Descriptor: `strong/resource-turn-search-evidence-v1.json`.
+- Collector: `strong/collect-resource-turn-search-v1.py`; completed output in
+  `ai/runs/resource-turn-search-collection-v1.log`. Do not rerun over its archive.
+- Private HF revision: `ec76db0d6fe37a4fd94aa620e86ba9a06f35939c`.
+- Archive: `archives/resource-turn-search-evidence-v1.tgz`, 25 files, downloaded
+  and SHA-verified: `5eeac23003cbc8ef510dea3282257c7718334b0d7e67ba27e737809951fbae7d`.
+- The collector rechecks all source hashes and raw artifacts, every saved bundle's
+  budget, terminal score ordering, win credits, means, tie selection and controls.
+
+Next: preserve and complete the current five-arm comparison. Before adopting
+resource search, implement and verify complete-plan execution in the arena and
+resolve its serving contract, or define a separate per-purchase replanning policy
+and evaluate that actual policy. Freeze fresh paired games before observing
+outcomes; test all counts/rules/opponent cells and latency. The known omission
+remains a diagnostic example, not an unbiased training label. Resource-turn
+teacher generation on fresh roots is also viable. No final candidate or production
+AI publication; reserved final seeds remain untouched.
+
+## Previous checkpoint: resource-turn proposals verified, not integrated
 
 Progress: the isolated public fuel/construction proposal generator and its evidence
 collection completed. All local tests and the archive upload are terminal; do not

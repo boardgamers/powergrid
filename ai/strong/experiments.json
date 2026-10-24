@@ -53491,5 +53491,26 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "next": "In a separate research adapter, preserve the exact existing model resource turn as an additional baseline, then score complete legal bundles with public sampled worlds and realistic opponent continuations. Keep the running five-arm screen frozen; use fresh paired games before any adoption."
+    },
+    "resource_turn_search_v1": {
+        "status": "verified_isolated_resource_turn_search_not_integrated",
+        "evidence": "ai/strong/resource-turn-search-evidence-v1.json",
+        "archive_revision": "ec76db0d6fe37a4fd94aa620e86ba9a06f35939c",
+        "actual_model_baselines": 755,
+        "actual_model_baseline_decisions": 2251,
+        "normal_search_cases": 23,
+        "normal_rollouts": 1232,
+        "additional_control_rollouts": 464,
+        "normal_rollout_caps": 0,
+        "known_omission_selected_from_public_worlds": true,
+        "whole_turn_commitment_required": true,
+        "arena_or_serving_integration": false,
+        "current_hybrid_screen_unchanged": true,
+        "new_hf_jobs": 0,
+        "new_strength_games": 0,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Complete unchanged active hybrid grid. Develop and verify an arena execution contract for complete plans, or explicitly evaluate a separately specified replanning policy; use fresh paired games and target serving checks before adoption. The component may also generate resource-turn teacher labels on fresh roots."
     }
 }

@@ -6,7 +6,31 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: public resource-turn proposals verified and archived, not integrated.**
+**Latest: whole-resource-turn search verified in isolation.**
+The new worker scores complete purchase sequences against the same sampled public
+worlds and balanced neural/economic/legacy/rush opponents. It retains the exact
+model turn, including purchases outside the generated bundle family. Future
+building follows the model with the existing strict loss filter; no construction
+route is forced. The caller must commit the returned whole turn: independently
+replanning each purchase would be a different policy and is not evaluated here.
+
+All 755 resource positions passed baseline checks (2,251 actual model decisions).
+Twenty-three fixed engineering searches completed 1,232 rollouts, plus 464 control
+rollouts, with no normal caps. Hidden-data, worker partition and sample-prefix
+checks pass; a deliberate one-step cap falls back to the full model plan. The known
+fuel omission now selects three coal costing 17 from public-world search, but that
+outcome-selected example and the four-world probes are not strength evidence.
+
+Evidence: `strong/resource-turn-search-evidence-v1.json`, 25 verified archived files,
+private HF revision `ec76db0d6fe37a4fd94aa620e86ba9a06f35939c`. No jobs or gradients
+launched for this work. All original 1,463 source files and running-screen hashes
+remain unchanged. The existing coordinator continues: at 2026-10-24T15:38:03 UTC,
+44 submitted / 12 verified, no failed jobs. Next: verify an arena/serving execution
+contract for complete plans (or separately specify and test replanning), then use
+fresh paired games after the current fixed comparison. Resource teacher labels
+are another use. No final qualification or publication; final seeds unused.
+
+**Previous: public resource-turn proposals verified and archived, not integrated.**
 The isolated `strong/resource-turn-plans-v1.cjs` enumerates legal fuel bundles and
 annotates them with affordable construction routes. All 7,185 bundles at 755
 resource positions passed 28,177 real-engine purchases across 2–6 players and all

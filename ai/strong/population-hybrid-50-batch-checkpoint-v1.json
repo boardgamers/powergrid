@@ -1,0 +1,1108 @@
+{
+  "checked_at": "2026-10-24T19:03:08.767754+00:00",
+  "scope": "Receipt identity and fixed-dependency revalidation; original full verification remains in each pinned artifact. No partial strength comparison or remote mutation.",
+  "coordinator": {
+    "pid": 2812975,
+    "cmdline": "ai/.venv/bin/python -u ai/strong/recover-population-hybrid-storage-v1.py coordinate --execute",
+    "snapshot": {
+      "stage": "waiting_for_jobs",
+      "jobs_submitted": 82,
+      "jobs_verified": 50,
+      "failed_jobs": [],
+      "updated_at": "2026-10-24T19:01:25.981249+00:00"
+    }
+  },
+  "plan_sha256": "bd2d80bac1384f6d71a9cc4ee1f71db21ce6d9c8fd95e9a12543cdeceb83859f",
+  "frozen_dependencies_checked": 32,
+  "receipts_checked": 50,
+  "games_in_verified_batches": 2880,
+  "verified_rollout_caps": 0,
+  "receipts": [
+    {
+      "case": "population-hybrid-development-v1-auction-3p-a260-0-4",
+      "job_id": "6adce69b046eb82b1ecde321",
+      "games": 48,
+      "verified_sha256": "8af8bfedefb62be1216cc6c42f43857e821fe7cb2d9fb381781af0c112f544c8",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "4dfea824dd9a5c59119ea228ea5ca75513d88325",
+        "archive_path": "archives/population-hybrid-development-v1-auction-3p-a260-0-4.tgz",
+        "archive_sha256": "4616313ac1a0ac67e3028e07c10aee3578188e886bcee04dc1ec53390b5edcc9",
+        "manifest_sha256": "6aac4fa16c1a734864db279051d6068400b08a70dcdaa48d0b6f1b5c5d23872f",
+        "archived_files": 101,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-3p-economic-0-4",
+      "job_id": "6adcebba046eb82b1ecde58b",
+      "games": 48,
+      "verified_sha256": "4055935844cb8cc2c33864343ee25b40b43d701bfcdac9ca62e90865387a81ca",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "320e0cb3bebbac20588bb98b27dda30fe0422f39",
+        "archive_path": "archives/population-hybrid-development-v1-auction-3p-economic-0-4.tgz",
+        "archive_sha256": "4cc3c3c0fbecc964fbd082ddde8a600a74367f6bce087e0a70a18542f077fc2c",
+        "manifest_sha256": "2133c347ee2e0eeca38b9c27c3634cee45eb2f22f251b47c10a5d83b21a53452",
+        "archived_files": 101,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-4p-economic-0-4",
+      "job_id": "6adce42e046eb82b1ecde242",
+      "games": 64,
+      "verified_sha256": "70bf0d13ea863500d112644a2bee0c38e9aa14c3872a0ce10a3dc760b1434f1a",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "090c1becd91601827f9f63b29c241687a4103814",
+        "archive_path": "archives/population-hybrid-development-v1-auction-4p-economic-0-4.tgz",
+        "archive_sha256": "cc0d4376a9085b3006eb04335ee7a21f877d6552f0364eaeb972a98209a34f7b",
+        "manifest_sha256": "61efd5053ed22be1693b360aed930675c65f8083f947925886511f5e18243057",
+        "archived_files": 133,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-4p-heuristic-0-4",
+      "job_id": "6adce42f1e112550ce7e1d96",
+      "games": 64,
+      "verified_sha256": "cf6d20db1e4eaca8800354650371d9a219a2db6e5722742cc785f82cf287e23a",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "5722c82b82ad3068cd231de71ba16f63ccb61f2c",
+        "archive_path": "archives/population-hybrid-development-v1-auction-4p-heuristic-0-4.tgz",
+        "archive_sha256": "9d8804dea5e7d175d8a441c0167c5ff8920300268612b4e9bd031808bdd471f1",
+        "manifest_sha256": "39468c5633c24e8092c34f490fc2857736569a07bb98de0353a851e04ab96624",
+        "archived_files": 133,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-5p-heuristic-0-4",
+      "job_id": "6adcdcfa1e112550ce7e17d5",
+      "games": 80,
+      "verified_sha256": "11df535459dde78f3b5689c67c9f553601bf1e2ad3af570010b821c21358d9e9",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "c49efcabf45e3b708129c200be25a94f5727d698",
+        "archive_path": "archives/population-hybrid-development-v1-auction-5p-heuristic-0-4.tgz",
+        "archive_sha256": "615e4d370f6380a9ff0e797f207c7ca234284679cd29bd2c067cfa8f2212a41d",
+        "manifest_sha256": "0ae0108eb196935d98f5b8a731a2e51a29b74fee286106d7cf25c9f261970e07",
+        "archived_files": 165,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-2p-economic-0-4",
+      "job_id": "6adcd5af046eb82b1ecdda56",
+      "games": 32,
+      "verified_sha256": "cd6c8ac4b209c1aa72c672d83af5db8f294a386d1dba9c1e14d2297d7a45880d",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "090a834e7737028d18254f819e5d794226367c54",
+        "archive_path": "archives/population-hybrid-development-v1-building-2p-economic-0-4.tgz",
+        "archive_sha256": "38ad5df646626a9ef9d7bb9619edb84490b335be5ebb36dd436b96f7bae1851f",
+        "manifest_sha256": "acce7b6fdf982ced65ec8311856b50c282425dd4ce640df8add9bd49bf382cd7",
+        "archived_files": 69,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-2p-economic_capacity_v1-0-4",
+      "job_id": "6adcd8151e112550ce7e14f4",
+      "games": 32,
+      "verified_sha256": "1d2289e48740a37af8ebc1323072058dad6af43e61909a249ed8059c9d65bb28",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "cad8a48378d0f20e688cb708b107ce655b9c778d",
+        "archive_path": "archives/population-hybrid-development-v1-building-2p-economic_capacity_v1-0-4.tgz",
+        "archive_sha256": "315a5198532b6fcc9693c5e87988e074d45d199fc9c4080d900192836baf4773",
+        "manifest_sha256": "ad75f785dc3c7e53f46282ab2049dde5c2e2bd01813bbd75d216c63dbc07369c",
+        "archived_files": 69,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-2p-heuristic-0-4",
+      "job_id": "6adcd8171e112550ce7e14f7",
+      "games": 32,
+      "verified_sha256": "d6d583a8248fc22827798638d058d03960fd94ddb94639c4634fa34b71bfbc63",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "cceefdc7a1874ddc7a912496fa7f0203702d8c39",
+        "archive_path": "archives/population-hybrid-development-v1-building-2p-heuristic-0-4.tgz",
+        "archive_sha256": "7fba6e326ebfa9f01d280877ba2f69fb4508e85e255a5e23345c7ae72869161f",
+        "manifest_sha256": "0f011e5bd2c3cf2c46ac2ff5d5f4c05db0e8e1cfc1a96278d32b21e4bdf2c356",
+        "archived_files": 69,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-2p-legacy-0-4",
+      "job_id": "6adcd94c046eb82b1ecddc1c",
+      "games": 32,
+      "verified_sha256": "7c2e663a729a5a307410c7fc220fec9dd460cd990b3478cc2a4d950f85ce4834",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "6d48db6c16566cfbcb097a535bbd4df1627afc96",
+        "archive_path": "archives/population-hybrid-development-v1-building-2p-legacy-0-4.tgz",
+        "archive_sha256": "628447dfa2f8cdbe2e350236ac4b3163514ae6d13774f45ac540c506b4d6b0af",
+        "manifest_sha256": "c7728f41abc8f1fb4e9487a401f55cf3d5b826ff993dbad258baeab47b5e138e",
+        "archived_files": 69,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-2p-rush-0-4",
+      "job_id": "6adcd94d046eb82b1ecddc1e",
+      "games": 32,
+      "verified_sha256": "fa580a770c5f2cf9fe7c1d49bc2065844c1fefea99c73fb82c5ff8bc3e7f5348",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "348bef0539fb396ce9270f0de3ccd6808c6fbe1f",
+        "archive_path": "archives/population-hybrid-development-v1-building-2p-rush-0-4.tgz",
+        "archive_sha256": "a8b31838552b9f0404be42494259fe824a8d0d70fbec05b85d70f51e5b9e2298",
+        "manifest_sha256": "c45c198efd27245ae061bbeae287f5b1eb9c539be30edfc35b40d8b685b75f64",
+        "archived_files": 69,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-2p-search_geo-0-4",
+      "job_id": "6adcda831e112550ce7e1668",
+      "games": 32,
+      "verified_sha256": "7d1245714e4b5581bc5e280179cd9785a6ab82e2a7b3c45ece98f1bded42fca8",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "9627001a1a6f6ac4a73216ad779e55e59ae156cf",
+        "archive_path": "archives/population-hybrid-development-v1-building-2p-search_geo-0-4.tgz",
+        "archive_sha256": "d8e3eb46b19eb4288be75149107b3f27a64e2ab9b8e6557df55d72d63bf126a3",
+        "manifest_sha256": "2458516688768326839ed96bd40b40eb9535d506770456f7962dffd438955f8b",
+        "archived_files": 69,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-3p-a260-0-4",
+      "job_id": "6adcd0d81e112550ce7e1083",
+      "games": 48,
+      "verified_sha256": "be809759c666d4c7d18f6aa3277ce566300d5d1cd5cb2e01694edf1ed6835f4e",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "3d819854d1415ac2448fd8b3a0ac82e8bc953f62",
+        "archive_path": "archives/population-hybrid-development-v1-building-3p-a260-0-4.tgz",
+        "archive_sha256": "32276d9bb289bb4648399318e9f4f83385998329679c34be8cdcb44125746b4d",
+        "manifest_sha256": "d7617868bb65256c5acbedd3197c7f825ce59b22b846eeeafc48c02bd1bdeeb0",
+        "archived_files": 101,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-3p-economic-0-4",
+      "job_id": "6adcd0da1e112550ce7e1085",
+      "games": 48,
+      "verified_sha256": "acf7734de2b6e3c96450a712c8e698393c7c1f681233b7d7e0a009fb0e5c7052",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "792a6ecf8f13fd49b10aa86f2511b18a28a09fdb",
+        "archive_path": "archives/population-hybrid-development-v1-building-3p-economic-0-4.tgz",
+        "archive_sha256": "081bc5e7cd7f3e87d4d2b35754bef0525a1942ec0fbc07e9c9efece6acbb7e19",
+        "manifest_sha256": "587b7b3c8bb41998ea19dae1956345dfc7e6b97f97c7fe4279f7b6d9354c6f0b",
+        "archived_files": 101,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-3p-heuristic-0-4",
+      "job_id": "6adcd20f046eb82b1ecdd897",
+      "games": 48,
+      "verified_sha256": "197ff20cc87c0370042c0f7662d604272dd994e32739aac2975ea6bbaf771201",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "083936b3f6557aac4ab7a247b063237df9789bc7",
+        "archive_path": "archives/population-hybrid-development-v1-building-3p-heuristic-0-4.tgz",
+        "archive_sha256": "5c450b58843ed60c41662c1b3c7f20854524c5d9ac33d359d7315ea94a792b6e",
+        "manifest_sha256": "1653a31f3a600bc9431ce09d732805021a0d913107713be972220895b8a84d6f",
+        "archived_files": 101,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-3p-legacy-0-4",
+      "job_id": "6adcd211046eb82b1ecdd899",
+      "games": 48,
+      "verified_sha256": "9b2d744b0290241d7c5ef63db94948d6bc80ef40894fb288a347fdefd41241b0",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "71b2887337843ab253007320ae53dd7ba0ea992f",
+        "archive_path": "archives/population-hybrid-development-v1-building-3p-legacy-0-4.tgz",
+        "archive_sha256": "d94ee75cede9ded4d5da0ef41a03136358c19db3d8885a8f74d251905ea0ac75",
+        "manifest_sha256": "90ecc7cf326024857c2db8d820a71843969337a674f002f22ac1f2b64e3ff556",
+        "archived_files": 101,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-3p-rush-0-4",
+      "job_id": "6adcd4771e112550ce7e12ca",
+      "games": 48,
+      "verified_sha256": "791e11b2ccbbc9d82521fe5ac19bb9329872327ca67e42ba55bccc09122c2258",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "d401e32fb10e7b97726f2d62a89cf4c774fcaa29",
+        "archive_path": "archives/population-hybrid-development-v1-building-3p-rush-0-4.tgz",
+        "archive_sha256": "38ced179aefe46296f26b8b7cefb985dac7b7488142bbdb4643dd58b7a5835e4",
+        "manifest_sha256": "f5d7b1c3b5559f17658861eaf4bca726c868447fe0baf14268a5880119ca2f6e",
+        "archived_files": 101,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-3p-search_geo-0-4",
+      "job_id": "6adcd5ad046eb82b1ecdda50",
+      "games": 48,
+      "verified_sha256": "6d8756fb58ea78bed42216061bb9142ad7e4001eb23db6ba4e7eff1990e30e30",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "82b579fab4c40e97afbe748263c9bf1725636058",
+        "archive_path": "archives/population-hybrid-development-v1-building-3p-search_geo-0-4.tgz",
+        "archive_sha256": "4fee8f4fbd15dd354e6d5713a826d7ef9571f5411bf0149ca3985f5899cf2ffd",
+        "manifest_sha256": "8b1bb4c05d6871a1b9108bc822497865f9d4e910e82fae0562fc2a45abc927af",
+        "archived_files": 101,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-4p-economic-0-4",
+      "job_id": "6adcc749046eb82b1ecdd394",
+      "games": 64,
+      "verified_sha256": "35293fae2540222a859b2e247dea741c541c30c233729bceb97ecacc7dcbf9cc",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "2c544660de0119022d41a5b3f8b1b379c11903f1",
+        "archive_path": "archives/population-hybrid-development-v1-building-4p-economic-0-4.tgz",
+        "archive_sha256": "e048e12092b8a0b93242b0b2c0c244beb9d4710f4e7b1a65b29eeb232e9e983b",
+        "manifest_sha256": "a911a8eb73cbd68adca758f7f8a687afe46ccb13554f84f802c5979d5ea3b98b",
+        "archived_files": 133,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-4p-heuristic-0-4",
+      "job_id": "6adcc74a1e112550ce7e0ba8",
+      "games": 64,
+      "verified_sha256": "14533d19d73d5cc8508471944db9df7514965d78e5b22111162ef848ccd198e4",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "1c8744eaa862cebf16ed588cacbe38c747a3c2f8",
+        "archive_path": "archives/population-hybrid-development-v1-building-4p-heuristic-0-4.tgz",
+        "archive_sha256": "c42d44e7723e023d21291217fd1af8293b2dbbe6aa54517df57d74c08a67c909",
+        "manifest_sha256": "4f8ec4f4ff49520f05e8c52bc9d33b6acda00238bdb3716dfc009b60acf16093",
+        "archived_files": 133,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-4p-legacy-0-4",
+      "job_id": "6adcc74c1e112550ce7e0baa",
+      "games": 64,
+      "verified_sha256": "2b64e230f095bb701aaddef895a815b2261461ab7925556a9c862b6a26f8c453",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "abdb0788141e07cbf530f32f453ec49d02dc45b3",
+        "archive_path": "archives/population-hybrid-development-v1-building-4p-legacy-0-4.tgz",
+        "archive_sha256": "8b68d6be34038bd894ed8065a76a1158ef193da0842c4163a5784feb14d52fc7",
+        "manifest_sha256": "c3dc5cb4740c3d52e3d4932e9da68522968845216d9630c354f1e552e25de9fd",
+        "archived_files": 133,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-4p-rush-0-4",
+      "job_id": "6adcd0d6046eb82b1ecdd7df",
+      "games": 64,
+      "verified_sha256": "60e006f0f05dcd371c28d8cc29f203926f127647b23c8c5b6cd3f8589c0798d3",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "2cb108ee9eca2cfcebd67fb3f15b98b086208a50",
+        "archive_path": "archives/population-hybrid-development-v1-building-4p-rush-0-4.tgz",
+        "archive_sha256": "cc9583c76f4ae9da28ab103c42e25ffde92a668518dfaa1e06dbbf7a87666a81",
+        "manifest_sha256": "dd6adee9c7516d084da1813331b0587e717a982c202d211356dbd8a1c7b8563b",
+        "archived_files": 133,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-4p-search_geo-0-4",
+      "job_id": "6adcd0d7046eb82b1ecdd7e1",
+      "games": 64,
+      "verified_sha256": "62c144fa15ca4675b52b99b915d62f3f564063326e7183db35ed76866ca8a537",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "e5caa82e6e6d4835b38c5e871f3f39125e248fb0",
+        "archive_path": "archives/population-hybrid-development-v1-building-4p-search_geo-0-4.tgz",
+        "archive_sha256": "51ab244b229432ae04c371ee7f51735d1948c163ea33beced617ac420c1e7ba0",
+        "manifest_sha256": "0f0545902a00aff2cc5426f4af77fd62a510da560e89e47b48e06b5eefc788c6",
+        "archived_files": 133,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-5p-economic-0-4",
+      "job_id": "6adcc3ad1e112550ce7e09b4",
+      "games": 80,
+      "verified_sha256": "bb8d5d5cbc9e6bff335b67586b0a476e22bc89cd39e7ef5db262f83d0c585de7",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "b3099e58e2d6a3b65b2dd86f095e8e106ab1e7ac",
+        "archive_path": "archives/population-hybrid-development-v1-building-5p-economic-0-4.tgz",
+        "archive_sha256": "9a5ba8e5ad199b3064a06760337329b352b394791053ec4e2a610307caf6796a",
+        "manifest_sha256": "40c17f5b91292d41a97d986d6462150652754f7d1e2940994087841c0a3cae4a",
+        "archived_files": 165,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-5p-heuristic-0-4",
+      "job_id": "6adcc4df046eb82b1ecdd2ce",
+      "games": 80,
+      "verified_sha256": "b156018b2175a9f037d7cd906a98f2b47a63906f09b23a19e457575e3107112e",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "2517d35a8da4aa4c164c8d6576f67bc26cc7cce3",
+        "archive_path": "archives/population-hybrid-development-v1-building-5p-heuristic-0-4.tgz",
+        "archive_sha256": "6ff6e2ad3d730b97ba75a921d699c9b5b443b748be49a8fe57dec644fc895b70",
+        "manifest_sha256": "3be593f630ff4075a9694e7384d56404f508420bd4272a05b850e22b905f86ae",
+        "archived_files": 165,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-5p-legacy-0-4",
+      "job_id": "6adcc4e0046eb82b1ecdd2d0",
+      "games": 80,
+      "verified_sha256": "a316b903e1a0c5b9a4efe21dff6e4d46a0b413a50b2c8586e4dded56949a6ddb",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "89e297622f56e55c34f20ff6eccb9e2ff446c760",
+        "archive_path": "archives/population-hybrid-development-v1-building-5p-legacy-0-4.tgz",
+        "archive_sha256": "b434d3c6239a5b9cf80e623e13ded406216f478719d225158e26c4a5229b9b94",
+        "manifest_sha256": "dc40978a39225a0c2646ca8dabe76f93262e51da21063772600700a66d9d0c96",
+        "archived_files": 165,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-5p-rush-0-4",
+      "job_id": "6adcc613046eb82b1ecdd333",
+      "games": 80,
+      "verified_sha256": "5f5f625d41b49397d78c84b78960f934d45ca9f2925611abcff32dee6485ff50",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "28d201d02f0e2ae28205255a2baa5f29f1189306",
+        "archive_path": "archives/population-hybrid-development-v1-building-5p-rush-0-4.tgz",
+        "archive_sha256": "3cf9370cf0c8188953e93b2e2147d1dca7084e306d5701725bac263c094ad79d",
+        "manifest_sha256": "d3602f79a70c3ffedbd33ee4bb25b4adfaad804e8bbececcd2d6df88d9b16bfe",
+        "archived_files": 165,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-5p-search_geo-0-4",
+      "job_id": "6adcc7481e112550ce7e0ba6",
+      "games": 80,
+      "verified_sha256": "29a29cf167d9e885b441532f7f832cbf5c6facece253030ed65889d722b89b57",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "d41d723ce077d1b4107a43a06472b6ecfc7b82bc",
+        "archive_path": "archives/population-hybrid-development-v1-building-5p-search_geo-0-4.tgz",
+        "archive_sha256": "f20db6df6d7355015359c89879ecad9e6a7b352183c2f3b2eeeb43d01f5093a6",
+        "manifest_sha256": "12ddf3f361ac8e053b5b2918dd508cdb31e29fa75aa40e42bb2763283e5d337d",
+        "archived_files": 165,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-6p-economic-0-4",
+      "job_id": "6adcba211e112550ce7e048c",
+      "games": 96,
+      "verified_sha256": "703cbd8b5180a545adb82c62c1011ef37e679f9357bd8aa0cda4b95b1432ca8e",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "5242a9ba1e58c0089ef3b1ed24329fef925c1ab9",
+        "archive_path": "archives/population-hybrid-development-v1-building-6p-economic-0-4.tgz",
+        "archive_sha256": "8e103a88f00a17ad078d0a4ceed254b18b75441ac7cad0019cd12482c5242b8b",
+        "manifest_sha256": "6db6e54a04d60c12f89c7d23183e48b1feb8d016708034766f9bc6d698b97a5d",
+        "archived_files": 197,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-6p-heuristic-0-4",
+      "job_id": "6adcba221e112550ce7e048e",
+      "games": 96,
+      "verified_sha256": "db4a097c40d2e8c1adb51b75a089b3f973dee94fa7c873507d41646b83970c03",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "25355d2520e3a04f582f786b5442a931efc0dc11",
+        "archive_path": "archives/population-hybrid-development-v1-building-6p-heuristic-0-4.tgz",
+        "archive_sha256": "2e4625346c1a5b5ddd92675a95846a51aa19d10c1660d0403ee5303157bf4f67",
+        "manifest_sha256": "adcf43d300d2a7db182a555a0714828c354c22edcb7e01a0af2050745c04cc1b",
+        "archived_files": 197,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-6p-legacy-0-4",
+      "job_id": "6adcba231e112550ce7e0490",
+      "games": 96,
+      "verified_sha256": "5f45c918429973a056cfd78e23aa9e8551d427f16a8d0146dab7f6f539264401",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "7368e56a6a7eaff70870bea37a1d16beda7172d9",
+        "archive_path": "archives/population-hybrid-development-v1-building-6p-legacy-0-4.tgz",
+        "archive_sha256": "e5ad83ee5b3579cc7e543f7a777c580f46c3828eacba09b15b3cad995121deb2",
+        "manifest_sha256": "586018263b940a602c3f968cfa7ebb0387887a409a5957d36660b7fc50eb202a",
+        "archived_files": 197,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-6p-rush-0-4",
+      "job_id": "6adcba241e112550ce7e0492",
+      "games": 96,
+      "verified_sha256": "2f63017deae23f78011c25249dd13e363a118a081485b902f5818dcac84878c7",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "afeadb1144b28123317852904164238f5df01271",
+        "archive_path": "archives/population-hybrid-development-v1-building-6p-rush-0-4.tgz",
+        "archive_sha256": "dfb2574ecbc90f10e097a328d56c24cce59e8d127248c7e037516bdb22ffcaf9",
+        "manifest_sha256": "1ba2142a3380eaaf481ff87350777fbf0e03139ede3a872345c615ea0367ca5e",
+        "archived_files": 197,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-building-6p-search_geo-0-4",
+      "job_id": "6adcba26046eb82b1ecdce1e",
+      "games": 96,
+      "verified_sha256": "2313ff61da19e40e661c4c39913c6203eb529141a22a9cd6e28a4bb6994e0201",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "3a0298304894ece37494ad96b7aa91c30a00197f",
+        "archive_path": "archives/population-hybrid-development-v1-building-6p-search_geo-0-4.tgz",
+        "archive_sha256": "8657200a9bead5329bb7024c77eddb8d4ec20f317c98f09445684b0ecc3c2858",
+        "manifest_sha256": "bb9ed19509249c4498173e153612444669246e8f07d5bb348c9f6e1989c8ebe8",
+        "archived_files": 197,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-2p-economic-0-4",
+      "job_id": "6adcba19046eb82b1ecdce14",
+      "games": 32,
+      "verified_sha256": "720670d1d7aac992a1dc8074ab9ad16441999639e505280d681f3473cfd67bf2",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "eaeda18c9502ee7d96b2ff75fd85ebb8c50117a6",
+        "archive_path": "archives/population-hybrid-development-v1-combined-2p-economic-0-4.tgz",
+        "archive_sha256": "064829396f88739e0b1bef254a6be5a5a35c7d3460af8306ee928f7823826165",
+        "manifest_sha256": "53b5388d4360d8a9a2be8db02dbb5b76bc3d0fd04581460ec3964acc1cdd0e46",
+        "archived_files": 69,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-2p-economic_capacity_v1-0-4",
+      "job_id": "6adcba1b046eb82b1ecdce18",
+      "games": 32,
+      "verified_sha256": "5b1d2157613bc57d763fa399c7c130a2e857f93565e8a7e4b07926f478c86f93",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "329607a47e5adefbe30dacf9469c2dc237914e56",
+        "archive_path": "archives/population-hybrid-development-v1-combined-2p-economic_capacity_v1-0-4.tgz",
+        "archive_sha256": "9c93f1cc63326f437e116af88cf340a330b05cd2f84c0da20db25060dd4fbd52",
+        "manifest_sha256": "a3aac46106da21849c55d588b53fbe0b7fb96349286693e518d878c0497ff0eb",
+        "archived_files": 69,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-2p-heuristic-0-4",
+      "job_id": "6adcba1c1e112550ce7e0483",
+      "games": 32,
+      "verified_sha256": "65c9ede001a2be27374305051237230db2e2392ace99b25c69a50e3a3951cdbf",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "dcd92ca3e10287ff31f5b8175c314f9922232d87",
+        "archive_path": "archives/population-hybrid-development-v1-combined-2p-heuristic-0-4.tgz",
+        "archive_sha256": "9692c9f9c114a99f408ca72fa7c4ed24b909deb638a59125922cf58b020aaeb8",
+        "manifest_sha256": "f99ae73ab309e21dad5cd504c675be25b031c39963b52a653089fab0711e5e07",
+        "archived_files": 69,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-2p-legacy-0-4",
+      "job_id": "6adcba1e1e112550ce7e0487",
+      "games": 32,
+      "verified_sha256": "8cf483618ad04c0c4a797ffcef53e71a2f55847a0a7dd154d482548eeb61dfa6",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "b9de0a3567a1487e2700891310a1e8832118b3dc",
+        "archive_path": "archives/population-hybrid-development-v1-combined-2p-legacy-0-4.tgz",
+        "archive_sha256": "e8ef057f895f00b597bb16936389ef7827be1e6399ac395ff28846e63284de56",
+        "manifest_sha256": "71046853a3c87f6318615fc99ecbef92701bc047db53b10e388f5972341f019d",
+        "archived_files": 69,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-2p-rush-0-4",
+      "job_id": "6adcba1f046eb82b1ecdce1c",
+      "games": 32,
+      "verified_sha256": "f02f2ae544d2365e948161f2d6774ef3d006ee76f911949154461ddd603a2b55",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "9b0bb50f780ec66d91a539ccd017e158f6d88cc6",
+        "archive_path": "archives/population-hybrid-development-v1-combined-2p-rush-0-4.tgz",
+        "archive_sha256": "b00b580dfd76ba431a05b4d5624d5856906642d5741c9ea4b848bb2d4f61c08d",
+        "manifest_sha256": "8bbc12ea519e412ff8ff791e327904851bb752fba1d06346fcf1162fb47189dd",
+        "archived_files": 69,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-2p-search_geo-0-4",
+      "job_id": "6adcba201e112550ce7e0489",
+      "games": 32,
+      "verified_sha256": "cd0d9debe0d705f29e680bbb0347d4c6eb6c802e8bb23aafed11084e67958393",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "0ff3872b5a78f1410b60763dda8a66f83105b0cc",
+        "archive_path": "archives/population-hybrid-development-v1-combined-2p-search_geo-0-4.tgz",
+        "archive_sha256": "13bb667e660b307c10ac8b9af930e9bc6d3f7ae57fb09274ae324f109e4895dd",
+        "manifest_sha256": "9bcacd0dfafa5bd5cf49c4e3744ecaed884f024948eab31b235ef8e7cfaf8814",
+        "archived_files": 69,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-3p-a260-0-4",
+      "job_id": "6adcba11046eb82b1ecdce0c",
+      "games": 48,
+      "verified_sha256": "f9160955aa10dcac25614fa6cbbd7a0f2bb895059d8623151ee6e956604bc14d",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "a2f2b9d43ab56ca6b660aab617a132a7e15245ff",
+        "archive_path": "archives/population-hybrid-development-v1-combined-3p-a260-0-4.tgz",
+        "archive_sha256": "14a5726a1ebd5548d67d0fb23d7179f3421c9d1f9b689b6e63a2fc9891f41a19",
+        "manifest_sha256": "df03739296fcf0affb330daee90246fadc47d86265f2ca84f98ac6d835b8a6ac",
+        "archived_files": 101,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-3p-economic-0-4",
+      "job_id": "6adcba12046eb82b1ecdce0e",
+      "games": 48,
+      "verified_sha256": "62e77677b748a31dd8c1f93dd804a3c64e480c5504c73ebe5ae187578979c223",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "dcdad814a0417582df947fa033a90234393aa357",
+        "archive_path": "archives/population-hybrid-development-v1-combined-3p-economic-0-4.tgz",
+        "archive_sha256": "2e58043281a8d25a0f18deeb9a9d709d1d79ce4a11292450ea646f3de6778626",
+        "manifest_sha256": "ee8adf58466c2841c1dc32d48e403e4f9f32f14056102cef1e5911d674c6841a",
+        "archived_files": 101,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-3p-heuristic-0-4",
+      "job_id": "6adcba141e112550ce7e0475",
+      "games": 48,
+      "verified_sha256": "c0feacb12f07b1012a2761074f393227158a4c0c365fa1760a67228af3e84130",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "a44f277159aca4cf5a4d3f33faddce7e2cc8b9a0",
+        "archive_path": "archives/population-hybrid-development-v1-combined-3p-heuristic-0-4.tgz",
+        "archive_sha256": "a710182bd0b33df4c5524c0959e0278d2ade80d6a03ed1c9f0a37cd9e41a7eec",
+        "manifest_sha256": "5c8cc8f3af2ac3f740558d8ce44bffedfcf11b7fe67a70c54e2e7ec3d46ce741",
+        "archived_files": 101,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-3p-legacy-0-4",
+      "job_id": "6adcba15046eb82b1ecdce10",
+      "games": 48,
+      "verified_sha256": "6621c3cf7b738304d8e7e59a298f65a528a5143c9cff67202dd16280ab055338",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "a24c94b07b2f7b91850dfca3a92f382cb214e005",
+        "archive_path": "archives/population-hybrid-development-v1-combined-3p-legacy-0-4.tgz",
+        "archive_sha256": "47f74b51f8a0a0dacf80413b593068edb5a0b9f310d2ead865fbf3a522ef1230",
+        "manifest_sha256": "45969921e2e0674cf1a0abca897660393fcb9e1fc198b7656d80e69e1c0448d6",
+        "archived_files": 101,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-3p-rush-0-4",
+      "job_id": "6adcba17046eb82b1ecdce12",
+      "games": 48,
+      "verified_sha256": "007cccf55ea64b15f7d2f57ceec00b7ca6bdaeda927a03ee5953e45a60d316d8",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "5bb9c282203998be0f38feef7dd0aa04bee9cea3",
+        "archive_path": "archives/population-hybrid-development-v1-combined-3p-rush-0-4.tgz",
+        "archive_sha256": "5f79d56bec1fed127d3b386bd0e4013176cef07d813c2e2f915748c7b2e9fd2b",
+        "manifest_sha256": "cdf6849323e362d6344ada89b5154ffac2d61d1d2ed5f1c29f11d32a4d34bc81",
+        "archived_files": 101,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-3p-search_geo-0-4",
+      "job_id": "6adcba181e112550ce7e0477",
+      "games": 48,
+      "verified_sha256": "27b8c1ebdb4483d331279c79ef4c1f8960fede316e496dc063b15f110d91dd10",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "22424dd505a755e2cc9d462562fcf8251c54c5d2",
+        "archive_path": "archives/population-hybrid-development-v1-combined-3p-search_geo-0-4.tgz",
+        "archive_sha256": "3407e282c9cf3ceb005a5190706ab256f9dfc9fdda3dc818258b6a8e9c0d63be",
+        "manifest_sha256": "d660bf02747cca042aa05b629f8c590b14a879b58fdd52371bf0968362d42200",
+        "archived_files": 101,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-4p-economic-0-4",
+      "job_id": "6adcba0a1e112550ce7e046a",
+      "games": 64,
+      "verified_sha256": "6df7a986c7affcf3f59e9261c9252e5eeadf8d767d7e7018e5ab7c0676c6181f",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "4ea0ab2cc766d232986d9b26c91f6174e4bc79c1",
+        "archive_path": "archives/population-hybrid-development-v1-combined-4p-economic-0-4.tgz",
+        "archive_sha256": "d51c15df3b9ff2844eea110b2b4101ae7a8383dbb54adcb35e2c2b9e22843331",
+        "manifest_sha256": "29aae543c276345fb837962bdde16eb8da9a1244c62834099f63791aa2de8711",
+        "archived_files": 133,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-4p-heuristic-0-4",
+      "job_id": "6adcba0b046eb82b1ecdce08",
+      "games": 64,
+      "verified_sha256": "2404c0280ee849e8b16299f3d9c21962f6bade82203cdc80de72e7c806286308",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "055dfc5a15086cd729308b22399969bb62172ecc",
+        "archive_path": "archives/population-hybrid-development-v1-combined-4p-heuristic-0-4.tgz",
+        "archive_sha256": "40eb9ac63c19df9c5afffc9e6ec5458344de30bcac85560c3dffc119c9670675",
+        "manifest_sha256": "43af0752fe58cfc47f01b3c16b58b0de695df9a312fa4fc166c943cb51263b31",
+        "archived_files": 133,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-4p-legacy-0-4",
+      "job_id": "6adcba0c1e112550ce7e046d",
+      "games": 64,
+      "verified_sha256": "730ac156e1c960bc51795e17cf600f413a4b984862e9d3406770d54b7611b07d",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "cbf6c37ef82f13a3cf4540de89d49310a2f966fe",
+        "archive_path": "archives/population-hybrid-development-v1-combined-4p-legacy-0-4.tgz",
+        "archive_sha256": "8037f0fac6f2a0820bfc696eceecd223a8dccb68e9b785335202925fc53fc342",
+        "manifest_sha256": "268620f9966102e00dadeb935e6c4ed7b35eede11869efb4d24f99bd310497b1",
+        "archived_files": 133,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-4p-rush-0-4",
+      "job_id": "6adcba0e1e112550ce7e0471",
+      "games": 64,
+      "verified_sha256": "4c45941dd3052886519af2046615b7241d2c1d902b458577417769e33c32d5ab",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "b64d1a2cf09a9320818b1ed4f619fd1d72753027",
+        "archive_path": "archives/population-hybrid-development-v1-combined-4p-rush-0-4.tgz",
+        "archive_sha256": "0e7cc8e6cdf260c33b255205d2b7c92014f341754fcb2af917cbb37a347a5713",
+        "manifest_sha256": "e9d2ca47c73445cf0a85f421d3177c8d4c76b09b561ff6c2dc899fb08c15ea23",
+        "archived_files": 133,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-5p-economic-0-4",
+      "job_id": "6adcba03046eb82b1ecdce02",
+      "games": 80,
+      "verified_sha256": "f04511d61c3995fc92acf189043195337487475dec742468504dd8fe27710517",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "01d1862ee944ca17fd01810588e0ad47cf540704",
+        "archive_path": "archives/population-hybrid-development-v1-combined-5p-economic-0-4.tgz",
+        "archive_sha256": "da9c10a36aeb784cf114aff61291c95919f3e3af4b098142bc6836167e42844c",
+        "manifest_sha256": "88c6799317052b3a5ef5ed12a47b9b09de21e2326365ea792e0b008bcd8e220f",
+        "archived_files": 165,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-5p-heuristic-0-4",
+      "job_id": "6adcba04046eb82b1ecdce04",
+      "games": 80,
+      "verified_sha256": "4e52d2428e0c30389592979ce39e5a54bedc2f10fc4c2628fc3cca8fd6185f27",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "69e0905ff5903004c2bcc6c519db93d10c94c003",
+        "archive_path": "archives/population-hybrid-development-v1-combined-5p-heuristic-0-4.tgz",
+        "archive_sha256": "4484bd8fd6941e7fed3eab006aa054d48b9f41f8e2d6185eee3f52f84a089bba",
+        "manifest_sha256": "4b159516d8f6ea5ce9911d7df4abb3d01d730ebdc8ddcd50bdd7fa524073260b",
+        "archived_files": 165,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "rollout_caps": 0
+    }
+  ],
+  "remaining_submitted_statuses": [
+    {
+      "case": "population-hybrid-development-v1-auction-2p-economic-0-4",
+      "job_id": "6adcfcdb046eb82b1ecdecf6",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:02.758014+00:00",
+      "guard_sha256": "b69c6b4a607ece4b99fec7dc5289366b8360224bd332f2ad8cc06ef43eb61ace"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-2p-economic_capacity_v1-0-4",
+      "job_id": "6adcfcdc1e112550ce7e2c55",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:03.567463+00:00",
+      "guard_sha256": "5be2687c0e932e007576f304260d91bb8206aa6ac1853a84235e69ae5bc4ed2e"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-2p-heuristic-0-4",
+      "job_id": "6adcfcdd1e112550ce7e2c57",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:02.759975+00:00",
+      "guard_sha256": "ed122b37b395a1d1efcdab4958f10360b63d5f778b13c039fdf42109e265b2fc"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-2p-legacy-0-4",
+      "job_id": "6adcfcde046eb82b1ecdecf8",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:02.942958+00:00",
+      "guard_sha256": "8d3973bee13c4c2ef487c33435e421e95e29568e6158505a9168402cec2edcb3"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-2p-rush-0-4",
+      "job_id": "6adcff48046eb82b1ecdee21",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:04.314604+00:00",
+      "guard_sha256": "77795618333bdb8c492e844cdc1e7186746e21a5b752e912d7b7fd8874f4317b"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-2p-search_geo-0-4",
+      "job_id": "6add00821e112550ce7e2e8d",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:03.157060+00:00",
+      "guard_sha256": "ae6079f28d0ce247521d466b6be2701babe4f3b5ad8885ec021148de982bf371"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-3p-heuristic-0-4",
+      "job_id": "6adcee77046eb82b1ecde687",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:03.362118+00:00",
+      "guard_sha256": "942394eb8230be6420587702f00a3abfae9a9f7063e52511475909416710f5a1"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-3p-legacy-0-4",
+      "job_id": "6adcf940046eb82b1ecdeb57",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:03.872702+00:00",
+      "guard_sha256": "94a0c79894c69df610e04fcc9a42e49626b2365feb5b2df054a9e1f54bd2c06f"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-3p-rush-0-4",
+      "job_id": "6adcfba21e112550ce7e2bc3",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:03.727347+00:00",
+      "guard_sha256": "06984413b72209bace6b9558114363d093faf4d13f6134bed90eee44f6e6a8d7"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-3p-search_geo-0-4",
+      "job_id": "6adcfba31e112550ce7e2bc5",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:03.893683+00:00",
+      "guard_sha256": "367db169b1f701500167b75b6c9a248bad3b495d3dd022e79464c38320348c8d"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-4p-legacy-0-4",
+      "job_id": "6adceba41e112550ce7e21fa",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:04.683736+00:00",
+      "guard_sha256": "b3e47d804a2b8e7378915d2f0a502c33be43ca1d4982a2a4455268bff9193598"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-4p-rush-0-4",
+      "job_id": "6adce698046eb82b1ecde31f",
+      "authoritative_status": "COMPLETED",
+      "checked_at": "2026-10-24T19:03:04.732296+00:00",
+      "guard_sha256": "e1b61e7d44b53ddff4ff2bc721730641c56fe3065d0eb33d86d04f910853d720"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-4p-search_geo-0-4",
+      "job_id": "6adce69a1e112550ce7e1eda",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:04.282821+00:00",
+      "guard_sha256": "cc2d35c96ccf51ac96a3be508e4ec08db4f2e73e3b5497e1dc98354781f0343d"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-5p-economic-0-4",
+      "job_id": "6adcee5f046eb82b1ecde67f",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:04.789810+00:00",
+      "guard_sha256": "96f153f299c0db83769a23121b38e05692ddcc74846744db2a5c078032ca9644"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-5p-legacy-0-4",
+      "job_id": "6adcdf5e1e112550ce7e1a8c",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:04.969387+00:00",
+      "guard_sha256": "299c41e69e62c7968e6ff565a5e1cc6a39e0af2197f550f990c3a1f246abc3ff"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-5p-rush-0-4",
+      "job_id": "6adce2f31e112550ce7e1ca0",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:05.151795+00:00",
+      "guard_sha256": "487bd5dea64f09e2e80ba747e75953276d14ce1a3e4457ea034c9bb62975aa4a"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-5p-search_geo-0-4",
+      "job_id": "6adce2f5046eb82b1ecde19e",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:05.380113+00:00",
+      "guard_sha256": "686b1263c977363750aa44c48106501f9d4edb21e581861c05c8cf975bd46540"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-6p-economic-0-4",
+      "job_id": "6adcda841e112550ce7e166a",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:05.247380+00:00",
+      "guard_sha256": "5b07f21e5a0ba9ffbbb5d07a83d91bc98e24fafffc526d8029fc41a6db42f404"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-6p-heuristic-0-4",
+      "job_id": "6adcdbbc046eb82b1ecddd28",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:05.946210+00:00",
+      "guard_sha256": "c0c3e8fc75b9f08da7af408cf21a0d983d7b9e465380419bd9731f8bf28726d2"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-6p-legacy-0-4",
+      "job_id": "6adcdcf31e112550ce7e17d0",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:05.471802+00:00",
+      "guard_sha256": "41776327211513fa7a4e6a117b146549b6c4eaff54d48ad866e3be26dd03a25d"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-6p-rush-0-4",
+      "job_id": "6adcdcf4046eb82b1ecdddad",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:05.706155+00:00",
+      "guard_sha256": "bc43bd53e8355acb55cec0656511296a5a1c545a4a09f1cfb7b09d2c9646b7ad"
+    },
+    {
+      "case": "population-hybrid-development-v1-auction-6p-search_geo-0-4",
+      "job_id": "6adcdcf5046eb82b1ecdddaf",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:06.503518+00:00",
+      "guard_sha256": "abc6f115c425096f05e9f964fa73e5b5cbbef3d5295535f698a146893c66dc13"
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-4p-search_geo-0-4",
+      "job_id": "6adcba101e112550ce7e0473",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:05.789696+00:00",
+      "guard_sha256": "d22d6488f5a98d83d0540eb47a33d392f0614bb8859f033cd9f97c99ef7d9030"
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-5p-legacy-0-4",
+      "job_id": "6adcba061e112550ce7e0466",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:07.620854+00:00",
+      "guard_sha256": "da8904518d2424ef1e0972cd5e93815241f9a416872ca8654dae948c346455e1"
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-5p-rush-0-4",
+      "job_id": "6adcba071e112550ce7e0468",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:06.105609+00:00",
+      "guard_sha256": "3aad4c0ed285fd05d43c096db6ea5d6532c34c70eecef0f1adde42e4f3bcaab8"
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-5p-search_geo-0-4",
+      "job_id": "6adcba08046eb82b1ecdce06",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:07.896662+00:00",
+      "guard_sha256": "df9dc48b16fcccb8956bc3bcc42971e3152d2eef6d775dcabb7689f0136dcc83"
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-6p-economic-0-4",
+      "job_id": "6adcb9fc046eb82b1ecdcdf8",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:06.777908+00:00",
+      "guard_sha256": "2b0a0f822a8d068f0065703b53c99765c57268433cdc5b3d897fffd4f6084e45"
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-6p-heuristic-0-4",
+      "job_id": "6adcb9fd046eb82b1ecdcdfa",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:07.102965+00:00",
+      "guard_sha256": "efc5a79d402c566338373f4efa6ce98b7e991ae27b40e3e6a2b3b3d1f556e8ba"
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-6p-legacy-0-4",
+      "job_id": "6adcb9fe046eb82b1ecdcdfc",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:07.236976+00:00",
+      "guard_sha256": "2cbbaf381aa67b258e9d6a0e821dddf5028f976b97ba97a19c7b4cefdd31daec"
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-6p-rush-0-4",
+      "job_id": "6adcba00046eb82b1ecdce00",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:08.278337+00:00",
+      "guard_sha256": "283e6488dc81b8db65f558dac4c5171fc97c33dd297f90c05b7023f7e27fd9f4"
+    },
+    {
+      "case": "population-hybrid-development-v1-combined-6p-search_geo-0-4",
+      "job_id": "6adcba011e112550ce7e0464",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:07.762418+00:00",
+      "guard_sha256": "defdde2f66218c781035d84f303061bc6b6a969fe22e9d022e3495f5bdd8c471"
+    },
+    {
+      "case": "population-hybrid-development-v1-model-6p-economic-0-4",
+      "job_id": "6add00851e112550ce7e2e8f",
+      "authoritative_status": "RUNNING",
+      "checked_at": "2026-10-24T19:03:08.764680+00:00",
+      "guard_sha256": "f1adc77f2cc63c652cb1b5d7241e6da7986284538e4d4d14e773660496deb021"
+    }
+  ],
+  "status_counts": {
+    "RUNNING": 31,
+    "COMPLETED": 1
+  },
+  "storage_replacement_parity": "pending",
+  "comparison_complete": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "new_hf_jobs_by_this_checkpoint": 0,
+  "remote_mutations": false
+}

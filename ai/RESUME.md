@@ -6,7 +6,22 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest: read-only monitor now records individual game errors before job termination.**
+**Latest execution checkpoint — 24 October, 19:03 UTC: 50/135 batches verified.**
+The fixed hybrid comparison has 2,880 verified games out of 8,400, with zero
+rollout caps in those batches. All 50 saved receipt identities and all 32 frozen
+dependencies were rechecked. Of 82 submitted batches, HF reported 31 still
+RUNNING and one further COMPLETED batch awaiting collection. No additional
+terminal failures were found. These are execution counts, not partial strength
+results; the complete comparison is still required.
+
+The sole coordinator remains PID **2812975** / session **5513**, using the
+storage-recovery adapter below. Both exact replacements remain outstanding;
+the storage replacement's repeated-game parity check is still pending. Existing
+jobs and planned submissions continue. Do not start another experiment or use
+final qualification seeds. Persistent receipt/status checkpoint:
+`strong/population-hybrid-50-batch-checkpoint-v1.json`.
+
+**Previous: read-only monitor now records individual game errors before job termination.**
 `strong/inspect-population-hybrid-runtime-v1.py` now retains explicit episode/error
 events separately from authoritative HF job status. Four tests pass, including
 the original 79-game storage-failure log. Live scan at 2026-10-24T17:58:37 UTC:

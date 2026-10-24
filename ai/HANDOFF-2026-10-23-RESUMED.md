@@ -25,7 +25,32 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: individual game-error visibility verified
+## Latest execution checkpoint: 50 verified batches, comparison still running
+
+At **2026-10-24 19:03 UTC**, the fixed hybrid screen has 50/135 verified batches,
+containing **2,880/8,400 games**, with zero rollout caps in those verified batches.
+All 50 saved receipt identities, source/guard bindings and 32 frozen dependency
+hashes were rechecked. This checkpoint does not repeat every full decision/artifact
+check; those checks were performed at collection and remain pinned in each receipt.
+
+The coordinator snapshot at 19:01:25 UTC records 82 submitted / 50 verified.
+Fresh authoritative HF inspection of the remaining 32 submitted handles found
+31 RUNNING and one COMPLETED, with no additional terminal failures. The original
+two failures below remain preserved. Both replacements are outstanding; actual
+storage-replacement parity is still pending. The checkpoint is saved in
+`strong/population-hybrid-50-batch-checkpoint-v1.json`, including receipt hashes,
+private HF archive revisions and timestamped job statuses.
+
+The live process was checked directly: PID **2812975**, session **5513**, running
+`ai/strong/recover-population-hybrid-storage-v1.py coordinate --execute`.
+Continue this adapter; do not start the original coordinator or duplicate jobs.
+The coordinator continues its original fixed submission plan. No experiment,
+model, policy, evaluation budget or running source changed for this checkpoint.
+No partial win-rate comparison, candidate selection or final qualification was
+performed. Finish the full screen before deciding whether to retain search or
+launch the separately prepared resource-search experiment.
+
+## Previous checkpoint: individual game-error visibility verified
 
 Previous goal turn was a verified wait on the live coordinator and jobs. This turn
 adds a read-only monitoring correction: the runtime observer previously parsed

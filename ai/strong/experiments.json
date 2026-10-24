@@ -53837,5 +53837,42 @@
         "saved_receipt_identities_rechecked": 128,
         "newly_collected_case": "population-hybrid-development-v1-combined-5p-search_geo-0-4",
         "newly_collected_evidence_revision": "a631ae34d4671fbab27499f0a426dcd35afcf5a4"
+    },
+    "population_hybrid_final_integration_audit_v1": {
+        "checked_at": "2026-10-24T21:00:42.796702+00:00",
+        "status": "source audit complete; filtered/hybrid final adapter still required if selected",
+        "scope": "Read-only source and existing receipt inspection; no runtime integration test or new games.",
+        "inspected_hashes": {
+            "ai/strong/launch-final.py": "df83a737dc6a697d610c557efb82a7f40d5de824408a4ebb31c39cfc228390cd",
+            "ai/strong/arena-job.py": "dab09f587cb1ad0f4ac11c8e68c146228f35ccfc821a3a287eba118053d4d0af",
+            "ai/strong/launch-multiplayer-arena.sh": "556b87b0f48b4a3c2fd295b0e7b86f5410ac4bc8f2e3455085215cfb8d8a7822",
+            "ai/strong/evaluate.py": "64b405a92e7b97a7889fdc17facd9825e12da5fc7609f34f18d7c988f2d2209a",
+            "ai/strong/search_scope.py": "ad20346ebc71d3db999d10c1aee64010eedc578dffd873de28e389800adcf28c",
+            "ai/strong/verify-final.py": "16adc11ac9485a179b201ff22f606f712aea183648f35ac717535835c4ccd358",
+            "ai/strong/evaluate-population-policy.py": "019454d436e1b8e2ace2ed13375c0ad38727bd02678fedea872957518132abc3",
+            "ai/strong/population_hybrid_policy.py": "652677d33cc6613680122c9a95a1ba2c0c0915de384b2124c95e3b1b3a0876cf",
+            "ai/strong/prepare-policy-iteration-final-evidence.py": "29c04630c3f1e229c22a5f246d0cf650c2682772187deb78e56eaaf22425e6be",
+            "ai/strong/policy-iteration-final-technical-evidence-v2.json": "0c6adaabcea4600d2c0531049ce31ccd6c341c1a2d764f258a701fc65ba59ead",
+            "ai/strong/final-protocol-multiplayer.json": "7f0336c8784faf8f18e046b95b88e0ab1be7c2de1c0ec4d3eec96f0a415286ce"
+        },
+        "current_final_runner": "launch-final.py -> arena-job.py -> evaluate.py -> older engine search",
+        "current_search_scopes": [
+            "all",
+            "recharged-sealed"
+        ],
+        "current_final_runner_executes_population_policy": false,
+        "current_final_verifier_binds_population_arm_and_world_mixture": false,
+        "existing_converted_8840u_receipts_scope": "four trained models, model-only inference, zero search samples",
+        "required_if_filter_or_hybrid_selected": "Exact-policy final arena and receipt adapter; immutable runtime/policy identity; non-reserved integration tests; full selected-policy 8840U/package parity. Preserve the unchanged 20160-game final strength gate.",
+        "coordinator_checkpoint_at": "2026-10-24T20:56:34.669828+00:00",
+        "verified_batches": 133,
+        "verified_games": 8208,
+        "frozen_dependencies_unchanged": 32,
+        "new_jobs": 0,
+        "gradients": false,
+        "candidate_selected": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Finish and archive the existing fixed hybrid comparison; review all cells and use fresh confirmation before final candidate selection. Do not reinterpret old search flags or model-only technical receipts as hybrid qualification."
     }
 }

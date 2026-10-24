@@ -6,7 +6,26 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 24 October, 20:31 UTC: final archive helper prepared; 128 batches verified.**
+**Latest — 24 October: 133 batches verified; hybrid final integration remains separate.**
+At 20:56 UTC the coordinator had **133/135 batches and 8,208/8,400 games verified**.
+Only six-player auction/search_geo and combined/search_geo remain. Their 20:57
+read-only HF checks reported RUNNING at 82/96 and 81/96 games, respectively, with
+no errors, caps or truncations observed. Continue coordinator PID **2812975** /
+session **5513** through the existing recovery adapter; no new experiment yet.
+
+Final-tooling source inspection found that `launch-final.py` calls `arena-job.py`
+and `evaluate.py`, which use the older engine search. They do **not** invoke
+`PopulationPolicy`, its endgame filter, phase arms or balanced opponent worlds.
+The old `search_scope` means `all` versus `recharged-sealed`, not auction/building.
+Existing final technical receipts cover model-only inference (`search_samples=0`).
+If a filter or hybrid is eventually selected, it needs an exact final-arena adapter,
+policy identity/receipt checks, a frozen runtime and the full selected-policy 8840U
+proof before reserved seeds can be used. Do not relabel the existing model-only
+proof as hybrid qualification or map the hybrid arm to the old search-scope field.
+The 20,160-game strength protocol and thresholds remain unchanged. This was a
+read-only audit, not an integration test or selection; no final seeds were used.
+
+**Previous — 24 October, 20:31 UTC: final archive helper prepared; 128 batches verified.**
 The coordinator has **128/135 batches and 7,776/8,400 games verified**, including
 the five-player combined/search batch. All 128 receipt identities were rechecked;
 their summaries contain zero rollout caps. The seven outstanding jobs were freshly

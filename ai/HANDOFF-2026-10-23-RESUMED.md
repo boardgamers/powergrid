@@ -25,7 +25,47 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: full-comparison archive helper prepared; remaining jobs continue
+## Latest checkpoint: 133 batches verified; final qualification needs the exact selected policy
+
+At **2026-10-24 20:56 UTC**, the coordinator accepted **133/135 batches and
+8,208/8,400 games**. All model-only, filtered and building-search batches are
+verified. Four- and five-player auction/search_geo also passed collection, with
+64 and 80 games respectively. Only auction/6p/search_geo and combined/6p/search_geo
+remain; direct HF inspection at 20:57 UTC confirmed both RUNNING, at 82/96 and
+81/96 games, with no errors, caps or truncations observed in their last 200 lines.
+Continue the same coordinator PID 2812975 / session 5513. No partial strength
+comparison or selection has been performed.
+
+Read-only inspection of the final runner identified a concrete integration gap:
+`launch-final.py` → `arena-job.py` → `evaluate.py` uses the older engine search.
+It does not call `PopulationPolicy` or encode the strict endgame filter, phase
+arms, shared sampled worlds and balanced opponent policy mixture of this screen.
+`search_scope.py` accepts `all` and `recharged-sealed`: these are rule scopes, not
+auction/building phase arms. `verify-final.py` checks that older search contract;
+it does not independently bind a population-hybrid arm or its world mixture.
+The current `evaluate-population-policy.py` deliberately rejects reserved seed
+names and marks all reports ineligible for qualification.
+
+The existing twelve converted technical receipts, archived by
+`policy-iteration-final-technical-evidence-v2.json`, cover the four trained models
+with **zero search samples**. They cannot serve as the full selected-policy
+benchmark for a filtered or hybrid candidate. If development and fresh confirmation
+eventually select one of those policies, implement a separate exact-policy final
+arena/receipt adapter, freeze its source and complete its required 8840U/package
+parity checks before spending final seeds. Validate integration on non-reserved
+seeds first. Preserve the existing final protocol's counts, opponents, thresholds,
+pairing and cap rejection; never obtain a pass by reducing its scope or silently
+substituting the old engine search. This is an integration requirement, not a
+reason to launch qualification now or change the running comparison.
+
+Audit scope: source and existing receipt inspection only; no new games, runtime
+integration test, candidate selection, upload or final launch. Inspected code
+hashes are recorded under `population_hybrid_final_integration_audit_v1` in
+`strong/experiments.json`. All 32 running-experiment dependencies and the final
+protocol hash remain unchanged. The registry still has no final run, its final
+seed-use flag is false, and `ai/strong/candidate.json` is absent.
+
+## Previous checkpoint: full-comparison archive helper prepared; remaining jobs continue
 
 At **2026-10-24 20:31 UTC**, the coordinator has 128/135 batches verified (7,776
 games). All 128 saved receipt identities were rechecked; their summaries have

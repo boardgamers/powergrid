@@ -25,7 +25,66 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: trained target benchmark tooling prepared
+## Latest checkpoint: four-player baseline and final-wrapper compatibility
+
+Previous turn was a verified wait. This turn produced new diagnostic and runtime
+compatibility evidence. The four pipeline processes are still active and their
+hashed dependencies are unchanged. Latest completed collection snapshot:
+**614/948 labels**, **19,099,392 continuations**, **100/108 parent batches** and
+**6,016 parent games**. No new gradients or trained outputs yet. No final seeds,
+selection or production publication.
+
+The four-player search baseline now covers all16 paired deals /256 games. Its
+fractional win rate is **30.859375%**, with exploratory95% deal-bootstrap interval
+**25.0–36.71875%**. This does not establish an advantage over25% chance. The32.5%
+final point floor is orientation only; the actual reserved80-deal test is unused.
+Rule results (64 games each):
+
+| Rules | Win rate | Exploratory95% interval |
+| --- | ---: | ---: |
+| Original/open |45.3125%|34.375–56.25%|
+| Original/sealed |25.0%|12.5–39.0625%|
+| Recharged/open |37.5%|25.0–50.0%|
+| Recharged/sealed |15.625%|6.25–25.0%|
+
+All adverse cells are retained. Only5p/6p search cells remain incomplete; no
+strength summaries are drawn from those partial cells. The parent remains
+unqualified. The new heads must demonstrate improvement in actual whole games,
+including sealed auctions; promising conditional labels do not prove that.
+
+- Diagnostic: `strong/policy-iteration-parent-reference-progress-100-v2.json`.
+- Complete100-batch evidence: `strong/policy-iteration-parent-reference-100-evidence-v2.json`.
+- HF revision: `06066a778ed94b5b3ad3de51d843b25126e9d598`; archive:
+  `archives/policy-iteration-parent-reference-100-evidence-v2.tgz`.
+
+The existing final runtime was audited against the current development archive.
+All1,165 engine files and the ONNX evaluator/inference/encoder/search code match.
+The five differences among1,397 common files are the provenance wrapper plus
+checkpoint-training, export, packaging and collection helpers; they do not
+replace the actual ONNX evaluation path. The existing final source is therefore
+reused, without creating another source variant.
+
+`strong/check-policy-iteration-final-runtime.py` then exercised the actual final
+wrapper with all four **synthetic/untrained** ensemble architectures,2p and6p,
+all four rules, offset4, and a separate plumbing seed namespace. All128 games
+completed and their exact model/runtime provenance was checked. Only artifact
+upload was captured locally. This validates wrapper compatibility, not strength
+or actual trained models. The existing final launcher still requires a selected
+candidate; the final ledger remains unspent. One initial local path-lookup typo
+failed before any test tree or game was created; its log is preserved.
+
+- Report: `strong/policy-iteration-final-runtime-preflight-v2.json`.
+- Evidence: `strong/policy-iteration-final-runtime-compatibility-evidence-v2.json`.
+- HF revision: `194535560839cdc05f8edadcaba83ac32537f6eb`; archive:
+  `archives/policy-iteration-final-runtime-compatibility-evidence-v2.tgz`.
+- Local test session7799 and diagnostic session11860 completed. Neither is a
+  fifth coordinator. The four long-lived processes below remain authoritative.
+- Final qualification still needs an eligible trained candidate, actual trained
+  parity/AMD/package evidence and all reserved games. Existing aggregate
+  benchmark reports need verified per-candidate adapters for `verify-final.py`;
+  do not label the runtime compatibility check as the entire final gate.
+
+## Earlier checkpoint: trained target benchmark tooling prepared
 
 The four existing local pipeline processes remain active and unchanged. The
 latest completed collection cycle verified **595/948** new label batches and

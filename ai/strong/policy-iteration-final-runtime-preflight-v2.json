@@ -1,0 +1,541 @@
+{
+  "passed": true,
+  "source": {
+    "archive": "strong-source-final-strategic-runtime-20261023-v1.tgz",
+    "revision": "b279b0e8fca796d8a726de2d20b8340ddd13d52e",
+    "sha256": "85eeb02b4a25eb0a652bba453325ff8958a0629bf40396c21d12e223222afe51",
+    "base": {
+      "archive": "strong-source-strategic-correction-screen-20261023-v1.tgz",
+      "revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
+      "sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb"
+    },
+    "overlays": {
+      "ai/strong/arena-job.py": "dab09f587cb1ad0f4ac11c8e68c146228f35ccfc821a3a287eba118053d4d0af"
+    },
+    "old_runner_sha256": "cdffaa6213c8e0fe25b7a4adcb2df879b66a42a55f9538db57d4895a280a0195",
+    "arena_runner_sha256": "dab09f587cb1ad0f4ac11c8e68c146228f35ccfc821a3a287eba118053d4d0af",
+    "unchanged_base_file_count": 1399,
+    "qualification_eligible": false,
+    "scope": "Only the provenance wrapper changes. Engine, features, inference, search and evaluator bytes match the frozen development source."
+  },
+  "development_source": {
+    "archive": "strong-source-policy-iteration-development-20261024-v2.tgz",
+    "revision": "a393d0fa83d9fee8a27a876a217fe97dfea03ff8",
+    "sha256": "c020987f3a05a2c0116dfd52498139f6bb7480e1721ca058caf9771f94d970ce",
+    "bytes": 109411988,
+    "base": {
+      "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+      "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+      "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+      "bytes": 109402244,
+      "base": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+      },
+      "overlays": {
+        "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+        "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+        "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+        "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+      },
+      "unchanged_base_files": 1430,
+      "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+      "qualification_eligible": false
+    },
+    "overlays": {
+      "ai/strong/policy_iteration_development.py": "1bbcec9b3ad236fdaf330627cd31f6c99618642cf657b75207aba365c4c217ea",
+      "ai/strong/preflight-policy-iteration-development.py": "024f1f746eb396a8906664c26e2307224c733ff4b43a75899498efbf65096829",
+      "ai/strong/policy-iteration-development-protocol-v2.json": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+      "ai/strong/policy-iteration-training-design-v2.json": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+      "ai/strong/build-policy-iteration-development-source.py": "6dd5963f0438f0ef7fca6c53c3701acdba99d8e9390e42d9c5f64f4e39287310"
+    },
+    "unchanged_base_files": 1434,
+    "protocol_sha256": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+    "gradients": false,
+    "qualification_eligible": false
+  },
+  "cases": {
+    "frozen-0-2p": {
+      "model_pin": {
+        "key": "frozen-0",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "files": {
+          "inference64.pt": "04eae20685b82bc78828c9b6615b42b5b8f3fc337549ef50cbd250f1e41b5941",
+          "inference64.onnx": "8a91b4c2ae8f4dd253959e75243d4103ee2c753e15c36b99cd624f0e35fa8795"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "model_args": {
+          "head_type": "frozen",
+          "heads": 4,
+          "margin": 0.025,
+          "parent_margin": 0.025,
+          "disagreement_penalty": 0.0
+        },
+        "synthetic_untrained": true,
+        "training_verified": false,
+        "revision": "8d124c173a41660b29f40f24b73d528f4676e45d",
+        "prefix": "runs/policy-iteration-development-preparation-evidence-v2/synthetic-fixtures/frozen-0"
+      },
+      "summary": {
+        "games": 8,
+        "independent_deals": 1,
+        "win_rate": 0.0,
+        "deal_bootstrap_95_interval": null,
+        "seconds": 0.9632653419976123,
+        "search_stats": {},
+        "game_truncations": 0,
+        "search_truncations": 0,
+        "by_rules": {
+          "original/open": {
+            "games": 2,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "original/sealed": {
+            "games": 2,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/open": {
+            "games": 2,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/sealed": {
+            "games": 2,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          }
+        }
+      },
+      "evaluation_sha256": "7d6617fa5d197a027c3b1282aedcdf13bab2917d48ac40687c89a85d9c48f4d2"
+    },
+    "frozen-0-6p": {
+      "model_pin": {
+        "key": "frozen-0",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "files": {
+          "inference64.pt": "04eae20685b82bc78828c9b6615b42b5b8f3fc337549ef50cbd250f1e41b5941",
+          "inference64.onnx": "8a91b4c2ae8f4dd253959e75243d4103ee2c753e15c36b99cd624f0e35fa8795"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "model_args": {
+          "head_type": "frozen",
+          "heads": 4,
+          "margin": 0.025,
+          "parent_margin": 0.025,
+          "disagreement_penalty": 0.0
+        },
+        "synthetic_untrained": true,
+        "training_verified": false,
+        "revision": "8d124c173a41660b29f40f24b73d528f4676e45d",
+        "prefix": "runs/policy-iteration-development-preparation-evidence-v2/synthetic-fixtures/frozen-0"
+      },
+      "summary": {
+        "games": 24,
+        "independent_deals": 1,
+        "win_rate": 0.0,
+        "deal_bootstrap_95_interval": null,
+        "seconds": 3.8082093819975853,
+        "search_stats": {},
+        "game_truncations": 0,
+        "search_truncations": 0,
+        "by_rules": {
+          "original/open": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "original/sealed": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/open": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/sealed": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          }
+        }
+      },
+      "evaluation_sha256": "4f6557c374f91150bde59b7e5e8e4ee880ac27938a45332cf9c923828eaf29ab"
+    },
+    "frozen-1-2p": {
+      "model_pin": {
+        "key": "frozen-1",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "files": {
+          "inference64.pt": "cb96527a66365841c4143682a90250d0d3a0e1b8cb134b5be7bf6926085b580a",
+          "inference64.onnx": "3e04cfa0350f51b2e7767429c940add98c76950ff3f5cf71a1f4ecdcfb4baaa9"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "model_args": {
+          "head_type": "frozen",
+          "heads": 4,
+          "margin": 0.025,
+          "parent_margin": 0.025,
+          "disagreement_penalty": 1.0
+        },
+        "synthetic_untrained": true,
+        "training_verified": false,
+        "revision": "8d124c173a41660b29f40f24b73d528f4676e45d",
+        "prefix": "runs/policy-iteration-development-preparation-evidence-v2/synthetic-fixtures/frozen-1"
+      },
+      "summary": {
+        "games": 8,
+        "independent_deals": 1,
+        "win_rate": 0.0,
+        "deal_bootstrap_95_interval": null,
+        "seconds": 2.688658075989224,
+        "search_stats": {},
+        "game_truncations": 0,
+        "search_truncations": 0,
+        "by_rules": {
+          "original/open": {
+            "games": 2,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "original/sealed": {
+            "games": 2,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/open": {
+            "games": 2,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/sealed": {
+            "games": 2,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          }
+        }
+      },
+      "evaluation_sha256": "0e63ca20d4621fb67b422a27b35b5786bb2802277aa491969e22ba516ae88c43"
+    },
+    "frozen-1-6p": {
+      "model_pin": {
+        "key": "frozen-1",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "files": {
+          "inference64.pt": "cb96527a66365841c4143682a90250d0d3a0e1b8cb134b5be7bf6926085b580a",
+          "inference64.onnx": "3e04cfa0350f51b2e7767429c940add98c76950ff3f5cf71a1f4ecdcfb4baaa9"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "model_args": {
+          "head_type": "frozen",
+          "heads": 4,
+          "margin": 0.025,
+          "parent_margin": 0.025,
+          "disagreement_penalty": 1.0
+        },
+        "synthetic_untrained": true,
+        "training_verified": false,
+        "revision": "8d124c173a41660b29f40f24b73d528f4676e45d",
+        "prefix": "runs/policy-iteration-development-preparation-evidence-v2/synthetic-fixtures/frozen-1"
+      },
+      "summary": {
+        "games": 24,
+        "independent_deals": 1,
+        "win_rate": 0.7916666666666666,
+        "deal_bootstrap_95_interval": null,
+        "seconds": 6.00864640402142,
+        "search_stats": {},
+        "game_truncations": 0,
+        "search_truncations": 0,
+        "by_rules": {
+          "original/open": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.6666666666666666,
+            "deal_bootstrap_95_interval": null
+          },
+          "original/sealed": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.8333333333333334,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/open": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.8333333333333334,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/sealed": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.8333333333333334,
+            "deal_bootstrap_95_interval": null
+          }
+        }
+      },
+      "evaluation_sha256": "58f6de4d30e672b70091ea65139c9944f21bdd7ca0789615f09a8d83247b3a73"
+    },
+    "public-0-2p": {
+      "model_pin": {
+        "key": "public-0",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "files": {
+          "inference64.pt": "b2d807b8c2f2d88925a8d81c98012082f5adf1b868802fc0a6339d26e859ccd7",
+          "inference64.onnx": "914cb1ed0838c3dd4b6bccd7dffd7a1d1ece9dbb2e652f42e07dcb2e18d755e8"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "model_args": {
+          "head_type": "public",
+          "heads": 4,
+          "margin": 0.025,
+          "parent_margin": 0.025,
+          "disagreement_penalty": 0.0
+        },
+        "synthetic_untrained": true,
+        "training_verified": false,
+        "revision": "8d124c173a41660b29f40f24b73d528f4676e45d",
+        "prefix": "runs/policy-iteration-development-preparation-evidence-v2/synthetic-fixtures/public-0"
+      },
+      "summary": {
+        "games": 8,
+        "independent_deals": 1,
+        "win_rate": 0.0,
+        "deal_bootstrap_95_interval": null,
+        "seconds": 1.4062150180106983,
+        "search_stats": {},
+        "game_truncations": 0,
+        "search_truncations": 0,
+        "by_rules": {
+          "original/open": {
+            "games": 2,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "original/sealed": {
+            "games": 2,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/open": {
+            "games": 2,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/sealed": {
+            "games": 2,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          }
+        }
+      },
+      "evaluation_sha256": "39d3cab3ad4a01a402289afc01929b88fcf5334a2040e6f64400472f31d6a0a7"
+    },
+    "public-0-6p": {
+      "model_pin": {
+        "key": "public-0",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "files": {
+          "inference64.pt": "b2d807b8c2f2d88925a8d81c98012082f5adf1b868802fc0a6339d26e859ccd7",
+          "inference64.onnx": "914cb1ed0838c3dd4b6bccd7dffd7a1d1ece9dbb2e652f42e07dcb2e18d755e8"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "model_args": {
+          "head_type": "public",
+          "heads": 4,
+          "margin": 0.025,
+          "parent_margin": 0.025,
+          "disagreement_penalty": 0.0
+        },
+        "synthetic_untrained": true,
+        "training_verified": false,
+        "revision": "8d124c173a41660b29f40f24b73d528f4676e45d",
+        "prefix": "runs/policy-iteration-development-preparation-evidence-v2/synthetic-fixtures/public-0"
+      },
+      "summary": {
+        "games": 24,
+        "independent_deals": 1,
+        "win_rate": 0.0,
+        "deal_bootstrap_95_interval": null,
+        "seconds": 4.077694742009044,
+        "search_stats": {},
+        "game_truncations": 0,
+        "search_truncations": 0,
+        "by_rules": {
+          "original/open": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "original/sealed": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/open": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/sealed": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          }
+        }
+      },
+      "evaluation_sha256": "c8da5adbe6b38b726ce06a0080a3bd68aef02100a5f6ef6193f44545234762de"
+    },
+    "public-1-2p": {
+      "model_pin": {
+        "key": "public-1",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "files": {
+          "inference64.pt": "dc3ba9271e8e52107eba414f7adfb8a82b9bf72b5976e3c6bada0f4ff3f9f266",
+          "inference64.onnx": "d4a66c7dec0f60c64c10517fec8f69b8bf39e0152d25fdd17ad6d2a19f873d48"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "model_args": {
+          "head_type": "public",
+          "heads": 4,
+          "margin": 0.025,
+          "parent_margin": 0.025,
+          "disagreement_penalty": 1.0
+        },
+        "synthetic_untrained": true,
+        "training_verified": false,
+        "revision": "8d124c173a41660b29f40f24b73d528f4676e45d",
+        "prefix": "runs/policy-iteration-development-preparation-evidence-v2/synthetic-fixtures/public-1"
+      },
+      "summary": {
+        "games": 8,
+        "independent_deals": 1,
+        "win_rate": 0.0,
+        "deal_bootstrap_95_interval": null,
+        "seconds": 2.540889630006859,
+        "search_stats": {},
+        "game_truncations": 0,
+        "search_truncations": 0,
+        "by_rules": {
+          "original/open": {
+            "games": 2,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "original/sealed": {
+            "games": 2,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/open": {
+            "games": 2,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/sealed": {
+            "games": 2,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          }
+        }
+      },
+      "evaluation_sha256": "975e0fcac6e9e13a185658f9491e28ad1e7e30a7b805de0226c2a1410796328e"
+    },
+    "public-1-6p": {
+      "model_pin": {
+        "key": "public-1",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "files": {
+          "inference64.pt": "dc3ba9271e8e52107eba414f7adfb8a82b9bf72b5976e3c6bada0f4ff3f9f266",
+          "inference64.onnx": "d4a66c7dec0f60c64c10517fec8f69b8bf39e0152d25fdd17ad6d2a19f873d48"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "model_args": {
+          "head_type": "public",
+          "heads": 4,
+          "margin": 0.025,
+          "parent_margin": 0.025,
+          "disagreement_penalty": 1.0
+        },
+        "synthetic_untrained": true,
+        "training_verified": false,
+        "revision": "8d124c173a41660b29f40f24b73d528f4676e45d",
+        "prefix": "runs/policy-iteration-development-preparation-evidence-v2/synthetic-fixtures/public-1"
+      },
+      "summary": {
+        "games": 24,
+        "independent_deals": 1,
+        "win_rate": 0.0,
+        "deal_bootstrap_95_interval": null,
+        "seconds": 7.148798409005394,
+        "search_stats": {},
+        "game_truncations": 0,
+        "search_truncations": 0,
+        "by_rules": {
+          "original/open": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "original/sealed": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/open": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          },
+          "recharged/sealed": {
+            "games": 6,
+            "independent_deals": 1,
+            "win_rate": 0.0,
+            "deal_bootstrap_95_interval": null
+          }
+        }
+      },
+      "evaluation_sha256": "408e9dfffcadfc4a628b171e2ef3c4e68b3f5e43bfd0ca1487328ccb97ad6572"
+    }
+  },
+  "synthetic_untrained": true,
+  "training_verified": false,
+  "gradients": false,
+  "reserved_final_seeds_used": false,
+  "candidate_selected": false,
+  "qualification_eligible": false,
+  "final_protocol_sha256": "7f0336c8784faf8f18e046b95b88e0ab1be7c2de1c0ec4d3eec96f0a415286ce",
+  "scope": "Four untrained ONNX architectures through the actual existing final wrapper, 2p/6p, all four rules, offset4, separate plumbing seeds. Compatibility only.",
+  "games": 128
+}

@@ -46971,5 +46971,169 @@
         "gradients": false,
         "qualification_eligible": false,
         "next": "After both trained heads are verified and archived, explicitly run prepare, run, collect, archive. Do not reuse synthetic benchmark evidence as trained-model timing."
+    },
+    "policy_iteration_parent_reference_100_v2": {
+        "report": "ai/strong/policy-iteration-parent-reference-progress-100-v2.json",
+        "evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "06066a778ed94b5b3ad3de51d843b25126e9d598",
+            "archive_path": "archives/policy-iteration-parent-reference-100-evidence-v2.tgz",
+            "archive_sha256": "21d226bc41a1f58cc01f3436c23eb3a302df444f13aba4eed2c30e44afad0f65",
+            "manifest_sha256": "649e65a4b2f2f0900aea1b4c361caf97ce5d64765feb508cd5ed2b5ead18be0d",
+            "archived_files": 1045,
+            "format": "tar.gz",
+            "remote_archive_verified": true,
+            "shards_submitted": 108,
+            "planned_games": 6720,
+            "plan_sha256": "080893449fde758e1820bf2fe5557dcaf4772343e2395d2adbf788bad840658b",
+            "status_checked_at": "2026-10-24T07:39:48.657876+00:00",
+            "status_counts": {
+                "COMPLETED": 100,
+                "RUNNING": 8
+            },
+            "timeout_hours": 9,
+            "flavor": "cpu-upgrade",
+            "both_runtime_probes_verified": true,
+            "probe_games": 32,
+            "parent_is_unqualified": true,
+            "verified_parent_cases": 100,
+            "verified_parent_games": 6016,
+            "gradients": false,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false,
+            "diagnostic": "policy-iteration-parent-reference-progress-100-v2.json",
+            "diagnostic_sha256": "11b2cd532ee4881fc2df859be48c5e2ba04ae0ef69ff71b8c04ed67f57ec1527",
+            "development_point_deficits": [
+                "search_geo/2p",
+                "heuristic/2p",
+                "search_geo/3p",
+                "search_geo/4p",
+                "legacy/4p",
+                "a260/3p"
+            ]
+        },
+        "verified_shards": 100,
+        "verified_games": 6016,
+        "complete_cells": 25,
+        "new_search_4p": {
+            "overall": {
+                "games": 256,
+                "independent_deals": 16,
+                "win_rate": 0.30859375,
+                "deal_bootstrap_95_interval": [
+                    0.25,
+                    0.3671875
+                ]
+            },
+            "by_rules": {
+                "original/open": {
+                    "games": 64,
+                    "independent_deals": 16,
+                    "win_rate": 0.453125,
+                    "deal_bootstrap_95_interval": [
+                        0.34375,
+                        0.5625
+                    ]
+                },
+                "original/sealed": {
+                    "games": 64,
+                    "independent_deals": 16,
+                    "win_rate": 0.25,
+                    "deal_bootstrap_95_interval": [
+                        0.125,
+                        0.390625
+                    ]
+                },
+                "recharged/open": {
+                    "games": 64,
+                    "independent_deals": 16,
+                    "win_rate": 0.375,
+                    "deal_bootstrap_95_interval": [
+                        0.25,
+                        0.5
+                    ]
+                },
+                "recharged/sealed": {
+                    "games": 64,
+                    "independent_deals": 16,
+                    "win_rate": 0.15625,
+                    "deal_bootstrap_95_interval": [
+                        0.0625,
+                        0.25
+                    ]
+                }
+            },
+            "chance": 0.25,
+            "final_point_floor_for_orientation_only": 0.325,
+            "development_point_below_final_floor": true,
+            "overall_interval_excludes_chance": false,
+            "rules_not_excluding_chance": [
+                "original/sealed",
+                "recharged/open",
+                "recharged/sealed"
+            ]
+        },
+        "remaining_cells": {
+            "search_geo/5p": {
+                "verified_games": 0,
+                "required_games": 320
+            },
+            "search_geo/6p": {
+                "verified_games": 0,
+                "required_games": 384
+            }
+        },
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "interpretation": "Parent-only development diagnosis. All16 paired deals required per summary; 4p sealed play remains weak. No thresholds or final seeds changed."
+    },
+    "policy_iteration_final_runtime_compatibility_v2": {
+        "script": "ai/strong/check-policy-iteration-final-runtime.py",
+        "report": "ai/strong/policy-iteration-final-runtime-preflight-v2.json",
+        "evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "194535560839cdc05f8edadcaba83ac32537f6eb",
+            "archive_path": "archives/policy-iteration-final-runtime-compatibility-evidence-v2.tgz",
+            "archive_sha256": "f5bd3c1cef17dfea3e7c4d85c61b385a1f698c363d304384ffc3a96d405e4965",
+            "manifest_sha256": "626cb40bcafebecddb14e8347ab9230f65e92241f907d9ae4917b58d7f483bbe",
+            "archived_files": 29,
+            "format": "tar.gz",
+            "remote_archive_verified": true,
+            "plumbing_games": 128,
+            "synthetic_untrained": true,
+            "existing_final_source": {
+                "archive": "strong-source-final-strategic-runtime-20261023-v1.tgz",
+                "revision": "b279b0e8fca796d8a726de2d20b8340ddd13d52e",
+                "sha256": "85eeb02b4a25eb0a652bba453325ff8958a0629bf40396c21d12e223222afe51",
+                "base": {
+                    "archive": "strong-source-strategic-correction-screen-20261023-v1.tgz",
+                    "revision": "2c33a8878a742eabf54b94b7e2148a63223318e8",
+                    "sha256": "162f93944f508853dcf446af74f2ba9a331e557d337a5b7193e2f764817562fb"
+                },
+                "overlays": {
+                    "ai/strong/arena-job.py": "dab09f587cb1ad0f4ac11c8e68c146228f35ccfc821a3a287eba118053d4d0af"
+                },
+                "old_runner_sha256": "cdffaa6213c8e0fe25b7a4adcb2df879b66a42a55f9538db57d4895a280a0195",
+                "arena_runner_sha256": "dab09f587cb1ad0f4ac11c8e68c146228f35ccfc821a3a287eba118053d4d0af",
+                "unchanged_base_file_count": 1399,
+                "qualification_eligible": false,
+                "scope": "Only the provenance wrapper changes. Engine, features, inference, search and evaluator bytes match the frozen development source."
+            },
+            "new_source_required_for_onnx_evaluation": false,
+            "candidate_selected": false,
+            "actual_trained_integration_pending": true,
+            "gradients": false,
+            "reserved_final_seeds_used": false,
+            "qualification_eligible": false
+        },
+        "runtime_compatible": true,
+        "synthetic_untrained": true,
+        "plumbing_games": 128,
+        "new_source_created": false,
+        "candidate_selected": false,
+        "trained_model_admission_pending": true,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Use the existing pinned final runtime only after full development comparison and exact trained candidate/AMD proof. Convert verified per-candidate parity/CPU/package reports to final verifier inputs; do not substitute synthetic tests or edit final thresholds."
     }
 }

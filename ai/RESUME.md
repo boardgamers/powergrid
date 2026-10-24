@@ -1,9 +1,9 @@
 # Power Grid AI — ACTIVE, resumed 23 October 2026
 
 **Start with [the current resumption handoff](HANDOFF-2026-10-23-RESUMED.md).**
-This turn prepared the exact trained-model target benchmark; actual trained
-outputs are still pending. No model is qualified or published; reserved final
-seeds are unused.
+This turn completed the4p baseline diagnosis and128 final-wrapper compatibility
+games. Actual trained outputs are still pending. No model is qualified or
+published; reserved final seeds are unused.
 
 - **Collector ACTIVE:** PID2476443 /session82318, every5min, bounded12h.
   State: `ai/runs/policy-iteration-harvest-recovered-v2/state.json`.
@@ -31,7 +31,7 @@ seeds are unused.
   edit its39 hashed dependencies.24h window,no retry/cancel/final test/promotion.
   Stop it on an explicit pause to prevent later submissions. No candidate jobs
   launched yet. Evidence: `strong/policy-iteration-development-coordinator-evidence-v2.json`.
-- **595/948 new label shards verified**, 18,656,064 continuations including pilot.
+- **614/948 new label shards verified**, 19,099,392 continuations including pilot.
   The four local processes remain active; all948 jobs have started. Live state
   files supersede this snapshot. No partial-data training or changed thresholds.
 - **Trained target benchmark tooling prepared**,3 admission tests passed.
@@ -47,9 +47,16 @@ seeds are unused.
   skipped originals, plus2 separate upload-failure retries. All948 effective IDs
   remain distinct. Harvester was briefly stopped for guard coordination and is
   **resumed**; coordinator never stopped. Do not rerun operation24746.
-- **97 parent batches /5,824 games verified.**2p search:48.83% wins
+- **100 parent batches /6,016 games verified.**2p search:48.83% wins
   (95% interval38.28–59.77%).3p search:20.31% (14.58–26.56%), below chance.
-  Only4–6p search cells remain incomplete; parent remains unqualified.
+  New4p search result:30.86% (25.0–36.72%); Recharged/sealed15.625%.
+  Only5p/6p search cells remain incomplete; parent remains unqualified.
+  Evidence: `strong/policy-iteration-parent-reference-100-evidence-v2.json`.
+- **Existing final runtime is compatible with all four new architectures:**128
+  synthetic plumbing games passed the actual provenance wrapper. No new source,
+  trained-model claim or final-seed use. Exact trained admission/AMD evidence and
+  final verifier adapters still remain. Evidence:
+  `strong/policy-iteration-final-runtime-compatibility-evidence-v2.json`.
 - HF file-limit incident fixed:13 duplicated checkpoints compacted,8,158 entries
   freed, all old pinned revisions retained. Two failed uploads have exact retries
   already RUNNING. No live jobs restarted.948 effective handles remain distinct.

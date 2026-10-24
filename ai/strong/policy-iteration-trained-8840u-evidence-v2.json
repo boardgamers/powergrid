@@ -1,0 +1,23 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "d86e395ddd8cb82d7947f47f8d4a767106fd5049",
+  "archive_path": "archives/policy-iteration-trained-8840u-evidence-v2.tgz",
+  "archive_sha256": "a3548810bfa3f7dcd2986dc8730180bbea5970b9351415ef0d804499bc3aba6c",
+  "manifest_sha256": "3f2cf602ec17a5a4786170de80ef71b55ad6a27ecd847068e08ba726b0a1cada",
+  "archived_files": 38,
+  "format": "tar.gz",
+  "remote_archive_verified": true,
+  "requests": 10212,
+  "models": [
+    "frozen-0",
+    "frozen-1",
+    "public-0",
+    "public-1"
+  ],
+  "prepared_manifest_sha256": "2dc91a1d6531bcead3973b185dca5bb910e6544b8230efbba3db2a04fe66cb48",
+  "training_verified": true,
+  "synthetic_untrained": false,
+  "gradients": false,
+  "qualification_eligible": false,
+  "scope": "Exact trained standalone ensembles, all 2553 public serving fixtures each, on the actual AMD8840U. Sequential engineering timing and legal-move/runtime parity only; no strength, calibration, browser or production claim."
+}

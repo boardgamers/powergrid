@@ -25,7 +25,134 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: full labels and baseline verified; two GPU jobs submitted
+## Latest checkpoint: trained models verified and measured on the 8840U
+
+Both original HF training jobs completed. All eight seeds (four per architecture)
+and all four prescribed ensembles passed independent verification. The parent
+weights are unchanged; each seed completed 120 epochs / 6,120 optimizer updates
+on HF GPUs. No new local gradients or replacement training jobs were used.
+The collector completed normally at 10:23:39 UTC. The four model pins are in
+`strong/policy-iteration-development-pins-v2/`. No candidate is selected or
+qualified, and the reserved final-test seeds remain unused.
+
+### Learning outcome and diminishing returns
+
+The learned corrections recover only small gains on validation simulations:
+
+| Ensemble | Train simulated gain | Validation simulated gain | Changed validation moves | Adverse changes |
+| --- | ---: | ---: | ---: | ---: |
+| frozen-0 | 0.528 pp | 0.192 pp | 441 / 4,320 | 110 |
+| frozen-1 | 0.452 pp | 0.386 pp | 264 / 4,320 | 53 |
+| public-0 | 2.671 pp | 0.325 pp | 571 / 4,320 | 163 |
+| public-1 | 0.453 pp | 0.171 pp | 67 / 4,320 | 12 |
+
+All frozen-representation seeds selected epoch 10. Public-representation seeds
+12101–12104 selected epochs 35, 5, 5 and 60 respectively. Later training generally
+degrades validation performance; the public-0 training/validation gap is large.
+These same validation deals selected the epochs, so these are conditional
+training diagnostics, not independent evidence of real-game improvements.
+No model was dropped or selected from these small differences. Finish the
+prescribed full-game comparison before drawing a strength conclusion. Do not
+launch another gradient round automatically; this supports examining the
+planned bounded hybrid approach if the small gains fail to transfer.
+
+Results: `strong/policy-iteration-training-results-v2.json`. Complete per-seed
+histories, calibration, parity and immutable model pins are archived in:
+
+- Frozen: `strong/policy-iteration-trained-frozen-evidence-v2.json`, HF revision
+  `62ea88095773de4e3eaa07d8b42911d9528c49fd`.
+- Public: `strong/policy-iteration-trained-public-evidence-v2.json`, HF revision
+  `aa3c1a83e19254638f3a21ce98cb0d18caeed366`.
+
+### Actual trained CPU benchmark
+
+All 10,212 requests (2,553 per ensemble, all 2–6-player/rule/phase fixtures)
+returned legal moves identical to the frozen runtime, with zero observed value
+difference. Packages also passed standalone checks from `/`.
+
+| Ensemble | Median warm ms | 95th percentile ms | Cold first request ms |
+| --- | ---: | ---: | ---: |
+| frozen-0 | 4.484 | 7.089 | 214.022 |
+| frozen-1 | 4.346 | 6.952 | 224.209 |
+| public-0 | 5.543 | 8.031 | 255.209 |
+| public-1 | 5.904 | 8.767 | 251.921 |
+
+Target: `coyotte508-4X4-BOX-8840U`, AMD Ryzen 7 8840U. These sequential timings
+include the standalone JSONL worker but no search. They establish model-only
+CPU feasibility, not browser performance, hybrid-search latency or strength.
+
+- Report: `strong/policy-iteration-trained-8840u-results-v2.json`.
+- Evidence: `strong/policy-iteration-trained-8840u-evidence-v2.json`.
+- HF revision `d86e395ddd8cb82d7947f47f8d4a767106fd5049`, archive
+  `archives/policy-iteration-trained-8840u-evidence-v2.tgz`, SHA256
+  `a3548810bfa3f7dcd2986dc8730180bbea5970b9351415ef0d804499bc3aba6c`.
+  All 38 archived files, including deployable standalone packages and raw target
+  responses, were verified after download.
+- Local preparation/results: `ai/runs/policy-iteration-trained-8840u-prepared-v2`
+  and `ai/runs/policy-iteration-trained-8840u-results-v2`.
+- Remote directory: `/home/coyotte508/powergrid-ai-policy-iteration-trained-v2`.
+  Target run completed; do not relaunch into that directory.
+
+### Verification repair and current process ownership
+
+After an unrelated collector termination was recovered, the first independent
+verification failed because live `by_player_count` keys are integers while JSON
+keys are strings. The verifier now normalizes only this documented field. Counts,
+model identities, legal decisions, weights and numerical tolerances remain fully
+checked. Four regression tests and both actual trained integrations pass. All
+32 frozen-head artifacts are identical to the failed attempt. Training inputs,
+weights, source archives and remote job IDs were not changed.
+
+The failed collector, waiting development coordinator and failed output directory
+were preserved before restarting the local pipeline. Their paths are recorded
+in `ai/runs/policy-iteration-training-verifier-json-repair-v2.json`. The earlier
+signal interruption is separately preserved. Repair evidence:
+`strong/policy-iteration-training-verifier-json-repair-evidence-v2.json`, HF
+revision `ec8788213f5965969c3bb95af6a19f4c73980b93`, archive
+`archives/policy-iteration-training-verifier-json-repair-evidence-v2.tgz`, SHA256
+`02b900406b522c7205b778066dd0e9ebf7fb91f61be61ff1740fb8dd211f48b1`.
+
+The trained collector **PID 71229 / session 25772 is complete**. The only live
+coordinator is **development PID 71261 / session 77604**, with canonical state
+`ai/runs/policy-iteration-development-coordinator-v2/state.json`. It owns eight
+CPU runtime jobs (all directly confirmed RUNNING after launch), then four full
+candidate grids and the prescribed comparison. Do not duplicate those operations
+or edit its 39 frozen dependencies. Its inputs include the repaired verifier.
+Runtime launch evidence: `strong/policy-iteration-candidate-runtime-launch-evidence-v2.json`,
+HF revision `0ffaf9eba7b3ba6892c9821b86a4082fe4371d14`.
+
+All twelve trained technical receipts have now been prepared and archived in
+`ai/runs/policy-iteration-final-evidence-v2/`. Exact source/engine compatibility,
+model identities and full trained target coverage passed the converter. Evidence:
+`strong/policy-iteration-final-technical-evidence-v2.json`, HF revision
+`23487b7a1715262259fc2bf11a689cf393643939`, archive
+`archives/policy-iteration-final-technical-evidence-archive-v2.tgz`, SHA256
+`8236b137294dde8628b92816cba54ecdf2251d4ce9f9d382924d7899c56154b3`.
+These are technical receipts only. No candidate was selected, no final games were
+run and no AI was published. Fresh full-game comparisons and any justified later
+hybrid evaluation remain the strength checkpoints.
+
+## Previous checkpoint: full labels and baseline verified; two GPU jobs submitted
+
+**Local collector recovery, 10:13 UTC:** polling session65326 returned exit143,
+and `/proc/2850424` was absent. Its last state was waiting for training completion,
+with no commands started, no verified outputs/pins, and no lock holder. The sender
+of the termination signal is unknown. All28 frozen dependencies matched. The
+original directory was preserved as
+`ai/runs/policy-iteration-training-harvest-interrupted-v2/`, and the unchanged
+collector was started with the original canonical run name: **PID35876,
+execsession68668**. Both existing HF jobs were kept; no remote restart, new
+training job, protocol change or duplicate collection occurred. The live
+state path remains `ai/runs/policy-iteration-training-harvest-v2/state.json`.
+The original frozen-head job completed, and its owned verification began at
+10:15:48UTC. The public-head job was still RUNNING at its last direct inspection.
+
+Recovery evidence: `strong/policy-iteration-training-harvest-recovery-evidence-v2.json`,
+HF revision `6203af10ce532bdca0e4ec7409b2676f19449313`, archive
+`archives/policy-iteration-training-harvest-recovery-evidence-v2.tgz`, SHA256
+`e9a46acb27610bc8e9ba8ce959138f93bebeffff09a7f0e02fddde94f6fea938`.
+Seven files include the original state, interruption checks, resumed state and
+unchanged collector/development code. The remote archive was verified.
 
 All **948 new label shards plus 60 pilot shards** are independently verified:
 17,280 roots, both continuation modes, and 33,351,552 completed simulations.

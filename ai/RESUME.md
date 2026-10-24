@@ -1,42 +1,35 @@
 # Power Grid AI — ACTIVE, resumed 23 October 2026
 
 **Start with [the current resumption handoff](HANDOFF-2026-10-23-RESUMED.md).**
-The final-verifier evidence converter is prepared and its three tests pass.
-Actual trained outputs are still pending. No model is qualified or published;
-reserved final seeds are unused.
+Both HF jobs completed. All eight trained seeds and four ensembles are verified
+and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
+median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
+model-only timings. No candidate is qualified or published; final seeds are unused.
 
-The isolated hybrid adapter and batched ONNX driver are prepared. Six engine
-contracts pass, and actual inference matches serial choices on80 positions for
-the parent plus four untrained architecture exports. Parent full searches match
-the frozen worker. One untrained2p self-play case caps6/12 rollouts and remains
-unusable; explicit fallback works. See `strong/hybrid-search-preflight-v2.json`
-and the current handoff. These are compatibility checks, not strength evidence.
-Actual new trained-model continuations, target8840U latency and fresh hybrid
-comparisons remain pending. Frozen active pipeline dependencies are unchanged.
+Validation simulation gains are small: +0.192 / +0.386 pp for frozen ensembles,
++0.325 / +0.171 pp for public ensembles. All frozen seeds peaked at epoch 10;
+public epochs are 35, 5, 5, 60. These deals selected the checkpoints. They do not
+establish real-game gains. Finish the planned game comparison; do not automatically
+extend training. See `strong/policy-iteration-training-results-v2.json`.
 
-## Latest data, training and baseline checkpoint
+The independent verifier's JSON player-key mismatch was fixed with four regression
+tests. Both actual trained integrations passed, without changing weights or
+training jobs. Failure records and repair evidence are archived. The collector
+completed; the **only active coordinator is development PID 71261 / session 77604**.
+State: `ai/runs/policy-iteration-development-coordinator-v2/state.json`.
+It owns eight runtime probes and then all four candidate evaluation grids. Do not
+duplicate those tasks or edit its 39 frozen dependencies. The canonical path is
+unchanged despite the recovery; old PIDs in historical notes are no longer active.
 
-All 948 new plus 60 pilot label shards are verified: 17,280 roots and 33,351,552
-simulations. Full data and executable source passed admission and are archived.
-The training coordinator submitted the two prescribed four-seed L4x1 / 3-hour jobs:
-`6adc8338046eb82b1ecdbb92` (frozen), `6adc833d1e112550ce7deb4c` (public).
-Both were scheduling at 10:07:17 UTC; no new trained candidate is verified yet.
+Trained packages/results are archived at
+`strong/policy-iteration-trained-8840u-evidence-v2.json`. The target process is
+complete. All twelve actual trained technical receipts are also archived in
+`strong/policy-iteration-final-technical-evidence-v2.json`; the reserved final
+gate remains untouched. Source or serving checks do not establish qualification.
 
-All 108 parent reference batches are verified: 6,720 games, 27 complete cells.
-Six-player search win share is 37.63% overall, but original/sealed 14.58% and
-Recharged/sealed 27.08%; both sealed intervals include 16.67% chance. The parent
-remains unqualified. Complete raw baseline evidence is archived; see
-`strong/policy-iteration-parent-reference-complete-evidence-v2.json`.
-
-Full label audit: separate-batch simulated gain 0.051495, with 1,740 of 12,284
-changed directions adverse (14.16%). Positive means across all counts/rules
-support finishing this round, but do not establish real-game gains. Evidence:
-`strong/policy-iteration-label-quality-full-evidence-v2.json`.
-
-The collector and launch coordinator completed normally; do not restart them.
-Only the trained-output harvester and development coordinator remain active.
-Live state files supersede these snapshots. Preserve their frozen dependencies
-and exclusive ownership of collection, probes and candidate evaluation.
+The isolated hybrid prototype has only earlier compatibility tests, not fresh
+trained-model strength or target search timings. Those remain follow-up work after
+the current prescribed comparison. Its synthetic cap failure remains recorded.
 
 ## User steering, 24 October: diminishing returns and hybrid play
 
@@ -96,37 +89,19 @@ fresh gains, recommend changing approach or stopping this line instead of
 automatically scaling another training round. No hybrid jobs were launched
 and no active protocol, final threshold or reserved seed was changed here.
 
-- **Collector COMPLETE:** PID 2476443  / session82318 ended normally at 10:04:46 UTC.
-  `ai/runs/policy-iteration-harvest-recovered-v2/state.json` records 948 labels
-  and 108 parent batches verified. Do not restart it.
-- **Training coordinator COMPLETE:** PID 2536611  / session93205 submitted both
-  prescribed HF jobs and archived launch evidence. State:
-  `ai/runs/policy-iteration-training-coordinator-v2/state.json`.
-  Do not duplicate preparation, data/source archives or GPU submissions.
-- **Trained-output harvester ACTIVE:** PID 2850424  / session65326.
-  State: `ai/runs/policy-iteration-training-harvest-v2/state.json`.
-  Waits for the two jobs, verifies all four seeds/head and exact export parity,
-  then archives four candidate pins. No submissions/retries/gradients/promotion.
-  Do not duplicate collection or edit its 28 hashed dependencies.
-- **Development coordinator ACTIVE:** PID 2950746  / session63641.
-  State: `ai/runs/policy-iteration-development-coordinator-v2/state.json`.
-  Parent reference is complete. Once four trained pins are archived, it owns 8
-  endpoint runtime probes, four 108-batch candidate grids, and the prescribed
-  33,600-game comparison. Do not duplicate operations or edit its 39 dependencies.
-  No retry/cancel/final test/promotion. Stop it on an explicit future pause.
-- **Trained 8840U tooling prepared:**
-  `strong/benchmark-policy-iteration-trained-8840u.py` provides check/prepare/run/
-  collect/archive after all four trained pins are verified. No target run yet.
-  Synthetic architecture timings do not substitute for the trained benchmark.
-- **Final technical evidence converter prepared:**
-  `ai/.venv/bin/python ai/strong/prepare-policy-iteration-final-evidence.py prepare`
-  is only for after trained target benchmark archival. Its three controls pass;
-  actual trained integration remains pending. No final seeds have been used.
-
-Next: let the two existing active processes advance; benchmark actual trained
-exports on the 8840U when available. The complete development comparison is the
-candid stop/continue checkpoint, followed by any justified bounded hybrid study.
-No candidate selection, final test or publication is authorized by source checks.
+- **Labels and parent baseline COMPLETE:** all 948 new plus 60 pilot shards,
+  17,280 roots; all 108 baseline batches / 6,720 games / 27 cells verified.
+- **Training and independent collection COMPLETE:** all four candidate pins are
+  in `strong/policy-iteration-development-pins-v2/`. No seed cherry-picking.
+- **Trained 8840U benchmark COMPLETE:** reports and standalone packages are
+  archived; the target process ended normally. Do not restart it.
+- **Development coordinator ACTIVE:** PID 71261 / session 77604. Eight CPU
+  runtime probes precede four complete candidate grids and the 33,600-game
+  comparison. No automatic retry, final test, selection or publication.
+- **Final technical receipts COMPLETE:** all twelve records are prepared and
+  archived. No candidate is selected, and no final game has run.
+- **Next:** let the coordinator complete the game comparison, then make a candid
+  stop/continue decision and pursue any justified bounded hybrid study.
 
 ---
 

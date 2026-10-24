@@ -40,6 +40,22 @@ def expected_artifacts(design):
     return files
 
 
+def verify_parity_report(parity, stored):
+    # JSON object keys are strings; the live checker counts players with ints.
+    # Normalize only that documented field, keeping every count and other field.
+    counts = parity['by_player_count']
+    assert set(counts) == set(range(2, 7))
+    assert all(type(n) is int and type(count) is int and count > 0
+               for n, count in counts.items())
+    serialized = {**parity, 'by_player_count': {str(n): count for n, count in counts.items()}}
+    # Numerical maxima may differ across CPU hardware; exact choices/counts must not.
+    for report in [parity, stored]:
+        for field in ['max_logit_error', 'max_value_error']:
+            assert math.isfinite(report[field]) and 0 <= report[field] < 1e-8
+    same_tree({k: v for k, v in serialized.items() if not k.startswith('max_')},
+              {k: v for k, v in stored.items() if not k.startswith('max_')})
+
+
 def verify_history(history, report, design, head_type, seed):
     updates_per_epoch = math.ceil(design['train_roots']/design['batch_size'])
     assert [r['epoch'] for r in history] == list(range(0, design['epochs']+1, design['evaluate_every']))
@@ -145,11 +161,7 @@ def verify(out, head_type, source, data_pin, data_dir):
             assert digest(directory/'derivative'/file) == sha
         parity = check(directory/'derivative/inference64.pt', directory/'derivative/inference64.onnx', data_dir)
         stored = read(directory/'parity-scope.json')
-        # Numerical maxima may differ across CPU hardware; exact choices/counts must not.
-        for field in ['max_logit_error', 'max_value_error']:
-            assert math.isfinite(stored[field]) and stored[field] < 1e-8
-        same_tree({k: v for k, v in parity.items() if not k.startswith('max_')},
-                  {k: v for k, v in stored.items() if not k.startswith('max_')})
+        verify_parity_report(parity, stored)
         native = policy_from_checkpoint(derivative).eval()
         scores = training.raw_scores(native.policy, data, 'cpu')
         calibration = {}

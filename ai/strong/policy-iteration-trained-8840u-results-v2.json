@@ -1,0 +1,631 @@
+{
+  "verified": true,
+  "machine": {
+    "hostname": "coyotte508-4X4-BOX-8840U",
+    "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+    "python": "3.12.3 (main, Mar  3 2026, 12:15:18) [GCC 13.3.0]",
+    "numpy": "2.5.3",
+    "onnxruntime": "1.30.0",
+    "node": "v24.19.0",
+    "load_before": [
+      0.0,
+      0.005859375,
+      0.0
+    ]
+  },
+  "models": {
+    "frozen-0": {
+      "summary": {
+        "positions": 2553,
+        "cold_start_ms": 214.0221861191094,
+        "warm": {
+          "positions": 2552,
+          "p50_ms": 4.4844201765954494,
+          "p95_ms": 7.089216308668255,
+          "max_ms": 12.71951524540782
+        },
+        "groups": {
+          "players": {
+            "2": {
+              "positions": 349,
+              "p50_ms": 4.106672015041113,
+              "p95_ms": 5.669751297682522,
+              "max_ms": 214.0221861191094
+            },
+            "3": {
+              "positions": 427,
+              "p50_ms": 3.953767940402031,
+              "p95_ms": 5.346521595492958,
+              "max_ms": 11.1521459184587
+            },
+            "4": {
+              "positions": 527,
+              "p50_ms": 4.258675035089254,
+              "p95_ms": 6.414076266810298,
+              "max_ms": 9.114530868828297
+            },
+            "5": {
+              "positions": 609,
+              "p50_ms": 4.815166816115379,
+              "p95_ms": 7.5145660899579525,
+              "max_ms": 11.976283974945545
+            },
+            "6": {
+              "positions": 641,
+              "p50_ms": 5.015202332288027,
+              "p95_ms": 7.42010585963726,
+              "max_ms": 12.71951524540782
+            }
+          },
+          "phase": {
+            "Auction": {
+              "positions": 840,
+              "p50_ms": 4.529095953330398,
+              "p95_ms": 6.791829690337178,
+              "max_ms": 214.0221861191094
+            },
+            "Resources": {
+              "positions": 755,
+              "p50_ms": 4.257733002305031,
+              "p95_ms": 6.7965830210596305,
+              "max_ms": 10.109737981110811
+            },
+            "Building": {
+              "positions": 491,
+              "p50_ms": 4.805788863450289,
+              "p95_ms": 7.873078575357795,
+              "max_ms": 10.55237976834178
+            },
+            "Bureaucracy": {
+              "positions": 467,
+              "p50_ms": 4.257122054696083,
+              "p95_ms": 6.610338855534792,
+              "max_ms": 11.1521459184587
+            }
+          },
+          "rule": {
+            "original/sealed": {
+              "positions": 555,
+              "p50_ms": 4.347805865108967,
+              "p95_ms": 6.276584742590785,
+              "max_ms": 214.0221861191094
+            },
+            "recharged/sealed": {
+              "positions": 589,
+              "p50_ms": 4.4280108995735645,
+              "p95_ms": 7.243792433291674,
+              "max_ms": 11.1521459184587
+            },
+            "original/open": {
+              "positions": 703,
+              "p50_ms": 4.539745859801769,
+              "p95_ms": 7.04362359829247,
+              "max_ms": 11.064516846090555
+            },
+            "recharged/open": {
+              "positions": 706,
+              "p50_ms": 4.587693605571985,
+              "p95_ms": 7.265316671691835,
+              "max_ms": 12.71951524540782
+            }
+          }
+        },
+        "search_decisions": 0,
+        "search_timing": null,
+        "search_evaluations": 0,
+        "search_truncations": 0,
+        "all_moves_legal": true
+      },
+      "model_pin": {
+        "key": "frozen-0",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "6b6009756d7b5968bc5b6425efc84a94aab2a1d6",
+        "prefix": "runs/policy-iteration-training-v2-frozen/ensemble-0/derivative",
+        "files": {
+          "inference64.pt": "d4081927ed6636d1274211ff0901996c5bddde0afb7c224cd1cabf9bc2acc1c4",
+          "inference64.onnx": "0cbeabb9ec915114f381542d11d652df20e62660bdc9e0932cace6559f2f4b7a"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "model_args": {
+          "head_type": "frozen",
+          "heads": 4,
+          "margin": 0.025,
+          "parent_margin": 0.025,
+          "disagreement_penalty": 0.0
+        },
+        "training_verified": true,
+        "parent_frozen": true,
+        "seeds": [
+          12101,
+          12102,
+          12103,
+          12104
+        ],
+        "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+        "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+        "training_verified_sha256": "881c8a4b34f937575cb3f3c851db794f81908621f4a93e47f467be852845974f",
+        "strict_parity_positions": 2553,
+        "cached_positions_checked": 17280,
+        "qualification_eligible": false
+      },
+      "all_frozen_runtime_moves_identical": true,
+      "maximum_value_difference": 0,
+      "package_sha256": "7b1f8693076cf711ef03024fc926f496846974f59acf4e9d121da532cd384411"
+    },
+    "frozen-1": {
+      "summary": {
+        "positions": 2553,
+        "cold_start_ms": 224.20882107689977,
+        "warm": {
+          "positions": 2552,
+          "p50_ms": 4.346284316852689,
+          "p95_ms": 6.95238395128399,
+          "max_ms": 12.178803328424692
+        },
+        "groups": {
+          "players": {
+            "2": {
+              "positions": 349,
+              "p50_ms": 4.097072873264551,
+              "p95_ms": 5.920810624957084,
+              "max_ms": 224.20882107689977
+            },
+            "3": {
+              "positions": 427,
+              "p50_ms": 4.037037957459688,
+              "p95_ms": 5.49133843742311,
+              "max_ms": 8.969490882009268
+            },
+            "4": {
+              "positions": 527,
+              "p50_ms": 4.018271807581186,
+              "p95_ms": 6.365360924974084,
+              "max_ms": 8.713477291166782
+            },
+            "5": {
+              "positions": 609,
+              "p50_ms": 4.548182711005211,
+              "p95_ms": 7.267345767468215,
+              "max_ms": 10.472065303474665
+            },
+            "6": {
+              "positions": 641,
+              "p50_ms": 4.871946293860674,
+              "p95_ms": 7.338758558034897,
+              "max_ms": 12.178803328424692
+            }
+          },
+          "phase": {
+            "Auction": {
+              "positions": 840,
+              "p50_ms": 4.486378049477935,
+              "p95_ms": 6.894977134652436,
+              "max_ms": 224.20882107689977
+            },
+            "Resources": {
+              "positions": 755,
+              "p50_ms": 4.165505059063435,
+              "p95_ms": 6.711478205397725,
+              "max_ms": 10.008572600781918
+            },
+            "Building": {
+              "positions": 491,
+              "p50_ms": 4.647223278880119,
+              "p95_ms": 7.703897543251514,
+              "max_ms": 11.36558735743165
+            },
+            "Bureaucracy": {
+              "positions": 467,
+              "p50_ms": 4.071294330060482,
+              "p95_ms": 6.211220566183329,
+              "max_ms": 9.891868103295565
+            }
+          },
+          "rule": {
+            "original/sealed": {
+              "positions": 555,
+              "p50_ms": 4.2225150391459465,
+              "p95_ms": 6.134640332311391,
+              "max_ms": 224.20882107689977
+            },
+            "recharged/sealed": {
+              "positions": 589,
+              "p50_ms": 4.245830234140158,
+              "p95_ms": 6.875718664377928,
+              "max_ms": 11.122107971459627
+            },
+            "original/open": {
+              "positions": 703,
+              "p50_ms": 4.416017793118954,
+              "p95_ms": 7.16422637924552,
+              "max_ms": 10.472065303474665
+            },
+            "recharged/open": {
+              "positions": 706,
+              "p50_ms": 4.592022160068154,
+              "p95_ms": 7.056589936837554,
+              "max_ms": 12.178803328424692
+            }
+          }
+        },
+        "search_decisions": 0,
+        "search_timing": null,
+        "search_evaluations": 0,
+        "search_truncations": 0,
+        "all_moves_legal": true
+      },
+      "model_pin": {
+        "key": "frozen-1",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "6b6009756d7b5968bc5b6425efc84a94aab2a1d6",
+        "prefix": "runs/policy-iteration-training-v2-frozen/ensemble-1/derivative",
+        "files": {
+          "inference64.pt": "3c17d4228e7446f8859aa01e79020ed91f454312925d29c153a76f49f94118da",
+          "inference64.onnx": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "model_args": {
+          "head_type": "frozen",
+          "heads": 4,
+          "margin": 0.025,
+          "parent_margin": 0.025,
+          "disagreement_penalty": 1.0
+        },
+        "training_verified": true,
+        "parent_frozen": true,
+        "seeds": [
+          12101,
+          12102,
+          12103,
+          12104
+        ],
+        "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+        "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+        "training_verified_sha256": "881c8a4b34f937575cb3f3c851db794f81908621f4a93e47f467be852845974f",
+        "strict_parity_positions": 2553,
+        "cached_positions_checked": 17280,
+        "qualification_eligible": false
+      },
+      "all_frozen_runtime_moves_identical": true,
+      "maximum_value_difference": 0,
+      "package_sha256": "b77382f3f8c0d1399b9ea069588ce70688d4cb093406bb7f92e253c897366792"
+    },
+    "public-0": {
+      "summary": {
+        "positions": 2553,
+        "cold_start_ms": 255.2093262784183,
+        "warm": {
+          "positions": 2552,
+          "p50_ms": 5.542778177186847,
+          "p95_ms": 8.031325903721152,
+          "max_ms": 12.800582218915224
+        },
+        "groups": {
+          "players": {
+            "2": {
+              "positions": 349,
+              "p50_ms": 5.468185059726238,
+              "p95_ms": 7.708327285945415,
+              "max_ms": 255.2093262784183
+            },
+            "3": {
+              "positions": 427,
+              "p50_ms": 5.408550146967173,
+              "p95_ms": 7.505526440218091,
+              "max_ms": 9.458072017878294
+            },
+            "4": {
+              "positions": 527,
+              "p50_ms": 6.0095880180597305,
+              "p95_ms": 8.502321736887097,
+              "max_ms": 10.511791799217463
+            },
+            "5": {
+              "positions": 609,
+              "p50_ms": 5.6207687593996525,
+              "p95_ms": 8.417735807597637,
+              "max_ms": 11.614697054028511
+            },
+            "6": {
+              "positions": 641,
+              "p50_ms": 5.363483913242817,
+              "p95_ms": 7.205381989479065,
+              "max_ms": 12.761326041072607
+            }
+          },
+          "phase": {
+            "Auction": {
+              "positions": 840,
+              "p50_ms": 5.571058252826333,
+              "p95_ms": 7.733656978234649,
+              "max_ms": 255.2093262784183
+            },
+            "Resources": {
+              "positions": 755,
+              "p50_ms": 5.449207965284586,
+              "p95_ms": 7.7898799907416105,
+              "max_ms": 11.614697054028511
+            },
+            "Building": {
+              "positions": 491,
+              "p50_ms": 5.866221152245998,
+              "p95_ms": 8.877949556335807,
+              "max_ms": 12.800582218915224
+            },
+            "Bureaucracy": {
+              "positions": 467,
+              "p50_ms": 5.399152170866728,
+              "p95_ms": 7.539571542292833,
+              "max_ms": 10.700846090912819
+            }
+          },
+          "rule": {
+            "original/sealed": {
+              "positions": 555,
+              "p50_ms": 5.564450286328793,
+              "p95_ms": 8.536559576168656,
+              "max_ms": 255.2093262784183
+            },
+            "recharged/sealed": {
+              "positions": 589,
+              "p50_ms": 5.52046624943614,
+              "p95_ms": 7.488861959427595,
+              "max_ms": 11.019180063158274
+            },
+            "original/open": {
+              "positions": 703,
+              "p50_ms": 5.67369069904089,
+              "p95_ms": 7.692499598488212,
+              "max_ms": 11.614697054028511
+            },
+            "recharged/open": {
+              "positions": 706,
+              "p50_ms": 5.478795617818832,
+              "p95_ms": 8.2724594976753,
+              "max_ms": 12.761326041072607
+            }
+          }
+        },
+        "search_decisions": 0,
+        "search_timing": null,
+        "search_evaluations": 0,
+        "search_truncations": 0,
+        "all_moves_legal": true
+      },
+      "model_pin": {
+        "key": "public-0",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "62ea88095773de4e3eaa07d8b42911d9528c49fd",
+        "prefix": "runs/policy-iteration-training-v2-public/ensemble-0/derivative",
+        "files": {
+          "inference64.pt": "7f48378e09867e2e8126581095c0c6532c90ce36d5087c5451d821f47cb5db81",
+          "inference64.onnx": "4d2cf03a847737a392ad6ccf545560b468d93b60b959eee5094ee3c739d130b0"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "model_args": {
+          "head_type": "public",
+          "heads": 4,
+          "margin": 0.025,
+          "parent_margin": 0.025,
+          "disagreement_penalty": 0.0
+        },
+        "training_verified": true,
+        "parent_frozen": true,
+        "seeds": [
+          12101,
+          12102,
+          12103,
+          12104
+        ],
+        "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+        "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+        "training_verified_sha256": "138a4d1924d034b7485654770bf3eae8451d6596b1fe39c4028e62476732a70f",
+        "strict_parity_positions": 2553,
+        "cached_positions_checked": 17280,
+        "qualification_eligible": false
+      },
+      "all_frozen_runtime_moves_identical": true,
+      "maximum_value_difference": 0,
+      "package_sha256": "f9071d0683e2877336f269380cd356237cc44e2006e49366d6b0e06050eeb14a"
+    },
+    "public-1": {
+      "summary": {
+        "positions": 2553,
+        "cold_start_ms": 251.92149123176932,
+        "warm": {
+          "positions": 2552,
+          "p50_ms": 5.903858924284577,
+          "p95_ms": 8.767460566014051,
+          "max_ms": 12.423485051840544
+        },
+        "groups": {
+          "players": {
+            "2": {
+              "positions": 349,
+              "p50_ms": 4.972460214048624,
+              "p95_ms": 6.993644218891858,
+              "max_ms": 251.92149123176932
+            },
+            "3": {
+              "positions": 427,
+              "p50_ms": 5.437575746327639,
+              "p95_ms": 7.726700743660331,
+              "max_ms": 9.612158872187138
+            },
+            "4": {
+              "positions": 527,
+              "p50_ms": 6.020308937877417,
+              "p95_ms": 8.434836100786924,
+              "max_ms": 10.410777758806944
+            },
+            "5": {
+              "positions": 609,
+              "p50_ms": 6.242267321795225,
+              "p95_ms": 8.991576917469501,
+              "max_ms": 12.423485051840544
+            },
+            "6": {
+              "positions": 641,
+              "p50_ms": 6.502386648207903,
+              "p95_ms": 9.405490010976791,
+              "max_ms": 12.032402213662863
+            }
+          },
+          "phase": {
+            "Auction": {
+              "positions": 840,
+              "p50_ms": 5.957577610388398,
+              "p95_ms": 8.654306852258742,
+              "max_ms": 251.92149123176932
+            },
+            "Resources": {
+              "positions": 755,
+              "p50_ms": 5.75972581282258,
+              "p95_ms": 8.424159232527018,
+              "max_ms": 12.423485051840544
+            },
+            "Building": {
+              "positions": 491,
+              "p50_ms": 6.226826924830675,
+              "p95_ms": 9.698535548523068,
+              "max_ms": 12.379669584333897
+            },
+            "Bureaucracy": {
+              "positions": 467,
+              "p50_ms": 5.775365978479385,
+              "p95_ms": 8.367557264864445,
+              "max_ms": 10.665297042578459
+            }
+          },
+          "rule": {
+            "original/sealed": {
+              "positions": 555,
+              "p50_ms": 5.677828099578619,
+              "p95_ms": 8.50225840695202,
+              "max_ms": 251.92149123176932
+            },
+            "recharged/sealed": {
+              "positions": 589,
+              "p50_ms": 5.940264090895653,
+              "p95_ms": 8.847329579293728,
+              "max_ms": 12.032402213662863
+            },
+            "original/open": {
+              "positions": 703,
+              "p50_ms": 5.9378501027822495,
+              "p95_ms": 9.031100012362003,
+              "max_ms": 12.423485051840544
+            },
+            "recharged/open": {
+              "positions": 706,
+              "p50_ms": 5.993075901642442,
+              "p95_ms": 8.706161053851247,
+              "max_ms": 11.928331106901169
+            }
+          }
+        },
+        "search_decisions": 0,
+        "search_timing": null,
+        "search_evaluations": 0,
+        "search_truncations": 0,
+        "all_moves_legal": true
+      },
+      "model_pin": {
+        "key": "public-1",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "62ea88095773de4e3eaa07d8b42911d9528c49fd",
+        "prefix": "runs/policy-iteration-training-v2-public/ensemble-1/derivative",
+        "files": {
+          "inference64.pt": "1c912fbebfed415e525a98347fa4037532da823dd26c0a826d3bd2bd87634346",
+          "inference64.onnx": "3002f81a5c7a2b9d8f82d62b063333dddd9fbb597e29791fa13e484f2b4b22d6"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "model_args": {
+          "head_type": "public",
+          "heads": 4,
+          "margin": 0.025,
+          "parent_margin": 0.025,
+          "disagreement_penalty": 1.0
+        },
+        "training_verified": true,
+        "parent_frozen": true,
+        "seeds": [
+          12101,
+          12102,
+          12103,
+          12104
+        ],
+        "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+        "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+        "training_verified_sha256": "138a4d1924d034b7485654770bf3eae8451d6596b1fe39c4028e62476732a70f",
+        "strict_parity_positions": 2553,
+        "cached_positions_checked": 17280,
+        "qualification_eligible": false
+      },
+      "all_frozen_runtime_moves_identical": true,
+      "maximum_value_difference": 0,
+      "package_sha256": "3b4a33fdacf1a4214181f40c6084ece13ba85495a6b710f78ee13991a1095333"
+    }
+  },
+  "requests": 10212,
+  "source": {
+    "archive": "strong-source-policy-iteration-development-20261024-v2.tgz",
+    "revision": "a393d0fa83d9fee8a27a876a217fe97dfea03ff8",
+    "sha256": "c020987f3a05a2c0116dfd52498139f6bb7480e1721ca058caf9771f94d970ce",
+    "bytes": 109411988,
+    "base": {
+      "archive": "strong-source-policy-iteration-labels-20261024-v2.tgz",
+      "revision": "716d70b1e8049c95f9575cd27799c9359e7b3e7a",
+      "sha256": "aaacd650c2059721b394ef65f9e8f28602789d43888ccb5a9aa1b0b487706598",
+      "bytes": 109402244,
+      "base": {
+        "archive": "strong-source-policy-iteration-teacher-20261024-v2.tgz",
+        "revision": "e661d2f43fcedec24ffff4bf1180758e614e2a8f",
+        "sha256": "40cc40e24f4bf70b48d73a29a26479fdc0250e26d16f837851f4135c6e233fbc"
+      },
+      "overlays": {
+        "ai/strong/policy_iteration_labels.py": "658a470aa489a6e6b6ae5eede4df94c8c7a40dec26ec0e6ae1c665063d83e7f9",
+        "ai/strong/preflight-policy-iteration-labels.py": "2075c6b1b275e9564a55e7724879f02e120f5c7c5dde4ec5ddaa401e5c9d61f9",
+        "ai/strong/policy-iteration-labels-protocol-v2.json": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+        "ai/strong/profile-policy-iteration-continuations.py": "6bb1767978ae9237b1db0aa081c1b789bc4b4d69751af700e95e94cbae6ffcc9"
+      },
+      "unchanged_base_files": 1430,
+      "protocol_sha256": "9dc68ed389d96c8421a02231dd51875b7887c7dbe0fceba81abc40c30381a271",
+      "qualification_eligible": false
+    },
+    "overlays": {
+      "ai/strong/policy_iteration_development.py": "1bbcec9b3ad236fdaf330627cd31f6c99618642cf657b75207aba365c4c217ea",
+      "ai/strong/preflight-policy-iteration-development.py": "024f1f746eb396a8906664c26e2307224c733ff4b43a75899498efbf65096829",
+      "ai/strong/policy-iteration-development-protocol-v2.json": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+      "ai/strong/policy-iteration-training-design-v2.json": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+      "ai/strong/build-policy-iteration-development-source.py": "6dd5963f0438f0ef7fca6c53c3701acdba99d8e9390e42d9c5f64f4e39287310"
+    },
+    "unchanged_base_files": 1434,
+    "protocol_sha256": "e9e47992678f60251b970588b1906456817c100140b5116777d6fdd614d83585",
+    "gradients": false,
+    "qualification_eligible": false
+  },
+  "manifest_sha256": "2dc91a1d6531bcead3973b185dca5bb910e6544b8230efbba3db2a04fe66cb48",
+  "training_verified": true,
+  "synthetic_untrained": false,
+  "gradients": false,
+  "qualification_eligible": false,
+  "candidate_selected": false,
+  "scope": "Exact trained standalone ensembles, all 2553 public serving fixtures each, on the actual AMD8840U. Sequential engineering timing and legal-move/runtime parity only; no strength, calibration, browser or production claim.",
+  "artifacts": {
+    "run.log": "e27f11502b71ced140b92176cdb9439995f6ebf715f8854c6e9164edf3f5b3f3",
+    "public-0.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "public-1.jsonl": "51fb219294cfb1f0fb6982c4078e71807b0514290d134ff1b9073e197ba7794a",
+    "machine.json": "94516206a02f874755f536960a9e1bb13ea7b97da6350e3657cb4323cf9b2717",
+    "fixtures.jsonl": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+    "results.json": "f90005655f291d5f0bf82688d2b71ac31490a250f60c44e5d9edb12c97e60597",
+    "public-1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "manifest.json": "2dc91a1d6531bcead3973b185dca5bb910e6544b8230efbba3db2a04fe66cb48",
+    "frozen-0.jsonl": "9fa1ee1798efc8b7c671844089c9df4b61f649804776119c0f5f6430682e22a0",
+    "process.pid": "15f8f5156b086264caaf3d0ebfd7efc10e09720a74ef723a710267bb27661b63",
+    "frozen-0.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "public-0.jsonl": "f680aa154a6e78383a9f83ce2b39156bc727eedc3a59fcade2911b3be1590aa5",
+    "frozen-1.jsonl": "b6eb0d6b8e0884a63cdd4fbf0887a17978f060d3cd7548b98eea0ac2de6ad9da",
+    "frozen-1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

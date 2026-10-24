@@ -1,0 +1,96 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "aa3c1a83e19254638f3a21ce98cb0d18caeed366",
+  "archive_path": "archives/policy-iteration-trained-public-evidence-v2.tgz",
+  "archive_sha256": "a6bd5db7b34964ba3283de17ccca13ac1a8573989c51bd17c7aa56721d495ecc",
+  "manifest_sha256": "b7679551b88cb83bef0e52e2320308fbdbd7e176e7bea9d3a8777de8f780d14a",
+  "archived_files": 29,
+  "format": "tar.gz",
+  "remote_archive_verified": true,
+  "head_type": "public",
+  "job_id": "6adc833d1e112550ce7deb4c",
+  "training_artifact_revision": "62ea88095773de4e3eaa07d8b42911d9528c49fd",
+  "training_artifact_prefix": "runs/policy-iteration-training-v2-public",
+  "verified_sha256": "138a4d1924d034b7485654770bf3eae8451d6596b1fe39c4028e62476732a70f",
+  "candidate_pins": {
+    "public-0": {
+      "sha256": "f54a7144060caafa2f1c4c0d15ec381613eb775e674e5c7f4637be9e3c88b680",
+      "pin": {
+        "key": "public-0",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "62ea88095773de4e3eaa07d8b42911d9528c49fd",
+        "prefix": "runs/policy-iteration-training-v2-public/ensemble-0/derivative",
+        "files": {
+          "inference64.pt": "7f48378e09867e2e8126581095c0c6532c90ce36d5087c5451d821f47cb5db81",
+          "inference64.onnx": "4d2cf03a847737a392ad6ccf545560b468d93b60b959eee5094ee3c739d130b0"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "model_args": {
+          "head_type": "public",
+          "heads": 4,
+          "margin": 0.025,
+          "parent_margin": 0.025,
+          "disagreement_penalty": 0.0
+        },
+        "training_verified": true,
+        "parent_frozen": true,
+        "seeds": [
+          12101,
+          12102,
+          12103,
+          12104
+        ],
+        "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+        "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+        "training_verified_sha256": "138a4d1924d034b7485654770bf3eae8451d6596b1fe39c4028e62476732a70f",
+        "strict_parity_positions": 2553,
+        "cached_positions_checked": 17280,
+        "qualification_eligible": false
+      }
+    },
+    "public-1": {
+      "sha256": "929deb2298c324355faf81f192a77933299c1b6ccc60aba4c82258a0cf5daa1d",
+      "pin": {
+        "key": "public-1",
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "62ea88095773de4e3eaa07d8b42911d9528c49fd",
+        "prefix": "runs/policy-iteration-training-v2-public/ensemble-1/derivative",
+        "files": {
+          "inference64.pt": "1c912fbebfed415e525a98347fa4037532da823dd26c0a826d3bd2bd87634346",
+          "inference64.onnx": "3002f81a5c7a2b9d8f82d62b063333dddd9fbb597e29791fa13e484f2b4b22d6"
+        },
+        "feature_revision": "4.3-strategic-correction",
+        "model_args": {
+          "head_type": "public",
+          "heads": 4,
+          "margin": 0.025,
+          "parent_margin": 0.025,
+          "disagreement_penalty": 1.0
+        },
+        "training_verified": true,
+        "parent_frozen": true,
+        "seeds": [
+          12101,
+          12102,
+          12103,
+          12104
+        ],
+        "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+        "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+        "training_verified_sha256": "138a4d1924d034b7485654770bf3eae8451d6596b1fe39c4028e62476732a70f",
+        "strict_parity_positions": 2553,
+        "cached_positions_checked": 17280,
+        "qualification_eligible": false
+      }
+    }
+  },
+  "seeds": [
+    12101,
+    12102,
+    12103,
+    12104
+  ],
+  "local_gradients": false,
+  "qualification_eligible": false,
+  "scope": "Exact trained outputs verified;raw weights remain at their immutable HF pin. This is not whole-game strength or promotion."
+}

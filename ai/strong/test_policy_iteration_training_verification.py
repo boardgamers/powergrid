@@ -1,12 +1,13 @@
 """Reject incorrect training provenance and epoch selection without gradients."""
 from copy import deepcopy
+import json
 import unittest
 
 import torch
 from huggingface_hub import hf_hub_download
 from strategic_collection import ROOT, read, digest
 from model_policy_iteration import PolicyIterationPolicy
-from policy_iteration_training_verification import verify_history, verify_member, same_tree, expected_artifacts
+from policy_iteration_training_verification import verify_history, verify_member, same_tree, expected_artifacts, verify_parity_report
 
 
 class VerificationContracts(unittest.TestCase):
@@ -90,6 +91,29 @@ class VerificationContracts(unittest.TestCase):
         self.assertEqual(len(files), 32)
         self.assertIn('ensemble-1/derivative/inference64.onnx', files)
         self.assertIn('12104/latest.pt', files)
+
+    def test_parity_accepts_json_player_keys_but_rejects_changed_evidence(self):
+        live = {'positions': 2553, 'by_player_count': {2: 349, 3: 427, 4: 527, 5: 609, 6: 641},
+                'cached_positions_checked': 17280, 'all_moves_legal': True,
+                'all_native_onnx_actions_equal': True, 'model_sha256': 'exact-model',
+                'max_logit_error': 4.7e-10, 'max_value_error': 1.4e-11}
+        saved = json.loads(json.dumps(live))
+        verify_parity_report(live, saved)
+        self.assertEqual(set(live['by_player_count']), {2, 3, 4, 5, 6})
+        for field, value in [('positions', 2552), ('cached_positions_checked', 17279),
+                             ('all_moves_legal', False), ('all_native_onnx_actions_equal', False),
+                             ('model_sha256', 'different-model'), ('max_logit_error', 1e-8),
+                             ('max_value_error', float('nan'))]:
+            with self.subTest(field=field), self.assertRaises(AssertionError):
+                verify_parity_report(live, {**saved, field: value})
+        for counts in [{**saved['by_player_count'], '2': 348},
+                       {k: v for k, v in saved['by_player_count'].items() if k != '6'}]:
+            with self.assertRaises(AssertionError):
+                verify_parity_report(live, {**saved, 'by_player_count': counts})
+        with self.assertRaises(AssertionError):
+            verify_parity_report({**live, 'by_player_count': {**live['by_player_count'], '2': 349}}, saved)
+        with self.assertRaises(AssertionError):
+            verify_parity_report({**live, 'max_value_error': 1e-8}, saved)
 
 
 if __name__ == '__main__':

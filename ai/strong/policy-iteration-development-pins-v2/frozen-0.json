@@ -1,0 +1,32 @@
+{
+  "key": "frozen-0",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "6b6009756d7b5968bc5b6425efc84a94aab2a1d6",
+  "prefix": "runs/policy-iteration-training-v2-frozen/ensemble-0/derivative",
+  "files": {
+    "inference64.pt": "d4081927ed6636d1274211ff0901996c5bddde0afb7c224cd1cabf9bc2acc1c4",
+    "inference64.onnx": "0cbeabb9ec915114f381542d11d652df20e62660bdc9e0932cace6559f2f4b7a"
+  },
+  "feature_revision": "4.3-strategic-correction",
+  "model_args": {
+    "head_type": "frozen",
+    "heads": 4,
+    "margin": 0.025,
+    "parent_margin": 0.025,
+    "disagreement_penalty": 0.0
+  },
+  "training_verified": true,
+  "parent_frozen": true,
+  "seeds": [
+    12101,
+    12102,
+    12103,
+    12104
+  ],
+  "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+  "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+  "training_verified_sha256": "881c8a4b34f937575cb3f3c851db794f81908621f4a93e47f467be852845974f",
+  "strict_parity_positions": 2553,
+  "cached_positions_checked": 17280,
+  "qualification_eligible": false
+}

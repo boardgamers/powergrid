@@ -6,7 +6,31 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October: repaired opponent-model pilot passed; HF diagnostic running.**
+**Latest — 25 October: HF diagnostic continues; complete-results audit prepared.**
+The same coordinator, **session 76600 / PID 443128**, is alive. At the explicit
+**22:53:31 UTC, 24 October** snapshot, **10/28 jobs were submitted, three verified,
+seven running, no failures**. The three verified batches contain 96 continuations;
+do not read these faster batches as a partial ranking. Exact checkpoint:
+`ai/runs/reference-opponent-coordinator-v2/collector-preparation-checkpoint.json`.
+No duplicate launches, retries, cancellations, additional simulations or gradients
+were initiated during this checkpoint.
+
+`strong/collect-reference-opponent-diagnostic-v2.py` is ready for full completion.
+It requires the coordinator's `comparison_complete` state and all 28 verified jobs,
+then revalidates every shard and independently rebuilds credits from terminal
+players, exact rational paired margins and the joint bootstrap using block counts.
+Its preflight checked **896 control + 16 pilot + 96 collected terminal rows**,
+rejected five corrupted inputs, and rejected a partial comparison without creating
+an archive. The full seven-root aggregate audit is still pending. Receipt:
+`ai/runs/reference-opponent-collector-v2-preflight/receipt.json`.
+
+**Next:** continue session 76600. After completion, run the new collector without
+arguments, inspect all seven roots, then run once with `--archive` to persist the
+complete evidence. The final descriptor/archive do not exist yet; do not claim
+completion or reuse an uncertain upload. No new strength result, candidate selection
+or final seeds. The resource ablation remains unlaunched.
+
+**Previous — 25 October: repaired opponent-model pilot passed; HF diagnostic running.**
 The v2 worker scopes `analysis-public-balances-v1.cjs` to the reference opponent's
 nested search through `reference-search-public-balances-v1.cjs`. Historical modules,
 outer world sampling and mixture controls remain unchanged. JSONL errors now exit

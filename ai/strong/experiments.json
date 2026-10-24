@@ -55944,9 +55944,38 @@
         "planned_reference_continuations": 896,
         "planned_hf_jobs": 28,
         "max_concurrent_jobs": 7,
-        "next": "Continue the existing coordinator, verify every fixed shard and the complete seven-root comparison. No retries or partial strength claims.",
+        "next": "Continue existing coordinator session 76600. After all 28 shards and comparison complete, run collect-reference-opponent-diagnostic-v2.py without --archive for the independent terminal/paired-bootstrap audit, inspect all seven roots, then archive once with --archive. No retries, no partial rankings, no fresh strength claim.",
         "gradients": false,
         "candidate_selected": false,
-        "final_seed_prefix_used": false
+        "final_seed_prefix_used": false,
+        "collector_preparation": {
+            "status": "prepared_preflight_passed_full_comparison_pending",
+            "script": "ai/strong/collect-reference-opponent-diagnostic-v2.py",
+            "preflight": {
+                "control_rows": 896,
+                "pilot_rows": 16,
+                "collected_shard_rows": 96,
+                "corruptions_rejected": [
+                    "wrong_terminal_credit",
+                    "duplicate_world_action",
+                    "missing_world_action",
+                    "nested_cap",
+                    "wrong_world_offset"
+                ],
+                "partial_comparison_rejected": true,
+                "collector_sha256": "fc58f9046b5dad387a9ec06fe6471e603bf3c50de2edf83d9123e778330bac37",
+                "no_simulations": true,
+                "no_uploads": true
+            },
+            "archive_attempted": false,
+            "checkpoint_path": "ai/runs/reference-opponent-coordinator-v2/collector-preparation-checkpoint.json",
+            "checkpoint_sha256": "2e3f442efed816327ee19464dc3963d66d14e710a3c1dd90ec483d2250f2beb6",
+            "checked_at": "2026-10-24T22:53:31.463961+00:00",
+            "coordinator_alive": true,
+            "jobs_submitted": 10,
+            "jobs_verified": 3,
+            "failed_jobs": [],
+            "current_stage": "waiting_for_jobs"
+        }
     }
 }

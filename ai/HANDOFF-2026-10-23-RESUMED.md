@@ -25,7 +25,53 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: complete repaired pilot and active HF diagnostic, 25 October
+## Latest checkpoint: complete-results audit prepared; existing jobs continue
+
+At **2026-10-24T22:53:31 UTC** (25 October locally), coordinator **session 76600 /
+PID 443128** remained alive with **10/28 submitted, three verified, seven running,
+zero failed jobs**. This is a timestamped observation; inspect the existing handle
+again before acting. The exact snapshot, including immutable evidence receipts for
+the three completed shards, is
+`ai/runs/reference-opponent-coordinator-v2/collector-preparation-checkpoint.json`.
+No additional experiment, duplicate launch, automatic retry, cancellation or local
+simulation was started. The existing coordinator alone continues its admitted queue.
+
+The new `strong/collect-reference-opponent-diagnostic-v2.py` requires all 28 verified
+shards and `comparison_complete` before producing any aggregate review. It reruns
+the original complete verification and independently derives credits from terminal
+player scores; it uses rational arithmetic for paired margins and bootstrap block
+multiplicities to audit the saved intervals. It preserves original worlds 0..7 as
+secondary and worlds 8..63 as primary, all seven original action pairs and adverse
+roots. No new candidate selection or outcome-dependent routing is introduced.
+
+Preflight rechecked 896 control, 16 pilot and 96 collected continuation rows. Five
+corruptions (wrong credit, duplicate/missing world-action, nested cap, wrong offset)
+were rejected. A partial comparison was rejected before writing evidence. Receipt:
+`ai/runs/reference-opponent-collector-v2-preflight/receipt.json`; script SHA
+`fc58f9046b5dad387a9ec06fe6471e603bf3c50de2edf83d9123e778330bac37`.
+The initial one-off import harness omitted the `ai/strong` module path; adding it
+fixed that harness, with no change to the live code or jobs. No full aggregate
+audit or archive upload has occurred yet.
+
+Continue the existing coordinator. Once complete, run:
+
+```sh
+ai/.venv/bin/python ai/strong/collect-reference-opponent-diagnostic-v2.py
+```
+
+Inspect the complete seven-root comparison, then archive once with the same command
+plus `--archive`. The intended descriptor is
+`strong/reference-opponent-complete-evidence-v2.json`; it does not yet exist.
+The collector preserves all 28 guards, job logs, verified raw artifacts, controls,
+protocol, sources, comparison and audit in one verified private HF archive. Check
+any pre-existing archive/output/descriptor before attempting an upload again.
+
+The strong-model goal remains active. No conclusion about tapering gains follows
+from these running diagnostics. Keep auction search under investigation, the current
+filtered model as reference, and the resource ablation unlaunched until its own
+runtime admission. No gradients, final seeds, qualified candidate or publication.
+
+## Previous checkpoint: complete repaired pilot and active HF diagnostic, 25 October
 
 The prior turn was substantive progress: it isolated a nested sealed-history failure
 and verified a sampler component. This turn integrated that component into a new

@@ -6,7 +6,80 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 03:48 UTC: surrogate continuation integration verified.**
+**Latest — 25 October, 04:07 UTC: fresh-root capture verified; HF calibration launched.**
+
+The previous turn completed and pushed continuation integration as `d47de74`.
+This turn fixed the fresh diagnostic design and implemented outcome-independent
+focal-root capture, independent root checks, isolated HF packaging, bounded
+calibration launch and original-handle collection. The full root collection and
+continuation experiment are not launched or admitted yet.
+
+`strong/surrogate-continuation-protocol-v1.json` fixes **160 fresh source games**:
+Germany 2–6 players, two whole deals per count, all seats and all four rules.
+The frozen filtered focal model plays actual search_geo16 opponents. Each game
+retains at most one plant-choice, bid and building decision by a deterministic
+hash of its identity/decision ordinal. Neither outcomes nor surrogate predictions
+choose roots. The fixed action pair is the filtered focal move and the highest
+existing economic-prior alternative in the safe public shortlist. Missing phases
+are reported, never replaced using outcomes. The maximum is 480 roots.
+
+After root/source and trained-surrogate selection are frozen, the specified
+comparison uses **eight shared sampled worlds and two fixed actions per root**
+under actual reference search, the learned surrogate, and the existing population
+mixture. This is up to 7,680 continuations per mode. Primary diagnostic: error in
+the alternative-minus-focal margin relative to reference search, preserving every
+count/rule/phase group and clustering by whole count/deal. Two independent deals
+per count provide limited uncertainty support. Prior sealed-bid beliefs and future
+play change jointly; roots without prior bids are reported separately. These are
+not calibrated win probabilities, optimal-action labels or strength qualification.
+Reference-continuation cost still needs its own measured runtime admission.
+
+**Five root-sampling tests and four job-boundary tests pass.** Public roots cover
+all 60 count/rule/phase contexts. Submission timeouts do not cause resubmission.
+Complete local 2p/6p Recharged-sealed endpoint games matched exact unobserved twins:
+**2 games / 4 executions, 93 eligible decisions, 6 roots, zero caps**. Independent
+root checks and a resealed duplicate rejection pass. All 1,463 frozen engine files
+remain unchanged; a clean package reproduces 20 focal decisions exactly. The first
+unit run correctly rejected raw private canonical fixture states; the test now
+applies the same public boundary as the arena, and its initial log is retained.
+Original endpoint preflight session **91118** exited successfully.
+
+The immutable **1,469-file** HF source is remotely verified at dataset revision
+`c39d101a6c7c3ecec7065752bf61e1b22cc31b63`, archive SHA256
+`9a6c10ebfaa80def4033d15854b289f408a1ea0051e979f77b982decf42fc4c4`.
+Descriptor: `strong/surrogate-continuation-roots-source-v1.json`.
+Two bounded **CPU-upgrade / 8-worker / 4-hour** calibration jobs were submitted:
+
+- **2p `6add7f861e112550ce7e6ef5` — COMPLETED and independently verified:**
+  8 games / 16 executions, 475 eligible decisions, 24 roots, zero caps/missing
+  phases. 115.69 s wall / 794.44 s CPU / 5.41 GB sampled summed RSS. Raw 45-file
+  archive: private HF revision `541327b97fcec55968556c85ace13f9e5cd40df6`, SHA256
+  `5096921f7e21944b93bca34043c906314bb61b35bf2a8fefbde6031a76618cbe`.
+- **6p `6add7f8b1e112550ce7e6eff` — directly RUNNING** at 04:07:06 UTC.
+  Keep this original handle; do not replace it on an observation timeout.
+
+Collect with `ai/.venv/bin/python ai/strong/collect-surrogate-continuation-roots-runtime-v1.py 6`.
+Guards: `ai/runs/surrogate-continuation-roots-runtime-launches-v1`.
+Collected artifacts: `ai/runs/surrogate-continuation-roots-runtime-collected-v1`.
+Admission: `strong/surrogate-continuation-roots-runtime-admission-v1.json`.
+Checkpoint: `ai/runs/surrogate-continuation-roots-checkpoint-v1.json`, SHA256
+`72c8ff8e90d821e2d21c76682b2f35ea76c31eff8df86a9acf92d61ac38077c4`.
+
+At that checkpoint, both original coordinators were live with unchanged code:
+opponent-data collection **40 submitted / 24 verified**; resource screen **54 /
+53 verified**, no failures. No gradients ran this turn. Actual surrogate training,
+model selection and held-out behaviour evaluation remain pending collection.
+
+**Next:** finish and independently archive the full resource comparison; finish
+opponent collection and run its already implemented HF GPU training/audit/selection
+pipeline. Collect the original 6p root calibration, archive both endpoints and
+implement/admit full root collection from measured costs. Freeze its complete root
+manifest before evaluating the learned surrogate; benchmark nested reference
+continuations before scaling that comparison. Heterogeneous hybrid integration,
+fresh full-game strength, the selected-policy final adapter and actual 8840U hybrid
+validation remain required. No candidate, publication or general plateau claim.
+
+**Previous — 25 October, 03:48 UTC: surrogate continuation integration verified.**
 
 The separate surrogate continuation worker and Python/ONNX probe are now
 implemented and verified. Historical population and reference-search workers

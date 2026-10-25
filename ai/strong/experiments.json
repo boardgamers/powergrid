@@ -56911,18 +56911,18 @@
             "code_hashes_match": true
         },
         "latest_observation": {
-            "checked_at": "2026-10-25T03:47:55.843204+00:00",
-            "state_sha256": "fb33468e6434a005aa81b4d3417eade584065a2a82a03df7060cfc1bf248fc72",
-            "pid_alive": true,
-            "code_hashes_unchanged": true,
+            "checked_at": "2026-10-25T04:07:06.322746+00:00",
+            "pid_live": true,
+            "frozen_code_unchanged": true,
+            "state_sha256": "d2ded2f45aaf000b58cca6e6c08a7fcd5cf69d953cc0148213a68a33def08c76",
             "pid": 1291091,
-            "updated_at": "2026-10-25T03:46:05.575402+00:00",
             "stage": "waiting_for_jobs",
             "jobs_submitted": 54,
-            "jobs_verified": 49,
+            "jobs_verified": 53,
             "failed_jobs": [],
-            "checkpoint": "ai/runs/surrogate-opponent-integration-checkpoint-v1.json",
-            "checkpoint_sha256": "9dd16ea331aba09234a0de5deae8966b2ab2973de231ce329b20d2eefbe25343"
+            "updated_at": "2026-10-25T04:06:17.385127+00:00",
+            "checkpoint": "ai/runs/surrogate-continuation-roots-checkpoint-v1.json",
+            "checkpoint_sha256": "72c8ff8e90d821e2d21c76682b2f35ea76c31eff8df86a9acf92d61ac38077c4"
         }
     },
     "reference_opponent_capture_v1": {
@@ -57302,18 +57302,18 @@
             "code_hashes_match": true
         },
         "latest_observation": {
-            "checked_at": "2026-10-25T03:47:55.843204+00:00",
-            "state_sha256": "acb59ab23c7a25a053dc9235f1a0ff0be4b281dc4ce0a7b67f389006c95b0b4e",
-            "pid_alive": true,
-            "code_hashes_unchanged": true,
+            "checked_at": "2026-10-25T04:07:06.322746+00:00",
+            "pid_live": true,
+            "frozen_code_unchanged": true,
+            "state_sha256": "c927fe3fe69b405275ddb8a26b12fcf937d40c5f0fe88b9d038edb93e7b3efd5",
             "pid": 2009367,
-            "updated_at": "2026-10-25T03:45:20.026089+00:00",
             "stage": "waiting_for_jobs",
             "jobs_submitted": 40,
-            "jobs_verified": 20,
+            "jobs_verified": 24,
             "failed_jobs": [],
-            "checkpoint": "ai/runs/surrogate-opponent-integration-checkpoint-v1.json",
-            "checkpoint_sha256": "9dd16ea331aba09234a0de5deae8966b2ab2973de231ce329b20d2eefbe25343"
+            "updated_at": "2026-10-25T04:05:50.129952+00:00",
+            "checkpoint": "ai/runs/surrogate-continuation-roots-checkpoint-v1.json",
+            "checkpoint_sha256": "72c8ff8e90d821e2d21c76682b2f35ea76c31eff8df86a9acf92d61ac38077c4"
         }
     },
     "opponent_surrogate_training_v1": {
@@ -57517,5 +57517,122 @@
         "reserved_final_seeds_used": false,
         "scope": "Complete public-feature/ONNX integration with real frozen focal inference and random untrained surrogate weights. Canonical fixture roots, not fresh strength games. No trained-surrogate fidelity or stronger-policy claim.",
         "next": "Finish and audit original collection/training/selection; use the probe for fresh outcome-independent paired continuations against actual reference search before heterogeneous hybrid adoption and fresh full-game strength."
+    },
+    "surrogate_continuation_roots_v1": {
+        "status": "root_calibration_2p_verified_6p_running",
+        "protocol": "ai/strong/surrogate-continuation-protocol-v1.json",
+        "protocol_sha256": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+        "source": {
+            "repo": "coyotte508/powergrid-ai-training-v1",
+            "archive": "strong-source-surrogate-continuation-roots-v1.tgz",
+            "sha256": "9a6c10ebfaa80def4033d15854b289f408a1ea0051e979f77b982decf42fc4c4",
+            "bytes": 109539050,
+            "manifest_sha256": "5a16f36199b462b33ba1b91178dcc855811fc317ab87917698f5e7418552125b",
+            "manifest_files": 1469,
+            "unchanged_base_files": 1463,
+            "base": {
+                "repo": "coyotte508/powergrid-ai-training-v1",
+                "archive": "strong-source-population-hybrid-development-20261024-v1.tgz",
+                "revision": "cdec1d3079eb9a54b776f6237ec5f93cc1de84d8",
+                "sha256": "ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23",
+                "files": 1463
+            },
+            "new_files": {
+                "ai/strong/surrogate_continuation_roots_v1.py": "32bb3995c339b325698c7b760df97ddf8f1ae19c2decf1d1b2c0821d0bf8a185",
+                "ai/strong/surrogate-continuation-protocol-v1.json": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+                "ai/strong/test_surrogate_continuation_roots_v1.py": "2baf11eedbfc9eb0e4cde60c4e4057159ffe977d9c670cc237c2aa81a30a187d",
+                "ai/strong/preflight-surrogate-continuation-roots-v1.py": "4167c82cb507d5e92cec27a4efa34fb4203cf0252eb0498074ae7f29aada844f",
+                "ai/strong/surrogate-continuation-roots-job-v1.py": "dc21963704d50857b9813cd0483c3bb524f9d67181411d12712b3322578d06b7",
+                "ai/strong/build-surrogate-continuation-roots-source-v1.py": "123ed73b738c4bd76cea40e1238819ad7154c30b2313fad871fa9f40a0f98a22"
+            },
+            "protocol_sha256": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+            "preflight_sha256": "aec89e4fea9b6ef8084cb9eb02db0871a9c442206e732e90b165dc7234fe76a5",
+            "collection_admitted": false,
+            "runtime_admitted": false,
+            "gradients": false,
+            "qualification_eligible": false,
+            "revision": "c39d101a6c7c3ecec7065752bf61e1b22cc31b63",
+            "remote_archive_verified": true
+        },
+        "code_hashes": {
+            "ai/strong/surrogate_continuation_roots_v1.py": "32bb3995c339b325698c7b760df97ddf8f1ae19c2decf1d1b2c0821d0bf8a185",
+            "ai/strong/surrogate-continuation-protocol-v1.json": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+            "ai/strong/test_surrogate_continuation_roots_v1.py": "2baf11eedbfc9eb0e4cde60c4e4057159ffe977d9c670cc237c2aa81a30a187d",
+            "ai/strong/preflight-surrogate-continuation-roots-v1.py": "4167c82cb507d5e92cec27a4efa34fb4203cf0252eb0498074ae7f29aada844f",
+            "ai/strong/surrogate-continuation-roots-job-v1.py": "dc21963704d50857b9813cd0483c3bb524f9d67181411d12712b3322578d06b7",
+            "ai/strong/build-surrogate-continuation-roots-source-v1.py": "123ed73b738c4bd76cea40e1238819ad7154c30b2313fad871fa9f40a0f98a22",
+            "ai/strong/launch-surrogate-continuation-roots-runtime-v1.py": "8ed821c398bdc93f641c302d83f67e88592851475dfea8df3533ffd5330e9806",
+            "ai/strong/test_surrogate_continuation_roots_jobs_v1.py": "cb12794106b03c872fd92972c6ff2dfbe8b2fee38b8f7fd25c6fb28b92e67120",
+            "ai/strong/collect-surrogate-continuation-roots-runtime-v1.py": "709e71a58b9852e2c641b4d439ca9691e97df4a9db57a0f0599c435f7910682d"
+        },
+        "root_tests": 5,
+        "job_boundary_tests": 4,
+        "preflight": {
+            "path": "ai/runs/surrogate-continuation-roots-preflight-v1/status.json",
+            "sha256": "aec89e4fea9b6ef8084cb9eb02db0871a9c442206e732e90b165dc7234fe76a5",
+            "complete_games": 2,
+            "paired_executions": 4,
+            "selected_roots": 6,
+            "eligible_decisions": 93,
+            "caps": 0
+        },
+        "checkpoint": "ai/runs/surrogate-continuation-roots-checkpoint-v1.json",
+        "checkpoint_sha256": "72c8ff8e90d821e2d21c76682b2f35ea76c31eff8df86a9acf92d61ac38077c4",
+        "jobs": [
+            {
+                "case": "surrogate-continuation-runtime-v1-2p-0-1",
+                "job_id": "6add7f861e112550ce7e6ef5",
+                "stage": "COMPLETED",
+                "guard_sha256": "9ed6babf142ebabe7d53473686451c0479134b62d2545c137ecbc94c64e1f530"
+            },
+            {
+                "case": "surrogate-continuation-runtime-v1-6p-0-1",
+                "job_id": "6add7f8b1e112550ce7e6eff",
+                "stage": "RUNNING",
+                "guard_sha256": "f2c3bee852361dad5a667fa5dfff5b9afbe03f49beea30b70ea150f210f38445"
+            }
+        ],
+        "verified_2p": {
+            "path": "ai/runs/surrogate-continuation-roots-runtime-collected-v1/surrogate-continuation-runtime-v1-2p-0-1/verified.json",
+            "sha256": "609fb4efbd03dc28b584f282eaef8c4440dcfb777e6e29f60b7f04cbbb234293",
+            "evidence": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "541327b97fcec55968556c85ace13f9e5cd40df6",
+                "archive_path": "archives/surrogate-continuation-runtime-v1-2p-0-1.tgz",
+                "archive_sha256": "5096921f7e21944b93bca34043c906314bb61b35bf2a8fefbde6031a76618cbe",
+                "manifest_sha256": "7a2c5a05a3cf92acc2f64090f095374463281c3cda3ce72bc19cc24b06c2f5d3",
+                "archived_files": 45,
+                "format": "tar.gz",
+                "remote_archive_verified": true
+            },
+            "review": {
+                "complete": true,
+                "games": 8,
+                "twin_games": 8,
+                "eligible_decisions": 475,
+                "selected_roots": 24,
+                "caps": 0,
+                "missing_phases": {},
+                "runtime": {
+                    "seconds": 115.68641611600106,
+                    "cpu_seconds": 794.44,
+                    "sampled_peak_total_rss_bytes": 5405859840,
+                    "memory_samples": 562,
+                    "memory_sampling_period_seconds": 0.2
+                },
+                "raw_evidence_bytes": 3180376,
+                "training_eligible": false,
+                "qualification_eligible": false
+            }
+        },
+        "full_source_games": 160,
+        "maximum_roots": 480,
+        "full_root_collection_admitted": false,
+        "reference_continuations_admitted": false,
+        "new_hf_jobs": 2,
+        "gradient_updates": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Collect the original 6p calibration, archive joint evidence and size full fresh root collection from measured costs. Freeze roots and trained surrogate policy before fixed-action paired comparisons. Independently measure nested reference costs; no full-game strength claim from imitation or these diagnostics."
     }
 }

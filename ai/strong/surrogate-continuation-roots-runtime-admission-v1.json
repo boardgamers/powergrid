@@ -1,0 +1,32 @@
+{
+  "created_at": "2026-10-25T04:03:12.848671+00:00",
+  "source_descriptor_sha256": "9800be2eaf3f88c5d401c5bc31a37c9be2f4674dc235e6ff75b2094f0521e0dd",
+  "protocol_sha256": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+  "preflight_sha256": "aec89e4fea9b6ef8084cb9eb02db0871a9c442206e732e90b165dc7234fe76a5",
+  "layout_check_sha256": "33cfc8fe8a67873f8a030ad73334d99b809c1daf34aff728787cd88eb94e4856",
+  "launcher_sha256": "8ed821c398bdc93f641c302d83f67e88592851475dfea8df3533ffd5330e9806",
+  "bootstrap_source_sha256": "7f1af8aab9fb0db741f3c0d00ae77e20c03854c858a9794211c97d700aebe354",
+  "bootstrap_sha256": "ef935f338e0ea74d9f8a0db454a5c6e9c9e2dc1e7ebe43ef8874be1972045f9b",
+  "players": [
+    2,
+    6
+  ],
+  "jobs": 2,
+  "max_concurrent": 2,
+  "games": 32,
+  "paired_executions": 64,
+  "flavor": "cpu-upgrade",
+  "vcpus": 8,
+  "ram_gb": 32,
+  "workers": 8,
+  "timeout_hours": 4,
+  "local_worst_paired_case_seconds": 223.1497213160037,
+  "estimated_seconds": 3577.7966557920445,
+  "scope": "Bounded root-capture calibration only. Local endpoint timings are not HF guarantees. Preserve failures and collect measured wall/CPU/memory before full root collection.",
+  "collection_admitted": false,
+  "continuation_jobs_admitted": false,
+  "automatic_retries": false,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

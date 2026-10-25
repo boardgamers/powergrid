@@ -58301,5 +58301,56 @@
         "archive_complete": true,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
+    },
+    "surrogate_continuation_cost_complete_evidence_v1": {
+        "jobs": 24,
+        "continuations": 768,
+        "caps": 0,
+        "revision": "e81e65d011c6d9017f49410034025e66cfc765be",
+        "archive_sha256": "1fe448c5ba27ea2338f5631a2b4318ecb0deb30f21acd16bbaf6fcca7d2ec4ac",
+        "archived_files": 394,
+        "search_work": {
+            "forward_evaluations": 2161104,
+            "prior_evaluations_once_per_worker_world": 1280,
+            "row_attributed_prior_evaluations": 2560,
+            "actual_nested_evaluations": 2162384,
+            "row_attributed_nested_evaluations": 2163664
+        },
+        "measurements": {
+            "reference_opponent_v1": {
+                "median_wall_seconds": 110.91735894049998,
+                "max_case": "6p-3-bid",
+                "max_wall_seconds": 2314.6982809330075,
+                "total_cpu_seconds": 29143.789999999997,
+                "max_peak_rss_bytes": 2898509824
+            },
+            "neural_population": {
+                "median_wall_seconds": 3.294308099499176,
+                "max_case": "2p-1-bid",
+                "max_wall_seconds": 14.245794247995946,
+                "total_cpu_seconds": 259.62999999999977,
+                "max_peak_rss_bytes": 1006424064
+            }
+        },
+        "original_archive_session": 36341,
+        "descriptor_sha256": "1e6724d012bdd06f869eadabc75ffde84f02574d9af049fc9c5006934990b4a1",
+        "full_study_admitted": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
+    },
+    "surrogate_continuation_job_preflight_v1": {
+        "preflight_sha256": "55e94a35f33e2f916c4de81568556736c6cca6d796d9dafffc9127b189eb2f36",
+        "checkpoint_sha256": "9c3050d0e1ae3f1477a060b719f79d96b1c4b4cb985046bcb1660dda9ca58230",
+        "tests": 7,
+        "engine_continuations": 48,
+        "caps": 0,
+        "all_saved_records_exact": true,
+        "surrogate_untrained_fixture": true,
+        "original_session": 96109,
+        "full_study_admitted": false,
+        "new_hf_jobs": 0,
+        "gradient_updates": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

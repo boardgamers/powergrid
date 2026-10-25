@@ -1,0 +1,1005 @@
+{
+  "complete": true,
+  "jobs": 24,
+  "roots": 24,
+  "continuations": 768,
+  "caps": 0,
+  "all_terminal_credits_recomputed": true,
+  "all_saved_job_audits_reproduced": true,
+  "index_sha256": "4ac84dfa7b9beaa3d3779bc7dd2ee368c162fcdf9245db3ef6fa63224c75a005",
+  "source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "archive": "strong-source-surrogate-continuation-cost-v1.tgz",
+    "sha256": "45e4fcf26983ef39baf1f1a97a569282ba7a47c15711d602031673e45cf27253",
+    "bytes": 109711847,
+    "manifest_sha256": "37aa225c8ebf682c8d90b0e8f2eb3d60de6b180cdd4b0be5c356790e85729d5a",
+    "manifest_files": 1477,
+    "unchanged_base_files": 1463,
+    "base": {
+      "repo": "coyotte508/powergrid-ai-training-v1",
+      "archive": "strong-source-population-hybrid-development-20261024-v1.tgz",
+      "revision": "cdec1d3079eb9a54b776f6237ec5f93cc1de84d8",
+      "sha256": "ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23",
+      "files": 1463
+    },
+    "new_files": {
+      "ai/strong/analysis-public-balances-v1.cjs": "3e8eaf26bc21be7e2284e4838f743731a269e8d18badbb8adc0af882f3b3ccb5",
+      "ai/strong/build-surrogate-continuation-runtime-source-v1.py": "59194982de79cd7f1a630af9cfe94ab21ac458b6d1d3343c47af8b74ed2752f6",
+      "ai/strong/opponent_surrogate_policy_v1.py": "4b891dde9a1688eec9f5da0bd0ad0a5dc81d63b2a219d46ce646d033800530da",
+      "ai/strong/opponent_surrogate_training_v1.py": "49751b105b96c44d88b4a75e6b530fbddc4f0dc5590be1e18bd23cc64dc3eb10",
+      "ai/strong/reference-opponent-continuations-v2.cjs": "c3936f3fa35b3c5f9fefeea7cfbbecaf6becc8486c4f681a30e1497f83748c9d",
+      "ai/strong/reference-search-public-balances-v1.cjs": "ba53afcc0a06d25f776c27ba017e14026a28c9928bcde68b05effe64a715b010",
+      "ai/strong/surrogate-continuation-protocol-v1.json": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+      "ai/strong/surrogate-continuation-roots-job-v1.py": "dc21963704d50857b9813cd0483c3bb524f9d67181411d12712b3322578d06b7",
+      "ai/strong/surrogate-opponent-continuations-v1.cjs": "582e001232d3b07dad16b29fe6dc4b933869ccb8485c6167c185372af03c288f",
+      "ai/strong/surrogate_continuation_roots_v1.py": "32bb3995c339b325698c7b760df97ddf8f1ae19c2decf1d1b2c0821d0bf8a185",
+      "ai/strong/surrogate_continuation_runtime_v1.py": "88d963595067128d950e1d14285af9863455b7830cb22b95f2533ab684069e0b",
+      "ai/strong/surrogate_continuation_study_v1.py": "657c882af7cc2012fcaa7a34f9512efd7d3fa7e1c28dc420f6585838c556dd6a",
+      "ai/strong/surrogate_opponent_continuations_v1.py": "00dfc09f14a2cfe0763f7466b60cc4c9fc315daca237e917c729136bc61044b5",
+      "ai/strong/fixtures/surrogate-continuation-runtime-roots-v1.json": "bddae36ec570fb2c219f5727efc729d1ce1061fc2dbcf37e4a6fe866327e0114"
+    },
+    "inputs_sha256": "bddae36ec570fb2c219f5727efc729d1ce1061fc2dbcf37e4a6fe866327e0114",
+    "calibration_sha256": "4335b815c29797d79e588069b4615a898ca7008bcff9323f0132d3c40a64f8ac",
+    "preflight_sha256": "9195c10c9f75b21309800e35b48b7db7ab03d8a6bc4a793444206fccf63fdf13",
+    "protocol_sha256": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+    "roots": 24,
+    "continuations": 768,
+    "calibration_only": true,
+    "gradients": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false,
+    "layout_sha256": "7825a811684fa1d2852ba237e39f9e853566c972ccb8428e79b42489e274544f",
+    "revision": "954e14c072a297dca7a101eb8264c78176f6ae3d",
+    "remote_archive_verified": true
+  },
+  "plan_sha256": "f3b6db36de43fe4270e3f8b2e6580aab3ee921c85c58e78c869ff8425163dbfd",
+  "measurements": {
+    "2p-0-bid": {
+      "job_id": "6add8b181e112550ce7e74ac",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 148.56493959899672,
+          "cpu_seconds": 344.39000000000004,
+          "sampled_peak_total_rss_bytes": 2058174464,
+          "memory_samples": 737,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "74ec97734b2b2e2be8765a714246e1f984ea934ee298e94f9f8038e1f50e175d",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 51936,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 51936,
+            "row_attributed_nested_evaluations": 51936
+          }
+        },
+        "neural_population": {
+          "seconds": 3.462059382996813,
+          "cpu_seconds": 8.949999999999989,
+          "sampled_peak_total_rss_bytes": 961077248,
+          "memory_samples": 18,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "755638cc2357be37224380dd008a615429bb2f66cd90bb832118957860840941",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 155671
+    },
+    "2p-0-building": {
+      "job_id": "6add8b181e112550ce7e74ae",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 85.72180743899662,
+          "cpu_seconds": 230.05,
+          "sampled_peak_total_rss_bytes": 2105593856,
+          "memory_samples": 426,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "60801e28c0e432904b014057c8dbc5b03b90e4cc8bab142477981a6af96fde5a",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 39296,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 39296,
+            "row_attributed_nested_evaluations": 39296
+          }
+        },
+        "neural_population": {
+          "seconds": 3.4842615879970253,
+          "cpu_seconds": 9.200000000000017,
+          "sampled_peak_total_rss_bytes": 960245760,
+          "memory_samples": 18,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "872615d51622bce1bca7cfce62a941d9c89f1573fa76e35f1777eb02f680a713",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 241482
+    },
+    "2p-0-plant": {
+      "job_id": "6add8b191e112550ce7e74b0",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 2.7812845000007655,
+          "cpu_seconds": 18.81,
+          "sampled_peak_total_rss_bytes": 1412276224,
+          "memory_samples": 14,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "7db37d3f206228034dd61bd83bca96ba92d4a6a4241516ff0339b7a50b36e89b",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 5888,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 5888,
+            "row_attributed_nested_evaluations": 5888
+          }
+        },
+        "neural_population": {
+          "seconds": 0.9138819449945004,
+          "cpu_seconds": 3.770000000000003,
+          "sampled_peak_total_rss_bytes": 894365696,
+          "memory_samples": 5,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "eb788d4cfb2b3b96b012e5e0effd25b71b9faaaff494db8225e783e9dd07f649",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 396390
+    },
+    "2p-1-bid": {
+      "job_id": "6add8b1a1e112550ce7e74b2",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 205.95893299499585,
+          "cpu_seconds": 385.09000000000003,
+          "sampled_peak_total_rss_bytes": 2112589824,
+          "memory_samples": 1019,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "6403f16958d215a87aa1f00e5e2c9f1b42ce9db14b9e1a2239aab0518da41bd4",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 55376,
+            "prior_evaluations_once_per_worker_world": 640,
+            "row_attributed_prior_evaluations": 1280,
+            "actual_nested_evaluations": 56016,
+            "row_attributed_nested_evaluations": 56656
+          }
+        },
+        "neural_population": {
+          "seconds": 14.245794247995946,
+          "cpu_seconds": 36.769999999999925,
+          "sampled_peak_total_rss_bytes": 975110144,
+          "memory_samples": 69,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "09783f891efd58f685ea6eb1b80fa1f7b3f900a180f25eaa6ec5a70dcdaf01de",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 97889
+    },
+    "2p-1-building": {
+      "job_id": "6add8b1c046eb82b1ece2558",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 59.942373094003415,
+          "cpu_seconds": 141.32999999999996,
+          "sampled_peak_total_rss_bytes": 2134421504,
+          "memory_samples": 298,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "dbf4c676554953b2ca037ccacf410051a6eb1cc23575144f399bc7b6f5e5022c",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 28304,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 28304,
+            "row_attributed_nested_evaluations": 28304
+          }
+        },
+        "neural_population": {
+          "seconds": 2.0459037690015975,
+          "cpu_seconds": 6.320000000000022,
+          "sampled_peak_total_rss_bytes": 957362176,
+          "memory_samples": 11,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "f43b20af688046d16519809020b36b9c080d64e6499c96f12720d14056c5f29a",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 274897
+    },
+    "2p-1-plant": {
+      "job_id": "6add8b1e1e112550ce7e74b4",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 114.52999650000129,
+          "cpu_seconds": 285.52,
+          "sampled_peak_total_rss_bytes": 2083254272,
+          "memory_samples": 568,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "b219d249541724dfd34a2fad6e5769186c9438ebdcd12dcb25bb69bcf397fa53",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 46480,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 46480,
+            "row_attributed_nested_evaluations": 46480
+          }
+        },
+        "neural_population": {
+          "seconds": 3.9394829539960483,
+          "cpu_seconds": 10.220000000000027,
+          "sampled_peak_total_rss_bytes": 960143360,
+          "memory_samples": 20,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "ff8b04387a39804220c9150b7b5c597b24932b55d5427ca1a23e995108f613f5",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 132311
+    },
+    "2p-2-bid": {
+      "job_id": "6add8b201e112550ce7e74b8",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 3.5478479500015965,
+          "cpu_seconds": 23.84,
+          "sampled_peak_total_rss_bytes": 1405603840,
+          "memory_samples": 18,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "77a091ec7c5162b2b0550a7f5490bb8dc3667581f2d1f7ef647635e08f47e2fe",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 5120,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 5120,
+            "row_attributed_nested_evaluations": 5120
+          }
+        },
+        "neural_population": {
+          "seconds": 1.1524297170035425,
+          "cpu_seconds": 4.049999999999997,
+          "sampled_peak_total_rss_bytes": 941703168,
+          "memory_samples": 6,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "1467d615186df8462b4b61a9c461934309ca5a6a85a504cb9eed2a43e48bdd72",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 461881
+    },
+    "2p-2-building": {
+      "job_id": "6add8b22046eb82b1ece255c",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 86.68491924300179,
+          "cpu_seconds": 230.99,
+          "sampled_peak_total_rss_bytes": 2097725440,
+          "memory_samples": 431,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "b1d6fff9d4dc2e2ca72d84aaa0ec003871c3b23b00c2dd3155244bb4b5f704f5",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 41344,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 41344,
+            "row_attributed_nested_evaluations": 41344
+          }
+        },
+        "neural_population": {
+          "seconds": 3.143410741999105,
+          "cpu_seconds": 8.399999999999949,
+          "sampled_peak_total_rss_bytes": 974209024,
+          "memory_samples": 16,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "32056e81ecfdcf62c0ab79d575c82894ffbe6d96dfbb1f930cae823dfa8b64da",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 277084
+    },
+    "2p-2-plant": {
+      "job_id": "6add8b25046eb82b1ece255e",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 30.681824908002454,
+          "cpu_seconds": 107.38999999999999,
+          "sampled_peak_total_rss_bytes": 2082869248,
+          "memory_samples": 153,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "bf38d896664ebf1286dbe9531a5fcc0d182684ff3634ce08f89040e19fb9b3ec",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 22176,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 22176,
+            "row_attributed_nested_evaluations": 22176
+          }
+        },
+        "neural_population": {
+          "seconds": 1.8906450290014618,
+          "cpu_seconds": 5.840000000000003,
+          "sampled_peak_total_rss_bytes": 964382720,
+          "memory_samples": 10,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "e1ff4d7f41a71e9d07653673e3df02cb305c19f8006c4a440a244bf198252c53",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 389642
+    },
+    "2p-3-bid": {
+      "job_id": "6add8b28046eb82b1ece2561",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 107.30472138099867,
+          "cpu_seconds": 247.02999999999994,
+          "sampled_peak_total_rss_bytes": 2064019456,
+          "memory_samples": 533,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "24181ac88ec1c22dad61d72a12aa88a33fd34e3f25583988220d794fc51538cd",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 43552,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 43552,
+            "row_attributed_nested_evaluations": 43552
+          }
+        },
+        "neural_population": {
+          "seconds": 2.6195371709982282,
+          "cpu_seconds": 7.430000000000064,
+          "sampled_peak_total_rss_bytes": 953069568,
+          "memory_samples": 13,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "fbe3ee5ce32c57e1ed8f90c5e1c080cb98edf3f2b307154ce4b7047e5392e570",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 262423
+    },
+    "2p-3-building": {
+      "job_id": "6add8b2b1e112550ce7e74c3",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 179.76688407700567,
+          "cpu_seconds": 431.21,
+          "sampled_peak_total_rss_bytes": 2075033600,
+          "memory_samples": 892,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "c54a42d001465d62f9abfc8be5dc754bd89edc43e7359209563c653fafaebb12",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 64320,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 64320,
+            "row_attributed_nested_evaluations": 64320
+          }
+        },
+        "neural_population": {
+          "seconds": 4.8948188640060835,
+          "cpu_seconds": 11.370000000000061,
+          "sampled_peak_total_rss_bytes": 970596352,
+          "memory_samples": 25,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "2e568a0ac5cb28690224acfc734f9eeefbbf9c6524a4dabb6910182468ab8805",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 105681
+    },
+    "2p-3-plant": {
+      "job_id": "6add8b2f1e112550ce7e74c8",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 13.64363463200425,
+          "cpu_seconds": 75.46,
+          "sampled_peak_total_rss_bytes": 2047176704,
+          "memory_samples": 68,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "1673d129ad718acfe49df38058f8aeca183f1a7c0bde81eb80c32d976832d11c",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 18128,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 18128,
+            "row_attributed_nested_evaluations": 18128
+          }
+        },
+        "neural_population": {
+          "seconds": 1.4045057659968734,
+          "cpu_seconds": 4.689999999999998,
+          "sampled_peak_total_rss_bytes": 941334528,
+          "memory_samples": 7,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "0654c9b59aed0811df67bcf49d05a95bc253516d56560485015ce132868af8a1",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 353224
+    },
+    "6p-0-bid": {
+      "job_id": "6add8b32046eb82b1ece2566",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 144.64972900000066,
+          "cpu_seconds": 601.4599999999999,
+          "sampled_peak_total_rss_bytes": 2235400192,
+          "memory_samples": 718,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "97e1753b5c9c48198a93e71f19ee0f4ca400266cec03d6bf8e024231baf4e99d",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 94880,
+            "prior_evaluations_once_per_worker_world": 640,
+            "row_attributed_prior_evaluations": 1280,
+            "actual_nested_evaluations": 95520,
+            "row_attributed_nested_evaluations": 96160
+          }
+        },
+        "neural_population": {
+          "seconds": 2.629632304997358,
+          "cpu_seconds": 7.440000000000055,
+          "sampled_peak_total_rss_bytes": 972369920,
+          "memory_samples": 13,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "ca89f402649a8833afe667daee4abf6106d6a61d23769beffbd92cd7d976baf2",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 427850
+    },
+    "6p-0-building": {
+      "job_id": "6add8b36046eb82b1ece2568",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 7.384779365998838,
+          "cpu_seconds": 53.370000000000005,
+          "sampled_peak_total_rss_bytes": 2027646976,
+          "memory_samples": 37,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "0489dd69bab8bd66b35e500d9a834ae09b239a810e49c8f4dfe9a1c36a985539",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 15104,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 15104,
+            "row_attributed_nested_evaluations": 15104
+          }
+        },
+        "neural_population": {
+          "seconds": 0.8852249739975377,
+          "cpu_seconds": 3.9200000000000017,
+          "sampled_peak_total_rss_bytes": 1006424064,
+          "memory_samples": 5,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "c2a3ce33f17e7debf1c8af7933e02c18cb9dffe19b56faccc2ba43564ecd1450",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 684892
+    },
+    "6p-0-plant": {
+      "job_id": "6add8b3b046eb82b1ece256a",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 194.83572917200217,
+          "cpu_seconds": 686.1,
+          "sampled_peak_total_rss_bytes": 2217119744,
+          "memory_samples": 967,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "4e44527d74a1e2ac50a905f2016d7275646d8dd06852fe1e85287c4624998d7b",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 101696,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 101696,
+            "row_attributed_nested_evaluations": 101696
+          }
+        },
+        "neural_population": {
+          "seconds": 3.445205456999247,
+          "cpu_seconds": 9.149999999999977,
+          "sampled_peak_total_rss_bytes": 974573568,
+          "memory_samples": 18,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "06c715acc00dc40eaa570094bc2af1eb2b4a66fd66ab60757831224046593e44",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 378474
+    },
+    "6p-1-bid": {
+      "job_id": "6add8b401e112550ce7e74ca",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 95.39354096399984,
+          "cpu_seconds": 371.49999999999994,
+          "sampled_peak_total_rss_bytes": 2119176192,
+          "memory_samples": 474,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "60c5f2c268acecf73c4093baeab31d71d235393dc3b975b2f32ac6e55e9a10c1",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 60272,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 60272,
+            "row_attributed_nested_evaluations": 60272
+          }
+        },
+        "neural_population": {
+          "seconds": 2.029579300000478,
+          "cpu_seconds": 5.920000000000073,
+          "sampled_peak_total_rss_bytes": 962277376,
+          "memory_samples": 11,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "367245bb23193c4f6db8867743127dd09bbbc2c7c64f52ab16ac4b5b162afb8b",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 559845
+    },
+    "6p-1-building": {
+      "job_id": "6add8b44046eb82b1ece2571",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 0.4932355990022188,
+          "cpu_seconds": 2.1000000000000014,
+          "sampled_peak_total_rss_bytes": 838184960,
+          "memory_samples": 3,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "5516364b483267990e527a43807405a1470cd547862e782fff9dda1416cbe9e3",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        },
+        "neural_population": {
+          "seconds": 0.6204778210012591,
+          "cpu_seconds": 3.1600000000000037,
+          "sampled_peak_total_rss_bytes": 935464960,
+          "memory_samples": 4,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "cd7549e9820c5994ced4876ba7c74ae6289f59ae8103789359fab4f0b6f0355a",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 574040
+    },
+    "6p-1-plant": {
+      "job_id": "6add8b491e112550ce7e74d2",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 427.07074073499825,
+          "cpu_seconds": 1288.92,
+          "sampled_peak_total_rss_bytes": 2610913280,
+          "memory_samples": 2105,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "438b2686d9720c3d0b5a76f17c0a3751613a811af43215ea223d79a6ce421720",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 129360,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 129360,
+            "row_attributed_nested_evaluations": 129360
+          }
+        },
+        "neural_population": {
+          "seconds": 9.996800642999006,
+          "cpu_seconds": 26.389999999999873,
+          "sampled_peak_total_rss_bytes": 985169920,
+          "memory_samples": 50,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "8cfc20102a0cdc5324113cfa632fe31d38c953667c88c3ec3899581bca88ca8e",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 356653
+    },
+    "6p-2-bid": {
+      "job_id": "6add8b4f046eb82b1ece257f",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 2294.9482014259993,
+          "cpu_seconds": 6303.530000000001,
+          "sampled_peak_total_rss_bytes": 2802704384,
+          "memory_samples": 11189,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "19e99c595d41702e2fcf34f4f1be7d9534a04e1891f965fc958c93811fe4f174",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 299104,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 299104,
+            "row_attributed_nested_evaluations": 299104
+          }
+        },
+        "neural_population": {
+          "seconds": 7.563135371005046,
+          "cpu_seconds": 16.25999999999931,
+          "sampled_peak_total_rss_bytes": 972091392,
+          "memory_samples": 38,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "0a3c9d183ff1f836e0e6a80118c244461586dd18bf71f0b6b9bdf8395e03c87e",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 144001
+    },
+    "6p-2-building": {
+      "job_id": "6add8b55046eb82b1ece2584",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 1498.4110813849984,
+          "cpu_seconds": 3635.3199999999997,
+          "sampled_peak_total_rss_bytes": 2898509824,
+          "memory_samples": 7428,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "bcce1990f48db4f7e234137083f12f0f0854dd91972f7060987379c6074e3ae3",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 264864,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 264864,
+            "row_attributed_nested_evaluations": 264864
+          }
+        },
+        "neural_population": {
+          "seconds": 5.623501932997897,
+          "cpu_seconds": 12.980000000000473,
+          "sampled_peak_total_rss_bytes": 988569600,
+          "memory_samples": 28,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "1aadbc7d50fe53d47eb2c8b3e3bfa88ee4f7643a69051d93d208306da7367980",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 184937
+    },
+    "6p-2-plant": {
+      "job_id": "6add8b5b1e112550ce7e74dd",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 38.8141257870011,
+          "cpu_seconds": 177.65999999999997,
+          "sampled_peak_total_rss_bytes": 2096697344,
+          "memory_samples": 193,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "e704ea683f1c5f0cbece423578cfe83476d7ec8dd6309a683706968a93420c57",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 36208,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 36208,
+            "row_attributed_nested_evaluations": 36208
+          }
+        },
+        "neural_population": {
+          "seconds": 1.5249888809994445,
+          "cpu_seconds": 5.0400000000000205,
+          "sampled_peak_total_rss_bytes": 985296896,
+          "memory_samples": 8,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "09f08df4973057e948d88fe5582fa973cc4e7425fc7033bbd88ecd66f09f8f56",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 583534
+    },
+    "6p-3-bid": {
+      "job_id": "6add8b601e112550ce7e74df",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 2314.6982809330075,
+          "cpu_seconds": 5894.59,
+          "sampled_peak_total_rss_bytes": 2609754112,
+          "memory_samples": 11310,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "0b84d5a70cfc2342b4e59e712d398e125fe3e8d2646906625104545f86de421f",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 299088,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 299088,
+            "row_attributed_nested_evaluations": 299088
+          }
+        },
+        "neural_population": {
+          "seconds": 6.9437775679980405,
+          "cpu_seconds": 15.480000000000473,
+          "sampled_peak_total_rss_bytes": 980410368,
+          "memory_samples": 35,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "2e62a4e14e564479b1363d106a057f6e994c8308c48c6f44ac9271cf955e1d4b",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 150038
+    },
+    "6p-3-building": {
+      "job_id": "6add8b67046eb82b1ece2588",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 1833.578100957995,
+          "cpu_seconds": 5735.1900000000005,
+          "sampled_peak_total_rss_bytes": 2843828224,
+          "memory_samples": 9002,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "90f06cdd06ee37dc07c54b8c59d83424185f50acab3d64ea4a9d3c990a23d2c0",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 297616,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 297616,
+            "row_attributed_nested_evaluations": 297616
+          }
+        },
+        "neural_population": {
+          "seconds": 6.203991098998813,
+          "cpu_seconds": 13.639999999999418,
+          "sampled_peak_total_rss_bytes": 1003843584,
+          "memory_samples": 31,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "c97633aa3baf9620812b9d1e9b7e98aede1e3c4f2d08a3238f4dbe9c83d2fb8f",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 193473
+    },
+    "6p-3-plant": {
+      "job_id": "6add8b6d1e112550ce7e74e7",
+      "modes": {
+        "reference_opponent_v1": {
+          "seconds": 785.9286615849996,
+          "cpu_seconds": 1872.94,
+          "sampled_peak_total_rss_bytes": 2219823104,
+          "memory_samples": 3837,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "547eb8610d7c7d59dd2fe3d8ea8f5743a33fccd39e75f6bebec41e7e48f72ad8",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 140992,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 140992,
+            "row_attributed_nested_evaluations": 140992
+          }
+        },
+        "neural_population": {
+          "seconds": 8.222632742996211,
+          "cpu_seconds": 23.24000000000001,
+          "sampled_peak_total_rss_bytes": 976818176,
+          "memory_samples": 40,
+          "memory_sampling_period_seconds": 0.2,
+          "status_sha256": "9072382905f60a6e564e14e5d33b7b337246d7a6668f7bc7644058e6154f4b48",
+          "rows": 16,
+          "search_work": {
+            "forward_evaluations": 0,
+            "prior_evaluations_once_per_worker_world": 0,
+            "row_attributed_prior_evaluations": 0,
+            "actual_nested_evaluations": 0,
+            "row_attributed_nested_evaluations": 0
+          }
+        }
+      },
+      "raw_evidence_bytes": 422771
+    }
+  },
+  "search_work": {
+    "forward_evaluations": 2161104,
+    "prior_evaluations_once_per_worker_world": 1280,
+    "row_attributed_prior_evaluations": 2560,
+    "actual_nested_evaluations": 2162384,
+    "row_attributed_nested_evaluations": 2163664
+  },
+  "search_work_note": "Prior-bid evaluations are computed once per worker/world but copied into both action rows. The original receipt field nested_reference_evaluations is row-attributed, not the physical count. This independent audit deduplicates priors using the frozen 16-environment / 8-worker partition without changing any execution or raw receipt.",
+  "code_hashes": {
+    "ai/strong/launch-surrogate-continuation-cost-v1.py": "31ef14ce8d6a8d3a78ee2efb713b5a21114dc5a7f56b9a6b52bb51da5d9d84c9",
+    "ai/strong/launch-opponent-surrogate-runtime-v1.py": "7f1af8aab9fb0db741f3c0d00ae77e20c03854c858a9794211c97d700aebe354",
+    "ai/strong/surrogate_continuation_runtime_v1.py": "88d963595067128d950e1d14285af9863455b7830cb22b95f2533ab684069e0b",
+    "ai/strong/build-surrogate-continuation-runtime-source-v1.py": "59194982de79cd7f1a630af9cfe94ab21ac458b6d1d3343c47af8b74ed2752f6",
+    "ai/strong/surrogate_continuation_study_v1.py": "657c882af7cc2012fcaa7a34f9512efd7d3fa7e1c28dc420f6585838c556dd6a",
+    "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+    "ai/strong/manage-surrogate-continuation-cost-v1.py": "31179f23937ed4d6aefbf862e5e40d9aea08868c2b18a5679393ddc43dfe72df",
+    "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+    "ai/strong/surrogate_opponent_continuations_v1.py": "00dfc09f14a2cfe0763f7466b60cc4c9fc315daca237e917c729136bc61044b5",
+    "ai/strong/collect-surrogate-continuation-cost-evidence-v1.py": "3610fdf70b14664b6c604630d7feb201ece5ffae8795e6ee957cfcadd5d5d54c",
+    "ai/pool.py": "3b33133425d84430a6376834422478d70fe51a9c855d1e06937f109cd3620dd8"
+  },
+  "full_study_admitted": false,
+  "gradient_updates": 0,
+  "new_hf_jobs": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "scope": "Complete HF cost calibration on separate runtime roots. Not fidelity, model selection, calibrated win probability or full-game playing strength.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "e81e65d011c6d9017f49410034025e66cfc765be",
+  "archive_path": "archives/surrogate-continuation-cost-complete-evidence-v1.tgz",
+  "archive_sha256": "1fe448c5ba27ea2338f5631a2b4318ecb0deb30f21acd16bbaf6fcca7d2ec4ac",
+  "manifest_sha256": "78491de7bc601c2c69ff9efbbc4e3b140f8e9e3f5ab654cdd9c186c86dff2da9",
+  "archived_files": 394,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

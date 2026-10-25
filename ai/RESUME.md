@@ -6,7 +6,68 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 05:28 UTC: fresh roots archived; training coordinator running.**
+**Latest — 25 October, 05:42 UTC: complete cost evidence and paired HF job runner.**
+
+The full reference/mixture runtime calibration is complete: **24 original jobs /
+768 continuations / zero caps**, all independently verified and all terminal
+credits recomputed. Private archive: HF `e81e65d011c6d9017f49410034025e66cfc765be`, SHA256
+`1fe448c5ba27ea2338f5631a2b4318ecb0deb30f21acd16bbaf6fcca7d2ec4ac` (**394 files**). Original index/archive session **36341**
+completed; do not repeat it. Descriptors: `strong/surrogate-continuation-cost-results-v1.json`
+and `strong/surrogate-continuation-cost-complete-evidence-v1.json`.
+
+Actual reference search: **110.92 s median**, **2,314.70 s maximum** (6p Recharged/open
+bid), **29,143.79 CPU seconds total**, **2.899 GB maximum sampled summed RSS**.
+Existing mixture: **3.29 s median**, **14.25 s maximum**, **259.63 CPU seconds total**,
+**1.006 GB maximum RSS**. These measure diagnostic continuations on HF CPU-upgrade,
+not 8840U bot decisions. Physical nested work is **2,162,384 evaluations**, comprising
+2,161,104 forward and 1,280 shared prior-bid evaluations. The unchanged raw action
+receipts attribute those shared priors twice (2,163,664); both counters are retained.
+No full-study admission is implied; the actual selected surrogate still needs timing.
+
+`strong/surrogate_continuation_job_v1.py` now executes all three modes for one frozen
+root: **8 worlds × 2 actions × 3 modes = 48 continuations**, sequential modes with
+eight workers. The HF entry requires the full frozen 160-game corpus, fixed task
+grid, selected learned policy/member hashes, source manifest and environment pins.
+It records time, CPU, RSS and physical search work; independently verifies every
+saved chunk; preserves action/world/role pairing; and continues the other modes
+when one has a simulation cap. Capped comparisons retain all records with no
+margin. Exceptions retain partial artifacts, and existing outputs are never rerun.
+Post-execution source failures are marked failed before the evidence upload.
+
+**Seven tests pass**: complete envelopes using actual saved records, capped and
+failed execution retention, no retries, resealed bad terminal rejection, shared
+prior accounting across all collected reference receipts, input/scope/model gates.
+A local real-engine execution through the new wrapper completed **48 continuations,
+zero caps**, exactly reproducing all 48 saved records across worker partitions.
+It used a separate **runtime root and explicitly untrained fixture**; no fresh
+scientific root or gradient update was used. All **1,463** base-runtime files remain
+unchanged. Original local session **96109** completed; do not rerun it.
+Preflight: `ai/runs/surrogate-continuation-job-preflight-proof-v1.json`, SHA256
+`55e94a35f33e2f916c4de81568556736c6cca6d796d9dafffc9127b189eb2f36`. Integration outputs: `ai/runs/surrogate-continuation-job-preflight-v1`.
+
+Original data collection remains **32/40 verified**. The inspected 6p original job
+`6add73271e112550ce7e6a20` is directly RUNNING at **78/96 games**, no errors.
+Training coordinator **PID 2825298 / session 39111** is alive, waiting for complete
+collection; it still owns all subsequent preparation/calibration/training/selection
+stages. Its code and the original data coordinator's pinned code are unchanged.
+No new HF jobs this checkpoint. Checkpoint:
+`ai/runs/surrogate-continuation-job-checkpoint-v1.json`, SHA256
+`9c3050d0e1ae3f1477a060b719f79d96b1c4b4cb985046bcb1660dda9ca58230`.
+
+Next: let the original data/training coordinators advance. Build the full study
+source packager (not yet implemented) from all 1,463 unchanged base files plus
+study/analysis/job modules, the actual prepared frozen roots/policy and selected
+ONNX members. It must verify the actual trained validation selection, execute an
+isolated layout check on all 480 public roots, and preserve upload intent/receipt.
+Measure the actual selected surrogate on separate runtime roots; use that plus the
+completed reference cost evidence for job sizing/timeouts. Implement the measured
+launcher/collector and run the full paired study only after both inputs are frozen.
+The job runner and aggregate analysis are now available; no full-study jobs have
+been admitted or submitted. A heterogeneous hybrid, fresh full-game strength,
+selected-policy final adapter and actual 8840U hybrid benchmark remain required.
+No candidate, qualification, publication, final-seed use or general plateau claim.
+
+**Previous — 25 October, 05:28 UTC: fresh roots archived; training coordinator running.**
 
 All five original fresh-root jobs completed. Their original coordinator
 **PID 2536982 / session 93486** reached `collection_complete` at **05:19:21 UTC**

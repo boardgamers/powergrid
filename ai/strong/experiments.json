@@ -58272,5 +58272,34 @@
         "gradient_updates": 0,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
+    },
+    "opponent_surrogate_training_coordinator_v1": {
+        "preflight_sha256": "3efc2cbd06b0d83341ba3d63b221f2f33754996c1c3baaaf19e572066644c9d9",
+        "checkpoint_sha256": "aa31a9a0e606eacefa83b3d231c1c04054126622f037ea4625063d8ca139335a",
+        "tests_passed": 10,
+        "original_pid": 2825298,
+        "original_exec_session": 39111,
+        "pinned_code_files": 30,
+        "maximum_hf_jobs": 2,
+        "stage_at_checkpoint": "waiting_for_complete_collection",
+        "new_hf_jobs_at_checkpoint": 0,
+        "gradient_updates_at_checkpoint": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
+    },
+    "surrogate_continuation_roots_complete_evidence_v1": {
+        "games": 160,
+        "selected_roots": 480,
+        "eligible_decisions": 8813,
+        "terminal_players_independently_checked": 720,
+        "revision": "8d62c24b75a76b8424e2fd4d231c407f5dfb51ce",
+        "archive_sha256": "fcaaf681be3a03fc825e80476492656a1bd0b3569b9e065e092048a6f03ced61",
+        "archived_files": 876,
+        "root_manifest_sha256": "d5f865cd63836dad11f3aeff216b6b8910e389ff8d85fce34206a358fe0fc3b1",
+        "descriptor_sha256": "2a9256ded22b928cc4e2e3b48a5e46f9f7b1a194c224c5ea6116d8db35f5dd89",
+        "archive_session": 15481,
+        "archive_complete": true,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

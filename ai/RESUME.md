@@ -6,7 +6,70 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 05:17 UTC: paired fidelity analysis verified.**
+**Latest — 25 October, 05:28 UTC: fresh roots archived; training coordinator running.**
+
+All five original fresh-root jobs completed. Their original coordinator
+**PID 2536982 / session 93486** reached `collection_complete` at **05:19:21 UTC**
+and exited normally; do not restart it. The frozen manifest has **160 games /
+480 roots / all 60 count-rule-phase groups / 8,813 eligible decisions**, no missing
+phases or game/search caps. Every game contributes each phase. Manifest SHA256
+`d5f865cd63836dad11f3aeff216b6b8910e389ff8d85fce34206a358fe0fc3b1`.
+
+The new `collect-surrogate-continuation-roots-evidence-v1.py` reproduces the full
+manifest from the original verified receipts, checks its coverage with the paired
+analysis, and independently recomputes all **720 terminal player credits** after
+root selection is frozen. The complete **876-file** evidence archive is privately
+verified at HF revision `8d62c24b75a76b8424e2fd4d231c407f5dfb51ce`, archive SHA256
+`fcaaf681be3a03fc825e80476492656a1bd0b3569b9e065e092048a6f03ced61`. Descriptor:
+`strong/surrogate-continuation-roots-complete-evidence-v1.json`. Original archive
+session **15481** completed; never re-upload it. The index is
+`strong/surrogate-continuation-roots-results-v1.json`; frozen inputs are under
+`ai/runs/surrogate-continuation-roots-frozen-v1`.
+
+The training coordinator is implemented and running: **PID 2825298 / session
+39111**, `ai/strong/coordinate-opponent-surrogate-training-v1.py --execute
+--interval-seconds 180 --max-hours 48`. It pins **30 source files**, waits for the
+complete 40-shard collection, then owns data preparation, private data/source
+packaging, exactly one L4 calibration, measured full four-seed training, independent
+artifact verification, and validation-only selection. Existing launcher memory,
+time, export and complete-data checks remain authoritative. It never retries a
+failed/uncertain action, replaces a job after an observation timeout, runs local
+gradients, opens held-out labels for selection, or launches fidelity/strength jobs.
+It finishes normally even if the economic prior wins validation, preserving that
+negative result and leaving the test split closed.
+
+**Ten orchestration tests pass**, covering complete-data gating, exact action order,
+original job reuse, observation errors, failed jobs, uncertain submissions/uploads,
+changed source/evidence, competing owners, read-only dry run and prior-winning
+selection. These tests submit no HF jobs. Preflight:
+`ai/runs/opponent-surrogate-training-coordinator-preflight-v1.json`, SHA256
+`3efc2cbd06b0d83341ba3d63b221f2f33754996c1c3baaaf19e572066644c9d9`. State/log:
+`ai/runs/opponent-surrogate-training-coordinator-v1/state.json` and
+`ai/runs/opponent-surrogate-training-coordinator-v1.log`.
+**If the user asks to pause or stop new jobs, stop this local coordinator first:**
+it is authorized to launch the two GPU stages once their prerequisites pass.
+Do not start a second coordinator or run its stages concurrently by hand.
+
+At the checkpoint it is alive, waiting for complete collection, with no GPU jobs
+launched. The original collection coordinator remains alive at **32/40 verified**;
+original job `6add73271e112550ce7e6a20` is directly RUNNING at **65/96 games**, no
+errors. Cost calibration advanced to **22/24 verified / 704 continuations / zero
+caps**. Only original `6add8b4f046eb82b1ece257f` and
+`6add8b601e112550ce7e74df` remain; both directly RUNNING. No replacements or new HF
+jobs at this checkpoint. Checkpoint:
+`ai/runs/opponent-surrogate-training-coordinator-checkpoint-v1.json`, SHA256
+`aa31a9a0e606eacefa83b3d231c1c04054126622f037ea4625063d8ca139335a`.
+
+Next: collect those two original cost jobs, index and archive the full calibration.
+Let the original data and training coordinators advance; inspect their original
+handles rather than duplicating stages. After the learned selection is frozen,
+prepare the fixed full-study inputs, measure surrogate runtime, and package/launch
+and collect the paired fidelity study using the implemented analysis. A verified
+heterogeneous hybrid, fresh full-game strength, selected-policy final adapter and
+actual 8840U hybrid timings remain required. No candidate, qualification,
+publication, final-seed use or general plateau claim.
+
+**Previous — 25 October, 05:17 UTC: paired fidelity analysis verified.**
 
 The full paired fidelity analysis is implemented in
 `strong/surrogate_continuation_analysis_v1.py`, with the fixed details in

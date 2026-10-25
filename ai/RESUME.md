@@ -6,7 +6,72 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 01:05 UTC: resource-screen orchestration prepared and tested.**
+**Latest — 25 October, 01:15 UTC: calibration complete, resource screen launched, auction diagnostic audited.**
+
+The previous goal turn made concrete progress: resource collection/comparison and
+coordinator implementation, ten passing tests and push `fa1f681`. This turn completed
+both pending experiments' verification, archived their evidence and started the
+fresh resource-strength screen. No candidate is selected or qualified.
+
+**Resource calibration:** both original jobs are complete. All **32 games / 4,072
+learner decisions / 1,228 resource searches / 89,632 continuations** match the local
+pilot exactly, zero caps. The 6p endpoint used **1,896.21 s wall / 12,197.48 s CPU**,
+with **8.15 GB sampled summed RSS**; resource-only median/p95 **7.80 / 21.02 s** under
+parallel HF execution. These are runtime-only deals, not strength or 8840U latency.
+Full 106-file archive: private HF revision `06103b8b9a50a391d51e4e00b2f2ba8e8d34bb5f`,
+SHA256 `274743522941e5d6d0065ebbb719aebec76a6a8bd2b74a99aac00fcc0120565a`.
+Descriptor: `strong/resource-hf-calibration-evidence-v1.json`. Do not rearchive.
+
+**Resource screen is RUNNING:** the measured plan fixes **54 jobs / 3,360 games**,
+2 arms, 27 count/opponent cells, all 2–6-player seats and all four rule combinations.
+Each job covers four whole deals on **cpu-upgrade (8 vCPU / 32 GB)**, eight game
+workers, one search worker, eight worlds, 2,400/1,600 horizons, **6-hour timeout**,
+maximum **32 concurrent jobs**. The first 32 were submitted once. At the 01:15:01 UTC
+checkpoint, direct HF inspection showed **30 RUNNING / 2 COMPLETED**; completed
+shards were not yet collected. No partial strength comparison has been made.
+
+Coordinator **session 11670 / PID 1291091**:
+`ai/runs/resource-replanning-development-coordinator-v1/{state.json,coordinator.log,latest-status.json}`.
+Original IDs and guards: `ai/runs/resource-replanning-development-launches-v1/`.
+Plan: `strong/resource-replanning-development-plan-v1.json`, SHA256
+`19be586eb881b2c065a5f79454ec858a0c1e750f281f713c4be513b3d46badbf`.
+All 54 shard dry runs plus coordinator passed before submission; receipt:
+`ai/runs/resource-development-admission-preflight-v1/receipt.json`.
+The first inline preflight driver stopped on a missing `ai/strong` import path
+before any outputs or job guards; correcting its PYTHONPATH passed without changing
+frozen code. Evidence/plan pushed in `6bc5d5d` before dispatch. New jobs use the
+unchanged pinned source and policy; no batching optimization was injected.
+Checkpoint: `ai/runs/resource-development-launched-checkpoint-v1.json`.
+
+**Auction opponent diagnostic is COMPLETE:** coordinator **76600 / PID 443128**
+ended successfully, **28/28 verified**, 896 reference continuations plus 896 mixture
+controls, zero caps. All terminal credits, fixed world/action grids and paired
+bootstrap summaries were independently audited. Full 301-file archive: private HF
+revision `baa0e390312c92e9bde3a2979e1e310a1a9330e4`, SHA256
+`131837afcf38a3dde522fa0810551d744cf309670ec1d475fcf8359d9293f1c6`.
+Descriptors: `strong/reference-opponent-comparison-v2.json` and
+`strong/reference-opponent-complete-evidence-v2.json`. Do not restart/rearchive.
+
+Replacing the simulated opponent policies reversed the sign of selected-minus-model
+advantages in **four of seven outcome-selected positions**. The held-out paired
+intervention intervals exclude zero at roots **3** and **4**, with opposite signs.
+This establishes sensitivity to opponent assumptions at these positions, not a
+universally better search or fresh playing-strength gain. Known arena opponent
+identity was diagnostic-only; prior-bid inference and future-policy changes are
+confounded where prior inference is present. No action was reselected. Full table
+and interpretation are in `HYBRID-SCREEN-2026-10-24.md`.
+
+**Next:** continue the existing resource coordinator, collect/verify all 54 batches,
+then inspect its full comparison and archive raw evidence. Failed or ambiguous jobs
+must be reconciled using original handles, never automatically replaced. Use the
+auction diagnostic to design a fresh-position experiment for stronger opponent
+coverage and uncertainty-aware overrides; do not train on these selected positions
+as answers or expose arena opponent identity in deployment. No current plateau
+claim. The exact selected-policy final adapter and full 8840U hybrid benchmark
+remain unimplemented/unproven; the old final launcher still evaluates the older
+search path. Reserved final seeds remain unused.
+
+**Previous — 25 October, 01:05 UTC: resource-screen orchestration prepared and tested.**
 
 The resource development screen now has a collector, complete comparator and
 lock-protected coordinator, alongside the measured launcher. These are host-side

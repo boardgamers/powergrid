@@ -55581,7 +55581,7 @@
         "final_seed_prefix_used": false
     },
     "reference_opponent_diagnostic_v2": {
-        "status": "complete_repaired_pilot_archived_fixed_hf_diagnostic_running",
+        "status": "complete_audited_archived",
         "pilot_session": 67264,
         "pilot_exit_code": 0,
         "pilot_evidence": {
@@ -56029,7 +56029,17 @@
             "sha256": "17f2bc53dc265e2e180ac1b4ec4b5ddf44a093bad7490318dc4e0e91ae947673",
             "jobs_verified": 26,
             "coordinator_live": true
-        }
+        },
+        "complete_evidence": {
+            "path": "ai/strong/reference-opponent-complete-evidence-v2.json",
+            "sha256": "c707551f9f467623e653d65eabd04bcc86569cd6e5f4beccf37c42b47219324d",
+            "revision": "baa0e390312c92e9bde3a2979e1e310a1a9330e4",
+            "archive_sha256": "131837afcf38a3dde522fa0810551d744cf309670ec1d475fcf8359d9293f1c6",
+            "jobs": 28,
+            "reference_continuations": 896,
+            "caps": 0
+        },
+        "interpretation": "Opponent interventions reverse the sign of fixed selected-minus-model advantages in four of seven outcome-selected roots. Held-out effect intervals exclude zero at roots 3 and 4; prior-bid and future-policy changes are confounded where prior inference is present. No fresh strength games, deployment opponent-identity access, action reselection or candidate selection."
     },
     "resource_replanning_runtime_v1": {
         "status": "complete_all_64_games_and_16_replays_archived",
@@ -56327,7 +56337,7 @@
         "remote_archives_reverified": true
     },
     "resource_replanning_hf_runtime_launcher_v1": {
-        "status": "2p_calibration_verified_6p_running",
+        "status": "both_calibration_endpoints_verified_and_archived",
         "script": "ai/strong/launch-resource-replanning-runtime-v1.py",
         "script_sha256": "b096b30eb8a60fbf6b1696e4ee5a1552aebeec819551fb8446d7101761c21587",
         "tests": "ai/strong/test_resource_runtime_launcher_v1.py",
@@ -56413,8 +56423,8 @@
         ],
         "verified_endpoints": {
             "2": {
-                "verified_file": "ai/runs/resource-replanning-hf-runtime-collected-v1/resource-replanning-hf-runtime-v1-2p-resource-filter/verified.json",
-                "verified_sha256": "2d172501f3e9485006a680ace146fe3524922d97da874402d4383bb662bf63ce",
+                "path": "ai/runs/resource-replanning-hf-runtime-collected-v1/resource-replanning-hf-runtime-v1-2p-resource-filter/verified.json",
+                "sha256": "031d37bb7b6fe147e66e809a2d0a4c121387956f3f2d952ba83b41b24c7b30ab",
                 "job_id": "6add4e77046eb82b1ece123a",
                 "evidence": {
                     "repo": "coyotte508/powergrid-ai-germany-v1",
@@ -56439,6 +56449,35 @@
                     "learner_decisions": 1306,
                     "resource_decisions": 450,
                     "resource_rollouts": 41632
+                }
+            },
+            "6": {
+                "path": "ai/runs/resource-replanning-hf-runtime-collected-v1/resource-replanning-hf-runtime-v1-6p-resource-filter/verified.json",
+                "sha256": "32a0bb2e92aae2d9b7b5f4e7eff3e0dc131aae6957917f0040fef5456805ea4d",
+                "job_id": "6add4e781e112550ce7e5a74",
+                "evidence": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "08373cd09a299467fa5e5cb7476003dbb9eee559",
+                    "archive_path": "archives/resource-replanning-hf-runtime-v1-6p-resource-filter.tgz",
+                    "archive_sha256": "9fde7274045ccb1fc0c2ff9818be91122e018113abbad770ce47e2de49ff27d2",
+                    "manifest_sha256": "886d43bb3f253dc74efec5ce2677001cc79ac56419a07c650517caab2e527f7a",
+                    "archived_files": 54,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "runtime": {
+                    "seconds": 1896.214949592999,
+                    "cpu_seconds": 12197.48,
+                    "sampled_peak_total_rss_bytes": 8154509312,
+                    "memory_samples": 18270,
+                    "memory_sampling_period_seconds": 0.1
+                },
+                "parity": {
+                    "exact": true,
+                    "games": 24,
+                    "learner_decisions": 2766,
+                    "resource_decisions": 778,
+                    "resource_rollouts": 48000
                 }
             }
         }
@@ -56614,7 +56653,7 @@
         "reserved_final_seeds_used": false
     },
     "resource_development_launcher_v1": {
-        "status": "prepared_and_tested_no_complete_calibration_no_plan_or_development_jobs",
+        "status": "measured_plan_frozen_and_launched",
         "launcher": "ai/strong/launch-resource-replanning-development-v1.py",
         "launcher_sha256": "d123b994ea0eb7442c679f9964d940abebc326448c2a1b3464cbe8d7b9a77ab3",
         "tests": "ai/strong/test_resource_development_launcher_v1.py",
@@ -56697,19 +56736,19 @@
                 "metrics_frames": 3
             }
         ],
-        "remaining_before_screen": "Complete original 6p calibration and joint archive; orchestration is now prepared/tested. Prepare measured plan, review dry runs, then dispatch.",
+        "remaining_before_screen": "None; full screen launched through the fixed coordinator. Collect all 54 shards before comparison.",
         "new_hf_jobs": 0,
         "gradients": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "latest_calibration_update": {
-            "two_player_verified_sha256": "2d172501f3e9485006a680ace146fe3524922d97da874402d4383bb662bf63ce",
-            "six_player_complete": false,
-            "development_plan_created": false
+            "both_endpoints_complete": true,
+            "complete_archive_descriptor_sha256": "29a7860e317644f60163c91f7f042d3464459808db7e4c5a9798d63bbed9d582",
+            "development_plan_created": true
         }
     },
     "resource_development_orchestration_v1": {
-        "status": "prepared_and_tested_waiting_for_complete_hf_calibration",
+        "status": "running_fixed_screen",
         "preflight": {
             "checked_at": "2026-10-25T01:04:48.418689+00:00",
             "code_hashes": {
@@ -56754,8 +56793,82 @@
         "planned_arms": 2,
         "planned_cells": 27,
         "no_policy_source_changes": true,
-        "plan_created": false,
-        "jobs_launched": 0,
+        "plan_created": true,
+        "jobs_launched": 32,
         "next": "Collect original 6p calibration; require exact local/HF parity, audit/archive both endpoints, prepare measured admission, review dry runs, then dispatch fixed screen once."
+    },
+    "resource_hf_calibration_complete_v1": {
+        "status": "complete_exact_local_hf_parity_archived",
+        "descriptor": "ai/strong/resource-hf-calibration-evidence-v1.json",
+        "descriptor_sha256": "29a7860e317644f60163c91f7f042d3464459808db7e4c5a9798d63bbed9d582",
+        "games": 32,
+        "decisions": 4072,
+        "resource_searches": 1228,
+        "continuations": 89632,
+        "caps": 0,
+        "revision": "06103b8b9a50a391d51e4e00b2f2ba8e8d34bb5f",
+        "archive_sha256": "274743522941e5d6d0065ebbb719aebec76a6a8bd2b74a99aac00fcc0120565a",
+        "new_strength_games": 0,
+        "qualification_eligible": false
+    },
+    "resource_replanning_development_v1": {
+        "status": "running",
+        "plan": "ai/strong/resource-replanning-development-plan-v1.json",
+        "plan_sha256": "19be586eb881b2c065a5f79454ec858a0c1e750f281f713c4be513b3d46badbf",
+        "admission": {
+            "admitted": true,
+            "flavor": "cpu-upgrade",
+            "vcpus": 8,
+            "ram_gb": 32,
+            "disk_gb": 50,
+            "workers": 8,
+            "search_workers": 1,
+            "samples": 8,
+            "deals_per_shard": 4,
+            "timeout_hours": 6,
+            "max_in_flight": 32,
+            "projected_seconds": 16069.719596743991,
+            "measurements": {
+                "2": {
+                    "runtime": {
+                        "seconds": 1204.863308650998,
+                        "cpu_seconds": 4932.7699999999995,
+                        "sampled_peak_total_rss_bytes": 7253655552,
+                        "memory_samples": 11689,
+                        "memory_sampling_period_seconds": 0.1
+                    },
+                    "raw_evaluation_bytes": 49138712
+                },
+                "6": {
+                    "runtime": {
+                        "seconds": 1896.214949592999,
+                        "cpu_seconds": 12197.48,
+                        "sampled_peak_total_rss_bytes": 8154509312,
+                        "memory_samples": 18270,
+                        "memory_sampling_period_seconds": 0.1
+                    },
+                    "raw_evaluation_bytes": 69263322
+                }
+            },
+            "calculation": "15 min setup + twice the slower complete HF endpoint deal times 4/2/1 whole deals; reserve 25% timeout headroom. Require 2x sampled RSS and 4x raw evaluation storage. Keep measured hardware and eight game workers.",
+            "limitation": "Endpoint measurements do not bound every new count/opponent/deal. All caps, errors and timeouts remain failures for review; no automatic retries, selective exclusions, shortened horizons or partial promotion."
+        },
+        "planned_jobs": 54,
+        "planned_games": 3360,
+        "initial_jobs_submitted": 32,
+        "coordinator_pid": 1291091,
+        "coordinator_session": 11670,
+        "checkpoint": "ai/runs/resource-development-launched-checkpoint-v1.json",
+        "checkpoint_sha256": "23a758874c08c02528eb67ced58a7e4c1f710fbcceae6763540b1f4b87f3d732",
+        "initial_authoritative_status_counts": {
+            "COMPLETED": 2,
+            "RUNNING": 30
+        },
+        "dry_run_receipt": "ai/runs/resource-development-admission-preflight-v1/receipt.json",
+        "dry_run_receipt_sha256": "9ccf9a81f4c76a0739da4903eb54b106f15b7045c4194909f891307872bc9985",
+        "gradients": false,
+        "candidate_selected": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

@@ -129,3 +129,59 @@ building/combined search or indiscriminately distilling its actions is not justi
 - Archive SHA256: `d9f140ced5394b154eaddced865723ca70e064a5e311d5ff098319d0f6f0b1fc`.
 - Comparison SHA256: `6acbd8e57990f4cb9dc775b46b3859db18ccab3cb653dc50552c92f60a86bcbb`.
 - Final qualification protocol and reserved seeds remain unchanged and unused.
+
+
+## 25 October: completed opponent-assumption diagnostic
+
+All 28 original HF jobs completed and verified: **896 reference-opponent
+continuations plus 896 fixed-mixture controls**, no outer or nested caps. Seven
+previously selected public positions each compare only the two already fixed
+model/search actions. The first eight worlds are diagnostic repeats; the primary
+comparison uses the remaining 56 worlds. No action is reselected from these results.
+
+Numbers below are **selected action minus model action terminal-credit estimates**,
+in percentage points, conditional on each sampled position and continuation setup.
+They are not full-game win rates or calibrated probabilities.
+
+| Root / selected position | Existing mixture | Reference opponents | Change, with paired 95% interval |
+|---|---:|---:|---:|
+| 0 — 4p original/open regression | +12.5 | +1.8 | −10.7 [−32.1, +12.5] |
+| 1 — 5p Recharged/open regression | −8.9 | +8.9 | +17.9 [0.0, +35.7] |
+| 2 — 3p heuristic regression | +3.6 | 0.0 | −3.6 [−14.3, +5.4] |
+| 3 — 4p Recharged/sealed improvement | −12.5 | +11.6 | +24.1 [+8.9, +41.1] |
+| 4 — 4p original/sealed improvement | +16.1 | −5.4 | −21.4 [−30.4, −12.5] |
+| 5 — 2p Recharged/sealed improvement | −1.8 | +14.3 | +16.1 [−5.4, +37.5] |
+| 6 — 6p Recharged/sealed improvement | +12.5 | +7.1 | −5.4 [−30.4, +19.6] |
+
+The intervention changes the sign at four roots (1, 3, 4, 5). Its paired interval
+excludes zero at roots 3 and 4, in opposite directions. This supports treating
+opponent-model mismatch as a real concern at these inspected positions. Increasing
+the existing mixture's sample count alone does not address that concern.
+
+Interpretation remains conditional: these roots were selected using earlier game
+outcomes; the known arena opponent identity is unavailable in deployment; and
+prior sealed-bid inference and future opponent policy changed together where prior
+inference exists (roots 4 and 6). Root 3 has no prior-bid evaluations, so its
+intervention does concern future opponent play. Reference search opponents retain
+their own historical internal rollout assumptions. None of the seven reference
+selected-minus-model intervals has a strictly positive lower bound. These results
+therefore do not certify the selected actions as training targets or establish a
+stronger deployable policy.
+
+**Decision:** continue auction research with a fresh-position experiment that tests
+stronger opponent coverage and cautious action overrides; preserve all adverse
+count/rule results and model-only controls. Keep deployment opponent identity out
+of the input contract. Do not indiscriminately distill these outcome-selected roots.
+The isolated 3,360-game resource screen is now running under its own frozen plan;
+its results are not available yet. No general plateau conclusion is justified.
+
+The independent audit recomputed terminal credits from final players, used rational
+paired margins and bootstrap block multiplicities, and checked all 64 world/action
+pairs per root. Runtime totals: **85,247.13 CPU seconds**, maximum job wall time
+**3,483.18 s**, maximum sampled summed process RSS **1.47 GB** on CPU Basic. Those
+nested-search costs are diagnostic execution, not 8840U serving latency.
+
+- [Complete comparison](strong/reference-opponent-comparison-v2.json).
+- [Independent full audit and archive descriptor](strong/reference-opponent-complete-evidence-v2.json).
+- Private HF revision: `baa0e390312c92e9bde3a2979e1e310a1a9330e4`.
+- Archive SHA256: `131837afcf38a3dde522fa0810551d744cf309670ec1d475fcf8359d9293f1c6` (301 files).

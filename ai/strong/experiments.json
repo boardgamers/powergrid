@@ -56067,12 +56067,138 @@
         "checked_at": "2026-10-25T00:38:06.911945+00:00",
         "planned_games": 64,
         "planned_independent_replays": 16,
-        "complete_cells": [
-            "2p-filter",
-            "2p-resource-filter",
-            "6p-filter",
-            "6p-resource-filter"
-        ],
+        "complete_cells": {
+            "2p-filter": {
+                "complete": true,
+                "summary": {
+                    "games": 8,
+                    "independent_deals": 1,
+                    "counts": {
+                        "decisions": 1371,
+                        "root_filter_overrides": 2,
+                        "rollouts": 0,
+                        "rollout_caps": 0,
+                        "neural_decisions": 0,
+                        "search_changes": 0,
+                        "search_decisions": 0
+                    },
+                    "wall_seconds": 27.95953416399425,
+                    "sum_game_seconds": 187.4295739690424,
+                    "max_game_seconds": 27.808965166041162,
+                    "decision_p50_ms": 7.496642007026821,
+                    "decision_p95_ms": 11.002582963556051,
+                    "report_sha256": "ab0419d9295d6c93e3cdef705ae1b67a5e18ce4434e0bd3cd8b66bcecf4c07bd",
+                    "all_receipts_verified": true,
+                    "qualification_eligible": false,
+                    "reserved_final_seeds_used": false
+                },
+                "runtime": {
+                    "seconds": 28.179551307985093,
+                    "cpu_seconds": 247.09,
+                    "sampled_peak_total_rss_bytes": 3307708416,
+                    "memory_samples": 277,
+                    "memory_sampling_period_seconds": 0.1
+                }
+            },
+            "2p-resource-filter": {
+                "complete": true,
+                "summary": {
+                    "games": 8,
+                    "independent_deals": 1,
+                    "counts": {
+                        "decisions": 1306,
+                        "root_filter_overrides": 0,
+                        "rollouts": 41632,
+                        "rollout_caps": 0,
+                        "neural_decisions": 2701343,
+                        "search_changes": 99,
+                        "search_decisions": 450,
+                        "resource_search_decisions": 450
+                    },
+                    "wall_seconds": 1203.2145080209593,
+                    "sum_game_seconds": 5938.094905628997,
+                    "max_game_seconds": 1203.038083311054,
+                    "decision_p50_ms": 13.984223507577553,
+                    "decision_p95_ms": 22310.63386646565,
+                    "report_sha256": "ee37e2882a03d96828cdf46d1cb1145cdcfe5cf3522e1c0f9526c1c41ad26372",
+                    "all_receipts_verified": true,
+                    "qualification_eligible": false,
+                    "reserved_final_seeds_used": false
+                },
+                "runtime": {
+                    "seconds": 1203.341361314,
+                    "cpu_seconds": 6352.42,
+                    "sampled_peak_total_rss_bytes": 6971523072,
+                    "memory_samples": 11757,
+                    "memory_sampling_period_seconds": 0.1
+                }
+            },
+            "6p-filter": {
+                "complete": true,
+                "summary": {
+                    "games": 24,
+                    "independent_deals": 1,
+                    "counts": {
+                        "decisions": 2798,
+                        "root_filter_overrides": 0,
+                        "rollouts": 0,
+                        "rollout_caps": 0,
+                        "neural_decisions": 0,
+                        "search_changes": 0,
+                        "search_decisions": 0
+                    },
+                    "wall_seconds": 955.68929922604,
+                    "sum_game_seconds": 6897.444610165025,
+                    "max_game_seconds": 409.84926455799723,
+                    "decision_p50_ms": 17.510387988295406,
+                    "decision_p95_ms": 28.86326340958476,
+                    "report_sha256": "fa2a291cb06fc4260642834b7405879569175e1c5b209a4fc0d1c279aad675db",
+                    "all_receipts_verified": true,
+                    "qualification_eligible": false,
+                    "reserved_final_seeds_used": false
+                },
+                "runtime": {
+                    "seconds": 955.8398717939854,
+                    "cpu_seconds": 7532.72,
+                    "sampled_peak_total_rss_bytes": 4032208896,
+                    "memory_samples": 9332,
+                    "memory_sampling_period_seconds": 0.1
+                }
+            },
+            "6p-resource-filter": {
+                "complete": true,
+                "summary": {
+                    "games": 24,
+                    "independent_deals": 1,
+                    "counts": {
+                        "decisions": 2766,
+                        "root_filter_overrides": 0,
+                        "rollouts": 48000,
+                        "rollout_caps": 0,
+                        "neural_decisions": 3263058,
+                        "search_changes": 168,
+                        "search_decisions": 778,
+                        "resource_search_decisions": 778
+                    },
+                    "wall_seconds": 2728.142711844004,
+                    "sum_game_seconds": 18993.89347846608,
+                    "max_game_seconds": 1559.885672516015,
+                    "decision_p50_ms": 22.582840989343822,
+                    "decision_p95_ms": 23361.153719277354,
+                    "report_sha256": "cafdafaca07e19f2c455d4e64ded9099d87cce293500e9d77c794d7696ed58fc",
+                    "all_receipts_verified": true,
+                    "qualification_eligible": false,
+                    "reserved_final_seeds_used": false
+                },
+                "runtime": {
+                    "seconds": 2728.3112295710016,
+                    "cpu_seconds": 20435.010000000006,
+                    "sampled_peak_total_rss_bytes": 7987965952,
+                    "memory_samples": 26423,
+                    "memory_sampling_period_seconds": 0.1
+                }
+            }
+        },
         "current_stage": "complete",
         "current_cell": null,
         "processor": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",

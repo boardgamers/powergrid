@@ -1,0 +1,31 @@
+{
+  "created_at": "2026-10-25T01:52:41.506967+00:00",
+  "source_sha256": "7d88c611a50ccf69b0877550bbdf113b23d410cca71c5219acf90414def4d5ec",
+  "source_descriptor_sha256": "1b5f2c4dbd6c97b06856fa9556ed20dea33ecac65c20f6f7c4baf80944a28162",
+  "protocol_sha256": "1edacdf5359c821139fac6561397958b7ae8e4fcc7a617565a1da75c4c5a26e8",
+  "preflight_sha256": "f7f0fd4fd9040326ea1adc8b10aca6fc91fd484d6f0cf387ede226f38a38a4c1",
+  "layout_check_sha256": "1262ad577086b46db4f9872cac7bcd3721bb52a1593d9c406c16177447d4cbfb",
+  "launcher_sha256": "7f1af8aab9fb0db741f3c0d00ae77e20c03854c858a9794211c97d700aebe354",
+  "bootstrap_sha256": "34fe3a67f2c829dc7659754d4e18d6b8fb4457d3760b14142fd38366bc172909",
+  "players": [
+    2,
+    6
+  ],
+  "jobs": 2,
+  "games": 32,
+  "paired_executions": 64,
+  "workers": 8,
+  "flavor": "cpu-upgrade",
+  "vcpus": 8,
+  "ram_gb": 32,
+  "timeout_hours": 4,
+  "max_concurrent": 2,
+  "local_worst_paired_case_seconds": 563.43411668099,
+  "estimated_calibration_seconds": 7661.20940017188,
+  "budget_scope": "Bounded calibration only. Local HX370 time is not an HF bound. Runtime jobs measure CPU, wall time, memory and output bytes before a full collection plan is admitted. No gradients or playing-strength estimates.",
+  "collection_admitted": false,
+  "automatic_retries": false,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

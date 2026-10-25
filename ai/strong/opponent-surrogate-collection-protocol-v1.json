@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "purpose": "Collect actual search_geo16 opponent behaviour from fresh public positions for a fast surrogate inside research continuations. These are behaviour targets, not claims of optimal focal-player actions or strength.",
+  "map": "Germany",
+  "player_counts": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "rules": [
+    "original/sealed",
+    "recharged/sealed",
+    "original/open",
+    "recharged/open"
+  ],
+  "deals_per_count": 32,
+  "splits": {
+    "train": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "validation": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "test": [
+      28,
+      29,
+      30,
+      31
+    ]
+  },
+  "split_unit": "Entire player-count/deal: every seat, rule, repeated decision and twin stays together. Test labels may be validated for integrity but not used to select models or tune hyperparameters.",
+  "collection_seed_template": "opponent-surrogate-collection-v1-{players}p",
+  "runtime_seed_template": "opponent-surrogate-runtime-v1-{players}p",
+  "preflight_seed_template": "opponent-surrogate-preflight-v1-{players}p",
+  "planned_games": 2560,
+  "planned_twin_replays": 640,
+  "sampling": "Record every actual opponent ChoosePowerPlant/Bid/Build call, independently of win/loss, round or teacher score. Every focal seat and all four rules for every deal.",
+  "teacher": {
+    "role": "search_geo",
+    "samples": 16,
+    "candidates": 6,
+    "geography": true,
+    "max_steps": 2400,
+    "continuation": "mixed",
+    "non_strategic": "Exact frozen economics policy; no surrogate needed."
+  },
+  "focal": {
+    "arm": "filter",
+    "model": {
+      "key": "frozen-1",
+      "repo": "coyotte508/powergrid-ai-germany-v1",
+      "revision": "6b6009756d7b5968bc5b6425efc84a94aab2a1d6",
+      "prefix": "runs/policy-iteration-training-v2-frozen/ensemble-1/derivative",
+      "files": {
+        "inference64.pt": "3c17d4228e7446f8859aa01e79020ed91f454312925d29c153a76f49f94118da",
+        "inference64.onnx": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+      },
+      "feature_revision": "4.3-strategic-correction",
+      "model_args": {
+        "head_type": "frozen",
+        "heads": 4,
+        "margin": 0.025,
+        "parent_margin": 0.025,
+        "disagreement_penalty": 1.0
+      },
+      "training_verified": true,
+      "parent_frozen": true,
+      "seeds": [
+        12101,
+        12102,
+        12103,
+        12104
+      ],
+      "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+      "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+      "training_verified_sha256": "881c8a4b34f937575cb3f3c851db794f81908621f4a93e47f467be852845974f",
+      "strict_parity_positions": 2553,
+      "cached_positions_checked": 17280,
+      "qualification_eligible": false
+    }
+  },
+  "features": {
+    "revision": "4.3-strategic-correction",
+    "state_dim": 1217,
+    "action_dim": 101,
+    "allowlist": [
+      "observation.state",
+      "observation.actions",
+      "observation.playerMask"
+    ],
+    "excluded": [
+      "private deck order",
+      "hidden submitted bids",
+      "game seeds",
+      "teacher RNG seeds",
+      "teacher search outputs as inputs",
+      "terminal outcomes",
+      "arena opponent identities"
+    ],
+    "money": "All player balances are public and retained."
+  },
+  "twins": {
+    "collection": "Replay every fourth whole deal (deal % 4 == 0), all seats/rules. Compare every observation, chosen move, terminal and search counter exactly.",
+    "runtime": "Every runtime calibration game is paired.",
+    "preflight": "Every preflight game is paired."
+  },
+  "game_max_steps": 1600,
+  "workers": 8,
+  "ort_threads": 1,
+  "initial_runtime": {
+    "players": [
+      2,
+      6
+    ],
+    "deals": 1,
+    "games": 32,
+    "paired_executions": 64,
+    "outcomes_excluded_from_training_and_strength": true
+  },
+  "base_source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "archive": "strong-source-population-hybrid-development-20261024-v1.tgz",
+    "revision": "cdec1d3079eb9a54b776f6237ec5f93cc1de84d8",
+    "sha256": "ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23",
+    "files": 1463
+  },
+  "capture_proof": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "4cbf90bc4cacf3c5db289f7be156f06604607432",
+    "archive_path": "archives/reference-opponent-capture-evidence-v1.tgz",
+    "archive_sha256": "ffd4e0aebfc23117f2bae1e8d9cc0655b4a6cd4e5ea8553b5432996d52d78e04",
+    "teacher_rows": 2931,
+    "public_teacher_replays": 120
+  },
+  "capture_module_sha256": "aee63bf2e6c1279c1f971e674fce1f70f30351b2dbe4c2934e545db9c3278c16",
+  "gradient_training_location": "HF Jobs only; a separate training design follows complete collection verification.",
+  "downstream_validation": "Held-out behaviour metrics by count/rule/phase and paired continuation comparisons against real search; then fresh all-count/all-rule focal strength evaluation before adopting. No known opponent identity exposed to a deployed policy.",
+  "collection_admitted": false,
+  "runtime_admitted": false,
+  "automatic_retries": false,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

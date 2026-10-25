@@ -1,0 +1,456 @@
+{
+  "complete": true,
+  "exact_twin_games": 20,
+  "game_executions": 40,
+  "canonical_positions": 2553,
+  "source": {
+    "archive": "strong-source-population-hybrid-development-20261024-v1.tgz",
+    "sha256": "ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23",
+    "bytes": 109458675,
+    "overlays": {
+      "ai/strong/hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+      "ai/strong/hybrid-continuations.cjs": "2b03c49c8270622e74c333c5e7253d5eb5d21ba1af919bc5f15ebd456109daaf",
+      "ai/strong/population-hybrid-continuations.cjs": "206cb044ba5057904afddbbbb125d98db319e04f96067e94c7337a36f0f7502c",
+      "ai/strong/endgame-loss-filter.cjs": "28e3eb1a5fb637b7b80c1b7dc4db255c3d93e5ace168ead6dfa386f57a4de70a",
+      "ai/strong/population-hybrid-policy.cjs": "8f9f7ad3306ab2ebdf04eb6aa439e3f3525f4f6569e6d086649bdbd4c86aff16",
+      "ai/strong/population_hybrid_policy.py": "652677d33cc6613680122c9a95a1ba2c0c0915de384b2124c95e3b1b3a0876cf",
+      "ai/strong/public-arena-bridge.cjs": "999bee0a43a219974c5ceb38bc586f6ea2995e248c19eb9fd697d2e199df8391",
+      "ai/strong/evaluate-population-policy.py": "019454d436e1b8e2ace2ed13375c0ad38727bd02678fedea872957518132abc3",
+      "ai/strong/population-hybrid-runtime-job.py": "1c375bc07dd18b80f28ad7c0b4edfff910fcf63d3f7bd413e8e3048a0f733f92",
+      "ai/strong/population-hybrid-development-protocol-v1.json": "a86b3cd3bcce25131dde6bf59f980e58bbb35dd2c432090a5ed0acd445988014",
+      "ai/strong/policy_iteration_evidence_archive.py": "83177b7f9a35af6467e09509e80024ef5fc258a1030ad23ebfd71c876fac635a",
+      "ai/strong/test-population-hybrid-policy.cjs": "faff35e5f6f78104542d4a7a89a5c768597edf0238f27aec9fa49f3f1a6a060f",
+      "ai/strong/probe-population-policy.py": "d361cc61ac663f1a236656b99671ebb4f73a387baece1808cfd4257cd319caaf",
+      "ai/strong/build-population-hybrid-source.py": "f2bcf99663d65330fb3deffb6415b22f31065b5c2567b91575b4857a73a7bac5",
+      "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+      "ai/strong/population_hybrid_development.py": "bc65be5ebe091d56a9b52cef9d238379aff1b7a73398f53e9123b41e6a473fb2",
+      "ai/strong/population-hybrid-development-job.py": "8cf38cf2fc42ac271a528d6bbb091891845e3035eaaecb537a7c6f07a514eef8",
+      "ai/strong/manage-population-hybrid-development.py": "818c8595651a89b81f24e37e3a229e53ffe3567be021ea3d502ca2cff3c139a2",
+      "ai/strong/coordinate-population-hybrid-development.py": "f8a74d1192a053a312b3395e9a4cd818d35771718dcaa0e62908d685207228d1",
+      "ai/strong/compare-population-hybrid-development.py": "8f256ca9d95785e4da80332dc02ff89707ae5a0987825882876302aa38092c1f",
+      "ai/strong/collect-population-hybrid-runtime.py": "0128713f10321983731f3b96f6c8d8c2fe093b739ffec7a62b06bd7d6fb9caa9",
+      "ai/strong/build-population-hybrid-development-source.py": "0b3849196fad27a2faef41f9a11f75770929373085c3c39d899ab4da0357cbab",
+      "ai/strong/test_population_policy_verification.py": "38bd03459c8c5fe6a40d5671a44515d7143feb49eae0bf1a0bbf614600ebceb3",
+      "ai/strong/test_population_hybrid_development.py": "eb2f33046aca15b238703ee60e2d85b79263935e3e8e6b78310f6502e8916f20"
+    },
+    "protocol_sha256": "a86b3cd3bcce25131dde6bf59f980e58bbb35dd2c432090a5ed0acd445988014",
+    "unchanged_base_files": 1453,
+    "layout_check": {
+      "clean_package_without_runs": true,
+      "reached_evaluation_subprocess": true,
+      "nonzero_deal_offset_checked": true,
+      "failure_receipt_written": true,
+      "new_games": 0,
+      "new_jobs": 0
+    },
+    "revision": "cdec1d3079eb9a54b776f6237ec5f93cc1de84d8",
+    "base": {
+      "archive": "strong-source-population-hybrid-20261024-v2.tgz",
+      "revision": "9a49df8a3baa5e5b6b62cae8208ef301b8540ba7",
+      "sha256": "cd5c08165dfecce5753bcab1c9c0bf10ef45797bf3e5e082914fd6634f91a778"
+    },
+    "base_descriptor_sha256": "f71540c07b1e91895e2fb5d922204cc5c3fb9230315a4be1f09052639428484b",
+    "preparation_sha256": "6f543404bdfaea1ba81f0d5165937e294c09740d63d8e9709b20cbc26a4851a3",
+    "gradients": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false
+  },
+  "source_files_unchanged": 1463,
+  "model_sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+  "probe_code_hashes": {
+    "ai/strong/probe-reference-opponent-capture-v1.py": "c9bfda47fb1df7ae268a2d6b0bb9200dad0a9c3adc55475e3e896d784290fe09",
+    "ai/strong/capture-reference-opponent-v1.cjs": "aee63bf2e6c1279c1f971e674fce1f70f30351b2dbe4c2934e545db9c3278c16",
+    "ai/strong/verify-reference-opponent-capture-v1.cjs": "3bf47e448759776f13de52a49b168938e3dd13b1d1692007146d5e735471465c",
+    "ai/strong/test-reference-opponent-capture-v1.cjs": "629a8ac9bfc5144d88d019d380d16431fa79f6d4ebb3730e7ab5df6e1d4a21c9"
+  },
+  "host_dependencies_match_frozen_source": {
+    "ai/strong/population_hybrid_policy.py": "652677d33cc6613680122c9a95a1ba2c0c0915de384b2124c95e3b1b3a0876cf",
+    "ai/strong/hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+    "ai/infer.py": "a86e79c2c87b1909557e69fd8b669ae2c47255d426e692b5d96baafe5c2f680d",
+    "ai/pool.py": "3b33133425d84430a6376834422478d70fe51a9c855d1e06937f109cd3620dd8",
+    "ai/strong/feature_contract.py": "b72b57958e07bcd49c62d7d9b9f8d431b6bd5b52607fae4886b21241692b3c89",
+    "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+    "ai/strong/arena_statistics.py": "9d32085cc68d417067346e1b74147749f155db3dc7766139659b2ad6bac66bda"
+  },
+  "collector_sha256": "4acddc13ce7cc298f6620eb710b8e135c8faada4ce813951be034cdfcc11a12e",
+  "cells": [
+    {
+      "case": "2p-0",
+      "players": 2,
+      "rule": 0,
+      "teacher_rows": 50,
+      "teacher_rollouts": 4096,
+      "public_replays": 6,
+      "learner_decisions": 224,
+      "phase_rows": {
+        "plant": 11,
+        "bid": 12,
+        "building": 27
+      },
+      "teacher_call_p50_ms": 403.40793199999996,
+      "teacher_call_p95_ms": 763.8069870999998,
+      "paired_probe_seconds": 52.010116941004526,
+      "verified_sha256": "6393daa4ee94074bb5b3d02abab0f598cfba8afe7624bb404828ee403b7771ff"
+    },
+    {
+      "case": "2p-1",
+      "players": 2,
+      "rule": 1,
+      "teacher_rows": 49,
+      "teacher_rollouts": 3920,
+      "public_replays": 6,
+      "learner_decisions": 170,
+      "phase_rows": {
+        "plant": 10,
+        "bid": 11,
+        "building": 28
+      },
+      "teacher_call_p50_ms": 430.222411,
+      "teacher_call_p95_ms": 835.0844265999999,
+      "paired_probe_seconds": 52.68863346899161,
+      "verified_sha256": "9f3952a9624b259b59d39fb302e7496eea5632e05c3bc2d8657bd97f24c9568d"
+    },
+    {
+      "case": "2p-2",
+      "players": 2,
+      "rule": 2,
+      "teacher_rows": 49,
+      "teacher_rollouts": 3984,
+      "public_replays": 6,
+      "learner_decisions": 170,
+      "phase_rows": {
+        "plant": 11,
+        "bid": 13,
+        "building": 25
+      },
+      "teacher_call_p50_ms": 627.767826,
+      "teacher_call_p95_ms": 940.8513701999997,
+      "paired_probe_seconds": 65.97366398299346,
+      "verified_sha256": "646173ecd799cb2c2a06ce967edaec4211764b3f21898600981d0db19e6cd4d4"
+    },
+    {
+      "case": "2p-3",
+      "players": 2,
+      "rule": 3,
+      "teacher_rows": 55,
+      "teacher_rollouts": 4272,
+      "public_replays": 6,
+      "learner_decisions": 181,
+      "phase_rows": {
+        "plant": 12,
+        "bid": 15,
+        "building": 28
+      },
+      "teacher_call_p50_ms": 553.144071,
+      "teacher_call_p95_ms": 977.1425664999999,
+      "paired_probe_seconds": 72.58856420399388,
+      "verified_sha256": "26664742d742595ef4e24635e0bf59a8c2008c85a95dd38b1db88ce6c442a709"
+    },
+    {
+      "case": "3p-0",
+      "players": 3,
+      "rule": 0,
+      "teacher_rows": 82,
+      "teacher_rollouts": 7024,
+      "public_replays": 6,
+      "learner_decisions": 146,
+      "phase_rows": {
+        "plant": 19,
+        "bid": 29,
+        "building": 34
+      },
+      "teacher_call_p50_ms": 487.99708799999996,
+      "teacher_call_p95_ms": 752.61287265,
+      "paired_probe_seconds": 91.8103778999648,
+      "verified_sha256": "72648767c9f573035164b46e7bb9ba3775274f7d053db56c73096914f163ff70"
+    },
+    {
+      "case": "3p-1",
+      "players": 3,
+      "rule": 1,
+      "teacher_rows": 93,
+      "teacher_rollouts": 7680,
+      "public_replays": 6,
+      "learner_decisions": 125,
+      "phase_rows": {
+        "plant": 24,
+        "bid": 28,
+        "building": 41
+      },
+      "teacher_call_p50_ms": 470.153532,
+      "teacher_call_p95_ms": 723.0199772,
+      "paired_probe_seconds": 96.78927138197469,
+      "verified_sha256": "60e910f28661909abfaf7f78bf68efa7a82abbe0376ac0448c746cd7faf6347e"
+    },
+    {
+      "case": "3p-2",
+      "players": 3,
+      "rule": 2,
+      "teacher_rows": 77,
+      "teacher_rollouts": 6112,
+      "public_replays": 6,
+      "learner_decisions": 160,
+      "phase_rows": {
+        "plant": 12,
+        "bid": 36,
+        "building": 29
+      },
+      "teacher_call_p50_ms": 595.563183,
+      "teacher_call_p95_ms": 883.4385496,
+      "paired_probe_seconds": 103.65849857096327,
+      "verified_sha256": "4611a40508d1dab5e068b45b58be1959b906f2b577c944516f67d24ee40b9f06"
+    },
+    {
+      "case": "3p-3",
+      "players": 3,
+      "rule": 3,
+      "teacher_rows": 96,
+      "teacher_rollouts": 7776,
+      "public_replays": 6,
+      "learner_decisions": 145,
+      "phase_rows": {
+        "plant": 20,
+        "bid": 44,
+        "building": 32
+      },
+      "teacher_call_p50_ms": 587.9251895,
+      "teacher_call_p95_ms": 865.247114,
+      "paired_probe_seconds": 122.54875844996423,
+      "verified_sha256": "628dcc4bea3d70da553ed353c2bc714e9f2d9f12e8efd7db9f9cf2163878de18"
+    },
+    {
+      "case": "4p-0",
+      "players": 4,
+      "rule": 0,
+      "teacher_rows": 114,
+      "teacher_rollouts": 9280,
+      "public_replays": 6,
+      "learner_decisions": 104,
+      "phase_rows": {
+        "plant": 28,
+        "bid": 40,
+        "building": 46
+      },
+      "teacher_call_p50_ms": 963.0449945,
+      "teacher_call_p95_ms": 1532.6192839499997,
+      "paired_probe_seconds": 239.49414530402282,
+      "verified_sha256": "a3c0d0630cc8753f4193830bfc974005a9d95ae5d7a9151f53b0b8ad40d3fd07"
+    },
+    {
+      "case": "4p-1",
+      "players": 4,
+      "rule": 1,
+      "teacher_rows": 143,
+      "teacher_rollouts": 11552,
+      "public_replays": 6,
+      "learner_decisions": 134,
+      "phase_rows": {
+        "plant": 37,
+        "bid": 50,
+        "building": 56
+      },
+      "teacher_call_p50_ms": 901.424181,
+      "teacher_call_p95_ms": 1412.9156214,
+      "paired_probe_seconds": 272.6939031869988,
+      "verified_sha256": "e7af5c828ccaff4612b3ede814f899bba95c52455eee697359b19d7ae3401e5f"
+    },
+    {
+      "case": "4p-2",
+      "players": 4,
+      "rule": 2,
+      "teacher_rows": 190,
+      "teacher_rollouts": 15520,
+      "public_replays": 6,
+      "learner_decisions": 143,
+      "phase_rows": {
+        "plant": 31,
+        "bid": 111,
+        "building": 48
+      },
+      "teacher_call_p50_ms": 1065.0096575,
+      "teacher_call_p95_ms": 1526.5323270999995,
+      "paired_probe_seconds": 402.0765899409889,
+      "verified_sha256": "6db66e083b6890e3b05a7ccc37cf90b90a9f4775fa7a7896c97500f33d85c726"
+    },
+    {
+      "case": "4p-3",
+      "players": 4,
+      "rule": 3,
+      "teacher_rows": 168,
+      "teacher_rollouts": 13856,
+      "public_replays": 6,
+      "learner_decisions": 201,
+      "phase_rows": {
+        "plant": 20,
+        "bid": 109,
+        "building": 39
+      },
+      "teacher_call_p50_ms": 913.6747815,
+      "teacher_call_p95_ms": 1535.9308498,
+      "paired_probe_seconds": 339.2698694860446,
+      "verified_sha256": "c0769fb94f98f615a81d5e9966acf7c0583d868bb8684f2ceda7ebc7907ee03e"
+    },
+    {
+      "case": "5p-0",
+      "players": 5,
+      "rule": 0,
+      "teacher_rows": 177,
+      "teacher_rollouts": 14784,
+      "public_replays": 6,
+      "learner_decisions": 128,
+      "phase_rows": {
+        "plant": 32,
+        "bid": 83,
+        "building": 62
+      },
+      "teacher_call_p50_ms": 1209.314229,
+      "teacher_call_p95_ms": 1797.3590626,
+      "paired_probe_seconds": 426.01815737300785,
+      "verified_sha256": "203cba4e950061c496c6214e57cf0af0895c11eebcb21a3dfec4fdf3ac7c3042"
+    },
+    {
+      "case": "5p-1",
+      "players": 5,
+      "rule": 1,
+      "teacher_rows": 181,
+      "teacher_rollouts": 15024,
+      "public_replays": 6,
+      "learner_decisions": 122,
+      "phase_rows": {
+        "plant": 38,
+        "bid": 78,
+        "building": 65
+      },
+      "teacher_call_p50_ms": 1237.575526,
+      "teacher_call_p95_ms": 1907.564117,
+      "paired_probe_seconds": 452.2769406079897,
+      "verified_sha256": "6c95417073fd178d4b48874cf205da9ed5d28a2e6c41b756133cb8ea1b8a725d"
+    },
+    {
+      "case": "5p-2",
+      "players": 5,
+      "rule": 2,
+      "teacher_rows": 199,
+      "teacher_rollouts": 16000,
+      "public_replays": 6,
+      "learner_decisions": 115,
+      "phase_rows": {
+        "plant": 36,
+        "bid": 108,
+        "building": 55
+      },
+      "teacher_call_p50_ms": 1394.077257,
+      "teacher_call_p95_ms": 1981.8802022,
+      "paired_probe_seconds": 525.6373354750103,
+      "verified_sha256": "44f095be448db1f7668b742182861a37e857ac8e4bb4dcd940012bce54b611f1"
+    },
+    {
+      "case": "5p-3",
+      "players": 5,
+      "rule": 3,
+      "teacher_rows": 242,
+      "teacher_rollouts": 19952,
+      "public_replays": 6,
+      "learner_decisions": 148,
+      "phase_rows": {
+        "plant": 32,
+        "bid": 159,
+        "building": 51
+      },
+      "teacher_call_p50_ms": 1076.347393,
+      "teacher_call_p95_ms": 1894.6120884499999,
+      "paired_probe_seconds": 563.43411668099,
+      "verified_sha256": "d54669e6d8404fdf6f87aa6d1314b5bc03e7a0d8eb781eb466f495a734c7f323"
+    },
+    {
+      "case": "6p-0",
+      "players": 6,
+      "rule": 0,
+      "teacher_rows": 222,
+      "teacher_rollouts": 18352,
+      "public_replays": 6,
+      "learner_decisions": 126,
+      "phase_rows": {
+        "plant": 51,
+        "bid": 106,
+        "building": 65
+      },
+      "teacher_call_p50_ms": 893.3058125,
+      "teacher_call_p95_ms": 1914.3364487,
+      "paired_probe_seconds": 464.21036242402624,
+      "verified_sha256": "ebd1291ab9b0b0d890338a9a8db9dcf2cd07179febcda35e7889c359d09fd133"
+    },
+    {
+      "case": "6p-1",
+      "players": 6,
+      "rule": 1,
+      "teacher_rows": 189,
+      "teacher_rollouts": 15456,
+      "public_replays": 6,
+      "learner_decisions": 108,
+      "phase_rows": {
+        "plant": 42,
+        "bid": 93,
+        "building": 54
+      },
+      "teacher_call_p50_ms": 979.584456,
+      "teacher_call_p95_ms": 1992.6328472,
+      "paired_probe_seconds": 422.6389169380418,
+      "verified_sha256": "33b85fb4c736a83f0d8b74e4c3dca0b0da03956eaf0da5475daaab1f88e12fa7"
+    },
+    {
+      "case": "6p-2",
+      "players": 6,
+      "rule": 2,
+      "teacher_rows": 258,
+      "teacher_rollouts": 20912,
+      "public_replays": 6,
+      "learner_decisions": 134,
+      "phase_rows": {
+        "plant": 39,
+        "bid": 165,
+        "building": 54
+      },
+      "teacher_call_p50_ms": 799.7378065,
+      "teacher_call_p95_ms": 1899.3051915499998,
+      "paired_probe_seconds": 491.1679287260049,
+      "verified_sha256": "1779ad4106ca52181dec5df519eee796d8583a1a61da49eae8693bac5d61f035"
+    },
+    {
+      "case": "6p-3",
+      "players": 6,
+      "rule": 3,
+      "teacher_rows": 297,
+      "teacher_rollouts": 24384,
+      "public_replays": 6,
+      "learner_decisions": 120,
+      "phase_rows": {
+        "plant": 36,
+        "bid": 216,
+        "building": 45
+      },
+      "teacher_call_p50_ms": 654.116539,
+      "teacher_call_p95_ms": 1759.7630351999992,
+      "paired_probe_seconds": 497.6422650869936,
+      "verified_sha256": "b23a8a3d8b3ddd3f7c39c0756e40062c93f79afb283c3df387f9bb9dece4bf92"
+    }
+  ],
+  "teacher_rows": 2931,
+  "public_teacher_replays": 120,
+  "teacher_rollouts": 239936,
+  "caps": 0,
+  "training_eligible": false,
+  "gradients": false,
+  "new_hf_jobs": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "scope": "Passive capture engineering proof, all counts and rules at the last focal seat. Raw probe records are excluded from training/strength. Same-source paired games and public teacher replays support capture correctness; they do not validate a trained surrogate or representative latency.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "4cbf90bc4cacf3c5db289f7be156f06604607432",
+  "archive_path": "archives/reference-opponent-capture-evidence-v1.tgz",
+  "archive_sha256": "ffd4e0aebfc23117f2bae1e8d9cc0655b4a6cd4e5ea8553b5432996d52d78e04",
+  "manifest_sha256": "d78b25dcd79d10d516c83aa529f6572be89cb63e97c2cc477fff453fba67c855",
+  "archived_files": 124,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

@@ -1,0 +1,37 @@
+{
+  "repo": "coyotte508/powergrid-ai-training-v1",
+  "archive": "strong-source-opponent-surrogate-v1.tgz",
+  "sha256": "7d88c611a50ccf69b0877550bbdf113b23d410cca71c5219acf90414def4d5ec",
+  "bytes": 109543774,
+  "manifest_sha256": "612ca87872f252b456e74a8439b59a259ff7e2f1668b11b50aafd4ea48ed9346",
+  "manifest_files": 1472,
+  "protocol_sha256": "1edacdf5359c821139fac6561397958b7ae8e4fcc7a617565a1da75c4c5a26e8",
+  "base": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "archive": "strong-source-population-hybrid-development-20261024-v1.tgz",
+    "revision": "cdec1d3079eb9a54b776f6237ec5f93cc1de84d8",
+    "sha256": "ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23",
+    "files": 1463
+  },
+  "unchanged_base_files": 1463,
+  "new_files": {
+    "ai/strong/capture-reference-opponent-v1.cjs": "aee63bf2e6c1279c1f971e674fce1f70f30351b2dbe4c2934e545db9c3278c16",
+    "ai/strong/verify-opponent-surrogate-collection-v1.cjs": "a1da92b71498b36b26d6da88c3f80d1e5ea4b85c8a42e003b96af67656efc5bf",
+    "ai/strong/opponent_surrogate_collection_v1.py": "565a7673231df7b809f9404b8f59b627b413e2efbcf8cc649be0b27cf9cb959a",
+    "ai/strong/opponent-surrogate-collection-protocol-v1.json": "1edacdf5359c821139fac6561397958b7ae8e4fcc7a617565a1da75c4c5a26e8",
+    "ai/strong/opponent-surrogate-collection-job-v1.py": "6600921fcda11b7b5ea38121a53a118996dea976d4d1b08aab1109a8736aab70",
+    "ai/strong/test_opponent_surrogate_collection_v1.py": "529b6ff1fed9559839b25747fce2ca1154c525f011e5a5629837786603328ac8",
+    "ai/strong/test_opponent_surrogate_job_v1.py": "057e9c788a3d878aff2117b2c33770f37b62817a3ef1e4fd3e18fd9058e72895",
+    "ai/strong/build-opponent-surrogate-source-v1.py": "4bbf63a8d56f136b37da0f004fabe1dd92b2c053f5ea6b3c4bad00f2c383d7f6",
+    "ai/strong/reference-opponent-capture-evidence-v1.json": "8532b70251ad26ad0f60b47f054be99bffffa4a6408118a340c5a65b1b049054"
+  },
+  "preflight_sha256": "f7f0fd4fd9040326ea1adc8b10aca6fc91fd484d6f0cf387ede226f38a38a4c1",
+  "collection_admitted": false,
+  "runtime_admitted": false,
+  "new_hf_jobs": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "revision": "6d16cd796ce391b94326d31654866c2aae66769c",
+  "remote_archive_verified": true
+}

@@ -1,0 +1,102 @@
+{
+  "complete": true,
+  "status": {
+    "stage": "complete",
+    "started_at": "2026-10-25T00:13:16.767239+00:00",
+    "case": "2p-original-open-economic",
+    "host": "Mint-FW-13",
+    "manifest_sha256": "cdebd3353d4bcc4aacd8cde5dce260428830bc5ff5e6314646f28d1b9abc8e39",
+    "runner_sha256": "5e340f980adf0935dc6264d5dc8ba8f8942fa591379ceac189ef250ed442d370",
+    "threads": 1,
+    "workers": 1,
+    "samples": 4,
+    "new_arena_games": 0,
+    "new_hf_jobs": 0,
+    "gradients": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false,
+    "exact_recorded_result": true,
+    "rollouts": 128,
+    "neural_decisions": 17248,
+    "wall_seconds": 56.571600593975745,
+    "outer_call_timing": {
+      "prediction_seconds": 36.196905479126144,
+      "prediction_calls": 257,
+      "predicted_rows": 17257,
+      "engine_pool_seconds": 19.38496127584949,
+      "engine_pool_calls": 249,
+      "engine_observation_rows": 17248,
+      "root_node_seconds": 0.4703879279550165,
+      "root_node_calls": 12
+    },
+    "onnx_run_seconds": 34.19726469781017,
+    "onnx_run_calls": 370,
+    "node_processes": [
+      {
+        "pid": 942374,
+        "command": [
+          "node",
+          "/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai/ai/runs/resource-replanning-8840u-prepared-v1/package/ai/strong/population-hybrid-policy.cjs"
+        ]
+      },
+      {
+        "pid": 942382,
+        "command": [
+          "node",
+          "/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai/ai/runs/resource-replanning-8840u-prepared-v1/package/ai/strong/resource-turn-search-v1.cjs"
+        ]
+      },
+      {
+        "pid": 942395,
+        "command": [
+          "node",
+          "/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai/ai/runs/resource-replanning-8840u-prepared-v1/package/ai/strong/resource-turn-search-v1.cjs"
+        ]
+      }
+    ],
+    "v8_profiles": 3,
+    "limitations": "One already-selected four-world stress root on the shared local HX370, under profiling overhead. Not representative serving latency, a new strength sample, or an AMD8840U benchmark.",
+    "finished_at": "2026-10-25T00:14:13.993985+00:00",
+    "output_hashes": {
+      "CPU.20261025.021316.942374.0.001.cpuprofile": "b333defdfa8cbb773663b1e8626b46911bdb2dfb51fc8ef80a88823d5dcc07fc",
+      "CPU.20261025.021317.942382.0.001.cpuprofile": "f2414520848719f25b9c685ddbdbeea6ea183109e5ff0f994db6589f914229ef",
+      "python-cumulative-time.txt": "f361bc998b10b4cce7ea6e8df2690695dce3683a416fb89b1aeb0cd97719437d",
+      "python-self-time.txt": "e2ff37e9596d2234196fb7fa1f4f66bdb75ddbee5bdd602bdc3a92391797536a",
+      "v8-summary.json": "501bd5d893fa74aa5a7706ab88510b7c674ca2d28ca269f7880bf95f6743152e",
+      "result.json": "f658b6d300307d6b0e995b09f4e7f0d1e0d0ab6140bccb67b1964db62e216193",
+      "python.pstats": "378998a8314ed57a060d8a42f49102b1e2b4e89f2d472b00c39a70fe1c34d7b1",
+      "CPU.20261025.021317.942395.0.001.cpuprofile": "5f8ecfb72f9c9e6fac6b8e1b798e08db24a3d0bbbe0b5dc5e443085e2b408c38"
+    }
+  },
+  "failed_harness_diagnosis": {
+    "failure": "Harness compared in-memory integer world keys directly to saved JSON string keys. No policy source changed.",
+    "old_runner_sha256": "34d60f20854a2627985c06bcc0e3f452d97dbef0dcbf2c7e58eadac328665eb3",
+    "new_runner_sha256": "5e340f980adf0935dc6264d5dc8ba8f8942fa591379ceac189ef250ed442d370",
+    "format_failure_reproduced_without_simulation": true,
+    "json_key_normalization_restores_comparison": true,
+    "changed_move_still_rejected": true,
+    "v1_actual_result_not_saved": true,
+    "repeat_reason": "Corrected harness; same previously saved stress root and exact policy settings.",
+    "new_hf_jobs": 0,
+    "new_strength_games": 0
+  },
+  "onnx_run_wall_fraction": 0.6044952650933444,
+  "engine_pool_wall_fraction": 0.3426624149275666,
+  "prediction_excluding_onnx_seconds": 1.999640781315975,
+  "interpretation": "Native ONNX inference dominates this fixed profiled root; the next largest measured interval is waiting for the JS engine pool. Python feature packing is smaller. This does not justify a full engine rewrite or establish representative latency. Node idle intervals overlap Python/inference work and must not be added to wall time.",
+  "scope": "One already-selected four-world stress root on the shared local HX370, under profiling overhead. Not representative serving latency, a new strength sample, or an AMD8840U benchmark.",
+  "new_arena_games": 0,
+  "new_hf_jobs": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "collector_sha256": "484f84b10fd21103dc5900cbb70f9a2a491603aedc742d10d52cb6f618e10fee",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "4d16663067b7683a2a1e735560448d3b788291c3",
+  "archive_path": "archives/resource-components-profile-evidence-v2.tgz",
+  "archive_sha256": "80aa952af6a52654e2055d2f325ca006c0f0d61d1c68628114f753a623c18148",
+  "manifest_sha256": "189e25dbe736f4f02766f22879e733ba8bb933fb8e3bbee40ea55a8b0df411aa",
+  "archived_files": 21,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

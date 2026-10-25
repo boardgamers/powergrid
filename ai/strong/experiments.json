@@ -56453,5 +56453,20 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "next": "Full local pilot/archive, measured admission and explicit HF calibration submission remain required. Collect original jobs only; both endpoint records must pass exact local/HF parity before separate development admission."
+    },
+    "resource_components_profile_v2": {
+        "status": "completed_exact_fixed_root_profile_archived",
+        "descriptor": "ai/strong/resource-components-profile-evidence-v2.json",
+        "descriptor_sha256": "18df255017e9e945cfe98f78f51f08b61086ca8d9cdec7c3587ec7f66e08fe46",
+        "evidence_revision": "4d16663067b7683a2a1e735560448d3b788291c3",
+        "archive_sha256": "80aa952af6a52654e2055d2f325ca006c0f0d61d1c68628114f753a623c18148",
+        "checkpoint": "ai/runs/resource-components-profile-checkpoint-v2.json",
+        "checkpoint_sha256": "5b51c700f9f31af466fce40370e22e7a86f63f34afe0e1beff0a98b7f7c5f015",
+        "scope": "One already-selected four-world stress root on the shared local HX370, under profiling overhead. Not representative serving latency, a new strength sample, or an AMD8840U benchmark.",
+        "strength_evidence": false,
+        "new_hf_jobs": 0,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

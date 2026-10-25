@@ -25,7 +25,48 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: HF calibration launcher prepared; six-player resource cell running
+## Latest checkpoint: component profile archived; existing runs continue
+
+**Latest — 25 October: fixed-root component profile complete and archived.**
+The corrected profiling harness completed the previously saved 2p/original/open
+resource stress request: **128 continuations / 17,248 simulated neural decisions**,
+exact recorded actions and continuation receipts, zero caps. All packaged source
+hashes remain unchanged. This used four worlds and one inference/search worker
+on the shared local HX370, not the current eight-world development setup or a
+fresh AMD8840U latency sample. Native ONNX calls took **34.20 / 56.57 s (60.4%)**;
+engine-pool calls took **19.38 s (34.3%)**, including IPC/waiting. Python prediction
+work outside ONNX was about **2.00 s**. Three V8 profiles and Python statistics
+are preserved. Idle Node intervals overlap inference and must not be added to wall
+time. This supports investigating inference costs before a wholesale engine rewrite;
+it is one selected, instrumented case, not a representative latency result.
+
+The first harness failed by comparing integer world keys in memory with string
+keys in JSON. Its raw profiles and failed source are preserved; its actual result
+was not saved, so do not claim its behavior was verified. The v2 comparison
+canonicalizes JSON keys and saves the result before asserting equality. Both
+attempts, the diagnosis and successful audit are archived once at private HF
+revision `4d16663067b7683a2a1e735560448d3b788291c3` (21 files), descriptor
+`strong/resource-components-profile-evidence-v2.json`. Do not repeat the upload.
+Collector `strong/collect-resource-components-profile-v2.py` defaults to read-only
+validation and rejects another archive attempt.
+
+At **2026-10-25T00:18:53.815513+00:00**, both existing processes were checked alive. Reference coordinator
+**76600 / PID 443128**: **27/28 submitted, 20 verified**,
+failures `[]`. Resource pilot **75756 / PID 559327**:
+**20/24 six-player resource game files**,
+cell still `evaluating`; **0/16 replay files**.
+The three earlier cells remain complete. Exact snapshot:
+`ai/runs/resource-components-profile-checkpoint-v2.json`.
+
+**Next:** let those existing runs finish; preserve the full 64-game/16-replay
+resource pilot and all 28 reference shards before their respective collectors.
+The prepared HF resource calibration still has no admission or submission; the
+3,360-game strength screen remains unlaunched. No new gradients, candidate selection,
+production changes or final seeds. Auction search remains promising but regresses
+in several cells; do not advance unchanged building/combined search or treat this
+profiling result as evidence of a strength plateau.
+
+## Previous checkpoint: HF calibration launcher prepared; six-player resource cell running
 
 At **2026-10-24T23:42:32 UTC**, the existing resource pilot **75756 / PID 559327**
 has verified three complete cells: both 2p arms and the 24-game 6p/filter baseline.

@@ -25,6 +25,69 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
+## 25 October, 08:18 UTC — actual 8840U learned-opponent component verified
+
+The actual **AMD Ryzen 7 8840U** completed the learned-opponent continuation
+component benchmark: **24 existing runtime positions / 384 continuations / zero
+caps**. The independent local collector reran the original saved-outcome verifier
+and compared every complete result to the immutable HF timing artifact, excluding
+only each result's top-level wall time. All sampled worlds, initial bids, inference
+counts, terminal states and credits match exactly.
+
+- Eight engine workers, one inference thread, exact frozen four-member opponent
+  ensemble and frozen-1 focal model; all **1,488** original source files unchanged.
+- Each position evaluates two fixed actions over eight worlds (**16 continuations**).
+- Median / slowest batch: **2.1343 / 7.3398 seconds**. Two-player median/max:
+  **2.1343 / 3.5776 s**; six-player: **2.2459 / 7.3398 s**.
+- Total measured CPU **201.77 s**; sampled summed parent/child RSS peak
+  **1,197,883,392 bytes**. Whole benchmark **63.41 s** after initial validation.
+- Model session construction: focal **32.29 ms**, four opponent sessions **20.79 ms**.
+  These exclude Python/process startup and are not end-to-end cold-request latency.
+- Target versions: Python 3.12.3, NumPy 2.5.3, ONNX Runtime 1.30.0, Node v24.19.0.
+  The HF-client import dependency is isolated in this benchmark's own directory;
+  execution is offline and performs no gradients or remote submissions.
+
+This supports the CPU feasibility of the learned-opponent component. It does not
+establish fidelity to strong opponents, improved full-game decisions, arbitrary
+position latency or whole-hybrid latency. These 24 positions cover only 2p/6p,
+all four rule combinations and plant/bid/building phases, using the original
+separate runtime roots rather than fresh scientific positions. The policy's eventual
+candidate shortlist, opponent mixture and override rule still need evaluation and
+an actual complete-policy 8840U benchmark after selection. The final strength
+thresholds, selected-policy integration requirement and reserved seeds are unchanged.
+
+Evidence and original handles:
+
+- `strong/surrogate-opponent-8840u-evidence-v1.json`; private HF revision
+  **aae76997ce8e10e7a7f3da50b3f914067c5f7631**.
+- Archive SHA256 **6f801cd9daa13ec37c2472db44899e411a53aa67c8b125cc9377b154d08d792e**,
+  **141 files**, including the complete standalone package and raw target/reference results.
+- Preparation `ai/runs/surrogate-opponent-8840u-prepared-v1`, collection
+  `ai/runs/surrogate-opponent-8840u-collected-v1`; source helpers are
+  `strong/benchmark-surrogate-opponent-8840u-v1.py` and `strong/run-surrogate-opponent-cpu-v1.py`.
+- Original target **PID 2981579** at
+  `/home/coyotte508/powergrid-ai-surrogate-opponent-8840u-v1` completed and is absent.
+  Original launch **session 12771**, collection **78179**, archive **76014** all ended
+  successfully. Preserve `strong/surrogate-opponent-8840u-launch-v1.json`; do not rerun.
+- The remote archive was downloaded and hash-verified. No new HF jobs, fresh strength
+  games, fresh scientific roots, selection or production change belongs to this benchmark.
+
+The main full-study owner **PID 3502343 / session 23779** is directly confirmed live
+with all pinned code unchanged. Its **08:17:28 UTC** snapshot is **173 submitted /
+136 independently verified**, zero caps and no reported failures. It continues to
+own the entire 480-root comparison. Do not manually submit/collect alongside it,
+change its frozen code, restart it on polling timeouts or draw aggregate conclusions
+from surviving partial results. Current checkpoint:
+`ai/runs/surrogate-opponent-8840u-completion-checkpoint-v1.json`, also embedded in the
+experiment ledger. Both this and the previous goal turn made concrete progress.
+
+**Next:** let the original coordinator complete and independently archive/audit the
+whole paired fidelity study. Then use the full findings to freeze a stronger-opponent
+auction policy with cautious overrides, confirm it with fresh complete games across
+all counts/rules, connect that exact policy to the unchanged final gate, and benchmark
+its actual standalone implementation. No candidate qualifies yet and there is no
+evidence here of a general playing-strength plateau.
+
 ## 25 October, 08:02 UTC — standalone whole-game path verified and archived
 
 `strong/public_policy_arena_v1.py` now evaluates complete development games through

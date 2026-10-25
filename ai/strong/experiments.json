@@ -58785,5 +58785,49 @@
         "new_strength_games": 0,
         "new_jobs_for_this_preflight": 0,
         "checkpoint_sha256": "d88cec8da788720d915330a07202d22907c646d88fece30216fa0f95dc9e81d0"
+    },
+    "surrogate_opponent_8840u_v1": {
+        "checked_at": "2026-10-25T08:17:57.377057+00:00",
+        "previous_goal_turn": "progress",
+        "this_goal_turn": "progress",
+        "coordinator_pid": 3502343,
+        "coordinator_session": 23779,
+        "original_coordinator_live": true,
+        "coordinator_command": "ai/.venv/bin/python -u -B ai/strong/coordinate-surrogate-continuation-study-v1.py --execute --interval-seconds 180 --max-hours 48 ",
+        "study_pinned_code_unchanged": true,
+        "study_state": {
+            "updated_at": "2026-10-25T08:17:28.925546+00:00",
+            "stage": "waiting_for_original_jobs",
+            "running_operation": null,
+            "jobs_submitted": 173,
+            "jobs_verified": 136,
+            "caps": 0,
+            "failed_jobs": []
+        },
+        "amd_benchmark_pid": 2981579,
+        "amd_benchmark_original_process_ended": true,
+        "amd_benchmark_assessment_sha256": "5bdc34b1d9b57b03c2d4e27c11ae58699d02a68cd3fa08fa4c9a84bee644dbbe",
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "evidence_sha256": "4adcb332f28ce72cffc0af3e694309d175ac1a8e0ec0ea982a4dd939c6ee9d72",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "aae76997ce8e10e7a7f3da50b3f914067c5f7631",
+            "archive_path": "archives/surrogate-opponent-8840u-evidence-v1.tgz",
+            "archive_sha256": "6f801cd9daa13ec37c2472db44899e411a53aa67c8b125cc9377b154d08d792e",
+            "manifest_sha256": "c0a4e72495b7d1aa509bffd8ad12f0a0f3e1f51e78287397c82a53d1498a452d",
+            "archived_files": 141,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "component_batch_seconds_median": 2.134271826595068,
+        "component_batch_seconds_max": 7.339803404174745,
+        "sampled_total_rss_max_bytes": 1197883392,
+        "exact_continuations": 384,
+        "runtime_roots": 24,
+        "component_only": true,
+        "exact_final_policy_adapter_ready": false,
+        "selected_full_hybrid_benchmarked": false,
+        "checkpoint_sha256": "d75df842d8323d85af972cc865428bb6c649e44cfbc2da2ce1128c55de28fbde"
     }
 }

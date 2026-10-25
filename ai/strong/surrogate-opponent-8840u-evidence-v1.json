@@ -1,0 +1,45 @@
+{
+  "complete": true,
+  "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+  "target_status_sha256": "85a200eadcb4bf6dd8d738617293899c673fde0bbe80d887ae5ab39b77c31e03",
+  "roots": 24,
+  "continuations": 384,
+  "caps": 0,
+  "all_saved_receipts_exact": true,
+  "component_batch_seconds_median": 2.134271826595068,
+  "component_batch_seconds_max": 7.339803404174745,
+  "total_cpu_seconds": 201.76999999999998,
+  "max_sampled_total_rss_bytes": 1197883392,
+  "by_player_count": {
+    "2": {
+      "roots": 12,
+      "median_seconds": 2.134271826595068,
+      "max_seconds": 3.5775664472021163
+    },
+    "6": {
+      "roots": 12,
+      "median_seconds": 2.2458603638224304,
+      "max_seconds": 7.339803404174745
+    }
+  },
+  "manifest_sha256": "5c886a21a380824c18e7643791d6edf66835b708958735c7d89f206d92762f24",
+  "surrogate_policy_sha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c",
+  "focal_model_sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+  "scope": "24 existing two/six-player runtime positions, all rules and plant/bid/building phases, two fixed actions and eight worlds. Learned-opponent continuation component only; not whole-hybrid latency, representative gameplay timing or playing strength.",
+  "new_hf_jobs": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "runtime_manifest_sha256": "5c886a21a380824c18e7643791d6edf66835b708958735c7d89f206d92762f24",
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "aae76997ce8e10e7a7f3da50b3f914067c5f7631",
+    "archive_path": "archives/surrogate-opponent-8840u-evidence-v1.tgz",
+    "archive_sha256": "6f801cd9daa13ec37c2472db44899e411a53aa67c8b125cc9377b154d08d792e",
+    "manifest_sha256": "c0a4e72495b7d1aa509bffd8ad12f0a0f3e1f51e78287397c82a53d1498a452d",
+    "archived_files": 141,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "assessment_sha256": "5bdc34b1d9b57b03c2d4e27c11ae58699d02a68cd3fa08fa4c9a84bee644dbbe"
+}

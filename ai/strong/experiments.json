@@ -56880,17 +56880,25 @@
             "partial_strength_compared": false
         },
         "latest_checkpoint": {
-            "checked_at": "2026-10-25T01:54:06.626943+00:00",
+            "checked_at": "2026-10-25T02:07:59.077742+00:00",
             "resource_coordinator_live": true,
-            "resource_pid": 1291091,
-            "resource_stage": "waiting_for_jobs",
+            "resource_coordinator_stage": "waiting_for_jobs",
             "resource_jobs_submitted": 54,
-            "resource_jobs_verified": 23,
+            "resource_jobs_verified": 27,
             "resource_failures": [],
             "resource_original_handle": {
                 "job_id": "6add57351e112550ce7e5fc4",
-                "status": "RUNNING"
+                "authoritative_status": "RUNNING"
             }
+        },
+        "complete_archive_collector": {
+            "path": "ai/strong/collect-resource-replanning-development-v1.py",
+            "sha256": "fabbad2ea284de6a363b154dc828de57b0a7bc5e8faed997b24576009aa55886",
+            "preflight": "ai/runs/resource-development-archive-preflight-v1.json",
+            "preflight_sha256": "81b201baf6d92efcb5dd91119f674fd44a5b4cd6219ae645655ab6a3f4ad58a3",
+            "tests_passed": 3,
+            "actual_terminal_rows_checked": 96,
+            "complete_screen_audit": false
         }
     },
     "reference_opponent_capture_v1": {
@@ -57027,7 +57035,7 @@
         "capture_process_completed": true
     },
     "opponent_surrogate_collection_v1": {
-        "status": "runtime_calibration_running",
+        "status": "runtime_2p_verified_6p_running",
         "source_commit": "8b4e38f",
         "protocol": "ai/strong/opponent-surrogate-collection-protocol-v1.json",
         "protocol_sha256": "1edacdf5359c821139fac6561397958b7ae8e4fcc7a617565a1da75c4c5a26e8",
@@ -57123,6 +57131,82 @@
         "reserved_final_seeds_used": false,
         "checkpoint": "ai/runs/opponent-surrogate-runtime-launched-v1.json",
         "checkpoint_sha256": "2be66ce502b3c198e6810c422fa30700cfb061f96b7baf5da6a0027daf490128",
-        "next": "Collect/audit both original HF runtime endpoints, admit full fresh collection from complete CPU/wall/memory measurements, then implement full collection coordinator and HF-only training. Evaluate held-out behaviour and paired continuations against actual search before adoption; no known deployed opponent identity input."
+        "next": "Collect/audit both original HF runtime endpoints, admit full fresh collection from complete CPU/wall/memory measurements, then implement full collection coordinator and HF-only training. Evaluate held-out behaviour and paired continuations against actual search before adoption; no known deployed opponent identity input.",
+        "first_verified_endpoint": {
+            "path": "ai/runs/opponent-surrogate-runtime-collected-v1/opponent-surrogate-runtime-v1-2p-0-1/verified.json",
+            "sha256": "427f3fd9910fb3f604afda4ebe9dbcd44c5f32314e2493f6136f17147381583b",
+            "job_id": "6add610c1e112550ce7e64df",
+            "evidence": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "7c649ba97830254364bab6f380d8f6ca0deaccca",
+                "archive_path": "archives/opponent-surrogate-runtime-v1-2p-0-1.tgz",
+                "archive_sha256": "5e31f7c797095074135994473814525aaeca841bf2afa8ea5d033de43828d9f6",
+                "manifest_sha256": "2ba3dc1cbce6ddf349e8f760997cf79a99c720ee66f3adcf631f47f85e5a5f93",
+                "archived_files": 60,
+                "format": "tar.gz",
+                "remote_archive_verified": true
+            },
+            "review": {
+                "complete": true,
+                "games": 8,
+                "teacher_rows": 382,
+                "teacher_rollouts": 30784,
+                "public_replays": 48,
+                "twin_games": 8,
+                "runtime": {
+                    "seconds": 145.18889106999995,
+                    "cpu_seconds": 920.87,
+                    "sampled_peak_total_rss_bytes": 5410299904,
+                    "memory_samples": 706,
+                    "memory_sampling_period_seconds": 0.2
+                },
+                "raw_evidence_bytes": 26213832,
+                "split_games": {
+                    "runtime": 8
+                },
+                "training_rows": 0,
+                "caps": 0,
+                "mode": "runtime",
+                "training_eligible": false,
+                "qualification_eligible": false
+            }
+        },
+        "collector_preflight": {
+            "path": "ai/runs/opponent-surrogate-collector-preflight-v1.json",
+            "sha256": "bc8a2958c4954f64102a1e8c54477d67360ad652bbecf98ad530835ae192c31d",
+            "tests": 5,
+            "real_hf_games": 8,
+            "local_teacher_replays": 48
+        },
+        "collector_checkpoint": {
+            "path": "ai/runs/opponent-surrogate-collector-checkpoint-v1.json",
+            "sha256": "e788891fdc52ee8e743993a0c4a38abaf1409facf8cb38d016958b464e123405",
+            "checked_at": "2026-10-25T02:07:59.077742+00:00",
+            "six_player_original_job": {
+                "job_id": "6add610d1e112550ce7e64e1",
+                "authoritative_status": "RUNNING",
+                "tail": [
+                    "{'complete_games': 5, 'planned_games': 24, 'errors': []}",
+                    "{'complete_games': 6, 'planned_games': 24, 'errors': []}",
+                    "{'complete_games': 7, 'planned_games': 24, 'errors': []}",
+                    "{'complete_games': 8, 'planned_games': 24, 'errors': []}"
+                ]
+            },
+            "two_player_verified_sha256": "427f3fd9910fb3f604afda4ebe9dbcd44c5f32314e2493f6136f17147381583b",
+            "resource_coordinator_live": true,
+            "resource_coordinator_stage": "waiting_for_jobs",
+            "resource_jobs_submitted": 54,
+            "resource_jobs_verified": 27,
+            "resource_failures": [],
+            "resource_original_handle": {
+                "job_id": "6add57351e112550ce7e5fc4",
+                "authoritative_status": "RUNNING"
+            },
+            "new_hf_jobs": 0,
+            "gradients": false,
+            "qualification_eligible": false
+        },
+        "joint_calibration_collector_implemented": true,
+        "joint_calibration_archive_complete": false
     }
 }

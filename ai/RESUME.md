@@ -6,7 +6,67 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 01:54 UTC: capture proof archived; fresh-data HF calibration running.**
+**Latest — 25 October, 02:08 UTC: first surrogate HF endpoint verified; complete audit tools prepared.**
+
+The previous turn archived the 20-case capture proof, prepared fresh collection and
+launched the two HF runtime endpoints (`8b4e38f`, handoff `a0a9770`). This turn
+verified the first real remote endpoint and implemented the complete calibration
+and resource-screen archive audits. No new HF jobs or gradients were started.
+
+**2p surrogate calibration COMPLETE and VERIFIED:** original job
+`6add610c1e112550ce7e64df`, **8 games / 16 paired executions**, **382 teacher
+choices / 30,784 teacher continuations**, zero caps. Every remote input and target
+was checked; **48 public teacher calls** were independently repeated locally and
+matched exactly. Measured HF execution: **145.19 s wall / 920.87 s CPU**, **5.41 GB
+sampled summed RSS**, **26.21 MB raw evidence**. Runtime deals remain excluded from
+training and strength. The original 60-file job archive is remotely verified at
+HF revision `7c649ba97830254364bab6f380d8f6ca0deaccca`, SHA256
+`5e31f7c797095074135994473814525aaeca841bf2afa8ea5d033de43828d9f6`.
+Receipt: `ai/runs/opponent-surrogate-runtime-collected-v1/opponent-surrogate-runtime-v1-2p-0-1/verified.json`.
+
+The first local collector pass rejected HF's valid content-addressed model cache
+path because it assumed the filename stayed `inference64.onnx`. The collector now
+accepts an absolute/common cache path while preserving the exact model-content hash
+checks. The original failure log is retained. No remote job/source changed or was
+restarted. **Five tests pass**, including ten corrupt public/teacher examples,
+false terminal credit after re-sealing its file hash, runtime-as-training rejection,
+and incomplete calibration refusal. Preflight:
+`ai/runs/opponent-surrogate-collector-preflight-v1.json`.
+
+New host-side tools (do not alter the pinned collection runtime):
+
+- `strong/collect-opponent-surrogate-runtime-v1.py 6` collects the existing six-player
+  handle only when complete, verifies every game and repeats its public teacher
+  checks locally. `opponent_surrogate_verification_v1.py` supplies the independent
+  raw-record, split, score and complete-grid checks.
+- `strong/collect-opponent-surrogate-calibration-v1.py` audits both verified
+  endpoints; `--archive` uploads their complete evidence once. The joint archive is
+  still pending and full data collection is not admitted.
+- `strong/collect-resource-replanning-development-v1.py` waits for all 54 original
+  batches and the completed comparison. It reproduces the full comparison,
+  recomputes all terminal credits and independently checks the primary/secondary
+  whole-deal bootstrap using rational credits and bootstrap multiplicities. Then
+  `--archive` preserves every cell and raw receipt. Its **three tests pass**, using
+  96 actual terminal rows plus synthetic statistical/partial-run fixtures.
+  Preflight: `ai/runs/resource-development-archive-preflight-v1.json`.
+
+At **02:07:59 UTC**, original 6p job `6add610d1e112550ce7e64e1` was directly
+RUNNING, **8/24 games completed**, no logged errors. Resource coordinator
+**11670 / PID 1291091** was live with **54 submitted / 27 verified**, no failures;
+an original resource handle was directly RUNNING. Checkpoint:
+`ai/runs/opponent-surrogate-collector-checkpoint-v1.json`.
+
+**Next:** finish the original six-player calibration, collect/audit/archive both
+endpoints, then use measured costs for full fresh-collection admission and implement
+its launcher/coordinator. Source, protocol and runtime launcher are already frozen;
+no replacements after observation timeouts. Prepare HF-only surrogate training after
+collection integrity/coverage. Require held-out behaviour, downstream continuation
+checks against actual search, and full fresh strength evaluation before adoption.
+For resources, let the existing coordinator finish and use the new complete audit
+before interpreting/archiving results. Final selected-policy integration and actual
+8840U hybrid validation remain outstanding. No candidate selection or plateau claim.
+
+**Previous — 25 October, 01:54 UTC: capture proof archived; fresh-data HF calibration running.**
 
 The previous turn completed and pushed the capture collector and its corruption
 checks (`b597b1d`). This turn completed the remaining capture cases, audited and

@@ -1,0 +1,78 @@
+{
+  "checked_at": "2026-10-25T12:19:17.742382+00:00",
+  "user_instruction": "Finish current run and prepare handoff; no further experiments",
+  "goal_status": "paused",
+  "handoff": "ai/HANDOFF-2026-10-25-PAUSED.md",
+  "research_commit_before_handoff": "c2dcf86",
+  "development_owner": {
+    "pid": 1061599,
+    "started_at": "2026-10-25T12:02:04.291045+00:00",
+    "stage": "stopped_for_inspection",
+    "code_hashes": {
+      "ai/strong/coordinate-conservative-auction-development-v1.py": "06340aa7a2d90218d59b259a85e34d5264599136ead64e24a8e729dcbf0dcaca",
+      "ai/strong/prepare-conservative-auction-development-v1.py": "1eac0bb682bed945c58533f2d0a8670d84ea821126fb0fe16e6082439f86b58e",
+      "ai/strong/manage-conservative-auction-development-v1.py": "76bfec83922b7d3fa4859acfa4c2ee3c431712f17bf302e3daa67f7a970e20b7",
+      "ai/strong/manage-conservative-auction-runtime-v1.py": "59a47610fa268086e823abbde56b7119c215478c5345b4815c1096d67ac3d9bc",
+      "ai/strong/prepare-conservative-auction-runtime-v1.py": "cf2d4a1c4aee4273deb577db84be9f51661d2f06638445e5a9cca9ed33b749de",
+      "ai/strong/manage-public-policy-development-hf-v1.py": "be2d43c0063e79c7de3b64151a467975573a885c5e962ef7f096956a3dcbd535",
+      "ai/strong/public_policy_development_job_v1.py": "e216f1558602ff8665da0e712d15f419afaec297a2d5194e4d61c0e74be16f1b",
+      "ai/strong/public_policy_final_audit_v1.py": "a006c43bac3862f29e9e39178324b93c1464059945467461f203e90df196a482",
+      "ai/strong/public_policy_final_contract_v1.py": "211e143a278fe6e5d0eb0b3654061130b6141b1518fd07297162307c39487103",
+      "ai/strong/public_policy_arena_v1.py": "1288ffb3d42a3c351c805c652e7c9c5f63b284f6c7061c7436f6ba06e9fc14eb",
+      "ai/strong/public_policy_runtime_v1.py": "0ded20877badd3f2c0ded746f5f743fbca6447084ed764a1e3b7ad8d6617fd3a",
+      "ai/strong/opponent_auction_verification_v1.py": "1383f64de5c064459c62b5ba2b8e222bdc2369ed7f8505e7cf96615743416f7c",
+      "ai/strong/opponent_auction_policy_v1.py": "c6f560330eec8035b1356d441a43a8c80e82138a852039b2494f4f827337c688",
+      "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+      "ai/strong/conservative-auction-development-protocol-v1.json": "ab4dbb7fdde1689d988671ca4abb4bd25ed52cd912dc0d4a94c6ca7f61c57e61",
+      "ai/strong/test_conservative_auction_development_plan_v1.py": "a2a6ad986215481457c1d4d65e4706687553b9116e65e832e26cc518ccdfed11",
+      "ai/strong/test_conservative_auction_development_manager_v1.py": "25d2ca0e36b266cd2bb8c4fa759b769ed7666ec16f07ff1b129b524dede25d84"
+    },
+    "pilots_verified": 2,
+    "development_verified": 0,
+    "development_submitted": 0,
+    "new_gradients": 0,
+    "qualified": false,
+    "reserved_final_seeds_used": false,
+    "max_active_development_jobs": 64,
+    "automatic_restarts": false,
+    "updated_at": "2026-10-25T12:13:24.544403+00:00",
+    "original_pilots": [
+      "6addea031e112550ce7eaa88",
+      "6addea031e112550ce7eaa8a",
+      "6addea04046eb82b1ece4faf",
+      "6addea04046eb82b1ece4fb1"
+    ],
+    "failure_type": "KeyboardInterrupt",
+    "failure": "Owner interrupted by signal 15; preserve original submissions",
+    "next_action": "Inspect original evidence and handles; do not restart or resubmit blindly"
+  },
+  "development_owner_absent": true,
+  "stop_marker_present": true,
+  "collection_only_finisher": {
+    "pid": 1146868,
+    "original_jobs": {
+      "conservative-auction-runtime-v1-conservative_population-2p": "6addea031e112550ce7eaa88",
+      "conservative-auction-runtime-v1-conservative_population-6p": "6addea031e112550ce7eaa8a",
+      "conservative-auction-runtime-v1-conservative_dual-2p": "6addea04046eb82b1ece4faf",
+      "conservative-auction-runtime-v1-conservative_dual-6p": "6addea04046eb82b1ece4fb1"
+    },
+    "new_jobs": 0,
+    "goal_paused": true,
+    "development_owner_stopped": true,
+    "source_sha256": "a2dd8f8b3e3bf3fd6b121b863cd34d69dd23675ef05af21c23400494339cacc0",
+    "stage": "waiting_for_original_pilots",
+    "updated_at": "2026-10-25T12:16:06.797680+00:00",
+    "statuses": {
+      "conservative-auction-runtime-v1-conservative_population-2p": "COMPLETED",
+      "conservative-auction-runtime-v1-conservative_population-6p": "RUNNING",
+      "conservative-auction-runtime-v1-conservative_dual-2p": "COMPLETED",
+      "conservative-auction-runtime-v1-conservative_dual-6p": "RUNNING"
+    },
+    "verified_jobs": 2
+  },
+  "current_run_complete": false,
+  "new_hf_jobs_submitted": 0,
+  "development_jobs_submitted": 0,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

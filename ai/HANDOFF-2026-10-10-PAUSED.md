@@ -1,5 +1,8 @@
 # Power Grid AI — paused handoff, 10 October 2026
 
+> A new pause was requested on 25 October. Start with
+> [the current handoff](HANDOFF-2026-10-25-PAUSED.md); this file is historical.
+
 > Historical snapshot. The user resumed training on 23 October 2026. Current
 > instructions and verified progress are in
 > [HANDOFF-2026-10-23-RESUMED.md](HANDOFF-2026-10-23-RESUMED.md).

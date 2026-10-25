@@ -1,5 +1,17 @@
 # Conservative auction search — runtime pilots, 25 October 2026
 
+**Current instruction — 25 October 2026: PAUSED; finish only the four original runtime pilots.**
+
+Start with [the new paused handoff](HANDOFF-2026-10-25-PAUSED.md). The broad
+development coordinator was deliberately stopped before any development
+submission. The two original six-player pilots are finishing under a
+collection-only process; no further experiments are authorized. Its state and
+all exact handles are in the new handoff. No candidate is qualified or deployed;
+reserved final seeds are unused. Historical “active”, “next” and “running”
+statements below do not override this pause.
+
+---
+
 Updated 2026-10-25T12:06:40.457367+00:00. **Both two-player pilots are complete and independently
 verified; both original six-player pilots are RUNNING.** Six-player completion
 and resource admission remain pending. No candidate is qualified; final seeds

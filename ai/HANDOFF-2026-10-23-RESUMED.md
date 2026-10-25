@@ -1,5 +1,17 @@
 # Power Grid AI — resumed 23 October 2026
 
+**Current instruction — 25 October 2026: PAUSED; finish only the four original runtime pilots.**
+
+Start with [the new paused handoff](HANDOFF-2026-10-25-PAUSED.md). The broad
+development coordinator was deliberately stopped before any development
+submission. The two original six-player pilots are finishing under a
+collection-only process; no further experiments are authorized. Its state and
+all exact handles are in the new handoff. No candidate is qualified or deployed;
+reserved final seeds are unused. Historical “active”, “next” and “running”
+statements below do not override this pause.
+
+---
+
 **Latest — 25 October, 12:04 UTC — two pilots verified; one coordinator owns the next comparison.**
 
 Both original two-player pilots passed raw auditing: **16 games / 2,777 decisions /

@@ -6,7 +6,50 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 10:23 UTC: original guarded-runner games verified and archived.**
+**Latest — 25 October, 10:41 UTC — portable development-job execution verified and archived.**
+
+The new development-job wrapper runs the existing frozen standalone artifact
+without modifying its runtime or policy identity. **Eight complete games / 1,607
+public decisions** at nonzero deal offset 4 match the original runtime exactly,
+including complete terminal outcomes. Seven real artifact admission checks cover
+2–6 players, the A260 checkpoint, the auction backend and nonzero offsets.
+**Eight contract/failure tests passed.** This is local execution evidence, not
+new playing strength, actual HF portability or AMD 8840U latency.
+
+The source manifest pins the external wrapper, artifact and controls. Default
+mode validates only; explicit execution creates an exclusive output directory.
+Failures retain receipts and cannot restart over the same output. This development
+entry explicitly rejects final/reserved contracts. Optional HF evidence upload
+uses the existing archive helper, but **HF bootstrap/submission/collection and
+actual recipe runtime admission are still pending**. No new HF jobs or gradients
+were submitted. No candidate is selected or qualified; final seeds remain unused.
+
+- Code: `strong/public_policy_development_job_v1.py`; helper
+  `strong/check-public-policy-development-job-v1.py` (`prepare/run/verify`).
+- Descriptor: `strong/public-policy-development-job-evidence-v1.json`.
+- Frozen source and raw results: `ai/runs/public-policy-development-job-preflight-v1`.
+- Private HF **4ff3bc8be157ce1cb29c7cf9f984670b0d7351df**; archive SHA256
+  **f64a8cdcd5649b177967ab7f63fbfa5940c1fcddfb0824df9151b5900dc2fb23**; **1575 files**, downloaded/hash-verified.
+- Original preparation **67290**, execution **28463**, verification **82449** and
+  archive **82778** completed. Do not rerun these games. Source has **1,522 files**;
+  manifest **4a5ac5cad84950dbd1b0934324f648bed7400a2d456fec19553653765916d22a**.
+- Latest checkpoint: `ai/runs/public-policy-development-job-postarchive-checkpoint-v1.json`.
+
+The original study owner **PID 3502343 / session 23779** is directly confirmed
+live, pinned code unchanged. At **2026-10-25T10:41:55.631933+00:00**, state is
+**480 submitted / 460 verified**, zero caps and no reported failures;
+stage `submitting`. The read-only **10:38:34 UTC** HF snapshot found
+23 then-unverified originals: **21 running / two completed**, no failures;
+`ai/runs/surrogate-study-live-observation-20261025-103834.json`. Only the original
+owner submits/collects. Do not replace jobs or interpret incomplete fidelity data.
+
+Previous goal turn was a verified wait; this turn made concrete progress.
+Next scientific action: complete and archive all 480 positions, inspect the full
+paired fidelity comparison, then freeze the next auction-search development
+experiment. Reuse this wrapper for actual HF pilots and fresh all-count/all-rule
+strength games; preserve adverse cells. No general plateau established.
+
+**Previous — 25 October, 10:23 UTC: original guarded-runner games verified and archived.**
 
 The original guarded-runner experiment is complete: **96 wrapper games**, plus
 **eight original-runtime offset reference games**. All **13,225 public decisions**,

@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "games": 8,
+  "decisions": 1607,
+  "all_public_decisions_and_terminals_exact": true,
+  "runtime_manifest_unchanged": true,
+  "source_manifest_sha256": "4a5ac5cad84950dbd1b0934324f648bed7400a2d456fec19553653765916d22a",
+  "validated_cases": [
+    "filter-2p",
+    "filter-3p",
+    "filter-4p",
+    "filter-5p",
+    "filter-6p",
+    "filter-offset-2p",
+    "auction-2p"
+  ],
+  "prepared_sha256": "cc7389a4c23a3158bb8a7479429ff2b90b6e060f8557f7001ea9a59c97ad625b",
+  "audit": {
+    "audit_version": 1,
+    "all_receipts_verified": true,
+    "identity": {
+      "policySha256": "8270061a29a56a988b7d18daf60a667e58a2a717ffae76648152d32cb2295b11",
+      "runtimeManifestSha256": "dcb23342088ae91379374827b45c0845d1b9494b31682fca55e3ac047d1e2f55",
+      "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+      "featureRevision": "4.3-strategic-correction",
+      "backend": "population-v1",
+      "settings": {
+        "arm": "filter",
+        "samples": 8,
+        "workers": 4,
+        "threads": 1,
+        "max_steps": 2400
+      }
+    },
+    "expected": {
+      "name": "filter-offset-2p",
+      "group": "legacy/2p",
+      "players": 2,
+      "start": 4,
+      "deals": 1,
+      "seed": "final-wrapper-engineering-offset-v1",
+      "opponent": "legacy",
+      "opponent_sha256": null,
+      "games": 8
+    },
+    "counts": {
+      "decisions": 1607,
+      "root_filter_overrides": 1,
+      "rollouts": 0,
+      "rollout_caps": 0,
+      "neural_decisions": 0,
+      "search_changes": 0,
+      "search_decisions": 0
+    },
+    "terminals": [
+      {
+        "env": 0,
+        "episode": 32,
+        "gameSeed": "final-wrapper-engineering-offset-v1-4",
+        "truncated": false,
+        "value": [
+          1,
+          0
+        ],
+        "playerCount": 2,
+        "variant": "original",
+        "sealed": true,
+        "steps": 395,
+        "roles": [
+          "learner",
+          "legacy"
+        ],
+        "policyMoves": {
+          "ChoosePowerPlant": 16,
+          "Bid": 13,
+          "BuyResource": 74,
+          "Pass": 41,
+          "Build": 21,
+          "UsePowerPlant": 38,
+          "DiscardPowerPlant": 10
+        },
+        "searchStats": {},
+        "final": {
+          "round": 14,
+          "players": [
+            {
+              "cities": 21,
+              "powered": 21,
+              "money": 85,
+              "capacity": 23,
+              "plants": [
+                28,
+                38,
+                42,
+                50
+              ]
+            },
+            {
+              "cities": 14,
+              "powered": 14,
+              "money": 11,
+              "capacity": 21,
+              "plants": [
+                29,
+                33,
+                46,
+                39
+              ]
+            }
+          ]
+        },
+        "seat": 0,
+        "win": 1
+      },
+      {
+        "env": 0,
+        "episode": 33,
+        "gameSeed": "final-wrapper-engineering-offset-v1-4",
+        "truncated": false,
+        "value": [
+          1,
+          0
+        ],
+        "playerCount": 2,
+        "variant": "recharged",
+        "sealed": true,
+        "steps": 334,
+        "roles": [
+          "learner",
+          "legacy"
+        ],
+        "policyMoves": {
+          "ChoosePowerPlant": 14,
+          "Bid": 11,
+          "BuyResource": 58,
+          "Pass": 38,
+          "Build": 21,
+          "UsePowerPlant": 35,
+          "DiscardPowerPlant": 9
+        },
+        "searchStats": {},
+        "final": {
+          "round": 13,
+          "players": [
+            {
+              "cities": 21,
+              "powered": 19,
+              "money": 35,
+              "capacity": 19,
+              "plants": [
+                13,
+                26,
+                38,
+                50
+              ]
+            },
+            {
+              "cities": 12,
+              "powered": 12,
+              "money": 14,
+              "capacity": 21,
+              "plants": [
+                24,
+                29,
+                39,
+                46
+              ]
+            }
+          ]
+        },
+        "seat": 0,
+        "win": 1
+      },
+      {
+        "env": 0,
+        "episode": 34,
+        "gameSeed": "final-wrapper-engineering-offset-v1-4",
+        "truncated": false,
+        "value": [
+          1,
+          0
+        ],
+        "playerCount": 2,
+        "variant": "original",
+        "sealed": false,
+        "steps": 444,
+        "roles": [
+          "learner",
+          "legacy"
+        ],
+        "policyMoves": {
+          "ChoosePowerPlant": 16,
+          "Bid": 17,
+          "BuyResource": 55,
+          "Pass": 50,
+          "Build": 21,
+          "UsePowerPlant": 40,
+          "DiscardPowerPlant": 9
+        },
+        "searchStats": {},
+        "final": {
+          "round": 15,
+          "players": [
+            {
+              "cities": 21,
+              "powered": 21,
+              "money": 179,
+              "capacity": 24,
+              "plants": [
+                39,
+                40,
+                31,
+                50
+              ]
+            },
+            {
+              "cities": 21,
+              "powered": 21,
+              "money": 58,
+              "capacity": 24,
+              "plants": [
+                24,
+                38,
+                46,
+                32
+              ]
+            }
+          ]
+        },
+        "seat": 0,
+        "win": 1
+      },
+      {
+        "env": 0,
+        "episode": 35,
+        "gameSeed": "final-wrapper-engineering-offset-v1-4",
+        "truncated": false,
+        "value": [
+          1,
+          0
+        ],
+        "playerCount": 2,
+        "variant": "recharged",
+        "sealed": false,
+        "steps": 298,
+        "roles": [
+          "learner",
+          "legacy"
+        ],
+        "policyMoves": {
+          "ChoosePowerPlant": 14,
+          "Bid": 12,
+          "BuyResource": 63,
+          "Pass": 37,
+          "Build": 21,
+          "UsePowerPlant": 34,
+          "DiscardPowerPlant": 8
+        },
+        "searchStats": {},
+        "final": {
+          "round": 12,
+          "players": [
+            {
+              "cities": 21,
+              "powered": 15,
+              "money": 125,
+              "capacity": 22,
+              "plants": [
+                26,
+                24,
+                39,
+                36
+              ]
+            },
+            {
+              "cities": 7,
+              "powered": 7,
+              "money": 20,
+              "capacity": 17,
+              "plants": [
+                8,
+                20,
+                29,
+                50
+              ]
+            }
+          ]
+        },
+        "seat": 0,
+        "win": 1
+      },
+      {
+        "env": 0,
+        "episode": 36,
+        "gameSeed": "final-wrapper-engineering-offset-v1-4",
+        "truncated": false,
+        "value": [
+          0,
+          1
+        ],
+        "playerCount": 2,
+        "variant": "original",
+        "sealed": true,
+        "steps": 391,
+        "roles": [
+          "legacy",
+          "learner"
+        ],
+        "policyMoves": {
+          "Bid": 13,
+          "ChoosePowerPlant": 16,
+          "BuyResource": 67,
+          "Pass": 42,
+          "Build": 21,
+          "UsePowerPlant": 39,
+          "DiscardPowerPlant": 9
+        },
+        "searchStats": {},
+        "final": {
+          "round": 14,
+          "players": [
+            {
+              "cities": 10,
+              "powered": 10,
+              "money": 3,
+              "capacity": 22,
+              "plants": [
+                21,
+                31,
+                32,
+                40
+              ]
+            },
+            {
+              "cities": 21,
+              "powered": 17,
+              "money": 122,
+              "capacity": 23,
+              "plants": [
+                26,
+                42,
+                39,
+                50
+              ]
+            }
+          ]
+        },
+        "seat": 1,
+        "win": 1
+      },
+      {
+        "env": 0,
+        "episode": 37,
+        "gameSeed": "final-wrapper-engineering-offset-v1-4",
+        "truncated": false,
+        "value": [
+          0,
+          1
+        ],
+        "playerCount": 2,
+        "variant": "recharged",
+        "sealed": true,
+        "steps": 270,
+        "roles": [
+          "legacy",
+          "learner"
+        ],
+        "policyMoves": {
+          "Pass": 35,
+          "ChoosePowerPlant": 9,
+          "BuyResource": 71,
+          "Build": 21,
+          "UsePowerPlant": 27,
+          "Bid": 8,
+          "DiscardPowerPlant": 5
+        },
+        "searchStats": {},
+        "final": {
+          "round": 11,
+          "players": [
+            {
+              "cities": 12,
+              "powered": 12,
+              "money": 24,
+              "capacity": 12,
+              "plants": [
+                6,
+                27,
+                29,
+                37
+              ]
+            },
+            {
+              "cities": 21,
+              "powered": 21,
+              "money": 104,
+              "capacity": 22,
+              "plants": [
+                26,
+                25,
+                39,
+                50
+              ]
+            }
+          ]
+        },
+        "seat": 1,
+        "win": 1
+      },
+      {
+        "env": 0,
+        "episode": 38,
+        "gameSeed": "final-wrapper-engineering-offset-v1-4",
+        "truncated": false,
+        "value": [
+          0,
+          1
+        ],
+        "playerCount": 2,
+        "variant": "original",
+        "sealed": false,
+        "steps": 427,
+        "roles": [
+          "legacy",
+          "learner"
+        ],
+        "policyMoves": {
+          "Bid": 27,
+          "Pass": 44,
+          "ChoosePowerPlant": 16,
+          "BuyResource": 79,
+          "Build": 21,
+          "UsePowerPlant": 34,
+          "DiscardPowerPlant": 10
+        },
+        "searchStats": {},
+        "final": {
+          "round": 14,
+          "players": [
+            {
+              "cities": 14,
+              "powered": 14,
+              "money": 10,
+              "capacity": 18,
+              "plants": [
+                20,
+                24,
+                50,
+                23
+              ]
+            },
+            {
+              "cities": 21,
+              "powered": 21,
+              "money": 79,
+              "capacity": 22,
+              "plants": [
+                19,
+                38,
+                39,
+                40
+              ]
+            }
+          ]
+        },
+        "seat": 1,
+        "win": 1
+      },
+      {
+        "env": 0,
+        "episode": 39,
+        "gameSeed": "final-wrapper-engineering-offset-v1-4",
+        "truncated": false,
+        "value": [
+          0,
+          1
+        ],
+        "playerCount": 2,
+        "variant": "recharged",
+        "sealed": false,
+        "steps": 382,
+        "roles": [
+          "legacy",
+          "learner"
+        ],
+        "policyMoves": {
+          "Pass": 42,
+          "ChoosePowerPlant": 14,
+          "BuyResource": 60,
+          "Build": 21,
+          "UsePowerPlant": 33,
+          "Bid": 19,
+          "DiscardPowerPlant": 8
+        },
+        "searchStats": {},
+        "final": {
+          "round": 13,
+          "players": [
+            {
+              "cities": 11,
+              "powered": 11,
+              "money": 5,
+              "capacity": 22,
+              "plants": [
+                27,
+                50,
+                46,
+                42
+              ]
+            },
+            {
+              "cities": 21,
+              "powered": 20,
+              "money": 151,
+              "capacity": 20,
+              "plants": [
+                29,
+                33,
+                38,
+                44
+              ]
+            }
+          ]
+        },
+        "seat": 1,
+        "win": 1
+      }
+    ],
+    "input_hashes": {
+      "evaluation.json": "c9b7ebafa1ae9da9d65575c8b442c59da50c7131cd1e1fb4f32f1457c7d86553",
+      "decisions-32.jsonl": "b4ec50f52a8a2349838b2ff6d08008d2724de2e61bc7e13648648b926b89a4c3",
+      "game-32.json": "48b140b0280122e71c9f0a76eca08d754a6f12b887f396fe29a3f4a6b324a5fd",
+      "decisions-33.jsonl": "8a492196e4fb85697af0d35f8acbea0f6914abe47ddb92212a9a6b72ee19e7ba",
+      "game-33.json": "f15f08890622d473e37e97df3a476716b15a93475e48e4f0610d14f8bb2dce6f",
+      "decisions-34.jsonl": "cc5853945003077a7b9a65df00f146dc27d4e795c93a8f813fde02f79eb6e78b",
+      "game-34.json": "74830fce730b1d96d2543aa4c75ad9e80a9cfa757394817136f282bfe7d6b34c",
+      "decisions-35.jsonl": "07a5e040f3c286c0d75f710bc773444c0abb369b1e6ca005061e6908e2416950",
+      "game-35.json": "e70ea8782e526b6ceabac9f458dc51f925b3e9bba659ca01c459a98b052f3cf3",
+      "decisions-36.jsonl": "fc21ce7accaf252aa2fae3eff6341dc9eb86826b118ca41726ed4bb02828846f",
+      "game-36.json": "e2dff959fb6b9db39471e5b0eb65a37ff0b37cb8af5e6080fc0132d585f26b82",
+      "decisions-37.jsonl": "35bd44462efeeae961560a45e076c4919048a030836b154a0eb18fe5dc87584a",
+      "game-37.json": "f33779b6bf47b987e4aea1908f8014fb3771b67fff13eb4fab1ed258f360b8e6",
+      "decisions-38.jsonl": "9a3d5130597f025272dcee8a9fec0650299e2b81413b2eaaf8ccbcf533690765",
+      "game-38.json": "bf815bc0fbff8ffdc8eefb58cd392098b3f26ad55afea47ecf21e45af517838a",
+      "decisions-39.jsonl": "93b879d1e46b404e7c950d5e301a78647cbfeb92460ebff1521d35e58222a4c7",
+      "game-39.json": "ce17eecaca9113c9754df9aaa20430cb112666f3908794e19018c57e46dfefc8"
+    },
+    "reserved_final_seeds_used": false,
+    "qualification_eligible": false
+  },
+  "new_hf_jobs": 0,
+  "gradient_updates": 0,
+  "reserved_final_seeds_used": false,
+  "qualification_eligible": false,
+  "scope": "Local clean-source development wrapper execution; not HF portability, new strength or target latency.",
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "4ff3bc8be157ce1cb29c7cf9f984670b0d7351df",
+    "archive_path": "archives/public-policy-development-job-evidence-v1.tgz",
+    "archive_sha256": "f64a8cdcd5649b177967ab7f63fbfa5940c1fcddfb0824df9151b5900dc2fb23",
+    "manifest_sha256": "5e4d8365bad0d6cca8428dbe866aed68a840f3226ba385576742a5591d8def6c",
+    "archived_files": 1575,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "checkpoint": {
+    "checked_at": "2026-10-25T10:39:49.117398+00:00",
+    "previous_goal_turn": "verified wait: original study PID 3502343 confirmed live; user hybrid question answered",
+    "current_goal_turn": "progress: portable development job tested on exact frozen runtime and complete games",
+    "study_owner_live": true,
+    "study_pinned_code_unchanged": true,
+    "study_state": {
+      "pid": 3502343,
+      "started_at": "2026-10-25T07:14:33.743340+00:00",
+      "stage": "waiting_for_original_jobs",
+      "running_operation": null,
+      "plan_sha256": "c206b3644cf691b4f6649c2d74f43347964242aefbb94c1c26b6760b44a27154",
+      "code_hashes": {
+        "ai/strong/surrogate_continuation_study_v1.py": "657c882af7cc2012fcaa7a34f9512efd7d3fa7e1c28dc420f6585838c556dd6a",
+        "ai/strong/surrogate_continuation_roots_v1.py": "32bb3995c339b325698c7b760df97ddf8f1ae19c2decf1d1b2c0821d0bf8a185",
+        "ai/strong/surrogate_opponent_continuations_v1.py": "00dfc09f14a2cfe0763f7466b60cc4c9fc315daca237e917c729136bc61044b5",
+        "ai/strong/surrogate-opponent-continuations-v1.cjs": "582e001232d3b07dad16b29fe6dc4b933869ccb8485c6167c185372af03c288f",
+        "ai/strong/reference-opponent-continuations-v2.cjs": "c3936f3fa35b3c5f9fefeea7cfbbecaf6becc8486c4f681a30e1497f83748c9d",
+        "ai/strong/reference-search-public-balances-v1.cjs": "ba53afcc0a06d25f776c27ba017e14026a28c9928bcde68b05effe64a715b010",
+        "ai/strong/analysis-public-balances-v1.cjs": "3e8eaf26bc21be7e2284e4838f743731a269e8d18badbb8adc0af882f3b3ccb5",
+        "ai/strong/hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+        "ai/strong/opponent_surrogate_policy_v1.py": "4b891dde9a1688eec9f5da0bd0ad0a5dc81d63b2a219d46ce646d033800530da",
+        "ai/strong/opponent_surrogate_training_v1.py": "49751b105b96c44d88b4a75e6b530fbddc4f0dc5590be1e18bd23cc64dc3eb10",
+        "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+        "ai/strong/surrogate-continuation-protocol-v1.json": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+        "ai/infer.py": "a86e79c2c87b1909557e69fd8b669ae2c47255d426e692b5d96baafe5c2f680d",
+        "ai/pool.py": "3b33133425d84430a6376834422478d70fe51a9c855d1e06937f109cd3620dd8",
+        "ai/strong/surrogate_continuation_job_v1.py": "c2f71bce37f8ece927386eeeac3b24309d6acf940d10ae832dce36eec51bfa91",
+        "ai/strong/surrogate_continuation_analysis_v1.py": "82ae56e4399009f96688fcef1be4479617703cc4a719cabd6332f64f11c8a66d",
+        "ai/strong/surrogate-continuation-analysis-design-v1.json": "efc57ce9e3be48d8365c4a63a72071cd0ab4887f801c4b126b5575ad508d82f8",
+        "ai/strong/surrogate_continuation_runtime_v1.py": "88d963595067128d950e1d14285af9863455b7830cb22b95f2533ab684069e0b",
+        "ai/strong/surrogate-continuation-roots-job-v1.py": "dc21963704d50857b9813cd0483c3bb524f9d67181411d12712b3322578d06b7",
+        "ai/strong/surrogate_continuation_selected_cost_v1.py": "eb19eea968918b4b40cc97005fd0379bd5984826c1bca54ad48d73f079ab8ad5",
+        "ai/strong/build-surrogate-continuation-study-source-v1.py": "842316fc91aaa389dd3887446450867fbe17fd91057f63a211ed37bf27e0eb15",
+        "ai/strong/manage-surrogate-continuation-selected-cost-v1.py": "79ca7edf6b30b38324a6a40f13ed8fa5b7e15c94360bac4d97fee57a9bde2f34",
+        "ai/strong/launch-opponent-surrogate-runtime-v1.py": "7f1af8aab9fb0db741f3c0d00ae77e20c03854c858a9794211c97d700aebe354",
+        "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+        "ai/strong/launch-surrogate-continuation-study-v1.py": "46acc00800fdd22afb6f090a553aad0c8820bde30d36ee77e95d5491a94d4b0f",
+        "ai/strong/manage-surrogate-continuation-study-v1.py": "d2c96dacc12707507658618e9bc9da5d5af19a20628de2698e0f3c24de1704c7",
+        "ai/strong/coordinate-surrogate-continuation-study-v1.py": "624b05eb6667edcbb01c2319e46ded57c4c97c04e229eb39e9a6db3eccc0bca3"
+      },
+      "jobs_planned": 480,
+      "continuations_planned": 23040,
+      "jobs_submitted": 480,
+      "jobs_verified": 454,
+      "caps": 0,
+      "failed_jobs": [],
+      "automatic_retries": false,
+      "remote_cancellations_allowed": false,
+      "gradients": false,
+      "qualification_eligible": false,
+      "reserved_final_seeds_used": false,
+      "updated_at": "2026-10-25T10:38:35.469459+00:00"
+    },
+    "new_hf_jobs": 0,
+    "reserved_final_seeds_used": false
+  },
+  "source_files": 1522,
+  "unit_tests": 8,
+  "limitation": "Local clean-source execution only. HF bootstrap/submission/collection admission and actual selected-recipe runtime must still be verified. This development wrapper explicitly rejects final games."
+}

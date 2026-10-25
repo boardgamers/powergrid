@@ -27,7 +27,79 @@ This document supersedes the pause instruction in the
 
 ## Latest checkpoint: resource-screen launcher prepared; measured HF CPU use
 
-**Latest — 25 October, 01:40 UTC: capture collector prepared; existing experiments continue.**
+**Latest — 25 October, 01:54 UTC: capture proof archived; fresh-data HF calibration running.**
+
+The previous turn completed and pushed the capture collector and its corruption
+checks (`b597b1d`). This turn completed the remaining capture cases, audited and
+archived all results, built/tested the fresh-data pipeline and started two bounded
+HF calibration jobs. This is concrete research progress; no new model has trained
+or qualified.
+
+**Passive capture proof COMPLETE:** all **20 twins / 40 executions**, 2–6 players
+and all four rules, passed. The audit verified **2,931 teacher decisions / 239,936
+teacher continuations / 120 public teacher replays**, zero caps, all **1,463 source
+files unchanged**, and the 2,553 canonical privacy/feature checks. Private HF
+revision `4cbf90bc4cacf3c5db289f7be156f06604607432`, archive SHA256
+`ffd4e0aebfc23117f2bae1e8d9cc0655b4a6cd4e5ea8553b5432996d52d78e04`,
+**124 files**, remotely verified. Descriptor:
+`strong/reference-opponent-capture-evidence-v1.json`. Session **40805** ended with
+exit 0; do not restart or rearchive. These engineering records stay excluded from
+training and strength results.
+
+**Fresh opponent-behaviour collection prepared, not launched:** protocol
+`strong/opponent-surrogate-collection-protocol-v1.json` fixes **2,560 games** over
+Germany 2–6 players, every seat and all four rules, with **640 exact twin replays**.
+For each count, deals 0–23 train, 24–27 validate, 28–31 test; every rule/seat/decision
+from a deal stays in one split. Test labels are for integrity checking and later
+held-out evaluation, never checkpoint selection. Every actual search_geo16
+auction/building choice is recorded independently of outcomes. Non-strategic
+opponent play can retain the exact economic policy. This is an approximation of
+opponent behaviour inside continuations, not a new optimal-action teacher.
+
+Three split/coverage tests and two wrapper boundary/failure tests passed. The latter
+use synthetic wrappers, not real HF execution. A real fresh **8-game / 16-execution
+2p preflight** covered both focal seats and all rules: **418 captured decisions,
+48 public teacher replays**, exact twins and no caps. The isolated package matched
+20 additional existing public requests exactly. Receipt/logs:
+`ai/runs/opponent-surrogate-source-preflight-v1.json`,
+`ai/runs/opponent-surrogate-source-prepared-v1/layout-check.json`.
+
+Code/protocol/source/admission pushed in **8b4e38f**. Source dataset revision
+`6d16cd796ce391b94326d31654866c2aae66769c`, archive SHA256
+`7d88c611a50ccf69b0877550bbdf113b23d410cca71c5219acf90414def4d5ec`,
+1,472 manifest files including the 1,463 unchanged base files. Do not edit these
+pinned collection/source/launcher files while the calibration is running.
+
+**HF calibration RUNNING:** both original handles directly confirmed at
+**01:54:06 UTC**, each on **cpu-upgrade, 8 vCPU / 32 GB**, eight game workers and a
+**4-hour timeout**. They cover 32 games / 64 paired executions in total and measure
+CPU/wall/memory before full collection admission. Their records and outcomes are
+excluded from training/strength.
+
+- 2p: `6add610c1e112550ce7e64df`.
+- 6p: `6add610d1e112550ce7e64e1`.
+- Guards: `ai/runs/opponent-surrogate-runtime-launches-v1/`.
+- Checkpoint: `ai/runs/opponent-surrogate-runtime-launched-v1.json`.
+- No runtime coordinator exists; inspect the two original handles, never launch
+  replacements after an observation timeout or ambiguous result.
+
+**Existing resource screen:** coordinator **11670 / PID 1291091** remains live,
+**54/54 submitted / 23 verified**, no reported failures at the same checkpoint.
+An original resource handle was directly confirmed RUNNING. Do not alter its
+source, restart it or compare incomplete results.
+
+**Next:** implement collection/audit for the two surrogate HF endpoints; measure
+complete jobs and review their raw games before admitting the full 2,560-game data
+collection. The full collection launcher/coordinator and the surrogate trainer are
+not implemented. All future gradients remain on HF Jobs. Require held-out behaviour
+and downstream continuation comparisons against actual search before adopting a
+surrogate, then fresh complete strength evaluation. Independently, complete the
+resource-screen audit/archive collector and review only after all 54 batches verify.
+The exact selected-policy final adapter and full target 8840U hybrid benchmark
+remain outstanding. No candidate selection, production changes, final seeds or
+plateau claim.
+
+**Previous — 25 October, 01:40 UTC: capture collector prepared; existing experiments continue.**
 
 Added `strong/collect-reference-opponent-capture-v1.py` and its three passing
 collection tests. The collector independently checks every saved target, public

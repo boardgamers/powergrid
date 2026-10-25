@@ -56878,10 +56878,23 @@
             "learner_decisions": 42624,
             "all_caps_zero": true,
             "partial_strength_compared": false
+        },
+        "latest_checkpoint": {
+            "checked_at": "2026-10-25T01:54:06.626943+00:00",
+            "resource_coordinator_live": true,
+            "resource_pid": 1291091,
+            "resource_stage": "waiting_for_jobs",
+            "resource_jobs_submitted": 54,
+            "resource_jobs_verified": 23,
+            "resource_failures": [],
+            "resource_original_handle": {
+                "job_id": "6add57351e112550ce7e5fc4",
+                "status": "RUNNING"
+            }
         }
     },
     "reference_opponent_capture_v1": {
-        "status": "exact_twin_probe_running",
+        "status": "complete_audited_and_archived",
         "source_commit": "854d270",
         "source": {
             "archive": "strong-source-population-hybrid-development-20261024-v1.tgz",
@@ -56953,7 +56966,7 @@
         "checkpoint_sha256": "61783db0ae3a78770617edb0347ac3cf233f083973e9777e4c4238e4c6733e6b",
         "verified_cases_at_checkpoint": 8,
         "purpose": "Prototype passive capture of actual search_geo16 strategic choices for a potential fast opponent-policy surrogate. Public inputs only; approximate behavior is not an optimal-action teacher. Non-strategic continuation can keep the exact economic policy. Known deployed opponent identity is not an input.",
-        "next": "Finish exact twin proof, audit/archive all twenty cases and public replays; then preregister fresh training collection, split by whole independent deals, and measured HF execution. All gradients on HF Jobs. Require held-out behavior and downstream continuation checks before any use in a search policy.",
+        "next": "Capture probe is complete; do not restart or rearchive. Continue fresh opponent-surrogate calibration/collection, excluding these probe records from training.",
         "fresh_training_dataset_prepared": false,
         "new_capture_hf_jobs": 0,
         "training_eligible": false,
@@ -57002,6 +57015,114 @@
             "qualification_eligible": false
         },
         "collector_implemented": true,
-        "complete_archive_pending": true
+        "complete_archive_pending": false,
+        "exact_twin_games": 20,
+        "teacher_rows": 2931,
+        "public_teacher_replays": 120,
+        "teacher_rollouts": 239936,
+        "caps": 0,
+        "evidence_descriptor": "ai/strong/reference-opponent-capture-evidence-v1.json",
+        "evidence_revision": "4cbf90bc4cacf3c5db289f7be156f06604607432",
+        "archive_sha256": "ffd4e0aebfc23117f2bae1e8d9cc0655b4a6cd4e5ea8553b5432996d52d78e04",
+        "capture_process_completed": true
+    },
+    "opponent_surrogate_collection_v1": {
+        "status": "runtime_calibration_running",
+        "source_commit": "8b4e38f",
+        "protocol": "ai/strong/opponent-surrogate-collection-protocol-v1.json",
+        "protocol_sha256": "1edacdf5359c821139fac6561397958b7ae8e4fcc7a617565a1da75c4c5a26e8",
+        "source": {
+            "repo": "coyotte508/powergrid-ai-training-v1",
+            "archive": "strong-source-opponent-surrogate-v1.tgz",
+            "sha256": "7d88c611a50ccf69b0877550bbdf113b23d410cca71c5219acf90414def4d5ec",
+            "bytes": 109543774,
+            "manifest_sha256": "612ca87872f252b456e74a8439b59a259ff7e2f1668b11b50aafd4ea48ed9346",
+            "manifest_files": 1472,
+            "protocol_sha256": "1edacdf5359c821139fac6561397958b7ae8e4fcc7a617565a1da75c4c5a26e8",
+            "base": {
+                "repo": "coyotte508/powergrid-ai-training-v1",
+                "archive": "strong-source-population-hybrid-development-20261024-v1.tgz",
+                "revision": "cdec1d3079eb9a54b776f6237ec5f93cc1de84d8",
+                "sha256": "ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23",
+                "files": 1463
+            },
+            "unchanged_base_files": 1463,
+            "new_files": {
+                "ai/strong/capture-reference-opponent-v1.cjs": "aee63bf2e6c1279c1f971e674fce1f70f30351b2dbe4c2934e545db9c3278c16",
+                "ai/strong/verify-opponent-surrogate-collection-v1.cjs": "a1da92b71498b36b26d6da88c3f80d1e5ea4b85c8a42e003b96af67656efc5bf",
+                "ai/strong/opponent_surrogate_collection_v1.py": "565a7673231df7b809f9404b8f59b627b413e2efbcf8cc649be0b27cf9cb959a",
+                "ai/strong/opponent-surrogate-collection-protocol-v1.json": "1edacdf5359c821139fac6561397958b7ae8e4fcc7a617565a1da75c4c5a26e8",
+                "ai/strong/opponent-surrogate-collection-job-v1.py": "6600921fcda11b7b5ea38121a53a118996dea976d4d1b08aab1109a8736aab70",
+                "ai/strong/test_opponent_surrogate_collection_v1.py": "529b6ff1fed9559839b25747fce2ca1154c525f011e5a5629837786603328ac8",
+                "ai/strong/test_opponent_surrogate_job_v1.py": "057e9c788a3d878aff2117b2c33770f37b62817a3ef1e4fd3e18fd9058e72895",
+                "ai/strong/build-opponent-surrogate-source-v1.py": "4bbf63a8d56f136b37da0f004fabe1dd92b2c053f5ea6b3c4bad00f2c383d7f6",
+                "ai/strong/reference-opponent-capture-evidence-v1.json": "8532b70251ad26ad0f60b47f054be99bffffa4a6408118a340c5a65b1b049054"
+            },
+            "preflight_sha256": "f7f0fd4fd9040326ea1adc8b10aca6fc91fd484d6f0cf387ede226f38a38a4c1",
+            "collection_admitted": false,
+            "runtime_admitted": false,
+            "new_hf_jobs": 0,
+            "gradients": false,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false,
+            "revision": "6d16cd796ce391b94326d31654866c2aae66769c",
+            "remote_archive_verified": true
+        },
+        "runtime_admission": {
+            "created_at": "2026-10-25T01:52:41.506967+00:00",
+            "source_sha256": "7d88c611a50ccf69b0877550bbdf113b23d410cca71c5219acf90414def4d5ec",
+            "source_descriptor_sha256": "1b5f2c4dbd6c97b06856fa9556ed20dea33ecac65c20f6f7c4baf80944a28162",
+            "protocol_sha256": "1edacdf5359c821139fac6561397958b7ae8e4fcc7a617565a1da75c4c5a26e8",
+            "preflight_sha256": "f7f0fd4fd9040326ea1adc8b10aca6fc91fd484d6f0cf387ede226f38a38a4c1",
+            "layout_check_sha256": "1262ad577086b46db4f9872cac7bcd3721bb52a1593d9c406c16177447d4cbfb",
+            "launcher_sha256": "7f1af8aab9fb0db741f3c0d00ae77e20c03854c858a9794211c97d700aebe354",
+            "bootstrap_sha256": "34fe3a67f2c829dc7659754d4e18d6b8fb4457d3760b14142fd38366bc172909",
+            "players": [
+                2,
+                6
+            ],
+            "jobs": 2,
+            "games": 32,
+            "paired_executions": 64,
+            "workers": 8,
+            "flavor": "cpu-upgrade",
+            "vcpus": 8,
+            "ram_gb": 32,
+            "timeout_hours": 4,
+            "max_concurrent": 2,
+            "local_worst_paired_case_seconds": 563.43411668099,
+            "estimated_calibration_seconds": 7661.20940017188,
+            "budget_scope": "Bounded calibration only. Local HX370 time is not an HF bound. Runtime jobs measure CPU, wall time, memory and output bytes before a full collection plan is admitted. No gradients or playing-strength estimates.",
+            "collection_admitted": false,
+            "automatic_retries": false,
+            "gradients": false,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false
+        },
+        "preflight": "ai/runs/opponent-surrogate-source-preflight-v1.json",
+        "preflight_sha256": "f7f0fd4fd9040326ea1adc8b10aca6fc91fd484d6f0cf387ede226f38a38a4c1",
+        "runtime_jobs": [
+            {
+                "case": "opponent-surrogate-runtime-v1-2p-0-1",
+                "job_id": "6add610c1e112550ce7e64df",
+                "status": "RUNNING",
+                "guard_sha256": "58efd64dd8c9a75678b5a13ee07b195bde4c1c0e577a5c1b50e55b29f5a230f8"
+            },
+            {
+                "case": "opponent-surrogate-runtime-v1-6p-0-1",
+                "job_id": "6add610d1e112550ce7e64e1",
+                "status": "RUNNING",
+                "guard_sha256": "f5c99ae69dc23e2a5368e3aebef3493c6708a45f7d9663a5899316ebc1d2043a"
+            }
+        ],
+        "planned_collection_games": 2560,
+        "planned_twins": 640,
+        "collection_jobs_submitted": 0,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "checkpoint": "ai/runs/opponent-surrogate-runtime-launched-v1.json",
+        "checkpoint_sha256": "2be66ce502b3c198e6810c422fa30700cfb061f96b7baf5da6a0027daf490128",
+        "next": "Collect/audit both original HF runtime endpoints, admit full fresh collection from complete CPU/wall/memory measurements, then implement full collection coordinator and HF-only training. Evaluate held-out behaviour and paired continuations against actual search before adoption; no known deployed opponent identity input."
     }
 }

@@ -6,7 +6,55 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 09:44 UTC: final-game audit ordering correction verified and archived.**
+**Latest — 25 October, 10:01 UTC: guarded final runner prepared; original engineering execution running.**
+
+The new **guarded final runner** reuses the unchanged standalone `arena.play`
+implementation. It validates complete artifact/policy identity and writes the exact
+candidate/contract bytes into every result. Engineering runs reject reserved
+names and cannot claim selection. Final runs require selected status, a frozen
+selection-evidence archive pin, an exact original final shard, and a matching
+prior launch-intent fingerprint. The future HF launcher must verify the actual
+selection evidence and record/reconcile original submissions; this local runner
+does not select a model, reserve seeds, submit jobs or qualify a policy.
+
+**Eight admission/lifecycle tests passed**, including changed candidates/settings,
+missing intent/evidence, late freeze, incomplete paired deals, altered saved bytes,
+existing-output rejection and validation-only default. Seven actual artifact
+contracts validated without starting games. Preparation preserves all **1,494**
+original runtime files and adds the runner/admission/audit modules plus the pinned
+A260 opponent. Both policy descriptors remain explicitly **engineering**.
+
+The **original engineering run is now active**, PID **306566**, started
+09:57:28 UTC. It executes **96 wrapper games** (80 prior filter cases across all
+counts, eight new nonzero-offset filter cases, eight prior auction cases), plus
+**eight original-runner offset reference games**. It is designed to compare every
+public decision/continuation and complete terminal with the original runtime.
+Those comparisons are **not yet complete**; no strength claim. Keep the original
+owner and partial receipts; never restart because an observation ends.
+
+- Guard `ai/runs/public-policy-final-runner-launch-v1.json`; log
+  `ai/runs/public-policy-final-runner-execution-v1.log`.
+- Output `ai/runs/public-policy-final-runner-preflight-v1`; controller state is
+  `state.json` inside it. At this checkpoint: **`auction-2p`**;
+  completed cases: `reference-offset, filter-2p, filter-3p, filter-4p, filter-5p, filter-6p, filter-offset-2p`.
+- Descriptor `strong/public-policy-final-runner-preparation-v1.json`;
+  helper `strong/check-public-policy-final-runner-v1.py` (`prepare/run/verify`).
+- Runtime manifest **dcb23342088ae91379374827b45c0845d1b9494b31682fca55e3ac047d1e2f55**.
+  Prepared metadata SHA256 **4dcf09a8f900dbc35c16a984a8606fa696fbef38f4e4a50b01995c037b90a9d5**.
+- Original preparation session **90078** completed. Do not modify its pinned
+  helper/source/package while PID 306566 is running. When terminal, inspect the
+  original state and run `verify`, then archive complete execution evidence.
+
+The sole main-study owner **PID 3502343 / session 23779** remains directly live,
+all pinned code unchanged. At **09:58:39 UTC** it reports **404 submitted /
+367 verified**, zero caps, no failures; stage `waiting_for_original_jobs`. No parallel manual
+submission/collection. Checkpoint `ai/runs/public-policy-final-runner-preparation-checkpoint-v1.json`.
+Previous and current goal turns made concrete progress. No new HF jobs/gradients,
+selected candidate, qualification, deployment or reserved final seeds. Complete
+and archive the whole fidelity study before freezing a stronger auction recipe;
+fresh strength games and actual complete-policy 8840U qualification remain.
+
+**Previous — 25 October, 09:44 UTC: final-game audit ordering correction verified and archived.**
 
 The final-game audit now sorts by canonical episode before computing bootstrap
 intervals. A regression test against the **archived first implementation** failed

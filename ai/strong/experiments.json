@@ -58421,5 +58421,50 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "checkpoint_sha256": "3f6d470453e0d1a1a458789bc1510fd95150e51269fc9e6d614d41a41949fbe1"
+    },
+    "surrogate_continuation_study_coordinator_preflight_v1": {
+        "preflight_sha256": "df8b6b32ff576e97de6270ffc428128d0280c953e8c5f1089b5beda89f0acd3b",
+        "checkpoint_sha256": "af33916ab96d112152a3ebe4c8773005d8cd47dd71e149192ccf7647fed7fc99",
+        "tests": 8,
+        "started": false,
+        "new_hf_jobs": 0,
+        "gradient_updates": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
+    },
+    "surrogate_continuation_study_archive_preflight_v1": {
+        "preflight_sha256": "716ee56b929c4fb4acf9fabde8bba5d13dcd87ea0c3e69e0f1fddb398c827ae4",
+        "tests": 3,
+        "saved_engine_terminal_credits_checked": 48,
+        "archive_created": false,
+        "new_hf_jobs": 0,
+        "fresh_scientific_continuations": 0,
+        "gradient_updates": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
+    },
+    "opponent_surrogate_data_preparation_v1": {
+        "complete": true,
+        "checked_at": "2026-10-25T06:22:07.805577+00:00",
+        "data_check_sha256": "db17a5421fe63d450bdac9843ac067b49e8e43f7979f42dace17d8d485b368eb",
+        "split_games": {
+            "train": 1920,
+            "validation": 320
+        },
+        "split_rows": {
+            "train": 313783,
+            "validation": 52543
+        },
+        "validation_rows_with_exact_train_inputs": 451,
+        "test_records_included": false,
+        "training_coordinator_pid": 2825298,
+        "training_stage": "waiting_for_calibration",
+        "running_action": null,
+        "known_archive_child_pid": 3165802,
+        "gradient_updates": 0,
+        "new_hf_jobs": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "checkpoint_sha256": "0b03bd84d3876b05bcdef335a5f3cdf7ab2d2e8070e1f53402d069c7799310b3"
     }
 }

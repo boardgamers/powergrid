@@ -25,6 +25,68 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
+## 25 October, 06:20 UTC — full-study coordinator and archive tooling
+
+The original training coordinator **PID 2825298 / session 39111** completed data
+preparation at **06:19:32 UTC**: **313,783 training rows / 52,543 validation rows**
+from 1,920 / 320 whole-deal-split games. All 320 held-out test games remain excluded.
+The report records **451 validation rows with naturally identical training inputs**;
+no rows or outcomes were removed or used to alter the frozen design. Data-check
+SHA256: `db17a5421fe63d450bdac9843ac067b49e8e43f7979f42dace17d8d485b368eb`.
+
+The original owner is now executing `archive_data`; child **PID 3165802** was
+directly observed running. Do not duplicate the packaging/upload or launch stages.
+All 30 pinned execution files remain unchanged. No GPU job or gradient update yet
+at this checkpoint. Data checkpoint:
+`ai/runs/opponent-surrogate-data-preparation-checkpoint-v1.json`, SHA256
+`0b03bd84d3876b05bcdef335a5f3cdf7ab2d2e8070e1f53402d069c7799310b3`. The complete raw collection index is already committed.
+
+`strong/coordinate-surrogate-continuation-study-v1.py` now owns a complete admitted
+study, with eight passing tests. It requires actual trained selection, selected
+surrogate timing and the measured study admission before creating execution state.
+It submits at most the admitted concurrency, collects before further submission,
+keeps each original handle, and indexes only after all 480 planned jobs verify.
+Caps retain all records and finish as `complete_with_caps`; remote failures stop
+for inspection. Uncertain submission/collection operations retain their operation
+state and cannot silently retry or replace jobs. Observation errors are not marked
+as remote job failures. Changed code/admission or existing original submissions
+prevent a second owner. Dry runs do not create output or submit work.
+
+The coordinator is **implemented but not started**. Once actual learned selection,
+source packaging and separate selected-opponent calibration complete, use the
+study launcher `prepare`, then start this coordinator once with `--execute
+--interval-seconds 180 --max-hours 48`, preserving its returned session/PID. Do not
+also manually call `launch-ready`. If the user later asks for no more jobs, stop
+this local coordinator before any further study submissions. It never owns
+training, source preparation, calibration, policy selection or full-game strength.
+
+`strong/archive-surrogate-continuation-study-v1.py` is also ready. It requires the
+full original index, reproduces the complete comparison, independently recomputes
+terminal tie credit, deduplicates physical prior-search work, and preserves all
+raw receipts, paired records, adverse groups and caps in a single private archive.
+A capped complete corpus may be archived with `complete: false` and no aggregate;
+a failed or missing root cannot become a survivor-only result. The helper preserves
+an original upload/output and refuses automatic replacement. Three tests pass,
+including independent score/tie calculations, all **48 saved real-engine preflight
+outcomes**, and refusal to create/archive a partial corpus. No new simulations,
+scientific-root executions, uploads or actual study archive were created.
+
+- Coordinator preflight: `ai/runs/surrogate-continuation-study-coordinator-preflight-v1.json`,
+  SHA256 `df8b6b32ff576e97de6270ffc428128d0280c953e8c5f1089b5beda89f0acd3b`.
+- Coordinator checkpoint: `ai/runs/surrogate-continuation-study-coordinator-checkpoint-v1.json`,
+  SHA256 `af33916ab96d112152a3ebe4c8773005d8cd47dd71e149192ccf7647fed7fc99`.
+- Archive preflight: `ai/runs/surrogate-continuation-study-archive-preflight-v1.json`,
+  SHA256 `716ee56b929c4fb4acf9fabde8bba5d13dcd87ea0c3e69e0f1fddb398c827ae4`.
+
+Next: let the existing training owner finish data packaging and launch its original
+L4 calibration. Inspect that original job and measured admission, not a replacement.
+Then full four-seed HF training, independent audit and validation-only selection.
+If a learned policy wins, run the prepared held-out imitation evaluation without
+reselection; freeze study inputs and source; run the selected-surrogate timing;
+then the measured full-study coordinator and final archive helper. Fresh hybrid
+full-game evaluation, selected-policy final adapter and actual 8840U hybrid latency
+are still required. No selected candidate, publication or final-seed use. Goal active.
+
 ## 25 October, 06:10 UTC — collection complete and training preparation running
 
 The original collection coordinator finished and exited normally at **06:08:27

@@ -1,6 +1,6 @@
 {
 	"name": "powergrid-viewer",
-	"version": "2.3.13",
+	"version": "2.3.14",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/boardgamers/powergrid.git",
@@ -17,6 +17,7 @@
 		"package": "vue-cli-service build --target lib --name powergrid-viewer src/wrapper.ts && node ../scripts/check-bundle-size.mjs",
 		"prepublishOnly": "npm run package",
 		"test:browser": "node scripts/protocol-smoke.mjs",
+		"test:layout": "node scripts/stable-layout-smoke.mjs",
 		"test:tutorial": "node --test tests/tutorial/lessons.cjs",
 		"test:tutorial:browser": "node scripts/tutorial-smoke.mjs",
 		"preview:tutorial": "node scripts/tutorial-preview.mjs",

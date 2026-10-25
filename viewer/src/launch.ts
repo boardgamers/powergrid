@@ -39,6 +39,7 @@ function launch(selector: string) {
         // from a non-reactive parent — plain-object mutations (the in-game sound/map
         // toggles, platform preference pushes) would only paint on the next re-render.
         preferences: Vue.observable({
+            locale: 'en',
             bgs: {},
             preferredPlayerColors: undefined as (string | null)[] | undefined,
             sound: true,

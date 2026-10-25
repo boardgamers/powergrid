@@ -26,7 +26,12 @@ export function desktopBoardLayout(
     targetHeight: number,
     display?: { pixelsPerUnit: number; cityDiameter: number }
 ) {
-    const normal = packDesktopBoard(boxes, width, targetHeight, 1);
+    // Keeping every player in one column must not make their text microscopic
+    // on short screens. Allow vertical scrolling before dropping below the
+    // same 11.25px text floor used for the tracks.
+    const sidebarFloor = display && display.pixelsPerUnit > 0 ? 0.75 / display.pixelsPerUnit : 0;
+    const pack = (height: number, ceiling: number) => packDesktopBoard(boxes, width, height, ceiling, sidebarFloor);
+    const normal = pack(targetHeight, 1);
     if (!display || display.cityDiameter <= 0 || display.pixelsPerUnit <= 0 || !normal.placements.map) return normal;
     const cityPixels = (layout: typeof normal) =>
         layout.placements.map.scale * display.cityDiameter * display.pixelsPerUnit;
@@ -36,18 +41,18 @@ export function desktopBoardLayout(
     // (existing row-width limits still apply), or reduce controls by over 35%.
     let low = Math.min(1, Math.max(0.65, 0.75 / display.pixelsPerUnit)),
         high = 1;
-    let best = packDesktopBoard(boxes, width, targetHeight, low);
+    let best = pack(targetHeight, low);
     if (cityPixels(best) < target) {
         // Height is a preference, not a readability limit. Grow the scene when
         // compacting controls cannot produce 36 CSS-pixel cities. Width still
         // limits the map, so very narrow desktops use the largest size that fits.
         let minHeight = targetHeight;
         let maxHeight = targetHeight + Object.values(boxes).reduce((sum, box) => sum + box.height + GAP, 0);
-        best = packDesktopBoard(boxes, width, maxHeight, low);
+        best = pack(maxHeight, low);
         const attainable = Math.min(target, cityPixels(best));
         for (let i = 0; i < 16; i++) {
             const height = (minHeight + maxHeight) / 2;
-            const layout = packDesktopBoard(boxes, width, height, low);
+            const layout = pack(height, low);
             if (cityPixels(layout) >= attainable) {
                 maxHeight = height;
                 best = layout;
@@ -59,7 +64,7 @@ export function desktopBoardLayout(
     // Use the largest controls that still meet the city-size target.
     for (let i = 0; i < 8; i++) {
         const ceiling = (low + high) / 2;
-        const layout = packDesktopBoard(boxes, width, targetHeight, ceiling);
+        const layout = pack(targetHeight, ceiling);
         if (cityPixels(layout) >= target) {
             low = ceiling;
             best = layout;
@@ -69,7 +74,13 @@ export function desktopBoardLayout(
 }
 
 /** Pack measured game components; decorative geography never participates. */
-function packDesktopBoard(boxes: Record<string, BoardBox>, width: number, targetHeight: number, chromeCeiling: number) {
+function packDesktopBoard(
+    boxes: Record<string, BoardBox>,
+    width: number,
+    targetHeight: number,
+    chromeCeiling: number,
+    sidebarFloor = 0
+) {
     const placements: Record<string, BoardPlacement> = {};
     const present = (names: string[]) =>
         names.filter((name) => boxes[name] && boxes[name].width > 0 && boxes[name].height > 0);
@@ -100,7 +111,12 @@ function packDesktopBoard(boxes: Record<string, BoardBox>, width: number, target
     const headerHeight = rowHeight(header, headerScale);
     const footerHeight = rowHeight(footer, footerScale);
     const bodyTop = PAD + headerHeight + GAP;
-    const bodyBudget = Math.max(180, targetHeight - bodyTop - GAP - footerHeight - PAD);
+    const sidebarNaturalHeight = sidebar.reduce((n, name) => n + boxes[name].height, 0);
+    const bodyBudget = Math.max(
+        180,
+        targetHeight - bodyTop - GAP - footerHeight - PAD,
+        sidebarNaturalHeight * sidebarFloor + GAP * Math.max(0, sidebar.length - 1)
+    );
 
     function place(name: string, x: number, y: number, scale: number) {
         const box = boxes[name];
@@ -127,14 +143,14 @@ function packDesktopBoard(boxes: Record<string, BoardBox>, width: number, target
     }
     placeRow(header, PAD, headerScale, true);
 
-    const sidebarWidth = Math.min(
-        usable * (boxes.playerBoards?.width > 600 ? 0.43 : 0.28),
-        Math.max(0, ...sidebar.map((name) => boxes[name].width)) * chrome
+    const sidebarNaturalWidth = Math.max(0, ...sidebar.map((name) => boxes[name].width));
+    const sidebarWidth = Math.max(
+        sidebarNaturalWidth * sidebarFloor,
+        Math.min(usable * (boxes.playerBoards?.width > 600 ? 0.43 : 0.28), sidebarNaturalWidth * chrome)
     );
-    const sidebarNaturalHeight = sidebar.reduce((n, name) => n + boxes[name].height, 0);
     const sidebarScale = sidebar.length
         ? Math.min(
-              chrome,
+              Math.max(chrome, sidebarFloor),
               sidebarWidth / Math.max(...sidebar.map((name) => boxes[name].width)),
               (bodyBudget - GAP * (sidebar.length - 1)) / sidebarNaturalHeight
           )

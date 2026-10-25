@@ -2,7 +2,7 @@
     <div :class="['game', { fitToScreen: preferences.fitToScreen && !stacked, stacked: stacked }]">
         <div class="planner-header" :class="{ planning: hasPlanPanel }">
             <div class="statusBar">
-                <span class="status-message">{{ getStatusMessage() }}</span>
+                <span class="status-message" :title="getStatusMessage()">{{ getStatusMessage() }}</span>
             </div>
             <RoundPlanner
                 v-if="!tutorialMove && !paused && hasPlanPanel"
@@ -21,7 +21,7 @@
         <svg
             v-if="G"
             id="scene"
-            :class="{ stacked: stacked }"
+            :class="{ stacked: stacked, 'laid-out': desktopHeight !== null }"
             :viewBox="sceneViewBox"
             :style="{ width: '100%', aspectRatio: sceneViewBox.split(' ').slice(2).join(' / ') }"
             preserveAspectRatio="xMidYMin meet"
@@ -180,6 +180,8 @@
                     :maxBid="G.players[player] ? G.players[player].money : 0"
                     :nextCardWeak="G.nextCardWeak"
                     :plantDiscountActive="G.plantDiscountActive"
+                    :reserveLayout="!stacked"
+                    :futureMarketRows="G.map.name === 'Europe' ? 2 : 1"
                     @choosePowerPlant="choosePowerPlant($event)"
                     @bid="bid($event)"
                 />
@@ -415,6 +417,23 @@
                     slotT('roundInfo') || `translate(${G.map.roundInfoPosition[0]}, ${G.map.roundInfoPosition[1]})`
                 "
             >
+                <!-- Reserve the longest round/phase readout before a turn can
+                     change it. Invisible text still uses the active language. -->
+                <g v-if="!stacked" visibility="hidden" aria-hidden="true" pointer-events="none">
+                    <text x="10" y="20" font-weight="600" style="font-size: 32px">Round: 99</text>
+                    <text x="10" y="60" font-weight="600" style="font-size: 32px">Step: 3</text>
+                    <text
+                        v-for="phase in phasesForLayout"
+                        :key="phase"
+                        x="10"
+                        y="100"
+                        font-weight="600"
+                        style="font-size: 32px"
+                    >
+                        Phase: {{ phase }}
+                    </text>
+                    <rect x="20" y="50" width="280" height="40" fill="none" />
+                </g>
                 <template v-if="gameEnded(G)">
                     <Button
                         :transform="`translate(20, 50)`"
@@ -531,8 +550,8 @@
                 <template v-for="(playerIndex, i) in adjustedPlayerOrder">
                     <PlayerBoard
                         :key="'B' + playerIndex"
-                        :transform="`translate(${G.map.playerBoardsPosition[0] + (i % playerBoardColumns) * 400}, ${
-                            G.map.playerBoardsPosition[1] + 110 * Math.floor(i / playerBoardColumns)
+                        :transform="`translate(${G.map.playerBoardsPosition[0]}, ${
+                            G.map.playerBoardsPosition[1] + 110 * i
                         })`"
                         :player="G.players[playerIndex]"
                         :color="playerColors[playerIndex]"
@@ -2910,7 +2929,8 @@ export default class Game extends Vue {
 
     /** True while the portrait row layout is in effect. */
     stacked = false;
-    playerBoardColumns = 1;
+    readonly phasesForLayout = Object.values(Phase);
+    private desktopLayoutKey = '';
     geographyBounds: MapBounds | null = null;
     geographyReady = false;
     /** Whether the viewport needs the compact portrait controls. */
@@ -2980,6 +3000,17 @@ export default class Game extends Vue {
             return;
         }
 
+        // Turns change labels, bids, highlights and animated piece bounds. Those
+        // are not changes to the board's geometry: keep the layout until the
+        // viewport, selected network, player count or language actually changes.
+        const desktopKey = JSON.stringify({
+            viewport: [window.innerWidth, window.innerHeight, this.$el.clientWidth],
+            map: this.G?.map,
+            players: this.G?.players.length,
+            locale: this.preferences.locale,
+        });
+        if (!this.shouldStack() && !this.stacked && desktopKey === this.desktopLayoutKey) return;
+
         // Measure only playable cities and connections. Background geography and
         // faded regions cannot enlarge either layout.
         const network = this.map?.$el as SVGGraphicsElement | undefined;
@@ -2991,15 +3022,6 @@ export default class Game extends Vue {
         }
 
         this.portraitViewport = this.isPortraitViewport();
-        const columns =
-            !this.shouldStack() && (this.G?.players.length || 0) >= 5 && window.innerWidth / window.innerHeight > 1.7
-                ? 2
-                : 1;
-        if (columns !== this.playerBoardColumns) {
-            this.playerBoardColumns = columns;
-            this.scheduleRelayout();
-            return;
-        }
 
         // getBBox() reports a group's box in its OWN user space, i.e. before its
         // own transform is applied — so measuring is safe even while a previous
@@ -3051,8 +3073,11 @@ export default class Game extends Vue {
             this.slotTransforms = Object.fromEntries(
                 Object.entries(layout.placements).map(([name, slot]) => [name, slot.transform])
             );
+            this.desktopLayoutKey = desktopKey;
             return;
         }
+
+        this.desktopLayoutKey = '';
 
         // A row of `h` scene units renders at h * (innerWidth / STACK_WIDTH) css px,
         // because the canvas width always maps to the viewport width.
@@ -3207,8 +3232,8 @@ export default class Game extends Vue {
         return JSON.stringify(preferences);
     }
 
-    // Boards grow as players buy plants, so the row heights are re-derived on
-    // every state change rather than measured once at mount.
+    // Portrait rows can grow when a resource breakdown opens. Desktop reuses
+    // its reserved layout across state updates instead of moving click targets.
     @Watch('G')
     @Watch('layoutPreferencesKey')
     @Watch('hasPlanPanel')
@@ -3266,7 +3291,10 @@ ul {
     flex-direction: column;
 }
 
-.fitToScreen #scene {
+// Once measured, the layout fits the viewport where possible and grows when
+// needed to preserve readable cities and cards. A second CSS cap would shrink
+// the whole board again, silently undoing those pixel-size floors.
+.fitToScreen #scene:not(.laid-out) {
     max-height: calc(100vh - 40px);
 }
 
@@ -3315,6 +3343,15 @@ ul {
 .status-message {
     flex: 1;
     padding: 7px 0;
+}
+
+// A long opponent move must not push the cities away just before your turn.
+// The complete message remains in the tooltip and journal; phones still wrap.
+.game:not(.stacked) .status-message {
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 @media (max-width: 600px) {

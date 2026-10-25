@@ -1,5 +1,12 @@
 <template>
     <g>
+        <!-- Desktop keeps room for the auction and bid controls throughout the
+             round, including before they appear and after the market shrinks. -->
+        <g v-if="reserveLayout" visibility="hidden" aria-hidden="true" pointer-events="none">
+            <rect x="160" y="0" :width="actualMarketWidth + 125 - 160" :height="80 + futureMarketRows * 50" />
+            <text :x="actualMarketWidth" y="14" font-weight="600">Current Auction</text>
+            <text x="165" y="80" font-weight="600">Future Market</text>
+        </g>
         <!-- The draw pile is rendered by Game.vue as its own group, not here: it is
              static reference art next to three interactive markets, so the portrait
              layout needs to be able to place it on a different row. -->
@@ -91,6 +98,8 @@ export default class PowerPlantMarket extends Vue {
     @Prop() cardsLeft?: number;
     @Prop() nextCardWeak?: boolean;
     @Prop() plantDiscountActive?: boolean;
+    @Prop({ default: false }) reserveLayout!: boolean;
+    @Prop({ default: 1 }) futureMarketRows!: number;
     @Prop() canBid?: boolean;
     @Prop() canChoose?: boolean;
     @Prop() chooseablePowerPlants?: number[];

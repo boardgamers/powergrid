@@ -29,10 +29,7 @@ describe('desktop board layout', () => {
                         const boxes = {
                             ...base,
                             map,
-                            playerBoards: box(
-                                players >= 5 ? 780 : 380,
-                                players >= 5 ? Math.ceil(players / 2) * 110 : players * 110
-                            ),
+                            playerBoards: box(380, players * 110),
                             ...extra,
                         };
                         const result = desktopBoardLayout(boxes, 1465, height);
@@ -151,6 +148,17 @@ describe('desktop board layout', () => {
                     map.y >= slot.y + slot.height,
                 `map overlaps ${name}`
             ).to.equal(true);
+        }
+    });
+
+    it('keeps a six-player column readable even when it needs vertical scrolling', () => {
+        for (const pixelsPerUnit of [0.68, 0.93, 1.31]) {
+            const result = desktopBoardLayout({ ...base, playerBoards: box(380, 660) }, 1465, 400, {
+                pixelsPerUnit,
+                cityDiameter: 50,
+            });
+            expect(result.placements.playerBoards.scale * pixelsPerUnit * 15).to.be.at.least(11.25 - 0.001);
+            expect(result.height).to.be.greaterThan(400);
         }
     });
 });

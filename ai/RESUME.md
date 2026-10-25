@@ -6,7 +6,74 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 04:07 UTC: fresh-root capture verified; HF calibration launched.**
+**Latest — 25 October, 04:22 UTC: full root-collection controls verified; resource archive watcher live.**
+
+The previous turn pushed `8eaa45b`, started both root-calibration jobs and
+independently verified the 2p endpoint. This turn implemented the complete fresh-root
+collection controls: generalized shard verification, joint calibration archival,
+measured admission, original-handle launch/collection, all-shard root freezing and
+a coordinator. No new HF jobs or gradients ran.
+
+The fixed design stays **160 games / up to 480 roots / all 60 count-rule-phase
+groups**. Measured endpoint time/memory/storage chooses one or two whole deals per
+shard (10 or 5 jobs); it never reduces coverage or search depth. The root manifest
+and its fixed action pairs are frozen only after every original shard verifies.
+The manifest builder reads no terminal outcomes or surrogate scores. Missing
+count/rule/phase coverage prevents freezing; missing phases within individual
+games remain explicitly recorded. Interrupted final index writes recover the same
+already-written manifest and provenance, without selecting a different corpus.
+
+**Nine tests pass:** the new verifier reproduces the original independent audit of
+8 real HF calibration games / 24 roots; resealed incomplete shards and private-root
+injection are rejected; whole-grid coverage and resource admission; a synthetic
+160-game / 480-root / 60-group freeze and interrupted-index recovery; changed
+provenance or selected ranks; missing phase coverage; and coordinator capacity,
+existing-handle and failure boundaries. The synthetic grid is a format fixture,
+not real source games. The initial interrupted-index test used a temporary path
+outside the repository; it now uses `ai/runs`, matching the production relative-path
+contract. Its original failed log is retained. Actual premature joint archival
+and full admission both refused before output creation.
+
+Preflight: `ai/runs/surrogate-continuation-root-collection-preflight-v1.json`, SHA256
+`5c82ed749c74ec7f11414feac0693500eda37b382fe1fc0e3857926e8369a43e`.
+Checkpoint: `ai/runs/surrogate-continuation-root-collection-checkpoint-v1.json`, SHA256
+`e0797dad5ce7ed4eea988640e7fde4ea8f8708090c00c54e4fba8516a4be2351`.
+No full-root plan, collection/index or reference-continuation jobs exist yet.
+
+At **04:19:08 UTC**, original handles were directly RUNNING: 6p root calibration
+`6add7f8b1e112550ce7e6eff` **9/24 games**; representative 6p opponent-data shard
+`6add73271e112550ce7e6a20` **18/96**; final resource/search shard
+`6add573a046eb82b1ece167a` **87/96**, zero reported caps. At **04:22:09 UTC**,
+the original coordinators were live with unchanged code: opponent-data collection
+**40 submitted / 28 verified**, resource screen **54 / 53 verified**, no failures.
+
+A single complete-resource archive watcher is now live: **PID 2444260 / session
+56315**, `coordinate-resource-complete-archive-v1.py`. It watches original
+coordinator PID 1291091, waits for all 54 batches and `comparison_complete`, then
+runs the existing full independent auditor and private HF archive exactly once.
+It checks source hashes and never retries or replaces jobs/uploads. Its observation
+window is six hours, with no remote cancellations. **Do not manually start a second
+resource archive while this watcher is active.** Inspect its original handle first.
+State/logs: `ai/runs/resource-complete-archive-watcher-v1/{state.json,collector.log}`
+and `ai/runs/resource-complete-archive-watcher-v1.log`.
+Launch proof: `ai/runs/resource-complete-archive-watcher-launched-v1.json`, SHA256
+`04b64aeac106dcf9268e4fc3bebbe1072f76d34989bed9b89f2619b76814364f`.
+The final collector log is created only when the complete audit starts. Preserve
+this watcher and all of its pinned resource source files unchanged.
+
+**Next:** collect the original 6p root-calibration handle. Once both endpoints pass,
+run `collect-surrogate-continuation-roots-calibration-v1.py --archive`, then
+`launch-surrogate-continuation-roots-v1.py prepare`, launch dry-runs and
+`coordinate-surrogate-continuation-roots-v1.py --execute --interval-seconds 180
+--max-hours 48`. Joint calibration, actual full-mode HF execution and final root
+freezing remain untested with real full-study data. The resource watcher owns its
+full audit/archive; inspect and interpret that result when ready. Finish the
+original opponent-data collection and its GPU training/audit/frozen-selection
+pipeline. Still implement/admit fresh paired reference-versus-surrogate evaluation,
+heterogeneous hybrid policy, fresh full-game strength, exact final adapter and
+actual 8840U hybrid validation. No candidate, publication or plateau conclusion.
+
+**Previous — 25 October, 04:07 UTC: fresh-root capture verified; HF calibration launched.**
 
 The previous turn completed and pushed continuation integration as `d47de74`.
 This turn fixed the fresh diagnostic design and implemented outcome-independent

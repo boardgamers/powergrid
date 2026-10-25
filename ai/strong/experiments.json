@@ -56911,18 +56911,29 @@
             "code_hashes_match": true
         },
         "latest_observation": {
-            "checked_at": "2026-10-25T04:07:06.322746+00:00",
+            "checked_at": "2026-10-25T04:22:09.515522+00:00",
             "pid_live": true,
-            "frozen_code_unchanged": true,
-            "state_sha256": "d2ded2f45aaf000b58cca6e6c08a7fcd5cf69d953cc0148213a68a33def08c76",
             "pid": 1291091,
             "stage": "waiting_for_jobs",
             "jobs_submitted": 54,
             "jobs_verified": 53,
             "failed_jobs": [],
-            "updated_at": "2026-10-25T04:06:17.385127+00:00",
-            "checkpoint": "ai/runs/surrogate-continuation-roots-checkpoint-v1.json",
-            "checkpoint_sha256": "72c8ff8e90d821e2d21c76682b2f35ea76c31eff8df86a9acf92d61ac38077c4"
+            "updated_at": "2026-10-25T04:19:13.242040+00:00",
+            "checkpoint": "ai/runs/resource-complete-archive-watcher-launched-v1.json",
+            "checkpoint_sha256": "04b64aeac106dcf9268e4fc3bebbe1072f76d34989bed9b89f2619b76814364f"
+        },
+        "complete_archive_watcher": {
+            "status": "waiting_for_original_complete_comparison",
+            "source": "ai/strong/coordinate-resource-complete-archive-v1.py",
+            "source_sha256": "840e429c9d5310e710d50d56648e451267efafa71c7d79b3574a99747b35bd86",
+            "pid": 2444260,
+            "session": 56315,
+            "launch_proof": "ai/runs/resource-complete-archive-watcher-launched-v1.json",
+            "launch_proof_sha256": "04b64aeac106dcf9268e4fc3bebbe1072f76d34989bed9b89f2619b76814364f",
+            "automatic_retries": false,
+            "new_hf_jobs": 0,
+            "gradients": false,
+            "qualification_eligible": false
         }
     },
     "reference_opponent_capture_v1": {
@@ -57302,18 +57313,16 @@
             "code_hashes_match": true
         },
         "latest_observation": {
-            "checked_at": "2026-10-25T04:07:06.322746+00:00",
+            "checked_at": "2026-10-25T04:22:09.515522+00:00",
             "pid_live": true,
-            "frozen_code_unchanged": true,
-            "state_sha256": "c927fe3fe69b405275ddb8a26b12fcf937d40c5f0fe88b9d038edb93e7b3efd5",
             "pid": 2009367,
             "stage": "waiting_for_jobs",
             "jobs_submitted": 40,
-            "jobs_verified": 24,
+            "jobs_verified": 28,
             "failed_jobs": [],
-            "updated_at": "2026-10-25T04:05:50.129952+00:00",
-            "checkpoint": "ai/runs/surrogate-continuation-roots-checkpoint-v1.json",
-            "checkpoint_sha256": "72c8ff8e90d821e2d21c76682b2f35ea76c31eff8df86a9acf92d61ac38077c4"
+            "updated_at": "2026-10-25T04:20:34.714848+00:00",
+            "checkpoint": "ai/runs/resource-complete-archive-watcher-launched-v1.json",
+            "checkpoint_sha256": "04b64aeac106dcf9268e4fc3bebbe1072f76d34989bed9b89f2619b76814364f"
         }
     },
     "opponent_surrogate_training_v1": {
@@ -57633,6 +57642,53 @@
         "gradient_updates": 0,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
-        "next": "Collect the original 6p calibration, archive joint evidence and size full fresh root collection from measured costs. Freeze roots and trained surrogate policy before fixed-action paired comparisons. Independently measure nested reference costs; no full-game strength claim from imitation or these diagnostics."
+        "next": "Collect the original 6p calibration, archive joint evidence and size full fresh root collection from measured costs. Freeze roots and trained surrogate policy before fixed-action paired comparisons. Independently measure nested reference costs; no full-game strength claim from imitation or these diagnostics.",
+        "full_collection_controls": {
+            "status": "implemented_and_tested_awaiting_6p_calibration",
+            "preflight": "ai/runs/surrogate-continuation-root-collection-preflight-v1.json",
+            "preflight_sha256": "5c82ed749c74ec7f11414feac0693500eda37b382fe1fc0e3857926e8369a43e",
+            "checked_at": "2026-10-25T04:19:08.496262+00:00",
+            "complete": true,
+            "tests": 9,
+            "code_hashes": {
+                "ai/strong/surrogate_continuation_root_verification_v1.py": "44c51947ff8e49e95b1ce31fdea1a0e295b2c3f02b1407cbcc7fad7578188230",
+                "ai/strong/collect-surrogate-continuation-roots-calibration-v1.py": "d288f3660a24971434e7992f23e5193a1c4c79289e443bd77cf09e5426e362da",
+                "ai/strong/launch-surrogate-continuation-roots-v1.py": "f4105db7b23ff227545c23f0863de702f555aae00fa240b8ec1cd79610471f73",
+                "ai/strong/manage-surrogate-continuation-roots-v1.py": "6b2c7d09975c83193f2d46cb0e1ae65c7b1ce686f003bb7560441b22079f291e",
+                "ai/strong/coordinate-surrogate-continuation-roots-v1.py": "a1470af7a01e2adf7b4ec5cc093bc2c82c1024708766219a1e7a99556fd7a402",
+                "ai/strong/test_surrogate_continuation_root_collection_v1.py": "bb1e1598d67d30223b8ccb596d141d71b6c221ca01e9349ee63d203e089d3ac8"
+            },
+            "real_verified_endpoint_games": 8,
+            "real_verified_endpoint_roots": 24,
+            "synthetic_freeze_games": 160,
+            "synthetic_freeze_roots": 480,
+            "synthetic_coverage_groups": 60,
+            "interrupted_index_recovered_exactly": true,
+            "rejected_resealed_incomplete_and_private_data": true,
+            "premature_actions": [
+                {
+                    "command": "collect-surrogate-continuation-roots-calibration-v1.py",
+                    "rejected_before_output": true,
+                    "log": "ai/runs/surrogate-root-premature-archive-v1.log",
+                    "sha256": "9caa917fc162804bf7b9c1f3980432efa531da6624d38baa255ae280d2078fb7"
+                },
+                {
+                    "command": "launch-surrogate-continuation-roots-v1.py",
+                    "rejected_before_output": true,
+                    "log": "ai/runs/surrogate-root-premature-admission-v1.log",
+                    "sha256": "ad173b82eda6d41cfc4a6606db525c88a4634a07cd4e1bd69b58e9771257e0f5"
+                }
+            ],
+            "new_hf_jobs": 0,
+            "gradients": false,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false,
+            "scope": "Root-collection orchestration and integrity; synthetic grid is a format/recovery fixture, not fresh games or playing strength. Complete HF collection and joint calibration remain pending.",
+            "checkpoint": "ai/runs/surrogate-continuation-root-collection-checkpoint-v1.json",
+            "checkpoint_sha256": "e0797dad5ce7ed4eea988640e7fde4ea8f8708090c00c54e4fba8516a4be2351",
+            "actual_full_collection_launched": false,
+            "actual_joint_calibration_archived": false,
+            "actual_root_manifest_frozen": false
+        }
     }
 }

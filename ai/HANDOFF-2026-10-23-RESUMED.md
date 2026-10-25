@@ -25,7 +25,55 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: exact batching experiment complete on local and target CPUs
+## Latest checkpoint: complete resource pilot archived; HF calibration launched
+
+**Latest — 25 October: full resource pilot archived; two HF calibration jobs running.**
+The existing local pilot **session 75756 / PID 559327 ended successfully**. All
+**64 games / 8,241 learner decisions / 89,632 continuations** passed, zero caps.
+All **16 independent replays** matched (**2,252 learner decisions**, including
+344 resource decisions). The final audit rechecked all 1,481 source files and
+complete paired endpoint records. Archive verified once at private HF revision
+`8c92c3936316f4e8bf452d08972f5732129027ec` (201 files), descriptor
+`strong/resource-replanning-runtime-evidence-v1.json`; archive SHA256
+`8791c1dcf3eccab72e792da83f0cdf95421091f451d6518cd6a275b0de296e5a`. Do not restart the ended pilot or repeat its upload.
+
+Complete endpoint measurements admitted **cpu-upgrade: 8 vCPU / 32 GB / 50 GB**,
+with **two-hour timeouts** and at most two concurrent calibration jobs. The estimated
+budget floor was 6,356.62 s, including setup and margins; both dry runs passed.
+This is a measured local budget for remote calibration, not a remote speed claim.
+Admission: `strong/resource-replanning-hf-runtime-admission-v1.json`.
+Both original jobs were authoritatively **RUNNING** at **2026-10-25T00:38:06.911945+00:00**:
+
+- **2p:** `6add4e77046eb82b1ece123a` — eight runtime-only games.
+- **6p:** `6add4e781e112550ce7e5a74` — 24 runtime-only games.
+
+Original guards: `ai/runs/resource-replanning-hf-runtime-launches-v1/`.
+Use `collect-resource-replanning-hf-runtime-v1.py 2 --inspect` (or `6`) for status;
+when complete, omit `--inspect` to collect/revalidate exact archived local/HF
+choices, world draws, resource continuations and terminals. No retries or duplicate
+submissions. The unchanged source is still revision
+`8d3697dec0845aa6ded857f3e00d91a8ff4406c0`; the separate batching experiment is not
+included. Calibration outcomes remain excluded from strength.
+
+`strong/collect-resource-hf-calibration-v1.py` is prepared for **both** verified
+endpoints. It revalidates each existing job, aggregates all 32 games, and defaults
+to audit only; `--archive` is a one-time complete archive. Three tests passed,
+including ten incomplete/inconsistent-record cases and missing-endpoint refusal
+before any network access/upload. The actual current partial calibration was also
+rejected. Preflight uses synthetic HF-shaped envelopes around real local counts;
+it is not actual HF parity evidence. Receipt:
+`ai/runs/resource-hf-calibration-collector-preflight-v1.json`.
+
+At the same checkpoint, reference coordinator **76600 / PID 443128** was confirmed
+live with **24/28 verified**, all 28 submitted, no failures.
+Exact checkpoint: `ai/runs/resource-hf-calibration-launch-checkpoint-v1.json`.
+**Next:** continue these existing jobs; verify/archive both complete calibration
+endpoints before preparing separate measured admission/orchestration for the
+3,360-game resource development screen (still unlaunched). Collect and audit the
+reference comparison only after all 28 shards finish. No new gradients, production
+changes, selected candidate, or final seeds. No plateau conclusion.
+
+## Previous checkpoint: exact batching experiment complete on local and target CPUs
 
 **Latest — 25 October: action-count batching checked locally and on AMD8840U.**
 A separate experimental wrapper sorts inference rows by legal-menu size, runs the

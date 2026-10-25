@@ -56017,10 +56017,16 @@
             "jobs_submitted": 23,
             "jobs_verified": 16,
             "failed_jobs": []
+        },
+        "resource_calibration_launch_checkpoint": {
+            "file": "ai/runs/resource-hf-calibration-launch-checkpoint-v1.json",
+            "sha256": "25f548f913b20ed9f0239a073cb47dfbdb90bf17dfe73ac848a911b3a44c85cc",
+            "jobs_verified": 24,
+            "coordinator_live": true
         }
     },
     "resource_replanning_runtime_v1": {
-        "status": "source_verified_local_full_paired_pilot_running",
+        "status": "complete_all_64_games_and_16_replays_archived",
         "source_descriptor": "ai/strong/resource-replanning-runtime-source-v1.json",
         "source_descriptor_sha256": "c5744a882248ea10d8233777e7dec65c5938be701da8f6c2e7ead9a63a7675d4",
         "source_revision": "6950d0baffdbb1e2a91bb09849c68b9c15db9fbf",
@@ -56058,110 +56064,17 @@
         "output": "ai/runs/resource-replanning-runtime-source-prepared-v1/layout/ai/runs/resource-replanning-runtime-v1",
         "checkpoint": "ai/runs/resource-replanning-runtime-source-prepared-v1/hf-collector-preparation-checkpoint.json",
         "checkpoint_sha256": "d4253a7a6d3a1010b962382c8d721d97b357edee490bd7e92cedd08617cf4dd4",
-        "checked_at": "2026-10-24T23:53:14.144101+00:00",
+        "checked_at": "2026-10-25T00:38:06.911945+00:00",
         "planned_games": 64,
         "planned_independent_replays": 16,
-        "complete_cells": {
-            "2p-filter": {
-                "complete": true,
-                "summary": {
-                    "games": 8,
-                    "independent_deals": 1,
-                    "counts": {
-                        "decisions": 1371,
-                        "root_filter_overrides": 2,
-                        "rollouts": 0,
-                        "rollout_caps": 0,
-                        "neural_decisions": 0,
-                        "search_changes": 0,
-                        "search_decisions": 0
-                    },
-                    "wall_seconds": 27.95953416399425,
-                    "sum_game_seconds": 187.4295739690424,
-                    "max_game_seconds": 27.808965166041162,
-                    "decision_p50_ms": 7.496642007026821,
-                    "decision_p95_ms": 11.002582963556051,
-                    "report_sha256": "ab0419d9295d6c93e3cdef705ae1b67a5e18ce4434e0bd3cd8b66bcecf4c07bd",
-                    "all_receipts_verified": true,
-                    "qualification_eligible": false,
-                    "reserved_final_seeds_used": false
-                },
-                "runtime": {
-                    "seconds": 28.179551307985093,
-                    "cpu_seconds": 247.09,
-                    "sampled_peak_total_rss_bytes": 3307708416,
-                    "memory_samples": 277,
-                    "memory_sampling_period_seconds": 0.1
-                }
-            },
-            "2p-resource-filter": {
-                "complete": true,
-                "summary": {
-                    "games": 8,
-                    "independent_deals": 1,
-                    "counts": {
-                        "decisions": 1306,
-                        "root_filter_overrides": 0,
-                        "rollouts": 41632,
-                        "rollout_caps": 0,
-                        "neural_decisions": 2701343,
-                        "search_changes": 99,
-                        "search_decisions": 450,
-                        "resource_search_decisions": 450
-                    },
-                    "wall_seconds": 1203.2145080209593,
-                    "sum_game_seconds": 5938.094905628997,
-                    "max_game_seconds": 1203.038083311054,
-                    "decision_p50_ms": 13.984223507577553,
-                    "decision_p95_ms": 22310.63386646565,
-                    "report_sha256": "ee37e2882a03d96828cdf46d1cb1145cdcfe5cf3522e1c0f9526c1c41ad26372",
-                    "all_receipts_verified": true,
-                    "qualification_eligible": false,
-                    "reserved_final_seeds_used": false
-                },
-                "runtime": {
-                    "seconds": 1203.341361314,
-                    "cpu_seconds": 6352.42,
-                    "sampled_peak_total_rss_bytes": 6971523072,
-                    "memory_samples": 11757,
-                    "memory_sampling_period_seconds": 0.1
-                }
-            },
-            "6p-filter": {
-                "complete": true,
-                "summary": {
-                    "games": 24,
-                    "independent_deals": 1,
-                    "counts": {
-                        "decisions": 2798,
-                        "root_filter_overrides": 0,
-                        "rollouts": 0,
-                        "rollout_caps": 0,
-                        "neural_decisions": 0,
-                        "search_changes": 0,
-                        "search_decisions": 0
-                    },
-                    "wall_seconds": 955.68929922604,
-                    "sum_game_seconds": 6897.444610165025,
-                    "max_game_seconds": 409.84926455799723,
-                    "decision_p50_ms": 17.510387988295406,
-                    "decision_p95_ms": 28.86326340958476,
-                    "report_sha256": "fa2a291cb06fc4260642834b7405879569175e1c5b209a4fc0d1c279aad675db",
-                    "all_receipts_verified": true,
-                    "qualification_eligible": false,
-                    "reserved_final_seeds_used": false
-                },
-                "runtime": {
-                    "seconds": 955.8398717939854,
-                    "cpu_seconds": 7532.72,
-                    "sampled_peak_total_rss_bytes": 4032208896,
-                    "memory_samples": 9332,
-                    "memory_sampling_period_seconds": 0.1
-                }
-            }
-        },
-        "current_stage": "evaluating",
-        "current_cell": "6p-resource-filter",
+        "complete_cells": [
+            "2p-filter",
+            "2p-resource-filter",
+            "6p-filter",
+            "6p-resource-filter"
+        ],
+        "current_stage": "complete",
+        "current_cell": null,
         "processor": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
         "new_hf_jobs": 0,
         "automatic_retries": false,
@@ -56169,7 +56082,7 @@
         "new_strength_games": 0,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
-        "next": "Continue existing session 75756/PID 559327. Three cells verified; 6p resource-filter running. Require all 64 games and 16 replays before complete archive. Then inspect complete costs and use the prepared guarded HF calibration launcher; no admission or resource HF submissions yet.",
+        "next": "Local pilot ended and is fully archived. Do not restart or archive again; continue the two original HF calibration jobs.",
         "collection_preparation": {
             "script": "ai/strong/collect-resource-replanning-runtime-v1.py",
             "preflight": {
@@ -56190,12 +56103,7 @@
                 "2p-filter"
             ]
         },
-        "completed_game_files": {
-            "2p-filter": 8,
-            "2p-resource-filter": 8,
-            "6p-filter": 24,
-            "6p-resource-filter": 6
-        },
+        "completed_game_files": 64,
         "completed_2p_resource_cost": {
             "path": "ai/runs/resource-replanning-runtime-source-prepared-v1/completed-2p-resource-cost.json",
             "sha256": "c8453c9963065976c7e6448e967da0b44eea380a122f68bdfa6b9bbf2d876e88",
@@ -56227,7 +56135,12 @@
                 "new_strength_claim": false,
                 "new_hf_jobs": 0
             }
-        }
+        },
+        "completed_independent_replays": 16,
+        "complete_evidence": "ai/strong/resource-replanning-runtime-evidence-v1.json",
+        "complete_evidence_sha256": "7d3d2c43a86e854cf7c6cfbab39f1ea85fd76f39db2c880516081a9da94babb9",
+        "archive_revision": "8c92c3936316f4e8bf452d08972f5732129027ec",
+        "archive_sha256": "8791c1dcf3eccab72e792da83f0cdf95421091f451d6518cd6a275b0de296e5a"
     },
     "resource_replanning_development_wrapper_v1": {
         "status": "clean_package_preflight_and_job_source_archived_no_runtime_admission",
@@ -56282,7 +56195,7 @@
         "remote_archives_reverified": true
     },
     "resource_replanning_hf_runtime_launcher_v1": {
-        "status": "prepared_and_tested_no_admission_or_submissions",
+        "status": "two_calibration_jobs_launched_and_authoritatively_running",
         "script": "ai/strong/launch-resource-replanning-runtime-v1.py",
         "script_sha256": "b096b30eb8a60fbf6b1696e4ee5a1552aebeec819551fb8446d7101761c21587",
         "tests": "ai/strong/test_resource_runtime_launcher_v1.py",
@@ -56336,13 +56249,35 @@
                 "disk_gb": 1000
             }
         },
-        "admission_file_created": false,
-        "new_hf_jobs": 0,
+        "admission_file_created": true,
+        "new_hf_jobs": 2,
         "new_strength_games": 0,
         "gradients": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
-        "next": "Full local runtime pilot and immutable archive required before prepare. Choose hardware/timeout from complete measurements; review both dry runs before any execution. No automatic continuation or retry."
+        "next": "Inspect/collect original jobs only. Both complete exact endpoint comparisons are required before complete calibration archive and separate development admission; no automatic retries.",
+        "admission": "ai/strong/resource-replanning-hf-runtime-admission-v1.json",
+        "admission_sha256": "924421f61c392f33fe71eedbe3c73112313a9690d862fd3b0aa9e89f5bd2f3ba",
+        "jobs": [
+            {
+                "case": "resource-replanning-hf-runtime-v1-2p-resource-filter",
+                "job_id": "6add4e77046eb82b1ece123a",
+                "authoritative_status": "RUNNING",
+                "checked_at": "2026-10-25T00:38:06.353513+00:00",
+                "guard_sha256": "e6d663abbf6500e94a8b4f2b588e962e61d97c2d4abe7fa0d1122e15fc6b8f5f",
+                "qualification_eligible": false,
+                "reserved_final_seeds_used": false
+            },
+            {
+                "case": "resource-replanning-hf-runtime-v1-6p-resource-filter",
+                "job_id": "6add4e781e112550ce7e5a74",
+                "authoritative_status": "RUNNING",
+                "checked_at": "2026-10-25T00:38:06.911238+00:00",
+                "guard_sha256": "c5107d8774da57f52150ba29b33ea50ea029c5594413487abce2823ae563fbd7",
+                "qualification_eligible": false,
+                "reserved_final_seeds_used": false
+            }
+        ]
     },
     "resource_replanning_hf_runtime_collector_v1": {
         "status": "prepared_preflight_passed_no_actual_hf_calibration",
@@ -56488,5 +56423,30 @@
         "reserved_final_seeds_used": false,
         "checkpoint": "ai/runs/bucketed-inference-checkpoint-v1.json",
         "checkpoint_sha256": "eca666cf6431b173037a05be2d1e0386f646eaf47c9498790ea45aea71e7e918"
+    },
+    "resource_hf_calibration_collector_v1": {
+        "status": "prepared_tested_actual_jobs_incomplete",
+        "collector": "ai/strong/collect-resource-hf-calibration-v1.py",
+        "collector_sha256": "fbffbd1c299d27ef74703ea854dd5a6c4baccd3ab0d9c075bf0c60c7b71a910f",
+        "tests": "ai/strong/test_resource_hf_calibration_collection_v1.py",
+        "preflight": {
+            "checked_at": "2026-10-25T00:38:05.477694+00:00",
+            "collector_sha256": "fbffbd1c299d27ef74703ea854dd5a6c4baccd3ab0d9c075bf0c60c7b71a910f",
+            "test_sha256": "345c4d2ce51ee0456836f783a216dc691805e2dd26392dd0ebe0ca2688cedc8d",
+            "tests_passed": 3,
+            "corruptions_rejected": 10,
+            "missing_endpoint_rejected_before_network_or_upload": true,
+            "real_partial_state_rejected": true,
+            "complete_aggregate_fixture": "Synthetic HF-shaped envelopes using actual complete local counts; not remote measurement or parity proof.",
+            "new_games": 0,
+            "new_hf_jobs": 0,
+            "actual_full_hf_calibration_complete": false
+        },
+        "checkpoint": "ai/runs/resource-hf-calibration-launch-checkpoint-v1.json",
+        "checkpoint_sha256": "25f548f913b20ed9f0239a073cb47dfbdb90bf17dfe73ac848a911b3a44c85cc",
+        "development_admitted": false,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

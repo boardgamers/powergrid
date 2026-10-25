@@ -6,7 +6,55 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October: full resource-screen launcher prepared; HF utilization sampled.**
+**Latest — 25 October, 01:05 UTC: resource-screen orchestration prepared and tested.**
+
+The resource development screen now has a collector, complete comparator and
+lock-protected coordinator, alongside the measured launcher. These are host-side
+orchestration only: no frozen game/search/model source changed. **No development
+plan or jobs exist yet.** The original 6p HF calibration is still RUNNING; 2p is
+already verified. The previous goal turn was a verified wait (original remote job
+and coordinator checked live), followed by an answer to the user's hybrid question.
+
+- `strong/manage-resource-replanning-development-v1.py` verifies immutable job,
+  source, seed, model and manifest identities, then every actual-game/decision
+  receipt. A runtime-only job cannot pass as fresh development evidence.
+- `strong/compare-resource-replanning-development-v1.py` requires the full
+  **3,360-game / two-arm / 27-cell** grid before writing a comparison. It reports
+  every count/rule/opponent contrast, resource/request latency and runtime. The
+  primary search-opponent summary gives each count equal weight; bootstrap draws
+  retain each whole deal's seats and rules and resample independently by count.
+- `strong/coordinate-resource-replanning-development-v1.py` uses the admitted
+  concurrency, preserves original handles, collects completed jobs and stops on
+  failures or uncertain observations. No retries/cancellations or partial ranking.
+
+**Ten tests passed.** Collection was exercised with the real archived 2p receipts
+(8 games, 1,306 decisions, 41,632 resource continuations) under a **synthetic outer
+development envelope**, not new game execution. Tests reject re-sealed false win
+values, wrong source/seed/search identities, incomplete/duplicate grids and failed
+job states; they check whole-deal statistics, equal count weights and reuse of live
+or completed handles. Statistics and coordinator fixtures are synthetic, not
+strength or HF execution evidence. Source hashes and log are saved in
+`ai/runs/resource-development-orchestration-preflight-v1/{receipt.json,tests.log}`.
+
+At checkpoint **2026-10-25T01:04:48 UTC**, the original 6p calibration job
+`6add4e781e112550ce7e5a74` and final reference shard
+`6add4b5c046eb82b1ece10c5` were authoritatively RUNNING. Reference coordinator
+**76600 / PID 443128** was live with **27/28 verified**, no failures. The 6p log
+had **23/24 games complete**, no observed caps/tracebacks; a short metric sample
+showed 12.5% of eight vCPUs and 2.94 GB memory, consistent with one remaining game.
+This is a tail observation, not a total runtime/memory bound. Raw observation and
+observer code remain in its collected folder. Full checkpoint:
+`ai/runs/resource-development-orchestration-preflight-v1/checkpoint.json`.
+
+**Next:** collect/verify the existing 6p job, then audit/archive both calibration
+endpoints with `collect-resource-hf-calibration-v1.py --archive`. Prepare the measured
+plan using `launch-resource-replanning-development-v1.py prepare --max-in-flight 32`,
+review its actual budget/partition and dry-run every case plus the coordinator.
+Only then dispatch the fixed screen once with the coordinator. Collect/audit the
+reference diagnostic only after its existing coordinator verifies all 28 batches.
+No new gradients, candidate selection, production changes or final seeds.
+
+**Previous — 25 October: full resource-screen launcher prepared; HF utilization sampled.**
 
 **Update — 00:54 UTC:** the original **2p HF calibration job completed and verified**.
 All **8 games / 1,306 learner decisions / 450 resource searches / 41,632 continuations**

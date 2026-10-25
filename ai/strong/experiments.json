@@ -56697,7 +56697,7 @@
                 "metrics_frames": 3
             }
         ],
-        "remaining_before_screen": "Complete calibration/archive and implement development collection, complete comparison and coordinator; then prepare measured plan, review dry runs and launch.",
+        "remaining_before_screen": "Complete original 6p calibration and joint archive; orchestration is now prepared/tested. Prepare measured plan, review dry runs, then dispatch.",
         "new_hf_jobs": 0,
         "gradients": false,
         "qualification_eligible": false,
@@ -56707,5 +56707,55 @@
             "six_player_complete": false,
             "development_plan_created": false
         }
+    },
+    "resource_development_orchestration_v1": {
+        "status": "prepared_and_tested_waiting_for_complete_hf_calibration",
+        "preflight": {
+            "checked_at": "2026-10-25T01:04:48.418689+00:00",
+            "code_hashes": {
+                "ai/strong/manage-resource-replanning-development-v1.py": "7bb1a5f820fa0c0517905c6b373f0746f9b4669197dd2fb063ac8b190e5851c4",
+                "ai/strong/compare-resource-replanning-development-v1.py": "306269dfd83b69343b4aec10a75d5792577236043706193ef6fe8acd52c2c9dc",
+                "ai/strong/coordinate-resource-replanning-development-v1.py": "edb35dc24e5b25bb6f2483e4aff14b11d3b9ab0268d1baec42bcd0575d99171d",
+                "ai/strong/test_resource_development_collection_v1.py": "c5fcc5f59543df1858cddef9ccab6b038317e52bd86e1f55006e2a0b9dfb037e"
+            },
+            "tests_log_sha256": "8803ff12e4181d033e3e0d2f9a449886a29a5fc96175a86bf0dc07087cf6d285",
+            "tests_passed": 10,
+            "real_archived_fixture": "resource-replanning-hf-runtime-v1-2p-resource-filter",
+            "fixture_games": 8,
+            "fixture_decisions": 1306,
+            "fixture_rollouts": 41632,
+            "synthetic_development_envelope": true,
+            "scope": "Tests reuse archived real decision receipts under synthetic outer development identities. No new games or source/policy changes. Statistics use synthetic complete 3360-game tables. Coordinator uses fake API statuses. These are orchestration checks, not strength evidence.",
+            "rejections": [
+                "partial grid before raw reads/network/output",
+                "missing arm/cell/game",
+                "duplicate game",
+                "wrong seed",
+                "truncated/invalid outcome",
+                "re-sealed false terminal win",
+                "runtime-only identity",
+                "wrong source",
+                "wrong samples",
+                "qualification flag",
+                "failed/unknown/ambiguous job observation"
+            ],
+            "equal_count_and_whole_deal_bootstrap_checked": true,
+            "new_games": 0,
+            "new_hf_jobs": 0,
+            "gradients": false,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false
+        },
+        "receipt": "ai/runs/resource-development-orchestration-preflight-v1/receipt.json",
+        "receipt_sha256": "ffeb89cbd4f0c48a6c064a2c957a29b1fffa11bc60ea7dc8ef2c0d96396f7159",
+        "checkpoint": "ai/runs/resource-development-orchestration-preflight-v1/checkpoint.json",
+        "checkpoint_sha256": "f9282842ab9d0d8d040d230113e30d5668a7914089bb02a3b90d5490dbf4b8d6",
+        "planned_games": 3360,
+        "planned_arms": 2,
+        "planned_cells": 27,
+        "no_policy_source_changes": true,
+        "plan_created": false,
+        "jobs_launched": 0,
+        "next": "Collect original 6p calibration; require exact local/HF parity, audit/archive both endpoints, prepare measured admission, review dry runs, then dispatch fixed screen once."
     }
 }

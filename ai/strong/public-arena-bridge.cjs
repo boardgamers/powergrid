@@ -4,6 +4,7 @@ const c = require('../core.cjs'),
     encoders = require('./encoders.cjs'),
     readline = require('node:readline');
 const { POPULATION_MODES, FROZEN_ROLES, isNeuralRole, populationRoles } = require('./opponent-population.cjs');
+const { isDeepStrictEqual } = require('node:util');
 let envs = [],
     sequence = 0;
 const seed = process.env.SEED || 'strong-train';
@@ -63,7 +64,7 @@ function observation(e) {
     if (c.E.ended(e.g) || e.steps >= 1600) return null;
     const seat = e.g.currentPlayers[0],
         x = encoders.forRevision(e.featureRevisions[e.roles[seat]]).encode(e.g, seat);
-    delete x.moves;
+    if (!e.publicMoves) delete x.moves;
     x.request = {state: require('./sealed-policy-beliefs.cjs').publicState(e.g, seat), player: seat};
     return {
         ...x,
@@ -159,7 +160,7 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}, player
                     const index = (q.offset || 0) + i;
                     const count = counts ? counts[Math.floor(index / 4) % counts.length] : q.playerCount ?? 3;
                     const seat = counts ? Math.floor(index / (4 * counts.length)) % count : undefined;
-                    return reset(
+                    const e = reset(
                         q.mode,
                         q.arenaSeed,
                         index,
@@ -168,6 +169,8 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}, player
                         counts ? index : undefined,
                         seat
                     );
+                    e.publicMoves = q.publicMoves === true;
+                    return e;
                 });
             } else if (q.op === 'step')
                 for (let i = 0; i < envs.length; i++) {
@@ -178,9 +181,17 @@ function reset(mode = 'mixed', arenaSeed, arenaId, featureRevisions = {}, player
                         choice = q.actions[i];
                     const strategic =
                         legal.length > 1 && legal.some((a) => ['ChoosePowerPlant', 'Bid', 'Build'].includes(a.name));
+                    if (choice && typeof choice === 'object' && Object.hasOwn(choice, 'publicMove')) {
+                        if (!e.publicMoves || Object.keys(choice).length !== 1)
+                            throw Error('Public moves require the explicit public-move arena');
+                        const matches = legal.filter((move) => isDeepStrictEqual(move, choice.publicMove));
+                        if (matches.length !== 1) throw Error('Returned public move is not uniquely legal');
+                    }
                     const index = typeof choice === 'object' ? choice.proposal : choice;
                     const action =
-                        typeof choice === 'object' && strategic
+                        choice && typeof choice === 'object' && Object.hasOwn(choice, 'publicMove')
+                            ? choice.publicMove
+                        : typeof choice === 'object' && strategic
                             ? searchMove(e, seat, {
                                   samples: choice.searchSamples,
                                   candidates: 6,

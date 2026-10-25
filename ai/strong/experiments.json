@@ -58705,7 +58705,7 @@
     },
     "public_policy_runtime_preflight_v1": {
         "checked_at": "2026-10-25T07:40:10.842642+00:00",
-        "transport_evidence_sha256": "9dd92d67eeb6f97fe1ac9bd69d3e4030dc5bc399d7e83847aba6bf187b19bf1f",
+        "transport_evidence_sha256": "a47dc4648502e76a73eacb146a53dedfc9d9ad83caef847414ca78753dd8b096",
         "transport_evidence": {
             "repo": "coyotte508/powergrid-ai-germany-v1",
             "revision": "be454728cac8c08e7fecc1414ff61cbc25cbe1df",
@@ -58738,6 +58738,52 @@
         "amd_benchmark_for_this_transport": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
-        "checkpoint_sha256": "7e798de8391b8280a396cd477c23a87d11eaa9ed3394da09d40bb57e8d4c87f8"
+        "checkpoint_sha256": "7e798de8391b8280a396cd477c23a87d11eaa9ed3394da09d40bb57e8d4c87f8",
+        "original_transport_evidence_sha256": "9dd92d67eeb6f97fe1ac9bd69d3e4030dc5bc399d7e83847aba6bf187b19bf1f",
+        "metadata_clarification": "Explicit runtime_manifest_sha256 and evidence_manifest_sha256 disambiguate the two hashes; raw archived result and original evidence archive are unchanged."
+    },
+    "public_policy_arena_preflight_v1": {
+        "checked_at": "2026-10-25T08:01:56.334352+00:00",
+        "previous_goal_turn": "verified_wait",
+        "this_goal_turn": "progress",
+        "coordinator_pid": 3502343,
+        "coordinator_session": 23779,
+        "original_coordinator_live": true,
+        "coordinator_command": "ai/.venv/bin/python -u -B ai/strong/coordinate-surrogate-continuation-study-v1.py --execute --interval-seconds 180 --max-hours 48 ",
+        "study_pinned_code_unchanged": true,
+        "study_state": {
+            "updated_at": "2026-10-25T08:00:56.617996+00:00",
+            "stage": "waiting_for_original_jobs",
+            "running_operation": null,
+            "jobs_submitted": 132,
+            "jobs_verified": 98,
+            "caps": 0,
+            "failed_jobs": []
+        },
+        "public_arena_result_sha256": "cd201eb46cce3a176e7fde2522270324681ae4172b748759d7c5fb63e2b24e5c",
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "whole_game_runtime_evidence_sha256": "c176625c338e3a630f6c36f87cb8ce878a9c593537a829ee6245284b34557128",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "444e0ad69dea117950a6e276e993e6df48dcab79",
+            "archive_path": "archives/public-policy-arena-preflight-evidence-v1.tgz",
+            "archive_sha256": "f484d0facc8de3c38e6abf79c6aef4cc2f1eff12e6426ed233d4087ec9f29f15",
+            "manifest_sha256": "de25fc12ff12dec0f3f34c1956f02f22a938bdd046fe405b84053a2d20e9441e",
+            "archived_files": 2813,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "engineering_games": 80,
+        "exact_decisions": 10207,
+        "contract_tests": 5,
+        "engine_rejection_cases": 4,
+        "raw_preflight_result_sha256": "cd201eb46cce3a176e7fde2522270324681ae4172b748759d7c5fb63e2b24e5c",
+        "runtime_manifest_sha256": "e67b240528049a4b7c8dcda4aa5eff208cad6b226f89a0178dda44c958bd4c81",
+        "exact_final_policy_adapter_ready": false,
+        "amd_benchmark_for_this_transport": false,
+        "new_strength_games": 0,
+        "new_jobs_for_this_preflight": 0,
+        "checkpoint_sha256": "d88cec8da788720d915330a07202d22907c646d88fece30216fa0f95dc9e81d0"
     }
 }

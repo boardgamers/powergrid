@@ -25,6 +25,62 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
+## 25 October, 08:02 UTC — standalone whole-game path verified and archived
+
+`strong/public_policy_arena_v1.py` now evaluates complete development games through
+an actual standalone JSON-lines policy process. The independent arena receives the
+returned move, checks it against its own legal menu and applies it directly; it does
+not trust a policy-provided array index. Requests contain public state only, with
+all cash visible and sealed bids/deck/RNG hidden. Policy identity, request/revision
+and player ordering are checked on every response. The existing direct evaluator
+and all live HF source remain unchanged.
+
+The frozen filtered model passed **80 engineering games / 10,207 exact decisions**:
+all seats and all four rules at **2–6 players**, with legacy, a260, economic, rush
+and heuristic opponents respectively. Every logical engine transition and final
+outcome matches the original independent bridge, and every policy decision matches
+the original direct implementation. **Zero game/rollout caps**; terminal scores,
+tie credits, pairing and saved receipts independently audited. Five focused Python
+contract tests and four actual engine rejection cases pass. This set exercises one
+real strict-loss-filter override. These are engineering seeds, not strength results;
+this whole-game set does not exercise search_geo or focal hybrid search. Prior saved
+search-case parity remains separate evidence.
+
+Two failed engineering attempts are preserved. The first comparator incorrectly
+expected independent processes to have identical legacy-bot wall-clock bookkeeping;
+only `clockStartedAt`, `totalTimeUsed` and move log/lastMove timestamp fields are now
+excluded from trajectory comparison. The second exposed sorted request JSON changing
+`availableMoves` insertion order and hence action indices. The new transport and raw
+receipts now preserve that order, keeping the frozen policy unchanged. This does
+not claim arbitrary JSON-key reordering invariance for the historical policy.
+A precheck also exposed ambiguous manifest metadata in the earlier descriptor:
+its archive manifest and runtime manifest now have explicit names. The immutable
+archive and raw preflight result were inspected and remain unchanged.
+
+- Evidence: `strong/public-policy-arena-preflight-v1.json` (nested `archive` avoids hash-name collisions).
+- Private HF revision **444e0ad69dea117950a6e276e993e6df48dcab79**.
+- Archive SHA256 **f484d0facc8de3c38e6abf79c6aef4cc2f1eff12e6426ed233d4087ec9f29f15**, **2,813 files**.
+- Raw local run: `ai/runs/public-policy-arena-preflight-v1`; original successful session **61616** completed.
+- Original archive session **85399** completed and its remote archive was downloaded/hash-verified. Do not repeat it.
+- Preserved failures: `ai/runs/public-policy-arena-clock-comparison-failure-v1` and `ai/runs/public-policy-arena-menu-order-failure-v1`.
+
+The main full-study owner **PID 3502343 / session 23779** is directly confirmed live;
+all pinned code is unchanged. Owner snapshot at **08:00:56 UTC**: **132 submitted /
+98 independently verified**, zero caps and no reported failures. It remains the sole
+submitter/collector of the 480 roots; do not launch or collect alongside it. Current
+checkpoint: `ai/runs/public-policy-arena-completion-checkpoint-v1.json`, also retained
+in the experiment ledger. The previous goal turn was a verified wait; this turn
+completed the whole-game execution work. No gradients or extra HF jobs were launched
+for this preflight; the existing study coordinator continues its authorized schedule.
+
+**Next:** complete and archive the full paired fidelity analysis before deciding on
+the stronger-opponent auction/override policy. Then freeze that actual recipe, extend
+this shared backend if needed, use fresh all-count/all-rule strength games, integrate
+the exact policy with the unchanged final gate, and benchmark its standalone package
+on the actual 8840U. The final adapter still needs explicit integration; this generic
+development evaluator does not make it ready. No new qualified candidate, production
+change, final-seed use or general plateau conclusion.
+
 ## 25 October, 07:40 UTC — standalone public-policy transport parity
 
 The original full-study coordinator **PID 3502343 / session 23779** is confirmed

@@ -1,0 +1,187 @@
+{
+  "complete": true,
+  "checked_at": "2026-10-25T07:59:20.863761+00:00",
+  "engineering_games": 80,
+  "exact_decisions": 10207,
+  "all_logical_engine_transitions_exact": true,
+  "caps": 0,
+  "by_player_count": {
+    "2": {
+      "games": 8,
+      "independent_deals": 1,
+      "counts": {
+        "decisions": 1372,
+        "root_filter_overrides": 0,
+        "rollouts": 0,
+        "rollout_caps": 0,
+        "neural_decisions": 0,
+        "search_changes": 0,
+        "search_decisions": 0
+      },
+      "wall_seconds": 12.153530217998195,
+      "sum_game_seconds": 45.16907028306741,
+      "max_game_seconds": 6.472020626999438,
+      "decision_p50_ms": 5.265465006232262,
+      "decision_p95_ms": 8.336276526097208,
+      "report_sha256": "ddcdaa31a35e6b3a80e649eae656441fb479dcef8c09c3ba4bc79efb1ecdb394",
+      "all_receipts_verified": true,
+      "qualification_eligible": false,
+      "reserved_final_seeds_used": false
+    },
+    "3": {
+      "games": 12,
+      "independent_deals": 1,
+      "counts": {
+        "decisions": 1649,
+        "root_filter_overrides": 0,
+        "rollouts": 0,
+        "rollout_caps": 0,
+        "neural_decisions": 0,
+        "search_changes": 0,
+        "search_decisions": 0
+      },
+      "wall_seconds": 24.383481420984026,
+      "sum_game_seconds": 85.02420589909889,
+      "max_game_seconds": 8.652374238008633,
+      "decision_p50_ms": 5.613829009234905,
+      "decision_p95_ms": 9.127499000169335,
+      "report_sha256": "46ac4c977edd37888a3ea7713c0bf3221932a5d788290a445a1ad087936d31c0",
+      "all_receipts_verified": true,
+      "qualification_eligible": false,
+      "reserved_final_seeds_used": false
+    },
+    "4": {
+      "games": 16,
+      "independent_deals": 1,
+      "counts": {
+        "decisions": 2174,
+        "root_filter_overrides": 0,
+        "rollouts": 0,
+        "rollout_caps": 0,
+        "neural_decisions": 0,
+        "search_changes": 0,
+        "search_decisions": 0
+      },
+      "wall_seconds": 26.41597507800907,
+      "sum_game_seconds": 95.74429411703022,
+      "max_game_seconds": 8.651885986037087,
+      "decision_p50_ms": 6.76856649806723,
+      "decision_p95_ms": 11.44873095618095,
+      "report_sha256": "bc83eb89c101d83c7663854642e6e9c344d5db40c1a9d2ca6141561591d4b07f",
+      "all_receipts_verified": true,
+      "qualification_eligible": false,
+      "reserved_final_seeds_used": false
+    },
+    "5": {
+      "games": 20,
+      "independent_deals": 1,
+      "counts": {
+        "decisions": 2418,
+        "root_filter_overrides": 1,
+        "rollouts": 0,
+        "rollout_caps": 0,
+        "neural_decisions": 0,
+        "search_changes": 0,
+        "search_decisions": 0
+      },
+      "wall_seconds": 32.29179828497581,
+      "sum_game_seconds": 120.27473503502551,
+      "max_game_seconds": 8.245242527977098,
+      "decision_p50_ms": 7.49576702946797,
+      "decision_p95_ms": 12.682051598676482,
+      "report_sha256": "83bd960c72ee93aaa68a2643beb6c552b380eccd96d764b6b67e1e959d2cceda",
+      "all_receipts_verified": true,
+      "qualification_eligible": false,
+      "reserved_final_seeds_used": false
+    },
+    "6": {
+      "games": 24,
+      "independent_deals": 1,
+      "counts": {
+        "decisions": 2594,
+        "root_filter_overrides": 0,
+        "rollouts": 0,
+        "rollout_caps": 0,
+        "neural_decisions": 0,
+        "search_changes": 0,
+        "search_decisions": 0
+      },
+      "wall_seconds": 39.64529454300646,
+      "sum_game_seconds": 139.766648227931,
+      "max_game_seconds": 8.327881180972327,
+      "decision_p50_ms": 7.95341600314714,
+      "decision_p95_ms": 13.758158692508005,
+      "report_sha256": "c40e152b01fd114682318e9ebc7a94adc3063fa97156ffeb816fccf70b83e49c",
+      "all_receipts_verified": true,
+      "qualification_eligible": false,
+      "reserved_final_seeds_used": false
+    }
+  },
+  "normalized_reference_fields": [
+    "public state players.clockStartedAt",
+    "public state players.totalTimeUsed",
+    "public state players.lastMove.time/serverTime",
+    "public state log.move.time/serverTime"
+  ],
+  "prepared_sha256": "04d485706dd7d2188ab3c9b09383b27930cced87d293e7320a1c85ecb4bfc97a",
+  "manifest_sha256": "e67b240528049a4b7c8dcda4aa5eff208cad6b226f89a0178dda44c958bd4c81",
+  "policy_sha256": "240e71cf56da252bee2928a994ec5337e0ad12df863deeebf43700ac73f3b688",
+  "checker_sha256": "01f3016ef07220911e795e4cbec0e250b6c92f2905dd90c8c70ec35c00e6b702",
+  "new_hf_jobs": 0,
+  "new_strength_games": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "scope": "Complete filtered-policy engineering games through standalone JSON process versus unchanged direct policy and original engine. All seats/rules at 2\u20136 players, five opponent implementations. Not a selected-policy strength result, final adapter or target-hardware benchmark.",
+  "runtime_manifest_sha256": "e67b240528049a4b7c8dcda4aa5eff208cad6b226f89a0178dda44c958bd4c81",
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "444e0ad69dea117950a6e276e993e6df48dcab79",
+    "archive_path": "archives/public-policy-arena-preflight-evidence-v1.tgz",
+    "archive_sha256": "f484d0facc8de3c38e6abf79c6aef4cc2f1eff12e6426ed233d4087ec9f29f15",
+    "manifest_sha256": "de25fc12ff12dec0f3f34c1956f02f22a938bdd046fe405b84053a2d20e9441e",
+    "archived_files": 2813,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "raw_preflight_result_sha256": "cd201eb46cce3a176e7fde2522270324681ae4172b748759d7c5fb63e2b24e5c",
+  "contract_tests": 5,
+  "contract_tests_sha256": "9fcea310f800360e936d11524ae8da7319ce0e3f68f0444b9ba4c571445a1842",
+  "engine_rejections": {
+    "complete": true,
+    "cases": [
+      {
+        "case": "illegal_move",
+        "exit_code": 1,
+        "expected_error": "not uniquely legal",
+        "passed": true
+      },
+      {
+        "case": "illegal_amount",
+        "exit_code": 1,
+        "expected_error": "not uniquely legal",
+        "passed": true
+      },
+      {
+        "case": "unexpected_control",
+        "exit_code": 1,
+        "expected_error": "require the explicit public-move arena",
+        "passed": true
+      },
+      {
+        "case": "not_enabled",
+        "exit_code": 1,
+        "expected_error": "require the explicit public-move arena",
+        "passed": true
+      }
+    ],
+    "strength_games": 0,
+    "qualification_eligible": false
+  },
+  "failed_attempts_retained": [
+    "legacy-wall-clock-comparison",
+    "sorted-json-menu-order"
+  ],
+  "exact_final_policy_adapter_ready": false,
+  "amd_benchmark_for_this_transport": false
+}

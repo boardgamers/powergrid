@@ -57254,5 +57254,50 @@
             "gradients": false,
             "qualification_eligible": false
         }
+    },
+    "opponent_surrogate_training_v1": {
+        "status": "implemented_forward_and_export_preflight_passed_waiting_for_fresh_collection",
+        "design": "ai/strong/opponent-surrogate-training-design-v1.json",
+        "design_sha256": "040e39dd90763916b4fd908418035c8389b11d2d304dab1dee94912ac2d7f921",
+        "preflight": "ai/runs/opponent-surrogate-training-preflight-v1.json",
+        "preflight_sha256": "edafe0ebf89591c90f980644fbb03b91277f331c722efca454ff5e182fc6c6f1",
+        "tests": 9,
+        "code_hashes": {
+            "ai/strong/model_opponent_surrogate_v1.py": "b8f4bccb75a97f6627b947413d5a6aec4dce6a4a35cb61cdcb374daa2ce8986f",
+            "ai/strong/opponent_surrogate_training_v1.py": "49751b105b96c44d88b4a75e6b530fbddc4f0dc5590be1e18bd23cc64dc3eb10",
+            "ai/strong/opponent-surrogate-training-design-v1.json": "040e39dd90763916b4fd908418035c8389b11d2d304dab1dee94912ac2d7f921",
+            "ai/strong/prepare-opponent-surrogate-training-v1.py": "b4431cfc25180bf6874bb48614a62b954fbb4a1d64d22be5ef4864f32870c1ff",
+            "ai/strong/train-opponent-surrogate-v1.py": "ce815484f2dff05bfa7ecbbcec0d445311b450e66e891e8e142d00cba8fc8eb1",
+            "ai/strong/export-opponent-surrogate-v1.py": "dbb49da57c713857b0b9fe0a5cbe7ae258df7583b479891a591bbc405949e5ac",
+            "ai/strong/test_opponent_surrogate_training_v1.py": "62a54d481584cdc86ee07d2b92a5be2f3eb078a4648de13922db4ba3ced3ae98"
+        },
+        "checkpoint": "ai/runs/opponent-surrogate-training-preparation-checkpoint-v1.json",
+        "checkpoint_sha256": "223606066a134e26803b128f98762a634678c17ed7106c8709887678cfed1009",
+        "current_jobs": {
+            "checked_at": "2026-10-25T02:40:08.738871+00:00",
+            "six_player_original_job": {
+                "job_id": "6add610d1e112550ce7e64e1",
+                "authoritative_status": "RUNNING",
+                "tail": [
+                    "{'complete_games': 14, 'planned_games': 24, 'errors': []}",
+                    "{'complete_games': 15, 'planned_games': 24, 'errors': []}",
+                    "{'complete_games': 16, 'planned_games': 24, 'errors': []}",
+                    "{'complete_games': 17, 'planned_games': 24, 'errors': []}"
+                ]
+            },
+            "resource_coordinator_live": true,
+            "resource_coordinator_stage": "waiting_for_jobs",
+            "resource_jobs_submitted": 54,
+            "resource_jobs_verified": 31,
+            "resource_failures": [],
+            "new_hf_jobs": 0,
+            "gradients": false,
+            "qualification_eligible": false
+        },
+        "new_training_jobs": 0,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Complete original 6p calibration and the full fresh collection. Prepare train/validation tensors, package immutable data/source and implement/admit the HF GPU launcher. Exercise actual gradient training only on HF, verify all trained exports, freeze a serving policy on validation, then assess test behaviour and fresh paired continuations before any hybrid adoption."
     }
 }

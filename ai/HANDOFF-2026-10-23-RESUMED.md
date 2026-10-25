@@ -25,6 +25,62 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
+## 25 October, 02:41 UTC — surrogate training pipeline implemented
+
+Previous goal turn was progress: collection orchestration committed/pushed in
+`0571cd7`. This turn implemented the next training stage while the original HF
+calibration/resource jobs continued. No new HF jobs or gradients were started.
+
+New files:
+
+- `strong/model_opponent_surrogate_v1.py`: 433,217-parameter state/action scorer,
+  initialized at the public economic prior. The state retains ordered player money,
+  holdings and geography; shortlist membership is public feature 100.
+- `strong/opponent_surrogate_training_v1.py`: compact six-candidate tensors,
+  integrity/whole-deal coverage checks, equal count/rule/phase weights and behaviour
+  metrics. Teacher sampled values are diagnostic labels, never network inputs.
+- `strong/prepare-opponent-surrogate-training-v1.py`: requires the complete verified
+  2,560-game corpus and prepares only the 1,920 train / 320 validation games. Test
+  records remain excluded. Reports natural exact-input overlap without filtering
+  decisions by outcome.
+- `strong/opponent-surrogate-training-design-v1.json`: four fixed seeds
+  14101–14104, 80 epochs, batch 2,048, AdamW/cosine LR, validation macro-NLL selection.
+  Equal total gradient weight for each of the 60 count/rule/phase groups. Forced
+  shortlists are retained/reported but excluded from gradients. No test selection.
+- `strong/train-opponent-surrogate-v1.py`: gradients require HF/CUDA; optional GPU
+  resident data under a measured memory allowance. Saves best/latest/optimizer and
+  all per-group histories, exports each selected seed and verifies its predictions.
+- `strong/export-opponent-surrogate-v1.py`: unchanged float32 stored weights with
+  explicit float64 arithmetic, supported SiLU expression and standalone ONNX.
+  Every supplied record must match the corresponding float64 checkpoint's action;
+  raw scores must meet the 1e-10 absolute/relative tolerance.
+- `strong/test_opponent_surrogate_training_v1.py`: **nine passing tests**, no
+  gradient steps. Real 382-row calibration tensors preserve inputs/targets; corrupt
+  membership/targets and test inclusion are rejected; weighting/masking/permutation
+  checks pass. Random unoptimized weights export with **382/382 exact choices**
+  and max logit error below 1e-10. Random fixture files were temporary and not uploaded.
+
+Preflight `ai/runs/opponent-surrogate-training-preflight-v1.json`, SHA256
+`edafe0ebf89591c90f980644fbb03b91277f331c722efca454ff5e182fc6c6f1`, pins all seven
+new files and the test log. Actual preparation from the incomplete corpus refused
+before creating the output. Frozen collection source and all running resource
+coordinator code hashes remain unchanged. No source package or HF training launcher
+has been admitted, no real GPU training has been exercised, and no trained surrogate
+exists. Do not present the random-weight export check as model strength or 8840U proof.
+
+At **02:40:08 UTC**, original 6p runtime job `6add610d1e112550ce7e64e1` was directly
+RUNNING, **17/24 games complete**, no logged errors. Resource coordinator
+**11670 / PID 1291091** was live, **54 submitted / 31 verified**, no failures.
+Snapshot: `ai/runs/opponent-surrogate-training-preparation-checkpoint-v1.json`.
+
+Next: collect the original 6p endpoint when complete; audit/archive joint calibration;
+prepare/dry-run/execute the existing full collection coordinator once. After all
+fresh data verify, prepare tensors and immutable data/source, implement/admit the
+HF GPU launcher and exercise actual training there. A surrogate's imitation metrics
+do not establish playing strength: freeze validation-selected inference, test it,
+then compare fresh paired continuations against actual search before modifying
+the hybrid mixture. Keep all final qualification and actual-target hybrid gates.
+
 ## 25 October, 02:26 UTC — full surrogate collection orchestration ready
 
 Implemented `strong/launch-opponent-surrogate-collection-v1.py`,

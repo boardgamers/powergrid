@@ -6,7 +6,44 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 02:26 UTC: full opponent-surrogate collection orchestration tested.**
+**Latest — 25 October, 02:41 UTC: surrogate training/data/export pipeline implemented.**
+
+The previous turn pushed the full collection orchestration in `0571cd7`. This turn
+implemented a **433,217-parameter** opponent model, train/validation preparation,
+HF-only four-seed trainer and standalone float64 ONNX export/verification. Design:
+`strong/opponent-surrogate-training-design-v1.json`. No gradients or new HF jobs
+have run; actual GPU training and the full-data preparation remain untested.
+
+The model consumes the existing public state/action features and ranks exactly the
+public six-candidate teacher shortlist. Teacher scores/seeds, deal identifiers,
+terminal results and opponent identities are excluded from inputs. Cross-entropy
+imitates the observed choice, with equal weight for all 60 count/rule/phase groups;
+forced shortlists have no gradient. Four fixed seeds train for 80 epochs, retaining
+each best validation macro-NLL checkpoint. The training bundle physically excludes
+test records. All model/data/export files are separate from the live frozen source.
+
+**Nine tests pass** on 382 real 2p calibration records plus synthetic boundary
+checks. The random, unoptimized-weight ONNX export matched its float64 checkpoint
+on **382/382 choices**, with maximum logit error below 1e-10. This is an engineering
+proof, not a trained model or target-hardware benchmark. Actual incomplete-corpus
+preparation was refused before output creation. Preflight:
+`ai/runs/opponent-surrogate-training-preflight-v1.json`, SHA256
+`edafe0ebf89591c90f980644fbb03b91277f331c722efca454ff5e182fc6c6f1`.
+
+At **02:40:08 UTC**, original 6p calibration `6add610d1e112550ce7e64e1` remained
+RUNNING, **17/24 complete**, no logged errors. Resource coordinator PID **1291091**
+remained live with **54 submitted / 31 verified**, no failures. Checkpoint:
+`ai/runs/opponent-surrogate-training-preparation-checkpoint-v1.json`.
+
+**Next:** finish original 6p calibration and the full collection workflow below.
+Then run `prepare-opponent-surrogate-training-v1.py` on the complete corpus,
+package immutable training data/source and implement/admit its HF GPU launcher.
+The implemented trainer must first exercise real gradients on HF; no local
+training. Freeze a serving rule using validation only, evaluate test behaviour,
+and compare fresh paired continuations with actual reference search before any
+hybrid adoption. Full-game strength and actual 8840U hybrid validation still follow.
+
+**Previous — 25 October, 02:26 UTC: full opponent-surrogate collection orchestration tested.**
 
 The launcher, collector/indexer and coordinator are implemented. Seven tests pass:
 complete 2,560-game coverage and whole-deal splits for every supported shard size;

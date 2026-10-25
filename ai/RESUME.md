@@ -6,7 +6,96 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 04:39 UTC: paired continuation runner verified; full fresh-root jobs running.**
+**Latest — 25 October, 04:56 UTC: resource search rejected; reference-cost calibration running.**
+
+The original resource watcher completed normally at **04:47:44 UTC**. All **54 jobs /
+3,360 games** are independently audited and privately archived: the full comparison
+reproduces, all terminal tie credits were recomputed, and the paired aggregate /
+bootstrap were reconstructed. Zero game or rollout caps. Archive: private HF
+`637202d691efc8121f95b7ff3954d4f20bfa54dd`, SHA256
+`e6e93cf4bf858f9afada6576654aaf021c2d455e50471319488de2d1c3831cc3` (**7,290 files**).
+Original watcher PID 2444260 / session 56315 is complete; do not restart or re-upload.
+
+**Decision: do not adopt, distill or scale the unchanged resource-search policy.**
+Its primary equal-count difference against search is **−9.1875 pp**, exploratory
+whole-deal 95% interval **[−16.3648, −1.5518] pp**. Point estimates regress at all
+five counts. Economic secondary: **+6.25 pp [−0.42, +12.29]**, with important
+2p improvements but other regressions. Only four independent deals per cell; no
+post-hoc routing is selected. All **16 adverse overall cells and 41 adverse rule
+cells** are retained. The arm used **5,151,608 continuations / 69,624 search decisions**,
+changing **17,637** baseline choices. Shared-HF search median/p95 **13.13/54.51 s**
+are not 8840U serving timings. Read [the complete assessment](RESOURCE-SEARCH-SCREEN-2026-10-25.md)
+and `strong/resource-replanning-development-review-v1.json`. This rejects this
+implementation; it is not a general plateau or an optimal-action training set.
+
+The separate **reference-continuation runtime calibration** is implemented and
+launched. It uses the already audited runtime-prefix source games, never the fresh
+scientific roots. Select the minimum existing rank across seats in each **2p/6p ×
+four rules × plant/bid/building** group: **24 roots**, without reading terminal
+outcomes for selection. Each root runs the fixed action pair on **eight worlds**
+under actual reference search and the original population mixture: **24 CPU jobs /
+768 continuations**. No learned or untrained surrogate participates in this cost
+calibration, and no gradients run. Actual surrogate timing still needs its own
+check once the trained policy is frozen.
+
+New code: `surrogate_continuation_runtime_v1.py`,
+`build-surrogate-continuation-runtime-source-v1.py`,
+`launch-surrogate-continuation-cost-v1.py`,
+`manage-surrogate-continuation-cost-v1.py`, and
+`test_surrogate_continuation_runtime_v1.py`. **Nine tests pass**: actual 24-group
+selection and ordering, missing/resealed ranks, no terminal parsing for selection,
+invalid scopes/private-root hashes/changed-source boundaries, resource allowance,
+independent audit of 32 packaged-engine outcomes, resealed bad terminal rejection,
+and existing/unknown submission guards. No live job was resubmitted.
+
+The clean source contains **1,477 files**, preserving all **1,463 base files**.
+It imports its own package, independently rechecks all 24 focal pairs, and passed
+a complete local **32-continuation / zero-cap** job through the exact packaged
+wrapper and collector. This is engineering verification, not a timing guarantee.
+Source dataset revision **`954e14c072a297dca7a101eb8264c78176f6ae3d`**,
+archive SHA256 **`45e4fcf26983ef39baf1f1a97a569282ba7a47c15711d602031673e45cf27253`**.
+Descriptor: `strong/surrogate-continuation-cost-source-v1.json`.
+Preflight: `ai/runs/surrogate-continuation-cost-preflight-v1.json`, SHA256
+`a4f9e168d95fafd160d9a8d019b12107f8c1ef2a8f0d09d78db1ae16bab913f9`.
+
+The bounded calibration allowance is **CPU-upgrade / eight workers / six-hour
+maximum per root**, derived conservatively from the previous complete nested-search
+measurement, including extra setup/time/memory reserve. It is not admission of the
+full scientific experiment. The fixed 768-continuation workload is unchanged.
+All 24 launch dry-runs passed. The sole submitter **PID 2635183 / session 41430**
+completed all 24 submissions; do not rerun it. The original upload session **37797**
+also completed and is remotely verified. Guards:
+`ai/runs/surrogate-continuation-cost-launches-v1/*.json`.
+Plan: `strong/surrogate-continuation-cost-admission-v1.json`.
+
+At **04:56 UTC**, direct HF inspection showed **13 completed / 11 running**, no
+failed original handles. The first collection cycle **session 79023** completed:
+**8 jobs / 256 continuations independently verified**, zero caps, immutable raw
+archives retained. Some actual positions require no further strategic search;
+retain those alongside difficult positions without outcome-based replacement.
+Checkpoint: `ai/runs/surrogate-continuation-cost-checkpoint-v1.json`, SHA256
+`11f19ecc6bdf0aa76ffd38a8bf736ec3eb9de9ab34a821dee080b68c641cdc2f`.
+
+Next cost collection command: `ai/.venv/bin/python ai/strong/manage-surrogate-continuation-cost-v1.py collect-ready`, then `index`
+only when all 24 original cases verify. There is no cost-collection coordinator;
+use the original guards. The complete calibration archive/admission for the full
+study still needs implementation after all measurements arrive. No full-study
+continuations or frozen trained-surrogate policy exist yet.
+
+The other original work remains live with unchanged code: opponent-data collection
+**40 submitted / 29 verified**; full fresh-root collection **5 submitted / 4 verified**.
+Their original representative 6p handles were directly RUNNING. At 04:53:14 UTC,
+opponent job `6add73271e112550ce7e6a20` had **37/96 games**, no errors. Keep PID
+2009367 / session 80214 and PID 2536982 / session 93486; do not replace slow games.
+
+**Next:** finish original cost and full-root collection; finish opponent collection,
+then the prepared HF GPU calibration/training/audit/validation-selection pipeline.
+Freeze both inputs before the full fidelity study, implement its measured launch
+and aggregate paired analysis, and keep heterogeneous auction policy/fresh full-game
+strength separate. The exact final adapter and actual 8840U hybrid benchmark remain
+required. No candidate, publication, final-seed use or general plateau conclusion.
+
+**Previous — 25 October, 04:39 UTC: paired continuation runner verified; full fresh-root jobs running.**
 
 The fixed-action continuation runner, independent saved-result checks and full-study
 input gate are implemented. They re-encode each public root and rerun the frozen

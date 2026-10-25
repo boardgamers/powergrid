@@ -56812,7 +56812,7 @@
         "qualification_eligible": false
     },
     "resource_replanning_development_v1": {
-        "status": "running",
+        "status": "complete_independently_archived_unchanged_policy_rejected",
         "plan": "ai/strong/resource-replanning-development-plan-v1.json",
         "plan_sha256": "19be586eb881b2c065a5f79454ec858a0c1e750f281f713c4be513b3d46badbf",
         "admission": {
@@ -56934,6 +56934,22 @@
             "new_hf_jobs": 0,
             "gradients": false,
             "qualification_eligible": false
+        },
+        "complete_archive": {
+            "descriptor": "ai/strong/resource-replanning-development-complete-evidence-v1.json",
+            "descriptor_sha256": "7ad5dccb2ef0f742b2449f62d6c634bc97649cf0b208a91f90cfc1c728133d90",
+            "revision": "637202d691efc8121f95b7ff3954d4f20bfa54dd",
+            "archive_sha256": "e6e93cf4bf858f9afada6576654aaf021c2d455e50471319488de2d1c3831cc3",
+            "archived_files": 7290,
+            "complete_games": 3360,
+            "caps": 0
+        },
+        "assessment": {
+            "report": "ai/RESOURCE-SEARCH-SCREEN-2026-10-25.md",
+            "review": "ai/strong/resource-replanning-development-review-v1.json",
+            "review_sha256": "fc0b7745654520eec33edf56774697fa32e6a4fb0d05d42515b49ebcb7f29699",
+            "decision": "Do not adopt, distill or scale this resource-replanning implementation unchanged. Preserve the filtered neural policy as the control and prioritize independently tested opponent-aware auction search. A changed resource policy would require a new hypothesis and fresh paired games.",
+            "general_plateau_established": false
         }
     },
     "reference_opponent_capture_v1": {
@@ -58015,5 +58031,215 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "next": "Collect full fresh roots and audited trained surrogate; freeze study inputs. Implement and measure HF reference-continuation runtime, source/package/launch/full audit and aggregate paired analysis. Heterogeneous hybrid and fresh strength remain separate."
+    },
+    "surrogate_continuation_cost_v1": {
+        "status": "all_24_original_jobs_submitted_8_verified",
+        "source": {
+            "repo": "coyotte508/powergrid-ai-training-v1",
+            "archive": "strong-source-surrogate-continuation-cost-v1.tgz",
+            "sha256": "45e4fcf26983ef39baf1f1a97a569282ba7a47c15711d602031673e45cf27253",
+            "bytes": 109711847,
+            "manifest_sha256": "37aa225c8ebf682c8d90b0e8f2eb3d60de6b180cdd4b0be5c356790e85729d5a",
+            "manifest_files": 1477,
+            "unchanged_base_files": 1463,
+            "base": {
+                "repo": "coyotte508/powergrid-ai-training-v1",
+                "archive": "strong-source-population-hybrid-development-20261024-v1.tgz",
+                "revision": "cdec1d3079eb9a54b776f6237ec5f93cc1de84d8",
+                "sha256": "ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23",
+                "files": 1463
+            },
+            "new_files": {
+                "ai/strong/analysis-public-balances-v1.cjs": "3e8eaf26bc21be7e2284e4838f743731a269e8d18badbb8adc0af882f3b3ccb5",
+                "ai/strong/build-surrogate-continuation-runtime-source-v1.py": "59194982de79cd7f1a630af9cfe94ab21ac458b6d1d3343c47af8b74ed2752f6",
+                "ai/strong/opponent_surrogate_policy_v1.py": "4b891dde9a1688eec9f5da0bd0ad0a5dc81d63b2a219d46ce646d033800530da",
+                "ai/strong/opponent_surrogate_training_v1.py": "49751b105b96c44d88b4a75e6b530fbddc4f0dc5590be1e18bd23cc64dc3eb10",
+                "ai/strong/reference-opponent-continuations-v2.cjs": "c3936f3fa35b3c5f9fefeea7cfbbecaf6becc8486c4f681a30e1497f83748c9d",
+                "ai/strong/reference-search-public-balances-v1.cjs": "ba53afcc0a06d25f776c27ba017e14026a28c9928bcde68b05effe64a715b010",
+                "ai/strong/surrogate-continuation-protocol-v1.json": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+                "ai/strong/surrogate-continuation-roots-job-v1.py": "dc21963704d50857b9813cd0483c3bb524f9d67181411d12712b3322578d06b7",
+                "ai/strong/surrogate-opponent-continuations-v1.cjs": "582e001232d3b07dad16b29fe6dc4b933869ccb8485c6167c185372af03c288f",
+                "ai/strong/surrogate_continuation_roots_v1.py": "32bb3995c339b325698c7b760df97ddf8f1ae19c2decf1d1b2c0821d0bf8a185",
+                "ai/strong/surrogate_continuation_runtime_v1.py": "88d963595067128d950e1d14285af9863455b7830cb22b95f2533ab684069e0b",
+                "ai/strong/surrogate_continuation_study_v1.py": "657c882af7cc2012fcaa7a34f9512efd7d3fa7e1c28dc420f6585838c556dd6a",
+                "ai/strong/surrogate_opponent_continuations_v1.py": "00dfc09f14a2cfe0763f7466b60cc4c9fc315daca237e917c729136bc61044b5",
+                "ai/strong/fixtures/surrogate-continuation-runtime-roots-v1.json": "bddae36ec570fb2c219f5727efc729d1ce1061fc2dbcf37e4a6fe866327e0114"
+            },
+            "inputs_sha256": "bddae36ec570fb2c219f5727efc729d1ce1061fc2dbcf37e4a6fe866327e0114",
+            "calibration_sha256": "4335b815c29797d79e588069b4615a898ca7008bcff9323f0132d3c40a64f8ac",
+            "preflight_sha256": "9195c10c9f75b21309800e35b48b7db7ab03d8a6bc4a793444206fccf63fdf13",
+            "protocol_sha256": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+            "roots": 24,
+            "continuations": 768,
+            "calibration_only": true,
+            "gradients": false,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false,
+            "layout_sha256": "7825a811684fa1d2852ba237e39f9e853566c972ccb8428e79b42489e274544f",
+            "revision": "954e14c072a297dca7a101eb8264c78176f6ae3d",
+            "remote_archive_verified": true
+        },
+        "plan": "ai/strong/surrogate-continuation-cost-admission-v1.json",
+        "plan_sha256": "f3b6db36de43fe4270e3f8b2e6580aab3ee921c85c58e78c869ff8425163dbfd",
+        "preflight": "ai/runs/surrogate-continuation-cost-preflight-v1.json",
+        "preflight_sha256": "a4f9e168d95fafd160d9a8d019b12107f8c1ef2a8f0d09d78db1ae16bab913f9",
+        "checkpoint": "ai/runs/surrogate-continuation-cost-checkpoint-v1.json",
+        "checkpoint_sha256": "11f19ecc6bdf0aa76ffd38a8bf736ec3eb9de9ab34a821dee080b68c641cdc2f",
+        "checked_at": "2026-10-25T04:56:17.610754+00:00",
+        "jobs": [
+            {
+                "case": "surrogate-continuation-cost-v1-2p-0-bid",
+                "key": "2p-0-bid",
+                "job_id": "6add8b181e112550ce7e74ac",
+                "authoritative_status": "COMPLETED"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-2p-0-building",
+                "key": "2p-0-building",
+                "job_id": "6add8b181e112550ce7e74ae",
+                "authoritative_status": "COMPLETED"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-2p-0-plant",
+                "key": "2p-0-plant",
+                "job_id": "6add8b191e112550ce7e74b0",
+                "authoritative_status": "COMPLETED"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-2p-1-bid",
+                "key": "2p-1-bid",
+                "job_id": "6add8b1a1e112550ce7e74b2",
+                "authoritative_status": "RUNNING"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-2p-1-building",
+                "key": "2p-1-building",
+                "job_id": "6add8b1c046eb82b1ece2558",
+                "authoritative_status": "COMPLETED"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-2p-1-plant",
+                "key": "2p-1-plant",
+                "job_id": "6add8b1e1e112550ce7e74b4",
+                "authoritative_status": "COMPLETED"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-2p-2-bid",
+                "key": "2p-2-bid",
+                "job_id": "6add8b201e112550ce7e74b8",
+                "authoritative_status": "COMPLETED"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-2p-2-building",
+                "key": "2p-2-building",
+                "job_id": "6add8b22046eb82b1ece255c",
+                "authoritative_status": "COMPLETED"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-2p-2-plant",
+                "key": "2p-2-plant",
+                "job_id": "6add8b25046eb82b1ece255e",
+                "authoritative_status": "COMPLETED"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-2p-3-bid",
+                "key": "2p-3-bid",
+                "job_id": "6add8b28046eb82b1ece2561",
+                "authoritative_status": "COMPLETED"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-2p-3-building",
+                "key": "2p-3-building",
+                "job_id": "6add8b2b1e112550ce7e74c3",
+                "authoritative_status": "RUNNING"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-2p-3-plant",
+                "key": "2p-3-plant",
+                "job_id": "6add8b2f1e112550ce7e74c8",
+                "authoritative_status": "COMPLETED"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-6p-0-bid",
+                "key": "6p-0-bid",
+                "job_id": "6add8b32046eb82b1ece2566",
+                "authoritative_status": "RUNNING"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-6p-0-building",
+                "key": "6p-0-building",
+                "job_id": "6add8b36046eb82b1ece2568",
+                "authoritative_status": "COMPLETED"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-6p-0-plant",
+                "key": "6p-0-plant",
+                "job_id": "6add8b3b046eb82b1ece256a",
+                "authoritative_status": "RUNNING"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-6p-1-bid",
+                "key": "6p-1-bid",
+                "job_id": "6add8b401e112550ce7e74ca",
+                "authoritative_status": "RUNNING"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-6p-1-building",
+                "key": "6p-1-building",
+                "job_id": "6add8b44046eb82b1ece2571",
+                "authoritative_status": "COMPLETED"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-6p-1-plant",
+                "key": "6p-1-plant",
+                "job_id": "6add8b491e112550ce7e74d2",
+                "authoritative_status": "RUNNING"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-6p-2-bid",
+                "key": "6p-2-bid",
+                "job_id": "6add8b4f046eb82b1ece257f",
+                "authoritative_status": "RUNNING"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-6p-2-building",
+                "key": "6p-2-building",
+                "job_id": "6add8b55046eb82b1ece2584",
+                "authoritative_status": "RUNNING"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-6p-2-plant",
+                "key": "6p-2-plant",
+                "job_id": "6add8b5b1e112550ce7e74dd",
+                "authoritative_status": "COMPLETED"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-6p-3-bid",
+                "key": "6p-3-bid",
+                "job_id": "6add8b601e112550ce7e74df",
+                "authoritative_status": "RUNNING"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-6p-3-building",
+                "key": "6p-3-building",
+                "job_id": "6add8b67046eb82b1ece2588",
+                "authoritative_status": "RUNNING"
+            },
+            {
+                "case": "surrogate-continuation-cost-v1-6p-3-plant",
+                "key": "6p-3-plant",
+                "job_id": "6add8b6d1e112550ce7e74e7",
+                "authoritative_status": "RUNNING"
+            }
+        ],
+        "verified_jobs": 8,
+        "verified_continuations": 256,
+        "verified_caps": 0,
+        "tests": 9,
+        "gradient_updates": 0,
+        "full_study_admitted": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Collect original 24 cases and independently archive complete calibration. Then measured full-study admission after fresh-root and trained-surrogate freezes; aggregate paired fidelity analysis, heterogeneous policy and fresh strength remain required."
     }
 }

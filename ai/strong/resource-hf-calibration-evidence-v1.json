@@ -1,0 +1,610 @@
+{
+  "complete": true,
+  "jobs": 2,
+  "games": 32,
+  "caps": 0,
+  "exact_local_hf_parity": true,
+  "learner_decisions": 4072,
+  "resource_decisions": 1228,
+  "resource_rollouts": 89632,
+  "source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "archive": "strong-source-resource-replanning-jobs-v1.tgz",
+    "sha256": "e26f742778fa48796e7226f24dcea2591597d4a12f01dced2d8283711a295152",
+    "bytes": 109679110,
+    "manifest_sha256": "cebda6cb0ed6a1eff28cad8cd02cb17e37bb62f59595b2237b989337b40a9415",
+    "protocol_sha256": "e5e7c8d891a41c9c48ca0ee75d17fcd14b7ceeac827f600e3af6d177ff81e0d8",
+    "base": {
+      "repo": "coyotte508/powergrid-ai-training-v1",
+      "revision": "6950d0baffdbb1e2a91bb09849c68b9c15db9fbf",
+      "archive": "strong-source-resource-replanning-runtime-v1.tgz",
+      "sha256": "5e3a402b03e26d93d6741d6879024c49bc5b7ca7db3a01b575c3c8d6461a684c",
+      "bytes": 109606680,
+      "manifest_sha256": "35f85462b63798fccc4134feceba73485e0c8fb102479ef133f23883047eb630",
+      "protocol_sha256": "e5e7c8d891a41c9c48ca0ee75d17fcd14b7ceeac827f600e3af6d177ff81e0d8",
+      "runtime_plan_sha256": "60bfb71d31464e360a6c5d38468cb99cd7a8786bfd38c9089c264ec2ae6b17fb",
+      "unchanged_base_files": 1463,
+      "new_files": {
+        "ai/strong/build-resource-replanning-runtime-source-v1.py": "209b749ac56f8038140544c05c7af0f225013cede69c5e06e721f7d84bfa1ba0",
+        "ai/strong/evaluate-resource-replanning-v1.py": "1ed1674945e925c15d32b22ad6a7a14dd7e1f416020478cb0c3fea305367a424",
+        "ai/strong/population-hybrid-development-comparison-v1.json": "6acbd8e57990f4cb9dc775b46b3859db18ccab3cb653dc50552c92f60a86bcbb",
+        "ai/strong/population-hybrid-development-complete-evidence-v1.json": "06a71d90650cad3df31bd4573701d6dcc16bed052d8cd9e822818ae53762c590",
+        "ai/strong/population-hybrid-development-plan-v1.json": "bd2d80bac1384f6d71a9cc4ee1f71db21ce6d9c8fd95e9a12543cdeceb83859f",
+        "ai/strong/resource-development-preflight-evidence-v1.json": "baa12e3b0177dd5f6a21feaade446b199dd1d97f3929747fc91d6ea5dae2cc2d",
+        "ai/strong/resource-replanning-8840u-evidence-v1.json": "1268b9b14469e70109e989490aece6e3268284b0c636c2ffcba8972f1daf84cf",
+        "ai/strong/resource-replanning-development-protocol-v1.json": "e5e7c8d891a41c9c48ca0ee75d17fcd14b7ceeac827f600e3af6d177ff81e0d8",
+        "ai/strong/resource-replanning-evidence-v1.json": "e2a880cd03506ef483251b7e0a716c1a381e573318436e31d782c0f71a44a134",
+        "ai/strong/resource-replanning-runtime-pilot-v1.py": "9866074099f29b7cf33c78b8475bff243ded325fe597c030ce18249b117e58c8",
+        "ai/strong/resource-replanning-runtime-plan-v1.json": "60bfb71d31464e360a6c5d38468cb99cd7a8786bfd38c9089c264ec2ae6b17fb",
+        "ai/strong/resource-turn-plans-v1.cjs": "1540f21cfe0edd19b5cf2a370442228301ac52c7272735677c64c60a0a882d5a",
+        "ai/strong/resource-turn-search-evidence-v1.json": "6827051be337fa1a6a37c1e234de3aec243bc495d6fe9e372900e98802205c3a",
+        "ai/strong/resource-turn-search-v1.cjs": "7abe95f2b213a1497b65b5fad6487e4cbf6e2c213c72e776fde618663e11b014",
+        "ai/strong/resource_development_v1.py": "404f70ccfe21308c15c5cdc2e5d79451ede49ae5685e87fa6517452c87514ae8",
+        "ai/strong/resource_policy_verification_v1.py": "6925539e946cf4e23a20436d5e33326fcf9581f0c870bc9cc43165da6b127240",
+        "ai/strong/resource_replanning_policy_v1.py": "bd5ceeb67b476031d88a623f990bca45640d63f08c7da46ff6df0a7ffa4bbc0c",
+        "ai/strong/resource_turn_search_v1.py": "8313fce803a3af61a9a18b6d6978920843979c13435135a02ea60245a6d27d7b"
+      },
+      "base": {
+        "archive": "strong-source-population-hybrid-development-20261024-v1.tgz",
+        "sha256": "ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23",
+        "bytes": 109458675,
+        "overlays": {
+          "ai/strong/hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+          "ai/strong/hybrid-continuations.cjs": "2b03c49c8270622e74c333c5e7253d5eb5d21ba1af919bc5f15ebd456109daaf",
+          "ai/strong/population-hybrid-continuations.cjs": "206cb044ba5057904afddbbbb125d98db319e04f96067e94c7337a36f0f7502c",
+          "ai/strong/endgame-loss-filter.cjs": "28e3eb1a5fb637b7b80c1b7dc4db255c3d93e5ace168ead6dfa386f57a4de70a",
+          "ai/strong/population-hybrid-policy.cjs": "8f9f7ad3306ab2ebdf04eb6aa439e3f3525f4f6569e6d086649bdbd4c86aff16",
+          "ai/strong/population_hybrid_policy.py": "652677d33cc6613680122c9a95a1ba2c0c0915de384b2124c95e3b1b3a0876cf",
+          "ai/strong/public-arena-bridge.cjs": "999bee0a43a219974c5ceb38bc586f6ea2995e248c19eb9fd697d2e199df8391",
+          "ai/strong/evaluate-population-policy.py": "019454d436e1b8e2ace2ed13375c0ad38727bd02678fedea872957518132abc3",
+          "ai/strong/population-hybrid-runtime-job.py": "1c375bc07dd18b80f28ad7c0b4edfff910fcf63d3f7bd413e8e3048a0f733f92",
+          "ai/strong/population-hybrid-development-protocol-v1.json": "a86b3cd3bcce25131dde6bf59f980e58bbb35dd2c432090a5ed0acd445988014",
+          "ai/strong/policy_iteration_evidence_archive.py": "83177b7f9a35af6467e09509e80024ef5fc258a1030ad23ebfd71c876fac635a",
+          "ai/strong/test-population-hybrid-policy.cjs": "faff35e5f6f78104542d4a7a89a5c768597edf0238f27aec9fa49f3f1a6a060f",
+          "ai/strong/probe-population-policy.py": "d361cc61ac663f1a236656b99671ebb4f73a387baece1808cfd4257cd319caaf",
+          "ai/strong/build-population-hybrid-source.py": "f2bcf99663d65330fb3deffb6415b22f31065b5c2567b91575b4857a73a7bac5",
+          "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+          "ai/strong/population_hybrid_development.py": "bc65be5ebe091d56a9b52cef9d238379aff1b7a73398f53e9123b41e6a473fb2",
+          "ai/strong/population-hybrid-development-job.py": "8cf38cf2fc42ac271a528d6bbb091891845e3035eaaecb537a7c6f07a514eef8",
+          "ai/strong/manage-population-hybrid-development.py": "818c8595651a89b81f24e37e3a229e53ffe3567be021ea3d502ca2cff3c139a2",
+          "ai/strong/coordinate-population-hybrid-development.py": "f8a74d1192a053a312b3395e9a4cd818d35771718dcaa0e62908d685207228d1",
+          "ai/strong/compare-population-hybrid-development.py": "8f256ca9d95785e4da80332dc02ff89707ae5a0987825882876302aa38092c1f",
+          "ai/strong/collect-population-hybrid-runtime.py": "0128713f10321983731f3b96f6c8d8c2fe093b739ffec7a62b06bd7d6fb9caa9",
+          "ai/strong/build-population-hybrid-development-source.py": "0b3849196fad27a2faef41f9a11f75770929373085c3c39d899ab4da0357cbab",
+          "ai/strong/test_population_policy_verification.py": "38bd03459c8c5fe6a40d5671a44515d7143feb49eae0bf1a0bbf614600ebceb3",
+          "ai/strong/test_population_hybrid_development.py": "eb2f33046aca15b238703ee60e2d85b79263935e3e8e6b78310f6502e8916f20"
+        },
+        "protocol_sha256": "a86b3cd3bcce25131dde6bf59f980e58bbb35dd2c432090a5ed0acd445988014",
+        "unchanged_base_files": 1453,
+        "layout_check": {
+          "clean_package_without_runs": true,
+          "reached_evaluation_subprocess": true,
+          "nonzero_deal_offset_checked": true,
+          "failure_receipt_written": true,
+          "new_games": 0,
+          "new_jobs": 0
+        },
+        "revision": "cdec1d3079eb9a54b776f6237ec5f93cc1de84d8",
+        "base": {
+          "archive": "strong-source-population-hybrid-20261024-v2.tgz",
+          "revision": "9a49df8a3baa5e5b6b62cae8208ef301b8540ba7",
+          "sha256": "cd5c08165dfecce5753bcab1c9c0bf10ef45797bf3e5e082914fd6634f91a778"
+        },
+        "base_descriptor_sha256": "f71540c07b1e91895e2fb5d922204cc5c3fb9230315a4be1f09052639428484b",
+        "preparation_sha256": "6f543404bdfaea1ba81f0d5165937e294c09740d63d8e9709b20cbc26a4851a3",
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
+      },
+      "remote_archive_verified": true,
+      "gradients": false,
+      "qualification_eligible": false,
+      "reserved_final_seeds_used": false,
+      "layout_check_sha256": "c1237a5036671e6b190ea2c283bf5b474e77c4933a10e23740ca77f07cb40ef7",
+      "preparation_sha256": "3b233b72c0303809a5823d54c9d96dc67874def6e75d27cff98df840048408cb"
+    },
+    "base_descriptor_sha256": "c5744a882248ea10d8233777e7dec65c5938be701da8f6c2e7ead9a63a7675d4",
+    "unchanged_base_files": 1482,
+    "new_files": {
+      "ai/strong/resource-replanning-development-job-v1.py": "c711da9db3b8c20ee75c7469e76f3b27026771e2336351246f09aaf4874ff08c",
+      "ai/strong/build-resource-replanning-job-source-v1.py": "6cf23ed82e12a899df3cc2cf21e95bedf607f1723ee049af133d9b662d7502c8"
+    },
+    "preflight_receipt_sha256": "2265c606f4a25796f72dac8b24a00905ea3ed5ef693dea893036cbc9c47ecdc9",
+    "preflight": {
+      "job_contracts_checked": 378,
+      "invalid_contracts_rejected": 13,
+      "execution_boundaries_checked": 3,
+      "real_model_and_opponent_hashes_checked": true,
+      "nonzero_deal_offsets_checked": true,
+      "runtime_and_development_seeds_distinct": true,
+      "frozen_files_unchanged": 1481,
+      "receipts": [
+        {
+          "case": "resource-replanning-hf-runtime-v1-6p-resource-filter",
+          "status_sha256": "1392f22fce823e443db3d8a912a8ec2f074da806587365826f8d580aa20e9ec2",
+          "expected_failure_recorded": true
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-2p-economic_capacity_v1-2-4",
+          "status_sha256": "1e9b9e6843b94a7770b63e3cddb55324b2006aae9559c30773551a143f5cc956",
+          "expected_failure_recorded": true
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-3p-a260-2-4",
+          "status_sha256": "d1a7e2fa698a55c369bfd5935d4dae464e5d6c83acbb96544e87501de75b3b54",
+          "expected_failure_recorded": true
+        }
+      ],
+      "new_games": 0,
+      "new_hf_jobs": 0,
+      "external_uploads": 0,
+      "runner_sha256": "c711da9db3b8c20ee75c7469e76f3b27026771e2336351246f09aaf4874ff08c",
+      "harness_sha256": "26e35f50166991ef1b2bcacb8c0a633ea82a49057ce0b7b940684c543b50fa78"
+    },
+    "clean_package_matches_tested_runtime_and_wrapper": true,
+    "no_generated_run_outputs_in_package": true,
+    "runtime_admitted": false,
+    "development_admitted": false,
+    "new_hf_jobs": 0,
+    "gradients": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false,
+    "revision": "8d3697dec0845aa6ded857f3e00d91a8ff4406c0",
+    "remote_archive_verified": true,
+    "preparation_sha256": "7d85a93187450a7b0a066dd2fa553f06d58920876f25c1786fb304f230c3349d"
+  },
+  "admission_sha256": "924421f61c392f33fe71eedbe3c73112313a9690d862fd3b0aa9e89f5bd2f3ba",
+  "local_pilot_descriptor_sha256": "7d3d2c43a86e854cf7c6cfbab39f1ea85fd76f39db2c880516081a9da94babb9",
+  "endpoint_code_hashes": {
+    "ai/strong/collect-resource-replanning-hf-runtime-v1.py": "383a98b1fcbac421acdbb7c68e2fbb3c342ac28f74dfb95ff053acd6cf278bd3",
+    "ai/strong/launch-resource-replanning-runtime-v1.py": "b096b30eb8a60fbf6b1696e4ee5a1552aebeec819551fb8446d7101761c21587",
+    "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+    "ai/strong/resource_policy_verification_v1.py": "6925539e946cf4e23a20436d5e33326fcf9581f0c870bc9cc43165da6b127240"
+  },
+  "cells": {
+    "2": {
+      "case": "resource-replanning-hf-runtime-v1-2p-resource-filter",
+      "job_id": "6add4e77046eb82b1ece123a",
+      "summary": {
+        "games": 8,
+        "independent_deals": 1,
+        "counts": {
+          "decisions": 1306,
+          "root_filter_overrides": 0,
+          "rollouts": 41632,
+          "rollout_caps": 0,
+          "neural_decisions": 2701343,
+          "search_changes": 99,
+          "search_decisions": 450,
+          "resource_search_decisions": 450
+        },
+        "wall_seconds": 1204.5257951890017,
+        "sum_game_seconds": 4793.128179338,
+        "max_game_seconds": 1204.2225648780004,
+        "decision_p50_ms": 9.729635499752476,
+        "decision_p95_ms": 17649.072292750134,
+        "report_sha256": "cc74030893e73c40883ad365fb4c6e0eabc7afee718fd79b2fd59caf64d8ddbd",
+        "all_receipts_verified": true,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
+      },
+      "runtime": {
+        "seconds": 1204.863308650998,
+        "cpu_seconds": 4932.7699999999995,
+        "sampled_peak_total_rss_bytes": 7253655552,
+        "memory_samples": 11689,
+        "memory_sampling_period_seconds": 0.1
+      },
+      "parity": {
+        "exact": true,
+        "games": 8,
+        "learner_decisions": 1306,
+        "resource_decisions": 450,
+        "resource_rollouts": 41632,
+        "per_game": [
+          {
+            "episode": 0,
+            "decisions": 152,
+            "normalized_decisions_sha256": "617f316a1f6122854d180fd615224edc2c5a8ec133e77edb7a690e41ec26dcbf",
+            "local_receipt_sha256": "9071e75b301101536ce9f2c0a09f8525f8f431f4d8ce0dd98b34af289c5d6822",
+            "hf_receipt_sha256": "c1758868a24d207b75dacb274b6315cc54c39942d2c9e17981eb42c2329f54b1"
+          },
+          {
+            "episode": 1,
+            "decisions": 170,
+            "normalized_decisions_sha256": "aeae3acee409634d3296b2af80e38ee07f8c5043b66bdc86eaace235d0160d28",
+            "local_receipt_sha256": "8b1b058077f1aace659a9c94034e31e5b8deb5da53d5c58de812a9d7a2d8bae2",
+            "hf_receipt_sha256": "50e95cfd797762c69b1a1c9237c1e0af7f2e77261370d89d95dcd2ca4afe8fde"
+          },
+          {
+            "episode": 2,
+            "decisions": 166,
+            "normalized_decisions_sha256": "f872b15c6e304bb65cf476794be5f9aa7a1459a204d1ef1f3b7fea9b7f7b4885",
+            "local_receipt_sha256": "4fb1e5240da80c79ab9b1bb2b5f749951412bfa5963e3b616ef340e8287928ae",
+            "hf_receipt_sha256": "13deba02e7951a1bab545cd1a440953e478e7069487b5f1c569ed10d1b85b1a1"
+          },
+          {
+            "episode": 3,
+            "decisions": 167,
+            "normalized_decisions_sha256": "7fa3b8f08c81f9186730278b54fcc3a111da9c8bca17dc8d22ca86feac9eb049",
+            "local_receipt_sha256": "dd48a4f7d893a46732443118a6599978c70bcbdc6ce048843a5f7e2499124556",
+            "hf_receipt_sha256": "b50a4c82e0ce59e3b712646c00d0ffd69439c5ab88101fa714a9561efffa7970"
+          },
+          {
+            "episode": 4,
+            "decisions": 160,
+            "normalized_decisions_sha256": "4c5186dca429ab2d0e2157f0dc2e933b171671fcc5aa23650d74a3c8dd72b100",
+            "local_receipt_sha256": "aaabb5984ea5a40e8e18c4f8ac9a30d0ec30679f1a0c12e7836f220ce2d5f6f7",
+            "hf_receipt_sha256": "b7f5fdf239b993744b4aa521de118d08151891938ab2ebbe87b03fa31835036e"
+          },
+          {
+            "episode": 5,
+            "decisions": 165,
+            "normalized_decisions_sha256": "2cf056ef24a9f00b4664616338df83fe32041cc0514e4b7521b0c8a1c1036a0c",
+            "local_receipt_sha256": "c155c79824032a7b564898eb774657449b4b92d44f3e27d4a17efe0b20766c7d",
+            "hf_receipt_sha256": "0e17076fd031879c1a7841933fa4fc6abd7c1d346bccf8ec40bf263f0adb03b4"
+          },
+          {
+            "episode": 6,
+            "decisions": 166,
+            "normalized_decisions_sha256": "99cc089132c024fd142a7dd2c8075b06b58730b8a0ca35edccb41d953fa41ef3",
+            "local_receipt_sha256": "edb24a95c769a02cf77ed3bae880083d62354dfd8af6ed17e28c36c107eaaf0a",
+            "hf_receipt_sha256": "f6cd954595f6d55a58306a588c625366e0a38fe6e44c337c936a1a2b80ae10a5"
+          },
+          {
+            "episode": 7,
+            "decisions": 160,
+            "normalized_decisions_sha256": "da91ff84461d72ab617add822ef48658207ac0600b7a01b63d5b64d2aeedab15",
+            "local_receipt_sha256": "90ee6190161a368fe34b37b47db1c39b41ff0a823a4f052bce8652b2843ff937",
+            "hf_receipt_sha256": "32d2eab5c188c66467566c18ee85158dbf940901de5d75d9bb955a0bb37a717a"
+          }
+        ],
+        "local_report_sha256": "ee37e2882a03d96828cdf46d1cb1145cdcfe5cf3522e1c0f9526c1c41ad26372",
+        "hf_report_sha256": "cc74030893e73c40883ad365fb4c6e0eabc7afee718fd79b2fd59caf64d8ddbd",
+        "excluded_fields": [
+          "config.model",
+          "config.runtime",
+          "config.output",
+          "report.seconds",
+          "game.seconds",
+          "game.decision_receipt_sha256 (checked separately)",
+          "decision.elapsedMs",
+          "decision.resourcePlan.elapsedMs"
+        ],
+        "scope": "Exact recorded choices, world draws, every resource continuation receipt and actual-game terminals across hosts. No new engine replay of every simulated trajectory."
+      },
+      "resource_latency": {
+        "count": 450,
+        "p50_ms": 7653.2420055009425,
+        "p95_ms": 28162.575919748997,
+        "max_ms": 61323.437544000626
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "07a4f71ad7f231fbd7f5afb86484deb706c74b57",
+        "archive_path": "archives/resource-replanning-hf-runtime-v1-2p-resource-filter.tgz",
+        "archive_sha256": "7b46ff822eaa42a623f4233211df49ba92d40a023097acec0bc6e1e89eff9c54",
+        "manifest_sha256": "db9962b9acea496b5c4be209cff0f1d7f7507f5850026d81810a19288d0866e2",
+        "archived_files": 22,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "6": {
+      "case": "resource-replanning-hf-runtime-v1-6p-resource-filter",
+      "job_id": "6add4e781e112550ce7e5a74",
+      "summary": {
+        "games": 24,
+        "independent_deals": 1,
+        "counts": {
+          "decisions": 2766,
+          "root_filter_overrides": 0,
+          "rollouts": 48000,
+          "rollout_caps": 0,
+          "neural_decisions": 3263058,
+          "search_changes": 168,
+          "search_decisions": 778,
+          "resource_search_decisions": 778
+        },
+        "wall_seconds": 1895.8929255389994,
+        "sum_game_seconds": 12124.953208861993,
+        "max_game_seconds": 880.2970653850025,
+        "decision_p50_ms": 12.285052998777246,
+        "decision_p95_ms": 13364.160027499565,
+        "report_sha256": "cc2159b220d3fb38e3fbe544f56c8083a750c601055e46976d757dd1cd4aedbe",
+        "all_receipts_verified": true,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
+      },
+      "runtime": {
+        "seconds": 1896.214949592999,
+        "cpu_seconds": 12197.48,
+        "sampled_peak_total_rss_bytes": 8154509312,
+        "memory_samples": 18270,
+        "memory_sampling_period_seconds": 0.1
+      },
+      "parity": {
+        "exact": true,
+        "games": 24,
+        "learner_decisions": 2766,
+        "resource_decisions": 778,
+        "resource_rollouts": 48000,
+        "per_game": [
+          {
+            "episode": 0,
+            "decisions": 102,
+            "normalized_decisions_sha256": "cbd02f8394b0da519f9e5b9d9e4ccc82c1e96c1eef3a910294f18c9bc99382e1",
+            "local_receipt_sha256": "95e22af283fd01b805393665aba145be4946070e8b0e45180da526b7ee1509fd",
+            "hf_receipt_sha256": "29134c77c1c4bcdd834c0f474f61dd00f2e1f3b3809c3ff9b6ff66d06e581beb"
+          },
+          {
+            "episode": 1,
+            "decisions": 90,
+            "normalized_decisions_sha256": "965be2d94964c647c45d583018c8392208c2d729b55750379e2784afd21cd2be",
+            "local_receipt_sha256": "16cd16fa5521738ae062be983cb195735aa7c4a168e06afa334c1511935674c6",
+            "hf_receipt_sha256": "08d74fd6641383636738827cec83dc7df05b33addc602fbba3d1bcbdb77783ba"
+          },
+          {
+            "episode": 2,
+            "decisions": 114,
+            "normalized_decisions_sha256": "7821c9b155da9df159fa23306d430b712f7175461434b7f78c2bf98ee155ba4d",
+            "local_receipt_sha256": "dd1dd5386f08d71d0281c136ae2924c43c73253385f48308b5386b22be9a9a4d",
+            "hf_receipt_sha256": "3f911f3635606dbaf472526f8c56a4d4604c68c52c2978a8e65c85661becf817"
+          },
+          {
+            "episode": 3,
+            "decisions": 131,
+            "normalized_decisions_sha256": "86f8b90fa429807caf8ac8cdd7d4e5651f1101d2a2e81d2b754e64a79c8755d9",
+            "local_receipt_sha256": "48797f649264daaaab3536fc1415a58f6a4b75635b937b6001caa9e4e68e4eff",
+            "hf_receipt_sha256": "bda3f853f89f49ef9b3030b56fd80cb230607aca4888e16815748c104d347163"
+          },
+          {
+            "episode": 4,
+            "decisions": 112,
+            "normalized_decisions_sha256": "39321d8173d245f7e267dcba727891daa85a1ab75562101c3a5ea2f36b778f92",
+            "local_receipt_sha256": "a2468e0768129644f04faa4fe09475c975629f060bd3ad495914937c7ad08d47",
+            "hf_receipt_sha256": "6cd590a60f33e934060e9583bd2c4c1b86e407bb0e9a11f7e777919258ab75a0"
+          },
+          {
+            "episode": 5,
+            "decisions": 110,
+            "normalized_decisions_sha256": "f6a492ed7620c0604eb758d262f968fa6a435d92198973f16bd77cd31e9c1c92",
+            "local_receipt_sha256": "20cf959b45b8aae090c97fdb9f6fa964874f91724c620e00d4a7ade828854160",
+            "hf_receipt_sha256": "8559bdbfbe014f371f1d0bdd9c8df43c43616a96ba0ef6e20c83471f901cecc0"
+          },
+          {
+            "episode": 6,
+            "decisions": 119,
+            "normalized_decisions_sha256": "f6e28a1e8131eae4a16bb32390f165ad1ec3c31a71496ed615e82e8be9bf209f",
+            "local_receipt_sha256": "3fc3c11b57be5261b68ce0ef6faee408ed27b7bab2d89cc69fe8e51dbda8c67f",
+            "hf_receipt_sha256": "5c04bbac0660aa68d2eae0a1dee3b55750c6b5a015f3233d420a1974aa8eb040"
+          },
+          {
+            "episode": 7,
+            "decisions": 146,
+            "normalized_decisions_sha256": "29f9b07d678eb55d2104a5165ad8935afabeaa912236f714e217271946bd54a4",
+            "local_receipt_sha256": "2d15b9831eaa67cfb7d455fbd76ffa115263bceca419523e4e8c7a0f2b66995d",
+            "hf_receipt_sha256": "164ac69e97ee67e39bc9c008d26e918254765f5993bdb509cefa07ba820b38c2"
+          },
+          {
+            "episode": 8,
+            "decisions": 104,
+            "normalized_decisions_sha256": "12081d9faedc20bd4345ab8d7ba17cf7ac9040f65dc1072d3ab2ca200f21ba31",
+            "local_receipt_sha256": "c0ed93bff437fe5030abb2a917141fa30f085820e680cc42548fd45aaf3b04b8",
+            "hf_receipt_sha256": "028f15e735f2742cde09782d192a64975e4d665a40b2046daa4cebe20dbf47ed"
+          },
+          {
+            "episode": 9,
+            "decisions": 116,
+            "normalized_decisions_sha256": "83287904bf8885c30dd755ee63e52953674ef945c632bce3e0f9087387f4c3d0",
+            "local_receipt_sha256": "decaf27d1c8ff8ccf57775e63111a1d10847f57fde32f23cd317699679fc9ac1",
+            "hf_receipt_sha256": "c5bc1875e1c41bc02886be5236eaa57029481a90843caa0062d1659cc2c60ee3"
+          },
+          {
+            "episode": 10,
+            "decisions": 109,
+            "normalized_decisions_sha256": "e43f9eef854d6d55180f85404912a9a46a616a479aa582924012077d24b3f04e",
+            "local_receipt_sha256": "36bad3361fa4e7bef345829be8b228e2923b3a1675432ed33e4103e18b77b322",
+            "hf_receipt_sha256": "a5781615e05b62f0943aec741efdb71df3227b99a5dcdb4a59404de6aa04b5a6"
+          },
+          {
+            "episode": 11,
+            "decisions": 157,
+            "normalized_decisions_sha256": "ab9206ee5a08d290f98cc019091b60aa7e1d86b5508ec31350b73358b4522f65",
+            "local_receipt_sha256": "82efe4c19f72e9c4cf7c6e7322ebc962e3c0e35ddc65c0ad00b2939135f993c4",
+            "hf_receipt_sha256": "7fef2150c719b4ab462a6ec5ca07a43dff7b0c76bbc2c5faa29e027f4c6e78a9"
+          },
+          {
+            "episode": 12,
+            "decisions": 128,
+            "normalized_decisions_sha256": "c72b2732c44b7f7a7e8638b85a2b108f62612fd6e1e6e71c0fdba192a8fc6ba6",
+            "local_receipt_sha256": "1e2f69b092830900f3d6b6777b92e498f4e9fe94f3d6abcad8619ab6117cee1b",
+            "hf_receipt_sha256": "3fc647f1e08c6248b038ced0901720ff3708d5b7592eddefa192bae4a4084e60"
+          },
+          {
+            "episode": 13,
+            "decisions": 119,
+            "normalized_decisions_sha256": "7aa516d7fdbfca7c45692196991d02a3e2d05b0170037f466f859718270e0900",
+            "local_receipt_sha256": "597a61eff70ccef4a02488259b59ed0bff634c9777a5a5b09b8586c30bc7e901",
+            "hf_receipt_sha256": "cd03a1f349f607ad89f554f3f5c67d57d7ba13158096b67d4a2ad093527251bf"
+          },
+          {
+            "episode": 14,
+            "decisions": 129,
+            "normalized_decisions_sha256": "f5eb2db996a111e95d311079cb1d5d14cb2f27584253453ee8dc314f234fea12",
+            "local_receipt_sha256": "24f39a14753c630494584918590afad765ffb818f01fd14bf59f9f489e4e5919",
+            "hf_receipt_sha256": "6ec8747a80122cd0fca21f294475af99b73b4ad24f45cfdb31c07ec240c934c5"
+          },
+          {
+            "episode": 15,
+            "decisions": 128,
+            "normalized_decisions_sha256": "7a463fe6698be617af4806afa402b91a1c6fa0b53c8efc6a73a5020aa6137fdd",
+            "local_receipt_sha256": "2af325142498ae9d57e88d8414959efda028a8eaedf67bfdb726eb3aa6b1d235",
+            "hf_receipt_sha256": "729fc182d95caf40a66daab3182fd25924600baa14f179c0fca6de34b9c2ac14"
+          },
+          {
+            "episode": 16,
+            "decisions": 88,
+            "normalized_decisions_sha256": "3797d100d3f534fefdcbeba40846709aa1b266b8521f6c3334adcf0b866a26a1",
+            "local_receipt_sha256": "ecf7f38a34765edc55756f51e3741513152baba87e93ea7d726b07f10220078d",
+            "hf_receipt_sha256": "965fc49cd3a365510759a2bf2aee02ffb76f250a1e7d3cb878c60e32bedee806"
+          },
+          {
+            "episode": 17,
+            "decisions": 93,
+            "normalized_decisions_sha256": "19108909644390e56a17a213b45ea709c4ee9095d85f0c698749d95228029f9e",
+            "local_receipt_sha256": "9dda60ad3a5e9ad5111e0ca489239708211fdb8265e0abf1b06c9f47b1a34b3f",
+            "hf_receipt_sha256": "8de18c1b817ff5213816d6c448ce64d1ee5dd8212cd08d5f9da49d4756feb1f3"
+          },
+          {
+            "episode": 18,
+            "decisions": 125,
+            "normalized_decisions_sha256": "5b02742643f6611214c6a9d482e740e96d032e847d55b071b9ff5d243a875cd0",
+            "local_receipt_sha256": "772a7563cab3db97ba8234ba7d2d0f8badb7ac220d856ba1d9b385bdb459c130",
+            "hf_receipt_sha256": "d3d258be65b4438ad319d0679e6b573bf2b34a273630017e390ce1619383e148"
+          },
+          {
+            "episode": 19,
+            "decisions": 106,
+            "normalized_decisions_sha256": "fe87a019d1f4a1dd1aca4e980a3c9de3aaf36795f894b96c34bb780f523b9137",
+            "local_receipt_sha256": "b407818b67b29aa3291f430db2fd4a707997209fca8a7e127a10dbf5c4aa6725",
+            "hf_receipt_sha256": "eacf516337ab17e3c09e8ce376631ed7cb9ee2a9ba43b54c631d3c6831534f14"
+          },
+          {
+            "episode": 20,
+            "decisions": 107,
+            "normalized_decisions_sha256": "f2f123aa43afc293d25919b1945bdd65898ec16c040cf6b5461ec4bbfc089f48",
+            "local_receipt_sha256": "185950b5724cd02591634a660d7b2ca96786d82dc94e3779a5542c78e6a04ee8",
+            "hf_receipt_sha256": "b50a807fe8253497b9d3d85ed3f85b28d8f510ea474100a69e523f763dc077e3"
+          },
+          {
+            "episode": 21,
+            "decisions": 105,
+            "normalized_decisions_sha256": "87cf5a970cd0a7a91bd09caee8dcb9b18d41ede3c49cfa08f037541a0f3a52a4",
+            "local_receipt_sha256": "b698718b49f6bf032948ea3fd2ae8f74c28c0bff3217bdfa9ad69e4b6e7f90d6",
+            "hf_receipt_sha256": "c1937b29dddc31a75607a2df729512736de8c4cb9cc84dc4036710dd7c9e39ec"
+          },
+          {
+            "episode": 22,
+            "decisions": 114,
+            "normalized_decisions_sha256": "3d273d705d6d725214a3af527ddf66ea60ab4c1cf39c8bcb488b65428be746d6",
+            "local_receipt_sha256": "c865d31f8879f28cb8eecfdfbbacb8c47ee58b55a31e8629d34eeed98b0258e2",
+            "hf_receipt_sha256": "d49a355cd4d792bed8a5bc76c6d0f5795fe04c5006fe4663f8f9e919bd032791"
+          },
+          {
+            "episode": 23,
+            "decisions": 114,
+            "normalized_decisions_sha256": "4631f6651ccd6076216c721973989d0546064b0015d219aceded5ac840451baf",
+            "local_receipt_sha256": "2bfbe3d98b50bb91cd8916f40fb4c19ebb6d20dd50eaa11f02ef0438a0fc97c2",
+            "hf_receipt_sha256": "45ecf066979ac48c3625a5ff24afc41733807c3520b9b8c1e41edc7a98f52871"
+          }
+        ],
+        "local_report_sha256": "cafdafaca07e19f2c455d4e64ded9099d87cce293500e9d77c794d7696ed58fc",
+        "hf_report_sha256": "cc2159b220d3fb38e3fbe544f56c8083a750c601055e46976d757dd1cd4aedbe",
+        "excluded_fields": [
+          "config.model",
+          "config.runtime",
+          "config.output",
+          "report.seconds",
+          "game.seconds",
+          "game.decision_receipt_sha256 (checked separately)",
+          "decision.elapsedMs",
+          "decision.resourcePlan.elapsedMs"
+        ],
+        "scope": "Exact recorded choices, world draws, every resource continuation receipt and actual-game terminals across hosts. No new engine replay of every simulated trajectory."
+      },
+      "resource_latency": {
+        "count": 778,
+        "p50_ms": 7799.896099999387,
+        "p95_ms": 21021.962684449863,
+        "max_ms": 36572.075166001014
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "08373cd09a299467fa5e5cb7476003dbb9eee559",
+        "archive_path": "archives/resource-replanning-hf-runtime-v1-6p-resource-filter.tgz",
+        "archive_sha256": "9fde7274045ccb1fc0c2ff9818be91122e018113abbad770ce47e2de49ff27d2",
+        "manifest_sha256": "886d43bb3f253dc74efec5ce2677001cc79ac56419a07c650517caab2e527f7a",
+        "archived_files": 54,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    }
+  },
+  "new_strength_games": 0,
+  "gradients": false,
+  "development_admitted": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "scope": "Two complete runtime-only HF endpoint deals with exact archived local/HF behavior. Measures remote cost, not playing strength or target serving latency. Separate measured development admission remains required.",
+  "admission": {
+    "created_at": "2026-10-25T00:33:48.544340+00:00",
+    "purpose": "Two HF runtime-only endpoint jobs; all outcomes excluded from playing strength.",
+    "players": [
+      2,
+      6
+    ],
+    "arm": "resource-filter",
+    "opponent": "search_geo",
+    "start": 0,
+    "end": 1,
+    "games": 32,
+    "workers": 8,
+    "search_workers": 1,
+    "samples": 8,
+    "max_concurrent_jobs": 2,
+    "source_descriptor_sha256": "c8adbc5de6be53769270c5345684551073c072ef1318a0bc578ef9913b346369",
+    "source_revision": "8d3697dec0845aa6ded857f3e00d91a8ff4406c0",
+    "local_pilot_descriptor_sha256": "7d3d2c43a86e854cf7c6cfbab39f1ea85fd76f39db2c880516081a9da94babb9",
+    "preflight_descriptor_sha256": "5de68e8c01a637c9f4163af030d46475078ffdfebffb30c31cebc74d0ba91d62",
+    "protocol_sha256": "e5e7c8d891a41c9c48ca0ee75d17fcd14b7ceeac827f600e3af6d177ff81e0d8",
+    "launcher_sha256": "b096b30eb8a60fbf6b1696e4ee5a1552aebeec819551fb8446d7101761c21587",
+    "bootstrap_sha256": "c448974f90012bdf530ad066fc2e6b342a15088f7d430696803503cc54dcb866",
+    "hardware": {
+      "flavor": "cpu-upgrade",
+      "vcpus": 8,
+      "ram_gb": 32,
+      "disk_gb": 50,
+      "timeout_hours": 2,
+      "local_endpoint_measurements": {
+        "2": {
+          "runtime": {
+            "seconds": 1203.341361314,
+            "cpu_seconds": 6352.42,
+            "sampled_peak_total_rss_bytes": 6971523072,
+            "memory_samples": 11757,
+            "memory_sampling_period_seconds": 0.1
+          },
+          "raw_evaluation_bytes": 49139311
+        },
+        "6": {
+          "runtime": {
+            "seconds": 2728.3112295710016,
+            "cpu_seconds": 20435.010000000006,
+            "sampled_peak_total_rss_bytes": 7987965952,
+            "memory_samples": 26423,
+            "memory_sampling_period_seconds": 0.1
+          },
+          "raw_evaluation_bytes": 69264278
+        }
+      },
+      "estimated_timeout_floor_seconds": 6356.622459142003,
+      "measurement_scope": "Complete local HX370 endpoint pilot, not HF performance or AMD8840U latency.",
+      "headroom": "Two times measured summed RSS; 15 min setup plus twice max(local wall, CPU/vCPU); four times raw evidence bytes. Calibration only, no guarantee of remote runtime."
+    },
+    "automatic_retries": false,
+    "development_admitted": false,
+    "gradients": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false
+  },
+  "collector_sha256": "fbffbd1c299d27ef74703ea854dd5a6c4baccd3ab0d9c075bf0c60c7b71a910f",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "06103b8b9a50a391d51e4e00b2f2ba8e8d34bb5f",
+  "archive_path": "archives/resource-hf-calibration-evidence-v1.tgz",
+  "archive_sha256": "274743522941e5d6d0065ebbb719aebec76a6a8bd2b74a99aac00fcc0120565a",
+  "manifest_sha256": "00c855b86ff7e0969c92a52fed8cdd6c6bd2fe7b9445ba6661ac9a2f8abae951",
+  "archived_files": 106,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

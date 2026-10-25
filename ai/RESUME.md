@@ -6,7 +6,52 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 10:41 UTC — portable development-job execution verified and archived.**
+**Latest — 25 October, 10:56 UTC — original HF portability smoke submitted.**
+
+The unchanged, locally verified development source is now archived in the HF
+source dataset and one **eight-game engineering repeat** has been submitted.
+Original job **`6addde111e112550ce7ea559`** is **RUNNING**, directly checked at
+**2026-10-25T10:53:45.369005+00:00**. Its logs have completed dependency installation but
+have not yet reached the game runner. Preserve the same handle; no restart on
+observation timeout. This is not a strength experiment or a selected auction recipe.
+
+**Five submission tests passed**: intent exists before submission; credentials are
+not saved; existing original handles are reused; ambiguous submissions cannot
+retry; changed sources and concurrent owners cannot submit through the same guard.
+Source packing/download verification and dry admission passed. Actual remote game,
+artifact-upload and local/HF decision comparisons remain **pending**.
+
+- Manager `strong/manage-public-policy-development-hf-v1.py`:
+  `prepare/upload/launch/collect`; only `launch --execute` submits.
+- Source `strong/public-policy-development-hf-source-v1.json`: HF dataset revision
+  **7a906a9012c8a242b7b6cddb5200b38e042f1169**, archive SHA256
+  **14253f8fa6acf27a6182c4ba26485cb935038c3df25305043a7ee3c06208f94b**, **1,522 unchanged source files**.
+- Original guard, source-upload intent/receipt, prepared/status files:
+  `ai/runs/public-policy-development-hf-v1/`. Single CPU Upgrade job, one-hour
+  timeout, four concurrent games; exact previously verified deal offset 4.
+- Preparation **66138**, upload **14144**, launch **71481** completed.
+  Read-only collection **61799 / 69922 / 78636** reported the original running.
+  No additional jobs are implied by another collection call.
+- On completion run `collect`, independently checking all eight terminal results
+  and **1,607 expected public decisions**, then
+  `strong/archive-public-policy-development-hf-v1.py --archive`.
+  **Neither completed result nor final archive exists yet.**
+- Checkpoint `ai/runs/public-policy-development-hf-launch-checkpoint-v1.json`.
+
+The original study owner **PID 3502343 / session 23779** is directly confirmed
+live and pinned code unchanged. At **2026-10-25T10:55:36.115430+00:00** it reports
+**480 submitted / 476 verified**, zero caps, no failures,
+stage `waiting_for_original_jobs`. Only that owner submits/collects the 480-root study.
+The 10:45:55 read-only snapshot found 15 then-running and five completed originals;
+`ai/runs/surrogate-study-live-observation-20261025-104555.json`.
+
+Both previous and current goal turns made concrete progress. Complete/archive the
+whole fidelity comparison before choosing the next auction-search experiment.
+The new HF job uses the filtered policy solely to verify portability; auction
+runtime admission and fresh strength games remain necessary. No gradients, final
+seeds, candidate selection, qualification or production changes; no general plateau.
+
+**Previous — 25 October, 10:41 UTC — portable development-job execution verified and archived.**
 
 The new development-job wrapper runs the existing frozen standalone artifact
 without modifying its runtime or policy identity. **Eight complete games / 1,607

@@ -1,0 +1,63 @@
+{
+  "created_at": "2026-10-25T10:45:36.370642+00:00",
+  "archive": "strong-source-public-policy-development-hf-v1.tgz",
+  "sha256": "14253f8fa6acf27a6182c4ba26485cb935038c3df25305043a7ee3c06208f94b",
+  "bytes": 130228701,
+  "source_manifest_sha256": "4a5ac5cad84950dbd1b0934324f648bed7400a2d456fec19553653765916d22a",
+  "source_files": 1522,
+  "job": "filter-offset-2p.job.json",
+  "job_spec_sha256": "b7ac13980c8204959547d7df15654c1f2fb234943c49938f6bf72ca0682100a3",
+  "local_evidence": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "4ff3bc8be157ce1cb29c7cf9f984670b0d7351df",
+    "archive_path": "archives/public-policy-development-job-evidence-v1.tgz",
+    "archive_sha256": "f64a8cdcd5649b177967ab7f63fbfa5940c1fcddfb0824df9151b5900dc2fb23",
+    "manifest_sha256": "5e4d8365bad0d6cca8428dbe866aed68a840f3226ba385576742a5591d8def6c",
+    "archived_files": 1575,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "local_result_sha256": "24600a0e7c24879ee3a86270b02786e0a75bf807111e478a796e11e654d997e0",
+  "entry_sha256": "e216f1558602ff8665da0e712d15f419afaec297a2d5194e4d61c0e74be16f1b",
+  "candidate_sha256": "57c3bfa7ec6c80dbebe0cf3c13d64d8435ab0b223ec8fe9398eb0c399ac5e4bf",
+  "contract_sha256": "455be9bab43116b1bd941b88d0ebf3f8bb0d95807a4695f3f22ae197719a262a",
+  "identity": {
+    "policySha256": "8270061a29a56a988b7d18daf60a667e58a2a717ffae76648152d32cb2295b11",
+    "runtimeManifestSha256": "dcb23342088ae91379374827b45c0845d1b9494b31682fca55e3ac047d1e2f55",
+    "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+    "featureRevision": "4.3-strategic-correction",
+    "backend": "population-v1",
+    "settings": {
+      "arm": "filter",
+      "samples": 8,
+      "workers": 4,
+      "threads": 1,
+      "max_steps": 2400
+    }
+  },
+  "shard": {
+    "name": "filter-offset-2p",
+    "group": "legacy/2p",
+    "players": 2,
+    "start": 4,
+    "deals": 1,
+    "seed": "final-wrapper-engineering-offset-v1",
+    "opponent": "legacy",
+    "opponent_sha256": null,
+    "games": 8
+  },
+  "launcher_sha256": "be2d43c0063e79c7de3b64151a467975573a885c5e962ef7f096956a3dcbd535",
+  "bootstrap_sha256": "6e2086554add5bdb6548e3a64a218daca649f2c416647047df11c9b5bea25300",
+  "flavor": "cpu-upgrade",
+  "timeout": "1h",
+  "games": 8,
+  "workers": 4,
+  "scope": "Single filtered-policy engineering repeat for HF source/job/upload/collector portability.",
+  "reserved_final_seeds_used": false,
+  "qualification_eligible": false,
+  "gradient_updates": 0,
+  "repo": "coyotte508/powergrid-ai-training-v1",
+  "revision": "7a906a9012c8a242b7b6cddb5200b38e042f1169",
+  "preparation_sha256": "d29c3f7d0b4d5fdc5a4fa5bc13d04a106b8499b69f8d800cdcd3cefcc05dadef",
+  "remote_archive_verified": true
+}

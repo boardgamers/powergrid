@@ -61920,16 +61920,93 @@
         "reserved_final_seeds_used": false
     },
     "paused_handoff_20261025": {
-        "updated_at": "2026-10-25T12:19:17.742382+00:00",
+        "updated_at": "2026-10-25T13:30:09.378201+00:00",
         "goal_status": "paused",
         "handoff": "ai/HANDOFF-2026-10-25-PAUSED.md",
         "snapshot": "ai/strong/paused-handoff-state-2026-10-25.json",
         "current_run_complete": false,
-        "finishing_original_runtime_pilots_only": true,
+        "finishing_original_runtime_pilots_only": false,
         "development_jobs_submitted": 0,
         "new_hf_jobs_submitted": 0,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
-        "completion_followup": "finish-power-grid-handoff"
+        "completion_followup": "finish-power-grid-handoff",
+        "current_run_terminal": true,
+        "finalization_status": "terminal_incomplete_evidence_preserved",
+        "verified_jobs": 3,
+        "failed_jobs": 1,
+        "fully_audited_games": 40,
+        "partial_job_completed_receipts_audited": 23,
+        "runtime_report": "ai/strong/conservative-auction-runtime-results-v1.json",
+        "archive_descriptor": "ai/strong/paused-handoff-archive-2026-10-25.json",
+        "original_jobs": [
+            {
+                "name": "conservative-auction-runtime-v1-conservative_population-2p",
+                "job_id": "6addea031e112550ce7eaa88",
+                "stage": "COMPLETED",
+                "evidence": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "116336a69511d62f8151b87e59f5e414a4587b12",
+                    "archive_path": "archives/conservative-auction-runtime-v1-conservative_population-2p.tgz",
+                    "archive_sha256": "921d18ae96bcf911e84e2fe985bd6e0c15b08ced2d3bc9a504da0009d61f9035",
+                    "manifest_sha256": "9c9880b689863ad8c6358c6c38a314f7b0207fe4d1f09122a3935545f3c2a107",
+                    "archived_files": 37,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                }
+            },
+            {
+                "name": "conservative-auction-runtime-v1-conservative_population-6p",
+                "job_id": "6addea031e112550ce7eaa8a",
+                "stage": "COMPLETED",
+                "evidence": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "208a5a72757407eb54e6fa82ed56f5dc69255624",
+                    "archive_path": "archives/conservative-auction-runtime-v1-conservative_population-6p.tgz",
+                    "archive_sha256": "3f4f869c90c2bed177a546644528e5919f5258482899f0f08336be70ad17b1ea",
+                    "manifest_sha256": "a6fac366100cd2084b3062fe8d907b481af1f0f56b389fc6f1b3e2f989585b43",
+                    "archived_files": 85,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                }
+            },
+            {
+                "name": "conservative-auction-runtime-v1-conservative_dual-2p",
+                "job_id": "6addea04046eb82b1ece4faf",
+                "stage": "COMPLETED",
+                "evidence": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "7a542653cf6730d5828171fbe058753dfb361698",
+                    "archive_path": "archives/conservative-auction-runtime-v1-conservative_dual-2p.tgz",
+                    "archive_sha256": "cc3789d8fe230a9a4062d39703d8ce6707495396e384292b1c1a285d9e902b02",
+                    "manifest_sha256": "1f03b26107d5b8e948f24002756cb312810ce6c907aa049dfeaa7ae697414007",
+                    "archived_files": 37,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                }
+            },
+            {
+                "name": "conservative-auction-runtime-v1-conservative_dual-6p",
+                "job_id": "6addea04046eb82b1ece4fb1",
+                "stage": "ERROR",
+                "evidence": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "1ab616ae64438a43586f19928553f8c3ced39320",
+                    "archive_path": "archives/conservative-auction-runtime-v1-conservative_dual-6p.tgz",
+                    "archive_sha256": "d0c16d7352705a653c9f2e52618108cc8ab661d8319824bfcd12a55eb455c0e7",
+                    "manifest_sha256": "e846b4d21119ba4dfa871387711e0671607936a175a484be60568c6469c5ff00",
+                    "archived_files": 84,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                }
+            }
+        ],
+        "development_owner_stopped": true,
+        "collection_only_finisher_stopped": true,
+        "grid_admitted": false,
+        "measured_total_wall_seconds": 10471.693776898872,
+        "measured_total_cpu_seconds": 53035.92,
+        "failure": "Original dual/6p job ERROR: public-policy assertion at episode 5, request 5:21; no replacement.",
+        "completion_followup_terminal_action": "Pause after verified delivery"
     }
 }

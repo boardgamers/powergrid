@@ -1,0 +1,220 @@
+{
+  "checked_at": "2026-10-25T13:30:09.378201+00:00",
+  "terminal": true,
+  "complete": false,
+  "status": "incomplete_failed_original_pilot",
+  "planned_games": 64,
+  "verified_jobs": 3,
+  "failed_jobs": 1,
+  "fully_audited_games": 40,
+  "partial_job_completed_receipts_audited": 23,
+  "failed_games": 1,
+  "verified_complete_job_counts": {
+    "decisions": 5522,
+    "root_filter_overrides": 2,
+    "rollouts": 61112,
+    "rollout_caps": 0,
+    "neural_decisions": 7209645,
+    "search_changes": 277,
+    "search_decisions": 1302,
+    "surrogate_decisions": 268855
+  },
+  "jobs": [
+    {
+      "name": "conservative-auction-runtime-v1-conservative_population-2p",
+      "job_id": "6addea031e112550ce7eaa88",
+      "stage": "COMPLETED",
+      "planned_games": 8,
+      "verified": true,
+      "games": 8,
+      "counts": {
+        "decisions": 1413,
+        "root_filter_overrides": 1,
+        "rollouts": 9576,
+        "rollout_caps": 0,
+        "neural_decisions": 1048605,
+        "search_changes": 62,
+        "search_decisions": 245,
+        "surrogate_decisions": 0
+      },
+      "measurement": {
+        "seconds": 519.9063639389351,
+        "cpu_seconds": 2291.8300000000004,
+        "sampled_peak_total_rss_bytes": 6600781824,
+        "memory_samples": 2553,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "116336a69511d62f8151b87e59f5e414a4587b12",
+        "archive_path": "archives/conservative-auction-runtime-v1-conservative_population-2p.tgz",
+        "archive_sha256": "921d18ae96bcf911e84e2fe985bd6e0c15b08ced2d3bc9a504da0009d61f9035",
+        "manifest_sha256": "9c9880b689863ad8c6358c6c38a314f7b0207fe4d1f09122a3935545f3c2a107",
+        "archived_files": 37,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "guard_sha256": "f9ac76c523846a9e6287c6e9892552c067702ed81cd4f34e52c51f51c23ff6e3",
+      "measurement_sha256": "cd5ff76dc61aa49723e02d4f9dba424606919256b0f7e14141ea77976382d4e7"
+    },
+    {
+      "name": "conservative-auction-runtime-v1-conservative_population-6p",
+      "job_id": "6addea031e112550ce7eaa8a",
+      "stage": "COMPLETED",
+      "planned_games": 24,
+      "verified": true,
+      "games": 24,
+      "counts": {
+        "decisions": 2745,
+        "root_filter_overrides": 1,
+        "rollouts": 33664,
+        "rollout_caps": 0,
+        "neural_decisions": 4386456,
+        "search_changes": 174,
+        "search_decisions": 827,
+        "surrogate_decisions": 0
+      },
+      "measurement": {
+        "seconds": 3473.9366269180027,
+        "cpu_seconds": 15977.189999999999,
+        "sampled_peak_total_rss_bytes": 7185936384,
+        "memory_samples": 17038,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "208a5a72757407eb54e6fa82ed56f5dc69255624",
+        "archive_path": "archives/conservative-auction-runtime-v1-conservative_population-6p.tgz",
+        "archive_sha256": "3f4f869c90c2bed177a546644528e5919f5258482899f0f08336be70ad17b1ea",
+        "manifest_sha256": "a6fac366100cd2084b3062fe8d907b481af1f0f56b389fc6f1b3e2f989585b43",
+        "archived_files": 85,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "guard_sha256": "5af73e4aeb13ff470c06f0ce5fb71a183fb2095caba30df439d6687e1e3b2280",
+      "measurement_sha256": "9e12d067b4ddc87bad483415ce2e2d67a287001b42caae0eda6d254641f6a6a9"
+    },
+    {
+      "name": "conservative-auction-runtime-v1-conservative_dual-2p",
+      "job_id": "6addea04046eb82b1ece4faf",
+      "stage": "COMPLETED",
+      "planned_games": 8,
+      "verified": true,
+      "games": 8,
+      "counts": {
+        "decisions": 1364,
+        "root_filter_overrides": 0,
+        "rollouts": 17872,
+        "rollout_caps": 0,
+        "neural_decisions": 1774584,
+        "search_changes": 41,
+        "search_decisions": 230,
+        "surrogate_decisions": 268855
+      },
+      "measurement": {
+        "seconds": 835.8572823599679,
+        "cpu_seconds": 3965.48,
+        "sampled_peak_total_rss_bytes": 6810087424,
+        "memory_samples": 4104,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "7a542653cf6730d5828171fbe058753dfb361698",
+        "archive_path": "archives/conservative-auction-runtime-v1-conservative_dual-2p.tgz",
+        "archive_sha256": "cc3789d8fe230a9a4062d39703d8ce6707495396e384292b1c1a285d9e902b02",
+        "manifest_sha256": "1f03b26107d5b8e948f24002756cb312810ce6c907aa049dfeaa7ae697414007",
+        "archived_files": 37,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "guard_sha256": "8ba0cb99c4a4c8332609ba5e2feea84a01d672f84886eb15f167c816d0a86c13",
+      "measurement_sha256": "d6a55dce6822a02a4813d7cd8e784ed242e73aa73ddb456882f3c991ba5cdac3"
+    },
+    {
+      "name": "conservative-auction-runtime-v1-conservative_dual-6p",
+      "job_id": "6addea04046eb82b1ece4fb1",
+      "stage": "ERROR",
+      "planned_games": 24,
+      "verified": false,
+      "games": 0,
+      "partial_evidence_audit": {
+        "complete_shard_audit_passed": false,
+        "completed_receipts_audited": 23,
+        "terminal_credits_recomputed": 23,
+        "completed_receipt_counts": {
+          "decisions": 2777,
+          "root_filter_overrides": 0,
+          "rollouts": 71664,
+          "rollout_caps": 0,
+          "neural_decisions": 7085484,
+          "search_changes": 122,
+          "search_decisions": 875,
+          "surrogate_decisions": 5194194
+        },
+        "failed_episode": {
+          "episode": 5,
+          "error": "ValueError: Public policy failed: {'error': 'AssertionError: ', 'requestId': '5:21', 'revision': 21}",
+          "partial_counts": {
+            "decisions": 20,
+            "root_filter_overrides": 0,
+            "search_changes": 2,
+            "rollouts": 1024,
+            "rollout_caps": 0,
+            "neural_decisions": 138282
+          },
+          "receipt_sha256": "053f9762123d9b20ec3f725a6062c57720d32652ce31c292dabd5f382643be39"
+        },
+        "failed_episode_complete_audit": false,
+        "validation_error": "ValueError: Incomplete execution; preserve original receipts",
+        "execution_binding_verified": true,
+        "qualification_eligible": false,
+        "runtime_only": true
+      },
+      "measurement": {
+        "seconds": 5641.993503681966,
+        "cpu_seconds": 30801.420000000002,
+        "sampled_peak_total_rss_bytes": 7224037376,
+        "memory_samples": 27657,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "1ab616ae64438a43586f19928553f8c3ced39320",
+        "archive_path": "archives/conservative-auction-runtime-v1-conservative_dual-6p.tgz",
+        "archive_sha256": "d0c16d7352705a653c9f2e52618108cc8ab661d8319824bfcd12a55eb455c0e7",
+        "manifest_sha256": "e846b4d21119ba4dfa871387711e0671607936a175a484be60568c6469c5ff00",
+        "archived_files": 84,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "guard_sha256": "d591b11d30e13233166482cc55fe486e50d37e116127e97b3b4e26be01ca5a02",
+      "measurement_sha256": "54e448bcf26f203b6aa55fb6a3e9125c0a344b31ee19f6e343b52fc0d8f1c94f"
+    }
+  ],
+  "measured_total_wall_seconds": 10471.693776898872,
+  "measured_total_cpu_seconds": 53035.92,
+  "source_descriptor": "ai/strong/conservative-auction-runtime-source-v1.json",
+  "source_sha256": "a2dd8f8b3e3bf3fd6b121b863cd34d69dd23675ef05af21c23400494339cacc0",
+  "source": {
+    "revision": "6edcec8f03e3bf0c84f08ed2c02e458e887d1ca5",
+    "archive": "strong-source-conservative-auction-runtime-v1.tgz",
+    "sha256": "99227f1fc4bd8976e168db88f2c330eeff9947d320526d83dffaeff59b492328",
+    "source_manifest_sha256": "187812b75ce569ea8302cd405d0dfc7b2b79d2eb5837970dbefc8c0db1e39521"
+  },
+  "source_repo": "coyotte508/powergrid-ai-training-v1",
+  "runtime_only": true,
+  "goal_status": "paused",
+  "new_hf_jobs_submitted": 0,
+  "development_jobs_submitted": 0,
+  "gradient_updates": 0,
+  "grid_admitted": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "failure_interpretation": "Original dual/6p failed at episode 5, public request 5:21, AssertionError; stack/location not preserved. Cause unconfirmed. No replacement or policy change.",
+  "measurement_interpretation": "HF batch wall/CPU/process-tree memory costs, including startup/validation. Failed-job measurement is not a successful 24-game calibration. No strength or target-machine latency claim."
+}

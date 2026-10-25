@@ -6,25 +6,49 @@ supersedes active instructions in older handoffs. It does not authorize resuming
 the 10,080-game development grid or using final qualification seeds.
 
 <!-- CURRENT-RUN-START -->
-The current run is being finished: the four original conservative-auction
-runtime pilots, 64 games in total. Both two-player pilots are complete and
-independently verified; both six-player pilots are running. No new HF jobs were
-submitted during this handoff. The broad coordinator was stopped at
-**12:13:24 UTC**, before any development submissions. Its STOP marker is intact.
+All four original runtime pilots are terminal. **Three passed; the six-player
+dual-population pilot failed. The planned 64-game run is incomplete.** The three
+successful pilots contain **40 fully audited games / 5,522 public decisions /
+61,112 continuations, zero rollout caps**. The failed pilot preserved 23 completed
+game records; their terminal credits and decision receipts were independently
+checked, but they do not turn the failed 24-game shard into a passing run.
 
-A collection-only finisher, **PID 1146868 / execution session 24085**, watches
-the four original handles and exits after auditing their results. It cannot
-submit jobs, train, restart a failed job or proceed to the next experiment.
-Its state is `runs/conservative-auction-runtime-finish-v1/state.json`; its log is
-`runs/conservative-auction-runtime-finish-v1.log`. Inspect the actual process
-before touching it. Do not start a competing collector.
+The failure was a public-policy `AssertionError` at **episode 5, request `5:21`**
+in original job `6addea04046eb82b1ece4fb1`. The policy stderr is empty and no
+assertion stack/location was preserved, so the cause remains unconfirmed. The
+failure record and partial receipts are retained. No replacement job, changed
+policy, new simulation game or gradient update was made during finalization.
 
-The completion-only heartbeat **`finish-power-grid-handoff`** checks every
-15 minutes. Once the originals are terminal, it will verify/archive the results,
-replace this pending section, push the final handoff and pause itself. While the
-finisher is live it must not run a competing collector. This follow-up is limited
-to completing the existing run; it cannot authorize another experiment. The
-original handoff checkpoint was pushed as **d8d931b**.
+| Runtime pilot | Outcome | Batch wall seconds | CPU seconds | Sampled peak process-tree RSS |
+|---|---|---:|---:|---:|
+| Population · 2 players | Passed | 519.906 | 2291.83 | 6.147 GiB |
+| Population · 6 players | Passed | 3473.937 | 15977.19 | 6.692 GiB |
+| Dual population · 2 players | Passed | 835.857 | 3965.48 | 6.342 GiB |
+| Dual population · 6 players | Failed; 23/24 completed records | 5641.994 | 30801.42 | 6.728 GiB |
+
+Combined measured batch wall time is **10471.694s**
+(sum over concurrent jobs, not elapsed calendar time); CPU time is
+**53035.92s**. These include startup/validation.
+The failed-job cost is not a valid successful 24-game resource calibration.
+These are **runtime-only HF measurements**, not strength results or complete-policy
+AMD 8840U latency. The 10,080-game development grid remains unadmitted/unlaunched.
+
+The development coordinator **PID 1061599 / session 42688** was deliberately
+stopped at **12:13:24 UTC**, before any development submissions; its STOP marker
+and original state are intact. The collection-only finisher **PID 1146868 /
+session 24085** stopped for inspection at **13:12:53 UTC** after preserving the
+failure and its immutable archive. Both processes are absent. Its historical
+`statuses` map still says RUNNING for the final job; the terminal HF observation
+and the final report supersede that stale map. Do not restart either coordinator.
+
+Final machine-readable evidence: [runtime report](strong/conservative-auction-runtime-results-v1.json)
+and [pause snapshot](strong/paused-handoff-state-2026-10-25.json).
+The recovery archive is indexed by
+[the immutable HF archive descriptor](strong/paused-handoff-archive-2026-10-25.json).
+It references the original source bundle and all four raw archives, including
+the failure, without duplicating or regenerating them. The completion-only
+heartbeat has no pilot work left and is to be paused after verified Git delivery.
+Research remains PAUSED; resuming requires a new user request.
 <!-- CURRENT-RUN-END -->
 
 No AI is qualified or deployed. The final strength gate is unchanged, and its
@@ -74,7 +98,8 @@ Source: `strong/policy-iteration-development-comparison-v2.json`.
 ## Which approaches to continue, and which to stop
 
 **Selective auction search is still a reasonable next experiment; no hybrid is
-yet validated for deployment.** The current paused pilots measure its cost.
+yet validated for deployment.** The runtime pilots measured its cost but did
+not all pass.
 
 The completed broad hybrid screen comprised **8,400 games / 135 original jobs**,
 five arms and four paired deals per cell. Auction search helped several sealed
@@ -159,10 +184,31 @@ Source manifest: `187812b75ce569ea8302cd405d0dfc7b2b79d2eb5837970dbefc8c0db1e395
 All 1,522 previous source files were preserved; this source has 1,540 files.
 
 Per-job launch guards, raw artifacts and verification reports are under
-`runs/conservative-auction-runtime-hf-v1/<case>/`. The complete aggregate is
-`strong/conservative-auction-runtime-results-v1.json` once all four pass.
+`runs/conservative-auction-runtime-hf-v1/<case>/`. The terminal report is
+`strong/conservative-auction-runtime-results-v1.json`, explicitly `complete: false`
+with three verified jobs and the failed fourth job retained.
 Every original raw evidence archive is identified by immutable revision and
-SHA256 in those reports. The original source/preflight archive descriptor is
+SHA256 in those reports. All four archives are in private model repo
+`coyotte508/powergrid-ai-germany-v1`:
+
+- **Population · 2 players**, job `6addea031e112550ce7eaa88`: revision `116336a69511d62f8151b87e59f5e414a4587b12`,
+  `archives/conservative-auction-runtime-v1-conservative_population-2p.tgz`, SHA256
+  `921d18ae96bcf911e84e2fe985bd6e0c15b08ced2d3bc9a504da0009d61f9035`. Manifest SHA256
+  `9c9880b689863ad8c6358c6c38a314f7b0207fe4d1f09122a3935545f3c2a107`.
+- **Population · 6 players**, job `6addea031e112550ce7eaa8a`: revision `208a5a72757407eb54e6fa82ed56f5dc69255624`,
+  `archives/conservative-auction-runtime-v1-conservative_population-6p.tgz`, SHA256
+  `3f4f869c90c2bed177a546644528e5919f5258482899f0f08336be70ad17b1ea`. Manifest SHA256
+  `a6fac366100cd2084b3062fe8d907b481af1f0f56b389fc6f1b3e2f989585b43`.
+- **Dual population · 2 players**, job `6addea04046eb82b1ece4faf`: revision `7a542653cf6730d5828171fbe058753dfb361698`,
+  `archives/conservative-auction-runtime-v1-conservative_dual-2p.tgz`, SHA256
+  `cc3789d8fe230a9a4062d39703d8ce6707495396e384292b1c1a285d9e902b02`. Manifest SHA256
+  `1f03b26107d5b8e948f24002756cb312810ce6c907aa049dfeaa7ae697414007`.
+- **Dual population · 6 players**, job `6addea04046eb82b1ece4fb1`: revision `1ab616ae64438a43586f19928553f8c3ced39320`,
+  `archives/conservative-auction-runtime-v1-conservative_dual-6p.tgz`, SHA256
+  `d0c16d7352705a653c9f2e52618108cc8ab661d8319824bfcd12a55eb455c0e7`. Manifest SHA256
+  `e846b4d21119ba4dfa871387711e0671607936a175a484be60568c6469c5ff00`.
+
+The original source/preflight archive descriptor is
 `strong/conservative-auction-runtime-launch-evidence-v1.json`; the pre-pause
 tooling snapshot is `strong/conservative-auction-development-readiness-v1.json`.
 
@@ -192,9 +238,12 @@ raw receipts. Do not change frozen policies during a comparison.
 **Do not restart the old coordinator.** PID 1061599 / session 42688 was stopped
 on purpose, with zero development jobs submitted. Keep its STOP marker and
 history in `runs/conservative-auction-development-coordinator-v1/`. Its startup
-refuses existing state. On an explicit future resume, first inspect the finished
-pilot evidence and all original guards; then create a separately identified
-owner or drive the existing prepare/upload/launch/collect stages deliberately.
+refuses existing state. On an explicit future resume, first inspect the failed
+dual/6p request and all original guards. Diagnose using preserved receipts/source
+before proposing a separately identified validation run; never patch or replace
+this original failed result. Three passing pilots do not admit the comparison.
+Any later owner must have a new identity; use the existing prepare/upload/launch/
+collect stages only after resolving the failure and resource admission.
 Do not delete guards/state to make an old launcher run again.
 
 If the finisher is interrupted, inspect its PID and original job statuses before

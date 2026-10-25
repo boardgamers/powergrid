@@ -1,14 +1,17 @@
 # Conservative auction search — runtime pilots, 25 October 2026
 
-**Current instruction — 25 October 2026: PAUSED; finish only the four original runtime pilots.**
+**Current instruction — 25 October 2026: PAUSED; original runtime pilots are terminal.**
 
-Start with [the new paused handoff](HANDOFF-2026-10-25-PAUSED.md). The broad
-development coordinator was deliberately stopped before any development
-submission. The two original six-player pilots are finishing under a
-collection-only process; no further experiments are authorized. Its state and
-all exact handles are in the new handoff. No candidate is qualified or deployed;
-reserved final seeds are unused. Historical “active”, “next” and “running”
-statements below do not override this pause.
+Start with [the finalized paused handoff](HANDOFF-2026-10-25-PAUSED.md). Three
+pilots passed (40 fully audited games); the six-player dual-population pilot
+failed at public request `5:21` with an assertion. Its 23 completed game records
+and failure evidence are preserved and independently checked; the planned
+64-game run remains incomplete. All four original archives, measured costs and
+exact handles are indexed in the handoff. Both local owners have stopped.
+Zero new HF or development jobs were submitted; no replacements are authorized.
+No candidate is qualified or deployed; reserved final seeds are unused.
+Historical “active”, “next” and “running” statements below do not override this
+pause. Diagnose the preserved failure only after an explicit user resume.
 
 ---
 

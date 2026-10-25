@@ -25,6 +25,66 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
+## 25 October, 09:12 UTC — standalone auction prototype verified; original engineering games running
+
+The standalone JSON worker and development arena now support an **auction-only
+prototype** using the unchanged population and frozen learned-opponent continuation
+paths. It keeps the filtered focal model outside auctions. Auction candidates
+include the model's action. Equal-population mean terminal credits must beat that
+action by an explicit rational margin, with no negative margin in any included
+population. A cap keeps the model. This is an empirical screening rule, not
+calibrated confidence or a strength guarantee.
+
+Engineering settings use both populations, eight worlds each and a strict **1/8**
+margin. They are **not a selected playing recipe**, and no partial outcomes from
+the ongoing fidelity study were used to tune them. The mixture combines separate
+population scenarios rather than inserting surrogate seats into each old mixture.
+The prior sealed bids remain inferred from public features.
+
+The actual standalone process passed **24 existing runtime fixtures**: 16 auction
+searches / **1,328 continuations**, eight unchanged building choices and zero
+unexpected caps. **512** continuations match the archived fixed-action evidence
+exactly apart from the array index required by the expanded candidate menu.
+Three prototype overrides exercise the new selection path. The independent
+saved-pair verifier checks every model/alternative pair and a separate calculation
+reconstructs the gate. A repeated auction matches the direct class; ten old
+model/filter checks cover every player count. Seven chooser tests and eleven
+public transport/arena tests pass. Intentional-cap and bad-pin checks also pass.
+These are engineering results, not stronger play or target-hardware timing.
+
+- Descriptor: `strong/opponent-auction-runtime-preflight-v1.json`; details in
+  [the hybrid review](HYBRID-SCREEN-2026-10-24.md).
+- Standalone package: `ai/runs/opponent-auction-runtime-preflight-v1/package`.
+  Runtime manifest **dfc07dd4ec2f15266863394bc1a12fd4eb8882db02e27b360faf9357f300069a**;
+  policy **a76aa90ec10e5e62b45036b6e3b3f2e9f4aa24b93cba6762f147ad34421d878d**.
+- Private HF **0f655c2563bec8d489db7dac10d65879897684c9**, archive SHA256
+  **47976cecd0dd9fe2983e127ea224b76d24111cd17789cd1b8c6611ed6bd42153**,
+  1,574 files, downloaded/hash-verified. Complete package, raw responses,
+  reference receipts, code and logs retained. Original preflight **71567** and
+  archive **69890** completed; do not rerun unchanged work.
+- **Eight original engineering games are running**, PID **8564**. Guard
+  `ai/runs/opponent-auction-engineering-games-v1-launch.json`; output
+  `ai/runs/opponent-auction-engineering-games-v1`; log same base plus `.log`.
+  Two players, all seats/rules, economic opponents, four concurrent games, same
+  frozen prototype artifact. Do not replace it on a polling timeout. These games
+  remain unverified here; their outcomes are not strength evidence. When complete,
+  use `opponent_auction_verification_v1.verify_evaluation` and preserve all receipts.
+
+The sole main-study owner **PID 3502343 / session 23779** is confirmed live with
+all pinned code unchanged. Its **09:10:36 UTC** state is **286 submitted /
+260 independently verified**, zero caps and no reported failures. No manual
+submission/collection alongside it, source changes or automatic retries.
+Checkpoint `ai/runs/opponent-auction-runtime-completion-checkpoint-v1.json`
+preserves both original process handles. Previous and current goal turns both
+made concrete progress. This prototype added no HF jobs or gradients.
+
+**Next:** collect the original engineering games and independently audit them;
+complete/archive the entire 480-root fidelity study before interpreting it or
+choosing a recipe. Then freeze the actual auction settings, test fresh full games
+across counts/rules, integrate the exact policy with the unchanged final gate and
+benchmark the complete standalone policy on the actual 8840U. No candidate is
+qualified; no final seeds were used and no general plateau is established.
+
 ## 25 October, 08:46 UTC — full resource-plan consistency diagnosis archived
 
 The complete offline resource audit now quantifies a mismatch between the bundles

@@ -134,8 +134,13 @@ def configuration(args):
     identity = {'policySha256': digest(spec_path), 'modelSha256': spec['model']['sha256'],
         'runtimeManifestSha256': digest(manifest_path), 'featureRevision': spec['feature_revision'],
         'backend': spec['backend'], 'settings': settings}
+    if spec['backend'] == 'opponent-auction-v1':
+        identity['opponentPolicySha256'] = spec['opponent']['sha256']
+        if args.reference_artifact:
+            raise ValueError('Historical direct-reference comparison supports only population-v1')
     return {**vars(args), 'artifact': str(root), 'runtime': str(root),
-        'output': str(args.output.resolve()), 'arm': settings['arm'], 'samples': settings['samples'],
+        'output': str(args.output.resolve()),
+        'arm': spec['backend'] if spec['backend'] == 'opponent-auction-v1' else settings['arm'], 'samples': settings['samples'],
         'search_workers': settings['workers'], 'model': str(checked_path(root, spec['model']['path'])),
         'model_sha256': spec['model']['sha256'], 'identity': identity,
         'reference_artifact': str(args.reference_artifact.resolve()) if args.reference_artifact else None,

@@ -229,3 +229,70 @@ opponent model are not justified by the evidence so far.
 
 - [Completed training and held-out evidence](strong/opponent-surrogate-trained-evaluation-evidence-v1.json).
 - [Current operational handoff](RESUME.md), including the original timing job and next steps.
+
+## 25 October: standalone auction prototype verified on engineering fixtures
+
+The shared JSON worker and development arena now support `opponent-auction-v1`.
+It retains the filtered focal model outside auctions, keeps the model action in
+the auction shortlist, and can evaluate the unchanged population and learned-
+opponent continuation paths. Each included population receives equal weight.
+The caller explicitly supplies a rational minimum advantage. An override must
+strictly exceed that pooled margin and must have a nonnegative margin within
+every included population. Exact terminal tie credits determine the calculation;
+any capped continuation keeps the model. This is an empirical screening rule,
+not calibrated confidence or a guarantee of stronger play.
+
+The engineering artifact uses both populations, eight worlds each, and a strict
+**1/8** minimum pooled advantage. **This is not a selected strength recipe.**
+The ongoing 480-root study remains unchanged; none of its partial outcomes was
+used to tune this implementation. Here the mixture combines separate population
+scenarios; it does not assign surrogate and heuristic roles together inside each
+learned-opponent scenario. Prior sealed bids remain modelled rather than observed.
+
+Standalone checks completed on the 24 existing 2p/6p runtime fixtures, all rules
+and plant/bid/building phases:
+
+- **16 auction searches / 1,328 continuations / zero unexpected caps**; three
+  prototype overrides. Eight building decisions retain the original filtered model.
+- **512 exact archived continuation matches**, covering every original fixed
+  action pair within the now-expanded candidate menus. Initial sampled worlds,
+  inferred bids, policy decision counts and terminals match; only array position
+  `env` changes with the larger candidate menu.
+- The saved-receipt checker reuses the independently audited fixed-pair verifier
+  for every model/alternative pair and separately reconstructs pooled means,
+  per-population margins, eligible candidates and the selected action.
+- A repeated auction request matches the direct class exactly after excluding
+  elapsed time. Changed request metadata/unused opponent metadata do not change it.
+- Ten saved model/filter checks cover all five player counts. Seven chooser
+  contract tests and eleven public transport/arena contract tests pass.
+- An intentional one-step horizon cap falls back to the model; a corrupted
+  opponent pin is rejected. Repeat/cap checks are additional to the 1,328
+  continuations in the 24-fixture count.
+
+Artifact pins include the focal model, opponent ensemble, execution settings and
+runtime. The new loader checks every member and module; the research arena applies
+the actual returned legal move. Existing population descriptors remain supported.
+**1,487 of 1,488** study-source files are unchanged in the new standalone package;
+the public arena bridge receives its previously verified public-move interface,
+with new policy/transport files added. The original study source itself is untouched.
+
+Eight two-player engineering games (all seats and all four rules, economic
+opponents) are now running through that artifact. Original **PID 8564**, guard
+`ai/runs/opponent-auction-engineering-games-v1-launch.json`, outputs
+`ai/runs/opponent-auction-engineering-games-v1`, log with the same base name plus
+`.log`. Preserve the original process and inspect it on observation timeout;
+do not launch a replacement. These games are pending verification and their
+outcomes are not strength evidence.
+
+Evidence: `strong/opponent-auction-runtime-preflight-v1.json`; private HF revision
+**0f655c2563bec8d489db7dac10d65879897684c9**, archive SHA256
+**47976cecd0dd9fe2983e127ea224b76d24111cd17789cd1b8c6611ed6bd42153**,
+**1,574 files**, downloaded and hash-verified. Runtime manifest SHA256
+**dfc07dd4ec2f15266863394bc1a12fd4eb8882db02e27b360faf9357f300069a**;
+prototype policy SHA256
+**a76aa90ec10e5e62b45036b6e3b3f2e9f4aa24b93cba6762f147ad34421d878d**.
+Original preflight session **71567** and archive **69890** completed normally.
+No additional HF jobs, gradients, strength selection, production changes or
+reserved final seeds. Complete the full fidelity comparison before freezing the
+playing recipe and running fresh strength games. The exact final adapter and
+actual whole-policy 8840U benchmark remain outstanding.

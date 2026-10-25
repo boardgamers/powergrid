@@ -56,11 +56,15 @@ def load_artifact(directory, descriptor='policy.json'):
     root = Path(directory).resolve()
     path = checked_path(root, descriptor)
     spec = json.loads(path.read_text())
-    if set(spec) != {'version', 'backend', 'feature_revision', 'model', 'runtime_manifest', 'settings'}:
+    opponent_backend = spec.get('backend') == 'opponent-auction-v1'
+    fields = {'version', 'backend', 'feature_revision', 'model', 'runtime_manifest', 'settings'}
+    if opponent_backend:
+        fields.add('opponent')
+    if set(spec) != fields:
         raise ValueError('Unknown or missing policy descriptor fields')
-    if type(spec['version']) is not int or spec['version'] != 1 or spec['backend'] != 'population-v1' or spec['feature_revision'] != '4.3-strategic-correction':
+    if type(spec['version']) is not int or spec['version'] != 1 or spec['backend'] not in ('population-v1', 'opponent-auction-v1') or spec['feature_revision'] != '4.3-strategic-correction':
         raise ValueError('Unsupported public-policy contract')
-    for key in ('model', 'runtime_manifest'):
+    for key in ('model', 'runtime_manifest', *(['opponent'] if opponent_backend else [])):
         if set(spec[key]) != {'path', 'sha256'}:
             raise ValueError('Invalid artifact pin')
         target = checked_path(root, spec[key]['path'])
@@ -78,7 +82,10 @@ def load_artifact(directory, descriptor='policy.json'):
     if manifest.get(spec['model']['path']) != spec['model']['sha256']:
         raise ValueError('Model missing from runtime manifest')
     settings = spec['settings']
-    if set(settings) != {'arm', 'samples', 'workers', 'threads', 'max_steps'}:
+    setting_fields = {'arm', 'samples', 'workers', 'threads', 'max_steps'}
+    if opponent_backend:
+        setting_fields.update(('population_modes', 'minimum_advantage'))
+    if set(settings) != setting_fields:
         raise ValueError('Unknown or missing execution settings')
     if settings['arm'] not in ('model', 'filter', 'auction', 'building', 'combined'):
         raise ValueError('Unsupported population policy arm')
@@ -92,18 +99,48 @@ def load_artifact(directory, descriptor='policy.json'):
     from hybrid_search import Model
     from population_hybrid_policy import PopulationPolicy
     import hybrid_search, population_hybrid_policy, infer, pool, feature_contract
-    for module in (hybrid_search, population_hybrid_policy, infer, pool, feature_contract):
+    modules = [hybrid_search, population_hybrid_policy, infer, pool, feature_contract]
+    if opponent_backend:
+        import opponent_auction_policy_v1, opponent_surrogate_policy_v1
+        import surrogate_opponent_continuations_v1, opponent_surrogate_training_v1, strategic_collection
+        modules.extend((opponent_auction_policy_v1, opponent_surrogate_policy_v1,
+                        surrogate_opponent_continuations_v1, opponent_surrogate_training_v1, strategic_collection))
+    for module in modules:
         origin = Path(module.__file__).resolve()
         if not origin.is_relative_to(root) or manifest.get(str(origin.relative_to(root))) != digest(origin):
             raise ValueError('Imported policy module differs from its frozen artifact')
     model = Model(checked_path(root, spec['model']['path']), threads=settings['threads'])
     if feature_contract.model_revision(model) != spec['feature_revision']:
         raise ValueError('Model feature revision differs from its policy descriptor')
-    policy = PopulationPolicy(model, checked_path(root, 'ai/strong/population-hybrid-policy.cjs'),
-        arm=settings['arm'], samples=settings['samples'], workers=settings['workers'], max_steps=settings['max_steps'])
+    worker = checked_path(root, 'ai/strong/population-hybrid-policy.cjs')
+    if opponent_backend:
+        if settings['arm'] != 'auction':
+            raise ValueError('Learned-opponent research backend is auction-only')
+        opponent_auction_policy_v1.settings_check(settings['population_modes'], settings['minimum_advantage'])
+        opponent_path = checked_path(root, spec['opponent']['path'])
+        if manifest.get(spec['opponent']['path']) != spec['opponent']['sha256']:
+            raise ValueError('Opponent policy missing from runtime manifest')
+        opponent = json.loads(opponent_path.read_text())
+        for member in opponent['members']:
+            name = str(opponent_path.parent.relative_to(root) / member['path'])
+            if digest(checked_path(root, name)) != sha256(member['sha256']) or manifest.get(name) != member['sha256']:
+                raise ValueError('Opponent member missing or changed')
+        surrogate = opponent_surrogate_policy_v1.SurrogatePolicy(opponent, opponent_path.parent, threads=settings['threads'])
+        # Pin the diagnostic engine's historical imports to this exact package,
+        # irrespective of an inherited benchmark/reference environment.
+        os.environ['PG_REFERENCE_RUNTIME'] = str(root)
+        policy = opponent_auction_policy_v1.OpponentAuctionPolicy(model, surrogate, worker,
+            modes=settings['population_modes'], minimum_advantage=settings['minimum_advantage'],
+            samples=settings['samples'], workers=settings['workers'], max_steps=settings['max_steps'],
+            surrogate_sha256=spec['opponent']['sha256'])
+    else:
+        policy = PopulationPolicy(model, worker, arm=settings['arm'], samples=settings['samples'],
+                                  workers=settings['workers'], max_steps=settings['max_steps'])
     identity = {'policySha256': digest(path), 'runtimeManifestSha256': spec['runtime_manifest']['sha256'],
                 'modelSha256': model.sha256, 'featureRevision': policy.revision,
                 'backend': spec['backend'], 'settings': settings}
+    if opponent_backend:
+        identity['opponentPolicySha256'] = spec['opponent']['sha256']
     return PopulationInstance(policy, identity)
 
 
@@ -146,6 +183,9 @@ class PublicPolicyService:
             if (decision['modelSha256'] != instance.identity['modelSha256']
                     or decision['featureRevision'] != instance.identity['featureRevision']):
                 raise ValueError('Policy identity changed during a decision')
+            if ('opponentPolicySha256' in instance.identity and
+                    decision.get('opponentPolicySha256') != instance.identity['opponentPolicySha256']):
+                raise ValueError('Opponent policy identity changed during a decision')
             if encode(request) != before:
                 raise ValueError('Policy mutated its public request')
             response = {'requestId': request.get('requestId'), 'revision': request.get('revision'),

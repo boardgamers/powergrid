@@ -6,7 +6,67 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 01:15 UTC: calibration complete, resource screen launched, auction diagnostic audited.**
+**Latest — 25 October, 01:30 UTC: passive strong-opponent capture probe running.**
+
+The previous goal turn completed both HF calibration endpoints and the reference
+opponent diagnostic, archived their raw evidence, launched the fixed resource
+screen, and verified its first four batches. That was concrete progress, not a
+status-only wait. This turn leaves that experiment's source and policy unchanged.
+Resource coordinator **11670 / PID 1291091** is live with **45/54 submitted,
+13 verified**, no failures at this checkpoint; original HF handles were also
+rechecked directly. The complete resource comparison remains pending.
+
+The reference diagnostic consumed **85,247 CPU seconds for 896 continuations**.
+Before putting nested reference search into every hypothetical opponent turn, a
+potential cheaper route is to learn its behavior from public positions and test
+that approximation inside continuations. This would be an **opponent-policy
+surrogate**, not evidence that copying its choices makes the focal bot optimal.
+No surrogate has been trained, no training dataset prepared, and no new opponent
+policy has been inserted into the running experiment.
+
+Added and pushed in **854d270**:
+
+- `strong/capture-reference-opponent-v1.cjs` wraps the actual arena's original
+  `search.choose` call once, preserving its arguments, result and game state. It
+  records public feature/menu inputs and the actual choice. The wrapper installs
+  only in its dedicated arena process; non-strategic economic decisions need not
+  be approximated. Teacher seeds/results are label provenance, not model inputs.
+- `strong/test-reference-opponent-capture-v1.cjs` passed all **2,553 canonical
+  positions**, including hidden deck/bid/plan mutations, exact feature/menu equality,
+  public money preservation and unchanged source state.
+- `strong/probe-reference-opponent-capture-v1.py` is running **20 exact twin cases /
+  40 game executions** at 2–6 players, all four rules, last focal seat. One bridge
+  records and one does not; every observed transition and terminal must match.
+  All probe games/records are excluded from future training and strength. This is
+  a local engineering probe with eight workers, no gradients or new HF jobs.
+- `strong/verify-reference-opponent-capture-v1.cjs` checks every recorded public
+  input/menu and target, matches teacher totals to actual-game search counters, and
+  replays the first/last choice of each strategic kind using only public state and
+  the original search settings. Teacher configuration remains 16 samples, six
+  candidates, geographic proposals and the 2,400-step horizon.
+
+Live probe: **session 40805 / PID 1384087**, output
+`ai/runs/reference-opponent-capture-probe-v1/`, console
+`ai/runs/reference-opponent-capture-probe-v1.log`. At the checkpoint, **8/20 twin
+cases** passed, with **551 captured teacher decisions / 48 exact public teacher
+replays**, zero errors. The remaining cases are still running; do not restart the
+existing process after an observation timeout. All **1,463 frozen runtime files**
+still match their source. The separate capture code hashes are pinned in the
+probe intent/status. Checkpoint: `ai/runs/reference-opponent-capture-checkpoint-v1.json`.
+
+**Next:** continue both existing processes. For resources, verify all 54 batches
+before comparing or archiving the full strength screen. For capture, finish all
+20 twin cases, audit every source/receipt and archive the complete probe before
+preparing fresh training collection. A complete capture-probe collector/archive
+script is not yet implemented. If the capture proof succeeds, preregister fresh
+collection and whole-deal train/validation splits, measure HF execution, and train
+only on HF Jobs. Validate held-out action behavior and downstream continuation
+comparisons against real search before adopting a surrogate. Cautious auction
+overrides remain a separate unimplemented experiment. Do not use the seven
+outcome-selected diagnostic roots as training answers. No candidate selection,
+production changes, reserved final seeds or plateau claim.
+
+**Previous — 25 October, 01:15 UTC: calibration complete, resource screen launched, auction diagnostic audited.**
 
 The previous goal turn made concrete progress: resource collection/comparison and
 coordinator implementation, ten passing tests and push `fa1f681`. This turn completed

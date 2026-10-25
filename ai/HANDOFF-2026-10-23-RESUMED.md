@@ -25,6 +25,36 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
+## 25 October, 07:05 UTC — timing artifact verified; original job still running
+
+The original timing job **`6adda6dd1e112550ce7e86c1`** is still authoritatively **RUNNING**
+as of **07:05 UTC**. Its final log contains a complete archive; independent local
+verification now passes all **24 roots / 384 continuations, zero caps**, including
+saved terminal outcomes, paired worlds, source/model pins and measurements.
+This verifies the artifact, **not remote process termination**. No replacement job,
+remote cancellation, full-study admission or new study submission occurred.
+
+Measured per 16-continuation batch on HF `cpu-upgrade`: median **3.1936 s**, maximum
+**10.2118 s**, total CPU **268.17 s**, maximum sampled summed RSS **1,218,666,496 B**.
+These are component timings on HF, not whole-hybrid 8840U latency or strength.
+
+- Preterminal evidence: `strong/surrogate-continuation-selected-cost-preterminal-evidence-v1.json`.
+- Private archive revision: `8e9340d3ffc6c89a06dd7187d2248995b18f258d`.
+- Archive SHA256: `c1d72564337b7c67f3828703a2a422cddfabb4b5c5dadb493ec6f21cb460b1a6` (**123 files**).
+- Local complete audit: `ai/runs/surrogate-continuation-selected-cost-collected-v1/preterminal-audit.json`, SHA256 `81e458ce618f5dcd8c0878b8ad79c585b1ed5cafe7dc0d3b21424e2a62131f64`.
+- The official `strong/surrogate-continuation-selected-cost-results-v1.json` does
+  not exist yet because collection requires authoritative terminal success.
+
+No local coordinator or collector is running. The bounded status observer ended
+normally; two read-only local metrics observers were stopped after returning no
+metrics. The original remote job remains untouched. Next: inspect this same job
+handle. Once COMPLETED, run the existing selected-cost collector, then prepare
+measured full-study admission and start its sole coordinator. Preserve a failed
+or timed-out job and its already verified artifact for inspection; never replace
+it because an observation ended. Current turn completed artifact verification;
+previous turn completed training/evaluation archiving and source upload. Neither
+turn demonstrates stronger full-game play. Goal active; final seeds unused.
+
 ## 25 October, 06:52 UTC — actual trained selection and held-out evidence; timing running
 
 The original full L4 job **`6adda0c2046eb82b1ece305a` completed**, and its coordinator

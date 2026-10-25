@@ -58602,5 +58602,34 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "checkpoint_sha256": "fbf1b1e7feb25335adf983f7badfc38a2969df6288ada866b3bb5db165ac4aec"
+    },
+    "surrogate_continuation_selected_cost_preterminal_v1": {
+        "job_id": "6adda6dd1e112550ce7e86c1",
+        "checked_at": "2026-10-25T07:05:10.322697+00:00",
+        "authoritative_status": "RUNNING",
+        "complete_archive_verified": true,
+        "roots": 24,
+        "continuations": 384,
+        "caps": 0,
+        "timing_summary": {
+            "median_seconds_per_16_continuations": 3.193585342996812,
+            "maximum_seconds_per_16_continuations": 10.211836352995306,
+            "total_cpu_seconds": 268.16999999999996,
+            "peak_rss_bytes": 1218666496
+        },
+        "evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "8e9340d3ffc6c89a06dd7187d2248995b18f258d",
+            "archive_path": "archives/surrogate-continuation-selected-cost-v1.tgz",
+            "archive_sha256": "c1d72564337b7c67f3828703a2a422cddfabb4b5c5dadb493ec6f21cb460b1a6",
+            "manifest_sha256": "79dea42e218619666f9643a1ca47e6590d2c9836b5bec532885d0010eabff703",
+            "archived_files": 123,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "descriptor_sha256": "10fc31c149dcf357d80414d99cf93ee81330c6a0bc1dfb2b8e98281f3186afeb",
+        "full_study_launched": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

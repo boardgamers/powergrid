@@ -58373,5 +58373,53 @@
         "gradient_updates": 0,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
+    },
+    "surrogate_continuation_study_management_preflight_v1": {
+        "preflight_sha256": "62f72675685facd2b80fb4e11fd2f9412401f01ae82eb57b3d73bb16f4298996",
+        "checkpoint_sha256": "cf393f383f3706d51bafa5684e530de205c64d6dd290791a666095339efe64f3",
+        "tests": 11,
+        "actual_frozen_roots_checked": 480,
+        "synthetic_aggregate_roots": 480,
+        "planned_study_jobs": 480,
+        "planned_continuations": 23040,
+        "max_concurrent": 32,
+        "actual_admission_prepared": false,
+        "verified_collection_shards": 40,
+        "collection_stage": "indexing",
+        "training_stage": "waiting_for_complete_collection",
+        "fresh_scientific_continuations": 0,
+        "new_hf_jobs": 0,
+        "gradient_updates": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
+    },
+    "opponent_surrogate_collection_complete_v1": {
+        "complete": true,
+        "checked_at": "2026-10-25T06:10:54.157387+00:00",
+        "index_sha256": "1e7cfb2ddd9c160fe0bc1dfdff08f0da38a0641ee51e3e012b6bc41a0229c83e",
+        "games": 2560,
+        "twins": 640,
+        "teacher_rows": 418686,
+        "teacher_rollouts": 34306096,
+        "split_games": {
+            "train": 1920,
+            "validation": 320,
+            "test": 320
+        },
+        "phase_groups": 180,
+        "minimum_phase_group_rows": 66,
+        "original_collection_pid": 2009367,
+        "collection_stage": "collection_complete",
+        "original_collection_exited": true,
+        "training_coordinator_pid": 2825298,
+        "training_stage": "executing",
+        "running_action": "prepare_data",
+        "known_prepare_data_pid": 3098617,
+        "management_preflight_sha256": "62f72675685facd2b80fb4e11fd2f9412401f01ae82eb57b3d73bb16f4298996",
+        "new_hf_jobs": 0,
+        "gradient_updates": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "checkpoint_sha256": "3f6d470453e0d1a1a458789bc1510fd95150e51269fc9e6d614d41a41949fbe1"
     }
 }

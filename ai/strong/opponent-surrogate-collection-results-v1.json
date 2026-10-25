@@ -1,0 +1,1609 @@
+{
+  "complete": true,
+  "games": 2560,
+  "twins": 640,
+  "teacher_rows": 418686,
+  "split_games": {
+    "train": 1920,
+    "validation": 320,
+    "test": 320
+  },
+  "phase_rows": {
+    "train/6p/0/bid": 14040,
+    "train/6p/0/building": 9180,
+    "train/6p/0/plant": 6272,
+    "train/6p/1/bid": 13516,
+    "train/6p/1/building": 8980,
+    "train/6p/1/plant": 6050,
+    "train/6p/2/bid": 22518,
+    "train/6p/2/plant": 5410,
+    "train/6p/2/building": 7862,
+    "train/6p/3/bid": 24768,
+    "train/6p/3/plant": 5137,
+    "train/6p/3/building": 7392,
+    "validation/6p/0/bid": 2337,
+    "validation/6p/0/building": 1473,
+    "validation/6p/0/plant": 1076,
+    "validation/6p/1/bid": 2228,
+    "validation/6p/1/building": 1431,
+    "validation/6p/1/plant": 991,
+    "validation/6p/2/bid": 3739,
+    "validation/6p/2/plant": 896,
+    "validation/6p/2/building": 1307,
+    "validation/6p/3/bid": 4326,
+    "validation/6p/3/building": 1226,
+    "validation/6p/3/plant": 884,
+    "test/6p/0/bid": 2352,
+    "test/6p/0/building": 1537,
+    "test/6p/0/plant": 1070,
+    "test/6p/1/bid": 2214,
+    "test/6p/1/building": 1462,
+    "test/6p/1/plant": 1005,
+    "test/6p/2/bid": 3868,
+    "test/6p/2/building": 1284,
+    "test/6p/2/plant": 865,
+    "test/6p/3/bid": 4120,
+    "test/6p/3/building": 1207,
+    "test/6p/3/plant": 867,
+    "train/5p/0/bid": 8726,
+    "train/5p/0/plant": 4330,
+    "train/5p/0/building": 7053,
+    "train/5p/1/bid": 8382,
+    "train/5p/1/building": 6932,
+    "train/5p/1/plant": 4235,
+    "train/5p/2/bid": 14031,
+    "train/5p/2/plant": 3731,
+    "train/5p/2/building": 6261,
+    "train/5p/3/bid": 15300,
+    "train/5p/3/building": 5865,
+    "train/5p/3/plant": 3628,
+    "validation/5p/0/bid": 1433,
+    "validation/5p/0/building": 1180,
+    "validation/5p/0/plant": 723,
+    "validation/5p/1/bid": 1456,
+    "validation/5p/1/building": 1200,
+    "validation/5p/1/plant": 734,
+    "validation/5p/2/bid": 2305,
+    "validation/5p/2/building": 954,
+    "validation/5p/2/plant": 628,
+    "validation/5p/3/bid": 2651,
+    "validation/5p/3/plant": 614,
+    "validation/5p/3/building": 1009,
+    "test/5p/0/bid": 1560,
+    "test/5p/0/building": 1176,
+    "test/5p/0/plant": 717,
+    "test/5p/1/bid": 1422,
+    "test/5p/1/building": 1124,
+    "test/5p/1/plant": 681,
+    "test/5p/2/bid": 2371,
+    "test/5p/2/building": 1001,
+    "test/5p/2/plant": 603,
+    "test/5p/3/bid": 2554,
+    "test/5p/3/plant": 597,
+    "test/5p/3/building": 997,
+    "train/4p/0/bid": 5044,
+    "train/4p/0/building": 5181,
+    "train/4p/0/plant": 2868,
+    "train/4p/1/bid": 4669,
+    "train/4p/1/building": 5147,
+    "train/4p/1/plant": 2738,
+    "train/4p/2/bid": 8210,
+    "train/4p/2/building": 4491,
+    "train/4p/2/plant": 2445,
+    "train/4p/3/bid": 9480,
+    "train/4p/3/plant": 2349,
+    "train/4p/3/building": 4538,
+    "validation/4p/0/bid": 885,
+    "validation/4p/0/building": 887,
+    "validation/4p/0/plant": 483,
+    "validation/4p/1/bid": 794,
+    "validation/4p/1/building": 903,
+    "validation/4p/1/plant": 459,
+    "validation/4p/2/bid": 1419,
+    "validation/4p/2/plant": 417,
+    "validation/4p/2/building": 755,
+    "validation/4p/3/bid": 1591,
+    "validation/4p/3/building": 711,
+    "validation/4p/3/plant": 389,
+    "test/4p/0/bid": 859,
+    "test/4p/0/building": 894,
+    "test/4p/0/plant": 507,
+    "test/4p/1/bid": 795,
+    "test/4p/1/building": 879,
+    "test/4p/1/plant": 459,
+    "test/4p/2/bid": 1407,
+    "test/4p/2/building": 728,
+    "test/4p/2/plant": 408,
+    "test/4p/3/bid": 1664,
+    "test/4p/3/building": 713,
+    "test/4p/3/plant": 400,
+    "train/3p/0/bid": 2043,
+    "train/3p/0/plant": 1417,
+    "train/3p/0/building": 2773,
+    "train/3p/1/bid": 1868,
+    "train/3p/1/building": 2751,
+    "train/3p/1/plant": 1414,
+    "train/3p/2/bid": 3845,
+    "train/3p/2/building": 2681,
+    "train/3p/2/plant": 1233,
+    "train/3p/3/bid": 3919,
+    "train/3p/3/plant": 1190,
+    "train/3p/3/building": 2491,
+    "validation/3p/0/bid": 366,
+    "validation/3p/0/building": 465,
+    "validation/3p/0/plant": 229,
+    "validation/3p/1/bid": 305,
+    "validation/3p/1/building": 463,
+    "validation/3p/1/plant": 253,
+    "validation/3p/2/bid": 584,
+    "validation/3p/2/building": 422,
+    "validation/3p/2/plant": 218,
+    "validation/3p/3/bid": 640,
+    "validation/3p/3/plant": 182,
+    "validation/3p/3/building": 369,
+    "test/3p/0/bid": 345,
+    "test/3p/0/building": 463,
+    "test/3p/0/plant": 242,
+    "test/3p/1/bid": 293,
+    "test/3p/1/building": 472,
+    "test/3p/1/plant": 219,
+    "test/3p/2/bid": 553,
+    "test/3p/2/building": 411,
+    "test/3p/2/plant": 189,
+    "test/3p/3/bid": 589,
+    "test/3p/3/building": 440,
+    "test/3p/3/plant": 212,
+    "train/2p/0/bid": 519,
+    "train/2p/0/plant": 490,
+    "train/2p/0/building": 1195,
+    "train/2p/1/bid": 469,
+    "train/2p/1/building": 1224,
+    "train/2p/1/plant": 478,
+    "train/2p/2/bid": 1000,
+    "train/2p/2/plant": 430,
+    "train/2p/2/building": 1120,
+    "train/2p/3/bid": 926,
+    "train/2p/3/building": 1142,
+    "train/2p/3/plant": 406,
+    "validation/2p/0/bid": 78,
+    "validation/2p/0/building": 200,
+    "validation/2p/0/plant": 79,
+    "validation/2p/1/bid": 80,
+    "validation/2p/1/building": 207,
+    "validation/2p/1/plant": 80,
+    "validation/2p/2/bid": 140,
+    "validation/2p/2/building": 182,
+    "validation/2p/2/plant": 73,
+    "validation/2p/3/bid": 172,
+    "validation/2p/3/building": 186,
+    "validation/2p/3/plant": 76,
+    "test/2p/0/bid": 84,
+    "test/2p/0/plant": 84,
+    "test/2p/0/building": 202,
+    "test/2p/1/bid": 79,
+    "test/2p/1/building": 195,
+    "test/2p/1/plant": 76,
+    "test/2p/2/bid": 145,
+    "test/2p/2/building": 191,
+    "test/2p/2/plant": 78,
+    "test/2p/3/bid": 180,
+    "test/2p/3/plant": 66,
+    "test/2p/3/building": 185
+  },
+  "cases": {
+    "opponent-surrogate-collection-v1-6p-0-4": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-6p-0-4",
+        "players": 6,
+        "start": 0,
+        "end": 4,
+        "split": "train",
+        "games": 96,
+        "twins": 24
+      },
+      "job_id": "6add73271e112550ce7e6a20",
+      "verified_sha256": "2f7e364c4d8fa960ad0154b11ef539a2aab837d5440a540192eabc58d48a5251",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "4deed34d26523061571d3e4f2203f06bdbb98a00",
+        "archive_path": "archives/opponent-surrogate-collection-v1-6p-0-4.tgz",
+        "archive_sha256": "77236fbdfdd68a50e5aebc70947c977076677f637392cb45a19b0f847c2a4f73",
+        "manifest_sha256": "a3edd4ffa3e0913278b523927a1216cbc45fa40d10041db286314c5403005e57",
+        "archived_files": 676,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 21995,
+      "teacher_rollouts": 1797152,
+      "public_replays": 576,
+      "runtime": {
+        "seconds": 9850.711705264635,
+        "cpu_seconds": 59368.72,
+        "sampled_peak_total_rss_bytes": 5800583168,
+        "memory_samples": 47070,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 2405980381
+    },
+    "opponent-surrogate-collection-v1-6p-4-8": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-6p-4-8",
+        "players": 6,
+        "start": 4,
+        "end": 8,
+        "split": "train",
+        "games": 96,
+        "twins": 24
+      },
+      "job_id": "6add7328046eb82b1ece1da3",
+      "verified_sha256": "9083e89fbd7857f080b4c8f3ed4e13791e1c6ff7140c94c32381639631de56be",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "8db7bc99af632104d19b74f07e17910a1f52aa5d",
+        "archive_path": "archives/opponent-surrogate-collection-v1-6p-4-8.tgz",
+        "archive_sha256": "261379639d73bd2cf81c1ba67d56f5e3675a24d66cd53694c1d8c00deb2131cb",
+        "manifest_sha256": "c38a7232c4638a34db37a574df3a53a927c77eb736e1972650a5b92e27586446",
+        "archived_files": 676,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 21843,
+      "teacher_rollouts": 1776816,
+      "public_replays": 576,
+      "runtime": {
+        "seconds": 9793.836124752648,
+        "cpu_seconds": 58233.630000000005,
+        "sampled_peak_total_rss_bytes": 5954265088,
+        "memory_samples": 46771,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 2384584373
+    },
+    "opponent-surrogate-collection-v1-6p-8-12": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-6p-8-12",
+        "players": 6,
+        "start": 8,
+        "end": 12,
+        "split": "train",
+        "games": 96,
+        "twins": 24
+      },
+      "job_id": "6add7329046eb82b1ece1da5",
+      "verified_sha256": "985838fd26fc0f3d1460c38b28c5631d41bb77b0ea4ab3858d4d1c4294aaf6fc",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "9c38726ead5911553e9027cbd01f1599878ff71d",
+        "archive_path": "archives/opponent-surrogate-collection-v1-6p-8-12.tgz",
+        "archive_sha256": "ed5e2aee4d340c1da75bd3ed362e063d2ecaa51a5efd4d18aeed0a28ec546db0",
+        "manifest_sha256": "45fb52f61dca3908e2404c5f77c664f6a1dda2fda66c0810646a7be98e7e0829",
+        "archived_files": 676,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 22089,
+      "teacher_rollouts": 1810656,
+      "public_replays": 576,
+      "runtime": {
+        "seconds": 9849.547700633295,
+        "cpu_seconds": 59411.54000000001,
+        "sampled_peak_total_rss_bytes": 6041055232,
+        "memory_samples": 47005,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 2412562644
+    },
+    "opponent-surrogate-collection-v1-6p-12-16": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-6p-12-16",
+        "players": 6,
+        "start": 12,
+        "end": 16,
+        "split": "train",
+        "games": 96,
+        "twins": 24
+      },
+      "job_id": "6add732b046eb82b1ece1da7",
+      "verified_sha256": "0fe187a8ac0865c9383733df6e059c210288dd11f618f0e855abcfa671057781",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "84cc737f02e4df92ec2ec27f648fc27919526549",
+        "archive_path": "archives/opponent-surrogate-collection-v1-6p-12-16.tgz",
+        "archive_sha256": "d11f7b5b25377d373a16693f1f7e317111b6c1892e0968e50a0ddceaa7982c65",
+        "manifest_sha256": "faf48d2c4021d8816833b3ae1ce52663e47e0d0518dffb877047ae2f3e2a359a",
+        "archived_files": 676,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 21713,
+      "teacher_rollouts": 1765664,
+      "public_replays": 576,
+      "runtime": {
+        "seconds": 9812.665381097235,
+        "cpu_seconds": 58088.63,
+        "sampled_peak_total_rss_bytes": 5913645056,
+        "memory_samples": 46854,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 2382705684
+    },
+    "opponent-surrogate-collection-v1-6p-16-20": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-6p-16-20",
+        "players": 6,
+        "start": 16,
+        "end": 20,
+        "split": "train",
+        "games": 96,
+        "twins": 24
+      },
+      "job_id": "6add732d1e112550ce7e6a24",
+      "verified_sha256": "915971b96066728e6735782c43f5ae3743a2415cbccbe09129e5d7eef5b9b50a",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "c9a0fd55b38c397426525b59d24683c11c332419",
+        "archive_path": "archives/opponent-surrogate-collection-v1-6p-16-20.tgz",
+        "archive_sha256": "a3a9232384d48bb16148a35801794e720ac50eca2b684daeacf41ad25b4af3bf",
+        "manifest_sha256": "d10d646a1dc0217a8c8bf17ae481130120d3210dc806c0f41eebad459123311e",
+        "archived_files": 676,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 21846,
+      "teacher_rollouts": 1785616,
+      "public_replays": 576,
+      "runtime": {
+        "seconds": 9817.852559668012,
+        "cpu_seconds": 58600.31,
+        "sampled_peak_total_rss_bytes": 5944463360,
+        "memory_samples": 46836,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 2387922815
+    },
+    "opponent-surrogate-collection-v1-6p-20-24": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-6p-20-24",
+        "players": 6,
+        "start": 20,
+        "end": 24,
+        "split": "train",
+        "games": 96,
+        "twins": 24
+      },
+      "job_id": "6add732f1e112550ce7e6a26",
+      "verified_sha256": "b3ed747365abebd2a3bb2f75b8526e84ffe14ebebab7c18c7afe2048c9a07f22",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "e728154b2ce8de0b69a60b91b4f529dd4c9cc64d",
+        "archive_path": "archives/opponent-surrogate-collection-v1-6p-20-24.tgz",
+        "archive_sha256": "7f62db535c2748822344aaf5fc252e3b528b65e55ffd4fb63194c5ad4eecc894",
+        "manifest_sha256": "0e7e032d9e3ad70c0e8b2c68e197ede408f2d9c7b912327c8d17320b53604b6d",
+        "archived_files": 676,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 21639,
+      "teacher_rollouts": 1763440,
+      "public_replays": 576,
+      "runtime": {
+        "seconds": 9681.57472923398,
+        "cpu_seconds": 57368.55,
+        "sampled_peak_total_rss_bytes": 5783769088,
+        "memory_samples": 46246,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 2357005841
+    },
+    "opponent-surrogate-collection-v1-6p-24-28": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-6p-24-28",
+        "players": 6,
+        "start": 24,
+        "end": 28,
+        "split": "validation",
+        "games": 96,
+        "twins": 24
+      },
+      "job_id": "6add7332046eb82b1ece1da9",
+      "verified_sha256": "0cb95b8c1c019940f1573b4cd212b0138ecf20e9ef76c112407866b7d6110979",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "54bc79fbe7cbbb067a38d28d66a95f6463fb40fd",
+        "archive_path": "archives/opponent-surrogate-collection-v1-6p-24-28.tgz",
+        "archive_sha256": "83211d478cb850917f3515e43b506473ab509eb92abcceea3e9bf07472e89d22",
+        "manifest_sha256": "6de92f5e9b51576aa69b87ff3ffaa41eb4039dde0973dd60358dc3f891c0c273",
+        "archived_files": 676,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 21914,
+      "teacher_rollouts": 1785952,
+      "public_replays": 576,
+      "runtime": {
+        "seconds": 9748.932593065314,
+        "cpu_seconds": 57566.299999999996,
+        "sampled_peak_total_rss_bytes": 5931982848,
+        "memory_samples": 46587,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 2395250285
+    },
+    "opponent-surrogate-collection-v1-6p-28-32": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-6p-28-32",
+        "players": 6,
+        "start": 28,
+        "end": 32,
+        "split": "test",
+        "games": 96,
+        "twins": 24
+      },
+      "job_id": "6add7336046eb82b1ece1dac",
+      "verified_sha256": "d5e6adef1b2872a376d9f6e62d01387e68d822d1afa1f3a3d0644f6fcc9104b9",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "0acb922dfd08b20508a16526068b003be19227ab",
+        "archive_path": "archives/opponent-surrogate-collection-v1-6p-28-32.tgz",
+        "archive_sha256": "d7e0283f109f3f47cd69f13e630b74ca43d18b442dd352bae9d1d9277a2af7f3",
+        "manifest_sha256": "653d0534951e7036951a26c77a9afbdf9349dba72655f9ed9ead3095c38a3189",
+        "archived_files": 676,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 21851,
+      "teacher_rollouts": 1783248,
+      "public_replays": 576,
+      "runtime": {
+        "seconds": 9737.030085023493,
+        "cpu_seconds": 57856.780000000006,
+        "sampled_peak_total_rss_bytes": 6078218240,
+        "memory_samples": 46463,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 2394360117
+    },
+    "opponent-surrogate-collection-v1-5p-0-4": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-5p-0-4",
+        "players": 5,
+        "start": 0,
+        "end": 4,
+        "split": "train",
+        "games": 80,
+        "twins": 20
+      },
+      "job_id": "6add73391e112550ce7e6a2a",
+      "verified_sha256": "f126792d91e0e0d422d1eddd4dbc285a311f78cbe13fee60906ce767b08a8c6f",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "801ffe4517008601678bb864debb20ca4dc4e1ad",
+        "archive_path": "archives/opponent-surrogate-collection-v1-5p-0-4.tgz",
+        "archive_sha256": "19d37710a5c338b4d87428d0f9b95c0b32a7d0a23a815d7db4ea3593748626b5",
+        "manifest_sha256": "8a7b779b38aae2b72eb094bc7eaee59ea8c70091e27f8bed8f22f49ce51c798d",
+        "archived_files": 564,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 14661,
+      "teacher_rollouts": 1204976,
+      "public_replays": 480,
+      "runtime": {
+        "seconds": 7124.245366402902,
+        "cpu_seconds": 36783.35,
+        "sampled_peak_total_rss_bytes": 5821820928,
+        "memory_samples": 33911,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 1480254639
+    },
+    "opponent-surrogate-collection-v1-5p-4-8": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-5p-4-8",
+        "players": 5,
+        "start": 4,
+        "end": 8,
+        "split": "train",
+        "games": 80,
+        "twins": 20
+      },
+      "job_id": "6add733d1e112550ce7e6a2c",
+      "verified_sha256": "699c8066bc87e62ebb63d84b05f47f70d3d09bf11731a990657913ce0d70d5e7",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "f45a495d6ad45a7fd97caa57a6b46745ec96c496",
+        "archive_path": "archives/opponent-surrogate-collection-v1-5p-4-8.tgz",
+        "archive_sha256": "b85bcecc8d6701784291e7f06717b0fb5b09d0dec8124889b95027e4baeba4f1",
+        "manifest_sha256": "2a00f2c23a016ebe037d66685c77fb8ad332dac92dbafcef3e4d5f0c05b0f2be",
+        "archived_files": 564,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 14573,
+      "teacher_rollouts": 1202176,
+      "public_replays": 480,
+      "runtime": {
+        "seconds": 3967.3267712669985,
+        "cpu_seconds": 28423.92,
+        "sampled_peak_total_rss_bytes": 5959294976,
+        "memory_samples": 19128,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 1467018575
+    },
+    "opponent-surrogate-collection-v1-5p-8-12": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-5p-8-12",
+        "players": 5,
+        "start": 8,
+        "end": 12,
+        "split": "train",
+        "games": 80,
+        "twins": 20
+      },
+      "job_id": "6add7340046eb82b1ece1db0",
+      "verified_sha256": "14e96eb836e67a27577a1aef45a8057fbc8673d69476cbf229cbb9db57b53191",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "8c12b8ae0e6d1e351ede95d5c36a6e28135c66a5",
+        "archive_path": "archives/opponent-surrogate-collection-v1-5p-8-12.tgz",
+        "archive_sha256": "53af30aa0b485b6527800de46d3c43bbdf883c1450e42ee01d90b2f8db3a51f5",
+        "manifest_sha256": "179af2d6f7757f6cbe92fbe4298c8782e0b9d103f3adefdfe3915cc4b1ca4c34",
+        "archived_files": 564,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 14818,
+      "teacher_rollouts": 1223872,
+      "public_replays": 480,
+      "runtime": {
+        "seconds": 3555.183122934075,
+        "cpu_seconds": 27351.11,
+        "sampled_peak_total_rss_bytes": 5865414656,
+        "memory_samples": 17303,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 1514491016
+    },
+    "opponent-surrogate-collection-v1-5p-12-16": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-5p-12-16",
+        "players": 5,
+        "start": 12,
+        "end": 16,
+        "split": "train",
+        "games": 80,
+        "twins": 20
+      },
+      "job_id": "6add7344046eb82b1ece1db2",
+      "verified_sha256": "cc9457946caea49404bb260238f31aff442a6dfe9f89fa27ff3fbb339ac05b5b",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "a2b1a4cd8beee16db2db27712b828a510f23af47",
+        "archive_path": "archives/opponent-surrogate-collection-v1-5p-12-16.tgz",
+        "archive_sha256": "53126c37a8f9949e37a791061a3e076e47081eab3f93492a02a91bdfb1ad3f47",
+        "manifest_sha256": "148100ccbc4acd50ae3841acc67fb1bbf2e15b3182cb90c5ff6b9296e82d43be",
+        "archived_files": 564,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 14933,
+      "teacher_rollouts": 1224144,
+      "public_replays": 480,
+      "runtime": {
+        "seconds": 4110.815232066998,
+        "cpu_seconds": 28811.04,
+        "sampled_peak_total_rss_bytes": 5889613824,
+        "memory_samples": 19877,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 1517671560
+    },
+    "opponent-surrogate-collection-v1-5p-16-20": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-5p-16-20",
+        "players": 5,
+        "start": 16,
+        "end": 20,
+        "split": "train",
+        "games": 80,
+        "twins": 20
+      },
+      "job_id": "6add7349046eb82b1ece1db4",
+      "verified_sha256": "488080698b61b50f361a0375a84c3ddfa501759bc5ad16fbb472f3fe9cc40534",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "022350c21976fa0dfe300753632128306594b180",
+        "archive_path": "archives/opponent-surrogate-collection-v1-5p-16-20.tgz",
+        "archive_sha256": "af12dde73ed1dce0c0d9c90b6a7bc2e2f05a10abb3df03d52bf1c2f66ce0597f",
+        "manifest_sha256": "834abea2492cc1a12c194a42f2391840a1feac365c3c1f861933c69983d1469b",
+        "archived_files": 564,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 14691,
+      "teacher_rollouts": 1205264,
+      "public_replays": 480,
+      "runtime": {
+        "seconds": 6885.265372525901,
+        "cpu_seconds": 36981.219999999994,
+        "sampled_peak_total_rss_bytes": 5710024704,
+        "memory_samples": 32757,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 1496849672
+    },
+    "opponent-surrogate-collection-v1-5p-20-24": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-5p-20-24",
+        "players": 5,
+        "start": 20,
+        "end": 24,
+        "split": "train",
+        "games": 80,
+        "twins": 20
+      },
+      "job_id": "6add734e046eb82b1ece1db6",
+      "verified_sha256": "fe1a1c028216bc44b23ee645210152c415aedc763c3dd9f30261e0b8f7c3441d",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "e1640d4497fd94c5e569d5f2d91b4f7b517277d0",
+        "archive_path": "archives/opponent-surrogate-collection-v1-5p-20-24.tgz",
+        "archive_sha256": "7cda7b395e6629ea7a669fba96995869cf9e31586519702e511c02abaa108f23",
+        "manifest_sha256": "ca3103e050772ad3b866dfe3c381401e1d4b7edb58011923bd29a0ced7977500",
+        "archived_files": 564,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 14798,
+      "teacher_rollouts": 1218784,
+      "public_replays": 480,
+      "runtime": {
+        "seconds": 3621.6706851649797,
+        "cpu_seconds": 27387.249999999996,
+        "sampled_peak_total_rss_bytes": 5933891584,
+        "memory_samples": 17610,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 1507477125
+    },
+    "opponent-surrogate-collection-v1-5p-24-28": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-5p-24-28",
+        "players": 5,
+        "start": 24,
+        "end": 28,
+        "split": "validation",
+        "games": 80,
+        "twins": 20
+      },
+      "job_id": "6add7352046eb82b1ece1db8",
+      "verified_sha256": "4d0355ba2ed8066a2546c3435fada11ce2d99c9b6a32644dfd6ee0df57de8623",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "89c023ba662dc28cf1c278951e6ef3781e412c64",
+        "archive_path": "archives/opponent-surrogate-collection-v1-5p-24-28.tgz",
+        "archive_sha256": "8dd5c2135eed7a7511559df08a6f537c80e9760e95b2bdc32d60e1522e1d1e8d",
+        "manifest_sha256": "8be005f379a329e7bcebfd77d6995076819b1f3be078cb5ceff0878a1d5e0d3f",
+        "archived_files": 564,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 14887,
+      "teacher_rollouts": 1224704,
+      "public_replays": 480,
+      "runtime": {
+        "seconds": 7097.914286841638,
+        "cpu_seconds": 36890.689999999995,
+        "sampled_peak_total_rss_bytes": 5727985664,
+        "memory_samples": 33728,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 1529808522
+    },
+    "opponent-surrogate-collection-v1-5p-28-32": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-5p-28-32",
+        "players": 5,
+        "start": 28,
+        "end": 32,
+        "split": "test",
+        "games": 80,
+        "twins": 20
+      },
+      "job_id": "6add7358046eb82b1ece1dba",
+      "verified_sha256": "8f3591e66248e99a59343c83542063600b50e5c027de74de3ccba89077714dc7",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "148287286e8d582e4070ea5e31a44971d4fef3fe",
+        "archive_path": "archives/opponent-surrogate-collection-v1-5p-28-32.tgz",
+        "archive_sha256": "900ac5823fcbb62f92cf961b40ec10f1d6fc1663ab7ed560e23a34557b900247",
+        "manifest_sha256": "1bfdc6a830696e83a9012621f3b78e954217823d2afcf926f9d4c733a404c569",
+        "archived_files": 564,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 14803,
+      "teacher_rollouts": 1217440,
+      "public_replays": 480,
+      "runtime": {
+        "seconds": 3553.4009092929773,
+        "cpu_seconds": 27121.06,
+        "sampled_peak_total_rss_bytes": 5912043520,
+        "memory_samples": 17280,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 1504464473
+    },
+    "opponent-surrogate-collection-v1-4p-0-4": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-4p-0-4",
+        "players": 4,
+        "start": 0,
+        "end": 4,
+        "split": "train",
+        "games": 64,
+        "twins": 16
+      },
+      "job_id": "6add735d046eb82b1ece1dbc",
+      "verified_sha256": "b0cf2612261ae6af0f14a354a7438a9875f3ca2971172c106ef8957c463e3a60",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "33ccc867e7727fbe0016971b23ca7ff5da8b9175",
+        "archive_path": "archives/opponent-surrogate-collection-v1-4p-0-4.tgz",
+        "archive_sha256": "7ee1e1bf98cc1c7b948c8552945452b4a1bc998b673a7438917b384bf580f291",
+        "manifest_sha256": "d8448fb555a517cdb02fb2ed5833f2d74a69c84738ff0737b9539644e0041d7c",
+        "archived_files": 452,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 9532,
+      "teacher_rollouts": 782304,
+      "public_replays": 384,
+      "runtime": {
+        "seconds": 2854.462514242001,
+        "cpu_seconds": 19239.71,
+        "sampled_peak_total_rss_bytes": 5590241280,
+        "memory_samples": 13706,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 925484288
+    },
+    "opponent-surrogate-collection-v1-4p-4-8": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-4p-4-8",
+        "players": 4,
+        "start": 4,
+        "end": 8,
+        "split": "train",
+        "games": 64,
+        "twins": 16
+      },
+      "job_id": "6add7363046eb82b1ece1dbe",
+      "verified_sha256": "9c8fd69d9214ec54ff966041a0ad9d4bcb72a9eba2cde105a9d52f62ffbf99fe",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "6cf70d583faf8dad5bdaa53030c4a9fef6e05a00",
+        "archive_path": "archives/opponent-surrogate-collection-v1-4p-4-8.tgz",
+        "archive_sha256": "dfa3a1e148e0fe1977cb8a2bda630ed186ad310dfd429d1b2a941601468e0c7c",
+        "manifest_sha256": "d82e6a98aa4cc5b2615bb2233ff85d44d77566be2881b4cc25c59bed328d5231",
+        "archived_files": 452,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 9748,
+      "teacher_rollouts": 806480,
+      "public_replays": 384,
+      "runtime": {
+        "seconds": 2597.0662770889903,
+        "cpu_seconds": 18219.7,
+        "sampled_peak_total_rss_bytes": 5704458240,
+        "memory_samples": 12483,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 953391291
+    },
+    "opponent-surrogate-collection-v1-4p-8-12": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-4p-8-12",
+        "players": 4,
+        "start": 8,
+        "end": 12,
+        "split": "train",
+        "games": 64,
+        "twins": 16
+      },
+      "job_id": "6add736a1e112550ce7e6a30",
+      "verified_sha256": "f6bd116731f775cf9225aad9805297ef4a70180af1231d2d96dd27090d87889d",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "2f4de31c7e799384ac4a53e3f60c07e9cbd9fc66",
+        "archive_path": "archives/opponent-surrogate-collection-v1-4p-8-12.tgz",
+        "archive_sha256": "c701dbb186dc78827879176f8d3bd3274b9933ef8f72baf58cd4d7c6e2efc819",
+        "manifest_sha256": "30e3e6c290df0b761ca0bb2c65b90bd271c18e63d6e987893faefcb8c403baf8",
+        "archived_files": 452,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 9516,
+      "teacher_rollouts": 785600,
+      "public_replays": 384,
+      "runtime": {
+        "seconds": 1897.0307995059993,
+        "cpu_seconds": 14508.35,
+        "sampled_peak_total_rss_bytes": 5923561472,
+        "memory_samples": 9219,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 923405719
+    },
+    "opponent-surrogate-collection-v1-4p-12-16": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-4p-12-16",
+        "players": 4,
+        "start": 12,
+        "end": 16,
+        "split": "train",
+        "games": 64,
+        "twins": 16
+      },
+      "job_id": "6add73701e112550ce7e6a32",
+      "verified_sha256": "f958d2f039adb35a8a0854e4f1e50acb324bce6ca1e0d603915899d3b576e342",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "c8840be094c089de677fb1ff940155a1564e8f15",
+        "archive_path": "archives/opponent-surrogate-collection-v1-4p-12-16.tgz",
+        "archive_sha256": "f3e5427e1033d6aee18d2693e894e20617a662c0eeec6f071d9d1649a8eedd4d",
+        "manifest_sha256": "ad29af0b2609d6c0d91b9cd1b000f46e1c1484ebc6911f84af4a204a00b228dd",
+        "archived_files": 452,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 9527,
+      "teacher_rollouts": 788752,
+      "public_replays": 384,
+      "runtime": {
+        "seconds": 1823.669619616001,
+        "cpu_seconds": 13704.789999999999,
+        "sampled_peak_total_rss_bytes": 5668843520,
+        "memory_samples": 8876,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 910382151
+    },
+    "opponent-surrogate-collection-v1-4p-16-20": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-4p-16-20",
+        "players": 4,
+        "start": 16,
+        "end": 20,
+        "split": "train",
+        "games": 64,
+        "twins": 16
+      },
+      "job_id": "6add7377046eb82b1ece1dc0",
+      "verified_sha256": "d90ede3c19cb870790f88c474d60612c68aae7a6ebf70915e57484fb6e64aa9a",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "b1171634fc84f75b733815cc0adb72079ea5689a",
+        "archive_path": "archives/opponent-surrogate-collection-v1-4p-16-20.tgz",
+        "archive_sha256": "c8021e8e1921716d0b416e12997e941a8feea64bbe7069abba508796313b70e1",
+        "manifest_sha256": "1d7a4f7c00797984fa14c5e2b267942b783bfdfa708d2a93924ae7e32aa1ec3d",
+        "archived_files": 452,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 9472,
+      "teacher_rollouts": 779376,
+      "public_replays": 384,
+      "runtime": {
+        "seconds": 2639.51946225499,
+        "cpu_seconds": 18445.51,
+        "sampled_peak_total_rss_bytes": 5575720960,
+        "memory_samples": 12653,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 906558365
+    },
+    "opponent-surrogate-collection-v1-4p-20-24": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-4p-20-24",
+        "players": 4,
+        "start": 20,
+        "end": 24,
+        "split": "train",
+        "games": 64,
+        "twins": 16
+      },
+      "job_id": "6add737e046eb82b1ece1dc2",
+      "verified_sha256": "f1f050d6061253a13ac0d050bc4c16aaac032e3111c2cd399b72dcfbf34ff81b",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "daba139a27946d0e5a69f7ce7389b94b58689eae",
+        "archive_path": "archives/opponent-surrogate-collection-v1-4p-20-24.tgz",
+        "archive_sha256": "d52c8a38597ce8cbe6a2d8b5c14921c44b5aaba87d80481418555aaa121ae58f",
+        "manifest_sha256": "15a5d06c88b4b4b9f5860260ca859857e0a270d5eca71a9c0077523fbe917d02",
+        "archived_files": 452,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 9365,
+      "teacher_rollouts": 770800,
+      "public_replays": 384,
+      "runtime": {
+        "seconds": 1876.274216093996,
+        "cpu_seconds": 14272.2,
+        "sampled_peak_total_rss_bytes": 5728116736,
+        "memory_samples": 9117,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 897657791
+    },
+    "opponent-surrogate-collection-v1-4p-24-28": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-4p-24-28",
+        "players": 4,
+        "start": 24,
+        "end": 28,
+        "split": "validation",
+        "games": 64,
+        "twins": 16
+      },
+      "job_id": "6add73851e112550ce7e6a36",
+      "verified_sha256": "c88f5922d5e0c8ea56c0a0a27d88ba4097850612999edfe93eca560493cca49f",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "cdebb1b0baea5a787b9dcad34292f2c81e9e9ecc",
+        "archive_path": "archives/opponent-surrogate-collection-v1-4p-24-28.tgz",
+        "archive_sha256": "c0b075950905d264fa867e4c125b9cd391ad6a284b1421ed9afca2cbbffe3675",
+        "manifest_sha256": "ba09135e2e82f5bec636dc0b0cc3f5e983594b6415d930d7b5b6636ef3a1c3eb",
+        "archived_files": 452,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 9693,
+      "teacher_rollouts": 796480,
+      "public_replays": 384,
+      "runtime": {
+        "seconds": 2924.664951437,
+        "cpu_seconds": 19522.44,
+        "sampled_peak_total_rss_bytes": 5821124608,
+        "memory_samples": 14046,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 949700019
+    },
+    "opponent-surrogate-collection-v1-4p-28-32": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-4p-28-32",
+        "players": 4,
+        "start": 28,
+        "end": 32,
+        "split": "test",
+        "games": 64,
+        "twins": 16
+      },
+      "job_id": "6add738c1e112550ce7e6a38",
+      "verified_sha256": "2949d649be28dc50ffde71c9dcf8264cd368eb81d247809ad654006e98c155e4",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "196a864c1b82f26ffd8711ef3ca4ff75968aada2",
+        "archive_path": "archives/opponent-surrogate-collection-v1-4p-28-32.tgz",
+        "archive_sha256": "403368682eb732ac21a575190db4b5fab3a4c892aabdb2017cffb85af3aae38b",
+        "manifest_sha256": "7c30b5eaa942116ff74d0d499e84f197da7dd35d0e05fe624abbc2b57b229da3",
+        "archived_files": 452,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 9713,
+      "teacher_rollouts": 801136,
+      "public_replays": 384,
+      "runtime": {
+        "seconds": 1822.0284124030004,
+        "cpu_seconds": 13837.41,
+        "sampled_peak_total_rss_bytes": 5742260224,
+        "memory_samples": 8871,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 943255915
+    },
+    "opponent-surrogate-collection-v1-3p-0-4": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-3p-0-4",
+        "players": 3,
+        "start": 0,
+        "end": 4,
+        "split": "train",
+        "games": 48,
+        "twins": 12
+      },
+      "job_id": "6add73941e112550ce7e6a3a",
+      "verified_sha256": "4fe6ead8dff6b9aff2cda64f4c4e2a4cac7d25d1f350629ef0d315dc7ead354c",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "6a9da17406f86019f1bd37d298a18c78046fd772",
+        "archive_path": "archives/opponent-surrogate-collection-v1-3p-0-4.tgz",
+        "archive_sha256": "95b7bb3814e82cf0c91f73aefe47438abbcd37957a068ceaceda131ea4cc5906",
+        "manifest_sha256": "a43c489fa6f8a5c3b948965e9ea3727e7b10b9d649a1a502dd6c751154f735c2",
+        "archived_files": 340,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 4479,
+      "teacher_rollouts": 368016,
+      "public_replays": 288,
+      "runtime": {
+        "seconds": 881.6110688400222,
+        "cpu_seconds": 6115.379999999999,
+        "sampled_peak_total_rss_bytes": 5399142400,
+        "memory_samples": 4249,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 354642130
+    },
+    "opponent-surrogate-collection-v1-3p-4-8": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-3p-4-8",
+        "players": 3,
+        "start": 4,
+        "end": 8,
+        "split": "train",
+        "games": 48,
+        "twins": 12
+      },
+      "job_id": "6add739c1e112550ce7e6a3e",
+      "verified_sha256": "3c6c266a6359c9aecdb944f1c39b0072ac4c334f85ac4fd0538d00d6d9e78172",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "265398d320e7c414f19790cacc0034ca12ee9d73",
+        "archive_path": "archives/opponent-surrogate-collection-v1-3p-4-8.tgz",
+        "archive_sha256": "d894e41e4404282174928be70ea280adc019b2ce26ab6fcd6dd0f8afb2551f25",
+        "manifest_sha256": "83d587b43caa351cff5e841686a38c32bc47d4641140eba63ad1040183f60f50",
+        "archived_files": 340,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 4530,
+      "teacher_rollouts": 368608,
+      "public_replays": 288,
+      "runtime": {
+        "seconds": 832.3795640899989,
+        "cpu_seconds": 6035.77,
+        "sampled_peak_total_rss_bytes": 5463818240,
+        "memory_samples": 4018,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 362316755
+    },
+    "opponent-surrogate-collection-v1-3p-8-12": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-3p-8-12",
+        "players": 3,
+        "start": 8,
+        "end": 12,
+        "split": "train",
+        "games": 48,
+        "twins": 12
+      },
+      "job_id": "6add73a4046eb82b1ece1dc4",
+      "verified_sha256": "68891f11a0028fc6d6f11482cef9d0b1e7db929bf7009e1395c4fe973f32afe5",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "7e6380dd98c515f2073bf634705b186b98699e6b",
+        "archive_path": "archives/opponent-surrogate-collection-v1-3p-8-12.tgz",
+        "archive_sha256": "df338ac377706affa842af498f39c77f94f904ec0d30040fd081fd94c731e7e6",
+        "manifest_sha256": "6782e2fc89f87914d6daf5508b24acf9fc0e4b667927cf67d1c9a9092be58238",
+        "archived_files": 340,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 4788,
+      "teacher_rollouts": 393456,
+      "public_replays": 288,
+      "runtime": {
+        "seconds": 1054.2416146679898,
+        "cpu_seconds": 6842.349999999999,
+        "sampled_peak_total_rss_bytes": 5500841984,
+        "memory_samples": 5058,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 411323819
+    },
+    "opponent-surrogate-collection-v1-3p-12-16": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-3p-12-16",
+        "players": 3,
+        "start": 12,
+        "end": 16,
+        "split": "train",
+        "games": 48,
+        "twins": 12
+      },
+      "job_id": "6add73ab046eb82b1ece1dc8",
+      "verified_sha256": "df3730546ee1719630b990e2ef0bdd16836f97385dec63d87aa01e52b6ba8cbe",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "b4137c5c6e2317fbcb228b2d2d9e6f1f543c33c9",
+        "archive_path": "archives/opponent-surrogate-collection-v1-3p-12-16.tgz",
+        "archive_sha256": "b4b6423427bc5d4450294d85a7d98e385fdb368f265738e15dbbdff5641d5355",
+        "manifest_sha256": "fa6229393c8a9f0c7eacdd38b55acbc31c00988bdd79372e28a8f5c8cbb7a61c",
+        "archived_files": 340,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 4790,
+      "teacher_rollouts": 390880,
+      "public_replays": 288,
+      "runtime": {
+        "seconds": 932.4696166149806,
+        "cpu_seconds": 6508.4,
+        "sampled_peak_total_rss_bytes": 5398073344,
+        "memory_samples": 4495,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 399717082
+    },
+    "opponent-surrogate-collection-v1-3p-16-20": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-3p-16-20",
+        "players": 3,
+        "start": 16,
+        "end": 20,
+        "split": "train",
+        "games": 48,
+        "twins": 12
+      },
+      "job_id": "6add73b31e112550ce7e6a42",
+      "verified_sha256": "de543cc5a42ed0965fc8f8ad2459a09080be05d3a1124fc385c6651f1cd3ea2f",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "9cc8fc699c6ec1c9eb100cb849b698dd96c285f2",
+        "archive_path": "archives/opponent-surrogate-collection-v1-3p-16-20.tgz",
+        "archive_sha256": "8ad40468a27f4cb0acb8bd8841cf854467234a526a5c4da5cbae6756183520c6",
+        "manifest_sha256": "9d18cc93c707064c47257ffe844d098d6894d15e62e76c27f0db2180c883f77f",
+        "archived_files": 340,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 4461,
+      "teacher_rollouts": 368016,
+      "public_replays": 288,
+      "runtime": {
+        "seconds": 883.468999773002,
+        "cpu_seconds": 6374.27,
+        "sampled_peak_total_rss_bytes": 5404389376,
+        "memory_samples": 4266,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 354901968
+    },
+    "opponent-surrogate-collection-v1-3p-20-24": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-3p-20-24",
+        "players": 3,
+        "start": 20,
+        "end": 24,
+        "split": "train",
+        "games": 48,
+        "twins": 12
+      },
+      "job_id": "6add73bc1e112550ce7e6a44",
+      "verified_sha256": "4d749ef64a8a31890662a963ddae26dbc2b02a02e474425f37c68f6506454d2c",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "b896163601d90510fdfa760eea564967ab3d04d2",
+        "archive_path": "archives/opponent-surrogate-collection-v1-3p-20-24.tgz",
+        "archive_sha256": "47b93734e3497cf03fd6062140106f477084d9812adc336a5e2e0a9c0e01332f",
+        "manifest_sha256": "c65de15a5bfdc577197b1846ca6b8cd11fd2fe6ea16aa01bb59f6a0725cf0901",
+        "archived_files": 340,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 4577,
+      "teacher_rollouts": 374000,
+      "public_replays": 288,
+      "runtime": {
+        "seconds": 805.4263106460021,
+        "cpu_seconds": 5950.379999999999,
+        "sampled_peak_total_rss_bytes": 5435375616,
+        "memory_samples": 3904,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 366064501
+    },
+    "opponent-surrogate-collection-v1-3p-24-28": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-3p-24-28",
+        "players": 3,
+        "start": 24,
+        "end": 28,
+        "split": "validation",
+        "games": 48,
+        "twins": 12
+      },
+      "job_id": "6add73c41e112550ce7e6a46",
+      "verified_sha256": "7da309a4c04bc2d7cf01d3233d4444bceb3b044f48da8c0c50fac3a5972da799",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "013f94ff7358b212336772ed4883b398808ebc94",
+        "archive_path": "archives/opponent-surrogate-collection-v1-3p-24-28.tgz",
+        "archive_sha256": "cd9afb3e04c0ba192a169917e1cc3c97ebd2de10c7867df17dbd7a5499fc359c",
+        "manifest_sha256": "2733ba451fe9d4e3d2783f82822af1814e8125492f20eda8e5b6c9c90673f732",
+        "archived_files": 340,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 4496,
+      "teacher_rollouts": 368976,
+      "public_replays": 288,
+      "runtime": {
+        "seconds": 775.9729599149978,
+        "cpu_seconds": 5647.43,
+        "sampled_peak_total_rss_bytes": 5447811072,
+        "memory_samples": 3759,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 361603378
+    },
+    "opponent-surrogate-collection-v1-3p-28-32": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-3p-28-32",
+        "players": 3,
+        "start": 28,
+        "end": 32,
+        "split": "test",
+        "games": 48,
+        "twins": 12
+      },
+      "job_id": "6add73ce1e112550ce7e6a4e",
+      "verified_sha256": "59b912b1972cd8588e2280ae4d83c3486207fcbced81e1d80b7c1e86715427d8",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "be71239f9d57e8f4bac3b19aa2eacaccf00cd484",
+        "archive_path": "archives/opponent-surrogate-collection-v1-3p-28-32.tgz",
+        "archive_sha256": "d81536ed3d076e1f5a1c785d6051417bcab804393ba47fd49a349f1e94ca0a23",
+        "manifest_sha256": "ef3df79a5ffea82400777f94d3c0fb98203857068af9105132925c80d3fc43ae",
+        "archived_files": 340,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 4428,
+      "teacher_rollouts": 361904,
+      "public_replays": 288,
+      "runtime": {
+        "seconds": 843.4028470539488,
+        "cpu_seconds": 6123.83,
+        "sampled_peak_total_rss_bytes": 5470003200,
+        "memory_samples": 4053,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 347436575
+    },
+    "opponent-surrogate-collection-v1-2p-0-4": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-2p-0-4",
+        "players": 2,
+        "start": 0,
+        "end": 4,
+        "split": "train",
+        "games": 32,
+        "twins": 8
+      },
+      "job_id": "6add77a11e112550ce7e6b24",
+      "verified_sha256": "b9ff4981b44a0dc7acdaa77100db1c5e1ca980cdb6e516967a0533328773240c",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "df8bd7c6bf9ec98cb989a9e2606493359c6066f2",
+        "archive_path": "archives/opponent-surrogate-collection-v1-2p-0-4.tgz",
+        "archive_sha256": "d0e33ba45bedf598e30e7aefcb20a269786c6eaf504ae26c56814e23c706e896",
+        "manifest_sha256": "672c359bf255115f2f99536d7c9403cda8349490f9d54d7bb3744f70cfb8066a",
+        "archived_files": 228,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 1568,
+      "teacher_rollouts": 126240,
+      "public_replays": 192,
+      "runtime": {
+        "seconds": 269.8796120049992,
+        "cpu_seconds": 2023.76,
+        "sampled_peak_total_rss_bytes": 5370667008,
+        "memory_samples": 1312,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 110919361
+    },
+    "opponent-surrogate-collection-v1-2p-4-8": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-2p-4-8",
+        "players": 2,
+        "start": 4,
+        "end": 8,
+        "split": "train",
+        "games": 32,
+        "twins": 8
+      },
+      "job_id": "6add77ab1e112550ce7e6b29",
+      "verified_sha256": "37540a48453c7174f9a654bb5067c394f6fe87b3955ba0fa42de3751c5d7cee7",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "7322bc8ab350a855deaf52a8eafaa5222b8dab83",
+        "archive_path": "archives/opponent-surrogate-collection-v1-2p-4-8.tgz",
+        "archive_sha256": "e910b676d360fc5eb706e0f1ebdd039a0ee60bb9ffa943ef41d0cb012b127389",
+        "manifest_sha256": "ed68f969a9ebd84535bf3ab024878ffbb5dea7cd15e1b4de08b00d6fa6e653f5",
+        "archived_files": 228,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 1653,
+      "teacher_rollouts": 133936,
+      "public_replays": 192,
+      "runtime": {
+        "seconds": 333.9714345849352,
+        "cpu_seconds": 2512.56,
+        "sampled_peak_total_rss_bytes": 5403971584,
+        "memory_samples": 1618,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 119526902
+    },
+    "opponent-surrogate-collection-v1-2p-8-12": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-2p-8-12",
+        "players": 2,
+        "start": 8,
+        "end": 12,
+        "split": "train",
+        "games": 32,
+        "twins": 8
+      },
+      "job_id": "6add77b61e112550ce7e6b2b",
+      "verified_sha256": "f281a8592b0eb80d7b30e30ac25b9db89f0097c349041650c3e20dea367f43b9",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "4be55470692de980923734273a5b719ec2df9db4",
+        "archive_path": "archives/opponent-surrogate-collection-v1-2p-8-12.tgz",
+        "archive_sha256": "bda7f55ca1d0458c2f4e852bc4c7bab117818454f3cdd90d7e72687b619f8ade",
+        "manifest_sha256": "ad70ad697564731108c62f380995a431f014efe932bac383729ebcebc261141f",
+        "archived_files": 228,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 1532,
+      "teacher_rollouts": 124784,
+      "public_replays": 192,
+      "runtime": {
+        "seconds": 307.9429530429916,
+        "cpu_seconds": 2254.2699999999995,
+        "sampled_peak_total_rss_bytes": 5418307584,
+        "memory_samples": 1499,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 102671855
+    },
+    "opponent-surrogate-collection-v1-2p-12-16": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-2p-12-16",
+        "players": 2,
+        "start": 12,
+        "end": 16,
+        "split": "train",
+        "games": 32,
+        "twins": 8
+      },
+      "job_id": "6add77c0046eb82b1ece1e50",
+      "verified_sha256": "eb2ead6abfe785b35352b7561f3f36ce41a3c57fcf64510b700a0ae94a1f6761",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "d82d5cde2aefa721d29d15e10361b4c58bea23d9",
+        "archive_path": "archives/opponent-surrogate-collection-v1-2p-12-16.tgz",
+        "archive_sha256": "44fe9e0d8284eab80a658fc08c023d4eb1867cf5eeedfdae50e242fdaacc72f6",
+        "manifest_sha256": "956987b12c7dcf281995c5746c31d7c7f44ae7bf418986347237a2461a2120ad",
+        "archived_files": 228,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 1566,
+      "teacher_rollouts": 127216,
+      "public_replays": 192,
+      "runtime": {
+        "seconds": 319.3588790410431,
+        "cpu_seconds": 2404.9100000000003,
+        "sampled_peak_total_rss_bytes": 5383798784,
+        "memory_samples": 1549,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 111438751
+    },
+    "opponent-surrogate-collection-v1-2p-16-20": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-2p-16-20",
+        "players": 2,
+        "start": 16,
+        "end": 20,
+        "split": "train",
+        "games": 32,
+        "twins": 8
+      },
+      "job_id": "6add77cb046eb82b1ece1e54",
+      "verified_sha256": "5c295517ec87e3feca63d505d7e5fca56048cfd322e6d523fb68b20527d5b092",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "e301a4d16104aad5db34e8e337f330a812f8737d",
+        "archive_path": "archives/opponent-surrogate-collection-v1-2p-16-20.tgz",
+        "archive_sha256": "214971767c6e1ecf95cacb75eb4b30b9d2eaed4fc9ec01e65bba040df39d154c",
+        "manifest_sha256": "7759d3dcefe183e720025f9cfe601386f8df5bc967179124e58768c7b06e3018",
+        "archived_files": 228,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 1498,
+      "teacher_rollouts": 120672,
+      "public_replays": 192,
+      "runtime": {
+        "seconds": 214.88741472299444,
+        "cpu_seconds": 1583.33,
+        "sampled_peak_total_rss_bytes": 5405405184,
+        "memory_samples": 1050,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 103915604
+    },
+    "opponent-surrogate-collection-v1-2p-20-24": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-2p-20-24",
+        "players": 2,
+        "start": 20,
+        "end": 24,
+        "split": "train",
+        "games": 32,
+        "twins": 8
+      },
+      "job_id": "6add78aa046eb82b1ece1e9a",
+      "verified_sha256": "8cb5a034552102e8565d90d5ff4dead969a9b7cd8f2fe87ec18a1743b8f991a2",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "9c55093ccb6f9bfbb0239b6e72d9ebeeea774846",
+        "archive_path": "archives/opponent-surrogate-collection-v1-2p-20-24.tgz",
+        "archive_sha256": "f85d8675bf0225e665f79fe5e191ddd21ab31e63d07e4d2c783f410ff62cf18c",
+        "manifest_sha256": "023514a5ff541e8c5264bb9c7b239637f47824cc33cc349147e3f61660854941",
+        "archived_files": 228,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 1582,
+      "teacher_rollouts": 127968,
+      "public_replays": 192,
+      "runtime": {
+        "seconds": 265.6537802160019,
+        "cpu_seconds": 1965.1000000000001,
+        "sampled_peak_total_rss_bytes": 5365305344,
+        "memory_samples": 1295,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 110615670
+    },
+    "opponent-surrogate-collection-v1-2p-24-28": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-2p-24-28",
+        "players": 2,
+        "start": 24,
+        "end": 28,
+        "split": "validation",
+        "games": 32,
+        "twins": 8
+      },
+      "job_id": "6add78b7046eb82b1ece1ea4",
+      "verified_sha256": "418ade204f2f139f2d316ff6e8b7f3d201e5ea9eeb4f4d0ba55a21d8305556e5",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "7ba09f6c6614ae64d9f949c6195e56256e5372a2",
+        "archive_path": "archives/opponent-surrogate-collection-v1-2p-24-28.tgz",
+        "archive_sha256": "de2a90178c97c0f01e0d5b73abb3fb2873ab3f2535b2f92a78276db29168e708",
+        "manifest_sha256": "3b3829dd8bda7be52885bec1336cd169c3eec33744186e86f80ff8179f76bfb2",
+        "archived_files": 228,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 1553,
+      "teacher_rollouts": 124992,
+      "public_replays": 192,
+      "runtime": {
+        "seconds": 229.0661579660009,
+        "cpu_seconds": 1685.3200000000002,
+        "sampled_peak_total_rss_bytes": 5375840256,
+        "memory_samples": 1119,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 106660729
+    },
+    "opponent-surrogate-collection-v1-2p-28-32": {
+      "row": {
+        "case": "opponent-surrogate-collection-v1-2p-28-32",
+        "players": 2,
+        "start": 28,
+        "end": 32,
+        "split": "test",
+        "games": 32,
+        "twins": 8
+      },
+      "job_id": "6add78c31e112550ce7e6baa",
+      "verified_sha256": "4857112581c4d736e9449db53705bfbf43efbbce92db06d23a5f28f3b8ba7ff5",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "8286a59a91d54463e825fcb3a52e00c190dde5bd",
+        "archive_path": "archives/opponent-surrogate-collection-v1-2p-28-32.tgz",
+        "archive_sha256": "c19367f5ced4440c141a8a4507000e91f3c39d226cf04a8ceae9da153e6feb82",
+        "manifest_sha256": "33efb166c56c48ad063d900124ca5badfa7ff53c5e9e16263882c0b82a4b460b",
+        "archived_files": 228,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "teacher_rows": 1565,
+      "teacher_rollouts": 125600,
+      "public_replays": 192,
+      "runtime": {
+        "seconds": 232.09070491099556,
+        "cpu_seconds": 1721.47,
+        "sampled_peak_total_rss_bytes": 5345083392,
+        "memory_samples": 1135,
+        "memory_sampling_period_seconds": 0.2
+      },
+      "raw_evidence_bytes": 108373695
+    }
+  },
+  "source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "archive": "strong-source-opponent-surrogate-v1.tgz",
+    "sha256": "7d88c611a50ccf69b0877550bbdf113b23d410cca71c5219acf90414def4d5ec",
+    "bytes": 109543774,
+    "manifest_sha256": "612ca87872f252b456e74a8439b59a259ff7e2f1668b11b50aafd4ea48ed9346",
+    "manifest_files": 1472,
+    "protocol_sha256": "1edacdf5359c821139fac6561397958b7ae8e4fcc7a617565a1da75c4c5a26e8",
+    "base": {
+      "repo": "coyotte508/powergrid-ai-training-v1",
+      "archive": "strong-source-population-hybrid-development-20261024-v1.tgz",
+      "revision": "cdec1d3079eb9a54b776f6237ec5f93cc1de84d8",
+      "sha256": "ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23",
+      "files": 1463
+    },
+    "unchanged_base_files": 1463,
+    "new_files": {
+      "ai/strong/capture-reference-opponent-v1.cjs": "aee63bf2e6c1279c1f971e674fce1f70f30351b2dbe4c2934e545db9c3278c16",
+      "ai/strong/verify-opponent-surrogate-collection-v1.cjs": "a1da92b71498b36b26d6da88c3f80d1e5ea4b85c8a42e003b96af67656efc5bf",
+      "ai/strong/opponent_surrogate_collection_v1.py": "565a7673231df7b809f9404b8f59b627b413e2efbcf8cc649be0b27cf9cb959a",
+      "ai/strong/opponent-surrogate-collection-protocol-v1.json": "1edacdf5359c821139fac6561397958b7ae8e4fcc7a617565a1da75c4c5a26e8",
+      "ai/strong/opponent-surrogate-collection-job-v1.py": "6600921fcda11b7b5ea38121a53a118996dea976d4d1b08aab1109a8736aab70",
+      "ai/strong/test_opponent_surrogate_collection_v1.py": "529b6ff1fed9559839b25747fce2ca1154c525f011e5a5629837786603328ac8",
+      "ai/strong/test_opponent_surrogate_job_v1.py": "057e9c788a3d878aff2117b2c33770f37b62817a3ef1e4fd3e18fd9058e72895",
+      "ai/strong/build-opponent-surrogate-source-v1.py": "4bbf63a8d56f136b37da0f004fabe1dd92b2c053f5ea6b3c4bad00f2c383d7f6",
+      "ai/strong/reference-opponent-capture-evidence-v1.json": "8532b70251ad26ad0f60b47f054be99bffffa4a6408118a340c5a65b1b049054"
+    },
+    "preflight_sha256": "f7f0fd4fd9040326ea1adc8b10aca6fc91fd484d6f0cf387ede226f38a38a4c1",
+    "collection_admitted": false,
+    "runtime_admitted": false,
+    "new_hf_jobs": 0,
+    "gradients": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false,
+    "revision": "6d16cd796ce391b94326d31654866c2aae66769c",
+    "remote_archive_verified": true
+  },
+  "plan_sha256": "6306a000da35b79d67e6eb4bdbacad922d95cd65fb5cd7a889d93d315c6ef43b",
+  "protocol_sha256": "1edacdf5359c821139fac6561397958b7ae8e4fcc7a617565a1da75c4c5a26e8",
+  "code_hashes": {
+    "ai/strong/launch-opponent-surrogate-collection-v1.py": "943031836ebe9d1dfef0968fdd8a129bd8c58f54585d59f85902e10fc9d7951e",
+    "ai/strong/launch-opponent-surrogate-runtime-v1.py": "7f1af8aab9fb0db741f3c0d00ae77e20c03854c858a9794211c97d700aebe354",
+    "ai/strong/collect-opponent-surrogate-calibration-v1.py": "8e7f0e5f8bce7e7b11952b3fcae96fbb035a5c335359b2be76ce1149dbe736fc",
+    "ai/strong/collect-opponent-surrogate-runtime-v1.py": "23c046860e87a2c3f6c8872dde04c14017dff593f0599ac2ab140d38119cd77d",
+    "ai/strong/opponent_surrogate_verification_v1.py": "5ae58ab1f50368868b7ff7be24b5c9ff18c46f2cc89ff9511fcdbf270d464387",
+    "ai/strong/opponent_surrogate_collection_v1.py": "565a7673231df7b809f9404b8f59b627b413e2efbcf8cc649be0b27cf9cb959a",
+    "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+    "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+    "ai/strong/manage-opponent-surrogate-collection-v1.py": "e8123d5a2a1261d2829451b5f93fa253ac1b145961338615d4f70c37dd2b8dfc"
+  },
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "scope": "Complete public opponent-behaviour corpus. Whole-deal splits are fixed; test labels cannot select models. Every raw archive remains pinned at its immutable HF revision/hash. This is not evidence of playing-strength improvement."
+}

@@ -6,7 +6,89 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 05:59 UTC: source packaging and selected-opponent timing ready.**
+**Latest — 25 October, 06:10 UTC: complete collection indexed; training data preparation running.**
+
+The original collection coordinator finished and exited normally at **06:08:27
+UTC**. Its complete index now verifies **2,560 games / 640 exact twins / 418,686
+teacher rows / 34,306,096 teacher rollouts**, all 40 unique original jobs and all
+180 split/count/rule/phase groups. Whole-deal splits: **1,920 training, 320
+validation, 320 held-out test games**. Each original raw archive stays pinned to
+its own immutable private HF revision and digest. Index:
+`strong/opponent-surrogate-collection-results-v1.json`, SHA256
+`1e7cfb2ddd9c160fe0bc1dfdff08f0da38a0641ee51e3e012b6bc41a0229c83e`.
+Do not restart original PID 2009367 / session 80214.
+
+Original training coordinator **PID 2825298 / session 39111** began `prepare_data`
+at **06:08:36 UTC**, with child **PID 3098617** directly observed running. Its log
+is `ai/runs/opponent-surrogate-training-coordinator-v1/prepare_data.log` and output
+is `ai/runs/opponent-surrogate-training-data-v1`. Let this owner finish all stages;
+do not run them manually alongside it. No GPU job or gradient update yet at this
+checkpoint. All 30 pinned execution files remain unchanged. Test labels remain
+excluded from training and selection. This completes collection, not model quality.
+
+Completion checkpoint: `ai/runs/opponent-surrogate-collection-complete-checkpoint-v1.json`, SHA256 `3f6d470453e0d1a1a458789bc1510fd95150e51269fc9e6d614d41a41949fbe1`.
+
+**Previous — 25 October, 06:07 UTC: all collection jobs complete; full-study management ready.**
+
+All **40 original opponent-data jobs have completed**, and every shard has a
+verified receipt. The last seven original handles were directly inspected as
+COMPLETED. Original coordinator **PID 2009367 / session 80214** is alive in
+`indexing` (40 verified, no failures), independently rechecking the full collection
+before its combined index appears. Original training coordinator **PID 2825298 /
+session 39111** is alive, waiting for that complete index. Neither coordinator's
+pinned code changed. Do not run their stages concurrently or start replacements.
+
+The complete paired-study launcher and collector are implemented:
+`strong/launch-surrogate-continuation-study-v1.py` and
+`strong/manage-surrogate-continuation-study-v1.py`. The launcher requires the actual
+selected-surrogate timing result, independently reaudits it, and binds the same
+frozen source, roots, policy, protocol and tested management code. There is no
+actual admission file, source upload or study submission yet.
+
+Every planned root has one job containing all **three modes × eight worlds × two
+actions**: **480 jobs / 23,040 continuations** over the full fixed corpus. At most
+32 run concurrently, each with eight CPU workers. The allowance uses 15 minutes
+setup plus twice the largest measured sum of all three modes on the same separate
+timing root, with 25% timeout reserve; every player count receives the global
+allowance. Memory is twice measured peak plus 4 GB. It refuses demands above the
+12-hour / 32 GB envelope. No samples, roots or search budgets are reduced to fit.
+The actual timeout cannot be admitted before the learned timing result exists.
+
+Submission keeps exclusive guards and original job handles; failures, unknown
+submissions and observation errors prevent blind replacement or further launches.
+The collector preserves logs and any partial archive from failed jobs. Completed
+capped jobs retain all modes and paired records. Indexing requires all 480 original
+jobs and invokes the existing paired analysis on every record; any cap suppresses
+aggregate estimates instead of retaining only successful cases. The full study is
+continuation-fidelity evidence, not full-game strength or deployment latency.
+
+**Eleven management tests pass**, with no network submissions or new simulations:
+actual frozen root-grid coverage, measured-resource inputs and invalid inputs,
+premature preparation refusal, launcher/collector code binding, dry runs and
+capacity, uncertain submissions, failed/unknown original handles, partial-failure
+archive retention, complete 480-record synthetic aggregation, cap retention and
+missing-job/receipt refusal. The first ten-test run is also preserved. The synthetic
+timing and aggregation fixtures do not claim actual learned-surrogate measurements.
+A code-read check corrected the collector's list/dict call boundary before testing;
+the full synthetic aggregation test exercises the real analysis call.
+
+- Preflight: `ai/runs/surrogate-continuation-study-management-preflight-v1.json`,
+  SHA256 `62f72675685facd2b80fb4e11fd2f9412401f01ae82eb57b3d73bb16f4298996`.
+- Checkpoint: `ai/runs/surrogate-continuation-study-management-checkpoint-v1.json`,
+  SHA256 `cf393f383f3706d51bafa5684e530de205c64d6dd290791a666095339efe64f3`.
+
+Next: let the original collection/training owners finish indexing, data preparation,
+HF calibration, four-seed training, audit and validation selection. After a learned
+selection, freeze full-study inputs, prepare/check/upload its source, run and collect
+the separate selected-opponent timing job, then use the new study launcher `prepare`
+and `launch-ready --execute` and manager `collect-ready` / `index`. Implement a
+single coordinator for those complete-study jobs before sustained submission; it
+must preserve all original handles and not auto-retry. Archive the complete study,
+inspect fidelity/adverse groups, then evaluate a heterogeneous hybrid on fresh
+full games and actual 8840U hardware. No new HF jobs, gradients, candidate,
+publication or reserved final seeds in this checkpoint. Goal remains active.
+
+**Previous — 25 October, 05:59 UTC: source packaging and selected-opponent timing ready.**
 
 The full-study source builder and selected-surrogate runtime runner are now
 implemented. The builder requires the actual audited validation-selected learned

@@ -6,7 +6,54 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 03:26 UTC: frozen selection and held-out evaluation pipeline implemented.**
+**Latest — 25 October, 03:48 UTC: surrogate continuation integration verified.**
+
+The separate surrogate continuation worker and Python/ONNX probe are now
+implemented and verified. Historical population and reference-search workers
+remain unchanged. The new diagnostic mode uses the frozen focal model and asks
+the opponent model only for public shortlisted strategic choices; other opponent
+moves retain the reference economic policy. It preserves the reference RNG draw
+at each replaced search decision and validates actions before changing any world.
+This mode compares all-reference and all-surrogate opponents; it is not yet the
+heterogeneous serving mixture or a selected action policy.
+
+**Five worker tests pass:** all 80 population control contexts remain exact; 60
+strategic contexts emit 1,244 public queries unchanged by valid hidden-state
+mutations; intentional caps and invalid shortlist actions are checked. Supplying
+actual reference choices reproduces states and subsequent RNG draws on five
+roots covering 2–6 players (11 nested search calls, three prior bids). Partitioning
+and malformed-input handling also pass. Initial test failures are preserved:
+legacy wall-clock metadata required a fixed test clock, and the private automation
+fixture needed its required `plans` field. No production runtime was changed.
+
+The full Python/ONNX preflight completed **40 continuations over all 20 count/rule
+combinations**, with **4,399 focal and 5,205 surrogate inference decisions**, zero
+caps. One- versus two-worker output is exact, including a separate eight-world/action
+intentional-cap check. All **1,463 frozen runtime files** and pinned dependencies
+remain unchanged. The surrogate weights were explicitly random and untrained:
+this establishes integration only, not imitation fidelity or stronger play.
+Original preflight session **62222** exited successfully and must not be restarted.
+
+Preflight: `ai/runs/surrogate-opponent-integration-preflight-v1.json`, SHA256
+`b6810d3981dd9f87da45a8bd140c0a6ee862d8cdfacdf032517d71e60b421b2a`.
+Complete local output: `ai/runs/surrogate-opponent-integration-v1`.
+Checkpoint: `ai/runs/surrogate-opponent-integration-checkpoint-v1.json`.
+At **03:47:55 UTC**, both original coordinators were alive with unchanged code:
+collection **40 submitted / 20 verified**, resource screen **54 / 49 verified**,
+no reported failures. The original six-player collection and resource/search
+handles were directly RUNNING. No new HF jobs or gradients ran in this turn.
+
+**Next:** preserve the original jobs. Finish and independently archive the complete
+resource comparison. Finish collection, prepare/package train+validation, run the
+measured HF GPU calibration and full four-seed training, then audit/freeze/evaluate
+the selected opponent model. The new continuation probe enables, but does not yet
+implement, a fresh paired reference-versus-surrogate experiment; specify its roots
+without selecting on outcomes and measure runtime before scaling exact nested
+search. Heterogeneous hybrid integration, fresh full-game strength, the exact
+selected-policy final adapter and actual 8840U hybrid validation remain required.
+No candidate, publication, final-seed use or general plateau conclusion.
+
+**Previous — 25 October, 03:26 UTC: frozen selection and held-out evaluation pipeline implemented.**
 
 Previous turn pushed `ba8feed` and started the original full collection. This turn
 implemented public-feature surrogate inference, validation-only policy selection,

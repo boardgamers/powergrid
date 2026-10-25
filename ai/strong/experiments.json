@@ -56909,6 +56909,20 @@
             "failed_jobs": [],
             "process_live": true,
             "code_hashes_match": true
+        },
+        "latest_observation": {
+            "checked_at": "2026-10-25T03:47:55.843204+00:00",
+            "state_sha256": "fb33468e6434a005aa81b4d3417eade584065a2a82a03df7060cfc1bf248fc72",
+            "pid_alive": true,
+            "code_hashes_unchanged": true,
+            "pid": 1291091,
+            "updated_at": "2026-10-25T03:46:05.575402+00:00",
+            "stage": "waiting_for_jobs",
+            "jobs_submitted": 54,
+            "jobs_verified": 49,
+            "failed_jobs": [],
+            "checkpoint": "ai/runs/surrogate-opponent-integration-checkpoint-v1.json",
+            "checkpoint_sha256": "9dd16ea331aba09234a0de5deae8966b2ab2973de231ce329b20d2eefbe25343"
         }
     },
     "reference_opponent_capture_v1": {
@@ -57286,6 +57300,20 @@
             "failed_jobs": [],
             "process_live": true,
             "code_hashes_match": true
+        },
+        "latest_observation": {
+            "checked_at": "2026-10-25T03:47:55.843204+00:00",
+            "state_sha256": "acb59ab23c7a25a053dc9235f1a0ff0be4b281dc4ce0a7b67f389006c95b0b4e",
+            "pid_alive": true,
+            "code_hashes_unchanged": true,
+            "pid": 2009367,
+            "updated_at": "2026-10-25T03:45:20.026089+00:00",
+            "stage": "waiting_for_jobs",
+            "jobs_submitted": 40,
+            "jobs_verified": 20,
+            "failed_jobs": [],
+            "checkpoint": "ai/runs/surrogate-opponent-integration-checkpoint-v1.json",
+            "checkpoint_sha256": "9dd16ea331aba09234a0de5deae8966b2ab2973de231ce329b20d2eefbe25343"
         }
     },
     "opponent_surrogate_training_v1": {
@@ -57434,8 +57462,60 @@
             "checkpoint_sha256": "f675c2c266c50f59bdb555f37f5a99fa0b94eac9298104d04adba77246b3f1e2",
             "gradients": false,
             "qualification_eligible": false,
-            "next": "After complete original HF training/audit, run select-opponent-surrogate-v1.py. If a learned policy beats the prior on validation, freeze it, then run evaluate-opponent-surrogate-heldout-v1.py prepare and evaluate. Do not tune on test. Implement/check continuation-worker integration and fresh paired reference-search continuations before fresh full-game strength.",
+            "next": "After complete original HF training/audit, select on validation only; freeze before held-out evaluation. Continuation engineering integration now passes with untrained fixture weights. Specify and run fresh paired reference-versus-surrogate continuations before heterogeneous hybrid adoption and fresh full-game strength.",
             "numerical_selection_tie_tolerance": 1e-10
         }
+    },
+    "surrogate_opponent_continuation_integration_v1": {
+        "status": "engineering_integration_verified_untrained_fixture",
+        "preflight": "ai/runs/surrogate-opponent-integration-preflight-v1.json",
+        "preflight_sha256": "b6810d3981dd9f87da45a8bd140c0a6ee862d8cdfacdf032517d71e60b421b2a",
+        "checkpoint": "ai/runs/surrogate-opponent-integration-checkpoint-v1.json",
+        "checkpoint_sha256": "9dd16ea331aba09234a0de5deae8966b2ab2973de231ce329b20d2eefbe25343",
+        "checked_at": "2026-10-25T03:47:55.842305+00:00",
+        "code_hashes": {
+            "ai/strong/surrogate-opponent-continuations-v1.cjs": "582e001232d3b07dad16b29fe6dc4b933869ccb8485c6167c185372af03c288f",
+            "ai/strong/surrogate_opponent_continuations_v1.py": "00dfc09f14a2cfe0763f7466b60cc4c9fc315daca237e917c729136bc61044b5",
+            "ai/strong/test-surrogate-opponent-continuations-v1.cjs": "df412752f0fa8b9cf840c4298e9f7fe633788e8dac8e8d6dbc98c2ce84a1a5f1",
+            "ai/strong/preflight-surrogate-opponent-integration-v1.py": "947cd3d6bf0eb55834b9402beb25c331cc6360a67aea8174cacbb13d9b1e104e"
+        },
+        "worker_tests": {
+            "tests": 5,
+            "passed": 5,
+            "control_contexts": 80,
+            "public_strategic_contexts": 60,
+            "public_queries": 1244,
+            "intentional_capped_continuations": 480,
+            "oracle_roots": 5,
+            "actual_nested_search_calls": 11,
+            "oracle_prior_bids": 3,
+            "states_and_next_rng_draws_exact": true,
+            "log": "ai/runs/surrogate-opponent-worker-tests-v1.log",
+            "log_sha256": "e37133be0c201d3fead6d48e57dd53cfaad8c4b395645beb65c0663d943999e6"
+        },
+        "integration": {
+            "status": "ai/runs/surrogate-opponent-integration-v1/status.json",
+            "status_sha256": "a624dbff1c397b0013000f30a7e4b12957e8225c56ced9ad872634e1d9bd49cf",
+            "contexts": 20,
+            "complete_continuations": 40,
+            "caps": 0,
+            "focal_inferences": 4399,
+            "surrogate_inferences": 5205,
+            "partition_exact": true,
+            "intentional_partition_caps": 8,
+            "surrogate_untrained_fixture": true,
+            "unchanged_frozen_runtime_files": 1463
+        },
+        "initial_test_failures": {
+            "log": "ai/runs/surrogate-opponent-worker-tests-initial-v1.log",
+            "clock_diagnostic": "ai/runs/surrogate-control-clock-diagnostic-v1.json",
+            "explanation": "Fixed fixture wall-clock time for exact legacy state comparison and supplied a structurally valid private automation fixture. Production and historical runtimes unchanged."
+        },
+        "gradient_updates": 0,
+        "new_hf_jobs": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "scope": "Complete public-feature/ONNX integration with real frozen focal inference and random untrained surrogate weights. Canonical fixture roots, not fresh strength games. No trained-surrogate fidelity or stronger-policy claim.",
+        "next": "Finish and audit original collection/training/selection; use the probe for fresh outcome-independent paired continuations against actual reference search before heterogeneous hybrid adoption and fresh full-game strength."
     }
 }

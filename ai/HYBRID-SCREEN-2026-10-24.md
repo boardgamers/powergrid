@@ -348,3 +348,88 @@ production changes, selected candidate or reserved final seeds in this collectio
 Both the previous and current goal turns made concrete progress. There is no
 established general plateau; unchanged rejected building/resource search remains
 unjustified.
+
+
+## 25 October, 09:41 UTC: exact-policy final-game audit verified
+
+The read-only final-game audit now binds every response to the **complete public
+policy identity**, including opponent ensemble, population modes and override
+margin. It checks raw legal moves, request/revision/player identity, hidden-state
+exclusions, terminal tie credits, continuation receipts and counters. It enumerates
+the unchanged **320 shards / 20,160 games / 26 opponent-count groups** and retains
+the original overall/rule confidence bounds and minimum rates. A strength pass
+explicitly does **not** qualify a model without export, serving and package proof.
+
+**13 synthetic contract tests passed**, including missing/duplicate shards,
+changed settings/protocol, bad rule subsets concealed by good overall averages,
+the 90% default-bot floor, absent search, private inputs and wrong legal moves.
+The new checker also passed **88 existing engineering games / 11,618 public
+decisions / 22,048 continuations / zero caps**. Every raw input hash matches the
+two prior immutable archives. This reuses existing evidence and adds no games,
+inference, training, jobs, final seeds, selected policy or strength estimate.
+
+- Code: `strong/public_policy_final_audit_v1.py`; checker/archiver
+  `strong/check-public-policy-final-audit-v1.py`.
+- Descriptor: `strong/public-policy-final-audit-evidence-v1.json`; outputs
+  `ai/runs/public-policy-final-audit-preflight-v1`.
+- Private HF **0132792a782735f596a3c6c23db356f94d58125c**, archive SHA256
+  **d7b0fdb607d52ea734348493fa3428be42c35481ebde75e9d4b702852070abaa**,
+  **23 files**, downloaded/hash-verified. Raw receipts remain in the two pinned
+  original archives; new code, audit outputs, source/input hashes and test log saved.
+- Original tests **86371**, verification **1547**, archive **2133** completed.
+  Do not rerun unchanged work. Final protocol and live study code are unchanged.
+
+**Integration is not complete:** a selected-policy final launcher/source admission,
+actual final-wrapper engineering execution, and binding complete-policy
+export/8840U/package evidence are still needed. The opponent-backend receipt audit
+currently admits eight worlds; a different selected budget requires corresponding
+verified audit support, not forcing the policy to fit this engineering setting.
+No final candidate is selected or qualified.
+
+The original study owner **PID 3502343 / session 23779** is directly confirmed live.
+At **09:40:58 UTC** it reports **360 submitted / 336 verified**, zero caps and
+no failures, stage `submitting`. Preserve its handles and sole submission/collection
+ownership. No partial-results interpretation or retrospective recipe selection.
+Checkpoint: `ai/runs/public-policy-final-audit-completion-checkpoint-v1.json`.
+Previous and current goal turns both made concrete progress. Next, complete and
+archive the entire fidelity study, use those findings to freeze an auction recipe,
+then run fresh full-game confirmation and the unchanged final strength gate with
+the exact serving policy. No general strength plateau has been established.
+
+
+## 25 October, 09:44 UTC: final-game audit ordering correction
+
+The final-game audit now sorts by canonical episode before computing bootstrap
+intervals. A regression test against the **archived first implementation** failed
+when shard/receipt order changed; the corrected implementation passes with identical
+results. This fixes collection-order sensitivity without changing the protocol,
+thresholds, games, current prototype or live study. The first archive is retained;
+use **v2 evidence** with the current audit code.
+
+**14 contract tests passed.** The corrected audit again passed the immutable
+**88 engineering games / 11,618 public decisions / 22,048 continuations**, zero
+caps, with every input hash matching the original archives. This is verification
+of evaluation infrastructure, not additional strength evidence. No new games,
+model inference, training, HF jobs, candidate selection or final seeds.
+
+- Current descriptor: `strong/public-policy-final-audit-evidence-v2.json`;
+  outputs `ai/runs/public-policy-final-audit-preflight-v2`.
+- Private HF **4b294a863f6189c78b8e33ebe49f80935658d1fa**, archive SHA256
+  **38d48d421c306cb7d40876ed29bb88c77bed586721a8968cf83045356b75d903**, **25 files**, downloaded/hash-verified.
+- Original v2 tests **70723**, archived-code regression check **19029**,
+  verification **21208** and archive **47701** completed. First-run originals
+  and archive remain preserved. Do not rerun unchanged work.
+- The read-only audit preserves **320 shards / 20,160 games / 26 groups**.
+  Final execution admission/wrapper and complete-policy export/8840U/package
+  evidence binding remain incomplete; eight-world opponent receipt auditing
+  is an engineering capability, not a forced recipe choice.
+
+The original full-study coordinator **PID 3502343 / session 23779** is directly
+confirmed live, pinned code unchanged. Its **09:42:50 UTC** snapshot is
+**370 submitted / 336 verified**, zero caps and no reported failures;
+stage `waiting_for_original_jobs`. It remains the only submission/collection owner.
+Checkpoint `ai/runs/public-policy-final-audit-completion-checkpoint-v2.json`.
+Previous and current goal turns both made concrete progress. Complete/archive the
+whole fidelity study before choosing the auction recipe, then fresh full-game
+confirmation and exact-policy final/target validation. No qualified candidate or
+general plateau established.

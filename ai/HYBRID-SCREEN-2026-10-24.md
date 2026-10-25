@@ -185,3 +185,47 @@ nested-search costs are diagnostic execution, not 8840U serving latency.
 - [Independent full audit and archive descriptor](strong/reference-opponent-complete-evidence-v2.json).
 - Private HF revision: `baa0e390312c92e9bde3a2979e1e310a1a9330e4`.
 - Archive SHA256: `131837afcf38a3dde522fa0810551d744cf309670ec1d475fcf8359d9293f1c6` (301 files).
+
+## 25 October: recommendation after the next completed experiments
+
+**Continue with selective auction search, keeping the fast model as the default.**
+Do not adopt unchanged building or resource search, and do not extend the completed
+opponent-imitation training run simply to spend more compute.
+
+The user's original four-player baseline, **30.9% overall / 15.6% Recharged sealed**,
+is superseded by frozen-1's **51.5625% / 39.0625%** in the larger development
+evaluation (256 / 64 games, 16 independent deals). Those are different seeds and
+sample sizes from this exploratory hybrid screen. Within this screen, auction
+search improves four-player Recharged sealed **43.75% → 68.75%**, but original/open
+regresses **81.25% → 31.25%**. Its four-deal cells justify investigation, not a
+claim of a reliably stronger hybrid or a hand-picked switch by game variant.
+
+The separate resource-search screen is now complete and rejected: its primary
+equal-player-count comparison against search is **−9.1875 percentage points**,
+95% whole-deal interval **[−16.36484, −1.55182]**. See
+[the complete resource review](RESOURCE-SEARCH-SCREEN-2026-10-25.md).
+
+The learned opponent surrogate has completed four-seed HF training, validation
+selection and held-out evaluation. Across 320 unseen games / 52,360 decisions,
+macro exact teacher agreement improves only **60.0598% → 60.5742%**, despite a
+large NLL reduction. All seeds' best epochs are 9–10; later training overfits.
+This does not establish stronger playing decisions. The frozen continuation study
+must test whether the surrogate better predicts the consequences of candidate
+actions; a later full-game experiment must separately establish strength.
+The study compares it with full-search reference opponents and the existing
+population, without a prior-only arm. Do not attribute a possible improvement
+specifically to learned residuals without that additional comparison.
+
+For serving, retain instant model decisions and investigate an optional auction
+search budget. Actual 8840U **model-only** latency is median 4.3–5.9 ms; full hybrid
+latency is still unknown. Distillation should use verified search improvements
+after fresh full-game confirmation, not all search overrides indiscriminately.
+
+No general plateau is established. The useful next question is whether improved
+opponent coverage and cautious overrides preserve auction gains while avoiding
+the regressions. Training longer on this same imitation configuration, adding
+unchanged resource/building search, or increasing samples under an inaccurate
+opponent model are not justified by the evidence so far.
+
+- [Completed training and held-out evidence](strong/opponent-surrogate-trained-evaluation-evidence-v1.json).
+- [Current operational handoff](RESUME.md), including the original timing job and next steps.

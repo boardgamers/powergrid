@@ -56903,9 +56903,9 @@
         "latest_live_snapshot": {
             "pid": 1291091,
             "stage": "waiting_for_jobs",
-            "updated_at": "2026-10-25T03:09:27.887122+00:00",
+            "updated_at": "2026-10-25T03:22:56.328125+00:00",
             "jobs_submitted": 54,
-            "jobs_verified": 41,
+            "jobs_verified": 45,
             "failed_jobs": [],
             "process_live": true,
             "code_hashes_match": true
@@ -57276,7 +57276,17 @@
         "collection_plan": "ai/strong/opponent-surrogate-collection-plan-v1.json",
         "collection_plan_sha256": "6306a000da35b79d67e6eb4bdbacad922d95cd65fb5cd7a889d93d315c6ef43b",
         "latest_checkpoint": "ai/runs/opponent-surrogate-full-collection-checkpoint-v1.json",
-        "latest_checkpoint_sha256": "dabbdbda6db353f74a9523f1ffa2c0ac6f292447d67de005c850a32936a6a41f"
+        "latest_checkpoint_sha256": "dabbdbda6db353f74a9523f1ffa2c0ac6f292447d67de005c850a32936a6a41f",
+        "latest_live_snapshot": {
+            "pid": 2009367,
+            "stage": "waiting_for_jobs",
+            "updated_at": "2026-10-25T03:25:50.159257+00:00",
+            "jobs_submitted": 32,
+            "jobs_verified": 0,
+            "failed_jobs": [],
+            "process_live": true,
+            "code_hashes_match": true
+        }
     },
     "opponent_surrogate_training_v1": {
         "status": "pipeline_and_trained_result_audit_implemented_awaiting_fresh_collection",
@@ -57397,6 +57407,35 @@
             "actual_trained_hf_artifacts_verified": false,
             "gradients": false,
             "qualification_eligible": false
+        },
+        "selection_and_heldout": {
+            "implemented": true,
+            "design": "ai/strong/opponent-surrogate-selection-design-v1.json",
+            "design_sha256": "d00266953d5a07f2a27e64b52e6de1dad40733bbaf4f2996c2233753c8f27556",
+            "preflight": "ai/runs/opponent-surrogate-selection-preflight-v1.json",
+            "preflight_sha256": "ee537ccfca3741327b2ac901650993c2d6ffdecc676ddafca5906701a0b02a2a",
+            "tests": 10,
+            "code_hashes": {
+                "ai/strong/opponent_surrogate_policy_v1.py": "4b891dde9a1688eec9f5da0bd0ad0a5dc81d63b2a219d46ce646d033800530da",
+                "ai/strong/opponent-surrogate-selection-design-v1.json": "d00266953d5a07f2a27e64b52e6de1dad40733bbaf4f2996c2233753c8f27556",
+                "ai/strong/select-opponent-surrogate-v1.py": "4aeaf122d14fe53829ecf792d949d935d7ab80878667be138ba89a1354251f4d",
+                "ai/strong/evaluate-opponent-surrogate-heldout-v1.py": "9a8099efde231aae48763e4a31ce45f42422076a303cfe10decc62b3b4acd45c",
+                "ai/strong/test_opponent_surrogate_selection_v1.py": "07e65b1160046aaf89a448dc79279845f94a2c7403c8c5b46925b70141d627e8"
+            },
+            "real_public_calibration_positions": 382,
+            "random_untrained_models": 4,
+            "choice_checks": 1910,
+            "synthetic_test_contract_games": 320,
+            "synthetic_test_contract_rows": 960,
+            "actual_trained_model_selection": false,
+            "actual_heldout_evaluation": false,
+            "complete_raw_preparation_integration_tested": false,
+            "checkpoint": "ai/runs/opponent-surrogate-selection-checkpoint-v1.json",
+            "checkpoint_sha256": "f675c2c266c50f59bdb555f37f5a99fa0b94eac9298104d04adba77246b3f1e2",
+            "gradients": false,
+            "qualification_eligible": false,
+            "next": "After complete original HF training/audit, run select-opponent-surrogate-v1.py. If a learned policy beats the prior on validation, freeze it, then run evaluate-opponent-surrogate-heldout-v1.py prepare and evaluate. Do not tune on test. Implement/check continuation-worker integration and fresh paired reference-search continuations before fresh full-game strength.",
+            "numerical_selection_tie_tolerance": 1e-10
         }
     }
 }

@@ -25,6 +25,56 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
+## 25 October, 03:26 UTC — frozen selection and held-out evaluation pipeline implemented
+
+Previous turn pushed `ba8feed` and started the original full collection. This turn
+implemented public-feature surrogate inference, validation-only policy selection,
+and separately gated held-out preparation/evaluation. No new jobs or gradients ran.
+
+`strong/opponent-surrogate-selection-design-v1.json` now fixes the comparison:
+the economic prior, each of four verified best checkpoints, and their equal-weight
+probability ensemble. Select minimum validation macro-NLL over all 60 count/rule/
+phase groups; numerical ties within 1e-10 retain fixed order, prior first. No
+fitted temperatures, weights or rule routing. If the prior wins, report no learned
+validation improvement and keep model test evaluation closed. Selection is not
+adoption into search and its validation metrics are not unbiased generalization.
+
+`opponent_surrogate_policy_v1.py` verifies model/checkpoint pins, uses only public
+state/action/mask inputs, and returns legal shortlisted indices. `select-opponent-surrogate-v1.py` requires independently audited training, recomputes validation
+metrics, preserves every candidate and freezes policy/data/source hashes. The
+separate `evaluate-opponent-surrogate-heldout-v1.py prepare` command then checks
+all 320 test games/deals 28..31 and writes test-only tensors. Its `evaluate` command
+compares only the frozen choice and economic prior, with natural training-input
+overlap reported separately without dropping primary test rows. Test labels may
+already have been read for collection integrity, never for model selection.
+
+**Ten tests pass:** four random, untrained singleton models plus their ensemble
+match checkpoint/probability choices on **382 real calibration positions** (1,910
+policy-choice checks); masking, provenance and private metadata boundaries; selection
+and changed-freeze rejection; and a synthetic complete 320-game/960-row test bundle.
+No real trained selection/test evaluation or complete raw held-out preparation has
+run. Actual premature selection and test preparation both refused before creating
+outputs. Preflight: `ai/runs/opponent-surrogate-selection-preflight-v1.json`, SHA256
+`ee537ccfca3741327b2ac901650993c2d6ffdecc676ddafca5906701a0b02a2a`.
+
+At **03:25:53 UTC**, both original coordinators and representative HF handles were
+live. Collection: **32/40 submitted, 0 verified**, PID **2009367 / session 80214**.
+Its original six-player job `6add73271e112550ce7e6a20` showed 63%, 59%, 58% CPU in
+three noninitial live samples, about 4.73 GB RAM. Resource screen: **54 submitted /
+45 verified**, PID **1291091 / session 11670**; original 6p/search resource job
+`6add573a046eb82b1ece167a` advanced to 58/96 games, zero reported caps. No failed
+jobs in either coordinator. Frozen source/code hashes match. Checkpoint:
+`ai/runs/opponent-surrogate-selection-checkpoint-v1.json`.
+
+**Next:** preserve the original jobs/coordinators. Finish and independently archive
+the complete resource comparison when ready. Finish collection, prepare/package
+train+validation, run and collect measured HF GPU calibration/full training, then
+run the trained-result auditor and new selection/test commands. Still implement
+and verify the surrogate's continuation-worker integration and fresh paired
+continuation evaluation; good imitation does not prove stronger search. Full fresh
+strength, the exact selected-policy final adapter and actual 8840U hybrid validation
+remain required. No candidate selection, production publication or plateau claim.
+
 ## 25 October, 03:12 UTC — full opponent collection started; training-result audit implemented
 
 Both original HF calibration jobs are now complete and independently verified:

@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "purpose": "Choose a public opponent-behaviour inference rule before opening held-out test labels. This is not focal-policy adoption or strength qualification.",
+  "training_design_sha256": "040e39dd90763916b4fd908418035c8389b11d2d304dab1dee94912ac2d7f921",
+  "candidate_order": ["economic-prior", "seed-14101", "seed-14102", "seed-14103", "seed-14104", "ensemble-4"],
+  "selection": "Minimum exported validation macro negative log-likelihood over all 60 player-count/rule/phase groups. Candidates within 1e-10 of that minimum are numerically tied; retain the first in fixed order. No per-count, per-rule or per-phase routing and no fitted ensemble weights or temperatures.",
+  "numerical_tie_tolerance": 1e-10,
+  "ensemble": "Equal arithmetic mean of the four members' masked categorical probabilities, computed in float64 log space. Each member uses its independently verified best validation checkpoint. Single members use original exported logits; every policy chooses the first maximum in original legal-index order.",
+  "baseline": "Twice the existing public economic-prior action feature 74 on the same public shortlist. If it wins selection, report no learned validation improvement and do not open the test split.",
+  "validation_scope": "All validation rows from deals 24..27, all seats/rules/counts, exactly as collected. Forced choices are reported separately. Keep every candidate and adverse group; validation metrics used for selection are not unbiased generalization estimates.",
+  "test_scope": "Only after a learned policy is frozen, prepare every test record from whole deals 28..31, all 320 games. Evaluate that frozen policy and the economic prior; never reselect models, weights or routing from test outcomes. Report all 60 groups and exact-input overlap with training as a separate diagnostic, without discarding rows from the primary result.",
+  "interpretation": "Agreement/NLL measure imitation of a sampled 16-rollout opponent, not optimal actions. Teacher-sample regret is diagnostic, not independent policy value. Held-out imitation alone cannot justify adding this model to deployed search.",
+  "required_afterwards": ["Fresh paired continuations against actual reference search", "Fresh full-game strength across all player counts/rules/opponent families", "Exact exported selected-runtime verification and actual AMD 8840U hybrid latency"],
+  "test_labels_used_for_selection": false,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

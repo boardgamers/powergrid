@@ -57113,14 +57113,16 @@
             {
                 "case": "opponent-surrogate-runtime-v1-2p-0-1",
                 "job_id": "6add610c1e112550ce7e64df",
-                "status": "RUNNING",
-                "guard_sha256": "58efd64dd8c9a75678b5a13ee07b195bde4c1c0e577a5c1b50e55b29f5a230f8"
+                "status": "COMPLETED",
+                "guard_sha256": "58efd64dd8c9a75678b5a13ee07b195bde4c1c0e577a5c1b50e55b29f5a230f8",
+                "verified": true
             },
             {
                 "case": "opponent-surrogate-runtime-v1-6p-0-1",
                 "job_id": "6add610d1e112550ce7e64e1",
                 "status": "RUNNING",
-                "guard_sha256": "f5c99ae69dc23e2a5368e3aebef3493c6708a45f7d9663a5899316ebc1d2043a"
+                "guard_sha256": "f5c99ae69dc23e2a5368e3aebef3493c6708a45f7d9663a5899316ebc1d2043a",
+                "checked_at": "2026-10-25T02:25:37.731139+00:00"
             }
         ],
         "planned_collection_games": 2560,
@@ -57131,7 +57133,7 @@
         "reserved_final_seeds_used": false,
         "checkpoint": "ai/runs/opponent-surrogate-runtime-launched-v1.json",
         "checkpoint_sha256": "2be66ce502b3c198e6810c422fa30700cfb061f96b7baf5da6a0027daf490128",
-        "next": "Collect/audit both original HF runtime endpoints, admit full fresh collection from complete CPU/wall/memory measurements, then implement full collection coordinator and HF-only training. Evaluate held-out behaviour and paired continuations against actual search before adoption; no known deployed opponent identity input.",
+        "next": "Finish the original 6p HF runtime job; collect, audit and archive both endpoints. Then prepare the measured full-collection plan, dry-run all fixed shards, and execute the new coordinator once. Prepare HF-only surrogate training and held-out behaviour/continuation validation; no adoption before fresh full-game strength tests and actual 8840U hybrid benchmarks.",
         "first_verified_endpoint": {
             "path": "ai/runs/opponent-surrogate-runtime-collected-v1/opponent-surrogate-runtime-v1-2p-0-1/verified.json",
             "sha256": "427f3fd9910fb3f604afda4ebe9dbcd44c5f32314e2493f6136f17147381583b",
@@ -57207,6 +57209,50 @@
             "qualification_eligible": false
         },
         "joint_calibration_collector_implemented": true,
-        "joint_calibration_archive_complete": false
+        "joint_calibration_archive_complete": false,
+        "collection_orchestration": {
+            "implemented": true,
+            "full_collection_admitted": false,
+            "preflight": "ai/runs/opponent-surrogate-orchestration-preflight-v1.json",
+            "preflight_sha256": "6bb9302f8a034b105dba73066dd9bea490dd8b456a6580d0f43734f3afd2aa10",
+            "tests": 7,
+            "code_hashes": {
+                "ai/strong/launch-opponent-surrogate-collection-v1.py": "943031836ebe9d1dfef0968fdd8a129bd8c58f54585d59f85902e10fc9d7951e",
+                "ai/strong/launch-opponent-surrogate-runtime-v1.py": "7f1af8aab9fb0db741f3c0d00ae77e20c03854c858a9794211c97d700aebe354",
+                "ai/strong/collect-opponent-surrogate-calibration-v1.py": "8e7f0e5f8bce7e7b11952b3fcae96fbb035a5c335359b2be76ce1149dbe736fc",
+                "ai/strong/collect-opponent-surrogate-runtime-v1.py": "23c046860e87a2c3f6c8872dde04c14017dff593f0599ac2ab140d38119cd77d",
+                "ai/strong/opponent_surrogate_verification_v1.py": "5ae58ab1f50368868b7ff7be24b5c9ff18c46f2cc89ff9511fcdbf270d464387",
+                "ai/strong/opponent_surrogate_collection_v1.py": "565a7673231df7b809f9404b8f59b627b413e2efbcf8cc649be0b27cf9cb959a",
+                "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+                "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+                "ai/strong/manage-opponent-surrogate-collection-v1.py": "e8123d5a2a1261d2829451b5f93fa253ac1b145961338615d4f70c37dd2b8dfc",
+                "ai/strong/coordinate-opponent-surrogate-collection-v1.py": "e6f0cd9c897df5eb5f0f9c1043aa67280f85ddac39eeec6f2eb46a2214f29f62",
+                "ai/strong/test_opponent_surrogate_orchestration_v1.py": "9fdb37cd43d186bd2c4a059848cf595dade09646d011eda0e88404794d9d4af7"
+            },
+            "checkpoint": "ai/runs/opponent-surrogate-orchestration-checkpoint-v1.json",
+            "checkpoint_sha256": "96d1b53d54ab23edb712ae78aeaa8e23c3415b5ddccba1b330395a5e65f5965a",
+            "scope": "Launcher, collector/indexer and coordinator ready; no full-collection plan or jobs before both original HF calibration endpoints are complete, audited and archived. No new gradients or playing-strength evidence."
+        },
+        "orchestration_checkpoint": {
+            "checked_at": "2026-10-25T02:25:37.731139+00:00",
+            "six_player_original_job": {
+                "job_id": "6add610d1e112550ce7e64e1",
+                "authoritative_status": "RUNNING",
+                "tail": [
+                    "{'complete_games': 12, 'planned_games': 24, 'errors': []}",
+                    "{'complete_games': 13, 'planned_games': 24, 'errors': []}",
+                    "{'complete_games': 14, 'planned_games': 24, 'errors': []}",
+                    "{'complete_games': 15, 'planned_games': 24, 'errors': []}"
+                ]
+            },
+            "resource_coordinator_live": true,
+            "resource_coordinator_stage": "waiting_for_jobs",
+            "resource_jobs_submitted": 54,
+            "resource_jobs_verified": 29,
+            "resource_failures": [],
+            "new_hf_jobs": 0,
+            "gradients": false,
+            "qualification_eligible": false
+        }
     }
 }

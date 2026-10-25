@@ -6,7 +6,43 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 02:08 UTC: first surrogate HF endpoint verified; complete audit tools prepared.**
+**Latest — 25 October, 02:26 UTC: full opponent-surrogate collection orchestration tested.**
+
+The launcher, collector/indexer and coordinator are implemented. Seven tests pass:
+complete 2,560-game coverage and whole-deal splits for every supported shard size;
+measured time/memory/storage admission boundaries; incomplete calibration refusal;
+382 real teacher records through an explicitly synthetic collection envelope;
+and preservation of existing job handles after failures or uncertain submissions.
+The envelope fixture is not fresh collection data and is never training eligible.
+Proof: `ai/runs/opponent-surrogate-orchestration-preflight-v1.json`.
+
+No full-collection plan, jobs or gradients were started. The actual admission check
+correctly refuses until both original calibration endpoints are audited/archived.
+At **02:25:37 UTC**, the original 6p job `6add610d1e112550ce7e64e1` was RUNNING,
+**15/24 games completed**, no logged errors. Resource coordinator PID **1291091**
+was live with **54 submitted / 29 verified**, no failures. Its pinned code and the
+surrogate runtime source remain unchanged. Checkpoint:
+`ai/runs/opponent-surrogate-orchestration-checkpoint-v1.json`.
+
+**Next:** collect the original 6p endpoint, then audit/archive the joint calibration.
+Run `strong/launch-opponent-surrogate-collection-v1.py prepare --max-in-flight 32`;
+the completed measurements choose 4/2/1 whole deals per shard and a bounded timeout.
+Dry-run every fixed shard and the coordinator before starting
+`strong/coordinate-opponent-surrogate-collection-v1.py --execute` once. Keep its
+original process/job handles. The collector checks every raw record and writes
+the training/validation/test index only after all 2,560 games and 640 twins verify.
+HF-only surrogate training still needs implementation and downstream validation.
+
+**Recommendation to the user:** pursue selective auction search with stronger
+opponent coverage and cautious overrides. The cited 30.9% overall / 15.6% Recharged
+sealed baseline is old: frozen-1 reached **51.56% / 39.06%** in the larger 4p
+development comparison (16 deals). The separate four-deal hybrid screen improved
+Recharged sealed **43.75% → 68.75%**, but regressed original/open
+**81.25% → 31.25%**. These are distinct datasets, not one longitudinal comparison.
+Do not advance unchanged building/combined search. No general plateau, selected
+candidate or new strength result is established by this tooling work.
+
+**Previous — 25 October, 02:08 UTC: first surrogate HF endpoint verified; complete audit tools prepared.**
 
 The previous turn archived the 20-case capture proof, prepared fresh collection and
 launched the two HF runtime endpoints (`8b4e38f`, handoff `a0a9770`). This turn

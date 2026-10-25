@@ -25,7 +25,54 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: resource-screen launcher prepared; measured HF CPU use
+## 25 October, 02:26 UTC — full surrogate collection orchestration ready
+
+Implemented `strong/launch-opponent-surrogate-collection-v1.py`,
+`strong/manage-opponent-surrogate-collection-v1.py` and
+`strong/coordinate-opponent-surrogate-collection-v1.py`. Seven tests in
+`strong/test_opponent_surrogate_orchestration_v1.py` pass. The initial test run had
+a syntax error in a multiline mock context; corrected before the successful run.
+Proof: `ai/runs/opponent-surrogate-orchestration-preflight-v1.json`, SHA256
+`6bb9302f8a034b105dba73066dd9bea490dd8b456a6580d0f43734f3afd2aa10`.
+
+Tests cover all 2,560 unique games/640 twins, whole-deal train/validation/test
+boundaries at every supported batch size, synthetic resource admission limits,
+actual missing-calibration refusal, and existing/failed/uncertain job handles.
+The real 382-row 2p runtime archive also passed the collection verifier through
+an explicitly synthetic envelope; this fixture is not actual collection data and
+cannot enter the real training index. Full-corpus teacher searches will not be
+rerun a second time locally: frozen HF workers re-encode all rows and replay
+first/last strategic calls per game; complete endpoint calibration independently
+repeats those calls locally. Every raw input/target/terminal remains host-verified.
+
+No full collection plan or jobs exist yet; no new gradients. At **02:25:37 UTC**,
+original 6p endpoint `6add610d1e112550ce7e64e1` was RUNNING, **15/24 complete**,
+no logged errors. Resource coordinator **11670 / PID 1291091** was live with
+**54 submitted / 29 verified**, no failures. Frozen source and resource coordinator
+dependencies still match their pins. Checkpoint:
+`ai/runs/opponent-surrogate-orchestration-checkpoint-v1.json`.
+
+Resume with the original 6p collector, then joint calibration audit/archive. Only
+then prepare the full collection plan (`launch-opponent-surrogate-collection-v1.py
+prepare --max-in-flight 32`), dry-run every shard and the coordinator, and execute
+the coordinator once. Its admission uses measured complete endpoints to select
+4/2/1 whole deals, 2x time/RSS margins, 4x raw storage and 25% timeout reserve;
+it refuses insufficient capacity instead of truncating games or teacher search.
+All failed/uncertain original handles remain failures; no automatic replacements.
+The complete index requires every fixed game and preserves the 1,920/320/320
+train/validation/test split. HF-only training and held-out continuation validation
+are still to implement after data collection.
+
+The current recommendation remains selective auction search with better opponent
+simulation and conservative action overrides. Old baseline figures 30.9%/15.6%
+are superseded by frozen-1's 51.56%/39.06% on the larger 16-deal 4p evaluation.
+The distinct four-deal hybrid screen has promising sealed-auction gains and large
+open-auction regressions; do not combine those samples or route rules after seeing
+results. No general plateau is established. Unchanged building/combined search
+should not advance; fresh resource-screen results remain pending. No qualification,
+production publication or reserved-final seed use.
+
+## Previous checkpoint: resource-screen launcher prepared; measured HF CPU use
 
 **Latest — 25 October, 02:08 UTC: first surrogate HF endpoint verified; complete audit tools prepared.**
 

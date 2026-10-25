@@ -1,0 +1,3064 @@
+{
+  "complete": true,
+  "all_jobs_verified": true,
+  "jobs": 480,
+  "roots": 480,
+  "continuations": 23040,
+  "caps": 0,
+  "source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "archive": "strong-source-surrogate-continuation-study-v1.tgz",
+    "sha256": "95e39bb5a7946637ad72fe0d9317f172b58111ba6eb37534dd7c95c266dcdb94",
+    "bytes": 120410683,
+    "manifest_sha256": "4b5667cfb423239aff5ed25780847246046fa30004228d28883b0cb72919554f",
+    "manifest_files": 1488,
+    "unchanged_base_files": 1463,
+    "base": {
+      "repo": "coyotte508/powergrid-ai-training-v1",
+      "archive": "strong-source-population-hybrid-development-20261024-v1.tgz",
+      "revision": "cdec1d3079eb9a54b776f6237ec5f93cc1de84d8",
+      "sha256": "ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23",
+      "files": 1463
+    },
+    "new_files": {
+      "ai/strong/analysis-public-balances-v1.cjs": "3e8eaf26bc21be7e2284e4838f743731a269e8d18badbb8adc0af882f3b3ccb5",
+      "ai/strong/build-surrogate-continuation-study-source-v1.py": "842316fc91aaa389dd3887446450867fbe17fd91057f63a211ed37bf27e0eb15",
+      "ai/strong/opponent_surrogate_policy_v1.py": "4b891dde9a1688eec9f5da0bd0ad0a5dc81d63b2a219d46ce646d033800530da",
+      "ai/strong/opponent_surrogate_training_v1.py": "49751b105b96c44d88b4a75e6b530fbddc4f0dc5590be1e18bd23cc64dc3eb10",
+      "ai/strong/reference-opponent-continuations-v2.cjs": "c3936f3fa35b3c5f9fefeea7cfbbecaf6becc8486c4f681a30e1497f83748c9d",
+      "ai/strong/reference-search-public-balances-v1.cjs": "ba53afcc0a06d25f776c27ba017e14026a28c9928bcde68b05effe64a715b010",
+      "ai/strong/surrogate-continuation-analysis-design-v1.json": "efc57ce9e3be48d8365c4a63a72071cd0ab4887f801c4b126b5575ad508d82f8",
+      "ai/strong/surrogate-continuation-protocol-v1.json": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+      "ai/strong/surrogate-continuation-roots-job-v1.py": "dc21963704d50857b9813cd0483c3bb524f9d67181411d12712b3322578d06b7",
+      "ai/strong/surrogate-opponent-continuations-v1.cjs": "582e001232d3b07dad16b29fe6dc4b933869ccb8485c6167c185372af03c288f",
+      "ai/strong/surrogate_continuation_analysis_v1.py": "82ae56e4399009f96688fcef1be4479617703cc4a719cabd6332f64f11c8a66d",
+      "ai/strong/surrogate_continuation_job_v1.py": "c2f71bce37f8ece927386eeeac3b24309d6acf940d10ae832dce36eec51bfa91",
+      "ai/strong/surrogate_continuation_roots_v1.py": "32bb3995c339b325698c7b760df97ddf8f1ae19c2decf1d1b2c0821d0bf8a185",
+      "ai/strong/surrogate_continuation_runtime_v1.py": "88d963595067128d950e1d14285af9863455b7830cb22b95f2533ab684069e0b",
+      "ai/strong/surrogate_continuation_selected_cost_v1.py": "eb19eea968918b4b40cc97005fd0379bd5984826c1bca54ad48d73f079ab8ad5",
+      "ai/strong/surrogate_continuation_study_v1.py": "657c882af7cc2012fcaa7a34f9512efd7d3fa7e1c28dc420f6585838c556dd6a",
+      "ai/strong/surrogate_opponent_continuations_v1.py": "00dfc09f14a2cfe0763f7466b60cc4c9fc315daca237e917c729136bc61044b5",
+      "ai/strong/fixtures/surrogate-continuation-study-inputs-v1/roots.json": "d5f865cd63836dad11f3aeff216b6b8910e389ff8d85fce34206a358fe0fc3b1",
+      "ai/strong/fixtures/surrogate-continuation-study-inputs-v1/policy.json": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c",
+      "ai/strong/fixtures/surrogate-continuation-study-inputs-v1/frozen.json": "c08f7abaab0a1ae224ce47f3c395ab59a5fc01bb39a835d062d21c9044a15962",
+      "ai/strong/fixtures/surrogate-continuation-runtime-roots-v1.json": "bddae36ec570fb2c219f5727efc729d1ce1061fc2dbcf37e4a6fe866327e0114",
+      "ai/strong/fixtures/surrogate-continuation-selected-members-v1/14101/derivative/inference64.onnx": "e8ea749be5292c551cc041247a6f0cdcd467e14f2d67b1ee743ed02254b3e82d",
+      "ai/strong/fixtures/surrogate-continuation-selected-members-v1/14102/derivative/inference64.onnx": "ee93c8ed79b947cb6318b80db3695058131e0d80b7df26231c435689073b1729",
+      "ai/strong/fixtures/surrogate-continuation-selected-members-v1/14103/derivative/inference64.onnx": "d6488a2b610e6c539420bee3026ddf042e6ff0e16165f8482c26c5d7ce1a8fd5",
+      "ai/strong/fixtures/surrogate-continuation-selected-members-v1/14104/derivative/inference64.onnx": "4ade2642f23d56900461e6b06cc70fc30066ab15630d52681ee8dedce5543121"
+    },
+    "origins": {
+      "ai/strong/analysis-public-balances-v1.cjs": "ai/strong/analysis-public-balances-v1.cjs",
+      "ai/strong/build-surrogate-continuation-study-source-v1.py": "ai/strong/build-surrogate-continuation-study-source-v1.py",
+      "ai/strong/opponent_surrogate_policy_v1.py": "ai/strong/opponent_surrogate_policy_v1.py",
+      "ai/strong/opponent_surrogate_training_v1.py": "ai/strong/opponent_surrogate_training_v1.py",
+      "ai/strong/reference-opponent-continuations-v2.cjs": "ai/strong/reference-opponent-continuations-v2.cjs",
+      "ai/strong/reference-search-public-balances-v1.cjs": "ai/strong/reference-search-public-balances-v1.cjs",
+      "ai/strong/surrogate-continuation-analysis-design-v1.json": "ai/strong/surrogate-continuation-analysis-design-v1.json",
+      "ai/strong/surrogate-continuation-protocol-v1.json": "ai/strong/surrogate-continuation-protocol-v1.json",
+      "ai/strong/surrogate-continuation-roots-job-v1.py": "ai/strong/surrogate-continuation-roots-job-v1.py",
+      "ai/strong/surrogate-opponent-continuations-v1.cjs": "ai/strong/surrogate-opponent-continuations-v1.cjs",
+      "ai/strong/surrogate_continuation_analysis_v1.py": "ai/strong/surrogate_continuation_analysis_v1.py",
+      "ai/strong/surrogate_continuation_job_v1.py": "ai/strong/surrogate_continuation_job_v1.py",
+      "ai/strong/surrogate_continuation_roots_v1.py": "ai/strong/surrogate_continuation_roots_v1.py",
+      "ai/strong/surrogate_continuation_runtime_v1.py": "ai/strong/surrogate_continuation_runtime_v1.py",
+      "ai/strong/surrogate_continuation_selected_cost_v1.py": "ai/strong/surrogate_continuation_selected_cost_v1.py",
+      "ai/strong/surrogate_continuation_study_v1.py": "ai/strong/surrogate_continuation_study_v1.py",
+      "ai/strong/surrogate_opponent_continuations_v1.py": "ai/strong/surrogate_opponent_continuations_v1.py",
+      "ai/strong/fixtures/surrogate-continuation-study-inputs-v1/roots.json": "ai/runs/surrogate-continuation-study-inputs-v1/roots.json",
+      "ai/strong/fixtures/surrogate-continuation-study-inputs-v1/policy.json": "ai/runs/surrogate-continuation-study-inputs-v1/policy.json",
+      "ai/strong/fixtures/surrogate-continuation-study-inputs-v1/frozen.json": "ai/runs/surrogate-continuation-study-inputs-v1/frozen.json",
+      "ai/strong/fixtures/surrogate-continuation-runtime-roots-v1.json": "ai/runs/surrogate-continuation-cost-source-prepared-v1/layout/ai/strong/fixtures/surrogate-continuation-runtime-roots-v1.json",
+      "ai/strong/fixtures/surrogate-continuation-selected-members-v1/14101/derivative/inference64.onnx": "ai/runs/opponent-surrogate-training-full-collected-v1/artifacts/14101/derivative/inference64.onnx",
+      "ai/strong/fixtures/surrogate-continuation-selected-members-v1/14102/derivative/inference64.onnx": "ai/runs/opponent-surrogate-training-full-collected-v1/artifacts/14102/derivative/inference64.onnx",
+      "ai/strong/fixtures/surrogate-continuation-selected-members-v1/14103/derivative/inference64.onnx": "ai/runs/opponent-surrogate-training-full-collected-v1/artifacts/14103/derivative/inference64.onnx",
+      "ai/strong/fixtures/surrogate-continuation-selected-members-v1/14104/derivative/inference64.onnx": "ai/runs/opponent-surrogate-training-full-collected-v1/artifacts/14104/derivative/inference64.onnx"
+    },
+    "source_code_hashes": {
+      "ai/strong/surrogate_continuation_study_v1.py": "657c882af7cc2012fcaa7a34f9512efd7d3fa7e1c28dc420f6585838c556dd6a",
+      "ai/strong/surrogate_continuation_roots_v1.py": "32bb3995c339b325698c7b760df97ddf8f1ae19c2decf1d1b2c0821d0bf8a185",
+      "ai/strong/surrogate_opponent_continuations_v1.py": "00dfc09f14a2cfe0763f7466b60cc4c9fc315daca237e917c729136bc61044b5",
+      "ai/strong/surrogate-opponent-continuations-v1.cjs": "582e001232d3b07dad16b29fe6dc4b933869ccb8485c6167c185372af03c288f",
+      "ai/strong/reference-opponent-continuations-v2.cjs": "c3936f3fa35b3c5f9fefeea7cfbbecaf6becc8486c4f681a30e1497f83748c9d",
+      "ai/strong/reference-search-public-balances-v1.cjs": "ba53afcc0a06d25f776c27ba017e14026a28c9928bcde68b05effe64a715b010",
+      "ai/strong/analysis-public-balances-v1.cjs": "3e8eaf26bc21be7e2284e4838f743731a269e8d18badbb8adc0af882f3b3ccb5",
+      "ai/strong/hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+      "ai/strong/opponent_surrogate_policy_v1.py": "4b891dde9a1688eec9f5da0bd0ad0a5dc81d63b2a219d46ce646d033800530da",
+      "ai/strong/opponent_surrogate_training_v1.py": "49751b105b96c44d88b4a75e6b530fbddc4f0dc5590be1e18bd23cc64dc3eb10",
+      "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+      "ai/strong/surrogate-continuation-protocol-v1.json": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+      "ai/infer.py": "a86e79c2c87b1909557e69fd8b669ae2c47255d426e692b5d96baafe5c2f680d",
+      "ai/pool.py": "3b33133425d84430a6376834422478d70fe51a9c855d1e06937f109cd3620dd8",
+      "ai/strong/surrogate_continuation_job_v1.py": "c2f71bce37f8ece927386eeeac3b24309d6acf940d10ae832dce36eec51bfa91",
+      "ai/strong/surrogate_continuation_analysis_v1.py": "82ae56e4399009f96688fcef1be4479617703cc4a719cabd6332f64f11c8a66d",
+      "ai/strong/surrogate-continuation-analysis-design-v1.json": "efc57ce9e3be48d8365c4a63a72071cd0ab4887f801c4b126b5575ad508d82f8",
+      "ai/strong/surrogate_continuation_runtime_v1.py": "88d963595067128d950e1d14285af9863455b7830cb22b95f2533ab684069e0b",
+      "ai/strong/surrogate-continuation-roots-job-v1.py": "dc21963704d50857b9813cd0483c3bb524f9d67181411d12712b3322578d06b7",
+      "ai/strong/surrogate_continuation_selected_cost_v1.py": "eb19eea968918b4b40cc97005fd0379bd5984826c1bca54ad48d73f079ab8ad5",
+      "ai/strong/build-surrogate-continuation-study-source-v1.py": "842316fc91aaa389dd3887446450867fbe17fd91057f63a211ed37bf27e0eb15"
+    },
+    "study_inputs_sha256": "c08f7abaab0a1ae224ce47f3c395ab59a5fc01bb39a835d062d21c9044a15962",
+    "root_manifest_sha256": "d5f865cd63836dad11f3aeff216b6b8910e389ff8d85fce34206a358fe0fc3b1",
+    "surrogate_policy_sha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c",
+    "selected_members": [
+      {
+        "seed": 14101,
+        "path": "14101/derivative/inference64.onnx",
+        "sha256": "e8ea749be5292c551cc041247a6f0cdcd467e14f2d67b1ee743ed02254b3e82d",
+        "checkpoint_sha256": "545938c37a5ec43948f4fd5e4d1466e389be0700b20d1462ef959ddf886deba2"
+      },
+      {
+        "seed": 14102,
+        "path": "14102/derivative/inference64.onnx",
+        "sha256": "ee93c8ed79b947cb6318b80db3695058131e0d80b7df26231c435689073b1729",
+        "checkpoint_sha256": "d7faf8f89c264bd49a4d17e837bd8ba13d1c24eebd27f630c254908932569f78"
+      },
+      {
+        "seed": 14103,
+        "path": "14103/derivative/inference64.onnx",
+        "sha256": "d6488a2b610e6c539420bee3026ddf042e6ff0e16165f8482c26c5d7ce1a8fd5",
+        "checkpoint_sha256": "ae258d0dc002401a4980b7b6b02b4e362993792e99738c7fcc0683dd98d2479e"
+      },
+      {
+        "seed": 14104,
+        "path": "14104/derivative/inference64.onnx",
+        "sha256": "4ade2642f23d56900461e6b06cc70fc30066ab15630d52681ee8dedce5543121",
+        "checkpoint_sha256": "fb8a59aa209226c6ffa67acb0c25bbe66725bb2b5273bc45c305119fb04f5243"
+      }
+    ],
+    "selection_freeze_sha256": "d1c89cca3586f22c9361a359b2be74ff06d798b9e8a04838fd97846b3147a8c1",
+    "training_result_sha256": "4d5e936c350857fb4917d3f8910a1229dda83232c9a99a1a7948b7842d6c1d10",
+    "runtime_inputs_sha256": "bddae36ec570fb2c219f5727efc729d1ce1061fc2dbcf37e4a6fe866327e0114",
+    "protocol_sha256": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+    "root_evidence_sha256": "2a9256ded22b928cc4e2e3b48a5e46f9f7b1a194c224c5ea6116d8db35f5dd89",
+    "cost_evidence_sha256": "1e6724d012bdd06f869eadabc75ffde84f02574d9af049fc9c5006934990b4a1",
+    "preflight_sha256": "0089e359c72f1476074dc244a250ccb82295279da6d2b13001c1077a87a08303",
+    "roots": 480,
+    "study_continuations": 23040,
+    "runtime_roots": 24,
+    "selected_cost_continuations": 384,
+    "full_study_admitted": false,
+    "gradients": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false,
+    "revision": "74d32bed7d129b8049673b8851a44e5005c9c6a4",
+    "remote_archive_verified": true,
+    "layout_sha256": "06db8ffcc560b14518a5f2e8b2599e946fec69befb88e6d9171853f567bf3a66"
+  },
+  "plan_sha256": "c206b3644cf691b4f6649c2d74f43347964242aefbb94c1c26b6760b44a27154",
+  "collector_code_hashes": {
+    "ai/strong/surrogate_continuation_study_v1.py": "657c882af7cc2012fcaa7a34f9512efd7d3fa7e1c28dc420f6585838c556dd6a",
+    "ai/strong/surrogate_continuation_roots_v1.py": "32bb3995c339b325698c7b760df97ddf8f1ae19c2decf1d1b2c0821d0bf8a185",
+    "ai/strong/surrogate_opponent_continuations_v1.py": "00dfc09f14a2cfe0763f7466b60cc4c9fc315daca237e917c729136bc61044b5",
+    "ai/strong/surrogate-opponent-continuations-v1.cjs": "582e001232d3b07dad16b29fe6dc4b933869ccb8485c6167c185372af03c288f",
+    "ai/strong/reference-opponent-continuations-v2.cjs": "c3936f3fa35b3c5f9fefeea7cfbbecaf6becc8486c4f681a30e1497f83748c9d",
+    "ai/strong/reference-search-public-balances-v1.cjs": "ba53afcc0a06d25f776c27ba017e14026a28c9928bcde68b05effe64a715b010",
+    "ai/strong/analysis-public-balances-v1.cjs": "3e8eaf26bc21be7e2284e4838f743731a269e8d18badbb8adc0af882f3b3ccb5",
+    "ai/strong/hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+    "ai/strong/opponent_surrogate_policy_v1.py": "4b891dde9a1688eec9f5da0bd0ad0a5dc81d63b2a219d46ce646d033800530da",
+    "ai/strong/opponent_surrogate_training_v1.py": "49751b105b96c44d88b4a75e6b530fbddc4f0dc5590be1e18bd23cc64dc3eb10",
+    "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+    "ai/strong/surrogate-continuation-protocol-v1.json": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+    "ai/infer.py": "a86e79c2c87b1909557e69fd8b669ae2c47255d426e692b5d96baafe5c2f680d",
+    "ai/pool.py": "3b33133425d84430a6376834422478d70fe51a9c855d1e06937f109cd3620dd8",
+    "ai/strong/surrogate_continuation_job_v1.py": "c2f71bce37f8ece927386eeeac3b24309d6acf940d10ae832dce36eec51bfa91",
+    "ai/strong/surrogate_continuation_analysis_v1.py": "82ae56e4399009f96688fcef1be4479617703cc4a719cabd6332f64f11c8a66d",
+    "ai/strong/surrogate-continuation-analysis-design-v1.json": "efc57ce9e3be48d8365c4a63a72071cd0ab4887f801c4b126b5575ad508d82f8",
+    "ai/strong/surrogate_continuation_runtime_v1.py": "88d963595067128d950e1d14285af9863455b7830cb22b95f2533ab684069e0b",
+    "ai/strong/surrogate-continuation-roots-job-v1.py": "dc21963704d50857b9813cd0483c3bb524f9d67181411d12712b3322578d06b7",
+    "ai/strong/surrogate_continuation_selected_cost_v1.py": "eb19eea968918b4b40cc97005fd0379bd5984826c1bca54ad48d73f079ab8ad5",
+    "ai/strong/build-surrogate-continuation-study-source-v1.py": "842316fc91aaa389dd3887446450867fbe17fd91057f63a211ed37bf27e0eb15",
+    "ai/strong/manage-surrogate-continuation-selected-cost-v1.py": "79ca7edf6b30b38324a6a40f13ed8fa5b7e15c94360bac4d97fee57a9bde2f34",
+    "ai/strong/launch-opponent-surrogate-runtime-v1.py": "7f1af8aab9fb0db741f3c0d00ae77e20c03854c858a9794211c97d700aebe354",
+    "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+    "ai/strong/launch-surrogate-continuation-study-v1.py": "46acc00800fdd22afb6f090a553aad0c8820bde30d36ee77e95d5491a94d4b0f",
+    "ai/strong/manage-surrogate-continuation-study-v1.py": "d2c96dacc12707507658618e9bc9da5d5af19a20628de2698e0f3c24de1704c7"
+  },
+  "paired_records": {
+    "2:0:plant": {
+      "case": "surrogate-continuation-study-v1-2p-0-plant",
+      "job_id": "6addac6b046eb82b1ece363c",
+      "paired_sha256": "324dfb77aa1ad352c48048f599860bda3b1801235df2331ba2d28146478e04cc",
+      "receipt_sha256": "f3d5f23ac1e3ad9cae283c81884dc966debfe123cf60cf1ef8b88a3e7931ed2d"
+    },
+    "2:0:bid": {
+      "case": "surrogate-continuation-study-v1-2p-0-bid",
+      "job_id": "6addac6b1e112550ce7e89b2",
+      "paired_sha256": "7f4ab27c4aa7f910e17fb5cc1ce3a9103e510056630eca5ca285400b653c1ffa",
+      "receipt_sha256": "357d019ba005f5e57ac3d574beb18c0ebade46eb99e689f52efc5a6a473deddd"
+    },
+    "2:0:building": {
+      "case": "surrogate-continuation-study-v1-2p-0-building",
+      "job_id": "6addac6b046eb82b1ece363e",
+      "paired_sha256": "0f735434fec30034b11790099858a19aea888f511d7f343868d7d369a5f6a7bd",
+      "receipt_sha256": "493b787aa7df3fdab7ccb0b085250e08f07a65efdfbd058cb5e3d075ccb9901a"
+    },
+    "2:1:plant": {
+      "case": "surrogate-continuation-study-v1-2p-1-plant",
+      "job_id": "6addac6c046eb82b1ece3640",
+      "paired_sha256": "8700f082cc1fb4b002d75734f0faa7ade1f36d159a9295e8959ccfd6bafe0018",
+      "receipt_sha256": "63941922e339f32eb94eb64db17877c3fa120476f8ed5e9de3fda54f2b33b9f0"
+    },
+    "2:1:bid": {
+      "case": "surrogate-continuation-study-v1-2p-1-bid",
+      "job_id": "6addac6c046eb82b1ece3642",
+      "paired_sha256": "61fe8b1b7be782f2a927a3ed32047b10fd59e83267cefbd9779764e463de541c",
+      "receipt_sha256": "6a3d11694e9a6b31f198ef60ffd69d6f723f7d8c9b1ff883db7777bcb87f73b9"
+    },
+    "2:1:building": {
+      "case": "surrogate-continuation-study-v1-2p-1-building",
+      "job_id": "6addac6c1e112550ce7e89b4",
+      "paired_sha256": "c1e5e129c3749ad3fc84c186597cd3c969bf09000146b7f3fc648306a77c7f65",
+      "receipt_sha256": "881bb2f8016868806d1383f711621d7aaf6d956c3601adf06429213494cba1ff"
+    },
+    "2:2:plant": {
+      "case": "surrogate-continuation-study-v1-2p-2-plant",
+      "job_id": "6addac6c046eb82b1ece3644",
+      "paired_sha256": "5e8fb4c1bd7bae102aa765db00b2c2cc3800d3c2814d7cd7330f1674c132b8ce",
+      "receipt_sha256": "c362dd5d7cd0fe84c568031c5e66bed0e83b6690a96fe337e997a804c2ed21b2"
+    },
+    "2:2:bid": {
+      "case": "surrogate-continuation-study-v1-2p-2-bid",
+      "job_id": "6addac6d1e112550ce7e89b6",
+      "paired_sha256": "28ad168270567467d5edc06498774a1022365d58951978573c4da55ff00719a2",
+      "receipt_sha256": "46260cac38fc4736fc5468a23c6580a5a5acd408188ebbd01d02bc3c00f1d5dd"
+    },
+    "2:2:building": {
+      "case": "surrogate-continuation-study-v1-2p-2-building",
+      "job_id": "6addac6d046eb82b1ece3646",
+      "paired_sha256": "d42ead04b329d29a70f4c915b8cef5bc84fa22e5dfe27fd8364829e634f402ba",
+      "receipt_sha256": "ca188ed1b46e87da91d6c384c5d04fff5946303e86c1b9cbc9d6ac07528aa81b"
+    },
+    "2:3:plant": {
+      "case": "surrogate-continuation-study-v1-2p-3-plant",
+      "job_id": "6addac6d1e112550ce7e89b8",
+      "paired_sha256": "6ad496a32ac6daffe8309d08c31223a363bd8e3f7e3db7080c17ad8e30c13115",
+      "receipt_sha256": "23ce827c482280b869739ac2dc508b488582c1be20ca6c73221d6119c5972be7"
+    },
+    "2:3:bid": {
+      "case": "surrogate-continuation-study-v1-2p-3-bid",
+      "job_id": "6addac6d046eb82b1ece3648",
+      "paired_sha256": "ce757383d1a3e99b476d8975b32c93211b39f3f0661fab9c6551db9ef7401a44",
+      "receipt_sha256": "64ac5e9e6e2001bc254131f3d199f8403a03b62e54ae5b11025d1b174ce329a0"
+    },
+    "2:3:building": {
+      "case": "surrogate-continuation-study-v1-2p-3-building",
+      "job_id": "6addac6e046eb82b1ece364a",
+      "paired_sha256": "50c75a0f55974f0c8b8b31b0ebdfa488f28a747057c6ee3565ba15e398ca3f86",
+      "receipt_sha256": "1e7989d5c17787dffdd05dfdc7cc9dfaef51cf369aca3817e70cc15faca3ad6b"
+    },
+    "2:4:plant": {
+      "case": "surrogate-continuation-study-v1-2p-4-plant",
+      "job_id": "6addac6e1e112550ce7e89ba",
+      "paired_sha256": "7ba4a9e6abe149f78d3ef1a9d0a2954d00fc28a69afa94ddd7bc04da484a9572",
+      "receipt_sha256": "f96a4a3de98a319ad56d86f056231bb991e0ccfa8016c07dc0a4af502cc8bd79"
+    },
+    "2:4:bid": {
+      "case": "surrogate-continuation-study-v1-2p-4-bid",
+      "job_id": "6addac6e1e112550ce7e89bc",
+      "paired_sha256": "61fe28229d5b63af83e87fb974eb7664a3a25edefaa6d59348e28e9cb1395994",
+      "receipt_sha256": "c325bb19e3bba8889a4f2c7130b6a1260de34bab1554a0e84ee78850e540cea3"
+    },
+    "2:4:building": {
+      "case": "surrogate-continuation-study-v1-2p-4-building",
+      "job_id": "6addac6f046eb82b1ece364c",
+      "paired_sha256": "3ee5cdc02fe611d845b93b4a58fcb2feac24eca1aaea76b2642da9218024448f",
+      "receipt_sha256": "3e25df10d8c437a064078ff99b491caad490dafa35c2c7976ce48b9519370e66"
+    },
+    "2:5:plant": {
+      "case": "surrogate-continuation-study-v1-2p-5-plant",
+      "job_id": "6addac6f046eb82b1ece364e",
+      "paired_sha256": "17c46cc0c83612acdf4d114768ceedbd12c1c56b838bc2468957f45e04c14e99",
+      "receipt_sha256": "622bcdf724a8deeb3cea5a637aa42cc60a0345acbde5b661eff32b52a93de629"
+    },
+    "2:5:bid": {
+      "case": "surrogate-continuation-study-v1-2p-5-bid",
+      "job_id": "6addac6f046eb82b1ece3650",
+      "paired_sha256": "7cb1597f4a7ba5a7ef132bb0f29f3521b8bc2bda85a0f475287d02c26202e9c7",
+      "receipt_sha256": "948e5bb17f2d3a4628fc334f3e571c5054a81c2eb14f768d550456cf8f4f9911"
+    },
+    "2:5:building": {
+      "case": "surrogate-continuation-study-v1-2p-5-building",
+      "job_id": "6addac6f1e112550ce7e89be",
+      "paired_sha256": "a8f2d0d62fd270ce14572791698aa93ecff5b015744b90f44f7a59d514faf2bf",
+      "receipt_sha256": "7942a7226900c4347507367957c0e61cb8e63cca1483edb7c2ce3a339df569a4"
+    },
+    "2:6:plant": {
+      "case": "surrogate-continuation-study-v1-2p-6-plant",
+      "job_id": "6addac701e112550ce7e89c1",
+      "paired_sha256": "a5e0a3eb79964870feb0957173b36b123801605ebe479ba4799cfc41407ece12",
+      "receipt_sha256": "2a32935a3ab469808f5a9289ba84e8c4158dac89aeb29055458ba024517bfb26"
+    },
+    "2:6:bid": {
+      "case": "surrogate-continuation-study-v1-2p-6-bid",
+      "job_id": "6addac70046eb82b1ece3654",
+      "paired_sha256": "e220dbd5cfab99b317e17f0f3ef72b12b699aecbee76800c908fb51da0d028a6",
+      "receipt_sha256": "6b76e27769198113d7c4b947b35bb88d057ee76a4eaf2cc07adb9b7fe3ad699b"
+    },
+    "2:6:building": {
+      "case": "surrogate-continuation-study-v1-2p-6-building",
+      "job_id": "6addac70046eb82b1ece3656",
+      "paired_sha256": "5671ea6798a779ea096d64a78b68b1bf9bd3e4ccd2f1d4092ea4f8a36d31d742",
+      "receipt_sha256": "21222f9e1c69ae89b9c81f42cc86d76a8c3cff2104498bb5382f47259fc596cc"
+    },
+    "2:7:plant": {
+      "case": "surrogate-continuation-study-v1-2p-7-plant",
+      "job_id": "6addac701e112550ce7e89c3",
+      "paired_sha256": "9a30bbeab7803aa52e8a6aeb960d9202e455ed3f74b2c49a55478c872cd73fcd",
+      "receipt_sha256": "654e43e3c0544ef8b247c332b36f8d384926a5a89d62abd2841099eb1dcfc507"
+    },
+    "2:7:bid": {
+      "case": "surrogate-continuation-study-v1-2p-7-bid",
+      "job_id": "6addac71046eb82b1ece3658",
+      "paired_sha256": "8d29e0a277dd9b94efa5373b61d58174226a41abd50d60983e5dcd7ca483aece",
+      "receipt_sha256": "3d66eaaa00eceb350f8352c061c1300d77aa2aa5931b9598b257909286c426bc"
+    },
+    "2:7:building": {
+      "case": "surrogate-continuation-study-v1-2p-7-building",
+      "job_id": "6addac711e112550ce7e89c5",
+      "paired_sha256": "a07bdf35dfe56bc443c303430c2cc2aef69bfe00cb38b42deab4fc31bc47bbba",
+      "receipt_sha256": "89cfd8d257426244d7f4e1e0e1402f2f96ca71e0cee38b97ed954049b8c8b7fb"
+    },
+    "2:8:plant": {
+      "case": "surrogate-continuation-study-v1-2p-8-plant",
+      "job_id": "6addac711e112550ce7e89c7",
+      "paired_sha256": "d939ded7c7a8860231c9d525ba4a27e23cd3d93a749ad2dddbe9636e5756bc7b",
+      "receipt_sha256": "49faba167fd6d6700f5a224057837ce3ceedd58f2feac4b015193394ce9e6427"
+    },
+    "2:8:bid": {
+      "case": "surrogate-continuation-study-v1-2p-8-bid",
+      "job_id": "6addac711e112550ce7e89c9",
+      "paired_sha256": "5f1d074d58fb6118c5723386d0b33df9156d98538d1be79694c89c5799dd8d7e",
+      "receipt_sha256": "45608f37fc9017f661612ac73a2242d1950eae6dd870612fd06a0c4b76cd3c82"
+    },
+    "2:8:building": {
+      "case": "surrogate-continuation-study-v1-2p-8-building",
+      "job_id": "6addac72046eb82b1ece365a",
+      "paired_sha256": "c667259bb94682c8c9243fd4b7f43ea00a8f328eed0c5d60079206cc45320764",
+      "receipt_sha256": "31604a0d79be7578d13ef0977fad2976cb022f7d56778f8a4a56c1a2cdfbf3cf"
+    },
+    "2:9:plant": {
+      "case": "surrogate-continuation-study-v1-2p-9-plant",
+      "job_id": "6addac72046eb82b1ece365c",
+      "paired_sha256": "3c80fc4f8bbc8de0f50814abf08eacd71bafa07fb2fcb075f1c0b863fb25a13a",
+      "receipt_sha256": "37c8773530f4f24941b73b0037cbfa2630f73ecb3bac05fa5598a8415927dd5e"
+    },
+    "2:9:bid": {
+      "case": "surrogate-continuation-study-v1-2p-9-bid",
+      "job_id": "6addac721e112550ce7e89cb",
+      "paired_sha256": "3ee5591fc47fda899ed28b1c3841788dfe196b45f2d8fc29214ac38e32504296",
+      "receipt_sha256": "7ea2f1935865f38fc050b35804ca0d37450fc910bd373d31a165c8367c56b802"
+    },
+    "2:9:building": {
+      "case": "surrogate-continuation-study-v1-2p-9-building",
+      "job_id": "6addac72046eb82b1ece365e",
+      "paired_sha256": "53346e9c4e785e465e1ca94876bb96b6c52ae02e32b023e5bfb5b8ecec042814",
+      "receipt_sha256": "d7f912fcab3c973e4f461753647ae6b3b725816eb81811626f69407c7c7fbe0f"
+    },
+    "2:10:plant": {
+      "case": "surrogate-continuation-study-v1-2p-10-plant",
+      "job_id": "6addac73046eb82b1ece3660",
+      "paired_sha256": "c5d411370261d21cec0149d1e87886a91b80fff79f7154857db2122bc7d1d69a",
+      "receipt_sha256": "bf1d37240354d21318da647928986ff893f9530949e046a0034d0cf601b1e861"
+    },
+    "2:10:bid": {
+      "case": "surrogate-continuation-study-v1-2p-10-bid",
+      "job_id": "6addac73046eb82b1ece3662",
+      "paired_sha256": "8402c9c8d8c501ddc5eceb40c3cfe15ee6a61df5151468b658d3a3c581b4d200",
+      "receipt_sha256": "1ed6ed5536cb0ef7bbdac052551915cfa0fb35c4c9d3e95f40d1256804520819"
+    },
+    "2:10:building": {
+      "case": "surrogate-continuation-study-v1-2p-10-building",
+      "job_id": "6addad4a1e112550ce7e8a2e",
+      "paired_sha256": "e51fae682caa2c3763bef29219e764d4ad5fe6ee654b388b60d3ed7061501868",
+      "receipt_sha256": "871d96d0cb3e80dbe92c146cc5c67e3d76b8acd9ab017ce626eb6ec5e456b275"
+    },
+    "2:11:plant": {
+      "case": "surrogate-continuation-study-v1-2p-11-plant",
+      "job_id": "6addad4a1e112550ce7e8a30",
+      "paired_sha256": "270a2588cfa80b0cd3220444d914f19eaf6ac1e1b02c57f3e4f70c8002400cfe",
+      "receipt_sha256": "72305c813927c65ec4f6cba903ac2482b2d265eb13c370aa13e16552ff2ea4a6"
+    },
+    "2:11:bid": {
+      "case": "surrogate-continuation-study-v1-2p-11-bid",
+      "job_id": "6addad4a046eb82b1ece3697",
+      "paired_sha256": "462a99bbe2a35d44ade6ab3d0540caf4ffb4449c10c1dc0fc860454b3a07a0a1",
+      "receipt_sha256": "1991b800976e26d7c78a101ef148fb6f5e14a64f2283a130f5944b6e73c68b80"
+    },
+    "2:11:building": {
+      "case": "surrogate-continuation-study-v1-2p-11-building",
+      "job_id": "6addad4b046eb82b1ece3699",
+      "paired_sha256": "c18ea58a9487bebac6a944644188f78ad8487321995e10f17af804bf5392c64b",
+      "receipt_sha256": "4c16b5ef030e2fa58183378738132cfe61d73169e937bd456096791f2fd45a09"
+    },
+    "2:12:plant": {
+      "case": "surrogate-continuation-study-v1-2p-12-plant",
+      "job_id": "6addad4b046eb82b1ece369b",
+      "paired_sha256": "b0801af95d85a0d7357eaa9d037ac44f3883a783e4d9e2c17f4cfd048c80d5b2",
+      "receipt_sha256": "56ed22aec9e190c6b920692de0137f359efb2b4cbbce98394e3b3d527600fac6"
+    },
+    "2:12:bid": {
+      "case": "surrogate-continuation-study-v1-2p-12-bid",
+      "job_id": "6addad4b1e112550ce7e8a32",
+      "paired_sha256": "c15a9add995edb584abe6289878f522d83e523026f3cc9359647de57bad5ae5c",
+      "receipt_sha256": "55c5258d434f2fd6ba3831fe226f6ae34cbaeaaca3112e5f40a04b479650389a"
+    },
+    "2:12:building": {
+      "case": "surrogate-continuation-study-v1-2p-12-building",
+      "job_id": "6addad4c046eb82b1ece369d",
+      "paired_sha256": "887f89a8169d4fb9ecd9b4d9ec3c76f05a99b2d762bc3aa563d6d09cf4c165cf",
+      "receipt_sha256": "2f62531082f240b391cec582859e28217f194a400b18c34169a6cc9171d86bb3"
+    },
+    "2:13:plant": {
+      "case": "surrogate-continuation-study-v1-2p-13-plant",
+      "job_id": "6addad4c1e112550ce7e8a34",
+      "paired_sha256": "943ef2127919317b8a4cdcb033c849e0e7d76015c4994547ca73dea80ea56e70",
+      "receipt_sha256": "4707e303a1e92525cabe21eae01336aaf2d7c7e6eda9b43365f87237df081465"
+    },
+    "2:13:bid": {
+      "case": "surrogate-continuation-study-v1-2p-13-bid",
+      "job_id": "6addad4c1e112550ce7e8a36",
+      "paired_sha256": "1b71f5636e9a5194977954e9636156b6b7336171b45f302401ea2969d8a8eefa",
+      "receipt_sha256": "a0a239f65daef3db3c7a7db8c9ec7121f1e2893107579277f4bcdffc22fc7666"
+    },
+    "2:13:building": {
+      "case": "surrogate-continuation-study-v1-2p-13-building",
+      "job_id": "6addad4c046eb82b1ece369f",
+      "paired_sha256": "a53d9254bfb7c4e9b8b870c5432fb966d28bcf24bac35e0a069c4c220f2525a5",
+      "receipt_sha256": "1d12d90cd37bb36574dda13d2c54bbf739ba082fc2910b9aebdd0121ba56d42c"
+    },
+    "2:14:plant": {
+      "case": "surrogate-continuation-study-v1-2p-14-plant",
+      "job_id": "6addad4d1e112550ce7e8a38",
+      "paired_sha256": "107a5f7b7b0c38577e85b9b12b3ff6374532ae74d07af1f04fee3742aaaef979",
+      "receipt_sha256": "75525902dc6c32270c18bf152822de75363fbfc72a669d2e5a893e639b658172"
+    },
+    "2:14:bid": {
+      "case": "surrogate-continuation-study-v1-2p-14-bid",
+      "job_id": "6addad4d1e112550ce7e8a3a",
+      "paired_sha256": "1cab748e8a3e21dfa4853a0895ac702ebadf0ba084b6b4430aef135b445f0037",
+      "receipt_sha256": "2e65f9fbc5fde544b512f875f396c65e4b5cae0ce9dff0a183f6fdd442283de7"
+    },
+    "2:14:building": {
+      "case": "surrogate-continuation-study-v1-2p-14-building",
+      "job_id": "6addad4d046eb82b1ece36a1",
+      "paired_sha256": "a017e6ae4918b37c429a701f1a32edfc24bfe1a99a478e84b296a58de545b139",
+      "receipt_sha256": "827c2df0eb6cc826ee97e807ae1d81e568d8d953c1aa7b9eb2691935f19e5f3d"
+    },
+    "2:15:plant": {
+      "case": "surrogate-continuation-study-v1-2p-15-plant",
+      "job_id": "6addad4d046eb82b1ece36a3",
+      "paired_sha256": "c5047043f526a20dbaf452eeb1e80ee3699702ddb759df323d34f2ecca0188e6",
+      "receipt_sha256": "e85eca4a77577ce6bb7f2df88dadf39afa100eb54bd0c39ac6b8d86cbe0c47a6"
+    },
+    "2:15:bid": {
+      "case": "surrogate-continuation-study-v1-2p-15-bid",
+      "job_id": "6addae291e112550ce7e8af9",
+      "paired_sha256": "4e4e6421ba98d9647e4bc7518a993f598871c0cc41322ddabf9ba4792b808470",
+      "receipt_sha256": "5b8d19776afc714c76c5f0b2fe63e84d834c8d372c74aeba9a8e3629a30993e5"
+    },
+    "2:15:building": {
+      "case": "surrogate-continuation-study-v1-2p-15-building",
+      "job_id": "6addae2a046eb82b1ece3720",
+      "paired_sha256": "7a04b077f855af7798cf8bb71bd52c2b3664cbf53c9f1c6898ba4ba457c3cdca",
+      "receipt_sha256": "3cfb034c80a2bdc1f761ba9b08bed6e368be357acb27683d9c61133fbdec88bb"
+    },
+    "3:0:plant": {
+      "case": "surrogate-continuation-study-v1-3p-0-plant",
+      "job_id": "6addae2a1e112550ce7e8afb",
+      "paired_sha256": "c4fbd9adaae1136185bb7d41054402f48bbbce7b1123d7e56d29aca3aafd2ad0",
+      "receipt_sha256": "cf3bde398e173b13cfee88ce3621a108ba17731c145298b711fb31970f96b705"
+    },
+    "3:0:bid": {
+      "case": "surrogate-continuation-study-v1-3p-0-bid",
+      "job_id": "6addae2a1e112550ce7e8aff",
+      "paired_sha256": "8128e0a89c34e64885a4887de25c244e4c63154eaf83a253722068cdffd7233e",
+      "receipt_sha256": "fcb6095a1c4c22cb2bd5834376f034c9fe6edd9e9c26066a2e5524543c0ff49b"
+    },
+    "3:0:building": {
+      "case": "surrogate-continuation-study-v1-3p-0-building",
+      "job_id": "6addae2a046eb82b1ece3722",
+      "paired_sha256": "dd44a5c7a8bbff2d2678de8fc4ce1c13a011125f8581ecb751a91acdd2719993",
+      "receipt_sha256": "2ca13e0eafcd3b3eca8c999f0ed33d2b9aecaf6aa5206491f678c1d76cc80bba"
+    },
+    "3:1:plant": {
+      "case": "surrogate-continuation-study-v1-3p-1-plant",
+      "job_id": "6addae2b1e112550ce7e8b01",
+      "paired_sha256": "2ad5313d9da38ab5463a9d94f067e8996ef086abd63e95ca3d40026b62f13156",
+      "receipt_sha256": "ec900579bf283fc9c0bdfd1d139153fb616e0e1ef80fa9e56b9fb039c17455cf"
+    },
+    "3:1:bid": {
+      "case": "surrogate-continuation-study-v1-3p-1-bid",
+      "job_id": "6addae2b1e112550ce7e8b03",
+      "paired_sha256": "0f6fe188560c4e7eb89ffe1ddb96d1bb46b70a1ecc4f7cba97bf8d8daa4c11d3",
+      "receipt_sha256": "d803d212ba306a32fa0166fa84d59f650ebdcda22902a9d7808849c474329104"
+    },
+    "3:1:building": {
+      "case": "surrogate-continuation-study-v1-3p-1-building",
+      "job_id": "6addae2b1e112550ce7e8b05",
+      "paired_sha256": "074827121fe0bf0239d1d309d3038a699fb114bde591278a26410d3a2e2f828d",
+      "receipt_sha256": "2f389c32dd7f5e99834e1813a39b2daabb12fc1f0ecc686cd937a6e185964484"
+    },
+    "3:2:plant": {
+      "case": "surrogate-continuation-study-v1-3p-2-plant",
+      "job_id": "6addae2c046eb82b1ece3726",
+      "paired_sha256": "2e86ceac1632d327fd3d185af9ffa0a852885acb1e8c9d7cbbe479123b87b4ad",
+      "receipt_sha256": "149bb8ea7c7de44b23b3bda54325d57744934a74c02468160b29b3541bd6235e"
+    },
+    "3:2:bid": {
+      "case": "surrogate-continuation-study-v1-3p-2-bid",
+      "job_id": "6addae2c046eb82b1ece3728",
+      "paired_sha256": "1e2b0ed528b5a6e24188d05265a409f3c4518aa7ba205c2ebbf1374f20b4798e",
+      "receipt_sha256": "e6043a58a24839b533a6c02f1bc019b127d7a855adb00327c2b9b7148b4dee43"
+    },
+    "3:2:building": {
+      "case": "surrogate-continuation-study-v1-3p-2-building",
+      "job_id": "6addae2c1e112550ce7e8b09",
+      "paired_sha256": "ddab26f6bd9cea7b00fb80ab84886be5f82afddef33ba0a59df7b3d2183c33bb",
+      "receipt_sha256": "ad9a05a8d47d79873a4692ceedfad18dd3cd1eae34ef58b34770d502af77208c"
+    },
+    "3:3:plant": {
+      "case": "surrogate-continuation-study-v1-3p-3-plant",
+      "job_id": "6addae2c046eb82b1ece372c",
+      "paired_sha256": "e06e12cb7ad9c10f73597f03bc2f1f1b6d73676e733f802a462b731244ae1490",
+      "receipt_sha256": "7c18a6f8c33ecf5914732b889867da78e6a236a6ce49f5029eaa6361acdebb10"
+    },
+    "3:3:bid": {
+      "case": "surrogate-continuation-study-v1-3p-3-bid",
+      "job_id": "6addaf07046eb82b1ece3779",
+      "paired_sha256": "c26d0485c2787385bd25cb6b851397489fe4594340095f3ab4a4649e15d925dd",
+      "receipt_sha256": "0a0256868a23d31d05cf6abc156ea1a0f24d5813004f1c1ec9a1eef6b52f2a82"
+    },
+    "3:3:building": {
+      "case": "surrogate-continuation-study-v1-3p-3-building",
+      "job_id": "6addaf08046eb82b1ece377b",
+      "paired_sha256": "80ae151da9171e6f6f17dcba95cca4ee500dc1d7fac211fdf76cfa27796c5576",
+      "receipt_sha256": "b7869a744c5aa93327988ce8b4be0d2084e9815ba1b2959ecc8e345b078e5945"
+    },
+    "3:4:plant": {
+      "case": "surrogate-continuation-study-v1-3p-4-plant",
+      "job_id": "6addaf081e112550ce7e8b6d",
+      "paired_sha256": "f0f80bfdaa67dc96c6c9c2131aa818006f707a5422ed8735c30b36717467f8e4",
+      "receipt_sha256": "5ac04484b06705b69d3d9ed13edff0683cf63bc5980c02eb2f14808144f810d0"
+    },
+    "3:4:bid": {
+      "case": "surrogate-continuation-study-v1-3p-4-bid",
+      "job_id": "6addaf08046eb82b1ece377d",
+      "paired_sha256": "881854f5ec90d1605fced3fcf7fb7de7fe8d3a15a7a79f1c387afd352cecadce",
+      "receipt_sha256": "0c371fc325c4694cecb187e613e1612f3feb0ebf0c48eb0970f12b0f96890004"
+    },
+    "3:4:building": {
+      "case": "surrogate-continuation-study-v1-3p-4-building",
+      "job_id": "6addaf08046eb82b1ece377f",
+      "paired_sha256": "cd41600817039691af6e6f8beba051b55972fb806c4714b4fe70b7c306d29e12",
+      "receipt_sha256": "f63b536967ce4a9ec3b0bdab33ea9822756b2e565eb0f035b70f09d16703a2a6"
+    },
+    "3:5:plant": {
+      "case": "surrogate-continuation-study-v1-3p-5-plant",
+      "job_id": "6addafe6046eb82b1ece37b5",
+      "paired_sha256": "0f0df9a692a5a949357f198578e62c16a7a2b12aa5af081d001de52411491a41",
+      "receipt_sha256": "b9d27ea03259b4a1abf11ed6ddc0684269a8f4274ff2efbef458a29e5ea87a46"
+    },
+    "3:5:bid": {
+      "case": "surrogate-continuation-study-v1-3p-5-bid",
+      "job_id": "6addafe61e112550ce7e8b89",
+      "paired_sha256": "f03ed5b02f88846f81e7974a6148de6470e6c980a7efe36ea6a0d3f82b5cb25e",
+      "receipt_sha256": "cb71688553582254e4faffc01ec9ee3cf26a0b8a6cb4bf658cee8264dc3c11aa"
+    },
+    "3:5:building": {
+      "case": "surrogate-continuation-study-v1-3p-5-building",
+      "job_id": "6addafe6046eb82b1ece37b7",
+      "paired_sha256": "2ac0f32613f190e5e160ee61f7c8b46c184e901879a56c8ec74d1f7df6328e15",
+      "receipt_sha256": "095d576e7312431000a501f63cf82a75a0fb9bd8edac12aceaea21ba4b78d793"
+    },
+    "3:6:plant": {
+      "case": "surrogate-continuation-study-v1-3p-6-plant",
+      "job_id": "6addafe7046eb82b1ece37b9",
+      "paired_sha256": "fa363c23f68c9711003072e1e8654a16e8fb6230597adbb14a50941e34e85fe0",
+      "receipt_sha256": "3742872d9439c8e19a8742dbd019f00b368360ef4153ab1c53d754391969ff44"
+    },
+    "3:6:bid": {
+      "case": "surrogate-continuation-study-v1-3p-6-bid",
+      "job_id": "6addafe71e112550ce7e8b8b",
+      "paired_sha256": "32eca64c4ca76dffbe81b757d324381cd6c5162d39edbb55fae226dc02fde5f5",
+      "receipt_sha256": "5aa369ce62bacb0fd7500cfab90e128fa703fc934aa1d5e0b1e42a74079f406d"
+    },
+    "3:6:building": {
+      "case": "surrogate-continuation-study-v1-3p-6-building",
+      "job_id": "6addafe7046eb82b1ece37bb",
+      "paired_sha256": "a4c1a1017bf4c383b6a120cd1207c601799391d9c780b747f5b38c012ebb45fc",
+      "receipt_sha256": "23aa08e126eeaf59c7b5ad0e33b64e7c43827dcdda86464c69f881716cab7a93"
+    },
+    "3:7:plant": {
+      "case": "surrogate-continuation-study-v1-3p-7-plant",
+      "job_id": "6addafe7046eb82b1ece37bd",
+      "paired_sha256": "9ba9318b04293e51d111e64171d233fd8682addce2835996d9e25cd88cc6b3ff",
+      "receipt_sha256": "50dba39e771266ba2a472d684d1547e134cdca0aeb8e934d554298cdadb106a5"
+    },
+    "3:7:bid": {
+      "case": "surrogate-continuation-study-v1-3p-7-bid",
+      "job_id": "6addb0c81e112550ce7e8ca3",
+      "paired_sha256": "3f7e4dcd3e8cc28886ac30696fd1bdeb83e80819b3bf24a4075461224f4bf849",
+      "receipt_sha256": "9499aa4439c3e9b009778adf5110cfdee4adf7cbbc41fda5db0d9633ad9eb65b"
+    },
+    "3:7:building": {
+      "case": "surrogate-continuation-study-v1-3p-7-building",
+      "job_id": "6addb0c91e112550ce7e8ca5",
+      "paired_sha256": "b7281bb8af81c5291f9bdd539944acc281e45f702956094fbcf9f0092e78075d",
+      "receipt_sha256": "d5dc59913130ec5344931fd9a439061451205c6877f5b8c7e0d59863532fe91b"
+    },
+    "3:8:plant": {
+      "case": "surrogate-continuation-study-v1-3p-8-plant",
+      "job_id": "6addb0c9046eb82b1ece3875",
+      "paired_sha256": "50227d7e6ea44f9966886d24f8eae28b8ceaabc5bddf2a765eab382fd1ffd2df",
+      "receipt_sha256": "0bc55b986bfbe99dd46307c8098fd08d0823d628de257cbdeb76d9ed1911e2fd"
+    },
+    "3:8:bid": {
+      "case": "surrogate-continuation-study-v1-3p-8-bid",
+      "job_id": "6addb0c91e112550ce7e8ca7",
+      "paired_sha256": "fc0351f715235bc305d7927300804241250aa9d8091aed85cf561eb64d4de73a",
+      "receipt_sha256": "bdc27ff6b454f4ac99f1584f5cfa804edffd52789ad80e99ac1726e1466ca968"
+    },
+    "3:8:building": {
+      "case": "surrogate-continuation-study-v1-3p-8-building",
+      "job_id": "6addb1aa1e112550ce7e8d0e",
+      "paired_sha256": "e8934e5ce20ba97e9e390320e68506c6bf484a1f2255f00e1d8e326bb2f51191",
+      "receipt_sha256": "7ec50a9636c519e7401ee3efe6114b01422d48435c37dfa8f41f770791f5b468"
+    },
+    "3:9:plant": {
+      "case": "surrogate-continuation-study-v1-3p-9-plant",
+      "job_id": "6addb1aa1e112550ce7e8d10",
+      "paired_sha256": "dd157f5ab04322619e63ef8561fb647757f8791e2fde5e63543f60730f6d131a",
+      "receipt_sha256": "11849cc0417ece88869638b5a88a35e08694b5c3e3f5b6b61b59ab8cd42fa6e2"
+    },
+    "3:9:bid": {
+      "case": "surrogate-continuation-study-v1-3p-9-bid",
+      "job_id": "6addb1ab1e112550ce7e8d12",
+      "paired_sha256": "d32a2e988119b866d7977805981e90381806640bd514fbd250155b4b94946d59",
+      "receipt_sha256": "e9e69b848d9ddae4aa3d982ee18e8a08c1e04c3c700989be956a8cb47abfb661"
+    },
+    "3:9:building": {
+      "case": "surrogate-continuation-study-v1-3p-9-building",
+      "job_id": "6addb1ab046eb82b1ece38ae",
+      "paired_sha256": "a37d15597260b95b1b312454f258b29bf60263c56e2dc510747511c944cb7637",
+      "receipt_sha256": "8a7fffa7d30ebc705b8432e980a02bfe923c8fbe5613926d180336e2a766ad40"
+    },
+    "3:10:plant": {
+      "case": "surrogate-continuation-study-v1-3p-10-plant",
+      "job_id": "6addb1ab1e112550ce7e8d14",
+      "paired_sha256": "715e3cde08746e732bc9ad63cc3aefee3b846f6052ba32236f2f55ee3dd168c6",
+      "receipt_sha256": "6192500db378eba9a7972b2afdd215a420b1edee5cfdee91ea54072a7e0ce6ba"
+    },
+    "3:10:bid": {
+      "case": "surrogate-continuation-study-v1-3p-10-bid",
+      "job_id": "6addb1ab1e112550ce7e8d16",
+      "paired_sha256": "6653135990644d08580e8ded740c0c160fcc5795dad903f80dd688a1fd11ad9d",
+      "receipt_sha256": "a142c25609022fbcde40d059f2dfcebd597430df3d54b5151dcb9a94790f7cdb"
+    },
+    "3:10:building": {
+      "case": "surrogate-continuation-study-v1-3p-10-building",
+      "job_id": "6addb1ac046eb82b1ece38b0",
+      "paired_sha256": "32b3204e064d99d20db1340fcb17fc472901301306edaac5868c36a101e40841",
+      "receipt_sha256": "7e48287ede623794f68b75ec6d194ce282901e358d47c37bfa82c06e8a829a7f"
+    },
+    "3:11:plant": {
+      "case": "surrogate-continuation-study-v1-3p-11-plant",
+      "job_id": "6addb1ac1e112550ce7e8d18",
+      "paired_sha256": "6d218b42c15fe895b83962c51250ed356ba2bef3745762e60b0910465e688683",
+      "receipt_sha256": "b75f340621a4e12725d4a4bf3266dadab03708c79708906867c7945e49da09ee"
+    },
+    "3:11:bid": {
+      "case": "surrogate-continuation-study-v1-3p-11-bid",
+      "job_id": "6addb1ac1e112550ce7e8d1a",
+      "paired_sha256": "5913ff2320769a6c0c9f7b873a8028de69e90320a0b5065f670f232f7b2c0405",
+      "receipt_sha256": "c504132a445cbdc4aeb6e33d11008c032b9221695131cf0b3bbb57d3a554a4fd"
+    },
+    "3:11:building": {
+      "case": "surrogate-continuation-study-v1-3p-11-building",
+      "job_id": "6addb1ac046eb82b1ece38b2",
+      "paired_sha256": "b7d60513fc55c31750198e8581a0adc118c5bfa620bb43a9e96d069a144a63d6",
+      "receipt_sha256": "86d310f244db0bf152cdbb25acb7256c8ce81309c8daaa34df1944fb136178cf"
+    },
+    "3:12:plant": {
+      "case": "surrogate-continuation-study-v1-3p-12-plant",
+      "job_id": "6addb2921e112550ce7e8d70",
+      "paired_sha256": "65a4eb3cf27fc82d40ffdef21bd083eb0cc947e71f7567a59359ebad680ff44d",
+      "receipt_sha256": "2637543ab627cbf0deec8e57018fa603bcca1299d608564ab5bea6b50518c2e5"
+    },
+    "3:12:bid": {
+      "case": "surrogate-continuation-study-v1-3p-12-bid",
+      "job_id": "6addb292046eb82b1ece38ef",
+      "paired_sha256": "4b4daada34b1e55d2cfc1a540064bdb3013e6dd6ed206d3ff2986e3f7566489e",
+      "receipt_sha256": "55bd7a55ceb523a795b83a83297b846868ea7dbaf84d664c75c1ce8357a9092a"
+    },
+    "3:12:building": {
+      "case": "surrogate-continuation-study-v1-3p-12-building",
+      "job_id": "6addb292046eb82b1ece38f1",
+      "paired_sha256": "d864352ab9da050c91341910846c5d8f121a75338681e510c3ed5569124c172d",
+      "receipt_sha256": "c6fc67915ed41da768e9bf60aa2cb678e104499336cc40f4357cc492dee0e312"
+    },
+    "3:13:plant": {
+      "case": "surrogate-continuation-study-v1-3p-13-plant",
+      "job_id": "6addb292046eb82b1ece38f3",
+      "paired_sha256": "72a40360f62a1558412096f179569fd7d09970ab511a75f495e33417d093bfdd",
+      "receipt_sha256": "e2f4f506d604e7dbbd41c84dd4644e0a8bd1e6246132708102a2fb2912803094"
+    },
+    "3:13:bid": {
+      "case": "surrogate-continuation-study-v1-3p-13-bid",
+      "job_id": "6addb2931e112550ce7e8d72",
+      "paired_sha256": "eaaf09b1a3c229338df6063c204865cb9799db41efcaf04ce874a9b1c2c8f711",
+      "receipt_sha256": "abf4eb3dfb0cb320c8be9c43552a762d504cef49796554be061a84b9ec39f7c7"
+    },
+    "3:13:building": {
+      "case": "surrogate-continuation-study-v1-3p-13-building",
+      "job_id": "6addb2931e112550ce7e8d74",
+      "paired_sha256": "b433b95ce51bd9b1ba52c0864b5ff6a2e74a0ff2d8927df23f5849981ccb7648",
+      "receipt_sha256": "762014d8e03202a0646f8a241e8ab219ae845108861a421f433e9dbad2e7f996"
+    },
+    "3:14:plant": {
+      "case": "surrogate-continuation-study-v1-3p-14-plant",
+      "job_id": "6addb293046eb82b1ece38f5",
+      "paired_sha256": "aca742921c7224e455c71d1054fd2528c58f13af88839753c8cf941293c0a45e",
+      "receipt_sha256": "f190feea808ebebcfa34d83168ecf3138423b5bbd3c2107e6965beca827c593a"
+    },
+    "3:14:bid": {
+      "case": "surrogate-continuation-study-v1-3p-14-bid",
+      "job_id": "6addb294046eb82b1ece38f7",
+      "paired_sha256": "7612c20f0302201d3db607fb90ffc89a03892f72ef84e2bd87c227880c59636a",
+      "receipt_sha256": "4cf55d9179e5ccb84e4cbf086106dc01198ce791041d518753303ac61c99c150"
+    },
+    "3:14:building": {
+      "case": "surrogate-continuation-study-v1-3p-14-building",
+      "job_id": "6addb294046eb82b1ece38f9",
+      "paired_sha256": "f8af709cc54bcdb18950eaa5a5ccb407e31a054048e455e35ce91d05286ddd98",
+      "receipt_sha256": "9f2051f747228048f44ed1081a7e6b6213bf51e2e79b8200f55c8f9e7c044b57"
+    },
+    "3:15:plant": {
+      "case": "surrogate-continuation-study-v1-3p-15-plant",
+      "job_id": "6addb294046eb82b1ece38fb",
+      "paired_sha256": "a3b81d1fa4dee3959d3aebdecbfbc7a3e0ab964e9b7e5ebd91bf34dc1c1f434e",
+      "receipt_sha256": "1e4dac3a2428b0c2534cb01725282b18420f76982fd645a0c9083fc7a52d19eb"
+    },
+    "3:15:bid": {
+      "case": "surrogate-continuation-study-v1-3p-15-bid",
+      "job_id": "6addb2941e112550ce7e8d76",
+      "paired_sha256": "1e906ca69639350f5f559ae2d433901d46cd7da86057c0d74e8ec2d73dfe7d85",
+      "receipt_sha256": "4766688e5253d6b3c8777cfd65aec2ab40c5d5beb0ed1400f2cfe4716a2acf75"
+    },
+    "3:15:building": {
+      "case": "surrogate-continuation-study-v1-3p-15-building",
+      "job_id": "6addb2951e112550ce7e8d78",
+      "paired_sha256": "e9d7f3bd15c3492ca9784102c789959644b1aefa0b6a0fba3489c9ce45a9348a",
+      "receipt_sha256": "cfd2feb050bc917d2099693e0185c2d46e3fd6d4c037fc1d94ad68dbe3438047"
+    },
+    "3:16:plant": {
+      "case": "surrogate-continuation-study-v1-3p-16-plant",
+      "job_id": "6addb37d1e112550ce7e8dbf",
+      "paired_sha256": "5111cd9d38e83d700cdff549332ad6746fd45016ac0fefd92ad6eff347cfb6db",
+      "receipt_sha256": "ff1634bf9f5cc17c3a3f709bb9fb955eb2c6daa5f691634b6cc2729801badabd"
+    },
+    "3:16:bid": {
+      "case": "surrogate-continuation-study-v1-3p-16-bid",
+      "job_id": "6addb37d1e112550ce7e8dc1",
+      "paired_sha256": "d39bd11c0c99de865316beead64a2cf1df119b1076588d2f970c448ae8182ca6",
+      "receipt_sha256": "078b92604a01fe8c2d324ab0651ee78c283e8c527e799fd2021e33fa151998ba"
+    },
+    "3:16:building": {
+      "case": "surrogate-continuation-study-v1-3p-16-building",
+      "job_id": "6addb37e046eb82b1ece3927",
+      "paired_sha256": "55321e7b892e0d64ed6f6e2f46d8764f98be9a1dded0bf1b9755a05137c54859",
+      "receipt_sha256": "211396f71f4a8d471953d2c1c8d36d3d7692099574c7dcffc5fc046baaf352dc"
+    },
+    "3:17:plant": {
+      "case": "surrogate-continuation-study-v1-3p-17-plant",
+      "job_id": "6addb37e1e112550ce7e8dc3",
+      "paired_sha256": "25d0de5df7e1dcf27ec83b6bd948dd7baf929b3d613916fc214f262b24ca9fbb",
+      "receipt_sha256": "5303dd7bcd1b2ab4752feecfdf4ba289a88b0785d05d0aa884690c198ce8d6f1"
+    },
+    "3:17:bid": {
+      "case": "surrogate-continuation-study-v1-3p-17-bid",
+      "job_id": "6addb37e046eb82b1ece3929",
+      "paired_sha256": "fef20051016cf895ce52b264d616ee2c2a7b9b481d97f3c30a5e2435aaa224bc",
+      "receipt_sha256": "1902c96bcedd7a9b73c2909a8429caaa472156aae6b2f15b4706a9f9869c77b6"
+    },
+    "3:17:building": {
+      "case": "surrogate-continuation-study-v1-3p-17-building",
+      "job_id": "6addb37e1e112550ce7e8dd0",
+      "paired_sha256": "1f21e7517fda502c47f7a14087fb96f2aeb0770daac2b3e46a4f00f7d9bae068",
+      "receipt_sha256": "0e2ec57db16ac202ca531311e886e5b033a1de5eb7ec194b8ef92099f3ddbd28"
+    },
+    "3:18:plant": {
+      "case": "surrogate-continuation-study-v1-3p-18-plant",
+      "job_id": "6addb37f1e112550ce7e8de2",
+      "paired_sha256": "55b06b66d191e2d54e1bb9d7e48e93bba822989a1719c711afb19dc702b603d2",
+      "receipt_sha256": "a8e4bf7d282869006fcd7cb5addf5e616fbb608c537f6e40bd25a26e3320b83e"
+    },
+    "3:18:bid": {
+      "case": "surrogate-continuation-study-v1-3p-18-bid",
+      "job_id": "6addb37f1e112550ce7e8de4",
+      "paired_sha256": "782e8da2e61537b773066a945f14a2caad987bee79ddb812cadd90d4965a1a0b",
+      "receipt_sha256": "a72110a2dc61beec74d5fcdb023c2fd764e45c86a0d1476954b79b0b02391d21"
+    },
+    "3:18:building": {
+      "case": "surrogate-continuation-study-v1-3p-18-building",
+      "job_id": "6addb37f1e112550ce7e8de6",
+      "paired_sha256": "1796296b47207ef29cd341c1e0d806f3b89c40e9d11909cb64abb610e8fca72c",
+      "receipt_sha256": "f010516c90220916e0a0c11c95c07346f01c8cd40aca0d25cce19538d5e0d7aa"
+    },
+    "3:19:plant": {
+      "case": "surrogate-continuation-study-v1-3p-19-plant",
+      "job_id": "6addb4691e112550ce7e8e1e",
+      "paired_sha256": "288c0b6c4153e62141d50fec0e7ab2601e11f3fda57876a83267952a5fa515ee",
+      "receipt_sha256": "f0d6ff0a519aa8361ab7d273d6399dfacf6c4eaf5601e889e8fa9047c57a503b"
+    },
+    "3:19:bid": {
+      "case": "surrogate-continuation-study-v1-3p-19-bid",
+      "job_id": "6addb46a046eb82b1ece396b",
+      "paired_sha256": "29fc99245cd050c209555c015b4d28fe7b8906edc9f7e2ad5acf843938363d02",
+      "receipt_sha256": "2c77bfd4a8d4c2117a39d20ed004624cac5a9be757849189e210915ac895f27b"
+    },
+    "3:19:building": {
+      "case": "surrogate-continuation-study-v1-3p-19-building",
+      "job_id": "6addb46a1e112550ce7e8e20",
+      "paired_sha256": "03b503ce476401e7ad8a3bed4400257160662206eeb6b179c99e0117bde7bfd4",
+      "receipt_sha256": "0305d6f53955c304b74bfc64768a10c705aa2ab3ffe7f2b38f96907a4d9807ce"
+    },
+    "3:20:plant": {
+      "case": "surrogate-continuation-study-v1-3p-20-plant",
+      "job_id": "6addb46a1e112550ce7e8e22",
+      "paired_sha256": "e3b63bd65ccdea1b958af1dfc09afa27d5822128e580deb7f8e5e2190dc72f30",
+      "receipt_sha256": "dd60a51e35ae3639b0be38d45868dfb881380ee6639cc0d6dcacf82efeefa4ea"
+    },
+    "3:20:bid": {
+      "case": "surrogate-continuation-study-v1-3p-20-bid",
+      "job_id": "6addb46b046eb82b1ece396d",
+      "paired_sha256": "0ee1778a4a821d649f888827fdbe767edfbea7ba97cce3fc6950e3d15264d197",
+      "receipt_sha256": "c673391531a800ba70d5f1c35fff5b7950e36991c8218a8e6fa3f67bd09ff0f3"
+    },
+    "3:20:building": {
+      "case": "surrogate-continuation-study-v1-3p-20-building",
+      "job_id": "6addb46b1e112550ce7e8e24",
+      "paired_sha256": "872e40f2201234757583fef580c6b9b361608bfa1352ad6f35ee4a5649576621",
+      "receipt_sha256": "87b9018e511ea8248b985f12337c301e987c36e303d921283323f440a57e9ab5"
+    },
+    "3:21:plant": {
+      "case": "surrogate-continuation-study-v1-3p-21-plant",
+      "job_id": "6addb46b1e112550ce7e8e26",
+      "paired_sha256": "d3680f9345047315e1960fa412d12319e9a0a997ac1ff0e425336eb1cf1519f8",
+      "receipt_sha256": "d030f9b4f87f43ad89c7cc5c34916879f99e6fb0d9dabb2e8eebabe2db8f692a"
+    },
+    "3:21:bid": {
+      "case": "surrogate-continuation-study-v1-3p-21-bid",
+      "job_id": "6addb46b046eb82b1ece396f",
+      "paired_sha256": "f194be7db52ef15f0b96d8effbcf31a0ffb85e5f3257ce0776c72a5bf4da2660",
+      "receipt_sha256": "1b6a47c8ec559d1a830e17323fc8482e349dd5587a9a1e12c0d34a110e76378d"
+    },
+    "3:21:building": {
+      "case": "surrogate-continuation-study-v1-3p-21-building",
+      "job_id": "6addb46c1e112550ce7e8e28",
+      "paired_sha256": "a2d1e50315713284a9c686fd1e058c376abe3e311ddba7f7baa8bf4b2b4ce874",
+      "receipt_sha256": "51033c61ec39948a38e9f1dff2e932605905e7962e8fe1e100f14e66471ef756"
+    },
+    "3:22:plant": {
+      "case": "surrogate-continuation-study-v1-3p-22-plant",
+      "job_id": "6addb46c1e112550ce7e8e2a",
+      "paired_sha256": "5897e1883fc73f817da96d35b0fd851cf0ad84a1908d223cb0450d447e70f5e6",
+      "receipt_sha256": "6df768a43c89794f310ffe7635bbabc61a020e1c46a83e45e366a3785ac06958"
+    },
+    "3:22:bid": {
+      "case": "surrogate-continuation-study-v1-3p-22-bid",
+      "job_id": "6addb46c1e112550ce7e8e2c",
+      "paired_sha256": "eeb60ca11a1ebbb9a56447066a7b5ae378bfb018cbb192778190bd57d996868d",
+      "receipt_sha256": "a4542df5dc7925e09dc8362ba31c2437a71d1350e7f79a1f3063f3195c7eb684"
+    },
+    "3:22:building": {
+      "case": "surrogate-continuation-study-v1-3p-22-building",
+      "job_id": "6addb46c046eb82b1ece3975",
+      "paired_sha256": "2d60cee73ae6b6205325a0377c97de3a4142045ea2d6551f0fb74b8172eaee57",
+      "receipt_sha256": "ecc23e77df8c7388cf56a689117c73e7c175d019d1965fc86349dd281e907bde"
+    },
+    "3:23:plant": {
+      "case": "surrogate-continuation-study-v1-3p-23-plant",
+      "job_id": "6addb46d1e112550ce7e8e34",
+      "paired_sha256": "87dea198bb4f6ba3cf63c469125b0f975da49b6c27dfb63620ea1ace98a642b7",
+      "receipt_sha256": "d9f305a1d465519e80b0063d1e5e89ce3b7718c98eea8a0e4a05487563bba3b0"
+    },
+    "3:23:bid": {
+      "case": "surrogate-continuation-study-v1-3p-23-bid",
+      "job_id": "6addb46d046eb82b1ece3977",
+      "paired_sha256": "ee70136c8de266c0207cd7b89bdd00757daedb3b893b66a962d4bf4a8eff3f9f",
+      "receipt_sha256": "59af02ad8c0d003357bbebb6e91287c43d60bf916864c15d6a5362e6cab8aa25"
+    },
+    "3:23:building": {
+      "case": "surrogate-continuation-study-v1-3p-23-building",
+      "job_id": "6addb55a046eb82b1ece3a6d",
+      "paired_sha256": "77f6608ee2d637b75dba14b6d51c30f530803703474b58be81c476319f550d9f",
+      "receipt_sha256": "d45fb69e762c10d9fc735836d0338cd6e3005cfd3f932d39492dec23c0c6f9f2"
+    },
+    "4:0:plant": {
+      "case": "surrogate-continuation-study-v1-4p-0-plant",
+      "job_id": "6addb55b1e112550ce7e8f35",
+      "paired_sha256": "c330c6d379b744112352f3b93a51f7f7cdd78c1aff6bc18f48c5aa6a9624cb07",
+      "receipt_sha256": "c3aadb52536a0c2a1e32252044b0ec59f4ec4264c58e34ec7b6e8ce6823d7bba"
+    },
+    "4:0:bid": {
+      "case": "surrogate-continuation-study-v1-4p-0-bid",
+      "job_id": "6addb55b046eb82b1ece3a6f",
+      "paired_sha256": "5125df1b581e7fc63296703e30c0007c307b97e03a3899a063f624061366c8b2",
+      "receipt_sha256": "5d728bee25b93c2fcdf5596a63d1411b8f7f40e1b011bddf05266436e186507f"
+    },
+    "4:0:building": {
+      "case": "surrogate-continuation-study-v1-4p-0-building",
+      "job_id": "6addb55b046eb82b1ece3a71",
+      "paired_sha256": "afee6c45e81e93e75235b6ec7798472ec99996c1f1a90113df1befcb7fd4146c",
+      "receipt_sha256": "6afacbbf6b9f6f3bcfd7d7a8a2950f7de372c7d09ddfe63a56696c0bbb22f3ec"
+    },
+    "4:1:plant": {
+      "case": "surrogate-continuation-study-v1-4p-1-plant",
+      "job_id": "6addb55c046eb82b1ece3a73",
+      "paired_sha256": "772a7fcde7e49d03b37879eb1af880f75042e82c837cff4ff39038002625e441",
+      "receipt_sha256": "b483c84d1c30d42d9bc345084d6f930b8b8f44829def9e98533d747b9282382c"
+    },
+    "4:1:bid": {
+      "case": "surrogate-continuation-study-v1-4p-1-bid",
+      "job_id": "6addb55c046eb82b1ece3a75",
+      "paired_sha256": "7ddc96b066600b2e3cf63b634deccb8bccdd4846bf3cb6349a52381e134ec039",
+      "receipt_sha256": "1d7b48f2dbd45bc0f0fc63b82201ba244ba3581fd602ac8f1a14e9a6e781471c"
+    },
+    "4:1:building": {
+      "case": "surrogate-continuation-study-v1-4p-1-building",
+      "job_id": "6addb55c046eb82b1ece3a77",
+      "paired_sha256": "483a5d9cb751db9dfb09ac952afb22f484bf75f50ac055faf6b4e3bf989b9fa8",
+      "receipt_sha256": "c4c293c2cd0be219a170445c615a4777e37b1aed3c0c37a21c1deee530b38d13"
+    },
+    "4:2:plant": {
+      "case": "surrogate-continuation-study-v1-4p-2-plant",
+      "job_id": "6addb55c046eb82b1ece3a79",
+      "paired_sha256": "4de758718d7fda07ce6c8b01c1d501b63541e15c3d97422b1a2a98db9daf0070",
+      "receipt_sha256": "7a4c2717f6a46e7610c0a7b9a1b0a534c71cccb8d34c14d865aa3fc1f404f693"
+    },
+    "4:2:bid": {
+      "case": "surrogate-continuation-study-v1-4p-2-bid",
+      "job_id": "6addb55d1e112550ce7e8f37",
+      "paired_sha256": "617737405b35de0c90756347ba23dd347954641478503b9bac9fec38f3164dc8",
+      "receipt_sha256": "b2ccab9408dbba2ec509cfe9276fe07a73b4f83b30a6274ddaca079f02d3d620"
+    },
+    "4:2:building": {
+      "case": "surrogate-continuation-study-v1-4p-2-building",
+      "job_id": "6addb64a1e112550ce7e8f7f",
+      "paired_sha256": "cfbf4ff9c0591d435b95fa09036c5740d03733598dd363047d67e5a5f80880cf",
+      "receipt_sha256": "266f1c2ce5cbd3a7f8105b167801f195779dd5e795c74d7b538964b222783a46"
+    },
+    "4:3:plant": {
+      "case": "surrogate-continuation-study-v1-4p-3-plant",
+      "job_id": "6addb7381e112550ce7e900e",
+      "paired_sha256": "188933ce31885541556ef1aa303b2637cef4736c4ad5e4cb8fc26ce5ce586317",
+      "receipt_sha256": "d3cc7321128bfadd10dea84002dd3bb2f85b9f8a4783a9e027eaa4774fe18ac9"
+    },
+    "4:3:bid": {
+      "case": "surrogate-continuation-study-v1-4p-3-bid",
+      "job_id": "6addb738046eb82b1ece3af6",
+      "paired_sha256": "f9f2114dab71388e0bde1f51cfb225628fa7ca8454311f6e86749070d3b625e5",
+      "receipt_sha256": "c5bbceedd2f441562bc9b9ed4c28e4be2f804e7b02f42aad4d3b7109db1b4cce"
+    },
+    "4:3:building": {
+      "case": "surrogate-continuation-study-v1-4p-3-building",
+      "job_id": "6addb7381e112550ce7e9010",
+      "paired_sha256": "23d3258d3797f22d00a58a285d32ec3e4f8c3a6fc26ff7d7d71790667c9d6447",
+      "receipt_sha256": "74d80b4423f1e7a78ba4201e0918ffcc5a4395199335d0024d8dc784344c0be6"
+    },
+    "4:4:plant": {
+      "case": "surrogate-continuation-study-v1-4p-4-plant",
+      "job_id": "6addb82c1e112550ce7e906f",
+      "paired_sha256": "0b33f5839ce95b484f1a0792a487153301635439e191ca4d23fd9277d5289197",
+      "receipt_sha256": "6c370e54165b618387b98bbc6f61c838e4e4dd4316d6320f491b4df7902da891"
+    },
+    "4:4:bid": {
+      "case": "surrogate-continuation-study-v1-4p-4-bid",
+      "job_id": "6addb82c1e112550ce7e9071",
+      "paired_sha256": "39ed6bec1c5c095124d8472b0d6bf6346e91aed41dd3f42147804fa9ad938884",
+      "receipt_sha256": "03e740a283b42450188d3bde4e73518a3f0cdbd0bfbc6c89e6fdc9abdcdccb82"
+    },
+    "4:4:building": {
+      "case": "surrogate-continuation-study-v1-4p-4-building",
+      "job_id": "6addb82d046eb82b1ece3b65",
+      "paired_sha256": "ed7c959292a6b91ece7bc87691c54b4efc8024b26ddd0bd4c684586fc1e3cb78",
+      "receipt_sha256": "2a9167055a965125b64116c2b866091bd3832908edf2683c2eaa73438fa9f3a2"
+    },
+    "4:5:plant": {
+      "case": "surrogate-continuation-study-v1-4p-5-plant",
+      "job_id": "6addb82d046eb82b1ece3b67",
+      "paired_sha256": "4d37afff6930e246da22e40767cec898235dc43864981dbebfa6c37cf5ad794e",
+      "receipt_sha256": "0f02474d69bd4d6855e4c285236e0009bafabf08e85b1df5e6edeb8f1eaef4a2"
+    },
+    "4:5:bid": {
+      "case": "surrogate-continuation-study-v1-4p-5-bid",
+      "job_id": "6addb82d1e112550ce7e9073",
+      "paired_sha256": "42f15a707c76e6656a3f814816c171f2ecc5b18e34a362b5b3cf4275b0cfc220",
+      "receipt_sha256": "ed64fe054b25f821b541f9ddef9dfb54604abf68ae7e2a13896995b339e51d6d"
+    },
+    "4:5:building": {
+      "case": "surrogate-continuation-study-v1-4p-5-building",
+      "job_id": "6addb82d046eb82b1ece3b69",
+      "paired_sha256": "94f59412a0216c975ff5f7b821be20a66b8028a2857bf200085456feeabf753b",
+      "receipt_sha256": "f69285415057992f1aa79406c6ee45fdd99af044d599175d474ac356d9f8ccda"
+    },
+    "4:6:plant": {
+      "case": "surrogate-continuation-study-v1-4p-6-plant",
+      "job_id": "6addb82e046eb82b1ece3b6b",
+      "paired_sha256": "a099546bf2ba2e592f19f0b066f196b8237a16c9caa2f81a3c46ec4712924b56",
+      "receipt_sha256": "792e31c3836a2344e4f1c49c6086039326c48177d62684934a7fe65daf7edd38"
+    },
+    "4:6:bid": {
+      "case": "surrogate-continuation-study-v1-4p-6-bid",
+      "job_id": "6addb82e1e112550ce7e9075",
+      "paired_sha256": "dbddaff15c3e55df7260f39503d3051125ea0a69722b7a28d712d87cd053c66b",
+      "receipt_sha256": "e5cd49b1d1f7c7e78f3871e6ea9e8153ba95ab442e5390835625caf76ef98d6d"
+    },
+    "4:6:building": {
+      "case": "surrogate-continuation-study-v1-4p-6-building",
+      "job_id": "6addb82e046eb82b1ece3b6d",
+      "paired_sha256": "553f3f6367a679aaea2bb6a19c7396ec3409cf23a66acab635b2b065bd04ff77",
+      "receipt_sha256": "c795d1e4e5b167cdaac4df1dfaf9b2184e76997c70cf150b061401cc0b56b585"
+    },
+    "4:7:plant": {
+      "case": "surrogate-continuation-study-v1-4p-7-plant",
+      "job_id": "6addb82f046eb82b1ece3b6f",
+      "paired_sha256": "9284d2931678a9e66ed19ad85d3bcd189691219636f57ac381205185ef42b10e",
+      "receipt_sha256": "83167fcd92256bf7ac68098112cd2885da69ff2b83eac60c5c01f3b85b087b7c"
+    },
+    "4:7:bid": {
+      "case": "surrogate-continuation-study-v1-4p-7-bid",
+      "job_id": "6addb9221e112550ce7e90d4",
+      "paired_sha256": "1c5f48019eee2b1977315e09c7267c37b11540799d18da68b6d781c3a6ca1368",
+      "receipt_sha256": "aa5d501a629c2ae76ef75e5de055bbb331ff00ecc1f2f843862ceea9f77b5b9e"
+    },
+    "4:7:building": {
+      "case": "surrogate-continuation-study-v1-4p-7-building",
+      "job_id": "6addb922046eb82b1ece3ba6",
+      "paired_sha256": "7a400d8e73b7ebba94d611371d6e2a8a3432197269156b05090e65af0ca4af77",
+      "receipt_sha256": "e879af9e2c4aa0f5e2a1f3eca0208267c552135b3d2347b058d1f13de2aef3e1"
+    },
+    "4:8:plant": {
+      "case": "surrogate-continuation-study-v1-4p-8-plant",
+      "job_id": "6addb922046eb82b1ece3ba8",
+      "paired_sha256": "2891e6060375aabed60cfbbfe6f665e2b5cbdb2a6d733d7c1c84a0910939fa7f",
+      "receipt_sha256": "7afc4d58b5a9d4f1f3559edb7ecce3e3f5e7efae091b8535da895ba2bac53635"
+    },
+    "4:8:bid": {
+      "case": "surrogate-continuation-study-v1-4p-8-bid",
+      "job_id": "6addb923046eb82b1ece3baa",
+      "paired_sha256": "c309e4c9a0baea1e5cf83302ab098af518f43bd9dbbc560fd0ba796759ce9ce0",
+      "receipt_sha256": "b67ee741e076f41bbfa48ed1e83e22de6d0970e9e21b2eeab64aca2a1fb81085"
+    },
+    "4:8:building": {
+      "case": "surrogate-continuation-study-v1-4p-8-building",
+      "job_id": "6addb9231e112550ce7e90d6",
+      "paired_sha256": "92908eb0ed5c21c3db1f22c71c0b58eaaa248a85a4cebe0da19f91fda3ae7226",
+      "receipt_sha256": "f0563f9b974d0f4b3243c2e2969d0bc957c312a1020d19fd0c17c24175eced8a"
+    },
+    "4:9:plant": {
+      "case": "surrogate-continuation-study-v1-4p-9-plant",
+      "job_id": "6addb923046eb82b1ece3bac",
+      "paired_sha256": "29d9ef95a39d204e7219fd439df19a0a8201c8791291c6b1be9c1d262bee14fa",
+      "receipt_sha256": "287f5f729a398e7f2bf5fd7b912c09553551d1eb47b6e69d7ae81ed53ba67df4"
+    },
+    "4:9:bid": {
+      "case": "surrogate-continuation-study-v1-4p-9-bid",
+      "job_id": "6addb9231e112550ce7e90d8",
+      "paired_sha256": "cebe5707b8a0bd526100f4ef924d053c6cce77fd22e8e78dc6b685a6378ac413",
+      "receipt_sha256": "5efde193b7d3fb1554771380662cdfd520db4cb6fcff0b3f81ad7d0f08e5d194"
+    },
+    "4:9:building": {
+      "case": "surrogate-continuation-study-v1-4p-9-building",
+      "job_id": "6addb924046eb82b1ece3bae",
+      "paired_sha256": "0d6e0af9e2ac166df84538b0130dcf03b14fa6ffefbf15d89805d69e3bb450aa",
+      "receipt_sha256": "d60c32381c196d8dedadddcf64e5d91bb979ee7bc68ff31ccc6d3704ee386bfc"
+    },
+    "4:10:plant": {
+      "case": "surrogate-continuation-study-v1-4p-10-plant",
+      "job_id": "6addb9241e112550ce7e90da",
+      "paired_sha256": "4075267a12d46d1555da87a389819ed6081e4af49e87c1a71de5582fdf4a7082",
+      "receipt_sha256": "f51744b064b8160b7d4999cf0418a5e610f2b02588461dd83143d2861d14dad4"
+    },
+    "4:10:bid": {
+      "case": "surrogate-continuation-study-v1-4p-10-bid",
+      "job_id": "6addb9241e112550ce7e90dc",
+      "paired_sha256": "442a4c77652cf93a71a74583cd3798b7a85286857c0cfa2b50231accc51812e7",
+      "receipt_sha256": "4b50758a1aa48ad9bf4a25be66fd4d1ce178822178a1aa824c9f88ac92b4f1fa"
+    },
+    "4:10:building": {
+      "case": "surrogate-continuation-study-v1-4p-10-building",
+      "job_id": "6addb9251e112550ce7e90de",
+      "paired_sha256": "463f5c48cd4fddc39593e90a6decd505eb9a827e29f8f16b732aa2655f856119",
+      "receipt_sha256": "51102ad39c020e7780b74c5f2c7ec1b7311ee22ae46dba0e925286392b6cec28"
+    },
+    "4:11:plant": {
+      "case": "surrogate-continuation-study-v1-4p-11-plant",
+      "job_id": "6addb925046eb82b1ece3bb0",
+      "paired_sha256": "0796eacb7415bf76eaaf241ab332ab3127e4628ae1a61661cd1faa235ad92d5d",
+      "receipt_sha256": "e4cfcd8f9eb1bcf4c50819ea0582c73de30ae89c7a9fceacaf7eb75746d43995"
+    },
+    "4:11:bid": {
+      "case": "surrogate-continuation-study-v1-4p-11-bid",
+      "job_id": "6addba1d1e112550ce7e912e",
+      "paired_sha256": "a31b31fa988250cb7e6407dea533f3ade3b1217a260ac610d79a1b40ac704b99",
+      "receipt_sha256": "7127bbdf3b147a189e410fba0b55cd99628b63533ff8de0e960c66993d770db5"
+    },
+    "4:11:building": {
+      "case": "surrogate-continuation-study-v1-4p-11-building",
+      "job_id": "6addba1d1e112550ce7e9130",
+      "paired_sha256": "90a3b26e2046fdaf45e78d7065a2448deb33b42d09b84f70d230ef25233bf8e2",
+      "receipt_sha256": "2f75dd887290abd56da89568e739396a58998a3145d9f1ef7655110cb13a751d"
+    },
+    "4:12:plant": {
+      "case": "surrogate-continuation-study-v1-4p-12-plant",
+      "job_id": "6addba1d1e112550ce7e9132",
+      "paired_sha256": "643ad5e5b16cc5afb51001b32690781194127c63b544c859637c8991827bfafc",
+      "receipt_sha256": "18237fb3c19f76443ffdceccf14b20d329c3e40de3b5c43c3b8e96ec5d0c032d"
+    },
+    "4:12:bid": {
+      "case": "surrogate-continuation-study-v1-4p-12-bid",
+      "job_id": "6addba1e046eb82b1ece3c01",
+      "paired_sha256": "15fbee0a1c03ad9d2f10f7fd7a7c6249c35ec9b671df3c60745ec7e1191439af",
+      "receipt_sha256": "ea4fc4ec7996e7e7fb00c9eaad536e2919cc1314a997d3dfe6ef500ab26a3bef"
+    },
+    "4:12:building": {
+      "case": "surrogate-continuation-study-v1-4p-12-building",
+      "job_id": "6addba1e046eb82b1ece3c03",
+      "paired_sha256": "ce12e241de2b5a6f4497b9a2779e606e1ab537ec571fd153a602287c9684e5ca",
+      "receipt_sha256": "1133d37a9c3fa7697395c4884c55d222f5cf90677e1003d530f27f57126f22f1"
+    },
+    "4:13:plant": {
+      "case": "surrogate-continuation-study-v1-4p-13-plant",
+      "job_id": "6addba1e046eb82b1ece3c05",
+      "paired_sha256": "7585b3cfe2b1de299f9eebc1f330daa0efd0545cb5fb241ba777d5523aa4c495",
+      "receipt_sha256": "e39fc28747315dc8ecef0d5e845c4ddcdfecc4c275f7e69cd4102433fbaa9229"
+    },
+    "4:13:bid": {
+      "case": "surrogate-continuation-study-v1-4p-13-bid",
+      "job_id": "6addba1e046eb82b1ece3c07",
+      "paired_sha256": "b8ae2dba5c2b57d3ebe778a6a96d5af6ab505513e78bb9195e1eb7b36bf5de62",
+      "receipt_sha256": "1a8b155b96e90bda8e94bcdf83970cbfe4082bac3bcd0363e499b7dc099cb0d3"
+    },
+    "4:13:building": {
+      "case": "surrogate-continuation-study-v1-4p-13-building",
+      "job_id": "6addba1f1e112550ce7e9134",
+      "paired_sha256": "ccf560b0536847e3933245c6873de23253ff7991a3de3d30cd99aba3154231ae",
+      "receipt_sha256": "85f8cb5183fae71c316eba9d2ef01d2bffa3794d8821240b1671153954df4f27"
+    },
+    "4:14:plant": {
+      "case": "surrogate-continuation-study-v1-4p-14-plant",
+      "job_id": "6addba1f046eb82b1ece3c09",
+      "paired_sha256": "a5b31e057fb779135794590f770424b7b9ff3092579ed537e579441cac2a7ee8",
+      "receipt_sha256": "d2a63860774b56957fca23dca7ba3c49b4326b26e4dbaca57c5ab7411a560638"
+    },
+    "4:14:bid": {
+      "case": "surrogate-continuation-study-v1-4p-14-bid",
+      "job_id": "6addbb161e112550ce7e91c2",
+      "paired_sha256": "033954b3fb6c7629a76dc76dafe858763d8b6c0707dbfb37351f13d6c7dbffd0",
+      "receipt_sha256": "ccb286d34370919fbe5f4e5910b4acc5d81851ec422c808df1d05f01596e1157"
+    },
+    "4:14:building": {
+      "case": "surrogate-continuation-study-v1-4p-14-building",
+      "job_id": "6addbb161e112550ce7e91c4",
+      "paired_sha256": "9a43c3d54a0fad63950ce4744c2a3c543dbcdd7aad2a210cbd38032e6068c61f",
+      "receipt_sha256": "3156110f674a77541dc68a377a7003966f3d933793097aa0e22f66e939e66bc9"
+    },
+    "4:15:plant": {
+      "case": "surrogate-continuation-study-v1-4p-15-plant",
+      "job_id": "6addbb161e112550ce7e91c6",
+      "paired_sha256": "b666ac5f1596a390a14aa31cc19afe0c9170102dcd3e2c2e7ba3f64e0a822f89",
+      "receipt_sha256": "461a4e9bb09b02748f2cc45f9baf2b2153bf8690bf20297ee92e6d9df29bd1e5"
+    },
+    "4:15:bid": {
+      "case": "surrogate-continuation-study-v1-4p-15-bid",
+      "job_id": "6addbb17046eb82b1ece3c72",
+      "paired_sha256": "bc8f48f54dfed9c955fe2105b761399dcba08eb935f80e2fcddf971fbdb0255f",
+      "receipt_sha256": "77fcddbe97c1bd2c45a8618b22a53b93ca29834fb814009fe0043ef183de3905"
+    },
+    "4:15:building": {
+      "case": "surrogate-continuation-study-v1-4p-15-building",
+      "job_id": "6addbb171e112550ce7e91ca",
+      "paired_sha256": "8e57e83721a5768e63b6d879fc76b6d16aa28770d8dedb957417e67b44fb980f",
+      "receipt_sha256": "59c9495029b1a7f02b990555283c43af0ffd798488c2d2d2faac39efde0815b4"
+    },
+    "4:16:plant": {
+      "case": "surrogate-continuation-study-v1-4p-16-plant",
+      "job_id": "6addbb17046eb82b1ece3c74",
+      "paired_sha256": "ed383454cc43fd2cfaa033f8a9d017056a801bb5076d729d9cf7d42b4ac80dd2",
+      "receipt_sha256": "c0b02aadc4b392a89cf81c6b8f51b6511b3ec33c73305e1471da6992723a0462"
+    },
+    "4:16:bid": {
+      "case": "surrogate-continuation-study-v1-4p-16-bid",
+      "job_id": "6addbb181e112550ce7e91cc",
+      "paired_sha256": "a9a57ac20a159c397a619286475275b79e2646bee3be30b70d691b6fa8f86bc0",
+      "receipt_sha256": "7f91921d6f244390db1ae00178f6a79dceafe56d30ed5f0bd4ae38b17656fdfb"
+    },
+    "4:16:building": {
+      "case": "surrogate-continuation-study-v1-4p-16-building",
+      "job_id": "6addbb181e112550ce7e91ce",
+      "paired_sha256": "2a45fef93e3643f60335b1d6ef07b64cc049d2fc2f05e99516ef64a2cacaebd4",
+      "receipt_sha256": "bb635fc078e3da77b5b816c2e43c36322ee49c9ebedccae74eadb3238e276461"
+    },
+    "4:17:plant": {
+      "case": "surrogate-continuation-study-v1-4p-17-plant",
+      "job_id": "6addbb181e112550ce7e91d0",
+      "paired_sha256": "6ea01e252beda842977b9c9eff636a6da351abdc19a9f3243df77a119d1334a4",
+      "receipt_sha256": "9b0d32ba82fbce542cf2e9d147e34ee35d538ca85047028c397ca7b635708a0f"
+    },
+    "4:17:bid": {
+      "case": "surrogate-continuation-study-v1-4p-17-bid",
+      "job_id": "6addbb18046eb82b1ece3c78",
+      "paired_sha256": "7829e242d85eb23662cff06a9f5e669d257e60182af5fdf60633ee9011da27b4",
+      "receipt_sha256": "2b9e39f8c51e169cfb6641eb95516297857371c275d5bfd847a650312ba9abe3"
+    },
+    "4:17:building": {
+      "case": "surrogate-continuation-study-v1-4p-17-building",
+      "job_id": "6addbc151e112550ce7e92c5",
+      "paired_sha256": "68a86a413cc675f86616d2f94497f4b3fdbfd1c19b32e5afac0b37ae4b5a19ae",
+      "receipt_sha256": "8df8f52fcfc022afd1de592d07a64e6162a7053c0a0e130688a2811cf11c4ec1"
+    },
+    "4:18:plant": {
+      "case": "surrogate-continuation-study-v1-4p-18-plant",
+      "job_id": "6addbc15046eb82b1ece3d65",
+      "paired_sha256": "b443e897249adffa41e845e5e9edcce36531b5a5200ddcb0a52839718ccba7c8",
+      "receipt_sha256": "3e0ab8e351b2c967a23a8e4b0e793f34717245edf07b2cb982904d57f2cd0ebd"
+    },
+    "4:18:bid": {
+      "case": "surrogate-continuation-study-v1-4p-18-bid",
+      "job_id": "6addbc151e112550ce7e92c7",
+      "paired_sha256": "987ded54903b0d3326d1d074b00468fabb6fb99ca082e48ff40fa8b2558f9c15",
+      "receipt_sha256": "03b0c0b0108808709769defddcf7d8aab8fb8bfcef3aea1d35050ae827ab1d29"
+    },
+    "4:18:building": {
+      "case": "surrogate-continuation-study-v1-4p-18-building",
+      "job_id": "6addbc16046eb82b1ece3d67",
+      "paired_sha256": "276e9e99933a782ce6b88152a3c4ae3e64142a8453927fc9c273b8aae8a852fc",
+      "receipt_sha256": "62243a9e6f5b60567df7d0f857d3d56f420292f7cbabe71f2479440efc3b449d"
+    },
+    "4:19:plant": {
+      "case": "surrogate-continuation-study-v1-4p-19-plant",
+      "job_id": "6addbd14046eb82b1ece3d8d",
+      "paired_sha256": "1a4fb9f8001151433b079087c26f88d63839fd098cf59d1a5d3e78ac01f3d08f",
+      "receipt_sha256": "eee97fc0190094b81b08322dd8c846de0511342adca81456f5cdf1d120f9cb5e"
+    },
+    "4:19:bid": {
+      "case": "surrogate-continuation-study-v1-4p-19-bid",
+      "job_id": "6addbd15046eb82b1ece3d8f",
+      "paired_sha256": "e3706f60be7b96bafad214e2b086c8ba91be303504b3f91af2ef242c35d595d3",
+      "receipt_sha256": "dfd0542908b15e526b4e0e85f243abbc7135dc770798f078bc1ed2378af46c20"
+    },
+    "4:19:building": {
+      "case": "surrogate-continuation-study-v1-4p-19-building",
+      "job_id": "6addbd151e112550ce7e930e",
+      "paired_sha256": "58ba70dc434011c3608dee9e0b32faefe376cd4d94d25661937acb0a1a07f919",
+      "receipt_sha256": "66951238c4162089c8849205514dc7313f9d64123fbef3f28513ba5a1fc8e962"
+    },
+    "4:20:plant": {
+      "case": "surrogate-continuation-study-v1-4p-20-plant",
+      "job_id": "6addbd151e112550ce7e9310",
+      "paired_sha256": "ba9bd3804fc916bc757d754b4a49be6f9b544c016c12d9cc0faf2375e1f18a3a",
+      "receipt_sha256": "1874c638db6a304d0cb697f9c00502255c1423ea4ebb582734acaf07d0492836"
+    },
+    "4:20:bid": {
+      "case": "surrogate-continuation-study-v1-4p-20-bid",
+      "job_id": "6addbd151e112550ce7e9312",
+      "paired_sha256": "29701af16aa02ac6af2a234973a5f181b9991513f9823935a3402aaf78c37472",
+      "receipt_sha256": "bfc1fd3f3f592c81b55172467fb749b453a87b8a0301fb22bc3375f04b0c5915"
+    },
+    "4:20:building": {
+      "case": "surrogate-continuation-study-v1-4p-20-building",
+      "job_id": "6addbe16046eb82b1ece3dc1",
+      "paired_sha256": "b0f49a0b32a5fe9ac7a811db75c058c34ff818cfdf9c5054fb43a2a60f0f829a",
+      "receipt_sha256": "1d3aa4d10555b25ee5e8ad11c52bd58ad52f50bdbc60777298be77ba284bdc38"
+    },
+    "4:21:plant": {
+      "case": "surrogate-continuation-study-v1-4p-21-plant",
+      "job_id": "6addbe16046eb82b1ece3dc3",
+      "paired_sha256": "df37d03c73da5edac8795d650427d4dcab72772a72cd532ab96db1c9ab37e143",
+      "receipt_sha256": "e275035f781f9b6af6e8982ed458c720acc5a2d5e0ba6e5ab56c7c2575d92090"
+    },
+    "4:21:bid": {
+      "case": "surrogate-continuation-study-v1-4p-21-bid",
+      "job_id": "6addbe161e112550ce7e937a",
+      "paired_sha256": "3191ffd9a6b74927e94e70e67eafab2f8e056fd7a8493a50f598dabf70f95f80",
+      "receipt_sha256": "f35649cf717f98024f65e6059a34781ef282ce48065953876ca009a395a03d4a"
+    },
+    "4:21:building": {
+      "case": "surrogate-continuation-study-v1-4p-21-building",
+      "job_id": "6addbe161e112550ce7e937c",
+      "paired_sha256": "547e6d530fa169880db6c997eb3fc892b6193aa1c601038d637e6f6ce5c53acc",
+      "receipt_sha256": "aca48889b340c3f61da9e91c009dd9dc5932c67363eaee70e49ba6b9df10ee44"
+    },
+    "4:22:plant": {
+      "case": "surrogate-continuation-study-v1-4p-22-plant",
+      "job_id": "6addbe171e112550ce7e937e",
+      "paired_sha256": "de419eda7cd7a7d790bd3e507fae517761e44bbfbb422615118a64d0338cf37e",
+      "receipt_sha256": "84dac555e7ca5a1076442ac4e97ba4723642f3b8d601cfff177890e4e0ea81cd"
+    },
+    "4:22:bid": {
+      "case": "surrogate-continuation-study-v1-4p-22-bid",
+      "job_id": "6addbe17046eb82b1ece3dc5",
+      "paired_sha256": "e4cd41af41b984f3e63e411eee4322aa7dc631ca95e0d8ca19cf4ef831ddb091",
+      "receipt_sha256": "a496be11030de26ccc720b1c15b75bfd808fb8512263113ce466fea740df3460"
+    },
+    "4:22:building": {
+      "case": "surrogate-continuation-study-v1-4p-22-building",
+      "job_id": "6addbe171e112550ce7e9387",
+      "paired_sha256": "2a0e134c6b96d11098c6fc919ca307891da87df146857a463fe2675dc93e57a9",
+      "receipt_sha256": "59b370f9c1256feb101f86ce42c443257173c93c616da170eb8937920baeda05"
+    },
+    "4:23:plant": {
+      "case": "surrogate-continuation-study-v1-4p-23-plant",
+      "job_id": "6addbe171e112550ce7e938f",
+      "paired_sha256": "ae527e56b28de1e5aa85c3f0b9354aca2e7f4e6a48e37b415a457dc15e675db0",
+      "receipt_sha256": "3c188024bd902ad31777395c41290e27a8077a97f8c8f26464cea3f6245676cc"
+    },
+    "4:23:bid": {
+      "case": "surrogate-continuation-study-v1-4p-23-bid",
+      "job_id": "6addbe18046eb82b1ece3dd9",
+      "paired_sha256": "759013bec2421bd464979915bfdeca64b2d346ad875d84fb60f48d8e190c02da",
+      "receipt_sha256": "ddf4390ae98d642508922a331362707548a0a0f63271399c5868f2503038e1d3"
+    },
+    "4:23:building": {
+      "case": "surrogate-continuation-study-v1-4p-23-building",
+      "job_id": "6addbf1c046eb82b1ece3e99",
+      "paired_sha256": "71d93e82cbcdb140e6369ea7ffb54f5c0068b11c784bf9e7a641dc652e8856e9",
+      "receipt_sha256": "1ce7aadc63472d3e96083fa18360cf9d8f960dc01260d9959c9d57f8bc23817c"
+    },
+    "4:24:plant": {
+      "case": "surrogate-continuation-study-v1-4p-24-plant",
+      "job_id": "6addbf1d046eb82b1ece3e9b",
+      "paired_sha256": "071cbbdccafe89fab5229d6009dca3b378205e03d854ffa709dd3623a270f605",
+      "receipt_sha256": "de23167c441908fad6c6b46a094430a175695eccb448a8d8388a5ada5a727f3a"
+    },
+    "4:24:bid": {
+      "case": "surrogate-continuation-study-v1-4p-24-bid",
+      "job_id": "6addbf1d1e112550ce7e945a",
+      "paired_sha256": "1ff77e11142719f3c7dda9df9bc320a9251c1a9c150a2fcd8ddd9728e0d39703",
+      "receipt_sha256": "360a7cea4e9dfd91375329ca95fca97e8926c8f7308f1493864e043c71f24b10"
+    },
+    "4:24:building": {
+      "case": "surrogate-continuation-study-v1-4p-24-building",
+      "job_id": "6addbf1d1e112550ce7e945c",
+      "paired_sha256": "602b0b0ab96e59366b171fa417a9ca9a66667ed9eadda3f314f35c493450c857",
+      "receipt_sha256": "68ca11f9816f5b1ebe0c5c103005adb8ec398a05f761effb0107c87d2f38313b"
+    },
+    "4:25:plant": {
+      "case": "surrogate-continuation-study-v1-4p-25-plant",
+      "job_id": "6addbf1e046eb82b1ece3e9d",
+      "paired_sha256": "e119d01cf5bd1822eb0605d492e956971699547ee18080af52b9210498a980ec",
+      "receipt_sha256": "08daac575029f6a9a8f214916422fc6f8c48b32a48aca05c9852cfef072b6e40"
+    },
+    "4:25:bid": {
+      "case": "surrogate-continuation-study-v1-4p-25-bid",
+      "job_id": "6addbf1e1e112550ce7e945e",
+      "paired_sha256": "89639529f56c491f668df9da5e17c0098defe5c45b2f27e124f831d2a7352317",
+      "receipt_sha256": "e9dcc64e7c6ef3546003436fe3cbea3defccf23c905d47524fa447fa042d584f"
+    },
+    "4:25:building": {
+      "case": "surrogate-continuation-study-v1-4p-25-building",
+      "job_id": "6addbf1e1e112550ce7e9460",
+      "paired_sha256": "50a980d7c44fdd4c3e307319fbbd308ed6e7979730a4eced41d5f6ff762e6967",
+      "receipt_sha256": "56a8158c8c116ca12b8544122cdd50456c741c1d0fef5711799f77ca70b611a7"
+    },
+    "4:26:plant": {
+      "case": "surrogate-continuation-study-v1-4p-26-plant",
+      "job_id": "6addbf1e1e112550ce7e9462",
+      "paired_sha256": "0a0ae8d68fdc92529dafd41d4106bfbc044183b74512e9dda58dd9480d176adc",
+      "receipt_sha256": "8d616b066c1de0d45b48ad8eb17567f814220e6d277e510795f1c056a6a0fb72"
+    },
+    "4:26:bid": {
+      "case": "surrogate-continuation-study-v1-4p-26-bid",
+      "job_id": "6addbf1f046eb82b1ece3e9f",
+      "paired_sha256": "ebf67e25ff9e95ba1e2b994b12e42cb118b325abad211607eb730bef8e2644ee",
+      "receipt_sha256": "fc42cb19eec1d7eb09f580dcae0210ec1b9e036e2978a469df028796b84c7da2"
+    },
+    "4:26:building": {
+      "case": "surrogate-continuation-study-v1-4p-26-building",
+      "job_id": "6addbf1f046eb82b1ece3ea1",
+      "paired_sha256": "448928d0f511bce9857c161064db956343cdfda9fe0ade52d18d4e586d05c4a4",
+      "receipt_sha256": "eee3571af072efd2c8ccf6b39c8a6573a8bad273e5fc873831eb8b481eee9d2c"
+    },
+    "4:27:plant": {
+      "case": "surrogate-continuation-study-v1-4p-27-plant",
+      "job_id": "6addbf1f1e112550ce7e9464",
+      "paired_sha256": "01b5d891f5476a316a4c52065edabe1f00f25d5213a01d71a74f7fbdbd653f39",
+      "receipt_sha256": "d6585b6093f3afd346cf03cfdce654e624b2db26513597511fabcb6ec99d22fe"
+    },
+    "4:27:bid": {
+      "case": "surrogate-continuation-study-v1-4p-27-bid",
+      "job_id": "6addbf1f046eb82b1ece3ea3",
+      "paired_sha256": "fb856ac97bea1862a600b935aeae37850382986e3b4a7aca1b41c797b22f2d38",
+      "receipt_sha256": "7fb1ed5bcd7f013c930cc54e9c674b5564f27a9d516fbb7c8cee3210f8ec8354"
+    },
+    "4:27:building": {
+      "case": "surrogate-continuation-study-v1-4p-27-building",
+      "job_id": "6addbf20046eb82b1ece3ea5",
+      "paired_sha256": "7c518a66680fb7244993786dfa1e90302f59fefd5f0fe30f03ecb7df642dbf4d",
+      "receipt_sha256": "030bcf97847458038db279f9a93e73cfa4e02461be5c01edf1a79ad0f71a0b57"
+    },
+    "4:28:plant": {
+      "case": "surrogate-continuation-study-v1-4p-28-plant",
+      "job_id": "6addbf20046eb82b1ece3ea7",
+      "paired_sha256": "692077f05ba7853ef73c075f91fc5984664730aec6f83f8ea3d863c315dd8e98",
+      "receipt_sha256": "b2f8fe8889f46d294f9344712349be12161eaef175a2870685ad27d2fe03c6fd"
+    },
+    "4:28:bid": {
+      "case": "surrogate-continuation-study-v1-4p-28-bid",
+      "job_id": "6addbf20046eb82b1ece3ea9",
+      "paired_sha256": "4b0ad4aaae1de7fb4dafa10c8ff4b7dd08d72c3bec883efd0be3a6100a95a218",
+      "receipt_sha256": "61703e74c6c84f6214fc7c2038062b1a5ddcc79942b2876f9176a8d1ad5ffc27"
+    },
+    "4:28:building": {
+      "case": "surrogate-continuation-study-v1-4p-28-building",
+      "job_id": "6addc02d1e112550ce7e94b3",
+      "paired_sha256": "3353c23f94f15370b136c662d16f49fa56ef90b47299197f8ab56a6f7eeceddc",
+      "receipt_sha256": "4d339aa55ac28ce2d4e11f7684971bd897d4797592b1e9407845e94b8f551b81"
+    },
+    "4:29:plant": {
+      "case": "surrogate-continuation-study-v1-4p-29-plant",
+      "job_id": "6addc02d1e112550ce7e94b5",
+      "paired_sha256": "eb3b42081d7ec55f46f93b7c5eed3b2a41c706d35a15fd10f10e8ca69f9c39d5",
+      "receipt_sha256": "ef69ebb6083bead68336511f9da37a4d615f9cddae01d601cef0f1ba28fb0194"
+    },
+    "4:29:bid": {
+      "case": "surrogate-continuation-study-v1-4p-29-bid",
+      "job_id": "6addc02e046eb82b1ece3edd",
+      "paired_sha256": "0907f5a033bba13710e3dcc1c72f5d5ff9b0ce6d73bcab7fb159721f0324a31d",
+      "receipt_sha256": "322203e3cf66425305b0e5c37c63215a7f7add773fbf94057af3331c1992bf48"
+    },
+    "4:29:building": {
+      "case": "surrogate-continuation-study-v1-4p-29-building",
+      "job_id": "6addc02e046eb82b1ece3edf",
+      "paired_sha256": "e170ba47460e0fa1630b2e235debee5a9bcedb0c67e14361ffb477651678da3f",
+      "receipt_sha256": "ac5f44b6994e3e6cb66b032aee9d1ff4c0ea1370827d6013e4151fdd94cd8c97"
+    },
+    "4:30:plant": {
+      "case": "surrogate-continuation-study-v1-4p-30-plant",
+      "job_id": "6addc02e046eb82b1ece3ee1",
+      "paired_sha256": "2b83230c92a34f0402e83647acbadc04c146806f9ae9378a216fa2312db2c6c4",
+      "receipt_sha256": "44c06a72046894819562db481fa3bfcc4d0b7d99cf967fa23b85c91f2ede35a5"
+    },
+    "4:30:bid": {
+      "case": "surrogate-continuation-study-v1-4p-30-bid",
+      "job_id": "6addc02e046eb82b1ece3ee3",
+      "paired_sha256": "da2f7694f75cd22241ec50812ba2bf023866386dc7286fef7c8ba63fb4ea1b82",
+      "receipt_sha256": "bbfc68b688b09f6a4425779c24e5dac0dcd8b3adfd7f6cf54f5ec49c63915538"
+    },
+    "4:30:building": {
+      "case": "surrogate-continuation-study-v1-4p-30-building",
+      "job_id": "6addc02f046eb82b1ece3ee5",
+      "paired_sha256": "ae66afc3bc427459bc33bdbb0758bf13d64a6679a1d41d743db6a8b28b6b672a",
+      "receipt_sha256": "ca8f1da447c7e5b891d4a7d1bbaee13a8cd4ac51513de69854c8c93e0d985166"
+    },
+    "4:31:plant": {
+      "case": "surrogate-continuation-study-v1-4p-31-plant",
+      "job_id": "6addc02f046eb82b1ece3ee7",
+      "paired_sha256": "8cb2b1cce2591c1a7723f39a268950550f6e8a33db3366cba0fe7beda72c7120",
+      "receipt_sha256": "9723768de628847920c500d744c0598019eec442b895f1a9d21738a87725d1e2"
+    },
+    "4:31:bid": {
+      "case": "surrogate-continuation-study-v1-4p-31-bid",
+      "job_id": "6addc02f046eb82b1ece3ee9",
+      "paired_sha256": "c331634ce3669973d280e0de173c5e163b358ba403d1c970610baa57e15634e7",
+      "receipt_sha256": "3e10f116eba7da35ad859bd23720fc7ec63e4b5d9087a31fb48337c19f6ce0f4"
+    },
+    "4:31:building": {
+      "case": "surrogate-continuation-study-v1-4p-31-building",
+      "job_id": "6addc0301e112550ce7e94b7",
+      "paired_sha256": "09b14da6deb25d894cf461f882b9110e15ea61a6a71ab71829db3fe90348930c",
+      "receipt_sha256": "2d04d44125fda2c55a40681ca085576bc1d987d5ccf76389701ec29db913728d"
+    },
+    "5:0:plant": {
+      "case": "surrogate-continuation-study-v1-5p-0-plant",
+      "job_id": "6addc030046eb82b1ece3eeb",
+      "paired_sha256": "69262dcc70f64feaafbb2c6014236204942a187d734b670f575e5228d87ad7c5",
+      "receipt_sha256": "a016a2070a4bd70dfba45b0768429b0415282c9934fe50161c844adec8f06b26"
+    },
+    "5:0:bid": {
+      "case": "surrogate-continuation-study-v1-5p-0-bid",
+      "job_id": "6addc030046eb82b1ece3eed",
+      "paired_sha256": "aaf24a24221a94c1442a5cecf41838be28e10dd9df33e2f3695ef5f3b05193e8",
+      "receipt_sha256": "940758158f4456f0d3bd93aaf803ff620298ed5602c3161e35c4191f43c7f004"
+    },
+    "5:0:building": {
+      "case": "surrogate-continuation-study-v1-5p-0-building",
+      "job_id": "6addc030046eb82b1ece3eef",
+      "paired_sha256": "2c068af4455c6951bd3d04d24ef5920b97a5fd7597c0da96abf82c3200868b3f",
+      "receipt_sha256": "4f4a16a1f93ca98d425caede6d8714ba1c6ae875983fcb06b4b73c961082809e"
+    },
+    "5:1:plant": {
+      "case": "surrogate-continuation-study-v1-5p-1-plant",
+      "job_id": "6addc031046eb82b1ece3ef1",
+      "paired_sha256": "dd99d4d4146e850bcfceeafae2e3e2f831afe007bb4de89a380e696620dade6a",
+      "receipt_sha256": "bde044564872b264e9633d732ab2652f71289a6e591ca9075a143fa3aa42e637"
+    },
+    "5:1:bid": {
+      "case": "surrogate-continuation-study-v1-5p-1-bid",
+      "job_id": "6addc031046eb82b1ece3ef3",
+      "paired_sha256": "ac63e6083fd1cfb12b1809f3ed36a17c8b601f692b676d05c6ad448841d92510",
+      "receipt_sha256": "12d12960e8dbaf50704180ec36e860e4b5c378adfaf2eaf5b15aa5ac12206b29"
+    },
+    "5:1:building": {
+      "case": "surrogate-continuation-study-v1-5p-1-building",
+      "job_id": "6addc13d1e112550ce7e94fc",
+      "paired_sha256": "918b170cd4ad49d97382f8726844faa297baa465db1183cad0a8b8374d4a1587",
+      "receipt_sha256": "3a3abdf0743083bb7df0bc5b5ae3b13b29eccf331128a7ed046b2849a58dfdde"
+    },
+    "5:2:plant": {
+      "case": "surrogate-continuation-study-v1-5p-2-plant",
+      "job_id": "6addc13d046eb82b1ece3f1c",
+      "paired_sha256": "1a88339ed51b420d729bc4937a2b1f685a79493094472fb43c30b10b12870b4c",
+      "receipt_sha256": "2b9cefa3c7e603a4939704b1c6be2e20210f6fa12ba8de3359296945974f6a7c"
+    },
+    "5:2:bid": {
+      "case": "surrogate-continuation-study-v1-5p-2-bid",
+      "job_id": "6addc13e046eb82b1ece3f1e",
+      "paired_sha256": "9cb780e22922df713481779cce95f8a917950a917923baddb27f1f48e2b52b17",
+      "receipt_sha256": "71e3632e8c7e8d3244ad7c25e60aa650665a39d31fcadb98638fcc5688ff8ae8"
+    },
+    "5:2:building": {
+      "case": "surrogate-continuation-study-v1-5p-2-building",
+      "job_id": "6addc13e046eb82b1ece3f20",
+      "paired_sha256": "b68228d2bc9ad2e4e20b61484bcfae1206cdab9b815b59d0fa61bfe57e6668b2",
+      "receipt_sha256": "189fd818f24143575b61f22a3cc91a00cb5ae6802fa372a64763883396a7a110"
+    },
+    "5:3:plant": {
+      "case": "surrogate-continuation-study-v1-5p-3-plant",
+      "job_id": "6addc13e1e112550ce7e94fe",
+      "paired_sha256": "cc56d3c6346ac015fba318c0074f773864657dcd3e71fee01f4786ccdf76c561",
+      "receipt_sha256": "c41ac205c3aa2f8daba51cad2795d65170c2d18f859f4312a36bc7eb6a313900"
+    },
+    "5:3:bid": {
+      "case": "surrogate-continuation-study-v1-5p-3-bid",
+      "job_id": "6addc13e1e112550ce7e9500",
+      "paired_sha256": "718e7e8b9d80693e212793ce2234194b1a8e62916aa10464e766deffd5cbdf17",
+      "receipt_sha256": "b7aef0b60abbede90982d089bef9da88eb93967a430b32678c558d4ad1a1b7cf"
+    },
+    "5:3:building": {
+      "case": "surrogate-continuation-study-v1-5p-3-building",
+      "job_id": "6addc13f046eb82b1ece3f22",
+      "paired_sha256": "9f5e828cebd2a1d5cc89c731f1e4e1842420a4c5ccd452b9ba8a80ec350f06b9",
+      "receipt_sha256": "e74977f22378a3068288b64657730153f3f3c800d6b84aa7543ccbdf0ffa601d"
+    },
+    "5:4:plant": {
+      "case": "surrogate-continuation-study-v1-5p-4-plant",
+      "job_id": "6addc13f1e112550ce7e9502",
+      "paired_sha256": "47a1b44ef45098a2b579a63dedbf27054d8e52d822903d46ee604ab81242a6f9",
+      "receipt_sha256": "9126ecce71d6f60693db16c301403f9646758e7c2b99c2cfd5f585eaec5e97a7"
+    },
+    "5:4:bid": {
+      "case": "surrogate-continuation-study-v1-5p-4-bid",
+      "job_id": "6addc13f046eb82b1ece3f24",
+      "paired_sha256": "a5ecfee36cf67877dbb944e6430e5826bc5c8baa1787e8ee55eddfbcdac073f0",
+      "receipt_sha256": "d8dc30c579b0a31a769244f11bb1c18c798465a5bde1136cd52afd37a8dd8760"
+    },
+    "5:4:building": {
+      "case": "surrogate-continuation-study-v1-5p-4-building",
+      "job_id": "6addc13f1e112550ce7e9504",
+      "paired_sha256": "5316debc396ac7ca45da605ec9c890fe06c7cbcd0c74e563380714fb4e3416a2",
+      "receipt_sha256": "d9f76f623bf62c4fd3333da4783742cc664bd6a4742eaf5e3dbd6349f3f81933"
+    },
+    "5:5:plant": {
+      "case": "surrogate-continuation-study-v1-5p-5-plant",
+      "job_id": "6addc24c1e112550ce7e95b5",
+      "paired_sha256": "225072857dbdb7958b21763b5b4ce7ac3d7fa2d54618bc4d85e43e20680eec25",
+      "receipt_sha256": "92df53e4db46e44170000e8ed0125b7ca67e9033b2c946c5390cd8dcc2d2f520"
+    },
+    "5:5:bid": {
+      "case": "surrogate-continuation-study-v1-5p-5-bid",
+      "job_id": "6addc24c1e112550ce7e95b7",
+      "paired_sha256": "ab3b79784fef01573e20791f16f8d9aa23081590a6bf725799a8813c440bb867",
+      "receipt_sha256": "d9562f95da8ba4dd25019dc0e19d8884b283d038ac84abbbdc6190f1084b3e9c"
+    },
+    "5:5:building": {
+      "case": "surrogate-continuation-study-v1-5p-5-building",
+      "job_id": "6addc24d046eb82b1ece3fb1",
+      "paired_sha256": "d73c111797ba40cea1f02f24d4cff5c5dd117e0b6f1278a40dfe978bef054e3b",
+      "receipt_sha256": "1746a567a5679472cf921f154855a0d2d6811d1b5a51c5516461edc698cd8567"
+    },
+    "5:6:plant": {
+      "case": "surrogate-continuation-study-v1-5p-6-plant",
+      "job_id": "6addc24d1e112550ce7e95bb",
+      "paired_sha256": "c7605429ce606bfc70e0d37033db7fae7bc23c00c8b39d584e08bebb634694a8",
+      "receipt_sha256": "e9cd06bc6d7bcc511cbb1804cae43e2b1747162c303162982f24df2f05716c80"
+    },
+    "5:6:bid": {
+      "case": "surrogate-continuation-study-v1-5p-6-bid",
+      "job_id": "6addc24d046eb82b1ece3fb3",
+      "paired_sha256": "d9e3535af5727597f2d64ae32e016a59ba37ecfe84cba8627d1a89a5c326a7f9",
+      "receipt_sha256": "77c07b70e56ec7e684aaea8f16d976737cec1ed281acb9c3e320912f97d2c0ca"
+    },
+    "5:6:building": {
+      "case": "surrogate-continuation-study-v1-5p-6-building",
+      "job_id": "6addc24e046eb82b1ece3fb5",
+      "paired_sha256": "5d859708612a227daa6722051e39bf8617dd9b4468069a8a5afcaafcd1a41d97",
+      "receipt_sha256": "735a359bc845929a49749793ee093d000025427aa2e4277fae3dd949d23f34f6"
+    },
+    "5:7:plant": {
+      "case": "surrogate-continuation-study-v1-5p-7-plant",
+      "job_id": "6addc24e1e112550ce7e95bf",
+      "paired_sha256": "e0b74f33c11f3d7147a8c470c952ee0e50f43c9dbb355b3a14629652a511d2bd",
+      "receipt_sha256": "78be52f6b1b8065852551b2649e1325491cac939e2d82e20ecf3005ec1e00216"
+    },
+    "5:7:bid": {
+      "case": "surrogate-continuation-study-v1-5p-7-bid",
+      "job_id": "6addc35c1e112550ce7e9640",
+      "paired_sha256": "ecf04e4883a7189b778c92a99edf3e824e6c9cc4693c040269e69fcd01a4d594",
+      "receipt_sha256": "d63824069a8d17e00f91560813f21341e06cbd88d8bd6cdec764a4dcd50b9474"
+    },
+    "5:7:building": {
+      "case": "surrogate-continuation-study-v1-5p-7-building",
+      "job_id": "6addc35c1e112550ce7e9642",
+      "paired_sha256": "aa2fbfd45b98c69026ba7d4879d4dde7b98495a0ae2f678075de93566e9c571f",
+      "receipt_sha256": "689fb1a565475b2f6c948931a12b43df263eafb42b8ce358c4e3138ca861755d"
+    },
+    "5:8:plant": {
+      "case": "surrogate-continuation-study-v1-5p-8-plant",
+      "job_id": "6addc35d1e112550ce7e9644",
+      "paired_sha256": "de5fef14eccd18f794ea6a2ae9df6f66f73a507379800432bfdfb5101a150139",
+      "receipt_sha256": "51027c57f26a610afd2e42add3ab4b5654cd6599bb6a6fe9418297b6804d66c9"
+    },
+    "5:8:bid": {
+      "case": "surrogate-continuation-study-v1-5p-8-bid",
+      "job_id": "6addc35d046eb82b1ece400a",
+      "paired_sha256": "2158eb3b20073fba7c476c69567efbca952576ccdb56b5e1ccc345fde736935c",
+      "receipt_sha256": "963420bfcca259d8a678be0e0f7fe94d85ebf93626eeaa6d2f34aaa823cb4f80"
+    },
+    "5:8:building": {
+      "case": "surrogate-continuation-study-v1-5p-8-building",
+      "job_id": "6addc35d046eb82b1ece400c",
+      "paired_sha256": "91d7dbeae83001860a90b82f36f036d7a6a31b3660ab996efd882e3ae81d4216",
+      "receipt_sha256": "085a0c1a68a3d678a86a1dc27fd7ab38a930e076337e22b54e16a0f28393927f"
+    },
+    "5:9:plant": {
+      "case": "surrogate-continuation-study-v1-5p-9-plant",
+      "job_id": "6addc35e046eb82b1ece400e",
+      "paired_sha256": "f82481afa38ec2aa5135dadec72fadbb8615c94fa505ebced874a6db281bfbbd",
+      "receipt_sha256": "352e72b436edfeeca2f51d13f9e6c7916168fa06a84d390677357410c6c3355b"
+    },
+    "5:9:bid": {
+      "case": "surrogate-continuation-study-v1-5p-9-bid",
+      "job_id": "6addc35e1e112550ce7e9646",
+      "paired_sha256": "ae7cd5f04ab54584ebff01b85269d9ec78d3129fc5ab2c021ded24c0c1a71008",
+      "receipt_sha256": "9e8b0fb2b980529cd8ddb030ae015336bfc68d7ff10a6ceac4db73eb83ae2906"
+    },
+    "5:9:building": {
+      "case": "surrogate-continuation-study-v1-5p-9-building",
+      "job_id": "6addc35e1e112550ce7e9648",
+      "paired_sha256": "aa30dfbe7e2f186f7bc97b847d54f7b15771287d9dc1558c74bfbdac183308d6",
+      "receipt_sha256": "8fe752846421c1ccf8be91b85031493f244a46517262b97a86c293fa79486899"
+    },
+    "5:10:plant": {
+      "case": "surrogate-continuation-study-v1-5p-10-plant",
+      "job_id": "6addc4751e112550ce7e969e",
+      "paired_sha256": "dd263f60804e0265de10fc7cb2b0c48e6d7d37756fb332a723af2d700ee876f7",
+      "receipt_sha256": "c78ef5988f2dce502808f9687b528a719097a5b35b37be5f5f051a2b14cd21ab"
+    },
+    "5:10:bid": {
+      "case": "surrogate-continuation-study-v1-5p-10-bid",
+      "job_id": "6addc475046eb82b1ece404f",
+      "paired_sha256": "b538e8e4622b82c751e5a2a3e9c45f3ffefbb94d43d51adaa7182d5b8a3d0fa8",
+      "receipt_sha256": "3fbed3fa5a774074351845c21491f7baf51bc39056833eeb1b86d24a6eabda17"
+    },
+    "5:10:building": {
+      "case": "surrogate-continuation-study-v1-5p-10-building",
+      "job_id": "6addc475046eb82b1ece4051",
+      "paired_sha256": "4ddba07e176fcf74bc67bccc9b8f616551300f2e70ccbab49a0a5c79eddfd974",
+      "receipt_sha256": "1d3d523c03929ef139051ccc92a6433e6cdca482801934dac103ba88a094250c"
+    },
+    "5:11:plant": {
+      "case": "surrogate-continuation-study-v1-5p-11-plant",
+      "job_id": "6addc4761e112550ce7e96a0",
+      "paired_sha256": "26d1f4a69127f8dba2364294a5674014627f783c801d9bc39f54a199c2119afe",
+      "receipt_sha256": "45325ce0913b7ebacc02e3cc8e2d89a144d3d6dcb7f05108620857cb3f899c4d"
+    },
+    "5:11:bid": {
+      "case": "surrogate-continuation-study-v1-5p-11-bid",
+      "job_id": "6addc4761e112550ce7e96a2",
+      "paired_sha256": "36d1c36dc067ad4ea4bd6a148760644f6842493a42422a6923387a43a80cb493",
+      "receipt_sha256": "5c7cb67b09c4a36a458f44bd9af0171dc7a3369a6d5bdf25d27783388e147730"
+    },
+    "5:11:building": {
+      "case": "surrogate-continuation-study-v1-5p-11-building",
+      "job_id": "6addc4761e112550ce7e96a4",
+      "paired_sha256": "6efd4cc78905706fcaae6aa65db082759b0a3dcdb8b3319c30f39ee5b9d88b25",
+      "receipt_sha256": "5a8380c213695352b6e5724ee0502ee0699c2403936f8deb6c63908094ae86ae"
+    },
+    "5:12:plant": {
+      "case": "surrogate-continuation-study-v1-5p-12-plant",
+      "job_id": "6addc4761e112550ce7e96a6",
+      "paired_sha256": "304f0c0228e3c8ff17d199a5eb470ea7b6a0075d53a6c817051b02587bc2a818",
+      "receipt_sha256": "0330a7a8c4bded7e335ac274bc03d2012eee2d2c0abc0bc48feae655e0aefc33"
+    },
+    "5:12:bid": {
+      "case": "surrogate-continuation-study-v1-5p-12-bid",
+      "job_id": "6addc4771e112550ce7e96a8",
+      "paired_sha256": "763a60278e7d6895061824d7948f4c424f42f48121368c77594d304a5f7563b1",
+      "receipt_sha256": "a37662f4fc7e293f2392389346f7e626dc40a4e34ad8717bb986224dc10508d7"
+    },
+    "5:12:building": {
+      "case": "surrogate-continuation-study-v1-5p-12-building",
+      "job_id": "6addc477046eb82b1ece4055",
+      "paired_sha256": "31979a44c3ab31d1c5c5dbf36284bf21282c0aad461d63da63e970a3db7cbdd8",
+      "receipt_sha256": "dcb4a75b8988217ec84b3b2be142326bfd2d87659e6a608a27b4954d51689834"
+    },
+    "5:13:plant": {
+      "case": "surrogate-continuation-study-v1-5p-13-plant",
+      "job_id": "6addc477046eb82b1ece4059",
+      "paired_sha256": "015e2ac5f8945ca29e588678d4d39774a03d2910c10fa733392b435849c4e69b",
+      "receipt_sha256": "4a9f7ae89946b3ce7cf94d95ce4ceed51cd07435fdb5554392fa933cfc493c3f"
+    },
+    "5:13:bid": {
+      "case": "surrogate-continuation-study-v1-5p-13-bid",
+      "job_id": "6addc4781e112550ce7e96aa",
+      "paired_sha256": "4c0cfd01db1fc53a0b02e4d6db87103d62d47e638f6258d0d5d293d45c373ae3",
+      "receipt_sha256": "d540b580f712df9dfb3ae38e906e228fb8526948a3bb24bd9e79304a9e09c286"
+    },
+    "5:13:building": {
+      "case": "surrogate-continuation-study-v1-5p-13-building",
+      "job_id": "6addc4781e112550ce7e96ac",
+      "paired_sha256": "77a3eb267353a02a15874e0e50d1c7b3d7f5ce1f7cbbd3fc1ab70f98e6db411b",
+      "receipt_sha256": "cf498f299838c504f3d8518c65eed80d04e12579fb3ab9a5593729e11be9a5b4"
+    },
+    "5:14:plant": {
+      "case": "surrogate-continuation-study-v1-5p-14-plant",
+      "job_id": "6addc478046eb82b1ece405b",
+      "paired_sha256": "ae0d15607e5010205418247cb3efb11ff00f8bc4d1b442df77c4a2015ee678fd",
+      "receipt_sha256": "43a9d7ea4f1e1d998f4278789ee3608ba5d03f87d8a0101c0b4e3da3c59a6ad1"
+    },
+    "5:14:bid": {
+      "case": "surrogate-continuation-study-v1-5p-14-bid",
+      "job_id": "6addc478046eb82b1ece405d",
+      "paired_sha256": "846dd99539df8cfe4ff6266d697b95cf6e8a69a7c961ff9367e6b300a7e0c554",
+      "receipt_sha256": "fd3877a96304cd37b7cce0e5f495a412d280a3187a451166bc8ae9528e686b34"
+    },
+    "5:14:building": {
+      "case": "surrogate-continuation-study-v1-5p-14-building",
+      "job_id": "6addc4791e112550ce7e96ae",
+      "paired_sha256": "ec1a678940400c2ca02b76f0b673e2cf53ae48ac8bcfadf9ac4fed0b67a04bad",
+      "receipt_sha256": "8548d6636927ef10eb0d0558ae8ac432fae7d0e2f21489a33110c7a89a07f73f"
+    },
+    "5:15:plant": {
+      "case": "surrogate-continuation-study-v1-5p-15-plant",
+      "job_id": "6addc590046eb82b1ece40b7",
+      "paired_sha256": "0b03235a72267a1fa5dcc8fa5347fb2c327b9740109e05540e8eda970399caaf",
+      "receipt_sha256": "09b358d1ba9103d950c6e8f7bef952cade31ea5542db7b88cda8dc368485b91f"
+    },
+    "5:15:bid": {
+      "case": "surrogate-continuation-study-v1-5p-15-bid",
+      "job_id": "6addc5911e112550ce7e9757",
+      "paired_sha256": "bb4fe33a224ff3776f0e3febe65a9a8ab98f820caa62d4ef4687dc83cab0005a",
+      "receipt_sha256": "683d619f5cdaca47ef287c0bee8773ef0e9c01cf9a8c3774ed295f1efcc175fa"
+    },
+    "5:15:building": {
+      "case": "surrogate-continuation-study-v1-5p-15-building",
+      "job_id": "6addc591046eb82b1ece40b9",
+      "paired_sha256": "d6c46d55d0349eec1b41678ef5daf86124e3c6b7bb03a8925181ef8dcbb338b9",
+      "receipt_sha256": "150e8813ff5bd335cd07e916f7e83292c8d9d152097b4cbede659a8714305534"
+    },
+    "5:16:plant": {
+      "case": "surrogate-continuation-study-v1-5p-16-plant",
+      "job_id": "6addc5911e112550ce7e9759",
+      "paired_sha256": "28c31333fb35211dd7d9198ec3a0117dd122068170a63244f62c0e6a44f9f6db",
+      "receipt_sha256": "fe35aa5a4a0966d59b2570a6a0397e93df615ebd2226425e72673856b81677ad"
+    },
+    "5:16:bid": {
+      "case": "surrogate-continuation-study-v1-5p-16-bid",
+      "job_id": "6addc591046eb82b1ece40bb",
+      "paired_sha256": "61876f38b2dc0610df3a9157415d9849c4a98949a723347bc053b1b9af7ebaa1",
+      "receipt_sha256": "e0b5dc388f467d570c900196d8641c9bdf5479513b9750c172de5c77335c2395"
+    },
+    "5:16:building": {
+      "case": "surrogate-continuation-study-v1-5p-16-building",
+      "job_id": "6addc592046eb82b1ece40bd",
+      "paired_sha256": "a27cc1a165f6ce79524c48ff848bcb57a12fdaa384391237ff869c0e8e369d0b",
+      "receipt_sha256": "e109cb9873ec7aa81d473a20de7ff3d284906f5832b0bfd8ac7dfe4067888aa0"
+    },
+    "5:17:plant": {
+      "case": "surrogate-continuation-study-v1-5p-17-plant",
+      "job_id": "6addc5921e112550ce7e975b",
+      "paired_sha256": "b9067e872de7807e830e768eb1ccd7cf31ffcddcd861e15854835c0a1373316a",
+      "receipt_sha256": "36f9ba9ef7be42b63cba241b1aa986065764be72786b75ae7eada1cd9fe3e890"
+    },
+    "5:17:bid": {
+      "case": "surrogate-continuation-study-v1-5p-17-bid",
+      "job_id": "6addc592046eb82b1ece40bf",
+      "paired_sha256": "9f2c4bb2660ac77ba28a038565afdc09471afeabbe7bb2d0b239acff24c504fa",
+      "receipt_sha256": "256c3746c25d23b8df1aee2c5686e4431f13e5b85ab225ebfdf6c1454b5e27f5"
+    },
+    "5:17:building": {
+      "case": "surrogate-continuation-study-v1-5p-17-building",
+      "job_id": "6addc5931e112550ce7e975d",
+      "paired_sha256": "96536c2b434b639a92404d0da39deae99b90f47c7e356e2aea3e6e1fa6593a99",
+      "receipt_sha256": "0606e60ef6c3d6cea9453fc59b3abc83d4b0653ae4803fd31403aa37598d6af6"
+    },
+    "5:18:plant": {
+      "case": "surrogate-continuation-study-v1-5p-18-plant",
+      "job_id": "6addc5931e112550ce7e975f",
+      "paired_sha256": "f808daab0196288e85ab4f679398c823f2c510f6e51547c9bf4908e92a33e897",
+      "receipt_sha256": "e4a46b47c4ff715000091b150a16fc4bb50702a04a086a1a6404e8263e9efc10"
+    },
+    "5:18:bid": {
+      "case": "surrogate-continuation-study-v1-5p-18-bid",
+      "job_id": "6addc6b51e112550ce7e97b0",
+      "paired_sha256": "299634bdca79884d595a156066d9eb349949a620318c1b58153915c64d16f5cc",
+      "receipt_sha256": "8bbf8645fdaec78e90a0019aede26387d7cfd826019d2f69907f170de6dde386"
+    },
+    "5:18:building": {
+      "case": "surrogate-continuation-study-v1-5p-18-building",
+      "job_id": "6addc6b51e112550ce7e97b2",
+      "paired_sha256": "99bb96e178fadf2af610177250ebc7a782c0ad18a2ca043d61db70a2301da7d7",
+      "receipt_sha256": "bb92ecc733bbd09702f727c8607946f6c0b78809319a459b509057340e820bd6"
+    },
+    "5:19:plant": {
+      "case": "surrogate-continuation-study-v1-5p-19-plant",
+      "job_id": "6addc6b6046eb82b1ece40f7",
+      "paired_sha256": "6c3702e5233e6799fb68a5eb1e1a6669de2e5e68bfe08c4f6c44e933ef293e87",
+      "receipt_sha256": "9b40fe4cfaac99e44e280d36d234e81b789233721998314b0b5c1ea70728bfbe"
+    },
+    "5:19:bid": {
+      "case": "surrogate-continuation-study-v1-5p-19-bid",
+      "job_id": "6addc6b61e112550ce7e97b4",
+      "paired_sha256": "fe105923a83013e2f62f10ce507c333b4de572fefac073a5cabe161e5f69d9cf",
+      "receipt_sha256": "c9d6334bd299a7925c7467126db47d5b08258550b9619642e46f026357427523"
+    },
+    "5:19:building": {
+      "case": "surrogate-continuation-study-v1-5p-19-building",
+      "job_id": "6addc6b6046eb82b1ece40f9",
+      "paired_sha256": "24a18849cb37da729d7f7a4b0eec617bbdbfb23c52e42131205fa10f872b41e3",
+      "receipt_sha256": "d8ed29f10bb1c4e1536a13410376954d71389491fc7509ed3d49de3fcea48094"
+    },
+    "5:20:plant": {
+      "case": "surrogate-continuation-study-v1-5p-20-plant",
+      "job_id": "6addc6b6046eb82b1ece40fb",
+      "paired_sha256": "8a5a39e2cb08a34cec5baf9548a6a3a7c1d829d670d24574d2b1bf6110b4f555",
+      "receipt_sha256": "b850d0465e51021bed53fe710131a5960e3ee387ff6d9bef0bce84a82efdb985"
+    },
+    "5:20:bid": {
+      "case": "surrogate-continuation-study-v1-5p-20-bid",
+      "job_id": "6addc6b7046eb82b1ece40fd",
+      "paired_sha256": "3ea5526a974e18a38965502a7e4af45cfa984b9d93d886d7c5ce25d76c09b3ad",
+      "receipt_sha256": "f97a58eb2883d8fd74aade9d069c9516cf18a72ca5c49a56a98eb73883d71a1d"
+    },
+    "5:20:building": {
+      "case": "surrogate-continuation-study-v1-5p-20-building",
+      "job_id": "6addc6b7046eb82b1ece40ff",
+      "paired_sha256": "255d1c85f2b86565e0de2eb6c3943b1cf44685844f8f14b592772c6f25c1ef18",
+      "receipt_sha256": "cb5c972a3be01c2407815a8c71764f67f2b9929a54d610656a920a9d8921c083"
+    },
+    "5:21:plant": {
+      "case": "surrogate-continuation-study-v1-5p-21-plant",
+      "job_id": "6addc6b7046eb82b1ece4101",
+      "paired_sha256": "b651e3ce16d9fd054a1db7a1596649fa1663332eb5027105d9abb12467b94e3e",
+      "receipt_sha256": "b7b368f781c47d418bcd76896f22fa010cc2fc0b0ed60f7b5efe00eae0e677db"
+    },
+    "5:21:bid": {
+      "case": "surrogate-continuation-study-v1-5p-21-bid",
+      "job_id": "6addc6b81e112550ce7e97be",
+      "paired_sha256": "38b314f096ed3ead98fd7563283790ff6c9c06f8efeee39714e7cd3050ff4a9b",
+      "receipt_sha256": "c168ec4b2764d61790a5defa133f12e256deaa49f18f7c2a48d59373d6110e19"
+    },
+    "5:21:building": {
+      "case": "surrogate-continuation-study-v1-5p-21-building",
+      "job_id": "6addc6b8046eb82b1ece4103",
+      "paired_sha256": "73a60e5f602d7c691cff9da09db15f9947dc61a715ce80133b52785264dd8aaa",
+      "receipt_sha256": "b8ff1b28b6cfee65069b60e9a6a0f6e974a6c334feb35febd521e96a64a20776"
+    },
+    "5:22:plant": {
+      "case": "surrogate-continuation-study-v1-5p-22-plant",
+      "job_id": "6addc6b8046eb82b1ece4105",
+      "paired_sha256": "1ea59829d74fd541bb884b0ea75e9d2dfd5b127f3c39dff32867a359298752bd",
+      "receipt_sha256": "2d1d886bb080b884608405df4a08da6c11ae98b83f2bc681c67b1398340b3c6d"
+    },
+    "5:22:bid": {
+      "case": "surrogate-continuation-study-v1-5p-22-bid",
+      "job_id": "6addc6b81e112550ce7e97c0",
+      "paired_sha256": "49b54e8a216de1cfaf95008265c552a36322fda8c27878eee83ffa003e83b852",
+      "receipt_sha256": "1db1ff9ad5d5cce84cb197c66cdef6365aa7289d81563a466fd285708347decd"
+    },
+    "5:22:building": {
+      "case": "surrogate-continuation-study-v1-5p-22-building",
+      "job_id": "6addc6b9046eb82b1ece4107",
+      "paired_sha256": "159f42094d2d8baae0a0080444372c488116a2ccc67ffb9ed005a6adfae5baf4",
+      "receipt_sha256": "ba016bc75115694cfe55092b95e4b9257b996b2d3086ba080f439dab5bfa0e72"
+    },
+    "5:23:plant": {
+      "case": "surrogate-continuation-study-v1-5p-23-plant",
+      "job_id": "6addc6b9046eb82b1ece4109",
+      "paired_sha256": "a83cda7af71aef174cd83bd3d181a30debad034a1013e31fb78968f4f67f9681",
+      "receipt_sha256": "73b29f0f31894e7051f8cc62b037a6dd89e32708b2a2fd7155b15601f7885096"
+    },
+    "5:23:bid": {
+      "case": "surrogate-continuation-study-v1-5p-23-bid",
+      "job_id": "6addc7eb1e112550ce7e9851",
+      "paired_sha256": "e2bb1bf52675b055d42af84e0c8108c5617c6d93de4c5bdbb5c012fd66d87409",
+      "receipt_sha256": "278bc5818974f0aaffc7c502fed1365e33e74c6389a2a8e03b10a3ae11712939"
+    },
+    "5:23:building": {
+      "case": "surrogate-continuation-study-v1-5p-23-building",
+      "job_id": "6addc7eb046eb82b1ece4188",
+      "paired_sha256": "36e22a8d203141d8171d8be2fb2b4d32a2a7cbf113db4b91c4f2082f931e9eaf",
+      "receipt_sha256": "7c57c1245ba6c6617d1371bd7f1530d0ab8b62354868af40843ea4332e8cb720"
+    },
+    "5:24:plant": {
+      "case": "surrogate-continuation-study-v1-5p-24-plant",
+      "job_id": "6addc7eb046eb82b1ece418a",
+      "paired_sha256": "6f5141a616b4fc5173a15206887a6adc19832af81ff75ccf1dd13b34cd3ce5bb",
+      "receipt_sha256": "54b1da205ee01b4df29c75661149637673938c902e5bc7d1f6a048a2a78a1a0e"
+    },
+    "5:24:bid": {
+      "case": "surrogate-continuation-study-v1-5p-24-bid",
+      "job_id": "6addc7ec046eb82b1ece418c",
+      "paired_sha256": "9fc3f5596b9d3d6ab02cc63dcfb1c56428d6312e34a4052444535919f6b098c6",
+      "receipt_sha256": "31fac53dff547ebe5eb426a27296dd7d3b3b7003ab8c16dd0d7a92d41503096a"
+    },
+    "5:24:building": {
+      "case": "surrogate-continuation-study-v1-5p-24-building",
+      "job_id": "6addc7ec046eb82b1ece418e",
+      "paired_sha256": "791ff5b8a168071893d7f8705f8290d5db3952d6ee77a54fbc936feb43f989d3",
+      "receipt_sha256": "236fe2571cc61e30a03423e3dbd444782766537362c2e1e638e9f920f8754d35"
+    },
+    "5:25:plant": {
+      "case": "surrogate-continuation-study-v1-5p-25-plant",
+      "job_id": "6addc7ec1e112550ce7e9853",
+      "paired_sha256": "e0eab8895aaadc119c067fe2ab9921059f61626e10392cb77ad4d8180caf9e6b",
+      "receipt_sha256": "0481e8faace3f7497127efe99ad2554f8c00e21e9200a580f736fbd0d8e18ac2"
+    },
+    "5:25:bid": {
+      "case": "surrogate-continuation-study-v1-5p-25-bid",
+      "job_id": "6addc7ec046eb82b1ece4190",
+      "paired_sha256": "6369b0e2e350177503dd875b7f0a59aaa08bb2b498be03317d362ce52b73d27d",
+      "receipt_sha256": "0cb5ab68db7ac08bf30aee63d363d2af6f589b65c5411a2fc60de0c03754b78e"
+    },
+    "5:25:building": {
+      "case": "surrogate-continuation-study-v1-5p-25-building",
+      "job_id": "6addc921046eb82b1ece4229",
+      "paired_sha256": "98729574bcfd3ea4401611df44d5590da736b9fbbe414a61317cd47210472bd4",
+      "receipt_sha256": "742c91947d183c7134c866e20dd39ddb7f8c2faa8eff3005110676bdb1a225e6"
+    },
+    "5:26:plant": {
+      "case": "surrogate-continuation-study-v1-5p-26-plant",
+      "job_id": "6addc921046eb82b1ece422b",
+      "paired_sha256": "95e2f70c704157e0004e97c5e7b702cf59308cd72ed7f18f7aa209c4b210e0b6",
+      "receipt_sha256": "4ee0abb7e0ff016ca56b00d142c782ff2ceb8c1826b0327b97cf27d860c9d0ff"
+    },
+    "5:26:bid": {
+      "case": "surrogate-continuation-study-v1-5p-26-bid",
+      "job_id": "6addc922046eb82b1ece422d",
+      "paired_sha256": "460924fe92ae76657bea7131be67cde0f90ab3ee222f9479747c079a113cfedd",
+      "receipt_sha256": "0fb8b936390757aeaa79a9de24469428a78fe9d56dffa40563fdf16c80818c75"
+    },
+    "5:26:building": {
+      "case": "surrogate-continuation-study-v1-5p-26-building",
+      "job_id": "6addc9221e112550ce7e9916",
+      "paired_sha256": "a484903855e44d0bcc3baa8131b145ae1eec4ff7b8187dc8a652fd3683207fab",
+      "receipt_sha256": "be6ca1275d0c2756929bc43f9ac5c3804752161d82d67ded0142591eacd292f0"
+    },
+    "5:27:plant": {
+      "case": "surrogate-continuation-study-v1-5p-27-plant",
+      "job_id": "6addc922046eb82b1ece422f",
+      "paired_sha256": "053f442a0bee5af1ab3d0e7f86a615183a51729c708e91733405ffe50609c63f",
+      "receipt_sha256": "d53e8ac4f16a5f8cc76fba8e408221c970bd17a7023e2df1399d2ea32a23023f"
+    },
+    "5:27:bid": {
+      "case": "surrogate-continuation-study-v1-5p-27-bid",
+      "job_id": "6addc922046eb82b1ece4231",
+      "paired_sha256": "0c5b41b1e024bfe732b4537d4d3d1505f7909d61f185ce363a857670b82e078f",
+      "receipt_sha256": "f69fdf0d41aa0b59fb7ca5856caef2745c5eda7220bcc254d91d6d6a40723097"
+    },
+    "5:27:building": {
+      "case": "surrogate-continuation-study-v1-5p-27-building",
+      "job_id": "6addc923046eb82b1ece4233",
+      "paired_sha256": "7b2d80f9edb0aac50fb6ebbe63e1f05d99a7fc055f1a24f870a08e11c77f5ae1",
+      "receipt_sha256": "9464afd245592e309fe9563c09c586cd6f5cf1a2b98a55e5e794dc1eea3ee4ce"
+    },
+    "5:28:plant": {
+      "case": "surrogate-continuation-study-v1-5p-28-plant",
+      "job_id": "6addc923046eb82b1ece4235",
+      "paired_sha256": "f9b6a49e208af11dc983a3d9bf257adb3640d0b92b0973cef79127d1ce1718a9",
+      "receipt_sha256": "2fdaa6e4fc94f625eb491e105c563114adbf97a3928794b9b84769bffccafb71"
+    },
+    "5:28:bid": {
+      "case": "surrogate-continuation-study-v1-5p-28-bid",
+      "job_id": "6addc923046eb82b1ece4237",
+      "paired_sha256": "d58243b6f23c744c0b1c44f4d88118386e2620c4a5c356baaaa13859b7b1b561",
+      "receipt_sha256": "8c69fd9ac4cf15e83d6951683f95167406efc1bd9fdfeeec3fdf94da4e1c91a4"
+    },
+    "5:28:building": {
+      "case": "surrogate-continuation-study-v1-5p-28-building",
+      "job_id": "6addc9241e112550ce7e9918",
+      "paired_sha256": "4aa390048ce6144898522f96e89a2a3ddfbf44bc4175173f287062e693585d22",
+      "receipt_sha256": "bf538cbdfa4db484900136035dc7b2eacbbf56a5ad6414e9806643f190808527"
+    },
+    "5:29:plant": {
+      "case": "surrogate-continuation-study-v1-5p-29-plant",
+      "job_id": "6addc9241e112550ce7e991a",
+      "paired_sha256": "03def64f04dea440d68303177bec5c4e53395ae872353c962f8869c12e81c8e2",
+      "receipt_sha256": "cc3e0a3119d972601b47022033a6311e8fc02cf25361483e7d4474dc0d996938"
+    },
+    "5:29:bid": {
+      "case": "surrogate-continuation-study-v1-5p-29-bid",
+      "job_id": "6addc924046eb82b1ece4239",
+      "paired_sha256": "9a1338ae38c4eda6fe453035f7658f327d9f0881191980b49a7588b60aa28a6c",
+      "receipt_sha256": "d1d8ce49266010e175dc126c8d7997ebd7bed352f404e7ade78ffaafda38795c"
+    },
+    "5:29:building": {
+      "case": "surrogate-continuation-study-v1-5p-29-building",
+      "job_id": "6addc9241e112550ce7e991c",
+      "paired_sha256": "874f0c4a79dc17d8510ce06b0fa3bf341258c595598594a02e658c9836338aab",
+      "receipt_sha256": "c5d36530e19aac03abee736fe85888d61166a326f897d56e1f5fa10e8ef0fa54"
+    },
+    "5:30:plant": {
+      "case": "surrogate-continuation-study-v1-5p-30-plant",
+      "job_id": "6addc9251e112550ce7e991e",
+      "paired_sha256": "7f26fc3805c08b356778b3fd7d0661cd46d38a5bbc9c24151701a9eab2c2866b",
+      "receipt_sha256": "84e57736477e8077b54543eb0f5eb363d0ed8d73e7d09ce26b6b7007801f5dac"
+    },
+    "5:30:bid": {
+      "case": "surrogate-continuation-study-v1-5p-30-bid",
+      "job_id": "6addc9251e112550ce7e9920",
+      "paired_sha256": "8416015466432aaab473ce339e224cd133e5eadeedf2f0335537b282e8ecd310",
+      "receipt_sha256": "07c1131f429999a831f427cfcf784756b7c7aa02789949e73199a59da9fd4fe4"
+    },
+    "5:30:building": {
+      "case": "surrogate-continuation-study-v1-5p-30-building",
+      "job_id": "6addc9251e112550ce7e9922",
+      "paired_sha256": "9ac9838d111af3c9005968a25b00405efbe0d43943050667e0d664b2b9fb7422",
+      "receipt_sha256": "fc7f5c508ad8e25e90342cdddf13ba3a4668348269a55474fe7867ba18261251"
+    },
+    "5:31:plant": {
+      "case": "surrogate-continuation-study-v1-5p-31-plant",
+      "job_id": "6addc925046eb82b1ece423b",
+      "paired_sha256": "e1d8d8bf112f48fc7963398174004d6e421298bdca9db60fcc472b5963c65e00",
+      "receipt_sha256": "6264092d842aac0d83f13bc84edf9965136e52c581ca5f2d365071650a04216a"
+    },
+    "5:31:bid": {
+      "case": "surrogate-continuation-study-v1-5p-31-bid",
+      "job_id": "6addc926046eb82b1ece423d",
+      "paired_sha256": "a3620b604db6656b952e5555970e88beb36b1f39308898befe1887365b200b8b",
+      "receipt_sha256": "4ed2ddef4511c5e5c5bd339e2f39dbf029c56f4287494eb92c7058c435eadf2c"
+    },
+    "5:31:building": {
+      "case": "surrogate-continuation-study-v1-5p-31-building",
+      "job_id": "6addca55046eb82b1ece42b4",
+      "paired_sha256": "8b9d3479a6bd14e36152a253301e862184f0b67c1cc5e00a6ca85c46372b43da",
+      "receipt_sha256": "261a3306145dfd4ef49b263fa3647c6e33b6c7db33ab7eb1906dfe059f4f93e2"
+    },
+    "5:32:plant": {
+      "case": "surrogate-continuation-study-v1-5p-32-plant",
+      "job_id": "6addca561e112550ce7e99b2",
+      "paired_sha256": "020ddb3effe788153f64576a36593652236afaddb77e18ae47caab6dacc10461",
+      "receipt_sha256": "d3512df3fcf47906f3f46241363127dfd9e3db73b03ce937bedbdaa2f54ef8f9"
+    },
+    "5:32:bid": {
+      "case": "surrogate-continuation-study-v1-5p-32-bid",
+      "job_id": "6addca561e112550ce7e99b4",
+      "paired_sha256": "50bcbeaf3760c2d502410e6169e68052ef595eb241712b781d249a6308b1319a",
+      "receipt_sha256": "7f63785c9bbb80cc37936c8a3ea49f2ac2a92cceede31ca51199f6c345680b78"
+    },
+    "5:32:building": {
+      "case": "surrogate-continuation-study-v1-5p-32-building",
+      "job_id": "6addca56046eb82b1ece42b6",
+      "paired_sha256": "5fbeec78d84977a2af86bf9a25ff9564888c49c14b47d68e713ff60dc58e3491",
+      "receipt_sha256": "c59ed9bf37c0eba6afee26396b3fa947eb5117fe238ed1f53679509f36fb6f4e"
+    },
+    "5:33:plant": {
+      "case": "surrogate-continuation-study-v1-5p-33-plant",
+      "job_id": "6addca57046eb82b1ece42b8",
+      "paired_sha256": "b8037e98cd631d90cf43ccac73599a13d0cc490f48a091beb74a9a48027c04bb",
+      "receipt_sha256": "820203ae7e2828de78ae1fbe08b062f9f8b6211344fe4ac10164c2087c51b5e3"
+    },
+    "5:33:bid": {
+      "case": "surrogate-continuation-study-v1-5p-33-bid",
+      "job_id": "6addca57046eb82b1ece42ba",
+      "paired_sha256": "d55b55c8bb6ed2bc10c785e6044c88b29d7cca2d7a35f62ab3b4240c664aa913",
+      "receipt_sha256": "43a90a328d4722cadf8ec4369ee9a7b1727a9eca9b85dd131ce44f5b279aa8a6"
+    },
+    "5:33:building": {
+      "case": "surrogate-continuation-study-v1-5p-33-building",
+      "job_id": "6addca571e112550ce7e99b8",
+      "paired_sha256": "18e9e4485c819b6fa720212b34236e16a40fa18a48f6419b6402d584ae1e92a5",
+      "receipt_sha256": "7644e41e70b7056cbe2ef72ecf305848cd073a9c213fea338d9d03f3b40ab8a5"
+    },
+    "5:34:plant": {
+      "case": "surrogate-continuation-study-v1-5p-34-plant",
+      "job_id": "6addca57046eb82b1ece42bc",
+      "paired_sha256": "bf12fc579824e10204bcddef918773705394358c633b3701932fd015f72d21ef",
+      "receipt_sha256": "dd4cf1ff59f8ac7f749ca7254dffdd7b3fe6f8251a9b90c8336c64888a09c512"
+    },
+    "5:34:bid": {
+      "case": "surrogate-continuation-study-v1-5p-34-bid",
+      "job_id": "6addcb7f1e112550ce7e9a76",
+      "paired_sha256": "7884d2e0c7cd43b7dd9eb5f6e8e937b052b2d06656f1734df593de288e365707",
+      "receipt_sha256": "a158da132b4b0cf29bb4e6417afb1f04c8d9cef5a03697aa36b7511c7a98bf32"
+    },
+    "5:34:building": {
+      "case": "surrogate-continuation-study-v1-5p-34-building",
+      "job_id": "6addcb7f046eb82b1ece432b",
+      "paired_sha256": "d34ea5a4319ec7e8830a4ca70827e1dca6660afa4b85c7b31ee3374d3c716729",
+      "receipt_sha256": "e5a2924eefd1b5166475e5c1ef246e5ea9c92b4c167126bd2108d57eb2b99846"
+    },
+    "5:35:plant": {
+      "case": "surrogate-continuation-study-v1-5p-35-plant",
+      "job_id": "6addcb7f046eb82b1ece432d",
+      "paired_sha256": "3cf8cb17381428cb69b8e7d8d09603d68408e92f44713f343735dec64b5615a4",
+      "receipt_sha256": "fdb92cc84ff28d4fbe6f210ca4ced2396431fec2bcd01937d550cca32937cc52"
+    },
+    "5:35:bid": {
+      "case": "surrogate-continuation-study-v1-5p-35-bid",
+      "job_id": "6addcb801e112550ce7e9a78",
+      "paired_sha256": "18d02983d7421d5ee33311be183137fd9449f33f86c9232aaac70b80f1c0d9c8",
+      "receipt_sha256": "7d4cb1abcf08c31c8bb38903797be2a6017741d326aa75909ff468924a104c4e"
+    },
+    "5:35:building": {
+      "case": "surrogate-continuation-study-v1-5p-35-building",
+      "job_id": "6addcb80046eb82b1ece432f",
+      "paired_sha256": "b0614e290f95f62632cbfde85e55c606393a1fed92ec55f99272ecc61a8f8e31",
+      "receipt_sha256": "32eb3012bd478d2ef8fda8bba32ea357d3afe535e18d6654272ab453ff0fdc97"
+    },
+    "5:36:plant": {
+      "case": "surrogate-continuation-study-v1-5p-36-plant",
+      "job_id": "6addcb80046eb82b1ece4331",
+      "paired_sha256": "2c7994d55ba19fe9254bb57d8f1f65cda8a131c752d983afc11485e1e168229c",
+      "receipt_sha256": "aca16250347ed403578b48ea794542624012e17c929c2282d37f4708c893835d"
+    },
+    "5:36:bid": {
+      "case": "surrogate-continuation-study-v1-5p-36-bid",
+      "job_id": "6addcb811e112550ce7e9a7a",
+      "paired_sha256": "87a5586f72f4936b6e1f6e9c25e07ce798b9b0050dcb5870d47ab133e83473a0",
+      "receipt_sha256": "bee039ddc32fd1a04989baecca5c7a131325b6c2347fe3479d9b7f23578f464c"
+    },
+    "5:36:building": {
+      "case": "surrogate-continuation-study-v1-5p-36-building",
+      "job_id": "6addcb811e112550ce7e9a7c",
+      "paired_sha256": "c2da4277252e96ef107c3635cdc9dece50f371ebf3a68be59cf9bf3273167e24",
+      "receipt_sha256": "0106577eabe2401e3cbb4dec102a54d54df157767dfe33347a835968e12b972e"
+    },
+    "5:37:plant": {
+      "case": "surrogate-continuation-study-v1-5p-37-plant",
+      "job_id": "6addcb81046eb82b1ece4333",
+      "paired_sha256": "a931f553c08c051a8e4a9f6b140baf1012ff289af142925a0df56c249ef84f9e",
+      "receipt_sha256": "1504f470ac5b18df57273c030ed4d7fd7798c9626c897f564df79b8ad373e709"
+    },
+    "5:37:bid": {
+      "case": "surrogate-continuation-study-v1-5p-37-bid",
+      "job_id": "6addcb81046eb82b1ece4337",
+      "paired_sha256": "f66939c1254df7143bc3d13ae684f6ecc3c2dc8958bede1cce008680e3f822d3",
+      "receipt_sha256": "fd7575a319f1e02687e4498429b9431f73bfaa5b7b94728504bb23bdd51ccf69"
+    },
+    "5:37:building": {
+      "case": "surrogate-continuation-study-v1-5p-37-building",
+      "job_id": "6addcb82046eb82b1ece4339",
+      "paired_sha256": "2e3739f862f18aa90d26de2286b502fc0625a726c2db88b305effa1bb7fe4285",
+      "receipt_sha256": "781c0ba0ebab9b1d67cda14547e1e6a30727dd69d33ca3055d764dd6b1f8ea6b"
+    },
+    "5:38:plant": {
+      "case": "surrogate-continuation-study-v1-5p-38-plant",
+      "job_id": "6addcb82046eb82b1ece433b",
+      "paired_sha256": "59ad1e39ec4c9be64b32fe60acc779bcf34e801161b69a00b27289bc3b3cef27",
+      "receipt_sha256": "e0dae75d231d16d7c099cc9a1e2a4a043a34999096fdeb63f83c3fd2846b9662"
+    },
+    "5:38:bid": {
+      "case": "surrogate-continuation-study-v1-5p-38-bid",
+      "job_id": "6addcb82046eb82b1ece433d",
+      "paired_sha256": "43b5df283b55d43dc7ea7968c4a013a8222b74061fe4be90ca708ffa208f0895",
+      "receipt_sha256": "bcd2b563db9a93edee6d03f36e829735630ed9847ebdb65d60b0c982b8bf51bf"
+    },
+    "5:38:building": {
+      "case": "surrogate-continuation-study-v1-5p-38-building",
+      "job_id": "6addcb831e112550ce7e9a7e",
+      "paired_sha256": "21dd2fa937dabe8ee65e67d3ac8a49e21b36315a474d09d24caf4e819c848d62",
+      "receipt_sha256": "608e56d38b9b190767ca7c44828c34fb9f29299232d41976decfa1dd6c6fe31d"
+    },
+    "5:39:plant": {
+      "case": "surrogate-continuation-study-v1-5p-39-plant",
+      "job_id": "6addcb83046eb82b1ece433f",
+      "paired_sha256": "a924f008fd4fb40bb16ac52db1a6047b3b10987bd73c40ae09d60e1617744615",
+      "receipt_sha256": "c819b7317c7069404dcf115b9d65c00b318593aa0b633d7b57d29b0cf6a2ba34"
+    },
+    "5:39:bid": {
+      "case": "surrogate-continuation-study-v1-5p-39-bid",
+      "job_id": "6addcb831e112550ce7e9a80",
+      "paired_sha256": "b92e0abf065addddcf34703fbc66bc16a2e104648164760247dbc142051af740",
+      "receipt_sha256": "8769d9e65e3c63db58cc99a8a5936ec99e6afc013040e9fab2f74e2addddd8c5"
+    },
+    "5:39:building": {
+      "case": "surrogate-continuation-study-v1-5p-39-building",
+      "job_id": "6addccaf046eb82b1ece4448",
+      "paired_sha256": "fab8761bf2063526fadc20f42f4a12659a99c25463806dddaa6c5c9f2a0b38b1",
+      "receipt_sha256": "4beea6fa79e2af196963fee7a61432346ded56b46c6c1e675e90df8c9b49bda5"
+    },
+    "6:0:plant": {
+      "case": "surrogate-continuation-study-v1-6p-0-plant",
+      "job_id": "6addccaf1e112550ce7e9bcb",
+      "paired_sha256": "2de20e8cf400d949e9fa4c617a7f246b10e0a18b1c5f2b8272955de883fe9bf9",
+      "receipt_sha256": "0d8d8aebbcd41f13db61b45e816c36273bde7a0369bae25c58cf1445b9442d20"
+    },
+    "6:0:bid": {
+      "case": "surrogate-continuation-study-v1-6p-0-bid",
+      "job_id": "6addccb01e112550ce7e9bcd",
+      "paired_sha256": "17bf49ea491cf275fbaaad9f7998a5ffa4d8994d725e4bd2902f84c4db7305cc",
+      "receipt_sha256": "e5df4157a180cd929b9a9216bcb155b43cff8077c8002a09bfd7b50f37c5c6a7"
+    },
+    "6:0:building": {
+      "case": "surrogate-continuation-study-v1-6p-0-building",
+      "job_id": "6addccb01e112550ce7e9bcf",
+      "paired_sha256": "4cc2650280c29d69db7cfa1b365452482c6be520a2e1680baa769cc230b862c4",
+      "receipt_sha256": "20a65cee675b870ad3fbc2d8a4a3f1c39cc39fca1693f6c8e3081a600146c34e"
+    },
+    "6:1:plant": {
+      "case": "surrogate-continuation-study-v1-6p-1-plant",
+      "job_id": "6addccb01e112550ce7e9bd1",
+      "paired_sha256": "ec9b65f285c951dcb22871358d2d441afce1f08d2eb203f4bf0af04e64f4bab0",
+      "receipt_sha256": "9912e6714d0af084df5a6ed870eb5630ffcef5accf2f947da1a26952a5674fc0"
+    },
+    "6:1:bid": {
+      "case": "surrogate-continuation-study-v1-6p-1-bid",
+      "job_id": "6addccb01e112550ce7e9bd3",
+      "paired_sha256": "c3d361cf83788a581cfae4f53c486b523443f0adc31d97ef87344d01f680916b",
+      "receipt_sha256": "9142731a4fae2f712737c2ab6e7dbf4cc4b45b77b015a2bdc3c8f922db65560f"
+    },
+    "6:1:building": {
+      "case": "surrogate-continuation-study-v1-6p-1-building",
+      "job_id": "6addccb11e112550ce7e9bd5",
+      "paired_sha256": "8e7176f0406d1058141db3d2d5629f5cc59e82986c1a684410ca69aa985c2934",
+      "receipt_sha256": "3c78a382a99ec85dc274e22386f835eec7e259bf3b7c523f14bb4537a5721944"
+    },
+    "6:2:plant": {
+      "case": "surrogate-continuation-study-v1-6p-2-plant",
+      "job_id": "6addccb11e112550ce7e9bd7",
+      "paired_sha256": "39233cdd1fd249cf48903ccff4b76536e99c1cd9dadc6906939fb0339987cfef",
+      "receipt_sha256": "2a573a398507b2aa3c6d4953403947fa6214fef465999f6b82f2e743874f6b09"
+    },
+    "6:2:bid": {
+      "case": "surrogate-continuation-study-v1-6p-2-bid",
+      "job_id": "6addccb11e112550ce7e9bd9",
+      "paired_sha256": "dbba45b33211774e066eaa6a7bc5a60726040103d28011eec028362b002cb1ef",
+      "receipt_sha256": "f6010c7a37d832234ebfd7240d7c0497189f3a206cdbea22553895c35ea5d45e"
+    },
+    "6:2:building": {
+      "case": "surrogate-continuation-study-v1-6p-2-building",
+      "job_id": "6addccb2046eb82b1ece444c",
+      "paired_sha256": "c5276894ad9a40c63ca5b78d8d76323842ecb9d8c412e8005db12583c85a9832",
+      "receipt_sha256": "69e84a9dce9e9c8a55d79928d61689989bc3c782a763c7ce0cf6d5a0a0ddd9cd"
+    },
+    "6:3:plant": {
+      "case": "surrogate-continuation-study-v1-6p-3-plant",
+      "job_id": "6addcdde1e112550ce7e9c77",
+      "paired_sha256": "f4f708666e3eadf266a76bc9113e082aeab734020e1c842154f429f9b087504c",
+      "receipt_sha256": "f2f312beed9c8638eba767f182a494524155cc1ed027ed2ffaa4464d6f4190a1"
+    },
+    "6:3:bid": {
+      "case": "surrogate-continuation-study-v1-6p-3-bid",
+      "job_id": "6addcdde1e112550ce7e9c79",
+      "paired_sha256": "4245b0b574b3ba7656b121c4dc7cf45b8b1a63de0da69ccb6eae72791cb3fd60",
+      "receipt_sha256": "d681af41d48c748c8fe4c11921692dd36d217a6c675720301dd7b62eb6336bff"
+    },
+    "6:3:building": {
+      "case": "surrogate-continuation-study-v1-6p-3-building",
+      "job_id": "6addcddf1e112550ce7e9c7b",
+      "paired_sha256": "1a23066fc930334eb47cc5032e92869bf6568a0840250d51b4344de1f606f6ad",
+      "receipt_sha256": "50fdac063cdaf8c1c8a439e0112a510917ec5899bab23ca63b7a5246942f88cb"
+    },
+    "6:4:plant": {
+      "case": "surrogate-continuation-study-v1-6p-4-plant",
+      "job_id": "6addcddf1e112550ce7e9c7d",
+      "paired_sha256": "220982c0f113bea678a70ccd2bb6fc5391ab6ed44f7cc8ff7f06b5216a681b72",
+      "receipt_sha256": "b7cdb29d23f7bba54ba0f3ca4b638e11fbee378547e0fab8f6831d7cd0f45c4e"
+    },
+    "6:4:bid": {
+      "case": "surrogate-continuation-study-v1-6p-4-bid",
+      "job_id": "6addcddf1e112550ce7e9c7f",
+      "paired_sha256": "04e2f6b57412953326892856f50cd6b696da77dc32f821b1d2ce81952da1ce2f",
+      "receipt_sha256": "0dd1da799d853560e941cbe78176d4c33222de0ee756f317a18975df80737133"
+    },
+    "6:4:building": {
+      "case": "surrogate-continuation-study-v1-6p-4-building",
+      "job_id": "6addcddf046eb82b1ece44d1",
+      "paired_sha256": "b9309ab51608ff4300f0ec8ffdbcc175f2e40cac374f9ac588d0184043926aac",
+      "receipt_sha256": "42ebcacf008b22f01de0e71d9dfe873d8ce9c8f7578a35f3ab88d5cd0a610400"
+    },
+    "6:5:plant": {
+      "case": "surrogate-continuation-study-v1-6p-5-plant",
+      "job_id": "6addcde01e112550ce7e9c81",
+      "paired_sha256": "9b5a9d846e310974dbe211ced5b4be4d8d6d5020df0682af0275f81ef6837141",
+      "receipt_sha256": "b83238b387229640665a1f891ec9ec3fe8d19790367f82731c6c67e7c7c2c6c9"
+    },
+    "6:5:bid": {
+      "case": "surrogate-continuation-study-v1-6p-5-bid",
+      "job_id": "6addcde0046eb82b1ece44d5",
+      "paired_sha256": "3417f6537a31cd97651e135de5c64b8eec0d2f35fa28750a9e0f270b46905bb9",
+      "receipt_sha256": "d49e10c932fbd2f1d9a692da817cfbeaaf692bf5f01acb32e47f2a0788bcbc69"
+    },
+    "6:5:building": {
+      "case": "surrogate-continuation-study-v1-6p-5-building",
+      "job_id": "6addcde01e112550ce7e9c83",
+      "paired_sha256": "a0b73def50715d95cbf7b0ef67beab7fdc69adc29fcde394e2040f015ecb070c",
+      "receipt_sha256": "c47fdffecc9da8585f38c2a4f5444c2024c3c5aa912cfbb721d49204f0567603"
+    },
+    "6:6:plant": {
+      "case": "surrogate-continuation-study-v1-6p-6-plant",
+      "job_id": "6addcde1046eb82b1ece44d7",
+      "paired_sha256": "a9bdb5c04f57d691a011c0e33fe2cd7fc0902376bc9d854ef824bc72c3b6ac39",
+      "receipt_sha256": "03ba5fc1e5666853cc19a71cf0ae3189c8cfce557d4d7ce99d298edc1e00f1a6"
+    },
+    "6:6:bid": {
+      "case": "surrogate-continuation-study-v1-6p-6-bid",
+      "job_id": "6addcde11e112550ce7e9c85",
+      "paired_sha256": "6f17221e787cc96c7d60d93c7a383593d80447a4d556d87b2d4ef600888eb231",
+      "receipt_sha256": "e6c6369aeb1194b692d3a010c862179472683e49a0bde1a1a881a88b3c780758"
+    },
+    "6:6:building": {
+      "case": "surrogate-continuation-study-v1-6p-6-building",
+      "job_id": "6addcde11e112550ce7e9c89",
+      "paired_sha256": "d5faeaab71a8182499dc9cae4ffde38c25faf47ed9e5e38020ca64538e2ab406",
+      "receipt_sha256": "09073f66e67024bfbba1833aef7b1fd65c6a3388673b418dbf3d9795bd5c6af4"
+    },
+    "6:7:plant": {
+      "case": "surrogate-continuation-study-v1-6p-7-plant",
+      "job_id": "6addcde11e112550ce7e9c8b",
+      "paired_sha256": "37b6e77d0d45cb3e58332e30aa3f9e00f3e39930477836629c572ee678c203f8",
+      "receipt_sha256": "986e969cf30564862f2f0a6ee74ca196362253371a7b9fbaab16c09b0891a92c"
+    },
+    "6:7:bid": {
+      "case": "surrogate-continuation-study-v1-6p-7-bid",
+      "job_id": "6addcde21e112550ce7e9c8d",
+      "paired_sha256": "3a0c5fa20a707f5ba1d14ea1a3ba19fe54b2f3319e9619caa29fcf8f9d3ea60e",
+      "receipt_sha256": "8054c1af6e7a6185d26d70909c77bc79c0141a79977b5f569b3469980bee1102"
+    },
+    "6:7:building": {
+      "case": "surrogate-continuation-study-v1-6p-7-building",
+      "job_id": "6addcde2046eb82b1ece44d9",
+      "paired_sha256": "f6225af02dcbea39918d8e56bcee33fdf5a170440c9c71c4e702ea62dc9d1fe1",
+      "receipt_sha256": "3abeb5675430be41f3a7d970c3204b55e034689c616f89b875779f7be1b99845"
+    },
+    "6:8:plant": {
+      "case": "surrogate-continuation-study-v1-6p-8-plant",
+      "job_id": "6addcf17046eb82b1ece45a5",
+      "paired_sha256": "63e64100c12c6e06fad5d28a6f92e981819c4e367cf6096a8cdc0f1d8bcded28",
+      "receipt_sha256": "45e8cce30f78c4699203e3538331f1fddf5579eb5f5cfd82bc80ef1e62282ea5"
+    },
+    "6:8:bid": {
+      "case": "surrogate-continuation-study-v1-6p-8-bid",
+      "job_id": "6addcf171e112550ce7e9d48",
+      "paired_sha256": "799c87b34cd0617c12934be7090da0803fb416ed458cda55827cde62303182ad",
+      "receipt_sha256": "5a7e857b84628979e594a4ab336378128fbb834c4bbf2d89a5c03853c4c6c7d2"
+    },
+    "6:8:building": {
+      "case": "surrogate-continuation-study-v1-6p-8-building",
+      "job_id": "6addcf18046eb82b1ece45a7",
+      "paired_sha256": "d0a356d94224be3b140e7a3120b08107833baa65841478f194fb8f6181e901db",
+      "receipt_sha256": "ec65bac8fc7baa11725122a196ccd5073e6b64c3983b61af786e22741f583b6f"
+    },
+    "6:9:plant": {
+      "case": "surrogate-continuation-study-v1-6p-9-plant",
+      "job_id": "6addcf18046eb82b1ece45a9",
+      "paired_sha256": "ce9422249b6aca2f7e18e342e77bcbf1915b58fca7ca8d141f8ca1093642ee74",
+      "receipt_sha256": "f5f98f2fe69140bce491b831e39280642181d540fe3d9a7d367811ea4381ae45"
+    },
+    "6:9:bid": {
+      "case": "surrogate-continuation-study-v1-6p-9-bid",
+      "job_id": "6addcf181e112550ce7e9d4a",
+      "paired_sha256": "069003ff942f2bd5db4614b0c0a61b645f113c5f605b2cd4a156e1d84fe3a756",
+      "receipt_sha256": "474fb6b64b70851224cbde6620c0b5fb64d1ddb13d51660cf8e0ea876f38f6cb"
+    },
+    "6:9:building": {
+      "case": "surrogate-continuation-study-v1-6p-9-building",
+      "job_id": "6addcf181e112550ce7e9d4c",
+      "paired_sha256": "a98b2598ad98fa43fee085e4a93dee8c42a1dcdefa9fd7b898d8faa55b487348",
+      "receipt_sha256": "5bc57671417a51688bcafb318ccab58d3823d9b0e8985872170a98e30f163ba8"
+    },
+    "6:10:plant": {
+      "case": "surrogate-continuation-study-v1-6p-10-plant",
+      "job_id": "6addcf191e112550ce7e9d4e",
+      "paired_sha256": "b2304fecd9868c0a314982d2f7298187cbe64dd33077ab91553acd5d2f25dc26",
+      "receipt_sha256": "66c1115daaeb41133e2fd1d7b8120ec98032b7b446883c9ea5f8a493d0d6a94e"
+    },
+    "6:10:bid": {
+      "case": "surrogate-continuation-study-v1-6p-10-bid",
+      "job_id": "6addcf19046eb82b1ece45ab",
+      "paired_sha256": "8f4b1807dc0949de67046057a36776247cd0b094e7ef6d3d3f70bd9d82a67a44",
+      "receipt_sha256": "704936e9954daa34e793a6223631941e95605369fdb1352dc83a34943a56222b"
+    },
+    "6:10:building": {
+      "case": "surrogate-continuation-study-v1-6p-10-building",
+      "job_id": "6addcf19046eb82b1ece45ad",
+      "paired_sha256": "89193526fd019ea52298e0c0d5e7c4a5d9ee39061080c52f33309267de5befd4",
+      "receipt_sha256": "5d6630843e78d2f58ea2e80c8a52a55357ec7b656de7b2d4a7e6c3ae57bfa2f9"
+    },
+    "6:11:plant": {
+      "case": "surrogate-continuation-study-v1-6p-11-plant",
+      "job_id": "6addcf1a1e112550ce7e9d50",
+      "paired_sha256": "333f898f349862b2c553d9489e771f4f1ea59ca0f3f8cf066c3a604d34063662",
+      "receipt_sha256": "d7e60b67e5a7bcde235428435eecad47166c1b35930fdb541fae663569357d69"
+    },
+    "6:11:bid": {
+      "case": "surrogate-continuation-study-v1-6p-11-bid",
+      "job_id": "6addd0551e112550ce7e9df2",
+      "paired_sha256": "fe20932514d1a00074d9a6e53d8ff8733e335ce48813200cfe9c3c2374e16095",
+      "receipt_sha256": "d18f2f5c0a9cc899b943b004a7e84f60ea0db48ea3856d42df02d61c27ac78d7"
+    },
+    "6:11:building": {
+      "case": "surrogate-continuation-study-v1-6p-11-building",
+      "job_id": "6addd056046eb82b1ece462e",
+      "paired_sha256": "a3723eedf2e15a2801c315c8b1f68ad3e36012ec291a6b6b1dd3c1abca27a886",
+      "receipt_sha256": "ec70bc0487e255e594781e4eaac4b74a981961e50c206feb0286f2dca83a5a93"
+    },
+    "6:12:plant": {
+      "case": "surrogate-continuation-study-v1-6p-12-plant",
+      "job_id": "6addd056046eb82b1ece4630",
+      "paired_sha256": "e0488c0e6bda7d16f21396d32e56e73d6ee96c7da9f7be37cb4ca671dc4e9cd6",
+      "receipt_sha256": "583aba905d8e63cd851da51e4017f810fd0d1be7baeebad9d420a1d4443bfd07"
+    },
+    "6:12:bid": {
+      "case": "surrogate-continuation-study-v1-6p-12-bid",
+      "job_id": "6addd056046eb82b1ece4632",
+      "paired_sha256": "cf1f93fbcf1caced2927125110cfc7238baca0258003d03ceec043470df11227",
+      "receipt_sha256": "a32e14238c116c4c51ea42c3417c29161791e8bb3ec866de53e037ddce82252e"
+    },
+    "6:12:building": {
+      "case": "surrogate-continuation-study-v1-6p-12-building",
+      "job_id": "6addd0561e112550ce7e9df4",
+      "paired_sha256": "93d341fdc587aea0e0254b78e5fc23b8abcbd08b654a78d45972c34e7fdd8991",
+      "receipt_sha256": "d4524df5a9d9713e3aa76e69e5b1563e1120bd33a1790c6754d5a06609972498"
+    },
+    "6:13:plant": {
+      "case": "surrogate-continuation-study-v1-6p-13-plant",
+      "job_id": "6addd0571e112550ce7e9df6",
+      "paired_sha256": "cb448c36cc59ab2bbce23654fa3ddeca791cc31bc47ef86ff3373ddfd6928dd1",
+      "receipt_sha256": "f6469ef9f15997fa63d38ce32c714173b3f076a4cf3121459d6a0e71db6fbbf4"
+    },
+    "6:13:bid": {
+      "case": "surrogate-continuation-study-v1-6p-13-bid",
+      "job_id": "6addd0571e112550ce7e9df8",
+      "paired_sha256": "acc126ce03b97b0e5810dcd017b144466ef847263d86f1328b03c01507b698fd",
+      "receipt_sha256": "ff948cbe998d84b8b4e7005777c66709bad3b71b0b417a86afe4356a18f18e6a"
+    },
+    "6:13:building": {
+      "case": "surrogate-continuation-study-v1-6p-13-building",
+      "job_id": "6addd057046eb82b1ece4634",
+      "paired_sha256": "1e99d58757e800dda976ab7a2e4c5963dcff9a24bbd5948280badd4c4aba91dd",
+      "receipt_sha256": "0b1fd1a60612ade6dc28bd8ffb4844552a393dd2c5ea6ba12d099461b5120cb7"
+    },
+    "6:14:plant": {
+      "case": "surrogate-continuation-study-v1-6p-14-plant",
+      "job_id": "6addd0571e112550ce7e9dfa",
+      "paired_sha256": "85e0c30d991b918cd97764daf89dda1dbbf08c7819ab51f8ed445b973d35c073",
+      "receipt_sha256": "3e6d003dbf880dcb46de3ab7ed5afa357f5eb332bff1513f6fcae9d2ea11d84c"
+    },
+    "6:14:bid": {
+      "case": "surrogate-continuation-study-v1-6p-14-bid",
+      "job_id": "6addd0581e112550ce7e9e02",
+      "paired_sha256": "2df608d438203c92685134edd456ed65e98c1aa1c76434438d3ea055f32a3611",
+      "receipt_sha256": "431a3e969c29a89a9ff0a230f30ba7436be9c6d638e73d56d952f193e7a8bfa7"
+    },
+    "6:14:building": {
+      "case": "surrogate-continuation-study-v1-6p-14-building",
+      "job_id": "6addd0581e112550ce7e9e08",
+      "paired_sha256": "05c49d1b4d87cf9faf35c19d023b97dfa8ee0b962b329e382c3a4bf3538dfbe6",
+      "receipt_sha256": "96b4407ce7cdaa9576fa7e4a6dcd86553a10618eb0463f32b310d69733cd2368"
+    },
+    "6:15:plant": {
+      "case": "surrogate-continuation-study-v1-6p-15-plant",
+      "job_id": "6addd0581e112550ce7e9e0e",
+      "paired_sha256": "713da2ef9a2f1fdcc0fc864749599e42bf3db2d9378ae50459f71e38ec3add19",
+      "receipt_sha256": "f130207cb83bbaab6c678246b5df74b15aaeffadf16ca174959de3c62c6b0222"
+    },
+    "6:15:bid": {
+      "case": "surrogate-continuation-study-v1-6p-15-bid",
+      "job_id": "6addd0591e112550ce7e9e10",
+      "paired_sha256": "2c771a50ede2c41e88fe4e40e53cb91a4a2a6d72f36ee3f4e7e535d984029e00",
+      "receipt_sha256": "83b032d22f5cb8fc5cb93071a4df7d30bb83a7d93acd374c8a2db5ff5ca4e005"
+    },
+    "6:15:building": {
+      "case": "surrogate-continuation-study-v1-6p-15-building",
+      "job_id": "6addd059046eb82b1ece4648",
+      "paired_sha256": "f0376660f020df6fdd70fea848b614f7e95ccee8b41c4f31853f9a6f82265477",
+      "receipt_sha256": "71808c8cdd108b19e310c873faa480d4400d0535538ac2b318d2445ed647a482"
+    },
+    "6:16:plant": {
+      "case": "surrogate-continuation-study-v1-6p-16-plant",
+      "job_id": "6addd059046eb82b1ece464a",
+      "paired_sha256": "3a82f351df88a781412a63c0f8d21b9ed976dd57663039cb2527871c74291103",
+      "receipt_sha256": "f98ad7adf9d459be42ad275623eee543f4acb68c3b82d347ce3f10577ce3b2b9"
+    },
+    "6:16:bid": {
+      "case": "surrogate-continuation-study-v1-6p-16-bid",
+      "job_id": "6addd0591e112550ce7e9e12",
+      "paired_sha256": "7ad827d3c380213764c411c7f506408b1169c91b817ec20384ef5d17f74925a9",
+      "receipt_sha256": "9c336dae9f2128e214215608b2a3bfa4c44728ee851a77c2e5400cfe874c055c"
+    },
+    "6:16:building": {
+      "case": "surrogate-continuation-study-v1-6p-16-building",
+      "job_id": "6addd05a046eb82b1ece464c",
+      "paired_sha256": "870d38921898135c365c7530f2f908871bb27e204530f6a526ca305eb96c3b4a",
+      "receipt_sha256": "823fe4b43894a598ec56ade4a12943ff44ba8de8adebcaac0325437fdb7c41b4"
+    },
+    "6:17:plant": {
+      "case": "surrogate-continuation-study-v1-6p-17-plant",
+      "job_id": "6addd1951e112550ce7e9ef5",
+      "paired_sha256": "14ab184fd9febeededc6b22f9df78038562acded0ac516b1c73feacd0b2eefdd",
+      "receipt_sha256": "91927724654e30dc1d075e000554a6a5397a513b2dcb2dfa1463f0e33c374262"
+    },
+    "6:17:bid": {
+      "case": "surrogate-continuation-study-v1-6p-17-bid",
+      "job_id": "6addd195046eb82b1ece4725",
+      "paired_sha256": "ee1977db0aab9832635a165e782586acd499f2401835b4ff2b7d27504ee3c537",
+      "receipt_sha256": "81ff0718638ea6fed7642abecb25414af3b5da0fa3f8e6f8fc1f4caf8a98369a"
+    },
+    "6:17:building": {
+      "case": "surrogate-continuation-study-v1-6p-17-building",
+      "job_id": "6addd196046eb82b1ece4727",
+      "paired_sha256": "495f6823513038414469931ea9712d99126fa9a3aa4767c8860a7cb6570abd08",
+      "receipt_sha256": "aae4f06d6aa4c34f89fa707c905459efe759c7bd7bb262b46462fc2430410871"
+    },
+    "6:18:plant": {
+      "case": "surrogate-continuation-study-v1-6p-18-plant",
+      "job_id": "6addd1961e112550ce7e9ef7",
+      "paired_sha256": "2591861e254c6bec0266a4679b292dab26c9189af5f6ebf97b0f9823edb53004",
+      "receipt_sha256": "2c21fb9ba8c3e98c6292ccd77b53313c369b5c16783c798bc7425e0a2bdbb43f"
+    },
+    "6:18:bid": {
+      "case": "surrogate-continuation-study-v1-6p-18-bid",
+      "job_id": "6addd1961e112550ce7e9ef9",
+      "paired_sha256": "6809cabd6f5f718898aa2f81ab850bc93ba1e8b26c887c234b1b2e7e83834cc8",
+      "receipt_sha256": "2f5b16f0e700383e5d661d7a79798853f3960dcadcda74a7a3c66c7f57510539"
+    },
+    "6:18:building": {
+      "case": "surrogate-continuation-study-v1-6p-18-building",
+      "job_id": "6addd196046eb82b1ece4729",
+      "paired_sha256": "a481fea7d8e4a93295fe52f0ea31b199c9a28593ca752fc7737225c0004c95a2",
+      "receipt_sha256": "ad509a73ca10aecb3163edfb796a68a9f6a2406bd5ae62d25816ba30ad690dd9"
+    },
+    "6:19:plant": {
+      "case": "surrogate-continuation-study-v1-6p-19-plant",
+      "job_id": "6addd197046eb82b1ece472b",
+      "paired_sha256": "6f7afe2b61e446841c293ca89ef3c2ad5bf4b80ba600fee40417201823ddbf70",
+      "receipt_sha256": "9ddc908d2aa9ae9fc593f7f9b7e042b9230a6bc0163c77f4a98118630da01b4c"
+    },
+    "6:19:bid": {
+      "case": "surrogate-continuation-study-v1-6p-19-bid",
+      "job_id": "6addd197046eb82b1ece472d",
+      "paired_sha256": "4aa6b3500b4c3fb8462c809b2375d4ad71d23caa2a3e70db0d8dfeeaa411db36",
+      "receipt_sha256": "b3ab8de4cb62cef7552efda18f0d5e053b5407b1ebeb279803647a8ff2550ede"
+    },
+    "6:19:building": {
+      "case": "surrogate-continuation-study-v1-6p-19-building",
+      "job_id": "6addd1971e112550ce7e9efb",
+      "paired_sha256": "0975aa32f006078b54a64364d71e6f039ae5835d15cc5c85044e4d4ea479a67e",
+      "receipt_sha256": "4336dc219b91cce84887d52eadf95b30211cdc72247a8c74a7205f832d55adde"
+    },
+    "6:20:plant": {
+      "case": "surrogate-continuation-study-v1-6p-20-plant",
+      "job_id": "6addd197046eb82b1ece472f",
+      "paired_sha256": "9762525115cc1137086c43c19f9ac4baa6dce7fd27475b1255d25c370d58f4e5",
+      "receipt_sha256": "173b160f45573080e6f2ece7d2ca037e2914e66026bcd83f3d7f9063011881ff"
+    },
+    "6:20:bid": {
+      "case": "surrogate-continuation-study-v1-6p-20-bid",
+      "job_id": "6addd2ce046eb82b1ece480f",
+      "paired_sha256": "ff2d79512a505cdd5579b2b9bc42f99bc5c0530076f0285447daddf952d7e098",
+      "receipt_sha256": "d1d64072c8b9c6de20a6fe76bbe6ccfe645816113cb2e6059121d39ef491207c"
+    },
+    "6:20:building": {
+      "case": "surrogate-continuation-study-v1-6p-20-building",
+      "job_id": "6addd2ce1e112550ce7e9fe2",
+      "paired_sha256": "875f01f78a1cb2bd430bfb0cb4d1ec6a4cce784bb88adbdae4888a34e294abf9",
+      "receipt_sha256": "1833c7c689b602859d7b641e23f6627da9f3ebb583c2a0c9b0debe63a158b1c0"
+    },
+    "6:21:plant": {
+      "case": "surrogate-continuation-study-v1-6p-21-plant",
+      "job_id": "6addd2ce046eb82b1ece4811",
+      "paired_sha256": "2177cd2478be60db30301b2f36fdd7e627252f1499868c43e293b1fe84f07517",
+      "receipt_sha256": "30591a89a669bff2f9c759a00d65e0753712c4794f73328e7babfccb1bbdc009"
+    },
+    "6:21:bid": {
+      "case": "surrogate-continuation-study-v1-6p-21-bid",
+      "job_id": "6addd2ce1e112550ce7e9fe4",
+      "paired_sha256": "46a4a11ea0defec27040028810a68ce9742879abdab78de88c485caf0c51a553",
+      "receipt_sha256": "11b7e9ebd4d3455caefea9c8b6528655a12cd55fd938991f27b5c796a246268d"
+    },
+    "6:21:building": {
+      "case": "surrogate-continuation-study-v1-6p-21-building",
+      "job_id": "6addd2cf046eb82b1ece4813",
+      "paired_sha256": "02cdd48a2c7d185058197568e9966e1c36712dda500407dffa3f222692f9ba9a",
+      "receipt_sha256": "412f55167b49cd1de837c00383ea904ef58be596c43de7eab71715258dd5dfcc"
+    },
+    "6:22:plant": {
+      "case": "surrogate-continuation-study-v1-6p-22-plant",
+      "job_id": "6addd2cf1e112550ce7e9fe6",
+      "paired_sha256": "25d7e87951ff8cd1ae2a4996b5c9a223141514f34044cf63e81a5c4f216244ef",
+      "receipt_sha256": "2d775340b9044e8d0027d03f4f4a517cf175f4c45b1ae794494d169f4f1a1ebf"
+    },
+    "6:22:bid": {
+      "case": "surrogate-continuation-study-v1-6p-22-bid",
+      "job_id": "6addd2cf1e112550ce7e9fe8",
+      "paired_sha256": "c500f37c0662054c6ba5b7bb6df347d31fc9e07220c9417128a4e9afc468ab91",
+      "receipt_sha256": "a918ec697a9d20a8368df3ac8e8903949e657b3ff5f0c13d56e94cea8ddd0f84"
+    },
+    "6:22:building": {
+      "case": "surrogate-continuation-study-v1-6p-22-building",
+      "job_id": "6addd428046eb82b1ece488e",
+      "paired_sha256": "456164e438dfd378102ced1e6685e2f183b1a4830ad603e91dd4237dcae67f78",
+      "receipt_sha256": "25a218453b920724b01e0985ef8390d53dab9f194725ccc4a51fc3f2084ed06f"
+    },
+    "6:23:plant": {
+      "case": "surrogate-continuation-study-v1-6p-23-plant",
+      "job_id": "6addd428046eb82b1ece4890",
+      "paired_sha256": "9f1b7cc8544fb2567ddbd398b2c4ccc512f12b990794cbd8c8273efe69f4c72d",
+      "receipt_sha256": "92e4a73e977d6d206d4c10bbc7b8e75ea9ebb4c99c8ef53291ce8ef90dcc07f9"
+    },
+    "6:23:bid": {
+      "case": "surrogate-continuation-study-v1-6p-23-bid",
+      "job_id": "6addd429046eb82b1ece4892",
+      "paired_sha256": "a5b813611086a674fca9b22971bb3f07a51546279abe21c8b4a74d4bb4497e05",
+      "receipt_sha256": "2aa44bbf07a5bdd75d405f47e7313029adac77cb17bce2769c7f48a05778b695"
+    },
+    "6:23:building": {
+      "case": "surrogate-continuation-study-v1-6p-23-building",
+      "job_id": "6addd4291e112550ce7ea0b5",
+      "paired_sha256": "f3f42ee0f4e8b2fbff11b4279460251bb2f96851ae278057b320c304bc88f237",
+      "receipt_sha256": "5bad531720a4f01c7aff161be301c4dd8f44c20f96793475930350b5daee76ab"
+    },
+    "6:24:plant": {
+      "case": "surrogate-continuation-study-v1-6p-24-plant",
+      "job_id": "6addd4291e112550ce7ea0b7",
+      "paired_sha256": "07b67b7f7b34c9f9df6d2b9f63db4905b86fd16b06352e32100d0c63716fe903",
+      "receipt_sha256": "3ee26c59b5aaeafacf73b7b75e70993ed524fb6fdc67b38c3a05a564ee16d4f9"
+    },
+    "6:24:bid": {
+      "case": "surrogate-continuation-study-v1-6p-24-bid",
+      "job_id": "6addd4291e112550ce7ea0b9",
+      "paired_sha256": "006e2024a9f1fa778d15ed54c1a86e76633c593df3d2120121bc3e54a16ad699",
+      "receipt_sha256": "198c653df5d36bf4aaa62ecf18db2b9f0a3cb7f5902fd9909e0b77af4ba0fac0"
+    },
+    "6:24:building": {
+      "case": "surrogate-continuation-study-v1-6p-24-building",
+      "job_id": "6addd42a1e112550ce7ea0bb",
+      "paired_sha256": "6a5aae6c8b84277a7fd5a08ef7aed379e31da641e46c3cc0a01b40470ae5f248",
+      "receipt_sha256": "2ba9e6fa192ed3358f71bab1b8d5bc0ff5e6ef5061c18e173063ea9eb661e34a"
+    },
+    "6:25:plant": {
+      "case": "surrogate-continuation-study-v1-6p-25-plant",
+      "job_id": "6addd42a1e112550ce7ea0bd",
+      "paired_sha256": "d58f69c96ff3bdb66a310f408032282420921d41fa8251a921d8ff995456c967",
+      "receipt_sha256": "b970306562780c6511bbc1dc077b30246ce598bfa7e9bc61c6952365e47d259e"
+    },
+    "6:25:bid": {
+      "case": "surrogate-continuation-study-v1-6p-25-bid",
+      "job_id": "6addd42a1e112550ce7ea0bf",
+      "paired_sha256": "c3b301247fab309899a5a5ce7393c4545f59d233ae7922d06b699d3c408c7004",
+      "receipt_sha256": "87e93f235a413efbc695d70e4ad8ffb064aedcbeb798009cb897efb5e6ab8463"
+    },
+    "6:25:building": {
+      "case": "surrogate-continuation-study-v1-6p-25-building",
+      "job_id": "6addd42a1e112550ce7ea0c1",
+      "paired_sha256": "60eef288495908141a8f67121bb1e572b1eb8d350eaa75e7330c40f98bbe5993",
+      "receipt_sha256": "c1d63251c937b90c1df7c0c566e317191973667fa26b807eb0ef5663f8cb6c40"
+    },
+    "6:26:plant": {
+      "case": "surrogate-continuation-study-v1-6p-26-plant",
+      "job_id": "6addd42b1e112550ce7ea0c3",
+      "paired_sha256": "4f86635afdb10c4c0416977589cef1f3547128ce92b08f2df513900f9ddbe396",
+      "receipt_sha256": "04bee0180c2ac8e7a6fe0b0ff06b4c7022a8eaa08ff929e73d224b07a6f9477b"
+    },
+    "6:26:bid": {
+      "case": "surrogate-continuation-study-v1-6p-26-bid",
+      "job_id": "6addd586046eb82b1ece4941",
+      "paired_sha256": "2fa86052c9b22a54b966a20764033d5f6641405be2a794a8807bbc7bdedad9e1",
+      "receipt_sha256": "cb86cbe37eebf2765cd8282bf1be12bc2209fa14dda2a6c00928a24e3c52f6d9"
+    },
+    "6:26:building": {
+      "case": "surrogate-continuation-study-v1-6p-26-building",
+      "job_id": "6addd586046eb82b1ece4943",
+      "paired_sha256": "126737f55881c9a8f9a2e197592fef4e2b80c125796050c3cfadf9572ed1156a",
+      "receipt_sha256": "57e97135625bec6b6bdbb9901b4ed269ea77defb1b25f3f7d05aa33977f73f20"
+    },
+    "6:27:plant": {
+      "case": "surrogate-continuation-study-v1-6p-27-plant",
+      "job_id": "6addd5861e112550ce7ea1b8",
+      "paired_sha256": "c682f046525b3c2988f59ab3ea9d0d9966be21fde55bc39bbfd7e63d881df093",
+      "receipt_sha256": "86afc1c2cde0f343823ca9475380bb5db98bd47cc10ea1776401bca3dc456d44"
+    },
+    "6:27:bid": {
+      "case": "surrogate-continuation-study-v1-6p-27-bid",
+      "job_id": "6addd586046eb82b1ece4945",
+      "paired_sha256": "ea8caeeea4efdf13271e680f7669272aac0ca241161cf288033dd548dfbdc979",
+      "receipt_sha256": "34d3f5b6fabaa31e613752d3d2d6db761630b05e452e48979888e7f2a7eee31b"
+    },
+    "6:27:building": {
+      "case": "surrogate-continuation-study-v1-6p-27-building",
+      "job_id": "6addd587046eb82b1ece4947",
+      "paired_sha256": "cec2b459a2ad0580b7aaa4228df325c2717373033d4dc3c9c1c4f09f17a7cac5",
+      "receipt_sha256": "19349b7b29d0f967fca97217eacc19e01d443fdfaf3d22043099613e6d28bd7a"
+    },
+    "6:28:plant": {
+      "case": "surrogate-continuation-study-v1-6p-28-plant",
+      "job_id": "6addd5871e112550ce7ea1bc",
+      "paired_sha256": "07adcfe17ae70aa5ead064ab14c2bcebdebee59b3323a91f29b49cbe34352ab8",
+      "receipt_sha256": "61987371f9431df9df66fbc11becdcbf1c38f01b9eda7b3c35ea1eea5fcab2d4"
+    },
+    "6:28:bid": {
+      "case": "surrogate-continuation-study-v1-6p-28-bid",
+      "job_id": "6addd5871e112550ce7ea1be",
+      "paired_sha256": "d8e0ff12411588608fa3a4a60c0d98a4253d92f41a5cb234324367c825e38be9",
+      "receipt_sha256": "73d6b970866ebedd9f3440a059e0da5f0de35a8c251608d3c586d5ae88175b51"
+    },
+    "6:28:building": {
+      "case": "surrogate-continuation-study-v1-6p-28-building",
+      "job_id": "6addd587046eb82b1ece4949",
+      "paired_sha256": "94df4f766874d1bbc346d82dac24e57f5060a47bf76ce4a548a5538b6287e884",
+      "receipt_sha256": "d6849cacec0cca94d42e61065db1452212d20855b2b74f3f6d999619b314551a"
+    },
+    "6:29:plant": {
+      "case": "surrogate-continuation-study-v1-6p-29-plant",
+      "job_id": "6addd5881e112550ce7ea1c0",
+      "paired_sha256": "4269fffe6b40b7b618f6a69e37d127b0d41393578027b5978178fca87c7aac2d",
+      "receipt_sha256": "9c2f29b1498e9ab4ad920be8f7442fbb5d5a523d7fa74855510aba4ad136ab7c"
+    },
+    "6:29:bid": {
+      "case": "surrogate-continuation-study-v1-6p-29-bid",
+      "job_id": "6addd5881e112550ce7ea1c2",
+      "paired_sha256": "96eebd0bcaf91ecbbc81c45e56c08a9228ed9b0ebbd36acab273828c3b0598ab",
+      "receipt_sha256": "01bb2e3a6c551630c534a57f759959e2022b8e52747fee45c3025c1b8b216eea"
+    },
+    "6:29:building": {
+      "case": "surrogate-continuation-study-v1-6p-29-building",
+      "job_id": "6addd588046eb82b1ece494b",
+      "paired_sha256": "919ff6e62ba878ee2900007fdce54b41efcf4c9e268518a981c18c2c941391df",
+      "receipt_sha256": "86b553826c1160deece96cde8467d80b86930408c0b2b9678f3724f846e3b7bc"
+    },
+    "6:30:plant": {
+      "case": "surrogate-continuation-study-v1-6p-30-plant",
+      "job_id": "6addd5891e112550ce7ea1c4",
+      "paired_sha256": "a0273b0c01ad0181f2ff5cf35bb95a10ebb2b76e61a7d46277c9caa4b60492f0",
+      "receipt_sha256": "0b275e371727335913e3e1255a3ef3ff6aa668152ca039feeb8d348c4cd1f577"
+    },
+    "6:30:bid": {
+      "case": "surrogate-continuation-study-v1-6p-30-bid",
+      "job_id": "6addd589046eb82b1ece494d",
+      "paired_sha256": "5232200a4454767e0737549fa80b1542c390fdec273d4271743b448202bd3773",
+      "receipt_sha256": "763ef3d260cb1aa7a1a29957b96803cbc9e9bb336582e65f2920b082adeb856d"
+    },
+    "6:30:building": {
+      "case": "surrogate-continuation-study-v1-6p-30-building",
+      "job_id": "6addd589046eb82b1ece494f",
+      "paired_sha256": "105c55ada1eabe481cc71341ef97d71fdd9b19eb9574feeed53b692824c414ad",
+      "receipt_sha256": "8a4444baa0b2d28bf736d37d897cfddd2ba24294ee54fde9e73b8fae8da9a42e"
+    },
+    "6:31:plant": {
+      "case": "surrogate-continuation-study-v1-6p-31-plant",
+      "job_id": "6addd6d9046eb82b1ece49cc",
+      "paired_sha256": "7600a5647eea78ea61e035c0e034b59f078772dcaff1c599d338093ad268b2ab",
+      "receipt_sha256": "90e04628212f32988743766ea300a150f042fe74ca1817415cc651b8f1e484e7"
+    },
+    "6:31:bid": {
+      "case": "surrogate-continuation-study-v1-6p-31-bid",
+      "job_id": "6addd6d9046eb82b1ece49ce",
+      "paired_sha256": "e3191aa8b35db8e3b215c67142e56be3504331cd6079beb460abcee0f187df7f",
+      "receipt_sha256": "46da07a89745f29ca273dbd629184e622c98283f06da9a937a88046e3150b045"
+    },
+    "6:31:building": {
+      "case": "surrogate-continuation-study-v1-6p-31-building",
+      "job_id": "6addd6da046eb82b1ece49d0",
+      "paired_sha256": "b6feea41661068245895dee079e49dcb0df64657b48f8f29c7d51d0a7b08f048",
+      "receipt_sha256": "4bbc31a9e5271cf84f05b8a077351a130c0253788490ce82972bbc4b76a5ebe9"
+    },
+    "6:32:plant": {
+      "case": "surrogate-continuation-study-v1-6p-32-plant",
+      "job_id": "6addd6da1e112550ce7ea25a",
+      "paired_sha256": "ad24dfbde4fd69c267c3043f746b4b3e50dc4ade1195c67f0953a598e64e3712",
+      "receipt_sha256": "7b7563f395710f22e921ec35561923e168850605be75747b501878fe9eba5304"
+    },
+    "6:32:bid": {
+      "case": "surrogate-continuation-study-v1-6p-32-bid",
+      "job_id": "6addd6da1e112550ce7ea25c",
+      "paired_sha256": "a9396b6b352e6a26ef0945700e13f84bd60f34c155ffd2faff92136d2d030fbf",
+      "receipt_sha256": "2b36643898f26d0198d7bd7d2bb451a4cf9c30c825a14376d62ad46a0d9c66ac"
+    },
+    "6:32:building": {
+      "case": "surrogate-continuation-study-v1-6p-32-building",
+      "job_id": "6addd6da046eb82b1ece49d2",
+      "paired_sha256": "88f4715bfb2021c3ba58ac8175ca2ac99239bec488f22955d6d97fc2fbd1b53b",
+      "receipt_sha256": "844c754f5f225cae9456b6e9890d0f9c7aeee57cfd50bdb7b67e1d85dcaed937"
+    },
+    "6:33:plant": {
+      "case": "surrogate-continuation-study-v1-6p-33-plant",
+      "job_id": "6addd6db1e112550ce7ea25e",
+      "paired_sha256": "e59d43e28ffc66492c8c773bb00855a0cb9a2b4de3e799958b78943769184317",
+      "receipt_sha256": "992817998eb395c7eb86ec79b10e758038744f71c02b4202d647e749a2d4ce85"
+    },
+    "6:33:bid": {
+      "case": "surrogate-continuation-study-v1-6p-33-bid",
+      "job_id": "6addd6db1e112550ce7ea260",
+      "paired_sha256": "5ad14466e54d2a438504a9b6a63a5c9d4fe2a4e6fb6c5be5b2ccda8a2cf9cbaa",
+      "receipt_sha256": "a9737bf6f5718f822188a1cfdac817c7268b8da272e3de473c1f61a691fe5eb9"
+    },
+    "6:33:building": {
+      "case": "surrogate-continuation-study-v1-6p-33-building",
+      "job_id": "6addd6db1e112550ce7ea262",
+      "paired_sha256": "757c479ce8121811c71ffef234568c022d926d7d0593bfaff99c14eb5cd09880",
+      "receipt_sha256": "65d53e629e341346d40b1447d9f15ba259515ade616a8510ca68ebbf079f502e"
+    },
+    "6:34:plant": {
+      "case": "surrogate-continuation-study-v1-6p-34-plant",
+      "job_id": "6addd6dc046eb82b1ece49d4",
+      "paired_sha256": "8beb47e5ba38559dcd15ef0bcf7bf0deee5ae8bd2a9a1cdc89ab1716622b6462",
+      "receipt_sha256": "ad1e735b5854ef71da37405d14b9382506864c81cf5edc424db64728d365fa66"
+    },
+    "6:34:bid": {
+      "case": "surrogate-continuation-study-v1-6p-34-bid",
+      "job_id": "6addd6dc046eb82b1ece49d6",
+      "paired_sha256": "74c06e03ba5b570a5fec3bd6b56c2476869e2861f7715754562bc88bdf7a8050",
+      "receipt_sha256": "3a91a8bbed59d3539aaff3e0a7d1dff5b954f1c3100fb16f1a72aeb24ca7e94a"
+    },
+    "6:34:building": {
+      "case": "surrogate-continuation-study-v1-6p-34-building",
+      "job_id": "6addd6dc1e112550ce7ea264",
+      "paired_sha256": "56d06142ec92318c4809384885c9c526d42af893b84ef040931a2f31a1a36c57",
+      "receipt_sha256": "4527004023b5e8c230fd78c86514d345943b3b52d4251aa541ce973ff6556d84"
+    },
+    "6:35:plant": {
+      "case": "surrogate-continuation-study-v1-6p-35-plant",
+      "job_id": "6addd6dc046eb82b1ece49d8",
+      "paired_sha256": "e845043b242f7edf02e32858546d5214369a79173a9043fda5cb67433ad8145d",
+      "receipt_sha256": "9839635f2f309be6b79a4bf5ce92e5f1dc0d9e32f37cda3aa2144d749d5bd7d7"
+    },
+    "6:35:bid": {
+      "case": "surrogate-continuation-study-v1-6p-35-bid",
+      "job_id": "6addd8291e112550ce7ea2e7",
+      "paired_sha256": "74eab513144bc20871c6996fd14037cd137fba804bf1f7170a7a07bac88fab62",
+      "receipt_sha256": "e43da6e591e5bdcb5e4970e1c304d27219cf3df41b06ef5dedef3aa2c95b93b6"
+    },
+    "6:35:building": {
+      "case": "surrogate-continuation-study-v1-6p-35-building",
+      "job_id": "6addd8291e112550ce7ea2e9",
+      "paired_sha256": "b6ca52073ab28edf42fb4dd7b73b189ab50d1c07bfb857f1d9ad3b76725090df",
+      "receipt_sha256": "49585dddbf529514ff3b1cf5a627d2fc55c9282addfe7478ad73b28f050dcf41"
+    },
+    "6:36:plant": {
+      "case": "surrogate-continuation-study-v1-6p-36-plant",
+      "job_id": "6addd82a1e112550ce7ea2eb",
+      "paired_sha256": "36e522ef5626d9bf727a165f407d4c760934ac9970dabc34b0f1523cae686303",
+      "receipt_sha256": "e847f0a88356e6f2532ea49fcf5f03e1a7455d1dce7c1b598af6fe08c559b64a"
+    },
+    "6:36:bid": {
+      "case": "surrogate-continuation-study-v1-6p-36-bid",
+      "job_id": "6addd82a046eb82b1ece4a22",
+      "paired_sha256": "2995c474fba06b706927cf40ae64374e0bba887c8ccdf002e3e54d34735c82a7",
+      "receipt_sha256": "1ba27ef50c665df6dc72286916898652ce4f1a21c6d966c47597cafd85745fce"
+    },
+    "6:36:building": {
+      "case": "surrogate-continuation-study-v1-6p-36-building",
+      "job_id": "6addd82a1e112550ce7ea2ed",
+      "paired_sha256": "f0e524cc71deb0311ae27c55af67fdfafcedbd3903400c8f9b605d0c011a114f",
+      "receipt_sha256": "00c2619519da0a842da8b7c89336b1b99d216836315b73b28494964bb0244f8d"
+    },
+    "6:37:plant": {
+      "case": "surrogate-continuation-study-v1-6p-37-plant",
+      "job_id": "6addd82a046eb82b1ece4a24",
+      "paired_sha256": "b25e6d87b42bf65578d8773fe415b86c281ebe84f670a1dff520c1f46313eb03",
+      "receipt_sha256": "35e56c29d6331e87e49ade69a2796d53369116c59f148e9ebd8287d9ee8b077a"
+    },
+    "6:37:bid": {
+      "case": "surrogate-continuation-study-v1-6p-37-bid",
+      "job_id": "6addd82b046eb82b1ece4a26",
+      "paired_sha256": "598f276325e526cfce3639419ae7fb243edc71602461fd24e4bca6d4ffb91fcb",
+      "receipt_sha256": "4ae9efa14be6b58fa9fd9979e1b1d824695335dfafb8ab2227ccca8be8eec3b4"
+    },
+    "6:37:building": {
+      "case": "surrogate-continuation-study-v1-6p-37-building",
+      "job_id": "6addd82b1e112550ce7ea2ef",
+      "paired_sha256": "5ea3c976a69af5258f7ec8f44c2e849e7f44c08755441de5303de443aadbb62c",
+      "receipt_sha256": "629eb36762fa5c8b180e10ad0cadafecb037e61acae05e7e1bc5ee7e652c4b43"
+    },
+    "6:38:plant": {
+      "case": "surrogate-continuation-study-v1-6p-38-plant",
+      "job_id": "6addd97c1e112550ce7ea376",
+      "paired_sha256": "7964682874c826ceda5eb58ecedc09d7ed8152ae8166d8cd06fdc7047d4729c0",
+      "receipt_sha256": "3721231eb1dcd2b525a01969cba5865f0f16856fb4a0203f984c404371b43d05"
+    },
+    "6:38:bid": {
+      "case": "surrogate-continuation-study-v1-6p-38-bid",
+      "job_id": "6addd97c1e112550ce7ea378",
+      "paired_sha256": "05c3cbbbe63d0770ea7f148e38d6fd44fabd3aed6ae8dcdf3349f0662f87e8a3",
+      "receipt_sha256": "ae335955780cf166e9e76d5d340d98c00dbad78d8344776a2607fbe975fa35ad"
+    },
+    "6:38:building": {
+      "case": "surrogate-continuation-study-v1-6p-38-building",
+      "job_id": "6addd97c046eb82b1ece4a7d",
+      "paired_sha256": "521e52079ee4e7289cf773427d508d0ab9aebdab0ffea0427a9bb4262f9f613a",
+      "receipt_sha256": "c6ea0546a305c231452585ead6b825bd236d745bcb4e7da6693d2d3349515d6c"
+    },
+    "6:39:plant": {
+      "case": "surrogate-continuation-study-v1-6p-39-plant",
+      "job_id": "6addd97d046eb82b1ece4a7f",
+      "paired_sha256": "04a84402f86a3c51bf1dafc20c5984c79e1f8f7168bcc46decd8dc7289f4c864",
+      "receipt_sha256": "f078da741eedcdacc1ebb29e1d69e8e72c385117588082036c27a1a81ac0f0b5"
+    },
+    "6:39:bid": {
+      "case": "surrogate-continuation-study-v1-6p-39-bid",
+      "job_id": "6addd97d1e112550ce7ea37a",
+      "paired_sha256": "aeb6a844757078c9d44ae9341d6bb51070f9a7323b344b8cf2fff6594c5ceb98",
+      "receipt_sha256": "06cad0410d267ebfdc02bae9b42c0d3db14f0be07ca0fbb0bc61e060f238b7ee"
+    },
+    "6:39:building": {
+      "case": "surrogate-continuation-study-v1-6p-39-building",
+      "job_id": "6addd97d1e112550ce7ea37e",
+      "paired_sha256": "d66bfab3f6d5e8c471f59b54f9068ab0e300303ac5e83aee2a70e1f00075b9a7",
+      "receipt_sha256": "8a8f591c98b838d97c75a721270040dd397f8dda32b49f09ce64c7543c282914"
+    },
+    "6:40:plant": {
+      "case": "surrogate-continuation-study-v1-6p-40-plant",
+      "job_id": "6addd97d1e112550ce7ea380",
+      "paired_sha256": "ffe854f8b784fd8ca7111a24ca0605426727b8356cd347834c1fe04f133b8131",
+      "receipt_sha256": "b05ddbff11daa25121e483895f3a1a4f54cce28691c359ff2ca7cbecddfa177b"
+    },
+    "6:40:bid": {
+      "case": "surrogate-continuation-study-v1-6p-40-bid",
+      "job_id": "6addd97e1e112550ce7ea382",
+      "paired_sha256": "0d54a5600762ea075cb84391ee5c8fb56353f5c0ad47f93d81a8cc663170324b",
+      "receipt_sha256": "588eb10f445917b9f43bfb14e26dc38ae02fc630997347ee8fe0880a1f2977f5"
+    },
+    "6:40:building": {
+      "case": "surrogate-continuation-study-v1-6p-40-building",
+      "job_id": "6addd97e1e112550ce7ea384",
+      "paired_sha256": "13917810125e581657113c81a3dd078de3e7c1ae891b62cff8e7bde69a839d0f",
+      "receipt_sha256": "c03889f4f056c9b3c90ee494f03ae06540edfcae003ff8c6ef6aeb93942e6992"
+    },
+    "6:41:plant": {
+      "case": "surrogate-continuation-study-v1-6p-41-plant",
+      "job_id": "6addd97e1e112550ce7ea386",
+      "paired_sha256": "0714027a206fe53f1cf49b7878071931c5420159700bedcd5c967e5b75fae041",
+      "receipt_sha256": "923b05f619af8d1f908e3054ccf854532e2c7f511c42824596e35bd3666acd77"
+    },
+    "6:41:bid": {
+      "case": "surrogate-continuation-study-v1-6p-41-bid",
+      "job_id": "6addd97e1e112550ce7ea388",
+      "paired_sha256": "bcc52a86dad1062feffa894b5e7808a795fbd9d70cf13971431b8fc5869b239d",
+      "receipt_sha256": "e642347f5091a640906e6de1a0b35a5bc8f2ee343ed7a8e1b97cf7b94ce28e04"
+    },
+    "6:41:building": {
+      "case": "surrogate-continuation-study-v1-6p-41-building",
+      "job_id": "6addd97f046eb82b1ece4a81",
+      "paired_sha256": "a276b0dfd470586130b1eb084975106d440e33bef1eb5a69c0c59f6074ecedf1",
+      "receipt_sha256": "bd3f1507ed76663ac303182da0c01481f7fb87194bedd3419dec0a7f9f2e14df"
+    },
+    "6:42:plant": {
+      "case": "surrogate-continuation-study-v1-6p-42-plant",
+      "job_id": "6addd97f046eb82b1ece4a83",
+      "paired_sha256": "6ffca2c543bdd31e532591474ff9511b4c5b142036d989b2c43d24029beaa411",
+      "receipt_sha256": "b1fb1c24b1d401464b3d093b89e5f568fbb38c28d1a93d6a8e0c80d378bd7085"
+    },
+    "6:42:bid": {
+      "case": "surrogate-continuation-study-v1-6p-42-bid",
+      "job_id": "6addd97f1e112550ce7ea38a",
+      "paired_sha256": "758a6004ea39588f80e348f72213cf821d1274563ddfacec4ec455512b4ebef8",
+      "receipt_sha256": "9580c2a4a38b30d0c8590b5888795dc47a95ed4c02e83700fa2c567ac9f0010a"
+    },
+    "6:42:building": {
+      "case": "surrogate-continuation-study-v1-6p-42-building",
+      "job_id": "6adddad2046eb82b1ece4ac9",
+      "paired_sha256": "b0d1709b9c0319e9f0b3efbff4d35741f2be87080ec5ee74a0fdbc73d600cab6",
+      "receipt_sha256": "dee356e71ed29f48e7d50abbf16f8de6ed7cc77569670d8feede91cc31af33ce"
+    },
+    "6:43:plant": {
+      "case": "surrogate-continuation-study-v1-6p-43-plant",
+      "job_id": "6adddad21e112550ce7ea405",
+      "paired_sha256": "b8fbd93f93a15316859c682c5971a1d8dd9c2e736fb13b6f551feea1e09bde34",
+      "receipt_sha256": "bbd025dadb1b586d850eccab0d095f5e989defa2c7c30acd6a2dda3fdd114931"
+    },
+    "6:43:bid": {
+      "case": "surrogate-continuation-study-v1-6p-43-bid",
+      "job_id": "6adddad31e112550ce7ea407",
+      "paired_sha256": "073413435682cb8940e6c930403440e764f6afc5281a581a36a2916109c21fa1",
+      "receipt_sha256": "384b5f3294bd47e05674328232f21f36a74908aa747e1934dcea36d52e6bf090"
+    },
+    "6:43:building": {
+      "case": "surrogate-continuation-study-v1-6p-43-building",
+      "job_id": "6adddad3046eb82b1ece4acb",
+      "paired_sha256": "9b32cf3c087bbce0d8e579729b8a5fa042ec8f789e29dbd3c8ad5904d228a14b",
+      "receipt_sha256": "0888a4bb2ed42ddca1dd08a8a8262c74011d876506655348302b9dc1f1700936"
+    },
+    "6:44:plant": {
+      "case": "surrogate-continuation-study-v1-6p-44-plant",
+      "job_id": "6adddad3046eb82b1ece4acd",
+      "paired_sha256": "fc62017f09dd90b7d7f949b54f8d92ca8177c9ff0b583747be79d334b3d310cd",
+      "receipt_sha256": "8e387d7200881b6bd1f6dd50b532e498ae65c860a573cc083fed42b49337fc1c"
+    },
+    "6:44:bid": {
+      "case": "surrogate-continuation-study-v1-6p-44-bid",
+      "job_id": "6adddad3046eb82b1ece4acf",
+      "paired_sha256": "9e9524ab1a8309dd69727f76c7fbc8a84199f3ccb0e0d150c7817c804b63412c",
+      "receipt_sha256": "711be1ffcfbd7f72b3f3d640c2ad61146f82818fdf80da7c4dd36ad7f426a426"
+    },
+    "6:44:building": {
+      "case": "surrogate-continuation-study-v1-6p-44-building",
+      "job_id": "6adddad41e112550ce7ea40a",
+      "paired_sha256": "b99d1ecf04acf860137b38d96542f1160581d34a09af2403e1d71be97c222c54",
+      "receipt_sha256": "ec4a6387585dd8459076e77da75ed673c56ea33ceed183a1ce8de728d1713837"
+    },
+    "6:45:plant": {
+      "case": "surrogate-continuation-study-v1-6p-45-plant",
+      "job_id": "6adddad4046eb82b1ece4ad1",
+      "paired_sha256": "09afde4174a614723d0510e935254fb9f6ef9b9f9b8ad8f93db9f90b3bc3a25e",
+      "receipt_sha256": "b498e328b5ad6fd41bcda42e6bd75575417d080f91faa2075d1fdeb24addf191"
+    },
+    "6:45:bid": {
+      "case": "surrogate-continuation-study-v1-6p-45-bid",
+      "job_id": "6adddad41e112550ce7ea40c",
+      "paired_sha256": "da317d1019840e98371a863196e9f2caddfb99c8134c6d2b1da975de15575734",
+      "receipt_sha256": "79db9c03d15b6b2d078a4b4bec69ec2a35b521c0293fa6ac55d37e0b3c007aad"
+    },
+    "6:45:building": {
+      "case": "surrogate-continuation-study-v1-6p-45-building",
+      "job_id": "6adddad41e112550ce7ea40e",
+      "paired_sha256": "da7dc30e7ccc2f5f6a3562ee8e0f9c0ab24944c82c8f8d287852b5344c72bd47",
+      "receipt_sha256": "868196cb02be4ba23c26825b3669af7ac947f304891d77bae489d520bc17b212"
+    },
+    "6:46:plant": {
+      "case": "surrogate-continuation-study-v1-6p-46-plant",
+      "job_id": "6adddad5046eb82b1ece4ad3",
+      "paired_sha256": "276175af39a455f24f7c558b38e9bbab548ff3a08f5ff590f1f6ccf3ee96945e",
+      "receipt_sha256": "0129a37c6f6bc42f5af96eecd209f7040a0dedc10ba644914ea1f10fd84cb3a1"
+    },
+    "6:46:bid": {
+      "case": "surrogate-continuation-study-v1-6p-46-bid",
+      "job_id": "6adddad5046eb82b1ece4ad5",
+      "paired_sha256": "c2302d67a955bc325c14170dbe37a7f13287d47dbacc636e835f42b1cc986ba7",
+      "receipt_sha256": "18bc5e8bc25131161e8f500d56bae49bad50938c7bc392e5b9e67423053d402c"
+    },
+    "6:46:building": {
+      "case": "surrogate-continuation-study-v1-6p-46-building",
+      "job_id": "6adddad51e112550ce7ea410",
+      "paired_sha256": "bf480e9c594fef553565ef2ac42a9047e2f42f9efe73d4708324d083efb865bf",
+      "receipt_sha256": "e2143011fd2c119848161c6ac3c259f1c56eec30ef037509cdb972665899d549"
+    },
+    "6:47:plant": {
+      "case": "surrogate-continuation-study-v1-6p-47-plant",
+      "job_id": "6adddc2a1e112550ce7ea47b",
+      "paired_sha256": "a0cbd1691a2edc71d6ddba9fe5ac24299d9e2fd5ff68adfdd0554ea0fe28d018",
+      "receipt_sha256": "a2c91cc88c2f88810bdb727b44db5011231a9fe20e8eff2716cecf5150e90835"
+    },
+    "6:47:bid": {
+      "case": "surrogate-continuation-study-v1-6p-47-bid",
+      "job_id": "6adddc2b046eb82b1ece4b36",
+      "paired_sha256": "2f53dff6a6580bf45837b75035dbf6bcf300d4f42efca6a4d6e10acef0889f59",
+      "receipt_sha256": "c16c4f628502689471397b0a83210ce50dbb58ee4e096db2f46ca51fed39ded5"
+    },
+    "6:47:building": {
+      "case": "surrogate-continuation-study-v1-6p-47-building",
+      "job_id": "6adddc2b046eb82b1ece4b38",
+      "paired_sha256": "e30fc7beed8555803ec89321ee0a230905d91863229c2641a39de87fb5e2c786",
+      "receipt_sha256": "72725fd396986071ce53cb998af799d5a53f63a37af5195883b2891fd7ab547e"
+    }
+  },
+  "comparison_sha256_canonical": "45898c8ee489835db9bb62afa8d3467fd04e78e9ad1195b3eb6cd23489beafd8",
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "scope": "Diagnostic continuation fidelity. No policy selected, full-game strength claim or deployment latency claim."
+}

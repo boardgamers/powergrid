@@ -6,7 +6,74 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 10:56 UTC — original HF portability smoke submitted.**
+**Latest — 25 October, 11:13 UTC — full fidelity study complete; no primary learned-opponent gain.**
+
+All **480 original jobs / 480 positions / 23,040 continuations** completed and
+passed independent raw terminal-credit auditing. **Zero outer/nested caps and no
+failed jobs.** Original coordinator **PID 3502343** completed at **10:59:11 UTC**
+and is absent; **do not restart or rerun**. Every pinned study file is unchanged.
+The previous and current goal turns both made concrete progress.
+
+The learned opponent **does not demonstrate better overall continuation fidelity**:
+absolute alternative-minus-focal margin error is **17.33 pp**, versus **16.79 pp**
+for the existing population. Difference **+0.541 pp**, exploratory whole-deal 95%
+interval **[−1.234, +2.316] pp** (lower is better). All 60 groups retained:
+**23 improve, 29 worsen, eight tie**. Secondary tie-aware preference agreement
+improves **48.22% → 53.14%**, but that does not establish improved margin accuracy
+or playing strength. There are only **two independent deals per player count**.
+Prior-bid subsets and all adverse groups remain in the full comparison.
+
+**Decision:** retain the existing population; do not extend the same surrogate
+training recipe, replace the mixture with the learned model, or use these fixed
+two-action diagnostic outcomes as training labels. Test learned-opponent coverage
+only as an additional full-game experimental arm. No general AI plateau established.
+Read **[the complete review](SURROGATE-FIDELITY-2026-10-25.md)**.
+
+The next **frozen development design** is **10,080 fresh games**: filtered model,
+conservative population auction search, conservative dual-population auction
+search; **27 opponent/count cells, eight whole paired deals, all seats and four
+rules**. Keep eight worlds/population and strict **1/8** pooled advantage with
+nonnegative margin in each included population, as specified by the earlier
+engineering prototype. No threshold fitting or retrospective rule routing.
+**The grid is not admitted or launched.** First validate the exact source and
+complete **64 separate HF runtime-pilot games** (both search arms, 2p/6p, all
+rules/seats, against search), then freeze measured job resources/sharding.
+The baseline filtered model, outside-auction behavior and final gate stay unchanged.
+
+Persistent completed evidence:
+- Study index/comparison/complete evidence: `strong/surrogate-continuation-study-*-v1.json`.
+  HF **afe515a3d64dda6f7828c0654ad4fdfab0f481d2**, archive SHA256
+  **66dab2b8db7d583beabefef81e1c4163d1b82f65039cb58acbd287edb0fc247c**, **10,131 files**, downloaded/hash-verified.
+  Original archive execution **99497** completed; do not repeat the upload.
+- Review `strong/surrogate-continuation-study-review-v1.json`; reproducible helper
+  `strong/review-surrogate-continuation-study-v1.py --freeze` already executed
+  (**43790**, complete). It refuses to overwrite the frozen review/design.
+- Protocol `strong/conservative-auction-development-protocol-v1.json`;
+  descriptor `strong/conservative-auction-design-evidence-v1.json`.
+  Review/design archive HF **35be6eb089283f644ce8e404a712e64edbeaeb11**, SHA256
+  **a3f93d2cae8548e3ee11a884abbd316e041b5242ee6230360083a619987e2082**, **13 files**. Original archive
+  **22652** completed. Independent reaggregation of all 480 paired margins exactly
+  matches the primary endpoint; full planned-game enumeration is 10,080.
+- Original HF portability job **`6addde111e112550ce7ea559` COMPLETED** and verified:
+  **8 games / 1,607 exact public decisions and terminals**, 16.50s game execution
+  on HF. This is filtered-policy portability, not new strength/auction timing/8840U
+  latency. A metrics observation returned 406 during completion; no restart or
+  cancellation occurred, and the later original status/receipt is complete.
+  Collector **30184**, archive **60674** completed.
+  Descriptor `strong/public-policy-development-hf-evidence-v1.json`, archive HF
+  **5e52973c25a31a945b16773bea1acfc2d64e9b84**, SHA256
+  **945cb20836d00f17040138df70b5050c01e354862f3ca57f8e8247d74e68b78a**, **51 files**, verified.
+- Completion checkpoint `ai/runs/surrogate-continuation-study-completion-checkpoint-v1.json`.
+
+Next action: build the conservative-auction runtime-pilot source/guards/collector
+from the **unchanged standalone artifact and verified portable wrapper**, using
+the three already frozen descriptors. Existing HF manager admits only the old
+single smoke; do not edit its pinned source or reuse its launch guard. Freeze a
+new pilot source and measure the exact two search recipes before admitting the
+full 10,080-game plan. No final candidate is selected or qualified; reserved final
+seeds remain unused. No production changes or new HF jobs belong to this review.
+
+**Previous — 25 October, 10:56 UTC — original HF portability smoke submitted.**
 
 The unchanged, locally verified development source is now archived in the HF
 source dataset and one **eight-game engineering repeat** has been submitted.

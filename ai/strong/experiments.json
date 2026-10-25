@@ -57981,7 +57981,7 @@
         }
     },
     "surrogate_continuation_study_v1": {
-        "status": "engineering_verified_full_study_waiting_for_frozen_inputs",
+        "status": "original_full_study_complete_see_surrogate_continuation_study_complete_v1",
         "preflight": "ai/runs/surrogate-continuation-study-preflight-proof-v1.json",
         "preflight_sha256": "9195c10c9f75b21309800e35b48b7db7ab03d8a6bc4a793444206fccf63fdf13",
         "checkpoint": "ai/runs/surrogate-continuation-study-checkpoint-v1.json",
@@ -61415,7 +61415,7 @@
         "next": "Complete full fidelity comparison before freezing recipe; connect HF bootstrap/guards/collection and pilot actual selected settings."
     },
     "public_policy_development_hf_v1": {
-        "status": "original_portability_job_running_not_strength",
+        "status": "original_hf_job_completed_exact_verified_archived_not_strength",
         "job_id": "6addde111e112550ce7ea559",
         "source_descriptor": "ai/strong/public-policy-development-hf-source-v1.json",
         "source_descriptor_sha256": "4e4fdc68098e4b9fc200eb5a0255fc988bec17a20923fcb0cbde1bf2e5ab63c1",
@@ -61426,11 +61426,96 @@
         "submission_tests": 5,
         "planned_engineering_games": 8,
         "expected_exact_public_decisions": 1607,
-        "remote_execution_verified": false,
+        "remote_execution_verified": true,
         "new_hf_jobs": 1,
         "new_strength_games": 0,
         "gradient_updates": 0,
         "reserved_final_seeds_used": false,
-        "next": "Follow same original handle with collect, verify and archive; no replacement on observation timeout."
+        "next": "Original complete; do not relaunch. Reuse portable wrapper in the new conservative-auction runtime pilots.",
+        "evidence_descriptor": "ai/strong/public-policy-development-hf-evidence-v1.json",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "5e52973c25a31a945b16773bea1acfc2d64e9b84",
+            "archive_path": "archives/public-policy-development-hf-evidence-v1.tgz",
+            "archive_sha256": "945cb20836d00f17040138df70b5050c01e354862f3ca57f8e8247d74e68b78a",
+            "manifest_sha256": "398f1bf1932b84c59c203db8c2898619672b2d1d057a6e1e79289359684923aa",
+            "archived_files": 51,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        }
+    },
+    "surrogate_continuation_study_complete_v1": {
+        "status": "all_480_original_jobs_verified_archived_primary_no_demonstrated_fidelity_gain",
+        "descriptor": "ai/strong/surrogate-continuation-study-complete-evidence-v1.json",
+        "descriptor_sha256": "67593cbc3c6ef02ca579e22b663dd350d0ec3bda458098a010a2fb322a408b54",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "afe515a3d64dda6f7828c0654ad4fdfab0f481d2",
+            "archive_path": "archives/surrogate-continuation-study-complete-evidence-v1.tgz",
+            "archive_sha256": "66dab2b8db7d583beabefef81e1c4163d1b82f65039cb58acbd287edb0fc247c",
+            "manifest_sha256": "32bf2d2c656844e704a5899659b9eafa2b4773cd9c34e697eabeb8ab35ce9388",
+            "archived_files": 10131
+        },
+        "roots": 480,
+        "continuations": 23040,
+        "caps": 0,
+        "comparison_sha256": "885d0f3341462feb87db68dc216686a16652f956942b90c7cc67159d00318b69",
+        "review_sha256": "84f53c909674fada577e81d2180cf8acb9fc0f01b903713a99791414ad430ea9",
+        "primary_error_delta": {
+            "exact": [
+                623,
+                115200
+            ],
+            "value": 0.005407986111111111
+        },
+        "ci": {
+            "level": 0.95,
+            "lower": {
+                "exact": [
+                    -79,
+                    6400
+                ],
+                "value": -0.01234375
+            },
+            "upper": {
+                "exact": [
+                    667,
+                    28800
+                ],
+                "value": 0.023159722222222224
+            }
+        },
+        "decision": "Do not replace the existing opponent population or claim improved continuation fidelity. Test conservative auction overrides against the filtered policy, with a separate dual-population arm to measure whether additional opponent scenarios help actual play.",
+        "training_decision": "Do not extend the same surrogate training recipe or distill these fixed two-action diagnostic values. The trained ensemble is retained as an experimental secondary population, not promoted as the default.",
+        "qualified": false,
+        "reserved_final_seeds_used": false
+    },
+    "conservative_auction_development_v1": {
+        "status": "complete_fidelity_review_and_fresh_design_frozen_runtime_pilots_not_prepared",
+        "protocol": "ai/strong/conservative-auction-development-protocol-v1.json",
+        "protocol_sha256": "ab4dbb7fdde1689d988671ca4abb4bd25ed52cd912dc0d4a94c6ca7f61c57e61",
+        "decision_archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "35be6eb089283f644ce8e404a712e64edbeaeb11",
+            "archive_path": "archives/conservative-auction-design-evidence-v1.tgz",
+            "archive_sha256": "a3f93d2cae8548e3ee11a884abbd316e041b5242ee6230360083a619987e2082",
+            "manifest_sha256": "0821579640c90ff5b91ead0cbfbb2082df35ed00400a0f79b0301e57f3619298",
+            "archived_files": 13,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "planned_strength_games": 10080,
+        "planned_runtime_pilot_games": 64,
+        "arms": [
+            "filter",
+            "conservative_population",
+            "conservative_dual"
+        ],
+        "opponent_count_cells": 27,
+        "independent_deals_per_cell": 8,
+        "grid_admitted": false,
+        "new_hf_jobs": 0,
+        "qualified": false,
+        "reserved_final_seeds_used": false
     }
 }

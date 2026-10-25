@@ -56869,6 +56869,15 @@
         "gradients": false,
         "candidate_selected": false,
         "qualification_eligible": false,
-        "reserved_final_seeds_used": false
+        "reserved_final_seeds_used": false,
+        "first_live_collection": {
+            "path": "ai/runs/resource-development-first-collection-v1.json",
+            "sha256": "cc84286d8af9d7abf975031dcf8881a754dc1898d2a2f9229855c515a66678c8",
+            "verified_shards": 4,
+            "games": 384,
+            "learner_decisions": 42624,
+            "all_caps_zero": true,
+            "partial_strength_compared": false
+        }
     }
 }

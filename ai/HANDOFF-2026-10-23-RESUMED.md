@@ -92,6 +92,13 @@ claim. The exact selected-policy final adapter and full 8840U hybrid benchmark
 remain unimplemented/unproven; the old final launcher still evaluates the older
 search path. Reserved final seeds remain unused.
 
+**Live collection update — 2026-10-25T01:17 UTC:** the coordinator has
+verified its first **4 real development shards / 384 games / 42,624
+learner decisions**, zero caps, and is filling the released slots using new planned
+cases. These are the 6p filter baseline cells (economic, heuristic, legacy, rush);
+resource-arm results and the complete strength comparison remain pending. No
+partial outcome ranking. Receipt: `ai/runs/resource-development-first-collection-v1.json`.
+
 **Previous — 25 October, 01:05 UTC: resource-screen orchestration prepared and tested.**
 
 The resource development screen now has a collector, complete comparator and

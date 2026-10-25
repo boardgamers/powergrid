@@ -1,12 +1,47 @@
 # Power Grid AI — ACTIVE, resumed 23 October 2026
 
 **Start with [the current resumption handoff](HANDOFF-2026-10-23-RESUMED.md).**
-Both HF jobs completed. All eight trained seeds and four ensembles are verified
+The October 23 policy-iteration HF jobs completed. All eight trained seeds and four ensembles are verified
 and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 02:41 UTC: surrogate training/data/export pipeline implemented.**
+**Latest — 25 October, 02:56 UTC: HF packaging and measured training launch path implemented.**
+
+The previous turn pushed the training pipeline in `bccc417`. This turn added a
+minimal **14-file isolated Python runtime**, immutable train/validation packaging,
+a bounded HF GPU benchmark, and original-handle calibration/full-training launch
+and calibration collection. **Seven new tests pass**; all nine earlier core tests'
+source hashes remain unchanged. No new HF jobs, archives/uploads or gradients ran.
+The persistent package in `ai/runs/opponent-surrogate-training-code-v1` is code-only.
+
+HF currently lists L4×1 as **8 vCPU / 30 GB RAM / 24 GB VRAM / 400 GB disk**.
+After complete data packaging, the first L4 job has a two-hour calibration limit:
+16 warmup + 128 measured gradient updates, full train/validation forward timings,
+and exact export checks. Its checkpoint is explicitly runtime-only. Full training
+requires that original job's verified evidence, independently recomputes the fixed
+four-seed/80-epoch cost, and applies time/memory reserves. It refuses insufficient
+capacity instead of shortening data or training. Actual GPU integration is pending.
+
+At **02:55:11 UTC**, original 6p collection calibration
+`6add610d1e112550ce7e64e1` was RUNNING, **21/24 complete**, no logged errors.
+Four live CPU samples after the initial measurement were **48%, 60%, 60%, 55%**,
+with roughly 3.9 GB RAM: the remaining games are actively computing. Resource
+coordinator PID **1291091** was live, **54 submitted / 34 verified**, no failures.
+
+Preflight: `ai/runs/opponent-surrogate-hf-preflight-v1.json`, SHA256
+`49fcb2fda0f4d948c22e13fbb942a14f623b742e0156a6825ddb8f9870ad8828`.
+Checkpoint: `ai/runs/opponent-surrogate-hf-preparation-checkpoint-v1.json`.
+
+**Next:** finish the original 6p calibration, archive joint evidence and launch the
+full fresh collection as described below. Then prepare training tensors; run
+`package-opponent-surrogate-training-v1.py archive-data` and its `source` command
+without `--code-only`. Dry-run/execute `launch-opponent-surrogate-training-v1.py
+calibration`, collect the same handle with `collect-calibration`, then dry-run/execute
+`full` only after admission. Full-training result collection and independent trained
+model review still need implementation. No strength result, candidate or plateau claim.
+
+**Previous — 25 October, 02:41 UTC: surrogate training/data/export pipeline implemented.**
 
 The previous turn pushed the full collection orchestration in `0571cd7`. This turn
 implemented a **433,217-parameter** opponent model, train/validation preparation,

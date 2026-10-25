@@ -25,6 +25,67 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
+## 25 October, 02:56 UTC — HF training packaging/launch path implemented
+
+Previous turn was progress (`bccc417`). This turn added:
+
+- `strong/opponent_surrogate_hf_v1.py`: fixed 14-file Python runtime manifest,
+  immutable archive/data recovery, isolated import check and calibration/full entry.
+  No JS engine or private raw test records are required in this training package.
+- `strong/package-opponent-surrogate-training-v1.py`: complete-corpus admission,
+  train/validation-only data archive and source packaging. The data archive wraps
+  the existing strict bundle in a `data/` directory, so its outer archive manifest
+  does not change the training loader's exact file contract.
+- `strong/benchmark-opponent-surrogate-training-v1.py`: HF/CUDA-only calibration,
+  16 warmup + 128 measured gradient updates, both complete split evaluation timings,
+  float64 export/parity time, CPU RSS and GPU allocation. Its outputs/checkpoint are
+  explicitly runtime-only and cannot be adopted as the full trained model.
+- `strong/launch-opponent-surrogate-training-v1.py`: dry-run/submit the original
+  calibration and full handles, collect/verify calibration, recompute the four-seed
+  80-epoch runtime estimate and admit full training only with measured reserves.
+  No automatic replacements; ambiguous submissions preserve their original guards.
+- `strong/test_opponent_surrogate_hf_v1.py`: **seven passing tests**, including
+  isolated imports, source corruption, premature packaging/full-training rejection,
+  measured resource boundaries, original handle reuse and local-gradient refusal.
+
+All seven original training pipeline files retain their `bccc417` hashes, so the
+nine earlier core/forward/export checks remain applicable. New preflight:
+`ai/runs/opponent-surrogate-hf-preflight-v1.json`, SHA256
+`49fcb2fda0f4d948c22e13fbb942a14f623b742e0156a6825ddb8f9870ad8828`.
+Persistent code-only tree/check:
+`ai/runs/opponent-surrogate-training-code-v1{,-check.json}`. No source/data upload,
+GPU execution, new HF job or gradient occurred. Actual missing-data/source checks
+refused before network calls or output creation. The dataset still must finish.
+
+Current HF hardware was queried through `list_jobs_hardware`: L4×1 is 8 vCPU,
+30 GB RAM, 24 GB VRAM and 400 GB ephemeral storage. It is validated again at launch.
+The bounded GPU calibration timeout is 2h. Full-run time is measured update count
+plus per-epoch validation, initial/final train evaluation and export cost for all
+four seeds, with 15 min setup + 2x measured cost + 25% timeout reserve. CPU RSS gets
+2x + 4 GB, GPU allocation 30% reserve. Oversized results refuse admission rather
+than reducing epochs/data. Calibration gradient checkpoints are not candidates.
+
+At **02:55:11 UTC**, original 6p job `6add610d1e112550ce7e64e1` was directly
+RUNNING, **21/24 games complete**, no logged errors. The collector also checked the
+same handle at 02:53:13 and returned RUNNING without starting any replay/replacement.
+Live metrics after the initial zero sample measured **48%,60%,60%,55% CPU** and
+roughly 3.9 GB RAM. Hardware/metric records:
+`ai/runs/opponent-surrogate-hardware-snapshot-v1.json`,
+`ai/runs/opponent-surrogate-runtime-live-metrics-v1.json`.
+Resource coordinator **11670 / PID 1291091** remains live, **54 submitted /
+34 verified**, no failures; all pinned code is unchanged. Snapshot:
+`ai/runs/opponent-surrogate-hf-preparation-checkpoint-v1.json`.
+
+Next: finish original 6p endpoint; collect/audit/archive joint calibration; admit,
+dry-run and execute full fresh collection. After complete collection, prepare
+`ai/runs/opponent-surrogate-training-data-v1`; run the packaging `archive-data`
+command and `source ai/runs/opponent-surrogate-training-source-v1` (without
+`--code-only`). Use the training launcher `calibration` dry-run then `--execute`,
+`collect-calibration` on that original handle, and `full` dry-run/execute only after
+verification. Full trained-result collector/independent export/behaviour review
+remain to implement. Validation-only policy selection, held-out behaviour,
+fresh paired continuations, full strength gates and actual 8840U hybrid proof remain.
+
 ## 25 October, 02:41 UTC — surrogate training pipeline implemented
 
 Previous goal turn was progress: collection orchestration committed/pushed in

@@ -1,0 +1,163 @@
+{
+  "readiness_evidence_complete": true,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "66a9f8b9e36a96498aa96ec4a0654acf947b6023",
+    "archive_path": "archives/conservative-auction-development-readiness-v1.tgz",
+    "archive_sha256": "69eaa46b1ebfe80ec00134fcafaedcc51515904b1ac4bd07829502fd68aa7197",
+    "manifest_sha256": "25ff5a20d4d13a807d02d0bc8b75c56a7ed303356a9f8a8895ac732aea9cc707",
+    "archived_files": 30,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "checkpoint": {
+    "created_at": "2026-10-25T12:03:57.500811+00:00",
+    "original_owner": {
+      "pid": 1061599,
+      "started_at": "2026-10-25T12:02:04.291045+00:00",
+      "stage": "waiting_for_original_pilots",
+      "code_hashes": {
+        "ai/strong/coordinate-conservative-auction-development-v1.py": "06340aa7a2d90218d59b259a85e34d5264599136ead64e24a8e729dcbf0dcaca",
+        "ai/strong/prepare-conservative-auction-development-v1.py": "1eac0bb682bed945c58533f2d0a8670d84ea821126fb0fe16e6082439f86b58e",
+        "ai/strong/manage-conservative-auction-development-v1.py": "76bfec83922b7d3fa4859acfa4c2ee3c431712f17bf302e3daa67f7a970e20b7",
+        "ai/strong/manage-conservative-auction-runtime-v1.py": "59a47610fa268086e823abbde56b7119c215478c5345b4815c1096d67ac3d9bc",
+        "ai/strong/prepare-conservative-auction-runtime-v1.py": "cf2d4a1c4aee4273deb577db84be9f51661d2f06638445e5a9cca9ed33b749de",
+        "ai/strong/manage-public-policy-development-hf-v1.py": "be2d43c0063e79c7de3b64151a467975573a885c5e962ef7f096956a3dcbd535",
+        "ai/strong/public_policy_development_job_v1.py": "e216f1558602ff8665da0e712d15f419afaec297a2d5194e4d61c0e74be16f1b",
+        "ai/strong/public_policy_final_audit_v1.py": "a006c43bac3862f29e9e39178324b93c1464059945467461f203e90df196a482",
+        "ai/strong/public_policy_final_contract_v1.py": "211e143a278fe6e5d0eb0b3654061130b6141b1518fd07297162307c39487103",
+        "ai/strong/public_policy_arena_v1.py": "1288ffb3d42a3c351c805c652e7c9c5f63b284f6c7061c7436f6ba06e9fc14eb",
+        "ai/strong/public_policy_runtime_v1.py": "0ded20877badd3f2c0ded746f5f743fbca6447084ed764a1e3b7ad8d6617fd3a",
+        "ai/strong/opponent_auction_verification_v1.py": "1383f64de5c064459c62b5ba2b8e222bdc2369ed7f8505e7cf96615743416f7c",
+        "ai/strong/opponent_auction_policy_v1.py": "c6f560330eec8035b1356d441a43a8c80e82138a852039b2494f4f827337c688",
+        "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+        "ai/strong/conservative-auction-development-protocol-v1.json": "ab4dbb7fdde1689d988671ca4abb4bd25ed52cd912dc0d4a94c6ca7f61c57e61",
+        "ai/strong/test_conservative_auction_development_plan_v1.py": "a2a6ad986215481457c1d4d65e4706687553b9116e65e832e26cc518ccdfed11",
+        "ai/strong/test_conservative_auction_development_manager_v1.py": "25d2ca0e36b266cd2bb8c4fa759b769ed7666ec16f07ff1b129b524dede25d84"
+      },
+      "pilots_verified": 2,
+      "development_verified": 0,
+      "development_submitted": 0,
+      "new_gradients": 0,
+      "qualified": false,
+      "reserved_final_seeds_used": false,
+      "max_active_development_jobs": 64,
+      "automatic_restarts": false,
+      "updated_at": "2026-10-25T12:03:45.844879+00:00",
+      "original_pilots": [
+        "6addea031e112550ce7eaa88",
+        "6addea031e112550ce7eaa8a",
+        "6addea04046eb82b1ece4faf",
+        "6addea04046eb82b1ece4fb1"
+      ]
+    },
+    "owner_verified_live": true,
+    "original_job_statuses": [
+      {
+        "name": "conservative-auction-runtime-v1-conservative_population-2p",
+        "job_id": "6addea031e112550ce7eaa88",
+        "stage": "COMPLETED"
+      },
+      {
+        "name": "conservative-auction-runtime-v1-conservative_population-6p",
+        "job_id": "6addea031e112550ce7eaa8a",
+        "stage": "RUNNING"
+      },
+      {
+        "name": "conservative-auction-runtime-v1-conservative_dual-2p",
+        "job_id": "6addea04046eb82b1ece4faf",
+        "stage": "COMPLETED"
+      },
+      {
+        "name": "conservative-auction-runtime-v1-conservative_dual-6p",
+        "job_id": "6addea04046eb82b1ece4fb1",
+        "stage": "RUNNING"
+      }
+    ],
+    "verified_pilots": [
+      {
+        "name": "conservative-auction-runtime-v1-conservative_population-2p",
+        "job_id": "6addea031e112550ce7eaa88",
+        "games": 8,
+        "measurement": {
+          "seconds": 519.9063639389351,
+          "cpu_seconds": 2291.8300000000004,
+          "sampled_peak_total_rss_bytes": 6600781824,
+          "memory_samples": 2553,
+          "memory_sampling_period_seconds": 0.2,
+          "includes_startup_and_validation": true
+        },
+        "counts": {
+          "decisions": 1413,
+          "root_filter_overrides": 1,
+          "rollouts": 9576,
+          "rollout_caps": 0,
+          "neural_decisions": 1048605,
+          "search_changes": 62,
+          "search_decisions": 245,
+          "surrogate_decisions": 0
+        },
+        "evidence": {
+          "repo": "coyotte508/powergrid-ai-germany-v1",
+          "revision": "116336a69511d62f8151b87e59f5e414a4587b12",
+          "archive_path": "archives/conservative-auction-runtime-v1-conservative_population-2p.tgz",
+          "archive_sha256": "921d18ae96bcf911e84e2fe985bd6e0c15b08ced2d3bc9a504da0009d61f9035",
+          "manifest_sha256": "9c9880b689863ad8c6358c6c38a314f7b0207fe4d1f09122a3935545f3c2a107",
+          "archived_files": 37,
+          "format": "tar.gz",
+          "remote_archive_verified": true
+        }
+      },
+      {
+        "name": "conservative-auction-runtime-v1-conservative_dual-2p",
+        "job_id": "6addea04046eb82b1ece4faf",
+        "games": 8,
+        "measurement": {
+          "seconds": 835.8572823599679,
+          "cpu_seconds": 3965.48,
+          "sampled_peak_total_rss_bytes": 6810087424,
+          "memory_samples": 4104,
+          "memory_sampling_period_seconds": 0.2,
+          "includes_startup_and_validation": true
+        },
+        "counts": {
+          "decisions": 1364,
+          "root_filter_overrides": 0,
+          "rollouts": 17872,
+          "rollout_caps": 0,
+          "neural_decisions": 1774584,
+          "search_changes": 41,
+          "search_decisions": 230,
+          "surrogate_decisions": 268855
+        },
+        "evidence": {
+          "repo": "coyotte508/powergrid-ai-germany-v1",
+          "revision": "7a542653cf6730d5828171fbe058753dfb361698",
+          "archive_path": "archives/conservative-auction-runtime-v1-conservative_dual-2p.tgz",
+          "archive_sha256": "cc3789d8fe230a9a4062d39703d8ce6707495396e384292b1c1a285d9e902b02",
+          "manifest_sha256": "1f03b26107d5b8e948f24002756cb312810ce6c907aa049dfeaa7ae697414007",
+          "archived_files": 37,
+          "format": "tar.gz",
+          "remote_archive_verified": true
+        }
+      }
+    ],
+    "schedule_games": 10080,
+    "schedule_batch_sizes_checked": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "tests_passed": 10,
+    "actual_development_source_prepared": false,
+    "actual_development_source_uploaded": false,
+    "previous_goal_turn": "progress: verified and launched four original runtime pilots",
+    "current_goal_turn": "progress: two pilot receipts audited; development scheduling/submission tooling tested; original owner started",
+    "qualified": false,
+    "reserved_final_seeds_used": false
+  },
+  "full_development_execution_verified": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

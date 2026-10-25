@@ -1,6 +1,27 @@
 # Power Grid AI — ACTIVE, resumed 23 October 2026
 
-**Latest — 25 October, 11:38 UTC — conservative auction runtime pilots running.**
+**Latest — 25 October, 12:04 UTC — two pilots verified; one coordinator owns the next comparison.**
+
+Both original two-player pilots passed raw auditing: **16 games / 2,777 decisions /
+27,448 continuations, zero caps**. Population/dual batch wall times are **519.91 /
+835.86s**, sampled peak RSS **6.15 / 6.34 GiB**. Both original six-player jobs are
+RUNNING; partial results are not resource admission or strength evidence.
+
+Original coordinator **PID 1061599 / session 42688** is directly verified live;
+all **17 code pins unchanged**. It waits for all four audited pilots, prepares the
+frozen 10,080-game comparison using measured resources, and submits/collects at
+most **64 jobs concurrently**. Do not run another owner or mutate its code/source.
+No automatic model selection, qualification or deployment. Actual development
+source preparation and HF execution remain pending. Ten schedule/admission tests
+passed; the readiness archive is verified in private HF. Read
+[the updated pilot/development handoff](CONSERVATIVE-AUCTION-RUNTIME-2026-10-25.md)
+for exact handles, archive pins, current limits and next actions.
+
+Previous turn: progress (four original pilots launched). Current turn: progress
+(two pilots audited, next execution tooling tested and the sole owner started).
+No new strength result or final seed use; goal remains active.
+
+**Previous — 25 October, 11:38 UTC — conservative auction runtime pilots running.**
 
 Four original HF CPU jobs / **64 planned runtime games** are RUNNING. Source and
 launch evidence are archived and verified; 72 requests / 1,992 continuations

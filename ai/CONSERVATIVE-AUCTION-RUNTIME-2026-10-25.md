@@ -1,9 +1,34 @@
 # Conservative auction search — runtime pilots, 25 October 2026
 
-Updated 2026-10-25T11:40:21.460828+00:00. **Four original HF jobs submitted and directly observed RUNNING
-at 11:38 UTC. Completion and runtime admission are pending.** The frozen
-10,080-game strength comparison has not launched. No candidate is qualified,
-no gradients were run in this step, and reserved final seeds remain unused.
+Updated 2026-10-25T12:06:40.457367+00:00. **Both two-player pilots are complete and independently
+verified; both original six-player pilots are RUNNING.** Six-player completion
+and resource admission remain pending. No candidate is qualified; final seeds
+are unused. Pilot outcomes do not count as strength evidence.
+
+**One live coordinator now owns collection and the authorized next comparison:**
+PID **1061599**, original execution session **42688**, started 12:02 UTC.
+It waits for all four original pilots, admits resources from complete audited
+measurements, prepares/uploads the unchanged policies with development controls,
+then submits/collects the frozen 10,080 games with at most 64 jobs active.
+Do not start another owner or call the mutating collectors while it is live.
+Seventeen code files are pinned and unchanged. Any failure or changed source stops
+for inspection; original handles and partial artifacts are retained. The owner
+cannot train, select, qualify or deploy a model.
+
+Completed costs for eight two-player games per arm, four simultaneous games:
+
+| Arm | Wall seconds | CPU seconds | Sampled peak RSS | Simulations |
+|---|---:|---:|---:|---:|
+| Population | 519.906 | 2291.83 | 6,600,781,824 bytes | 9,576 |
+| Dual population | 835.857 | 3965.48 | 6,810,087,424 bytes | 17,872 |
+
+All **2,777 public decisions / 27,448 continuations** passed raw auditing with
+zero caps. These are HF batch costs, not AMD 8840U per-move latency or strength.
+The original raw archives are pinned in `strong/conservative-auction-development-readiness-v1.json`.
+The six-player observation at 11:56 UTC found population **6/24** and dual **2/24**
+games complete; both original handles were directly confirmed RUNNING again in
+the readiness archive. Do not extrapolate strength or resource admission from
+these partial six-player runs.
 
 ## Scientific decision
 
@@ -70,32 +95,45 @@ are captured. The complete-policy latency on AMD 8840U is still unmeasured.
   archive SHA256 `d9136d74c7df1fef611665ec00334f3b1e980e254cbc4748b6cb0fb2c526b1ec`,
   **76 files**, downloaded/hash-verified. Archive session **84034 completed**.
 
-## Resume directly
+## Development tooling and resume
 
 Working directory: `/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai`; branch `ai/germany-baseline`.
 
-1. Run `ai/.venv/bin/python -B ai/strong/manage-conservative-auction-runtime-v1.py collect`.
-   It only inspects the four original jobs, downloads their immutable evidence
-   when complete, and independently audits all raw decisions and terminals.
-   Preserve failure artifacts and original handles. Never restart due to a
-   tool observation timeout. No coordinator is active for these four jobs.
-2. Once all four are verified, archive the complete results and use actual
-   wall/CPU/RSS measurements to choose development sharding/resources.
-3. Execute the already frozen **10,080-game** development protocol across all
-   counts/rules/opponent cells. Its protocol SHA is
-   `ab4dbb7fdde1689d988671ca4abb4bd25ed52cd912dc0d4a94c6ca7f61c57e61`. Do not add more unchanged compatibility work
-   unless these originals expose a concrete failure. The scientific question
-   needs fresh whole-game outcomes, including adverse cells.
-4. Select only on complete development evidence. The unchanged final strength
-   gate, exact full-policy export/package checks and actual AMD 8840U benchmark
-   still remain. Do not substitute model-only latency for complete hybrid latency.
+- Owner `strong/coordinate-conservative-auction-development-v1.py`; state
+  `runs/conservative-auction-development-coordinator-v1/state.json`; log
+  `runs/conservative-auction-development-coordinator-v1.log`. Verify its PID via
+  `/proc/1061599/cmdline` and compare all state `code_hashes` before acting.
+  Do not restart because an observation times out. Original session **42688** is
+  still running, with output redirected to that log.
+- `strong/prepare-conservative-auction-development-v1.py` validates complete
+  original runtime receipts and preserves every existing source file. It chooses
+  whole-deal batch sizes using cost only: a doubled measured per-game envelope,
+  900s setup, target three hours, at most 75% timeout utilization, and a doubled
+  sampled-memory allowance inside 80% of 32 GiB. If these resources do not fit,
+  it stops for a new hardware admission rather than silently changing the policy.
+- `strong/manage-conservative-auction-development-v1.py` packs/uploads that
+  admitted source, submits only frozen development rows, caps active jobs at 64,
+  and independently audits uploaded raw receipts. Launch/collect ownership and
+  uncertain-submission behavior preserve original handles. Source preparation,
+  actual new-source HF execution and complete results are still **pending**.
+- **Ten tests pass**: five schedule/resource-admission checks and five actual
+  submission-primitive checks. All batch sizes 1/2/4/8 have exactly the same
+  10,080 deal/seat/rule cases. Four deals per job would mean 162 shards, but that
+  is only a preview; no batch size is admitted until all pilots complete.
+- Source wrappers and engine remain unchanged. **Do not add repeated engineering
+  games** unless the original execution exposes a concrete failure. Next evidence
+  needed is the full fresh comparison, including adverse counts/rules.
+- At owner completion, archive/review all 10,080 games. No automatic candidate
+  selection occurs. The unchanged final strength gate, complete-policy export,
+  standalone package checks and actual AMD 8840U benchmark remain necessary.
 
-Code: `strong/manage-conservative-auction-runtime-v1.py`,
-`strong/public_policy_measured_job_v1.py`,
-`strong/prepare-conservative-auction-runtime-v1.py`.
-State/guards: `runs/conservative-auction-runtime-hf-v1/`.
-Preflight: `runs/conservative-auction-runtime-prepared-v1/`.
-Persistent descriptors: `strong/conservative-auction-runtime-source-v1.json` and
-`strong/conservative-auction-runtime-launch-evidence-v1.json`.
-The launcher admits only these four pilots; it cannot submit the full grid or
-reserved final games. The engine and policy code remain unchanged.
+Readiness/archive proof: `strong/conservative-auction-development-readiness-v1.json`.
+Private HF revision **66a9f8b9e36a96498aa96ec4a0654acf947b6023**, archive SHA256
+**69eaa46b1ebfe80ec00134fcafaedcc51515904b1ac4bd07829502fd68aa7197**, **30 files**, downloaded/hash-verified.
+Original archive execution **18289 completed**. It records the coordinator, code,
+passing tests, original live job statuses and both complete two-player raw archives.
+
+The previous and current goal turns both made concrete progress. No new gradients,
+reserved seeds or strength claim in this turn; the runtime pilots and next grid
+serve the existing strong-AI objective. The same surrogate-training recipe remains
+unpromising, but no general AI plateau has been established.

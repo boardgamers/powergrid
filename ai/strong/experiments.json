@@ -61517,5 +61517,255 @@
         "new_hf_jobs": 0,
         "qualified": false,
         "reserved_final_seeds_used": false
+    },
+    "conservative_auction_runtime_v1": {
+        "updated_at": "2026-10-25T11:40:21.460828+00:00",
+        "status": "four_original_jobs_running_results_pending",
+        "original_jobs": [
+            {
+                "name": "conservative-auction-runtime-v1-conservative_population-2p",
+                "job_id": "6addea031e112550ce7eaa88"
+            },
+            {
+                "name": "conservative-auction-runtime-v1-conservative_population-6p",
+                "job_id": "6addea031e112550ce7eaa8a"
+            },
+            {
+                "name": "conservative-auction-runtime-v1-conservative_dual-2p",
+                "job_id": "6addea04046eb82b1ece4faf"
+            },
+            {
+                "name": "conservative-auction-runtime-v1-conservative_dual-6p",
+                "job_id": "6addea04046eb82b1ece4fb1"
+            }
+        ],
+        "source": {
+            "created_at": "2026-10-25T11:36:15.983692+00:00",
+            "archive": "strong-source-conservative-auction-runtime-v1.tgz",
+            "sha256": "99227f1fc4bd8976e168db88f2c330eeff9947d320526d83dffaeff59b492328",
+            "bytes": 130234127,
+            "source_manifest_sha256": "187812b75ce569ea8302cd405d0dfc7b2b79d2eb5837970dbefc8c0db1e39521",
+            "protocol_sha256": "ab4dbb7fdde1689d988671ca4abb4bd25ed52cd912dc0d4a94c6ca7f61c57e61",
+            "source_files": 1540,
+            "entry_sha256": "e216f1558602ff8665da0e712d15f419afaec297a2d5194e4d61c0e74be16f1b",
+            "measured_entry_sha256": "234ab3c5f4713dfb013ec9d02357655242519d1feb0c89f89c145ebbae2804ef",
+            "runner_sha256": "aecb5804d52adf78e268bdd093b7b7339ca7a2469bcab555470532e09050ccdd",
+            "rows": [
+                {
+                    "name": "conservative-auction-runtime-v1-conservative_population-2p",
+                    "arm": "conservative_population",
+                    "players": 2,
+                    "job": "conservative-auction-runtime-v1-conservative_population-2p.job.json",
+                    "shard": {
+                        "name": "conservative-auction-runtime-v1-conservative_population-2p",
+                        "group": "search_geo/2p",
+                        "players": 2,
+                        "start": 0,
+                        "deals": 1,
+                        "seed": "conservative-auction-runtime-v1-2p",
+                        "opponent": "search_geo",
+                        "opponent_sha256": null,
+                        "games": 8
+                    },
+                    "execute_pilot": true,
+                    "identity": {
+                        "policySha256": "7332a7dc0a262ed852467f82815be4b97c54b08183ac44da3af94f04b6c35348",
+                        "runtimeManifestSha256": "dcb23342088ae91379374827b45c0845d1b9494b31682fca55e3ac047d1e2f55",
+                        "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+                        "featureRevision": "4.3-strategic-correction",
+                        "backend": "opponent-auction-v1",
+                        "settings": {
+                            "arm": "auction",
+                            "samples": 8,
+                            "workers": 4,
+                            "threads": 1,
+                            "max_steps": 2400,
+                            "population_modes": [
+                                "neural_population"
+                            ],
+                            "minimum_advantage": "1/8"
+                        },
+                        "opponentPolicySha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+                    },
+                    "candidate_sha256": "db9964e44ac81e97637a66a1ad632df733050e301db21149ce7f314fd360e847",
+                    "contract_sha256": "6c36ce25da07e27417c526b42bf9df89613ef34eb797c4a21b56323bfaadbd80",
+                    "job_spec_sha256": "6ab40c4a420432172c40952bfa74aff6a2b8ef348cb507333f5b4f3100c4dbb0"
+                },
+                {
+                    "name": "conservative-auction-runtime-v1-conservative_population-6p",
+                    "arm": "conservative_population",
+                    "players": 6,
+                    "job": "conservative-auction-runtime-v1-conservative_population-6p.job.json",
+                    "shard": {
+                        "name": "conservative-auction-runtime-v1-conservative_population-6p",
+                        "group": "search_geo/6p",
+                        "players": 6,
+                        "start": 0,
+                        "deals": 1,
+                        "seed": "conservative-auction-runtime-v1-6p",
+                        "opponent": "search_geo",
+                        "opponent_sha256": null,
+                        "games": 24
+                    },
+                    "execute_pilot": true,
+                    "identity": {
+                        "policySha256": "7332a7dc0a262ed852467f82815be4b97c54b08183ac44da3af94f04b6c35348",
+                        "runtimeManifestSha256": "dcb23342088ae91379374827b45c0845d1b9494b31682fca55e3ac047d1e2f55",
+                        "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+                        "featureRevision": "4.3-strategic-correction",
+                        "backend": "opponent-auction-v1",
+                        "settings": {
+                            "arm": "auction",
+                            "samples": 8,
+                            "workers": 4,
+                            "threads": 1,
+                            "max_steps": 2400,
+                            "population_modes": [
+                                "neural_population"
+                            ],
+                            "minimum_advantage": "1/8"
+                        },
+                        "opponentPolicySha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+                    },
+                    "candidate_sha256": "db9964e44ac81e97637a66a1ad632df733050e301db21149ce7f314fd360e847",
+                    "contract_sha256": "b6746851adc5d160d2f9006d8db2bab62520266a4387e222bbf8cb2b31ee2845",
+                    "job_spec_sha256": "9775c69b994f891eff6f76c98dd685167f2a672d0b55312b34dbb2546378a77f"
+                },
+                {
+                    "name": "conservative-auction-runtime-v1-conservative_dual-2p",
+                    "arm": "conservative_dual",
+                    "players": 2,
+                    "job": "conservative-auction-runtime-v1-conservative_dual-2p.job.json",
+                    "shard": {
+                        "name": "conservative-auction-runtime-v1-conservative_dual-2p",
+                        "group": "search_geo/2p",
+                        "players": 2,
+                        "start": 0,
+                        "deals": 1,
+                        "seed": "conservative-auction-runtime-v1-2p",
+                        "opponent": "search_geo",
+                        "opponent_sha256": null,
+                        "games": 8
+                    },
+                    "execute_pilot": true,
+                    "identity": {
+                        "policySha256": "3e900f4f9b856e4f25a23e07e6c6d6dea5b0f722bd7d022428c56da3a944064f",
+                        "runtimeManifestSha256": "dcb23342088ae91379374827b45c0845d1b9494b31682fca55e3ac047d1e2f55",
+                        "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+                        "featureRevision": "4.3-strategic-correction",
+                        "backend": "opponent-auction-v1",
+                        "settings": {
+                            "arm": "auction",
+                            "samples": 8,
+                            "workers": 4,
+                            "threads": 1,
+                            "max_steps": 2400,
+                            "population_modes": [
+                                "neural_population",
+                                "surrogate_opponent_v1"
+                            ],
+                            "minimum_advantage": "1/8"
+                        },
+                        "opponentPolicySha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+                    },
+                    "candidate_sha256": "3ef1cd0c0c1fbcc3097a48170e62c664428f683003ab4ea2260fb3bd369c5bcd",
+                    "contract_sha256": "35fa296648b635b4a1f0843d615a76c6d48e2603bfd1592dcd5e38b07b4231b5",
+                    "job_spec_sha256": "49c95f4ca81c480cfd419821277ecdea043a45b2b2a59ce56a5f1fadf27c0569"
+                },
+                {
+                    "name": "conservative-auction-runtime-v1-conservative_dual-6p",
+                    "arm": "conservative_dual",
+                    "players": 6,
+                    "job": "conservative-auction-runtime-v1-conservative_dual-6p.job.json",
+                    "shard": {
+                        "name": "conservative-auction-runtime-v1-conservative_dual-6p",
+                        "group": "search_geo/6p",
+                        "players": 6,
+                        "start": 0,
+                        "deals": 1,
+                        "seed": "conservative-auction-runtime-v1-6p",
+                        "opponent": "search_geo",
+                        "opponent_sha256": null,
+                        "games": 24
+                    },
+                    "execute_pilot": true,
+                    "identity": {
+                        "policySha256": "3e900f4f9b856e4f25a23e07e6c6d6dea5b0f722bd7d022428c56da3a944064f",
+                        "runtimeManifestSha256": "dcb23342088ae91379374827b45c0845d1b9494b31682fca55e3ac047d1e2f55",
+                        "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+                        "featureRevision": "4.3-strategic-correction",
+                        "backend": "opponent-auction-v1",
+                        "settings": {
+                            "arm": "auction",
+                            "samples": 8,
+                            "workers": 4,
+                            "threads": 1,
+                            "max_steps": 2400,
+                            "population_modes": [
+                                "neural_population",
+                                "surrogate_opponent_v1"
+                            ],
+                            "minimum_advantage": "1/8"
+                        },
+                        "opponentPolicySha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+                    },
+                    "candidate_sha256": "3ef1cd0c0c1fbcc3097a48170e62c664428f683003ab4ea2260fb3bd369c5bcd",
+                    "contract_sha256": "98f8c4638faa9f29e1b7aa1d3b8f7c67293307ad5d4452264b1343c3ce55ce2e",
+                    "job_spec_sha256": "d4063d5239a2e6a6396b644575b61dcf485956544af922ad523bd40c5eecb446"
+                }
+            ],
+            "preflight_sha256": "e25bd9aac549f45bc4810b3c5c14ecc8a8d3818d21f1b69ee93fa17a522125ed",
+            "launcher_sha256": "59a47610fa268086e823abbde56b7119c215478c5345b4815c1096d67ac3d9bc",
+            "bootstrap_sha256": "e5682618442458726eb3aad0216b83b0d9a5afbb3f824205eac8c96e4032b1ee",
+            "flavor": "cpu-upgrade",
+            "timeout": "5h",
+            "workers": 4,
+            "games": 64,
+            "calibration": [
+                {
+                    "path": "ai/runs/population-hybrid-runtime-collected-v2/population-hybrid-runtime-v2-2p/verified.json",
+                    "sha256": "a5d66ee8509ae842a37d82825b413cf393b1430a9980f45481d10ddba13e8d02",
+                    "seconds": 498.46519396499934
+                },
+                {
+                    "path": "ai/runs/population-hybrid-runtime-collected-v2/population-hybrid-runtime-v2-6p/verified.json",
+                    "sha256": "01c572a9e6d6052820f4fcf22cdb58421ff153e2286ac25de71fe862f61df613",
+                    "seconds": 2862.5063830000036
+                }
+            ],
+            "estimated_seconds_with_setup": 12350.025532000014,
+            "resource_reason": "900s setup plus four times the older measured worst endpoint, within 75% of the timeout. Allowance covers added population and changed concurrency; pilots measure the actual recipes.",
+            "grid_admitted": false,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false,
+            "repo": "coyotte508/powergrid-ai-training-v1",
+            "revision": "6edcec8f03e3bf0c84f08ed2c02e458e887d1ca5",
+            "preparation_sha256": "a606482e7fa1f1e980baa9f54db99f54986c342f4f3ab35d69056167b76e37e8",
+            "remote_archive_verified": true
+        },
+        "launch_evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "ad73f20efddc935106b38ee949db5b81a4b77898",
+            "archive_path": "archives/conservative-auction-runtime-launch-evidence-v1.tgz",
+            "archive_sha256": "d9136d74c7df1fef611665ec00334f3b1e980e254cbc4748b6cb0fb2c526b1ec",
+            "manifest_sha256": "d641439e25afd006b8fd75d82c7527a0f77b9931c3beb9ec027b9f2e75abf3a8",
+            "archived_files": 76,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "local_checks": {
+            "requests": 72,
+            "continuations": 1992,
+            "caps": 0,
+            "measurement_games": 8,
+            "exact_decisions": 1607,
+            "submission_tests": 7
+        },
+        "planned_runtime_games": 64,
+        "new_strength_games": 0,
+        "grid_admitted": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "next": "Collect and audit four original pilots; use measured resources to admit the frozen 10,080-game comparison."
     }
 }

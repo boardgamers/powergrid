@@ -1,5 +1,20 @@
 # Power Grid AI — ACTIVE, resumed 23 October 2026
 
+**Latest — 25 October, 11:38 UTC — conservative auction runtime pilots running.**
+
+Four original HF CPU jobs / **64 planned runtime games** are RUNNING. Source and
+launch evidence are archived and verified; 72 requests / 1,992 continuations
+matched prior components, and the measured wrapper reproduced 1,607 decisions
+in eight existing engineering games. Seven submission/measurement tests passed.
+Read [the current pilot handoff](CONSERVATIVE-AUCTION-RUNTIME-2026-10-25.md)
+for exact handles, source pins and resume command. Do not resubmit originals.
+**The 10,080-game development grid remains unlaunched/unadmitted**, pending these
+four measured results. No new strength claim or final candidate; final seeds unused.
+Current turn made progress: verified source, uploaded it, launched four original
+pilots and archived their evidence. Previous turn completed the fidelity review
+and froze the conservative comparison. No general plateau is established; stop
+extending the same opponent-training recipe, continue the selective-search test.
+
 **Start with [the current resumption handoff](HANDOFF-2026-10-23-RESUMED.md).**
 The October 23 policy-iteration HF jobs completed. All eight trained seeds and four ensembles are verified
 and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:

@@ -1,0 +1,610 @@
+{
+  "launch_evidence_complete": true,
+  "runtime_results_complete": false,
+  "original_jobs": [
+    {
+      "name": "conservative-auction-runtime-v1-conservative_population-2p",
+      "job_id": "6addea031e112550ce7eaa88"
+    },
+    {
+      "name": "conservative-auction-runtime-v1-conservative_population-6p",
+      "job_id": "6addea031e112550ce7eaa8a"
+    },
+    {
+      "name": "conservative-auction-runtime-v1-conservative_dual-2p",
+      "job_id": "6addea04046eb82b1ece4faf"
+    },
+    {
+      "name": "conservative-auction-runtime-v1-conservative_dual-6p",
+      "job_id": "6addea04046eb82b1ece4fb1"
+    }
+  ],
+  "source_sha256": "a2dd8f8b3e3bf3fd6b121b863cd34d69dd23675ef05af21c23400494339cacc0",
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "ad73f20efddc935106b38ee949db5b81a4b77898",
+    "archive_path": "archives/conservative-auction-runtime-launch-evidence-v1.tgz",
+    "archive_sha256": "d9136d74c7df1fef611665ec00334f3b1e980e254cbc4748b6cb0fb2c526b1ec",
+    "manifest_sha256": "d641439e25afd006b8fd75d82c7527a0f77b9931c3beb9ec027b9f2e75abf3a8",
+    "archived_files": 76,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "preflight": {
+    "complete": true,
+    "dry_validations": [
+      "conservative-auction-runtime-v1-conservative_population-2p",
+      "conservative-auction-runtime-v1-conservative_population-6p",
+      "conservative-auction-runtime-v1-conservative_dual-2p",
+      "conservative-auction-runtime-v1-conservative_dual-6p",
+      "conservative-auction-runtime-v1-filter-2p"
+    ],
+    "fixtures": 72,
+    "continuations_exact_to_archived_components": 1992,
+    "caps": 0,
+    "source_manifest_sha256": "187812b75ce569ea8302cd405d0dfc7b2b79d2eb5837970dbefc8c0db1e39521",
+    "protocol_sha256": "ab4dbb7fdde1689d988671ca4abb4bd25ed52cd912dc0d4a94c6ca7f61c57e61",
+    "prepared_sha256": "edd258c80077d9abaade84bd2386dd895a051acba0d7544afa38389d593b17e4",
+    "decisions_sha256": "70730564524bc5ca9b3c7fd6ca0386c7f5e997d92c1f14142d041cf8fe65e790",
+    "unchanged_base_files": 1522,
+    "new_hf_jobs": 0,
+    "reserved_final_seeds_used": false
+  },
+  "measurement_check": {
+    "complete": true,
+    "review": {
+      "audit": {
+        "audit_version": 1,
+        "all_receipts_verified": true,
+        "identity": {
+          "policySha256": "8270061a29a56a988b7d18daf60a667e58a2a717ffae76648152d32cb2295b11",
+          "runtimeManifestSha256": "dcb23342088ae91379374827b45c0845d1b9494b31682fca55e3ac047d1e2f55",
+          "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+          "featureRevision": "4.3-strategic-correction",
+          "backend": "population-v1",
+          "settings": {
+            "arm": "filter",
+            "samples": 8,
+            "workers": 4,
+            "threads": 1,
+            "max_steps": 2400
+          }
+        },
+        "expected": {
+          "name": "filter-offset-2p",
+          "group": "legacy/2p",
+          "players": 2,
+          "start": 4,
+          "deals": 1,
+          "seed": "final-wrapper-engineering-offset-v1",
+          "opponent": "legacy",
+          "opponent_sha256": null,
+          "games": 8
+        },
+        "counts": {
+          "decisions": 1607,
+          "root_filter_overrides": 1,
+          "rollouts": 0,
+          "rollout_caps": 0,
+          "neural_decisions": 0,
+          "search_changes": 0,
+          "search_decisions": 0
+        },
+        "terminals": [
+          {
+            "env": 0,
+            "episode": 32,
+            "gameSeed": "final-wrapper-engineering-offset-v1-4",
+            "truncated": false,
+            "value": [
+              1,
+              0
+            ],
+            "playerCount": 2,
+            "variant": "original",
+            "sealed": true,
+            "steps": 395,
+            "roles": [
+              "learner",
+              "legacy"
+            ],
+            "policyMoves": {
+              "ChoosePowerPlant": 16,
+              "Bid": 13,
+              "BuyResource": 74,
+              "Pass": 41,
+              "Build": 21,
+              "UsePowerPlant": 38,
+              "DiscardPowerPlant": 10
+            },
+            "searchStats": {},
+            "final": {
+              "round": 14,
+              "players": [
+                {
+                  "cities": 21,
+                  "powered": 21,
+                  "money": 85,
+                  "capacity": 23,
+                  "plants": [
+                    28,
+                    38,
+                    42,
+                    50
+                  ]
+                },
+                {
+                  "cities": 14,
+                  "powered": 14,
+                  "money": 11,
+                  "capacity": 21,
+                  "plants": [
+                    29,
+                    33,
+                    46,
+                    39
+                  ]
+                }
+              ]
+            },
+            "seat": 0,
+            "win": 1
+          },
+          {
+            "env": 0,
+            "episode": 33,
+            "gameSeed": "final-wrapper-engineering-offset-v1-4",
+            "truncated": false,
+            "value": [
+              1,
+              0
+            ],
+            "playerCount": 2,
+            "variant": "recharged",
+            "sealed": true,
+            "steps": 334,
+            "roles": [
+              "learner",
+              "legacy"
+            ],
+            "policyMoves": {
+              "ChoosePowerPlant": 14,
+              "Bid": 11,
+              "BuyResource": 58,
+              "Pass": 38,
+              "Build": 21,
+              "UsePowerPlant": 35,
+              "DiscardPowerPlant": 9
+            },
+            "searchStats": {},
+            "final": {
+              "round": 13,
+              "players": [
+                {
+                  "cities": 21,
+                  "powered": 19,
+                  "money": 35,
+                  "capacity": 19,
+                  "plants": [
+                    13,
+                    26,
+                    38,
+                    50
+                  ]
+                },
+                {
+                  "cities": 12,
+                  "powered": 12,
+                  "money": 14,
+                  "capacity": 21,
+                  "plants": [
+                    24,
+                    29,
+                    39,
+                    46
+                  ]
+                }
+              ]
+            },
+            "seat": 0,
+            "win": 1
+          },
+          {
+            "env": 0,
+            "episode": 34,
+            "gameSeed": "final-wrapper-engineering-offset-v1-4",
+            "truncated": false,
+            "value": [
+              1,
+              0
+            ],
+            "playerCount": 2,
+            "variant": "original",
+            "sealed": false,
+            "steps": 444,
+            "roles": [
+              "learner",
+              "legacy"
+            ],
+            "policyMoves": {
+              "ChoosePowerPlant": 16,
+              "Bid": 17,
+              "BuyResource": 55,
+              "Pass": 50,
+              "Build": 21,
+              "UsePowerPlant": 40,
+              "DiscardPowerPlant": 9
+            },
+            "searchStats": {},
+            "final": {
+              "round": 15,
+              "players": [
+                {
+                  "cities": 21,
+                  "powered": 21,
+                  "money": 179,
+                  "capacity": 24,
+                  "plants": [
+                    39,
+                    40,
+                    31,
+                    50
+                  ]
+                },
+                {
+                  "cities": 21,
+                  "powered": 21,
+                  "money": 58,
+                  "capacity": 24,
+                  "plants": [
+                    24,
+                    38,
+                    46,
+                    32
+                  ]
+                }
+              ]
+            },
+            "seat": 0,
+            "win": 1
+          },
+          {
+            "env": 0,
+            "episode": 35,
+            "gameSeed": "final-wrapper-engineering-offset-v1-4",
+            "truncated": false,
+            "value": [
+              1,
+              0
+            ],
+            "playerCount": 2,
+            "variant": "recharged",
+            "sealed": false,
+            "steps": 298,
+            "roles": [
+              "learner",
+              "legacy"
+            ],
+            "policyMoves": {
+              "ChoosePowerPlant": 14,
+              "Bid": 12,
+              "BuyResource": 63,
+              "Pass": 37,
+              "Build": 21,
+              "UsePowerPlant": 34,
+              "DiscardPowerPlant": 8
+            },
+            "searchStats": {},
+            "final": {
+              "round": 12,
+              "players": [
+                {
+                  "cities": 21,
+                  "powered": 15,
+                  "money": 125,
+                  "capacity": 22,
+                  "plants": [
+                    26,
+                    24,
+                    39,
+                    36
+                  ]
+                },
+                {
+                  "cities": 7,
+                  "powered": 7,
+                  "money": 20,
+                  "capacity": 17,
+                  "plants": [
+                    8,
+                    20,
+                    29,
+                    50
+                  ]
+                }
+              ]
+            },
+            "seat": 0,
+            "win": 1
+          },
+          {
+            "env": 0,
+            "episode": 36,
+            "gameSeed": "final-wrapper-engineering-offset-v1-4",
+            "truncated": false,
+            "value": [
+              0,
+              1
+            ],
+            "playerCount": 2,
+            "variant": "original",
+            "sealed": true,
+            "steps": 391,
+            "roles": [
+              "legacy",
+              "learner"
+            ],
+            "policyMoves": {
+              "Bid": 13,
+              "ChoosePowerPlant": 16,
+              "BuyResource": 67,
+              "Pass": 42,
+              "Build": 21,
+              "UsePowerPlant": 39,
+              "DiscardPowerPlant": 9
+            },
+            "searchStats": {},
+            "final": {
+              "round": 14,
+              "players": [
+                {
+                  "cities": 10,
+                  "powered": 10,
+                  "money": 3,
+                  "capacity": 22,
+                  "plants": [
+                    21,
+                    31,
+                    32,
+                    40
+                  ]
+                },
+                {
+                  "cities": 21,
+                  "powered": 17,
+                  "money": 122,
+                  "capacity": 23,
+                  "plants": [
+                    26,
+                    42,
+                    39,
+                    50
+                  ]
+                }
+              ]
+            },
+            "seat": 1,
+            "win": 1
+          },
+          {
+            "env": 0,
+            "episode": 37,
+            "gameSeed": "final-wrapper-engineering-offset-v1-4",
+            "truncated": false,
+            "value": [
+              0,
+              1
+            ],
+            "playerCount": 2,
+            "variant": "recharged",
+            "sealed": true,
+            "steps": 270,
+            "roles": [
+              "legacy",
+              "learner"
+            ],
+            "policyMoves": {
+              "Pass": 35,
+              "ChoosePowerPlant": 9,
+              "BuyResource": 71,
+              "Build": 21,
+              "UsePowerPlant": 27,
+              "Bid": 8,
+              "DiscardPowerPlant": 5
+            },
+            "searchStats": {},
+            "final": {
+              "round": 11,
+              "players": [
+                {
+                  "cities": 12,
+                  "powered": 12,
+                  "money": 24,
+                  "capacity": 12,
+                  "plants": [
+                    6,
+                    27,
+                    29,
+                    37
+                  ]
+                },
+                {
+                  "cities": 21,
+                  "powered": 21,
+                  "money": 104,
+                  "capacity": 22,
+                  "plants": [
+                    26,
+                    25,
+                    39,
+                    50
+                  ]
+                }
+              ]
+            },
+            "seat": 1,
+            "win": 1
+          },
+          {
+            "env": 0,
+            "episode": 38,
+            "gameSeed": "final-wrapper-engineering-offset-v1-4",
+            "truncated": false,
+            "value": [
+              0,
+              1
+            ],
+            "playerCount": 2,
+            "variant": "original",
+            "sealed": false,
+            "steps": 427,
+            "roles": [
+              "legacy",
+              "learner"
+            ],
+            "policyMoves": {
+              "Bid": 27,
+              "Pass": 44,
+              "ChoosePowerPlant": 16,
+              "BuyResource": 79,
+              "Build": 21,
+              "UsePowerPlant": 34,
+              "DiscardPowerPlant": 10
+            },
+            "searchStats": {},
+            "final": {
+              "round": 14,
+              "players": [
+                {
+                  "cities": 14,
+                  "powered": 14,
+                  "money": 10,
+                  "capacity": 18,
+                  "plants": [
+                    20,
+                    24,
+                    50,
+                    23
+                  ]
+                },
+                {
+                  "cities": 21,
+                  "powered": 21,
+                  "money": 79,
+                  "capacity": 22,
+                  "plants": [
+                    19,
+                    38,
+                    39,
+                    40
+                  ]
+                }
+              ]
+            },
+            "seat": 1,
+            "win": 1
+          },
+          {
+            "env": 0,
+            "episode": 39,
+            "gameSeed": "final-wrapper-engineering-offset-v1-4",
+            "truncated": false,
+            "value": [
+              0,
+              1
+            ],
+            "playerCount": 2,
+            "variant": "recharged",
+            "sealed": false,
+            "steps": 382,
+            "roles": [
+              "legacy",
+              "learner"
+            ],
+            "policyMoves": {
+              "Pass": 42,
+              "ChoosePowerPlant": 14,
+              "BuyResource": 60,
+              "Build": 21,
+              "UsePowerPlant": 33,
+              "Bid": 19,
+              "DiscardPowerPlant": 8
+            },
+            "searchStats": {},
+            "final": {
+              "round": 13,
+              "players": [
+                {
+                  "cities": 11,
+                  "powered": 11,
+                  "money": 5,
+                  "capacity": 22,
+                  "plants": [
+                    27,
+                    50,
+                    46,
+                    42
+                  ]
+                },
+                {
+                  "cities": 21,
+                  "powered": 20,
+                  "money": 151,
+                  "capacity": 20,
+                  "plants": [
+                    29,
+                    33,
+                    38,
+                    44
+                  ]
+                }
+              ]
+            },
+            "seat": 1,
+            "win": 1
+          }
+        ],
+        "input_hashes": {
+          "evaluation.json": "c108e798a248ef6e8b472d40d42762bd686bcdc171dbecebe79bd3bebce4d297",
+          "decisions-32.jsonl": "531590a8f6a51f692fbc3457258eb440e0bf0c76bf5223ef186bafce6ef66238",
+          "game-32.json": "71fd5205f9418b6830ff376a633c7d9457c825c2ef8d790d5f6153e896c8690e",
+          "decisions-33.jsonl": "728a98b00b4f4d26cbd2d39653dc1daa84f0401e0a3ac5341f157ac6e38b1a78",
+          "game-33.json": "2a9ffc0e7d8c61edf1224586b8da8fb1629eefb80ecbb0eee99f57593a52e4c4",
+          "decisions-34.jsonl": "01ad191b57ea1de1c2b0ddd92a90f8883944eb3d5cb1497ef32d44cf7b997e16",
+          "game-34.json": "ce15d4eb293a5a56b78585144bcb1da0a53ee9c18028312f46ecfa17422899d2",
+          "decisions-35.jsonl": "1ff8794f41f4c73a4c4cacfb4ac8aa9556ec9c478ab49379b8e0e55c32d71ff5",
+          "game-35.json": "f9b6a2aa21bccceade88b3cd274d91de3749a2e2fcd553b19efdba2136335dcf",
+          "decisions-36.jsonl": "7a4e78a9ae571cf4b70b907171e2981644b35bae7e04f9f6db85a71c0a464220",
+          "game-36.json": "130053d5b9885b560c7d25adca7036b201a9aa708cd96a4eda4812d2afbfb319",
+          "decisions-37.jsonl": "1bcfdf427594fed824086e2043c890423dd9999f643c5a126068be353d0af80a",
+          "game-37.json": "52dbe323ea3d076983886c509065873531b994daf70dd798101c452715195321",
+          "decisions-38.jsonl": "a4e454335d2a525f1300094516bceff89edffc48e486da51e7177e7b75376b54",
+          "game-38.json": "a9f8b0cac51d03aee16f5f05848ff658d93a5ad99dcdc42713ba265d78865192",
+          "decisions-39.jsonl": "092ec89aaac3831950855e18abefe26af67c4207ecda649cbee2e04252fb08e6",
+          "game-39.json": "45fbc27a1fcb0af6b12011fe69792526d193e2947f53eee13dde971d94a1167f"
+        },
+        "reserved_final_seeds_used": false,
+        "qualification_eligible": false
+      },
+      "games": 8,
+      "decisions": 1607,
+      "exact_local_comparison": true,
+      "seconds": 14.04672910500085,
+      "reserved_final_seeds_used": false,
+      "qualification_eligible": false
+    },
+    "measurement": {
+      "seconds": 16.152940690983087,
+      "cpu_seconds": 69.82,
+      "sampled_peak_total_rss_bytes": 1796087808,
+      "memory_samples": 81,
+      "memory_sampling_period_seconds": 0.2,
+      "includes_startup_and_validation": true
+    },
+    "source_sha256": "a2dd8f8b3e3bf3fd6b121b863cd34d69dd23675ef05af21c23400494339cacc0",
+    "manifest_sha256": "d67dd534fa223dc4bbc063dfd57530d9b448fa15e9405d90e34d9db2b9c79203"
+  },
+  "submission_tests": 7,
+  "grid_admitted": false,
+  "reserved_final_seeds_used": false
+}

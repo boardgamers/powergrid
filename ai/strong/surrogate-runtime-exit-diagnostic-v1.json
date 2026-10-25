@@ -1,0 +1,127 @@
+{
+  "complete": true,
+  "job_id": "6addab0e046eb82b1ece35c5",
+  "authoritative_status": "COMPLETED",
+  "finished_at": "2026-10-25 07:09:56.584000+00:00",
+  "checked_at": "2026-10-25T07:13:32.458020+00:00",
+  "diagnostic_report": {
+    "purpose": "Isolated process-shutdown diagnostic, not a replacement timing or scientific study.",
+    "root": "6p-3-bid",
+    "engineering_continuations": 16,
+    "fresh_scientific_continuations": 0,
+    "caps": 0,
+    "seconds": 14.127787304998492,
+    "source_sha256": "95e39bb5a7946637ad72fe0d9317f172b58111ba6eb37534dd7c95c266dcdb94",
+    "policy_sha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c",
+    "frozen_inputs_sha256": "c08f7abaab0a1ae224ce47f3c395ab59a5fc01bb39a835d062d21c9044a15962",
+    "gradients": false,
+    "original_timing_job": "6adda6dd1e112550ce7e86c1",
+    "original_job_changed": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false
+  },
+  "evidence": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "f76ecd4962d4dc865fe70a6801b51d46deec9795",
+    "archive_path": "archives/surrogate-runtime-exit-diagnostic-v1.tgz",
+    "archive_sha256": "eb66098f776d36789655e6199c413819544dc87b7a792f367de6b9c010e64628",
+    "manifest_sha256": "4f6082a5e02a9415e969f29c5b7b8e7a3be8be2e97b45fc775d6b8d884d6597b",
+    "archived_files": 7,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "events": [
+    {
+      "diagnostic_stage": "started",
+      "threads": [
+        {
+          "name": "MainThread",
+          "daemon": false
+        }
+      ]
+    },
+    {
+      "diagnostic_stage": "models-loaded",
+      "threads": [
+        {
+          "name": "MainThread",
+          "daemon": false
+        },
+        {
+          "name": "tqdm_monitor",
+          "daemon": true
+        }
+      ]
+    },
+    {
+      "diagnostic_stage": "engine-pool-closed",
+      "threads": [
+        {
+          "name": "MainThread",
+          "daemon": false
+        },
+        {
+          "name": "tqdm_monitor",
+          "daemon": true
+        }
+      ]
+    },
+    {
+      "diagnostic_stage": "before-upload",
+      "threads": [
+        {
+          "name": "MainThread",
+          "daemon": false
+        },
+        {
+          "name": "tqdm_monitor",
+          "daemon": true
+        }
+      ]
+    },
+    {
+      "diagnostic_stage": "after-upload",
+      "threads": [
+        {
+          "name": "MainThread",
+          "daemon": false
+        },
+        {
+          "name": "tqdm_monitor",
+          "daemon": true
+        }
+      ]
+    },
+    {
+      "diagnostic_stage": "main-returned",
+      "threads": [
+        {
+          "name": "MainThread",
+          "daemon": false
+        },
+        {
+          "name": "tqdm_monitor",
+          "daemon": true
+        }
+      ]
+    },
+    {
+      "diagnostic_stage": "atexit-reached",
+      "threads": [
+        {
+          "name": "MainThread",
+          "daemon": false
+        }
+      ]
+    }
+  ],
+  "python_exited": true,
+  "non_daemon_worker_threads_after_probe": 0,
+  "source_sha256": "95e39bb5a7946637ad72fe0d9317f172b58111ba6eb37534dd7c95c266dcdb94",
+  "launcher_sha256": "38ad83be28b079f79f0c3c40ed77b44e1b84d770f33f012067e695b5fc73446b",
+  "guard_sha256": "43102a611dcd4050f35bc79046bce410f11cff5c522e588d34d8b6a7073fcffd",
+  "log_sha256": "d53a455052f22651da111658b5db86f8975f81eaa705700a1242c2321528b1e3",
+  "scientific_timing_replacement": false,
+  "original_delay_cause_established": false,
+  "qualification_eligible": false
+}

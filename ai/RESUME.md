@@ -6,7 +6,69 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 07:05 UTC: timing archive independently verified; original HF job still running.**
+**Latest — 25 October, 07:17 UTC: original timing complete; full 480-position study running.**
+
+The original timing job **`6adda6dd1e112550ce7e86c1` completed at 07:10:05 UTC**.
+Its official collector now independently verifies the complete original artifact:
+**24 roots / 384 continuations / zero caps**. This supersedes the preterminal
+operational wait; it uses the same original results, not a replacement run.
+
+- Result: `strong/surrogate-continuation-selected-cost-results-v1.json`, SHA256
+  `21708c3066fba52c71814ebc2c0abb4aacdb7a32778ca3ea71dc419343888914`.
+- Private HF revision `8e9340d3ffc6c89a06dd7187d2248995b18f258d`; archive SHA256
+  `c1d72564337b7c67f3828703a2a422cddfabb4b5c5dadb493ec6f21cb460b1a6` (**123 files**).
+- Median / maximum wall time per 16-continuation batch: **3.1936 / 10.2118 s**.
+- Total CPU: **268.17 s**; maximum sampled summed RSS: **1,218,666,496 B**.
+- These are HF component timings; neither whole-hybrid 8840U latency nor strength.
+
+A separate **16-continuation engineering shutdown diagnostic**
+`6addab0e046eb82b1ece35c5` also completed normally at **07:09:56 UTC**. It used one
+separate runtime root, never a fresh scientific root, and did not replace or
+cancel the original. Local audit verified its raw outcomes, hashes and logs.
+Engine workers closed; only the main thread and a daemon progress monitor remained;
+Python reached `atexit` and the shell printed its post-Python exit marker.
+**The cause of the original delayed terminal status is not established.**
+No shutdown workaround or source change was introduced into the scientific run.
+Diagnostic evidence: `strong/surrogate-runtime-exit-diagnostic-v1.json`, private HF
+revision `f76ecd4962d4dc865fe70a6801b51d46deec9795`, archive SHA256
+`eb66098f776d36789655e6199c413819544dc87b7a792f367de6b9c010e64628`. Its guarded harness is
+`strong/launch-surrogate-exit-diagnostic-v1.py`; do not launch it again.
+
+**The complete paired study is now admitted and running.** The measured rule gives
+one `cpu-upgrade` per root, **eight workers**, **three-hour timeout**, at most
+**32 concurrent jobs**, a 5,560.65 s estimate including setup/margins and 9.80 GB
+memory allowance. Every player count uses the same conservative allowance; no
+positions, actions, worlds or samples were reduced. Plan:
+`strong/surrogate-continuation-study-admission-v1.json`, SHA256
+`c206b3644cf691b4f6649c2d74f43347964242aefbb94c1c26b6760b44a27154`.
+
+Original sole coordinator: **PID 3502343 / session 23779**, started **07:14:33 UTC**.
+At **07:15:35 UTC** its process was directly confirmed alive, with **32 original
+jobs submitted / 0 verified**. Direct HF inspection counted **28 RUNNING / 4
+SCHEDULING**. Snapshot: `ai/runs/surrogate-continuation-study-initial-live-checkpoint-v1.json`, SHA256 `083dd58269bdfa6346f7446d25a02c4361857dbae202e96ab8c5c165629db66e`.
+State: `ai/runs/surrogate-continuation-study-coordinator-v1/state.json`; log:
+`ai/runs/surrogate-continuation-study-coordinator-v1.log`. Original guards:
+`ai/runs/surrogate-continuation-study-launches-v1/`.
+
+Let this owner collect results before filling capacity and index all **480 jobs /
+23,040 continuations**. **Do not manually launch or collect alongside it, restart
+it on an observation timeout, or alter its pinned code/admission.** If the user
+requests no new jobs, stop this local coordinator first. A failure stops further
+submissions for inspection of the original handle; caps remain in the full corpus
+and suppress aggregate fidelity estimates. At completion, use the existing archive
+helper to preserve and independently audit the complete paired comparison.
+
+The study covers 2–6 players, all four rules, three phases, both fixed actions and
+all eight worlds in each of three modes. It has only two independent deals per
+count and no prior-only arm. It measures continuation fidelity, not optimal-action
+labels, calibrated live win probabilities or a stronger playing policy. Afterwards:
+use the complete findings to design the heterogeneous auction policy/cautious
+override, freeze it, run fresh full-game confirmation, then the exact selected-policy
+final adapter and actual 8840U hybrid benchmark. No candidate qualified, production
+change or reserved final-seed use. The previous goal turn verified the complete
+timing artifact; this turn completed terminal collection and launched the study.
+
+**Previous — 25 October, 07:05 UTC: timing archive independently verified; original HF job still running.**
 
 The original timing job **`6adda6dd1e112550ce7e86c1`** is still authoritatively **RUNNING**
 as of **07:05 UTC**. Its final log contains a complete archive; independent local

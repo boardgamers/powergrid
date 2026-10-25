@@ -1,0 +1,3594 @@
+{
+  "created_at": "2026-10-25T07:13:47.923162+00:00",
+  "source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "archive": "strong-source-surrogate-continuation-study-v1.tgz",
+    "sha256": "95e39bb5a7946637ad72fe0d9317f172b58111ba6eb37534dd7c95c266dcdb94",
+    "bytes": 120410683,
+    "manifest_sha256": "4b5667cfb423239aff5ed25780847246046fa30004228d28883b0cb72919554f",
+    "manifest_files": 1488,
+    "unchanged_base_files": 1463,
+    "base": {
+      "repo": "coyotte508/powergrid-ai-training-v1",
+      "archive": "strong-source-population-hybrid-development-20261024-v1.tgz",
+      "revision": "cdec1d3079eb9a54b776f6237ec5f93cc1de84d8",
+      "sha256": "ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23",
+      "files": 1463
+    },
+    "new_files": {
+      "ai/strong/analysis-public-balances-v1.cjs": "3e8eaf26bc21be7e2284e4838f743731a269e8d18badbb8adc0af882f3b3ccb5",
+      "ai/strong/build-surrogate-continuation-study-source-v1.py": "842316fc91aaa389dd3887446450867fbe17fd91057f63a211ed37bf27e0eb15",
+      "ai/strong/opponent_surrogate_policy_v1.py": "4b891dde9a1688eec9f5da0bd0ad0a5dc81d63b2a219d46ce646d033800530da",
+      "ai/strong/opponent_surrogate_training_v1.py": "49751b105b96c44d88b4a75e6b530fbddc4f0dc5590be1e18bd23cc64dc3eb10",
+      "ai/strong/reference-opponent-continuations-v2.cjs": "c3936f3fa35b3c5f9fefeea7cfbbecaf6becc8486c4f681a30e1497f83748c9d",
+      "ai/strong/reference-search-public-balances-v1.cjs": "ba53afcc0a06d25f776c27ba017e14026a28c9928bcde68b05effe64a715b010",
+      "ai/strong/surrogate-continuation-analysis-design-v1.json": "efc57ce9e3be48d8365c4a63a72071cd0ab4887f801c4b126b5575ad508d82f8",
+      "ai/strong/surrogate-continuation-protocol-v1.json": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+      "ai/strong/surrogate-continuation-roots-job-v1.py": "dc21963704d50857b9813cd0483c3bb524f9d67181411d12712b3322578d06b7",
+      "ai/strong/surrogate-opponent-continuations-v1.cjs": "582e001232d3b07dad16b29fe6dc4b933869ccb8485c6167c185372af03c288f",
+      "ai/strong/surrogate_continuation_analysis_v1.py": "82ae56e4399009f96688fcef1be4479617703cc4a719cabd6332f64f11c8a66d",
+      "ai/strong/surrogate_continuation_job_v1.py": "c2f71bce37f8ece927386eeeac3b24309d6acf940d10ae832dce36eec51bfa91",
+      "ai/strong/surrogate_continuation_roots_v1.py": "32bb3995c339b325698c7b760df97ddf8f1ae19c2decf1d1b2c0821d0bf8a185",
+      "ai/strong/surrogate_continuation_runtime_v1.py": "88d963595067128d950e1d14285af9863455b7830cb22b95f2533ab684069e0b",
+      "ai/strong/surrogate_continuation_selected_cost_v1.py": "eb19eea968918b4b40cc97005fd0379bd5984826c1bca54ad48d73f079ab8ad5",
+      "ai/strong/surrogate_continuation_study_v1.py": "657c882af7cc2012fcaa7a34f9512efd7d3fa7e1c28dc420f6585838c556dd6a",
+      "ai/strong/surrogate_opponent_continuations_v1.py": "00dfc09f14a2cfe0763f7466b60cc4c9fc315daca237e917c729136bc61044b5",
+      "ai/strong/fixtures/surrogate-continuation-study-inputs-v1/roots.json": "d5f865cd63836dad11f3aeff216b6b8910e389ff8d85fce34206a358fe0fc3b1",
+      "ai/strong/fixtures/surrogate-continuation-study-inputs-v1/policy.json": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c",
+      "ai/strong/fixtures/surrogate-continuation-study-inputs-v1/frozen.json": "c08f7abaab0a1ae224ce47f3c395ab59a5fc01bb39a835d062d21c9044a15962",
+      "ai/strong/fixtures/surrogate-continuation-runtime-roots-v1.json": "bddae36ec570fb2c219f5727efc729d1ce1061fc2dbcf37e4a6fe866327e0114",
+      "ai/strong/fixtures/surrogate-continuation-selected-members-v1/14101/derivative/inference64.onnx": "e8ea749be5292c551cc041247a6f0cdcd467e14f2d67b1ee743ed02254b3e82d",
+      "ai/strong/fixtures/surrogate-continuation-selected-members-v1/14102/derivative/inference64.onnx": "ee93c8ed79b947cb6318b80db3695058131e0d80b7df26231c435689073b1729",
+      "ai/strong/fixtures/surrogate-continuation-selected-members-v1/14103/derivative/inference64.onnx": "d6488a2b610e6c539420bee3026ddf042e6ff0e16165f8482c26c5d7ce1a8fd5",
+      "ai/strong/fixtures/surrogate-continuation-selected-members-v1/14104/derivative/inference64.onnx": "4ade2642f23d56900461e6b06cc70fc30066ab15630d52681ee8dedce5543121"
+    },
+    "origins": {
+      "ai/strong/analysis-public-balances-v1.cjs": "ai/strong/analysis-public-balances-v1.cjs",
+      "ai/strong/build-surrogate-continuation-study-source-v1.py": "ai/strong/build-surrogate-continuation-study-source-v1.py",
+      "ai/strong/opponent_surrogate_policy_v1.py": "ai/strong/opponent_surrogate_policy_v1.py",
+      "ai/strong/opponent_surrogate_training_v1.py": "ai/strong/opponent_surrogate_training_v1.py",
+      "ai/strong/reference-opponent-continuations-v2.cjs": "ai/strong/reference-opponent-continuations-v2.cjs",
+      "ai/strong/reference-search-public-balances-v1.cjs": "ai/strong/reference-search-public-balances-v1.cjs",
+      "ai/strong/surrogate-continuation-analysis-design-v1.json": "ai/strong/surrogate-continuation-analysis-design-v1.json",
+      "ai/strong/surrogate-continuation-protocol-v1.json": "ai/strong/surrogate-continuation-protocol-v1.json",
+      "ai/strong/surrogate-continuation-roots-job-v1.py": "ai/strong/surrogate-continuation-roots-job-v1.py",
+      "ai/strong/surrogate-opponent-continuations-v1.cjs": "ai/strong/surrogate-opponent-continuations-v1.cjs",
+      "ai/strong/surrogate_continuation_analysis_v1.py": "ai/strong/surrogate_continuation_analysis_v1.py",
+      "ai/strong/surrogate_continuation_job_v1.py": "ai/strong/surrogate_continuation_job_v1.py",
+      "ai/strong/surrogate_continuation_roots_v1.py": "ai/strong/surrogate_continuation_roots_v1.py",
+      "ai/strong/surrogate_continuation_runtime_v1.py": "ai/strong/surrogate_continuation_runtime_v1.py",
+      "ai/strong/surrogate_continuation_selected_cost_v1.py": "ai/strong/surrogate_continuation_selected_cost_v1.py",
+      "ai/strong/surrogate_continuation_study_v1.py": "ai/strong/surrogate_continuation_study_v1.py",
+      "ai/strong/surrogate_opponent_continuations_v1.py": "ai/strong/surrogate_opponent_continuations_v1.py",
+      "ai/strong/fixtures/surrogate-continuation-study-inputs-v1/roots.json": "ai/runs/surrogate-continuation-study-inputs-v1/roots.json",
+      "ai/strong/fixtures/surrogate-continuation-study-inputs-v1/policy.json": "ai/runs/surrogate-continuation-study-inputs-v1/policy.json",
+      "ai/strong/fixtures/surrogate-continuation-study-inputs-v1/frozen.json": "ai/runs/surrogate-continuation-study-inputs-v1/frozen.json",
+      "ai/strong/fixtures/surrogate-continuation-runtime-roots-v1.json": "ai/runs/surrogate-continuation-cost-source-prepared-v1/layout/ai/strong/fixtures/surrogate-continuation-runtime-roots-v1.json",
+      "ai/strong/fixtures/surrogate-continuation-selected-members-v1/14101/derivative/inference64.onnx": "ai/runs/opponent-surrogate-training-full-collected-v1/artifacts/14101/derivative/inference64.onnx",
+      "ai/strong/fixtures/surrogate-continuation-selected-members-v1/14102/derivative/inference64.onnx": "ai/runs/opponent-surrogate-training-full-collected-v1/artifacts/14102/derivative/inference64.onnx",
+      "ai/strong/fixtures/surrogate-continuation-selected-members-v1/14103/derivative/inference64.onnx": "ai/runs/opponent-surrogate-training-full-collected-v1/artifacts/14103/derivative/inference64.onnx",
+      "ai/strong/fixtures/surrogate-continuation-selected-members-v1/14104/derivative/inference64.onnx": "ai/runs/opponent-surrogate-training-full-collected-v1/artifacts/14104/derivative/inference64.onnx"
+    },
+    "source_code_hashes": {
+      "ai/strong/surrogate_continuation_study_v1.py": "657c882af7cc2012fcaa7a34f9512efd7d3fa7e1c28dc420f6585838c556dd6a",
+      "ai/strong/surrogate_continuation_roots_v1.py": "32bb3995c339b325698c7b760df97ddf8f1ae19c2decf1d1b2c0821d0bf8a185",
+      "ai/strong/surrogate_opponent_continuations_v1.py": "00dfc09f14a2cfe0763f7466b60cc4c9fc315daca237e917c729136bc61044b5",
+      "ai/strong/surrogate-opponent-continuations-v1.cjs": "582e001232d3b07dad16b29fe6dc4b933869ccb8485c6167c185372af03c288f",
+      "ai/strong/reference-opponent-continuations-v2.cjs": "c3936f3fa35b3c5f9fefeea7cfbbecaf6becc8486c4f681a30e1497f83748c9d",
+      "ai/strong/reference-search-public-balances-v1.cjs": "ba53afcc0a06d25f776c27ba017e14026a28c9928bcde68b05effe64a715b010",
+      "ai/strong/analysis-public-balances-v1.cjs": "3e8eaf26bc21be7e2284e4838f743731a269e8d18badbb8adc0af882f3b3ccb5",
+      "ai/strong/hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+      "ai/strong/opponent_surrogate_policy_v1.py": "4b891dde9a1688eec9f5da0bd0ad0a5dc81d63b2a219d46ce646d033800530da",
+      "ai/strong/opponent_surrogate_training_v1.py": "49751b105b96c44d88b4a75e6b530fbddc4f0dc5590be1e18bd23cc64dc3eb10",
+      "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+      "ai/strong/surrogate-continuation-protocol-v1.json": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+      "ai/infer.py": "a86e79c2c87b1909557e69fd8b669ae2c47255d426e692b5d96baafe5c2f680d",
+      "ai/pool.py": "3b33133425d84430a6376834422478d70fe51a9c855d1e06937f109cd3620dd8",
+      "ai/strong/surrogate_continuation_job_v1.py": "c2f71bce37f8ece927386eeeac3b24309d6acf940d10ae832dce36eec51bfa91",
+      "ai/strong/surrogate_continuation_analysis_v1.py": "82ae56e4399009f96688fcef1be4479617703cc4a719cabd6332f64f11c8a66d",
+      "ai/strong/surrogate-continuation-analysis-design-v1.json": "efc57ce9e3be48d8365c4a63a72071cd0ab4887f801c4b126b5575ad508d82f8",
+      "ai/strong/surrogate_continuation_runtime_v1.py": "88d963595067128d950e1d14285af9863455b7830cb22b95f2533ab684069e0b",
+      "ai/strong/surrogate-continuation-roots-job-v1.py": "dc21963704d50857b9813cd0483c3bb524f9d67181411d12712b3322578d06b7",
+      "ai/strong/surrogate_continuation_selected_cost_v1.py": "eb19eea968918b4b40cc97005fd0379bd5984826c1bca54ad48d73f079ab8ad5",
+      "ai/strong/build-surrogate-continuation-study-source-v1.py": "842316fc91aaa389dd3887446450867fbe17fd91057f63a211ed37bf27e0eb15"
+    },
+    "study_inputs_sha256": "c08f7abaab0a1ae224ce47f3c395ab59a5fc01bb39a835d062d21c9044a15962",
+    "root_manifest_sha256": "d5f865cd63836dad11f3aeff216b6b8910e389ff8d85fce34206a358fe0fc3b1",
+    "surrogate_policy_sha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c",
+    "selected_members": [
+      {
+        "seed": 14101,
+        "path": "14101/derivative/inference64.onnx",
+        "sha256": "e8ea749be5292c551cc041247a6f0cdcd467e14f2d67b1ee743ed02254b3e82d",
+        "checkpoint_sha256": "545938c37a5ec43948f4fd5e4d1466e389be0700b20d1462ef959ddf886deba2"
+      },
+      {
+        "seed": 14102,
+        "path": "14102/derivative/inference64.onnx",
+        "sha256": "ee93c8ed79b947cb6318b80db3695058131e0d80b7df26231c435689073b1729",
+        "checkpoint_sha256": "d7faf8f89c264bd49a4d17e837bd8ba13d1c24eebd27f630c254908932569f78"
+      },
+      {
+        "seed": 14103,
+        "path": "14103/derivative/inference64.onnx",
+        "sha256": "d6488a2b610e6c539420bee3026ddf042e6ff0e16165f8482c26c5d7ce1a8fd5",
+        "checkpoint_sha256": "ae258d0dc002401a4980b7b6b02b4e362993792e99738c7fcc0683dd98d2479e"
+      },
+      {
+        "seed": 14104,
+        "path": "14104/derivative/inference64.onnx",
+        "sha256": "4ade2642f23d56900461e6b06cc70fc30066ab15630d52681ee8dedce5543121",
+        "checkpoint_sha256": "fb8a59aa209226c6ffa67acb0c25bbe66725bb2b5273bc45c305119fb04f5243"
+      }
+    ],
+    "selection_freeze_sha256": "d1c89cca3586f22c9361a359b2be74ff06d798b9e8a04838fd97846b3147a8c1",
+    "training_result_sha256": "4d5e936c350857fb4917d3f8910a1229dda83232c9a99a1a7948b7842d6c1d10",
+    "runtime_inputs_sha256": "bddae36ec570fb2c219f5727efc729d1ce1061fc2dbcf37e4a6fe866327e0114",
+    "protocol_sha256": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+    "root_evidence_sha256": "2a9256ded22b928cc4e2e3b48a5e46f9f7b1a194c224c5ea6116d8db35f5dd89",
+    "cost_evidence_sha256": "1e6724d012bdd06f869eadabc75ffde84f02574d9af049fc9c5006934990b4a1",
+    "preflight_sha256": "0089e359c72f1476074dc244a250ccb82295279da6d2b13001c1077a87a08303",
+    "roots": 480,
+    "study_continuations": 23040,
+    "runtime_roots": 24,
+    "selected_cost_continuations": 384,
+    "full_study_admitted": false,
+    "gradients": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false,
+    "revision": "74d32bed7d129b8049673b8851a44e5005c9c6a4",
+    "remote_archive_verified": true,
+    "layout_sha256": "06db8ffcc560b14518a5f2e8b2599e946fec69befb88e6d9171853f567bf3a66"
+  },
+  "source_descriptor_sha256": "132061f1a2c4d1ee79c07f28b30eb5e1de7ccf3fb592236c1a02fae726e38db0",
+  "selected_cost_result_sha256": "21708c3066fba52c71814ebc2c0abb4aacdb7a32778ca3ea71dc419343888914",
+  "reference_cost_evidence_sha256": "1e6724d012bdd06f869eadabc75ffde84f02574d9af049fc9c5006934990b4a1",
+  "preflight_sha256": "62f72675685facd2b80fb4e11fd2f9412401f01ae82eb57b3d73bb16f4298996",
+  "study_inputs_sha256": "c08f7abaab0a1ae224ce47f3c395ab59a5fc01bb39a835d062d21c9044a15962",
+  "protocol_sha256": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+  "admission": {
+    "flavor": "cpu-upgrade",
+    "vcpus": 8,
+    "ram_gb": 32,
+    "disk_gb": 50,
+    "workers": 8,
+    "timeout_hours": 3,
+    "max_concurrent": 32,
+    "estimated_seconds_per_job": 5560.645493266013,
+    "historical_combined_seconds": {
+      "2p-0-bid": 155.83446781799285,
+      "2p-0-building": 92.42320599299273,
+      "2p-0-plant": 4.395066094992217,
+      "2p-1-bid": 224.18604067798879,
+      "2p-1-building": 63.99893812400842,
+      "2p-1-plant": 122.00391497099918,
+      "2p-2-bid": 5.5009826960085775,
+      "2p-2-building": 93.17444464900473,
+      "2p-2-plant": 34.52693428800558,
+      "2p-3-bid": 113.09429227199143,
+      "2p-3-building": 189.66461844200967,
+      "2p-3-plant": 16.198955610001576,
+      "6p-0-bid": 150.0034140980024,
+      "6p-0-building": 9.370147781992273,
+      "6p-0-plant": 201.14612973500334,
+      "6p-1-bid": 99.39327608599706,
+      "6p-1-building": 1.6523995390016353,
+      "6p-1-plant": 440.60375517999637,
+      "6p-2-bid": 2312.7231731499996,
+      "6p-2-building": 1512.4689117099915,
+      "6p-2-plant": 41.90914136599895,
+      "6p-3-bid": 2330.3227466330063,
+      "6p-3-building": 1847.9699058199913,
+      "6p-3-plant": 798.4190316729946
+    },
+    "memory_allowance_bytes": 9797019648.0,
+    "historical_peak_rss_bytes": 2898509824,
+    "calculation": "15 min setup plus twice the largest measured sum of the three modes on the same timing root; 25% timeout reserve. Twice maximum observed RSS plus 4 GB. All player counts receive this global allowance.",
+    "limitation": "Fresh positions may be slower than calibration. Retain failures and caps, never reduce samples, substitute roots or rerun after an observation timeout. This admits diagnostic fidelity jobs, not full-game strength or 8840U serving latency."
+  },
+  "cases": [
+    {
+      "root_id": "2:0:plant",
+      "case": "surrogate-continuation-study-v1-2p-0-plant",
+      "root_sha256": "80a262e2a2e8c21577f04339087b00536699e82d2eab7ccca70bd3c0dda6b962",
+      "public_root_sha256": "4c16c7a4a95ac6d35cc2cd92d3b8bf787595bae0189e2dca778ccc1c142afc64",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:0:bid",
+      "case": "surrogate-continuation-study-v1-2p-0-bid",
+      "root_sha256": "fff96c2d7b26adfd7be907421df4a239071f4ee632048c1d97ea336c91f88a4d",
+      "public_root_sha256": "741a3309758abdbf1bb78ae5439ffb265ac3245a7315691a47657c0210734fe3",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:0:building",
+      "case": "surrogate-continuation-study-v1-2p-0-building",
+      "root_sha256": "85a856faa1e82b9b12fa41f67b4fb822cf40dcb710331b5cdf6ecc7b6ba5f577",
+      "public_root_sha256": "a9d07616fac5bbf0d5746128fb1ec64a43a43d88a34a3c5521fd6ae4e7f1a686",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:1:plant",
+      "case": "surrogate-continuation-study-v1-2p-1-plant",
+      "root_sha256": "cd4d3b77179e7b7175a8a696266056a49767266ff2e35a10b5697dacc543a9e9",
+      "public_root_sha256": "65f4724bdd25b6b464f06f6704043fa29821464f7ab55f9766123d9c20fb2b70",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:1:bid",
+      "case": "surrogate-continuation-study-v1-2p-1-bid",
+      "root_sha256": "b4e3e93498669364bcc1488a0aefb8bc15daeb8ae5e1cd058e6256a7a76f61a6",
+      "public_root_sha256": "f590036e96e6d89011f7f0ad75475271bc6eec58d06e3532f9e8e23ae890b9d9",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:1:building",
+      "case": "surrogate-continuation-study-v1-2p-1-building",
+      "root_sha256": "4687abfd290a85c2b82d572347c4ee6b113b45af32a55cce02af78564cf714a3",
+      "public_root_sha256": "b758c50f5b49b09b031c828ea8bb4030cfba82f5fbecbbbd0b00560cb46a4ffe",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:2:plant",
+      "case": "surrogate-continuation-study-v1-2p-2-plant",
+      "root_sha256": "b5f592d33de4fa64440c4afa215ba58331ece34c3a7dfa93dec4fa91d1e43e57",
+      "public_root_sha256": "593ffa64bf7d9f19ac40542021e42367410303e0678fc1a4f54c20bf2b8c1512",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:2:bid",
+      "case": "surrogate-continuation-study-v1-2p-2-bid",
+      "root_sha256": "e40b30f9f62660c30506c21de2b360b8e57d405b48d15e6b9cda9eb99d6dcbf8",
+      "public_root_sha256": "42f3966c30fa7a812a25bd5eef7562639b51a9e0c9c2f9137f0b849850b29584",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:2:building",
+      "case": "surrogate-continuation-study-v1-2p-2-building",
+      "root_sha256": "87e81496a8d3ff9de7b2e4ef305c66ca965d358c6ffadfac97b3c2fbcb8f95af",
+      "public_root_sha256": "d9c23f2ef2cda8f7ed387ac9792fd042f7c5444f5c051310f406251d2f858431",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:3:plant",
+      "case": "surrogate-continuation-study-v1-2p-3-plant",
+      "root_sha256": "b6c50ed15dd4e4c5051fb3f16a46442b038f2ef1b807e3140fb669ba7258c5fd",
+      "public_root_sha256": "9773571de9ff27b05500a7f2933ed5dbbf8655e4e95e32348625882790dc7179",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:3:bid",
+      "case": "surrogate-continuation-study-v1-2p-3-bid",
+      "root_sha256": "39644f4a19f30ccb5ce5a7203bb3f2cfa52f53739873803af0c5dd2e237ab658",
+      "public_root_sha256": "3009b107756d5d7d5f7494e2e8c8f5f2b6a7ea22164f90a87c303a1191069dc2",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:3:building",
+      "case": "surrogate-continuation-study-v1-2p-3-building",
+      "root_sha256": "cd006fd0d61c894b82ad9585a2853e43f0d8f3870bfec574a22509b92822ed39",
+      "public_root_sha256": "3c453ae2d4c18a2a56c32bba179454ba82b2736dd291d0a68bdc8ccc16ede686",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:4:plant",
+      "case": "surrogate-continuation-study-v1-2p-4-plant",
+      "root_sha256": "c6e3d2e8774691c289726d4a2d8e8ed3dd5ed16d0e43890bfe3fe5fd613acacb",
+      "public_root_sha256": "efd7c495bdc5222d3cee545dd01f4da4a1f1171b4cb63ecdcfdbc559c2059251",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:4:bid",
+      "case": "surrogate-continuation-study-v1-2p-4-bid",
+      "root_sha256": "3fa5102169a6798d05eac98b12eeaf37553e3edce943c7b71ebf65b34e67dc9b",
+      "public_root_sha256": "741ad3cc428422901574ed3d5d2d32c2f7c786125764566e851a2045008f83f5",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:4:building",
+      "case": "surrogate-continuation-study-v1-2p-4-building",
+      "root_sha256": "71695b0affca486d54b98bc3c4cc2d20240163febc6a903284c8d367c2fdab47",
+      "public_root_sha256": "a3e7346cf72cafc159cbaa68d4919ca3aabc0625805f2bbbee836a29f0e8838c",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:5:plant",
+      "case": "surrogate-continuation-study-v1-2p-5-plant",
+      "root_sha256": "6804faf5e6262ad853a2f7c926ff6db4a4c3709ec9ed8bd405043e28d22d4407",
+      "public_root_sha256": "fff0a8b0427e0fea418ef4f187054ac40ac4fd7cdb837ab5673a9c14f3cd7926",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:5:bid",
+      "case": "surrogate-continuation-study-v1-2p-5-bid",
+      "root_sha256": "4eacc91a1317e88997098f8372a53c99cab7c565c5d62b6481d0db429a098f89",
+      "public_root_sha256": "c2a98732a5ead9a4c274bb1540d90d615c66f2970388709c000c9e82e75fb531",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:5:building",
+      "case": "surrogate-continuation-study-v1-2p-5-building",
+      "root_sha256": "66f1b4d82ecc50335ff282509fe88f3a35134d598098b64f2563d9f3fef4fc40",
+      "public_root_sha256": "7babb599c16e0c438b1e6c6c3e8336664220c5b3afd8e10b19587a8b0f5718c4",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:6:plant",
+      "case": "surrogate-continuation-study-v1-2p-6-plant",
+      "root_sha256": "aa53269b5e69883a4e3d7a407895b87666da8bd5cf1cac98ae5763a5f4dea09a",
+      "public_root_sha256": "5396553d07388d2ecd40e206175c5d81ea7c6213356c993b1d282d4d1411af50",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:6:bid",
+      "case": "surrogate-continuation-study-v1-2p-6-bid",
+      "root_sha256": "7ad112b629e02fe9d7d7367d22d7fb3e84edffa6a6a72265738ab97aa6544a29",
+      "public_root_sha256": "afba9f0e056f9cb04d0a9b634ec0135f779b711c883a2b3a122fd1d53ad7e688",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:6:building",
+      "case": "surrogate-continuation-study-v1-2p-6-building",
+      "root_sha256": "8e0a591f65ecdcd8f9111fff073fa6e39c0f27dd23d784114ee066d624fb02e6",
+      "public_root_sha256": "b7ef266b63f43843e4d2d31559cf90b75fd909878ce3fbed91d20d58c48b2361",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:7:plant",
+      "case": "surrogate-continuation-study-v1-2p-7-plant",
+      "root_sha256": "be88f1a0d5a9bc323499fddb93a7b0417124f7e34c7c0038b15f6061240ca8f4",
+      "public_root_sha256": "fb30949b9593cf06667507442b53a54543874ce0b5c2f036e24a57d4239e828f",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:7:bid",
+      "case": "surrogate-continuation-study-v1-2p-7-bid",
+      "root_sha256": "70bf29153113db26ed43cd5043952262973fa267341cbd993a3428ec5f73fb43",
+      "public_root_sha256": "fe4dedbf4428cf1ca239800a338431a5c1884ec985afa3b93cf2a003d8c5dd2b",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:7:building",
+      "case": "surrogate-continuation-study-v1-2p-7-building",
+      "root_sha256": "5f95cca933916225cce9e85ebadc712d1748db39171ee2ef10070f10d0d026f9",
+      "public_root_sha256": "3a6f1635e68a649902aa680a73a47f03e701bf584b4643dded833c69677756ca",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:8:plant",
+      "case": "surrogate-continuation-study-v1-2p-8-plant",
+      "root_sha256": "c5e1923ea98bf9c42fc1513080a4bee43cf1d4616051cd0bac3bfc020a9e1c3d",
+      "public_root_sha256": "2e9ace9717c442a7f446f21141f858b5a078e29f88c1980cad5dd05e693e9807",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:8:bid",
+      "case": "surrogate-continuation-study-v1-2p-8-bid",
+      "root_sha256": "7810606cfff7bdb944fe7329a2c9f38c6fa32b951bf736328df4d761f2b8631e",
+      "public_root_sha256": "f1c8d6956d2b4c86ce0ef0959e56b28478a9f19b0c24584bd1e07f44328c8867",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:8:building",
+      "case": "surrogate-continuation-study-v1-2p-8-building",
+      "root_sha256": "b0ab8167d7677f8227680021485d3d262509a1e161c55842822f20bdb242f0b1",
+      "public_root_sha256": "67d5a11f95235cffa11346291025061854c18e631acc65083895fbf8c1086d3a",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:9:plant",
+      "case": "surrogate-continuation-study-v1-2p-9-plant",
+      "root_sha256": "e1a19a9ee41e46b1f821d596da1c5f1652400a6250d21f3a4d963d957106a854",
+      "public_root_sha256": "c19885e86cdd52ce18dd2ee2cd5dfaa11e2b1c343a3d5d2c0b67c46cdf0f56da",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:9:bid",
+      "case": "surrogate-continuation-study-v1-2p-9-bid",
+      "root_sha256": "867af74fc9ab4611ea32a2043eb69bf543820ef7c571d07c4ef7e64b4f16733f",
+      "public_root_sha256": "06567dc93309e461b43b8193e4df0729a53e2b67cf889224863f9331e15634fd",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:9:building",
+      "case": "surrogate-continuation-study-v1-2p-9-building",
+      "root_sha256": "7ea038ff2a23ed6a38ec8996d3d323052939f3bf80f5cc3a1ce27827b2b3ca04",
+      "public_root_sha256": "a73cbccb7d66c9c59c1ffa765070ccf36eb1da78ab309defdf65beaac02e56e5",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:10:plant",
+      "case": "surrogate-continuation-study-v1-2p-10-plant",
+      "root_sha256": "a56b20110e872c4dc977d246f63d01dc7cb6dab79216b64c8b2ddbb7c1354f49",
+      "public_root_sha256": "9411c543ba2a38fea288c8868ee06aaec5088b57f5d4dd7be10c385fddf64303",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:10:bid",
+      "case": "surrogate-continuation-study-v1-2p-10-bid",
+      "root_sha256": "6bc399fe7b846f38070dc6e54491f987b2065b1da7389100e400172d3c286878",
+      "public_root_sha256": "96d8c30fce822964a093832f1d0da9329c2ac642d1ef622148e6d8919c96e5bf",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:10:building",
+      "case": "surrogate-continuation-study-v1-2p-10-building",
+      "root_sha256": "152f4ca71b3a84144f960b27ad2f6f9e9bf386223322d411694bbc213902c72b",
+      "public_root_sha256": "d36e0ecb44c776cbf37dd018a2e88eed88b2226b42faf523cc8708b37bec3ff3",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:11:plant",
+      "case": "surrogate-continuation-study-v1-2p-11-plant",
+      "root_sha256": "2440f18529d70f0602025fa1f393eb4d33ca120c5910d8b248dcc38c426b722b",
+      "public_root_sha256": "887247cbc368499e9ce1544387925489264bb519e3589bb113647e610ec260f9",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:11:bid",
+      "case": "surrogate-continuation-study-v1-2p-11-bid",
+      "root_sha256": "3f5c75d87ef5e63e912397194823c973f79f2976b434a5f93add4306c4d4715b",
+      "public_root_sha256": "a8fb7a1555fe62b515cd670f8a11f7286a409d894ff0fe72588194c417c5afaf",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:11:building",
+      "case": "surrogate-continuation-study-v1-2p-11-building",
+      "root_sha256": "0d39d77289bd1820a6223e15e5aa33635ed42d49ddfc22a5fe78708f2a4de4cc",
+      "public_root_sha256": "71922e9df23911ce1734e5642edefb6cd8642fe9b3f6559556b0b43a7cb1773b",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:12:plant",
+      "case": "surrogate-continuation-study-v1-2p-12-plant",
+      "root_sha256": "0e47b87cc98ba42877dbdc5f94eb6d29e7108050ab1e0222cccff5810381e332",
+      "public_root_sha256": "789ef58186131a11c4260f8cd5c3f67aca7a0951060ff8ff648cfe15a275d155",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:12:bid",
+      "case": "surrogate-continuation-study-v1-2p-12-bid",
+      "root_sha256": "a210e7deb1e6b92ab0ce7a1fd7ab8385f61f1e4c7b6e825eb3bd7b83b5862575",
+      "public_root_sha256": "8677d12f9486d817c56132982e459144aa259f8023a3587c1cd03c1de3c45091",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:12:building",
+      "case": "surrogate-continuation-study-v1-2p-12-building",
+      "root_sha256": "4e86c2cea6144c13602f0ca073878830c80f834ab4280546868f465a70179c36",
+      "public_root_sha256": "c991d9a008b77a410800b774d27777f49d315cfd8030a69a2815bf30dfe4dc07",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:13:plant",
+      "case": "surrogate-continuation-study-v1-2p-13-plant",
+      "root_sha256": "4c3cabb5db5eafb7e230f0528a703a56524007ac1adf6eb39c09d6c3ba07d1cc",
+      "public_root_sha256": "0dab907dafcfe3506fbbf94266e0cf4383a1ad56c6fd8feff82b55c7d2f87e81",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:13:bid",
+      "case": "surrogate-continuation-study-v1-2p-13-bid",
+      "root_sha256": "a1972bf018af44d7bd394f2e2b9f67f772443cf729b862f0149349a0d2d34f89",
+      "public_root_sha256": "99754238a4e2826064c573baa8c6a958bcc18095ad70f32562f3f2dd61a71471",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:13:building",
+      "case": "surrogate-continuation-study-v1-2p-13-building",
+      "root_sha256": "977512e305a5d00849f8050095fd0fa8bcc91777a5e93ce61c5c3e292494cf8d",
+      "public_root_sha256": "1d162f64b121e695467cf9a7eb7f3baab9009e051df8b478510e3b2e76fea531",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:14:plant",
+      "case": "surrogate-continuation-study-v1-2p-14-plant",
+      "root_sha256": "3d11ad95b666405a16e1694eca2f57b2218e926f0a243067118fc0aef4b1e8e2",
+      "public_root_sha256": "a10cf8789688e165085cb63603bd0631c3caac4d915344ebced2675b3af38c05",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:14:bid",
+      "case": "surrogate-continuation-study-v1-2p-14-bid",
+      "root_sha256": "f9e897fa40f575e92f331478d51654e18d92c4ffebc5ddbbb7e811929bad7968",
+      "public_root_sha256": "ebfa0d0908cf4f95aefbae39f3648d25064466dc4e711ab461d34bd7c2ab373f",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:14:building",
+      "case": "surrogate-continuation-study-v1-2p-14-building",
+      "root_sha256": "eba850bc593bcb36cdfaaa9c2cf532590e05bf7962266d5850f1cc30197ddca5",
+      "public_root_sha256": "497400a17314220a7d8bd61ce0d9cd31dc07454b1d851565fe96eb8016ebb2e7",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:15:plant",
+      "case": "surrogate-continuation-study-v1-2p-15-plant",
+      "root_sha256": "7adc2b10f69067268cac08f9ce3ae23fa9fa8213883b800091b99ffac2311aa3",
+      "public_root_sha256": "36368cab006f85a8c010e79c438756f2948e94813d46d5ea2d0c41730b4dcad2",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:15:bid",
+      "case": "surrogate-continuation-study-v1-2p-15-bid",
+      "root_sha256": "3602be8e5981d7e69fff18bad4863b47c3aeec2646cbe2909fcd9b3537fc8678",
+      "public_root_sha256": "8b059b5a2ba5e21e7338db7ce19a087ba0ecfcecc2e40859f7bbe7a07ebe475e",
+      "continuations": 48
+    },
+    {
+      "root_id": "2:15:building",
+      "case": "surrogate-continuation-study-v1-2p-15-building",
+      "root_sha256": "15fd68be7edfb582dea0d6eb26aa3901d392fc554472c605a2c071dabac3f33d",
+      "public_root_sha256": "9af3dea21a18ea20249ce0fd039a2c7b9d897fb876655370aafa37b3b4ec962a",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:0:plant",
+      "case": "surrogate-continuation-study-v1-3p-0-plant",
+      "root_sha256": "f4ad9922696d49f2fcc944d8795bfaa6c0d4f3f87a1ca9aa0e78e9df32b3964b",
+      "public_root_sha256": "3c2c9665a92a507b48a0f4b050a3c7a542646ae7f9c7a861f4fce34618f4f717",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:0:bid",
+      "case": "surrogate-continuation-study-v1-3p-0-bid",
+      "root_sha256": "0bddb6f1423061d175ce7b5f0f886183b36b59f1236f84b6a5f1e72317508b4d",
+      "public_root_sha256": "125c1a10ebe274e26ae55710a7c8cf09916cada28b4c99eb54db4ca86ffa4b30",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:0:building",
+      "case": "surrogate-continuation-study-v1-3p-0-building",
+      "root_sha256": "52bb24e58744102b4ad861dd26fdf1ffb0a0b9221cdb6a281f96187dbf51f37c",
+      "public_root_sha256": "40e8dc365e23448ece22a3feac18458b8a242854e88894b0dd5a3020acf2de86",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:1:plant",
+      "case": "surrogate-continuation-study-v1-3p-1-plant",
+      "root_sha256": "44d1f8572d9c588bd961caa53e823d10e164832cdb810538a0a9a5ca489271b6",
+      "public_root_sha256": "fdad2d0089869ac9dd8cf285818dccab34ea58948cfe37544f67caff8b75b989",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:1:bid",
+      "case": "surrogate-continuation-study-v1-3p-1-bid",
+      "root_sha256": "a749268bf3d8738165404a2620e6e129e143aef810ba769c43d302b8456162d7",
+      "public_root_sha256": "22cc6d2f70e3fec79fcf1c6da7e61db4df0484d07be70d00ba2977c9aac221a6",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:1:building",
+      "case": "surrogate-continuation-study-v1-3p-1-building",
+      "root_sha256": "560cb9d18beb26c88e3a1a9c3e50cfeb4bf6e3c3ad53c7e500aa633d4a8e5259",
+      "public_root_sha256": "90558de2f103d97bd35acd463bd1c959fbf1f154d47c345e942be6659ebc8284",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:2:plant",
+      "case": "surrogate-continuation-study-v1-3p-2-plant",
+      "root_sha256": "d733b84ada60394b49c21918582d61cde112daa49d907240c19aa04453fda4bd",
+      "public_root_sha256": "910c141cec7713f6403e133ba8bba1df81920ae0f41441ec8108f6fdc491f46c",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:2:bid",
+      "case": "surrogate-continuation-study-v1-3p-2-bid",
+      "root_sha256": "9c66882d86eb9c82080270a43deb5fcb941248d146bbc1bbd9f699e3f32d5db7",
+      "public_root_sha256": "2cbb18e1a0517b9f930cb8223678e681b32785c2b4b3ebd8d7b67109e324dd82",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:2:building",
+      "case": "surrogate-continuation-study-v1-3p-2-building",
+      "root_sha256": "fd92698696fbdb8b017a3432ca1d0d0d7950f3c239bd41e527a8c218f1c20717",
+      "public_root_sha256": "3ada2f6cdd297f813288ce5c8dd2af4b0b2f5c910c29f0b77f29e57a5c05eb65",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:3:plant",
+      "case": "surrogate-continuation-study-v1-3p-3-plant",
+      "root_sha256": "be65838c3cfde0c9c70fd51684ce5a688f1f5ac0423b5d6502ea10b656522e25",
+      "public_root_sha256": "795a226249a66af9d8e01ec941e8b8b00800f1f238e09e8f300903658c6918c8",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:3:bid",
+      "case": "surrogate-continuation-study-v1-3p-3-bid",
+      "root_sha256": "0806c5b8abcba1ca47c239c66ea4005d0f99ee42446c84375e54d633ca554afd",
+      "public_root_sha256": "c28f2812efbbdca73be2ab538688db945969f01ea9975e073b3008f8bd3d39a8",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:3:building",
+      "case": "surrogate-continuation-study-v1-3p-3-building",
+      "root_sha256": "3a1afe85c1110c6596e045db626ff5191c1c3a9e448b1b79ee88da68ff1acf83",
+      "public_root_sha256": "b1ab08ec452aea0d1eb6d94a80de0ef80f15962fcf39360263ab1545ac252ada",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:4:plant",
+      "case": "surrogate-continuation-study-v1-3p-4-plant",
+      "root_sha256": "659b46af085ce8d2e89f6b2a8744ac0d323a9e9238e4abacca829b569446964d",
+      "public_root_sha256": "0aa2e92316de65d430ad4a5ac221eaa988b5189a716e5b253cb5a4078936ba7f",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:4:bid",
+      "case": "surrogate-continuation-study-v1-3p-4-bid",
+      "root_sha256": "4cc5332473fe6f1796629ae0bd44c69acef6486efa177640d283ceb318820037",
+      "public_root_sha256": "2699f8adbe963306888d03738fcff6b7d09c6a003f120f690677c877050c56c6",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:4:building",
+      "case": "surrogate-continuation-study-v1-3p-4-building",
+      "root_sha256": "9c855434514508ad431176ab9bdbdb63d4743bb1d75a1a05ed78b11913142182",
+      "public_root_sha256": "680062e19581ef1b0e4c24f7202dbc8b76b36477f5981c0d787d08412552e1e2",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:5:plant",
+      "case": "surrogate-continuation-study-v1-3p-5-plant",
+      "root_sha256": "63edd610ec2df20c9a1cd597eba913d2b467bbc305bc5d2f0cfaf26fcda1a814",
+      "public_root_sha256": "df894d6e119f581c53d95d02d4fafd2c54b26450a237f9ec5b7550027b78c01b",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:5:bid",
+      "case": "surrogate-continuation-study-v1-3p-5-bid",
+      "root_sha256": "08deb2e03fdc00ba6f976af6a33359b066d4bfd92b4d15d3d32c0b3813b216b2",
+      "public_root_sha256": "b6c8ec6e8e4a4719efc970f7b1e87a8c3dd7181b38506b8136e20943c5d381cf",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:5:building",
+      "case": "surrogate-continuation-study-v1-3p-5-building",
+      "root_sha256": "36068faaeae6b4510a18bfbf58ca0472b333e2d15b500a132cc93ddc5d34253b",
+      "public_root_sha256": "58307c6f78b1c3b1a31c0059e88f9fc4b3820e468cbe4b48abbf0bae8635169d",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:6:plant",
+      "case": "surrogate-continuation-study-v1-3p-6-plant",
+      "root_sha256": "b7bbf5c397c80c9394328d4512b3b5c5c61c090c01294055aeaeb6694636cb8b",
+      "public_root_sha256": "83896df5d849f1d89161ebbcd1099f6e61174da8b0b321b78d13dc96f712bf0c",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:6:bid",
+      "case": "surrogate-continuation-study-v1-3p-6-bid",
+      "root_sha256": "3cacab41f2d5bcfec43f5500e0324ffc8b2ca6a9f8d354f2bcc1add5dec36d3a",
+      "public_root_sha256": "e05649a3bb1e934e15e35b2129c0c38c5ec848bb24c653d409e0148a67ec8738",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:6:building",
+      "case": "surrogate-continuation-study-v1-3p-6-building",
+      "root_sha256": "238c19912c1fedc7f85454f19d99b849384fa636494fa9c272e68a5e6e404ef0",
+      "public_root_sha256": "34b2ff1988de820500445153af806ae6eed60bafab8446ff400354be70f0f9e7",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:7:plant",
+      "case": "surrogate-continuation-study-v1-3p-7-plant",
+      "root_sha256": "c694ce63f4b4a1aa1f0e8f6a82e4b946e2423fee24753da4211d541f61fb2857",
+      "public_root_sha256": "79d04500dfbfc3c48020bd3b5683a55f5b17ca60e5da072107f8d990a39d2ab9",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:7:bid",
+      "case": "surrogate-continuation-study-v1-3p-7-bid",
+      "root_sha256": "4b2938088d497af6242bd11fe513d0279616b8c15c7c64ee0d8356eb485b7d00",
+      "public_root_sha256": "9ebfc39c6e85ab46d4cee181952af02eb5ee691bc55e2a05ecc746f2ee424585",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:7:building",
+      "case": "surrogate-continuation-study-v1-3p-7-building",
+      "root_sha256": "e672798bfb24722c7f377611fe139d855a57e77a473c0072bf0e2c426c897a0f",
+      "public_root_sha256": "d92bf6075027d80cd6e13fb7cece9bf20c43c28bd455c1e2755bc0b383292705",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:8:plant",
+      "case": "surrogate-continuation-study-v1-3p-8-plant",
+      "root_sha256": "7204407815c3cd448e3b0c870c3da0ab263b690f293bca7f705e2bff0af3c2f4",
+      "public_root_sha256": "ef70daf2de0adc64fcbc47acb97dbe621cf20dbdb6268daaf7d50fce3d77f968",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:8:bid",
+      "case": "surrogate-continuation-study-v1-3p-8-bid",
+      "root_sha256": "d93c13a4aff553d268a21d7d18e623dede5546f4993cbd76dcfb48eee834100c",
+      "public_root_sha256": "f1d4b4f9646a3a33f400cbcb24413c6e509597eca6a7007744df75b34ee2811a",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:8:building",
+      "case": "surrogate-continuation-study-v1-3p-8-building",
+      "root_sha256": "f0c1e533437b10b0d00a49baf87311bcdf427afc275e1c35a2e48d5c1dc74527",
+      "public_root_sha256": "29273e9e4b986ea515bd2696c6a141bc04c654594edcdad37fcb98f6adcf4650",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:9:plant",
+      "case": "surrogate-continuation-study-v1-3p-9-plant",
+      "root_sha256": "91c9ba6c3964c9c93f92e55a8ca10f84f2b917ef4e0763b97273bf13547a47e8",
+      "public_root_sha256": "9c4ab4f77d69daad37088558036c8acc82a9e1fc4f37cb0c125e40c4ed9ed931",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:9:bid",
+      "case": "surrogate-continuation-study-v1-3p-9-bid",
+      "root_sha256": "2caff60afae4c8f7e0d1bf1b31d33bd8b17543652a7a171be9b811665faa97ab",
+      "public_root_sha256": "21c1c0b77610c682f12f2b3be1f41e9d35168c451cd6a5784fc64d979e337759",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:9:building",
+      "case": "surrogate-continuation-study-v1-3p-9-building",
+      "root_sha256": "3c1ab647fcb710399816ac81c55425dd313cb119d197f8622f17e9829d00de2f",
+      "public_root_sha256": "3ae5798e58dc2f9a50181ee77b1788c0d41f91bf195f95ee2ab15f2cda359b3e",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:10:plant",
+      "case": "surrogate-continuation-study-v1-3p-10-plant",
+      "root_sha256": "819638012ce781140b14fb18c67c5f9bd9d23c5a2d894e67470b81bacf5979af",
+      "public_root_sha256": "6427d34891b0781c7d7a1fa2785dca4b806982e7267f8248d2bf67947111d0cb",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:10:bid",
+      "case": "surrogate-continuation-study-v1-3p-10-bid",
+      "root_sha256": "0a8841741b067921f67a83a995b59ff5f2d1c67f8c533763c3be6392bf7054eb",
+      "public_root_sha256": "f0ef36914435acff49c0cee8c31860dc3d402f4445d6f1f579eb7b5070077862",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:10:building",
+      "case": "surrogate-continuation-study-v1-3p-10-building",
+      "root_sha256": "04b02ac27eaf72b738ecc4f8d3282601c4463f6b70e0aaa7b679ad3883517fc2",
+      "public_root_sha256": "af8bb40042539dc07973da58bca707f0848e5268984e5916d5f4cb138a1275a3",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:11:plant",
+      "case": "surrogate-continuation-study-v1-3p-11-plant",
+      "root_sha256": "748e93db7f01bf132bb9eaf5637d4eb8ba583227a00ec60506df56052870ebb2",
+      "public_root_sha256": "3df5a2c309edb0a3f671c6e461b1ad2d002995f8a6dc23aab31244d26afd957f",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:11:bid",
+      "case": "surrogate-continuation-study-v1-3p-11-bid",
+      "root_sha256": "901974f6786abf999132e0c74467e6580f01967a4562770a767bdb55182bbe8e",
+      "public_root_sha256": "1536e2a89d402053bf5d6c397113d0134fd14cda2bf5940f0aecd6972715a9ac",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:11:building",
+      "case": "surrogate-continuation-study-v1-3p-11-building",
+      "root_sha256": "36d2fcc60395bf50a600dc7547b37b752702c17a83fed16f30e1e210d942ebb5",
+      "public_root_sha256": "f32ac99519694aea2994a74e302c2b8e6cdb224ce0d948eaa10c1620287dd4f9",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:12:plant",
+      "case": "surrogate-continuation-study-v1-3p-12-plant",
+      "root_sha256": "86cce1af07e323a91990fbb07b6548b3be2df14854b5aa1a90b9507c80fe779a",
+      "public_root_sha256": "21a3daf68f30843fab163c4cd0ee55f01ff020fb7330782dc787a1e8d33bdbab",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:12:bid",
+      "case": "surrogate-continuation-study-v1-3p-12-bid",
+      "root_sha256": "c55c14b3d6280dfae2fec599647f1b2d663a1fe80430c9f2dc410d600a2e6e11",
+      "public_root_sha256": "6d07df62096167fc202d9a8fdb3ae86f1e23c8de9eed9e4048e7f6e376f7136f",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:12:building",
+      "case": "surrogate-continuation-study-v1-3p-12-building",
+      "root_sha256": "fb148ff558a861621232ff68cb0e3b48a272ed3f30739cb92edf098fdd4468c1",
+      "public_root_sha256": "3766a582082b4630e0fa6b209d7e183ebb7f8808c485649c1b73a416c3e95227",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:13:plant",
+      "case": "surrogate-continuation-study-v1-3p-13-plant",
+      "root_sha256": "5a65b42aa41432d54072723c5a9d859dad4bdbc0d41f48d5f73177fcf358f425",
+      "public_root_sha256": "4a0835729f789bb16b297c815a62c87fa8a873776182384b53e1970da7b1a224",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:13:bid",
+      "case": "surrogate-continuation-study-v1-3p-13-bid",
+      "root_sha256": "6206d935824a5575967cacf52e4c2e4d6bab1c6cb15967ea53ea8c9cccf8cd5f",
+      "public_root_sha256": "37f85a81e7503e4547ece9c7c2a5e2b74bf2faf5e22ea269efddd1af72e92f10",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:13:building",
+      "case": "surrogate-continuation-study-v1-3p-13-building",
+      "root_sha256": "65b4494be3360e9a07f9706bf6481fbd33d31660b52de9c91625e1b65ccc7933",
+      "public_root_sha256": "abeddb20c390b8346f4a8e896ea6ecb38a6273056daaaf0eaa83feea37f2643c",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:14:plant",
+      "case": "surrogate-continuation-study-v1-3p-14-plant",
+      "root_sha256": "19a57c7f8274792f1f66e80396fff792fae6a95322a1f55495990e2628192423",
+      "public_root_sha256": "2416f397e814f9696e14d6b0ab1494ba10be5ea673620c50dd0faa46bf515c7a",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:14:bid",
+      "case": "surrogate-continuation-study-v1-3p-14-bid",
+      "root_sha256": "113d072e70a3885952fdb0c8b435d6ac825f6a323d137c02ddf6bb2218f53605",
+      "public_root_sha256": "296ff51dbaf92cacfbe30d5ec259fb12a0b545cdc4c3bc117dc2eb6e2d64c01d",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:14:building",
+      "case": "surrogate-continuation-study-v1-3p-14-building",
+      "root_sha256": "eeb4b4c2296afcd7e233df9486688f4ea203a4c9139287e820b8a8a006f817f6",
+      "public_root_sha256": "2c381ab60e0444b7739276834c57bae79d6762917eb23ced7aff4d10c1291d22",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:15:plant",
+      "case": "surrogate-continuation-study-v1-3p-15-plant",
+      "root_sha256": "f79f7c95baeab8253a97cd2388e7fed19a0f1bce1937783751cf27060b626820",
+      "public_root_sha256": "d32b1fb8b06b052ecbda4e95f944977b8af6d6dd9655db08b30c065cc0b5d298",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:15:bid",
+      "case": "surrogate-continuation-study-v1-3p-15-bid",
+      "root_sha256": "adbb70d84ee5e5ba0b309ac99b60e132b098b0f5e23ce31aee8e3bd82bedb0bb",
+      "public_root_sha256": "ebed717916ddb1cc1295173d6246acd5e66a5ec62a99427261545597aaeaf624",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:15:building",
+      "case": "surrogate-continuation-study-v1-3p-15-building",
+      "root_sha256": "8ec4b8b8b6b2affdc88ac657c4a9b9c1c6f7e780c93c9310449218e634e17fa5",
+      "public_root_sha256": "8f67556ec2238d557e895e7bc6eb387786f0d9d140e97a078a24c853acf5ac60",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:16:plant",
+      "case": "surrogate-continuation-study-v1-3p-16-plant",
+      "root_sha256": "df9ea11dac60b6eaf8b8a459941d0006c903d0d27259d7f0ffce11d652e8f147",
+      "public_root_sha256": "89503eec94303f0ad2aa070be2e020e2cea4ecb9ed63bdc9ab465848964323a2",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:16:bid",
+      "case": "surrogate-continuation-study-v1-3p-16-bid",
+      "root_sha256": "d20170b092487143896dd3a0f8c62e6ea72d25d28e9bee934731860dd5f321d9",
+      "public_root_sha256": "eab2999042d5d7e4b2b853a87b977fc8790f8eb42be86f0024f6d20a03cd817f",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:16:building",
+      "case": "surrogate-continuation-study-v1-3p-16-building",
+      "root_sha256": "9aa29dfc395f38620bff8f3cb1370d970a764d3350283b63df39435a6705d0e5",
+      "public_root_sha256": "c30b36b6eed949c6812767f8d36b2a17d4b5cb33045f27b6d4f2133b4c19c6d5",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:17:plant",
+      "case": "surrogate-continuation-study-v1-3p-17-plant",
+      "root_sha256": "4f46c7430f0d4391200502e2e8bfffeaab1fa2ebaac3d92d5192b5b2a3d1df65",
+      "public_root_sha256": "bcac0d22c8bddbe966bd35980e0b308d139a0b5541acb2e112a765d896a3c258",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:17:bid",
+      "case": "surrogate-continuation-study-v1-3p-17-bid",
+      "root_sha256": "4d211f130d2cd123a8e60245a15ea075b95e2fb04c6772569ebb334fccf29822",
+      "public_root_sha256": "6fef3963437a6507c41fc6f3a0f36b932effcc11dd97febce7e0ce937c5c489a",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:17:building",
+      "case": "surrogate-continuation-study-v1-3p-17-building",
+      "root_sha256": "3b56a9707ed96719fa116c83ef5def4eab7dc6d4e8812734157a7e6ce2ea5407",
+      "public_root_sha256": "81e4a173de5714813d1bbab0736bb25bc2dabd06dd0242cb5f7bd4aa785397c0",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:18:plant",
+      "case": "surrogate-continuation-study-v1-3p-18-plant",
+      "root_sha256": "eda0205e037f06f6ddc845bc5cf500c92edc7be8817e1640d7ccc1b408d62d10",
+      "public_root_sha256": "abc40b1408d8c6a4778eb3d1e528ec603e700a63cd36cdecacff93e07e015c21",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:18:bid",
+      "case": "surrogate-continuation-study-v1-3p-18-bid",
+      "root_sha256": "a5344670a62bc6fa9bf9a0d82ea16e058bfc0b19884462b2648014b82b8c5ea0",
+      "public_root_sha256": "1822cdc46b60f6ec63cc2888e241ec11fb5196bd2163fc5817cc4ca8df877c6b",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:18:building",
+      "case": "surrogate-continuation-study-v1-3p-18-building",
+      "root_sha256": "03a05ba8b0ddf2d4975a11fa6ba0b652230dbc1458d349b99f8993d5642ece0d",
+      "public_root_sha256": "04130419170151a195237dd4fdd27dead27a7224c67f528ed7455a1d6d70e7ab",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:19:plant",
+      "case": "surrogate-continuation-study-v1-3p-19-plant",
+      "root_sha256": "bfdb16b88b9206b65f37f9df177e2f0c4c236920ab7d14c3f74c27134d58505d",
+      "public_root_sha256": "ead8c2c6aacd50ca63910eded9913657bc56cb4b9bbba0cdd6015225bdcf5130",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:19:bid",
+      "case": "surrogate-continuation-study-v1-3p-19-bid",
+      "root_sha256": "a66a43a9a09735703acfbc30d1f1757b2f23ec8ba25de3f46442913070d4dc1f",
+      "public_root_sha256": "29ed16fed1ff45e9159bd41498fdf922b53bb41d026ce8355a664164b11cf05c",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:19:building",
+      "case": "surrogate-continuation-study-v1-3p-19-building",
+      "root_sha256": "56a86ee6318bef8ecfc3d84e460681a1870582b5d11dee9b73daafe9979cf2a9",
+      "public_root_sha256": "7e50665a5cb08f117330e55cf1b66af102f3b0c489b46b8a60773dc09ba0c78a",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:20:plant",
+      "case": "surrogate-continuation-study-v1-3p-20-plant",
+      "root_sha256": "e88f4d93d136112c48a010a8099b7c0d80844744e742c9328ec27aa035b875b6",
+      "public_root_sha256": "de2cdb1ecfeaa87c01d5e63e66b04019eea54f7e991956b0312d6a91c823bc81",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:20:bid",
+      "case": "surrogate-continuation-study-v1-3p-20-bid",
+      "root_sha256": "6408a56aeae1e9c18374202dcf215ca75425aa419fe5d3f165932a7b36a91fb7",
+      "public_root_sha256": "c67547aa76a5229f871dbaa5c0b8e54a96eaa36c8cd54ca45a8df2632dfc3b85",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:20:building",
+      "case": "surrogate-continuation-study-v1-3p-20-building",
+      "root_sha256": "ec39ac4eee8c97d6645ff6de130391f26b504e29acb67a9479bd2f56f065cd28",
+      "public_root_sha256": "8da1f96ddd38a9750bf366024e4a7c969c6f0bd1e6258ae3a3d4ceedc833d456",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:21:plant",
+      "case": "surrogate-continuation-study-v1-3p-21-plant",
+      "root_sha256": "4eca133c5c377fe739d03a47d974ae64a2860a08e8a25edb1a793a9047a8ac2e",
+      "public_root_sha256": "428913b218b41ded0468bcb91622ba02a05a7b07f023e1990717da763fd198ff",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:21:bid",
+      "case": "surrogate-continuation-study-v1-3p-21-bid",
+      "root_sha256": "658d18832dc29b0710a6aae28ccf8aff8e1b966f6188312f18db67ca131ae97a",
+      "public_root_sha256": "76e79c8a0acf3eb757ea517d927e8651d6815d69733d5cf88e9bc5be47449c87",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:21:building",
+      "case": "surrogate-continuation-study-v1-3p-21-building",
+      "root_sha256": "3d481ced6571404f7bc2f6b27f28185573e0c8258389d308fa58b1ca5607ed8d",
+      "public_root_sha256": "cb2b358eecbef7a99c1b70d719a845130bd485cd0f54e787299edfcf290ec543",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:22:plant",
+      "case": "surrogate-continuation-study-v1-3p-22-plant",
+      "root_sha256": "4751742b5099517ad943a71a2e1e020f44b02f45be5e39d6d3ee7daddd5110e2",
+      "public_root_sha256": "3089c7e791fabb2f7eee6adcbf7273395585e77a24dbb1fbc804f6b4137faa89",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:22:bid",
+      "case": "surrogate-continuation-study-v1-3p-22-bid",
+      "root_sha256": "d8025cb69b6c06c794445ed3074fe78508c50ee7a9bddaa9cd34a41a033684a3",
+      "public_root_sha256": "2ab3445bd90cf66b2e794c396defaddf0ef5ffec55ee326394fcaa83537c05af",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:22:building",
+      "case": "surrogate-continuation-study-v1-3p-22-building",
+      "root_sha256": "0cc0abf4f11d839de162aa285b5853de333f175103b9e6116f74bbffdd1d10ef",
+      "public_root_sha256": "2ae00276fe0e12eecd1e420b370d419a0649dd462e2df18aefe152f08e01d879",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:23:plant",
+      "case": "surrogate-continuation-study-v1-3p-23-plant",
+      "root_sha256": "f6b9d1e01434be80de470d95202af7dfee106b86151d1186e66a061dc01a73ad",
+      "public_root_sha256": "6c97b6a65de23dc75e3145dc13c5ca43d04f2da75ad8cba227ec9dff34052099",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:23:bid",
+      "case": "surrogate-continuation-study-v1-3p-23-bid",
+      "root_sha256": "8733273ba63e7835ea5718491530216feb758581fe57b3ec37c1714eda655fe4",
+      "public_root_sha256": "260eacb4bcc79d4a3789ed94688acdefe264a3af0cc6ef9c62ae2f1fe172467d",
+      "continuations": 48
+    },
+    {
+      "root_id": "3:23:building",
+      "case": "surrogate-continuation-study-v1-3p-23-building",
+      "root_sha256": "cb058be3551a55d35992542b4ac4d41021fadf1d1fdbd4ab8715fd401f98e615",
+      "public_root_sha256": "211ffe0d047db2fd5c22a8b2fd2c3266098b5887ea42e06b4c6d6a0d1eaf0529",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:0:plant",
+      "case": "surrogate-continuation-study-v1-4p-0-plant",
+      "root_sha256": "86bb17416a41678038f559f796b1aeecd41d9f7bc73bfb3ee17594a1b6b133f3",
+      "public_root_sha256": "8e8cb9e268a50e2f43d5857c8fa98ce4be7b61c2f9f377752fee2a25a321004b",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:0:bid",
+      "case": "surrogate-continuation-study-v1-4p-0-bid",
+      "root_sha256": "e10a103a81d89b6d8e7d63f773922e57b2a0b8b82c2669b73537af5692392e23",
+      "public_root_sha256": "58c36b01087b079ce43be2635a468a8387cab13e27ad4cf7786f60eb7613a6e4",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:0:building",
+      "case": "surrogate-continuation-study-v1-4p-0-building",
+      "root_sha256": "bca7d773ee82db14b1ee428e78e777e614d3a9b73b6bdeec2d7dd1ebdab1acde",
+      "public_root_sha256": "027f1820c686421f432217134f77c8ba5551690ddd9069c972fc7b03a7178ccb",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:1:plant",
+      "case": "surrogate-continuation-study-v1-4p-1-plant",
+      "root_sha256": "185dd7860b8776095a1fa9e94647429942ae475e9c11cc0c9d991c5f27ecfd74",
+      "public_root_sha256": "2aa5db7472877f5e8877e83bd15a309c28b4075998c42ef4822f478a50889eff",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:1:bid",
+      "case": "surrogate-continuation-study-v1-4p-1-bid",
+      "root_sha256": "402853b191a12661232bcac2497777fb1bc4dc404af4d450920a17b4dd7d608f",
+      "public_root_sha256": "d6b9818e17609a90640a5c1e845b1dba607b6ea9443fae0350469e765d5c602a",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:1:building",
+      "case": "surrogate-continuation-study-v1-4p-1-building",
+      "root_sha256": "9fcb9d716337e7b96b6ea51b86dd55e8737a2ce04c2301c76536535b032f8941",
+      "public_root_sha256": "ea729f4f6bf17d269467f5cb52bfd6e144bdc6bc738995a648bad4277ea3a324",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:2:plant",
+      "case": "surrogate-continuation-study-v1-4p-2-plant",
+      "root_sha256": "10b9142c9a37db615efd7530b328c65a9f91409c364844fa5ea8412ec73b0242",
+      "public_root_sha256": "9e5f75e09cda9e113e9dec251f0ae955bdadf5c1d3fd61d76d2c594fa283b8dd",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:2:bid",
+      "case": "surrogate-continuation-study-v1-4p-2-bid",
+      "root_sha256": "16dfaec327e7d654a0f14d146d0f3551f00f1f59565270ba8f49b0813d9dc16d",
+      "public_root_sha256": "6de763d72f6412a85e6c2bfb3e909649044eae1f9151f5a9c774ce7f5cab0690",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:2:building",
+      "case": "surrogate-continuation-study-v1-4p-2-building",
+      "root_sha256": "b17b9bca673c4e36ab560608919f8c1a136e68311019bd99be010a4e6f69725f",
+      "public_root_sha256": "9fbd2d75205b0c1b66a8d20e797978111c6a938c8a9ba2a8833629c350e28db3",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:3:plant",
+      "case": "surrogate-continuation-study-v1-4p-3-plant",
+      "root_sha256": "e933292888e6dda8c9bb42c2d2eda75c92647c36854882f1c1a06659db8ca3e8",
+      "public_root_sha256": "664ade6a92c8eadaf1b6ef4aab492446b2d33e213da120ff4232ecfe508e5ac0",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:3:bid",
+      "case": "surrogate-continuation-study-v1-4p-3-bid",
+      "root_sha256": "7c5edbb772c12effd1f6f729fb5b2ad1cb5ba7186d324c7bc9f3d2b4913af42f",
+      "public_root_sha256": "ceae31f794a26a778ee8162e3003d2b5376e32acbab41dbde8931a26071d9cae",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:3:building",
+      "case": "surrogate-continuation-study-v1-4p-3-building",
+      "root_sha256": "260fd325c4bff8fadd6b6dba6d0e9fa1460babe610a1dd1c6ea56af34d30bb85",
+      "public_root_sha256": "860a21859cb16b04d7882d67fdea4fdd0c3f81bf91ea03a841ca04217b6847c6",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:4:plant",
+      "case": "surrogate-continuation-study-v1-4p-4-plant",
+      "root_sha256": "6db7f1700aeb02a3caa23e0ac4aca48f51905ba28159a9528a4368016d2c0f7c",
+      "public_root_sha256": "a0f94ed2e55e3adf290bba38f243f279619aa6836a5c281aedeba97a376e136b",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:4:bid",
+      "case": "surrogate-continuation-study-v1-4p-4-bid",
+      "root_sha256": "8270f6164013a4ba556933c67fad43b83d727899bd4f66c0cca0e4ee00078718",
+      "public_root_sha256": "9334419ffc87d5af8b917719e04df49fa3ff770908a1de6f403ec3c3c4253899",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:4:building",
+      "case": "surrogate-continuation-study-v1-4p-4-building",
+      "root_sha256": "104026ad22cce0e813ff3057aa6b0c75d2e497588f8086698a342b2c9158cf66",
+      "public_root_sha256": "779a3ad6dc9322ebcd28a073b498343ef9ab54cf8089c5ea45229cb31147556a",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:5:plant",
+      "case": "surrogate-continuation-study-v1-4p-5-plant",
+      "root_sha256": "8ab58fda52c754c3b7d4afd53564cfed004a1fc7cca849a04891082d2e3d8ddb",
+      "public_root_sha256": "52fc59dc02eea1d34579edc0d1594185e011564f16d0bd1cd562d19c7a2c83d3",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:5:bid",
+      "case": "surrogate-continuation-study-v1-4p-5-bid",
+      "root_sha256": "deaa48c03305f4157f610455c39d6e426ac3c6d05228826fd54869fc6571f45e",
+      "public_root_sha256": "d8df52156de5df45ad2e2ed906f80be9157fb64b3de0e20567f19a34103b6bac",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:5:building",
+      "case": "surrogate-continuation-study-v1-4p-5-building",
+      "root_sha256": "ff439632bcd28da674efcbe0e2a1ce3476366f11096b942e986edb869261f599",
+      "public_root_sha256": "3a0481af4b26ad6266248fb1b4e0165fe0756632c89506a4076073b744abf5eb",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:6:plant",
+      "case": "surrogate-continuation-study-v1-4p-6-plant",
+      "root_sha256": "8779e79c5c0d5edefdb59c504346c46577cf96f30e6de66620e19f4e8367a0b0",
+      "public_root_sha256": "478d1c5f9777eed3174e36369e20c30886f5fbe9c8aa4bb087d57fb6e59e6024",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:6:bid",
+      "case": "surrogate-continuation-study-v1-4p-6-bid",
+      "root_sha256": "ec29d66484add09dbd2769ade155e3213a4fa1dde0a32c4096c2dae05a366b6c",
+      "public_root_sha256": "3ef24264a72d9997ea5a0bf65997e487bff1048b14e04e0edf86db88a0b4e026",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:6:building",
+      "case": "surrogate-continuation-study-v1-4p-6-building",
+      "root_sha256": "4c4eb6a65912785a056ec665c5baedd3fa53e9303029d436808702e021c47a6c",
+      "public_root_sha256": "8583b9be5b938d532bbe3666bcf932d7849061f909bb220685ca26afcb9da973",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:7:plant",
+      "case": "surrogate-continuation-study-v1-4p-7-plant",
+      "root_sha256": "321cd13d59ad2b027710bba8a1c4d29a0826d70d631e5ca0f2343c3f84780ad0",
+      "public_root_sha256": "685d588eb265d56bf80f919f8cc9a25f91fb955e784cbaa3d09154d2880d46b7",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:7:bid",
+      "case": "surrogate-continuation-study-v1-4p-7-bid",
+      "root_sha256": "04df542c1a5ec73906ae3b86c6a4177316fd46eba3b968fc7bf593946ea641e2",
+      "public_root_sha256": "dbed9681a1f0c9d57c11af4c7bb5f7c05a8312b5ef31bdc20b297c3ffeb539c2",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:7:building",
+      "case": "surrogate-continuation-study-v1-4p-7-building",
+      "root_sha256": "b62d61b04a86daca81bbcb92de534dbfce4d2131123d8e81fbd1fa4c7f3dc00a",
+      "public_root_sha256": "b635797a280c5b68be8d202f40b1d6da33f71f74160c7a3bc3b698af00222d60",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:8:plant",
+      "case": "surrogate-continuation-study-v1-4p-8-plant",
+      "root_sha256": "fbed43db10efa967963bd3c552aa0e520b829855ed38670f5ddb9ce2d821cdf9",
+      "public_root_sha256": "a02b0fdd71be3230afa8d1d1ee654f4723947d116674365fdbcf66ceed52c56b",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:8:bid",
+      "case": "surrogate-continuation-study-v1-4p-8-bid",
+      "root_sha256": "5ca839aa47f76c67a7f5ae88351c569154f05214b406179dab3c8afa8623f360",
+      "public_root_sha256": "6effb9e721231bfe63f718ca0c143b4b06c546f9a36fabcda3c26e8ddaba5eaa",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:8:building",
+      "case": "surrogate-continuation-study-v1-4p-8-building",
+      "root_sha256": "a4ad21a6693288f1254c98112d1e7e43f40ada4d2e83901e06b5f4c640ae722e",
+      "public_root_sha256": "10543336f570f73f8060fa3953645f899ec9d59e504f3dfd69a8c17d862547b8",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:9:plant",
+      "case": "surrogate-continuation-study-v1-4p-9-plant",
+      "root_sha256": "751fb9d63b3d3e86dd8e00808c07db986d3fc6ea8948fd91b776c40117a55489",
+      "public_root_sha256": "2ad360f41f2fa3a3a9b246444294acf6d14ac1aca24b56a65151e652f7b8e4d4",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:9:bid",
+      "case": "surrogate-continuation-study-v1-4p-9-bid",
+      "root_sha256": "b0711ae943f41a66230c95ddc09f72d84084e6dc7acf8a55ad8f92d5edf0e590",
+      "public_root_sha256": "d2f64ee8c6fb8c39e7c165f45d1d2d5b116f3c8f8690048fd97c07607815fe00",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:9:building",
+      "case": "surrogate-continuation-study-v1-4p-9-building",
+      "root_sha256": "7e338d0e4224c4d470cc6c6e2ff302978b6cfad49bc075a83fc3f51e8a760382",
+      "public_root_sha256": "f5b0215af5bff248e70d3b9a68836ba293006c7f3402fb54b03a75f971ca6421",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:10:plant",
+      "case": "surrogate-continuation-study-v1-4p-10-plant",
+      "root_sha256": "a95844da9559205b34c8897b5ccc2712e5f08f1fd76314e861c477307ee848dd",
+      "public_root_sha256": "9beb067d6c6542b4cbc2c4ddce3c6e310ca3a8c5682fee1d29923ba2901786ea",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:10:bid",
+      "case": "surrogate-continuation-study-v1-4p-10-bid",
+      "root_sha256": "38e8e0976f45a761d3c6ebad9f4428e4361605d9457bc1b316e9ae701ae34b35",
+      "public_root_sha256": "3f8b4f18f0a8afd3d176b9929d4819b65a159377206fb4a68a9eefab5c0f3cdf",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:10:building",
+      "case": "surrogate-continuation-study-v1-4p-10-building",
+      "root_sha256": "95fecd8e21571a269615442064074577bd308b8670ac716177097f8fa174bd76",
+      "public_root_sha256": "361a111a6723293929b1c43a45150c010a5b6e1539b152124ab58c79572657b8",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:11:plant",
+      "case": "surrogate-continuation-study-v1-4p-11-plant",
+      "root_sha256": "ea41551cab2d98ebd916a010587a7cb3c1202ba9e07fb42828745b050c179c7d",
+      "public_root_sha256": "8b8997c2cfd7d1aaa74d6fe3c32c7f08c46ba132996a4ea4849bebb864cd488d",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:11:bid",
+      "case": "surrogate-continuation-study-v1-4p-11-bid",
+      "root_sha256": "e791f2f660ebf46e4ff9341f1a3bb5ae9f7b142dc34b94cb1bac6a4bee08c3a9",
+      "public_root_sha256": "9517980bc0e3f2e9a9a7f9b3b1176ff344f7fce5cb36d2654cfcaefd6cba5186",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:11:building",
+      "case": "surrogate-continuation-study-v1-4p-11-building",
+      "root_sha256": "c9d9ecc34a34b3cf2c3dbdf537717bb0bdb604cf00be937a1d87502683aa9053",
+      "public_root_sha256": "cdb01e920af82f6d029b7184b89f5fb0ff0db09f1260a3b51a74353cb899abfd",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:12:plant",
+      "case": "surrogate-continuation-study-v1-4p-12-plant",
+      "root_sha256": "90916f8062492ed5c78f8f136f6a66a6bf063ccccbfdb9d2cc295e0f16800ed5",
+      "public_root_sha256": "5c03c759a26d1d1292d9c27af3b0cb9b91c59d64f1ab6abfe3b35901655f4ad2",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:12:bid",
+      "case": "surrogate-continuation-study-v1-4p-12-bid",
+      "root_sha256": "d0ab56d1a18ed654dc93ab7cfd893e988965ae08acb4a29d7527eeb7e4c89891",
+      "public_root_sha256": "29e97ece93ffec2c39e79dc0f3602212da06b7ef40b68306de816a95eec37bfb",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:12:building",
+      "case": "surrogate-continuation-study-v1-4p-12-building",
+      "root_sha256": "2404495243dd77b006ae493742b5d4794ecfc3dd9a098eaa0b3ccf1d13072672",
+      "public_root_sha256": "b1c2f490885a253e8dd97d67e45c0d54f995ac53caa707531d6fe6d1f92f1280",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:13:plant",
+      "case": "surrogate-continuation-study-v1-4p-13-plant",
+      "root_sha256": "3a2c5c0b2ab31bc43a24797700e49bcd2f8b938e31a7dd6ed9844a752aca40a6",
+      "public_root_sha256": "605f6920dd0a8e69f917078c5ccf6a397d782f72759d4a5e843fd235e7702df1",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:13:bid",
+      "case": "surrogate-continuation-study-v1-4p-13-bid",
+      "root_sha256": "e0c3ae9f302e423b52c2bc5b4616638bb1e1cdbe3366e9eecbbd0962263fe9ac",
+      "public_root_sha256": "4cd0d8a2639065c8f50e81eaf9c1926c8fdacc48586d880bf34dfe4fb68b3cfa",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:13:building",
+      "case": "surrogate-continuation-study-v1-4p-13-building",
+      "root_sha256": "bea7fe0d2c1eb6162df2d474f8e2365e7d383f7e25c8a7cf1a13896513e4b15a",
+      "public_root_sha256": "ed5a07b26382e6599ec22692f9e2d28edf0f9e1a312d51b45ee7dbf025cd33fc",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:14:plant",
+      "case": "surrogate-continuation-study-v1-4p-14-plant",
+      "root_sha256": "9714f101d69cab71e0cb3fed663eeb50fb998db6959775cb6b3da5721f4241d3",
+      "public_root_sha256": "90bcac7916d997b23cb16f143ec6a2811d999673c99f25a7ae36d11a38224b4e",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:14:bid",
+      "case": "surrogate-continuation-study-v1-4p-14-bid",
+      "root_sha256": "4c737848e245f386616bd8c6ee976eaa38926060a46e1a36fd136265a17fd135",
+      "public_root_sha256": "0322a8c92eedfbb1a0906f0f2bfd16208e5a6484669b65ad6370ce047da3bac1",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:14:building",
+      "case": "surrogate-continuation-study-v1-4p-14-building",
+      "root_sha256": "12ad6da667eb7f9e0ee359c15185427ed4e13dcc44b99b0cc47a35a97e537865",
+      "public_root_sha256": "97f8e323435477a5b6b45702033822f535a8e057aed16d8f3ac77250a3cc7247",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:15:plant",
+      "case": "surrogate-continuation-study-v1-4p-15-plant",
+      "root_sha256": "49cf45cbc2bf60e4495b99ab2c7398b8c75f95676e82dc09fc50913b97988358",
+      "public_root_sha256": "3fddbc4290dac8c26f8115f69859083408d62694c0197d2ea7a496c648dd8951",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:15:bid",
+      "case": "surrogate-continuation-study-v1-4p-15-bid",
+      "root_sha256": "c482f8f9b9e9db47b50411ac275adaaf7f7a5dd4ad42377f901cf88b6d6b3c3d",
+      "public_root_sha256": "93b7a01127f59ddef09af5b87998ad09c62a14c423284990695904b922742494",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:15:building",
+      "case": "surrogate-continuation-study-v1-4p-15-building",
+      "root_sha256": "762d9bab0d596687c64934a3f744f0df42aeedc989852f45a494c8073f184338",
+      "public_root_sha256": "c16f9de1d1459e0317393f75deec0bdf160fd71f3a361fb099f22c69cdd60bd1",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:16:plant",
+      "case": "surrogate-continuation-study-v1-4p-16-plant",
+      "root_sha256": "f4447b5ea28e86e110375bbb18365b257d11ebffb730b4846dea52c52bb6cf14",
+      "public_root_sha256": "812f81628b4d49a0f05085f2ede9941e4566828d5d2cacde9a1afd49dd8c11de",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:16:bid",
+      "case": "surrogate-continuation-study-v1-4p-16-bid",
+      "root_sha256": "88083a95ed72e15b0c5507ff7e37fa4c06e7745009fbfaf79be40fad7fa6b68b",
+      "public_root_sha256": "152248a571bbe77397437b18334a8b07a059574898201ad5f6440a4544c5022d",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:16:building",
+      "case": "surrogate-continuation-study-v1-4p-16-building",
+      "root_sha256": "3b3210e3067a3284acb0feda20a95288f43a44ddc6b0e6ecc6dc414197996469",
+      "public_root_sha256": "dd7da643b6aec03155bf4bdb5fad795ed8dbeeb7df91797a89ea7b529f8e1877",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:17:plant",
+      "case": "surrogate-continuation-study-v1-4p-17-plant",
+      "root_sha256": "8e089c4a2a38f2faa19fde4ef19e791b714f554f7d310800c2c7700e8e5184c4",
+      "public_root_sha256": "ff80fb8bd367da63e1c02a105941f29f08a63ca4e5340353ee0cded240dfe897",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:17:bid",
+      "case": "surrogate-continuation-study-v1-4p-17-bid",
+      "root_sha256": "ce73c897d11923925be533a114b0251c99155456bf963562427b009274672866",
+      "public_root_sha256": "9f5ecc5d7471dfeebd074eac6911500677e6559a92fd32a2f3c7541f54eb5652",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:17:building",
+      "case": "surrogate-continuation-study-v1-4p-17-building",
+      "root_sha256": "71a4ab692425007666fc26e90ef93670fd7435d92bbbf71a1b35d04598a1a89c",
+      "public_root_sha256": "c6e0d7ce5a23080b9698920c855cc90c6d9ce1c5145f2a1323947220f63c4495",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:18:plant",
+      "case": "surrogate-continuation-study-v1-4p-18-plant",
+      "root_sha256": "2db5b3e9baeea91f1bf20dcbc44b270fa41270797029c27ddd0845a7bde24f4c",
+      "public_root_sha256": "4a72d5c3ac6dd6c47d75064f9e0ad157a7ce335bb73f4abb1bd905b5405bbbbd",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:18:bid",
+      "case": "surrogate-continuation-study-v1-4p-18-bid",
+      "root_sha256": "1534d8293ae971c35811ff7e656ec3f3abd05c225698a0599e51b421b064f468",
+      "public_root_sha256": "bc85f38dc723cbfdd3721a40376993f580546193c837f118fcfdccc60cc56b81",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:18:building",
+      "case": "surrogate-continuation-study-v1-4p-18-building",
+      "root_sha256": "2faf5cae88ccf43e6fd36867bffc112d1fe3337282ee750953812bf3c6c85f2b",
+      "public_root_sha256": "ca4478d23b2c6f6784b4dec14572057a25d53c4d1683af591a7b557c0ed88593",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:19:plant",
+      "case": "surrogate-continuation-study-v1-4p-19-plant",
+      "root_sha256": "8cf685a0664d902930b59845c0fce5f79bab709403f4a9b23f77912e48a0418a",
+      "public_root_sha256": "917b5d9204472202792dd4a6562f08111ef293a997428161802bc872e7080d56",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:19:bid",
+      "case": "surrogate-continuation-study-v1-4p-19-bid",
+      "root_sha256": "3fe3410eb607dbc35b893352d1e4f36bb3f087b5c47653753f710e73c80b7fee",
+      "public_root_sha256": "9f8ef211ed0220304f27b125a5136ac28cf05a90ceeef51cb131f9eb7bc253c0",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:19:building",
+      "case": "surrogate-continuation-study-v1-4p-19-building",
+      "root_sha256": "8d426e029bfa57b1ef25e22d95dde06693f262e1169244a2b5ef038526ecfdd8",
+      "public_root_sha256": "81cdf8b4fc91e96c8251e2240ed63b54638f68e71f15513a13086f0dc558ddab",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:20:plant",
+      "case": "surrogate-continuation-study-v1-4p-20-plant",
+      "root_sha256": "3468ccee3a186591d85a87df93cad9d6b95a9df5e00b9e57f28607787c426b3a",
+      "public_root_sha256": "5cd2b036b70862a7c4419e914351f4bb90233d6b617e3949209b4a273aead864",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:20:bid",
+      "case": "surrogate-continuation-study-v1-4p-20-bid",
+      "root_sha256": "1910c309be83ec503951e8610465029844ce6f44ddc62d11f94ee30f6b5c7a64",
+      "public_root_sha256": "e67574234456f24422fdd4491b6811d02b899f7293d8ae7b4daebaf8714f8ab5",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:20:building",
+      "case": "surrogate-continuation-study-v1-4p-20-building",
+      "root_sha256": "d79e19cdb0d8a1da8a0c487c93506a8f59ac50b8ec8d68b9f9f5b1098ba07074",
+      "public_root_sha256": "d626416660a33c6201b8570883cc2ecc6ca0c3a305c01f25b3b89a6c3763a8d1",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:21:plant",
+      "case": "surrogate-continuation-study-v1-4p-21-plant",
+      "root_sha256": "e64954b96c5c90564e00a28189d3f979f3b48f761be07a7b747714d280f177b2",
+      "public_root_sha256": "30c590008011a0fb9330d19d6c589c585a34e94ff707c543bf24b7e7df73d07b",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:21:bid",
+      "case": "surrogate-continuation-study-v1-4p-21-bid",
+      "root_sha256": "b1bd55d7a2f41191262ed45df2496ad71ff2e38c7e3efdc6d6a38601c7eeb72a",
+      "public_root_sha256": "0433caed938d6e06e9e1b0466131e086c1e884564f766aaa968f62dd2894221c",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:21:building",
+      "case": "surrogate-continuation-study-v1-4p-21-building",
+      "root_sha256": "04e4b7b1933c91adbfe1f651a2555fbd0faa29ef5839dfb48d78ae1f283e82e1",
+      "public_root_sha256": "1646c09c4c6b1daeb092e5b4f3212b8ddc9c05e2093f98c61ec3a13f9885aff0",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:22:plant",
+      "case": "surrogate-continuation-study-v1-4p-22-plant",
+      "root_sha256": "c7ce6889e006f861db97b5a1a20845bd99c33952abba5eb98dbf29b2f7080f16",
+      "public_root_sha256": "84608371d5d1499c39c3f95acdcba28fec959c62cda8fe9de9218fa301bbcfbf",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:22:bid",
+      "case": "surrogate-continuation-study-v1-4p-22-bid",
+      "root_sha256": "351705775b6d0f02fe7bb2be42a5865775f207f0014db6a8d938f4d0e3ac2b82",
+      "public_root_sha256": "feb30fdaf897310a4d2072dc79177605fa206ebed825731397726263d0f1dec9",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:22:building",
+      "case": "surrogate-continuation-study-v1-4p-22-building",
+      "root_sha256": "60b1d1d18b6d5254859a00aeacf7b2bd03e79dfcdd335022adbaa9928d8eacfd",
+      "public_root_sha256": "03af46f3a14c3775920eee3cf9367c8e21e10a0fcc6613c3692b33631605bac3",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:23:plant",
+      "case": "surrogate-continuation-study-v1-4p-23-plant",
+      "root_sha256": "620a2f3e8c13e86240cb5988c9a87be9c3b832dd3196eba3255a511d39cab148",
+      "public_root_sha256": "48a5c566d88480ff2a69ce3e68e5595af4fd5087532cca42c6fa24e5f2f8ea83",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:23:bid",
+      "case": "surrogate-continuation-study-v1-4p-23-bid",
+      "root_sha256": "18aa98a82a401a52a9fec3157af6f8b2597204283a853559eddd455d2958cb6d",
+      "public_root_sha256": "57b120e5614617ab2639ae4a481d0a7b06368d67e78730a74c24a6011c3ac4e4",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:23:building",
+      "case": "surrogate-continuation-study-v1-4p-23-building",
+      "root_sha256": "10acc6703c13b5859a8a30ef8dd0bbd042d04dde595b533833c0d2df7538207c",
+      "public_root_sha256": "a9452583d7b1e4e8e7b45d74ce0c61f41b78de65c86dad68c92ddf69f414f432",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:24:plant",
+      "case": "surrogate-continuation-study-v1-4p-24-plant",
+      "root_sha256": "d865bc9fc1151202111da86799fd8bb21b573e227be7a1d0a6cf5cf3b925cebf",
+      "public_root_sha256": "aa6b10945aeea4cb954cb70e2e762f884e5982b41146c2813dd4be48953d7b24",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:24:bid",
+      "case": "surrogate-continuation-study-v1-4p-24-bid",
+      "root_sha256": "2b0b8defc48dae1283f62dfdb076dca698cd362ae9439f5181b09dba27d9ed25",
+      "public_root_sha256": "a17f7f4c11bccc2b469ed0009b5934a25514be042b7f10b307dc06c304343843",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:24:building",
+      "case": "surrogate-continuation-study-v1-4p-24-building",
+      "root_sha256": "cb39e2440a09eaa31370e144455e735ed969acb51c99779ccb0c3e2c92fdc6b0",
+      "public_root_sha256": "cf0731cd1701fb2e2f26488070b75786e23122b623aef0b4c1d2d97577daa308",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:25:plant",
+      "case": "surrogate-continuation-study-v1-4p-25-plant",
+      "root_sha256": "f8937462534bf91a3bd26a08670b5ba191021139120d4cc5e817f2e931c99b3c",
+      "public_root_sha256": "85fbd349810352286b3e8415c1472d7410737f6edb1e456775747d09bf1ded7d",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:25:bid",
+      "case": "surrogate-continuation-study-v1-4p-25-bid",
+      "root_sha256": "27ed2d12637dff4313eed5854e980cab5d7a3bb37023e8bb07e9ca7ec161c717",
+      "public_root_sha256": "ac2f58e3818e5c25c5c4321cf58fd7773c685c1381f0e59b9fccefe847701412",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:25:building",
+      "case": "surrogate-continuation-study-v1-4p-25-building",
+      "root_sha256": "e92594a4c83e93e213435b14b8cee51b9b109bbb41d51297f85677566d6dbf05",
+      "public_root_sha256": "41f877d261b82a805e81ae92bd4fae13a7d2183fef626c2b3c6d845a71c12545",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:26:plant",
+      "case": "surrogate-continuation-study-v1-4p-26-plant",
+      "root_sha256": "d00a0a864c85bdb284d34593b865d1e62b3c0f2b52c80f5a5db6e094d374d175",
+      "public_root_sha256": "912c41b9f47671a4c4146bfe5cb253515cfa1a3eb09bff05a301dd4363af66c6",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:26:bid",
+      "case": "surrogate-continuation-study-v1-4p-26-bid",
+      "root_sha256": "46ee96d23ad9dad60bf1340be0f2b9af2d445b3f1c4aab2733d0ced0292d92ee",
+      "public_root_sha256": "634f02fde25b29072bd5984c5b8afa8877bcf561f80d81043923699cd19a3955",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:26:building",
+      "case": "surrogate-continuation-study-v1-4p-26-building",
+      "root_sha256": "cba515a861c6bbbda1e9e872af99d0a8e9343202c2e80c58ea840924df2bf577",
+      "public_root_sha256": "1bd0716bf237e2e6dd42d51995d7c68ed0d41bdbc5fed11ddf801b8f8b90320f",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:27:plant",
+      "case": "surrogate-continuation-study-v1-4p-27-plant",
+      "root_sha256": "23c53a79e0ed50e71d554ba700bf821e3cc3ce26aa07e179f207b00550262c96",
+      "public_root_sha256": "d13376e33e6bc54032215c3a020330c8502f97438576d42bfe25d92351b48f49",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:27:bid",
+      "case": "surrogate-continuation-study-v1-4p-27-bid",
+      "root_sha256": "fc4e54e9736be87b7592e0bbab0f13b38cacc747261f0d1d1fdf09ac5a4b7254",
+      "public_root_sha256": "c80a50d5f059003a169b043d39bf0d8942f7579ea328edb5177de58099c16915",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:27:building",
+      "case": "surrogate-continuation-study-v1-4p-27-building",
+      "root_sha256": "475eba64d05bc1fbc85112770b37225457bef9e080b1df4e842e7731e5ae2616",
+      "public_root_sha256": "a1050b2a4507c8c2efb4ae1540db753a6eabd8647d263e7deae08f7fd288868f",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:28:plant",
+      "case": "surrogate-continuation-study-v1-4p-28-plant",
+      "root_sha256": "d963e400dcd8a1a95c6a8c197aba1b76178e645015f27f27802380da87585d92",
+      "public_root_sha256": "6dfd3b4d71bcbbb89fdb68267b0dfbe4cc710ec582a21d5aa93fbcbeb1107d2d",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:28:bid",
+      "case": "surrogate-continuation-study-v1-4p-28-bid",
+      "root_sha256": "dc75dab49e1c1c64adee959e77fbf774ae6438c6e9c45c5af035a83ae73059ca",
+      "public_root_sha256": "01e6b682be45e2a747b410fd776d6b68d2f672ea274346a29b7e6887472b8bf5",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:28:building",
+      "case": "surrogate-continuation-study-v1-4p-28-building",
+      "root_sha256": "d9eb6a4b90fc1507012102dd32e0337ce987a20248e723ba08b7778e648ce9c5",
+      "public_root_sha256": "6cad909f1b9993a555f778465c3e7b048ad28cf315ab1e0d9f111018d6f69cb7",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:29:plant",
+      "case": "surrogate-continuation-study-v1-4p-29-plant",
+      "root_sha256": "3e71f7deadc52993846c6a975597193e5b4436dfdaf57edcefe2ef16465621cf",
+      "public_root_sha256": "b9a427fa0f9f4b9e4aa5cccfb5e001ac8b9676f49d4f5c54018db5c2e100c246",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:29:bid",
+      "case": "surrogate-continuation-study-v1-4p-29-bid",
+      "root_sha256": "521cdd99684c9a3dd182666c1bffde891b026ea9eb2645a9aa830000d9eba708",
+      "public_root_sha256": "e2b0d0a714ebef741c429323e8189bfac50b8051d3633dbecb3bc81d14a8bcdc",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:29:building",
+      "case": "surrogate-continuation-study-v1-4p-29-building",
+      "root_sha256": "e14458d344da3a3577859ce8184e6b9f4c7f4feb2dc92b2a5dadc7cebedc526e",
+      "public_root_sha256": "09d5aedf098a951891d6a56f2b9f05cba2bce5ef1c4166d6247f7d1798290d9b",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:30:plant",
+      "case": "surrogate-continuation-study-v1-4p-30-plant",
+      "root_sha256": "701af3b9f47975cd63c48110d9e8e0fce99c086d6ed3eb8f6fac5cd30ef62660",
+      "public_root_sha256": "5d100ed7d5dfaad9bc59c2844d717745419f699b917fe52e616c7971648fed7a",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:30:bid",
+      "case": "surrogate-continuation-study-v1-4p-30-bid",
+      "root_sha256": "4f7758e741b7e67969ce4a566561ee60036b7628631d29b2bbda250eb03ccf31",
+      "public_root_sha256": "64dfbfcac38e7cfb91cfdfa45e3a93aea386222ecb618fa8a604af87e7b0474b",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:30:building",
+      "case": "surrogate-continuation-study-v1-4p-30-building",
+      "root_sha256": "51dd50a3956fc6008686eae086e8dd19094c9ec3ae6b26403f4ec874599bd0d0",
+      "public_root_sha256": "19ba86fa71d240b509ea333270e39d4f97949e1eae30ac26cb063c96cbba4cfb",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:31:plant",
+      "case": "surrogate-continuation-study-v1-4p-31-plant",
+      "root_sha256": "5d258a7453aa4ebeefbe73fd945e76235732eaebb1d6bc2b23567c2d4504df3e",
+      "public_root_sha256": "e2305001b635d637a5d7d1ed8223162f96da56c9e32b2a21409ed6b4778b1b9b",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:31:bid",
+      "case": "surrogate-continuation-study-v1-4p-31-bid",
+      "root_sha256": "452a7f0b6683528cad6cbe05ef9fde47b5a8a77613e9d01c6f4e6d27ec2d3825",
+      "public_root_sha256": "4a598c8a1923417b03cc73c00f4ba2eed30de8f8c9d8b85460a76e8756a19d24",
+      "continuations": 48
+    },
+    {
+      "root_id": "4:31:building",
+      "case": "surrogate-continuation-study-v1-4p-31-building",
+      "root_sha256": "a09474732d7f21c3da9fb4b0379c1f3feac4ed4b93cf6e5b8f4a3865a9576e1a",
+      "public_root_sha256": "1eb2c227e9e73584e8af37c5a2624f514c7cca586bf0a95f28f10aac533646dd",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:0:plant",
+      "case": "surrogate-continuation-study-v1-5p-0-plant",
+      "root_sha256": "302e6a15163777c1e4a4914874cd1715daff3eb6c1ed44cc99f50ec0a8282948",
+      "public_root_sha256": "b26a31c868e5959a2b78537ac676566c39c05e7ce733ce8cb1b4f505befcba47",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:0:bid",
+      "case": "surrogate-continuation-study-v1-5p-0-bid",
+      "root_sha256": "0d0a849e308c2149b22f6bf900a376e54bee9229511dc34bb46d28de4f0efc4d",
+      "public_root_sha256": "e8120b54e0ea80e332385b7e041fa5d966708482e6fddd7da6af29b81ede28f2",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:0:building",
+      "case": "surrogate-continuation-study-v1-5p-0-building",
+      "root_sha256": "4d79ee9930d148d533d1b088caebc8a95e594eaa46d24dbb328b64695274912a",
+      "public_root_sha256": "8169be5ab18d7bac160dfb77b780bfbd4fcc8b9d89ededc9e5ef2b6e81252365",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:1:plant",
+      "case": "surrogate-continuation-study-v1-5p-1-plant",
+      "root_sha256": "ec74b1909108103ea937a11e5703ecb1ef6bcaf1cf493838a71df26cf0fb9a98",
+      "public_root_sha256": "95a9086476f13658136adaf1ce3d27a2297588317757b41201ef0c41f94f9193",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:1:bid",
+      "case": "surrogate-continuation-study-v1-5p-1-bid",
+      "root_sha256": "db60bc1808cb23b04d06edaca4209aac8ae9948033f1ba8686d24f59b81d3030",
+      "public_root_sha256": "44ef8b025328b6c0e12de6bc86a25767f0794734a6b876a662924ecdcfb7ade8",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:1:building",
+      "case": "surrogate-continuation-study-v1-5p-1-building",
+      "root_sha256": "6a4e3ff5f1ae6c018c08615fe08bd934c03ea32f370d88c4eeb826e990a8469e",
+      "public_root_sha256": "0e5a6fec351e1a70e943a290253e0793f2d669f765b186f492e525196b56f359",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:2:plant",
+      "case": "surrogate-continuation-study-v1-5p-2-plant",
+      "root_sha256": "e1d872f0d8f515ed39ab0aeaab622753a25c45e2fe5e2c401a451b2048189422",
+      "public_root_sha256": "08003f0bdef32ceeb46cd7e16192c8b1d99e2d068e519e03bf14451d4b91d657",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:2:bid",
+      "case": "surrogate-continuation-study-v1-5p-2-bid",
+      "root_sha256": "c514f90b08b8cbfab34b24e50ea6b0d0409008b59ad2b793b0201dba9ccbde16",
+      "public_root_sha256": "67bc221425dee60e76ab3610f49c62cc3c87db7774f0a9fc8110a0e8f09fcdd1",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:2:building",
+      "case": "surrogate-continuation-study-v1-5p-2-building",
+      "root_sha256": "b70ea0ebc37280df9dc49d90b697e96b8c7e6c841302f53d68a207e7be0e008f",
+      "public_root_sha256": "07f650fb3cf743f5c771739c9f7d24b67fd3bbf3dd22cfbcf878a9845d3a1bb7",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:3:plant",
+      "case": "surrogate-continuation-study-v1-5p-3-plant",
+      "root_sha256": "b138c104faa45ac09fee42246f0ab1a1c607515163e044eda71dee6d0fe56e08",
+      "public_root_sha256": "f607ae0ad1cd9b0fa25c9038e78be48dd89960a37e26ce72ed17c8dcf112aa5b",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:3:bid",
+      "case": "surrogate-continuation-study-v1-5p-3-bid",
+      "root_sha256": "adf9ed7dd6f8515634e19c67a7584a0effa28164c9b9ca3952585c74fd8cd4a2",
+      "public_root_sha256": "d34ff16cb23df5c934e5479fe07bfb82f64103761fe92ed5514a526f56301262",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:3:building",
+      "case": "surrogate-continuation-study-v1-5p-3-building",
+      "root_sha256": "80f12816f4584cf2e13b5aeb37d7c6ff44116659d2873f47124c48f7b23bd5d2",
+      "public_root_sha256": "cdaeb9c370667ae3a34aaf7a7e9634bc483c848a459c6fd4c36043783616130c",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:4:plant",
+      "case": "surrogate-continuation-study-v1-5p-4-plant",
+      "root_sha256": "7fcbc0e234677c25ccd42c5400c3025088ed1aebe2456edcfb5a717bf8f3859e",
+      "public_root_sha256": "73d2984101f48e73b888e247554013bf27bd474ab65f6d19b7a1fb3c85f8b49a",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:4:bid",
+      "case": "surrogate-continuation-study-v1-5p-4-bid",
+      "root_sha256": "1c0458419065840db38efe6d1174f178921ed11d0e5f29ee7517aa71b7e244c9",
+      "public_root_sha256": "a7693bf481c068f612abac606037c0fdaba58d0e384a626a9544dc4066d1504b",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:4:building",
+      "case": "surrogate-continuation-study-v1-5p-4-building",
+      "root_sha256": "667b5937b9eb197027b1c2e043ce2d8dc69a8a45a0a6aace5c1f1d1591e66571",
+      "public_root_sha256": "d08f2a0704db4f27f7334016a44937aab45539c3fa7a6cfc529b704c0b3d8012",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:5:plant",
+      "case": "surrogate-continuation-study-v1-5p-5-plant",
+      "root_sha256": "d0257e0409761b40a0829cafa879ed20229983925596fde9c34be9f2cd793475",
+      "public_root_sha256": "4959f5dab8b84eadc282d36d7e31a6bd0c0771b6b061ec2cad6e6aea2d2ebdaa",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:5:bid",
+      "case": "surrogate-continuation-study-v1-5p-5-bid",
+      "root_sha256": "bd009db1040311e7e7ade6d5d37132f18e3c2baf1a5915add3f3678222b9aedf",
+      "public_root_sha256": "602fd7333e4e02d0224f6555f2abc24353f8165c2b540b30402f90bb29458d40",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:5:building",
+      "case": "surrogate-continuation-study-v1-5p-5-building",
+      "root_sha256": "784e4314dbf73edac744cd03fad264c99b24d734da09a9c594a367597bb95f7a",
+      "public_root_sha256": "7ba433cd378c770eb426f37e0edaf283e6621547480f4aa1b08506d5d4e6517f",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:6:plant",
+      "case": "surrogate-continuation-study-v1-5p-6-plant",
+      "root_sha256": "71cc27b40616e4d10b9a3721272272b961aebf31d5d7cecb142186fab22d034e",
+      "public_root_sha256": "48266a0212acd97f2f48c40ce2d96761571e04868242c5fc7903549f0dafb5bb",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:6:bid",
+      "case": "surrogate-continuation-study-v1-5p-6-bid",
+      "root_sha256": "42dc03be04d65cf60fc7493519ea414dc3fcd7dec004d4633d061fa9dc5caf07",
+      "public_root_sha256": "e3e05541b88efaef73b044d714fc731f7144a9e1c8859f0c8d5a325c5fc03f6d",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:6:building",
+      "case": "surrogate-continuation-study-v1-5p-6-building",
+      "root_sha256": "a6ec56d56aa68d95d2db0f0fbab5a88eb88b323da7d223bd151f9bfbbb57adbc",
+      "public_root_sha256": "3096056573c55a8d105b411cc7ade06ca1ae8343523ee5bf0aa1967e864895ec",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:7:plant",
+      "case": "surrogate-continuation-study-v1-5p-7-plant",
+      "root_sha256": "c7668461adb6a8d7581ac7f19946ac974a3082c470988b7b337cdb6f7ddfe4e5",
+      "public_root_sha256": "41d691471aa5fa8b29fa332fa8b5f82e1ff6ac1e090b44a3adbe2b6f5ee77e5c",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:7:bid",
+      "case": "surrogate-continuation-study-v1-5p-7-bid",
+      "root_sha256": "a8a179bc31888e9e32d3b0004d62b50f19e964f91abfa88d0fc6946e86ff63a9",
+      "public_root_sha256": "3f6f225f27bd242c83966ba8ec4a9aafb40e5558e169f16c67e8f35337e081a2",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:7:building",
+      "case": "surrogate-continuation-study-v1-5p-7-building",
+      "root_sha256": "fc541fcd029d14fde5c6dd9a408bb963abf90bf9611713e7e30f7713860d5465",
+      "public_root_sha256": "6f58b01d335f7196a1113d8fc25cf6a82161ed1c4bc7fbd935ed694571f881f8",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:8:plant",
+      "case": "surrogate-continuation-study-v1-5p-8-plant",
+      "root_sha256": "2d4bc287eb73f850d15b6f8a45b37f0914a91fc73b407b36f340d17870b3910c",
+      "public_root_sha256": "ce73e76c5b201f2962350599bc95e1a149f807b3d7b34593dbd0b456000fc378",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:8:bid",
+      "case": "surrogate-continuation-study-v1-5p-8-bid",
+      "root_sha256": "14500617ded25c193806b93f49c195a21d7a825e546fb53fe346da2d2321b3be",
+      "public_root_sha256": "f84f69f324537acb52c2c319bac1515aa20fb7aa465e4fb16cd94de7aa1887f5",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:8:building",
+      "case": "surrogate-continuation-study-v1-5p-8-building",
+      "root_sha256": "febeccb412a64cbb83ec6432f982bdf03b4596ff02ad395328858e1e46a3705e",
+      "public_root_sha256": "dcadc52f5d4ba82c314d1d570d90ddec24154b3a96b1e66d77a65504021aea4d",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:9:plant",
+      "case": "surrogate-continuation-study-v1-5p-9-plant",
+      "root_sha256": "5de73abcaed5973fcc51312dafbfad062f7bfaea74a270173c8d3992b4fbaa70",
+      "public_root_sha256": "9b6733ef9554bdd2d149434c29c63e9960d6c7a277b31266cb28d59cfc301a7b",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:9:bid",
+      "case": "surrogate-continuation-study-v1-5p-9-bid",
+      "root_sha256": "584e679c74edf886e271089cf330aa2182bfc27841ab6b3104b5faac760b999f",
+      "public_root_sha256": "9ec03130923fad7f8792455303795a84358f4e3a7ae345ccdd982664f975ea45",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:9:building",
+      "case": "surrogate-continuation-study-v1-5p-9-building",
+      "root_sha256": "3e3679d45f1a10257c4acb2d787c826554c10ed7eca5e5aca39396e6d5519e37",
+      "public_root_sha256": "4f5545d1a17fb12aec521be4d1be26b8cda49f831f7e6c43b1433888b0fb2bbc",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:10:plant",
+      "case": "surrogate-continuation-study-v1-5p-10-plant",
+      "root_sha256": "90c974da97f8b9ee2de598818c8f69c01b8d5287ab418f04456d7dc6439d1a3b",
+      "public_root_sha256": "bd5995f62fc88ebcf263ee9de3b35aa0260ee5a3facf1edd40273be308cc8e3a",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:10:bid",
+      "case": "surrogate-continuation-study-v1-5p-10-bid",
+      "root_sha256": "604921fc75b0d70d9617ae1808a2718fe01c19278d683410c4ed33b5400012fe",
+      "public_root_sha256": "6959d25d32b66d855f8f0a62e9f4dc5b08163b4565a87deb4f3b4baf23787a32",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:10:building",
+      "case": "surrogate-continuation-study-v1-5p-10-building",
+      "root_sha256": "a5879bf11bd95cc7214cdbf6fe0a0e041824f4e1535cd3ac331f8c3a568960ca",
+      "public_root_sha256": "c5b2b125186a6ede0d98b5c52f652b74ccb41cff57664f25892720b06215be1f",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:11:plant",
+      "case": "surrogate-continuation-study-v1-5p-11-plant",
+      "root_sha256": "fb77620981f26a4d7cf29d6959cc7c25432e9e4645ac85fb08982290ec17f552",
+      "public_root_sha256": "d8c0a0ab169250ba587c5b36be28760b4159c03f721432c3105328d1b04de9b9",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:11:bid",
+      "case": "surrogate-continuation-study-v1-5p-11-bid",
+      "root_sha256": "99f19e959d21749a5c14e443af8aa91aeb69a385764646d41f065a0a6707dc35",
+      "public_root_sha256": "6012990639652f0d7a55f12a0c7821de80124c48901e8897f260fe5002c1359b",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:11:building",
+      "case": "surrogate-continuation-study-v1-5p-11-building",
+      "root_sha256": "2188a50b3bdfb018e7f614a10606d0c4e8525aedb119bc6adfd1b1c7577511c6",
+      "public_root_sha256": "f1d0a9cdf3876da96fac215644ce8735950a7b072fef017c062c86218216ac22",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:12:plant",
+      "case": "surrogate-continuation-study-v1-5p-12-plant",
+      "root_sha256": "c4228dd6874ac22302187331ace91b6348cdf7eab2d64f4da170a5a3e54473a1",
+      "public_root_sha256": "9fe8455e7a2c8216ca0372a544dc7c822c3cb09216b27764af133c9e9c140bfd",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:12:bid",
+      "case": "surrogate-continuation-study-v1-5p-12-bid",
+      "root_sha256": "30794799883842165d78cc2d131d6888c798b625a4b879eca3fa3f5c40872292",
+      "public_root_sha256": "e4924e3388d98581b12c1339e954bb0b7d0deb4a08c38e4fb09e93831cc490ec",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:12:building",
+      "case": "surrogate-continuation-study-v1-5p-12-building",
+      "root_sha256": "d9efdc7b444c6295f444a8b11a576fb8a1b95c8ea1790de1ccaa785f1b55641f",
+      "public_root_sha256": "fd09009a8c5d2fbdef69902e39593ca0c5283bf09787058ce4d9a1723ace6472",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:13:plant",
+      "case": "surrogate-continuation-study-v1-5p-13-plant",
+      "root_sha256": "42256234d709bbf6fc04f53f214db95b6659066fcfba41e0bbfee6b538d6bc9b",
+      "public_root_sha256": "c69af0b30869526992c0d3ddc72a8bf4ca9cf82469422fb6f7bd2649960d6832",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:13:bid",
+      "case": "surrogate-continuation-study-v1-5p-13-bid",
+      "root_sha256": "8dac8d835361ca6d29a5bd25f682293d12c4851d90222bc122d2e143d697a6bb",
+      "public_root_sha256": "1ddd994cb25f0d887418742e360874673d44fccc9e33a4d35c53f6d06000fa12",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:13:building",
+      "case": "surrogate-continuation-study-v1-5p-13-building",
+      "root_sha256": "e4b6605ed4da4b1c44202ad434380689cbb3e3e62a63c3133669d3de719b89bc",
+      "public_root_sha256": "82ac626bc44acfc97eeaf5715eccde2931402b3ee093e2ed896da6a69ce42aaf",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:14:plant",
+      "case": "surrogate-continuation-study-v1-5p-14-plant",
+      "root_sha256": "13a3afa763d9f5aa7c8f5720a8069a50b974bd5a9aca673736d55c2aafad05ff",
+      "public_root_sha256": "6d679d5365c39c2ba32f51944fe3a4240155257210fe63c1711e8e8f7ad2e025",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:14:bid",
+      "case": "surrogate-continuation-study-v1-5p-14-bid",
+      "root_sha256": "f04205275b77fe310e3bf230f50ef05963b68c863cb7db0f6e8fbbe5724be73c",
+      "public_root_sha256": "0d559fa55077e14f16f3de5fe070c2ff0583f9a8f94e0cd7fff7de1c05799250",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:14:building",
+      "case": "surrogate-continuation-study-v1-5p-14-building",
+      "root_sha256": "302b2dd7280b4817edd0152d92d17dd8c6ced2531c4347ebd3381e3d2fa33583",
+      "public_root_sha256": "a8058443c8897d896319cdd4f5815384eaec1f10a8ffdfe6ed4c28bc4741f8d6",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:15:plant",
+      "case": "surrogate-continuation-study-v1-5p-15-plant",
+      "root_sha256": "8d7f8db93e8b5cc3ecc464b485ea63fe302495eab5cdb8cddacacafb25c33928",
+      "public_root_sha256": "32df4ceb9f02f1dd90e91342bd5458bd9de4d7bc50a153402ea4377a973babdf",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:15:bid",
+      "case": "surrogate-continuation-study-v1-5p-15-bid",
+      "root_sha256": "01f0baca2d3440efc8cd05ddefb060564568a5d679c504faf769f704b05b3aeb",
+      "public_root_sha256": "f1e578a1aa19495800ddb073a47fd05b849c4a6705341735bc7f9e8f8d113b66",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:15:building",
+      "case": "surrogate-continuation-study-v1-5p-15-building",
+      "root_sha256": "d5b9ff048d30dabba3e848261325a243c36d212e416beff4d67a5efb2732fb3e",
+      "public_root_sha256": "e2e9964395f3c9391f0a286bbe6d332fac76103fdb84fa1ad71051182e25364b",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:16:plant",
+      "case": "surrogate-continuation-study-v1-5p-16-plant",
+      "root_sha256": "0ab5e16c51649af4c2cbfa395dd797a73c19bad9224c0cfa68f1f651afca35d4",
+      "public_root_sha256": "ad012a1a608a6257c0bf7581009ec91bc51daff62ae35bb61973f0e51fa3d940",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:16:bid",
+      "case": "surrogate-continuation-study-v1-5p-16-bid",
+      "root_sha256": "4619a1e8282752b9ffca73adb263f3f184e18525b0fce9c2475417a9f5652ba1",
+      "public_root_sha256": "4b08d9779e8f4b10154b650f1a5ac5087432d9616a38410d6f4b24bc2430dffd",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:16:building",
+      "case": "surrogate-continuation-study-v1-5p-16-building",
+      "root_sha256": "c90bf1663b95bf63e750850c6a44b285a429ee917d9481453a085b49b9df94dc",
+      "public_root_sha256": "abefff1809f6d963e8c97a7be67abcfb20a135b9e6282bc9bf12c0cc31bc13df",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:17:plant",
+      "case": "surrogate-continuation-study-v1-5p-17-plant",
+      "root_sha256": "a2a9784f7ff398c87c5a0bb621476e9d904a3f8a8f423601d8dbb2e90b8693d3",
+      "public_root_sha256": "4924e754040dc993c4a5b0b44a0773e6930c0ea403af24cf3f9a9ba6fed03f52",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:17:bid",
+      "case": "surrogate-continuation-study-v1-5p-17-bid",
+      "root_sha256": "5cea3c724dcf4d7112eed18c80cc150b2c9ecb952f802a6c0cb77136e3e9e3b9",
+      "public_root_sha256": "0809d1e1d22ccbfda537de2005de686a398c5eeb977f2a0fa03af46fc795d613",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:17:building",
+      "case": "surrogate-continuation-study-v1-5p-17-building",
+      "root_sha256": "b416dc24f7770d793050632ab7a4aad5a7313e4900b2035fc65ab32e46b2eb6d",
+      "public_root_sha256": "b07f51323209986d1d2d845f11abffaa6bf9492ebcd9def0d7eb812714438ead",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:18:plant",
+      "case": "surrogate-continuation-study-v1-5p-18-plant",
+      "root_sha256": "513f5af75f3feb4d9d6042ea36219e1e06453fcd57832fc88c1083d9ffdafa55",
+      "public_root_sha256": "036f817b23787ad8bc4461ddb47bd6dd6f393e0f9d876ea2fbb299345c645ec5",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:18:bid",
+      "case": "surrogate-continuation-study-v1-5p-18-bid",
+      "root_sha256": "d93ca0104e2ef967073b4f36a283e32fc665bf89191475eaf3662cae64b5765e",
+      "public_root_sha256": "04e3c2a6e12b5873a5b50623a263dc20626f18f99b14058da5b1370d1f701d3e",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:18:building",
+      "case": "surrogate-continuation-study-v1-5p-18-building",
+      "root_sha256": "20cc6538685d9d211e0a950d75013152117c8b5cdb007cdc2708794381f3a19f",
+      "public_root_sha256": "98b5d1f8dcbe28a9d4c534e310d6d1bec07b495cdb28a5f4eb879b414ae7b619",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:19:plant",
+      "case": "surrogate-continuation-study-v1-5p-19-plant",
+      "root_sha256": "5de51aa3908bd08e4d552ada671f234e79b634bc0a05ed0ffbcf5f0e6ffbdaf2",
+      "public_root_sha256": "19de937af3ee9fba77311e8ca222f5617689236eed0d8fd372eb186b54333487",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:19:bid",
+      "case": "surrogate-continuation-study-v1-5p-19-bid",
+      "root_sha256": "25668afde89a12ac083aa3dde177085983347499bf7aef85684eb0ada9009b3e",
+      "public_root_sha256": "9769599f0ab30d683e5ce4d9813a71e9b4e4ce79b6d9d1c3eca7b044477ca65d",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:19:building",
+      "case": "surrogate-continuation-study-v1-5p-19-building",
+      "root_sha256": "bf250bd66cd1a5a226f63f17904dd3a768a1a3718e66b1f199a1785e5f2275e7",
+      "public_root_sha256": "9839caaa35d0cadc5d7fc1911421ba4a685499a6ea16393a224cb12c90a3d8ed",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:20:plant",
+      "case": "surrogate-continuation-study-v1-5p-20-plant",
+      "root_sha256": "faa19ad9357afa44e255de7133f10222970529a7ea196726094e44fbc9d17cb9",
+      "public_root_sha256": "006ef91f62c0fe8df013bafc366fce5e5fe89e7f07cd0c5b57fea91a2dc7bc2a",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:20:bid",
+      "case": "surrogate-continuation-study-v1-5p-20-bid",
+      "root_sha256": "2774afa8027b4aac77cf552ae061d1eed64cfc1342430769fae6878c18c5140b",
+      "public_root_sha256": "9beed2237b53639d4096f6eb9f21767af7fcdcb3782539d820081c053e6664a0",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:20:building",
+      "case": "surrogate-continuation-study-v1-5p-20-building",
+      "root_sha256": "001b5442bb52dad28458e40a8a9626ff8dc7ef2b3ecdc2bd75dd2e1581b20737",
+      "public_root_sha256": "7c07ddc86936951bae2974683dfae5d93fd391a1a482af7388d09a6e6dfc8c8e",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:21:plant",
+      "case": "surrogate-continuation-study-v1-5p-21-plant",
+      "root_sha256": "0c4ba1510c9174ff0397e6506a99f9704b4855eda1b38f0fec3b4aeb04f2db80",
+      "public_root_sha256": "6ee23efe7dc772c60ba680bef6588a44b0a381184ec160e4106991dc5ec07d0a",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:21:bid",
+      "case": "surrogate-continuation-study-v1-5p-21-bid",
+      "root_sha256": "54dfcc4e6e9e08add28df3f875a7d95a65b7f68f5a27df369e2c67fab4244fb4",
+      "public_root_sha256": "ab8c70b0b06d638d04ec68ee4e8501231b8b9be2085e4fdaf8ffd65d48546782",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:21:building",
+      "case": "surrogate-continuation-study-v1-5p-21-building",
+      "root_sha256": "0f4c613bc926986aeea2036d10b6026d31971ff94fc1222fd76dea6db517ed40",
+      "public_root_sha256": "f1c79d007c46629fcea513c86baf21bf39b9ccdc888cc26e277c1acf6a6cc872",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:22:plant",
+      "case": "surrogate-continuation-study-v1-5p-22-plant",
+      "root_sha256": "73373919b69b22729e513f8efd8333421fe0e11b32b0515a6aeb8ff2cfeabc0a",
+      "public_root_sha256": "76df2a549aa626686c7e138805c8727f3476b31eb6eada07f852013aa5964c4c",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:22:bid",
+      "case": "surrogate-continuation-study-v1-5p-22-bid",
+      "root_sha256": "f4c5842b98f1b82015342927cda6fff98c36bd86b2e6bfa279b75a2c86a9fb3d",
+      "public_root_sha256": "c62d9b8b481d2b2c05e1bb152b49e1bbdf0eb9cca86803d1e6bb85fa1d957a32",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:22:building",
+      "case": "surrogate-continuation-study-v1-5p-22-building",
+      "root_sha256": "7d0490d3479edabef7241adee600c5c3747e019fc3977122eddc546be012a2e4",
+      "public_root_sha256": "e8e4077a447aac86ce65a205cf8948c309f24d88e0822f66cd12437b23016913",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:23:plant",
+      "case": "surrogate-continuation-study-v1-5p-23-plant",
+      "root_sha256": "a634a956de2e339713386566d1639607b80b2d854d0126898eb44bbdf6ac1334",
+      "public_root_sha256": "c00968434c3f338cf05cbdcff09eea5dc86efd30041fe61dc3d39921d8ef79d2",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:23:bid",
+      "case": "surrogate-continuation-study-v1-5p-23-bid",
+      "root_sha256": "8ec82c6e26049b4d7e920886e2b8915bd5bd120f2c7cf0a76b118aa15a2057c4",
+      "public_root_sha256": "5e6f62a3c790cfd75ba798cbaceccd8195410db7a726c590607a060a7a0897a5",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:23:building",
+      "case": "surrogate-continuation-study-v1-5p-23-building",
+      "root_sha256": "ed71f2341d151c1c25d034aff5503970dfd68e7ca0ee0a53287b762f103a15ec",
+      "public_root_sha256": "7d980d6d33c9a0f8a8443c8b7023228257a3cf2ef3b1b5a16ca8480665ddcd67",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:24:plant",
+      "case": "surrogate-continuation-study-v1-5p-24-plant",
+      "root_sha256": "d449036f089978567d577804bc3179229d3acf5afeb9cada018e89e71cf7656e",
+      "public_root_sha256": "682f88291223579419b0ce19bd56c173c8f04d07a69d896d122c14d81bfa6e2a",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:24:bid",
+      "case": "surrogate-continuation-study-v1-5p-24-bid",
+      "root_sha256": "17dee13b8515517d82f964e5c0223bd07dc97890a10cb426b5a282abe97ecbb5",
+      "public_root_sha256": "a2e454230b941719951f6201ae229e62f9f1aa6b9f40592ad380d6b5ebd834a9",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:24:building",
+      "case": "surrogate-continuation-study-v1-5p-24-building",
+      "root_sha256": "f328092ecff85bbb7c36edced5dbdc3a77c69249b55530b49f0263e1d54af711",
+      "public_root_sha256": "285d993486ffb4b36386149918bdaeb879b9398093fd8b46b6296b8d19e2bfa6",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:25:plant",
+      "case": "surrogate-continuation-study-v1-5p-25-plant",
+      "root_sha256": "fefd9921dd62a116f5a83baf138a337ba8da9ffdb799d8cddf864d18a09c08e2",
+      "public_root_sha256": "58d6025a2539b22247e166f19e9b9f638140e3ff45ea9d9e7014bbcbb03a43d6",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:25:bid",
+      "case": "surrogate-continuation-study-v1-5p-25-bid",
+      "root_sha256": "baefd7dbb52a1863157f36e8773cefc4913ba82d1bbd0428de9dda11cd6c2972",
+      "public_root_sha256": "4e1b287377d941e26ddf0429a26cef7b55453b47e8a8345d6b4342903531385c",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:25:building",
+      "case": "surrogate-continuation-study-v1-5p-25-building",
+      "root_sha256": "2a2618d95f6e7a7c9f80958adca413d86c6cf47a3a18ac9f584e646faa1d369e",
+      "public_root_sha256": "beea5f77159bd4aec6443989f490da844aca5460700ce1d6d9360b03a769ca77",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:26:plant",
+      "case": "surrogate-continuation-study-v1-5p-26-plant",
+      "root_sha256": "c759fc3a884d6a4a6d0e115c5c884e5ea99b16bd4570cbddbaffe51a26776664",
+      "public_root_sha256": "254c5a496ec0addf12db51342e2ee70022a04a78dfc406dcde1b9745e4012904",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:26:bid",
+      "case": "surrogate-continuation-study-v1-5p-26-bid",
+      "root_sha256": "7f49ae570038cb4f6911ebc6f8c9dbf9b4d7a25cfadbe962f09647a70ea755c8",
+      "public_root_sha256": "eaf6130797f8f1267d238d1323d6b3862790927e1be84d011e82b01cf48c79c7",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:26:building",
+      "case": "surrogate-continuation-study-v1-5p-26-building",
+      "root_sha256": "d183690e4bd4cc43b5fb913442b5bca7466979498f9e4a1e0607a0819098a4da",
+      "public_root_sha256": "cecd9824827f7a5d82e1d268c317212f123ac2cb14109be508790ecf2cebfedc",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:27:plant",
+      "case": "surrogate-continuation-study-v1-5p-27-plant",
+      "root_sha256": "3a227201e21cb309a8806a54f02657d1b0bcf4912b2005453e89b224c1f3c468",
+      "public_root_sha256": "672e8e691b788a00b5c8a0148ff6239a84b1a6e7e3ebef7bc301731e823bd360",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:27:bid",
+      "case": "surrogate-continuation-study-v1-5p-27-bid",
+      "root_sha256": "2d53c7d09a12b366df61f08e7dca65bc3706f50fc938115598a3b78c04f2c04a",
+      "public_root_sha256": "a7ec96079505abbbfff3229be1c1aa2b3948af84c4711e0cb9185121c083a7f4",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:27:building",
+      "case": "surrogate-continuation-study-v1-5p-27-building",
+      "root_sha256": "7dcb99973c4bc9df76f87bbab5ae80ca5e60942648c7b0e9bd884b38f8d56057",
+      "public_root_sha256": "81dec65ef46b9ae889f069e4cf1339e2b9faf0b8422a5b04885b3a4889283a3e",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:28:plant",
+      "case": "surrogate-continuation-study-v1-5p-28-plant",
+      "root_sha256": "7314a84ff914aad1472576a222a5c5b98f9cb5cd0a19ec3288d792502ad771ed",
+      "public_root_sha256": "41a4af414a5bcf3cd5363a42bffcf05488d8c8a2abac6d440b8c8cc30d2f698e",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:28:bid",
+      "case": "surrogate-continuation-study-v1-5p-28-bid",
+      "root_sha256": "06651bec98e9820760ab75a7f42a88d6fd079a68e3f60e2ab5dd108f6447dbbb",
+      "public_root_sha256": "078bd0e89d8da13add5016c1e85f41013a9fdd7990cca00581b296d0ea3b243e",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:28:building",
+      "case": "surrogate-continuation-study-v1-5p-28-building",
+      "root_sha256": "71322de2c8a73ed7cfb2a719e334e0a41fa7f7a38bb87dbd53bb94dd4343f2be",
+      "public_root_sha256": "0c9fa4e1d54247066f2d0b5186f59dcc6eb41f7facc5d1286e89f3b524bb05f9",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:29:plant",
+      "case": "surrogate-continuation-study-v1-5p-29-plant",
+      "root_sha256": "197ce9aa099947f44ea61684d4c0e4149c7b1b303cd6c3e1691afaf45c072920",
+      "public_root_sha256": "32d28af658c5d1159c55b10c2013a0d9b8c381dfe4b3291207d448684dedd8f5",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:29:bid",
+      "case": "surrogate-continuation-study-v1-5p-29-bid",
+      "root_sha256": "da8462883032fa6038e8f11e36133809df4916a58b19e8c354227083d4191944",
+      "public_root_sha256": "257891d33dc339b65b9ec1ffe4a61e2482a7b2963f28bf0e0978d61b98bdefdc",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:29:building",
+      "case": "surrogate-continuation-study-v1-5p-29-building",
+      "root_sha256": "7312e10ada5dbbee739a3316783da38d3aa27b985202ae85eb12553df7197df0",
+      "public_root_sha256": "9cf297e0a0242e80362793efc503f5bb9fc7db0089a2cc38cf42fcb30c42d062",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:30:plant",
+      "case": "surrogate-continuation-study-v1-5p-30-plant",
+      "root_sha256": "aeb5a56b53e8437614d4e3fd198a83b8965fc82dda0b7a2f8bade8307b0a8b5b",
+      "public_root_sha256": "29c8953b4dfb05db3c0c446cbfce11f348b119ba37f19dbb59acf1fd59cad334",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:30:bid",
+      "case": "surrogate-continuation-study-v1-5p-30-bid",
+      "root_sha256": "426659baa7175a3259922b130d2a235ab5eb0a0d59d4018bd0d93e94d570a8cd",
+      "public_root_sha256": "6bd547adcf18c4f40463a795f4a572bea6ec875a1bd43cf8090283b485f3302d",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:30:building",
+      "case": "surrogate-continuation-study-v1-5p-30-building",
+      "root_sha256": "ca2b744ae370c4c542416bc1450aded22f5573e6479fad049d2d0dda2d8fb6af",
+      "public_root_sha256": "5f103543720425a5b6a82d7efd60f2da8fa482d8b6b0aaf666dc627fd0d2d303",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:31:plant",
+      "case": "surrogate-continuation-study-v1-5p-31-plant",
+      "root_sha256": "fb163e6e72c36ce1545733495cc252e391d62115bcd7b1595938017c608abce9",
+      "public_root_sha256": "4b5f694908009ba728d28805543e0619fe8e9937b4d695a5ea9943fc21924bbf",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:31:bid",
+      "case": "surrogate-continuation-study-v1-5p-31-bid",
+      "root_sha256": "078523ec54848ed9a82a16a1224c9d2bae5f7caf8a72a2ba2dc1d2d0a5a4e0a4",
+      "public_root_sha256": "d3d7ad037db0e85048341e6fa6a41c8d8c8f7ff9454df3ff8492d24c6d94bacf",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:31:building",
+      "case": "surrogate-continuation-study-v1-5p-31-building",
+      "root_sha256": "c960e73b379494f99f16ea33339ba6e11a4412735ad7a49e2fadfd254b28fd82",
+      "public_root_sha256": "8bc14f8b6970d6d51a52e1c74179f62c1761943540a627b95b9481be52bc7bd2",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:32:plant",
+      "case": "surrogate-continuation-study-v1-5p-32-plant",
+      "root_sha256": "e4d4e8f2be020fe45e4e8917b3b81cf55d34f7e86947ad1685563c7047491433",
+      "public_root_sha256": "a381ce04094c7b267cc76814de3fe8bd87eb32dd6e0d9c4c2b4578fc8b0b90e8",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:32:bid",
+      "case": "surrogate-continuation-study-v1-5p-32-bid",
+      "root_sha256": "50add3a18e70fd81a5644aeea5aea98910efdd34574c0dfb6fbe95ca3c587b88",
+      "public_root_sha256": "b1b01e69ffd33823c96d42fae89e35fa739d66e8be106bec60c7443d8638da4d",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:32:building",
+      "case": "surrogate-continuation-study-v1-5p-32-building",
+      "root_sha256": "9845f013a645907779c532e562c1af119b5076de8e25141b6e04cd7f3b606b49",
+      "public_root_sha256": "9bb8c3fd67efc4b3de06911a4ad89d9d3b47c0915517f9e1166bac52bf74a087",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:33:plant",
+      "case": "surrogate-continuation-study-v1-5p-33-plant",
+      "root_sha256": "8d118df4252178aece48ebaa7afa31fe12d9bc6b48f85a3c4a35867bb48c7f31",
+      "public_root_sha256": "65d2f6806aadeb6cac870327dff53f4d8e9f26b8678bb33b8cc26e4269a05f43",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:33:bid",
+      "case": "surrogate-continuation-study-v1-5p-33-bid",
+      "root_sha256": "dae9ef62435590ef77ce412340aac35288c21fb2f62dc8f7f0c961a01b282293",
+      "public_root_sha256": "8e1d125fd922ed3acd8accf05fea1bbe558500bc6113e0922cb3434ad941a9f6",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:33:building",
+      "case": "surrogate-continuation-study-v1-5p-33-building",
+      "root_sha256": "d5ce2ca3ff4c6149c475b0ab27ba78d9b1b45d21c50f24f9c19b6962642636a1",
+      "public_root_sha256": "84ef16edcf08dbae637ffc0f73862c92338a9211dc7d17abb35e7b13402e5b96",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:34:plant",
+      "case": "surrogate-continuation-study-v1-5p-34-plant",
+      "root_sha256": "7c47ad5fd8c659de1016b1c7d0c30ef0e112a0c0c2e7f9037c1491e434d42f2f",
+      "public_root_sha256": "4fc43000418c6f927d52807f2d05f969dd451d4498dd0240ca0ab1a5d7a2f7b7",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:34:bid",
+      "case": "surrogate-continuation-study-v1-5p-34-bid",
+      "root_sha256": "4523a7f749658fc0d8b83936d43184c0a3ea3dc2386d2f34e846ffe3edcd8438",
+      "public_root_sha256": "11d625653c9372ae780164bfd5fe2595256f0e05dfb7b01f958627714ba23fc0",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:34:building",
+      "case": "surrogate-continuation-study-v1-5p-34-building",
+      "root_sha256": "48fb7d67a4cc0b96a3db70aeedee846b67fc0e8de798698ec0d0081a63ba308c",
+      "public_root_sha256": "7198b6952cc5646b0370111cd2629c472fad106c216c3aa4872b9b1470a61a4e",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:35:plant",
+      "case": "surrogate-continuation-study-v1-5p-35-plant",
+      "root_sha256": "895de01a8e2deec12e4333249f621fc229decb9ee1486f7f2a2033f84660cf20",
+      "public_root_sha256": "cc7e7599b788ffad0ebdec5606a5d8204d70a28fac3a528c2dccef4cd9b32810",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:35:bid",
+      "case": "surrogate-continuation-study-v1-5p-35-bid",
+      "root_sha256": "9222cce32ec9ee54c80b4f6bf58e5a476eff685ae277e47acf4f8d5a6e159c8c",
+      "public_root_sha256": "da571a145d2f190377ee340fd6407b28d32eb06fac089fc0b7c0b00bd343a0e8",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:35:building",
+      "case": "surrogate-continuation-study-v1-5p-35-building",
+      "root_sha256": "a3ac635a57d5ecf4d6270c3840ab1a181f753ee849d97535fd69396d3c1689c7",
+      "public_root_sha256": "7f85abd43119dd412429edd0e6d5e8dff27d78c908c789cba6fe70a92a19170d",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:36:plant",
+      "case": "surrogate-continuation-study-v1-5p-36-plant",
+      "root_sha256": "7fc13f7ff76849b44465d227761ac47d35bc6da061c6418917a7566cddd040fe",
+      "public_root_sha256": "f5fd3a3cce1d005e110554bc9d3c1cc4fcc9b60e0ceced1530f2b684d176543c",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:36:bid",
+      "case": "surrogate-continuation-study-v1-5p-36-bid",
+      "root_sha256": "692fcb6ad39d76bcca3808b60b607de1b738ba95b0922ec18e9e4dfec9de2eef",
+      "public_root_sha256": "bc3215abf47393f10e1c518aa354577bbc4353364b13c848e6d1767dcd08e43e",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:36:building",
+      "case": "surrogate-continuation-study-v1-5p-36-building",
+      "root_sha256": "55f55ddaadfead94feec1a8c34b926e78094218e5b98701549f75e61064b94f1",
+      "public_root_sha256": "0c7fe960300600aa78d8f34c6ffa742d4d216faca1f160bc65f3237507133c42",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:37:plant",
+      "case": "surrogate-continuation-study-v1-5p-37-plant",
+      "root_sha256": "cbe4719928f210ab50bf82e47428ebe7de2f019f1754ca8234e92ef71d98dadb",
+      "public_root_sha256": "d72481b37911273fdf6c511778e6d4ab83b9829579f3c8468cb826656807298c",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:37:bid",
+      "case": "surrogate-continuation-study-v1-5p-37-bid",
+      "root_sha256": "bf218ee95ad421f182ae8785833e5e1435eead622a49bf3f86bf054ff6e0bdce",
+      "public_root_sha256": "a1d9ff1c1e695a18903452f9a7d4ef3256922ce0f44180dad4aeea4848c6e3dc",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:37:building",
+      "case": "surrogate-continuation-study-v1-5p-37-building",
+      "root_sha256": "002ec785d60798fe2e31f7bced6ceb3b66655e32c6a29df7d3138e9d076f5b39",
+      "public_root_sha256": "22416eb4263ee65753d9707801c82c4f92905da15bd41c82fcccdd384ce0ffb3",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:38:plant",
+      "case": "surrogate-continuation-study-v1-5p-38-plant",
+      "root_sha256": "65c2dd0dd6fad965cf0403ef46ce0d6f0b6d1bea652c1ee76416051ad1ed4ceb",
+      "public_root_sha256": "5e027ca023e8cc4738bda5d7db5cc2a9ddaac60cd27a61d169b5926176bfc7c0",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:38:bid",
+      "case": "surrogate-continuation-study-v1-5p-38-bid",
+      "root_sha256": "1e3bba37fc818283bc7cef3f5774ce3bbca829cf60ca7cbd81c693383bbc3130",
+      "public_root_sha256": "3aee0bc9d5de2b25ef29f9538d2859592718a8abafa3d3a3dc8e52e2088aa66c",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:38:building",
+      "case": "surrogate-continuation-study-v1-5p-38-building",
+      "root_sha256": "c199bb6349eb300f5909c4813efca5d60c4a26af64f8bc5d7dae46346339dc14",
+      "public_root_sha256": "c59983cc98c6843d9d70e85549fe369b81ec333da09af6caded1781b624117ec",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:39:plant",
+      "case": "surrogate-continuation-study-v1-5p-39-plant",
+      "root_sha256": "40c29bbfaf70a3f29f6096d5962f1bc6d03a4a0bbd2b6fbb4533f2862a68bd8c",
+      "public_root_sha256": "560b92cf137959f3cb60759c945e46016c28f6918af92fb24efef8ac5c727e60",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:39:bid",
+      "case": "surrogate-continuation-study-v1-5p-39-bid",
+      "root_sha256": "8690f2a19024d64d1de7c29f51071af901a0aa99182dac7e31e0acd9d012c8ef",
+      "public_root_sha256": "82fb2d0f9d5c41f204297e1ec93786c17465b2a45ac1d9a10961ffc66d8cd862",
+      "continuations": 48
+    },
+    {
+      "root_id": "5:39:building",
+      "case": "surrogate-continuation-study-v1-5p-39-building",
+      "root_sha256": "068477115e636335f8b5e61b8b12b668b196fa7f7e3f5a2094d94ce3c30eb55c",
+      "public_root_sha256": "2c14f485126ccbc6cef8e34e688197f3302899f5abd8a1400b2b7ac570917a22",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:0:plant",
+      "case": "surrogate-continuation-study-v1-6p-0-plant",
+      "root_sha256": "c1a60da80984afd171a10415414f99e56d5834dc118bff1909c156acd369fea8",
+      "public_root_sha256": "788411577106bc22230fbfa3396f406f253d9d7e5d3f553d3beaf61a65b67d11",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:0:bid",
+      "case": "surrogate-continuation-study-v1-6p-0-bid",
+      "root_sha256": "ba329600489ae9ee8dbb6f089d78acd7bb06504c7854a61639aea5d3fdae138e",
+      "public_root_sha256": "3f8e7875b94c0a2a8eb9e95ec11237231a0d7bff8ea147202ceb4b6a0971cff8",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:0:building",
+      "case": "surrogate-continuation-study-v1-6p-0-building",
+      "root_sha256": "80209899b039eafec46edaa298d6c01639b810d26484114751a0cc3783d090a3",
+      "public_root_sha256": "4e8d3a7d6b2fa4b879a7d96955c4c71fa8a040accf42af09d1a7ddb2531adca8",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:1:plant",
+      "case": "surrogate-continuation-study-v1-6p-1-plant",
+      "root_sha256": "cc89026e50731cebc496b2b58578987ddeb1fee668eb725ee05b6c751fd2096a",
+      "public_root_sha256": "b5dd14a48f27ead7d84cbb2d2547b79ef667b13f95fb9daf998f6bd387b5fdd1",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:1:bid",
+      "case": "surrogate-continuation-study-v1-6p-1-bid",
+      "root_sha256": "809a00b95986d0ce67bdbfc71c1fe72a4a2cb00922c042c48dc706a915121069",
+      "public_root_sha256": "51f98c4f09be15abf0c539dd7fb1a7a0c3987c4fc92d135f094e457a1c530710",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:1:building",
+      "case": "surrogate-continuation-study-v1-6p-1-building",
+      "root_sha256": "2bb2fd0c0dad006fd33fd752c154dd8ba31f0f34f059741c3be0195b6043293c",
+      "public_root_sha256": "d17d16f8a7e778cec15285095ef7eb605b10868f9bda33fc6ca9d2f2c2e90663",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:2:plant",
+      "case": "surrogate-continuation-study-v1-6p-2-plant",
+      "root_sha256": "d91dc03e8153bd82a47be6293b4dc6472c4bf133685d9c759f7039246a8c64ed",
+      "public_root_sha256": "a1c18a5a91c2142579944d8b496ed693cb6493c2b870c1d71a7dbb51eed5d68c",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:2:bid",
+      "case": "surrogate-continuation-study-v1-6p-2-bid",
+      "root_sha256": "eae8211c7e34bd2045a055ff7e0be3569b961646d43ae029925e9d393e32fef9",
+      "public_root_sha256": "fb7ffa1370aa837cc28b4f49351ac94046c042587a0e5a4701c226a6ebb06d3f",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:2:building",
+      "case": "surrogate-continuation-study-v1-6p-2-building",
+      "root_sha256": "5f08b297f04b79ccc60d2fa9ac214e4f803fddc16c6403d0d1576b3cd36cdc10",
+      "public_root_sha256": "5695282da7870964dca1b44abfdcedd70b17ac0189009bfd850c93ed753fa39c",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:3:plant",
+      "case": "surrogate-continuation-study-v1-6p-3-plant",
+      "root_sha256": "51c84d7a06ca49573487c6fe3bc7200accf667ea46ccb876788eb1626cf1060c",
+      "public_root_sha256": "becb4372e63e44bfaab870abacda5943cffdef3b1f0a5d2bcafba98e84b4716d",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:3:bid",
+      "case": "surrogate-continuation-study-v1-6p-3-bid",
+      "root_sha256": "3dcf6eb605e7267c915c965796e84b578ea1f45bc36b380f0faff217860e65ea",
+      "public_root_sha256": "3e480e3b5722710f59d1bde796b184cfd306d3fd7c20895ab13b0f5af8a1aa91",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:3:building",
+      "case": "surrogate-continuation-study-v1-6p-3-building",
+      "root_sha256": "0e45a9ff1f88f966ac22891712c09d7f15c8a2a27a91d097ef19715627bcc3df",
+      "public_root_sha256": "6c358319d9ad652bf9d5b3d529e68524f87ad9aaa9158cdae4b1ccd1886ac934",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:4:plant",
+      "case": "surrogate-continuation-study-v1-6p-4-plant",
+      "root_sha256": "eef40099ca286ec43a1fecd2746e637cbde1bea4a0b39c82ee3d67071f6cb8dc",
+      "public_root_sha256": "935ff068b1855a7c875f593b2b307a2d27bc67b8e29b9ab58a9dd3d7e6ae931d",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:4:bid",
+      "case": "surrogate-continuation-study-v1-6p-4-bid",
+      "root_sha256": "593474d20033fb761bb0cca1178846a4216061cd1cb8e18c84a7d80c5a8956c8",
+      "public_root_sha256": "f5ec52436560e4369cf037400da9e9e9d8c4dc3b2e068efd22b27d179c1dfd83",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:4:building",
+      "case": "surrogate-continuation-study-v1-6p-4-building",
+      "root_sha256": "80703cf0b6338d562a9b73d3145fbfebb2f11e68e1ac6c9610a37c814ab28049",
+      "public_root_sha256": "207fd57cccb926d23407adf5beaff690e5f75b1fc86bcc46f4d493880e371ded",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:5:plant",
+      "case": "surrogate-continuation-study-v1-6p-5-plant",
+      "root_sha256": "f1f40104a25e529ee48a4c4ae48dd4d885f6ca7daf9fdf4bea8e9ab6b5484b57",
+      "public_root_sha256": "93981f3aeb6a1bea945edfc2b6e1e8969a1682f9d4b17d5b9a885666a07640ff",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:5:bid",
+      "case": "surrogate-continuation-study-v1-6p-5-bid",
+      "root_sha256": "a60bbad96544da534553aa663c0e85c8ba1e10e9ce4b6960d6b8f0545435b03a",
+      "public_root_sha256": "8dbcfd43964e821a693683de88b1726decebd0c632fa6a6d8c67916d004c6bc7",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:5:building",
+      "case": "surrogate-continuation-study-v1-6p-5-building",
+      "root_sha256": "80f28162c69e3c2f8b4dac4ef9dd9d2078749fd11d0996c35f3b5ffd21fd0d45",
+      "public_root_sha256": "19172c1a1ffec557a83e66a09c30a739ff2b834eaaa11da8d3329fd9faa37b31",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:6:plant",
+      "case": "surrogate-continuation-study-v1-6p-6-plant",
+      "root_sha256": "f04e05e15988ae3f87b0744002cb824993e06627c120766843637132c6a9f242",
+      "public_root_sha256": "c8df9100a69699a62741ca2e6e15861252b124c11a92018e0e29d5526ccb3c19",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:6:bid",
+      "case": "surrogate-continuation-study-v1-6p-6-bid",
+      "root_sha256": "eaaf946a799b3ba6cfdd175896fcadc7aba3aa95fd33780f189f55a500b0ddf1",
+      "public_root_sha256": "70fbbc664cdc1bc46dd0918bbd2ffcd6b5d54fc92a97db06fb79473c99d1b6f2",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:6:building",
+      "case": "surrogate-continuation-study-v1-6p-6-building",
+      "root_sha256": "05a1d0943d4512562c1253814e4153399427e188aacdbe6f4908dac512e9c03a",
+      "public_root_sha256": "86bfafb3144cd9bcb09e3e44a35a02fccfa2282a27799b79f74b707d13374cb4",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:7:plant",
+      "case": "surrogate-continuation-study-v1-6p-7-plant",
+      "root_sha256": "5e28db537fd621d8c380352cebc9a544c06e34c1410c395d3bbad59650a1e4fd",
+      "public_root_sha256": "61a4f59ca464e72428aec71c9b81bc66cfdd7ed6528f4aa96ae520b85eeecdfc",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:7:bid",
+      "case": "surrogate-continuation-study-v1-6p-7-bid",
+      "root_sha256": "45042f11a7b5203470977278860a896361aa96a45b65848ea1708ca300fa94fd",
+      "public_root_sha256": "b32f06ecae0c0c36fcd574af723192905d274cd74030c16b26e1a467965d05f8",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:7:building",
+      "case": "surrogate-continuation-study-v1-6p-7-building",
+      "root_sha256": "4f17f9adfb33906b1359278e068909c2857ff253572456423ce5824646d89b1a",
+      "public_root_sha256": "239f274ff4dea277e5ba83b66a71d286ebe5e66f2643610d5a72dbade9f54ca0",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:8:plant",
+      "case": "surrogate-continuation-study-v1-6p-8-plant",
+      "root_sha256": "c5b05fdf543168d9d47fdf728e5d15b48c50d91cb0c23ded8b4054bbf2e50f21",
+      "public_root_sha256": "ed9830a5ab95361adb53da5ef12a396dbae3ca47254abb47a3b01741c8e52243",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:8:bid",
+      "case": "surrogate-continuation-study-v1-6p-8-bid",
+      "root_sha256": "19e09688e6e10d1f2f8669a6b1134982ef114c92209b437d96b3e520b25cd32d",
+      "public_root_sha256": "5accdd0a6306e552ff51a4044eb3a0c81d9a4564d070c2c5084113f2ce99b615",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:8:building",
+      "case": "surrogate-continuation-study-v1-6p-8-building",
+      "root_sha256": "6dabefff617f376f66604c9d25519a3f965e46d5e65d67286cc782122ab6fb72",
+      "public_root_sha256": "1904349b9c149fbdeb55060f62c51646f381c9f1b795a82e44fe4e7899893e87",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:9:plant",
+      "case": "surrogate-continuation-study-v1-6p-9-plant",
+      "root_sha256": "4eb55d86f8b7cd1320bd2bf523d82c07524f49a690cb23ce4c2b99456bfbb20e",
+      "public_root_sha256": "2b0178cd7db79a72a85a1a2a77e61da7df9e2c4c78751e3667bb98373945ac48",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:9:bid",
+      "case": "surrogate-continuation-study-v1-6p-9-bid",
+      "root_sha256": "03af3f8f281859dd8365a1035066289ef3c00446207e57836e369a6afcdfeaf4",
+      "public_root_sha256": "1b4774c42f65e389f3c6e6918cd2374ad020d2797ae3dec70f7bc1c0c2adebc7",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:9:building",
+      "case": "surrogate-continuation-study-v1-6p-9-building",
+      "root_sha256": "226f6b618d6820c09f79d9f289130c427ac411e9a9eb4b393875fce51a40e11e",
+      "public_root_sha256": "8516b0a853cb8b5e1a9074d76da2aa5e7ade8761974c60f5a81ac5c2db64b777",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:10:plant",
+      "case": "surrogate-continuation-study-v1-6p-10-plant",
+      "root_sha256": "19370b164ac848c89abd41a8549cf9c6cb3b39993fd4352160478ce4f29d3133",
+      "public_root_sha256": "22237e9d93bae6a0f882c634a262ae5249409d0ff0bee39eed91daf8073f01f0",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:10:bid",
+      "case": "surrogate-continuation-study-v1-6p-10-bid",
+      "root_sha256": "0aea55435f526b26de84119f61f1a3fbb3cdf470a9fb1afc7da495ba2e8f3b6e",
+      "public_root_sha256": "abbd87aeef156de7039ad5b6ef6d6dac65e40b8887275f346e6bb094bc085795",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:10:building",
+      "case": "surrogate-continuation-study-v1-6p-10-building",
+      "root_sha256": "146e032c9e30cd07fec7c9809093a69a7dff8be506783374ba13554605b5eef9",
+      "public_root_sha256": "2829450a387fe09f28fc7dfc98e8443c2729bdfb530972c650416c44577c1740",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:11:plant",
+      "case": "surrogate-continuation-study-v1-6p-11-plant",
+      "root_sha256": "23fc048a4bc451d7ea86987248a9aa883903a033b32c0552abb6b5eec335eef3",
+      "public_root_sha256": "142be2b3448bfa881876925f4950cad515a69c9f0e69a67bce48806c8b45eadb",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:11:bid",
+      "case": "surrogate-continuation-study-v1-6p-11-bid",
+      "root_sha256": "d4530c419b76b210e1d6c08b4d02d7c36c014e8d5d2581a45424176b38f95e55",
+      "public_root_sha256": "b19b8083bfb39f22cb8c61545cd0ce99b0484f4e8be0b59da5015d3e1756ecbe",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:11:building",
+      "case": "surrogate-continuation-study-v1-6p-11-building",
+      "root_sha256": "5f530854825478e90199b97649d65ede357c121980c094041f6590bc94d0f763",
+      "public_root_sha256": "02987ecb451ee12fcbc365fa3a42a7a2ce0ad7e54bd1da7fe589ba4e508ad461",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:12:plant",
+      "case": "surrogate-continuation-study-v1-6p-12-plant",
+      "root_sha256": "b9ab647d9d9a749db7658f9c5e88976b4543b1959750e58a9de718627a33844a",
+      "public_root_sha256": "cca646af5e36aca75559f7fa1b47e0c45350a7875aeec6502983291e2bcb59d9",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:12:bid",
+      "case": "surrogate-continuation-study-v1-6p-12-bid",
+      "root_sha256": "296a400720233c6c57595d701a079f4a30c81515e862e2d2bf40032084a48e52",
+      "public_root_sha256": "4fbb069f1828a373ede8f284baa7bbf03668c849fe963f8759983fe1aa89f5f2",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:12:building",
+      "case": "surrogate-continuation-study-v1-6p-12-building",
+      "root_sha256": "0d3286e70162b111d5d89c5b97842737416d73183c4719f6081c62e5ac7d401f",
+      "public_root_sha256": "24fec184e1bc21120a827694971eea182c63fdccb3ae9775c67365a27d3ec456",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:13:plant",
+      "case": "surrogate-continuation-study-v1-6p-13-plant",
+      "root_sha256": "19cb50342782a157fd9907531363a9130d58ac095a22e58d6d4a941b9dbfd2a9",
+      "public_root_sha256": "7f055dc20ce855c70912c716c3956bd0e721ff875e0fe82190a414fa774c144d",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:13:bid",
+      "case": "surrogate-continuation-study-v1-6p-13-bid",
+      "root_sha256": "641970792d011faabdb293f29c5198912dbd8d9e60867ce09af9ae90f0971c41",
+      "public_root_sha256": "562cdb771329071821b9e52e2ab673aca9c7105f79ee3919f6cab9356ddc4af4",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:13:building",
+      "case": "surrogate-continuation-study-v1-6p-13-building",
+      "root_sha256": "9951d5465c574bbb45e2e0693659fd71019c21114f64423e9d86e2bfcb70fdaa",
+      "public_root_sha256": "58d1ab95a03c488d0bcd106bac22ec3ae588da95c476d7b5d3652419e7f0951e",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:14:plant",
+      "case": "surrogate-continuation-study-v1-6p-14-plant",
+      "root_sha256": "b220876369aff1d9c5e904690f748da23096cdbf87dc12c9e0affd509313603e",
+      "public_root_sha256": "3bacb38691f21b2a45ced698371e8cc176349fb2a5747e7bd9d8b38370fa6f3e",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:14:bid",
+      "case": "surrogate-continuation-study-v1-6p-14-bid",
+      "root_sha256": "2d34c0dce326dd3c94cb418153b81eb62ce1a680f63c98d0ff5950795b8f8361",
+      "public_root_sha256": "75cc8f6df79929b83d7db33db49732bba0f457b074c2710a52d2746abdb9ecdd",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:14:building",
+      "case": "surrogate-continuation-study-v1-6p-14-building",
+      "root_sha256": "1fddb346b7c4bc8ddf4890fa8d3dfa3bcecf66603a6e86280d08e969a1941ed3",
+      "public_root_sha256": "a4b8f8f982872f77e28ff7ec8ac790b8b540642986fdf4b0145caf06d88295c4",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:15:plant",
+      "case": "surrogate-continuation-study-v1-6p-15-plant",
+      "root_sha256": "95528e7a528f5c7a77eb3a6878e93c3b24ad5eac2a518702cab1c9982d1a0d9b",
+      "public_root_sha256": "8d583db86d1528b1bdfe537614fa16621a784277758aeb1b04962467acdd6eab",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:15:bid",
+      "case": "surrogate-continuation-study-v1-6p-15-bid",
+      "root_sha256": "20ae2188b0909632168ed898da65c888938fc5be5c99318489fe39bef3cc499c",
+      "public_root_sha256": "133bd77e49a967b8d6f523df7e599292d27756d025da8154faefddbe55a80095",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:15:building",
+      "case": "surrogate-continuation-study-v1-6p-15-building",
+      "root_sha256": "00050f9f202283b8b64a0bccf4aaa1460675b857fa56d21b1218df25186402c9",
+      "public_root_sha256": "7dd140140db13b950bc12d240bab74584d1d54577bdeb33aad1596cffaff99a7",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:16:plant",
+      "case": "surrogate-continuation-study-v1-6p-16-plant",
+      "root_sha256": "1e0f96ef4b46905a5a8bfecf66652b18aa0007001ad9eafd3878fea26bf4eef5",
+      "public_root_sha256": "1b389d8fa8fdc444dc0051ab3bc791a3075b1a028aca1a2f2b9772bed057dfa9",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:16:bid",
+      "case": "surrogate-continuation-study-v1-6p-16-bid",
+      "root_sha256": "04e953277a1b75f61c11bdcf698869f283a17468cfc7f58d39da1b2a0fc22ffd",
+      "public_root_sha256": "37e299315e61dec0506466e74aca229712b73dfdb51248c654414f7ab1518bd1",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:16:building",
+      "case": "surrogate-continuation-study-v1-6p-16-building",
+      "root_sha256": "b68cd8fa656d8a26dcbe742555cd8716c90b806c25b7fb42746afc00e2817109",
+      "public_root_sha256": "87aee943438d8d76cdf83a16b3f55f04f22a47a1781ad804eeef8a4c560e695b",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:17:plant",
+      "case": "surrogate-continuation-study-v1-6p-17-plant",
+      "root_sha256": "cf5f001476001bfd1816827c0bbb790a0815b85ed3bd2b00be48f51b56b5a0ac",
+      "public_root_sha256": "685b77164d279dd3f4756489c70e8bfd60097267f723fcc007214de593fe1e3d",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:17:bid",
+      "case": "surrogate-continuation-study-v1-6p-17-bid",
+      "root_sha256": "59486dc016cbae05fcf414c8291355b7cc363062315cd63a9e45bb7a2efb3271",
+      "public_root_sha256": "8139d7579c8ab09db732557de2a223ae0e203d9dbfa3ff319d1b206c251c4635",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:17:building",
+      "case": "surrogate-continuation-study-v1-6p-17-building",
+      "root_sha256": "f63954bc0fd727ed3476e9711221402dacf1d70f39a33d1c136b2624d3c9c43b",
+      "public_root_sha256": "3a67b7d9f45d07e7dedecedb47feddf0a3cde5e0d8a8103618681d1f2166f941",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:18:plant",
+      "case": "surrogate-continuation-study-v1-6p-18-plant",
+      "root_sha256": "ba6fcc1bb9090a66cd7d90e2647750815e2f619ac1ccf29b791ab9fdca10d489",
+      "public_root_sha256": "852aa0970447e3d34c3d4682a3182afc7064933813a34f7c8f0ecafa6dcc23a7",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:18:bid",
+      "case": "surrogate-continuation-study-v1-6p-18-bid",
+      "root_sha256": "4f16cfa0732b85347c869470d52bacd0a6764d7611b9344fe59882cc5c721212",
+      "public_root_sha256": "3e129afd2854135de4ddcfd84d7825fa70710e80525fa3513405ba73a9bfa49c",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:18:building",
+      "case": "surrogate-continuation-study-v1-6p-18-building",
+      "root_sha256": "a11c4c3009979fae25e6f2fcaeb8c0a4dc170154d76074e64c2cf53b59286222",
+      "public_root_sha256": "56b3b9f9d7460b6a04ffb47424b0dc4d013f93636cf5f66c490b74f05bee958b",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:19:plant",
+      "case": "surrogate-continuation-study-v1-6p-19-plant",
+      "root_sha256": "a0c773741c5a0368247d72ba37602ff2825f50d29d90c8209a01bd4ffe40fb91",
+      "public_root_sha256": "d3605ab244b18f05102ed89c50d3d7905f0a4e3bccf6aeec1b0373d675aeaa48",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:19:bid",
+      "case": "surrogate-continuation-study-v1-6p-19-bid",
+      "root_sha256": "fd4bd3990ac45d3b04c2293c62c23fd69aeac6718ce0cefccdbd8ddc976f3fb9",
+      "public_root_sha256": "61f0b711ac7b3d5bfd06d295fdc7cc56ca12967ac7290fe17c7fd38b8203faf2",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:19:building",
+      "case": "surrogate-continuation-study-v1-6p-19-building",
+      "root_sha256": "8756397bccaf2685751a2dd6d8429394c5d385b7b832b18b2650de30ee48fa42",
+      "public_root_sha256": "c9f1ad50b38ada25ea5a1a9a375eca028104feb846678a02ee619e63018473e1",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:20:plant",
+      "case": "surrogate-continuation-study-v1-6p-20-plant",
+      "root_sha256": "9a71aedd34bb53a6b115f6b6763a2b35cc42370cbac70ab761a49ba89679594f",
+      "public_root_sha256": "c5dfdcc780ae944634329127ce71f891bf77799cc779514250cc86fdd36f7668",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:20:bid",
+      "case": "surrogate-continuation-study-v1-6p-20-bid",
+      "root_sha256": "eb782f8d2d63474420539398df1e6553b5fbf15b3ae9464b0693bb871a8fe364",
+      "public_root_sha256": "16b2071412041d811a318d92df34b3ae353a07ee2bb167e607a55fe1f10b6c20",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:20:building",
+      "case": "surrogate-continuation-study-v1-6p-20-building",
+      "root_sha256": "2006da0a0cc43f9a45eb95af4d839a97d8088e72fa63bec80495913ef8c5de61",
+      "public_root_sha256": "563b8667ec2aa52deca263fba4bc6d3724db53f259bdbe8e7ff361bbbbe0dfe6",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:21:plant",
+      "case": "surrogate-continuation-study-v1-6p-21-plant",
+      "root_sha256": "815d5ca625678b203071ab0c74d49143bf3c8cabd9186b7b37112677dda9d5bd",
+      "public_root_sha256": "dced869d6195d32c79bd5064005dfde63b3bf428bb896fdbf14b92b65d0cf09c",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:21:bid",
+      "case": "surrogate-continuation-study-v1-6p-21-bid",
+      "root_sha256": "4fd762d7881b920b984d8ad594a566dc1c1a7f7a3b69a5730a5baffd620cb466",
+      "public_root_sha256": "28bf14c009ad994b95b0d22a05130b222ea16090655e271919e7695046266cb8",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:21:building",
+      "case": "surrogate-continuation-study-v1-6p-21-building",
+      "root_sha256": "5e614efdd60ec6585630be44167e2556dfca87b43275f173a384d3ab32e9908b",
+      "public_root_sha256": "5be9e6adf28824a2601286be4176b5285dc711fe256c517ea411466441193026",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:22:plant",
+      "case": "surrogate-continuation-study-v1-6p-22-plant",
+      "root_sha256": "8f9d2b7837cb90f9196ac55d0d8d760fa0541738ac660cdfc514e7f182b10305",
+      "public_root_sha256": "b4afd92770f215dd693d78f4425a2f4f3c9210e6d314f7a1ed532b8193594ef2",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:22:bid",
+      "case": "surrogate-continuation-study-v1-6p-22-bid",
+      "root_sha256": "e53652a62a65dc5ad6add1aa5e90f2bd34cc7fd2bb1ee48059a136d9177beba1",
+      "public_root_sha256": "c128d2b4fa89a15969b6a0f788992de70c16d18ad877a57ff3ab2a1b28520d1d",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:22:building",
+      "case": "surrogate-continuation-study-v1-6p-22-building",
+      "root_sha256": "daf3cbfdb608e823ec03d9015127fdf3609fe2041aa46c2f52d723bcf1f2abfb",
+      "public_root_sha256": "42dd9c96c22c880aafa3d2e0fd127b54244525fd67aa8b0ff2a51a9fbd446414",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:23:plant",
+      "case": "surrogate-continuation-study-v1-6p-23-plant",
+      "root_sha256": "9c8a96ffa9b477c4e21aa1037f7e2d460f070eb105cdac3a258698eef5c921f9",
+      "public_root_sha256": "23d7c2f978f71b846f28448623f517b7f635d8177fce08cf399f65a2aa771ce0",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:23:bid",
+      "case": "surrogate-continuation-study-v1-6p-23-bid",
+      "root_sha256": "7af31b03958bec2839062fd0a33b314513cd00854e1d5997b7995b3297fceded",
+      "public_root_sha256": "f40f531926001a3fe636c92879f92edf4f2cb1bde9f4f83ff631cf6ea067cd80",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:23:building",
+      "case": "surrogate-continuation-study-v1-6p-23-building",
+      "root_sha256": "df2c3601bae008911076623488cca789e5680b5bc05ed0346182d137aba37904",
+      "public_root_sha256": "e3e532eac66b91ca89f85a61d9a16201c4a35e6edc3920498fd142f0d7b8c911",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:24:plant",
+      "case": "surrogate-continuation-study-v1-6p-24-plant",
+      "root_sha256": "b159ddae951bb867a83d97d1653516185efbcdb734df18d5eb5b1888a03efa1b",
+      "public_root_sha256": "459c5fb407ed9fa3bdbee8f101a3d216dbcee0983f1d7112037ef0bf1abd739b",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:24:bid",
+      "case": "surrogate-continuation-study-v1-6p-24-bid",
+      "root_sha256": "99a1a982df0805b341cf54861cd23d83aed5da483533da24b0455a5363184617",
+      "public_root_sha256": "c0d2d11649c4c5766b4f97dfca522fd377e2244907b7cebf4676baf295bcc597",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:24:building",
+      "case": "surrogate-continuation-study-v1-6p-24-building",
+      "root_sha256": "d16d9b3d6a00c2b530fda48a6bfb700934cbd6e36802411fee9612e820c423dc",
+      "public_root_sha256": "b34f3ccf0d6ba01fb6dd0a7ea5a7c97e196b55488fae7608e6231ea4047b3479",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:25:plant",
+      "case": "surrogate-continuation-study-v1-6p-25-plant",
+      "root_sha256": "fa6e9934c5cccb75db98bed78a1a8d2fb7787a1405c84577458e67e053d87417",
+      "public_root_sha256": "a11794aea48359054f1010b1c04cf405877608fb888a97fed6e682e05a471028",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:25:bid",
+      "case": "surrogate-continuation-study-v1-6p-25-bid",
+      "root_sha256": "7ae59484d64e8296c98c9d606650d463de2992ad177cf21c81dd0842a1cc28f8",
+      "public_root_sha256": "d0ded4d18be608f6e095fd65ba501930f6ff8d0e1226b2b386812d8931ef3316",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:25:building",
+      "case": "surrogate-continuation-study-v1-6p-25-building",
+      "root_sha256": "e50c0209b198877c8ad9ad5e48484de661c3639c84761eeaea35c507f1932d24",
+      "public_root_sha256": "6ba11435859a7a2f7d483d676f4dc2f9a5281d289e0c2ed29faaad6ad372bd74",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:26:plant",
+      "case": "surrogate-continuation-study-v1-6p-26-plant",
+      "root_sha256": "dd3abda921bcb54c165edff86aaf415bd1cd2485a226b421b301023a29f0c963",
+      "public_root_sha256": "ead33830837a77939747fb9ef9b660385f6353a05ef1140c5358c97004d145f5",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:26:bid",
+      "case": "surrogate-continuation-study-v1-6p-26-bid",
+      "root_sha256": "e9efe368c805b5b29b79a577f69ae572f88416fed0aaa1fb9cf68a9aa4e85ed2",
+      "public_root_sha256": "db47b48626cec387540ec82b0e3590ad8ed08fd6ce4f945527361b22172c85fb",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:26:building",
+      "case": "surrogate-continuation-study-v1-6p-26-building",
+      "root_sha256": "fb43846e6e4602151676f6fcd7a00f7c6667e192f170b75dd8d24cb5d382a17c",
+      "public_root_sha256": "bc7c3a2ede14829cc17035a6a4e634e10cd3f36f625f516dc28c20affc759bfe",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:27:plant",
+      "case": "surrogate-continuation-study-v1-6p-27-plant",
+      "root_sha256": "78395c21e4c50f405280a011b7490d8ac4e8400caa3473a10af41ab72d76ef1e",
+      "public_root_sha256": "1004f926997ffb36156e86e4960b0fdb5314483b94be0d12b3bff00f75cc7c48",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:27:bid",
+      "case": "surrogate-continuation-study-v1-6p-27-bid",
+      "root_sha256": "0b9954dfe7d7a754751302b174e77dfc60d5d8949d25dd76bd9097acf3c83eea",
+      "public_root_sha256": "7b2e8e7a40b7d2dc453f8b30513d7fed5598db43ce9ca4a9db82d0baad1c60d9",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:27:building",
+      "case": "surrogate-continuation-study-v1-6p-27-building",
+      "root_sha256": "1368ae8073f4127eb57b1ac0c498880e7c1476d4303686dba87ecaadb373a71e",
+      "public_root_sha256": "8623c6c168766a5a67e700fa61b8ab11279f37600941db9981b5d6606593b320",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:28:plant",
+      "case": "surrogate-continuation-study-v1-6p-28-plant",
+      "root_sha256": "9dd8eeed8f4314010e44aea313e77ef9af0fd3c3ea82a8d86842b1c63bf315f9",
+      "public_root_sha256": "3f56bc73407cc162693351e577b191b9da709f229ab540ea206b0867f6d9c0a5",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:28:bid",
+      "case": "surrogate-continuation-study-v1-6p-28-bid",
+      "root_sha256": "11d5e9fc7276fc980ee33beff00870bdc40af5657bdd57bb5a2ac5367efd0712",
+      "public_root_sha256": "c98ca71373e0b1974b6eabba8fab3363b1f28bafd010c827d788cd9b2fbc03d3",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:28:building",
+      "case": "surrogate-continuation-study-v1-6p-28-building",
+      "root_sha256": "e880195c9e93e2e5470d2eea8cadb6c4ee750bba15bb38ac65c848106c1a6d33",
+      "public_root_sha256": "7126ade14061369b810d4bd5a986add2ca1663979be0a15e87e4bf8f4e7595cb",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:29:plant",
+      "case": "surrogate-continuation-study-v1-6p-29-plant",
+      "root_sha256": "c9b4424fa8784a378cd69e4a242378220efd9dc78e036550443a66b79cf11902",
+      "public_root_sha256": "57542c7e5f9b07dda5507a28ea11f781d8a02ecc3875e1d4796bf1342412580c",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:29:bid",
+      "case": "surrogate-continuation-study-v1-6p-29-bid",
+      "root_sha256": "4503df38bba0fdcb6e0185dfdde89dba1041fb6c6d0061457a68152607074c45",
+      "public_root_sha256": "f3efb8b4c3197d483740d6b4e08d48dec2946db818a185c475481b084d010484",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:29:building",
+      "case": "surrogate-continuation-study-v1-6p-29-building",
+      "root_sha256": "1e62baf5d1210f9a316c16b8073c336e5f2f95959f46b3dfd5625fba99b26fec",
+      "public_root_sha256": "0159654706a917c64f8a24259a065e55fc4d105bb62bee3a40aa0d96b9f36d35",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:30:plant",
+      "case": "surrogate-continuation-study-v1-6p-30-plant",
+      "root_sha256": "0fd21c498d719be4254f10dfdeb1777717f2e0d16d88ac0660b8b8be9b278012",
+      "public_root_sha256": "0e8bc951c6b984fce28f9757cbba74cf741b22b2dbbea1371fa860a429353ad3",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:30:bid",
+      "case": "surrogate-continuation-study-v1-6p-30-bid",
+      "root_sha256": "53edc5edd67abb83de5e7269c3a1854dda2ea500bb3c3603984555361863565e",
+      "public_root_sha256": "18118e8fe7daf0ba46f8f4316b4d5e8bada9df62e7c8a2675d57a717bb667183",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:30:building",
+      "case": "surrogate-continuation-study-v1-6p-30-building",
+      "root_sha256": "0d0bf473c7f82dd1489f52e9aac020eec976d7e3efa9fcdbad4481744c85eabd",
+      "public_root_sha256": "7d82955ee158a69949ac644c3b5edf047e954527b3f4eebec75c0c5eea6d794f",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:31:plant",
+      "case": "surrogate-continuation-study-v1-6p-31-plant",
+      "root_sha256": "630a8350c75e275975880c9417fd09d57909ce6ace77638055efac46c1c7262d",
+      "public_root_sha256": "6906f4eb42bfc1d2aaf1c7c9d2d23920729dae2df60a8253cee6d6a93dccfdfc",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:31:bid",
+      "case": "surrogate-continuation-study-v1-6p-31-bid",
+      "root_sha256": "10caf6fb2d10764a3b06f3331ff6137ebea9301c3869da4bcc6119a661585975",
+      "public_root_sha256": "b467b2c62aada4bbe317b7a64f544c6979603e57f26d70ec85dd63ad8aec8b14",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:31:building",
+      "case": "surrogate-continuation-study-v1-6p-31-building",
+      "root_sha256": "d7a28ccdcf1bc4075372fecce2da485529787aa8fac1fff93c57b90ba67eb4fc",
+      "public_root_sha256": "adde45d87ce8190503a21db6d87e6437d4cfcb1485352006eb1f74a9d36923e4",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:32:plant",
+      "case": "surrogate-continuation-study-v1-6p-32-plant",
+      "root_sha256": "4e3d7ecd2870d5a5f0c74818c582e1ce5a63d7e68d7c007fb22c445fb09b3818",
+      "public_root_sha256": "267b93ec7a66289ad88887d6f81f8d8a8c8eb8470844eeadb1185d8998698194",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:32:bid",
+      "case": "surrogate-continuation-study-v1-6p-32-bid",
+      "root_sha256": "9d4dfd1cb54845e3ec266c5e6efebe2a5233079de6cd5131c9b8e39ff02c4a8f",
+      "public_root_sha256": "fb9cec57fc6e83a9e0ffab86051dad6b4ede0e7163218a4cb8d0a3743053ff4d",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:32:building",
+      "case": "surrogate-continuation-study-v1-6p-32-building",
+      "root_sha256": "e018e912cb5ea0289a40062316923149329f7a242c481c48a3fe7f8c112373a5",
+      "public_root_sha256": "3ce77a065d33eb62fdcd2b36491271776c704dbb21941a7a1faefe81b9ed7169",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:33:plant",
+      "case": "surrogate-continuation-study-v1-6p-33-plant",
+      "root_sha256": "eb718eca21e9e1e89a0170199c80817a2a330a9453837a0c08e2c27f9e994432",
+      "public_root_sha256": "4ce101c4f2c2c855188a313ac172c083a3d002f3896a2e095e1a40fa9645204e",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:33:bid",
+      "case": "surrogate-continuation-study-v1-6p-33-bid",
+      "root_sha256": "5526ba9318e0804d07d46a559cbf9728c2b0009f83f8b19b7317edbdaf3d9c50",
+      "public_root_sha256": "e0368eb981ed9bd227ea18b7c4a58758c57cf4b9c104955425eca6dc3e8281e4",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:33:building",
+      "case": "surrogate-continuation-study-v1-6p-33-building",
+      "root_sha256": "a2ede5e7b9ef98e1df0dbe08abf0257fc43da3e97ed0af568d57623f9b70497e",
+      "public_root_sha256": "36516645f837193664f9106d09342623cce54c12d43fa57730279a19fc4bdfeb",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:34:plant",
+      "case": "surrogate-continuation-study-v1-6p-34-plant",
+      "root_sha256": "c2867c7766eaf88ac64943daa5daa74e916a0e6f0b6393fb5bf4c55c4c7c288f",
+      "public_root_sha256": "48b30e7f07bddbe919bb067a643457551796186633f8de96439129a7a5a6abd8",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:34:bid",
+      "case": "surrogate-continuation-study-v1-6p-34-bid",
+      "root_sha256": "90fca53d071417a059ec464cc97aea5342e13efa88040bbb194fc1099c81944d",
+      "public_root_sha256": "23ec2e7c305b74f703418010f8b0194c6395059ca4975dee83bde7d215b81ca2",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:34:building",
+      "case": "surrogate-continuation-study-v1-6p-34-building",
+      "root_sha256": "623ed432d9245a42ef33e4eeb8bfca9acb50d65337ccc9e15bb122b9ddf5f551",
+      "public_root_sha256": "454d50630734770793bc3410c9588fbbe4168eb8fd86337cd568248185948e67",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:35:plant",
+      "case": "surrogate-continuation-study-v1-6p-35-plant",
+      "root_sha256": "397581109dcc88d2078d64892c2749afcd1f50b26a449c6337efad95c430ace6",
+      "public_root_sha256": "88f7feb48597719081762601b306d42daee5f29fadbb960899f022b7fc337613",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:35:bid",
+      "case": "surrogate-continuation-study-v1-6p-35-bid",
+      "root_sha256": "081d45f28ab83ac9081c1d580b746ca1834a9d96eef0f5c0f75c2efaa637aaf2",
+      "public_root_sha256": "423ab9d9552f1f283626939f39e56d1b0e33d66d5e816dd4a0990951e74bc61f",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:35:building",
+      "case": "surrogate-continuation-study-v1-6p-35-building",
+      "root_sha256": "ecacee0363e268f9281c8ea4588c5c2636c19f3a938d24d4c8dfa7b8e96a6258",
+      "public_root_sha256": "4dbf03ab5b44c5fe02af62eb9c71eb2d0d6910c54b3b964441731afb843c1521",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:36:plant",
+      "case": "surrogate-continuation-study-v1-6p-36-plant",
+      "root_sha256": "d0685bb9b9f2e6f8d7f8c0809746f8ef264b81e5695c1481d444b12be66d6f6c",
+      "public_root_sha256": "162f6264abb7f23ebe97dec0eaebf4333ab576fba13b4573d6aa2335ba10b83b",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:36:bid",
+      "case": "surrogate-continuation-study-v1-6p-36-bid",
+      "root_sha256": "06d6e1009cadd53255410331fd27903a7c5d876dd2638a20e98a915830545d04",
+      "public_root_sha256": "02f958fed2575311249fb370224af58ba797bda9f1ed5af301b8371be0f7eaf7",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:36:building",
+      "case": "surrogate-continuation-study-v1-6p-36-building",
+      "root_sha256": "64601a64d9474919fa53ce155b75f0c0bd3b9c6aa3e148af95ace50b54c595c9",
+      "public_root_sha256": "00b1147cdb0b0029f35b6603e03465ddfb3ed643b76558c59203a774f8d91ac4",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:37:plant",
+      "case": "surrogate-continuation-study-v1-6p-37-plant",
+      "root_sha256": "324632e4428aba719e502e0d4b9001452bcd563c74449b7a8e2e9b1431dcaf28",
+      "public_root_sha256": "57bf60cdaf5172165dedf035797b232495b5bb5b4acc641d44912764a1e0c063",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:37:bid",
+      "case": "surrogate-continuation-study-v1-6p-37-bid",
+      "root_sha256": "775fd75eac64b49d893bc1423d8b84536f7ac4f1a05c4cdbf4495f0842075612",
+      "public_root_sha256": "09b05532df0e071fe1c215251ad47c3b59d92f9e1a79174b4d1782d5707e9c9a",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:37:building",
+      "case": "surrogate-continuation-study-v1-6p-37-building",
+      "root_sha256": "e373b09709e7d29695a8216cae32b694cf74486b59f2533e0676970dcb5ed0e2",
+      "public_root_sha256": "ad7085cdf236e8505536ed02f7bcddd64e3cb94fa8bd3effde64143b24e84128",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:38:plant",
+      "case": "surrogate-continuation-study-v1-6p-38-plant",
+      "root_sha256": "ed6d43281b56c24f9ae19560abe989214429fed517ef5ff42c973e91176a06e0",
+      "public_root_sha256": "8c90fcad1bf4e59f9acce9330d1b6cef3101754f27ce06832b6c8aaa6e991887",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:38:bid",
+      "case": "surrogate-continuation-study-v1-6p-38-bid",
+      "root_sha256": "91f68c65626421a67cd422fbb892391ed9f3d359845ae5594cd37d568a6fe3be",
+      "public_root_sha256": "68d6bb9adb1505104b8dcb8f01ac0733830efffb90fd07ffbe6399bd922d4097",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:38:building",
+      "case": "surrogate-continuation-study-v1-6p-38-building",
+      "root_sha256": "31045125055a0e041b9f466e20c8dbb53a8aaa86e9e8fefa3827cf3fbc3ff1b9",
+      "public_root_sha256": "cd4f79a6db3fcc704a5750aa817e96e4f95597d770b5900471a9ef63266aa1ff",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:39:plant",
+      "case": "surrogate-continuation-study-v1-6p-39-plant",
+      "root_sha256": "30a968040deedac252560c5a423e4430eaf7736afba1f7011f42729e038b1560",
+      "public_root_sha256": "ab73aa1eee1310275f2b2ce6f0d74c0363d77951c87ebc7035947ae42abe1da9",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:39:bid",
+      "case": "surrogate-continuation-study-v1-6p-39-bid",
+      "root_sha256": "17f789cba2338e58992693359a161b5437c89715ae6261c2f973230fa9604198",
+      "public_root_sha256": "4a9099b8dc09e07e6f991eed57bc7b3e60c95eb72135b780f42be036fdfb4f06",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:39:building",
+      "case": "surrogate-continuation-study-v1-6p-39-building",
+      "root_sha256": "8b9a535883d5666e6cf2ef26ffee7d108f1af127c3e3e45a0afbfb0fbd1fe9bb",
+      "public_root_sha256": "1df676eff3d3ca8ec366c9a6d41b89f478602deb4b93a9a05aef6e0c9883a938",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:40:plant",
+      "case": "surrogate-continuation-study-v1-6p-40-plant",
+      "root_sha256": "d384f9b6b18a042082194aa13d929613d41aa0056371ce4ebde164c278f3b9e3",
+      "public_root_sha256": "2b0f21febd0d4824c10f7db18def694e0902877ea534afc40c9d4b2b27970d14",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:40:bid",
+      "case": "surrogate-continuation-study-v1-6p-40-bid",
+      "root_sha256": "5bda85812d9bcb6caddff5c666119b4581b6410ce731ccf938c290832089c4f8",
+      "public_root_sha256": "d16c1569907d569f8bc9f700fb942bb6fae33e21fdbf88cbe11ada899d5302ba",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:40:building",
+      "case": "surrogate-continuation-study-v1-6p-40-building",
+      "root_sha256": "b1de7f38b737b74864b284a4038ab766283c745c1bed1a9eebe1921d7ad3be7c",
+      "public_root_sha256": "e5761940f36b159a4e07b0b53223f969b6b193fc0ea42fc488109c959b312993",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:41:plant",
+      "case": "surrogate-continuation-study-v1-6p-41-plant",
+      "root_sha256": "6156c771f98bcba74d8d74fa123a92ace97ef8f6844e9b9cb05faab89fafc106",
+      "public_root_sha256": "ac0d7297b4f52e9ec05b7ffb6dc9337a11b42d0a95c3def0aa8333949cbdf22c",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:41:bid",
+      "case": "surrogate-continuation-study-v1-6p-41-bid",
+      "root_sha256": "fd76460865b2e64d50dbd7d903a21b14f1b6bb0bf05604121e5b668772f18e7b",
+      "public_root_sha256": "c82a9e580dd5b4b8ca9b42f612c3c801fff39138ae5a9ffb15174a9c34cd6ca4",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:41:building",
+      "case": "surrogate-continuation-study-v1-6p-41-building",
+      "root_sha256": "21d2a1b2d58bac771fd94f2538ff25667ca63c3297fe0093373de9160178c505",
+      "public_root_sha256": "d1fd168a3b55c875f2d4bb6ca77de3386b6aba45fdbd8bb7df823135f4f343d7",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:42:plant",
+      "case": "surrogate-continuation-study-v1-6p-42-plant",
+      "root_sha256": "dc897c0f6853cdabe20021f3862659c4b4cb14d081077294f7ad63545e124e66",
+      "public_root_sha256": "8d78f81b89089d5c4ff1bf9b1676813eee45395367b596e32a54c941876951ad",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:42:bid",
+      "case": "surrogate-continuation-study-v1-6p-42-bid",
+      "root_sha256": "e1cd641eee8a99e89c189d85501749161d1f673e8f2858e1badc89fff8de166c",
+      "public_root_sha256": "775f4a65e279065d86653754fcb1826bcafdacd81e23c0ffa70a5020b4741aed",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:42:building",
+      "case": "surrogate-continuation-study-v1-6p-42-building",
+      "root_sha256": "4e49ba1eff1c32c337d9820e75838fdee9e96ba6d41db488c6bf07dead1669b7",
+      "public_root_sha256": "3f2936f10eeb7ba161c79fb1fc45054928cbd505a394dd91ccd83dbdd6cc84f1",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:43:plant",
+      "case": "surrogate-continuation-study-v1-6p-43-plant",
+      "root_sha256": "1146f4c5a0ff173d6eaa53d20912ab41aba837db8e7d37527e22dc6227676f11",
+      "public_root_sha256": "6b6d3ca936ebf6e3ccf30e12a930f25f16c7e6e6894c36c2e3944a9504be3723",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:43:bid",
+      "case": "surrogate-continuation-study-v1-6p-43-bid",
+      "root_sha256": "f7d82cec0f99cd21a7cc97ca7a5c0e402121bdd2c169c0edf92b879f8d3f548f",
+      "public_root_sha256": "8231ead5a2155b17f9ad831a93ddf1c0016b6de36c33b4f072208323e6751f96",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:43:building",
+      "case": "surrogate-continuation-study-v1-6p-43-building",
+      "root_sha256": "13163f792caec29932ed182fc6116f694cc7cc4aa9c0aa7d5999bc9345006ade",
+      "public_root_sha256": "bf9bcb449f5e6b7ed0707c271155e34f815863c276718c2f1861f7f2dd5ba708",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:44:plant",
+      "case": "surrogate-continuation-study-v1-6p-44-plant",
+      "root_sha256": "0721ca40489434ec6a248c50f6592359c117dbc8075b164515e6ccc0724d2845",
+      "public_root_sha256": "a5492b4e734cba44051186505bc8194c7619e150281ec8883b91bde3087897fb",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:44:bid",
+      "case": "surrogate-continuation-study-v1-6p-44-bid",
+      "root_sha256": "d7517022018dd0c5e134286b21467df844e0ed6d3f7e4f057bd9f839eb119728",
+      "public_root_sha256": "962aed8f583ca7e97b26ea571a97908de03fc9f517b1c47868187574e1b21cd5",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:44:building",
+      "case": "surrogate-continuation-study-v1-6p-44-building",
+      "root_sha256": "9349aab2bfe54807d3de062df82f7f32be8a947ed2e573c386c31a36aaa3ff14",
+      "public_root_sha256": "77d10a3ee7637d016071f43f8b8444208efa48346672a0b8d1e64a20eb216f69",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:45:plant",
+      "case": "surrogate-continuation-study-v1-6p-45-plant",
+      "root_sha256": "38661288b2d30b26823770d2d76026c5382f14effb98986be5672f290d211803",
+      "public_root_sha256": "a12bef001309a4c19f9ee15dd90cbbbb31fe6635d73efe15a4984cbc46cb19f6",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:45:bid",
+      "case": "surrogate-continuation-study-v1-6p-45-bid",
+      "root_sha256": "0416af7b22a3787dd82135b2bd658aac05326326eec954477094815c842660dc",
+      "public_root_sha256": "ee7f6e92b3e47e6076d2d7fbe445f78b7e014a9c963c760d9760a77cb50dcb91",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:45:building",
+      "case": "surrogate-continuation-study-v1-6p-45-building",
+      "root_sha256": "a40421782f9815af5892d9c80b38fa762be26d1e271c3df067c7b742c67e119e",
+      "public_root_sha256": "e650a9ecc4369a2578e3e633ec39f1ebce38e35fac163bd1ebefea8923b85bb2",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:46:plant",
+      "case": "surrogate-continuation-study-v1-6p-46-plant",
+      "root_sha256": "8f1ebcda7f33faee80b166dd5b8d1fa4a0630ef7f5cee6eccf4f7fd7530a876d",
+      "public_root_sha256": "188793c82576033bd78a40391d02048fbe73e89142877b965fb33665af0efbaf",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:46:bid",
+      "case": "surrogate-continuation-study-v1-6p-46-bid",
+      "root_sha256": "9f889c4c63a275056b7254be5fe5d3f7e92be312ef8efa7eafa7a2198fca78ea",
+      "public_root_sha256": "9eeb0921f8bea6dc8e0a10df22bffa30b5b5cd023b9aff52b17f4382b3f53764",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:46:building",
+      "case": "surrogate-continuation-study-v1-6p-46-building",
+      "root_sha256": "0384b8b0840aa498f4a179463d35730f14a56ae665403ab7b0b51432e54d0d6f",
+      "public_root_sha256": "b38a0888f3971cd149e52522381930a559327ecc3559ff4ec74e7b7daa079d1d",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:47:plant",
+      "case": "surrogate-continuation-study-v1-6p-47-plant",
+      "root_sha256": "dae84b870173bc8437ccf06c6a737163adbb30c0cbbbed5b062df067b2fad2b0",
+      "public_root_sha256": "21473926420853aafb0fe660bbba780c529153caa45884e292e4635f029239e4",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:47:bid",
+      "case": "surrogate-continuation-study-v1-6p-47-bid",
+      "root_sha256": "8d70984cd3519a4ea6e216c234d388a9479bb1b17ce497eb3cf14e04ea386d28",
+      "public_root_sha256": "e38b8c14b7e72913ab670304928d03bcb508cfe561185c27828138f550fa0043",
+      "continuations": 48
+    },
+    {
+      "root_id": "6:47:building",
+      "case": "surrogate-continuation-study-v1-6p-47-building",
+      "root_sha256": "7482aa6cb3f828924ef435dc25f29df2e8a95885b8e1ab84ac6673760b95ae9a",
+      "public_root_sha256": "e2f0f87eadaf40db71b7fcd6c627deab17aa0731abd3fac6e5022fe2eb3a02ef",
+      "continuations": 48
+    }
+  ],
+  "dependency_hashes": {
+    "ai/strong/surrogate_continuation_study_v1.py": "657c882af7cc2012fcaa7a34f9512efd7d3fa7e1c28dc420f6585838c556dd6a",
+    "ai/strong/surrogate_continuation_roots_v1.py": "32bb3995c339b325698c7b760df97ddf8f1ae19c2decf1d1b2c0821d0bf8a185",
+    "ai/strong/surrogate_opponent_continuations_v1.py": "00dfc09f14a2cfe0763f7466b60cc4c9fc315daca237e917c729136bc61044b5",
+    "ai/strong/surrogate-opponent-continuations-v1.cjs": "582e001232d3b07dad16b29fe6dc4b933869ccb8485c6167c185372af03c288f",
+    "ai/strong/reference-opponent-continuations-v2.cjs": "c3936f3fa35b3c5f9fefeea7cfbbecaf6becc8486c4f681a30e1497f83748c9d",
+    "ai/strong/reference-search-public-balances-v1.cjs": "ba53afcc0a06d25f776c27ba017e14026a28c9928bcde68b05effe64a715b010",
+    "ai/strong/analysis-public-balances-v1.cjs": "3e8eaf26bc21be7e2284e4838f743731a269e8d18badbb8adc0af882f3b3ccb5",
+    "ai/strong/hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+    "ai/strong/opponent_surrogate_policy_v1.py": "4b891dde9a1688eec9f5da0bd0ad0a5dc81d63b2a219d46ce646d033800530da",
+    "ai/strong/opponent_surrogate_training_v1.py": "49751b105b96c44d88b4a75e6b530fbddc4f0dc5590be1e18bd23cc64dc3eb10",
+    "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+    "ai/strong/surrogate-continuation-protocol-v1.json": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+    "ai/infer.py": "a86e79c2c87b1909557e69fd8b669ae2c47255d426e692b5d96baafe5c2f680d",
+    "ai/pool.py": "3b33133425d84430a6376834422478d70fe51a9c855d1e06937f109cd3620dd8",
+    "ai/strong/surrogate_continuation_job_v1.py": "c2f71bce37f8ece927386eeeac3b24309d6acf940d10ae832dce36eec51bfa91",
+    "ai/strong/surrogate_continuation_analysis_v1.py": "82ae56e4399009f96688fcef1be4479617703cc4a719cabd6332f64f11c8a66d",
+    "ai/strong/surrogate-continuation-analysis-design-v1.json": "efc57ce9e3be48d8365c4a63a72071cd0ab4887f801c4b126b5575ad508d82f8",
+    "ai/strong/surrogate_continuation_runtime_v1.py": "88d963595067128d950e1d14285af9863455b7830cb22b95f2533ab684069e0b",
+    "ai/strong/surrogate-continuation-roots-job-v1.py": "dc21963704d50857b9813cd0483c3bb524f9d67181411d12712b3322578d06b7",
+    "ai/strong/surrogate_continuation_selected_cost_v1.py": "eb19eea968918b4b40cc97005fd0379bd5984826c1bca54ad48d73f079ab8ad5",
+    "ai/strong/build-surrogate-continuation-study-source-v1.py": "842316fc91aaa389dd3887446450867fbe17fd91057f63a211ed37bf27e0eb15",
+    "ai/strong/manage-surrogate-continuation-selected-cost-v1.py": "79ca7edf6b30b38324a6a40f13ed8fa5b7e15c94360bac4d97fee57a9bde2f34",
+    "ai/strong/launch-opponent-surrogate-runtime-v1.py": "7f1af8aab9fb0db741f3c0d00ae77e20c03854c858a9794211c97d700aebe354",
+    "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+    "ai/strong/launch-surrogate-continuation-study-v1.py": "46acc00800fdd22afb6f090a553aad0c8820bde30d36ee77e95d5491a94d4b0f"
+  },
+  "bootstrap_sha256": "c87724d2946132a96df5bc870abf8b7a5455e525be53aa1ea472de3774f16484",
+  "jobs": 480,
+  "continuations": 23040,
+  "samples": 8,
+  "actions_per_root": 2,
+  "modes": [
+    "neural_population",
+    "reference_opponent_v1",
+    "surrogate_opponent_v1"
+  ],
+  "full_fidelity_study_admitted": true,
+  "automatic_retries": false,
+  "gradients": false,
+  "full_game_strength_claim": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

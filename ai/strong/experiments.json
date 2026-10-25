@@ -60349,7 +60349,7 @@
         }
     },
     "public_policy_final_runner_preparation_v1": {
-        "status": "prepared_original_engineering_execution_running",
+        "status": "original_execution_complete_see_public_policy_final_runner_evidence_v1",
         "descriptor": {
             "prepared": true,
             "execution_complete": false,
@@ -61092,6 +61092,301 @@
             "contract_tests": 8,
             "validated_contracts": 7,
             "scope": "Guarded execution engineering; original run still in progress. Not selected/qualified, no final seeds or HF submissions."
+        }
+    },
+    "public_policy_final_runner_evidence_v1": {
+        "status": "original_96_wrapper_games_exact_verified_archived_not_strength",
+        "evidence": {
+            "complete": true,
+            "checked_at": "2026-10-25T10:18:06.429833+00:00",
+            "games": 96,
+            "offset_reference_games": 8,
+            "exact_public_decisions": 13225,
+            "exact_continuations": 22048,
+            "all_game_terminals_exact": true,
+            "caps": 0,
+            "cases": {
+                "filter-2p": {
+                    "games": 8,
+                    "counts": {
+                        "decisions": 1372,
+                        "root_filter_overrides": 0,
+                        "rollouts": 0,
+                        "rollout_caps": 0,
+                        "neural_decisions": 0,
+                        "search_changes": 0,
+                        "search_decisions": 0
+                    },
+                    "evaluation_sha256": "38d7d4735f1f875b1f7e2cdc73b81f9ebb571bc09074927b45939ce06184864b",
+                    "audit_sha256": "498334395ed8bd95bd69f68d6dac89f6240ae93762c1879fe4642910fc9e666e"
+                },
+                "filter-3p": {
+                    "games": 12,
+                    "counts": {
+                        "decisions": 1649,
+                        "root_filter_overrides": 0,
+                        "rollouts": 0,
+                        "rollout_caps": 0,
+                        "neural_decisions": 0,
+                        "search_changes": 0,
+                        "search_decisions": 0
+                    },
+                    "evaluation_sha256": "046b1b530d1cc13ba8b24adbd92f576be93e8ed8d9305f2d0f60a9c0cb92233d",
+                    "audit_sha256": "475e0cae1bc6e869cc142e59d46efa4595e5879ce4e3055e53a3d27f49f83ff6"
+                },
+                "filter-4p": {
+                    "games": 16,
+                    "counts": {
+                        "decisions": 2174,
+                        "root_filter_overrides": 0,
+                        "rollouts": 0,
+                        "rollout_caps": 0,
+                        "neural_decisions": 0,
+                        "search_changes": 0,
+                        "search_decisions": 0
+                    },
+                    "evaluation_sha256": "257b678c3bca3f4452a01cfd91e1c7668d5ee7ddec86e98e57afab209bd6220f",
+                    "audit_sha256": "ff253e9401ab281f9a2daf1e4456fef4e8b8861ac4e18c0d3aea3ae10cfbb843"
+                },
+                "filter-5p": {
+                    "games": 20,
+                    "counts": {
+                        "decisions": 2418,
+                        "root_filter_overrides": 1,
+                        "rollouts": 0,
+                        "rollout_caps": 0,
+                        "neural_decisions": 0,
+                        "search_changes": 0,
+                        "search_decisions": 0
+                    },
+                    "evaluation_sha256": "12602a29733c2cad8e7ef00024dbb0f72f369f9dae0da725c32e4274895da63b",
+                    "audit_sha256": "23941823790027163bc9f5f2abe8bf7d7c67d5d70f1bb26094b7d37b42a9058a"
+                },
+                "filter-6p": {
+                    "games": 24,
+                    "counts": {
+                        "decisions": 2594,
+                        "root_filter_overrides": 0,
+                        "rollouts": 0,
+                        "rollout_caps": 0,
+                        "neural_decisions": 0,
+                        "search_changes": 0,
+                        "search_decisions": 0
+                    },
+                    "evaluation_sha256": "b1c16982e9a72b4d08fc1f32482f29f766a293631f90bf796de28f7a1ba5bb61",
+                    "audit_sha256": "a4a66bdcf4eaec87f0e95f465bd8a2aa77e82c6b02feca1c4f6d3ff526b38855"
+                },
+                "filter-offset-2p": {
+                    "games": 8,
+                    "counts": {
+                        "decisions": 1607,
+                        "root_filter_overrides": 1,
+                        "rollouts": 0,
+                        "rollout_caps": 0,
+                        "neural_decisions": 0,
+                        "search_changes": 0,
+                        "search_decisions": 0
+                    },
+                    "evaluation_sha256": "b4b1881d096aad80782e62ddcd4160c621e9411240e16675fb6211218901c228",
+                    "audit_sha256": "dd182af1fa1fab59af3ab13ffc03cf18a61e454c6e8078297f2144042537039d"
+                },
+                "auction-2p": {
+                    "games": 8,
+                    "counts": {
+                        "decisions": 1411,
+                        "root_filter_overrides": 0,
+                        "rollouts": 22048,
+                        "rollout_caps": 0,
+                        "neural_decisions": 2096329,
+                        "search_changes": 29,
+                        "search_decisions": 269,
+                        "surrogate_decisions": 318728
+                    },
+                    "evaluation_sha256": "a7b509fd816004d488f4ce8796e1baaad28e328cd4d01a452b85744048e8d488",
+                    "audit_sha256": "7b2ad307343fe2f52b441c4bec8d60a7725f648056fa42788f1e60d5076dae96"
+                }
+            },
+            "prepared_sha256": "4dcf09a8f900dbc35c16a984a8606fa696fbef38f4e4a50b01995c037b90a9d5",
+            "contract_tests": 8,
+            "candidate_selected": false,
+            "qualified": false,
+            "reserved_final_seeds_used": false,
+            "remaining": [
+                "HF source/launch admission with original intent reconciliation",
+                "actual selected-policy strength and export/8840U/package qualification"
+            ],
+            "archive": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "74df1c36f59d3c6c1d3bbc216cb86a58443a5d8d",
+                "archive_path": "archives/public-policy-final-runner-evidence-v1.tgz",
+                "archive_sha256": "dbff2e70c22343e779a7aaa24d39d788c2cb81664924987a8a6f4d4ed33984f2",
+                "manifest_sha256": "b60d9d0d646df27f9f865fffc252f914cb54e491b22e33b23a2497315c5df532",
+                "archived_files": 1896,
+                "format": "tar.gz",
+                "remote_archive_verified": true
+            },
+            "original_launch": {
+                "stage": "launched",
+                "created_at": "2026-10-25T09:57:28.061491+00:00",
+                "command": [
+                    "/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai/ai/.venv/bin/python",
+                    "-u",
+                    "-B",
+                    "/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai/ai/strong/check-public-policy-final-runner-v1.py",
+                    "run"
+                ],
+                "prepared_sha256": "4dcf09a8f900dbc35c16a984a8606fa696fbef38f4e4a50b01995c037b90a9d5",
+                "runtime_manifest_sha256": "dcb23342088ae91379374827b45c0845d1b9494b31682fca55e3ac047d1e2f55",
+                "wrapper_engineering_games": 96,
+                "reference_engineering_games": 8,
+                "new_hf_jobs": 0,
+                "new_strength_games": 0,
+                "gradients": false,
+                "candidate_selected": false,
+                "reserved_final_seeds_used": false,
+                "pid": 306566
+            },
+            "runtime_manifest_sha256": "dcb23342088ae91379374827b45c0845d1b9494b31682fca55e3ac047d1e2f55",
+            "unchanged_original_runtime_files": 1494,
+            "raw_result_sha256": "eaa9500b648f20291638ed193d8a3cc832364dec2ad90ac53976fb549e2bec8f",
+            "completion_checkpoint": {
+                "checked_at": "2026-10-25T10:18:49.193643+00:00",
+                "previous_goal_turn": "progress: guarded runner prepared and original engineering games launched",
+                "current_goal_turn": "progress: original wrapper whole-game parity verified and archived",
+                "wrapper_original_process_complete": true,
+                "wrapper_launch": {
+                    "stage": "launched",
+                    "created_at": "2026-10-25T09:57:28.061491+00:00",
+                    "command": [
+                        "/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai/ai/.venv/bin/python",
+                        "-u",
+                        "-B",
+                        "/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai/ai/strong/check-public-policy-final-runner-v1.py",
+                        "run"
+                    ],
+                    "prepared_sha256": "4dcf09a8f900dbc35c16a984a8606fa696fbef38f4e4a50b01995c037b90a9d5",
+                    "runtime_manifest_sha256": "dcb23342088ae91379374827b45c0845d1b9494b31682fca55e3ac047d1e2f55",
+                    "wrapper_engineering_games": 96,
+                    "reference_engineering_games": 8,
+                    "new_hf_jobs": 0,
+                    "new_strength_games": 0,
+                    "gradients": false,
+                    "candidate_selected": false,
+                    "reserved_final_seeds_used": false,
+                    "pid": 306566
+                },
+                "original_study_owner_live": true,
+                "study_pinned_code_unchanged": true,
+                "study_state": {
+                    "pid": 3502343,
+                    "started_at": "2026-10-25T07:14:33.743340+00:00",
+                    "stage": "waiting_for_original_jobs",
+                    "running_operation": null,
+                    "plan_sha256": "c206b3644cf691b4f6649c2d74f43347964242aefbb94c1c26b6760b44a27154",
+                    "code_hashes": {
+                        "ai/strong/surrogate_continuation_study_v1.py": "657c882af7cc2012fcaa7a34f9512efd7d3fa7e1c28dc420f6585838c556dd6a",
+                        "ai/strong/surrogate_continuation_roots_v1.py": "32bb3995c339b325698c7b760df97ddf8f1ae19c2decf1d1b2c0821d0bf8a185",
+                        "ai/strong/surrogate_opponent_continuations_v1.py": "00dfc09f14a2cfe0763f7466b60cc4c9fc315daca237e917c729136bc61044b5",
+                        "ai/strong/surrogate-opponent-continuations-v1.cjs": "582e001232d3b07dad16b29fe6dc4b933869ccb8485c6167c185372af03c288f",
+                        "ai/strong/reference-opponent-continuations-v2.cjs": "c3936f3fa35b3c5f9fefeea7cfbbecaf6becc8486c4f681a30e1497f83748c9d",
+                        "ai/strong/reference-search-public-balances-v1.cjs": "ba53afcc0a06d25f776c27ba017e14026a28c9928bcde68b05effe64a715b010",
+                        "ai/strong/analysis-public-balances-v1.cjs": "3e8eaf26bc21be7e2284e4838f743731a269e8d18badbb8adc0af882f3b3ccb5",
+                        "ai/strong/hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+                        "ai/strong/opponent_surrogate_policy_v1.py": "4b891dde9a1688eec9f5da0bd0ad0a5dc81d63b2a219d46ce646d033800530da",
+                        "ai/strong/opponent_surrogate_training_v1.py": "49751b105b96c44d88b4a75e6b530fbddc4f0dc5590be1e18bd23cc64dc3eb10",
+                        "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+                        "ai/strong/surrogate-continuation-protocol-v1.json": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+                        "ai/infer.py": "a86e79c2c87b1909557e69fd8b669ae2c47255d426e692b5d96baafe5c2f680d",
+                        "ai/pool.py": "3b33133425d84430a6376834422478d70fe51a9c855d1e06937f109cd3620dd8",
+                        "ai/strong/surrogate_continuation_job_v1.py": "c2f71bce37f8ece927386eeeac3b24309d6acf940d10ae832dce36eec51bfa91",
+                        "ai/strong/surrogate_continuation_analysis_v1.py": "82ae56e4399009f96688fcef1be4479617703cc4a719cabd6332f64f11c8a66d",
+                        "ai/strong/surrogate-continuation-analysis-design-v1.json": "efc57ce9e3be48d8365c4a63a72071cd0ab4887f801c4b126b5575ad508d82f8",
+                        "ai/strong/surrogate_continuation_runtime_v1.py": "88d963595067128d950e1d14285af9863455b7830cb22b95f2533ab684069e0b",
+                        "ai/strong/surrogate-continuation-roots-job-v1.py": "dc21963704d50857b9813cd0483c3bb524f9d67181411d12712b3322578d06b7",
+                        "ai/strong/surrogate_continuation_selected_cost_v1.py": "eb19eea968918b4b40cc97005fd0379bd5984826c1bca54ad48d73f079ab8ad5",
+                        "ai/strong/build-surrogate-continuation-study-source-v1.py": "842316fc91aaa389dd3887446450867fbe17fd91057f63a211ed37bf27e0eb15",
+                        "ai/strong/manage-surrogate-continuation-selected-cost-v1.py": "79ca7edf6b30b38324a6a40f13ed8fa5b7e15c94360bac4d97fee57a9bde2f34",
+                        "ai/strong/launch-opponent-surrogate-runtime-v1.py": "7f1af8aab9fb0db741f3c0d00ae77e20c03854c858a9794211c97d700aebe354",
+                        "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+                        "ai/strong/launch-surrogate-continuation-study-v1.py": "46acc00800fdd22afb6f090a553aad0c8820bde30d36ee77e95d5491a94d4b0f",
+                        "ai/strong/manage-surrogate-continuation-study-v1.py": "d2c96dacc12707507658618e9bc9da5d5af19a20628de2698e0f3c24de1704c7",
+                        "ai/strong/coordinate-surrogate-continuation-study-v1.py": "624b05eb6667edcbb01c2319e46ded57c4c97c04e229eb39e9a6db3eccc0bca3"
+                    },
+                    "jobs_planned": 480,
+                    "continuations_planned": 23040,
+                    "jobs_submitted": 442,
+                    "jobs_verified": 402,
+                    "caps": 0,
+                    "failed_jobs": [],
+                    "automatic_retries": false,
+                    "remote_cancellations_allowed": false,
+                    "gradients": false,
+                    "qualification_eligible": false,
+                    "reserved_final_seeds_used": false,
+                    "updated_at": "2026-10-25T10:15:56.966130+00:00"
+                },
+                "reserved_final_seeds_used": false
+            }
+        },
+        "postarchive_checkpoint": {
+            "checked_at": "2026-10-25T10:23:35.903067+00:00",
+            "previous_goal_turn": "progress: guarded runner prepared and original engineering games launched",
+            "current_goal_turn": "progress: completed original runner parity and archived all evidence",
+            "original_study_owner_live": true,
+            "study_pinned_code_unchanged": true,
+            "study_state": {
+                "pid": 3502343,
+                "started_at": "2026-10-25T07:14:33.743340+00:00",
+                "stage": "waiting_for_original_jobs",
+                "running_operation": null,
+                "plan_sha256": "c206b3644cf691b4f6649c2d74f43347964242aefbb94c1c26b6760b44a27154",
+                "code_hashes": {
+                    "ai/strong/surrogate_continuation_study_v1.py": "657c882af7cc2012fcaa7a34f9512efd7d3fa7e1c28dc420f6585838c556dd6a",
+                    "ai/strong/surrogate_continuation_roots_v1.py": "32bb3995c339b325698c7b760df97ddf8f1ae19c2decf1d1b2c0821d0bf8a185",
+                    "ai/strong/surrogate_opponent_continuations_v1.py": "00dfc09f14a2cfe0763f7466b60cc4c9fc315daca237e917c729136bc61044b5",
+                    "ai/strong/surrogate-opponent-continuations-v1.cjs": "582e001232d3b07dad16b29fe6dc4b933869ccb8485c6167c185372af03c288f",
+                    "ai/strong/reference-opponent-continuations-v2.cjs": "c3936f3fa35b3c5f9fefeea7cfbbecaf6becc8486c4f681a30e1497f83748c9d",
+                    "ai/strong/reference-search-public-balances-v1.cjs": "ba53afcc0a06d25f776c27ba017e14026a28c9928bcde68b05effe64a715b010",
+                    "ai/strong/analysis-public-balances-v1.cjs": "3e8eaf26bc21be7e2284e4838f743731a269e8d18badbb8adc0af882f3b3ccb5",
+                    "ai/strong/hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+                    "ai/strong/opponent_surrogate_policy_v1.py": "4b891dde9a1688eec9f5da0bd0ad0a5dc81d63b2a219d46ce646d033800530da",
+                    "ai/strong/opponent_surrogate_training_v1.py": "49751b105b96c44d88b4a75e6b530fbddc4f0dc5590be1e18bd23cc64dc3eb10",
+                    "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+                    "ai/strong/surrogate-continuation-protocol-v1.json": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+                    "ai/infer.py": "a86e79c2c87b1909557e69fd8b669ae2c47255d426e692b5d96baafe5c2f680d",
+                    "ai/pool.py": "3b33133425d84430a6376834422478d70fe51a9c855d1e06937f109cd3620dd8",
+                    "ai/strong/surrogate_continuation_job_v1.py": "c2f71bce37f8ece927386eeeac3b24309d6acf940d10ae832dce36eec51bfa91",
+                    "ai/strong/surrogate_continuation_analysis_v1.py": "82ae56e4399009f96688fcef1be4479617703cc4a719cabd6332f64f11c8a66d",
+                    "ai/strong/surrogate-continuation-analysis-design-v1.json": "efc57ce9e3be48d8365c4a63a72071cd0ab4887f801c4b126b5575ad508d82f8",
+                    "ai/strong/surrogate_continuation_runtime_v1.py": "88d963595067128d950e1d14285af9863455b7830cb22b95f2533ab684069e0b",
+                    "ai/strong/surrogate-continuation-roots-job-v1.py": "dc21963704d50857b9813cd0483c3bb524f9d67181411d12712b3322578d06b7",
+                    "ai/strong/surrogate_continuation_selected_cost_v1.py": "eb19eea968918b4b40cc97005fd0379bd5984826c1bca54ad48d73f079ab8ad5",
+                    "ai/strong/build-surrogate-continuation-study-source-v1.py": "842316fc91aaa389dd3887446450867fbe17fd91057f63a211ed37bf27e0eb15",
+                    "ai/strong/manage-surrogate-continuation-selected-cost-v1.py": "79ca7edf6b30b38324a6a40f13ed8fa5b7e15c94360bac4d97fee57a9bde2f34",
+                    "ai/strong/launch-opponent-surrogate-runtime-v1.py": "7f1af8aab9fb0db741f3c0d00ae77e20c03854c858a9794211c97d700aebe354",
+                    "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+                    "ai/strong/launch-surrogate-continuation-study-v1.py": "46acc00800fdd22afb6f090a553aad0c8820bde30d36ee77e95d5491a94d4b0f",
+                    "ai/strong/manage-surrogate-continuation-study-v1.py": "d2c96dacc12707507658618e9bc9da5d5af19a20628de2698e0f3c24de1704c7",
+                    "ai/strong/coordinate-surrogate-continuation-study-v1.py": "624b05eb6667edcbb01c2319e46ded57c4c97c04e229eb39e9a6db3eccc0bca3"
+                },
+                "jobs_planned": 480,
+                "continuations_planned": 23040,
+                "jobs_submitted": 450,
+                "jobs_verified": 414,
+                "caps": 0,
+                "failed_jobs": [],
+                "automatic_retries": false,
+                "remote_cancellations_allowed": false,
+                "gradients": false,
+                "qualification_eligible": false,
+                "reserved_final_seeds_used": false,
+                "updated_at": "2026-10-25T10:21:31.420265+00:00"
+            },
+            "original_wrapper_pid": 306566,
+            "original_wrapper_complete": true,
+            "evidence_descriptor_sha256": "82e2fdbfea900027dbd5eca0e85642da309dd66115d9805842342177dc433968",
+            "candidate_selected": false,
+            "reserved_final_seeds_used": false
         }
     }
 }

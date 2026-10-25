@@ -25,6 +25,56 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
+## 25 October, 10:23 UTC — original guarded-runner games verified and archived
+
+The original guarded-runner experiment is complete: **96 wrapper games**, plus
+**eight original-runtime offset reference games**. All **13,225 public decisions**,
+**22,048 auction continuations** and complete terminal outcomes match the original
+runtime exactly apart from decision timing. Only the previously documented legacy
+wall-clock bookkeeping is normalized in public-request comparisons. **Zero game
+or rollout caps.** This is execution parity, not additional playing-strength evidence.
+
+Coverage: 80 filtered-model cases across **2–6 players/all four rules**; eight
+filtered cases starting at **deal offset 4**; eight two-player auction-prototype
+cases. Eight admission/lifecycle tests and seven real artifact dry validations
+passed. All **1,494** original runtime files remain unchanged. The runner calls
+the existing `arena.play`, preserves actual returned moves, and binds saved
+candidate/contract bytes and full policy identity into each report and audit.
+
+- Descriptor: `strong/public-policy-final-runner-evidence-v1.json`.
+- Package, contracts, raw games and results:
+  `ai/runs/public-policy-final-runner-preflight-v1`.
+- Private HF **74df1c36f59d3c6c1d3bbc216cb86a58443a5d8d**; archive SHA256
+  **dbff2e70c22343e779a7aaa24d39d788c2cb81664924987a8a6f4d4ed33984f2**; **1896 files**, downloaded/hash-verified.
+- Original controller **PID 306566** completed at **10:16:45 UTC** and is absent.
+  Verification **73488** and archive **78323** completed. Do not rerun these games
+  or restart their controller. Preparation/launch guard and all logs are retained.
+- Archiver: `strong/archive-public-policy-final-runner-v1.py`.
+  Archive checkpoint `ai/runs/public-policy-final-runner-completion-checkpoint-v1.json`;
+  latest owner check `ai/runs/public-policy-final-runner-postarchive-checkpoint-v1.json`.
+
+The **HF source/launch admission and original-intent reconciliation remain to be
+connected and verified** before actual final evaluation. Selection-evidence pins
+must be checked against the real immutable review; this runner's admission checks
+do not themselves select a policy. Fresh complete-game strength, all-fixture
+export and same-policy actual 8840U/package proofs remain mandatory. The current
+prototype is still an engineering recipe; no final candidate is selected or qualified.
+
+The sole full-study owner **PID 3502343 / session 23779** is directly confirmed
+live, all pinned code unchanged. At **10:21:31 UTC**, it reports
+**450 submitted / 414 verified**, zero caps and no failures, stage `waiting_for_original_jobs`.
+A separate read-only HF snapshot at **10:05:10 UTC** found the 36 then-unverified
+originals **30 running / six completed**, no failures; saved in
+`ai/runs/surrogate-study-live-observation-20261025-100510.json`. Only the original
+coordinator submits/collects; no manual parallel work, modified source or retries
+on observation timeouts. The complete 480-root analysis is still pending.
+
+Both previous and current goal turns made concrete progress. No new HF jobs,
+gradients, strength games, production changes or reserved final seeds belong to
+this wrapper verification. Next, complete/archive the whole fidelity study before
+freezing a stronger auction recipe, then fresh whole-game confirmation and exact
+final/target qualification. No general strength plateau established.
+
 ## 25 October, 10:01 UTC — guarded final runner prepared; original execution running
 
 The new **guarded final runner** reuses the unchanged standalone `arena.play`

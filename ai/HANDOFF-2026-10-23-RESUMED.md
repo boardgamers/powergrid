@@ -28,6 +28,19 @@ This document supersedes the pause instruction in the
 ## Latest checkpoint: resource-screen launcher prepared; measured HF CPU use
 
 **Latest — 25 October: full resource-screen launcher prepared; HF utilization sampled.**
+
+**Update — 00:54 UTC:** the original **2p HF calibration job completed and verified**.
+All **8 games / 1,306 learner decisions / 450 resource searches / 41,632 continuations**
+match the archived local pilot exactly, zero caps. HF evaluation wall time was
+**1,204.86 s**, CPU **4,932.77 s**, sampled summed RSS **7,253,655,552 bytes**;
+resource-search median/p95 **7.65 / 28.16 s** under parallel HF execution.
+Its 22-file artifact is verified at private HF revision
+`07a4f71ad7f231fbd7f5afb86484deb706c74b57`, archive SHA256
+`7b46ff822eaa42a623f4233211df49ba92d40a023097acec0bc6e1e89eff9c54`. Local receipt:
+`ai/runs/resource-replanning-hf-runtime-collected-v1/resource-replanning-hf-runtime-v1-2p-resource-filter/verified.json`.
+The 6p job is still running; complete calibration/archive and development admission
+remain pending. These runtime-only outcomes are excluded from strength.
+
 `strong/launch-resource-replanning-development-v1.py` now prepares immutable measured
 admission only after both HF calibration endpoints are verified and archived. It
 preserves the full **3,360-game / two-arm / 27-cell** screen. Completed HF timings

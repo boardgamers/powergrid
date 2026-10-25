@@ -56327,7 +56327,7 @@
         "remote_archives_reverified": true
     },
     "resource_replanning_hf_runtime_launcher_v1": {
-        "status": "two_calibration_jobs_launched_and_authoritatively_running",
+        "status": "2p_calibration_verified_6p_running",
         "script": "ai/strong/launch-resource-replanning-runtime-v1.py",
         "script_sha256": "b096b30eb8a60fbf6b1696e4ee5a1552aebeec819551fb8446d7101761c21587",
         "tests": "ai/strong/test_resource_runtime_launcher_v1.py",
@@ -56394,11 +56394,12 @@
             {
                 "case": "resource-replanning-hf-runtime-v1-2p-resource-filter",
                 "job_id": "6add4e77046eb82b1ece123a",
-                "authoritative_status": "RUNNING",
-                "checked_at": "2026-10-25T00:38:06.353513+00:00",
+                "authoritative_status": "COMPLETED",
+                "checked_at": "2026-10-25T00:54:33.986716+00:00",
                 "guard_sha256": "e6d663abbf6500e94a8b4f2b588e962e61d97c2d4abe7fa0d1122e15fc6b8f5f",
                 "qualification_eligible": false,
-                "reserved_final_seeds_used": false
+                "reserved_final_seeds_used": false,
+                "verified": true
             },
             {
                 "case": "resource-replanning-hf-runtime-v1-6p-resource-filter",
@@ -56409,7 +56410,38 @@
                 "qualification_eligible": false,
                 "reserved_final_seeds_used": false
             }
-        ]
+        ],
+        "verified_endpoints": {
+            "2": {
+                "verified_file": "ai/runs/resource-replanning-hf-runtime-collected-v1/resource-replanning-hf-runtime-v1-2p-resource-filter/verified.json",
+                "verified_sha256": "2d172501f3e9485006a680ace146fe3524922d97da874402d4383bb662bf63ce",
+                "job_id": "6add4e77046eb82b1ece123a",
+                "evidence": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "07a4f71ad7f231fbd7f5afb86484deb706c74b57",
+                    "archive_path": "archives/resource-replanning-hf-runtime-v1-2p-resource-filter.tgz",
+                    "archive_sha256": "7b46ff822eaa42a623f4233211df49ba92d40a023097acec0bc6e1e89eff9c54",
+                    "manifest_sha256": "db9962b9acea496b5c4be209cff0f1d7f7507f5850026d81810a19288d0866e2",
+                    "archived_files": 22,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "runtime": {
+                    "seconds": 1204.863308650998,
+                    "cpu_seconds": 4932.7699999999995,
+                    "sampled_peak_total_rss_bytes": 7253655552,
+                    "memory_samples": 11689,
+                    "memory_sampling_period_seconds": 0.1
+                },
+                "parity": {
+                    "exact": true,
+                    "games": 8,
+                    "learner_decisions": 1306,
+                    "resource_decisions": 450,
+                    "resource_rollouts": 41632
+                }
+            }
+        }
     },
     "resource_replanning_hf_runtime_collector_v1": {
         "status": "prepared_preflight_passed_no_actual_hf_calibration",
@@ -56669,6 +56701,11 @@
         "new_hf_jobs": 0,
         "gradients": false,
         "qualification_eligible": false,
-        "reserved_final_seeds_used": false
+        "reserved_final_seeds_used": false,
+        "latest_calibration_update": {
+            "two_player_verified_sha256": "2d172501f3e9485006a680ace146fe3524922d97da874402d4383bb662bf63ce",
+            "six_player_complete": false,
+            "development_plan_created": false
+        }
     }
 }

@@ -25,7 +25,55 @@ This document supersedes the pause instruction in the
 - Production/UI checkout remains separate. Do not merge or publish research
   there as part of resuming training. Do not comment on GitHub issues.
 
-## Latest checkpoint: component profile archived; existing runs continue
+## Latest checkpoint: exact batching experiment complete on local and target CPUs
+
+**Latest — 25 October: action-count batching checked locally and on AMD8840U.**
+A separate experimental wrapper sorts inference rows by legal-menu size, runs the
+unchanged float64 model in batches of at most 64, and restores original row order.
+All **2,553 canonical serving choices** matched locally, including every previously
+recorded target move across 2–6 players and all four rule combinations. On each
+host, **28,743 predictions / 224 continuations** across four saved stress requests
+matched exactly; observation hashes, choices and continuation results also matched
+between the local HX370 and the actual AMD8840U.
+
+On the idle-at-start AMD8840U, the 2p original/open large-batch case reduced padded
+actions **393,044→277,987** and summed inference time **10.402→8.315 s** (about 20%).
+The other three cases had unchanged padding and essentially unchanged timing
+(about 0.5–0.7% slower). Calls alternated baseline/candidate order. These are four
+old selected four-world stress cases, not representative latency or fresh strength.
+The canonical batch timing is order-biased and should not be used as a speed claim.
+The wrapper is **not adopted** into live/pinned evaluations or serving; no model
+weights changed. Any adoption still needs a new runtime identity and exact paired
+full-game checks, including actual eight-world workloads.
+
+Evidence is archived and remotely verified once at private HF revision
+`7f7b3834c2160f1d9a5ece41ad1ea83e8af8f566` (44 files), descriptor
+`strong/bucketed-inference-evidence-v1.json`. Archive SHA256:
+`bf4a94b591eb7d6669d41f4ef075faff8014e8185b55df98902250d02ee112bd`.
+The actual target run **PID 2976420** is complete and collected; do not restart it.
+Source: `strong/bucketed_inference_v1.py`; paired/canonical harnesses:
+`strong/probe-bucketed-resource-inference-v1.py` and
+`strong/probe-bucketed-serving-inference-v1.py`.
+Read-only collector: `strong/collect-bucketed-inference-v1.py` (archive already done).
+
+At **2026-10-25T00:29:17.812512+00:00**, the unchanged resource pilot **75756 / PID 559327**
+has **64/64 game files**, all four cells verified, zero caps,
+and **11/16 replay files**, stage `replaying`.
+The reference coordinator **76600 / PID 443128** remains live:
+**28/28 submitted, 22 verified**, failures `[]`.
+Snapshot: `ai/runs/bucketed-inference-checkpoint-v1.json`.
+
+**Next:** complete/collect/archive the existing 16-replay resource pilot. Its full
+6p resource cell measured 2,728.31 s wall / 20,435.01 s CPU and 7.99 GB sampled
+summed RSS. After the complete archive, review the prepared launcher's admission
+for **cpu-upgrade (8 vCPU, 32 GB), two-hour calibration jobs**, dry-run both endpoints,
+then submit each once and verify exact local/HF behavior. This hardware choice is
+provisional until the launcher's full evidence checks pass; no HF resource admission
+or jobs exist at this checkpoint. The 3,360-game resource strength screen remains
+unlaunched. Collect the reference comparison only after all 28 shards verify.
+No new gradients, production changes, selected candidate or final seeds.
+
+## Previous checkpoint: component profile archived; existing runs continue
 
 **Latest — 25 October: fixed-root component profile complete and archived.**
 The corrected profiling harness completed the previously saved 2p/original/open

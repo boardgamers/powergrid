@@ -56468,5 +56468,25 @@
         "gradients": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
+    },
+    "bucketed_inference_v1": {
+        "status": "complete_local_and_actual_8840u_archived_not_adopted",
+        "evidence": "ai/strong/bucketed-inference-evidence-v1.json",
+        "evidence_sha256": "7c9d11f9aad71591020ab03ff8bf257e5c2485b1ac392dec1f26b9a657474829",
+        "revision": "7f7b3834c2160f1d9a5ece41ad1ea83e8af8f566",
+        "archive_sha256": "bf4a94b591eb7d6669d41f4ef075faff8014e8185b55df98902250d02ee112bd",
+        "canonical_positions": 2553,
+        "stress_predictions_per_host": 28743,
+        "stress_continuations_per_host": 224,
+        "all_choices_exact": true,
+        "scope": "Batch regrouping, unchanged float64 model. All 2,553 canonical choices matched locally and all four old four-world stress roots matched across local/actual 8840U. Inference timers alternate order within the same fixed workloads. Selected engineering cases, not representative serving latency, strength or full-game equivalence for an adopted runtime.",
+        "new_hf_jobs": 0,
+        "new_games": 0,
+        "gradients": false,
+        "policy_adopted": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "checkpoint": "ai/runs/bucketed-inference-checkpoint-v1.json",
+        "checkpoint_sha256": "eca666cf6431b173037a05be2d1e0386f646eaf47c9498790ea45aea71e7e918"
     }
 }

@@ -1,0 +1,150 @@
+{
+  "complete": true,
+  "canonical_positions": 2553,
+  "stress_roots": 4,
+  "stress_predictions_per_host": 28743,
+  "cells": {
+    "2p-original-open-economic": {
+      "local": {
+        "rows": 17257,
+        "baseline_seconds": 15.641828493506182,
+        "bucketed_seconds": 12.327163244597614,
+        "baseline_padded_actions": 393044,
+        "bucketed_padded_actions": 277987,
+        "calls": 257,
+        "exact_all_choices": true,
+        "exact_recorded_result": true,
+        "rollouts": 128,
+        "neural_decisions": 17248
+      },
+      "target": {
+        "rows": 17257,
+        "baseline_seconds": 10.401904036756605,
+        "bucketed_seconds": 8.314855793491006,
+        "baseline_padded_actions": 393044,
+        "bucketed_padded_actions": 277987,
+        "calls": 257,
+        "exact_all_choices": true,
+        "exact_recorded_result": true,
+        "rollouts": 128,
+        "neural_decisions": 17248
+      },
+      "target_inference_speed_ratio": 1.2510023378757058,
+      "exact_cross_host_observations_choices_and_continuations": true
+    },
+    "2p-recharged-sealed-economic": {
+      "local": {
+        "rows": 4538,
+        "baseline_seconds": 3.1578599745989777,
+        "bucketed_seconds": 3.1527299834415317,
+        "baseline_padded_actions": 70684,
+        "bucketed_padded_actions": 70684,
+        "calls": 145,
+        "exact_all_choices": true,
+        "exact_recorded_result": true,
+        "rollouts": 60,
+        "neural_decisions": 4533
+      },
+      "target": {
+        "rows": 4538,
+        "baseline_seconds": 2.1737606241367757,
+        "bucketed_seconds": 2.1898258686996996,
+        "baseline_padded_actions": 70684,
+        "bucketed_padded_actions": 70684,
+        "calls": 145,
+        "exact_all_choices": true,
+        "exact_recorded_result": true,
+        "rollouts": 60,
+        "neural_decisions": 4533
+      },
+      "target_inference_speed_ratio": 0.9926636885642129,
+      "exact_cross_host_observations_choices_and_continuations": true
+    },
+    "6p-original-open-economic": {
+      "local": {
+        "rows": 4673,
+        "baseline_seconds": 5.798516971175559,
+        "bucketed_seconds": 5.734481248364318,
+        "baseline_padded_actions": 149171,
+        "bucketed_padded_actions": 149171,
+        "calls": 308,
+        "exact_all_choices": true,
+        "exact_recorded_result": true,
+        "rollouts": 24,
+        "neural_decisions": 4669
+      },
+      "target": {
+        "rows": 4673,
+        "baseline_seconds": 3.839066242799163,
+        "bucketed_seconds": 3.8581188949756324,
+        "baseline_padded_actions": 149171,
+        "bucketed_padded_actions": 149171,
+        "calls": 308,
+        "exact_all_choices": true,
+        "exact_recorded_result": true,
+        "rollouts": 24,
+        "neural_decisions": 4669
+      },
+      "target_inference_speed_ratio": 0.9950616731378389,
+      "exact_cross_host_observations_choices_and_continuations": true
+    },
+    "6p-recharged-sealed-economic": {
+      "local": {
+        "rows": 2275,
+        "baseline_seconds": 2.8315656432532705,
+        "bucketed_seconds": 2.8461000793031417,
+        "baseline_padded_actions": 52875,
+        "bucketed_padded_actions": 52875,
+        "calls": 400,
+        "exact_all_choices": true,
+        "exact_recorded_result": true,
+        "rollouts": 12,
+        "neural_decisions": 2272
+      },
+      "target": {
+        "rows": 2275,
+        "baseline_seconds": 1.8562341127544641,
+        "bucketed_seconds": 1.8690102598629892,
+        "baseline_padded_actions": 52875,
+        "bucketed_padded_actions": 52875,
+        "calls": 400,
+        "exact_all_choices": true,
+        "exact_recorded_result": true,
+        "rollouts": 12,
+        "neural_decisions": 2272
+      },
+      "target_inference_speed_ratio": 0.9931642177772413,
+      "exact_cross_host_observations_choices_and_continuations": true
+    }
+  },
+  "target_machine": {
+    "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+    "load_before": [
+      0.0,
+      0.0126953125,
+      0.0
+    ],
+    "node": "v24.19.0",
+    "python": "3.12.3",
+    "numpy": "2.5.3",
+    "onnxruntime": "1.30.0"
+  },
+  "model_sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+  "candidate_sha256": "1821c2a3e0f84dc1fd9051fd0406e2de0f7704d9046f1365f66499e4099e3dab",
+  "collector_sha256": "c9c07100d4083c2cfe97e3ed1e1a11460fd4330df236ba0adc851fc7d72cdbd2",
+  "new_hf_jobs": 0,
+  "new_games": 0,
+  "gradients": false,
+  "policy_adopted": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "scope": "Batch regrouping, unchanged float64 model. All 2,553 canonical choices matched locally and all four old four-world stress roots matched across local/actual 8840U. Inference timers alternate order within the same fixed workloads. Selected engineering cases, not representative serving latency, strength or full-game equivalence for an adopted runtime.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "7f7b3834c2160f1d9a5ece41ad1ea83e8af8f566",
+  "archive_path": "archives/bucketed-inference-evidence-v1.tgz",
+  "archive_sha256": "bf4a94b591eb7d6669d41f4ef075faff8014e8185b55df98902250d02ee112bd",
+  "manifest_sha256": "0e1d37b84b18d11a4fdb15b0a71bc9e58be0ee228bbb2c1eb7b3fda8a8096025",
+  "archived_files": 44,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

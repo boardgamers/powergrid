@@ -6,7 +6,50 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 06:20 UTC: data prepared; complete-study coordinator and archive ready.**
+**Latest — 25 October, 06:22 UTC: real training data/source uploaded; original L4 calibration submitted.**
+
+The original training coordinator **PID 2825298 / session 39111** completed
+`prepare_data`, `archive_data`, `package_source` and `launch_calibration`, and is
+now waiting for its **original L4x1 job `6adda008046eb82b1ece300b`**. Direct HF
+inspection reports **SCHEDULING**. The calibration was submitted at **06:22:00
+UTC**; no gradient updates have yet been observed. Preserve this handle; do not
+relaunch after a slow startup or an observation timeout. No full training job yet.
+
+The train/validation archive is privately uploaded and verified:
+
+- Rows: **313,783 training / 52,543 validation**; **366,326 export/parity positions**.
+- Games: **1,920 training / 320 validation**; all 320 test games excluded.
+- Unpacked bytes: **2,726,265,837**.
+- Data HF revision: `ef52777ba41420d7dcd8cc455b610fcde8e873b5`.
+- Data archive SHA256: `0cfb251639483c1369d6c7380f0721e02971dcd293c5f3e0ccaad27a59818f2e`.
+- Data descriptor: `strong/opponent-surrogate-training-data-v1.json`, SHA256
+  `c2b678fd4823fd8bc00a29ca8bf4d7d900dea51544b3c15a26b872cdada6c005`.
+- Source HF dataset revision: `5700a0327486e7fd67a165cd0a9fbde6bb350828`.
+- Source archive SHA256: `381c8e4cc4586c274d8e91b36ec7a962efcf5218a4b3ebe5de4d20c125542fbe`.
+- Source descriptor: `strong/opponent-surrogate-training-source-v1.json`, SHA256
+  `823c3cc6ce4e2de4ccda100ee96fb8162565a36911c1231114ffef51db6d4bdd`.
+- The **15-file** actual source package passed its isolated source check and remote
+  hash verification; this is separate from the earlier code-only package.
+- Guard: `ai/runs/opponent-surrogate-training-launches-v1/calibration.json`, SHA256
+  `480923a2740ae0648e11f5973b3ffb1c0b73b93da7edc07e2a14f46122031b8a`.
+
+Submission checkpoint:
+`ai/runs/opponent-surrogate-training-calibration-submission-checkpoint-v1.json`,
+SHA256 `dfbe8a61112415b0929dcf45b3bd4d698da6a93f38335a34440886b4f5d83c9b`.
+All 30 coordinator-pinned files remain unchanged. Do not manually run its collection
+or training stages concurrently. It still owns calibration inspection/collection,
+measured full-training admission and submission, independent full collection, and
+validation selection. Any failure or unknown action stops for inspection rather
+than replacing a job or changing the fixed dataset/design.
+
+Next: observe the original calibration, let its owner collect actual throughput,
+RSS/VRAM and complete exact-export parity, then train all four fixed seeds for the
+full specified schedule. The newly implemented full-study coordinator/archive
+remain unstarted pending actual learned selection and separate inference timing.
+No model-quality improvement, selected candidate, production change or final-seed
+use is claimed. This turn advanced data packaging and one HF calibration submission.
+
+**Previous — 25 October, 06:20 UTC: data prepared; complete-study coordinator and archive ready.**
 
 The original training coordinator **PID 2825298 / session 39111** completed data
 preparation at **06:19:32 UTC**: **313,783 training rows / 52,543 validation rows**

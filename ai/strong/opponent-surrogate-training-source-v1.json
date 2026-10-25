@@ -1,0 +1,59 @@
+{
+  "stage": "uploaded",
+  "archive": "opponent-surrogate-training-source-v1.tgz",
+  "sha256": "381c8e4cc4586c274d8e91b36ec7a962efcf5218a4b3ebe5de4d20c125542fbe",
+  "manifest_sha256": "d2e74a701d6d9b07b8108c76e4803ea6251098f9527576e23185aad05ca6d90e",
+  "data_pin_sha256": "c2b678fd4823fd8bc00a29ca8bf4d7d900dea51544b3c15a26b872cdada6c005",
+  "revision": "5700a0327486e7fd67a165cd0a9fbde6bb350828",
+  "remote_archive_verified": true,
+  "files": {
+    "ai/infer.py": "a86e79c2c87b1909557e69fd8b669ae2c47255d426e692b5d96baafe5c2f680d",
+    "ai/pool.py": "3b33133425d84430a6376834422478d70fe51a9c855d1e06937f109cd3620dd8",
+    "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+    "ai/strong/feature_contract.py": "b72b57958e07bcd49c62d7d9b9f8d431b6bd5b52607fae4886b21241692b3c89",
+    "ai/strong/arena_statistics.py": "9d32085cc68d417067346e1b74147749f155db3dc7766139659b2ad6bac66bda",
+    "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+    "ai/strong/policy_iteration_evidence_archive.py": "83177b7f9a35af6467e09509e80024ef5fc258a1030ad23ebfd71c876fac635a",
+    "ai/strong/model_opponent_surrogate_v1.py": "b8f4bccb75a97f6627b947413d5a6aec4dce6a4a35cb61cdcb374daa2ce8986f",
+    "ai/strong/opponent_surrogate_training_v1.py": "49751b105b96c44d88b4a75e6b530fbddc4f0dc5590be1e18bd23cc64dc3eb10",
+    "ai/strong/opponent-surrogate-training-design-v1.json": "040e39dd90763916b4fd908418035c8389b11d2d304dab1dee94912ac2d7f921",
+    "ai/strong/train-opponent-surrogate-v1.py": "ce815484f2dff05bfa7ecbbcec0d445311b450e66e891e8e142d00cba8fc8eb1",
+    "ai/strong/export-opponent-surrogate-v1.py": "dbb49da57c713857b0b9fe0a5cbe7ae258df7583b479891a591bbc405949e5ac",
+    "ai/strong/opponent_surrogate_hf_v1.py": "d6a52b57a848e1f68fb965c47948a95e0839e60db24c226a8c599460530e135e",
+    "ai/strong/benchmark-opponent-surrogate-training-v1.py": "59d5125e44d8106ba4daccc723ac4948c30cb06b7fa43e2417a49ffd248d9f59",
+    "ai/strong/opponent-surrogate-training-data-v1.json": "c2b678fd4823fd8bc00a29ca8bf4d7d900dea51544b3c15a26b872cdada6c005"
+  },
+  "bytes": 25027,
+  "design_sha256": "040e39dd90763916b4fd908418035c8389b11d2d304dab1dee94912ac2d7f921",
+  "data_check_sha256": "db17a5421fe63d450bdac9843ac067b49e8e43f7979f42dace17d8d485b368eb",
+  "data_pin": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "ef52777ba41420d7dcd8cc455b610fcde8e873b5",
+    "archive_path": "archives/opponent-surrogate-training-data-archive-v1.tgz",
+    "archive_sha256": "0cfb251639483c1369d6c7380f0721e02971dcd293c5f3e0ccaad27a59818f2e",
+    "manifest_sha256": "2dbef366048735e9255f19a13e03d172b5384c1d9851cf40a48be6f0896c067a",
+    "archived_files": 19,
+    "format": "tar.gz",
+    "remote_archive_verified": true,
+    "complete": true,
+    "design_sha256": "040e39dd90763916b4fd908418035c8389b11d2d304dab1dee94912ac2d7f921",
+    "data_check_sha256": "db17a5421fe63d450bdac9843ac067b49e8e43f7979f42dace17d8d485b368eb",
+    "collection_index_sha256": "1e7cfb2ddd9c160fe0bc1dfdff08f0da38a0641ee51e3e012b6bc41a0229c83e",
+    "collection_protocol_sha256": "1edacdf5359c821139fac6561397958b7ae8e4fcc7a617565a1da75c4c5a26e8",
+    "split_rows": {
+      "train": 313783,
+      "validation": 52543
+    },
+    "split_games": {
+      "train": 1920,
+      "validation": 320
+    },
+    "unpacked_bytes": 2726265837,
+    "test_records_included": false,
+    "gradients": false,
+    "qualification_eligible": false
+  },
+  "package_check_sha256": "96e8ad1a693c281226f49c02f32ef47b177a4173e7bde69d74b95d90be6f69f2",
+  "gradients": false,
+  "qualification_eligible": false
+}

@@ -58466,5 +58466,32 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "checkpoint_sha256": "0b03bd84d3876b05bcdef335a5f3cdf7ab2d2e8070e1f53402d069c7799310b3"
+    },
+    "opponent_surrogate_training_calibration_submission_v1": {
+        "checked_at": "2026-10-25T06:22:55.278157+00:00",
+        "original_job_id": "6adda008046eb82b1ece300b",
+        "authoritative_status": "SCHEDULING",
+        "flavor": "l4x1",
+        "guard_sha256": "480923a2740ae0648e11f5973b3ffb1c0b73b93da7edc07e2a14f46122031b8a",
+        "source_descriptor_sha256": "823c3cc6ce4e2de4ccda100ee96fb8162565a36911c1231114ffef51db6d4bdd",
+        "data_pin_sha256": "c2b678fd4823fd8bc00a29ca8bf4d7d900dea51544b3c15a26b872cdada6c005",
+        "source_revision": "5700a0327486e7fd67a165cd0a9fbde6bb350828",
+        "source_sha256": "381c8e4cc4586c274d8e91b36ec7a962efcf5218a4b3ebe5de4d20c125542fbe",
+        "data_revision": "ef52777ba41420d7dcd8cc455b610fcde8e873b5",
+        "data_archive_sha256": "0cfb251639483c1369d6c7380f0721e02971dcd293c5f3e0ccaad27a59818f2e",
+        "unpacked_bytes": 2726265837,
+        "split_rows": {
+            "train": 313783,
+            "validation": 52543
+        },
+        "test_records_included": false,
+        "training_coordinator_pid": 2825298,
+        "training_stage": "waiting_for_calibration",
+        "same_original_owner": true,
+        "gradients_location": "HF Jobs only; calibration job submitted, updates not yet observed",
+        "full_training_launched": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "checkpoint_sha256": "dfbe8a61112415b0929dcf45b3bd4d698da6a93f38335a34440886b4f5d83c9b"
     }
 }

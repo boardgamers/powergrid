@@ -1,0 +1,27 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "ef52777ba41420d7dcd8cc455b610fcde8e873b5",
+  "archive_path": "archives/opponent-surrogate-training-data-archive-v1.tgz",
+  "archive_sha256": "0cfb251639483c1369d6c7380f0721e02971dcd293c5f3e0ccaad27a59818f2e",
+  "manifest_sha256": "2dbef366048735e9255f19a13e03d172b5384c1d9851cf40a48be6f0896c067a",
+  "archived_files": 19,
+  "format": "tar.gz",
+  "remote_archive_verified": true,
+  "complete": true,
+  "design_sha256": "040e39dd90763916b4fd908418035c8389b11d2d304dab1dee94912ac2d7f921",
+  "data_check_sha256": "db17a5421fe63d450bdac9843ac067b49e8e43f7979f42dace17d8d485b368eb",
+  "collection_index_sha256": "1e7cfb2ddd9c160fe0bc1dfdff08f0da38a0641ee51e3e012b6bc41a0229c83e",
+  "collection_protocol_sha256": "1edacdf5359c821139fac6561397958b7ae8e4fcc7a617565a1da75c4c5a26e8",
+  "split_rows": {
+    "train": 313783,
+    "validation": 52543
+  },
+  "split_games": {
+    "train": 1920,
+    "validation": 320
+  },
+  "unpacked_bytes": 2726265837,
+  "test_records_included": false,
+  "gradients": false,
+  "qualification_eligible": false
+}

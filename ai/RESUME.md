@@ -6,7 +6,58 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 07:17 UTC: original timing complete; full 480-position study running.**
+**Latest — 25 October, 07:40 UTC: exact public-policy transport verified; full study continues.**
+
+The original full-study coordinator **PID 3502343 / session 23779** is confirmed
+alive with unchanged pinned code. Latest owner state: **84 original jobs
+submitted / 52 independently verified, zero caps and no reported failures**
+(as of `2026-10-25T07:37:16.986045+00:00`). It continues to own all collection and submission;
+do not launch or collect alongside it. The complete 480-position comparison is
+still pending, so no aggregate fidelity or strength conclusion is drawn.
+
+While it runs, `strong/public_policy_runtime_v1.py` now supplies a reusable
+public-request transport around the **same `PopulationPolicy.choose()` used by
+the research arena**. A standalone artifact pins the model, runtime manifest,
+feature revision and all execution settings. Replies preserve request/revision
+identifiers and actual encoder player ordering, verify the returned legal move
+and policy identity, and retain exact search diagnostics on request. Malformed
+requests produce errors; a failed engine is closed before the next valid request.
+No calibrated win probability or selected-candidate status is claimed.
+
+`strong/check-public-policy-runtime-v1.py` prepares a separately extracted
+artifact from the existing audited runtime and checks it outside the checkout:
+
+- **5,106 exact model/filter decisions** on all **2,553** existing 2–6-player
+  fixtures. Both arms were compared to the previously audited saved decisions.
+- **Eight exact search cases / 384 engineering continuations**, including full
+  saved outcomes and sampled worlds, with one/four threads and workers. Zero caps.
+- Ten warm/reordered repeats and five cold repeats covering all player counts.
+- The actual JSON-lines subprocess handled valid and invalid input, preserved
+  request metadata, recovered after an engine failure, and rejected a bad artifact
+  digest. Six focused transport contract tests also pass.
+- No gradients, new HF jobs, fresh strength games or final-seed use. This is local
+  engineering parity, **not an AMD 8840U benchmark or a final-policy adapter**.
+
+All raw responses, standalone runtime/model, fixtures, baseline receipts and code
+are privately archived. Saved semantic receipts were independently re-compared
+before upload:
+
+- Descriptor: `strong/public-policy-runtime-preflight-v1.json`.
+- HF revision: `be454728cac8c08e7fecc1414ff61cbc25cbe1df`.
+- Archive SHA256: `a5a1a0b4591e337004af859725616313c0fbf333fd0ebffdf416f707f8cb6336` (**1265 files**).
+- Local preflight: `ai/runs/public-policy-runtime-preflight-v1/result.json`.
+- Current checkpoint: `ai/runs/public-policy-runtime-completion-checkpoint-v1.json`, SHA256 `7e798de8391b8280a396cd477c23a87d11eaa9ed3394da09d40bb57e8d4c87f8`.
+
+**Remaining integration work is explicit:** the old `launch-final.py` / `evaluate.py`
+path still cannot qualify the current population/filter policies. The new transport
+has not changed or bypassed that path. After the complete fidelity findings, freeze
+the actual heterogeneous auction/override recipe, extend the transport backend if
+needed, integrate that exact policy into fresh full-game and final evaluation,
+and benchmark its actual standalone package on the 8840U. The transport's current
+research arms are implementation support, not renewed recommendations to adopt
+rejected building/resource search. The playing model and strength gate are unchanged.
+
+**Previous — 25 October, 07:17 UTC: original timing complete; full 480-position study running.**
 
 The original timing job **`6adda6dd1e112550ce7e86c1` completed at 07:10:05 UTC**.
 Its official collector now independently verifies the complete original artifact:

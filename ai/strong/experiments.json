@@ -58702,5 +58702,42 @@
         "automatic_retries": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
+    },
+    "public_policy_runtime_preflight_v1": {
+        "checked_at": "2026-10-25T07:40:10.842642+00:00",
+        "transport_evidence_sha256": "9dd92d67eeb6f97fe1ac9bd69d3e4030dc5bc399d7e83847aba6bf187b19bf1f",
+        "transport_evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "be454728cac8c08e7fecc1414ff61cbc25cbe1df",
+            "archive_path": "archives/public-policy-runtime-preflight-evidence-v1.tgz",
+            "archive_sha256": "a5a1a0b4591e337004af859725616313c0fbf333fd0ebffdf416f707f8cb6336",
+            "manifest_sha256": "afc241b8d8bda0564ee5b137716231ba3d03667311cd34543e38df176fa9e74e",
+            "archived_files": 1265,
+            "remote_archive_verified": true
+        },
+        "model_filter_positions": 5106,
+        "search_cases": 8,
+        "engineering_search_rollouts": 384,
+        "contract_tests": 6,
+        "coordinator_pid": 3502343,
+        "coordinator_session": 23779,
+        "original_coordinator_live": true,
+        "study_pinned_code_unchanged": true,
+        "study_state": {
+            "updated_at": "2026-10-25T07:37:16.986045+00:00",
+            "stage": "waiting_for_original_jobs",
+            "running_operation": null,
+            "jobs_submitted": 84,
+            "jobs_verified": 52,
+            "caps": 0,
+            "failed_jobs": []
+        },
+        "new_strength_games": 0,
+        "new_hf_jobs": 0,
+        "exact_final_policy_adapter_ready": false,
+        "amd_benchmark_for_this_transport": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "checkpoint_sha256": "7e798de8391b8280a396cd477c23a87d11eaa9ed3394da09d40bb57e8d4c87f8"
     }
 }

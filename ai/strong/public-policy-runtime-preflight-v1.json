@@ -1,0 +1,129 @@
+{
+  "complete": true,
+  "checked_at": "2026-10-25T07:33:38.421999+00:00",
+  "model_filter_positions": 5106,
+  "search_cases": 8,
+  "search_rollouts": 384,
+  "caps": 0,
+  "warm_repeats": 10,
+  "cold_repeats": 5,
+  "by_player_count": {
+    "2": 698,
+    "3": 854,
+    "4": 1054,
+    "5": 1218,
+    "6": 1282
+  },
+  "standalone_cli_requests": 5,
+  "invalid_artifact_rejected": true,
+  "manifest_sha256": "afc241b8d8bda0564ee5b137716231ba3d03667311cd34543e38df176fa9e74e",
+  "prepared_sha256": "4d967557fa87338070ddd0c2e92125556339a3d033b6fc19199863aca4ecc21f",
+  "entry_sha256": "7d0863c6608bd54fa64768ad5f5f7dba7b33a3bd94d4ba9c889679fa47204c89",
+  "checker_sha256": "e53e078fc02d8e23196ad63ca61804b2cb7c0e69fa07d594a4aa11c0c9c9d9fe",
+  "reference_status_sha256": "4f0d84acb65ded719d116abdc99d96962a9b4e1cb5143831aef5e4512befa4f8",
+  "seconds": 103.90141211199807,
+  "new_hf_jobs": 0,
+  "new_strength_games": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "scope": "Standalone transport parity for current research population policies, including exact saved search outcomes. Not a selected-policy final adapter or AMD benchmark.",
+  "output_hashes": {
+    "prepared.json": "4d967557fa87338070ddd0c2e92125556339a3d033b6fc19199863aca4ecc21f",
+    "cli.stderr.log": "2adbecd8ffc7a01638f2286766bda84927ba595c408bb3d9bf357dd3f8c7d451",
+    "bad-artifact-response.json": "9886f5b644ce9cf1c8a1de6becce73effbf8e56b057444937351145984b94aab",
+    "model-filter.jsonl": "bd8bf786f69e8ea7b74b075b31f84036c2c27a08ebf00a8d539cb3e95b5e5cc1",
+    "cli-responses.json": "3d9c6ad01465300369c527dec1a81c9905fe1ade5e3da3c1f120fc14dd93fc1e",
+    "search.jsonl": "1c4734c312845af62ccf05b1aa7d5f8fc7be1898e639f2cfd774edc39149dc99"
+  },
+  "contract_tests": 6,
+  "contract_tests_sha256": "2da0b4353dbe1f5ca0e54866972b74e0d791514a80f25d68c6ce8a6b4b693f00",
+  "test_code_sha256": "2a8a5b51a6e5e4a3bff8a45d69f5fc930ad5a64d638b5f9b339be868269cf2a7",
+  "saved_receipts_recompared": true,
+  "exact_final_policy_adapter_ready": false,
+  "amd_benchmark_for_this_transport": false,
+  "baseline_evidence": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "d703d37d3668600353b927d46d37d8f253be9b66",
+    "archive_path": "archives/population-policy-8840u-evidence-v2.tgz",
+    "archive_sha256": "5f01eda4a4f65c0a3ed4ade1f92db1b888788644e2864fd0c3350bbbc467db55",
+    "manifest_sha256": "21ce9f360da09167034acd216214834737c3e93c926fc613fb0f895f554302a0",
+    "archived_files": 24,
+    "format": "tar.gz",
+    "remote_archive_verified": true,
+    "assessment_sha256": "57892d56d6d3041f09a7b13cf4569ab81ed691756b664b1676b806d016e57ecc",
+    "counts": {
+      "model_positions": 2553,
+      "filter_positions": 2553,
+      "search_cases": 8,
+      "rollouts": 384,
+      "caps": 0
+    },
+    "search_timings": [
+      {
+        "fixture": "2p-building",
+        "threads": 1,
+        "workers": 1,
+        "seconds": 8.88342610700056
+      },
+      {
+        "fixture": "2p-bid",
+        "threads": 1,
+        "workers": 1,
+        "seconds": 4.850227551069111
+      },
+      {
+        "fixture": "6p-bid",
+        "threads": 1,
+        "workers": 1,
+        "seconds": 11.502929464913905
+      },
+      {
+        "fixture": "6p-building",
+        "threads": 1,
+        "workers": 1,
+        "seconds": 12.261205217335373
+      },
+      {
+        "fixture": "2p-building",
+        "threads": 4,
+        "workers": 4,
+        "seconds": 4.873259435873479
+      },
+      {
+        "fixture": "2p-bid",
+        "threads": 4,
+        "workers": 4,
+        "seconds": 2.9217769680544734
+      },
+      {
+        "fixture": "6p-bid",
+        "threads": 4,
+        "workers": 4,
+        "seconds": 6.168270975816995
+      },
+      {
+        "fixture": "6p-building",
+        "threads": 4,
+        "workers": 4,
+        "seconds": 6.206418640911579
+      }
+    ],
+    "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+    "model_sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+    "model_filter_decisions_exact": 5106,
+    "search_outcomes_worlds_choices_exact": 8,
+    "scope": "Engineering parity on 2553 existing model/filter positions and four existing endpoint Recharged/sealed search positions, with two execution settings. No fresh strength games or representative gameplay latency distribution.",
+    "new_hf_jobs": 0,
+    "gradients": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false
+  },
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "be454728cac8c08e7fecc1414ff61cbc25cbe1df",
+  "archive_path": "archives/public-policy-runtime-preflight-evidence-v1.tgz",
+  "archive_sha256": "a5a1a0b4591e337004af859725616313c0fbf333fd0ebffdf416f707f8cb6336",
+  "archived_files": 1265,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

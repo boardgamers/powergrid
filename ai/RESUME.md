@@ -6,7 +6,34 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 04:56 UTC: resource search rejected; reference-cost calibration running.**
+**Latest — 25 October, 05:09 UTC: hybrid research checkpoint.**
+
+The continuation-cost collector now verifies **20/24 original jobs, 640 continuations,
+zero caps**. The four remaining original 6p jobs were directly RUNNING; no jobs
+were replaced or submitted. Opponent training-data collection remains **29/40**
+and fresh-root collection **4/5**, with both original coordinators alive.
+
+The complete-cost archive helper is implemented and **three tests pass**, including
+independent exact terminal tie credit, actual saved reference receipts and refusal
+to archive a partial experiment. Its independent search-work accounting deduplicates
+prior sealed-bid searches: each worker/world computes them once but both action
+receipts contain their counters. Preserve the original row-attributed counters and
+raw receipts; use separately named physical-work counts. No complete cost archive
+or full-study admission exists yet. The paired aggregate fidelity analysis is also
+still pending; no trained opponent surrogate or fresh hybrid strength claim exists.
+
+Next: collect the four original cost handles and create the full index, then run
+`ai/.venv/bin/python ai/strong/collect-surrogate-continuation-cost-evidence-v1.py --archive`
+once. Finish original data/root collection, run the prepared HF training pipeline,
+and freeze its validation-selected policy before the continuation-fidelity study.
+The recommendation remains a selective auction hybrid with improved opponent
+simulation and conservative overrides; unchanged building/resource search is not
+worth scaling. No general plateau is established.
+
+Checkpoint: `ai/runs/surrogate-continuation-cost-evidence-checkpoint-v1.json`, SHA256
+`c69d22ec7d35c19f26712f752e846acaf2bb5bdadc2eb6bf01f2d60c2117ff5e`. No new jobs or gradient updates in this checkpoint.
+
+**Previous — 25 October, 04:56 UTC: resource search rejected; reference-cost calibration running.**
 
 The original resource watcher completed normally at **04:47:44 UTC**. All **54 jobs /
 3,360 games** are independently audited and privately archived: the full comparison

@@ -6,7 +6,67 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 05:42 UTC: complete cost evidence and paired HF job runner.**
+**Latest — 25 October, 05:59 UTC: source packaging and selected-opponent timing ready.**
+
+The full-study source builder and selected-surrogate runtime runner are now
+implemented. The builder requires the actual audited validation-selected learned
+policy and the complete 160-game / 480-root manifest before creating any source
+output. It preserves all 1,463 base-runtime files, bundles only selected ONNX
+members, binds roots/policy/training/source hashes, and requires isolated inference
+checks on all 480 study positions plus the 24 separate timing positions. Uploads
+retain an intent and exact receipt; no actual package has been created or uploaded.
+
+The selected-only timing runner keeps the original 24 separate runtime roots and
+all eight worlds / two actions: **384 continuations**. It does not repeat reference
+or population measurements. It preserves caps and partial failures, verifies saved
+records, and records wall time, CPU and summed process RSS. Seven tests pass. The
+original local engineering preflight completed **16 continuations, zero caps**,
+exactly matching all saved records, with all 1,463 runtime files unchanged. This
+uses an explicitly **untrained fixture**, not an actual trained-surrogate timing
+or playing-strength result. Its output already exists; do not rerun it. The initial
+failed test-harness argument-index log is preserved separately; corrected tests pass.
+
+`strong/manage-surrogate-continuation-selected-cost-v1.py` implements preparation,
+one guarded HF launch, inspection and independent collection. Seven additional
+tests pass: measured allowance, dry run, exact source/model environment, uncertain
+submission without retry, failed-job/observation handling without replacement,
+pending collection, and ambiguous/failed evidence retention. Exception receipts
+record only the error type. No tests contact HF or run additional games.
+
+The prospective timing allowance is **one CPU-upgrade job, eight workers, two-hour
+timeout**: 15 minutes setup plus 24 times eight times the slowest completed mixture
+root, with 25% reserve; memory allowance is twice previous peak plus 4 GB. This is
+a conservative calibration allowance, not a speed guarantee. No admission file or
+job has been created; the actual trained selection and checked source are still
+required. The full 23,040-continuation study remains unadmitted and needs its own
+measured launcher/collector after this calibration.
+
+- Package preflight: `ai/runs/surrogate-continuation-study-package-preflight-v1.json`,
+  SHA256 `0089e359c72f1476074dc244a250ccb82295279da6d2b13001c1077a87a08303`.
+- Manager preflight: `ai/runs/surrogate-continuation-selected-cost-manager-preflight-v1.json`,
+  SHA256 `6851f3aadcdc9f7c8547a5701871f457c3a4e59595f660eaf5063cb6cbedec8a`.
+- Checkpoint: `ai/runs/surrogate-continuation-study-package-checkpoint-v1.json`,
+  SHA256 `901bdaaa5670529c7f1bf440a5f7763bfac3cb4716d19422f8ba57a210446053`.
+
+Original opponent-data coordinator PID **2009367** remains alive at **33/40
+verified**, no failures. Original 6p job `6add73271e112550ce7e6a20` was directly
+observed **COMPLETED**; let the coordinator collect it. Training coordinator PID
+**2825298 / session 39111** remains alive waiting for complete collection, with no
+GPU jobs launched. All pinned coordinator code is unchanged. Do not duplicate
+preparation, submissions or collection ownership.
+
+Next: let those original coordinators finish collection and own training through
+validation selection. If a learned policy is selected, run
+`prepare-surrogate-continuation-study-v1.py`, then builder `prepare`, `check`,
+`upload`, then the selected-cost manager `prepare`, `launch --execute`, and collect
+the same original handle. A prior-winning selection must remain a valid negative
+result. Implement full-study admission/launch/collection using actual timings;
+then test a heterogeneous hybrid on fresh full games and the real 8840U. No new
+HF jobs, gradients, candidate, publication or reserved final seeds this checkpoint.
+Selective auction search remains promising; unchanged resource/building search
+should not be scaled. No general plateau is established.
+
+**Previous — 25 October, 05:42 UTC: complete cost evidence and paired HF job runner.**
 
 The full reference/mixture runtime calibration is complete: **24 original jobs /
 768 continuations / zero caps**, all independently verified and all terminal

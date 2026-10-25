@@ -6,7 +6,53 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 05:09 UTC: hybrid research checkpoint.**
+**Latest — 25 October, 05:17 UTC: paired fidelity analysis verified.**
+
+The full paired fidelity analysis is implemented in
+`strong/surrogate_continuation_analysis_v1.py`, with the fixed details in
+`strong/surrogate-continuation-analysis-design-v1.json`. It recomputes exact margins
+from every world/action credit, averages all **60 count/rule/phase groups equally**,
+retains adverse cells and three-way preference ties, and reports action-credit
+error plus separate with/without-prior-bid summaries. No policy is selected.
+
+The existing population mixture rotates four opponent-role assignments by world
+index modulo four. Within-root uncertainty preserves the fixed strata **[0,4],
+[1,5], [2,6], [3,7]** and uses identical resamples for both actions and all modes:
+**81 exact multiplicity patterns**. Whole-deal uncertainty keeps all seats, rules
+and phases together, stratifies by player count, and enumerates **243 patterns**.
+If a positive-probability replicate lacks a group, its mass is reported and the
+interval is withheld rather than dropping or reweighting that replicate. Any
+simulation cap retains all records but suppresses aggregate fidelity estimates.
+Two deals/count and two worlds/role stratum provide limited uncertainty evidence.
+
+**Eight tests pass**: equal-group weighting, hand-calculated binomial interval,
+missing-deal group probability 1/4, role-stratum and mode/action pairing, exact tie
+credits and metric definitions, cap retention, omitted/duplicated/altered inputs,
+and all **96 saved real-engine preflight continuations**. Those preflight records
+use an explicitly **untrained fixture**, so this is engineering verification only.
+No simulations or gradients were rerun; all 1,463 frozen runtime files are unchanged.
+Preflight: `ai/runs/surrogate-continuation-analysis-preflight-v1.json`, SHA256
+`203f955bc62050efbc8c42c53a4dbc5763926b1a99a30dfeab6414fa90eb6077`.
+
+Original jobs remain in progress: opponent-data **32/40 verified**, fresh-root
+**4/5**, continuation-cost **20/24 (640 continuations, zero caps)**.
+The four remaining cost handles were directly RUNNING. Earlier direct observations
+showed opponent job `6add73271e112550ce7e6a20` at 50/96 games and fresh-root job
+`6add8752046eb82b1ece239e` at 40/48, no errors. Both original coordinators remain
+responsible for their collections; their pinned code is unchanged. No new jobs.
+Checkpoint: `ai/runs/surrogate-continuation-analysis-checkpoint-v1.json`, SHA256
+`8b88279c1f23fff76e72ebd4f1cfb0188da6bed58794f8defe99b6a935a3b3ad`.
+
+Next: finish the original cost collection/index and archive; finish original
+training-data and fresh-root collection; run the prepared HF GPU calibration,
+training, independent audit and validation-only selection. Then freeze study
+inputs and implement the measured HF study packaging/launch/collection, using
+`paired_record` plus `analyze` for the complete report. The real learned-surrogate
+fidelity result, heterogeneous hybrid policy, fresh full-game strength, exact final
+adapter and actual 8840U hybrid benchmark remain outstanding. No candidate,
+qualification, final-seed use or general plateau claim.
+
+**Previous — 25 October, 05:09 UTC: hybrid research checkpoint.**
 
 The continuation-cost collector now verifies **20/24 original jobs, 640 continuations,
 zero caps**. The four remaining original 6p jobs were directly RUNNING; no jobs

@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "scope": "Fixed-action continuation fidelity; no policy selection, training labels or playing-strength qualification.",
+  "primary": "Equal-weight mean over all 60 player-count/rule/phase groups of absolute alternative-minus-focal margin error against reference search. Report surrogate minus population-mixture error; negative favors the surrogate.",
+  "credits": "Recompute margins from eight exact rational world/action credits. Credits must be zero or 1/k for a possible terminal tie among at most n players.",
+  "action_credit_error": "Mean over the two fixed actions of the absolute difference between each mode's eight-world mean terminal credit and the reference mean for that action.",
+  "preference_agreement": "Three-way sign agreement (alternative, tie, focal). A reference tie is retained as a separate category, never silently resolved.",
+  "whole_deal_uncertainty": "Exact stratified cluster bootstrap: within each of five player counts resample its two whole deals twice, keeping all seats/rules/phases together. Enumerate 3^5 multiplicity patterns with probabilities (1,2,1)/4. Recompute each group's mean, then average all 60 groups. If any positive-probability replicate lacks a group, report its probability mass and withhold the interval; do not drop or renormalize it.",
+  "within_root_uncertainty": "The population mixture rotates four opponent assignments by sample modulo four. Preserve this design by resampling two paired worlds within each of strata [0,4], [1,5], [2,6], [3,7]. Enumerate 3^4 multiplicity patterns with probabilities (1,2,1)/4; use identical world weights for both actions and all three modes. Report exact weighted percentile intervals and stratified standard errors of each margin.",
+  "interval": "Exploratory equal-tailed 95% percentile intervals; no multiplicity correction or accept/reject threshold. Only two deals per player count and two worlds per role stratum: narrow or degenerate empirical intervals do not establish certainty.",
+  "incomplete": "Require the complete frozen 160-game manifest and every selected root. Any outer or nested cap retains all paired records but suppresses aggregate fidelity estimates; never aggregate only surviving roots.",
+  "secondary": "All per-group errors including adverse cells; signed margin error; action-credit error; tie-aware preference agreement; conditional summaries with and without prior sealed bids, with their represented groups explicit.",
+  "timing": "Attach independently audited wall, CPU, memory and physical nested-search work separately; shared-HF timing is not 8840U serving latency.",
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

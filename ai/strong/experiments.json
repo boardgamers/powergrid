@@ -58255,5 +58255,22 @@
         "gradient_updates": 0,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
+    },
+    "surrogate_continuation_analysis_preflight_v1": {
+        "preflight": "ai/runs/surrogate-continuation-analysis-preflight-v1.json",
+        "preflight_sha256": "203f955bc62050efbc8c42c53a4dbc5763926b1a99a30dfeab6414fa90eb6077",
+        "checkpoint": "ai/runs/surrogate-continuation-analysis-checkpoint-v1.json",
+        "checkpoint_sha256": "8b88279c1f23fff76e72ebd4f1cfb0188da6bed58794f8defe99b6a935a3b3ad",
+        "tests": 8,
+        "saved_engine_continuations_reaudited": 96,
+        "synthetic_full_shape_roots": 480,
+        "actual_trained_fidelity": false,
+        "opponent_collection_verified": 32,
+        "fresh_roots_verified": 4,
+        "cost_jobs_verified": 20,
+        "new_hf_jobs": 0,
+        "gradient_updates": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

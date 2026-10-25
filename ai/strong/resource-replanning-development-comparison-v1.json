@@ -1,0 +1,5516 @@
+{
+  "complete": true,
+  "games": 3360,
+  "independent_deals_per_cell": 4,
+  "absolute": {
+    "filter": {
+      "economic/6p": {
+        "overall": {
+          "games": 96,
+          "independent_deals": 4,
+          "win_rate": 0.71875,
+          "deal_bootstrap_95_interval": [
+            0.6041666666666666,
+            0.8125
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.5,
+            "deal_bootstrap_95_interval": [
+              0.16666666666666666,
+              0.7500000000000001
+            ]
+          },
+          "original/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.75,
+            "deal_bootstrap_95_interval": [
+              0.6666666666666666,
+              0.9166666666666666
+            ]
+          },
+          "recharged/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.8750000000000001,
+            "deal_bootstrap_95_interval": [
+              0.8333333333333334,
+              0.9583333333333334
+            ]
+          },
+          "recharged/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.7499999999999999,
+            "deal_bootstrap_95_interval": [
+              0.6666666666666666,
+              0.9166666666666666
+            ]
+          }
+        }
+      },
+      "heuristic/6p": {
+        "overall": {
+          "games": 96,
+          "independent_deals": 4,
+          "win_rate": 0.9895833333333334,
+          "deal_bootstrap_95_interval": [
+            0.9687500000000001,
+            1.0
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.9583333333333334,
+            "deal_bootstrap_95_interval": [
+              0.8750000000000001,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "legacy/6p": {
+        "overall": {
+          "games": 96,
+          "independent_deals": 4,
+          "win_rate": 0.9479166666666666,
+          "deal_bootstrap_95_interval": [
+            0.9166666666666666,
+            0.9791666666666667
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.9583333333333334,
+            "deal_bootstrap_95_interval": [
+              0.8750000000000001,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.9583333333333334,
+            "deal_bootstrap_95_interval": [
+              0.8750000000000001,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.9166666666666667,
+            "deal_bootstrap_95_interval": [
+              0.8333333333333334,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.9583333333333334,
+            "deal_bootstrap_95_interval": [
+              0.8750000000000001,
+              1.0
+            ]
+          }
+        }
+      },
+      "rush/6p": {
+        "overall": {
+          "games": 96,
+          "independent_deals": 4,
+          "win_rate": 0.7552083333333333,
+          "deal_bootstrap_95_interval": [
+            0.6875,
+            0.8281249999999999
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.6666666666666667,
+            "deal_bootstrap_95_interval": [
+              0.4583333333333333,
+              0.8333333333333334
+            ]
+          },
+          "original/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.6458333333333334,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              0.7916666666666667
+            ]
+          },
+          "recharged/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.9166666666666666,
+            "deal_bootstrap_95_interval": [
+              0.7499999999999999,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.7916666666666666,
+            "deal_bootstrap_95_interval": [
+              0.6666666666666666,
+              0.9166666666666667
+            ]
+          }
+        }
+      },
+      "search_geo/6p": {
+        "overall": {
+          "games": 96,
+          "independent_deals": 4,
+          "win_rate": 0.4791666666666667,
+          "deal_bootstrap_95_interval": [
+            0.40625,
+            0.5520833333333334
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.7500000000000001,
+            "deal_bootstrap_95_interval": [
+              0.4583333333333333,
+              0.9583333333333334
+            ]
+          },
+          "original/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.2916666666666667,
+            "deal_bootstrap_95_interval": [
+              0.16666666666666666,
+              0.4166666666666667
+            ]
+          },
+          "recharged/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.5416666666666666,
+            "deal_bootstrap_95_interval": [
+              0.3333333333333333,
+              0.75
+            ]
+          },
+          "recharged/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.3333333333333333,
+            "deal_bootstrap_95_interval": [
+              0.20833333333333331,
+              0.4583333333333333
+            ]
+          }
+        }
+      },
+      "economic/5p": {
+        "overall": {
+          "games": 80,
+          "independent_deals": 4,
+          "win_rate": 0.725,
+          "deal_bootstrap_95_interval": [
+            0.6749999999999999,
+            0.7750000000000001
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.5000000000000001,
+            "deal_bootstrap_95_interval": [
+              0.3,
+              0.7000000000000001
+            ]
+          },
+          "original/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.6,
+            "deal_bootstrap_95_interval": [
+              0.4,
+              0.85
+            ]
+          },
+          "recharged/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.8,
+            "deal_bootstrap_95_interval": [
+              0.6,
+              1.0
+            ]
+          }
+        }
+      },
+      "heuristic/5p": {
+        "overall": {
+          "games": 80,
+          "independent_deals": 4,
+          "win_rate": 1.0,
+          "deal_bootstrap_95_interval": [
+            1.0,
+            1.0
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "legacy/5p": {
+        "overall": {
+          "games": 80,
+          "independent_deals": 4,
+          "win_rate": 0.9125,
+          "deal_bootstrap_95_interval": [
+            0.8625,
+            0.975
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.8500000000000001,
+            "deal_bootstrap_95_interval": [
+              0.8,
+              0.95
+            ]
+          },
+          "original/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.8500000000000001,
+            "deal_bootstrap_95_interval": [
+              0.8,
+              0.95
+            ]
+          },
+          "recharged/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.95,
+            "deal_bootstrap_95_interval": [
+              0.8500000000000001,
+              1.0
+            ]
+          }
+        }
+      },
+      "rush/5p": {
+        "overall": {
+          "games": 80,
+          "independent_deals": 4,
+          "win_rate": 0.8125,
+          "deal_bootstrap_95_interval": [
+            0.7625,
+            0.875
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.6,
+            "deal_bootstrap_95_interval": [
+              0.44999999999999996,
+              0.75
+            ]
+          },
+          "original/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.7000000000000001,
+            "deal_bootstrap_95_interval": [
+              0.6,
+              0.8
+            ]
+          },
+          "recharged/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.95,
+            "deal_bootstrap_95_interval": [
+              0.8500000000000001,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "search_geo/5p": {
+        "overall": {
+          "games": 80,
+          "independent_deals": 4,
+          "win_rate": 0.4875,
+          "deal_bootstrap_95_interval": [
+            0.38749999999999996,
+            0.6
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.6,
+            "deal_bootstrap_95_interval": [
+              0.35,
+              0.8
+            ]
+          },
+          "original/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.15000000000000002,
+            "deal_bootstrap_95_interval": [
+              0.05,
+              0.2
+            ]
+          },
+          "recharged/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.8,
+            "deal_bootstrap_95_interval": [
+              0.65,
+              0.95
+            ]
+          },
+          "recharged/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.4,
+            "deal_bootstrap_95_interval": [
+              0.2,
+              0.6500000000000001
+            ]
+          }
+        }
+      },
+      "economic/4p": {
+        "overall": {
+          "games": 64,
+          "independent_deals": 4,
+          "win_rate": 0.671875,
+          "deal_bootstrap_95_interval": [
+            0.625,
+            0.71875
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.5,
+            "deal_bootstrap_95_interval": [
+              0.3125,
+              0.6875
+            ]
+          },
+          "original/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.625,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              0.875
+            ]
+          },
+          "recharged/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.9375,
+            "deal_bootstrap_95_interval": [
+              0.8125,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.625,
+            "deal_bootstrap_95_interval": [
+              0.1875,
+              0.9375
+            ]
+          }
+        }
+      },
+      "heuristic/4p": {
+        "overall": {
+          "games": 64,
+          "independent_deals": 4,
+          "win_rate": 0.90625,
+          "deal_bootstrap_95_interval": [
+            0.84375,
+            0.96875
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.9375,
+            "deal_bootstrap_95_interval": [
+              0.8125,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.75,
+            "deal_bootstrap_95_interval": [
+              0.5625,
+              0.9375
+            ]
+          },
+          "recharged/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.9375,
+            "deal_bootstrap_95_interval": [
+              0.8125,
+              1.0
+            ]
+          }
+        }
+      },
+      "legacy/4p": {
+        "overall": {
+          "games": 64,
+          "independent_deals": 4,
+          "win_rate": 0.953125,
+          "deal_bootstrap_95_interval": [
+            0.859375,
+            1.0
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.9375,
+            "deal_bootstrap_95_interval": [
+              0.8125,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.9375,
+            "deal_bootstrap_95_interval": [
+              0.8125,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.9375,
+            "deal_bootstrap_95_interval": [
+              0.8125,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "rush/4p": {
+        "overall": {
+          "games": 64,
+          "independent_deals": 4,
+          "win_rate": 0.65625,
+          "deal_bootstrap_95_interval": [
+            0.546875,
+            0.734375
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.4375,
+            "deal_bootstrap_95_interval": [
+              0.125,
+              0.8125
+            ]
+          },
+          "original/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.5625,
+            "deal_bootstrap_95_interval": [
+              0.375,
+              0.75
+            ]
+          },
+          "recharged/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.9375,
+            "deal_bootstrap_95_interval": [
+              0.8125,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.6875,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              0.875
+            ]
+          }
+        }
+      },
+      "search_geo/4p": {
+        "overall": {
+          "games": 64,
+          "independent_deals": 4,
+          "win_rate": 0.4765625,
+          "deal_bootstrap_95_interval": [
+            0.421875,
+            0.53125
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.625,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              0.875
+            ]
+          },
+          "original/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.46875,
+            "deal_bootstrap_95_interval": [
+              0.40625,
+              0.5
+            ]
+          },
+          "recharged/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.6875,
+            "deal_bootstrap_95_interval": [
+              0.375,
+              0.9375
+            ]
+          },
+          "recharged/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.125,
+            "deal_bootstrap_95_interval": [
+              0.0,
+              0.375
+            ]
+          }
+        }
+      },
+      "a260/3p": {
+        "overall": {
+          "games": 48,
+          "independent_deals": 4,
+          "win_rate": 0.47916666666666663,
+          "deal_bootstrap_95_interval": [
+            0.2708333333333333,
+            0.625
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.8333333333333333,
+            "deal_bootstrap_95_interval": [
+              0.49999999999999994,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.16666666666666666,
+            "deal_bootstrap_95_interval": [
+              0.0,
+              0.3333333333333333
+            ]
+          },
+          "recharged/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.5833333333333333,
+            "deal_bootstrap_95_interval": [
+              0.16666666666666666,
+              0.9166666666666666
+            ]
+          },
+          "recharged/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.3333333333333333,
+            "deal_bootstrap_95_interval": [
+              0.08333333333333333,
+              0.5833333333333333
+            ]
+          }
+        }
+      },
+      "economic/3p": {
+        "overall": {
+          "games": 48,
+          "independent_deals": 4,
+          "win_rate": 0.7499999999999999,
+          "deal_bootstrap_95_interval": [
+            0.5833333333333333,
+            0.9166666666666666
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.75,
+            "deal_bootstrap_95_interval": [
+              0.49999999999999994,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.75,
+            "deal_bootstrap_95_interval": [
+              0.49999999999999994,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.8333333333333333,
+            "deal_bootstrap_95_interval": [
+              0.6666666666666666,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.6666666666666666,
+            "deal_bootstrap_95_interval": [
+              0.41666666666666663,
+              0.9166666666666666
+            ]
+          }
+        }
+      },
+      "heuristic/3p": {
+        "overall": {
+          "games": 48,
+          "independent_deals": 4,
+          "win_rate": 0.875,
+          "deal_bootstrap_95_interval": [
+            0.7916666666666666,
+            0.9583333333333334
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.6666666666666666,
+            "deal_bootstrap_95_interval": [
+              0.41666666666666663,
+              0.9166666666666666
+            ]
+          },
+          "original/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.9166666666666666,
+            "deal_bootstrap_95_interval": [
+              0.7499999999999999,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.9166666666666666,
+            "deal_bootstrap_95_interval": [
+              0.7499999999999999,
+              1.0
+            ]
+          }
+        }
+      },
+      "legacy/3p": {
+        "overall": {
+          "games": 48,
+          "independent_deals": 4,
+          "win_rate": 0.8333333333333334,
+          "deal_bootstrap_95_interval": [
+            0.7708333333333334,
+            0.8958333333333333
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.9166666666666666,
+            "deal_bootstrap_95_interval": [
+              0.7499999999999999,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.75,
+            "deal_bootstrap_95_interval": [
+              0.49999999999999994,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.9166666666666666,
+            "deal_bootstrap_95_interval": [
+              0.7499999999999999,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.75,
+            "deal_bootstrap_95_interval": [
+              0.49999999999999994,
+              1.0
+            ]
+          }
+        }
+      },
+      "rush/3p": {
+        "overall": {
+          "games": 48,
+          "independent_deals": 4,
+          "win_rate": 0.8125,
+          "deal_bootstrap_95_interval": [
+            0.75,
+            0.9375
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.6666666666666666,
+            "deal_bootstrap_95_interval": [
+              0.3333333333333333,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.9166666666666666,
+            "deal_bootstrap_95_interval": [
+              0.7499999999999999,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.9166666666666666,
+            "deal_bootstrap_95_interval": [
+              0.7499999999999999,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.7499999999999999,
+            "deal_bootstrap_95_interval": [
+              0.6666666666666666,
+              0.9166666666666666
+            ]
+          }
+        }
+      },
+      "search_geo/3p": {
+        "overall": {
+          "games": 48,
+          "independent_deals": 4,
+          "win_rate": 0.5833333333333334,
+          "deal_bootstrap_95_interval": [
+            0.45833333333333337,
+            0.7083333333333334
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.6666666666666666,
+            "deal_bootstrap_95_interval": [
+              0.6666666666666666,
+              0.6666666666666666
+            ]
+          },
+          "original/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.5,
+            "deal_bootstrap_95_interval": [
+              0.16666666666666666,
+              0.8333333333333334
+            ]
+          },
+          "recharged/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.7499999999999999,
+            "deal_bootstrap_95_interval": [
+              0.6666666666666666,
+              0.9166666666666666
+            ]
+          },
+          "recharged/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.41666666666666663,
+            "deal_bootstrap_95_interval": [
+              0.16666666666666666,
+              0.6666666666666666
+            ]
+          }
+        }
+      },
+      "economic/2p": {
+        "overall": {
+          "games": 32,
+          "independent_deals": 4,
+          "win_rate": 0.65625,
+          "deal_bootstrap_95_interval": [
+            0.5,
+            0.8125
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.625,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              0.875
+            ]
+          },
+          "original/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.375,
+            "deal_bootstrap_95_interval": [
+              0.0,
+              0.75
+            ]
+          },
+          "recharged/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.875,
+            "deal_bootstrap_95_interval": [
+              0.625,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.75,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              1.0
+            ]
+          }
+        }
+      },
+      "economic_capacity_v1/2p": {
+        "overall": {
+          "games": 32,
+          "independent_deals": 4,
+          "win_rate": 0.625,
+          "deal_bootstrap_95_interval": [
+            0.5,
+            0.75
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.5,
+            "deal_bootstrap_95_interval": [
+              0.125,
+              0.875
+            ]
+          },
+          "original/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.375,
+            "deal_bootstrap_95_interval": [
+              0.0,
+              0.75
+            ]
+          },
+          "recharged/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.625,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              0.875
+            ]
+          }
+        }
+      },
+      "heuristic/2p": {
+        "overall": {
+          "games": 32,
+          "independent_deals": 4,
+          "win_rate": 0.78125,
+          "deal_bootstrap_95_interval": [
+            0.625,
+            0.9375
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.875,
+            "deal_bootstrap_95_interval": [
+              0.625,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.625,
+            "deal_bootstrap_95_interval": [
+              0.25,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.875,
+            "deal_bootstrap_95_interval": [
+              0.625,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.75,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              1.0
+            ]
+          }
+        }
+      },
+      "legacy/2p": {
+        "overall": {
+          "games": 32,
+          "independent_deals": 4,
+          "win_rate": 1.0,
+          "deal_bootstrap_95_interval": [
+            1.0,
+            1.0
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "rush/2p": {
+        "overall": {
+          "games": 32,
+          "independent_deals": 4,
+          "win_rate": 0.625,
+          "deal_bootstrap_95_interval": [
+            0.46875,
+            0.75
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.625,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              0.875
+            ]
+          },
+          "original/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.625,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              0.875
+            ]
+          },
+          "recharged/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.625,
+            "deal_bootstrap_95_interval": [
+              0.25,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.625,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              0.875
+            ]
+          }
+        }
+      },
+      "search_geo/2p": {
+        "overall": {
+          "games": 32,
+          "independent_deals": 4,
+          "win_rate": 0.5,
+          "deal_bootstrap_95_interval": [
+            0.34375,
+            0.625
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.5,
+            "deal_bootstrap_95_interval": [
+              0.125,
+              0.875
+            ]
+          },
+          "original/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.375,
+            "deal_bootstrap_95_interval": [
+              0.0,
+              0.75
+            ]
+          },
+          "recharged/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.75,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.375,
+            "deal_bootstrap_95_interval": [
+              0.0,
+              0.75
+            ]
+          }
+        }
+      }
+    },
+    "resource-filter": {
+      "economic/6p": {
+        "overall": {
+          "games": 96,
+          "independent_deals": 4,
+          "win_rate": 0.7604166666666666,
+          "deal_bootstrap_95_interval": [
+            0.6874999999999999,
+            0.8645833333333334
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.6666666666666666,
+            "deal_bootstrap_95_interval": [
+              0.4583333333333333,
+              0.8333333333333334
+            ]
+          },
+          "original/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.5833333333333333,
+            "deal_bootstrap_95_interval": [
+              0.41666666666666663,
+              0.7500000000000001
+            ]
+          },
+          "recharged/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.8750000000000001,
+            "deal_bootstrap_95_interval": [
+              0.8333333333333334,
+              0.9583333333333334
+            ]
+          },
+          "recharged/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.9166666666666667,
+            "deal_bootstrap_95_interval": [
+              0.8333333333333334,
+              1.0
+            ]
+          }
+        }
+      },
+      "heuristic/6p": {
+        "overall": {
+          "games": 96,
+          "independent_deals": 4,
+          "win_rate": 0.96875,
+          "deal_bootstrap_95_interval": [
+            0.9374999999999999,
+            1.0
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.9583333333333334,
+            "deal_bootstrap_95_interval": [
+              0.8750000000000001,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.9166666666666667,
+            "deal_bootstrap_95_interval": [
+              0.8333333333333334,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "legacy/6p": {
+        "overall": {
+          "games": 96,
+          "independent_deals": 4,
+          "win_rate": 0.9270833333333333,
+          "deal_bootstrap_95_interval": [
+            0.8854166666666666,
+            0.9791666666666666
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.9583333333333334,
+            "deal_bootstrap_95_interval": [
+              0.8750000000000001,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.9583333333333334,
+            "deal_bootstrap_95_interval": [
+              0.8750000000000001,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.875,
+            "deal_bootstrap_95_interval": [
+              0.7499999999999999,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.9166666666666666,
+            "deal_bootstrap_95_interval": [
+              0.7499999999999999,
+              1.0
+            ]
+          }
+        }
+      },
+      "rush/6p": {
+        "overall": {
+          "games": 96,
+          "independent_deals": 4,
+          "win_rate": 0.7708333333333334,
+          "deal_bootstrap_95_interval": [
+            0.7291666666666667,
+            0.8125000000000001
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.8333333333333334,
+            "deal_bootstrap_95_interval": [
+              0.7083333333333333,
+              0.9583333333333334
+            ]
+          },
+          "original/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.5416666666666667,
+            "deal_bootstrap_95_interval": [
+              0.3333333333333333,
+              0.75
+            ]
+          },
+          "recharged/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.7916666666666666,
+            "deal_bootstrap_95_interval": [
+              0.6666666666666666,
+              0.9166666666666667
+            ]
+          },
+          "recharged/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.9166666666666667,
+            "deal_bootstrap_95_interval": [
+              0.8333333333333334,
+              1.0
+            ]
+          }
+        }
+      },
+      "search_geo/6p": {
+        "overall": {
+          "games": 96,
+          "independent_deals": 4,
+          "win_rate": 0.3645833333333333,
+          "deal_bootstrap_95_interval": [
+            0.2708333333333333,
+            0.4583333333333333
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.625,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              0.7500000000000001
+            ]
+          },
+          "original/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.3333333333333333,
+            "deal_bootstrap_95_interval": [
+              0.20833333333333331,
+              0.4583333333333333
+            ]
+          },
+          "recharged/open": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.375,
+            "deal_bootstrap_95_interval": [
+              0.20833333333333331,
+              0.5833333333333333
+            ]
+          },
+          "recharged/sealed": {
+            "games": 24,
+            "independent_deals": 4,
+            "win_rate": 0.125,
+            "deal_bootstrap_95_interval": [
+              0.041666666666666664,
+              0.16666666666666666
+            ]
+          }
+        }
+      },
+      "economic/5p": {
+        "overall": {
+          "games": 80,
+          "independent_deals": 4,
+          "win_rate": 0.7875000000000001,
+          "deal_bootstrap_95_interval": [
+            0.725,
+            0.8624999999999999
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.6,
+            "deal_bootstrap_95_interval": [
+              0.6,
+              0.6
+            ]
+          },
+          "original/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.7000000000000001,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              0.9
+            ]
+          },
+          "recharged/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.8500000000000001,
+            "deal_bootstrap_95_interval": [
+              0.7,
+              1.0
+            ]
+          }
+        }
+      },
+      "heuristic/5p": {
+        "overall": {
+          "games": 80,
+          "independent_deals": 4,
+          "win_rate": 0.975,
+          "deal_bootstrap_95_interval": [
+            0.95,
+            1.0
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.95,
+            "deal_bootstrap_95_interval": [
+              0.8500000000000001,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.95,
+            "deal_bootstrap_95_interval": [
+              0.8500000000000001,
+              1.0
+            ]
+          }
+        }
+      },
+      "legacy/5p": {
+        "overall": {
+          "games": 80,
+          "independent_deals": 4,
+          "win_rate": 0.9750000000000001,
+          "deal_bootstrap_95_interval": [
+            0.95,
+            1.0
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.8999999999999999,
+            "deal_bootstrap_95_interval": [
+              0.8,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "rush/5p": {
+        "overall": {
+          "games": 80,
+          "independent_deals": 4,
+          "win_rate": 0.8625,
+          "deal_bootstrap_95_interval": [
+            0.7749999999999999,
+            0.95
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.85,
+            "deal_bootstrap_95_interval": [
+              0.7,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.7999999999999999,
+            "deal_bootstrap_95_interval": [
+              0.5499999999999999,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.8999999999999999,
+            "deal_bootstrap_95_interval": [
+              0.8,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.8999999999999999,
+            "deal_bootstrap_95_interval": [
+              0.8,
+              1.0
+            ]
+          }
+        }
+      },
+      "search_geo/5p": {
+        "overall": {
+          "games": 80,
+          "independent_deals": 4,
+          "win_rate": 0.45,
+          "deal_bootstrap_95_interval": [
+            0.4,
+            0.5125000000000001
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.6,
+            "deal_bootstrap_95_interval": [
+              0.6,
+              0.6
+            ]
+          },
+          "original/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.2,
+            "deal_bootstrap_95_interval": [
+              0.05,
+              0.35
+            ]
+          },
+          "recharged/open": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.7,
+            "deal_bootstrap_95_interval": [
+              0.6,
+              0.9
+            ]
+          },
+          "recharged/sealed": {
+            "games": 20,
+            "independent_deals": 4,
+            "win_rate": 0.30000000000000004,
+            "deal_bootstrap_95_interval": [
+              0.1,
+              0.4
+            ]
+          }
+        }
+      },
+      "economic/4p": {
+        "overall": {
+          "games": 64,
+          "independent_deals": 4,
+          "win_rate": 0.640625,
+          "deal_bootstrap_95_interval": [
+            0.625,
+            0.671875
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.25,
+            "deal_bootstrap_95_interval": [
+              0.25,
+              0.25
+            ]
+          },
+          "original/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.5,
+            "deal_bootstrap_95_interval": [
+              0.3125,
+              0.6875
+            ]
+          },
+          "recharged/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.9375,
+            "deal_bootstrap_95_interval": [
+              0.8125,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.875,
+            "deal_bootstrap_95_interval": [
+              0.75,
+              1.0
+            ]
+          }
+        }
+      },
+      "heuristic/4p": {
+        "overall": {
+          "games": 64,
+          "independent_deals": 4,
+          "win_rate": 0.859375,
+          "deal_bootstrap_95_interval": [
+            0.75,
+            0.9375
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.8125,
+            "deal_bootstrap_95_interval": [
+              0.625,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.6875,
+            "deal_bootstrap_95_interval": [
+              0.375,
+              0.9375
+            ]
+          },
+          "recharged/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.9375,
+            "deal_bootstrap_95_interval": [
+              0.8125,
+              1.0
+            ]
+          }
+        }
+      },
+      "legacy/4p": {
+        "overall": {
+          "games": 64,
+          "independent_deals": 4,
+          "win_rate": 0.921875,
+          "deal_bootstrap_95_interval": [
+            0.875,
+            0.96875
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.9375,
+            "deal_bootstrap_95_interval": [
+              0.8125,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.9375,
+            "deal_bootstrap_95_interval": [
+              0.8125,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.9375,
+            "deal_bootstrap_95_interval": [
+              0.8125,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.875,
+            "deal_bootstrap_95_interval": [
+              0.75,
+              1.0
+            ]
+          }
+        }
+      },
+      "rush/4p": {
+        "overall": {
+          "games": 64,
+          "independent_deals": 4,
+          "win_rate": 0.609375,
+          "deal_bootstrap_95_interval": [
+            0.5,
+            0.71875
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.3125,
+            "deal_bootstrap_95_interval": [
+              0.125,
+              0.5
+            ]
+          },
+          "original/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.4375,
+            "deal_bootstrap_95_interval": [
+              0.3125,
+              0.5
+            ]
+          },
+          "recharged/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.9375,
+            "deal_bootstrap_95_interval": [
+              0.8125,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.75,
+            "deal_bootstrap_95_interval": [
+              0.5625,
+              0.9375
+            ]
+          }
+        }
+      },
+      "search_geo/4p": {
+        "overall": {
+          "games": 64,
+          "independent_deals": 4,
+          "win_rate": 0.3984375,
+          "deal_bootstrap_95_interval": [
+            0.328125,
+            0.5078125
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.4375,
+            "deal_bootstrap_95_interval": [
+              0.25,
+              0.625
+            ]
+          },
+          "original/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.40625,
+            "deal_bootstrap_95_interval": [
+              0.3125,
+              0.5
+            ]
+          },
+          "recharged/open": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.5625,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              0.6875
+            ]
+          },
+          "recharged/sealed": {
+            "games": 16,
+            "independent_deals": 4,
+            "win_rate": 0.1875,
+            "deal_bootstrap_95_interval": [
+              0.0,
+              0.375
+            ]
+          }
+        }
+      },
+      "a260/3p": {
+        "overall": {
+          "games": 48,
+          "independent_deals": 4,
+          "win_rate": 0.4791666666666667,
+          "deal_bootstrap_95_interval": [
+            0.33333333333333337,
+            0.5833333333333334
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.5833333333333333,
+            "deal_bootstrap_95_interval": [
+              0.41666666666666663,
+              0.6666666666666666
+            ]
+          },
+          "original/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.3333333333333333,
+            "deal_bootstrap_95_interval": [
+              0.08333333333333333,
+              0.5833333333333333
+            ]
+          },
+          "recharged/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.5833333333333333,
+            "deal_bootstrap_95_interval": [
+              0.3333333333333333,
+              0.8333333333333334
+            ]
+          },
+          "recharged/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.41666666666666663,
+            "deal_bootstrap_95_interval": [
+              0.08333333333333333,
+              0.8333333333333333
+            ]
+          }
+        }
+      },
+      "economic/3p": {
+        "overall": {
+          "games": 48,
+          "independent_deals": 4,
+          "win_rate": 0.7083333333333334,
+          "deal_bootstrap_95_interval": [
+            0.5833333333333333,
+            0.8333333333333334
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.6666666666666666,
+            "deal_bootstrap_95_interval": [
+              0.41666666666666663,
+              0.9166666666666666
+            ]
+          },
+          "original/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.5,
+            "deal_bootstrap_95_interval": [
+              0.3333333333333333,
+              0.8333333333333333
+            ]
+          },
+          "recharged/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.8333333333333333,
+            "deal_bootstrap_95_interval": [
+              0.49999999999999994,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.8333333333333333,
+            "deal_bootstrap_95_interval": [
+              0.6666666666666666,
+              1.0
+            ]
+          }
+        }
+      },
+      "heuristic/3p": {
+        "overall": {
+          "games": 48,
+          "independent_deals": 4,
+          "win_rate": 0.8541666666666666,
+          "deal_bootstrap_95_interval": [
+            0.7916666666666666,
+            0.9166666666666666
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.8333333333333333,
+            "deal_bootstrap_95_interval": [
+              0.49999999999999994,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.5833333333333334,
+            "deal_bootstrap_95_interval": [
+              0.41666666666666663,
+              0.6666666666666666
+            ]
+          },
+          "recharged/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "legacy/3p": {
+        "overall": {
+          "games": 48,
+          "independent_deals": 4,
+          "win_rate": 0.9375,
+          "deal_bootstrap_95_interval": [
+            0.9166666666666666,
+            0.9791666666666666
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.9166666666666666,
+            "deal_bootstrap_95_interval": [
+              0.7499999999999999,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.9166666666666666,
+            "deal_bootstrap_95_interval": [
+              0.7499999999999999,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.9166666666666666,
+            "deal_bootstrap_95_interval": [
+              0.7499999999999999,
+              1.0
+            ]
+          }
+        }
+      },
+      "rush/3p": {
+        "overall": {
+          "games": 48,
+          "independent_deals": 4,
+          "win_rate": 0.75,
+          "deal_bootstrap_95_interval": [
+            0.6666666666666666,
+            0.8333333333333334
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.6666666666666666,
+            "deal_bootstrap_95_interval": [
+              0.41666666666666663,
+              0.9166666666666666
+            ]
+          },
+          "original/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.6666666666666666,
+            "deal_bootstrap_95_interval": [
+              0.41666666666666663,
+              0.9166666666666666
+            ]
+          },
+          "recharged/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.7499999999999999,
+            "deal_bootstrap_95_interval": [
+              0.6666666666666666,
+              0.9166666666666666
+            ]
+          },
+          "recharged/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.9166666666666666,
+            "deal_bootstrap_95_interval": [
+              0.7499999999999999,
+              1.0
+            ]
+          }
+        }
+      },
+      "search_geo/3p": {
+        "overall": {
+          "games": 48,
+          "independent_deals": 4,
+          "win_rate": 0.4166666666666667,
+          "deal_bootstrap_95_interval": [
+            0.3125,
+            0.5
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.5,
+            "deal_bootstrap_95_interval": [
+              0.16666666666666666,
+              0.8333333333333333
+            ]
+          },
+          "original/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.41666666666666663,
+            "deal_bootstrap_95_interval": [
+              0.3333333333333333,
+              0.5833333333333333
+            ]
+          },
+          "recharged/open": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.49999999999999994,
+            "deal_bootstrap_95_interval": [
+              0.3333333333333333,
+              0.6666666666666666
+            ]
+          },
+          "recharged/sealed": {
+            "games": 12,
+            "independent_deals": 4,
+            "win_rate": 0.25,
+            "deal_bootstrap_95_interval": [
+              0.08333333333333333,
+              0.3333333333333333
+            ]
+          }
+        }
+      },
+      "economic/2p": {
+        "overall": {
+          "games": 32,
+          "independent_deals": 4,
+          "win_rate": 0.9375,
+          "deal_bootstrap_95_interval": [
+            0.875,
+            1.0
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.875,
+            "deal_bootstrap_95_interval": [
+              0.625,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.875,
+            "deal_bootstrap_95_interval": [
+              0.625,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "economic_capacity_v1/2p": {
+        "overall": {
+          "games": 32,
+          "independent_deals": 4,
+          "win_rate": 1.0,
+          "deal_bootstrap_95_interval": [
+            1.0,
+            1.0
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "heuristic/2p": {
+        "overall": {
+          "games": 32,
+          "independent_deals": 4,
+          "win_rate": 0.84375,
+          "deal_bootstrap_95_interval": [
+            0.75,
+            0.9375
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.875,
+            "deal_bootstrap_95_interval": [
+              0.625,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.625,
+            "deal_bootstrap_95_interval": [
+              0.25,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.875,
+            "deal_bootstrap_95_interval": [
+              0.625,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "legacy/2p": {
+        "overall": {
+          "games": 32,
+          "independent_deals": 4,
+          "win_rate": 0.9375,
+          "deal_bootstrap_95_interval": [
+            0.8125,
+            1.0
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.875,
+            "deal_bootstrap_95_interval": [
+              0.625,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.875,
+            "deal_bootstrap_95_interval": [
+              0.625,
+              1.0
+            ]
+          }
+        }
+      },
+      "rush/2p": {
+        "overall": {
+          "games": 32,
+          "independent_deals": 4,
+          "win_rate": 0.84375,
+          "deal_bootstrap_95_interval": [
+            0.75,
+            0.9375
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.75,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              1.0
+            ]
+          },
+          "original/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.75,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              1.0
+            ]
+          },
+          "recharged/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 1.0,
+            "deal_bootstrap_95_interval": [
+              1.0,
+              1.0
+            ]
+          },
+          "recharged/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.875,
+            "deal_bootstrap_95_interval": [
+              0.625,
+              1.0
+            ]
+          }
+        }
+      },
+      "search_geo/2p": {
+        "overall": {
+          "games": 32,
+          "independent_deals": 4,
+          "win_rate": 0.4375,
+          "deal_bootstrap_95_interval": [
+            0.25,
+            0.625
+          ]
+        },
+        "by_rules": {
+          "original/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.5,
+            "deal_bootstrap_95_interval": [
+              0.125,
+              0.875
+            ]
+          },
+          "original/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.25,
+            "deal_bootstrap_95_interval": [
+              0.0,
+              0.75
+            ]
+          },
+          "recharged/open": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.625,
+            "deal_bootstrap_95_interval": [
+              0.5,
+              0.875
+            ]
+          },
+          "recharged/sealed": {
+            "games": 8,
+            "independent_deals": 4,
+            "win_rate": 0.375,
+            "deal_bootstrap_95_interval": [
+              0.0,
+              0.75
+            ]
+          }
+        }
+      }
+    }
+  },
+  "resource_minus_filter": {
+    "economic/6p": {
+      "overall": {
+        "games_per_model": 96,
+        "independent_deals": 4,
+        "win_share_difference": 0.04166666666666667,
+        "paired_deal_bootstrap_95_interval": [
+          -0.041666666666666664,
+          0.125
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": 0.16666666666666666,
+          "paired_deal_bootstrap_95_interval": [
+            -0.04166666666666667,
+            0.3333333333333333
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": -0.16666666666666666,
+          "paired_deal_bootstrap_95_interval": [
+            -0.41666666666666663,
+            0.08333333333333333
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": 0.16666666666666666,
+          "paired_deal_bootstrap_95_interval": [
+            0.041666666666666664,
+            0.29166666666666663
+          ]
+        }
+      }
+    },
+    "heuristic/6p": {
+      "overall": {
+        "games_per_model": 96,
+        "independent_deals": 4,
+        "win_share_difference": -0.020833333333333332,
+        "paired_deal_bootstrap_95_interval": [
+          -0.0625,
+          0.020833333333333332
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": -0.041666666666666664,
+          "paired_deal_bootstrap_95_interval": [
+            -0.125,
+            0.0
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": -0.08333333333333333,
+          "paired_deal_bootstrap_95_interval": [
+            -0.16666666666666666,
+            0.0
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": 0.041666666666666664,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.125
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "legacy/6p": {
+      "overall": {
+        "games_per_model": 96,
+        "independent_deals": 4,
+        "win_share_difference": -0.020833333333333332,
+        "paired_deal_bootstrap_95_interval": [
+          -0.0625,
+          0.0
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            -0.125,
+            0.125
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": -0.041666666666666664,
+          "paired_deal_bootstrap_95_interval": [
+            -0.16666666666666666,
+            0.08333333333333334
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": -0.041666666666666664,
+          "paired_deal_bootstrap_95_interval": [
+            -0.125,
+            0.0
+          ]
+        }
+      }
+    },
+    "rush/6p": {
+      "overall": {
+        "games_per_model": 96,
+        "independent_deals": 4,
+        "win_share_difference": 0.015624999999999998,
+        "paired_deal_bootstrap_95_interval": [
+          -0.03125,
+          0.0625
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": 0.16666666666666666,
+          "paired_deal_bootstrap_95_interval": [
+            0.041666666666666664,
+            0.29166666666666663
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": -0.10416666666666667,
+          "paired_deal_bootstrap_95_interval": [
+            -0.3541666666666667,
+            0.125
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": -0.125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.25,
+            0.0
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": 0.125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.08333333333333333,
+            0.29166666666666663
+          ]
+        }
+      }
+    },
+    "search_geo/6p": {
+      "overall": {
+        "games_per_model": 96,
+        "independent_deals": 4,
+        "win_share_difference": -0.11458333333333331,
+        "paired_deal_bootstrap_95_interval": [
+          -0.15624999999999997,
+          -0.06249999999999999
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": -0.125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.29166666666666663,
+            0.08333333333333333
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": 0.041666666666666664,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.125
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": -0.16666666666666666,
+          "paired_deal_bootstrap_95_interval": [
+            -0.375,
+            0.0
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 24,
+          "independent_deals": 4,
+          "win_share_difference": -0.20833333333333331,
+          "paired_deal_bootstrap_95_interval": [
+            -0.3333333333333333,
+            -0.08333333333333333
+          ]
+        }
+      }
+    },
+    "economic/5p": {
+      "overall": {
+        "games_per_model": 80,
+        "independent_deals": 4,
+        "win_share_difference": 0.0625,
+        "paired_deal_bootstrap_95_interval": [
+          -0.0125,
+          0.1
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": 0.1,
+          "paired_deal_bootstrap_95_interval": [
+            -0.10000000000000002,
+            0.30000000000000004
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": 0.09999999999999999,
+          "paired_deal_bootstrap_95_interval": [
+            -0.25,
+            0.44999999999999996
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": 0.05,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.15000000000000002
+          ]
+        }
+      }
+    },
+    "heuristic/5p": {
+      "overall": {
+        "games_per_model": 80,
+        "independent_deals": 4,
+        "win_share_difference": -0.025,
+        "paired_deal_bootstrap_95_interval": [
+          -0.05,
+          0.0
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": -0.05,
+          "paired_deal_bootstrap_95_interval": [
+            -0.15000000000000002,
+            0.0
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": -0.05,
+          "paired_deal_bootstrap_95_interval": [
+            -0.15000000000000002,
+            0.0
+          ]
+        }
+      }
+    },
+    "legacy/5p": {
+      "overall": {
+        "games_per_model": 80,
+        "independent_deals": 4,
+        "win_share_difference": 0.06250000000000001,
+        "paired_deal_bootstrap_95_interval": [
+          -0.0125,
+          0.1
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": 0.15000000000000002,
+          "paired_deal_bootstrap_95_interval": [
+            0.05,
+            0.2
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": -0.1,
+          "paired_deal_bootstrap_95_interval": [
+            -0.2,
+            0.0
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": 0.15000000000000002,
+          "paired_deal_bootstrap_95_interval": [
+            0.05,
+            0.2
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": 0.05,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.15000000000000002
+          ]
+        }
+      }
+    },
+    "rush/5p": {
+      "overall": {
+        "games_per_model": 80,
+        "independent_deals": 4,
+        "win_share_difference": 0.049999999999999996,
+        "paired_deal_bootstrap_95_interval": [
+          -0.05,
+          0.15
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": 0.25,
+          "paired_deal_bootstrap_95_interval": [
+            -0.05,
+            0.5
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": 0.10000000000000002,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1,
+            0.30000000000000004
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": -0.05,
+          "paired_deal_bootstrap_95_interval": [
+            -0.15000000000000002,
+            0.0
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": -0.1,
+          "paired_deal_bootstrap_95_interval": [
+            -0.2,
+            0.0
+          ]
+        }
+      }
+    },
+    "search_geo/5p": {
+      "overall": {
+        "games_per_model": 80,
+        "independent_deals": 4,
+        "win_share_difference": -0.0375,
+        "paired_deal_bootstrap_95_interval": [
+          -0.175,
+          0.1
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            -0.2,
+            0.25000000000000006
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": 0.05,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.15000000000000002
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": -0.1,
+          "paired_deal_bootstrap_95_interval": [
+            -0.35,
+            0.25
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 20,
+          "independent_deals": 4,
+          "win_share_difference": -0.1,
+          "paired_deal_bootstrap_95_interval": [
+            -0.30000000000000004,
+            0.10000000000000002
+          ]
+        }
+      }
+    },
+    "economic/4p": {
+      "overall": {
+        "games_per_model": 64,
+        "independent_deals": 4,
+        "win_share_difference": -0.03125,
+        "paired_deal_bootstrap_95_interval": [
+          -0.09375,
+          0.0
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": -0.25,
+          "paired_deal_bootstrap_95_interval": [
+            -0.4375,
+            -0.0625
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": -0.125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.25,
+            0.0
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": 0.25,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.5625
+          ]
+        }
+      }
+    },
+    "heuristic/4p": {
+      "overall": {
+        "games_per_model": 64,
+        "independent_deals": 4,
+        "win_share_difference": -0.046875,
+        "paired_deal_bootstrap_95_interval": [
+          -0.125,
+          0.03125
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": -0.125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.25,
+            0.0
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": -0.0625,
+          "paired_deal_bootstrap_95_interval": [
+            -0.25,
+            0.125
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "legacy/4p": {
+      "overall": {
+        "games_per_model": 64,
+        "independent_deals": 4,
+        "win_share_difference": -0.03125,
+        "paired_deal_bootstrap_95_interval": [
+          -0.09375,
+          0.03125
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1875,
+            0.1875
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1875,
+            0.1875
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": -0.125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.25,
+            0.0
+          ]
+        }
+      }
+    },
+    "rush/4p": {
+      "overall": {
+        "games_per_model": 64,
+        "independent_deals": 4,
+        "win_share_difference": -0.046875,
+        "paired_deal_bootstrap_95_interval": [
+          -0.140625,
+          0.0
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": -0.125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.375,
+            0.125
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": -0.125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.25,
+            0.0
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            -0.1875,
+            0.1875
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": 0.0625,
+          "paired_deal_bootstrap_95_interval": [
+            -0.3125,
+            0.375
+          ]
+        }
+      }
+    },
+    "search_geo/4p": {
+      "overall": {
+        "games_per_model": 64,
+        "independent_deals": 4,
+        "win_share_difference": -0.078125,
+        "paired_deal_bootstrap_95_interval": [
+          -0.1328125,
+          -0.0234375
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": -0.1875,
+          "paired_deal_bootstrap_95_interval": [
+            -0.5625,
+            0.125
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": -0.0625,
+          "paired_deal_bootstrap_95_interval": [
+            -0.125,
+            0.0
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": -0.125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.4375,
+            0.3125
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 16,
+          "independent_deals": 4,
+          "win_share_difference": 0.0625,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.1875
+          ]
+        }
+      }
+    },
+    "a260/3p": {
+      "overall": {
+        "games_per_model": 48,
+        "independent_deals": 4,
+        "win_share_difference": 0.0,
+        "paired_deal_bootstrap_95_interval": [
+          -0.08333333333333333,
+          0.08333333333333333
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": -0.25,
+          "paired_deal_bootstrap_95_interval": [
+            -0.3333333333333333,
+            -0.08333333333333333
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": 0.16666666666666666,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.3333333333333333
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            -0.3333333333333333,
+            0.3333333333333333
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": 0.08333333333333333,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.25
+          ]
+        }
+      }
+    },
+    "economic/3p": {
+      "overall": {
+        "games_per_model": 48,
+        "independent_deals": 4,
+        "win_share_difference": -0.04166666666666668,
+        "paired_deal_bootstrap_95_interval": [
+          -0.27083333333333337,
+          0.16666666666666666
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": -0.08333333333333333,
+          "paired_deal_bootstrap_95_interval": [
+            -0.25,
+            0.0
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": -0.25,
+          "paired_deal_bootstrap_95_interval": [
+            -0.6666666666666666,
+            0.16666666666666666
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            -0.4166666666666667,
+            0.3333333333333333
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": 0.16666666666666666,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.5
+          ]
+        }
+      }
+    },
+    "heuristic/3p": {
+      "overall": {
+        "games_per_model": 48,
+        "independent_deals": 4,
+        "win_share_difference": -0.020833333333333332,
+        "paired_deal_bootstrap_95_interval": [
+          -0.08333333333333333,
+          0.04166666666666667
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": 0.16666666666666666,
+          "paired_deal_bootstrap_95_interval": [
+            -0.16666666666666669,
+            0.5
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": -0.3333333333333333,
+          "paired_deal_bootstrap_95_interval": [
+            -0.5833333333333333,
+            -0.08333333333333333
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": 0.08333333333333333,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.25
+          ]
+        }
+      }
+    },
+    "legacy/3p": {
+      "overall": {
+        "games_per_model": 48,
+        "independent_deals": 4,
+        "win_share_difference": 0.10416666666666666,
+        "paired_deal_bootstrap_95_interval": [
+          0.020833333333333332,
+          0.20833333333333331
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": 0.08333333333333333,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.25
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": 0.16666666666666666,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.5
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            -0.25,
+            0.25
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": 0.16666666666666666,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.5
+          ]
+        }
+      }
+    },
+    "rush/3p": {
+      "overall": {
+        "games_per_model": 48,
+        "independent_deals": 4,
+        "win_share_difference": -0.0625,
+        "paired_deal_bootstrap_95_interval": [
+          -0.14583333333333331,
+          0.041666666666666664
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            -0.25,
+            0.25
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": -0.25,
+          "paired_deal_bootstrap_95_interval": [
+            -0.5833333333333333,
+            0.16666666666666666
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": -0.16666666666666666,
+          "paired_deal_bootstrap_95_interval": [
+            -0.3333333333333333,
+            0.0
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": 0.16666666666666666,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.3333333333333333
+          ]
+        }
+      }
+    },
+    "search_geo/3p": {
+      "overall": {
+        "games_per_model": 48,
+        "independent_deals": 4,
+        "win_share_difference": -0.16666666666666666,
+        "paired_deal_bootstrap_95_interval": [
+          -0.3333333333333333,
+          0.0
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": -0.16666666666666669,
+          "paired_deal_bootstrap_95_interval": [
+            -0.5,
+            0.16666666666666666
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": -0.08333333333333333,
+          "paired_deal_bootstrap_95_interval": [
+            -0.3333333333333333,
+            0.16666666666666669
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": -0.25,
+          "paired_deal_bootstrap_95_interval": [
+            -0.3333333333333333,
+            -0.08333333333333333
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 12,
+          "independent_deals": 4,
+          "win_share_difference": -0.16666666666666669,
+          "paired_deal_bootstrap_95_interval": [
+            -0.5,
+            0.16666666666666666
+          ]
+        }
+      }
+    },
+    "economic/2p": {
+      "overall": {
+        "games_per_model": 32,
+        "independent_deals": 4,
+        "win_share_difference": 0.28125,
+        "paired_deal_bootstrap_95_interval": [
+          0.09375,
+          0.4375
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.25,
+          "paired_deal_bootstrap_95_interval": [
+            -0.25,
+            0.5
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.625,
+          "paired_deal_bootstrap_95_interval": [
+            0.25,
+            1.0
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            -0.375,
+            0.375
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.25,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.5
+          ]
+        }
+      }
+    },
+    "economic_capacity_v1/2p": {
+      "overall": {
+        "games_per_model": 32,
+        "independent_deals": 4,
+        "win_share_difference": 0.375,
+        "paired_deal_bootstrap_95_interval": [
+          0.25,
+          0.5
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.5,
+          "paired_deal_bootstrap_95_interval": [
+            0.125,
+            0.875
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.625,
+          "paired_deal_bootstrap_95_interval": [
+            0.25,
+            1.0
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.375,
+          "paired_deal_bootstrap_95_interval": [
+            0.125,
+            0.5
+          ]
+        }
+      }
+    },
+    "heuristic/2p": {
+      "overall": {
+        "games_per_model": 32,
+        "independent_deals": 4,
+        "win_share_difference": 0.0625,
+        "paired_deal_bootstrap_95_interval": [
+          0.0,
+          0.125
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.25,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.5
+          ]
+        }
+      }
+    },
+    "legacy/2p": {
+      "overall": {
+        "games_per_model": 32,
+        "independent_deals": 4,
+        "win_share_difference": -0.0625,
+        "paired_deal_bootstrap_95_interval": [
+          -0.1875,
+          0.0
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": -0.125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.375,
+            0.0
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": -0.125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.375,
+            0.0
+          ]
+        }
+      }
+    },
+    "rush/2p": {
+      "overall": {
+        "games_per_model": 32,
+        "independent_deals": 4,
+        "win_share_difference": 0.21875,
+        "paired_deal_bootstrap_95_interval": [
+          0.0625,
+          0.375
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.25,
+            0.5
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.125,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.375
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.375,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.75
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.25,
+          "paired_deal_bootstrap_95_interval": [
+            0.0,
+            0.5
+          ]
+        }
+      }
+    },
+    "search_geo/2p": {
+      "overall": {
+        "games_per_model": 32,
+        "independent_deals": 4,
+        "win_share_difference": -0.0625,
+        "paired_deal_bootstrap_95_interval": [
+          -0.3125,
+          0.21875
+        ]
+      },
+      "by_rules": {
+        "original/open": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            -0.5,
+            0.625
+          ]
+        },
+        "original/sealed": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": -0.125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.75,
+            0.625
+          ]
+        },
+        "recharged/open": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": -0.125,
+          "paired_deal_bootstrap_95_interval": [
+            -0.375,
+            0.0
+          ]
+        },
+        "recharged/sealed": {
+          "games_per_model": 8,
+          "independent_deals": 4,
+          "win_share_difference": 0.0,
+          "paired_deal_bootstrap_95_interval": [
+            -0.5,
+            0.625
+          ]
+        }
+      }
+    }
+  },
+  "primary_search_equal_count": {
+    "win_share_difference": -0.09187500000000001,
+    "player_counts": {
+      "2": {
+        "deal_differences": {
+          "resource-replanning-development-v1-2p-0": -0.25,
+          "resource-replanning-development-v1-2p-1": 0.375,
+          "resource-replanning-development-v1-2p-2": -0.375,
+          "resource-replanning-development-v1-2p-3": 0.0
+        },
+        "win_share_difference": -0.0625,
+        "weight": 0.2
+      },
+      "3": {
+        "deal_differences": {
+          "resource-replanning-development-v1-3p-0": -0.33333333333333337,
+          "resource-replanning-development-v1-3p-1": -0.3333333333333333,
+          "resource-replanning-development-v1-3p-2": -0.08333333333333337,
+          "resource-replanning-development-v1-3p-3": 0.08333333333333331
+        },
+        "win_share_difference": -0.16666666666666669,
+        "weight": 0.2
+      },
+      "4": {
+        "deal_differences": {
+          "resource-replanning-development-v1-4p-0": 0.0,
+          "resource-replanning-development-v1-4p-1": -0.0625,
+          "resource-replanning-development-v1-4p-2": -0.15625,
+          "resource-replanning-development-v1-4p-3": -0.09375
+        },
+        "win_share_difference": -0.078125,
+        "weight": 0.2
+      },
+      "5": {
+        "deal_differences": {
+          "resource-replanning-development-v1-5p-0": -0.25,
+          "resource-replanning-development-v1-5p-1": 0.10000000000000003,
+          "resource-replanning-development-v1-5p-2": -0.09999999999999998,
+          "resource-replanning-development-v1-5p-3": 0.10000000000000003
+        },
+        "win_share_difference": -0.03749999999999998,
+        "weight": 0.2
+      },
+      "6": {
+        "deal_differences": {
+          "resource-replanning-development-v1-6p-0": -0.041666666666666685,
+          "resource-replanning-development-v1-6p-1": -0.12500000000000006,
+          "resource-replanning-development-v1-6p-2": -0.125,
+          "resource-replanning-development-v1-6p-3": -0.16666666666666666
+        },
+        "win_share_difference": -0.11458333333333334,
+        "weight": 0.2
+      }
+    },
+    "paired_deal_bootstrap_95_interval": [
+      -0.1636484375,
+      -0.015518229166666711
+    ],
+    "independent_deals_per_count": 4,
+    "unit": "Resample whole deals independently within each count, then average the five count means equally."
+  },
+  "secondary_economic_equal_count": {
+    "win_share_difference": 0.0625,
+    "player_counts": {
+      "2": {
+        "deal_differences": {
+          "resource-replanning-development-v1-2p-0": 0.0,
+          "resource-replanning-development-v1-2p-1": 0.5,
+          "resource-replanning-development-v1-2p-2": 0.25,
+          "resource-replanning-development-v1-2p-3": 0.375
+        },
+        "win_share_difference": 0.28125,
+        "weight": 0.2
+      },
+      "3": {
+        "deal_differences": {
+          "resource-replanning-development-v1-3p-0": -0.08333333333333326,
+          "resource-replanning-development-v1-3p-1": -0.41666666666666663,
+          "resource-replanning-development-v1-3p-2": 0.16666666666666663,
+          "resource-replanning-development-v1-3p-3": 0.16666666666666674
+        },
+        "win_share_difference": -0.04166666666666663,
+        "weight": 0.2
+      },
+      "4": {
+        "deal_differences": {
+          "resource-replanning-development-v1-4p-0": -0.125,
+          "resource-replanning-development-v1-4p-1": 0.0,
+          "resource-replanning-development-v1-4p-2": 0.0,
+          "resource-replanning-development-v1-4p-3": 0.0
+        },
+        "win_share_difference": -0.03125,
+        "weight": 0.2
+      },
+      "5": {
+        "deal_differences": {
+          "resource-replanning-development-v1-5p-0": -0.050000000000000044,
+          "resource-replanning-development-v1-5p-1": 0.09999999999999998,
+          "resource-replanning-development-v1-5p-2": 0.10000000000000009,
+          "resource-replanning-development-v1-5p-3": 0.09999999999999998
+        },
+        "win_share_difference": 0.0625,
+        "weight": 0.2
+      },
+      "6": {
+        "deal_differences": {
+          "resource-replanning-development-v1-6p-0": 0.125,
+          "resource-replanning-development-v1-6p-1": 0.125,
+          "resource-replanning-development-v1-6p-2": 0.0,
+          "resource-replanning-development-v1-6p-3": -0.08333333333333337
+        },
+        "win_share_difference": 0.04166666666666666,
+        "weight": 0.2
+      }
+    },
+    "paired_deal_bootstrap_95_interval": [
+      -0.004166666666666648,
+      0.12291666666666666
+    ],
+    "independent_deals_per_count": 4,
+    "unit": "Resample whole deals independently within each count, then average the five count means equally."
+  },
+  "costs": {
+    "filter": {
+      "counts": {
+        "decisions": 221150,
+        "root_filter_overrides": 38,
+        "rollouts": 0,
+        "rollout_caps": 0,
+        "neural_decisions": 0,
+        "search_changes": 0,
+        "search_decisions": 0
+      },
+      "decision_latency": {
+        "count": 221150,
+        "p50_ms": 14.63204249739647,
+        "p95_ms": 38.41349735030232,
+        "max_ms": 286.6131109185517
+      },
+      "resource_latency": {
+        "count": 0,
+        "p50_ms": null,
+        "p95_ms": null,
+        "max_ms": null
+      },
+      "per_shard_runtime": [
+        {
+          "case": "resource-replanning-development-v1-filter-6p-economic-0-4",
+          "seconds": 54.29939190299774,
+          "cpu_seconds": 421.17,
+          "sampled_peak_total_rss_bytes": 2363371520,
+          "memory_samples": 521,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-6p-heuristic-0-4",
+          "seconds": 50.7336308030026,
+          "cpu_seconds": 393.92999999999995,
+          "sampled_peak_total_rss_bytes": 2367582208,
+          "memory_samples": 487,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-6p-legacy-0-4",
+          "seconds": 79.89989568002056,
+          "cpu_seconds": 620.5699999999999,
+          "sampled_peak_total_rss_bytes": 2313576448,
+          "memory_samples": 744,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-6p-rush-0-4",
+          "seconds": 46.2697885420057,
+          "cpu_seconds": 360.66,
+          "sampled_peak_total_rss_bytes": 2371100672,
+          "memory_samples": 445,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-6p-search_geo-0-4",
+          "seconds": 5523.507858855999,
+          "cpu_seconds": 42410.97000000001,
+          "sampled_peak_total_rss_bytes": 3967008768,
+          "memory_samples": 52374,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-5p-economic-0-4",
+          "seconds": 53.40877252100108,
+          "cpu_seconds": 406.34999999999997,
+          "sampled_peak_total_rss_bytes": 2317078528,
+          "memory_samples": 512,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-5p-heuristic-0-4",
+          "seconds": 48.65577699999267,
+          "cpu_seconds": 375.0,
+          "sampled_peak_total_rss_bytes": 2320596992,
+          "memory_samples": 467,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-5p-legacy-0-4",
+          "seconds": 38.986753622069955,
+          "cpu_seconds": 298.19,
+          "sampled_peak_total_rss_bytes": 2308042752,
+          "memory_samples": 373,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-5p-rush-0-4",
+          "seconds": 47.308086582001124,
+          "cpu_seconds": 358.53000000000003,
+          "sampled_peak_total_rss_bytes": 2321727488,
+          "memory_samples": 454,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-5p-search_geo-0-4",
+          "seconds": 2455.3802729550007,
+          "cpu_seconds": 18525.79,
+          "sampled_peak_total_rss_bytes": 3716444160,
+          "memory_samples": 23694,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-4p-economic-0-4",
+          "seconds": 38.26089924900225,
+          "cpu_seconds": 294.49,
+          "sampled_peak_total_rss_bytes": 2332971008,
+          "memory_samples": 367,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-4p-heuristic-0-4",
+          "seconds": 37.846575057003065,
+          "cpu_seconds": 289.75999999999993,
+          "sampled_peak_total_rss_bytes": 2285031424,
+          "memory_samples": 364,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-4p-legacy-0-4",
+          "seconds": 35.48124179599108,
+          "cpu_seconds": 269.07,
+          "sampled_peak_total_rss_bytes": 2274783232,
+          "memory_samples": 341,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-4p-rush-0-4",
+          "seconds": 73.73011433403008,
+          "cpu_seconds": 554.4599999999999,
+          "sampled_peak_total_rss_bytes": 2343456768,
+          "memory_samples": 685,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-4p-search_geo-0-4",
+          "seconds": 2266.9285133269987,
+          "cpu_seconds": 17237.79,
+          "sampled_peak_total_rss_bytes": 3723128832,
+          "memory_samples": 21337,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-3p-a260-0-4",
+          "seconds": 41.10970477600131,
+          "cpu_seconds": 305.52,
+          "sampled_peak_total_rss_bytes": 2355912704,
+          "memory_samples": 395,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-3p-economic-0-4",
+          "seconds": 29.022011713997927,
+          "cpu_seconds": 217.3,
+          "sampled_peak_total_rss_bytes": 2258124800,
+          "memory_samples": 279,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-3p-heuristic-0-4",
+          "seconds": 17.09116172324866,
+          "cpu_seconds": 126.52,
+          "sampled_peak_total_rss_bytes": 2230083584,
+          "memory_samples": 165,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-3p-legacy-0-4",
+          "seconds": 26.691921458997967,
+          "cpu_seconds": 201.67999999999998,
+          "sampled_peak_total_rss_bytes": 2266632192,
+          "memory_samples": 257,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-3p-rush-0-4",
+          "seconds": 17.57867810316384,
+          "cpu_seconds": 134.13,
+          "sampled_peak_total_rss_bytes": 2267373568,
+          "memory_samples": 170,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-3p-search_geo-0-4",
+          "seconds": 540.3281578470014,
+          "cpu_seconds": 4045.62,
+          "sampled_peak_total_rss_bytes": 3447951360,
+          "memory_samples": 5182,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-2p-economic-0-4",
+          "seconds": 15.846468641422689,
+          "cpu_seconds": 111.97999999999999,
+          "sampled_peak_total_rss_bytes": 2295631872,
+          "memory_samples": 153,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-2p-economic_capacity_v1-0-4",
+          "seconds": 13.692651881836355,
+          "cpu_seconds": 101.85999999999999,
+          "sampled_peak_total_rss_bytes": 2250534912,
+          "memory_samples": 133,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-2p-heuristic-0-4",
+          "seconds": 24.838547872001072,
+          "cpu_seconds": 178.81,
+          "sampled_peak_total_rss_bytes": 2263154688,
+          "memory_samples": 238,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-2p-legacy-0-4",
+          "seconds": 24.173880446996918,
+          "cpu_seconds": 174.95999999999998,
+          "sampled_peak_total_rss_bytes": 2238029824,
+          "memory_samples": 232,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-2p-rush-0-4",
+          "seconds": 14.113471044227481,
+          "cpu_seconds": 100.97999999999999,
+          "sampled_peak_total_rss_bytes": 2256072704,
+          "memory_samples": 137,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-2p-search_geo-0-4",
+          "seconds": 230.06349029000557,
+          "cpu_seconds": 1649.3799999999999,
+          "sampled_peak_total_rss_bytes": 3413590016,
+          "memory_samples": 2207,
+          "memory_sampling_period_seconds": 0.1
+        }
+      ],
+      "timing_scope": "Parallel HF jobs with eight game workers; not AMD8840U serving latency."
+    },
+    "resource-filter": {
+      "counts": {
+        "decisions": 215280,
+        "root_filter_overrides": 31,
+        "rollouts": 5151608,
+        "rollout_caps": 0,
+        "neural_decisions": 386485749,
+        "search_changes": 17637,
+        "search_decisions": 69624,
+        "resource_search_decisions": 69624
+      },
+      "decision_latency": {
+        "count": 215280,
+        "p50_ms": 23.67852950010274,
+        "p95_ms": 32197.086757102803,
+        "max_ms": 547498.8619840005
+      },
+      "resource_latency": {
+        "count": 69624,
+        "p50_ms": 13128.464959998382,
+        "p95_ms": 54508.7657364497,
+        "max_ms": 547498.8619840005
+      },
+      "per_shard_runtime": [
+        {
+          "case": "resource-replanning-development-v1-resource-filter-6p-economic-0-4",
+          "seconds": 10041.451766936,
+          "cpu_seconds": 73779.31,
+          "sampled_peak_total_rss_bytes": 7966494720,
+          "memory_samples": 91324,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-6p-heuristic-0-4",
+          "seconds": 6842.464347044999,
+          "cpu_seconds": 51686.63,
+          "sampled_peak_total_rss_bytes": 7238594560,
+          "memory_samples": 61858,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-6p-legacy-0-4",
+          "seconds": 6923.255232412997,
+          "cpu_seconds": 54622.36000000001,
+          "sampled_peak_total_rss_bytes": 7436677120,
+          "memory_samples": 65128,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-6p-rush-0-4",
+          "seconds": 10284.992141968003,
+          "cpu_seconds": 75828.60000000002,
+          "sampled_peak_total_rss_bytes": 7582294016,
+          "memory_samples": 93597,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-6p-search_geo-0-4",
+          "seconds": 11973.030114422,
+          "cpu_seconds": 90355.35,
+          "sampled_peak_total_rss_bytes": 8483926016,
+          "memory_samples": 111104,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-5p-economic-0-4",
+          "seconds": 9263.019256655,
+          "cpu_seconds": 66888.87,
+          "sampled_peak_total_rss_bytes": 7608160256,
+          "memory_samples": 84228,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-5p-heuristic-0-4",
+          "seconds": 6099.228706617003,
+          "cpu_seconds": 45766.3,
+          "sampled_peak_total_rss_bytes": 7322931200,
+          "memory_samples": 54236,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-5p-legacy-0-4",
+          "seconds": 8615.922354608003,
+          "cpu_seconds": 61900.24,
+          "sampled_peak_total_rss_bytes": 7528800256,
+          "memory_samples": 73504,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-5p-rush-0-4",
+          "seconds": 7292.128065243,
+          "cpu_seconds": 56567.89,
+          "sampled_peak_total_rss_bytes": 7743156224,
+          "memory_samples": 65996,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-5p-search_geo-0-4",
+          "seconds": 9116.975401493,
+          "cpu_seconds": 70134.13,
+          "sampled_peak_total_rss_bytes": 8665784320,
+          "memory_samples": 85567,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-4p-economic-0-4",
+          "seconds": 6832.207100023981,
+          "cpu_seconds": 50589.9,
+          "sampled_peak_total_rss_bytes": 7449436160,
+          "memory_samples": 63614,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-4p-heuristic-0-4",
+          "seconds": 6363.966888515992,
+          "cpu_seconds": 41280.82000000001,
+          "sampled_peak_total_rss_bytes": 6834044928,
+          "memory_samples": 59452,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-4p-legacy-0-4",
+          "seconds": 7210.896164252998,
+          "cpu_seconds": 53635.21,
+          "sampled_peak_total_rss_bytes": 7091109888,
+          "memory_samples": 65375,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-4p-rush-0-4",
+          "seconds": 9853.096741325,
+          "cpu_seconds": 66617.06,
+          "sampled_peak_total_rss_bytes": 7517732864,
+          "memory_samples": 89986,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-4p-search_geo-0-4",
+          "seconds": 9073.797562095999,
+          "cpu_seconds": 65198.880000000005,
+          "sampled_peak_total_rss_bytes": 8372195328,
+          "memory_samples": 84328,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-3p-a260-0-4",
+          "seconds": 3481.630939432005,
+          "cpu_seconds": 23356.27,
+          "sampled_peak_total_rss_bytes": 6657191936,
+          "memory_samples": 33112,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-3p-economic-0-4",
+          "seconds": 3854.772603934005,
+          "cpu_seconds": 23732.620000000003,
+          "sampled_peak_total_rss_bytes": 6588641280,
+          "memory_samples": 36458,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-3p-heuristic-0-4",
+          "seconds": 2792.504744453996,
+          "cpu_seconds": 19686.15,
+          "sampled_peak_total_rss_bytes": 6636601344,
+          "memory_samples": 26555,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-3p-legacy-0-4",
+          "seconds": 5090.419015885,
+          "cpu_seconds": 33922.55,
+          "sampled_peak_total_rss_bytes": 6894743552,
+          "memory_samples": 48257,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-3p-rush-0-4",
+          "seconds": 4443.305002917001,
+          "cpu_seconds": 30720.329999999998,
+          "sampled_peak_total_rss_bytes": 6842413056,
+          "memory_samples": 41892,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-3p-search_geo-0-4",
+          "seconds": 5888.029368976015,
+          "cpu_seconds": 43900.97000000001,
+          "sampled_peak_total_rss_bytes": 7633293312,
+          "memory_samples": 54486,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-2p-economic-0-4",
+          "seconds": 5711.480924845,
+          "cpu_seconds": 37634.22,
+          "sampled_peak_total_rss_bytes": 7349272576,
+          "memory_samples": 53867,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-2p-economic_capacity_v1-0-4",
+          "seconds": 6163.041435138999,
+          "cpu_seconds": 37591.63,
+          "sampled_peak_total_rss_bytes": 7515521024,
+          "memory_samples": 56426,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-2p-heuristic-0-4",
+          "seconds": 7020.8691515850005,
+          "cpu_seconds": 50206.270000000004,
+          "sampled_peak_total_rss_bytes": 7250165760,
+          "memory_samples": 64179,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-2p-legacy-0-4",
+          "seconds": 8739.176669182008,
+          "cpu_seconds": 62420.3,
+          "sampled_peak_total_rss_bytes": 8160247808,
+          "memory_samples": 71643,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-2p-rush-0-4",
+          "seconds": 6445.506083827,
+          "cpu_seconds": 47517.27999999999,
+          "sampled_peak_total_rss_bytes": 7455281152,
+          "memory_samples": 59888,
+          "memory_sampling_period_seconds": 0.1
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-2p-search_geo-0-4",
+          "seconds": 7066.714942578998,
+          "cpu_seconds": 46942.67,
+          "sampled_peak_total_rss_bytes": 7988600832,
+          "memory_samples": 65847,
+          "memory_sampling_period_seconds": 0.1
+        }
+      ],
+      "timing_scope": "Parallel HF jobs with eight game workers; not AMD8840U serving latency."
+    }
+  },
+  "source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "archive": "strong-source-resource-replanning-jobs-v1.tgz",
+    "sha256": "e26f742778fa48796e7226f24dcea2591597d4a12f01dced2d8283711a295152",
+    "bytes": 109679110,
+    "manifest_sha256": "cebda6cb0ed6a1eff28cad8cd02cb17e37bb62f59595b2237b989337b40a9415",
+    "protocol_sha256": "e5e7c8d891a41c9c48ca0ee75d17fcd14b7ceeac827f600e3af6d177ff81e0d8",
+    "base": {
+      "repo": "coyotte508/powergrid-ai-training-v1",
+      "revision": "6950d0baffdbb1e2a91bb09849c68b9c15db9fbf",
+      "archive": "strong-source-resource-replanning-runtime-v1.tgz",
+      "sha256": "5e3a402b03e26d93d6741d6879024c49bc5b7ca7db3a01b575c3c8d6461a684c",
+      "bytes": 109606680,
+      "manifest_sha256": "35f85462b63798fccc4134feceba73485e0c8fb102479ef133f23883047eb630",
+      "protocol_sha256": "e5e7c8d891a41c9c48ca0ee75d17fcd14b7ceeac827f600e3af6d177ff81e0d8",
+      "runtime_plan_sha256": "60bfb71d31464e360a6c5d38468cb99cd7a8786bfd38c9089c264ec2ae6b17fb",
+      "unchanged_base_files": 1463,
+      "new_files": {
+        "ai/strong/build-resource-replanning-runtime-source-v1.py": "209b749ac56f8038140544c05c7af0f225013cede69c5e06e721f7d84bfa1ba0",
+        "ai/strong/evaluate-resource-replanning-v1.py": "1ed1674945e925c15d32b22ad6a7a14dd7e1f416020478cb0c3fea305367a424",
+        "ai/strong/population-hybrid-development-comparison-v1.json": "6acbd8e57990f4cb9dc775b46b3859db18ccab3cb653dc50552c92f60a86bcbb",
+        "ai/strong/population-hybrid-development-complete-evidence-v1.json": "06a71d90650cad3df31bd4573701d6dcc16bed052d8cd9e822818ae53762c590",
+        "ai/strong/population-hybrid-development-plan-v1.json": "bd2d80bac1384f6d71a9cc4ee1f71db21ce6d9c8fd95e9a12543cdeceb83859f",
+        "ai/strong/resource-development-preflight-evidence-v1.json": "baa12e3b0177dd5f6a21feaade446b199dd1d97f3929747fc91d6ea5dae2cc2d",
+        "ai/strong/resource-replanning-8840u-evidence-v1.json": "1268b9b14469e70109e989490aece6e3268284b0c636c2ffcba8972f1daf84cf",
+        "ai/strong/resource-replanning-development-protocol-v1.json": "e5e7c8d891a41c9c48ca0ee75d17fcd14b7ceeac827f600e3af6d177ff81e0d8",
+        "ai/strong/resource-replanning-evidence-v1.json": "e2a880cd03506ef483251b7e0a716c1a381e573318436e31d782c0f71a44a134",
+        "ai/strong/resource-replanning-runtime-pilot-v1.py": "9866074099f29b7cf33c78b8475bff243ded325fe597c030ce18249b117e58c8",
+        "ai/strong/resource-replanning-runtime-plan-v1.json": "60bfb71d31464e360a6c5d38468cb99cd7a8786bfd38c9089c264ec2ae6b17fb",
+        "ai/strong/resource-turn-plans-v1.cjs": "1540f21cfe0edd19b5cf2a370442228301ac52c7272735677c64c60a0a882d5a",
+        "ai/strong/resource-turn-search-evidence-v1.json": "6827051be337fa1a6a37c1e234de3aec243bc495d6fe9e372900e98802205c3a",
+        "ai/strong/resource-turn-search-v1.cjs": "7abe95f2b213a1497b65b5fad6487e4cbf6e2c213c72e776fde618663e11b014",
+        "ai/strong/resource_development_v1.py": "404f70ccfe21308c15c5cdc2e5d79451ede49ae5685e87fa6517452c87514ae8",
+        "ai/strong/resource_policy_verification_v1.py": "6925539e946cf4e23a20436d5e33326fcf9581f0c870bc9cc43165da6b127240",
+        "ai/strong/resource_replanning_policy_v1.py": "bd5ceeb67b476031d88a623f990bca45640d63f08c7da46ff6df0a7ffa4bbc0c",
+        "ai/strong/resource_turn_search_v1.py": "8313fce803a3af61a9a18b6d6978920843979c13435135a02ea60245a6d27d7b"
+      },
+      "base": {
+        "archive": "strong-source-population-hybrid-development-20261024-v1.tgz",
+        "sha256": "ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23",
+        "bytes": 109458675,
+        "overlays": {
+          "ai/strong/hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+          "ai/strong/hybrid-continuations.cjs": "2b03c49c8270622e74c333c5e7253d5eb5d21ba1af919bc5f15ebd456109daaf",
+          "ai/strong/population-hybrid-continuations.cjs": "206cb044ba5057904afddbbbb125d98db319e04f96067e94c7337a36f0f7502c",
+          "ai/strong/endgame-loss-filter.cjs": "28e3eb1a5fb637b7b80c1b7dc4db255c3d93e5ace168ead6dfa386f57a4de70a",
+          "ai/strong/population-hybrid-policy.cjs": "8f9f7ad3306ab2ebdf04eb6aa439e3f3525f4f6569e6d086649bdbd4c86aff16",
+          "ai/strong/population_hybrid_policy.py": "652677d33cc6613680122c9a95a1ba2c0c0915de384b2124c95e3b1b3a0876cf",
+          "ai/strong/public-arena-bridge.cjs": "999bee0a43a219974c5ceb38bc586f6ea2995e248c19eb9fd697d2e199df8391",
+          "ai/strong/evaluate-population-policy.py": "019454d436e1b8e2ace2ed13375c0ad38727bd02678fedea872957518132abc3",
+          "ai/strong/population-hybrid-runtime-job.py": "1c375bc07dd18b80f28ad7c0b4edfff910fcf63d3f7bd413e8e3048a0f733f92",
+          "ai/strong/population-hybrid-development-protocol-v1.json": "a86b3cd3bcce25131dde6bf59f980e58bbb35dd2c432090a5ed0acd445988014",
+          "ai/strong/policy_iteration_evidence_archive.py": "83177b7f9a35af6467e09509e80024ef5fc258a1030ad23ebfd71c876fac635a",
+          "ai/strong/test-population-hybrid-policy.cjs": "faff35e5f6f78104542d4a7a89a5c768597edf0238f27aec9fa49f3f1a6a060f",
+          "ai/strong/probe-population-policy.py": "d361cc61ac663f1a236656b99671ebb4f73a387baece1808cfd4257cd319caaf",
+          "ai/strong/build-population-hybrid-source.py": "f2bcf99663d65330fb3deffb6415b22f31065b5c2567b91575b4857a73a7bac5",
+          "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+          "ai/strong/population_hybrid_development.py": "bc65be5ebe091d56a9b52cef9d238379aff1b7a73398f53e9123b41e6a473fb2",
+          "ai/strong/population-hybrid-development-job.py": "8cf38cf2fc42ac271a528d6bbb091891845e3035eaaecb537a7c6f07a514eef8",
+          "ai/strong/manage-population-hybrid-development.py": "818c8595651a89b81f24e37e3a229e53ffe3567be021ea3d502ca2cff3c139a2",
+          "ai/strong/coordinate-population-hybrid-development.py": "f8a74d1192a053a312b3395e9a4cd818d35771718dcaa0e62908d685207228d1",
+          "ai/strong/compare-population-hybrid-development.py": "8f256ca9d95785e4da80332dc02ff89707ae5a0987825882876302aa38092c1f",
+          "ai/strong/collect-population-hybrid-runtime.py": "0128713f10321983731f3b96f6c8d8c2fe093b739ffec7a62b06bd7d6fb9caa9",
+          "ai/strong/build-population-hybrid-development-source.py": "0b3849196fad27a2faef41f9a11f75770929373085c3c39d899ab4da0357cbab",
+          "ai/strong/test_population_policy_verification.py": "38bd03459c8c5fe6a40d5671a44515d7143feb49eae0bf1a0bbf614600ebceb3",
+          "ai/strong/test_population_hybrid_development.py": "eb2f33046aca15b238703ee60e2d85b79263935e3e8e6b78310f6502e8916f20"
+        },
+        "protocol_sha256": "a86b3cd3bcce25131dde6bf59f980e58bbb35dd2c432090a5ed0acd445988014",
+        "unchanged_base_files": 1453,
+        "layout_check": {
+          "clean_package_without_runs": true,
+          "reached_evaluation_subprocess": true,
+          "nonzero_deal_offset_checked": true,
+          "failure_receipt_written": true,
+          "new_games": 0,
+          "new_jobs": 0
+        },
+        "revision": "cdec1d3079eb9a54b776f6237ec5f93cc1de84d8",
+        "base": {
+          "archive": "strong-source-population-hybrid-20261024-v2.tgz",
+          "revision": "9a49df8a3baa5e5b6b62cae8208ef301b8540ba7",
+          "sha256": "cd5c08165dfecce5753bcab1c9c0bf10ef45797bf3e5e082914fd6634f91a778"
+        },
+        "base_descriptor_sha256": "f71540c07b1e91895e2fb5d922204cc5c3fb9230315a4be1f09052639428484b",
+        "preparation_sha256": "6f543404bdfaea1ba81f0d5165937e294c09740d63d8e9709b20cbc26a4851a3",
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
+      },
+      "remote_archive_verified": true,
+      "gradients": false,
+      "qualification_eligible": false,
+      "reserved_final_seeds_used": false,
+      "layout_check_sha256": "c1237a5036671e6b190ea2c283bf5b474e77c4933a10e23740ca77f07cb40ef7",
+      "preparation_sha256": "3b233b72c0303809a5823d54c9d96dc67874def6e75d27cff98df840048408cb"
+    },
+    "base_descriptor_sha256": "c5744a882248ea10d8233777e7dec65c5938be701da8f6c2e7ead9a63a7675d4",
+    "unchanged_base_files": 1482,
+    "new_files": {
+      "ai/strong/resource-replanning-development-job-v1.py": "c711da9db3b8c20ee75c7469e76f3b27026771e2336351246f09aaf4874ff08c",
+      "ai/strong/build-resource-replanning-job-source-v1.py": "6cf23ed82e12a899df3cc2cf21e95bedf607f1723ee049af133d9b662d7502c8"
+    },
+    "preflight_receipt_sha256": "2265c606f4a25796f72dac8b24a00905ea3ed5ef693dea893036cbc9c47ecdc9",
+    "preflight": {
+      "job_contracts_checked": 378,
+      "invalid_contracts_rejected": 13,
+      "execution_boundaries_checked": 3,
+      "real_model_and_opponent_hashes_checked": true,
+      "nonzero_deal_offsets_checked": true,
+      "runtime_and_development_seeds_distinct": true,
+      "frozen_files_unchanged": 1481,
+      "receipts": [
+        {
+          "case": "resource-replanning-hf-runtime-v1-6p-resource-filter",
+          "status_sha256": "1392f22fce823e443db3d8a912a8ec2f074da806587365826f8d580aa20e9ec2",
+          "expected_failure_recorded": true
+        },
+        {
+          "case": "resource-replanning-development-v1-resource-filter-2p-economic_capacity_v1-2-4",
+          "status_sha256": "1e9b9e6843b94a7770b63e3cddb55324b2006aae9559c30773551a143f5cc956",
+          "expected_failure_recorded": true
+        },
+        {
+          "case": "resource-replanning-development-v1-filter-3p-a260-2-4",
+          "status_sha256": "d1a7e2fa698a55c369bfd5935d4dae464e5d6c83acbb96544e87501de75b3b54",
+          "expected_failure_recorded": true
+        }
+      ],
+      "new_games": 0,
+      "new_hf_jobs": 0,
+      "external_uploads": 0,
+      "runner_sha256": "c711da9db3b8c20ee75c7469e76f3b27026771e2336351246f09aaf4874ff08c",
+      "harness_sha256": "26e35f50166991ef1b2bcacb8c0a633ea82a49057ce0b7b940684c543b50fa78"
+    },
+    "clean_package_matches_tested_runtime_and_wrapper": true,
+    "no_generated_run_outputs_in_package": true,
+    "runtime_admitted": false,
+    "development_admitted": false,
+    "new_hf_jobs": 0,
+    "gradients": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false,
+    "revision": "8d3697dec0845aa6ded857f3e00d91a8ff4406c0",
+    "remote_archive_verified": true,
+    "preparation_sha256": "7d85a93187450a7b0a066dd2fa553f06d58920876f25c1786fb304f230c3349d"
+  },
+  "protocol_sha256": "e5e7c8d891a41c9c48ca0ee75d17fcd14b7ceeac827f600e3af6d177ff81e0d8",
+  "plan_sha256": "19be586eb881b2c065a5f79454ec858a0c1e750f281f713c4be513b3d46badbf",
+  "code_hashes": {
+    "ai/strong/launch-resource-replanning-development-v1.py": "d123b994ea0eb7442c679f9964d940abebc326448c2a1b3464cbe8d7b9a77ab3",
+    "ai/strong/launch-resource-replanning-runtime-v1.py": "b096b30eb8a60fbf6b1696e4ee5a1552aebeec819551fb8446d7101761c21587",
+    "ai/strong/resource_development_v1.py": "404f70ccfe21308c15c5cdc2e5d79451ede49ae5685e87fa6517452c87514ae8",
+    "ai/strong/collect-resource-hf-calibration-v1.py": "fbffbd1c299d27ef74703ea854dd5a6c4baccd3ab0d9c075bf0c60c7b71a910f",
+    "ai/strong/resource_policy_verification_v1.py": "6925539e946cf4e23a20436d5e33326fcf9581f0c870bc9cc43165da6b127240",
+    "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+    "ai/strong/manage-resource-replanning-development-v1.py": "7bb1a5f820fa0c0517905c6b373f0746f9b4669197dd2fb063ac8b190e5851c4",
+    "ai/strong/resource-replanning-development-job-v1.py": "c711da9db3b8c20ee75c7469e76f3b27026771e2336351246f09aaf4874ff08c",
+    "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+    "ai/strong/arena_statistics.py": "9d32085cc68d417067346e1b74147749f155db3dc7766139659b2ad6bac66bda",
+    "ai/strong/compare-resource-replanning-development-v1.py": "306269dfd83b69343b4aec10a75d5792577236043706193ef6fe8acd52c2c9dc",
+    "ai/strong/compare-population-screens.py": "b74bac5c403d5a96e79fddf43b4dcd9b715d5124e9c2681983ad519e2177d887",
+    "ai/strong/policy_iteration_development.py": "1bbcec9b3ad236fdaf330627cd31f6c99618642cf657b75207aba365c4c217ea"
+  },
+  "provenance": {
+    "resource-replanning-development-v1-resource-filter-6p-economic-0-4": {
+      "job_id": "6add5734046eb82b1ece1676",
+      "verified_sha256": "e5669fa1839a3a871c582e71102e08c6f9be43475e1f3955186ce731d9eb8c55",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "e9003569b4c2107922f91ddd61807833d16617cc",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-6p-economic-0-4.tgz",
+        "archive_sha256": "47de1dff08fa79887b212fd7c762e956fe05f0da4d63a7b035c137368997e26c",
+        "manifest_sha256": "5a32099ed21573bb5f71fde2d77fee6ade4c7f6316ebba862af1d115586de3b9",
+        "archived_files": 198,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-6p-heuristic-0-4": {
+      "job_id": "6add57351e112550ce7e5fc4",
+      "verified_sha256": "00568fe6ad7eccc03060973d2fdf2c32c3d7f0453a1877fa9cf34c1cf6759607",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "f26219a84fc8671b20055658db2f1daa94322600",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-6p-heuristic-0-4.tgz",
+        "archive_sha256": "7a4c06f8b0641e0d0861e3255a40aa207cdb59ba603599d3e0cf659e30cb64a2",
+        "manifest_sha256": "732d661059fa632e3e0a68a7e6f6592d96293273af34948f5d7d3ffa85c35b9f",
+        "archived_files": 198,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-6p-legacy-0-4": {
+      "job_id": "6add5737046eb82b1ece1678",
+      "verified_sha256": "dcf151020804e7f776ca30d08beaae66175c4df7fcd2c0e1eedf6163dce26958",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "6c4d2cdf9e209ab7ef8d82558d0e674ddb27fef9",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-6p-legacy-0-4.tgz",
+        "archive_sha256": "91714ab34fc42784d6afa1367549d2b6007c6cfc2ae5f959b2379d404efa08a3",
+        "manifest_sha256": "b013d4b414455b34e8ece2b6272b6aa0437ab6fcacb249439d81b98651c4ffe0",
+        "archived_files": 198,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-6p-rush-0-4": {
+      "job_id": "6add57381e112550ce7e5fc9",
+      "verified_sha256": "6ac01ddc86e384b1ae3afe419bd9888b4928981b4e0c9ef40e497caa83c1e51e",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "7571091da4d14ff23fa093b6ff30e0a35009d888",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-6p-rush-0-4.tgz",
+        "archive_sha256": "594e9d21795e2fae5551fcc9e5a1f7555c036a99849a3cc56c49a2f5582a8832",
+        "manifest_sha256": "2dae21f4970fc2a9fe4923ae34092a5baf0f3afa56b5001b2b4bc32485239043",
+        "archived_files": 198,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-6p-search_geo-0-4": {
+      "job_id": "6add573a046eb82b1ece167a",
+      "verified_sha256": "ed43b887885450d06cf2e72fcfde7f44dd0b5c54859db62391ab469d144630f4",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "014f7b389451bbea70f2f957a944b7e364a507ec",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-6p-search_geo-0-4.tgz",
+        "archive_sha256": "4f53e1f845c616d5eb78e1a8683dc1fd711b00b8966d9285f93046002d89e5cd",
+        "manifest_sha256": "80dfc0552c500c0ad58d18522f8852ee25e6777858c6e985086c5d0a989bed25",
+        "archived_files": 198,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-5p-economic-0-4": {
+      "job_id": "6add573c046eb82b1ece167c",
+      "verified_sha256": "4c09b1492afae91125d15467cc4c7f402d55a40fb441b4d7050f933b51ca7e19",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "0890265b27f54bf97adc37e2fd4fdb22b6a388b6",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-5p-economic-0-4.tgz",
+        "archive_sha256": "28b9bd97870d6bd556fe91f08c082e3dd72c5bfa1dfe889d130427c966468526",
+        "manifest_sha256": "837bd389f31cfd7e44a2af22468c5e23d8f31d3e2ec915c51f3cf33a506eb5aa",
+        "archived_files": 166,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-5p-heuristic-0-4": {
+      "job_id": "6add573f1e112550ce7e5fcb",
+      "verified_sha256": "ccb283db4505e536c65357026b10474e59d92efd0e83c95568a1b79b8d0af047",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "df80aa10fa5dcdd11a87b4d2da1ed78f27e8097e",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-5p-heuristic-0-4.tgz",
+        "archive_sha256": "207ac08db65d6c4b7cdce3ebffe2e79e97381228894a9ee835bb3df54cd4a059",
+        "manifest_sha256": "e9e77d98b0e3e5dd2d17f64ba1fcd00ea61ceddc9ed1ef561bb81490e3282f76",
+        "archived_files": 166,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-5p-legacy-0-4": {
+      "job_id": "6add5741046eb82b1ece167f",
+      "verified_sha256": "b5a66bf88879c2bb6fe384ffb662246efef44ec4f494c3222227b55d51295722",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "9d7e6f9046b64d01eb39462ba6956eb5c86de813",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-5p-legacy-0-4.tgz",
+        "archive_sha256": "10904cbfff8f43d043b3e0ddce3c2421bad8974e2dbe7bacf495866661005424",
+        "manifest_sha256": "2ef7cfc76fe49d6f553104a7463f522f1a46d67cfb3aca9a88352ec917aa2213",
+        "archived_files": 166,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-5p-rush-0-4": {
+      "job_id": "6add5744046eb82b1ece1683",
+      "verified_sha256": "df2f4efceb542e1bdcef4b96251059f892b75ba874a913893be69c2138c6af7c",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "0242c7ab0a7c412df12a838b80f422800a60f57b",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-5p-rush-0-4.tgz",
+        "archive_sha256": "d5b86ad89e321e75a804670a0a9ca77623a8271881dedb170def049f04464108",
+        "manifest_sha256": "a507479caec0fc74262722b6f3337ff6b0f3915e773222c0492f3d31741b7e45",
+        "archived_files": 166,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-5p-search_geo-0-4": {
+      "job_id": "6add57481e112550ce7e5fce",
+      "verified_sha256": "2bd43396c79bf63bb976db61ec1d4b9a1c06a05cb80e5c3e13d9248adbd91e82",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "2ccd2f3a8f941a6adebaaceb72edfc6a73efc5b6",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-5p-search_geo-0-4.tgz",
+        "archive_sha256": "948f853188a8994ed91b3020226708252cc27708986797aefe9d1c4efe42b4d4",
+        "manifest_sha256": "e56e3ea31e5137236fa1ffcb392799857d2c895e0a97c5a0e0adbbb25030da19",
+        "archived_files": 166,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-4p-economic-0-4": {
+      "job_id": "6add574b046eb82b1ece1685",
+      "verified_sha256": "c029d8a4772b4493f0b76d27a735ff0b432efc7c449462653dc77a0a563faf2b",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "81bed94a631863f033a5e719ff8c047c40089bbc",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-4p-economic-0-4.tgz",
+        "archive_sha256": "94ba0a66f68904044ad6d54bf95074969f144ff730eab2116a527b20070d16c2",
+        "manifest_sha256": "cb3ddb16323c2a25f2e1d4a5279b69f94cf6cdbe3140cfe17ea4d69d2f1d890e",
+        "archived_files": 134,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-4p-heuristic-0-4": {
+      "job_id": "6add574f046eb82b1ece1687",
+      "verified_sha256": "1fe30ba4d9c56754914c0fb0f7c9a09e4dfa5683aec2644966d85ffe8126a1b9",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "9fee5af5ccb240a8d99e8ec87716e71e28a69e16",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-4p-heuristic-0-4.tgz",
+        "archive_sha256": "46d7ee6f41e4e07516d468d70a1f40db7ac3bc05e273c69bd3cb5c75f312ea69",
+        "manifest_sha256": "d3dc7bca1750b82f45a7919a9931d5a88ad132becb0d6de6b5d9f337def7540a",
+        "archived_files": 134,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-4p-legacy-0-4": {
+      "job_id": "6add5753046eb82b1ece168f",
+      "verified_sha256": "cabcfdbd297431f4be0e8bc98e9d1dcf7ab436772432c26049e41b0415040a3c",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "cd53acd2322d680c60a65c294c63d55c14d42034",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-4p-legacy-0-4.tgz",
+        "archive_sha256": "a7ca758fe3de74e6645305c7e984b1a42d11e6a8dcb4c9bdf7cff27606ddf285",
+        "manifest_sha256": "d3658d55e8a944bafb7bdb07b9233e96a9842531ac10ddb9cd6319406c20dc6e",
+        "archived_files": 134,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-4p-rush-0-4": {
+      "job_id": "6add5758046eb82b1ece1691",
+      "verified_sha256": "0446564c3e39396e9db94136835b25d7d480ce8720caf52144795270385d01d3",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "590d7a16eb2ed567448854ec7dccc4fcc2bb7042",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-4p-rush-0-4.tgz",
+        "archive_sha256": "6f5bc6f5966a4f19818e6ff883139248ffdb5120ec74e1fc03d9bbb4654e190f",
+        "manifest_sha256": "516e7152a0d9c94e3b82a8de972400c08154b49123c8d4a833de3cf2ba760e3e",
+        "archived_files": 134,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-4p-search_geo-0-4": {
+      "job_id": "6add575c1e112550ce7e5fd9",
+      "verified_sha256": "7b25471c0d26aeb31d8a09e7c093738c8b70397d06b0f410f76c0ed945c21a6b",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "9b61b9f0ac85f4bb0dc1fbfcba05b04d1b36fe68",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-4p-search_geo-0-4.tgz",
+        "archive_sha256": "774a3ced00e5774d147c0f5f128577846fb067404ca09c208573def6ab44cf64",
+        "manifest_sha256": "baf3cac5e8cecbad74b3debce2f38c7dada6b83158e734c7876111c8d897c515",
+        "archived_files": 134,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-3p-a260-0-4": {
+      "job_id": "6add5761046eb82b1ece1695",
+      "verified_sha256": "e58e96b156ec5a9a6bd67a47bcc045e126dc23b9e56eb4196ccf9893fb119b86",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "f4a32a8d8602ffe038ba97011e1749ba495dfabe",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-3p-a260-0-4.tgz",
+        "archive_sha256": "d7b679ecd6123943c67d7810e1954173181565154aecc3057c2a196b315b4c7c",
+        "manifest_sha256": "4112496e43c14b64503138d51c2a236f465621c61a4961f3b5ffb6592e948069",
+        "archived_files": 102,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-3p-economic-0-4": {
+      "job_id": "6add5766046eb82b1ece169a",
+      "verified_sha256": "67d15419fc1e1fe0e6031c66ea3baf3c3cdb73ec3fb4d6bb5818082ccd9a6485",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "2886656274c45d7bbadfc61f11a1025878753ddf",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-3p-economic-0-4.tgz",
+        "archive_sha256": "e31744ac630048fd4fa8107e11cda48005d6d53f3e0766bb7f8bb0a088230bb5",
+        "manifest_sha256": "31e494e66ae1074307bbbd62300687b4480fbfbb638ce15368dbf6d0374cc856",
+        "archived_files": 102,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-3p-heuristic-0-4": {
+      "job_id": "6add576c046eb82b1ece16a0",
+      "verified_sha256": "726ca3ed952eb91527ac5cfe22b7d3e57aac5e65e1442dc98a50dfd2f7f906f4",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "0ee9608fbb3459604bf200a8898347857adf0370",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-3p-heuristic-0-4.tgz",
+        "archive_sha256": "df8f88dc80d546be463d9eda547a26f703c9d621429d7f47e0d49d85e884ddc0",
+        "manifest_sha256": "3fcd063782f85fe3191b59980c6c3b70b90f086e70543b7444fef3b723d8b631",
+        "archived_files": 102,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-3p-legacy-0-4": {
+      "job_id": "6add57721e112550ce7e5fdd",
+      "verified_sha256": "3cea5c71f9501b344a84bce8dad6f620ea92bdfda6db93a18429a5d62e8cd62b",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "2df282e614930b561c988981eaa2e56bd018cb48",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-3p-legacy-0-4.tgz",
+        "archive_sha256": "6d6c721a71ac9391c0cf264d3e7341704877b62b0db8e0553fb2dfc920bec56d",
+        "manifest_sha256": "2c5d838f9272ecbd5c23c47f2cd28e5dd09b32390185a5c23c4168a051817403",
+        "archived_files": 102,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-3p-rush-0-4": {
+      "job_id": "6add5778046eb82b1ece16a6",
+      "verified_sha256": "4cf982d682717361305ae3b092fe848089a167979af425f15f35db40b3c8cccf",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "9d9a15a50b3af6c55ae00a3ad6d80c37f6492339",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-3p-rush-0-4.tgz",
+        "archive_sha256": "cc3dc6aa766f1f9ac1610995db138c386025106c4e65915c688c2f115b06b187",
+        "manifest_sha256": "4e61f4e1c4d4003782aff55417290b7f591cfe35d5fa47b2970070422dac5361",
+        "archived_files": 102,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-3p-search_geo-0-4": {
+      "job_id": "6add577e046eb82b1ece16a9",
+      "verified_sha256": "47096fb8f7d54b03b42d6c3f6b7cc039d8f8fe9b5f975a1f055ddbcbf22ec508",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "d64a254bc9c59e9204161eb8dc4ed6c5a8e3fa5e",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-3p-search_geo-0-4.tgz",
+        "archive_sha256": "cd1cd172d9a8f12601c3ab4215ae7feee7e16bb5ed933b5722890542479b6a1e",
+        "manifest_sha256": "1b43c9269255358370446011272347da91438cfc04e543059d9ce0f3d61eb9d7",
+        "archived_files": 102,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-2p-economic-0-4": {
+      "job_id": "6add5784046eb82b1ece16b1",
+      "verified_sha256": "3f3733ad6fd4b6270e6d9809aa71867ecb0d790fa41cd6050587ecc8f4eeab1e",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "7ce5c9f889ba856446b75a84aabcf32b55c2238a",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-2p-economic-0-4.tgz",
+        "archive_sha256": "ea567c7dd2d3e792227a7a2b0c35ac07060965535e7ca744879ab911d4ea3ce5",
+        "manifest_sha256": "23ef6d4c592f3473ef2a4633c8dff5a82e5be89a3a93af595bfceadef6977fef",
+        "archived_files": 70,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-2p-economic_capacity_v1-0-4": {
+      "job_id": "6add578a046eb82b1ece16b3",
+      "verified_sha256": "b9281cea295e46aa8e039e396af095e88b0ddbaeeb1e17d02f52c880837ed31d",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "aa6a584fdeb4cbeda21d9b5f6281319771b6478a",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-2p-economic_capacity_v1-0-4.tgz",
+        "archive_sha256": "93bb3d5f926a9951dac530879b415550249693d8b4e63e4546b9d3ab2374a313",
+        "manifest_sha256": "d08a987ba7a842493f1a5301a78e882b51bbeefd7eae1fbf24795a20026c0c46",
+        "archived_files": 70,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-2p-heuristic-0-4": {
+      "job_id": "6add5791046eb82b1ece16b5",
+      "verified_sha256": "e3d7d077070da2562226debedfaf05a27d48186d3207e92ae771587f8685c763",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "14824cde37088c774d5f5751502d4cc701f6773a",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-2p-heuristic-0-4.tgz",
+        "archive_sha256": "dfa4fcccf31a41e86e2271e8d44b6c439642f950b3645893c2630111ae7b46ee",
+        "manifest_sha256": "8a06b51bbcb51603d0d798490eecf2e06d2aa100fa05f889889110273548493c",
+        "archived_files": 70,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-2p-legacy-0-4": {
+      "job_id": "6add57991e112550ce7e5fed",
+      "verified_sha256": "bc06c79a3286be0f6ea11795801ff646db70aba5bba39839778df3686543e098",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "8ef2e087d83ed684b863e07d076e4b8ad29945a7",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-2p-legacy-0-4.tgz",
+        "archive_sha256": "1e12a59ea045d8a4035bb71cc8fa9d2962bad1990ffe081b56af2f545fcbebce",
+        "manifest_sha256": "95e0c6777532cc979305cbb96bc0316c2930ebac8271bd2cb3830d669d3d3b55",
+        "archived_files": 70,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-2p-rush-0-4": {
+      "job_id": "6add57a01e112550ce7e5ff1",
+      "verified_sha256": "a27eceb1661b9636d234cd809ef87bdc08584fc9272776299b975517eadf4b1e",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "2d06b2d7dde0506dac7e661036c92c60e5d5bfd8",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-2p-rush-0-4.tgz",
+        "archive_sha256": "3efc23efb2d1c1eb16070361a5ee92437585ba8d46f7940579f9b5410e0a1c0c",
+        "manifest_sha256": "f17a08363ea845c475b649b893ed94507591e30fdb7664e0566cad805797841a",
+        "archived_files": 70,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-resource-filter-2p-search_geo-0-4": {
+      "job_id": "6add57a91e112550ce7e5ff7",
+      "verified_sha256": "70f675c7074f099ee4f0a71865f459222387b32ffc0d9585175c5298e53d5c17",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "c2cd25d167ff86a55a79a9f3020bd9fe7ee7b9cb",
+        "archive_path": "archives/resource-replanning-development-v1-resource-filter-2p-search_geo-0-4.tgz",
+        "archive_sha256": "abbdf5c3bb3fc18eb661d0e90d2a6367334e75da101ed1ccbbf61a9b7b11910d",
+        "manifest_sha256": "3bc12cb7761fb63a0e378fbd47874e6d06dc0532c63333d77d1c6dfd3b0df147",
+        "archived_files": 70,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-6p-economic-0-4": {
+      "job_id": "6add57b11e112550ce7e5fff",
+      "verified_sha256": "d03242d49d287fe14046a2bb0898be7197a544bc2aa141f843271d1e025fe727",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "4b7c9204133547379d16895493c0e059f8b8cb19",
+        "archive_path": "archives/resource-replanning-development-v1-filter-6p-economic-0-4.tgz",
+        "archive_sha256": "d5d15af621f4c02e947c134056c79276070bed8785424e70fa3324198fc1c3f1",
+        "manifest_sha256": "1a0368f76a00fa06e9dc26369a598a93df4ef9f9255e0732669bdb545b4bd1d3",
+        "archived_files": 198,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-6p-heuristic-0-4": {
+      "job_id": "6add57b9046eb82b1ece16c8",
+      "verified_sha256": "6132c46ea004f0a731b35ce8266db48a8a5dd9df8e9ec92ec2973656fae219cd",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "98235cb0cfcf58f9fe1978981b570ab504e0f9ab",
+        "archive_path": "archives/resource-replanning-development-v1-filter-6p-heuristic-0-4.tgz",
+        "archive_sha256": "59708f228b1b5bb2fede1f3bfc297e272b3f54768c454e3e490ba3960762226b",
+        "manifest_sha256": "bef5c2b3376e0962ad3f19136cfecf7e920d6988536e6c666437faa34a8f198a",
+        "archived_files": 198,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-6p-legacy-0-4": {
+      "job_id": "6add57c21e112550ce7e600c",
+      "verified_sha256": "5519df904802027c1934074e4703086d8099a3cae3acbfbf12ac0fa8b2d494fa",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "01a9af44e9af64b2723f8b8484261315f246f451",
+        "archive_path": "archives/resource-replanning-development-v1-filter-6p-legacy-0-4.tgz",
+        "archive_sha256": "843f4b3421a3c1c5bb2d55acc046eb0521473d0a2dab1b3de02e06fb8637f1dd",
+        "manifest_sha256": "0acffbca4d7ecd69cda4040396ef06c9c0f7ea6d75c1b633507899dbf0556ffe",
+        "archived_files": 198,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-6p-rush-0-4": {
+      "job_id": "6add57cb046eb82b1ece16cd",
+      "verified_sha256": "51146b841aa9135181a396fb1d4e1a67cd8dd7b503248b5ab6160ac996498685",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "52147906aae0d9886dc6bfb49bdd098a050cfb6b",
+        "archive_path": "archives/resource-replanning-development-v1-filter-6p-rush-0-4.tgz",
+        "archive_sha256": "3ec2812a9ffc8e036f298dccc3c49ea84990ebe33eeb8d5d0f65e8d7d277a019",
+        "manifest_sha256": "f87afbfadb77bea09b1deba0bd679f2c6716c677c3071d2694b888ee2c73baba",
+        "archived_files": 198,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-6p-search_geo-0-4": {
+      "job_id": "6add57d41e112550ce7e6016",
+      "verified_sha256": "5b1c2840e0e276020965f06b4588f38dd70eb74f029e33151bc42978b1af6b15",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "1ef06cf5d768dac8348a7ef5774909c393a5e363",
+        "archive_path": "archives/resource-replanning-development-v1-filter-6p-search_geo-0-4.tgz",
+        "archive_sha256": "f719badbb1b2bf0119c0dd70f0db8b348c6accebff9bf04e39e2d18fa8391419",
+        "manifest_sha256": "c75b60d80a41fadcc2c73ef5d06b9ccbcc9934806bd3b486d4da525c11e30a4c",
+        "archived_files": 198,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-5p-economic-0-4": {
+      "job_id": "6add589a046eb82b1ece1748",
+      "verified_sha256": "96958848e1d0d53f2d5fced276f18d1d02b1f4bbae21afa944a6b4787901236c",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "0c9aae8cad70583b1c2d9d281d0272f9b5f5bb7e",
+        "archive_path": "archives/resource-replanning-development-v1-filter-5p-economic-0-4.tgz",
+        "archive_sha256": "2aa2c0fabc2bfe6e15217ba780cb80ceb87f446f68d8f813f5679bf2ea48bb9e",
+        "manifest_sha256": "0e8e69ecd40d0c0e0ae1e55911c01c5e569b8574ce1b1104272be4e7f621749f",
+        "archived_files": 166,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-5p-heuristic-0-4": {
+      "job_id": "6add58a41e112550ce7e6091",
+      "verified_sha256": "a65934036142780b8e7df0cbf902db5c8e64dbcd6fe8f093e835252da6564c34",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "2864774b98f034d6476cfd85ff38a79ce83745ea",
+        "archive_path": "archives/resource-replanning-development-v1-filter-5p-heuristic-0-4.tgz",
+        "archive_sha256": "b5d313c7a9d44f314923560999a1abb2884251483f35c90b78de6afae680f8fd",
+        "manifest_sha256": "951246dc9c96ceedb3246d7e204a502cf10fddb619674b5e9d05f3475f44c832",
+        "archived_files": 166,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-5p-legacy-0-4": {
+      "job_id": "6add58ae046eb82b1ece1768",
+      "verified_sha256": "76c357ba089ddd7fc82fb97973d42511620050d9822ff75451002a6769f895dd",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "1680b560db1d98477dd6c18f548130d2c99ff69a",
+        "archive_path": "archives/resource-replanning-development-v1-filter-5p-legacy-0-4.tgz",
+        "archive_sha256": "6075179f699980a954ea939fc9db4b07e475c0aa194242a1c604760569f25f72",
+        "manifest_sha256": "1ba735f6ad3f22be9944560736c0536705dc4620f615268efcb9e8bb6be24d74",
+        "archived_files": 166,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-5p-rush-0-4": {
+      "job_id": "6add58b81e112550ce7e60a3",
+      "verified_sha256": "fff55f10ec6e837902f57b986153550ce8dc8a62da010ec70466946bd8a44dd6",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "71ec2a19b2f492a6af327fca702d273b7456dbf3",
+        "archive_path": "archives/resource-replanning-development-v1-filter-5p-rush-0-4.tgz",
+        "archive_sha256": "691b08f6caee982c47241a5263f8f61b2c66db48e57223fbf32eec6c8065207d",
+        "manifest_sha256": "6262ea7a34134db252d3ad5d49dff4aa4b128086623efc36eff5a7fbf2b2b738",
+        "archived_files": 166,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-5p-search_geo-0-4": {
+      "job_id": "6add5980046eb82b1ece17cf",
+      "verified_sha256": "5ffda1f0ac068b4ea948eb618eafb303e956cfa144e1bf3eb17b286988bc3669",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "baaa96a8593e3375be6debbf6c1b627a6e2ea5dc",
+        "archive_path": "archives/resource-replanning-development-v1-filter-5p-search_geo-0-4.tgz",
+        "archive_sha256": "99dcf386f837e99cb0547ae5beed8e6ad35577321f87547323f37b02d458d987",
+        "manifest_sha256": "92f9a800769946f496844cf1a21218bfab2257fa77d87d9749703906c5e3e67c",
+        "archived_files": 166,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-4p-economic-0-4": {
+      "job_id": "6add598b1e112550ce7e611c",
+      "verified_sha256": "a5eea664365493fddbf969defac1b2f98b4cbb164d4183d545db18d3d36e9007",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "16ce0e55e2154c165d60ea55011285b9dfff3eb7",
+        "archive_path": "archives/resource-replanning-development-v1-filter-4p-economic-0-4.tgz",
+        "archive_sha256": "3a120e318a51cb69633a12a64255a141f80ff7263cf1c24a5b9f5353c690316e",
+        "manifest_sha256": "b1330da96182235f2294df704df7daf5abf74f15488b744a27c48fb6d9fe9e59",
+        "archived_files": 134,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-4p-heuristic-0-4": {
+      "job_id": "6add59971e112550ce7e6126",
+      "verified_sha256": "818850d1828edd4b71490cd097cf7ab208bdb435c7d0b780a2fcd0466feee240",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "ba6632c109024f675a8cc5cb198f18e0b5a3de28",
+        "archive_path": "archives/resource-replanning-development-v1-filter-4p-heuristic-0-4.tgz",
+        "archive_sha256": "731be3011b14fb02bcdbceae3ebe521c2effc7d4d4b572ad847be428a8827050",
+        "manifest_sha256": "d75b352df392af32a61832f23dd6d142d104b8dd8d4d67010137d61651076fce",
+        "archived_files": 134,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-4p-legacy-0-4": {
+      "job_id": "6add59a21e112550ce7e612b",
+      "verified_sha256": "48caa9b99e56193938d47aaad078bfcaf531a98ddf9bc5d72af8c1d3ac7cec9e",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "104d70e90547860b91dbc4d050a45060776bace2",
+        "archive_path": "archives/resource-replanning-development-v1-filter-4p-legacy-0-4.tgz",
+        "archive_sha256": "c8fb853b241dd5dbe817b609c2c99f8b9f8122a568fe09cd914538d33e9dc47f",
+        "manifest_sha256": "7467c6cb93ebd39e7da8f2a1fd96752e5ff145602b98996740b06acb20aa1dff",
+        "archived_files": 134,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-4p-rush-0-4": {
+      "job_id": "6add5a691e112550ce7e6188",
+      "verified_sha256": "d453c97553eb861ee6edbc692f272cb4ad5b5c5df37d7711297a305e28e703e6",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "e4ee1de54ad7ec45f8503e8de682356903b52272",
+        "archive_path": "archives/resource-replanning-development-v1-filter-4p-rush-0-4.tgz",
+        "archive_sha256": "6df64bd732950feb15ea6971188dfceb4419773c3b35f0d95a1e94414595571e",
+        "manifest_sha256": "59a9c12a0039e6ba9fe52e79e97e46b3590b521ffcc83298f31f4fa5a625044f",
+        "archived_files": 134,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-4p-search_geo-0-4": {
+      "job_id": "6add5a741e112550ce7e61a3",
+      "verified_sha256": "d3f06e54050815f899ec3693e173d5ac6ee9d622f2f1744c5237d333dcbec9d4",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "f5d37e4d7859fedfd1ae357e3973ef0ef72b4fc4",
+        "archive_path": "archives/resource-replanning-development-v1-filter-4p-search_geo-0-4.tgz",
+        "archive_sha256": "7f880e033303d993f34d8a7c1e0fe0ec5c6ed433ce834d0aac79e93301c579ad",
+        "manifest_sha256": "56c5f95c31fd5ee2166f6289de214b4f61b451820fba3c751addcd5915bf8a18",
+        "archived_files": 134,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-3p-a260-0-4": {
+      "job_id": "6add5a801e112550ce7e61a8",
+      "verified_sha256": "6876437eb6ef2074b9f5584a2d3e6e7691f949ff8df28b265020e61e6d133b08",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "abafb3a1106ceb403469dba8f5744f75dc5c1037",
+        "archive_path": "archives/resource-replanning-development-v1-filter-3p-a260-0-4.tgz",
+        "archive_sha256": "0b58d07d3f7b427287d5025dba09a3100987dc28801dbc0ab81d5f75ba563fa2",
+        "manifest_sha256": "0e77f52a46ebd76c450f93c88bac2f3d57fd77a7abe76a869ff532f6b6e9f23b",
+        "archived_files": 102,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-3p-economic-0-4": {
+      "job_id": "6add5b531e112550ce7e6203",
+      "verified_sha256": "1062c30a828b40e41fae1f67f76170461d4f8b4caf882db6d13ef094c9455e1d",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "b67c549f05402ba2c03f3d11682b3acb469e4ecd",
+        "archive_path": "archives/resource-replanning-development-v1-filter-3p-economic-0-4.tgz",
+        "archive_sha256": "a89b375afeb122451837ec6e160b2f51c04944f1bf45ca3fb2fa201f2810e144",
+        "manifest_sha256": "3640fee3a0341c6d6ad909d5f2921e25b91ef5366186ea33b70d89c0514717e6",
+        "archived_files": 102,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-3p-heuristic-0-4": {
+      "job_id": "6add5b60046eb82b1ece1880",
+      "verified_sha256": "dc64ec3aab67fb74319ac6cad8e7d427221fd60d75291394a17d9fa791aa003d",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "0a070cb46da7fd6f1208e003eefe8e9f34691dd2",
+        "archive_path": "archives/resource-replanning-development-v1-filter-3p-heuristic-0-4.tgz",
+        "archive_sha256": "0b7186b31971c8015daba6124aab21f5f2c94d69c8cc3e285ef065271da28d39",
+        "manifest_sha256": "9add76b0f0b5ecda8c9812562ad0947085758b2bbeadfb1cf893779dd50bf3c2",
+        "archived_files": 102,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-3p-legacy-0-4": {
+      "job_id": "6add5c36046eb82b1ece18c8",
+      "verified_sha256": "34efd7c447743dff6a95e97afecefff2aacc52e7f0d82480d9c1d886ed2fba02",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "ded40efe72c4eef305035087554b46f7cd13885c",
+        "archive_path": "archives/resource-replanning-development-v1-filter-3p-legacy-0-4.tgz",
+        "archive_sha256": "0230ce996e5da7e46154253b7d59127e2e33ae80439c69023bc4b3f0b93cccf9",
+        "manifest_sha256": "b4a9c5b19ca3f98ce54989b54f77d47e838cfb00f9248eab4cc94b21507e43cb",
+        "archived_files": 102,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-3p-rush-0-4": {
+      "job_id": "6add5c43046eb82b1ece18ce",
+      "verified_sha256": "3ed2e0b46efdc7a495e7a080d23f198b904f9964f8b1d86f4c2c235464667f90",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "13cf601f3cc1a698913510c5af69262c2f1e11f6",
+        "archive_path": "archives/resource-replanning-development-v1-filter-3p-rush-0-4.tgz",
+        "archive_sha256": "a3d936e345e54c24dcfadec8cf7b6188e621528ddc6daacd289f28aece233d68",
+        "manifest_sha256": "773d715196b8654fab1c0fbcf8675e6074665b63c6ec35183ed30e21ab800dd0",
+        "archived_files": 102,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-3p-search_geo-0-4": {
+      "job_id": "6add5d19046eb82b1ece1923",
+      "verified_sha256": "8ae0201e317ae0a7296a532305a01cca56a11371c73acf61cde01d8fc17cac53",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "d84b94269898a949da151eb3386bce5f16f891a5",
+        "archive_path": "archives/resource-replanning-development-v1-filter-3p-search_geo-0-4.tgz",
+        "archive_sha256": "237f7df13f17748797887901b65e09e99f7f6d2048c14290acd459abb16f93a3",
+        "manifest_sha256": "ff40a29a833826080261cf8073578f01d1b75b809cae4efad368c7d2a18b86d2",
+        "archived_files": 102,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-2p-economic-0-4": {
+      "job_id": "6add5d261e112550ce7e62e4",
+      "verified_sha256": "9d3180dd9e036b067d2f6a2897c76cecb443650227b9d2a6bcff819621df6b71",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "910f997bd197b2222cdaf9317f5812cbb3ea75e3",
+        "archive_path": "archives/resource-replanning-development-v1-filter-2p-economic-0-4.tgz",
+        "archive_sha256": "57b53cfb21ca527a547213847bddfdf63fd1f29aafb01102c462cdeb5ed508bb",
+        "manifest_sha256": "6b825ca558cca30bd7ce2c91603e8d1e9d4ac49ebcbd583f20d9bc2a6633463e",
+        "archived_files": 70,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-2p-economic_capacity_v1-0-4": {
+      "job_id": "6add5df5046eb82b1ece197d",
+      "verified_sha256": "606e3e1d4697e970d72bfeab4f716d648bba59742299b74da0136ab180b5cc81",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "ef973856e36d4ed7661b4fd5bd95bb02be059e14",
+        "archive_path": "archives/resource-replanning-development-v1-filter-2p-economic_capacity_v1-0-4.tgz",
+        "archive_sha256": "6345acde6220742f34cd37a4b9fbfbaa4a3637c323245f1d6474778c86e2dadd",
+        "manifest_sha256": "1eb9a527c6099324fe5bbc76e65d4e7ba9bf389a9fb11537a2928348f87a58bf",
+        "archived_files": 70,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-2p-heuristic-0-4": {
+      "job_id": "6add5ec31e112550ce7e63bb",
+      "verified_sha256": "ca8e14e5847a42e73a013b3ee514093f10472d8d6e56dd430fe1da7599a45eb3",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "a251fe9129dfd02c8a0a79b2cd9b9c93b30de536",
+        "archive_path": "archives/resource-replanning-development-v1-filter-2p-heuristic-0-4.tgz",
+        "archive_sha256": "d7373417ab2516415b6a5ecf4dd76b79f941a7af383ceefd510b67ee894bcb3f",
+        "manifest_sha256": "2c8905bb7006e3e9d893a92cbe0844046b480a634d9ae69b4f76560b15f72bc1",
+        "archived_files": 70,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-2p-legacy-0-4": {
+      "job_id": "6add5f901e112550ce7e6432",
+      "verified_sha256": "faf71dabf3f476517565a6aef4904b55e27ed4fb217994813403e13ae950a8ba",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "15d3ffec898635566247dd6b335adc9c07842d75",
+        "archive_path": "archives/resource-replanning-development-v1-filter-2p-legacy-0-4.tgz",
+        "archive_sha256": "3407afac30bad9d9359dd99d40db649d8fd8fdf3c8473e926cd9873c0df711fa",
+        "manifest_sha256": "38c9181382720e4de0b94a42d8eb32d6fda06ee0c82a95287db6833d2340319c",
+        "archived_files": 70,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-2p-rush-0-4": {
+      "job_id": "6add5f9f046eb82b1ece1a1b",
+      "verified_sha256": "f236bd13b81ca6a297ab1db86ad30cc69456f33a1a016fe5fc608027a99c438e",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "1664b28098c02ba3b907af1dd7cd332ef9302794",
+        "archive_path": "archives/resource-replanning-development-v1-filter-2p-rush-0-4.tgz",
+        "archive_sha256": "3df5d7c1590f1d234e248f9a3519874b405f2827669375a62f7c909578e7582a",
+        "manifest_sha256": "145daa624c8fc97147d5860e5672af2e98baf0b718b799eca80ab554dde3eb1a",
+        "archived_files": 70,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "resource-replanning-development-v1-filter-2p-search_geo-0-4": {
+      "job_id": "6add606f1e112550ce7e64b0",
+      "verified_sha256": "c67e0998cbb19f58a8253fd22f22151f841a47933ab97786fdcb22604d6718cf",
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "9fe8ac011bb35a188ad6231148e576a3778bea0c",
+        "archive_path": "archives/resource-replanning-development-v1-filter-2p-search_geo-0-4.tgz",
+        "archive_sha256": "a717260121b32bc10058770358abb074ec1c5561abebf51a5a04a22b14c554eb",
+        "manifest_sha256": "559bbd2e306f498bcfb79c016a550f06e5e2a30f1045f4ad9cbbddefe27181a5",
+        "archived_files": 70,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    }
+  },
+  "candidate_selected": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "scope": "All two arms, 27 count/opponent cells, four rules and every adverse result. Exploratory four-deal intervals; no automatic promotion or rule/count routing. Requires fresh confirmation and exact selected-policy target benchmark."
+}

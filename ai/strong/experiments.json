@@ -57528,7 +57528,7 @@
         "next": "Finish and audit original collection/training/selection; use the probe for fresh outcome-independent paired continuations against actual reference search before heterogeneous hybrid adoption and fresh full-game strength."
     },
     "surrogate_continuation_roots_v1": {
-        "status": "root_calibration_2p_verified_6p_running",
+        "status": "complete_calibration_archived_full_root_collection_running",
         "protocol": "ai/strong/surrogate-continuation-protocol-v1.json",
         "protocol_sha256": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
         "source": {
@@ -57597,7 +57597,7 @@
             {
                 "case": "surrogate-continuation-runtime-v1-6p-0-1",
                 "job_id": "6add7f8b1e112550ce7e6eff",
-                "stage": "RUNNING",
+                "stage": "COMPLETED",
                 "guard_sha256": "f2c3bee852361dad5a667fa5dfff5b9afbe03f49beea30b70ea150f210f38445"
             }
         ],
@@ -57689,6 +57689,331 @@
             "actual_full_collection_launched": false,
             "actual_joint_calibration_archived": false,
             "actual_root_manifest_frozen": false
+        },
+        "complete_calibration": {
+            "path": "ai/strong/surrogate-continuation-roots-calibration-evidence-v1.json",
+            "sha256": "4335b815c29797d79e588069b4615a898ca7008bcff9323f0132d3c40a64f8ac",
+            "revision": "8324de32af3df755e38793b803bdd3c7ae92e4e3",
+            "archive_sha256": "5417904d1cf5ac07125f75dd67df6ea1f67dd1c97e90469f0d1d0a74e4de9333",
+            "archived_files": 221,
+            "games": 32,
+            "paired_executions": 64,
+            "selected_roots": 96,
+            "eligible_decisions": 1792,
+            "caps": 0
+        },
+        "full_collection": {
+            "plan": {
+                "path": "ai/strong/surrogate-continuation-roots-plan-v1.json",
+                "sha256": "c118b90b344c9fc5aa35ad28904ecebbfe828cd9403d2c82fc0da8f4953b4f59",
+                "jobs": 5,
+                "games": 160,
+                "maximum_roots": 480,
+                "timeout_hours": 3,
+                "workers": 8,
+                "flavor": "cpu-upgrade"
+            },
+            "jobs": [
+                {
+                    "case": "surrogate-continuation-root-v1-6p-0-2",
+                    "job_id": "6add8752046eb82b1ece239e",
+                    "authoritative_status": "RUNNING",
+                    "guard_sha256": "686dad402fd1720ccd0cd82766bbe4b0dfb572cb396c56849ebb3f9e1b00d2bc"
+                },
+                {
+                    "case": "surrogate-continuation-root-v1-2p-0-2",
+                    "job_id": "6add87561e112550ce7e7267",
+                    "authoritative_status": "RUNNING",
+                    "guard_sha256": "56d1e8a6fed67bd2a34026c1f38ec78c4e02b86f4bddf4c0c71c507efddb9068"
+                },
+                {
+                    "case": "surrogate-continuation-root-v1-5p-0-2",
+                    "job_id": "6add8752046eb82b1ece23a0",
+                    "authoritative_status": "RUNNING",
+                    "guard_sha256": "d1060210fe408f214edfb9d1493bb38b747d223b99bf2742c5cbdbbd24d461c9"
+                },
+                {
+                    "case": "surrogate-continuation-root-v1-4p-0-2",
+                    "job_id": "6add8753046eb82b1ece23a2",
+                    "authoritative_status": "RUNNING",
+                    "guard_sha256": "07ded2111ad8ade37bdd326017907fe71e9c9469db5b4ba4620dc98e2a2032a6"
+                },
+                {
+                    "case": "surrogate-continuation-root-v1-3p-0-2",
+                    "job_id": "6add8754046eb82b1ece23a5",
+                    "authoritative_status": "RUNNING",
+                    "guard_sha256": "b3e7ff87e56bae639f76c4b88a18e8dbc54a7274af6338197b7bac74bb6a994b"
+                }
+            ],
+            "coordinator": {
+                "state": "ai/runs/surrogate-continuation-roots-coordinator-v1/state.json",
+                "state_sha256": "46d30baa0e8b02749aa831ffe0eba80d85189b16c0cbaca97ed5d910c39ff56d",
+                "session": 93486,
+                "alive": true,
+                "pid": 2536982,
+                "stage": "waiting_for_jobs",
+                "updated_at": "2026-10-25T04:36:38.322657+00:00",
+                "jobs_submitted": 5,
+                "jobs_verified": 0
+            },
+            "checkpoint": "ai/runs/surrogate-continuation-study-checkpoint-v1.json",
+            "checkpoint_sha256": "9522f9f03077badcb86177c90caaddd69f4e00932cb1b89485b1b9d4346d920d",
+            "full_manifest_frozen": false
+        },
+        "verified_6p": {
+            "path": "ai/runs/surrogate-continuation-roots-runtime-collected-v1/surrogate-continuation-runtime-v1-6p-0-1/verified.json",
+            "sha256": "c67a6eeeeb813800171d08ef8f9646c5650b91672b30b1052dd861def21b6c5c",
+            "evidence": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "8a4f20efe84e8bfe22e0159dabfeafb5d6f07434",
+                "archive_path": "archives/surrogate-continuation-runtime-v1-6p-0-1.tgz",
+                "archive_sha256": "de272031c73223dc949651fc8b1ab63a38c4e361799d94eb60e37e1c30f85a07",
+                "manifest_sha256": "5828af11e8bc4abc6d9049a5725d8e33baf8536cb99617ca8aa3159ea1255160",
+                "archived_files": 125,
+                "format": "tar.gz",
+                "remote_archive_verified": true
+            },
+            "review": {
+                "complete": true,
+                "games": 24,
+                "twin_games": 24,
+                "eligible_decisions": 1317,
+                "selected_roots": 72,
+                "caps": 0,
+                "missing_phases": {},
+                "runtime": {
+                    "seconds": 1794.4979861240026,
+                    "cpu_seconds": 12079.899999999998,
+                    "sampled_peak_total_rss_bytes": 6296760320,
+                    "memory_samples": 8803,
+                    "memory_sampling_period_seconds": 0.2
+                },
+                "raw_evidence_bytes": 15564907,
+                "local_root_checks": {
+                    "0": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 44,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "1": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 40,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "2": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 67,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "3": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 58,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "4": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 49,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "5": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 40,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "6": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 60,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "7": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 66,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "8": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 41,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "9": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 41,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "10": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 61,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "11": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 95,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "12": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 55,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "13": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 40,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "14": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 58,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "15": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 62,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "16": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 34,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "17": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 39,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "18": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 53,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "19": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 78,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "20": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 47,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "21": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 45,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "22": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 72,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    },
+                    "23": {
+                        "complete": true,
+                        "selected_roots": 3,
+                        "eligible_decisions": 72,
+                        "missing_phases": [],
+                        "files_checked": 4
+                    }
+                },
+                "training_eligible": false,
+                "qualification_eligible": false
+            }
         }
+    },
+    "surrogate_continuation_study_v1": {
+        "status": "engineering_verified_full_study_waiting_for_frozen_inputs",
+        "preflight": "ai/runs/surrogate-continuation-study-preflight-proof-v1.json",
+        "preflight_sha256": "9195c10c9f75b21309800e35b48b7db7ab03d8a6bc4a793444206fccf63fdf13",
+        "checkpoint": "ai/runs/surrogate-continuation-study-checkpoint-v1.json",
+        "checkpoint_sha256": "9522f9f03077badcb86177c90caaddd69f4e00932cb1b89485b1b9d4346d920d",
+        "checked_at": "2026-10-25T04:38:42.852135+00:00",
+        "code_hashes": {
+            "ai/strong/surrogate_continuation_study_v1.py": "657c882af7cc2012fcaa7a34f9512efd7d3fa7e1c28dc420f6585838c556dd6a",
+            "ai/strong/surrogate_continuation_roots_v1.py": "32bb3995c339b325698c7b760df97ddf8f1ae19c2decf1d1b2c0821d0bf8a185",
+            "ai/strong/surrogate_opponent_continuations_v1.py": "00dfc09f14a2cfe0763f7466b60cc4c9fc315daca237e917c729136bc61044b5",
+            "ai/strong/surrogate-opponent-continuations-v1.cjs": "582e001232d3b07dad16b29fe6dc4b933869ccb8485c6167c185372af03c288f",
+            "ai/strong/reference-opponent-continuations-v2.cjs": "c3936f3fa35b3c5f9fefeea7cfbbecaf6becc8486c4f681a30e1497f83748c9d",
+            "ai/strong/reference-search-public-balances-v1.cjs": "ba53afcc0a06d25f776c27ba017e14026a28c9928bcde68b05effe64a715b010",
+            "ai/strong/analysis-public-balances-v1.cjs": "3e8eaf26bc21be7e2284e4838f743731a269e8d18badbb8adc0af882f3b3ccb5",
+            "ai/strong/hybrid_search.py": "1b74724b75f672d0b0e321a40130b2a1480809fc269d2ee655dc1b7fe0ed804c",
+            "ai/strong/opponent_surrogate_policy_v1.py": "4b891dde9a1688eec9f5da0bd0ad0a5dc81d63b2a219d46ce646d033800530da",
+            "ai/strong/opponent_surrogate_training_v1.py": "49751b105b96c44d88b4a75e6b530fbddc4f0dc5590be1e18bd23cc64dc3eb10",
+            "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+            "ai/strong/surrogate-continuation-protocol-v1.json": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+            "ai/infer.py": "a86e79c2c87b1909557e69fd8b669ae2c47255d426e692b5d96baafe5c2f680d",
+            "ai/pool.py": "3b33133425d84430a6376834422478d70fe51a9c855d1e06937f109cd3620dd8",
+            "ai/strong/preflight-surrogate-continuation-study-v1.py": "9b4ef16099137023942fb84b79e347f75389d4ec575deb23f603ed6d53d2ddf8",
+            "ai/strong/prepare-surrogate-continuation-study-v1.py": "c7af80beb04b3fe459f1d6d0ef296bef11c1d3e3ad50e1025c5dcc3761224cdc",
+            "ai/strong/test_surrogate_continuation_study_v1.py": "f01a1dbb8041ef2975c37c4d603299bf32a3afa2e29d86a9038de413ea584e69"
+        },
+        "tests": 8,
+        "integration": {
+            "status": "ai/runs/surrogate-continuation-study-preflight-v1/status.json",
+            "status_sha256": "0eeaf86be006fadf78950cd4a075fb18a391ad59b23eea9f62933d0ad7950afa",
+            "roots": 2,
+            "complete_continuations": 96,
+            "caps": 0,
+            "paired_worlds_exact": true,
+            "saved_records_independently_rechecked": true,
+            "surrogate_untrained_fixture": true,
+            "frozen_runtime_files_unchanged": 1463
+        },
+        "initial_integration": {
+            "status": "ai/runs/surrogate-continuation-study-preflight-initial-v1/status.json",
+            "status_sha256": "6c62913cec653ca43299def795c2f11da510c7141fb5d35be2edec8fd3e1e757",
+            "complete_continuations": 96,
+            "caps": 0,
+            "reason_for_new_run": "After the first successful integration, bind the loaded surrogate descriptor to the saved frozen policy digest and test incorrect-descriptor rejection before any output or simulation. Preserve original source, records and log."
+        },
+        "full_study_inputs_frozen": false,
+        "hf_continuation_jobs_admitted": false,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Collect full fresh roots and audited trained surrogate; freeze study inputs. Implement and measure HF reference-continuation runtime, source/package/launch/full audit and aggregate paired analysis. Heterogeneous hybrid and fresh strength remain separate."
     }
 }

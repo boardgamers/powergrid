@@ -6,7 +6,90 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 04:22 UTC: full root-collection controls verified; resource archive watcher live.**
+**Latest — 25 October, 04:39 UTC: paired continuation runner verified; full fresh-root jobs running.**
+
+The fixed-action continuation runner, independent saved-result checks and full-study
+input gate are implemented. They re-encode each public root and rerun the frozen
+focal model, bind the loaded opponent policy to its saved descriptor, retain exact
+rational tie credits, and require all eight sampled worlds / two actions / three
+modes. Missing, duplicated or mismatched worlds are rejected. Capped simulations
+remain in the record without an aggregate margin. No action selection occurs.
+The input gate requires the complete 160-game root manifest and independently
+audited, validation-selected learned surrogate before creating study inputs.
+
+**Eight tests pass**, including all 24 actual 2p calibration roots, altered private
+inputs/action pairs/ranks, missing/duplicated worlds and changed sealed-bid beliefs,
+terminal credit/counter checks, explicit outer/nested caps, resealed bad receipts,
+wrong loaded policy and premature full-study refusal. A real-engine preflight on
+two separate runtime roots (one with prior sealed bids, one without) completed
+**96 continuations, zero caps**, across actual reference search, the existing
+mixture and an explicitly **untrained** surrogate. Sample partitions and cross-mode
+worlds match; all 1,463 frozen runtime files remain unchanged. Saved reports were
+independently rechecked, normalizing JSON object keys when comparing saved worlds.
+The first successful 96-continuation run is preserved under the `initial-v1`
+directory with its source; the final run adds loaded-policy digest binding. These
+are engineering executions, not trained-model fidelity or fresh strength results.
+
+Preflight proof: `ai/runs/surrogate-continuation-study-preflight-proof-v1.json`,
+SHA256 `9195c10c9f75b21309800e35b48b7db7ab03d8a6bc4a793444206fccf63fdf13`.
+Checkpoint: `ai/runs/surrogate-continuation-study-checkpoint-v1.json`, SHA256
+`9522f9f03077badcb86177c90caaddd69f4e00932cb1b89485b1b9d4346d920d`.
+Original final preflight session **10581** completed successfully; do not restart it.
+
+The original 6p root calibration `6add7f8b1e112550ce7e6eff` completed and passed
+independent verification: **24 games / 24 exact twins / 72 roots / 1,317 eligible
+decisions**, zero caps or missing phases; 1,794.50 s wall, 12,079.90 CPU seconds,
+6.30 GB sampled summed RSS. Both endpoints are now jointly audited and archived:
+**32 games / 64 executions / 96 roots / 1,792 eligible decisions**. Private HF
+revision `8324de32af3df755e38793b803bdd3c7ae92e4e3`, archive SHA256
+`5417904d1cf5ac07125f75dd67df6ea1f67dd1c97e90469f0d1d0a74e4de9333`
+(221 files). Original archive session **84131** completed; do not repeat it.
+Descriptor: `strong/surrogate-continuation-roots-calibration-evidence-v1.json`.
+
+Measured admission selected **five CPU-upgrade jobs, eight workers each, three-hour
+timeouts**, preserving both whole deals at every count: 160 games / up to 480 roots.
+All five launch dry runs and coordinator dry run pass. The initial inline dry-run
+invocation omitted the Python module path; its log is preserved, the invocation
+was corrected, and no submission occurred before the corrected checks passed.
+Original full-root coordinator: **PID 2536982 / session 93486**, launched 04:36 UTC.
+All five original handles were directly RUNNING at the checkpoint:
+
+| Players | Original HF job |
+|---|---|
+| 2 | `6add87561e112550ce7e7267` |
+| 3 | `6add8754046eb82b1ece23a5` |
+| 4 | `6add8753046eb82b1ece23a2` |
+| 5 | `6add8752046eb82b1ece23a0` |
+| 6 | `6add8752046eb82b1ece239e` |
+
+Plan: `strong/surrogate-continuation-roots-plan-v1.json`. Guards:
+`ai/runs/surrogate-continuation-roots-launches-v1`. Coordinator state:
+`ai/runs/surrogate-continuation-roots-coordinator-v1/state.json`; log:
+`ai/runs/surrogate-continuation-roots-coordinator-v1.log`. Preserve source pins and
+original handles. The coordinator collects all shards and freezes the manifest;
+no full-study continuation jobs have been admitted or launched.
+
+At the checkpoint, opponent-data collection remained **40 submitted / 29 verified**,
+no failures. The original resource coordinator completed **54/54** and wrote its
+full **3,360-game** comparison at 04:37:55 UTC, then exited normally. Its original
+archive watcher **PID 2444260 / session 56315** still owns independent reproduction,
+terminal-credit audit and archival. Inspect that watcher; do not start another
+collector or restart the completed resource coordinator. The comparison currently
+shows a **−9.1875 percentage-point** resource-search difference against search,
+equal-weighted across counts (four-deal bootstrap interval **−16.3648 to −1.5518 pp**).
+This is the complete comparator result; its separate audit/archive is still pending
+at the checkpoint. Do not call it independently archived until the descriptor exists.
+
+**Next:** collect/freeze the original full-root jobs; finish the original opponent
+collection, train on HF, independently audit and freeze validation-only selection.
+Then `prepare-surrogate-continuation-study-v1.py` can freeze study inputs. Still
+implement measured HF nested-reference continuation calibration, study packaging /
+launch / full audit and aggregate paired analysis. A heterogeneous hybrid with
+cautious overrides, fresh full-game strength, exact selected-policy adapter and
+actual 8840U hybrid benchmark remain separate required steps. No gradient updates
+ran this turn. No candidate, publication, final-seed use or general plateau claim.
+
+**Previous — 25 October, 04:22 UTC: full root-collection controls verified; resource archive watcher live.**
 
 The previous turn pushed `8eaa45b`, started both root-calibration jobs and
 independently verified the 2p endpoint. This turn implemented the complete fresh-root

@@ -1,0 +1,415 @@
+{
+  "created_at": "2026-10-25T04:36:09.656781+00:00",
+  "source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "archive": "strong-source-surrogate-continuation-roots-v1.tgz",
+    "sha256": "9a6c10ebfaa80def4033d15854b289f408a1ea0051e979f77b982decf42fc4c4",
+    "bytes": 109539050,
+    "manifest_sha256": "5a16f36199b462b33ba1b91178dcc855811fc317ab87917698f5e7418552125b",
+    "manifest_files": 1469,
+    "unchanged_base_files": 1463,
+    "base": {
+      "repo": "coyotte508/powergrid-ai-training-v1",
+      "archive": "strong-source-population-hybrid-development-20261024-v1.tgz",
+      "revision": "cdec1d3079eb9a54b776f6237ec5f93cc1de84d8",
+      "sha256": "ffcb3b0026555746f2fd4c17658be4d84a65463ee1accee796773efeafbe0d23",
+      "files": 1463
+    },
+    "new_files": {
+      "ai/strong/surrogate_continuation_roots_v1.py": "32bb3995c339b325698c7b760df97ddf8f1ae19c2decf1d1b2c0821d0bf8a185",
+      "ai/strong/surrogate-continuation-protocol-v1.json": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+      "ai/strong/test_surrogate_continuation_roots_v1.py": "2baf11eedbfc9eb0e4cde60c4e4057159ffe977d9c670cc237c2aa81a30a187d",
+      "ai/strong/preflight-surrogate-continuation-roots-v1.py": "4167c82cb507d5e92cec27a4efa34fb4203cf0252eb0498074ae7f29aada844f",
+      "ai/strong/surrogate-continuation-roots-job-v1.py": "dc21963704d50857b9813cd0483c3bb524f9d67181411d12712b3322578d06b7",
+      "ai/strong/build-surrogate-continuation-roots-source-v1.py": "123ed73b738c4bd76cea40e1238819ad7154c30b2313fad871fa9f40a0f98a22"
+    },
+    "protocol_sha256": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+    "preflight_sha256": "aec89e4fea9b6ef8084cb9eb02db0871a9c442206e732e90b165dc7234fe76a5",
+    "collection_admitted": false,
+    "runtime_admitted": false,
+    "gradients": false,
+    "qualification_eligible": false,
+    "revision": "c39d101a6c7c3ecec7065752bf61e1b22cc31b63",
+    "remote_archive_verified": true
+  },
+  "source_descriptor_sha256": "9800be2eaf3f88c5d401c5bc31a37c9be2f4674dc235e6ff75b2094f0521e0dd",
+  "protocol_sha256": "75191e3c990ed651b736f9952dbce9471d36702056979a1da11e63cade6fe28c",
+  "calibration_sha256": "4335b815c29797d79e588069b4615a898ca7008bcff9323f0132d3c40a64f8ac",
+  "admission": {
+    "flavor": "cpu-upgrade",
+    "vcpus": 8,
+    "ram_gb": 32,
+    "disk_gb": 50,
+    "workers": 8,
+    "deals_per_shard": 2,
+    "timeout_hours": 3,
+    "max_in_flight": 10,
+    "estimated_seconds": 8077.991944496011,
+    "measurements": {
+      "2": {
+        "complete": true,
+        "players": 2,
+        "start": 0,
+        "end": 1,
+        "mode": "runtime",
+        "games": 8,
+        "twin_games": 8,
+        "eligible_decisions": 475,
+        "selected_roots": 24,
+        "caps": 0,
+        "phase_counts": {
+          "2/0/plant": 2,
+          "2/0/bid": 2,
+          "2/0/building": 2,
+          "2/1/plant": 2,
+          "2/1/bid": 2,
+          "2/1/building": 2,
+          "2/2/plant": 2,
+          "2/2/bid": 2,
+          "2/2/building": 2,
+          "2/3/plant": 2,
+          "2/3/bid": 2,
+          "2/3/building": 2
+        },
+        "missing_phases": {},
+        "runtime": {
+          "seconds": 115.68641611600106,
+          "cpu_seconds": 794.44,
+          "sampled_peak_total_rss_bytes": 5405859840,
+          "memory_samples": 562,
+          "memory_sampling_period_seconds": 0.2
+        },
+        "raw_evidence_bytes": 3180376,
+        "local_root_checks": {
+          "0": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 59,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "1": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 46,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "2": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 72,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "3": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 69,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "4": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 56,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "5": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 47,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "6": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 65,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "7": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 61,
+            "missing_phases": [],
+            "files_checked": 4
+          }
+        },
+        "training_eligible": false,
+        "qualification_eligible": false
+      },
+      "6": {
+        "complete": true,
+        "players": 6,
+        "start": 0,
+        "end": 1,
+        "mode": "runtime",
+        "games": 24,
+        "twin_games": 24,
+        "eligible_decisions": 1317,
+        "selected_roots": 72,
+        "caps": 0,
+        "phase_counts": {
+          "6/0/plant": 6,
+          "6/0/bid": 6,
+          "6/0/building": 6,
+          "6/1/plant": 6,
+          "6/1/bid": 6,
+          "6/1/building": 6,
+          "6/2/plant": 6,
+          "6/2/bid": 6,
+          "6/2/building": 6,
+          "6/3/plant": 6,
+          "6/3/bid": 6,
+          "6/3/building": 6
+        },
+        "missing_phases": {},
+        "runtime": {
+          "seconds": 1794.4979861240026,
+          "cpu_seconds": 12079.899999999998,
+          "sampled_peak_total_rss_bytes": 6296760320,
+          "memory_samples": 8803,
+          "memory_sampling_period_seconds": 0.2
+        },
+        "raw_evidence_bytes": 15564907,
+        "local_root_checks": {
+          "0": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 44,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "1": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 40,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "2": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 67,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "3": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 58,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "4": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 49,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "5": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 40,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "6": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 60,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "7": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 66,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "8": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 41,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "9": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 41,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "10": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 61,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "11": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 95,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "12": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 55,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "13": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 40,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "14": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 58,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "15": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 62,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "16": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 34,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "17": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 39,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "18": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 53,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "19": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 78,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "20": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 47,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "21": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 45,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "22": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 72,
+            "missing_phases": [],
+            "files_checked": 4
+          },
+          "23": {
+            "complete": true,
+            "selected_roots": 3,
+            "eligible_decisions": 72,
+            "missing_phases": [],
+            "files_checked": 4
+          }
+        },
+        "training_eligible": false,
+        "qualification_eligible": false
+      }
+    },
+    "calculation": "15 min setup plus twice measured worst HF endpoint time per whole deal; 25% timeout reserve, 2x peak summed RSS, 4x raw evidence storage. Runtime pairs every game while the main collection is single execution; retain that conservative margin.",
+    "limitation": "Endpoint timings are not hard bounds. Preserve failures and caps; never auto-retry or discard difficult games."
+  },
+  "shards": [
+    {
+      "case": "surrogate-continuation-root-v1-6p-0-2",
+      "players": 6,
+      "start": 0,
+      "end": 2,
+      "games": 48,
+      "maximum_roots": 144
+    },
+    {
+      "case": "surrogate-continuation-root-v1-5p-0-2",
+      "players": 5,
+      "start": 0,
+      "end": 2,
+      "games": 40,
+      "maximum_roots": 120
+    },
+    {
+      "case": "surrogate-continuation-root-v1-4p-0-2",
+      "players": 4,
+      "start": 0,
+      "end": 2,
+      "games": 32,
+      "maximum_roots": 96
+    },
+    {
+      "case": "surrogate-continuation-root-v1-3p-0-2",
+      "players": 3,
+      "start": 0,
+      "end": 2,
+      "games": 24,
+      "maximum_roots": 72
+    },
+    {
+      "case": "surrogate-continuation-root-v1-2p-0-2",
+      "players": 2,
+      "start": 0,
+      "end": 2,
+      "games": 16,
+      "maximum_roots": 48
+    }
+  ],
+  "games": 160,
+  "maximum_roots": 480,
+  "dependency_hashes": {
+    "ai/strong/launch-surrogate-continuation-roots-v1.py": "f4105db7b23ff227545c23f0863de702f555aae00fa240b8ec1cd79610471f73",
+    "ai/strong/launch-surrogate-continuation-roots-runtime-v1.py": "8ed821c398bdc93f641c302d83f67e88592851475dfea8df3533ffd5330e9806",
+    "ai/strong/collect-surrogate-continuation-roots-calibration-v1.py": "d288f3660a24971434e7992f23e5193a1c4c79289e443bd77cf09e5426e362da",
+    "ai/strong/collect-surrogate-continuation-roots-runtime-v1.py": "709e71a58b9852e2c641b4d439ca9691e97df4a9db57a0f0599c435f7910682d",
+    "ai/strong/surrogate_continuation_roots_v1.py": "32bb3995c339b325698c7b760df97ddf8f1ae19c2decf1d1b2c0821d0bf8a185",
+    "ai/strong/surrogate_continuation_root_verification_v1.py": "44c51947ff8e49e95b1ce31fdea1a0e295b2c3f02b1407cbcc7fad7578188230",
+    "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+    "ai/strong/strategic_collection.py": "35eb0741ba9efebefd0da8cfe3e772045a8a2487f6ac3f9eb5dc46546ecf7e83",
+    "ai/strong/population_hybrid_policy.py": "652677d33cc6613680122c9a95a1ba2c0c0915de384b2124c95e3b1b3a0876cf"
+  },
+  "bootstrap_sha256": "c0ee69408db4599417c5664d0b9480c5e07b3a4600035d68ba6ec87b91988a30",
+  "automatic_retries": false,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

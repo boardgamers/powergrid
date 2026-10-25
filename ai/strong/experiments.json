@@ -56959,6 +56959,49 @@
         "training_eligible": false,
         "gradients": false,
         "qualification_eligible": false,
-        "reserved_final_seeds_used": false
+        "reserved_final_seeds_used": false,
+        "collector_preflight": {
+            "path": "ai/runs/reference-opponent-capture-collector-preflight-v1.json",
+            "sha256": "fb39f14ef6f41250bf28d44e3bc1b95cf32af62f7bfda9768a5e68ee444aadd1",
+            "collector_sha256": "9043044ae3304f30bb81a3f23acf19cf70a1921184393e933856ad7d68ce1653",
+            "tests_sha256": "ae54e0aeebe686d48acafccbae2a0a42b77ed025eb6a2692137c61776098a7ca",
+            "tests_passed": 3,
+            "corruptions_rejected": 10,
+            "actual_teacher_rows_audited": 1524,
+            "actual_public_replays_verified": 84,
+            "actual_partial_run_rejected": true,
+            "complete_probe_audit": false
+        },
+        "collector_checkpoint": {
+            "path": "ai/runs/reference-opponent-capture-collector-checkpoint-v1.json",
+            "sha256": "5d963201833f75a831e5eca49b04f34c57779b29ef9a8081951bb5af720d3426",
+            "checked_at": "2026-10-25T01:40:32.699265+00:00",
+            "capture_stage": "running",
+            "completed_twin_cases": 18,
+            "teacher_rows": 2376,
+            "public_teacher_replays": 108,
+            "capture_errors": [],
+            "capture_process_live": true,
+            "resource_coordinator_live": true,
+            "resource_jobs_submitted": 50,
+            "resource_jobs_verified": 18,
+            "resource_failed_jobs": [],
+            "resource_original_handles": [
+                {
+                    "job_id": "6add5766046eb82b1ece169a",
+                    "status": "RUNNING"
+                },
+                {
+                    "job_id": "6add57351e112550ce7e5fc4",
+                    "status": "RUNNING"
+                }
+            ],
+            "collector_preflight_sha256": "fb39f14ef6f41250bf28d44e3bc1b95cf32af62f7bfda9768a5e68ee444aadd1",
+            "new_hf_jobs_from_this_check": 0,
+            "gradients": false,
+            "qualification_eligible": false
+        },
+        "collector_implemented": true,
+        "complete_archive_pending": true
     }
 }

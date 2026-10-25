@@ -6,7 +6,37 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 01:30 UTC: passive strong-opponent capture probe running.**
+**Latest — 25 October, 01:40 UTC: capture collector prepared; existing experiments continue.**
+
+Added `strong/collect-reference-opponent-capture-v1.py` and its three passing
+collection tests. The collector independently checks every saved target, public
+input, terminal credit, replay selection, source identity and complete 20-case grid
+before allowing an archive. Ten deliberate privacy/target corruptions are rejected;
+an actual incomplete run was refused. Preflight audited **14 completed cases /
+1,524 teacher decisions / 84 public teacher replays**. This is capture engineering
+evidence, not new training or playing-strength evidence. The archive also preserves
+the original test log and preflight receipt; its only post-test code change adds
+those two files to the archive list.
+
+At **01:40:32 UTC**, the original capture process **40805 / PID 1384087** is live:
+**18/20 twin cases**, **2,376 teacher decisions / 108 public replays**, zero reported
+errors. The final two six-player cases are still running. Resource coordinator
+**11670 / PID 1291091** is live with **50/54 jobs submitted, 18 verified**, no failures;
+two original resource handles were also directly confirmed RUNNING on HF. Checkpoint:
+`ai/runs/reference-opponent-capture-collector-checkpoint-v1.json`. No new standalone
+jobs or gradients were started by this collector work. The existing resource
+coordinator continues filling its already admitted fixed plan.
+
+**Next:** preserve both existing processes. Once all 20 capture cases finish, run
+`ai/.venv/bin/python ai/strong/collect-reference-opponent-capture-v1.py` to audit,
+then `--archive` once after checking for an existing archive/descriptor. The capture
+archive is still pending. Only then prepare fresh, whole-deal-separated collection
+for a potential fast opponent-policy surrogate; the probe records remain excluded
+from training. For resources, wait for all 54 batches before comparing and implement
+the complete resource-screen archive collector. No candidate selection, final
+qualification, production change or plateau claim.
+
+**Previous — 25 October, 01:30 UTC: passive strong-opponent capture probe running.**
 
 The previous goal turn completed both HF calibration endpoints and the reference
 opponent diagnostic, archived their raw evidence, launched the fixed resource
@@ -57,8 +87,8 @@ probe intent/status. Checkpoint: `ai/runs/reference-opponent-capture-checkpoint-
 **Next:** continue both existing processes. For resources, verify all 54 batches
 before comparing or archiving the full strength screen. For capture, finish all
 20 twin cases, audit every source/receipt and archive the complete probe before
-preparing fresh training collection. A complete capture-probe collector/archive
-script is not yet implemented. If the capture proof succeeds, preregister fresh
+preparing fresh training collection. At that checkpoint the complete capture-probe collector/archive
+script was not yet implemented; the 01:40 update above supplies it. If the capture proof succeeds, preregister fresh
 collection and whole-deal train/validation splits, measure HF execution, and train
 only on HF Jobs. Validate held-out action behavior and downstream continuation
 comparisons against real search before adopting a surrogate. Cautious auction

@@ -56899,6 +56899,16 @@
             "tests_passed": 3,
             "actual_terminal_rows_checked": 96,
             "complete_screen_audit": false
+        },
+        "latest_live_snapshot": {
+            "pid": 1291091,
+            "stage": "waiting_for_jobs",
+            "updated_at": "2026-10-25T03:09:27.887122+00:00",
+            "jobs_submitted": 54,
+            "jobs_verified": 41,
+            "failed_jobs": [],
+            "process_live": true,
+            "code_hashes_match": true
         }
     },
     "reference_opponent_capture_v1": {
@@ -57035,7 +57045,7 @@
         "capture_process_completed": true
     },
     "opponent_surrogate_collection_v1": {
-        "status": "runtime_2p_verified_6p_running",
+        "status": "full_fresh_collection_running",
         "source_commit": "8b4e38f",
         "protocol": "ai/strong/opponent-surrogate-collection-protocol-v1.json",
         "protocol_sha256": "1edacdf5359c821139fac6561397958b7ae8e4fcc7a617565a1da75c4c5a26e8",
@@ -57115,25 +57125,28 @@
                 "job_id": "6add610c1e112550ce7e64df",
                 "status": "COMPLETED",
                 "guard_sha256": "58efd64dd8c9a75678b5a13ee07b195bde4c1c0e577a5c1b50e55b29f5a230f8",
-                "verified": true
+                "verified": true,
+                "verified_sha256": "427f3fd9910fb3f604afda4ebe9dbcd44c5f32314e2493f6136f17147381583b"
             },
             {
                 "case": "opponent-surrogate-runtime-v1-6p-0-1",
                 "job_id": "6add610d1e112550ce7e64e1",
-                "status": "RUNNING",
+                "status": "COMPLETED",
                 "guard_sha256": "f5c99ae69dc23e2a5368e3aebef3493c6708a45f7d9663a5899316ebc1d2043a",
-                "checked_at": "2026-10-25T02:25:37.731139+00:00"
+                "checked_at": "2026-10-25T02:25:37.731139+00:00",
+                "verified": true,
+                "verified_sha256": "80d21f4363950beb39a4ec3a2e0db5629e637dff68a545770bb7b3782577d99b"
             }
         ],
         "planned_collection_games": 2560,
         "planned_twins": 640,
-        "collection_jobs_submitted": 0,
+        "collection_jobs_submitted": 21,
         "gradients": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "checkpoint": "ai/runs/opponent-surrogate-runtime-launched-v1.json",
         "checkpoint_sha256": "2be66ce502b3c198e6810c422fa30700cfb061f96b7baf5da6a0027daf490128",
-        "next": "Finish the original 6p HF runtime job; collect, audit and archive both endpoints. Then prepare the measured full-collection plan, dry-run all fixed shards, and execute the new coordinator once. Prepare HF-only surrogate training and held-out behaviour/continuation validation; no adoption before fresh full-game strength tests and actual 8840U hybrid benchmarks.",
+        "next": "Preserve original coordinator and handles. Finish every planned shard and write the complete verified index before packaging train/validation data. No automatic replacement after timeout/unknown status; final seeds remain unused.",
         "first_verified_endpoint": {
             "path": "ai/runs/opponent-surrogate-runtime-collected-v1/opponent-surrogate-runtime-v1-2p-0-1/verified.json",
             "sha256": "427f3fd9910fb3f604afda4ebe9dbcd44c5f32314e2493f6136f17147381583b",
@@ -57209,10 +57222,10 @@
             "qualification_eligible": false
         },
         "joint_calibration_collector_implemented": true,
-        "joint_calibration_archive_complete": false,
+        "joint_calibration_archive_complete": true,
         "collection_orchestration": {
             "implemented": true,
-            "full_collection_admitted": false,
+            "full_collection_admitted": true,
             "preflight": "ai/runs/opponent-surrogate-orchestration-preflight-v1.json",
             "preflight_sha256": "6bb9302f8a034b105dba73066dd9bea490dd8b456a6580d0f43734f3afd2aa10",
             "tests": 7,
@@ -57231,7 +57244,11 @@
             },
             "checkpoint": "ai/runs/opponent-surrogate-orchestration-checkpoint-v1.json",
             "checkpoint_sha256": "96d1b53d54ab23edb712ae78aeaa8e23c3415b5ddccba1b330395a5e65f5965a",
-            "scope": "Launcher, collector/indexer and coordinator ready; no full-collection plan or jobs before both original HF calibration endpoints are complete, audited and archived. No new gradients or playing-strength evidence."
+            "scope": "Both original HF endpoints verified/archived; measured 40-shard plan, all dry-runs passed, original coordinator running. Full data collection is not yet complete.",
+            "plan_sha256": "6306a000da35b79d67e6eb4bdbacad922d95cd65fb5cd7a889d93d315c6ef43b",
+            "planned_jobs": 40,
+            "coordinator_pid": 2009367,
+            "coordinator_session": 80214
         },
         "orchestration_checkpoint": {
             "checked_at": "2026-10-25T02:25:37.731139+00:00",
@@ -57253,10 +57270,16 @@
             "new_hf_jobs": 0,
             "gradients": false,
             "qualification_eligible": false
-        }
+        },
+        "joint_calibration_descriptor": "ai/strong/opponent-surrogate-calibration-evidence-v1.json",
+        "joint_calibration_descriptor_sha256": "f60d27ea17af22773935101d0ee0f37ab4a7e8da6f66a0ec85d969aac291441a",
+        "collection_plan": "ai/strong/opponent-surrogate-collection-plan-v1.json",
+        "collection_plan_sha256": "6306a000da35b79d67e6eb4bdbacad922d95cd65fb5cd7a889d93d315c6ef43b",
+        "latest_checkpoint": "ai/runs/opponent-surrogate-full-collection-checkpoint-v1.json",
+        "latest_checkpoint_sha256": "dabbdbda6db353f74a9523f1ffa2c0ac6f292447d67de005c850a32936a6a41f"
     },
     "opponent_surrogate_training_v1": {
-        "status": "implemented_forward_and_export_preflight_passed_waiting_for_fresh_collection",
+        "status": "pipeline_and_trained_result_audit_implemented_awaiting_fresh_collection",
         "design": "ai/strong/opponent-surrogate-training-design-v1.json",
         "design_sha256": "040e39dd90763916b4fd908418035c8389b11d2d304dab1dee94912ac2d7f921",
         "preflight": "ai/runs/opponent-surrogate-training-preflight-v1.json",
@@ -57298,7 +57321,7 @@
         "gradients": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
-        "next": "Finish original six-player calibration; run full fresh collection. Prepare training tensors, archive-data and package full source. Launch the bounded L4 GPU calibration once, collect it, then admit full four-seed training using measured runtime and memory. Use original handles on uncertainty; preserve complete epochs/data. Verify trained exports and fresh downstream continuation/strength before adoption.",
+        "next": "Complete original fresh collection; prepare/package train+validation only; run/collect original L4 calibration and use measured admission for full four-seed HF training. Independently audit original full job with collect-opponent-surrogate-training-v1.py. Freeze using validation, then test behaviour, downstream continuations and full fresh strength before adoption.",
         "hf_packaging": {
             "implemented": true,
             "preflight": "ai/runs/opponent-surrogate-hf-preflight-v1.json",
@@ -57359,6 +57382,21 @@
                 "gradients": false,
                 "qualification_eligible": false
             }
+        },
+        "trained_result_audit": {
+            "implemented": true,
+            "preflight": "ai/runs/opponent-surrogate-trained-audit-preflight-v1.json",
+            "preflight_sha256": "f9b8163f9792f973c46a18e21783751caca2b402db9c880900f88acb62e167a9",
+            "tests": 8,
+            "code_hashes": {
+                "ai/strong/opponent_surrogate_training_verification_v1.py": "0423c81398527c1ccedfc7462755c23723ffe4d823eefca7b92c591fbea4df5b",
+                "ai/strong/collect-opponent-surrogate-training-v1.py": "0999198d47903ff574411dfbc60f4d2c1a497e4d1063e68c3d324ce7657bf67b",
+                "ai/strong/test_opponent_surrogate_training_verification_v1.py": "874078167e27bf84bc22e9a995569a8c19d35673d0369053b5992a0c87175763"
+            },
+            "synthetic_forward_fixture_positions_per_seed": 242,
+            "actual_trained_hf_artifacts_verified": false,
+            "gradients": false,
+            "qualification_eligible": false
         }
     }
 }

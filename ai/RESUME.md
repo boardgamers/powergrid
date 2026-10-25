@@ -6,7 +6,55 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 02:56 UTC: HF packaging and measured training launch path implemented.**
+**Latest — 25 October, 03:12 UTC: full opponent collection started; training-result audit implemented.**
+
+Both original HF calibration jobs are now complete and independently verified:
+**32 games / 64 paired executions, 5,826 teacher decisions, 474,704 teacher
+continuations, 192 public replays on HF and 192 independent local replays, zero caps**.
+These runtime-only games stay excluded from training and strength. The six-player
+endpoint took 3,929.18 s wall / 26,466.66 s CPU, with 6.23 GB sampled summed RSS.
+The complete 398-file calibration archive is remotely verified at private HF
+revision `bc2206ce31f0015e1ad3737530e1f30dbbda1951`, archive SHA256
+`eb29e0575984f6f23a0af16525bc0fcdb57d3e86a067a3ee1f533b9ccc412c29`.
+
+The measured plan admits **40 CPU-upgrade jobs**, four whole deals per shard,
+8 workers, a 12-hour timeout and at most 32 concurrent jobs. It fixes **2,560 fresh
+games plus 640 twin replays**, Germany 2–6 players/all four rules/all seats, with
+whole-deal training/validation/test splits. All 40 launch dry-runs and the coordinator
+dry-run passed. The original coordinator is running: **session 80214 / PID 2009367**,
+started **03:10:30 UTC**. At **03:11:57 UTC**, its first 21 original handles were
+directly RUNNING; the initial batch was still being submitted. Inspect its original
+process and guards, never restart on an observation timeout. No surrogate gradients
+or trained models exist yet. The resource coordinator remains live, **54 submitted /
+41 verified**, no failures at the same checkpoint; no partial strength comparison.
+
+New `collect-opponent-surrogate-training-v1.py` and
+`opponent_surrogate_training_verification_v1.py` independently audit all four seeds,
+81 history entries, earliest best validation checkpoint, optimizer steps, stored
+weights/provenance and exported predictions on every train/validation record. The
+raw remote archive remains unchanged. Audit receipts survive an interrupted result
+index write. **Eight tests pass**, including resealed false export metrics, incomplete
+seed sets, incorrect optimizer steps and interruption recovery. Their full artifact
+fixture uses synthetic histories and manually perturbed weights, with 242 forward
+positions per seed; no gradients, HF training success or strength is inferred.
+Actual trained-job integration remains pending. The trainer/package source was not
+changed. Preflight: `ai/runs/opponent-surrogate-trained-audit-preflight-v1.json`.
+
+Plan: `strong/opponent-surrogate-collection-plan-v1.json`.
+Checkpoint: `ai/runs/opponent-surrogate-full-collection-checkpoint-v1.json`.
+Live state: `ai/runs/opponent-surrogate-collection-coordinator-v1/state.json`.
+Live log: `ai/runs/opponent-surrogate-collection-coordinator-v1.log`.
+
+**Next:** let the original collection finish and verify/index every shard, then
+prepare/immutably package train+validation only. Run the bounded L4 calibration,
+collect its original handle, admit full four-seed training from measured costs,
+and collect with the new trained-result auditor. Select the serving policy using
+validation only; test held-out behaviour and fresh continuations against actual
+reference search before fresh full-game comparisons. The selected-policy final
+adapter and actual 8840U hybrid benchmark remain outstanding. No candidate or
+plateau claim; final reserved seeds remain unused.
+
+**Previous — 25 October, 02:56 UTC: HF packaging and measured training launch path implemented.**
 
 The previous turn pushed the training pipeline in `bccc417`. This turn added a
 minimal **14-file isolated Python runtime**, immutable train/validation packaging,

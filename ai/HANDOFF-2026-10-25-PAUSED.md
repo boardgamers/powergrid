@@ -18,6 +18,13 @@ submit jobs, train, restart a failed job or proceed to the next experiment.
 Its state is `runs/conservative-auction-runtime-finish-v1/state.json`; its log is
 `runs/conservative-auction-runtime-finish-v1.log`. Inspect the actual process
 before touching it. Do not start a competing collector.
+
+The completion-only heartbeat **`finish-power-grid-handoff`** checks every
+15 minutes. Once the originals are terminal, it will verify/archive the results,
+replace this pending section, push the final handoff and pause itself. While the
+finisher is live it must not run a competing collector. This follow-up is limited
+to completing the existing run; it cannot authorize another experiment. The
+original handoff checkpoint was pushed as **d8d931b**.
 <!-- CURRENT-RUN-END -->
 
 No AI is qualified or deployed. The final strength gate is unchanged, and its

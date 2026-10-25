@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-25T12:19:17.742382+00:00",
+  "checked_at": "2026-10-25T12:23:58.246628+00:00",
   "user_instruction": "Finish current run and prepare handoff; no further experiments",
   "goal_status": "paused",
   "handoff": "ai/HANDOFF-2026-10-25-PAUSED.md",
@@ -74,5 +74,12 @@
   "new_hf_jobs_submitted": 0,
   "development_jobs_submitted": 0,
   "qualified": false,
-  "reserved_final_seeds_used": false
+  "reserved_final_seeds_used": false,
+  "completion_followup": {
+    "automation_id": "finish-power-grid-handoff",
+    "status_at_creation": "ACTIVE",
+    "interval_minutes": 15,
+    "scope": "Finish and archive only the four existing runtime jobs, finalize and push handoff, then pause itself",
+    "new_experiments_authorized": false
+  }
 }

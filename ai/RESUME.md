@@ -6,7 +6,62 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 08:18 UTC: actual 8840U learned-opponent component verified.**
+**Latest — 25 October, 08:46 UTC: full resource-plan consistency diagnosis archived.**
+
+The complete offline resource audit now quantifies a mismatch between the bundles
+valued by search and the purchases it actually executes. Across all **1,680**
+resource-arm games / **69,624** search decisions, **21,870 / 53,301 (41.03%)**
+adjacent searches change the remaining count vector. **7,763 / 16,323 (47.56%)**
+searched turns end with different purchases from their first selected bundle.
+Every old remainder is still a candidate; every compared public sampling seed
+changes. There are 5,157 immediate early passes, 4,006 tied changed estimates and
+13,099 changed estimates with an advantage at most 1/8.
+
+This is a descriptive diagnosis, not proof that commitment improves play. Plan
+changes occur in both better and worse paired outcomes (changed-turn rates
+56.40% and 56.32% respectively). Hash-selected examples include dropping reserve
+purchases while still fueling every existing city. All 108 cells and game-level
+counts are retained; no outcome-selected success story or repeated-decision
+significance claim. The resource arm remains rejected. A future redesign must
+match simulated and executed buying behaviour and earn fresh full-game evidence;
+it does not replace the auction/opponent-fidelity priority.
+
+Independent aggregation checks every turn's purchase conservation, including 870
+forced final passes. Three hash-selected original games reproduce **417 learner
+moves / 115 uninterrupted purchases** and exact terminals; all candidate purchases
+in these games are legal. All **1,484** frozen runtime files and **1,734** input
+reports/receipt hashes match the prior immutable evidence. Six focused tests pass.
+No new strength games, model inference, gradients, extra HF jobs, candidate
+selection, production changes or final seeds were used by this diagnosis.
+
+- Details: [complete resource review](RESOURCE-SEARCH-SCREEN-2026-10-25.md).
+- Descriptor: `strong/resource-plan-consistency-evidence-v1.json`; assessment
+  `ai/runs/resource-plan-consistency-v1/assessment.json`.
+- Private HF **963eadd772292c9f8d8099f9648a11f66b8703bb**, archive SHA256
+  **3a1be7a7150decf8811c5a6de431ef9ea2e8b4c4bcd4d3cc38d8bec7d23ebb1e**,
+  81 files, downloaded/hash-verified. The prior complete archive retains the
+  remaining raw receipts; this archive adds all derived rows and selected replays.
+- Original analyzer **19277**, replayer **65623**, archive **65655** all completed.
+  The independent audit also passed. Do not rerun unchanged work.
+
+The sole full-study coordinator **PID 3502343 / session 23779** remains directly
+confirmed live with unchanged pinned code. The **08:43:44 UTC** owner snapshot is
+**231 submitted / 197 verified**, zero caps and no reported failures. Direct HF
+inspection at **08:43:51 UTC** found the 34 then-unverified originals **29 running /
+2 scheduling / 3 completed**, with no failures. Preserve the original owner and
+handles: no parallel manual submission/collection, pinned-code changes or retries
+on polling timeout. Checkpoint:
+`ai/runs/resource-plan-consistency-completion-checkpoint-v1.json`. Previous goal
+turn: verified wait. This goal turn: concrete diagnostic progress.
+
+**Next:** let the original 480-root comparison finish, then use the existing full
+archive/independent audit before interpreting fidelity. Freeze the actual stronger-
+opponent auction/override recipe only after those findings; test fresh complete
+games, integrate that exact policy into the unchanged final gate, and benchmark
+its complete standalone implementation on the actual 8840U. No qualified candidate
+or general playing-strength plateau is established.
+
+**Previous — 25 October, 08:18 UTC: actual 8840U learned-opponent component verified.**
 
 The actual **AMD Ryzen 7 8840U** completed the learned-opponent continuation
 component benchmark: **24 existing runtime positions / 384 continuations / zero

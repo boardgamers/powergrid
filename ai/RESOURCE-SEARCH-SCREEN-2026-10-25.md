@@ -114,3 +114,83 @@ protocol and reserved seeds remain unchanged and unused.
 - Private HF revision: `637202d691efc8121f95b7ff3954d4f20bfa54dd`.
 - Archive SHA256: `e6e93cf4bf858f9afada6576654aaf021c2d455e50471319488de2d1c3831cc3` (7,290 files).
 - Original archive watcher PID 2444260 / session 56315 completed normally; do not restart or repeat the upload.
+
+## 25 October: complete within-turn consistency diagnosis
+
+The atomic policy values a complete fuel bundle but executes only its first
+purchase, then searches again. This was an explicit research policy, not a new
+serving bug. The new audit measures how often its simulated buying sequence
+differs from its actual execution. It reads **all 1,680 resource-filter games**,
+their paired control terminals and **69,624 search decisions** from the immutable
+screen. No new strength games, inference, gradients or HF jobs were needed.
+
+| Description | Count | Relevant denominator |
+|---|---:|---:|
+| Changed remaining bundle after an atomic purchase | 21,870 (41.03%) | 53,301 adjacent plan-bearing requests |
+| Actual purchases differ from the first selected bundle | 7,763 (47.56%) | 16,323 turns containing search |
+| Same, restricted to initially nonempty bundles | 7,763 (52.50%) | 14,786 initially nonempty turns |
+| Immediate Pass despite a nonempty previous remainder | 5,157 | 53,301 adjacent plan-bearing requests |
+| Changed bundles with tied new estimated credits | 4,006 (18.32%) | 21,870 changed bundles |
+| Changed bundles with new estimated advantage at most 1/8 | 13,099 (59.89%) | 21,870 changed bundles |
+
+Every previous remainder was still available in the new candidate menu. All
+53,301 pairs changed the public sampling seed. Thus disappearance of the old
+candidate does not explain these changes; changed sampling is a plausible
+contributor, but this audit does not isolate its causal effect. Thirteen other
+pairs changed only action order, without changing the count vector.
+
+Actual turns comprise **8,560 exact**, **2,977 fewer resources**, **3,374 more**
+and **1,412 mixed changes** relative to the first selected bundle. The denominator
+includes 870 final forced passes without another search; the independent audit
+confirms no unfulfilled immediate remainder at those forced passes. Turns that
+never invoke resource search are outside this analysis.
+
+Against search opponents, changed-first-bundle turns are 260/401 at 2p,
+317/542 at 3p, 375/681 at 4p, 380/740 at 5p and 372/830 at 6p. All 108
+count/opponent/rule cells and all game-level counts are retained. Across the full
+opponent mix, changed-turn rates are **56.40% in better paired outcomes** and
+**56.32% in worse paired outcomes** (200 games each), versus 44.58% in equal
+outcomes (1,280 games). These are descriptive, outcome-conditioned associations;
+repeated decisions are not independent strength observations.
+
+Three examples were chosen by minimum SHA256 of their identity, without ranking
+by outcome or search advantage. Their original games replayed exactly:
+**417 legal learner moves**, **115 purchases with no intervening opponent move**,
+and identical final scores/credits. Every recorded candidate purchase in those
+games was legal in the frozen engine. All **1,484** runtime files match the source
+manifest. The within-turn alternatives were compared only for legal inventories,
+cash and fuel-supported output; no alternative future outcome was generated.
+
+The examples warn against assuming commitment is always better. In one case,
+buying all four originally planned coal would leave $19 and fuel capacity for
+three cities; the executed one-coal purchase leaves $28 and fuel for two cities.
+The player currently owns two cities in both cases. Its paired resource-search
+game ultimately improves over the control, but that does not attribute the gain
+to this specific decision. A different early Pass drops a reserve purchase while
+leaving enough fuel for every existing city. Blindly completing old plans could
+also be harmful.
+
+**Decision remains unchanged:** reject this resource policy. A future controlled
+experiment should compare execution-consistent full-turn planning with atomic
+replanning, separately testing stable sampling and any override rule. It must
+include the frozen filtered-model control and fresh full games across counts and
+rules; these receipts cannot establish that commitment fixes the regression.
+The current priority remains the unchanged auction/opponent-fidelity study.
+
+Evidence:
+
+- Design: `strong/resource-plan-consistency-design-v1.json` explicitly records
+  the one preliminary inspected game and the exploratory status.
+- Analyzer, independent conservation/aggregation auditor and exact engine
+  replayer: `strong/resource_plan_consistency_v1.py`,
+  `strong/audit-resource-plan-consistency-v1.py`,
+  `strong/replay-resource-plan-consistency-v1.cjs`. Six focused contract tests pass.
+- Raw derived rows and assessments: `ai/runs/resource-plan-consistency-v1`.
+  All 1,734 input report/receipt hashes match the prior complete archive.
+- Descriptor: `strong/resource-plan-consistency-evidence-v1.json`.
+- Private HF revision **963eadd772292c9f8d8099f9648a11f66b8703bb**;
+  archive **3a1be7a7150decf8811c5a6de431ef9ea2e8b4c4bcd4d3cc38d8bec7d23ebb1e**,
+  **81 files**, downloaded and hash-verified. The other original raw receipts
+  remain in the separately pinned complete-screen archive, not duplicated here.
+- Original analyzer session **19277**, replay **65623**, independent audit,
+  and archive **65655** completed successfully. Do not rerun unchanged work.

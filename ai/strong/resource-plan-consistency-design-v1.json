@@ -1,0 +1,21 @@
+{
+  "revision": "resource-plan-consistency-v1",
+  "status": "exploratory descriptive audit of immutable completed games",
+  "hypothesis": "Atomic replanning can change the intended remaining fuel bundle before another player acts, so executed turns may differ from the complete bundles valued by search.",
+  "prior_inspection": "One 2p search-opponent game was inspected before this design. Its first resource turn selected two coal, bought one, then passed. This is not a preregistered confirmatory test.",
+  "scope": "All 1680 resource-filter games and paired filter terminals from the completed 54-job, 3360-game screen. No new inference, games, jobs, gradients or policy selection.",
+  "input_archive_revision": "637202d691efc8121f95b7ff3954d4f20bfa54dd",
+  "input_archive_sha256": "e6e93cf4bf858f9afada6576654aaf021c2d455e50471319488de2d1c3831cc3",
+  "primary_descriptions": [
+    "For adjacent plan-bearing resource requests in the same round, compare the newly selected count vector with the preceding selected vector minus the just-executed purchase.",
+    "Separate count-vector changes from mere action reordering; also count immediate next-move deviations.",
+    "Report whether the preceding remainder was present in the new candidate menu, whether the public sampling seed changed, and the new selected-minus-remainder estimated credit when comparable.",
+    "For each resource turn containing a search, compare actual purchases through Pass with the first selected bundle, separating shortfalls, excess, mixed changes and exact completion. Forced terminal Pass without a plan is included; unsearched turns are outside this denominator.",
+    "Retain every game, count/opponent/rule cell and paired outcome category. Association with losses is descriptive, not evidence that commitment would improve outcomes."
+  ],
+  "integrity": "Check input files against the existing immutable archive manifest and decision digests in game records. Check consecutive decision numbers, same-round turn closure, resource stock/market transitions and nonnegative cash. Existing complete-screen verification remains the source for rollout legality and terminal auditing.",
+  "examples": "Choose minimum SHA256(identity) examples within changed-plan, early-Pass and first-bundle-shortfall categories, without ranking by outcome or estimated advantage.",
+  "interpretation": "No significance claim or independent-observation interpretation for repeated decisions. This audit cannot separate Monte Carlo noise, candidate-menu changes or model inconsistency, establish causal harm, or promote a committed policy. Any redesign needs fresh paired full-game evaluation.",
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

@@ -1,0 +1,71 @@
+{
+  "complete": true,
+  "checked_at": "2026-10-25T06:50:41.977492+00:00",
+  "training_job_id": "6adda0c2046eb82b1ece305a",
+  "training_evidence": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "710af49e15744b4d8065c5ca1eeb72c46716fd99",
+    "archive_path": "archives/opponent-surrogate-training-full-v1.tgz",
+    "archive_sha256": "74e504606bde8a79ddf54d3d6fcfb777c046d40c441f4e3a364e94a11756407e",
+    "manifest_sha256": "567e8696d3023c257af53a229434e50f1b5c7192cc5142483070574d4f0c04d7",
+    "archived_files": 38,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "training_result_sha256": "4d5e936c350857fb4917d3f8910a1229dda83232c9a99a1a7948b7842d6c1d10",
+  "selection_freeze_sha256": "d1c89cca3586f22c9361a359b2be74ff06d798b9e8a04838fd97846b3147a8c1",
+  "selected_policy": "ensemble-4",
+  "policy_sha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c",
+  "heldout_result_sha256": "5ef87c32dfceef4b7994691326feeb0e5aa3acac284526b529e0c7f948112218",
+  "heldout_saved_metrics_reproduced": true,
+  "test_games": 320,
+  "test_rows": 52360,
+  "exact_export_checks": {
+    "14101": {
+      "positions": 366326,
+      "exact_choices": 366326,
+      "max_absolute_logit_error": 4.1389114358025836e-12
+    },
+    "14102": {
+      "positions": 366326,
+      "exact_choices": 366326,
+      "max_absolute_logit_error": 4.739320047519868e-12
+    },
+    "14103": {
+      "positions": 366326,
+      "exact_choices": 366326,
+      "max_absolute_logit_error": 3.440803197918285e-12
+    },
+    "14104": {
+      "positions": 366326,
+      "exact_choices": 366326,
+      "max_absolute_logit_error": 5.030642569181509e-12
+    }
+  },
+  "test_summary": {
+    "selected": {
+      "macro_nll": 1.0374619882499678,
+      "macro_agreement": 0.6057418769102568
+    },
+    "economic-prior": {
+      "macro_nll": 2.015062597803686,
+      "macro_agreement": 0.6005979525121957
+    }
+  },
+  "macro_nll_delta_from_prior": -0.9776006095537182,
+  "macro_agreement_delta_from_prior": 0.005143924398061106,
+  "groups_with_worse_nll": [],
+  "gradients_during_snapshot": false,
+  "models_reselected": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "scope": "Preserves all completed training, exports, frozen validation selection and whole held-out evaluation. Imitation evidence only; no continuation fidelity or playing-strength claim.",
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "d636e242dcaf0819de9babda4346cc4bee844374",
+  "archive_path": "archives/opponent-surrogate-trained-evaluation-evidence-v1.tgz",
+  "archive_sha256": "4ae9b3cde9af94d7fe127f2822ed04758c60807113ed38212fdaffb6a6066aa4",
+  "manifest_sha256": "b8eba9298b928562b39529c180b99986471f15457d8c2fc8ce763236354d9dc2",
+  "archived_files": 129,
+  "format": "tar.gz",
+  "remote_archive_verified": true
+}

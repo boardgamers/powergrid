@@ -58493,5 +58493,114 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "checkpoint_sha256": "dfbe8a61112415b0929dcf45b3bd4d698da6a93f38335a34440886b4f5d83c9b"
+    },
+    "opponent_surrogate_full_training_started_v1": {
+        "checked_at": "2026-10-25T06:28:29.712963+00:00",
+        "calibration_job_id": "6adda008046eb82b1ece300b",
+        "verified_calibration_sha256": "f31ece99f0141c58a8bf540e1417c3e36f642277d7c84c57dab14f38c0ccce13",
+        "calibration_evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "4e9ac650d0c6e81a5954942348d4a84938bbe520",
+            "archive_path": "archives/opponent-surrogate-training-calibration-v1.tgz",
+            "archive_sha256": "f5f46bf87b86e3555f4116a5976c977de495978d16aa7431cb953723ff21caba",
+            "manifest_sha256": "bc737b68c40c6c4f59ec2227976b052c30c0a76e4220c15645f0dd1aea920787",
+            "archived_files": 7,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "calibration_metrics": {
+            "gpu": "NVIDIA L4",
+            "gpu_total_bytes": 23659151360,
+            "warmup_updates": 16,
+            "measured_updates": 128,
+            "mean_update_seconds": 0.0038575105625113792,
+            "full_four_seed_estimated_seconds": 319.10397981034475,
+            "peak_host_rss_bytes": 4961198080,
+            "peak_gpu_allocated_bytes": 2833874432,
+            "exact_export_positions": 366326
+        },
+        "admission": {
+            "flavor": "l4x1",
+            "timeout_hours": 1,
+            "estimated_seconds_with_margin": 1588.4772896526993,
+            "margin": "15 min setup, twice measured full-run/recovery cost, 25% timeout reserve; 2x host RSS plus 4 GB and 30% GPU allocation reserve."
+        },
+        "full_job_id": "6adda0c2046eb82b1ece305a",
+        "full_guard_sha256": "dd8c1e5b0194eff1177a8c96be51ab65c0d4bcab65c8e8d1fe97c8fd1ba2521f",
+        "full_authoritative_status": "RUNNING",
+        "logged_training_progress": {
+            "14101": {
+                "last_epoch": 80,
+                "initial_validation_nll": 1.9985111739358363,
+                "lowest_logged_validation_nll": 1.0432330291997227,
+                "best_logged_epoch": 9,
+                "latest_validation_nll": 2.998069213811151
+            },
+            "14102": {
+                "last_epoch": 80,
+                "initial_validation_nll": 1.9985111739358363,
+                "lowest_logged_validation_nll": 1.0410633871548822,
+                "best_logged_epoch": 10,
+                "latest_validation_nll": 2.946951640244689
+            }
+        },
+        "training_progress_not_yet_independently_collected": true,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "checkpoint_sha256": "6c79a822dceaf9ae2c3d1f0dd2aea0b949c4bd6798c534c44b3914bcbb34beda"
+    },
+    "opponent_surrogate_trained_evaluation_v1": {
+        "checked_at": "2026-10-25T06:52:30.976120+00:00",
+        "training_job_id": "6adda0c2046eb82b1ece305a",
+        "training_authoritative_status": "COMPLETED",
+        "training_result_sha256": "4d5e936c350857fb4917d3f8910a1229dda83232c9a99a1a7948b7842d6c1d10",
+        "best_epochs": {
+            "14101": 9,
+            "14102": 10,
+            "14103": 9,
+            "14104": 9
+        },
+        "selected": "ensemble-4",
+        "validation_selection_sha256": "d1c89cca3586f22c9361a359b2be74ff06d798b9e8a04838fd97846b3147a8c1",
+        "selected_policy_sha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c",
+        "heldout_result_sha256": "5ef87c32dfceef4b7994691326feeb0e5aa3acac284526b529e0c7f948112218",
+        "test_summary": {
+            "selected": {
+                "macro_nll": 1.0374619882499678,
+                "macro_agreement": 0.6057418769102568
+            },
+            "economic-prior": {
+                "macro_nll": 2.015062597803686,
+                "macro_agreement": 0.6005979525121957
+            }
+        },
+        "test_games": 320,
+        "test_rows": 52360,
+        "macro_agreement_delta_from_prior": 0.005143924398061106,
+        "evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "d636e242dcaf0819de9babda4346cc4bee844374",
+            "archive_path": "archives/opponent-surrogate-trained-evaluation-evidence-v1.tgz",
+            "archive_sha256": "4ae9b3cde9af94d7fe127f2822ed04758c60807113ed38212fdaffb6a6066aa4",
+            "manifest_sha256": "b8eba9298b928562b39529c180b99986471f15457d8c2fc8ce763236354d9dc2",
+            "archived_files": 129,
+            "remote_archive_verified": true
+        },
+        "source": {
+            "repo": "coyotte508/powergrid-ai-training-v1",
+            "revision": "74d32bed7d129b8049673b8851a44e5005c9c6a4",
+            "archive": "strong-source-surrogate-continuation-study-v1.tgz",
+            "sha256": "95e39bb5a7946637ad72fe0d9317f172b58111ba6eb37534dd7c95c266dcdb94",
+            "manifest_sha256": "4b5667cfb423239aff5ed25780847246046fa30004228d28883b0cb72919554f",
+            "manifest_files": 1488,
+            "layout_sha256": "06db8ffcc560b14518a5f2e8b2599e946fec69befb88e6d9171853f567bf3a66"
+        },
+        "selected_cost_job_id": "6adda6dd1e112550ce7e86c1",
+        "selected_cost_guard_sha256": "f85c2b5e1de1f8cfab85502b3bb3fd1760b7800e5780269ffc90587ec6a4e216",
+        "selected_cost_stage": "RUNNING observed at 06:51 UTC",
+        "full_study_launched": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "checkpoint_sha256": "fbf1b1e7feb25335adf983f7badfc38a2969df6288ada866b3bb5db165ac4aec"
     }
 }

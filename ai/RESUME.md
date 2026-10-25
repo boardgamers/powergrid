@@ -6,7 +6,117 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October, 06:22 UTC: real training data/source uploaded; original L4 calibration submitted.**
+**Latest — 25 October, 06:52 UTC: training audited, held-out evaluation archived; opponent timing running.**
+
+The original full L4 job **`6adda0c2046eb82b1ece305a` completed**, and its coordinator
+finished normally at **06:36:23 UTC**. Do not restart PID 2825298 / session 39111.
+All four seeds (14101–14104), optimizer/latest/best checkpoints and complete
+histories passed independent collection. Each seed passed **366,326 exact export
+choices**, both on HF and locally (**1,465,304 checks per location**). Best epochs
+were **9, 10, 9, 9**; late epochs overfit. More epochs of this unchanged training
+configuration are not justified; this is not a general strength plateau.
+
+Validation selected and froze **`ensemble-4`** before test data opened. Validation
+macro NLL is **1.037204** and agreement **61.1468%**. The complete held-out test has
+**320 games / 52,360 decisions**, including all 60 count/rule/phase groups. There
+was no model reselection. Macro test NLL falls from **2.015063 to 1.037462** and
+exact teacher agreement rises only from **60.0598% to 60.5742%** (**+0.5144 pp**).
+All groups improve NLL; 381 naturally identical training inputs are retained and
+reported separately. These are imitation metrics, not bot win rates, calibrated
+win probabilities or continuation-fidelity proof. The focal playing model remains
+**frozen-1**, not this new opponent surrogate.
+
+Completed training, exports, validation scores/selection, all held-out tensors and
+scores, original guards and coordinator records are privately archived. The
+snapshot independently reproduced saved held-out metrics and checked selection
+and export receipts without new inference, gradients or reselection:
+
+- Descriptor: `strong/opponent-surrogate-trained-evaluation-evidence-v1.json`.
+- Private HF revision: `d636e242dcaf0819de9babda4346cc4bee844374`.
+- Archive SHA256: `4ae9b3cde9af94d7fe127f2822ed04758c60807113ed38212fdaffb6a6066aa4` (**129 files**).
+- Original full-training archive revision: `710af49e15744b4d8065c5ca1eeb72c46716fd99`.
+- Training result: `strong/opponent-surrogate-training-results-v1.json`, SHA256
+  `4d5e936c350857fb4917d3f8910a1229dda83232c9a99a1a7948b7842d6c1d10`.
+
+The actual frozen paired-study source now includes the selected four ONNX models,
+all **480 fresh roots** and **24 separate timing roots**. Isolated package checks
+passed inference on every root, with zero new continuations and **1,463 unchanged
+base files** (**1,488 manifest files**). Source is uploaded and remotely verified:
+
+- Dataset revision: `74d32bed7d129b8049673b8851a44e5005c9c6a4`.
+- Source SHA256: `95e39bb5a7946637ad72fe0d9317f172b58111ba6eb37534dd7c95c266dcdb94`.
+- Descriptor: `strong/surrogate-continuation-study-source-v1.json`.
+
+The original selected-surrogate timing job **`6adda6dd1e112550ce7e86c1`** was submitted
+at **06:51:09 UTC** and directly observed **RUNNING**. It covers **24 roots / 384
+continuations** on one `cpu-upgrade`, eight workers, two-hour timeout. Guard:
+`ai/runs/surrogate-continuation-selected-cost-launches-v1/surrogate-continuation-selected-cost-v1.json`. The former training coordinator is finished; the current agent owns
+inspection/collection of this single timing job. Preserve this original handle
+on slow startup or observation timeout; do not create a replacement.
+
+The full 480-job study is **not launched or admitted yet**. Next: inspect/collect
+the original timing job using `manage-surrogate-continuation-selected-cost-v1.py`,
+then use measured admission from `launch-surrogate-continuation-study-v1.py prepare`.
+Only then start the existing full-study coordinator once with `--execute
+--interval-seconds 180 --max-hours 48`. It owns collection and subsequent study
+submissions; never run `launch-ready` alongside it. Stop that local owner first
+if the user later requests no new jobs. All roots, actions, budgets and analysis
+remain frozen. This study tests the learned opponent versus full-search reference
+and the existing population; it has no economic-prior-only arm, so a benefit
+cannot by itself establish that learning beats that prior.
+
+Recommendation remains **selective auction search with cautious overrides and
+better opponent coverage**. Unchanged building/resource search should not advance.
+Fresh full-game confirmation, the selected-policy final adapter and actual 8840U
+hybrid latency remain outstanding. No candidate qualified, production change or
+reserved final-seed use. Checkpoint: `ai/runs/opponent-surrogate-trained-evaluation-checkpoint-v1.json`, SHA256
+`fbf1b1e7feb25335adf983f7badfc38a2969df6288ada866b3bb5db165ac4aec`.
+
+**Previous — 25 October, 06:28 UTC: calibration verified; original full training running.**
+
+The original L4 calibration **`6adda008046eb82b1ece300b` completed and was
+independently collected** by its existing owner. Its exact-export check covers all
+**366,326 training/validation positions**. Verified receipt:
+`ai/runs/opponent-surrogate-training-runtime-collected-v1/verified.json`, SHA256
+`f31ece99f0141c58a8bf540e1417c3e36f642277d7c84c57dab14f38c0ccce13`.
+Calibration archive: private HF revision `4e9ac650d0c6e81a5954942348d4a84938bbe520`,
+SHA256 `f5f46bf87b86e3555f4116a5976c977de495978d16aa7431cb953723ff21caba`, seven files.
+
+Measured on NVIDIA L4: **3.858 ms/update**, **319.10 s estimated four-seed compute**,
+**4,961,198,080 B peak host RSS**, **2,833,874,432 B peak GPU allocation** against
+23,659,151,360 B available. The fixed measured-admission formula permits one
+**L4x1 full job with a one-hour timeout** (1,588.48 s estimate including setup and
+margins). The full 80-epoch / four-seed schedule was not shortened. Calibration
+weights are explicitly ineligible as a trained candidate.
+
+Original full training job **`6adda0c2046eb82b1ece305a`** was submitted at
+**06:25:06 UTC** and directly observed **RUNNING**. Guard:
+`ai/runs/opponent-surrogate-training-launches-v1/full.json`, SHA256
+`dd8c1e5b0194eff1177a8c96be51ab65c0d4bcab65c8e8d1fe97c8fd1ba2521f`.
+Original coordinator **PID 2825298 / session 39111** remains its sole owner; it is
+waiting for this handle, then will independently collect all seeds and run the
+fixed validation selection. Do not collect/select concurrently or launch a replacement.
+
+**Preliminary training logs**, not yet independently collected: seeds 14101 and
+14102 reached epoch 80. Initial validation macro NLL is 1.998511; their lowest
+logged NLL is **1.043233 at epoch 9** and **1.041063 at epoch 10**. By epoch 80 it
+rises to 2.998069 / 2.946952. This is clear late overfitting in these two runs; the
+predeclared earliest-best-validation rule preserves the earlier weights. It is
+not a reason to train this same configuration longer. All four fixed seeds must
+finish, exports/audits must pass, and actual frozen selection must precede the
+held-out/fidelity tests. This does not establish a general plateau or improved
+Power Grid win rate.
+
+Checkpoint: `ai/runs/opponent-surrogate-full-training-start-checkpoint-v1.json`,
+SHA256 `6c79a822dceaf9ae2c3d1f0dd2aea0b949c4bd6798c534c44b3914bcbb34beda`.
+Next: inspect the same original full job and let its owner finish collection and
+selection. If learned selection wins, prepare/evaluate held-out behavior, freeze
+fresh-study inputs, prepare/check/upload source, measure selected-surrogate timing,
+then admit and start the complete paired-study coordinator. The final strength
+adapter, fresh full-game evaluation and actual 8840U hybrid benchmark remain
+outstanding. No selected deployment candidate, production change or final-seed use.
+
+**Previous — 25 October, 06:22 UTC: real training data/source uploaded; original L4 calibration submitted.**
 
 The original training coordinator **PID 2825298 / session 39111** completed
 `prepare_data`, `archive_data`, `package_source` and `launch_calibration`, and is

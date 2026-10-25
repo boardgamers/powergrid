@@ -6,7 +6,48 @@ and archived. Actual 8840U benchmarking passed 10,212 requests with exact moves:
 median 4.3–5.9 ms, 95th percentile 7.0–8.8 ms, cold start 214–255 ms. These are
 model-only timings. No candidate is qualified or published; final seeds are unused.
 
-**Latest — 25 October: full resource pilot archived; two HF calibration jobs running.**
+**Latest — 25 October: full resource-screen launcher prepared; HF utilization sampled.**
+`strong/launch-resource-replanning-development-v1.py` now prepares immutable measured
+admission only after both HF calibration endpoints are verified and archived. It
+preserves the full **3,360-game / two-arm / 27-cell** screen. Completed HF timings
+choose **4/2/1 whole deals per shard**, retaining all seats/rules and fixed horizons;
+CPU/RAM/storage headroom determines the budget. Submission guards stop duplicates,
+ambiguous submissions, failed jobs and excess concurrency. The uploaded source and
+live experiments are unchanged. **No development plan or jobs exist yet.**
+
+Six tests passed using a fake HF API and synthetic measurements, including all
+54/108/216-shard partitions, complete 3,360-game coverage, missing calibration,
+runtime/memory/storage limits and submission failures. The actual missing complete
+calibration archive also refuses admission. Receipt:
+`ai/runs/resource-development-launcher-preflight-v1.json`. These checks are not
+actual development execution or measured admission.
+
+Read-only live samples at about **00:47 UTC** confirmed both calibration jobs on
+**cpu-upgrade (8 vCPU)**. The 6p job was at **8/24 completed**, then sampled
+**100% CPU**, maximum observed memory **6,512,885,760 bytes**. The 2p job was at
+**7/8 completed**, then sampled **12.5% CPU**, memory **2,489,208,832 bytes**;
+one remaining game explains the idle workers at the tail. Each observation retains
+all three raw frames (including any initial zero), bounded logs and observer source
+under its `resource-replanning-hf-runtime-collected-v1/<case>/` directory; the full
+calibration collector will include these files. These short windows are not runtime
+or memory bounds. The measurements support keeping eight workers and grouping
+multiple whole deals when the complete endpoint budgets permit it.
+
+At checkpoint **2026-10-25T00:53:15.317952+00:00**, reference coordinator **76600 / PID 443128**
+was checked alive with **26/28 verified**, no failures. Both calibration
+jobs' latest SDK status was RUNNING; timestamps and metric snapshots are preserved
+in `ai/runs/resource-development-launcher-checkpoint-v1.json`.
+
+**Next:** collect the two original calibration jobs when complete, require exact
+local/HF parity, then audit/archive with `collect-resource-hf-calibration-v1.py`.
+Finish the development shard collector, full comparison and coordinator before
+launching the full screen. The new launcher is prepared, but that orchestration is
+still unimplemented and no admission has been created. After calibration and these
+checks, prepare/review the measured plan and dry runs before dispatch. Continue the
+existing reference coordinator and audit all seven roots only after all 28 shards
+verify. No new gradients, production changes, candidate selection or final seeds.
+
+**Previous — 25 October: full resource pilot archived; two HF calibration jobs running.**
 The existing local pilot **session 75756 / PID 559327 ended successfully**. All
 **64 games / 8,241 learner decisions / 89,632 continuations** passed, zero caps.
 All **16 independent replays** matched (**2,252 learner decisions**, including

@@ -56023,6 +56023,12 @@
             "sha256": "25f548f913b20ed9f0239a073cb47dfbdb90bf17dfe73ac848a911b3a44c85cc",
             "jobs_verified": 24,
             "coordinator_live": true
+        },
+        "resource_development_launcher_checkpoint": {
+            "file": "ai/runs/resource-development-launcher-checkpoint-v1.json",
+            "sha256": "17f2bc53dc265e2e180ac1b4ec4b5ddf44a093bad7490318dc4e0e91ae947673",
+            "jobs_verified": 26,
+            "coordinator_live": true
         }
     },
     "resource_replanning_runtime_v1": {
@@ -56571,6 +56577,96 @@
         "checkpoint": "ai/runs/resource-hf-calibration-launch-checkpoint-v1.json",
         "checkpoint_sha256": "25f548f913b20ed9f0239a073cb47dfbdb90bf17dfe73ac848a911b3a44c85cc",
         "development_admitted": false,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
+    },
+    "resource_development_launcher_v1": {
+        "status": "prepared_and_tested_no_complete_calibration_no_plan_or_development_jobs",
+        "launcher": "ai/strong/launch-resource-replanning-development-v1.py",
+        "launcher_sha256": "d123b994ea0eb7442c679f9964d940abebc326448c2a1b3464cbe8d7b9a77ab3",
+        "tests": "ai/strong/test_resource_development_launcher_v1.py",
+        "tests_sha256": "4257e8504656bd54a41e131f7a6af3ecbea10c49be342931ba65ebfd397af3ff",
+        "preflight": {
+            "checked_at": "2026-10-25T00:53:15.316553+00:00",
+            "launcher_sha256": "d123b994ea0eb7442c679f9964d940abebc326448c2a1b3464cbe8d7b9a77ab3",
+            "tests_sha256": "4257e8504656bd54a41e131f7a6af3ecbea10c49be342931ba65ebfd397af3ff",
+            "bootstrap_sha256": "3445666b4b0defe6ac09af93c3dc724c38bf99b31570bcc516676bb4a19b090f",
+            "tests_passed": 6,
+            "partitions_checked": {
+                "1_deal": 216,
+                "2_deals": 108,
+                "4_deals": 54
+            },
+            "games_in_each_partition": 3360,
+            "missing_real_calibration_rejected": true,
+            "duplicate_and_unknown_submissions_checked": true,
+            "active_limit_and_failed_job_stop_checked": true,
+            "fixtures_are_synthetic_submissions_and_budget_measurements": true,
+            "plan_created": false,
+            "actual_development_jobs": 0,
+            "new_games": 0,
+            "new_hf_jobs": 0,
+            "gradients": false,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false
+        },
+        "checkpoint": "ai/runs/resource-development-launcher-checkpoint-v1.json",
+        "checkpoint_sha256": "17f2bc53dc265e2e180ac1b4ec4b5ddf44a093bad7490318dc4e0e91ae947673",
+        "calibration_live_observations": [
+            {
+                "status": {
+                    "case": "resource-replanning-hf-runtime-v1-2p-resource-filter",
+                    "job_id": "6add4e77046eb82b1ece123a",
+                    "authoritative_status": "RUNNING",
+                    "checked_at": "2026-10-25T00:50:50.724931+00:00",
+                    "guard_sha256": "e6d663abbf6500e94a8b4f2b588e962e61d97c2d4abe7fa0d1122e15fc6b8f5f",
+                    "qualification_eligible": false,
+                    "reserved_final_seeds_used": false
+                },
+                "observation_file": "ai/runs/resource-replanning-hf-runtime-collected-v1/resource-replanning-hf-runtime-v1-2p-resource-filter/20261025T004703451107Z-live-observation.json",
+                "observation_sha256": "daf3ea5d79bfa4c8f47e4bd120da3a25a3bf4ffb6e4d6e680a1ae753fdb786a5",
+                "observation_checked_at": "2026-10-25T00:46:59.631382+00:00",
+                "last_progress": {
+                    "episode": 2,
+                    "completed": 7,
+                    "total": 8,
+                    "seconds": 627.52,
+                    "caps": 0,
+                    "truncated": false
+                },
+                "cpu_percent_median_after_first_frame": 12.5,
+                "memory_bytes_max": 2489208832,
+                "metrics_frames": 3
+            },
+            {
+                "status": {
+                    "case": "resource-replanning-hf-runtime-v1-6p-resource-filter",
+                    "job_id": "6add4e781e112550ce7e5a74",
+                    "authoritative_status": "RUNNING",
+                    "checked_at": "2026-10-25T00:50:50.725309+00:00",
+                    "guard_sha256": "c5107d8774da57f52150ba29b33ea50ea029c5594413487abce2823ae563fbd7",
+                    "qualification_eligible": false,
+                    "reserved_final_seeds_used": false
+                },
+                "observation_file": "ai/runs/resource-replanning-hf-runtime-collected-v1/resource-replanning-hf-runtime-v1-6p-resource-filter/20261025T004703451216Z-live-observation.json",
+                "observation_sha256": "25f35ec5817b87510deabcf70764e85c3287e1e1d980f96e79d10b4dd38dd056",
+                "observation_checked_at": "2026-10-25T00:46:59.632687+00:00",
+                "last_progress": {
+                    "episode": 7,
+                    "completed": 8,
+                    "total": 24,
+                    "seconds": 726.03,
+                    "caps": 0,
+                    "truncated": false
+                },
+                "cpu_percent_median_after_first_frame": 100.0,
+                "memory_bytes_max": 6512885760,
+                "metrics_frames": 3
+            }
+        ],
+        "remaining_before_screen": "Complete calibration/archive and implement development collection, complete comparison and coordinator; then prepare measured plan, review dry runs and launch.",
+        "new_hf_jobs": 0,
         "gradients": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false

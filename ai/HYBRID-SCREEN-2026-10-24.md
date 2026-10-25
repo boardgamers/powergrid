@@ -296,3 +296,55 @@ No additional HF jobs, gradients, strength selection, production changes or
 reserved final seeds. Complete the full fidelity comparison before freezing the
 playing recipe and running fresh strength games. The exact final adapter and
 actual whole-policy 8840U benchmark remain outstanding.
+
+
+## 25 October, 09:26 UTC: original standalone prototype games verified
+
+The **eight original standalone prototype games** completed and were independently
+audited: **1,411 public decisions**, **269 auction searches**, **22,048 continuations**,
+**29 search overrides**, zero game/rollout caps. The continuation receipts include
+2,096,329 focal neural decisions and 318,728 surrogate decisions. This covers one
+two-player deal, all seats and four rule combinations, against economic opponents.
+It is engineering evidence, not a strength estimate or a selected playing recipe.
+
+The audit recomputes terminal tie credits, every saved model/alternative pair and
+the exact population-consensus override rule. Every standalone response matches
+its saved decision and the independent arena's legal menu, request/revision and
+player ordering. Hidden deck/RNG and submitted sealed bids are absent from public
+requests. All **1,494** frozen runtime files retain their hashes. Whole-game direct
+policy parity is not claimed; the earlier separate fixture parity remains intact.
+These local timings are not an AMD 8840U benchmark.
+
+- Descriptor: `strong/opponent-auction-engineering-evidence-v1.json`.
+- Verification: `ai/runs/opponent-auction-engineering-verification-v1.json`;
+  collector `strong/collect-opponent-auction-engineering-v1.py`.
+- Private HF **7efa9f9f43d3d4ac4497e855ac1fc157386cbdec**, archive SHA256
+  **7b2d0de5845e0cf111f885f5f9ddedd6849eb9ebc6e9120b1e5714f352e12f0e**,
+  **39 files**, downloaded/hash-verified. Raw full-game receipts, original guard,
+  logs and audit code retained; the earlier runtime archive pins the package.
+- Original PID **8564** completed and is absent. Verification session **9822** and
+  archive **1898** completed successfully. Do not rerun this unchanged experiment.
+
+The main-study owner **PID 3502343 / session 23779** remains live and all its pinned
+code is unchanged. At **09:25:53 UTC**, it reports **319 submitted /
+302 verified**, zero caps, no reported failures, stage `submitting`. It alone owns
+submission/collection of the 480 roots. Preserve its original handles; no manual
+parallel collection or restart on a polling timeout. Checkpoint:
+`ai/runs/opponent-auction-engineering-completion-checkpoint-v1.json`.
+
+The final integration review confirms a remaining requirement: the old launcher
+and verifier bind legacy search settings and cannot qualify this new public
+backend, opponent ensemble and override rule. A separate exact-policy adapter
+must bind the full artifact identity and settings to every game/CPU receipt while
+preserving all thresholds and paired deals in the unchanged final protocol. The
+current development arena deliberately rejects reserved seeds; do not weaken that
+boundary or translate the new policy into old `search_scope` fields.
+
+**Next:** complete/archive the entire original fidelity study before choosing a
+recipe; then freeze the auction policy, run fresh full-game confirmation across
+2–6 players/all rules, complete exact-policy final integration and benchmark the
+complete policy on the actual 8840U. No new HF jobs, gradients, strength games,
+production changes, selected candidate or reserved final seeds in this collection.
+Both the previous and current goal turns made concrete progress. There is no
+established general plateau; unchanged rejected building/resource search remains
+unjustified.

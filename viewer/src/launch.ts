@@ -31,6 +31,7 @@ function launch(selector: string) {
         preferences: Preferences;
         avatars: string[];
         undoAvailable: boolean;
+        settings: Record<string, unknown> | null;
     } = {
         state: null,
         emitter: new EventEmitter(),
@@ -52,6 +53,7 @@ function launch(selector: string) {
         }),
         avatars: [],
         undoAvailable: false,
+        settings: null,
     };
 
     const app = new Vue({
@@ -75,6 +77,10 @@ function launch(selector: string) {
         },
         onPlayer(data) {
             params.player = data.index;
+            app.$forceUpdate();
+        },
+        onSettings(settings) {
+            params.settings = settings;
             app.$forceUpdate();
         },
         async onPreferences(data) {
@@ -132,6 +138,12 @@ function launch(selector: string) {
     params.emitter.on('replaceLog', (data: string[]) => viewer.replaceLog(data));
     params.emitter.on('replay:info', (info) => viewer.setReplayInfo(info));
     params.emitter.on('update:preference', ({ name, value }) => viewer.updatePreference(name, value));
+    params.emitter.on('update:setting', ({ name, value }) => {
+        if (viewer.updateSetting(name, value)) {
+            params.settings = { ...params.settings, [name]: value };
+            app.$forceUpdate();
+        }
+    });
     params.emitter.on('undo', () => viewer.undo());
     installActionSounds(item);
     const removeCards = installPlayerCards(app.$el, viewer);

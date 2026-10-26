@@ -1,6 +1,6 @@
 <template>
     <g class="player-board">
-        <rect width="350" height="100" x="0" y="0" fill="gold" :stroke="color" />
+        <rect width="350" :height="100 + (showAutoPass ? settingRowHeight : 0)" x="0" y="0" fill="gold" :stroke="color" />
         <rect width="350" height="25" x="0" y="0" :fill="color" />
         <foreignObject height="30" width="30" x="-30" y="-5">
             <img
@@ -35,6 +35,33 @@
         <text v-if="showMoney" x="250" y="13" font-weight="600" :fill="colorText(color)"
             >Money: ${{ player.money }}</text
         >
+
+        <!-- Keep the full preference inside the viewer's own player card. -->
+        <template v-if="showAutoPass">
+            <g
+                class="auction-auto-pass"
+                :class="{ editable: !autoPassDisabled }"
+                transform="translate(0, 100)"
+                data-auction-auto-pass
+                :role="autoPassPublic ? 'note' : 'checkbox'"
+                :aria-checked="autoPassPublic ? undefined : String(autoPass)"
+                :aria-disabled="autoPassDisabled ? 'true' : 'false'"
+                :tabindex="autoPassPublic || autoPassDisabled ? -1 : 0"
+                aria-label="Auto-pass if unaffordable"
+                @click="!autoPassDisabled && $emit('toggleAutoPass')"
+                @keydown.enter.prevent="!autoPassDisabled && $emit('toggleAutoPass')"
+                @keydown.space.prevent="!autoPassDisabled && $emit('toggleAutoPass')"
+            >
+                <rect class="auto-pass-hit" width="350" :height="settingRowHeight" fill="transparent" />
+                <path d="M0 0H350" stroke="#806b28" stroke-opacity="0.35" />
+                <rect x="10" y="9" width="18" height="18" rx="2" :fill="autoPass ? '#304b3b' : '#f5f4e5'" stroke="#304b3b" />
+                <path v-if="autoPass" d="M14 18L18 22L24 14" fill="none" stroke="white" stroke-width="2" />
+                <text x="37" y="18" fill="#24382b" style="font: 16px Arial, sans-serif; dominant-baseline: central">Auto-pass if unaffordable</text>
+                <title>{{ autoPassPublic
+                    ? 'Money is public: players automatically pass auctions they cannot afford.'
+                    : 'Automatically pass auctions you cannot afford. With hidden money, this can reveal that you cannot afford the bid. Applies after the next move.' }}</title>
+            </g>
+        </template>
 
         <Card
             v-for="(powerPlant, i) in player.powerPlants"
@@ -173,6 +200,7 @@ import { Phase, playerTimeUsed, PowerPlant, PowerPlantType, ResourceType } from 
 import { Vue, Component, Prop, Inject } from 'vue-property-decorator';
 import { Preferences } from '../types/ui-data';
 import { formatDuration } from '../util/time';
+import { PLAYER_SETTING_ROW_HEIGHT } from '../util/board-layout';
 import { Coal, Oil, Garbage, Uranium, Card } from './pieces';
 
 @Component({
@@ -199,6 +227,12 @@ export default class PlayerBoard extends Vue {
     @Prop() phase?: Phase;
     // Australia: uranium plants are "mines" — flag so the hand marks them distinctly.
     @Prop() isAustralia?: boolean;
+    @Prop({ default: false }) showAutoPass!: boolean;
+    @Prop({ default: false }) autoPass!: boolean;
+    @Prop({ default: false }) autoPassPublic!: boolean;
+    @Prop({ default: true }) autoPassDisabled!: boolean;
+
+    settingRowHeight = PLAYER_SETTING_ROW_HEIGHT;
 
     @Inject() preferences!: Preferences;
 
@@ -376,3 +410,9 @@ export default class PlayerBoard extends Vue {
     }
 }
 </script>
+<style scoped>
+.auction-auto-pass.editable { cursor: pointer; }
+.auction-auto-pass.editable:hover .auto-pass-hit { fill: #ffffff30; }
+.auction-auto-pass:focus { outline: none; }
+.auction-auto-pass:focus-visible .auto-pass-hit { stroke: currentColor; stroke-width: 2; }
+</style>

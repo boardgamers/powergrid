@@ -1,4 +1,5 @@
 import { range } from 'lodash';
+import { minimumPlantBid } from './auction-pricing';
 import {
     countHeldPowerPlants,
     GameState,
@@ -179,7 +180,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                     moves[MoveName.DiscardResources] = toDiscard;
                 } else {
                     if (G.chosenPowerPlant == undefined) {
-                        let canBid = G.actualMarket.filter((p) => player.money >= p.number);
+                        let canBid = G.actualMarket.filter((p) => player.money >= minimumPlantBid(G, p));
 
                         // No nuclear plants for Portugal
                         if (G.map.name == 'Spain & Portugal') {

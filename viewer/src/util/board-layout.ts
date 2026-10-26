@@ -1,3 +1,6 @@
+/** Extra room for the current player's full-width auction preference. */
+export const PLAYER_SETTING_ROW_HEIGHT = 36;
+
 export interface BoardBox {
     x: number;
     y: number;

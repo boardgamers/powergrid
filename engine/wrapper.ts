@@ -1,4 +1,5 @@
 import type { GameState } from './index';
+import { autoPassAuctions } from './src/auction-auto-pass';
 import { alreadyCreditedPowering, canReviseChoice } from './src/choice-revisions';
 import * as engine from './src/engine';
 import { playersSortedByScore } from './src/engine';
@@ -33,6 +34,26 @@ export function setPlayerMetaData(G: GameState, player: number, metaData: { name
     return G;
 }
 
+export function setPlayerSettings(G: GameState, player: number, settings: Record<string, unknown>): GameState {
+    if (G.players[player]) G.players[player].settings = { autoPassBids: settings.autoPassBids === true };
+    // The host settings endpoint only persists preferences: it does not advance
+    // turns or clocks. Apply automation after the next committed game move.
+    return G;
+}
+
+export function playerSettings(G: GameState, player: number): Record<string, unknown> {
+    return { autoPassBids: G.players[player]?.settings?.autoPassBids === true };
+}
+
+function runAutomaticMoves(G: GameState, now: number): GameState {
+    // Premoves can finish upkeep and enter a new auction round; passing can enter
+    // Resources. Settle both in order without re-running them inside replay.
+    G = autoPassAuctions(G, now);
+    G = runPremoves(G, now);
+    G = autoPassAuctions(G, now);
+    return runPremoves(G, now);
+}
+
 /**
  * Execute the current turn of `player` so far.
  *
@@ -57,7 +78,7 @@ export async function move(
     automation(G).liveUpdate = false;
     if (isPremoveCommand(move)) {
         setPremoves(G, move, player);
-        return runPremoves(G, Date.now());
+        return runAutomaticMoves(G, Date.now());
     }
     const initialPhase = G.phase;
     const initialRound = G.round;
@@ -108,7 +129,7 @@ export async function move(
         if (revision) automation(G).liveUpdate = true;
         else if (!alreadyCreditedPowering(G, player, initialPhase, initialRound)) automation(G).increments[player]++;
         reconcileManualPlan(G, player, initialPhase);
-        if (!revision) G = runPremoves(G, now);
+        G = revision ? autoPassAuctions(G, now) : runAutomaticMoves(G, now);
     }
     return G;
 }
@@ -149,7 +170,7 @@ export function moveAI(G: GameState, player: number): GameState {
 
         if (G.newTurn !== false) {
             if (!alreadyCreditedPowering(G, player, initialPhase, initialRound)) automation(G).increments[player]++;
-            return runPremoves(G, Date.now());
+            return runAutomaticMoves(G, Date.now());
         }
     }
 
@@ -200,6 +221,7 @@ export function replay(G: GameState, { to = Infinity }: { to?: number } = {}): G
 
     for (let i = 0; i < oldPlayers.length && i < G.players.length; i++) {
         G.players[i].name = oldPlayers[i].name;
+        G.players[i].settings = oldPlayers[i].settings ? { ...oldPlayers[i].settings } : undefined;
     }
 
     // The visible log freezes during a fastBid auction: the simultaneous bids (and
@@ -288,7 +310,7 @@ export async function dropPlayer(G: GameState, playerNum: number): Promise<GameS
     // commit. Force the flag anyway (it costs nothing) so an unexpected auto-play path
     // can never leave the persisted state un-saveable.
     G.newTurn = true;
-    return runPremoves(G, Date.now());
+    return runAutomaticMoves(G, Date.now());
 }
 
 export function currentPlayer(G: GameState): number[] {

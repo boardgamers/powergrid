@@ -94,8 +94,14 @@ export interface CityPosition {
     position: number;
 }
 
+export interface PlayerSettings {
+    /** Opt in to revealing inability to afford an auction when money is hidden. */
+    autoPassBids?: boolean;
+}
+
 export interface Player {
     id: number;
+    settings?: PlayerSettings;
     name?: string;
     powerPlants: PowerPlant[];
     coalCapacity: number;

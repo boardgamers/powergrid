@@ -1,0 +1,35 @@
+{
+    "game": "powergrid",
+    "gameVersion": 13,
+    "publishedAt": "2026-10-26T19:41:57.876Z",
+    "engine": {
+        "version": "2.0.19",
+        "package": {
+            "name": "powergrid-engine",
+            "version": "2.0.19",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/engine/cc7ee4928e2ecc14/powergrid-engine-2.0.19.tgz"
+        },
+        "entryPoint": "dist/wrapper.js",
+        "sha256": "cc7ee4928e2ecc147c5d5e32d9fac7dcb7dd0b9a21df2db843e1a50914d484b9"
+    },
+    "viewer": {
+        "version": "2.3.15",
+        "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-5143d39a8cb7e66afe67/powergrid-viewer.umd.min.js",
+        "stylesheets": [
+            "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-5143d39a8cb7e66afe67/powergrid-viewer.css"
+        ],
+        "scriptBytes": 1219370,
+        "sha256": "b1aa3081d783d5ef8930cd53f23b9a00a9b68c8693c9353ffc4eb25cfadd7cd5",
+        "bundle": "split-5143d39a8cb7e66afe67",
+        "files": 42
+    },
+    "settings": [
+        {
+            "name": "autoPassBids",
+            "label": "Auto-pass auctions I cannot afford (always on with public money)",
+            "type": "checkbox",
+            "default": false
+        }
+    ],
+    "verified": true
+}

@@ -551,7 +551,7 @@
                     <PlayerBoard
                         :key="'B' + playerIndex"
                         :transform="`translate(${G.map.playerBoardsPosition[0]}, ${
-                            G.map.playerBoardsPosition[1] + 110 * i
+                            G.map.playerBoardsPosition[1] + playerBoardOffset(i)
                         })`"
                         :player="G.players[playerIndex]"
                         :color="playerColors[playerIndex]"
@@ -565,6 +565,11 @@
                         :showBid="!G.options.fastBid"
                         :phase="G.phase"
                         :isAustralia="G.map.name === 'Australia'"
+                        :showAutoPass="player == playerIndex && showAutoPass"
+                        :autoPass="!!G.options.showMoney || !!(settings && settings.autoPassBids)"
+                        :autoPassPublic="!!G.options.showMoney"
+                        :autoPassDisabled="!canEditAuctionSettings"
+                        @toggleAutoPass="toggleAutoPass()"
                         @powerPlantClick="powerPlantClick($event)"
                         @discardResource="discardResource($event)"
                     />
@@ -960,7 +965,7 @@ import { bidRevision, canReopenPowering } from 'powergrid-engine/src/choice-revi
 import { availableMoves, canStoreFuel } from 'powergrid-engine/src/available-moves';
 import { powerIncome, updatePlayerCapacity } from 'powergrid-engine/src/engine';
 import { inactiveMapNetwork } from '../util/inactive-map';
-import { desktopBoardLayout } from '../util/board-layout';
+import { desktopBoardLayout, PLAYER_SETTING_ROW_HEIGHT } from '../util/board-layout';
 import { measureBoardBox } from '../util/measure-board';
 import type { BoardBox } from '../util/board-layout';
 
@@ -1131,6 +1136,34 @@ export default class Game extends Vue {
     /** BGS can take back this player's last saved move (protocol `undo:available`). */
     @Prop({ default: false })
     undoAvailable!: boolean;
+
+    @Prop({ default: null })
+    settings!: Record<string, unknown> | null;
+
+    get showAutoPass(): boolean {
+        return (
+            !this.tutorialMove &&
+            !this.preferences.analysis &&
+            this.player != null &&
+            !!this.G?.players[this.player] &&
+            (!!this.G.options.showMoney || this.settings !== null)
+        );
+    }
+    get canEditAuctionSettings(): boolean {
+        return (
+            this.showAutoPass &&
+            !this.G?.options.showMoney &&
+            this.settings !== null &&
+            !this.paused &&
+            !this.roundPlan &&
+            !this.interactionDisabled &&
+            !this.gameIsOver
+        );
+    }
+    toggleAutoPass() {
+        if (this.canEditAuctionSettings)
+            this.emitter.emit('update:setting', { name: 'autoPassBids', value: !this.settings?.autoPassBids });
+    }
 
     @Prop()
     @ProvideReactive()
@@ -3008,6 +3041,7 @@ export default class Game extends Vue {
             map: this.G?.map,
             players: this.G?.players.length,
             locale: this.preferences.locale,
+            auctionSettings: this.showAutoPass,
         });
         if (!this.shouldStack() && !this.stacked && desktopKey === this.desktopLayoutKey) return;
 
@@ -3237,12 +3271,19 @@ export default class Game extends Vue {
     @Watch('G')
     @Watch('layoutPreferencesKey')
     @Watch('hasPlanPanel')
+    @Watch('showAutoPass')
     onSceneContentChanged() {
         this.scheduleRelayout();
     }
 
     get adjustedPlayerOrder() {
         return playerOrderForDisplay(this.G, this.preferences.adjustPlayerOrder);
+    }
+
+    playerBoardOffset(index: number): number {
+        const ownIndex = this.player == null ? -1 : this.adjustedPlayerOrder.indexOf(this.player);
+        const extraHeight = this.showAutoPass && ownIndex >= 0 && ownIndex < index ? PLAYER_SETTING_ROW_HEIGHT : 0;
+        return 110 * index + extraHeight;
     }
 
     get uraniumMineRemoval(): number | undefined {

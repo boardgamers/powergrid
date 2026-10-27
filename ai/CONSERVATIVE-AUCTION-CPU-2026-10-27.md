@@ -1,5 +1,62 @@
 # Conservative auction CPU benchmark and owner recovery — 27 October 2026
 
+**Current — actual 8840U run launched:** the recovered local reference completed
+all **300 requests**, preserving the original 273 byte for byte and executing
+only the missing 27. It passed independent per-request validation with zero caps.
+Local final status SHA-256 is
+`2bb3b20bc4a3eabed57a5c5507ddaa33bdce99b6eb901c7e7a661ba72365a072`.
+Recovery PID 2050537 has exited; do not rerun it.
+
+The unchanged package is now running on **AMD Ryzen 7 8840U w/ Radeon 780M
+Graphics**, remote PID **3200567**, directory
+`/home/coyotte508/powergrid-ai-conservative-auction-8840u-v2` on `minipc`.
+The exact remote command was independently verified alive at **113/300 requests**.
+Guard: `strong/conservative-auction-8840u-launch-v2.json`. Re-inspect that original
+PID through `recover-conservative-auction-cpu-v2.py inspect-target`; do not launch
+again. After terminal success and process exit, use `collect-target`, then
+`analyze_conservative_auction_cpu_v2.py`. Full local/target parity and target costs
+remain pending; partial timings are not reported as completed results.
+
+The complete local reference, target guard and launch snapshot are indexed by
+`strong/conservative-auction-cpu-target-launch-evidence-v2.json`. The source
+package and all policy settings remain unchanged. No HF submissions, gradients,
+new strength games, qualification or reserved seeds were used for this work.
+
+**Latest local recovery:** exec session 24932 ended with code **143** after
+**273/300 requests**. PID 1904528 and its package workers were absent; all stderr
+files were empty, no STOP marker existed, and all 273 complete receipts were intact.
+The original state and receipt file remain unchanged. The termination source is
+unknown. This was not recorded as a successful full local run.
+
+After inspection, `strong/recover-conservative-auction-cpu-v2.py` independently
+re-audited the prefix and started only the **27 missing requests** in a separate
+directory. Three tests reject changed/duplicated/out-of-order prefixes, a live
+original, STOP markers and unexpected failure/count states. Recovery **PID 2050537**
+is detached and tracked by `strong/conservative-auction-cpu-local-recovery-launch-v2.json`.
+State: `runs/conservative-auction-8840u-local-recovered-v2/status.json`.
+Log: `runs/conservative-auction-8840u-prepared-v2/local-recovery.log`.
+At the last live check it had **278/300 total requests**, including five new suffix
+requests. Verify `/proc/2050537/cmdline` as NUL-separated arguments, not a string
+containing spaces. Preserve the guard; never launch another local recovery.
+
+This produces a two-segment **correctness reference only**. The new process's
+startup cost is recorded separately and must not be presented as an uninterrupted
+local latency benchmark. The original immutable package, frozen policies and full
+300-request target benchmark remain unchanged. After recovered reference success,
+use these commands instead of the old manager's target operations:
+
+```sh
+ai/.venv/bin/python -B ai/strong/recover-conservative-auction-cpu-v2.py launch-target
+ai/.venv/bin/python -B ai/strong/recover-conservative-auction-cpu-v2.py inspect-target
+ai/.venv/bin/python -B ai/strong/recover-conservative-auction-cpu-v2.py collect-target
+```
+
+Both original **two-player HF pilots are now completed and audited (16 games)**;
+the two six-player handles remain RUNNING. Recovery coordinator PID 1919833 is
+live with all 24 pins unchanged. Zero development jobs or replacements have been
+submitted. Do not compete with it. The local interruption/recovery evidence is
+indexed by `strong/conservative-auction-cpu-recovery-evidence-v2.json`.
+
 **Timing review addition:** `strong/analyze_conservative_auction_cpu_v2.py` now
 requires the complete independently audited 8840U result before producing a
 report. Five tests verify complete coverage, finite positive timings, separation

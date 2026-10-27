@@ -1,5 +1,42 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**Latest — actual 8840U benchmark is running; local parity reference complete.**
+
+The preserved 273 responses plus the 27-request recovery passed all **300 local
+checks, zero caps**. Recovery PID 2050537 has exited. The unchanged full benchmark
+is now running on `minipc` / **AMD Ryzen 7 8840U**, remote **PID 3200567**, last
+directly checked alive at 113/300 requests. Use the
+[current CPU handoff](CONSERVATIVE-AUCTION-CPU-2026-10-27.md) and only
+`recover-conservative-auction-cpu-v2.py inspect-target` / `collect-target`.
+Never relaunch the existing guard. Full cross-host parity and target costs are
+still pending. A completed correctness reference is not a new strength result.
+
+The HF recovery owner **PID 1919833** remains the only collector/submitter for the
+original pilots and subsequent grid. Both 2p pilots are audited; both 6p pilots
+are running. No replacements or new HF submissions from the CPU work. The 10,080
+development games are still gated on all four complete pilots. Final seeds unused.
+
+---
+
+**Latest — local CPU reference recovered from 273 preserved requests; two HF pilots audited.**
+
+Use [the updated CPU/recovery handoff](CONSERVATIVE-AUCTION-CPU-2026-10-27.md).
+Local exec session 24932 ended with code 143; original PID 1904528 and workers
+are absent. Its 273 audited responses and unfinished status remain intact.
+Only the remaining 27 fixed requests are running under detached **PID 2050537**,
+state `runs/conservative-auction-8840u-local-recovered-v2/status.json`; last live
+check 278/300. The package/policies are unchanged. This is a split correctness
+reference, not uninterrupted local timing. Three prefix-recovery tests pass.
+After success use `recover-conservative-auction-cpu-v2.py launch-target`, then
+`inspect-target` / `collect-target`; do not restart the old local benchmark.
+
+The actual 8840U benchmark is still unlaunched. The sole HF recovery coordinator
+**PID 1919833** remains live with 24 unchanged pins. Both 2p pilots are audited
+(16 games); both 6p pilots remain RUNNING. No new HF jobs/replacements/development
+submissions from this work, no new strength claim, no qualification or final seeds.
+
+---
+
 **Latest — 27 October, 20:03 UTC: reviewed owner recovery; CPU reference replay running.**
 
 Start with [the current CPU/recovery handoff](CONSERVATIVE-AUCTION-CPU-2026-10-27.md).

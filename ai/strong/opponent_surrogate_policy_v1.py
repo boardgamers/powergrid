@@ -81,7 +81,26 @@ class SurrogatePolicy:
 
     def predict_batch(self, observations):
         if not observations: return []
-        packed = [inputs(o) for o in observations]
+        result, packed, positions = [0] * len(observations), [], []
+        for position, observation in enumerate(observations):
+            if len(observation['actions']) == 1:
+                # A sealed-auction initiator can have exactly enough money for
+                # the required bid. Forced menus have no strategic shortlist,
+                # so execute their sole legal action without neural inference.
+                assert observation['featureRevision'] == FEATURE_REVISION
+                state = np.asarray(observation['state'], np.float32)
+                actions = np.asarray(observation['actions'], np.float32)
+                assert state.shape == (1217,) and actions.shape == (1, 101)
+                assert np.isfinite(state).all() and np.isfinite(actions).all()
+                assert state[-1] == 0 and np.array_equal(state[:6], observation['playerMask'])
+                assert actions[0, 100] == 0
+                assert 'moves' not in observation or len(observation['moves']) == 1
+            else:
+                packed.append(inputs(observation))
+                positions.append(position)
+        if not packed: return result
         data = {k: np.stack([row[k] for row in packed]) for k in ('state', 'actions', 'mask')}
         choices = np.where(data['mask'], self.scores(data), -np.inf).argmax(1)
-        return [int(row['legal_indices'][choice]) for row, choice in zip(packed, choices)]
+        for position, row, choice in zip(positions, packed, choices):
+            result[position] = int(row['legal_indices'][choice])
+        return result

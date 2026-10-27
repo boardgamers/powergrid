@@ -24,12 +24,47 @@ for (const fixture of fixtures) {
 assert.equal(cells.size, 80); assert.equal(strategicCells.size, 60);
 
 function priorChoice(observation) {
+    if (observation.actions.length === 1) return 0;
     let best = -1;
     observation.actions.forEach((a, i) => {
         if (a[100] === 1 && (best < 0 || a[74] > observation.actions[best][74])) best = i;
     });
     assert(best >= 0); return best;
 }
+
+test('recovered six-player sealed prior accepts only the unique forced bid', () => {
+    const fixture = require('./fixtures/conservative-auction-forced-prior-v1.json');
+    const request = fixture.request, root = preparePolicy({...request, featureRevision: revision});
+    const forced = root.prior.find(p => p.encoded.moves.length === 1);
+    assert(forced);
+    assert.equal(forced.actor, 2);
+    assert.deepEqual(forced.encoded.moves, [{name: 'Bid', data: 26}]);
+    assert.equal(forced.encoded.state.at(-1), 0);
+    assert.equal(forced.encoded.actions[0][100], 0);
+    const q = config(request), before = structuredClone(q);
+    const batch = new SurrogateContinuations();
+    batch.reset(q);
+    assert.deepEqual(q, before);
+    assert(batch.envs.every(e => e.initialBelief.committed.some(p =>
+        p.actor === 2 && p.action.name === 'Bid' && p.action.data === 26)));
+    const forcedPass = root.prior.find(p => p.encoded.moves.length === 1 && p.encoded.moves[0].name === 'Pass');
+    assert(forcedPass);
+    const illegalPassReplacement = structuredClone(q);
+    illegalPassReplacement.surrogateBeliefs[0][forcedPass.actor] = {name: 'Bid', data: 26};
+    assert.throws(() => new SurrogateContinuations().reset(illegalPassReplacement), /outside public shortlist/);
+    for (const wrong of [{name: 'Pass'}, {name: 'Bid', data: 27}]) {
+        const bad = structuredClone(q); bad.surrogateBeliefs[0][forced.actor] = wrong;
+        assert.throws(() => new SurrogateContinuations().reset(bad), /outside public shortlist/);
+    }
+    const broadRequest = structuredClone(request);
+    broadRequest.state.players[forcedPass.actor].money = 80;
+    const broad = preparePolicy({...broadRequest, featureRevision: revision});
+    const prior = broad.prior.find(p => p.encoded.moves.length > 1 && p.encoded.actions.some(a => a[100] === 0));
+    assert(prior, 'Need a real choice to check that shortlist enforcement is preserved');
+    const bad = config(broadRequest);
+    bad.surrogateBeliefs[0][prior.actor] = prior.encoded.moves[prior.encoded.actions.findIndex(a => a[100] === 0)];
+    assert.throws(() => new SurrogateContinuations().reset(bad), /outside public shortlist/);
+});
 function config(request, mode = 'surrogate_opponent_v1') {
     const root = preparePolicy({...request, featureRevision: revision});
     const options = root.moves.map((_, i) => i).filter(i => !root.lossFilter.forbidden.includes(i)).slice(0, 2);

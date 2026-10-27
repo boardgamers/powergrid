@@ -62008,5 +62008,35 @@
         "measured_total_cpu_seconds": 53035.92,
         "failure": "Original dual/6p job ERROR: public-policy assertion at episode 5, request 5:21; no replacement.",
         "completion_followup_terminal_action": "Pause after verified delivery"
+    },
+    "conservative_auction_forced_prior_recovery_v1": {
+        "created_at": "2026-10-27T19:08:51.581476+00:00",
+        "status": "forced-prior bug fixed and one recovered request independently verified",
+        "goal_status": "active",
+        "user_instruction": "do ai research",
+        "handoff": "ai/CONSERVATIVE-AUCTION-RECOVERY-2026-10-27.md",
+        "new_hf_jobs_submitted": 0,
+        "development_jobs_submitted": 0,
+        "new_strength_games": 0,
+        "gradient_updates": 0,
+        "grid_admitted": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "next_action": "Prepare separately identified HF runtime pilot and audit complete games/resources before development-grid admission.",
+        "results": "ai/strong/conservative-auction-forced-prior-results-v1.json",
+        "results_sha256": "dc0ed24f6c73e945aefe3764e6dac0d0206d29dcb84a7aba7b353570b26696c6",
+        "evidence_descriptor": "ai/strong/conservative-auction-forced-prior-evidence-v1.json",
+        "counts": {
+            "decisions": 1,
+            "neural_decisions": 11184,
+            "rollout_caps": 0,
+            "rollouts": 96,
+            "root_filter_overrides": 0,
+            "search_changes": 0,
+            "search_decisions": 1,
+            "surrogate_decisions": 6252
+        },
+        "original_failed_job": "6addea04046eb82b1ece4fb1",
+        "original_run_complete": false
     }
 }

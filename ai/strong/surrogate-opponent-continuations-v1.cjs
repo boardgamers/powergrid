@@ -45,7 +45,9 @@ class SurrogateContinuations extends ReferenceContinuations {
                 const action = inferred[p.actor];
                 assert(action && ['Bid', 'Pass'].includes(action.name));
                 const index = p.encoded.moves.findIndex(m => isDeepStrictEqual(m, action));
-                assert(index >= 0 && p.encoded.actions[index][100] === 1, 'Prior bid outside public shortlist');
+                // Forced prior bids have no strategic shortlist. They must
+                // still exactly match the unique public legal action.
+                assert(index >= 0 && (p.encoded.moves.length === 1 || p.encoded.actions[index][100] === 1), 'Prior bid outside public shortlist');
             }
         }
         this.mode = q.mode; this.endgameFilter = true; this.hybridEncoder = this.encoder = encoder;

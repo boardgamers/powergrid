@@ -1,4 +1,42 @@
-# Power Grid AI — PAUSED, 25 October 2026
+# Power Grid AI — resumed, 27 October 2026
+
+**Current instruction — 27 October 2026: the user explicitly said “do ai research”.**
+
+Research is active again. The previous automatic continuation only inspected
+saved evidence and confirmed all four original HF jobs were terminal; it did not
+resume training. The explicit request above now supersedes the historical pause.
+
+**Recovery completed:** [27 October runtime recovery](CONSERVATIVE-AUCTION-RECOVERY-2026-10-27.md).
+The original six-player dual-population crash at `5:21` is reproduced and fixed
+in a separately identified runtime. A prior sealed bidder had a forced bid of
+26 and no strategic shortlist; the surrogate incorrectly tried to infer a choice.
+Both forced bids and passes now bypass inference and still require exact legal
+validation. The training validator, model weights and search settings are unchanged.
+
+All 1,502 original runtime files were verified. Prefix replay matched 20 original
+public requests/legal menus, excluding historical clock bookkeeping. The fixed
+request passed independent auditing of **96 continuations, zero caps**. Five
+Python and six Node tests pass; **382 saved strategic predictions** and **80
+historical population contexts** stay unchanged. This is runtime recovery, not
+a new strength result or replacement for the original failed pilot.
+
+Tools: `strong/replay-conservative-auction-failure-v1.py`,
+`strong/diagnose-conservative-auction-request-v1.py` and
+`strong/verify-conservative-auction-forced-prior-v1.py`. Local evidence is under
+`runs/conservative-auction-failure-diagnosis-v1/` and
+`runs/conservative-auction-forced-prior-v1/`. These tools do not submit HF jobs.
+The original pilot remains failed; preserve its source, receipts, archives and
+all old coordinator STOP markers. Do not restart either old coordinator.
+
+The 10,080-game development comparison is still unadmitted and unlaunched.
+Next prepare a newly identified HF runtime pilot for the corrected artifact and
+audit complete games/resources before admitting that comparison. A single
+recovered request does not satisfy full-game admission. No HF jobs were submitted
+in this recovery; no candidate is qualified; reserved final seeds remain unused.
+The original 64-game run is still incomplete, with three passing jobs and one
+failed job. Historical pause notices below describe the archived handoff.
+
+---
 
 **Current instruction — 25 October 2026: PAUSED; original runtime pilots are terminal.**
 

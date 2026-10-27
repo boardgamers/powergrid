@@ -1,5 +1,22 @@
 # Conservative auction CPU benchmark and owner recovery — 27 October 2026
 
+**Timing review addition:** `strong/analyze_conservative_auction_cpu_v2.py` now
+requires the complete independently audited 8840U result before producing a
+report. Five tests verify complete coverage, finite positive timings, separation
+of all three cold starts, deterministic receipt order and refusal of incomplete
+cross-host evidence. It preserves all 300 individual count/rule/stage points and
+separates auction-stage costs from other stages, including per-count views.
+One saved position per cell cannot estimate a deployment latency percentile;
+the review reports descriptive fixture medians/ranges without making that claim.
+After successful target collection, run:
+
+```sh
+ai/.venv/bin/python -B ai/strong/analyze_conservative_auction_cpu_v2.py
+```
+
+No target timings were produced while preparing this reader. The original CPU
+runner/package and the recovery coordinator's 24 pins remain unchanged.
+
 Research remains active. Previous turn: **progress**, independent analysis tested
 and archived. This turn: **progress**, complete-policy CPU fixture coverage prepared,
 local reference replay started, and interrupted execution ownership safely recovered.

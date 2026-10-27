@@ -62282,5 +62282,23 @@
         "reserved_final_seeds_used": false,
         "previous_goal_turn": "progress: independent complete-grid analysis tested, archived and pushed",
         "current_goal_turn": "progress: exact public projected CPU coverage prepared and local reference running; terminated waiter inspected and single recovery owner started"
+    },
+    "conservative_auction_cpu_timing_analysis_v2": {
+        "status": "complete-target timing review implemented and tested; target execution still pending",
+        "checked_at": "2026-10-27T20:11:40.571810+00:00",
+        "script": "ai/strong/analyze_conservative_auction_cpu_v2.py",
+        "script_sha256": "53fa22691be5e0cdc37548a5b62d412760a4a609f769a78d430d779004e07987",
+        "unit_tests_passed": 5,
+        "test_log_sha256": "b6c6fc29316230fe1a0af529a031070b8f2ee741d2f3c65c08f7eede24869239",
+        "input_requirement": "All 300 actual AMD8840U requests and independently verified cross-host parity",
+        "cold_requests_reported_separately": 3,
+        "all_count_rule_stage_points_retained": 300,
+        "interpretation": "Single fixed position per cell; descriptive cost only, no deployment-percentile or strength claim",
+        "new_hf_jobs": 0,
+        "new_strength_games": 0,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "previous_goal_turn": "progress: exact public CPU fixture package and reviewed owner recovery archived and pushed",
+        "current_goal_turn": "progress: target-only timing review tested, including missing evidence and adverse costs; original local replay and recovery owner verified live"
     }
 }

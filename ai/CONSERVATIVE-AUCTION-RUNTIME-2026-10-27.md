@@ -1,17 +1,24 @@
 # Corrected runtime complete; development comparison launched — 27 October 2026
 
-**Checkpoint: 22:37 UTC. Research is active.** All four original corrected-runtime
+**Checkpoint: 23:44 UTC. Research is active.** All four original corrected-runtime
 pilots completed and passed independent raw auditing: **64 games / 8,416 decisions /
 135,608 uncapped continuations**. The previously failing episode 5 completed in its
 original corrected job. These repeated engineering seeds are runtime evidence;
 they are excluded from strength estimates.
 
 The sole coordinator is **PID 1919833**, original session **94582**. Its process
-and all 24 pins were directly verified. It admitted and uploaded the unchanged
-**10,080-game / 648-job** development comparison and submitted its first **64**
-original jobs. The direct snapshot at `2026-10-27T22:35:37.906227+00:00` found **44
-COMPLETED / 20 RUNNING**, with no failed jobs. Completed remote jobs
-still require the owner's local audit. Do not run another collector or submitter.
+and all 24 pins were directly verified before and after the new recovery snapshot.
+The unchanged **10,080-game / 648-job** development comparison has **310 original
+handles** in the snapshot ending `2026-10-27T23:44:56.066451+00:00`. It captures
+**249 cached audits / 3,564 games**; direct inspection of the remaining 61
+originals found **two COMPLETED / 59 RUNNING**, with no failures or observation
+errors. No launch was unknown or in progress during this capture. Completed remote
+jobs still require the owner's local audit. Do not run another collector or submitter.
+
+The owner state still reported 246 audited jobs while the snapshot captured 249
+completed audit files. That counter is updated after collection batches, so this
+is an interval snapshot, not a claim that all counters update simultaneously.
+No partial outcomes have been used to compare or select policies.
 
 ## Completed original runtime pilots
 
@@ -75,6 +82,7 @@ Development source dataset: `coyotte508/powergrid-ai-training-v1`.
 - Source files: **2821**; the original runtime files are unchanged.
 - Descriptor: `strong/conservative-auction-development-source-v2.json`.
 - First 64 exact handles and direct statuses: `strong/conservative-auction-development-launch-state-v2.json`.
+- Later 310-handle recovery snapshot: `strong/conservative-auction-development-progress-state-v2.json`.
 - Original per-job guards: `runs/conservative-auction-development-hf-v2/*/launch.json`.
 - Recovery owner state: `runs/conservative-auction-development-coordinator-recovery-v2/state.json`.
 
@@ -93,6 +101,24 @@ Inspect the actual process and original handles. Observation timeouts are not
 stopped jobs. The owner audits each completed batch before launching the next and
 stops on failures; never restart or replace a failed original automatically.
 Do not invoke either manager's collect or launch operation beside the live owner.
+
+The later snapshot and its archive descriptor
+`strong/conservative-auction-development-progress-evidence-v2.json` preserve
+original launch guards, completed cached audits, their local artifact manifests,
+exact immutable raw-archive references and before/after owner states. They add
+recovery coverage beyond the first 64-handle launch archive. The snapshotter only
+reads study files and inspects exact existing handles; it cannot collect or submit.
+It does not replace the original raw audits with a new strength analysis.
+
+Snapshot copies are nested under
+`runs/conservative-auction-development-progress-snapshot-v2/`, retaining their
+repository-relative paths. Do not restore them over a live owner. If recovery
+becomes necessary, first verify the actual original process and every relevant
+handle. Restore missing raw job artifacts from each captured `evidence` reference,
+verifying the immutable revision/archive SHA and manifest, before relying on cached
+`verified.json` files: the metadata snapshot does not duplicate those large raw
+archives. Preserve existing original guards and failed/uncertain evidence. Never
+infer permission to relaunch from a missing local artifact or observation timeout.
 
 After **all 648 jobs / 10,080 games** complete and pass auditing, run the existing
 independent comparison with the explicit recovery owner path:

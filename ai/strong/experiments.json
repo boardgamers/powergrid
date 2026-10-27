@@ -62756,5 +62756,42 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "next": "Finish the unchanged auction comparison. Freeze a separate complete-game experiment and artifact before testing whether resource commitment or stable within-turn sampling improves strength."
+    },
+    "conservative_auction_development_progress_checkpoint_v2": {
+        "recorded_at": "2026-10-27T23:50:21.100962+00:00",
+        "status": "incomplete_study_recovery_checkpoint",
+        "snapshot": "ai/strong/conservative-auction-development-progress-state-v2.json",
+        "snapshot_sha256": "ca156d1721b90637956d23851626d6901531e807d76683a0fbe30f711088cd9b",
+        "snapshot_started_at": "2026-10-27T23:44:53.629726+00:00",
+        "snapshot_finished_at": "2026-10-27T23:44:56.066451+00:00",
+        "launched_handles_captured": 310,
+        "cached_audits_captured": 249,
+        "games_in_captured_cached_audits": 3564,
+        "directly_inspected_handles": 61,
+        "statuses": {
+            "COMPLETED": 251,
+            "RUNNING": 59
+        },
+        "owner_live_before_and_after": true,
+        "all_24_pins_match": true,
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "aa00e3f5cf542771c6fbcd9533fea61830e8e3cd",
+            "archive_path": "archives/conservative-auction-development-progress-evidence-v2.tgz",
+            "archive_sha256": "582f42a085187992353ac954dcad92e698c8100537abdfeece0cd81424cfc523",
+            "manifest_sha256": "3d953e05a107f7095d3318864bc04919f82ea1e43a6c797d0369e4f4996bd698",
+            "archived_files": 851,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "raw_job_archives_referenced_not_duplicated": 249,
+        "cached_raw_audits_not_reexecuted": true,
+        "new_hf_jobs": 0,
+        "new_inference": 0,
+        "new_games": 0,
+        "complete": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Leave the sole live owner collecting/submitting the frozen 648-job comparison. This timestamped checkpoint is recovery metadata only; no partial outcome analysis or policy selection."
     }
 }

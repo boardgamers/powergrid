@@ -1,18 +1,20 @@
 # Power Grid AI — resumed, 27 October 2026
 
-**Current checkpoint — 27 October, 22:37 UTC. Research is active.**
+**Current checkpoint — 27 October, 23:44 UTC. Research is active.**
 
 All four corrected runtime pilots passed: **64 games / 8,416 decisions / 135,608
 uncapped continuations**, independently re-audited from their raw archives. The
 original v1 failure remains preserved. No strength claim is made from these
 repeated engineering seeds.
 
-The sole recovery coordinator **PID 1919833 / session 94582** has admitted and
-launched the frozen **10,080-game / 648-job** comparison. The first **64** original
-jobs were directly inspected at `2026-10-27T22:35:37.906227+00:00`: **44 completed,
-20 running, zero failed**. Its 24 pins and actual process match. Only
-this owner may collect or submit; it audits completed batches before launching
-more, with at most 64 active jobs. Read [the current execution handoff](CONSERVATIVE-AUCTION-RUNTIME-2026-10-27.md).
+The sole recovery coordinator **PID 1919833 / session 94582** is running the frozen
+**10,080-game / 648-job** comparison. The recovery snapshot ending
+`2026-10-27T23:44:56.066451+00:00` captures **310 original handles**, **249 cached
+audits / 3,564 games**, two further completed originals awaiting audit and **59
+running**. No failure, unknown launch or observation error appeared. Its process
+and all 24 pins match. The snapshot binds cached audits to source/launch/manifests;
+it does not redo their raw audits or analyze partial outcomes. Only this owner may
+collect or submit, with at most 64 active jobs. Read [the current execution handoff](CONSERVATIVE-AUCTION-RUNTIME-2026-10-27.md).
 
 The actual **AMD 8840U** benchmark is complete: **300/300 exact responses**, 600
 raw receipts audited, zero caps. Warm auction medians are **5.89 ms** for

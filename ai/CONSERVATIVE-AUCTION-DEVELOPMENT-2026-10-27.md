@@ -1,5 +1,11 @@
 # Conservative auction comparison — execution readiness, 27 October 2026
 
+**Update, 19:48 UTC:** independent [analysis tooling is ready](CONSERVATIVE-AUCTION-ANALYSIS-2026-10-27.md)
+with 14 passing tests. The sole owner is alive; all 22 pins remain unchanged.
+One population/2p pilot is audited, the other three original pilots are running,
+and zero development jobs have been submitted. Do not invoke the comparison on
+partial results. The execution readiness snapshot below is historical.
+
 The research goal is active. A **single new coordinator** owns collection of the
 four corrected-runtime pilots and subsequent execution of the already frozen
 10,080-game development comparison. No model selection, gradients, reserved

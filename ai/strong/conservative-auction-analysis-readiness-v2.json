@@ -1,0 +1,98 @@
+{
+  "analysis_readiness_verified": true,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "11d4f66038c52edee0afad94cce1fcc9c4ae4ad7",
+    "archive_path": "archives/conservative-auction-analysis-readiness-v2.tgz",
+    "archive_sha256": "b36d8b45acb86928f1497acd816fc00c4f59f0f3e065a47937706e83f5c14f70",
+    "manifest_sha256": "2c7b47f0bb495f20f46c3a8a35e55eccbc34ee45543e8845d676a300a75e8772",
+    "archived_files": 13,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "checkpoint": {
+    "created_at": "2026-10-27T19:49:57.366656+00:00",
+    "owner_snapshot": {
+      "pid": 1685160,
+      "started_at": "2026-10-27T19:31:44.057702+00:00",
+      "stage": "waiting_for_original_pilots",
+      "code_hashes": {
+        "ai/strong/coordinate-conservative-auction-development-v2.py": "7d5ec733fd90fe0e01d6a714ec51de298e6543c6d0179f5d33411a2b17eb01b4",
+        "ai/strong/prepare-conservative-auction-development-v2.py": "1b94cb8afdbf659221d6c427b29bb38e42f169eb69d4b09ca8fbc7859bf0ceb3",
+        "ai/strong/manage-conservative-auction-development-v2.py": "71de7790089d386a5c6f43f2800923de025fcc179fed49def80058bc9d056af4",
+        "ai/strong/manage-conservative-auction-runtime-v2.py": "ce34f174fb6e1c58cddb308c0df3c70e705c4ef23317ea2513e97d9ed20def51",
+        "ai/strong/prepare-conservative-auction-runtime-v2.py": "86eda6f282b0a7557e2cb260d855c48a760ec524d0358981514af2de7a515ffc",
+        "ai/strong/manage-public-policy-development-hf-v1.py": "be2d43c0063e79c7de3b64151a467975573a885c5e962ef7f096956a3dcbd535",
+        "ai/strong/public_policy_development_job_v1.py": "e216f1558602ff8665da0e712d15f419afaec297a2d5194e4d61c0e74be16f1b",
+        "ai/strong/public_policy_final_audit_v1.py": "a006c43bac3862f29e9e39178324b93c1464059945467461f203e90df196a482",
+        "ai/strong/public_policy_final_contract_v1.py": "211e143a278fe6e5d0eb0b3654061130b6141b1518fd07297162307c39487103",
+        "ai/strong/public_policy_arena_v1.py": "1288ffb3d42a3c351c805c652e7c9c5f63b284f6c7061c7436f6ba06e9fc14eb",
+        "ai/strong/public_policy_runtime_v1.py": "0ded20877badd3f2c0ded746f5f743fbca6447084ed764a1e3b7ad8d6617fd3a",
+        "ai/strong/opponent_auction_verification_v1.py": "1383f64de5c064459c62b5ba2b8e222bdc2369ed7f8505e7cf96615743416f7c",
+        "ai/strong/opponent_auction_policy_v1.py": "c6f560330eec8035b1356d441a43a8c80e82138a852039b2494f4f827337c688",
+        "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+        "ai/strong/conservative-auction-development-protocol-v2.json": "51b845f4a57c3131475e24267fbbb08eb624c391aa6a8e6a4f5d5c6b8ac718ee",
+        "ai/strong/test_conservative_auction_development_plan_v2.py": "cc26aec22e8e71262f58563afc1870bfdc839afaed4dc504320f299c7a8a54e0",
+        "ai/strong/test_conservative_auction_development_manager_v2.py": "5b224d714a238ff90f7768e674bf60d78875639c444747a6a1729ed1703602a8",
+        "ai/strong/test_conservative_auction_development_coordinator_v2.py": "c6b75ff77f64fdd02df4ab53d0e62a3a5ff1161d0debf39968f0a21999da56e0",
+        "ai/strong/opponent_surrogate_policy_v1.py": "bb09dc4021eae8c0bcbde67704ffd2a9dbb933e098038e62bb26b58bb4b9b5db",
+        "ai/strong/surrogate-opponent-continuations-v1.cjs": "f796518c0296939e02dbd46a35c5bb925dea085035aa96e6e4f0be40f436dcc9",
+        "ai/strong/surrogate_opponent_continuations_v1.py": "00dfc09f14a2cfe0763f7466b60cc4c9fc315daca237e917c729136bc61044b5",
+        "ai/strong/surrogate_continuation_study_v1.py": "657c882af7cc2012fcaa7a34f9512efd7d3fa7e1c28dc420f6585838c556dd6a"
+      },
+      "pilots_verified": 1,
+      "development_verified": 0,
+      "development_submitted": 0,
+      "new_gradients": 0,
+      "qualified": false,
+      "reserved_final_seeds_used": false,
+      "max_active_development_jobs": 64,
+      "automatic_restarts": false,
+      "updated_at": "2026-10-27T19:49:12.648907+00:00",
+      "original_pilots": [
+        "6ae0fa243fb22a235dd31616",
+        "6ae0fa2541e90535df7674df",
+        "6ae0fa2541e90535df7674e1",
+        "6ae0fa2541e90535df7674e3"
+      ]
+    },
+    "owner_verified_live": true,
+    "original_pilot_statuses": [
+      {
+        "job_id": "6ae0fa243fb22a235dd31616",
+        "stage": "COMPLETED"
+      },
+      {
+        "job_id": "6ae0fa2541e90535df7674df",
+        "stage": "RUNNING"
+      },
+      {
+        "job_id": "6ae0fa2541e90535df7674e1",
+        "stage": "RUNNING"
+      },
+      {
+        "job_id": "6ae0fa2541e90535df7674e3",
+        "stage": "RUNNING"
+      }
+    ],
+    "analysis_tests_passed": 14,
+    "numpy_version": "2.4.6",
+    "synthetic_outcomes_are_not_evidence": true,
+    "actual_archive_reader_check": {
+      "job_id": "6ae0fa243fb22a235dd31616",
+      "revision": "05345057533b5fd407f8466c4dea0f720e22511c",
+      "archive_sha256": "daf7312d68a97860ca5ce3df037ae76f30067d65bfd523aebb0fc7ed666997aa",
+      "scope": "Previously independently verified archive-reader check; no pilot strength interpretation"
+    },
+    "previous_goal_turn": "verified wait on original owner and four exact HF handles",
+    "current_goal_turn": "progress: complete-grid independent analysis implemented and tested; execution pins preserved",
+    "analysis_executed_on_development_grid": false,
+    "new_jobs_from_analysis_work": 0,
+    "candidate_selected": false,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false
+  },
+  "full_development_comparison_complete": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

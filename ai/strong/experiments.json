@@ -62038,5 +62038,81 @@
         },
         "original_failed_job": "6addea04046eb82b1ece4fb1",
         "original_run_complete": false
+    },
+    "conservative_auction_runtime_v2": {
+        "status": "running; four corrected-runtime engineering pilots",
+        "goal_status": "active",
+        "handoff": "ai/CONSERVATIVE-AUCTION-RUNTIME-2026-10-27.md",
+        "source_descriptor": "ai/strong/conservative-auction-runtime-source-v2.json",
+        "source_descriptor_sha256": "4c82ce863c8aaa4c63919af8f88a6548578a5f48f32a34176f785ebdb41152cf",
+        "launch_snapshot": "ai/strong/conservative-auction-runtime-launch-state-v2.json",
+        "evidence_descriptor": "ai/strong/conservative-auction-runtime-launch-evidence-v2.json",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "a26e2fe4f4e20bacf9fc6098c1dadf270edd0262",
+            "archive_path": "archives/conservative-auction-runtime-launch-evidence-v2.tgz",
+            "archive_sha256": "c941fdf912c6d7df2b82ab3b821e8cc3a3560552453e77b90e209f070d7705fe",
+            "manifest_sha256": "8ab0a8102c4617b111c055e013dea967e6681750b271a6a9a4b02ed6ec23c351",
+            "archived_files": 82,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "jobs": [
+            {
+                "checked_at": "2026-10-27T19:24:13.651968+00:00",
+                "job_id": "6ae0fa243fb22a235dd31616",
+                "stage": "RUNNING",
+                "name": "conservative-auction-runtime-v2-conservative_population-2p",
+                "arm": "conservative_population",
+                "players": 2,
+                "games": 8,
+                "launch_guard_sha256": "09090d11f707d5b74c381bc14ee316e5dea05f188dfa8cd7fb4c5e8101ca9edb"
+            },
+            {
+                "checked_at": "2026-10-27T19:24:13.875771+00:00",
+                "job_id": "6ae0fa2541e90535df7674df",
+                "stage": "RUNNING",
+                "name": "conservative-auction-runtime-v2-conservative_population-6p",
+                "arm": "conservative_population",
+                "players": 6,
+                "games": 24,
+                "launch_guard_sha256": "634538fae83d1d540355c6e0ba301bc2b4f1caff01d44e0b2d76d773f1672e07"
+            },
+            {
+                "checked_at": "2026-10-27T19:24:14.218782+00:00",
+                "job_id": "6ae0fa2541e90535df7674e1",
+                "stage": "RUNNING",
+                "name": "conservative-auction-runtime-v2-conservative_dual-2p",
+                "arm": "conservative_dual",
+                "players": 2,
+                "games": 8,
+                "launch_guard_sha256": "9b7dded2fd8956bb7884aa59b263fff74bd4231757e60500bbb8883de77f9ddf"
+            },
+            {
+                "checked_at": "2026-10-27T19:24:14.454287+00:00",
+                "job_id": "6ae0fa2541e90535df7674e3",
+                "stage": "RUNNING",
+                "name": "conservative-auction-runtime-v2-conservative_dual-6p",
+                "arm": "conservative_dual",
+                "players": 6,
+                "games": 24,
+                "launch_guard_sha256": "d491e5767e2482cb2554f66b9e32ce5b450f8fd3a56ee15e24cc93768835181a"
+            }
+        ],
+        "preflight_fixtures": 72,
+        "preflight_exact_continuations": 1992,
+        "recovered_request_continuations": 96,
+        "wrapper_control_games": 8,
+        "wrapper_exact_decisions": 1607,
+        "launch_guard_tests": 7,
+        "new_hf_jobs_submitted": 4,
+        "runtime_games_planned": 64,
+        "new_strength_games": 0,
+        "gradient_updates": 0,
+        "development_jobs_submitted": 0,
+        "grid_admitted": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "old_runtime_run_remains_incomplete": true
     }
 }

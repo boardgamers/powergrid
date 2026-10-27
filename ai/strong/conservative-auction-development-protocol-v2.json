@@ -1,0 +1,396 @@
+{
+  "version": 2,
+  "created_at": "2026-10-27T19:15:31.221555+00:00",
+  "purpose": "Fresh whole-game development comparison of conservative auction search and opponent-population coverage. No final candidate selection or qualification.",
+  "decision_sha256": "84f53c909674fada577e81d2180cf8acb9fc0f01b903713a99791414ad430ea9",
+  "fidelity_evidence": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "afe515a3d64dda6f7828c0654ad4fdfab0f481d2",
+    "archive_path": "archives/surrogate-continuation-study-complete-evidence-v1.tgz",
+    "archive_sha256": "66dab2b8db7d583beabefef81e1c4163d1b82f65039cb58acbd287edb0fc247c",
+    "manifest_sha256": "32bf2d2c656844e704a5899659b9eafa2b4773cd9c34e697eabeb8ab35ce9388"
+  },
+  "portable_source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "revision": "7a906a9012c8a242b7b6cddb5200b38e042f1169",
+    "archive": "strong-source-public-policy-development-hf-v1.tgz",
+    "sha256": "14253f8fa6acf27a6182c4ba26485cb935038c3df25305043a7ee3c06208f94b",
+    "source_manifest_sha256": "4a5ac5cad84950dbd1b0934324f648bed7400a2d456fec19553653765916d22a"
+  },
+  "portable_hf_evidence": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "5e52973c25a31a945b16773bea1acfc2d64e9b84",
+    "archive_path": "archives/public-policy-development-hf-evidence-v1.tgz",
+    "archive_sha256": "945cb20836d00f17040138df70b5050c01e354862f3ca57f8e8247d74e68b78a",
+    "manifest_sha256": "398f1bf1932b84c59c203db8c2898619672b2d1d057a6e1e79289359684923aa",
+    "archived_files": 51,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "base_runtime_manifest_sha256": "a2047543f5f6a8065dd9b868dd4551531147185068c665900691c5b13c278619",
+  "model_pin": {
+    "key": "frozen-1",
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "6b6009756d7b5968bc5b6425efc84a94aab2a1d6",
+    "prefix": "runs/policy-iteration-training-v2-frozen/ensemble-1/derivative",
+    "files": {
+      "inference64.pt": "3c17d4228e7446f8859aa01e79020ed91f454312925d29c153a76f49f94118da",
+      "inference64.onnx": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+    },
+    "feature_revision": "4.3-strategic-correction",
+    "model_args": {
+      "head_type": "frozen",
+      "heads": 4,
+      "margin": 0.025,
+      "parent_margin": 0.025,
+      "disagreement_penalty": 1.0
+    },
+    "training_verified": true,
+    "parent_frozen": true,
+    "seeds": [
+      12101,
+      12102,
+      12103,
+      12104
+    ],
+    "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+    "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+    "training_verified_sha256": "881c8a4b34f937575cb3f3c851db794f81908621f4a93e47f467be852845974f",
+    "strict_parity_positions": 2553,
+    "cached_positions_checked": 17280,
+    "qualification_eligible": false
+  },
+  "arms": {
+    "filter": {
+      "backend": "population-v1",
+      "feature_revision": "4.3-strategic-correction",
+      "model": {
+        "path": "policy.onnx",
+        "sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+      },
+      "runtime_manifest": {
+        "path": "manifest.json",
+        "sha256": "a2047543f5f6a8065dd9b868dd4551531147185068c665900691c5b13c278619"
+      },
+      "settings": {
+        "arm": "filter",
+        "max_steps": 2400,
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      },
+      "version": 1
+    },
+    "conservative_population": {
+      "backend": "opponent-auction-v1",
+      "feature_revision": "4.3-strategic-correction",
+      "model": {
+        "path": "policy.onnx",
+        "sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+      },
+      "opponent": {
+        "path": "ai/strong/fixtures/surrogate-continuation-selected-members-v1/policy.json",
+        "sha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+      },
+      "runtime_manifest": {
+        "path": "manifest.json",
+        "sha256": "a2047543f5f6a8065dd9b868dd4551531147185068c665900691c5b13c278619"
+      },
+      "settings": {
+        "arm": "auction",
+        "max_steps": 2400,
+        "minimum_advantage": "1/8",
+        "population_modes": [
+          "neural_population"
+        ],
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      },
+      "version": 1
+    },
+    "conservative_dual": {
+      "backend": "opponent-auction-v1",
+      "feature_revision": "4.3-strategic-correction",
+      "model": {
+        "path": "policy.onnx",
+        "sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+      },
+      "opponent": {
+        "path": "ai/strong/fixtures/surrogate-continuation-selected-members-v1/policy.json",
+        "sha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+      },
+      "runtime_manifest": {
+        "path": "manifest.json",
+        "sha256": "a2047543f5f6a8065dd9b868dd4551531147185068c665900691c5b13c278619"
+      },
+      "settings": {
+        "arm": "auction",
+        "max_steps": 2400,
+        "minimum_advantage": "1/8",
+        "population_modes": [
+          "neural_population",
+          "surrogate_opponent_v1"
+        ],
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      },
+      "version": 1
+    }
+  },
+  "seed_template": "conservative-auction-development-v1-{players}p",
+  "runtime_seed_template": "conservative-auction-runtime-v1-{players}p",
+  "deal_offsets": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "screens": [
+    {
+      "players": 2,
+      "opponent": "economic",
+      "deals": 8,
+      "games": 64
+    },
+    {
+      "players": 2,
+      "opponent": "search_geo",
+      "deals": 8,
+      "games": 64
+    },
+    {
+      "players": 2,
+      "opponent": "legacy",
+      "deals": 8,
+      "games": 64
+    },
+    {
+      "players": 2,
+      "opponent": "heuristic",
+      "deals": 8,
+      "games": 64
+    },
+    {
+      "players": 2,
+      "opponent": "rush",
+      "deals": 8,
+      "games": 64
+    },
+    {
+      "players": 3,
+      "opponent": "economic",
+      "deals": 8,
+      "games": 96
+    },
+    {
+      "players": 3,
+      "opponent": "search_geo",
+      "deals": 8,
+      "games": 96
+    },
+    {
+      "players": 3,
+      "opponent": "legacy",
+      "deals": 8,
+      "games": 96
+    },
+    {
+      "players": 3,
+      "opponent": "heuristic",
+      "deals": 8,
+      "games": 96
+    },
+    {
+      "players": 3,
+      "opponent": "rush",
+      "deals": 8,
+      "games": 96
+    },
+    {
+      "players": 4,
+      "opponent": "economic",
+      "deals": 8,
+      "games": 128
+    },
+    {
+      "players": 4,
+      "opponent": "search_geo",
+      "deals": 8,
+      "games": 128
+    },
+    {
+      "players": 4,
+      "opponent": "legacy",
+      "deals": 8,
+      "games": 128
+    },
+    {
+      "players": 4,
+      "opponent": "heuristic",
+      "deals": 8,
+      "games": 128
+    },
+    {
+      "players": 4,
+      "opponent": "rush",
+      "deals": 8,
+      "games": 128
+    },
+    {
+      "players": 5,
+      "opponent": "economic",
+      "deals": 8,
+      "games": 160
+    },
+    {
+      "players": 5,
+      "opponent": "search_geo",
+      "deals": 8,
+      "games": 160
+    },
+    {
+      "players": 5,
+      "opponent": "legacy",
+      "deals": 8,
+      "games": 160
+    },
+    {
+      "players": 5,
+      "opponent": "heuristic",
+      "deals": 8,
+      "games": 160
+    },
+    {
+      "players": 5,
+      "opponent": "rush",
+      "deals": 8,
+      "games": 160
+    },
+    {
+      "players": 6,
+      "opponent": "economic",
+      "deals": 8,
+      "games": 192
+    },
+    {
+      "players": 6,
+      "opponent": "search_geo",
+      "deals": 8,
+      "games": 192
+    },
+    {
+      "players": 6,
+      "opponent": "legacy",
+      "deals": 8,
+      "games": 192
+    },
+    {
+      "players": 6,
+      "opponent": "heuristic",
+      "deals": 8,
+      "games": 192
+    },
+    {
+      "players": 6,
+      "opponent": "rush",
+      "deals": 8,
+      "games": 192
+    },
+    {
+      "players": 3,
+      "opponent": "a260",
+      "model_path": "runs/strong-league-v2-a/best.onnx",
+      "revision": "b38515c29e57826de05b55b645c29591e4a886bf",
+      "sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+      "deals": 8,
+      "games": 96
+    },
+    {
+      "players": 2,
+      "opponent": "economic_capacity_v1",
+      "deals": 8,
+      "games": 64
+    }
+  ],
+  "planned_games_per_arm": 3360,
+  "planned_games_total": 10080,
+  "game_max_steps": 1600,
+  "reference_search": "Unchanged search_geo16, six geographic candidates, horizon2400.",
+  "primary": "For each conservative arm minus filter, equal-weight mean terminal win-credit difference over the five search_geo player counts. Every deal includes all seats and four rules.",
+  "secondary": "Dual minus population; all 27 count/opponent cells, every rule/count cell, strict win credits, override counts, CPU/wall costs and all regressions. No retrospective rule routing.",
+  "uncertainty": {
+    "method": "Paired whole-deal bootstrap, resampling eight deals within each player count; retain all seats, rules, arms and opponents together.",
+    "replicates": 10000,
+    "seed": 15125,
+    "interpretation": "Exploratory 95% intervals for both predeclared contrasts. No multiplicity-adjusted or final qualification claim; eight deals per cell remains limited."
+  },
+  "search_semantics": {
+    "minimum_advantage": "1/8",
+    "samples_per_population": 8,
+    "rationale": "Retain the engineering recipe specified before the complete fidelity study; no threshold/budget fitting to these results.",
+    "selection": "Strict pooled terminal-credit advantage above 1/8 and nonnegative advantage in every included population; model favored on ties. Exact rational credits. These are screening rules, not calibrated confidence.",
+    "scope": "Auctions only. Both search arms retain the same strict-loss-filtered model outside auctions.",
+    "candidate_menu": "Existing public shortlist plus model move, unchanged order and strict-loss exclusions.",
+    "hidden_information": "All players money is public. Hidden sealed bids and future deck excluded; use existing public inference and matched sampled worlds.",
+    "focal_continuation": "Frozen-1 with strict loss filter; future live search is approximated, not recursively solved.",
+    "opponent_identity": "Never provided to the learner; arena opponent names are evaluator metadata only."
+  },
+  "runtime_pilots": [
+    {
+      "arm": "conservative_population",
+      "players": 2,
+      "opponent": "search_geo",
+      "deals": 1,
+      "games": 8
+    },
+    {
+      "arm": "conservative_population",
+      "players": 6,
+      "opponent": "search_geo",
+      "deals": 1,
+      "games": 24
+    },
+    {
+      "arm": "conservative_dual",
+      "players": 2,
+      "opponent": "search_geo",
+      "deals": 1,
+      "games": 8
+    },
+    {
+      "arm": "conservative_dual",
+      "players": 6,
+      "opponent": "search_geo",
+      "deals": 1,
+      "games": 24
+    }
+  ],
+  "runtime_pilot_games": 64,
+  "admission": "First validate the exact descriptors/controls in a clean frozen source and complete actual HF endpoint whole-deal runtime pilots. Pilot results are excluded from strength. Freeze hardware/concurrency/shards/timeouts from measured complete-game costs before launching the development grid.",
+  "execution": "Use the corrected standalone runtime: only the two forced-prior fixes differ from v1. Preserve weights, settings, seeds, comparisons and final gate.",
+  "caps_and_failures": "Preserve every original handle and partial receipt. No retries after observation timeouts, no truncated-outcome scoring, no survivor-only aggregates. Every planned cell and arm required before interpretation.",
+  "promotion": "No automatic promotion. Review full paired outcomes and all adverse cells, then separately freeze any larger confirmation or final candidate. Final protocol/thresholds/seeds remain unchanged.",
+  "new_hf_jobs": 0,
+  "grid_admitted": false,
+  "final_protocol_sha256": "7f0336c8784faf8f18e046b95b88e0ab1be7c2de1c0ec4d3eec96f0a415286ce",
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "previous_protocol_sha256": "ab4dbb7fdde1689d988671ca4abb4bd25ed52cd912dc0d4a94c6ca7f61c57e61",
+  "recovery_evidence": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "9d5ed6570845f0f81a6bea3d7b82eb67d99171a9",
+    "archive_path": "archives/conservative-auction-forced-prior-evidence-v1.tgz",
+    "archive_sha256": "db0e9cf7c36ff50c9ece2fe368ede67121d611252ac602bfd8e85f44b7238129",
+    "manifest_sha256": "a397c5bf1d724ea4032256db6f3ac24ff46c61e7421e2b88db6c0077b9146f58",
+    "archived_files": 43,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "runtime_interpretation": "Repeat the same 64 engineering games under new identities; the failed v1 run remains incomplete. Exclude all pilots from strength."
+}

@@ -1,0 +1,86 @@
+{
+  "created_at": "2026-10-27T19:25:52.008346+00:00",
+  "goal_status": "active",
+  "handoff": "ai/CONSERVATIVE-AUCTION-RUNTIME-2026-10-27.md",
+  "status": "four corrected-runtime HF pilots running",
+  "jobs": [
+    {
+      "checked_at": "2026-10-27T19:24:13.651968+00:00",
+      "job_id": "6ae0fa243fb22a235dd31616",
+      "stage": "RUNNING",
+      "name": "conservative-auction-runtime-v2-conservative_population-2p",
+      "arm": "conservative_population",
+      "players": 2,
+      "games": 8,
+      "launch_guard_sha256": "09090d11f707d5b74c381bc14ee316e5dea05f188dfa8cd7fb4c5e8101ca9edb"
+    },
+    {
+      "checked_at": "2026-10-27T19:24:13.875771+00:00",
+      "job_id": "6ae0fa2541e90535df7674df",
+      "stage": "RUNNING",
+      "name": "conservative-auction-runtime-v2-conservative_population-6p",
+      "arm": "conservative_population",
+      "players": 6,
+      "games": 24,
+      "launch_guard_sha256": "634538fae83d1d540355c6e0ba301bc2b4f1caff01d44e0b2d76d773f1672e07"
+    },
+    {
+      "checked_at": "2026-10-27T19:24:14.218782+00:00",
+      "job_id": "6ae0fa2541e90535df7674e1",
+      "stage": "RUNNING",
+      "name": "conservative-auction-runtime-v2-conservative_dual-2p",
+      "arm": "conservative_dual",
+      "players": 2,
+      "games": 8,
+      "launch_guard_sha256": "9b7dded2fd8956bb7884aa59b263fff74bd4231757e60500bbb8883de77f9ddf"
+    },
+    {
+      "checked_at": "2026-10-27T19:24:14.454287+00:00",
+      "job_id": "6ae0fa2541e90535df7674e3",
+      "stage": "RUNNING",
+      "name": "conservative-auction-runtime-v2-conservative_dual-6p",
+      "arm": "conservative_dual",
+      "players": 6,
+      "games": 24,
+      "launch_guard_sha256": "d491e5767e2482cb2554f66b9e32ce5b450f8fd3a56ee15e24cc93768835181a"
+    }
+  ],
+  "new_hf_jobs_submitted": 4,
+  "runtime_games_planned": 64,
+  "source_descriptor": "ai/strong/conservative-auction-runtime-source-v2.json",
+  "source_descriptor_sha256": "4c82ce863c8aaa4c63919af8f88a6548578a5f48f32a34176f785ebdb41152cf",
+  "source_revision": "8f504f71b51c6ec5bc284c02b961d90923cdce88",
+  "source_archive_sha256": "528f8ff361de6775a340ced2b2e08713a350ece12a469ed40a36b4d152471678",
+  "preflight": {
+    "complete": true,
+    "fixtures": 72,
+    "continuations_exact_to_archived_components": 1992,
+    "recovered_request_continuations": 96,
+    "caps": 0,
+    "prepared_sha256": "6542a840c2e8df64b325b5ba8adcc6b262390a5cce02ccde3350757867ac2310",
+    "source_manifest_sha256": "fa06eceea6b755240ed954fe887619f0ea9073520ca0bef1ad1f7bc10f3965cb",
+    "decisions_sha256": "7166b5133ce2780c3f86cca64c632b090f10bcdd8df8f79cca270c5ed4960cad",
+    "new_hf_jobs": 0,
+    "grid_admitted": false,
+    "reserved_final_seeds_used": false
+  },
+  "wrapper_check": {
+    "games": 8,
+    "exact_decisions": 1607,
+    "report_sha256": "b7ea981757db852c6803200c391f7ef1d78811f72f7705b453364209c8c28992"
+  },
+  "launch_guard_tests": 7,
+  "local_collector_running": false,
+  "old_owners_stopped": [
+    1061599,
+    1146868
+  ],
+  "new_strength_games": 0,
+  "gradient_updates": 0,
+  "development_jobs_submitted": 0,
+  "grid_admitted": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false,
+  "previous_goal_turn": "progress: diagnosed, fixed and independently audited original forced-prior failure",
+  "current_goal_turn": "progress: new pinned source validated, uploaded and four HF pilots launched; verified wait: all four handles directly inspected RUNNING"
+}

@@ -1,5 +1,23 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**Latest — 27 October 2026: four corrected-runtime HF pilots are RUNNING.**
+
+Read [the current pilot handoff](CONSERVATIVE-AUCTION-RUNTIME-2026-10-27.md).
+A new pinned source passed 72 saved decisions / 1,992 exact continuations, the
+recovered request's 96 uncapped continuations, and eight measured control games
+with 1,607 exact decisions. Seven launch-guard tests passed. Four new CPU jobs
+now cover 64 engineering games; all original handles are recorded and directly
+verified RUNNING. Source upload/download hashes match. No local owner is running.
+Use only `strong/manage-conservative-auction-runtime-v2.py collect` for bounded
+collection; do not restart old owners or resubmit these handles.
+
+The 10,080-game strength comparison remains unadmitted/unlaunched, pending all
+four complete audits and measured resources. Four new HF runtime jobs, zero
+new strength games/gradients/development jobs; reserved final seeds unused.
+No candidate qualified or deployed. The previous v1 run remains failed/incomplete.
+
+---
+
 **Current instruction — 27 October 2026: the user explicitly said “do ai research”.**
 
 Research is active again. The previous automatic continuation only inspected

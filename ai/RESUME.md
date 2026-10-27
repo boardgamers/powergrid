@@ -25,6 +25,13 @@ passed 755 saved positions and 23 recorded search plans. It remains isolated fro
 the active comparison and does not rehabilitate the rejected resource-search
 policy. It used no new inference, full games or HF jobs.
 
+**28 October addition:** the separate [whole-resource-turn arena](RESOURCE-TURN-ARENA-2026-10-28.md)
+now matches 120 recorded games, including 1,167 complete resource turns, through
+both JSON and direct execution. It preserves original actions and outcomes; this
+is an execution check, not a new policy or strength result. The active auction
+source and its sole coordinator remain unchanged. Actual plan-producer integration
+and any fresh resource-strategy comparison are still pending.
+
 Next: let the existing owner finish the unchanged development grid, then run the
 independent comparison with the explicit recovered owner-state path. No candidate
 is qualified or deployed. Reserved final seeds, final strength gates, all 2,553

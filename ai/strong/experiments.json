@@ -62683,5 +62683,42 @@
         "reserved_final_seeds_used": false,
         "previous_goal_turn": "verified wait on the original live corrected runtime pilot",
         "current_goal_turn": "progress: all 64 pilots independently audited, costs admitted the frozen 648-job comparison, first originals submitted and inspected, completion/launch evidence archived"
+    },
+    "resource_turn_arena_v1": {
+        "recorded_at": "2026-10-27T23:20:00.061334+00:00",
+        "status": "whole_resource_turn_execution_replayed_not_a_new_policy",
+        "handoff": "ai/RESOURCE-TURN-ARENA-2026-10-28.md",
+        "assessment": "ai/strong/resource-turn-arena-results-v1.json",
+        "assessment_sha256": "514843b1676fbdb2dbd6f691fca7e87045461f3ed9602a5e279a9dd3cbb17d9d",
+        "independent_audit_sha256": "d1e0ac672741919276c7d7c6e3a9f64758df72e9c44ce0680eb3808c2e4b095b",
+        "original_games_replayed": 120,
+        "recorded_learner_actions": 15838,
+        "resource_turns": 1167,
+        "resource_actions": 5253,
+        "all_recorded_purchases_covered": 4086,
+        "rejected_controls": 1320,
+        "hidden_controls": 1167,
+        "clock_binding_controls": 200,
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "53b807fd7524fc38c27419b5d593072c479e910b",
+            "archive_path": "archives/resource-turn-arena-evidence-v1.tgz",
+            "archive_sha256": "5997a2682be827520213fea0763a69a71d8e714cb7bfae2f9453557ed44c87c8",
+            "manifest_sha256": "d785239f37778f3d1d51a195ec11411d93cc4ccb55ebace299fcec1d45f553c3",
+            "archived_files": 34,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "preserved_harness_failures": [
+            "Optional undefined properties needed JSON wire normalization",
+            "Independent legacy clock timestamps require each response to bind its own exact root"
+        ],
+        "new_inference": 0,
+        "new_full_games": 0,
+        "new_hf_jobs": 0,
+        "running_auction_policies_changed": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Finish the unchanged auction comparison. This independent execution path enables a later frozen commitment-versus-replanning test but has no new policy producer, strength result or deployment."
     }
 }

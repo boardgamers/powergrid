@@ -7,6 +7,12 @@ stale or malformed controls and preserves all **755** hidden-information control
 There were no new model predictions, sampled continuations, full games or HF jobs.
 This is an execution component, not a playing-strength result or a qualified policy.
 
+**28 October follow-up:** a separate public response and arena path now replays
+120 recorded games exactly; see [the arena execution notes](RESOURCE-TURN-ARENA-2026-10-28.md).
+The primitive below is unchanged. The earlier statements about missing arena
+support describe its original checkpoint; actual policy-producer integration
+and fresh strength testing are still pending.
+
 ## Why this component exists
 
 The rejected resource-search screen evaluated complete purchase bundles but

@@ -1,0 +1,161 @@
+{
+  "checked_at": "2026-10-27T22:33:49.691934+00:00",
+  "complete": true,
+  "scope": "Independent read-only re-audit of all four original corrected-runtime pilot archives. No collection, submission, inference or outcome-based selection.",
+  "jobs": [
+    {
+      "job_id": "6ae0fa243fb22a235dd31616",
+      "arm": "conservative_population",
+      "players": 2,
+      "games": 8,
+      "counts": {
+        "decisions": 1413,
+        "root_filter_overrides": 1,
+        "rollouts": 9576,
+        "rollout_caps": 0,
+        "neural_decisions": 1048605,
+        "search_changes": 62,
+        "search_decisions": 245,
+        "surrogate_decisions": 0
+      },
+      "measurement": {
+        "seconds": 1191.168778863037,
+        "cpu_seconds": 2776.5800000000004,
+        "sampled_peak_total_rss_bytes": 6540431360,
+        "memory_samples": 5615,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "05345057533b5fd407f8466c4dea0f720e22511c",
+        "archive_path": "archives/conservative-auction-runtime-v2-conservative_population-2p.tgz",
+        "archive_sha256": "daf7312d68a97860ca5ce3df037ae76f30067d65bfd523aebb0fc7ed666997aa",
+        "manifest_sha256": "f415b6f9c438a7282adf402c10156c0b82b65fb469986ff4a4ce1395b69cc0ce",
+        "archived_files": 37,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "verified_file_sha256": "bcd12118bee2bbb81804a34be146152c773c98f1df03c86f9555ffad19df14ae",
+      "raw_manifest_sha256": "f415b6f9c438a7282adf402c10156c0b82b65fb469986ff4a4ce1395b69cc0ce"
+    },
+    {
+      "job_id": "6ae0fa2541e90535df7674df",
+      "arm": "conservative_population",
+      "players": 6,
+      "games": 24,
+      "counts": {
+        "decisions": 2745,
+        "root_filter_overrides": 1,
+        "rollouts": 33664,
+        "rollout_caps": 0,
+        "neural_decisions": 4386456,
+        "search_changes": 174,
+        "search_decisions": 827,
+        "surrogate_decisions": 0
+      },
+      "measurement": {
+        "seconds": 5704.234898448922,
+        "cpu_seconds": 21761.379999999997,
+        "sampled_peak_total_rss_bytes": 6899556352,
+        "memory_samples": 27428,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "815223b220728222c4c6fc5b086fa0b39e8d4c38",
+        "archive_path": "archives/conservative-auction-runtime-v2-conservative_population-6p.tgz",
+        "archive_sha256": "6811bb4008a6be1e3bf09839085278b37b719f4635097072e60c91faabab6c7a",
+        "manifest_sha256": "6abd6ee0db4f115748a3a2aa19558fedc897bc0dddda208a8b4628647264b11b",
+        "archived_files": 85,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "verified_file_sha256": "32c6372227abb30c924fc2cc5b6c1d2548cc63843a1546075d7af9e6818e6cd3",
+      "raw_manifest_sha256": "6abd6ee0db4f115748a3a2aa19558fedc897bc0dddda208a8b4628647264b11b"
+    },
+    {
+      "job_id": "6ae0fa2541e90535df7674e1",
+      "arm": "conservative_dual",
+      "players": 2,
+      "games": 8,
+      "counts": {
+        "decisions": 1364,
+        "root_filter_overrides": 0,
+        "rollouts": 17872,
+        "rollout_caps": 0,
+        "neural_decisions": 1774584,
+        "search_changes": 41,
+        "search_decisions": 230,
+        "surrogate_decisions": 268855
+      },
+      "measurement": {
+        "seconds": 3322.0116113639997,
+        "cpu_seconds": 7167.609999999999,
+        "sampled_peak_total_rss_bytes": 6270304256,
+        "memory_samples": 15433,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "908f4b62ec8d09081b62d757ffdb34357ed2fbc1",
+        "archive_path": "archives/conservative-auction-runtime-v2-conservative_dual-2p.tgz",
+        "archive_sha256": "8fa6dabcbae3440c18f8e0f6c57410940d18e5407fa0dc96684fc56d03bac8c9",
+        "manifest_sha256": "3e64fd63f9318498c6e59d81509c9d7da9c280021eafca9c0cf5dcc525437d94",
+        "archived_files": 37,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "verified_file_sha256": "bb613fdfe54f3e7024355411686cb236d511e474c189bf2bc5612d6466ffd166",
+      "raw_manifest_sha256": "3e64fd63f9318498c6e59d81509c9d7da9c280021eafca9c0cf5dcc525437d94"
+    },
+    {
+      "job_id": "6ae0fa2541e90535df7674e3",
+      "arm": "conservative_dual",
+      "players": 6,
+      "games": 24,
+      "counts": {
+        "decisions": 2894,
+        "root_filter_overrides": 0,
+        "rollouts": 74496,
+        "rollout_caps": 0,
+        "neural_decisions": 7356210,
+        "search_changes": 128,
+        "search_decisions": 910,
+        "surrogate_decisions": 5365982
+      },
+      "measurement": {
+        "seconds": 11238.000378206023,
+        "cpu_seconds": 41080.39,
+        "sampled_peak_total_rss_bytes": 7053692928,
+        "memory_samples": 53576,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "9b96e0fd2fb012dad896362148b40d9643233e46",
+        "archive_path": "archives/conservative-auction-runtime-v2-conservative_dual-6p.tgz",
+        "archive_sha256": "869ce2d9b2aa3e8fdafd974f035dbf041e1dff7dc5b17ab0c4d1041ee011b0a7",
+        "manifest_sha256": "ff6bb254887c0a9fbacb87fc67edeeda519aedefd4f99706fd3b4184c013f732",
+        "archived_files": 85,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "verified_file_sha256": "1766187ff11494e17003fe2045adc90efd6446b7c52e70bfd504866812a33af5",
+      "raw_manifest_sha256": "ff6bb254887c0a9fbacb87fc67edeeda519aedefd4f99706fd3b4184c013f732"
+    }
+  ],
+  "games": 64,
+  "decisions": 8416,
+  "rollouts": 135608,
+  "rollout_caps": 0,
+  "source_sha256": "4c82ce863c8aaa4c63919af8f88a6548578a5f48f32a34176f785ebdb41152cf",
+  "result_sha256": "b735ca337138bf801e8d326ea779190a2711b94eecaab4281c7c3847f83e3330",
+  "auditor_sha256": "ce34f174fb6e1c58cddb308c0df3c70e705c4ef23317ea2513e97d9ed20def51",
+  "new_hf_jobs": 0,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

@@ -46,34 +46,24 @@ Evidence:
 
 ## Current HF work and next action
 
-**HF update: 27 October, 21:05 UTC.** The sole coordinator, **PID 1919833 /
-session 94582**, remains independently verified live with all 24 code pins
-unchanged. Both 2p pilots and the population 6p pilot are audited (**40 games**).
-Only original dual-6p job `6ae0fa2541e90535df7674e3` remains RUNNING. **Zero
-development jobs submitted.** No competing collector or submitter may run.
+**HF update: 27 October, 22:37 UTC.** All four original corrected-runtime pilots
+completed and passed independent auditing: **64 games / 8,416 decisions / 135,608
+uncapped continuations**. Their measured costs admitted the unchanged 10,080-game
+comparison, split into **648 whole-deal jobs**. The sole recovery owner **PID
+1919833 / session 94582** has submitted its first 64 originals; the direct snapshot
+found 44 completed and 20 running, with no failures.
+All 24 owner pins match. Do not run a competing collector or submitter.
 
-The full-game regression check of the three original passing pilots also passed:
-**40 games / 5,522 exact decisions** after allowing only pinned policy/runtime and
-worker identities plus elapsed time. Public requests, moves, sampled outcomes,
-counters and terminals remain unchanged. This is read-only reuse of engineering
-evidence, not a new strength result. See
-[the regression report](strong/conservative-auction-runtime-regression-v2.json).
+Read [the current runtime and development handoff](CONSERVATIVE-AUCTION-RUNTIME-2026-10-27.md)
+for exact handles, source revisions, resource sizing and recovery evidence. The
+three formerly successful pilot pairs preserve all 40 games / 5,522 decisions;
+the corrected fourth job now also passes its complete raw audit. Pilot outcomes
+are not strength evidence. Earlier failed/interrupted originals stay preserved.
 
-The population 6p batch took 5,704.235 s now versus 3,473.937 s previously despite
-identical decisions. The cause is not established. The planned resource allocation
-uses all four complete current measurements with margins, not the older timing
-or the surviving subset; no timeout or sampling threshold was changed.
-
-The next scientific result is the complete runtime admission followed by the
-frozen **10,080-game** development comparison. Leave policies, budgets, thresholds
-and seeds unchanged. If a pilot fails, preserve its full evidence and inspect
-it; never replace a failed job automatically. After all development jobs finish,
-run the comparison with the explicit recovered owner path shown below.
-
-No new playing-strength result, qualified candidate, deployment or reserved final
-seeds. The previous goal turn was progress in recovery documentation and a verified
-wait. This turn completed the target benchmark, independent cross-host audit and
-cost review without new HF submissions or full strength games.
+Leave policies, thresholds, budgets and seeds unchanged. The owner audits complete
+batches before submitting the next and stops on failures. After every development
+job passes, run the independent comparison with the explicit recovery-owner path
+below. No candidate is qualified or deployed; final seeds remain unused.
 
 Use `ai/.venv/bin/python -B`. Commit/push only directly related files on
 `ai/germany-baseline`. Never stage the three pre-existing modified
@@ -155,10 +145,10 @@ Original HF handles:
 | population | 2 | `6ae0fa243fb22a235dd31616` | completed/audited |
 | population | 6 | `6ae0fa2541e90535df7674df` | completed/audited |
 | dual | 2 | `6ae0fa2541e90535df7674e1` | completed/audited |
-| dual | 6 | `6ae0fa2541e90535df7674e3` | running |
+| dual | 6 | `6ae0fa2541e90535df7674e3` | completed/audited |
 
-Only the live owner may collect these pilots and admit the frozen **10,080-game**
-comparison after all 64 runtime games pass. It runs at most 64 jobs concurrently,
+All 64 runtime games passed. Only the live owner may collect and submit the frozen
+**10,080-game** development comparison. It runs at most 64 jobs concurrently,
 audits completed batches before new launches and stops on failures. After the
 entire development grid passes, use the explicit current owner path:
 

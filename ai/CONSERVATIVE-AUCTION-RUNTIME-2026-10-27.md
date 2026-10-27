@@ -1,123 +1,116 @@
-# Corrected auction runtime pilots — 27 October 2026
+# Corrected runtime complete; development comparison launched — 27 October 2026
 
-**Update — 21:05 UTC:** recovery coordinator **PID 1919833** is the sole live
-collector/submitter; all 24 pins match. Both 2p pilots and population 6p are
-completed and independently audited (**40 games**). Original dual-6p handle
-`6ae0fa2541e90535df7674e3` remains RUNNING. Zero development jobs submitted;
-the fourth complete audit is still required. Do not run a competing collector.
+**Checkpoint: 22:37 UTC. Research is active.** All four original corrected-runtime
+pilots completed and passed independent raw auditing: **64 games / 8,416 decisions /
+135,608 uncapped continuations**. The previously failing episode 5 completed in its
+original corrected job. These repeated engineering seeds are runtime evidence;
+they are excluded from strength estimates.
 
-The separate [full-game regression check](strong/conservative-auction-runtime-regression-v2.json)
-compared all three original passing jobs to their corrected counterparts:
-**40 games / 5,522 decisions**, unchanged public inputs, legal menus, choices,
-sampled outcomes and terminals. Only the pinned runtime/descriptor/worker hashes
-and elapsed timing differ. Three tests reject behavioral or unpinned hash changes.
-No new inference, simulations, HF jobs or strength games were used for this check.
-The failed original dual-6p job is explicitly outside this completed regression
-set; its corrected counterpart still needs the full original runtime audit.
+The sole coordinator is **PID 1919833**, original session **94582**. Its process
+and all 24 pins were directly verified. It admitted and uploaded the unchanged
+**10,080-game / 648-job** development comparison and submitted its first **64**
+original jobs. The direct snapshot at `2026-10-27T22:35:37.906227+00:00` found **44
+COMPLETED / 20 RUNNING**, with no failed jobs. Completed remote jobs
+still require the owner's local audit. Do not run another collector or submitter.
 
-The population 6p run measured **5,704.235 s / 21,761.38 CPU-s / 6.426 GiB peak
-sampled RSS**, versus 3,473.937 s previously. The exact repeated decisions show
-that changed game choices do not explain the wall-time difference. Its underlying
-cause is not established; allocation remains based on all complete current pilots.
+## Completed original runtime pilots
 
-Regression recovery metadata is indexed by
-`strong/conservative-auction-runtime-regression-evidence-v2.json`. The six raw
-old/new job archives are referenced rather than duplicated. The current CPU result
-and next operations are in [the execution handoff](CONSERVATIVE-AUCTION-CPU-2026-10-27.md).
-The following launch snapshot records earlier state and is historical.
+All four jobs below are **COMPLETED and independently audited**. Wall time includes
+startup and validation within the measured job, not HF provisioning. Peak RSS is
+sampled across the process tree every 0.2 seconds; it is not an exact allocator peak.
 
----
+| Arm | Players | Games | Original job | Wall seconds | CPU seconds | Peak RSS GiB |
+|---|---:|---:|---|---:|---:|---:|
+| conservative_population | 2 | 8 | `6ae0fa243fb22a235dd31616` | 1191.169 | 2776.58 | 6.091 |
+| conservative_population | 6 | 24 | `6ae0fa2541e90535df7674df` | 5704.235 | 21761.38 | 6.426 |
+| conservative_dual | 2 | 8 | `6ae0fa2541e90535df7674e1` | 3322.012 | 7167.61 | 5.840 |
+| conservative_dual | 6 | 24 | `6ae0fa2541e90535df7674e3` | 11238.000 | 41080.39 | 6.569 |
 
-The research goal is active following the human's “do ai research” request.
-Four new HF CPU jobs are running the corrected frozen runtime. This is a full-game
-runtime regression, not the strength comparison or final qualification.
+Measured sums: **21455.416 batch-wall seconds (5.960 job-hours)** and
+**72785.96 CPU seconds (20.218 CPU-hours)**; largest sampled RSS
+**6.569 GiB**. No gradient updates or final seeds were involved.
 
-## Current jobs
+`strong/conservative-auction-runtime-results-v2.json` is the complete collector
+result. `strong/conservative-auction-runtime-independent-audit-v2.json` records a
+separate read-only re-audit of every raw file, receipt, execution binding, terminal
+credit and measurement. The four immutable raw archive revisions and hashes are
+inside both reports; no game was rerun to obtain this final audit.
 
-All four handles were directly inspected RUNNING at approximately
-**2026-10-27T19:24:14.454287+00:00**. Each has a five-hour timeout from its original
-submission at approximately 19:23 UTC. No local coordinator/collector is running.
+The earlier regression check compared all three originally successful v1 jobs to
+v2: **40 games / 5,522 decisions** preserve public inputs, legal menus, choices,
+sampled outcomes and terminals. Only pinned runtime identities and timings differ.
+The original v1 dual-6p failure remains failed and preserved; it is not silently
+relabelled by this corrected run. Its original owners and STOP marker stay stopped.
 
-| Arm | Players | Games | Original v2 HF job | Last checked stage |
-| --- | --- | --- | --- | --- |
-| conservative_population | 2 | 8 | `6ae0fa243fb22a235dd31616` | RUNNING |
-| conservative_population | 6 | 24 | `6ae0fa2541e90535df7674df` | RUNNING |
-| conservative_dual | 2 | 8 | `6ae0fa2541e90535df7674e1` | RUNNING |
-| conservative_dual | 6 | 24 | `6ae0fa2541e90535df7674e3` | RUNNING |
+Paired timing observations from those three repeated jobs and bounded live HF
+telemetry are retained under `runs/conservative-auction-live-metrics-v2/`. They
+show slower timing across multiple decision types; they do not identify its cause.
+Admission uses the four complete current measurements, not partial or older costs.
 
-There are **64 planned runtime games**, one paired deal per endpoint/arm with all
-seats and the four original/Recharged × open/sealed combinations. These repeat
-engineering seeds from v1 to exercise the failed case; they are excluded from
-strength. The original v1 run remains incomplete (three passing jobs, one error).
-All original v1 guards, archives and STOP markers are preserved.
+## Frozen development comparison now running
 
-## What passed before submission
+Three arms have **3,360 games each**: filtered model, conservative population
+auction search and conservative dual-population auction search. The unchanged
+protocol has 27 opponent/count cells, eight paired deals per cell, every seat,
+and all original/Recharged × open/sealed combinations across 2–6 players.
+Eight worlds per population, strict advantage greater than 1/8, nonnegative
+included-population margins and model preference on ties remain unchanged.
+Permitted public balances are available; hidden decks/bids and opponent identity
+are excluded from policy inputs. No resource-turn prototype was added to this run.
 
-- Newly identified artifact with the two forced-prior fixes; all weights, search
-  settings, thresholds, menus, sampled-world rules and final protocol unchanged.
-- Five dry job-contract validations; source includes **1,524 pinned files**.
-- **72 saved public decisions / 1,992 continuations** match v1 exactly after
-  accounting only for the new worker hash and elapsed time.
-- Recovered request `5:21` matches the corrected recovery result exactly, with
-  **96 independently audited continuations and zero caps**.
-- Portable measured wrapper: **eight complete control games / 1,607 decisions**
-  and terminals match the original control exactly. This repeats engineering games.
-- Seven launch/measurement tests pass: prior intent, no persisted credential,
-  original-handle reuse, refusal to retry ambiguity, source mismatch rejection,
-  exclusive launch owner, validation-only rows and finite complete measurements.
-- HF source uploaded and downloaded/hash-verified before submission.
+Measured resource admission selected **one complete paired deal per job**:
+**648 jobs / 10,080 games**, at most **64 concurrently**, on `cpu-upgrade`.
+Each job runs four games concurrently with four search workers and one inference
+thread. Timeouts are 2–5 hours for population search and 4–9 hours for dual search
+and the conservatively sized control. The sizing formula uses a 900-second setup
+allowance, twice observed per-game wall cost and 75% timeout utilization. This is
+an engineering allowance, not a statistical upper bound on unseen runtimes.
 
-`conservative-auction-development-protocol-v2.json` changes runtime identity and
-records the recovery, while preserving all development seeds, 27 cells, 10,080
-games, model weights, thresholds and the reserved final gate. No threshold fitting.
-The v1 protocol is untouched.
+Development source dataset: `coyotte508/powergrid-ai-training-v1`.
 
-## Pins and evidence
+- Revision: `0f9c129af46fe181a71b1f131243517fff4cc16b`.
+- Archive: `strong-source-conservative-auction-development-v2.tgz`.
+- Archive SHA256: `d1345d552192c46efe38c3eb7df22c4e4663f2993f2a09fc597bb7ef4d83808e`.
+- Source manifest SHA256: `b0c68341ca3cb7d0aa65831cf1bb4ec748fdf5712278e2c23a7ccff6b275e09e`.
+- Source files: **2821**; the original runtime files are unchanged.
+- Descriptor: `strong/conservative-auction-development-source-v2.json`.
+- First 64 exact handles and direct statuses: `strong/conservative-auction-development-launch-state-v2.json`.
+- Original per-job guards: `runs/conservative-auction-development-hf-v2/*/launch.json`.
+- Recovery owner state: `runs/conservative-auction-development-coordinator-recovery-v2/state.json`.
 
-- Source dataset: `coyotte508/powergrid-ai-training-v1`.
-- Source revision: `8f504f71b51c6ec5bc284c02b961d90923cdce88`.
-- Source archive: `strong-source-conservative-auction-runtime-v2.tgz`.
-- Archive SHA256: `528f8ff361de6775a340ced2b2e08713a350ece12a469ed40a36b4d152471678`.
-- Source manifest SHA256: `fa06eceea6b755240ed954fe887619f0ea9073520ca0bef1ad1f7bc10f3965cb`.
-- Runtime manifest SHA256: `a2047543f5f6a8065dd9b868dd4551531147185068c665900691c5b13c278619`.
-- Source descriptor: `strong/conservative-auction-runtime-source-v2.json`.
-- Live launch snapshot: `strong/conservative-auction-runtime-launch-state-v2.json`.
-- Verified launch archive descriptor: `strong/conservative-auction-runtime-launch-evidence-v2.json`;
-  created only after the upload/download verification, containing its immutable
-  private model-repository archive revision and hashes.
-- Root recovery: [27 October diagnosis](CONSERVATIVE-AUCTION-RECOVERY-2026-10-27.md).
+The runtime source remains dataset revision
+`8f504f71b51c6ec5bc284c02b961d90923cdce88`, archive
+`strong-source-conservative-auction-runtime-v2.tgz`, SHA256
+`528f8ff361de6775a340ced2b2e08713a350ece12a469ed40a36b4d152471678`.
+The runtime manifest remains
+`a2047543f5f6a8065dd9b868dd4551531147185068c665900691c5b13c278619`.
 
-Resources: `cpu-upgrade`, four concurrent games per job, unchanged policy workers,
-5h timeout. Planning uses 900s setup plus twice the largest observed v1 wall time
-(including its failed shard as an observed cost, not as a passing measurement).
-This is below 75% of the timeout. Actual v2 measurements are pending.
+## Continue without duplicate work
 
-## Continue from these handles
+Work in the AI checkout on `ai/germany-baseline`, using `ai/.venv/bin/python -B`.
+Leave the live owner, frozen source, policies, thresholds and seeds unchanged.
+Inspect the actual process and original handles. Observation timeouts are not
+stopped jobs. The owner audits each completed batch before launching the next and
+stops on failures; never restart or replace a failed original automatically.
+Do not invoke either manager's collect or launch operation beside the live owner.
 
-Work in the AI checkout on `ai/germany-baseline`; use `ai/.venv/bin/python -B`.
-The source, preparer and manager are now pinned. Preserve them while these jobs
-run. Do not resubmit/restart on an observation timeout or uncertain response.
-Use a bounded collection:
+After **all 648 jobs / 10,080 games** complete and pass auditing, run the existing
+independent comparison with the explicit recovery owner path:
 
-```bash
-ai/.venv/bin/python -B ai/strong/manage-conservative-auction-runtime-v2.py collect
+```sh
+ai/.venv/bin/python -B ai/strong/compare-conservative-auction-development-v2.py \
+  --owner-state ai/runs/conservative-auction-development-coordinator-recovery-v2/state.json
 ```
 
-The collector verifies original guards, source and artifact hashes, independent
-legal decisions/terminal credits, execution binding, complete measurements and
-archive provenance. It writes `strong/conservative-auction-runtime-results-v2.json`
-only when all four jobs and 64 games pass. If a job fails, preserve its raw archive
-and partial receipts and inspect the original handle; never silently replace it
-or score only survivors. Continue inspecting other originals read-only if needed.
+Retain all adverse cells and the predefined whole-deal bootstrap. Do not select a
+policy from partial outcomes. The unchanged final strength protocol and all 2,553
+serving fixtures remain required; reserved final seeds are unused. The separate
+actual-8840U result passed 300 exact responses, with auction medians of 5.89 ms,
+8.47 s and 17.52 s for the three arms; the extra search cost still needs a measured
+strength benefit. No candidate is qualified, deployed or published.
 
-After all four pass, archive completion and prepare the **v2** development
-admission/source/manager using measured complete-game resources. The old v1
-coordinator PID 1061599 remains intentionally stopped; do not restart it.
-The old collection-only PID 1146868 is also absent. Adapt the existing development
-planning to the v2 protocol/source; do not overwrite v1 outputs. The 10,080-game
-comparison is still unadmitted/unlaunched, with zero development submissions.
-
-No new gradients, new strength games, final seeds, candidate qualification or
-production changes. Previous goal turn: progress (verified failure recovery).
-Current goal turn: progress (validated source and four actual HF submissions),
-with all four jobs directly verified running. The full strength goal remains open.
+Final runtime/admission/first-batch recovery evidence is indexed by
+`strong/conservative-auction-development-launch-evidence-v2.json`, referencing
+four immutable raw pilot archives and both immutable source bundles. Historical
+launch notices remain in Git and the prior launch archive. Do not rerun completed
+pilots, CPU benchmarks, archive uploads or unchanged checks.

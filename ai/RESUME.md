@@ -1,46 +1,37 @@
 # Power Grid AI — resumed, 27 October 2026
 
-**Current checkpoint — 27 October, 21:05 UTC. Research is active.**
+**Current checkpoint — 27 October, 22:37 UTC. Research is active.**
 
-The complete **actual AMD 8840U** benchmark passed: **300/300 cross-host responses
-match exactly**, 600 raw receipts independently audited, zero capped continuations.
-Original remote PID 3200567 has exited. Do not relaunch or repeat collection.
-See [the complete CPU results and execution handoff](CONSERVATIVE-AUCTION-CPU-2026-10-27.md).
+All four corrected runtime pilots passed: **64 games / 8,416 decisions / 135,608
+uncapped continuations**, independently re-audited from their raw archives. The
+original v1 failure remains preserved. No strength claim is made from these
+repeated engineering seeds.
 
-Warm auction medians on the fixed-position sample: **5.89 ms** for model/filter,
-**8.47 s** for conservative population search, **17.52 s** for dual-population
-search. Other stages stay around 6–8 ms. These are fixture costs, not population
-latency estimates or new strength results. The additional search cost needs a
-measured playing-strength benefit; no hybrid is selected or qualified.
+The sole recovery coordinator **PID 1919833 / session 94582** has admitted and
+launched the frozen **10,080-game / 648-job** comparison. The first **64** original
+jobs were directly inspected at `2026-10-27T22:35:37.906227+00:00`: **44 completed,
+20 running, zero failed**. Its 24 pins and actual process match. Only
+this owner may collect or submit; it audits completed batches before launching
+more, with at most 64 active jobs. Read [the current execution handoff](CONSERVATIVE-AUCTION-RUNTIME-2026-10-27.md).
 
-The sole HF coordinator is **PID 1919833**, with state under
-`runs/conservative-auction-development-coordinator-recovery-v2/`. Its actual process
-and 24 unchanged pins were verified. Both 2p pilots and the population 6p pilot are audited: **40 games**. Only the
-original dual-population 6p job remains RUNNING. **Zero development jobs submitted.**
-The frozen 10,080-game comparison remains gated on all four complete pilots. Do not
-run a competing collector/submitter. Recheck actual processes and job handles.
+The actual **AMD 8840U** benchmark is complete: **300/300 exact responses**, 600
+raw receipts audited, zero caps. Warm auction medians are **5.89 ms** for
+model/filter, **8.47 s** for population search and **17.52 s** for dual search.
+Other stages remain around 6–8 ms. These are fixture costs, not new strength
+results. Do not rerun that benchmark. [CPU results](CONSERVATIVE-AUCTION-CPU-2026-10-27.md).
 
-A read-only regression comparison also passed: all **40 games / 5,522 decisions**
-from the three originally successful pilots preserve behavior exactly, allowing
-only the declared identity/worker hashes and timing differences. Three focused
-tests ensure the checker rejects changed moves, rollout outcomes or public inputs.
-[Regression report](strong/conservative-auction-runtime-regression-v2.json).
-This does not replace the outstanding fourth pilot or supply new strength games.
+The independent [resource-turn transaction prototype](RESOURCE-TURN-TRANSACTION-2026-10-27.md)
+passed 755 saved positions and 23 recorded search plans. It remains isolated from
+the active comparison and does not rehabilitate the rejected resource-search
+policy. It used no new inference, full games or HF jobs.
 
-Independent preparation: the [whole resource-turn transaction prototype](RESOURCE-TURN-TRANSACTION-2026-10-27.md)
-passed 755 saved positions and 23 recorded search plans. It supplies an isolated
-execution boundary for a future commitment experiment; it does not change the
-running auction policies or rehabilitate the rejected resource-search policy.
-No new inference, games or HF jobs were needed for that component.
+Next: let the existing owner finish the unchanged development grid, then run the
+independent comparison with the explicit recovered owner-state path. No candidate
+is qualified or deployed. Reserved final seeds, final strength gates, all 2,553
+serving fixtures and the standalone selected-policy package remain required.
 
-Next: let the existing owner finish runtime admission and the unchanged development
-comparison, then analyze the full grid with its explicit recovered owner-state
-path. Final seeds remain unused. All final strength, 2,553-fixture serving and
-standalone package requirements remain in force.
-
-Earlier launch/recovery snapshots remain in Git history and immutable HF archives
-indexed by the current handoff. Historical statements below describe earlier
-checkpoints and do not override this current status.
+Historical notices below describe earlier checkpoints and do not override this
+current state. Preserve all original guards, stopped owners and STOP markers.
 
 ---
 

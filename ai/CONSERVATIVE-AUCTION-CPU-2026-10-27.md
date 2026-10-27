@@ -1,197 +1,168 @@
-# Conservative auction CPU benchmark and owner recovery — 27 October 2026
+# Conservative auction CPU benchmark and execution handoff — 27 October 2026
 
-**Current — actual 8840U run launched:** the recovered local reference completed
-all **300 requests**, preserving the original 273 byte for byte and executing
-only the missing 27. It passed independent per-request validation with zero caps.
-Local final status SHA-256 is
-`2bb3b20bc4a3eabed57a5c5507ddaa33bdce99b6eb901c7e7a661ba72365a072`.
-Recovery PID 2050537 has exited; do not rerun it.
+## Current state
 
-The unchanged package is now running on **AMD Ryzen 7 8840U w/ Radeon 780M
-Graphics**, remote PID **3200567**, directory
-`/home/coyotte508/powergrid-ai-conservative-auction-8840u-v2` on `minipc`.
-The exact remote command was independently verified alive at **113/300 requests**.
-Guard: `strong/conservative-auction-8840u-launch-v2.json`. Re-inspect that original
-PID through `recover-conservative-auction-cpu-v2.py inspect-target`; do not launch
-again. After terminal success and process exit, use `collect-target`, then
-`analyze_conservative_auction_cpu_v2.py`. Full local/target parity and target costs
-remain pending; partial timings are not reported as completed results.
+**Checkpoint: 27 October, 20:31 UTC. Research is active.** The original actual
+AMD Ryzen 7 **8840U** benchmark is live on `minipc`, remote PID **3200567**, with
+**210/300 requests** complete. Target directory:
+`/home/coyotte508/powergrid-ai-conservative-auction-8840u-v2`.
 
-The complete local reference, target guard and launch snapshot are indexed by
-`strong/conservative-auction-cpu-target-launch-evidence-v2.json`. The source
-package and all policy settings remain unchanged. No HF submissions, gradients,
-new strength games, qualification or reserved seeds were used for this work.
+The complete local correctness reference passed **300 requests, zero caps**.
+It preserves the original 273 receipts byte for byte and adds only the 27 missing
+requests. Recovery PID 2050537 has exited. Target performance and independent
+cross-host parity remain pending until the unchanged full target run completes.
+Do not treat a partial timing sample as the final report.
 
-**Latest local recovery:** exec session 24932 ended with code **143** after
-**273/300 requests**. PID 1904528 and its package workers were absent; all stderr
-files were empty, no STOP marker existed, and all 273 complete receipts were intact.
-The original state and receipt file remain unchanged. The termination source is
-unknown. This was not recorded as a successful full local run.
+The sole HF coordinator, **PID 1919833 / session 94582**, remains live. Both
+original 2p pilots are audited (16 games); both 6p jobs were directly verified
+RUNNING. **Zero development submissions** at this checkpoint. All 24 code pins
+match. No competing collector/submitter may run while this owner is live.
 
-After inspection, `strong/recover-conservative-auction-cpu-v2.py` independently
-re-audited the prefix and started only the **27 missing requests** in a separate
-directory. Three tests reject changed/duplicated/out-of-order prefixes, a live
-original, STOP markers and unexpected failure/count states. Recovery **PID 2050537**
-is detached and tracked by `strong/conservative-auction-cpu-local-recovery-launch-v2.json`.
-State: `runs/conservative-auction-8840u-local-recovered-v2/status.json`.
-Log: `runs/conservative-auction-8840u-prepared-v2/local-recovery.log`.
-At the last live check it had **278/300 total requests**, including five new suffix
-requests. Verify `/proc/2050537/cmdline` as NUL-separated arguments, not a string
-containing spaces. Preserve the guard; never launch another local recovery.
+Research remains active; no new playing-strength result, qualified candidate,
+deployment or reserved final seeds. The last goal turn was a verified wait on
+these exact live handles. This turn consolidates conflicting incremental notes;
+source policies, gates, jobs and benchmark settings remain unchanged.
 
-This produces a two-segment **correctness reference only**. The new process's
-startup cost is recorded separately and must not be presented as an uninterrupted
-local latency benchmark. The original immutable package, frozen policies and full
-300-request target benchmark remain unchanged. After recovered reference success,
-use these commands instead of the old manager's target operations:
+## Next operations
+
+Use `ai/.venv/bin/python -B`. Inspect the existing target; never launch it again:
 
 ```sh
-ai/.venv/bin/python -B ai/strong/recover-conservative-auction-cpu-v2.py launch-target
 ai/.venv/bin/python -B ai/strong/recover-conservative-auction-cpu-v2.py inspect-target
-ai/.venv/bin/python -B ai/strong/recover-conservative-auction-cpu-v2.py collect-target
 ```
 
-Both original **two-player HF pilots are now completed and audited (16 games)**;
-the two six-player handles remain RUNNING. Recovery coordinator PID 1919833 is
-live with all 24 pins unchanged. Zero development jobs or replacements have been
-submitted. Do not compete with it. The local interruption/recovery evidence is
-indexed by `strong/conservative-auction-cpu-recovery-evidence-v2.json`.
-
-**Timing review addition:** `strong/analyze_conservative_auction_cpu_v2.py` now
-requires the complete independently audited 8840U result before producing a
-report. Five tests verify complete coverage, finite positive timings, separation
-of all three cold starts, deterministic receipt order and refusal of incomplete
-cross-host evidence. It preserves all 300 individual count/rule/stage points and
-separates auction-stage costs from other stages, including per-count views.
-One saved position per cell cannot estimate a deployment latency percentile;
-the review reports descriptive fixture medians/ranges without making that claim.
-After successful target collection, run:
+Only after successful completion and process exit:
 
 ```sh
+ai/.venv/bin/python -B ai/strong/recover-conservative-auction-cpu-v2.py collect-target
 ai/.venv/bin/python -B ai/strong/analyze_conservative_auction_cpu_v2.py
 ```
 
-No target timings were produced while preparing this reader. The original CPU
-runner/package and the recovery coordinator's 24 pins remain unchanged.
+The recovery wrapper binds collection to the completed local reference. Do not
+invoke the old manager directly: its default local path is the interrupted run.
+Collection refuses an existing destination and independently audits **600 raw
+receipts**, requiring all **300 semantic responses** to match exactly across
+hosts (including choices, worlds and terminal credits, excluding timing).
+Inspect any failure/partial collection before considering recovery; no blind retry.
 
-Research remains active. Previous turn: **progress**, independent analysis tested
-and archived. This turn: **progress**, complete-policy CPU fixture coverage prepared,
-local reference replay started, and interrupted execution ownership safely recovered.
-No new HF jobs, gradients, full evaluation games or final seeds were launched by
-this work. No new playing-strength result or qualified candidate exists.
+Expected outputs:
 
-## Execution ownership changed
+- `runs/conservative-auction-8840u-collected-v2/assessment.json` and raw `output/`.
+- `strong/conservative-auction-8840u-cost-review-v2.json`.
 
-Original development coordinator **PID 1685160 / session 76424** received
-**SIGTERM at 19:54:38 UTC** while sleeping between pilot checks. Its saved failure
-is `KeyboardInterrupt`, not an assertion or failed HF job. It was independently
-confirmed absent. All 22 code pins matched, there was no v2 STOP marker, and no
-development preparation, upload or submission existed. The research goal was
-confirmed active. The source of the signal is unknown; do not infer a pilot failure.
+The timing review retains every count/rule/stage point, separates three cold
+starts, and reports warm medians/ranges per stage and count. This is one saved
+position per cell, not a representative gameplay latency distribution. Do not
+present its descriptive percentiles as deployment latency guarantees. The split
+local reference is only for correctness, not uninterrupted local timing.
 
-The original state/log remain intact. State SHA-256:
+After successful collection, archive the complete raw target evidence, assessment
+and review using the verified evidence helper; inspect prior upload intents and
+outcomes first. Update this handoff and `RESUME.md`, then commit/push only related
+files on `ai/germany-baseline`. Never stage the three pre-existing modified
+`policy-iteration-{development-status,labels-results,labels-status}-v2.json` files.
+
+## Exact benchmark
+
+The unchanged package uses three frozen policies (filter, population auction
+search and dual-population auction search), four search workers, one inference
+thread and the original eight-world budgets/thresholds. It covers **100 saved
+public positions**: 2–6 players × four rules × five stages (choose, bid, resources,
+building, bureaucracy), making 300 requests per host. Selection uses the first
+non-forced menu per cell without inspecting outcomes. No new full strength games
+or reserved seeds are generated.
+
+The historical fixture pool contained private simulator state. Initial preparation
+correctly rejected it before producing a package or running a policy. Preparation
+then applied the exact frozen public-state projection used by the arena; all 100
+legal menus remained identical. Private decks, seeds and submitted sealed bids are
+excluded, while permitted public money remains. Preserve the initial rejection at
+`runs/conservative-auction-cpu-initial-rejection-v2.json`.
+
+Immutable identities:
+
+| Item | SHA-256 |
+|---|---|
+| Package | `d179c066ff69243bb81d3c7ae0d9bf9999350db0bb879a9317974d2d50db7f78` |
+| Benchmark manifest | `c6e1698208bdda2ab19d8d4e1f1e23e145bd16f882fcc535428729f056856bb3` |
+| Cases | `407da2d87c758d7d55ef57900ee74a18ed956a49d2fe0d1fd400fb2b39afacba` |
+| Runtime manifest | `a2047543f5f6a8065dd9b868dd4551531147185068c665900691c5b13c278619` |
+| Recovered local status | `2bb3b20bc4a3eabed57a5c5507ddaa33bdce99b6eb901c7e7a661ba72365a072` |
+
+Preparation lives at `runs/conservative-auction-8840u-prepared-v2/`. The target
+launch guard is `strong/conservative-auction-8840u-launch-v2.json`. Keep its
+manager, runner, recovery helper and package unchanged. The target uses its
+existing venv and isolated HF import dependencies in offline mode; no target
+environment modification was needed.
+
+Tests already passed: six CPU preparation/admission tests, three suffix-recovery
+tests, five complete-target analysis tests and fourteen development analysis tests.
+The complete end-to-end cross-host result remains a separate requirement.
+
+## Preserved interruptions and recovery
+
+Original local PID **1904528**, session **24932**, exited with code **143** after
+273/300 requests. Its process and workers were absent, stderr files were empty,
+and no STOP marker existed. The signal source is unknown. Its original status
+SHA is `21d45c7e81ac14bea9c7505bc0273cafe844a95a2ab8fdff11932fbf6db7729f`, and
+receipt SHA is `47e67e187499b03adc77f19ad5485f17a5cb5fca7aaaf1bc4254d9f78a39d1e4`.
+Both remain unchanged under `runs/conservative-auction-8840u-local-v2/`.
+
+After inspection, detached recovery PID **2050537** re-audited all 273 receipts
+and executed only the missing 27 in
+`runs/conservative-auction-8840u-local-recovered-v2/`. It completed successfully.
+The first recovery request's extra cold start is explicitly recorded. The local
+processor is **HX 370**, not the target 8840U. Do not rerun either local process.
+Guard: `strong/conservative-auction-cpu-local-recovery-launch-v2.json`.
+
+Original HF coordinator **1685160** received SIGTERM at 19:54:38 UTC while waiting;
+its state records `KeyboardInterrupt`, not an HF-job failure. Its absence, all
+22 unchanged pins, no STOP marker and zero development work were checked before
+starting one recovery owner. Original state SHA:
 `d5f5ebcae52ffd0b2f4b35c3279fb8440cad91da96a670b492e6b46c6a79ce51`.
-A bounded collection-only check of the original handles completed at 19:59 UTC:
-one audited pilot, three still running, zero replacement submissions.
+Source of termination is unknown; preserve its state/log.
 
-After that inspection, one successor started at **20:02:37 UTC**:
+Current owner **1919833** started at 20:02:37 UTC via
+`strong/recover-conservative-auction-development-v2.py --start`. State and admission
+record are under `runs/conservative-auction-development-coordinator-recovery-v2/`;
+log is `runs/conservative-auction-development-coordinator-recovery-v2.log`.
+The wrapper holds the original lock, preserves the tested coordinator and all
+admission gates, and cannot retry failed jobs or restart itself. Old v1 owners
+and their STOP marker remain unchanged. Verify actual command lines, not merely
+saved state; Linux command-line arguments are NUL-separated.
 
-- **PID 1919833 / session 94582**.
-- Entry: `strong/recover-conservative-auction-development-v2.py --start`.
-- State: `runs/conservative-auction-development-coordinator-recovery-v2/state.json`.
-- Log: `runs/conservative-auction-development-coordinator-recovery-v2.log`.
-- Admission record: `runs/conservative-auction-development-coordinator-recovery-v2/predecessor.json`.
-- Snapshot at 20:03 UTC: live, **24 code pins unchanged**, one audited pilot,
-  zero development submissions. Recheck the actual process on resumption.
+Original HF handles:
 
-This is a reviewed one-shot recovery, not an automatic retry loop. Three new tests
-reject a live owner, STOP marker, changed predecessor state, existing development
-work, failed/missing/extra handles and other failure types. The wrapper holds the
-original owner lock, retains the unchanged tested coordinator, and uses a new
-state directory. It collects the same four HF pilots and preserves all original
-admission gates. It cannot restart itself or replace jobs. Do not run a competitor.
+| Policy | Players | Job | Checkpoint |
+|---|---:|---|---|
+| population | 2 | `6ae0fa243fb22a235dd31616` | completed/audited |
+| population | 6 | `6ae0fa2541e90535df7674df` | running |
+| dual | 2 | `6ae0fa2541e90535df7674e1` | completed/audited |
+| dual | 6 | `6ae0fa2541e90535df7674e3` | running |
 
-Original HF handles remain:
-`6ae0fa243fb22a235dd31616`, `6ae0fa2541e90535df7674df`,
-`6ae0fa2541e90535df7674e1`, `6ae0fa2541e90535df7674e3`.
-The first was completed/audited; the others were directly confirmed running.
-The old v1 owner/STOP marker remain unchanged.
-
-The analysis CLI now accepts an explicit owner-state path. Its statistical
-implementation/protocol is unchanged; all **14 analysis tests still pass**. After
-the recovered owner completes the full grid, use:
+Only the live owner may collect these pilots and admit the frozen **10,080-game**
+comparison after all 64 runtime games pass. It runs at most 64 jobs concurrently,
+audits completed batches before new launches and stops on failures. After the
+entire development grid passes, use the explicit current owner path:
 
 ```sh
 ai/.venv/bin/python -B ai/strong/compare-conservative-auction-development-v2.py \
   --owner-state ai/runs/conservative-auction-development-coordinator-recovery-v2/state.json
 ```
 
-## Actual 8840U benchmark preparation
+## Durable recovery evidence
 
-SSH verified `minipc` as **AMD Ryzen 7 8840U w/ Radeon 780M Graphics**, with no
-other Python/Node research worker running at the time of inspection. The new
-target directory did not exist. No target benchmark has launched at this snapshot.
+Private model repo: `coyotte508/powergrid-ai-germany-v1`. These descriptors bind
+immutable revisions and verified archive/manifest hashes:
 
-The package uses the **exact corrected runtime and three frozen descriptors**,
-four search workers and one inference thread, with unchanged eight-world search
-budgets and thresholds. No serving simplification or new model is substituted.
+| Descriptor under `strong/` | Immutable HF revision | Contents |
+|---|---|---|
+| `conservative-auction-cpu-readiness-v2.json` | `8fbf712bd834843da52fd999a771048f0bbb3a73` | Benchmark additions, public projection, tests, coordinator recovery |
+| `conservative-auction-cpu-recovery-evidence-v2.json` | `36de35d36dac3cb3d3113ed87bc16141fb3fa785` | Original 273 receipts/interruption and suffix-recovery admission |
+| `conservative-auction-cpu-target-launch-evidence-v2.json` | `21c927539d882bb47026b16b5e7e7d9dea4bdf94` | Complete local reference, original target guard and live launch snapshot |
 
-It selects the first non-forced saved menu in each of **100 cells**:
-five player counts × four rules × five stages (plant choice, bid, resources,
-building, bureaucracy). Three policies make **300 requests per host**. Selection
-does not inspect outcomes. These fixed examples are engineering coverage, not a
-representative distribution of gameplay latency or new strength games.
-
-The historical 2,553-position model-only fixture pool has SHA-256
-`f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0`.
-It contains private simulator state. The initial public-API benchmark preparation
-correctly rejected it before producing a package or running any policy. That
-rejection is preserved in `runs/conservative-auction-cpu-initial-rejection-v2.json`.
-The preparation now applies the exact frozen `sealed-policy-beliefs.cjs.publicState`
-conversion used by the public arena. **All 100 legal menus match after projection**;
-private deck, seed and sealed bids are absent, and permitted public money remains.
-No old fixtures, policies or execution source were modified.
-
-Six tests pass for deterministic complete fixture selection, private-input
-rejection, source tampering, incomplete local reference and duplicate target
-launch guards. Local replay is the first end-to-end test of the new harness.
-
-## Current local reference and next steps
-
-- Entry: `strong/benchmark-conservative-auction-8840u-v2.py`.
-- Runner: `strong/conservative_auction_cpu_v2.py`.
-- Preparation: `runs/conservative-auction-8840u-prepared-v2/`.
-- Local reference: `runs/conservative-auction-8840u-local-v2/`.
-- **PID 1904528 / exec session 24932**, started 20:00:36 UTC.
-- At 20:03 UTC: process command verified live, **155/300 requests completed**.
-- Local processor is **HX 370**, not the user's 8840U. Do not report its timings
-  as target performance. Do not score/interpret partial benchmark results.
-
-Package SHA-256:
-`d179c066ff69243bb81d3c7ae0d9bf9999350db0bb879a9317974d2d50db7f78`.
-Benchmark manifest SHA-256:
-`c6e1698208bdda2ab19d8d4e1f1e23e145bd16f882fcc535428729f056856bb3`.
-Runtime manifest remains
-`a2047543f5f6a8065dd9b868dd4551531147185068c665900691c5b13c278619`.
-Keep the prepared runner/manager unchanged while the run is live.
-
-Once the original local run completes, inspect its process/status and full log.
-If it fails, preserve the failure; do not overwrite/retry blindly. If all 300
-requests pass, execute `benchmark-conservative-auction-8840u-v2.py launch` once.
-It refuses an existing target guard, verifies the local reference and transfers
-to `/home/coyotte508/powergrid-ai-conservative-auction-8840u-v2`. It uses the
-existing target venv and separate HF import dependencies with Hub offline mode;
-no environment changes or HF job submissions are needed.
-
-Observe that original target with `inspect`; after terminal success use `collect`.
-Collection independently audits all 600 local/target decision receipts and requires
-exact cross-host choices, sampled worlds and terminal credits, excluding timing.
-It reports cold process-plus-request cost separately from warm round trips.
-All receipts are retained for per-count/rule inspection. A final chosen policy
-still requires the unchanged strength gate and its complete qualification package.
-
-The readiness archive references the existing immutable HF runtime source and
-stores the benchmark additions, tests, owner recovery evidence and snapshot.
-Descriptor: `strong/conservative-auction-cpu-readiness-v2.json`. The full source
-artifact is already recoverable from the runtime source revision
-`8f504f71b51c6ec5bc284c02b961d90923cdce88`; no rerunning games is needed.
+Restore the unchanged artifact from dataset `coyotte508/powergrid-ai-training-v1`,
+source revision `8f504f71b51c6ec5bc284c02b961d90923cdce88`, then overlay the archived
+benchmark additions and verify every manifest entry. No games need rerunning to
+recover evidence. Earlier incremental notices remain in Git commit `1c0a712` and
+these archives; this document replaces their obsolete procedural instructions.

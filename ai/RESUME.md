@@ -1,114 +1,29 @@
 # Power Grid AI — resumed, 27 October 2026
 
-**Latest — actual 8840U benchmark is running; local parity reference complete.**
+**Current checkpoint — 27 October, 20:31 UTC. Research is active.**
 
-The preserved 273 responses plus the 27-request recovery passed all **300 local
-checks, zero caps**. Recovery PID 2050537 has exited. The unchanged full benchmark
-is now running on `minipc` / **AMD Ryzen 7 8840U**, remote **PID 3200567**, last
-directly checked alive at 113/300 requests. Use the
-[current CPU handoff](CONSERVATIVE-AUCTION-CPU-2026-10-27.md) and only
-`recover-conservative-auction-cpu-v2.py inspect-target` / `collect-target`.
-Never relaunch the existing guard. Full cross-host parity and target costs are
-still pending. A completed correctness reference is not a new strength result.
+Start with [the CPU and execution handoff](CONSERVATIVE-AUCTION-CPU-2026-10-27.md).
+The original actual **AMD 8840U** benchmark (remote PID **3200567**, `minipc`)
+is live, with **210/300 requests** completed at this checkpoint. Reinspect that
+same process; do not relaunch it. The local correctness reference is complete
+(300 requests), with 273 original receipts preserved and only the 27 missing
+requests recovered. Full target collection and cross-host parity remain pending.
 
-The HF recovery owner **PID 1919833** remains the only collector/submitter for the
-original pilots and subsequent grid. Both 2p pilots are audited; both 6p pilots
-are running. No replacements or new HF submissions from the CPU work. The 10,080
-development games are still gated on all four complete pilots. Final seeds unused.
+The sole HF coordinator is **PID 1919833**, with state under
+`runs/conservative-auction-development-coordinator-recovery-v2/`. Both two-player
+pilots are audited; both original six-player jobs were directly verified RUNNING.
+**Zero development jobs submitted.** The frozen 10,080-game comparison remains
+gated on all four complete pilots. Do not run a competing collector or submitter.
 
----
+The next authorized CPU operations are `recover-conservative-auction-cpu-v2.py
+inspect-target`, then `collect-target` after terminal success, then
+`analyze_conservative_auction_cpu_v2.py`. Use `ai/.venv/bin/python -B` throughout.
+No new strength result, qualified candidate, deployment or reserved final seeds.
 
-**Latest — local CPU reference recovered from 273 preserved requests; two HF pilots audited.**
-
-Use [the updated CPU/recovery handoff](CONSERVATIVE-AUCTION-CPU-2026-10-27.md).
-Local exec session 24932 ended with code 143; original PID 1904528 and workers
-are absent. Its 273 audited responses and unfinished status remain intact.
-Only the remaining 27 fixed requests are running under detached **PID 2050537**,
-state `runs/conservative-auction-8840u-local-recovered-v2/status.json`; last live
-check 278/300. The package/policies are unchanged. This is a split correctness
-reference, not uninterrupted local timing. Three prefix-recovery tests pass.
-After success use `recover-conservative-auction-cpu-v2.py launch-target`, then
-`inspect-target` / `collect-target`; do not restart the old local benchmark.
-
-The actual 8840U benchmark is still unlaunched. The sole HF recovery coordinator
-**PID 1919833** remains live with 24 unchanged pins. Both 2p pilots are audited
-(16 games); both 6p pilots remain RUNNING. No new HF jobs/replacements/development
-submissions from this work, no new strength claim, no qualification or final seeds.
-
----
-
-**Latest — 27 October, 20:03 UTC: reviewed owner recovery; CPU reference replay running.**
-
-Start with [the current CPU/recovery handoff](CONSERVATIVE-AUCTION-CPU-2026-10-27.md).
-Original coordinator PID 1685160 received SIGTERM while waiting and is stopped;
-its state/log are preserved. After checking its absence, unchanged pins, original
-HF handles and zero development submissions, a one-shot recovery owner started:
-**PID 1919833 / session 94582**, state under
-`runs/conservative-auction-development-coordinator-recovery-v2/`. It is live with
-all **24 pins unchanged**, reuses the same four pilots and all original gates,
-and must not have a competing collector/submitter. Snapshot: one audited pilot,
-three running, zero development jobs. No replacements or automatic retry loop.
-
-An exact-policy CPU benchmark now covers 100 saved positions across 2–6p, all four
-rules and five stages. The raw historical fixture pool contained private simulator
-state; preparation rejected it, then used the frozen public-state projection and
-verified all 100 legal menus unchanged. **Local HX 370 reference PID 1904528 /
-session 24932** is live at 155/300 requests. The actual 8840U is reachable, but its
-new benchmark has not launched. Preserve original handles; verify local success
-before the one-shot target launch. Six CPU tests, three recovery tests and 14
-analysis tests pass. No new strength result, gradients, qualification or final seeds.
-
----
-
-**Latest — 27 October, 19:48 UTC: independent development analysis is tested.**
-
-Read [the analysis handoff](CONSERVATIVE-AUCTION-ANALYSIS-2026-10-27.md).
-Fourteen tests pass for full 10,080-game coverage, independent terminal credits,
-equal-count comparisons, paired whole-deal intervals, all adverse cells and raw
-archive admission. The actual first pilot's immutable archive binding also passed.
-No development outcomes have been analyzed and no new candidate is qualified.
-
-The sole coordinator **PID 1685160** is alive, with all **22 pins unchanged**.
-The population 2p pilot is audited; the other three original pilots are RUNNING.
-There are still zero development submissions at this snapshot. Do not compete
-with the owner or invoke the analysis until it has completed the full comparison.
-The new reader never collects/submits, never scores a partial grid, and never
-automatically selects a model. Final seeds remain unused.
-
----
-
-**Latest — 27 October, 19:31 UTC: sole v2 development coordinator started.**
-
-Read [the execution handoff](CONSERVATIVE-AUCTION-DEVELOPMENT-2026-10-27.md).
-PID **1685160 / session 76424** is independently verified alive with all **22 code
-pins unchanged**. Thirteen scheduling/admission/submission/coordinator tests pass.
-It owns the four existing corrected-runtime pilot handles, waits for all four
-complete audits, then prepares and executes the unchanged 10,080-game comparison
-with at most 64 simultaneous jobs. Every finished job is audited before the next
-batch is launched. No automatic retries, model selection or qualification.
-
-**Do not run a competing collector/submitter while this owner is alive.** Old v1
-owners and STOP marker remain unchanged. Current snapshot: no development jobs
-submitted; runtime admission still pending. No new gradients or final seeds.
-Use the live state/log and actual process to revalidate status on the next turn.
-
----
-
-**Latest — 27 October 2026: four corrected-runtime HF pilots are RUNNING.**
-
-Read [the current pilot handoff](CONSERVATIVE-AUCTION-RUNTIME-2026-10-27.md).
-A new pinned source passed 72 saved decisions / 1,992 exact continuations, the
-recovered request's 96 uncapped continuations, and eight measured control games
-with 1,607 exact decisions. Seven launch-guard tests passed. Four new CPU jobs
-now cover 64 engineering games; all original handles are recorded and directly
-verified RUNNING. Source upload/download hashes match. No local owner is running.
-Use only `strong/manage-conservative-auction-runtime-v2.py collect` for bounded
-collection; do not restart old owners or resubmit these handles.
-
-The 10,080-game strength comparison remains unadmitted/unlaunched, pending all
-four complete audits and measured resources. Four new HF runtime jobs, zero
-new strength games/gradients/development jobs; reserved final seeds unused.
-No candidate qualified or deployed. The previous v1 run remains failed/incomplete.
+This replaces the earlier incremental launch/recovery notices. Their exact
+snapshots remain in Git commit `1c0a712` and the immutable HF evidence archives
+indexed by the handoff. Historical statements below describe earlier checkpoints;
+revalidate actual processes and handles before acting on them.
 
 ---
 

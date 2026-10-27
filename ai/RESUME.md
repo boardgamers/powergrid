@@ -1,5 +1,28 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**Latest — 27 October, 20:03 UTC: reviewed owner recovery; CPU reference replay running.**
+
+Start with [the current CPU/recovery handoff](CONSERVATIVE-AUCTION-CPU-2026-10-27.md).
+Original coordinator PID 1685160 received SIGTERM while waiting and is stopped;
+its state/log are preserved. After checking its absence, unchanged pins, original
+HF handles and zero development submissions, a one-shot recovery owner started:
+**PID 1919833 / session 94582**, state under
+`runs/conservative-auction-development-coordinator-recovery-v2/`. It is live with
+all **24 pins unchanged**, reuses the same four pilots and all original gates,
+and must not have a competing collector/submitter. Snapshot: one audited pilot,
+three running, zero development jobs. No replacements or automatic retry loop.
+
+An exact-policy CPU benchmark now covers 100 saved positions across 2–6p, all four
+rules and five stages. The raw historical fixture pool contained private simulator
+state; preparation rejected it, then used the frozen public-state projection and
+verified all 100 legal menus unchanged. **Local HX 370 reference PID 1904528 /
+session 24932** is live at 155/300 requests. The actual 8840U is reachable, but its
+new benchmark has not launched. Preserve original handles; verify local success
+before the one-shot target launch. Six CPU tests, three recovery tests and 14
+analysis tests pass. No new strength result, gradients, qualification or final seeds.
+
+---
+
 **Latest — 27 October, 19:48 UTC: independent development analysis is tested.**
 
 Read [the analysis handoff](CONSERVATIVE-AUCTION-ANALYSIS-2026-10-27.md).

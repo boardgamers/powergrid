@@ -1,5 +1,11 @@
 # Conservative auction comparison — execution readiness, 27 October 2026
 
+**Update, 20:03 UTC:** original owner PID 1685160 was terminated by signal while
+waiting. After inspection, the sole recovery owner **PID 1919833 / session 94582**
+reuses all original jobs and gates with 24 unchanged pins. See the
+[current owner/CPU handoff](CONSERVATIVE-AUCTION-CPU-2026-10-27.md). Historical
+claims below that PID 1685160 is live are superseded. Do not start a competitor.
+
 **Update, 19:48 UTC:** independent [analysis tooling is ready](CONSERVATIVE-AUCTION-ANALYSIS-2026-10-27.md)
 with 14 passing tests. The sole owner is alive; all 22 pins remain unchanged.
 One population/2p pilot is audited, the other three original pilots are running,

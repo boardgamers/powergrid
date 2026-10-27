@@ -81,12 +81,14 @@ def immutable_archive(evidence, name):
                 'Archive manifest differs from audited files')
 
 
-def compare(output):
+def compare(output, owner_path=None):
     output = Path(output).resolve(); intent = output.with_suffix('.intent.json')
+    owner_path = OWNER if owner_path is None else Path(owner_path).resolve()
     require(not output.exists() and not intent.exists(), 'Inspect existing analysis outcome/intent before retry')
-    owner = read(OWNER)
+    owner = read(owner_path)
     require(owner['stage'] == 'complete' and owner['completed_games'] == 10080,
             'Wait for complete original execution; do not compete with the coordinator')
+    require(owner_path.is_relative_to(ROOT/'ai/runs'), 'Owner state must belong to this research checkout')
     require(all(digest(ROOT/name) == sha for name, sha in owner['code_hashes'].items()), 'Execution code changed')
     manager = manager_module()
     require(manager.RESULT.exists(), 'Complete original result missing')
@@ -109,7 +111,7 @@ def compare(output):
             str(Path(statistics.__file__).relative_to(ROOT)): digest(statistics.__file__),
             str(manager.SOURCE.relative_to(ROOT)): digest(manager.SOURCE),
             str(manager.RESULT.relative_to(ROOT)): digest(manager.RESULT),
-            str(OWNER.relative_to(ROOT)): digest(OWNER)}
+            str(owner_path.relative_to(ROOT)): digest(owner_path)}
     write_new(intent, {'started_at': datetime.now(timezone.utc).isoformat(), 'input_hashes': pins,
                       'jobs': len(jobs), 'games': 10080, 'purpose': 'complete development comparison only'})
     reports = {arm: {} for arm in statistics.ARMS}
@@ -164,4 +166,6 @@ def compare(output):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(__doc__); parser.add_argument('--output', type=Path, default=OUTPUT)
-    print(json.dumps(compare(parser.parse_args().output)))
+    parser.add_argument('--owner-state', type=Path, default=OWNER)
+    args = parser.parse_args()
+    print(json.dumps(compare(args.output, args.owner_state)))

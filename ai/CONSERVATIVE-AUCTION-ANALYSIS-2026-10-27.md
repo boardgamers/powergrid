@@ -1,5 +1,9 @@
 # Conservative auction comparison — analysis readiness, 27 October 2026
 
+**Update:** execution now has a [reviewed recovery owner](CONSERVATIVE-AUCTION-CPU-2026-10-27.md)
+after the original waiter received SIGTERM. Use the explicit recovery owner path
+below after it completes. Statistical logic/protocol is unchanged; all 14 tests pass.
+
 The research goal remains active. The previous turn was a **verified wait**:
 the original coordinator process and four HF pilot handles were directly checked.
 This turn made **progress** by implementing and testing the independent complete-grid
@@ -58,7 +62,8 @@ writes a separate comparison atomically without overwriting an existing outcome.
 Do not invoke it until all originals finish. Once the execution owner is complete:
 
 ```sh
-ai/.venv/bin/python -B ai/strong/compare-conservative-auction-development-v2.py
+ai/.venv/bin/python -B ai/strong/compare-conservative-auction-development-v2.py \
+  --owner-state ai/runs/conservative-auction-development-coordinator-recovery-v2/state.json
 ```
 
 The expected output is `strong/conservative-auction-development-comparison-v2.json`.

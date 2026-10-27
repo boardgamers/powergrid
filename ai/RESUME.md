@@ -27,6 +27,12 @@ tests ensure the checker rejects changed moves, rollout outcomes or public input
 [Regression report](strong/conservative-auction-runtime-regression-v2.json).
 This does not replace the outstanding fourth pilot or supply new strength games.
 
+Independent preparation: the [whole resource-turn transaction prototype](RESOURCE-TURN-TRANSACTION-2026-10-27.md)
+passed 755 saved positions and 23 recorded search plans. It supplies an isolated
+execution boundary for a future commitment experiment; it does not change the
+running auction policies or rehabilitate the rejected resource-search policy.
+No new inference, games or HF jobs were needed for that component.
+
 Next: let the existing owner finish runtime admission and the unchanged development
 comparison, then analyze the full grid with its explicit recovered owner-state
 path. Final seeds remain unused. All final strength, 2,553-fixture serving and

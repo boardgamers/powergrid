@@ -62579,5 +62579,37 @@
         "reserved_final_seeds_used": false,
         "previous_goal_turn": "verified wait on the original live HF jobs and sole owner",
         "current_goal_turn": "progress: population6p completed/audited; all 40 formerly passing games and 5522 decision receipts independently match corrected runtime; evidence archived"
+    },
+    "resource_turn_transaction_v1": {
+        "date": "2026-10-27T22:18:58.763619+00:00",
+        "status": "isolated_execution_contract_verified_not_integrated",
+        "hypothesis": "Prepare a stateless complete resource-turn boundary for a later controlled commitment versus atomic-replanning experiment. No playing-strength hypothesis has been tested by these engine checks.",
+        "report": "ai/strong/resource-turn-transaction-results-v1.json",
+        "documentation": "ai/RESOURCE-TURN-TRANSACTION-2026-10-27.md",
+        "evidence": "ai/strong/resource-turn-transaction-evidence-v1.json",
+        "baseline_positions": 755,
+        "baseline_actions": 2251,
+        "recorded_search_plans": 23,
+        "rejected_controls": 10387,
+        "hidden_controls": 755,
+        "contract_sha256": "9e5685663d006703aac2d524cf922f958a8792c4f61ffe2ca2de987bed0573d3",
+        "checker_sha256": "6d5759c43277d0be458e9fa0bf72ba0c78b4e3aef0a4f2a88b3925b62126f171",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "921979031542c9f58142fc93a4467472f461c8fb",
+            "archive_path": "archives/resource-turn-transaction-evidence-v1.tgz",
+            "archive_sha256": "f265651a9ba452c315ed36a9bb9ac67e703920c1a409dec3615616b760febdcc",
+            "manifest_sha256": "a8940f1559027f4c6492615467944fb3cb4547d4ca019178d617b2167e998ee4",
+            "archived_files": 15,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "active_auction_policies_changed": false,
+        "new_inference": 0,
+        "new_full_games": 0,
+        "new_hf_jobs": 0,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "decision": "Keep the current auction comparison unchanged. The failed resource-search policy remains rejected. Before testing commitment, implement and verify whole-turn arena/public adapters, freeze a fresh paired study separating commitment from stable sampling, and admit its measured runtime."
     }
 }

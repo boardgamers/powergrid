@@ -1,5 +1,22 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**Latest — 27 October, 19:31 UTC: sole v2 development coordinator started.**
+
+Read [the execution handoff](CONSERVATIVE-AUCTION-DEVELOPMENT-2026-10-27.md).
+PID **1685160 / session 76424** is independently verified alive with all **22 code
+pins unchanged**. Thirteen scheduling/admission/submission/coordinator tests pass.
+It owns the four existing corrected-runtime pilot handles, waits for all four
+complete audits, then prepares and executes the unchanged 10,080-game comparison
+with at most 64 simultaneous jobs. Every finished job is audited before the next
+batch is launched. No automatic retries, model selection or qualification.
+
+**Do not run a competing collector/submitter while this owner is alive.** Old v1
+owners and STOP marker remain unchanged. Current snapshot: no development jobs
+submitted; runtime admission still pending. No new gradients or final seeds.
+Use the live state/log and actual process to revalidate status on the next turn.
+
+---
+
 **Latest — 27 October 2026: four corrected-runtime HF pilots are RUNNING.**
 
 Read [the current pilot handoff](CONSERVATIVE-AUCTION-RUNTIME-2026-10-27.md).

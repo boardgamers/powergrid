@@ -1,5 +1,12 @@
 # Corrected auction runtime pilots — 27 October 2026
 
+**Update — 19:31 UTC:** the new sole coordinator PID 1685160 now owns collection.
+Follow [the current execution handoff](CONSERVATIVE-AUCTION-DEVELOPMENT-2026-10-27.md).
+Do not run the manual collector below while that owner is alive. The following
+launch snapshot records the earlier state before this coordinator started.
+
+---
+
 The research goal is active following the human's “do ai research” request.
 Four new HF CPU jobs are running the corrected frozen runtime. This is a full-game
 runtime regression, not the strength comparison or final qualification.

@@ -1,6 +1,6 @@
 # Power Grid AI — resumed, 27 October 2026
 
-**Current checkpoint — 27 October, 20:43 UTC. Research is active.**
+**Current checkpoint — 27 October, 21:05 UTC. Research is active.**
 
 The complete **actual AMD 8840U** benchmark passed: **300/300 cross-host responses
 match exactly**, 600 raw receipts independently audited, zero capped continuations.
@@ -15,10 +15,17 @@ measured playing-strength benefit; no hybrid is selected or qualified.
 
 The sole HF coordinator is **PID 1919833**, with state under
 `runs/conservative-auction-development-coordinator-recovery-v2/`. Its actual process
-and 24 unchanged pins were verified. Both 2p pilots are audited; both original 6p
-jobs were directly verified RUNNING. **Zero development jobs submitted.** The
-frozen 10,080-game comparison remains gated on all four complete pilots. Do not
+and 24 unchanged pins were verified. Both 2p pilots and the population 6p pilot are audited: **40 games**. Only the
+original dual-population 6p job remains RUNNING. **Zero development jobs submitted.**
+The frozen 10,080-game comparison remains gated on all four complete pilots. Do not
 run a competing collector/submitter. Recheck actual processes and job handles.
+
+A read-only regression comparison also passed: all **40 games / 5,522 decisions**
+from the three originally successful pilots preserve behavior exactly, allowing
+only the declared identity/worker hashes and timing differences. Three focused
+tests ensure the checker rejects changed moves, rollout outcomes or public inputs.
+[Regression report](strong/conservative-auction-runtime-regression-v2.json).
+This does not replace the outstanding fourth pilot or supply new strength games.
 
 Next: let the existing owner finish runtime admission and the unchanged development
 comparison, then analyze the full grid with its explicit recovered owner-state

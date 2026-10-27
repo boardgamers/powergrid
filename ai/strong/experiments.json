@@ -62468,5 +62468,116 @@
         "reserved_final_seeds_used": false,
         "previous_goal_turn": "progress: recovery handoff consolidated and pushed; verified wait on original live handles",
         "current_goal_turn": "progress: complete actual8840U benchmark collected, 600 raw receipts audited, 300 exact cross-host responses and cost review archived"
+    },
+    "conservative_auction_runtime_regression_v2": {
+        "created_at": "2026-10-27T21:08:21.804170+00:00",
+        "status": "complete read-only comparison of all three originally passing runtime pilots",
+        "games": 40,
+        "exact_decisions": 5522,
+        "scope": "All three original passing runtime pilots. Failed original dual-6p is excluded explicitly; its v2 run still requires full independent runtime admission. Reused engineering seeds, not strength or final qualification.",
+        "allowed_differences": [
+            "elapsedMs",
+            "game duration and receipt-file hash",
+            "pinned policy/runtime identities",
+            "pinned continuation worker hash"
+        ],
+        "report": {
+            "path": "ai/strong/conservative-auction-runtime-regression-v2.json",
+            "sha256": "56f2e023301ccaca80f833bcabba81bdd9b15170d35db6301e958af6f2a588ea"
+        },
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "1a2596f84e9f6dee66516ecbb99417188d6d0b85",
+            "archive_path": "archives/conservative-auction-runtime-regression-evidence-v2.tgz",
+            "archive_sha256": "1400d12afcd9c953eadfe8c0893eeccc912c09a74acf87e54b56050333359d05",
+            "manifest_sha256": "c1378ef2da3ffab8f522962e39fd8a54cc0a5baa13d2f650f3dfc86cc513d3a0",
+            "archived_files": 25,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "measurements": [
+            {
+                "arm": "conservative_population",
+                "players": 2,
+                "v1": {
+                    "job_id": "6addea031e112550ce7eaa88",
+                    "seconds": 519.9063639389351,
+                    "cpu_seconds": 2291.8300000000004,
+                    "sampled_peak_total_rss_bytes": 6600781824,
+                    "memory_samples": 2553,
+                    "memory_sampling_period_seconds": 0.2,
+                    "includes_startup_and_validation": true
+                },
+                "v2": {
+                    "job_id": "6ae0fa243fb22a235dd31616",
+                    "seconds": 1191.168778863037,
+                    "cpu_seconds": 2776.5800000000004,
+                    "sampled_peak_total_rss_bytes": 6540431360,
+                    "memory_samples": 5615,
+                    "memory_sampling_period_seconds": 0.2,
+                    "includes_startup_and_validation": true
+                }
+            },
+            {
+                "arm": "conservative_population",
+                "players": 6,
+                "v1": {
+                    "job_id": "6addea031e112550ce7eaa8a",
+                    "seconds": 3473.9366269180027,
+                    "cpu_seconds": 15977.189999999999,
+                    "sampled_peak_total_rss_bytes": 7185936384,
+                    "memory_samples": 17038,
+                    "memory_sampling_period_seconds": 0.2,
+                    "includes_startup_and_validation": true
+                },
+                "v2": {
+                    "job_id": "6ae0fa2541e90535df7674df",
+                    "seconds": 5704.234898448922,
+                    "cpu_seconds": 21761.379999999997,
+                    "sampled_peak_total_rss_bytes": 6899556352,
+                    "memory_samples": 27428,
+                    "memory_sampling_period_seconds": 0.2,
+                    "includes_startup_and_validation": true
+                }
+            },
+            {
+                "arm": "conservative_dual",
+                "players": 2,
+                "v1": {
+                    "job_id": "6addea04046eb82b1ece4faf",
+                    "seconds": 835.8572823599679,
+                    "cpu_seconds": 3965.48,
+                    "sampled_peak_total_rss_bytes": 6810087424,
+                    "memory_samples": 4104,
+                    "memory_sampling_period_seconds": 0.2,
+                    "includes_startup_and_validation": true
+                },
+                "v2": {
+                    "job_id": "6ae0fa2541e90535df7674e1",
+                    "seconds": 3322.0116113639997,
+                    "cpu_seconds": 7167.609999999999,
+                    "sampled_peak_total_rss_bytes": 6270304256,
+                    "memory_samples": 15433,
+                    "memory_sampling_period_seconds": 0.2,
+                    "includes_startup_and_validation": true
+                }
+            }
+        ],
+        "timing_interpretation": "Identical games/choices did not imply identical HF execution times. Cause is unestablished. Current complete four-pilot measurements remain required for batch allocation; partial costs are not admission.",
+        "current_runtime": {
+            "verified_jobs": 3,
+            "verified_games": 40,
+            "pending_original_job": "6ae0fa2541e90535df7674e3",
+            "development_submitted_at_checkpoint": 0,
+            "sole_owner_pid": 1919833
+        },
+        "focused_tests": 3,
+        "new_games": 0,
+        "inference": false,
+        "hf_jobs_submitted": 0,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "previous_goal_turn": "verified wait on the original live HF jobs and sole owner",
+        "current_goal_turn": "progress: population6p completed/audited; all 40 formerly passing games and 5522 decision receipts independently match corrected runtime; evidence archived"
     }
 }

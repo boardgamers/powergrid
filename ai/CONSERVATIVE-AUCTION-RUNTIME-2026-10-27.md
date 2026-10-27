@@ -1,9 +1,30 @@
 # Corrected auction runtime pilots — 27 October 2026
 
-**Update — 19:31 UTC:** the new sole coordinator PID 1685160 now owns collection.
-Follow [the current execution handoff](CONSERVATIVE-AUCTION-DEVELOPMENT-2026-10-27.md).
-Do not run the manual collector below while that owner is alive. The following
-launch snapshot records the earlier state before this coordinator started.
+**Update — 21:05 UTC:** recovery coordinator **PID 1919833** is the sole live
+collector/submitter; all 24 pins match. Both 2p pilots and population 6p are
+completed and independently audited (**40 games**). Original dual-6p handle
+`6ae0fa2541e90535df7674e3` remains RUNNING. Zero development jobs submitted;
+the fourth complete audit is still required. Do not run a competing collector.
+
+The separate [full-game regression check](strong/conservative-auction-runtime-regression-v2.json)
+compared all three original passing jobs to their corrected counterparts:
+**40 games / 5,522 decisions**, unchanged public inputs, legal menus, choices,
+sampled outcomes and terminals. Only the pinned runtime/descriptor/worker hashes
+and elapsed timing differ. Three tests reject behavioral or unpinned hash changes.
+No new inference, simulations, HF jobs or strength games were used for this check.
+The failed original dual-6p job is explicitly outside this completed regression
+set; its corrected counterpart still needs the full original runtime audit.
+
+The population 6p run measured **5,704.235 s / 21,761.38 CPU-s / 6.426 GiB peak
+sampled RSS**, versus 3,473.937 s previously. The exact repeated decisions show
+that changed game choices do not explain the wall-time difference. Its underlying
+cause is not established; allocation remains based on all complete current pilots.
+
+Regression recovery metadata is indexed by
+`strong/conservative-auction-runtime-regression-evidence-v2.json`. The six raw
+old/new job archives are referenced rather than duplicated. The current CPU result
+and next operations are in [the execution handoff](CONSERVATIVE-AUCTION-CPU-2026-10-27.md).
+The following launch snapshot records earlier state and is historical.
 
 ---
 

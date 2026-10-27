@@ -46,10 +46,23 @@ Evidence:
 
 ## Current HF work and next action
 
-The sole coordinator, **PID 1919833 / session 94582**, was independently verified
-live at this checkpoint with all 24 code pins unchanged. Both original 2p pilots
-are audited (16 games); both original 6p handles remain RUNNING. **Zero development
-jobs submitted.** No competing collector or submitter may run while it is alive.
+**HF update: 27 October, 21:05 UTC.** The sole coordinator, **PID 1919833 /
+session 94582**, remains independently verified live with all 24 code pins
+unchanged. Both 2p pilots and the population 6p pilot are audited (**40 games**).
+Only original dual-6p job `6ae0fa2541e90535df7674e3` remains RUNNING. **Zero
+development jobs submitted.** No competing collector or submitter may run.
+
+The full-game regression check of the three original passing pilots also passed:
+**40 games / 5,522 exact decisions** after allowing only pinned policy/runtime and
+worker identities plus elapsed time. Public requests, moves, sampled outcomes,
+counters and terminals remain unchanged. This is read-only reuse of engineering
+evidence, not a new strength result. See
+[the regression report](strong/conservative-auction-runtime-regression-v2.json).
+
+The population 6p batch took 5,704.235 s now versus 3,473.937 s previously despite
+identical decisions. The cause is not established. The planned resource allocation
+uses all four complete current measurements with margins, not the older timing
+or the surviving subset; no timeout or sampling threshold was changed.
 
 The next scientific result is the complete runtime admission followed by the
 frozen **10,080-game** development comparison. Leave policies, budgets, thresholds
@@ -140,7 +153,7 @@ Original HF handles:
 | Policy | Players | Job | Checkpoint |
 |---|---:|---|---|
 | population | 2 | `6ae0fa243fb22a235dd31616` | completed/audited |
-| population | 6 | `6ae0fa2541e90535df7674df` | running |
+| population | 6 | `6ae0fa2541e90535df7674df` | completed/audited |
 | dual | 2 | `6ae0fa2541e90535df7674e1` | completed/audited |
 | dual | 6 | `6ae0fa2541e90535df7674e3` | running |
 

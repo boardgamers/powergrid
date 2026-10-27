@@ -1,0 +1,129 @@
+{
+  "created_at": "2026-10-27T21:04:54.406412+00:00",
+  "complete": true,
+  "games": 40,
+  "exact_decisions": 5522,
+  "cases": [
+    {
+      "arm": "conservative_population",
+      "players": 2,
+      "games": 8,
+      "exact_decisions": 1413,
+      "original_job": "6addea031e112550ce7eaa88",
+      "corrected_job": "6ae0fa243fb22a235dd31616",
+      "archives": [
+        {
+          "repo": "coyotte508/powergrid-ai-germany-v1",
+          "revision": "116336a69511d62f8151b87e59f5e414a4587b12",
+          "archive_path": "archives/conservative-auction-runtime-v1-conservative_population-2p.tgz",
+          "archive_sha256": "921d18ae96bcf911e84e2fe985bd6e0c15b08ced2d3bc9a504da0009d61f9035",
+          "manifest_sha256": "9c9880b689863ad8c6358c6c38a314f7b0207fe4d1f09122a3935545f3c2a107",
+          "archived_files": 37,
+          "format": "tar.gz",
+          "remote_archive_verified": true
+        },
+        {
+          "repo": "coyotte508/powergrid-ai-germany-v1",
+          "revision": "05345057533b5fd407f8466c4dea0f720e22511c",
+          "archive_path": "archives/conservative-auction-runtime-v2-conservative_population-2p.tgz",
+          "archive_sha256": "daf7312d68a97860ca5ce3df037ae76f30067d65bfd523aebb0fc7ed666997aa",
+          "manifest_sha256": "f415b6f9c438a7282adf402c10156c0b82b65fb469986ff4a4ce1395b69cc0ce",
+          "archived_files": 37,
+          "format": "tar.gz",
+          "remote_archive_verified": true
+        }
+      ],
+      "input_hashes": {
+        "ai/runs/conservative-auction-runtime-hf-v1/conservative-auction-runtime-v1-conservative_population-2p/verified.json": "50e725de06c29f90628f10e004470e4ea5b6c27d60877c71e06a83e1ae295dfa",
+        "ai/runs/conservative-auction-runtime-hf-v1/conservative-auction-runtime-v1-conservative_population-2p/artifacts/manifest.json": "9c9880b689863ad8c6358c6c38a314f7b0207fe4d1f09122a3935545f3c2a107",
+        "ai/runs/conservative-auction-runtime-hf-v2/conservative-auction-runtime-v2-conservative_population-2p/verified.json": "bcd12118bee2bbb81804a34be146152c773c98f1df03c86f9555ffad19df14ae",
+        "ai/runs/conservative-auction-runtime-hf-v2/conservative-auction-runtime-v2-conservative_population-2p/artifacts/manifest.json": "f415b6f9c438a7282adf402c10156c0b82b65fb469986ff4a4ce1395b69cc0ce"
+      }
+    },
+    {
+      "arm": "conservative_population",
+      "players": 6,
+      "games": 24,
+      "exact_decisions": 2745,
+      "original_job": "6addea031e112550ce7eaa8a",
+      "corrected_job": "6ae0fa2541e90535df7674df",
+      "archives": [
+        {
+          "repo": "coyotte508/powergrid-ai-germany-v1",
+          "revision": "208a5a72757407eb54e6fa82ed56f5dc69255624",
+          "archive_path": "archives/conservative-auction-runtime-v1-conservative_population-6p.tgz",
+          "archive_sha256": "3f4f869c90c2bed177a546644528e5919f5258482899f0f08336be70ad17b1ea",
+          "manifest_sha256": "a6fac366100cd2084b3062fe8d907b481af1f0f56b389fc6f1b3e2f989585b43",
+          "archived_files": 85,
+          "format": "tar.gz",
+          "remote_archive_verified": true
+        },
+        {
+          "repo": "coyotte508/powergrid-ai-germany-v1",
+          "revision": "815223b220728222c4c6fc5b086fa0b39e8d4c38",
+          "archive_path": "archives/conservative-auction-runtime-v2-conservative_population-6p.tgz",
+          "archive_sha256": "6811bb4008a6be1e3bf09839085278b37b719f4635097072e60c91faabab6c7a",
+          "manifest_sha256": "6abd6ee0db4f115748a3a2aa19558fedc897bc0dddda208a8b4628647264b11b",
+          "archived_files": 85,
+          "format": "tar.gz",
+          "remote_archive_verified": true
+        }
+      ],
+      "input_hashes": {
+        "ai/runs/conservative-auction-runtime-hf-v1/conservative-auction-runtime-v1-conservative_population-6p/verified.json": "8391702b74f6b26f706bd00c16afbdd3138ebfc04a68ef3e3042e0c3cb845e96",
+        "ai/runs/conservative-auction-runtime-hf-v1/conservative-auction-runtime-v1-conservative_population-6p/artifacts/manifest.json": "a6fac366100cd2084b3062fe8d907b481af1f0f56b389fc6f1b3e2f989585b43",
+        "ai/runs/conservative-auction-runtime-hf-v2/conservative-auction-runtime-v2-conservative_population-6p/verified.json": "32c6372227abb30c924fc2cc5b6c1d2548cc63843a1546075d7af9e6818e6cd3",
+        "ai/runs/conservative-auction-runtime-hf-v2/conservative-auction-runtime-v2-conservative_population-6p/artifacts/manifest.json": "6abd6ee0db4f115748a3a2aa19558fedc897bc0dddda208a8b4628647264b11b"
+      }
+    },
+    {
+      "arm": "conservative_dual",
+      "players": 2,
+      "games": 8,
+      "exact_decisions": 1364,
+      "original_job": "6addea04046eb82b1ece4faf",
+      "corrected_job": "6ae0fa2541e90535df7674e1",
+      "archives": [
+        {
+          "repo": "coyotte508/powergrid-ai-germany-v1",
+          "revision": "7a542653cf6730d5828171fbe058753dfb361698",
+          "archive_path": "archives/conservative-auction-runtime-v1-conservative_dual-2p.tgz",
+          "archive_sha256": "cc3789d8fe230a9a4062d39703d8ce6707495396e384292b1c1a285d9e902b02",
+          "manifest_sha256": "1f03b26107d5b8e948f24002756cb312810ce6c907aa049dfeaa7ae697414007",
+          "archived_files": 37,
+          "format": "tar.gz",
+          "remote_archive_verified": true
+        },
+        {
+          "repo": "coyotte508/powergrid-ai-germany-v1",
+          "revision": "908f4b62ec8d09081b62d757ffdb34357ed2fbc1",
+          "archive_path": "archives/conservative-auction-runtime-v2-conservative_dual-2p.tgz",
+          "archive_sha256": "8fa6dabcbae3440c18f8e0f6c57410940d18e5407fa0dc96684fc56d03bac8c9",
+          "manifest_sha256": "3e64fd63f9318498c6e59d81509c9d7da9c280021eafca9c0cf5dcc525437d94",
+          "archived_files": 37,
+          "format": "tar.gz",
+          "remote_archive_verified": true
+        }
+      ],
+      "input_hashes": {
+        "ai/runs/conservative-auction-runtime-hf-v1/conservative-auction-runtime-v1-conservative_dual-2p/verified.json": "b69ce6a3faf626e03055093117995df19bd2d03cdb8d1939f235e70dcb3f2d8a",
+        "ai/runs/conservative-auction-runtime-hf-v1/conservative-auction-runtime-v1-conservative_dual-2p/artifacts/manifest.json": "1f03b26107d5b8e948f24002756cb312810ce6c907aa049dfeaa7ae697414007",
+        "ai/runs/conservative-auction-runtime-hf-v2/conservative-auction-runtime-v2-conservative_dual-2p/verified.json": "bb613fdfe54f3e7024355411686cb236d511e474c189bf2bc5612d6466ffd166",
+        "ai/runs/conservative-auction-runtime-hf-v2/conservative-auction-runtime-v2-conservative_dual-2p/artifacts/manifest.json": "3e64fd63f9318498c6e59d81509c9d7da9c280021eafca9c0cf5dcc525437d94"
+      }
+    }
+  ],
+  "verifier_sha256": "e08d0623ea5d140d976ad76eef7317a02ae8be723a9a6223048c37eb55998295",
+  "scope": "All three original passing runtime pilots. Failed original dual-6p is excluded explicitly; its v2 run still requires full independent runtime admission. Reused engineering seeds, not strength or final qualification.",
+  "allowed_differences": [
+    "elapsedMs",
+    "game duration and receipt-file hash",
+    "pinned policy/runtime identities",
+    "pinned continuation worker hash"
+  ],
+  "new_games": 0,
+  "inference": false,
+  "hf_jobs_submitted": 0,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

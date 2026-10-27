@@ -1,0 +1,64 @@
+{
+  "actual_target_complete": true,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "e46ee40d1038092598923a26e1b6a4d26f59727a",
+    "archive_path": "archives/conservative-auction-cpu-results-evidence-v2.tgz",
+    "archive_sha256": "d5b36bb9770de3ba90667a6a74e805aafd39aa17324da282fff4a6444f3d879e",
+    "manifest_sha256": "531b98aaeaf670258b9ab752299d1c6c0656c06bcdc469d80f1546a0d281f5a0",
+    "archived_files": 22,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "checkpoint": {
+    "created_at": "2026-10-27T20:44:42.885972+00:00",
+    "actual_target_complete": true,
+    "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+    "independent_receipts_audited": 600,
+    "exact_cross_host_responses": 300,
+    "caps": 0,
+    "assessment_sha256": "70be8358db79be9a42c0c5dc9915c8100bfdff2fd1666c3e30bf0f81cbdec51a",
+    "cost_review_sha256": "abe91cc1df25260c577d6ebfd4a54e43af51769715a4aa50705b87c73dcc535d",
+    "raw_target_status_sha256": "149c8b6cbd1c962b28d4d9cc2c51a3a5164b7b95d1181d7f7e6c6904ad082137",
+    "immutable_recovery_archives": {
+      "ai/strong/conservative-auction-cpu-readiness-v2.json": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "8fbf712bd834843da52fd999a771048f0bbb3a73",
+        "archive_path": "archives/conservative-auction-cpu-readiness-v2.tgz",
+        "archive_sha256": "0b75a802a614e0cc2413429a3c4118c56de74193c37a0530e2d3a47a32f611a7",
+        "manifest_sha256": "a5e4f79f4b329bb3fdba1d18039d35e1b62593133f553ef995990d2c20da9270",
+        "archived_files": 28,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "ai/strong/conservative-auction-cpu-recovery-evidence-v2.json": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "36de35d36dac3cb3d3113ed87bc16141fb3fa785",
+        "archive_path": "archives/conservative-auction-cpu-recovery-evidence-v2.tgz",
+        "archive_sha256": "d969514bb4e9a390a23ae6ca4097c58f6113e2ab64cf62f31506082095dc41d5",
+        "manifest_sha256": "fbdac9eb7237480980cf0d9a68693d1d48a861137a25818af72984417d5d54ba",
+        "archived_files": 19,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "ai/strong/conservative-auction-cpu-target-launch-evidence-v2.json": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "21c927539d882bb47026b16b5e7e7d9dea4bdf94",
+        "archive_path": "archives/conservative-auction-cpu-target-launch-evidence-v2.tgz",
+        "archive_sha256": "b83dd12ecbab64efa0ca4fd614d7bbf78d2a5165003dd7364122c680157825e8",
+        "manifest_sha256": "552f4ebce869e120bbe64fd87b32be8b544a4df3ff005d67db10938a81ad466c",
+        "archived_files": 21,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    "interpretation": "One saved position per count/rule/stage, one timing per policy. Descriptive fixture costs only; no estimated deployment percentiles, confidence bounds or representative gameplay distribution. Three first requests include cold process startup and are kept separate.",
+    "local_reference": "Two-segment correctness reference, preserved in the target-launch archive. No local uninterrupted timing claim.",
+    "new_hf_jobs_from_cpu_work": 0,
+    "new_strength_games": 0,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false
+  },
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

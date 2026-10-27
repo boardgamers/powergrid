@@ -1,65 +1,69 @@
 # Conservative auction CPU benchmark and execution handoff — 27 October 2026
 
-## Current state
+## Completed actual-8840U result
 
-**Checkpoint: 27 October, 20:31 UTC. Research is active.** The original actual
-AMD Ryzen 7 **8840U** benchmark is live on `minipc`, remote PID **3200567**, with
-**210/300 requests** complete. Target directory:
-`/home/coyotte508/powergrid-ai-conservative-auction-8840u-v2`.
+**Checkpoint: 27 October, 20:43 UTC. Research is active.** The original benchmark
+completed at **20:42:37 UTC** on AMD Ryzen 7 **8840U**. Remote PID **3200567** has
+exited successfully; do not relaunch it. Independent collection audited **600 raw
+receipts** and found **300/300 exact semantic cross-host responses, zero caps**.
+All choices, diagnostics, sampled worlds and terminal credits agree; only elapsed
+time is excluded. The complete local reference preserved 273 original receipts
+and recovered only 27 missing requests. No original evidence was overwritten.
 
-The complete local correctness reference passed **300 requests, zero caps**.
-It preserves the original 273 receipts byte for byte and adds only the 27 missing
-requests. Recovery PID 2050537 has exited. Target performance and independent
-cross-host parity remain pending until the unchanged full target run completes.
-Do not treat a partial timing sample as the final report.
+Three frozen policies were tested on the same 100 saved public positions across
+2–6 players, all four rules and five stages. Full target run: **1,068.33 seconds**.
 
-The sole HF coordinator, **PID 1919833 / session 94582**, remains live. Both
-original 2p pilots are audited (16 games); both 6p jobs were directly verified
-RUNNING. **Zero development submissions** at this checkpoint. All 24 code pins
-match. No competing collector/submitter may run while this owner is live.
+| Policy | Warm auction-stage median (range) | Other-stage median | First request including startup |
+|---|---:|---:|---:|
+| Model + loss filter | 5.89 ms (3.99–17.33 ms) | 5.67 ms | 0.685 s |
+| Conservative population search | 8.47 s (4.28–12.30 s) | 6.36 ms | 9.923 s |
+| Conservative dual-population search | 17.52 s (8.84–29.34 s) | 7.52 ms | 17.723 s |
 
-Research remains active; no new playing-strength result, qualified candidate,
-deployment or reserved final seeds. The last goal turn was a verified wait on
-these exact live handles. This turn consolidates conflicting incremental notes;
-source policies, gates, jobs and benchmark settings remain unchanged.
+Each row has **39 warm auction** and **60 warm other-stage** requests, plus one
+cold auction request. The model/filter median over all 99 warm requests is
+**5.69 ms**. Across both search policies there were 80 search decisions, 4,560
+uncapped continuations and 33 overrides. These counts describe saved positions,
+not win-rate evidence. Full per-count/rule/stage timing points are retained.
 
-## Next operations
+**Interpretation:** CPU serving is feasible, but this search configuration is
+measured in seconds at auctions. The dual population costs roughly twice as much
+on these fixtures and must justify that cost with better playing strength. Keep
+the model as the fast path; do not recommend the current hybrid for instant
+browser interaction. These are descriptive fixed-position costs, not deployment
+latency percentiles or representative gameplay averages. The split local reference
+is for correctness only, not uninterrupted local timing. The final selected
+policy still requires all 2,553 serving fixtures and the unchanged strength gate.
 
-Use `ai/.venv/bin/python -B`. Inspect the existing target; never launch it again:
+Evidence:
 
-```sh
-ai/.venv/bin/python -B ai/strong/recover-conservative-auction-cpu-v2.py inspect-target
-```
+- `runs/conservative-auction-8840u-collected-v2/`: raw target outputs, original
+  launch, complete run log, assessment and independent audit log.
+- [Complete timing review](strong/conservative-auction-8840u-cost-review-v2.json),
+  SHA-256 `abe91cc1df25260c577d6ebfd4a54e43af51769715a4aa50705b87c73dcc535d`.
+- [Final evidence archive descriptor](strong/conservative-auction-cpu-results-evidence-v2.json)
+  binds immutable raw results, the review and recovery archives. Do not repeat
+  collection, review creation or upload; inspect existing outcomes first.
 
-Only after successful completion and process exit:
+## Current HF work and next action
 
-```sh
-ai/.venv/bin/python -B ai/strong/recover-conservative-auction-cpu-v2.py collect-target
-ai/.venv/bin/python -B ai/strong/analyze_conservative_auction_cpu_v2.py
-```
+The sole coordinator, **PID 1919833 / session 94582**, was independently verified
+live at this checkpoint with all 24 code pins unchanged. Both original 2p pilots
+are audited (16 games); both original 6p handles remain RUNNING. **Zero development
+jobs submitted.** No competing collector or submitter may run while it is alive.
 
-The recovery wrapper binds collection to the completed local reference. Do not
-invoke the old manager directly: its default local path is the interrupted run.
-Collection refuses an existing destination and independently audits **600 raw
-receipts**, requiring all **300 semantic responses** to match exactly across
-hosts (including choices, worlds and terminal credits, excluding timing).
-Inspect any failure/partial collection before considering recovery; no blind retry.
+The next scientific result is the complete runtime admission followed by the
+frozen **10,080-game** development comparison. Leave policies, budgets, thresholds
+and seeds unchanged. If a pilot fails, preserve its full evidence and inspect
+it; never replace a failed job automatically. After all development jobs finish,
+run the comparison with the explicit recovered owner path shown below.
 
-Expected outputs:
+No new playing-strength result, qualified candidate, deployment or reserved final
+seeds. The previous goal turn was progress in recovery documentation and a verified
+wait. This turn completed the target benchmark, independent cross-host audit and
+cost review without new HF submissions or full strength games.
 
-- `runs/conservative-auction-8840u-collected-v2/assessment.json` and raw `output/`.
-- `strong/conservative-auction-8840u-cost-review-v2.json`.
-
-The timing review retains every count/rule/stage point, separates three cold
-starts, and reports warm medians/ranges per stage and count. This is one saved
-position per cell, not a representative gameplay latency distribution. Do not
-present its descriptive percentiles as deployment latency guarantees. The split
-local reference is only for correctness, not uninterrupted local timing.
-
-After successful collection, archive the complete raw target evidence, assessment
-and review using the verified evidence helper; inspect prior upload intents and
-outcomes first. Update this handoff and `RESUME.md`, then commit/push only related
-files on `ai/germany-baseline`. Never stage the three pre-existing modified
+Use `ai/.venv/bin/python -B`. Commit/push only directly related files on
+`ai/germany-baseline`. Never stage the three pre-existing modified
 `policy-iteration-{development-status,labels-results,labels-status}-v2.json` files.
 
 ## Exact benchmark
@@ -97,7 +101,7 @@ environment modification was needed.
 
 Tests already passed: six CPU preparation/admission tests, three suffix-recovery
 tests, five complete-target analysis tests and fourteen development analysis tests.
-The complete end-to-end cross-host result remains a separate requirement.
+The complete end-to-end cross-host audit has now passed independently.
 
 ## Preserved interruptions and recovery
 

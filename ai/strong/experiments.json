@@ -62373,5 +62373,100 @@
         "reserved_final_seeds_used": false,
         "previous_goal_turn": "progress: complete-target cost review tested and pushed",
         "current_goal_turn": "progress: terminal local interruption inspected, missing suffix recovered, full actual-8840U benchmark launched and original handles verified; all evidence archived"
+    },
+    "conservative_auction_actual_8840u_v2": {
+        "created_at": "2026-10-27T20:45:27.894094+00:00",
+        "status": "complete; independently audited actual target costs, not strength qualification",
+        "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+        "original_target_pid": 3200567,
+        "target_finished_at": "2026-10-27T20:42:37.679816+00:00",
+        "positions": 100,
+        "requests_per_host": 300,
+        "independent_receipts_audited": 600,
+        "exact_cross_host_responses": 300,
+        "rollout_caps": 0,
+        "continuations": 4560,
+        "search_decisions": 80,
+        "search_overrides": 33,
+        "wall_seconds": 1068.3301499658264,
+        "reported_cpu_seconds": 1544.94,
+        "coverage": {
+            "players": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "rules": [
+                "original-open",
+                "original-sealed",
+                "recharged-open",
+                "recharged-sealed"
+            ],
+            "stages": [
+                "choose",
+                "bid",
+                "resources",
+                "building",
+                "bureaucracy"
+            ]
+        },
+        "warm_auction_median_ms": {
+            "filter": 5.8928499929606915,
+            "conservative_population": 8473.178391344845,
+            "conservative_dual": 17515.712939668447
+        },
+        "warm_other_stage_median_ms": {
+            "filter": 5.66617795266211,
+            "conservative_population": 6.3585948664695024,
+            "conservative_dual": 7.515586446970701
+        },
+        "cold": {
+            "filter": {
+                "case": "2p-original-open-bid",
+                "process_plus_request_ms": 685.3461069986224,
+                "round_trip_ms": 684.728526044637
+            },
+            "conservative_population": {
+                "case": "2p-original-open-bid",
+                "process_plus_request_ms": 9923.359285108745,
+                "round_trip_ms": 9922.325402032584
+            },
+            "conservative_dual": {
+                "case": "2p-original-open-bid",
+                "process_plus_request_ms": 17723.42152427882,
+                "round_trip_ms": 17722.634476143867
+            }
+        },
+        "interpretation": "One saved position per count/rule/stage, one timing per policy. Descriptive fixture costs only; no estimated deployment percentiles, confidence bounds or representative gameplay distribution. Three first requests include cold process startup and are kept separate.",
+        "local_reference": "273 original receipts preserved byte for byte; 27 missing requests recovered once. Two execution segments used for correctness only.",
+        "assessment": {
+            "path": "ai/runs/conservative-auction-8840u-collected-v2/assessment.json",
+            "sha256": "70be8358db79be9a42c0c5dc9915c8100bfdff2fd1666c3e30bf0f81cbdec51a"
+        },
+        "cost_review": {
+            "path": "ai/strong/conservative-auction-8840u-cost-review-v2.json",
+            "sha256": "abe91cc1df25260c577d6ebfd4a54e43af51769715a4aa50705b87c73dcc535d"
+        },
+        "manifest_sha256": "c6e1698208bdda2ab19d8d4e1f1e23e145bd16f882fcc535428729f056856bb3",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "e46ee40d1038092598923a26e1b6a4d26f59727a",
+            "archive_path": "archives/conservative-auction-cpu-results-evidence-v2.tgz",
+            "archive_sha256": "d5b36bb9770de3ba90667a6a74e805aafd39aa17324da282fff4a6444f3d879e",
+            "manifest_sha256": "531b98aaeaf670258b9ab752299d1c6c0656c06bcdc469d80f1546a0d281f5a0",
+            "archived_files": 22,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "next_action": "Finish the original runtime pilots under the live coordinator, then run the unchanged complete development comparison. Search cost needs a verified strength benefit; no policy selection from this engineering sample.",
+        "new_hf_jobs_from_cpu_work": 0,
+        "new_full_strength_games": 0,
+        "gradients": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "previous_goal_turn": "progress: recovery handoff consolidated and pushed; verified wait on original live handles",
+        "current_goal_turn": "progress: complete actual8840U benchmark collected, 600 raw receipts audited, 300 exact cross-host responses and cost review archived"
     }
 }

@@ -1,0 +1,3435 @@
+{
+  "requests": 300,
+  "cold": {
+    "filter": {
+      "case": "2p-original-open-bid",
+      "process_plus_request_ms": 685.3461069986224,
+      "round_trip_ms": 684.728526044637
+    },
+    "conservative_population": {
+      "case": "2p-original-open-bid",
+      "process_plus_request_ms": 9923.359285108745,
+      "round_trip_ms": 9922.325402032584
+    },
+    "conservative_dual": {
+      "case": "2p-original-open-bid",
+      "process_plus_request_ms": 17723.42152427882,
+      "round_trip_ms": 17722.634476143867
+    }
+  },
+  "warm": {
+    "filter": {
+      "all": {
+        "count": 99,
+        "median_ms": 5.69320609793067,
+        "min_ms": 3.9926166646182537,
+        "max_ms": 17.3306199721992
+      },
+      "other_stages": {
+        "count": 60,
+        "median_ms": 5.66617795266211,
+        "min_ms": 4.024046938866377,
+        "max_ms": 14.308975078165531
+      },
+      "players/2": {
+        "count": 19,
+        "median_ms": 5.890436004847288,
+        "min_ms": 4.499244038015604,
+        "max_ms": 14.944340102374554
+      },
+      "players/2/stage/bid": {
+        "count": 3,
+        "median_ms": 13.092810288071632,
+        "min_ms": 7.289522793143988,
+        "max_ms": 14.944340102374554
+      },
+      "players/2/stage/building": {
+        "count": 4,
+        "median_ms": 6.948279682546854,
+        "min_ms": 5.890436004847288,
+        "max_ms": 14.308975078165531
+      },
+      "players/2/stage/bureaucracy": {
+        "count": 4,
+        "median_ms": 5.587872350588441,
+        "min_ms": 5.429738201200962,
+        "max_ms": 6.861797999590635
+      },
+      "players/2/stage/choose": {
+        "count": 4,
+        "median_ms": 5.460416432470083,
+        "min_ms": 4.499244038015604,
+        "max_ms": 6.7140329629182816
+      },
+      "players/2/stage/resources": {
+        "count": 4,
+        "median_ms": 5.184304900467396,
+        "min_ms": 4.8492178320884705,
+        "max_ms": 5.5595580488443375
+      },
+      "players/3": {
+        "count": 20,
+        "median_ms": 5.202464526519179,
+        "min_ms": 4.024046938866377,
+        "max_ms": 14.269959181547165
+      },
+      "players/3/stage/bid": {
+        "count": 4,
+        "median_ms": 6.659573642536998,
+        "min_ms": 5.692122969776392,
+        "max_ms": 14.269959181547165
+      },
+      "players/3/stage/building": {
+        "count": 4,
+        "median_ms": 6.144645856693387,
+        "min_ms": 5.045256111770868,
+        "max_ms": 7.007728796452284
+      },
+      "players/3/stage/bureaucracy": {
+        "count": 4,
+        "median_ms": 5.511279450729489,
+        "min_ms": 4.877252038568258,
+        "max_ms": 6.234447937458754
+      },
+      "players/3/stage/choose": {
+        "count": 4,
+        "median_ms": 4.287856165319681,
+        "min_ms": 4.2547122575342655,
+        "max_ms": 4.90166898816824
+      },
+      "players/3/stage/resources": {
+        "count": 4,
+        "median_ms": 4.322222666814923,
+        "min_ms": 4.024046938866377,
+        "max_ms": 5.090704187750816
+      },
+      "players/4": {
+        "count": 20,
+        "median_ms": 5.20379189401865,
+        "min_ms": 3.9926166646182537,
+        "max_ms": 16.95956476032734
+      },
+      "players/4/stage/bid": {
+        "count": 4,
+        "median_ms": 11.061604367569089,
+        "min_ms": 5.996190011501312,
+        "max_ms": 16.95956476032734
+      },
+      "players/4/stage/building": {
+        "count": 4,
+        "median_ms": 5.727476440370083,
+        "min_ms": 5.505413748323917,
+        "max_ms": 7.0881652645766735
+      },
+      "players/4/stage/bureaucracy": {
+        "count": 4,
+        "median_ms": 4.77090198546648,
+        "min_ms": 4.681935999542475,
+        "max_ms": 6.978312972933054
+      },
+      "players/4/stage/choose": {
+        "count": 4,
+        "median_ms": 4.314342513680458,
+        "min_ms": 3.9926166646182537,
+        "max_ms": 5.885515827685595
+      },
+      "players/4/stage/resources": {
+        "count": 4,
+        "median_ms": 4.806015407666564,
+        "min_ms": 4.249783232808113,
+        "max_ms": 4.902170039713383
+      },
+      "players/5": {
+        "count": 20,
+        "median_ms": 5.979788023978472,
+        "min_ms": 4.175879992544651,
+        "max_ms": 17.3306199721992
+      },
+      "players/5/stage/bid": {
+        "count": 4,
+        "median_ms": 11.413081781938672,
+        "min_ms": 6.144155282527208,
+        "max_ms": 17.3306199721992
+      },
+      "players/5/stage/building": {
+        "count": 4,
+        "median_ms": 8.429110050201416,
+        "min_ms": 5.881719291210175,
+        "max_ms": 8.804131764918566
+      },
+      "players/5/stage/bureaucracy": {
+        "count": 4,
+        "median_ms": 6.384327774867415,
+        "min_ms": 5.513599142432213,
+        "max_ms": 8.022495079785585
+      },
+      "players/5/stage/choose": {
+        "count": 4,
+        "median_ms": 4.657749552279711,
+        "min_ms": 4.175879992544651,
+        "max_ms": 4.730579908937216
+      },
+      "players/5/stage/resources": {
+        "count": 4,
+        "median_ms": 4.60307952016592,
+        "min_ms": 4.56579215824604,
+        "max_ms": 5.1016248762607574
+      },
+      "players/6": {
+        "count": 20,
+        "median_ms": 5.996515043079853,
+        "min_ms": 4.1798679158091545,
+        "max_ms": 17.32507860288024
+      },
+      "players/6/stage/bid": {
+        "count": 4,
+        "median_ms": 11.400798568502069,
+        "min_ms": 6.194752175360918,
+        "max_ms": 17.32507860288024
+      },
+      "players/6/stage/building": {
+        "count": 4,
+        "median_ms": 8.138459175825119,
+        "min_ms": 7.904607802629471,
+        "max_ms": 9.57522913813591
+      },
+      "players/6/stage/bureaucracy": {
+        "count": 4,
+        "median_ms": 6.562676513567567,
+        "min_ms": 5.626786965876818,
+        "max_ms": 10.304935276508331
+      },
+      "players/6/stage/choose": {
+        "count": 4,
+        "median_ms": 4.914168501272798,
+        "min_ms": 4.1798679158091545,
+        "max_ms": 4.992715083062649
+      },
+      "players/6/stage/resources": {
+        "count": 4,
+        "median_ms": 5.490123992785811,
+        "min_ms": 4.891911055892706,
+        "max_ms": 5.798277910798788
+      },
+      "search_eligible_stages": {
+        "count": 39,
+        "median_ms": 5.8928499929606915,
+        "min_ms": 3.9926166646182537,
+        "max_ms": 17.3306199721992
+      },
+      "stage/bid": {
+        "count": 19,
+        "median_ms": 7.289522793143988,
+        "min_ms": 5.692122969776392,
+        "max_ms": 17.3306199721992
+      },
+      "stage/building": {
+        "count": 20,
+        "median_ms": 7.016645977273583,
+        "min_ms": 5.045256111770868,
+        "max_ms": 14.308975078165531
+      },
+      "stage/bureaucracy": {
+        "count": 20,
+        "median_ms": 5.698479944840074,
+        "min_ms": 4.681935999542475,
+        "max_ms": 10.304935276508331
+      },
+      "stage/choose": {
+        "count": 20,
+        "median_ms": 4.657749552279711,
+        "min_ms": 3.9926166646182537,
+        "max_ms": 6.7140329629182816
+      },
+      "stage/resources": {
+        "count": 20,
+        "median_ms": 4.870564443990588,
+        "min_ms": 4.024046938866377,
+        "max_ms": 5.798277910798788
+      }
+    },
+    "conservative_population": {
+      "all": {
+        "count": 99,
+        "median_ms": 8.965977001935244,
+        "min_ms": 4.242480266839266,
+        "max_ms": 12301.919802092016
+      },
+      "other_stages": {
+        "count": 60,
+        "median_ms": 6.3585948664695024,
+        "min_ms": 4.242480266839266,
+        "max_ms": 13.248961884528399
+      },
+      "players/2": {
+        "count": 19,
+        "median_ms": 7.279063109308481,
+        "min_ms": 4.385945852845907,
+        "max_ms": 7622.863742988557
+      },
+      "players/2/stage/bid": {
+        "count": 3,
+        "median_ms": 5916.919684968889,
+        "min_ms": 4275.769209954888,
+        "max_ms": 7622.863742988557
+      },
+      "players/2/stage/building": {
+        "count": 4,
+        "median_ms": 7.589496439322829,
+        "min_ms": 5.921525880694389,
+        "max_ms": 13.248961884528399
+      },
+      "players/2/stage/bureaucracy": {
+        "count": 4,
+        "median_ms": 5.422940477728844,
+        "min_ms": 5.058352369815111,
+        "max_ms": 5.702363792806864
+      },
+      "players/2/stage/choose": {
+        "count": 4,
+        "median_ms": 5974.657773738727,
+        "min_ms": 5229.338841047138,
+        "max_ms": 6945.483080577105
+      },
+      "players/2/stage/resources": {
+        "count": 4,
+        "median_ms": 4.481780342757702,
+        "min_ms": 4.385945852845907,
+        "max_ms": 4.703857935965061
+      },
+      "players/3": {
+        "count": 20,
+        "median_ms": 8.166335057467222,
+        "min_ms": 4.242480266839266,
+        "max_ms": 8939.405881799757
+      },
+      "players/3/stage/bid": {
+        "count": 4,
+        "median_ms": 7518.4984700754285,
+        "min_ms": 6106.552089098841,
+        "max_ms": 8939.405881799757
+      },
+      "players/3/stage/building": {
+        "count": 4,
+        "median_ms": 8.10003699734807,
+        "min_ms": 5.76444435864687,
+        "max_ms": 9.415334090590477
+      },
+      "players/3/stage/bureaucracy": {
+        "count": 4,
+        "median_ms": 5.689755082130432,
+        "min_ms": 5.155008751899004,
+        "max_ms": 7.366693112999201
+      },
+      "players/3/stage/choose": {
+        "count": 4,
+        "median_ms": 6723.301199031994,
+        "min_ms": 5916.3663988001645,
+        "max_ms": 7023.59526604414
+      },
+      "players/3/stage/resources": {
+        "count": 4,
+        "median_ms": 5.838482175022364,
+        "min_ms": 4.242480266839266,
+        "max_ms": 7.200954016298056
+      },
+      "players/4": {
+        "count": 20,
+        "median_ms": 8.36255424655974,
+        "min_ms": 5.014849826693535,
+        "max_ms": 11399.366010911763
+      },
+      "players/4/stage/bid": {
+        "count": 4,
+        "median_ms": 10223.66395033896,
+        "min_ms": 8707.665633875877,
+        "max_ms": 11399.366010911763
+      },
+      "players/4/stage/building": {
+        "count": 4,
+        "median_ms": 8.36255424655974,
+        "min_ms": 7.029704749584198,
+        "max_ms": 9.292539209127426
+      },
+      "players/4/stage/bureaucracy": {
+        "count": 4,
+        "median_ms": 6.267649354413152,
+        "min_ms": 5.085987038910389,
+        "max_ms": 6.595698185265064
+      },
+      "players/4/stage/choose": {
+        "count": 4,
+        "median_ms": 7959.106988739222,
+        "min_ms": 6608.77892607823,
+        "max_ms": 8960.35487903282
+      },
+      "players/4/stage/resources": {
+        "count": 4,
+        "median_ms": 5.340632749721408,
+        "min_ms": 5.014849826693535,
+        "max_ms": 5.575791001319885
+      },
+      "players/5": {
+        "count": 20,
+        "median_ms": 10.73760143481195,
+        "min_ms": 5.438727792352438,
+        "max_ms": 11550.66562211141
+      },
+      "players/5/stage/bid": {
+        "count": 4,
+        "median_ms": 10465.631754370406,
+        "min_ms": 9828.635857906193,
+        "max_ms": 11550.66562211141
+      },
+      "players/5/stage/building": {
+        "count": 4,
+        "median_ms": 10.73760143481195,
+        "min_ms": 7.312871981412172,
+        "max_ms": 11.056201066821814
+      },
+      "players/5/stage/bureaucracy": {
+        "count": 4,
+        "median_ms": 7.966883480548859,
+        "min_ms": 5.483104381710291,
+        "max_ms": 8.861509151756763
+      },
+      "players/5/stage/choose": {
+        "count": 4,
+        "median_ms": 8046.829842496663,
+        "min_ms": 7312.53621308133,
+        "max_ms": 9376.808366272599
+      },
+      "players/5/stage/resources": {
+        "count": 4,
+        "median_ms": 5.518276477232575,
+        "min_ms": 5.438727792352438,
+        "max_ms": 5.777472164481878
+      },
+      "players/6": {
+        "count": 20,
+        "median_ms": 10.763367637991905,
+        "min_ms": 5.883126053959131,
+        "max_ms": 12301.919802092016
+      },
+      "players/6/stage/bid": {
+        "count": 4,
+        "median_ms": 11297.765341121703,
+        "min_ms": 10332.996756769717,
+        "max_ms": 12301.919802092016
+      },
+      "players/6/stage/building": {
+        "count": 4,
+        "median_ms": 10.763367637991905,
+        "min_ms": 7.856932003051043,
+        "max_ms": 12.237641029059887
+      },
+      "players/6/stage/bureaucracy": {
+        "count": 4,
+        "median_ms": 7.49269500374794,
+        "min_ms": 6.56873919069767,
+        "max_ms": 9.554725605994463
+      },
+      "players/6/stage/choose": {
+        "count": 4,
+        "median_ms": 9098.075027344748,
+        "min_ms": 7413.667425047606,
+        "max_ms": 9981.41948506236
+      },
+      "players/6/stage/resources": {
+        "count": 4,
+        "median_ms": 5.977362394332886,
+        "min_ms": 5.883126053959131,
+        "max_ms": 7.921596989035606
+      },
+      "search_eligible_stages": {
+        "count": 39,
+        "median_ms": 8473.178391344845,
+        "min_ms": 4275.769209954888,
+        "max_ms": 12301.919802092016
+      },
+      "stage/bid": {
+        "count": 19,
+        "median_ms": 9828.635857906193,
+        "min_ms": 4275.769209954888,
+        "max_ms": 12301.919802092016
+      },
+      "stage/building": {
+        "count": 20,
+        "median_ms": 8.891738951206207,
+        "min_ms": 5.76444435864687,
+        "max_ms": 13.248961884528399
+      },
+      "stage/bureaucracy": {
+        "count": 20,
+        "median_ms": 6.3585948664695024,
+        "min_ms": 5.058352369815111,
+        "max_ms": 9.554725605994463
+      },
+      "stage/choose": {
+        "count": 20,
+        "median_ms": 7358.620673418045,
+        "min_ms": 5229.338841047138,
+        "max_ms": 9981.41948506236
+      },
+      "stage/resources": {
+        "count": 20,
+        "median_ms": 5.51600637845695,
+        "min_ms": 4.242480266839266,
+        "max_ms": 7.921596989035606
+      }
+    },
+    "conservative_dual": {
+      "all": {
+        "count": 99,
+        "median_ms": 10.359333828091621,
+        "min_ms": 4.992377944290638,
+        "max_ms": 29336.496829986572
+      },
+      "other_stages": {
+        "count": 60,
+        "median_ms": 7.515586446970701,
+        "min_ms": 4.992377944290638,
+        "max_ms": 13.50328279659152
+      },
+      "players/2": {
+        "count": 19,
+        "median_ms": 6.970965303480625,
+        "min_ms": 4.992377944290638,
+        "max_ms": 15314.635325223207
+      },
+      "players/2/stage/bid": {
+        "count": 3,
+        "median_ms": 11119.279223959893,
+        "min_ms": 8844.123859889805,
+        "max_ms": 15314.635325223207
+      },
+      "players/2/stage/building": {
+        "count": 4,
+        "median_ms": 7.241472136229277,
+        "min_ms": 6.097238976508379,
+        "max_ms": 13.50328279659152
+      },
+      "players/2/stage/bureaucracy": {
+        "count": 4,
+        "median_ms": 5.668999161571264,
+        "min_ms": 5.498625338077545,
+        "max_ms": 6.555784959346056
+      },
+      "players/2/stage/choose": {
+        "count": 4,
+        "median_ms": 11857.643265277147,
+        "min_ms": 9999.59772080183,
+        "max_ms": 13522.082632873207
+      },
+      "players/2/stage/resources": {
+        "count": 4,
+        "median_ms": 5.44400536455214,
+        "min_ms": 4.992377944290638,
+        "max_ms": 6.330620031803846
+      },
+      "players/3": {
+        "count": 20,
+        "median_ms": 9.789221687242389,
+        "min_ms": 5.630230996757746,
+        "max_ms": 19795.27456406504
+      },
+      "players/3/stage/bid": {
+        "count": 4,
+        "median_ms": 16063.995138276368,
+        "min_ms": 12788.6923388578,
+        "max_ms": 19795.27456406504
+      },
+      "players/3/stage/building": {
+        "count": 4,
+        "median_ms": 9.789221687242389,
+        "min_ms": 7.009179797023535,
+        "max_ms": 10.832744650542736
+      },
+      "players/3/stage/bureaucracy": {
+        "count": 4,
+        "median_ms": 7.486916612833738,
+        "min_ms": 6.929164752364159,
+        "max_ms": 9.036520030349493
+      },
+      "players/3/stage/choose": {
+        "count": 4,
+        "median_ms": 14740.56285386905,
+        "min_ms": 12140.341280028224,
+        "max_ms": 16220.329725649208
+      },
+      "players/3/stage/resources": {
+        "count": 4,
+        "median_ms": 6.564817391335964,
+        "min_ms": 5.630230996757746,
+        "max_ms": 7.524704094976187
+      },
+      "players/4": {
+        "count": 20,
+        "median_ms": 7.764802780002356,
+        "min_ms": 5.409625358879566,
+        "max_ms": 24802.490863017738
+      },
+      "players/4/stage/bid": {
+        "count": 4,
+        "median_ms": 21959.982686676085,
+        "min_ms": 17321.6235563159,
+        "max_ms": 24802.490863017738
+      },
+      "players/4/stage/building": {
+        "count": 4,
+        "median_ms": 7.359030423685908,
+        "min_ms": 6.906062364578247,
+        "max_ms": 9.184246417135
+      },
+      "players/4/stage/bureaucracy": {
+        "count": 4,
+        "median_ms": 6.649822928011417,
+        "min_ms": 5.409625358879566,
+        "max_ms": 7.839311845600605
+      },
+      "players/4/stage/choose": {
+        "count": 4,
+        "median_ms": 16885.790892411023,
+        "min_ms": 13538.930390961468,
+        "max_ms": 20229.770693928003
+      },
+      "players/4/stage/resources": {
+        "count": 4,
+        "median_ms": 7.060300093144178,
+        "min_ms": 6.4489999786019325,
+        "max_ms": 7.093894761055708
+      },
+      "players/5": {
+        "count": 20,
+        "median_ms": 11.595008196309209,
+        "min_ms": 6.2425327487289906,
+        "max_ms": 25477.650362998247
+      },
+      "players/5/stage/bid": {
+        "count": 4,
+        "median_ms": 23254.677226301283,
+        "min_ms": 20696.55277300626,
+        "max_ms": 25477.650362998247
+      },
+      "players/5/stage/building": {
+        "count": 4,
+        "median_ms": 11.595008196309209,
+        "min_ms": 10.100163985043764,
+        "max_ms": 12.304747942835093
+      },
+      "players/5/stage/bureaucracy": {
+        "count": 4,
+        "median_ms": 8.655978599563241,
+        "min_ms": 7.6911672949790955,
+        "max_ms": 10.359333828091621
+      },
+      "players/5/stage/choose": {
+        "count": 4,
+        "median_ms": 18188.257592264563,
+        "min_ms": 15490.233498625457,
+        "max_ms": 21794.408823363483
+      },
+      "players/5/stage/resources": {
+        "count": 4,
+        "median_ms": 7.378620095551014,
+        "min_ms": 6.2425327487289906,
+        "max_ms": 8.469609078019857
+      },
+      "players/6": {
+        "count": 20,
+        "median_ms": 12.713672360405326,
+        "min_ms": 6.943815853446722,
+        "max_ms": 29336.496829986572
+      },
+      "players/6/stage/bid": {
+        "count": 4,
+        "median_ms": 26186.017976375297,
+        "min_ms": 22005.51510695368,
+        "max_ms": 29336.496829986572
+      },
+      "players/6/stage/building": {
+        "count": 4,
+        "median_ms": 12.713672360405326,
+        "min_ms": 9.456153027713299,
+        "max_ms": 13.398920651525259
+      },
+      "players/6/stage/bureaucracy": {
+        "count": 4,
+        "median_ms": 9.555184515193105,
+        "min_ms": 8.440983947366476,
+        "max_ms": 11.555694043636322
+      },
+      "players/6/stage/choose": {
+        "count": 4,
+        "median_ms": 20927.006368758157,
+        "min_ms": 16206.29840157926,
+        "max_ms": 24044.45717809722
+      },
+      "players/6/stage/resources": {
+        "count": 4,
+        "median_ms": 7.377193076536059,
+        "min_ms": 6.943815853446722,
+        "max_ms": 9.053305722773075
+      },
+      "search_eligible_stages": {
+        "count": 39,
+        "median_ms": 17515.712939668447,
+        "min_ms": 8844.123859889805,
+        "max_ms": 29336.496829986572
+      },
+      "stage/bid": {
+        "count": 19,
+        "median_ms": 20696.55277300626,
+        "min_ms": 8844.123859889805,
+        "max_ms": 29336.496829986572
+      },
+      "stage/building": {
+        "count": 20,
+        "median_ms": 9.778158506378531,
+        "min_ms": 6.097238976508379,
+        "max_ms": 13.50328279659152
+      },
+      "stage/bureaucracy": {
+        "count": 20,
+        "median_ms": 7.605180609971285,
+        "min_ms": 5.409625358879566,
+        "max_ms": 11.555694043636322
+      },
+      "stage/choose": {
+        "count": 20,
+        "median_ms": 15955.644980305806,
+        "min_ms": 9999.59772080183,
+        "max_ms": 24044.45717809722
+      },
+      "stage/resources": {
+        "count": 20,
+        "median_ms": 6.821784423664212,
+        "min_ms": 4.992377944290638,
+        "max_ms": 9.053305722773075
+      }
+    }
+  },
+  "all_count_rule_stage_points": {
+    "filter": [
+      {
+        "case": "2p-original-open-bid",
+        "players": 2,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bid",
+        "cold": true,
+        "round_trip_ms": 684.728526044637
+      },
+      {
+        "case": "2p-original-open-building",
+        "players": 2,
+        "variant": "original",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 14.308975078165531
+      },
+      {
+        "case": "2p-original-open-bureaucracy",
+        "players": 2,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.429738201200962
+      },
+      {
+        "case": "2p-original-open-choose",
+        "players": 2,
+        "variant": "original",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 6.7140329629182816
+      },
+      {
+        "case": "2p-original-open-resources",
+        "players": 2,
+        "variant": "original",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.5595580488443375
+      },
+      {
+        "case": "2p-original-sealed-bid",
+        "players": 2,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 14.944340102374554
+      },
+      {
+        "case": "2p-original-sealed-building",
+        "players": 2,
+        "variant": "original",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 7.025563158094883
+      },
+      {
+        "case": "2p-original-sealed-bureaucracy",
+        "players": 2,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.716640967875719
+      },
+      {
+        "case": "2p-original-sealed-choose",
+        "players": 2,
+        "variant": "original",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 4.499244038015604
+      },
+      {
+        "case": "2p-original-sealed-resources",
+        "players": 2,
+        "variant": "original",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.101906135678291
+      },
+      {
+        "case": "2p-recharged-open-bid",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 7.289522793143988
+      },
+      {
+        "case": "2p-recharged-open-building",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 5.890436004847288
+      },
+      {
+        "case": "2p-recharged-open-bureaucracy",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.459103733301163
+      },
+      {
+        "case": "2p-recharged-open-choose",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 5.027982871979475
+      },
+      {
+        "case": "2p-recharged-open-resources",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.8492178320884705
+      },
+      {
+        "case": "2p-recharged-sealed-bid",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 13.092810288071632
+      },
+      {
+        "case": "2p-recharged-sealed-building",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 6.870996206998825
+      },
+      {
+        "case": "2p-recharged-sealed-bureaucracy",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 6.861797999590635
+      },
+      {
+        "case": "2p-recharged-sealed-choose",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 5.8928499929606915
+      },
+      {
+        "case": "2p-recharged-sealed-resources",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.2667036652565
+      },
+      {
+        "case": "3p-original-open-bid",
+        "players": 3,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 6.754882168024778
+      },
+      {
+        "case": "3p-original-open-building",
+        "players": 3,
+        "variant": "original",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 6.253475788980722
+      },
+      {
+        "case": "3p-original-open-bureaucracy",
+        "players": 3,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 6.234447937458754
+      },
+      {
+        "case": "3p-original-open-choose",
+        "players": 3,
+        "variant": "original",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 4.90166898816824
+      },
+      {
+        "case": "3p-original-open-resources",
+        "players": 3,
+        "variant": "original",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.161002114415169
+      },
+      {
+        "case": "3p-original-sealed-bid",
+        "players": 3,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 14.269959181547165
+      },
+      {
+        "case": "3p-original-sealed-building",
+        "players": 3,
+        "variant": "original",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 6.035815924406052
+      },
+      {
+        "case": "3p-original-sealed-bureaucracy",
+        "players": 3,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 4.877252038568258
+      },
+      {
+        "case": "3p-original-sealed-choose",
+        "players": 3,
+        "variant": "original",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 4.276855383068323
+      },
+      {
+        "case": "3p-original-sealed-resources",
+        "players": 3,
+        "variant": "original",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.090704187750816
+      },
+      {
+        "case": "3p-recharged-open-bid",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 6.564265117049217
+      },
+      {
+        "case": "3p-recharged-open-building",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 7.007728796452284
+      },
+      {
+        "case": "3p-recharged-open-bureaucracy",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.708334036171436
+      },
+      {
+        "case": "3p-recharged-open-choose",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 4.2547122575342655
+      },
+      {
+        "case": "3p-recharged-open-resources",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.483443219214678
+      },
+      {
+        "case": "3p-recharged-sealed-bid",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 5.692122969776392
+      },
+      {
+        "case": "3p-recharged-sealed-building",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 5.045256111770868
+      },
+      {
+        "case": "3p-recharged-sealed-bureaucracy",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.314224865287542
+      },
+      {
+        "case": "3p-recharged-sealed-choose",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 4.298856947571039
+      },
+      {
+        "case": "3p-recharged-sealed-resources",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.024046938866377
+      },
+      {
+        "case": "4p-original-open-bid",
+        "players": 4,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 6.230379920452833
+      },
+      {
+        "case": "4p-original-open-building",
+        "players": 4,
+        "variant": "original",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 7.0881652645766735
+      },
+      {
+        "case": "4p-original-open-bureaucracy",
+        "players": 4,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 6.978312972933054
+      },
+      {
+        "case": "4p-original-open-choose",
+        "players": 4,
+        "variant": "original",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 4.5094541274011135
+      },
+      {
+        "case": "4p-original-open-resources",
+        "players": 4,
+        "variant": "original",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.7949738800525665
+      },
+      {
+        "case": "4p-original-sealed-bid",
+        "players": 4,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 16.95956476032734
+      },
+      {
+        "case": "4p-original-sealed-building",
+        "players": 4,
+        "variant": "original",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 5.64373005181551
+      },
+      {
+        "case": "4p-original-sealed-bureaucracy",
+        "players": 4,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 4.799982998520136
+      },
+      {
+        "case": "4p-original-sealed-choose",
+        "players": 4,
+        "variant": "original",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 4.119230899959803
+      },
+      {
+        "case": "4p-original-sealed-resources",
+        "players": 4,
+        "variant": "original",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.8170569352805614
+      },
+      {
+        "case": "4p-recharged-open-bid",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 5.996190011501312
+      },
+      {
+        "case": "4p-recharged-open-building",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 5.811222828924656
+      },
+      {
+        "case": "4p-recharged-open-bureaucracy",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 4.681935999542475
+      },
+      {
+        "case": "4p-recharged-open-choose",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 3.9926166646182537
+      },
+      {
+        "case": "4p-recharged-open-resources",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.249783232808113
+      },
+      {
+        "case": "4p-recharged-sealed-bid",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 15.892828814685345
+      },
+      {
+        "case": "4p-recharged-sealed-building",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 5.505413748323917
+      },
+      {
+        "case": "4p-recharged-sealed-bureaucracy",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 4.741820972412825
+      },
+      {
+        "case": "4p-recharged-sealed-choose",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 5.885515827685595
+      },
+      {
+        "case": "4p-recharged-sealed-resources",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.902170039713383
+      },
+      {
+        "case": "5p-original-open-bid",
+        "players": 5,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 6.6507006995379925
+      },
+      {
+        "case": "5p-original-open-building",
+        "players": 5,
+        "variant": "original",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 5.881719291210175
+      },
+      {
+        "case": "5p-original-open-bureaucracy",
+        "players": 5,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.513599142432213
+      },
+      {
+        "case": "5p-original-open-choose",
+        "players": 5,
+        "variant": "original",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 4.709209315478802
+      },
+      {
+        "case": "5p-original-open-resources",
+        "players": 5,
+        "variant": "original",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.1016248762607574
+      },
+      {
+        "case": "5p-original-sealed-bid",
+        "players": 5,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 17.3306199721992
+      },
+      {
+        "case": "5p-original-sealed-building",
+        "players": 5,
+        "variant": "original",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 8.49913526326418
+      },
+      {
+        "case": "5p-original-sealed-bureaucracy",
+        "players": 5,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 6.690798792988062
+      },
+      {
+        "case": "5p-original-sealed-choose",
+        "players": 5,
+        "variant": "original",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 4.60628978908062
+      },
+      {
+        "case": "5p-original-sealed-resources",
+        "players": 5,
+        "variant": "original",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.596190992742777
+      },
+      {
+        "case": "5p-recharged-open-bid",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 6.144155282527208
+      },
+      {
+        "case": "5p-recharged-open-building",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 8.804131764918566
+      },
+      {
+        "case": "5p-recharged-open-bureaucracy",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 8.022495079785585
+      },
+      {
+        "case": "5p-recharged-open-choose",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 4.730579908937216
+      },
+      {
+        "case": "5p-recharged-open-resources",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.609968047589064
+      },
+      {
+        "case": "5p-recharged-sealed-bid",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 16.17546286433935
+      },
+      {
+        "case": "5p-recharged-sealed-building",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 8.359084837138653
+      },
+      {
+        "case": "5p-recharged-sealed-bureaucracy",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 6.077856756746769
+      },
+      {
+        "case": "5p-recharged-sealed-choose",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 4.175879992544651
+      },
+      {
+        "case": "5p-recharged-sealed-resources",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.56579215824604
+      },
+      {
+        "case": "6p-original-open-bid",
+        "players": 6,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 6.457239389419556
+      },
+      {
+        "case": "6p-original-open-building",
+        "players": 6,
+        "variant": "original",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 9.57522913813591
+      },
+      {
+        "case": "6p-original-open-bureaucracy",
+        "players": 6,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 10.304935276508331
+      },
+      {
+        "case": "6p-original-open-choose",
+        "players": 6,
+        "variant": "original",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 4.907499998807907
+      },
+      {
+        "case": "6p-original-open-resources",
+        "players": 6,
+        "variant": "original",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.798277910798788
+      },
+      {
+        "case": "6p-original-sealed-bid",
+        "players": 6,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 17.32507860288024
+      },
+      {
+        "case": "6p-original-sealed-building",
+        "players": 6,
+        "variant": "original",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 7.904607802629471
+      },
+      {
+        "case": "6p-original-sealed-bureaucracy",
+        "players": 6,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 7.436727173626423
+      },
+      {
+        "case": "6p-original-sealed-choose",
+        "players": 6,
+        "variant": "original",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 4.992715083062649
+      },
+      {
+        "case": "6p-original-sealed-resources",
+        "players": 6,
+        "variant": "original",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.891911055892706
+      },
+      {
+        "case": "6p-recharged-open-bid",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 6.194752175360918
+      },
+      {
+        "case": "6p-recharged-open-building",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 8.303527720272541
+      },
+      {
+        "case": "6p-recharged-open-bureaucracy",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.688625853508711
+      },
+      {
+        "case": "6p-recharged-open-choose",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 4.1798679158091545
+      },
+      {
+        "case": "6p-recharged-open-resources",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.287041887640953
+      },
+      {
+        "case": "6p-recharged-sealed-bid",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 16.34435774758458
+      },
+      {
+        "case": "6p-recharged-sealed-building",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 7.973390631377697
+      },
+      {
+        "case": "6p-recharged-sealed-bureaucracy",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.626786965876818
+      },
+      {
+        "case": "6p-recharged-sealed-choose",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 4.920837003737688
+      },
+      {
+        "case": "6p-recharged-sealed-resources",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.69320609793067
+      }
+    ],
+    "conservative_population": [
+      {
+        "case": "2p-original-open-bid",
+        "players": 2,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bid",
+        "cold": true,
+        "round_trip_ms": 9922.325402032584
+      },
+      {
+        "case": "2p-original-open-building",
+        "players": 2,
+        "variant": "original",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 13.248961884528399
+      },
+      {
+        "case": "2p-original-open-bureaucracy",
+        "players": 2,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.058352369815111
+      },
+      {
+        "case": "2p-original-open-choose",
+        "players": 2,
+        "variant": "original",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 6945.483080577105
+      },
+      {
+        "case": "2p-original-open-resources",
+        "players": 2,
+        "variant": "original",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.703857935965061
+      },
+      {
+        "case": "2p-original-sealed-bid",
+        "players": 2,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 5916.919684968889
+      },
+      {
+        "case": "2p-original-sealed-building",
+        "players": 2,
+        "variant": "original",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 7.279063109308481
+      },
+      {
+        "case": "2p-original-sealed-bureaucracy",
+        "players": 2,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.356247071176767
+      },
+      {
+        "case": "2p-original-sealed-choose",
+        "players": 2,
+        "variant": "original",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 5711.731504648924
+      },
+      {
+        "case": "2p-original-sealed-resources",
+        "players": 2,
+        "variant": "original",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.3925088830292225
+      },
+      {
+        "case": "2p-recharged-open-bid",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 7622.863742988557
+      },
+      {
+        "case": "2p-recharged-open-building",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 5.921525880694389
+      },
+      {
+        "case": "2p-recharged-open-bureaucracy",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.702363792806864
+      },
+      {
+        "case": "2p-recharged-open-choose",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 6237.58404282853
+      },
+      {
+        "case": "2p-recharged-open-resources",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.385945852845907
+      },
+      {
+        "case": "2p-recharged-sealed-bid",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 4275.769209954888
+      },
+      {
+        "case": "2p-recharged-sealed-building",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 7.899929769337177
+      },
+      {
+        "case": "2p-recharged-sealed-bureaucracy",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.48963388428092
+      },
+      {
+        "case": "2p-recharged-sealed-choose",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 5229.338841047138
+      },
+      {
+        "case": "2p-recharged-sealed-resources",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.571051802486181
+      },
+      {
+        "case": "3p-original-open-bid",
+        "players": 3,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 8687.403697054833
+      },
+      {
+        "case": "3p-original-open-building",
+        "players": 3,
+        "variant": "original",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 7.234096992760897
+      },
+      {
+        "case": "3p-original-open-bureaucracy",
+        "players": 3,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.216928198933601
+      },
+      {
+        "case": "3p-original-open-choose",
+        "players": 3,
+        "variant": "original",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 7023.59526604414
+      },
+      {
+        "case": "3p-original-open-resources",
+        "players": 3,
+        "variant": "original",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 6.060335319489241
+      },
+      {
+        "case": "3p-original-sealed-bid",
+        "players": 3,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 6349.593243096024
+      },
+      {
+        "case": "3p-original-sealed-building",
+        "players": 3,
+        "variant": "original",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 9.415334090590477
+      },
+      {
+        "case": "3p-original-sealed-bureaucracy",
+        "players": 3,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 7.366693112999201
+      },
+      {
+        "case": "3p-original-sealed-choose",
+        "players": 3,
+        "variant": "original",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 6463.920049369335
+      },
+      {
+        "case": "3p-original-sealed-resources",
+        "players": 3,
+        "variant": "original",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.616629030555487
+      },
+      {
+        "case": "3p-recharged-open-bid",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 8939.405881799757
+      },
+      {
+        "case": "3p-recharged-open-building",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 8.965977001935244
+      },
+      {
+        "case": "3p-recharged-open-bureaucracy",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 6.162581965327263
+      },
+      {
+        "case": "3p-recharged-open-choose",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 6982.682348694652
+      },
+      {
+        "case": "3p-recharged-open-resources",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 7.200954016298056
+      },
+      {
+        "case": "3p-recharged-sealed-bid",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 6106.552089098841
+      },
+      {
+        "case": "3p-recharged-sealed-building",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 5.76444435864687
+      },
+      {
+        "case": "3p-recharged-sealed-bureaucracy",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.155008751899004
+      },
+      {
+        "case": "3p-recharged-sealed-choose",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 5916.3663988001645
+      },
+      {
+        "case": "3p-recharged-sealed-resources",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.242480266839266
+      },
+      {
+        "case": "4p-original-open-bid",
+        "players": 4,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 11399.366010911763
+      },
+      {
+        "case": "4p-original-open-building",
+        "players": 4,
+        "variant": "original",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 8.817500900477171
+      },
+      {
+        "case": "4p-original-open-bureaucracy",
+        "players": 4,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 6.554607767611742
+      },
+      {
+        "case": "4p-original-open-choose",
+        "players": 4,
+        "variant": "original",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 8960.35487903282
+      },
+      {
+        "case": "4p-original-open-resources",
+        "players": 4,
+        "variant": "original",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.014849826693535
+      },
+      {
+        "case": "4p-original-sealed-bid",
+        "players": 4,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 9823.59877275303
+      },
+      {
+        "case": "4p-original-sealed-building",
+        "players": 4,
+        "variant": "original",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 7.907607592642307
+      },
+      {
+        "case": "4p-original-sealed-bureaucracy",
+        "players": 4,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.9806909412145615
+      },
+      {
+        "case": "4p-original-sealed-choose",
+        "players": 4,
+        "variant": "original",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 7445.035586133599
+      },
+      {
+        "case": "4p-original-sealed-resources",
+        "players": 4,
+        "variant": "original",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.304998718202114
+      },
+      {
+        "case": "4p-recharged-open-bid",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 10623.72912792489
+      },
+      {
+        "case": "4p-recharged-open-building",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 7.029704749584198
+      },
+      {
+        "case": "4p-recharged-open-bureaucracy",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.085987038910389
+      },
+      {
+        "case": "4p-recharged-open-choose",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 8473.178391344845
+      },
+      {
+        "case": "4p-recharged-open-resources",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.575791001319885
+      },
+      {
+        "case": "4p-recharged-sealed-bid",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 8707.665633875877
+      },
+      {
+        "case": "4p-recharged-sealed-building",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 9.292539209127426
+      },
+      {
+        "case": "4p-recharged-sealed-bureaucracy",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 6.595698185265064
+      },
+      {
+        "case": "4p-recharged-sealed-choose",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 6608.77892607823
+      },
+      {
+        "case": "4p-recharged-sealed-resources",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.376266781240702
+      },
+      {
+        "case": "5p-original-open-bid",
+        "players": 5,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 10954.971437808126
+      },
+      {
+        "case": "5p-original-open-building",
+        "players": 5,
+        "variant": "original",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 7.312871981412172
+      },
+      {
+        "case": "5p-original-open-bureaucracy",
+        "players": 5,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.483104381710291
+      },
+      {
+        "case": "5p-original-open-choose",
+        "players": 5,
+        "variant": "original",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 9376.808366272599
+      },
+      {
+        "case": "5p-original-open-resources",
+        "players": 5,
+        "variant": "original",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.580331198871136
+      },
+      {
+        "case": "5p-original-sealed-bid",
+        "players": 5,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 9976.292070932686
+      },
+      {
+        "case": "5p-original-sealed-building",
+        "players": 5,
+        "variant": "original",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 10.657452046871185
+      },
+      {
+        "case": "5p-original-sealed-bureaucracy",
+        "players": 5,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 8.545720018446445
+      },
+      {
+        "case": "5p-original-sealed-choose",
+        "players": 5,
+        "variant": "original",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 7404.70513375476
+      },
+      {
+        "case": "5p-original-sealed-resources",
+        "players": 5,
+        "variant": "original",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.456221755594015
+      },
+      {
+        "case": "5p-recharged-open-bid",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 11550.66562211141
+      },
+      {
+        "case": "5p-recharged-open-building",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 10.817750822752714
+      },
+      {
+        "case": "5p-recharged-open-bureaucracy",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 8.861509151756763
+      },
+      {
+        "case": "5p-recharged-open-choose",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 8688.954551238567
+      },
+      {
+        "case": "5p-recharged-open-resources",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.777472164481878
+      },
+      {
+        "case": "5p-recharged-sealed-bid",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 9828.635857906193
+      },
+      {
+        "case": "5p-recharged-sealed-building",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 11.056201066821814
+      },
+      {
+        "case": "5p-recharged-sealed-bureaucracy",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 7.388046942651272
+      },
+      {
+        "case": "5p-recharged-sealed-choose",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 7312.53621308133
+      },
+      {
+        "case": "5p-recharged-sealed-resources",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.438727792352438
+      },
+      {
+        "case": "6p-original-open-bid",
+        "players": 6,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 11922.738234046847
+      },
+      {
+        "case": "6p-original-open-building",
+        "players": 6,
+        "variant": "original",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 11.098032351583242
+      },
+      {
+        "case": "6p-original-open-bureaucracy",
+        "players": 6,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 9.554725605994463
+      },
+      {
+        "case": "6p-original-open-choose",
+        "players": 6,
+        "variant": "original",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 9806.204491760582
+      },
+      {
+        "case": "6p-original-open-resources",
+        "players": 6,
+        "variant": "original",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 7.921596989035606
+      },
+      {
+        "case": "6p-original-sealed-bid",
+        "players": 6,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 10672.79244819656
+      },
+      {
+        "case": "6p-original-sealed-building",
+        "players": 6,
+        "variant": "original",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 7.856932003051043
+      },
+      {
+        "case": "6p-original-sealed-bureaucracy",
+        "players": 6,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 8.188572246581316
+      },
+      {
+        "case": "6p-original-sealed-choose",
+        "players": 6,
+        "variant": "original",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 8389.945562928915
+      },
+      {
+        "case": "6p-original-sealed-resources",
+        "players": 6,
+        "variant": "original",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.883126053959131
+      },
+      {
+        "case": "6p-recharged-open-bid",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 12301.919802092016
+      },
+      {
+        "case": "6p-recharged-open-building",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 12.237641029059887
+      },
+      {
+        "case": "6p-recharged-open-bureaucracy",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 6.796817760914564
+      },
+      {
+        "case": "6p-recharged-open-choose",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 9981.41948506236
+      },
+      {
+        "case": "6p-recharged-open-resources",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 6.051840726286173
+      },
+      {
+        "case": "6p-recharged-sealed-bid",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 10332.996756769717
+      },
+      {
+        "case": "6p-recharged-sealed-building",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 10.428702924400568
+      },
+      {
+        "case": "6p-recharged-sealed-bureaucracy",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 6.56873919069767
+      },
+      {
+        "case": "6p-recharged-sealed-choose",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 7413.667425047606
+      },
+      {
+        "case": "6p-recharged-sealed-resources",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.902884062379599
+      }
+    ],
+    "conservative_dual": [
+      {
+        "case": "2p-original-open-bid",
+        "players": 2,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bid",
+        "cold": true,
+        "round_trip_ms": 17722.634476143867
+      },
+      {
+        "case": "2p-original-open-building",
+        "players": 2,
+        "variant": "original",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 13.50328279659152
+      },
+      {
+        "case": "2p-original-open-bureaucracy",
+        "players": 2,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.524535197764635
+      },
+      {
+        "case": "2p-original-open-choose",
+        "players": 2,
+        "variant": "original",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 13522.082632873207
+      },
+      {
+        "case": "2p-original-open-resources",
+        "players": 2,
+        "variant": "original",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 6.330620031803846
+      },
+      {
+        "case": "2p-original-sealed-bid",
+        "players": 2,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 11119.279223959893
+      },
+      {
+        "case": "2p-original-sealed-building",
+        "players": 2,
+        "variant": "original",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 6.970965303480625
+      },
+      {
+        "case": "2p-original-sealed-bureaucracy",
+        "players": 2,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.498625338077545
+      },
+      {
+        "case": "2p-original-sealed-choose",
+        "players": 2,
+        "variant": "original",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 10749.211528804153
+      },
+      {
+        "case": "2p-original-sealed-resources",
+        "players": 2,
+        "variant": "original",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 4.992377944290638
+      },
+      {
+        "case": "2p-recharged-open-bid",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 15314.635325223207
+      },
+      {
+        "case": "2p-recharged-open-building",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 6.097238976508379
+      },
+      {
+        "case": "2p-recharged-open-bureaucracy",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.8134631253778934
+      },
+      {
+        "case": "2p-recharged-open-choose",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 12966.075001750141
+      },
+      {
+        "case": "2p-recharged-open-resources",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.529775749891996
+      },
+      {
+        "case": "2p-recharged-sealed-bid",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 8844.123859889805
+      },
+      {
+        "case": "2p-recharged-sealed-building",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 7.511978968977928
+      },
+      {
+        "case": "2p-recharged-sealed-bureaucracy",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 6.555784959346056
+      },
+      {
+        "case": "2p-recharged-sealed-choose",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 9999.59772080183
+      },
+      {
+        "case": "2p-recharged-sealed-resources",
+        "players": 2,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.358234979212284
+      },
+      {
+        "case": "3p-original-open-bid",
+        "players": 3,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 17515.712939668447
+      },
+      {
+        "case": "3p-original-open-building",
+        "players": 3,
+        "variant": "original",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 9.41833620890975
+      },
+      {
+        "case": "3p-original-open-bureaucracy",
+        "players": 3,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 6.929164752364159
+      },
+      {
+        "case": "3p-original-open-choose",
+        "players": 3,
+        "variant": "original",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 16220.329725649208
+      },
+      {
+        "case": "3p-original-open-resources",
+        "players": 3,
+        "variant": "original",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 7.524704094976187
+      },
+      {
+        "case": "3p-original-sealed-bid",
+        "players": 3,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 14612.27733688429
+      },
+      {
+        "case": "3p-original-sealed-building",
+        "players": 3,
+        "variant": "original",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 10.832744650542736
+      },
+      {
+        "case": "3p-original-sealed-bureaucracy",
+        "players": 3,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 9.036520030349493
+      },
+      {
+        "case": "3p-original-sealed-choose",
+        "players": 3,
+        "variant": "original",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 13776.13414870575
+      },
+      {
+        "case": "3p-original-sealed-resources",
+        "players": 3,
+        "variant": "original",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 6.429881788790226
+      },
+      {
+        "case": "3p-recharged-open-bid",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 19795.27456406504
+      },
+      {
+        "case": "3p-recharged-open-building",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 10.160107165575027
+      },
+      {
+        "case": "3p-recharged-open-bureaucracy",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 7.519193924963474
+      },
+      {
+        "case": "3p-recharged-open-choose",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 15704.99155903235
+      },
+      {
+        "case": "3p-recharged-open-resources",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 6.699752993881702
+      },
+      {
+        "case": "3p-recharged-sealed-bid",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 12788.6923388578
+      },
+      {
+        "case": "3p-recharged-sealed-building",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 7.009179797023535
+      },
+      {
+        "case": "3p-recharged-sealed-bureaucracy",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 7.454639300704002
+      },
+      {
+        "case": "3p-recharged-sealed-choose",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 12140.341280028224
+      },
+      {
+        "case": "3p-recharged-sealed-resources",
+        "players": 3,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 5.630230996757746
+      },
+      {
+        "case": "4p-original-open-bid",
+        "players": 4,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 24802.490863017738
+      },
+      {
+        "case": "4p-original-open-building",
+        "players": 4,
+        "variant": "original",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 7.690293714404106
+      },
+      {
+        "case": "4p-original-open-bureaucracy",
+        "players": 4,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 7.839311845600605
+      },
+      {
+        "case": "4p-original-open-choose",
+        "players": 4,
+        "variant": "original",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 20229.770693928003
+      },
+      {
+        "case": "4p-original-open-resources",
+        "players": 4,
+        "variant": "original",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 6.4489999786019325
+      },
+      {
+        "case": "4p-original-sealed-bid",
+        "players": 4,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 20466.684946324676
+      },
+      {
+        "case": "4p-original-sealed-building",
+        "players": 4,
+        "variant": "original",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 6.906062364578247
+      },
+      {
+        "case": "4p-original-sealed-bureaucracy",
+        "players": 4,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 5.409625358879566
+      },
+      {
+        "case": "4p-original-sealed-choose",
+        "players": 4,
+        "variant": "original",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 15143.6822488904
+      },
+      {
+        "case": "4p-original-sealed-resources",
+        "players": 4,
+        "variant": "original",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 7.093894761055708
+      },
+      {
+        "case": "4p-recharged-open-bid",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 23453.280427027494
+      },
+      {
+        "case": "4p-recharged-open-building",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 9.184246417135
+      },
+      {
+        "case": "4p-recharged-open-bureaucracy",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 6.695395801216364
+      },
+      {
+        "case": "4p-recharged-open-choose",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 18627.899535931647
+      },
+      {
+        "case": "4p-recharged-open-resources",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 7.046624086797237
+      },
+      {
+        "case": "4p-recharged-sealed-bid",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 17321.6235563159
+      },
+      {
+        "case": "4p-recharged-sealed-building",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 7.0277671329677105
+      },
+      {
+        "case": "4p-recharged-sealed-bureaucracy",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 6.604250054806471
+      },
+      {
+        "case": "4p-recharged-sealed-choose",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 13538.930390961468
+      },
+      {
+        "case": "4p-recharged-sealed-resources",
+        "players": 4,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 7.073976099491119
+      },
+      {
+        "case": "5p-original-open-bid",
+        "players": 5,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 24860.42852886021
+      },
+      {
+        "case": "5p-original-open-building",
+        "players": 5,
+        "variant": "original",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 10.100163985043764
+      },
+      {
+        "case": "5p-original-open-bureaucracy",
+        "players": 5,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 10.359333828091621
+      },
+      {
+        "case": "5p-original-open-choose",
+        "players": 5,
+        "variant": "original",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 21794.408823363483
+      },
+      {
+        "case": "5p-original-open-resources",
+        "players": 5,
+        "variant": "original",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 8.469609078019857
+      },
+      {
+        "case": "5p-original-sealed-bid",
+        "players": 5,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 20696.55277300626
+      },
+      {
+        "case": "5p-original-sealed-building",
+        "players": 5,
+        "variant": "original",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 11.549851391464472
+      },
+      {
+        "case": "5p-original-sealed-bureaucracy",
+        "players": 5,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 7.6911672949790955
+      },
+      {
+        "case": "5p-original-sealed-choose",
+        "players": 5,
+        "variant": "original",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 15490.233498625457
+      },
+      {
+        "case": "5p-original-sealed-resources",
+        "players": 5,
+        "variant": "original",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 6.482797209173441
+      },
+      {
+        "case": "5p-recharged-open-bid",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 25477.650362998247
+      },
+      {
+        "case": "5p-recharged-open-building",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 11.640165001153946
+      },
+      {
+        "case": "5p-recharged-open-bureaucracy",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 8.08851420879364
+      },
+      {
+        "case": "5p-recharged-open-choose",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 20043.103472795337
+      },
+      {
+        "case": "5p-recharged-open-resources",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 8.274442981928587
+      },
+      {
+        "case": "5p-recharged-sealed-bid",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 21648.925923742354
+      },
+      {
+        "case": "5p-recharged-sealed-building",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 12.304747942835093
+      },
+      {
+        "case": "5p-recharged-sealed-bureaucracy",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 9.223442990332842
+      },
+      {
+        "case": "5p-recharged-sealed-choose",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 16333.411711733788
+      },
+      {
+        "case": "5p-recharged-sealed-resources",
+        "players": 5,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 6.2425327487289906
+      },
+      {
+        "case": "6p-original-open-bid",
+        "players": 6,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 28589.200742077082
+      },
+      {
+        "case": "6p-original-open-building",
+        "players": 6,
+        "variant": "original",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 12.448415625840425
+      },
+      {
+        "case": "6p-original-open-bureaucracy",
+        "players": 6,
+        "variant": "original",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 11.555694043636322
+      },
+      {
+        "case": "6p-original-open-choose",
+        "players": 6,
+        "variant": "original",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 23763.24515324086
+      },
+      {
+        "case": "6p-original-open-resources",
+        "players": 6,
+        "variant": "original",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 6.943815853446722
+      },
+      {
+        "case": "6p-original-sealed-bid",
+        "players": 6,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 23782.83521067351
+      },
+      {
+        "case": "6p-original-sealed-building",
+        "players": 6,
+        "variant": "original",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 9.456153027713299
+      },
+      {
+        "case": "6p-original-sealed-bureaucracy",
+        "players": 6,
+        "variant": "original",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 8.440983947366476
+      },
+      {
+        "case": "6p-original-sealed-choose",
+        "players": 6,
+        "variant": "original",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 18090.767584275454
+      },
+      {
+        "case": "6p-original-sealed-resources",
+        "players": 6,
+        "variant": "original",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 7.683733943849802
+      },
+      {
+        "case": "6p-recharged-open-bid",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 29336.496829986572
+      },
+      {
+        "case": "6p-recharged-open-building",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 12.978929094970226
+      },
+      {
+        "case": "6p-recharged-open-bureaucracy",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 10.594840161502361
+      },
+      {
+        "case": "6p-recharged-open-choose",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 24044.45717809722
+      },
+      {
+        "case": "6p-recharged-open-resources",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": false,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 9.053305722773075
+      },
+      {
+        "case": "6p-recharged-sealed-bid",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bid",
+        "cold": false,
+        "round_trip_ms": 22005.51510695368
+      },
+      {
+        "case": "6p-recharged-sealed-building",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "building",
+        "cold": false,
+        "round_trip_ms": 13.398920651525259
+      },
+      {
+        "case": "6p-recharged-sealed-bureaucracy",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "bureaucracy",
+        "cold": false,
+        "round_trip_ms": 8.515528868883848
+      },
+      {
+        "case": "6p-recharged-sealed-choose",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "choose",
+        "cold": false,
+        "round_trip_ms": 16206.29840157926
+      },
+      {
+        "case": "6p-recharged-sealed-resources",
+        "players": 6,
+        "variant": "recharged",
+        "sealed": true,
+        "stage": "resources",
+        "cold": false,
+        "round_trip_ms": 7.070652209222317
+      }
+    ]
+  },
+  "interpretation": "One saved position per count/rule/stage, one timing per policy. Descriptive fixture costs only; no estimated deployment percentiles, confidence bounds or representative gameplay distribution. Three first requests include cold process startup and are kept separate.",
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "created_at": "2026-10-27T20:43:20.499983+00:00",
+  "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+  "exact_cross_host_responses": 300,
+  "source_hashes": {
+    "ai/strong/analyze_conservative_auction_cpu_v2.py": "53fa22691be5e0cdc37548a5b62d412760a4a609f769a78d430d779004e07987",
+    "ai/runs/conservative-auction-8840u-collected-v2/assessment.json": "70be8358db79be9a42c0c5dc9915c8100bfdff2fd1666c3e30bf0f81cbdec51a",
+    "ai/runs/conservative-auction-8840u-collected-v2/independent-audit.log": "4f5e1b763186368a8bdfc189faaf970956e692aa939207f5a263bbd476b80af0",
+    "ai/runs/conservative-auction-8840u-collected-v2/output/status.json": "149c8b6cbd1c962b28d4d9cc2c51a3a5164b7b95d1181d7f7e6c6904ad082137",
+    "ai/runs/conservative-auction-8840u-collected-v2/output/receipts.jsonl": "596fa014e7f2722c5f81bc3c55dcc87c04dd84a99a25cfcbdcfee3c2dea17d81",
+    "ai/runs/conservative-auction-8840u-prepared-v2/package/benchmark-manifest.json": "c6e1698208bdda2ab19d8d4e1f1e23e145bd16f882fcc535428729f056856bb3",
+    "ai/runs/conservative-auction-8840u-prepared-v2/package/cases.json": "407da2d87c758d7d55ef57900ee74a18ed956a49d2fe0d1fd400fb2b39afacba"
+  }
+}

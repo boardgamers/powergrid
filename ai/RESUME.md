@@ -1,29 +1,33 @@
 # Power Grid AI — resumed, 27 October 2026
 
-**Current checkpoint — 27 October, 20:31 UTC. Research is active.**
+**Current checkpoint — 27 October, 20:43 UTC. Research is active.**
 
-Start with [the CPU and execution handoff](CONSERVATIVE-AUCTION-CPU-2026-10-27.md).
-The original actual **AMD 8840U** benchmark (remote PID **3200567**, `minipc`)
-is live, with **210/300 requests** completed at this checkpoint. Reinspect that
-same process; do not relaunch it. The local correctness reference is complete
-(300 requests), with 273 original receipts preserved and only the 27 missing
-requests recovered. Full target collection and cross-host parity remain pending.
+The complete **actual AMD 8840U** benchmark passed: **300/300 cross-host responses
+match exactly**, 600 raw receipts independently audited, zero capped continuations.
+Original remote PID 3200567 has exited. Do not relaunch or repeat collection.
+See [the complete CPU results and execution handoff](CONSERVATIVE-AUCTION-CPU-2026-10-27.md).
+
+Warm auction medians on the fixed-position sample: **5.89 ms** for model/filter,
+**8.47 s** for conservative population search, **17.52 s** for dual-population
+search. Other stages stay around 6–8 ms. These are fixture costs, not population
+latency estimates or new strength results. The additional search cost needs a
+measured playing-strength benefit; no hybrid is selected or qualified.
 
 The sole HF coordinator is **PID 1919833**, with state under
-`runs/conservative-auction-development-coordinator-recovery-v2/`. Both two-player
-pilots are audited; both original six-player jobs were directly verified RUNNING.
-**Zero development jobs submitted.** The frozen 10,080-game comparison remains
-gated on all four complete pilots. Do not run a competing collector or submitter.
+`runs/conservative-auction-development-coordinator-recovery-v2/`. Its actual process
+and 24 unchanged pins were verified. Both 2p pilots are audited; both original 6p
+jobs were directly verified RUNNING. **Zero development jobs submitted.** The
+frozen 10,080-game comparison remains gated on all four complete pilots. Do not
+run a competing collector/submitter. Recheck actual processes and job handles.
 
-The next authorized CPU operations are `recover-conservative-auction-cpu-v2.py
-inspect-target`, then `collect-target` after terminal success, then
-`analyze_conservative_auction_cpu_v2.py`. Use `ai/.venv/bin/python -B` throughout.
-No new strength result, qualified candidate, deployment or reserved final seeds.
+Next: let the existing owner finish runtime admission and the unchanged development
+comparison, then analyze the full grid with its explicit recovered owner-state
+path. Final seeds remain unused. All final strength, 2,553-fixture serving and
+standalone package requirements remain in force.
 
-This replaces the earlier incremental launch/recovery notices. Their exact
-snapshots remain in Git commit `1c0a712` and the immutable HF evidence archives
-indexed by the handoff. Historical statements below describe earlier checkpoints;
-revalidate actual processes and handles before acting on them.
+Earlier launch/recovery snapshots remain in Git history and immutable HF archives
+indexed by the current handoff. Historical statements below describe earlier
+checkpoints and do not override this current status.
 
 ---
 

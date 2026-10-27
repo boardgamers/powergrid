@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "baseline_positions": 755,
+  "baseline_decisions": 2251,
+  "search_cases": 23,
+  "normal_rollouts": 1232,
+  "normal_caps": 0,
+  "hidden_controls": 1,
+  "invalid_requests_rejected": 4,
+  "recovery_checks": 1,
+  "cap_controls": 1,
+  "new_full_games": 0,
+  "new_hf_jobs": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "identities": {
+    "model-2400": {
+      "policySha256": "6ca83e3b989d01711958c6919832548556e5d4d61baea96e6924c1f05cd64593",
+      "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+      "runtimeManifestSha256": "cebda6cb0ed6a1eff28cad8cd02cb17e37bb62f59595b2237b989337b40a9415"
+    },
+    "search-2400": {
+      "policySha256": "7d334ac0a42c5b26719b0a229406f5a624628d38589baf68d2ed0c0be805c492",
+      "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+      "runtimeManifestSha256": "cebda6cb0ed6a1eff28cad8cd02cb17e37bb62f59595b2237b989337b40a9415"
+    },
+    "search-1": {
+      "policySha256": "c10020b1452896a391fa868d96ae136cd4a4bb3d631f74c8f9a8802768fc6386",
+      "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+      "runtimeManifestSha256": "cebda6cb0ed6a1eff28cad8cd02cb17e37bb62f59595b2237b989337b40a9415"
+    }
+  },
+  "hidden_control_rollouts": 116,
+  "deliberate_cap_rollouts": 116,
+  "deliberate_caps": 116,
+  "seconds": 47.31104133394547,
+  "code_hashes": {
+    "resource_turn_public_policy_v1.py": "a573d2a6d1dd4024d77db2356efbdd1da9bcd7d724d756045262c6ffe062e2d4",
+    "resource-turn-exchange-worker-v1.cjs": "3d1468ff6842ce8d61e24070795a7762414db8a2016c192ea301a47280a6b218",
+    "resource-turn-exchange-v1.cjs": "6d4b7baadaec48b0793adbfd94d313912b23b3bedaf47ec80e3e86e9f6487c87",
+    "resource-turn-transaction-v1.cjs": "9e5685663d006703aac2d524cf922f958a8792c4f61ffe2ca2de987bed0573d3",
+    "check-resource-turn-public-policy-v1.py": "eb4de76da9883e2a22cf3335e4686c429428d1fcb968872f7dc513d694a90be2",
+    "probe-resource-turn-search-v1.py": "a3a1a3fa40b6d547ea1883ef63c4553d2a1e63b5cc5d61fa840216caec932586"
+  },
+  "input_hashes": {
+    "ai/runs/resource-turn-search-v1/selection.json": "3116faa72800379c45d4ebba900b22d7c40cc71a4ef5cccb8dac9e3d1d9a8d4e",
+    "ai/runs/resource-turn-search-v1/trained/baselines.jsonl": "b72519cd01b39fd59e7bd18e7b653ed28363c354e8d638a332df62b907657e10",
+    "ai/runs/resource-turn-search-v1/trained/search.jsonl": "53b5433aad8d4360f5244161a24094a23c04a8c31930181c032b598804ac46e8",
+    "ai/runs/resource-turn-search-v1/runtime/ai/strong/fixtures/multiplayer-serving-v1.jsonl": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+    "ai/runs/resource-turn-transaction-v1/receipts.jsonl": "772835eb48f24b01c10fb38570b265faea545167ad82099010cc801fe7ccea0c",
+    "ai/runs/resource-replanning-job-source-prepared-v1/layout/resource-job-manifest.json": "cebda6cb0ed6a1eff28cad8cd02cb17e37bb62f59595b2237b989337b40a9415",
+    "ai/runs/policy-iteration-trained-8840u-prepared-v2/local-package-frozen-1/policy.onnx": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+    "ai/runs/resource-turn-search-v1/trained/cap.json": "177ae077a1540119b4df2b1069904f4cc7a21ead16e7814350be8292a07fa475"
+  },
+  "artifacts": {
+    "hidden.json": "1166c90b1b36343ae0e0ee4b68e3027630473561b517f6262eee42206649a36a",
+    "baselines.jsonl": "2ce54d0e9a0663f8e2abc6968b21c6f017b8090becd7125141d3707c87a77ed6",
+    "search-1.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "recovery.json": "3ca84c70301c97213e434569c2414b3c138c22c06bbc7158fb72c28f2b1aaaa5",
+    "model-2400.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cap.json": "75318b3f907fcc4894b0b354e26e54ae3b2327da5bf85673b5e82747ca9679c2",
+    "search-2400.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "search.jsonl": "fd1b0cfc2517bc65e041be6d15a9e5f1fcd36a10062acc4d817ea69e3d3a42cb"
+  },
+  "scope": "Actual model/search executed only on saved engineering cases through the new full-turn public producer. Old evaluated bundles and outcomes are unchanged; no new strength games, fitted settings, policy selection or deployment."
+}

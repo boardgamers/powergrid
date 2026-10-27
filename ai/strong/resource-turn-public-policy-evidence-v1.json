@@ -1,0 +1,68 @@
+{
+  "status": "actual_model_whole_resource_producer_verified_not_strength_tested",
+  "assessment_sha256": "e55d06850be487eb5c8edf62039c8d01bf28f0fb2d8b381645bdb111b085d6de",
+  "baseline_positions": 755,
+  "baseline_decisions": 2251,
+  "normal_search_cases": 23,
+  "normal_rollouts": 1232,
+  "normal_caps": 0,
+  "hidden_control_rollouts": 116,
+  "deliberate_cap_rollouts": 116,
+  "deliberate_caps": 116,
+  "invalid_requests_rejected": 4,
+  "recovery_checks": 1,
+  "actual_model_inference": true,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "78eb6b20fd4ca8e9cde63922175e3b1cf41d3bbe",
+    "archive_path": "archives/resource-turn-public-policy-evidence-v1.tgz",
+    "archive_sha256": "75f4429b50b713cd94f99e1258b0a34237ce6aaef2ff50ff09522066fd549576",
+    "manifest_sha256": "0f4724cde363a3963bd2c5b33842194b12f0d595397a2df3391093d4df43e8a2",
+    "archived_files": 40,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "identities": {
+    "model-2400": {
+      "policySha256": "6ca83e3b989d01711958c6919832548556e5d4d61baea96e6924c1f05cd64593",
+      "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+      "runtimeManifestSha256": "cebda6cb0ed6a1eff28cad8cd02cb17e37bb62f59595b2237b989337b40a9415"
+    },
+    "search-2400": {
+      "policySha256": "7d334ac0a42c5b26719b0a229406f5a624628d38589baf68d2ed0c0be805c492",
+      "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+      "runtimeManifestSha256": "cebda6cb0ed6a1eff28cad8cd02cb17e37bb62f59595b2237b989337b40a9415"
+    },
+    "search-1": {
+      "policySha256": "c10020b1452896a391fa868d96ae136cd4a4bb3d631f74c8f9a8802768fc6386",
+      "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+      "runtimeManifestSha256": "cebda6cb0ed6a1eff28cad8cd02cb17e37bb62f59595b2237b989337b40a9415"
+    }
+  },
+  "upstream_arena_archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "53b807fd7524fc38c27419b5d593072c479e910b",
+    "archive_path": "archives/resource-turn-arena-evidence-v1.tgz",
+    "archive_sha256": "5997a2682be827520213fea0763a69a71d8e714cb7bfae2f9453557ed44c87c8",
+    "manifest_sha256": "d785239f37778f3d1d51a195ec11411d93cc4ccb55ebace299fcec1d45f553c3",
+    "archived_files": 34,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "upstream_transaction_archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "921979031542c9f58142fc93a4467472f461c8fb",
+    "archive_path": "archives/resource-turn-transaction-evidence-v1.tgz",
+    "archive_sha256": "f265651a9ba452c315ed36a9bb9ac67e703920c1a409dec3615616b760febdcc",
+    "manifest_sha256": "a8940f1559027f4c6492615467944fb3cb4547d4ca019178d617b2167e998ee4",
+    "archived_files": 15,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "new_full_games": 0,
+  "new_hf_jobs": 0,
+  "gradients": false,
+  "running_auction_policies_changed": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

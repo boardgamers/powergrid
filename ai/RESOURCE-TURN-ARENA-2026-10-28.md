@@ -7,6 +7,11 @@ observation, atomic step count, move count and terminal result. This enables a
 future controlled commitment experiment; it does not show that committing a
 purchase plan improves play.
 
+**Producer follow-up:** the [actual model/search producer](RESOURCE-TURN-PUBLIC-POLICY-2026-10-28.md)
+now passes saved-case checks through this response interface. The later references
+to connecting the producer describe the earlier arena-only checkpoint; full-game
+experiment packaging, fresh evaluation and qualification are still pending.
+
 The live 10,080-game auction comparison is unchanged. Its coordinator remains
 the only submitter/collector. No new HF jobs, model predictions, sampled games,
 training, final seeds or game deployments were used for these checks.

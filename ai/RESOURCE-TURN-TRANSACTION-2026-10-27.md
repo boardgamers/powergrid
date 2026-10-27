@@ -10,8 +10,9 @@ This is an execution component, not a playing-strength result or a qualified pol
 **28 October follow-up:** a separate public response and arena path now replays
 120 recorded games exactly; see [the arena execution notes](RESOURCE-TURN-ARENA-2026-10-28.md).
 The primitive below is unchanged. The earlier statements about missing arena
-support describe its original checkpoint; actual policy-producer integration
-and fresh strength testing are still pending.
+support describe its original checkpoint. The [actual model/search producer](RESOURCE-TURN-PUBLIC-POLICY-2026-10-28.md)
+also passes saved-case checks; full-game experiment integration and fresh strength
+testing are still pending.
 
 ## Why this component exists
 

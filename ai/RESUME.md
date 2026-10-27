@@ -29,8 +29,10 @@ policy. It used no new inference, full games or HF jobs.
 now matches 120 recorded games, including 1,167 complete resource turns, through
 both JSON and direct execution. It preserves original actions and outcomes; this
 is an execution check, not a new policy or strength result. The active auction
-source and its sole coordinator remain unchanged. Actual plan-producer integration
-and any fresh resource-strategy comparison are still pending.
+source and its sole coordinator remain unchanged. The [actual plan producer](RESOURCE-TURN-PUBLIC-POLICY-2026-10-28.md)
+also passes 755 saved model turns and 23 saved search cases through the full-turn
+JSON response. A pinned full-game evaluator, fresh resource-strategy comparison
+and selected-policy target benchmark are still pending; no new strength is claimed.
 
 Next: let the existing owner finish the unchanged development grid, then run the
 independent comparison with the explicit recovered owner-state path. No candidate

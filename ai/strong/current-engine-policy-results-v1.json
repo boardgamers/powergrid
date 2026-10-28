@@ -1,0 +1,41 @@
+{
+  "completed": true,
+  "public_interface_compatible_on_fixtures": true,
+  "recorded_controls_exact": 10,
+  "recorded_controls": 10,
+  "actual_policy_requests": 30,
+  "errors": [],
+  "outcomes": {
+    "recorded-control": {
+      "requests": 10,
+      "legal": 10,
+      "choose_plant": 5,
+      "pass": 5
+    },
+    "discount-money-one": {
+      "requests": 10,
+      "legal": 10,
+      "choose_plant": 0,
+      "pass": 10
+    },
+    "no-money-pass": {
+      "requests": 10,
+      "legal": 10,
+      "choose_plant": 0,
+      "pass": 10
+    }
+  },
+  "rollouts": 0,
+  "seconds": 1.0787531370006036,
+  "counterfactual_requests": 20,
+  "design_sha256": "745df68bc39df7a4734f6450100b4a551430c07f5f719b79e50b2f6580af8c84",
+  "inputs_sha256": "48dfabd299ff01bc87c1683ae9ce915939f2407c6c5142b9c563ad8da82c8acb",
+  "receipts_sha256": "e395c32db7f6285ae3aea712e6f26151c708469917146e13fe3c958b7439dc24",
+  "description_sha256": "179e307fcd2a003e141f240106459e54915d71ca74a69f3f7626cdb809c5a02b",
+  "new_hf_jobs": 0,
+  "new_full_games": 0,
+  "new_gradients": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "interpretation": "Public filtered-model input/output compatibility and legality only. Synthetic cash interventions do not measure strategic quality; frozen continuation engine still predates nomination-affordability fix. Not full transition or strength validation."
+}

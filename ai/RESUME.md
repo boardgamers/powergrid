@@ -1,5 +1,63 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October, 18:31 UTC — corrected v4 runtime pilots launched.**
+
+The six originals are terminal: five audited successes / 88 games and one
+preserved failure; their 96-game success gate failed. After reviewing measured
+costs (maximum 3.44 h workflow and 6.066 GB sampled peak RSS), the separate
+admission launched exactly two corrected v4 jobs / 32 runtime-only games,
+with six-hour limits and no automatic retries. See the
+[admission and recovery record](RESOURCE-RUNTIME-ADMISSION-2026-10-28.md)
+for exact handles, source hashes and the v4 collection command. The preparation
+notes below retain their historical state; no candidate is qualified and final
+seeds remain unused. Complete the separate auction comparison before selecting
+another strength study.
+
+**28 October, 18:28 UTC — all six original resource pilots terminal.**
+
+Five successful pilots passed independent audit: **88 games, zero rollout caps**.
+The anchored two-player pilot failed on the reproduced turn-boundary defect;
+its seven reported complete games and partial eighth game remain preserved,
+excluded from audited-success counts. The original 96-game success gate failed.
+The last anchored six-player pilot passed all 24 games in 12,396.80 seconds
+(3.44 h), 37,481.68 CPU-s and 5.007 GB sampled peak process-tree RSS.
+`strong/resource-turn-runtime-outcomes-v2.json` binds all six original handles,
+immutable raw archives, audit receipts, failures and measured costs. Collection
+ran no new policy inference or games. These are runtime results, not strength.
+
+**28 October update — original corrected atomic six-player pilot audited.**
+
+Original handle `6ae20c123fb22a235dd4146d` completed and passed independent audit:
+24 games, 2,989 atomic decisions, 59,208 continuations / 4,855,056 continuation
+neural decisions, zero caps. Measured wall time was 12,244.20 seconds (3.40 h),
+37,674.11 CPU seconds, 6.066 GB sampled peak process-tree RSS. Collection did not
+rerun policy inference or games. The immutable raw archive is at private model
+revision `2a5292f63dd58f5b9625636c76e89df4b42e98fa`; the independent receipt is
+preserved in `strong/resource-turn-runtime-corrected-six-result-v1.json`.
+
+At 18:19 UTC the original set had four verified successes / 64 games, one preserved
+failed two-player anchored pilot, and only the original anchored six-player handle
+`6ae20c1341e90535df775238` still RUNNING. Wait for its terminal outcome before
+admitting corrected v4 pilots. This remains runtime-only evidence; the original
+96-game success gate has not passed. No replacement, new job or strength claim.
+
+**28 October update — actual model accepts current discounted-nomination menus.**
+
+The pinned filtered-model service returned legal, correctly bound replies for
+30 current-engine requests: ten original controls (all exact) and twenty explicit
+counterfactual one/zero-Elektro cases across 2–6 players and open/sealed Recharged.
+It passed all low-cash cases; this demonstrates interface compatibility, not the
+strategic merit of those decisions. Response indexes retain the current legal
+menu, including the newly affordable discounted plant. Read
+[the public-model diagnostic](CURRENT-ENGINE-POLICY-2026-10-28.md).
+
+Thirty actual policy decisions, zero search rollouts, no new complete games,
+HF jobs, gradients or final seeds. The frozen continuation engine still predates
+the nomination-affordability fix. Current-engine transition/serving validation
+and any separately pinned migration remain due before deployment. Finish the
+unchanged complete auction comparison before selecting another strength study.
+No candidate qualified or deployed; the research goal remains active.
+
 **28 October update — current-engine saved-state compatibility checked.**
 
 A separate build of current `origin/master` engine 2.0.19 matches all 3,443 legal

@@ -2,6 +2,46 @@
 
 ## Current state
 
+**28 October, 18:28 UTC — all six original resource pilots terminal.**
+
+Five successful pilots passed independent audit: **88 games, zero rollout caps**.
+The anchored two-player pilot failed on the reproduced turn-boundary defect;
+its seven reported complete games and partial eighth game remain preserved,
+excluded from audited-success counts. The original 96-game success gate failed.
+The last anchored six-player pilot passed all 24 games in 12,396.80 seconds
+(3.44 h), 37,481.68 CPU-s and 5.007 GB sampled peak process-tree RSS.
+`strong/resource-turn-runtime-outcomes-v2.json` binds all six original handles,
+immutable raw archives, audit receipts, failures and measured costs. Collection
+ran no new policy inference or games. These are runtime results, not strength.
+
+**Collection update, 18:19 UTC:** original corrected six-player result
+
+Original `pg-resource-turn-runtime-v1-corrected-6p`, handle
+`6ae20c123fb22a235dd4146d`, completed and passed independent v3 audit: all 24 games,
+2,989 policy requests / atomic moves, 59,208 continuations, 4,855,056 continuation
+neural decisions and zero rollout caps. Measurement: 12,244.204206989001 seconds
+wall, 37,674.11 CPU seconds, 6,065,573,888 bytes sampled peak process-tree RSS,
+57,646 samples at 0.2 seconds. Startup and validation are included; RSS may count
+shared pages more than once. Atomic-mode `resource_turns: 0` means no whole-turn
+transactions, not absence of resource phases.
+
+Raw archive: private model `coyotte508/powergrid-ai-germany-v1`, revision
+`2a5292f63dd58f5b9625636c76e89df4b42e98fa`, path
+`archives/pg-resource-turn-runtime-v1-corrected-6p.tgz`, SHA-256
+`892a248c2438e81005ac9ab972e843560d56aee1f3128bd7d739b99e1bb3751e`,
+manifest `971c05a6328f7364205a7bc7e5664a5621c1b271f29a2c56a74742b2f8e7487e`,
+105 files. Independent audit SHA-256:
+`f0e5893ee6e4dfe1f9db55f22cd51badb150cd3bd4d2a71332d489abf0a676d7`.
+The full independent collection receipt is persisted in
+`strong/resource-turn-runtime-corrected-six-result-v1.json`.
+
+The six-original set now has four verified successes / 64 games, one preserved
+failed anchored two-player pilot, and one original anchored six-player job still
+RUNNING (`6ae20c1341e90535df775238`). The 96-game gate remains failed/incomplete.
+Wait for the final original's measured outcome before setting a corrected v4
+runtime budget. No retry/replacement, inference or game generation occurred in
+this collection; no pilot win rates were used for candidate selection.
+
 **Later collection update:** original whole-turn six-player job
 `6ae20c1341e90535df77523a` passed independent audit: 24 games, 16,200
 continuations, zero caps; 7,056.35 s wall, 22,701.91 CPU-s and 4.638 GB sampled

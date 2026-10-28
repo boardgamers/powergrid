@@ -1,0 +1,311 @@
+{
+  "checked_at": "2026-10-28T18:28:16.193495+00:00",
+  "all_originals_terminal": true,
+  "success_gate_passed": false,
+  "verified_successful_jobs": 5,
+  "verified_successful_games": 88,
+  "failed_jobs_preserved": 1,
+  "expected_jobs": 6,
+  "expected_games": 96,
+  "pending_jobs": 0,
+  "unverified_jobs": 0,
+  "jobs": [
+    {
+      "checked_at": "2026-10-28T18:27:53.721062+00:00",
+      "name": "pg-resource-turn-runtime-v1-corrected-2p",
+      "job_id": "6ae20c1241e90535df775236",
+      "stage": "COMPLETED",
+      "outcome": "verified_success",
+      "verified": true,
+      "reused_audit": true,
+      "verified_receipt": "ai/runs/resource-turn-runtime-hf-v1/pg-resource-turn-runtime-v1-corrected-2p/verified.json",
+      "verified_receipt_sha256": "8abd5d2c5b8b23bca21f1fc2219bd590da15849e1e1f022efe80a4be76d926b2",
+      "review": {
+        "games": 8,
+        "audit": {
+          "passed": true,
+          "games": 8,
+          "counts": {
+            "policy_requests": 1302,
+            "atomic_moves": 1302,
+            "resource_turns": 0,
+            "root_filter_overrides": 0,
+            "rollouts": 43640,
+            "rollout_caps": 0,
+            "neural_decisions": 3182395
+          },
+          "paired_schedule_checked": true,
+          "new_inference": 0,
+          "new_hf_jobs": 0,
+          "qualification_eligible": false,
+          "reserved_final_seeds_used": false
+        },
+        "measurement": {
+          "seconds": 2814.5818806749885,
+          "cpu_seconds": 8462.710000000001,
+          "sampled_peak_total_rss_bytes": 4398391296,
+          "memory_samples": 13740,
+          "memory_sampling_period_seconds": 0.2,
+          "includes_startup_and_validation": true
+        },
+        "independent_audit_sha256": "63a44b42e78e48785944ec1587e13a50a7b75e46d4a69bb095cdef35860fbda8"
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "d67b0809dce1a7386a174a69ba5145f69f2a578e",
+        "archive_path": "archives/pg-resource-turn-runtime-v1-corrected-2p.tgz",
+        "archive_sha256": "e7f8caf2a336fb097e6a49d3050580cdf04cd250506f99a0b60b4719209cf3d4",
+        "manifest_sha256": "39d9c0a1f53e1bd4a177bb8a064808998e2f41e56c130b2bf9ae77fe7788b102",
+        "archived_files": 41,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "checked_at": "2026-10-28T18:27:54.045271+00:00",
+      "name": "pg-resource-turn-runtime-v1-corrected-6p",
+      "job_id": "6ae20c123fb22a235dd4146d",
+      "stage": "COMPLETED",
+      "outcome": "verified_success",
+      "verified": true,
+      "reused_audit": true,
+      "verified_receipt": "ai/runs/resource-turn-runtime-outcomes-v2/pg-resource-turn-runtime-v1-corrected-6p/verified.json",
+      "verified_receipt_sha256": "89e54f67d6877325b462c305ab7e1442c6af916cd5f9b3e8022614b64ab12be0",
+      "review": {
+        "games": 24,
+        "audit": {
+          "passed": true,
+          "games": 24,
+          "counts": {
+            "policy_requests": 2989,
+            "atomic_moves": 2989,
+            "resource_turns": 0,
+            "root_filter_overrides": 0,
+            "rollouts": 59208,
+            "rollout_caps": 0,
+            "neural_decisions": 4855056
+          },
+          "paired_schedule_checked": true,
+          "new_inference": 0,
+          "new_hf_jobs": 0,
+          "qualification_eligible": false,
+          "reserved_final_seeds_used": false
+        },
+        "measurement": {
+          "seconds": 12244.204206989001,
+          "cpu_seconds": 37674.11,
+          "sampled_peak_total_rss_bytes": 6065573888,
+          "memory_samples": 57646,
+          "memory_sampling_period_seconds": 0.2,
+          "includes_startup_and_validation": true
+        },
+        "independent_audit_sha256": "f0e5893ee6e4dfe1f9db55f22cd51badb150cd3bd4d2a71332d489abf0a676d7"
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "2a5292f63dd58f5b9625636c76e89df4b42e98fa",
+        "archive_path": "archives/pg-resource-turn-runtime-v1-corrected-6p.tgz",
+        "archive_sha256": "892a248c2438e81005ac9ab972e843560d56aee1f3128bd7d739b99e1bb3751e",
+        "manifest_sha256": "971c05a6328f7364205a7bc7e5664a5621c1b271f29a2c56a74742b2f8e7487e",
+        "archived_files": 105,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "checked_at": "2026-10-28T18:27:54.515936+00:00",
+      "name": "pg-resource-turn-runtime-v1-anchored-2p",
+      "job_id": "6ae20c133fb22a235dd4146f",
+      "stage": "ERROR",
+      "outcome": "failed_preserved",
+      "verified": false,
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "cc490998a1d3cf4a1d65994dd7669df2dc375c6b",
+        "archive_path": "archives/pg-resource-turn-runtime-v1-anchored-2p.tgz",
+        "archive_sha256": "0dafef7c84d923ceabcb38f52c1874f7265289dc329b11fe60b2adb42a9e0415",
+        "manifest_sha256": "466fad853bd4a04ccf0f5756af430321a4568cc9b049830277b1e5fcefabf7b1",
+        "archived_files": 38,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "raw_artifacts_verified": true,
+      "wrapper_stage": "failed",
+      "measurement": {
+        "seconds": 4073.516674710001,
+        "cpu_seconds": 11555.03,
+        "sampled_peak_total_rss_bytes": 4878475264,
+        "memory_samples": 19484,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      "partial_complete_games_reported": 7,
+      "partial_games_independently_audited": false,
+      "failure_type": "CalledProcessError",
+      "original_success_gate_passed": false
+    },
+    {
+      "checked_at": "2026-10-28T18:27:54.837437+00:00",
+      "name": "pg-resource-turn-runtime-v1-anchored-6p",
+      "job_id": "6ae20c1341e90535df775238",
+      "stage": "COMPLETED",
+      "outcome": "verified_success",
+      "verified": true,
+      "reused_audit": false,
+      "verified_receipt": "ai/runs/resource-turn-runtime-outcomes-v2/pg-resource-turn-runtime-v1-anchored-6p/verified.json",
+      "verified_receipt_sha256": "1ef22d64db8aba80d8f16d5c47e957b52d6b5bf8fca739bc91c0538e38b1eac4",
+      "review": {
+        "games": 24,
+        "audit": {
+          "passed": true,
+          "games": 24,
+          "counts": {
+            "policy_requests": 2838,
+            "atomic_moves": 2838,
+            "resource_turns": 0,
+            "root_filter_overrides": 0,
+            "rollouts": 54488,
+            "rollout_caps": 0,
+            "neural_decisions": 4698981
+          },
+          "paired_schedule_checked": true,
+          "new_inference": 0,
+          "new_hf_jobs": 0,
+          "qualification_eligible": false,
+          "reserved_final_seeds_used": false
+        },
+        "measurement": {
+          "seconds": 12396.796799870004,
+          "cpu_seconds": 37481.68,
+          "sampled_peak_total_rss_bytes": 5007486976,
+          "memory_samples": 58567,
+          "memory_sampling_period_seconds": 0.2,
+          "includes_startup_and_validation": true
+        },
+        "independent_audit_sha256": "263ef98eaebcc41c0ab1652ffae2f796e27de5aea2dadc779020d19e4567c2af"
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "8323cb1e81a2c65fedc88d339fc6e7e60a9bd380",
+        "archive_path": "archives/pg-resource-turn-runtime-v1-anchored-6p.tgz",
+        "archive_sha256": "7048312e1ceb8a3ee32987e80a00de8b159d8bade44cb599ef9c759cfcfa6d02",
+        "manifest_sha256": "ed9fa3c43b5d67d6898b8ddbaaf4699e3d6a44accc50f1a5c49350acf8e4cadf",
+        "archived_files": 106,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "checked_at": "2026-10-28T18:28:15.757072+00:00",
+      "name": "pg-resource-turn-runtime-v1-whole-2p",
+      "job_id": "6ae20c133fb22a235dd41471",
+      "stage": "COMPLETED",
+      "outcome": "verified_success",
+      "verified": true,
+      "reused_audit": true,
+      "verified_receipt": "ai/runs/resource-turn-runtime-hf-v1/pg-resource-turn-runtime-v1-whole-2p/verified.json",
+      "verified_receipt_sha256": "e7fb7cc5b3ebb4f21aac8f24ba74a1571507f3d041190d2c7b80796192025f57",
+      "review": {
+        "games": 8,
+        "audit": {
+          "passed": true,
+          "games": 8,
+          "counts": {
+            "policy_requests": 919,
+            "atomic_moves": 1284,
+            "resource_turns": 95,
+            "root_filter_overrides": 0,
+            "rollouts": 11352,
+            "rollout_caps": 0,
+            "neural_decisions": 930744
+          },
+          "paired_schedule_checked": true,
+          "new_inference": 0,
+          "new_hf_jobs": 0,
+          "qualification_eligible": false,
+          "reserved_final_seeds_used": false
+        },
+        "measurement": {
+          "seconds": 858.5279077009764,
+          "cpu_seconds": 3079.6699999999996,
+          "sampled_peak_total_rss_bytes": 4555935744,
+          "memory_samples": 4193,
+          "memory_sampling_period_seconds": 0.2,
+          "includes_startup_and_validation": true
+        },
+        "independent_audit_sha256": "c57197138a1375e9664033c9821b79ce0ba832301a892811cb833340f9230460"
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "767558c54d51cc6252c71d50422075cb71d4ebcb",
+        "archive_path": "archives/pg-resource-turn-runtime-v1-whole-2p.tgz",
+        "archive_sha256": "056465aafca7647857e32bcca825e86f14b8485840e1a1d49cfb3ba4198203a3",
+        "manifest_sha256": "2575b8e7a307efc70e14a7a20174ddf14e7b72592bb6b1877b56ccf2b9ad974c",
+        "archived_files": 41,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "checked_at": "2026-10-28T18:28:16.026361+00:00",
+      "name": "pg-resource-turn-runtime-v1-whole-6p",
+      "job_id": "6ae20c1341e90535df77523a",
+      "stage": "COMPLETED",
+      "outcome": "verified_success",
+      "verified": true,
+      "reused_audit": true,
+      "verified_receipt": "ai/runs/resource-turn-runtime-outcomes-v2/pg-resource-turn-runtime-v1-whole-6p/verified.json",
+      "verified_receipt_sha256": "1b1c2e1d1d244807518c48f5c9df42fe14c9baf9996cd99ba4774f81459c30ac",
+      "review": {
+        "games": 24,
+        "audit": {
+          "passed": true,
+          "games": 24,
+          "counts": {
+            "policy_requests": 2285,
+            "atomic_moves": 2937,
+            "resource_turns": 223,
+            "root_filter_overrides": 0,
+            "rollouts": 16200,
+            "rollout_caps": 0,
+            "neural_decisions": 1544194
+          },
+          "paired_schedule_checked": true,
+          "new_inference": 0,
+          "new_hf_jobs": 0,
+          "qualification_eligible": false,
+          "reserved_final_seeds_used": false
+        },
+        "measurement": {
+          "seconds": 7056.3528083249985,
+          "cpu_seconds": 22701.910000000003,
+          "sampled_peak_total_rss_bytes": 4638265344,
+          "memory_samples": 33643,
+          "memory_sampling_period_seconds": 0.2,
+          "includes_startup_and_validation": true
+        },
+        "independent_audit_sha256": "eba144fd975fc6f489ba00929854c0915af32a49b4821d956f38b902279cf3d3"
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "3bb5ee93cdd98cdc39d4ef814e5db8ec4c53a37b",
+        "archive_path": "archives/pg-resource-turn-runtime-v1-whole-6p.tgz",
+        "archive_sha256": "b57c61679acb2bc2d34d1414a9f1568f7e9f9c4f6a46bbe6ab7b1c01a1b8d495",
+        "manifest_sha256": "67c23c02210666e6f8a5df9d2bbf2fb559faf78fb56795c6467f945231f8f4a4",
+        "archived_files": 105,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    }
+  ],
+  "scope": "runtime-only",
+  "new_hf_jobs": 0,
+  "new_inference": 0,
+  "new_full_games": 0,
+  "automatic_retries": false,
+  "new_strength_games": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "source_sha256": "c2022eea0186ddb76ddf8c4a227d417f1c5fcc05fe25a40449fffd21e357978d",
+  "collector_sha256": "6982432046b8fead429510cc6ce5b218ce240daa8d8c30812d0e7d3dceb63667"
+}

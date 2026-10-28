@@ -1,0 +1,107 @@
+{
+  "revision": "resource-turn-runtime-admission-v2",
+  "created_at": "2026-10-28T18:29:27.752799+00:00",
+  "source_manifest_sha256": "7678b22c535648280394cb7374c926bfcb2ea88da5c2d8b35100cda64a3c299a",
+  "protocol_sha256": "72f43b24137d18d578b694dd74aba1b0ea5e96864e62ab76cd80a313c15dff95",
+  "all_originals_terminal": true,
+  "original_outcomes_sha256": "1c5aca3f9f33d91226118d20407cb3904c280cc711b35a1fc887e7c01ee2e146",
+  "source_evidence_preserved": true,
+  "scope": "runtime-only",
+  "automatic_retries": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "job_specs": {
+    "pg-resource-turn-runtime-v2-anchored-2p.job.json": "b35fe38c41c7226894a447fa8eae8c003fa310eec801fd08568534a1fd56c4a7",
+    "pg-resource-turn-runtime-v2-anchored-6p.job.json": "769e41991c259e46bfe3ad870b5fbbbc80fbddea49519a044580acd8f43dd199"
+  },
+  "flavor": "cpu-upgrade",
+  "max_concurrent_jobs": 2,
+  "timeout_seconds": 21600,
+  "budget_review": {
+    "original_outcomes_sha256": "1c5aca3f9f33d91226118d20407cb3904c280cc711b35a1fc887e7c01ee2e146",
+    "reviewed_at": "2026-10-28T18:29:27.752854+00:00",
+    "max_total_job_hours": 12,
+    "reason": "All six originals are terminal and preserved. Five successful pilots independently verify 88 games; anchored 2p failed on the reproduced turn-boundary defect fixed and replay-tested in v4. The largest measured workflow was 12396.80s (3.44h) and peak sampled process-tree RSS was 6.066GB. Six-hour limits leave 1.5x this maximum plus 3000s for bootstrap, upload and trajectory variance. Keep the same cpu-upgrade flavor and four game workers, at most two jobs, on fresh runtime-only seeds. These are a separately pinned corrected-runtime study, not retries of the failed original and not strength evidence. No automatic resubmission.",
+    "maximum_original_workflow_seconds": 12396.796799870004,
+    "original_measurements": [
+      {
+        "job_id": "6ae20c1241e90535df775236",
+        "name": "pg-resource-turn-runtime-v1-corrected-2p",
+        "outcome": "verified_success",
+        "measurement": {
+          "seconds": 2814.5818806749885,
+          "cpu_seconds": 8462.710000000001,
+          "sampled_peak_total_rss_bytes": 4398391296,
+          "memory_samples": 13740,
+          "memory_sampling_period_seconds": 0.2,
+          "includes_startup_and_validation": true
+        }
+      },
+      {
+        "job_id": "6ae20c123fb22a235dd4146d",
+        "name": "pg-resource-turn-runtime-v1-corrected-6p",
+        "outcome": "verified_success",
+        "measurement": {
+          "seconds": 12244.204206989001,
+          "cpu_seconds": 37674.11,
+          "sampled_peak_total_rss_bytes": 6065573888,
+          "memory_samples": 57646,
+          "memory_sampling_period_seconds": 0.2,
+          "includes_startup_and_validation": true
+        }
+      },
+      {
+        "job_id": "6ae20c133fb22a235dd4146f",
+        "name": "pg-resource-turn-runtime-v1-anchored-2p",
+        "outcome": "failed_preserved",
+        "measurement": {
+          "seconds": 4073.516674710001,
+          "cpu_seconds": 11555.03,
+          "sampled_peak_total_rss_bytes": 4878475264,
+          "memory_samples": 19484,
+          "memory_sampling_period_seconds": 0.2,
+          "includes_startup_and_validation": true
+        }
+      },
+      {
+        "job_id": "6ae20c1341e90535df775238",
+        "name": "pg-resource-turn-runtime-v1-anchored-6p",
+        "outcome": "verified_success",
+        "measurement": {
+          "seconds": 12396.796799870004,
+          "cpu_seconds": 37481.68,
+          "sampled_peak_total_rss_bytes": 5007486976,
+          "memory_samples": 58567,
+          "memory_sampling_period_seconds": 0.2,
+          "includes_startup_and_validation": true
+        }
+      },
+      {
+        "job_id": "6ae20c133fb22a235dd41471",
+        "name": "pg-resource-turn-runtime-v1-whole-2p",
+        "outcome": "verified_success",
+        "measurement": {
+          "seconds": 858.5279077009764,
+          "cpu_seconds": 3079.6699999999996,
+          "sampled_peak_total_rss_bytes": 4555935744,
+          "memory_samples": 4193,
+          "memory_sampling_period_seconds": 0.2,
+          "includes_startup_and_validation": true
+        }
+      },
+      {
+        "job_id": "6ae20c1341e90535df77523a",
+        "name": "pg-resource-turn-runtime-v1-whole-6p",
+        "outcome": "verified_success",
+        "measurement": {
+          "seconds": 7056.3528083249985,
+          "cpu_seconds": 22701.910000000003,
+          "sampled_peak_total_rss_bytes": 4638265344,
+          "memory_samples": 33643,
+          "memory_sampling_period_seconds": 0.2,
+          "includes_startup_and_validation": true
+        }
+      }
+    ]
+  }
+}

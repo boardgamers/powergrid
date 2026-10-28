@@ -1,5 +1,18 @@
 # Corrected v4 runtime collection — 28 October 2026
 
+**28 October, 18:31 UTC — corrected v4 runtime pilots launched.**
+
+The six originals are terminal: five audited successes / 88 games and one
+preserved failure; their 96-game success gate failed. After reviewing measured
+costs (maximum 3.44 h workflow and 6.066 GB sampled peak RSS), the separate
+admission launched exactly two corrected v4 jobs / 32 runtime-only games,
+with six-hour limits and no automatic retries. See the
+[admission and recovery record](RESOURCE-RUNTIME-ADMISSION-2026-10-28.md)
+for exact handles, source hashes and the v4 collection command. The preparation
+notes below retain their historical state; no candidate is qualified and final
+seeds remain unused. Complete the separate auction comparison before selecting
+another strength study.
+
 The separately prepared v4 resource runtime package now has its collection path:
 `strong/collect-resource-turn-runtime-v2.py`. This closes the collector follow-up
 in [the launcher handoff](RESOURCE-RUNTIME-LAUNCHER-2026-10-28.md). **No actual

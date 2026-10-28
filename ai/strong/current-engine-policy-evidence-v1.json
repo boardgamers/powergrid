@@ -1,0 +1,27 @@
+{
+  "status": "filtered_model_current_menu_fixtures_legal_not_strength_validated",
+  "report_sha256": "da9574a496adb6d0c6271c63c32b4f4d41c73cf2c3b3feb68c5025d82e6c2aed",
+  "design_sha256": "745df68bc39df7a4734f6450100b4a551430c07f5f719b79e50b2f6580af8c84",
+  "inputs_sha256": "48dfabd299ff01bc87c1683ae9ce915939f2407c6c5142b9c563ad8da82c8acb",
+  "receipts_sha256": "e395c32db7f6285ae3aea712e6f26151c708469917146e13fe3c958b7439dc24",
+  "menu_index_audit_sha256": "2995c0b0854d678c26977752d3a46a12256b2651da95ced138137001faff0bba",
+  "actual_policy_requests": 30,
+  "recorded_controls_exact": 10,
+  "counterfactual_requests": 20,
+  "rollouts": 0,
+  "new_hf_jobs": 0,
+  "new_full_games": 0,
+  "new_gradients": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "f4d677dfaa2f8c63f503218c3cd356025e4df868",
+    "archive_path": "archives/current-engine-policy-evidence-v1.tgz",
+    "archive_sha256": "9da7f3aa4750ec58ba084f5dfc1bb9bf5b096fc03750ba91ee4395b1151a1cd7",
+    "manifest_sha256": "4724ad30ccb1912b32d309808d7eab1f341510c7d07dc004d44493343fa91cab",
+    "archived_files": 21,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  }
+}

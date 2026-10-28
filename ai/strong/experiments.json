@@ -63718,5 +63718,84 @@
         "reserved_final_seeds_used": false,
         "auction_study": "Sole original owner live; all code pins matched; finish complete comparison before next strength study.",
         "next": "Collect remaining original runtime evidence without suppressing failed job; integrate corrected helper/auditor into a new pinned policy before separately admitted resource runtime work."
+    },
+    "resource_runtime_failure_preserving_collection_v2": {
+        "recorded_at": "2026-10-28T16:46:00.318885+00:00",
+        "goal_turn_classification": "progress",
+        "previous_goal_turn_classification": "progress",
+        "status": "collection_path_verified_original_runtime_gate_failed_remaining_jobs_pending",
+        "collector_sha256": "6982432046b8fead429510cc6ce5b218ce240daa8d8c30812d0e7d3dceb63667",
+        "test_code_hashes": {
+            "ai/strong/collect-resource-runtime-outcomes-v2.py": "6982432046b8fead429510cc6ce5b218ce240daa8d8c30812d0e7d3dceb63667",
+            "ai/strong/test_resource_runtime_collection_v2.py": "69a8279993ef74060bac9523d785c72f382df859f19fbdfcfacc44d7bef51ada"
+        },
+        "tests": 12,
+        "initial_fixture_failure_preserved": "ai/runs/resource-runtime-collection-tests-v2-initial",
+        "state_snapshot_sha256": "40b13ecfee4f45ff2dd6ecdb5c0596358fbaa1109f85cdeefd92073150d3f148",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "a714621df19a7850b3a7b69d9f4b48ef5a1db0be",
+            "archive_path": "archives/resource-runtime-collection-evidence-v2.tgz",
+            "archive_sha256": "1cfae356d85d061d1f9a71821aeaed7e0e7677d6e62950ee864fee9bed8096fd",
+            "manifest_sha256": "d0436d4ac3f750b17ed702fcac023b79ea69778c39a4235334452fe8450c4db7",
+            "archived_files": 36,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "original_jobs": [
+            {
+                "name": "pg-resource-turn-runtime-v1-corrected-2p",
+                "job_id": "6ae20c1241e90535df775236",
+                "stage": "COMPLETED",
+                "outcome": "verified_success"
+            },
+            {
+                "name": "pg-resource-turn-runtime-v1-corrected-6p",
+                "job_id": "6ae20c123fb22a235dd4146d",
+                "stage": "RUNNING",
+                "outcome": "pending"
+            },
+            {
+                "name": "pg-resource-turn-runtime-v1-anchored-2p",
+                "job_id": "6ae20c133fb22a235dd4146f",
+                "stage": "ERROR",
+                "outcome": "failed_preserved"
+            },
+            {
+                "name": "pg-resource-turn-runtime-v1-anchored-6p",
+                "job_id": "6ae20c1341e90535df775238",
+                "stage": "RUNNING",
+                "outcome": "pending"
+            },
+            {
+                "name": "pg-resource-turn-runtime-v1-whole-2p",
+                "job_id": "6ae20c133fb22a235dd41471",
+                "stage": "COMPLETED",
+                "outcome": "verified_success"
+            },
+            {
+                "name": "pg-resource-turn-runtime-v1-whole-6p",
+                "job_id": "6ae20c1341e90535df77523a",
+                "stage": "RUNNING",
+                "outcome": "pending"
+            }
+        ],
+        "verified_successful_jobs": 2,
+        "verified_successful_games": 16,
+        "failed_jobs_preserved": 1,
+        "pending_jobs": 3,
+        "all_originals_terminal": false,
+        "success_gate_passed": false,
+        "original_failed_job_replaced": false,
+        "reused_completed_audits": true,
+        "shared_original_collection_lock": true,
+        "new_hf_jobs": 0,
+        "new_inference": 0,
+        "new_full_game_trajectories": 0,
+        "new_gradients": 0,
+        "new_strength_games": 0,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "next": "Finish collecting the six original runtime outcomes; keep failure explicit. Continue original auction comparison. Resource boundary fix still requires a separate pinned full-policy integration."
     }
 }

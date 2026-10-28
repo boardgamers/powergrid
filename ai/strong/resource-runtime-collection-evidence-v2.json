@@ -1,0 +1,27 @@
+{
+  "status": "collection_path_verified_original_runtime_gate_failed_remaining_jobs_pending",
+  "state_snapshot_sha256": "40b13ecfee4f45ff2dd6ecdb5c0596358fbaa1109f85cdeefd92073150d3f148",
+  "tests_sha256": "fc243cbfb7cb414605207e5f52eab21344560b90be518867d316cb26ff369f67",
+  "tests": 12,
+  "verified_successful_jobs": 2,
+  "verified_successful_games": 16,
+  "failed_jobs_preserved": 1,
+  "pending_jobs": 3,
+  "all_originals_terminal": false,
+  "success_gate_passed": false,
+  "new_hf_jobs": 0,
+  "new_inference": 0,
+  "new_full_games": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "a714621df19a7850b3a7b69d9f4b48ef5a1db0be",
+    "archive_path": "archives/resource-runtime-collection-evidence-v2.tgz",
+    "archive_sha256": "1cfae356d85d061d1f9a71821aeaed7e0e7677d6e62950ee864fee9bed8096fd",
+    "manifest_sha256": "d0436d4ac3f750b17ed702fcac023b79ea69778c39a4235334452fe8450c4db7",
+    "archived_files": 36,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  }
+}

@@ -1,5 +1,20 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October update — failure-preserving resource collection is available.**
+
+A bounded read-only HF check at 16:41 UTC confirms two verified successful
+pilots / 16 games, the preserved anchored two-player failure, and three original
+six-player pilots still RUNNING. The original 96-game success gate remains
+failed/incomplete. No partial wins or failed-job games are promoted to success.
+Use `ai/.venv/bin/python -u -B ai/strong/collect-resource-runtime-outcomes-v2.py`
+for subsequent bounded collection; it uses the original lock and exact handles,
+retains failures, reuses completed audits and has no job-submission/retry path.
+Its 12 fake-API safety checks passed. The initial malformed test-log fixture and
+its source are preserved. Read [the runtime handoff](RESOURCE-TURN-RUNTIME-2026-10-28.md)
+for current state/output paths and interruption recovery. No new jobs, inference,
+complete games, gradients or final seeds were used. Continue the original auction
+comparison unchanged; corrected resource-policy integration is still pending.
+
 **28 October update — anchored resource pilot failed; boundary defect reproduced and separate fix checked.**
 
 Original job `6ae20c133fb22a235dd4146f` is ERROR (seven complete games,

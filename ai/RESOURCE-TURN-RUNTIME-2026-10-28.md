@@ -2,6 +2,48 @@
 
 ## Current state
 
+**Collection update, 16:41 UTC:** the bounded failure-preserving collector
+confirmed **two verified successful jobs / 16 games, one preserved failed job,
+and three original six-player jobs still RUNNING**. The anchored two-player
+failure is diagnosed in [the boundary handoff](RESOURCE-TURN-BOUNDARY-2026-10-28.md).
+The original six-job / 96-game success gate is not passed. The seven complete
+games inside the failed job remain reported partial evidence, not an independently
+audited successful pilot or paired result.
+
+Use this collection-only command for later bounded checks:
+
+```bash
+ai/.venv/bin/python -u -B ai/strong/collect-resource-runtime-outcomes-v2.py
+```
+
+It uses the original `.collect.lock`, validates the six exact original handles,
+remote provenance and immutable archives, reuses successful audits, preserves
+failures, and continues to subsequent originals. It has no submission, cancellation
+or retry path. Unknown stages remain unresolved. An interrupted independent audit
+requires inspection before recovery; the collector will not blindly repeat it.
+The frozen original launcher/collector remains unchanged.
+
+Current state: `runs/resource-turn-runtime-outcomes-v2/state.json`. Once all
+originals are terminal, the new collector saves
+`strong/resource-turn-runtime-outcomes-v2.json`, with failures explicit and a
+separate `success_gate_passed` flag. It never writes the original success report
+on a failed set. Do not confuse terminal collection with a successful runtime gate.
+
+Twelve fake-API safety checks passed, covering failed evidence followed by another
+original, audit reuse/tampering, exact handles/provenance, missing archives, unknown
+stages, interrupted audits and rejecting duplicate schedules or five successes
+plus one failure as a passed gate. The initial test fixture incorrectly emitted
+multiline JSON instead of the actual single-line job-log receipt; its failed
+output and exact sources are preserved in
+`runs/resource-runtime-collection-tests-v2-initial`. Fixing that fixture did not
+change the collector. No new jobs, inference, simulations or complete games ran.
+
+The first collection snapshot and recovery tools are archived by
+`strong/archive-resource-runtime-collection-v2.py`; the immutable revision and
+hashes are in `strong/resource-runtime-collection-evidence-v2.json`. Inspect
+prior archive intent/outcome before retrying an upload. This snapshot supersedes
+the older four-running-jobs notice below.
+
 **Collection update, 15:57 UTC:** two original jobs have now passed independent
 audit, totalling **16 games / 54,992 uncapped continuations / zero caps**. The
 corrected atomic two-player pilot adds eight games / 43,640 continuations,

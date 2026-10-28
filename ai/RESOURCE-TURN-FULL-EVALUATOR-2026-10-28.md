@@ -1,5 +1,19 @@
 # Complete resource turns in a pinned full-game evaluator
 
+**28 October update — corrected full-game artifact v2 validated.**
+
+The correction is now integrated into a separately pinned full-game artifact.
+Its model turns reproduce 33 existing complete games. Across 334 resource turns
+and 1,611 decisions, 12,888 full-state feature/menu checks passed in Steps 1–3,
+rounds 1–12, all player counts and all four rules. Corrected atomic search is a
+separate mode, so input correction can be distinguished from commitment.
+Two predetermined search roots also match historical continuations (96 rollouts,
+zero caps). No new strength games or candidate selection were performed.
+Read [the v2 integration handoff](RESOURCE-TURN-CORRECTED-INTEGRATION-2026-10-28.md).
+Earlier notices below that say full-game integration is pending are superseded;
+stable within-turn sampling, fresh runtime admission and strategy evaluation
+remain pending. The auction comparison keeps its frozen source.
+
 **28 October addition — public resource simulation defect found and isolated correction checked.**
 
 The historical `ModelResourceTurn` applies purchases to a public state with an

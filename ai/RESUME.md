@@ -1,5 +1,19 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October addition — public resource simulation defect found and isolated correction checked.**
+
+The historical `ModelResourceTurn` applies purchases to a public state with an
+empty hidden deck. The engine consequently sets `cardsLeft=0` and
+`nextCardWeak=false`, changing later model inputs. A separate corrected primitive
+preserves these two public facts during Resources purchases and passed 536
+full-state feature/menu checks over 67 actual model decisions on 20 recorded
+turns. Its selected plans were unchanged on this sample. Stable-seed probing also
+confirmed unchanged sampled latent assumptions across all 33 tested purchases.
+See [the sampling and public-state findings](RESOURCE-SAMPLING-AND-PUBLIC-STATE-2026-10-28.md).
+The pinned v1 artifacts and historical evidence are preserved. Integrate and audit
+the corrected primitive before admitting any new resource strategy comparison.
+The active auction comparison does not call this whole-resource-turn path.
+
 **Current execution — 28 October, 12:18 UTC: reviewed bootstrap recovery is running.**
 
 The two Node-download failures occurred before evaluation and remain preserved.

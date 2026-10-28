@@ -1,0 +1,716 @@
+{
+  "passed": true,
+  "turns": 20,
+  "counts": {
+    "positions": 53,
+    "anchored_worlds_checked": 424,
+    "hidden_field_controls": 53,
+    "recorded_searches": 51,
+    "private_world_transition_controls": 264,
+    "historical_baseline_metadata_mismatches": 33,
+    "transitions": 33,
+    "state_seed_changes": 33,
+    "resampled_deckSha256_changes": 33,
+    "resampled_roles_changes": 32,
+    "resampled_rolloutRngPrefix_changes": 33
+  },
+  "cases": [
+    {
+      "players": 2,
+      "episode": 0,
+      "counts": {
+        "positions": 2,
+        "anchored_worlds_checked": 16,
+        "hidden_field_controls": 2,
+        "recorded_searches": 2,
+        "private_world_transition_controls": 8,
+        "historical_baseline_metadata_mismatches": 1,
+        "transitions": 1,
+        "state_seed_changes": 1,
+        "resampled_deckSha256_changes": 1,
+        "resampled_roles_changes": 1,
+        "resampled_rolloutRngPrefix_changes": 1
+      },
+      "recorded_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227"
+    },
+    {
+      "players": 2,
+      "episode": 1,
+      "counts": {
+        "positions": 4,
+        "anchored_worlds_checked": 32,
+        "hidden_field_controls": 4,
+        "recorded_searches": 4,
+        "private_world_transition_controls": 24,
+        "historical_baseline_metadata_mismatches": 3,
+        "transitions": 3,
+        "state_seed_changes": 3,
+        "resampled_deckSha256_changes": 3,
+        "resampled_roles_changes": 2,
+        "resampled_rolloutRngPrefix_changes": 3
+      },
+      "recorded_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227"
+    },
+    {
+      "players": 2,
+      "episode": 2,
+      "counts": {
+        "positions": 5,
+        "anchored_worlds_checked": 40,
+        "hidden_field_controls": 5,
+        "recorded_searches": 4,
+        "private_world_transition_controls": 32,
+        "historical_baseline_metadata_mismatches": 4,
+        "transitions": 4,
+        "state_seed_changes": 4,
+        "resampled_deckSha256_changes": 4,
+        "resampled_roles_changes": 4,
+        "resampled_rolloutRngPrefix_changes": 4
+      },
+      "recorded_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227"
+    },
+    {
+      "players": 2,
+      "episode": 3,
+      "counts": {
+        "positions": 3,
+        "anchored_worlds_checked": 24,
+        "hidden_field_controls": 3,
+        "recorded_searches": 3,
+        "private_world_transition_controls": 16,
+        "historical_baseline_metadata_mismatches": 2,
+        "transitions": 2,
+        "state_seed_changes": 2,
+        "resampled_deckSha256_changes": 2,
+        "resampled_roles_changes": 2,
+        "resampled_rolloutRngPrefix_changes": 2
+      },
+      "recorded_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227"
+    },
+    {
+      "players": 3,
+      "episode": 0,
+      "counts": {
+        "positions": 1,
+        "anchored_worlds_checked": 8,
+        "hidden_field_controls": 1,
+        "recorded_searches": 1
+      },
+      "recorded_actions": [
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227"
+    },
+    {
+      "players": 3,
+      "episode": 1,
+      "counts": {
+        "positions": 1,
+        "anchored_worlds_checked": 8,
+        "hidden_field_controls": 1,
+        "recorded_searches": 1
+      },
+      "recorded_actions": [
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227"
+    },
+    {
+      "players": 3,
+      "episode": 2,
+      "counts": {
+        "positions": 1,
+        "anchored_worlds_checked": 8,
+        "hidden_field_controls": 1,
+        "recorded_searches": 1
+      },
+      "recorded_actions": [
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227"
+    },
+    {
+      "players": 3,
+      "episode": 3,
+      "counts": {
+        "positions": 5,
+        "anchored_worlds_checked": 40,
+        "hidden_field_controls": 5,
+        "recorded_searches": 4,
+        "private_world_transition_controls": 32,
+        "historical_baseline_metadata_mismatches": 4,
+        "transitions": 4,
+        "state_seed_changes": 4,
+        "resampled_deckSha256_changes": 4,
+        "resampled_roles_changes": 4,
+        "resampled_rolloutRngPrefix_changes": 4
+      },
+      "recorded_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227"
+    },
+    {
+      "players": 4,
+      "episode": 0,
+      "counts": {
+        "positions": 1,
+        "anchored_worlds_checked": 8,
+        "hidden_field_controls": 1,
+        "recorded_searches": 1
+      },
+      "recorded_actions": [
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227"
+    },
+    {
+      "players": 4,
+      "episode": 1,
+      "counts": {
+        "positions": 2,
+        "anchored_worlds_checked": 16,
+        "hidden_field_controls": 2,
+        "recorded_searches": 2,
+        "private_world_transition_controls": 8,
+        "historical_baseline_metadata_mismatches": 1,
+        "transitions": 1,
+        "state_seed_changes": 1,
+        "resampled_deckSha256_changes": 1,
+        "resampled_roles_changes": 1,
+        "resampled_rolloutRngPrefix_changes": 1
+      },
+      "recorded_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227"
+    },
+    {
+      "players": 4,
+      "episode": 2,
+      "counts": {
+        "positions": 1,
+        "anchored_worlds_checked": 8,
+        "hidden_field_controls": 1,
+        "recorded_searches": 1
+      },
+      "recorded_actions": [
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227"
+    },
+    {
+      "players": 4,
+      "episode": 3,
+      "counts": {
+        "positions": 4,
+        "anchored_worlds_checked": 32,
+        "hidden_field_controls": 4,
+        "recorded_searches": 4,
+        "private_world_transition_controls": 24,
+        "historical_baseline_metadata_mismatches": 3,
+        "transitions": 3,
+        "state_seed_changes": 3,
+        "resampled_deckSha256_changes": 3,
+        "resampled_roles_changes": 3,
+        "resampled_rolloutRngPrefix_changes": 3
+      },
+      "recorded_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227"
+    },
+    {
+      "players": 5,
+      "episode": 0,
+      "counts": {
+        "positions": 3,
+        "anchored_worlds_checked": 24,
+        "hidden_field_controls": 3,
+        "recorded_searches": 3,
+        "private_world_transition_controls": 16,
+        "historical_baseline_metadata_mismatches": 2,
+        "transitions": 2,
+        "state_seed_changes": 2,
+        "resampled_deckSha256_changes": 2,
+        "resampled_roles_changes": 2,
+        "resampled_rolloutRngPrefix_changes": 2
+      },
+      "recorded_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227"
+    },
+    {
+      "players": 5,
+      "episode": 1,
+      "counts": {
+        "positions": 2,
+        "anchored_worlds_checked": 16,
+        "hidden_field_controls": 2,
+        "recorded_searches": 2,
+        "private_world_transition_controls": 8,
+        "historical_baseline_metadata_mismatches": 1,
+        "transitions": 1,
+        "state_seed_changes": 1,
+        "resampled_deckSha256_changes": 1,
+        "resampled_roles_changes": 1,
+        "resampled_rolloutRngPrefix_changes": 1
+      },
+      "recorded_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227"
+    },
+    {
+      "players": 5,
+      "episode": 2,
+      "counts": {
+        "positions": 4,
+        "anchored_worlds_checked": 32,
+        "hidden_field_controls": 4,
+        "recorded_searches": 4,
+        "private_world_transition_controls": 24,
+        "historical_baseline_metadata_mismatches": 3,
+        "transitions": 3,
+        "state_seed_changes": 3,
+        "resampled_deckSha256_changes": 3,
+        "resampled_roles_changes": 3,
+        "resampled_rolloutRngPrefix_changes": 3
+      },
+      "recorded_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227"
+    },
+    {
+      "players": 5,
+      "episode": 3,
+      "counts": {
+        "positions": 3,
+        "anchored_worlds_checked": 24,
+        "hidden_field_controls": 3,
+        "recorded_searches": 3,
+        "private_world_transition_controls": 16,
+        "historical_baseline_metadata_mismatches": 2,
+        "transitions": 2,
+        "state_seed_changes": 2,
+        "resampled_deckSha256_changes": 2,
+        "resampled_roles_changes": 2,
+        "resampled_rolloutRngPrefix_changes": 2
+      },
+      "recorded_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227"
+    },
+    {
+      "players": 6,
+      "episode": 0,
+      "counts": {
+        "positions": 3,
+        "anchored_worlds_checked": 24,
+        "hidden_field_controls": 3,
+        "recorded_searches": 3,
+        "private_world_transition_controls": 16,
+        "historical_baseline_metadata_mismatches": 2,
+        "transitions": 2,
+        "state_seed_changes": 2,
+        "resampled_deckSha256_changes": 2,
+        "resampled_roles_changes": 2,
+        "resampled_rolloutRngPrefix_changes": 2
+      },
+      "recorded_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227"
+    },
+    {
+      "players": 6,
+      "episode": 1,
+      "counts": {
+        "positions": 2,
+        "anchored_worlds_checked": 16,
+        "hidden_field_controls": 2,
+        "recorded_searches": 2,
+        "private_world_transition_controls": 8,
+        "historical_baseline_metadata_mismatches": 1,
+        "transitions": 1,
+        "state_seed_changes": 1,
+        "resampled_deckSha256_changes": 1,
+        "resampled_roles_changes": 1,
+        "resampled_rolloutRngPrefix_changes": 1
+      },
+      "recorded_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "61e59190b8084292d757e06febe9a6fa847a183bf6ce1fc80c71bab5ec77b40a"
+    },
+    {
+      "players": 6,
+      "episode": 2,
+      "counts": {
+        "positions": 3,
+        "anchored_worlds_checked": 24,
+        "hidden_field_controls": 3,
+        "recorded_searches": 3,
+        "private_world_transition_controls": 16,
+        "historical_baseline_metadata_mismatches": 2,
+        "transitions": 2,
+        "state_seed_changes": 2,
+        "resampled_deckSha256_changes": 2,
+        "resampled_roles_changes": 2,
+        "resampled_rolloutRngPrefix_changes": 2
+      },
+      "recorded_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "61e59190b8084292d757e06febe9a6fa847a183bf6ce1fc80c71bab5ec77b40a"
+    },
+    {
+      "players": 6,
+      "episode": 3,
+      "counts": {
+        "positions": 3,
+        "anchored_worlds_checked": 24,
+        "hidden_field_controls": 3,
+        "recorded_searches": 3,
+        "private_world_transition_controls": 16,
+        "historical_baseline_metadata_mismatches": 2,
+        "transitions": 2,
+        "state_seed_changes": 2,
+        "resampled_deckSha256_changes": 2,
+        "resampled_roles_changes": 2,
+        "resampled_rolloutRngPrefix_changes": 2
+      },
+      "recorded_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "root_sha256": "61e59190b8084292d757e06febe9a6fa847a183bf6ce1fc80c71bab5ec77b40a"
+    }
+  ],
+  "input_hashes": {
+    "ai/runs/resource-turn-full-integration-v1/search-roots.jsonl": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227",
+    "ai/runs/resource-turn-full-integration-recovered-v1/search-roots.jsonl": "61e59190b8084292d757e06febe9a6fa847a183bf6ce1fc80c71bab5ec77b40a",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-2p-economic-0-4/artifacts/evaluation/decisions-0.jsonl": "98d5de9b339a761594b5380c3a4aef283aee58675039a42d42e5d8a7385ae765",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-2p-economic-0-4/artifacts/evaluation/decisions-1.jsonl": "931523dc2a19c510ae1455b271cd0c5f0c1866506475547900acc57473eb63c5",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-2p-economic-0-4/artifacts/evaluation/decisions-2.jsonl": "d0e67a06cb1710b6b8778f79d7576095c71ff3429166828ce0b975800a556981",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-2p-economic-0-4/artifacts/evaluation/decisions-3.jsonl": "ab5c314ec6b9f522726a1402d949e477f96f0792023c1fa2647ae8155b4c1519",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-3p-economic-0-4/artifacts/evaluation/decisions-0.jsonl": "f5c147f47bb6082f40286fd557ce54a2c251d3907320527334b9de22b395216c",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-3p-economic-0-4/artifacts/evaluation/decisions-1.jsonl": "a3efb371163effbb32c1fca7c7ff0e7f05c61a5dd9313a9aef2fb6e81dd80106",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-3p-economic-0-4/artifacts/evaluation/decisions-2.jsonl": "0c580d03352f59727d580e143f60b8648d70b9f033f316aebf3b2a60c28a34bb",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-3p-economic-0-4/artifacts/evaluation/decisions-3.jsonl": "f14b9450246097c0e407b29dcfa7009339cae7bba9f4dbcff2f2d47cb757b221",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-4p-economic-0-4/artifacts/evaluation/decisions-0.jsonl": "ffa3527c7e384c1064506e5dfa717ea6c83fcc5f5170a4fdeabae0ecaa76ab5d",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-4p-economic-0-4/artifacts/evaluation/decisions-1.jsonl": "9f69b7efda8bcadf47ffe082b413caacf27e6f6f33e37d8ca42fa9f5ce25abf5",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-4p-economic-0-4/artifacts/evaluation/decisions-2.jsonl": "d039e1113890c5437d51cc3a18ee7701c1d3a7264dc053807e83426d2c18deab",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-4p-economic-0-4/artifacts/evaluation/decisions-3.jsonl": "9f23a47ddec8f1c0080ee8f7e5ce8c1440bfefd4171730106ad000b216a9ad63",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-5p-economic-0-4/artifacts/evaluation/decisions-0.jsonl": "155656649618cc27d609947c4414336083e33cfd6dabedddc1cd08e1b0382766",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-5p-economic-0-4/artifacts/evaluation/decisions-1.jsonl": "ed596550019a1db3ca1dd8fd2329b6331c7bcf6c46ca8ff5635f4cc2441eb0a9",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-5p-economic-0-4/artifacts/evaluation/decisions-2.jsonl": "54d09e82a589dfb643fa2139c3827424f24666380d41901aa303be4d25a89d43",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-5p-economic-0-4/artifacts/evaluation/decisions-3.jsonl": "229a3564bc19192256548fa6d578fde2cc423bd62618a7023f06c2ef306400a4",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-6p-economic-0-4/artifacts/evaluation/decisions-0.jsonl": "713cd56df9c031e51012af702ae221e2f5d9429f3c49e1f9f25dbb13475fa028",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-6p-economic-0-4/artifacts/evaluation/decisions-1.jsonl": "90d009e136a017682163525a6e52fdf28867f3becdb04c32c9dd176b64b92781",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-6p-economic-0-4/artifacts/evaluation/decisions-2.jsonl": "5ded710bee5754b1f014a739f9ccfe523cd43b8268202eee1323f008e5647f85",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-resource-filter-6p-economic-0-4/artifacts/evaluation/decisions-3.jsonl": "438dcab024fa90bf3cc19e3c3f564898294cf624bd9df0a649d789372f669f79"
+  },
+  "code_hashes": {
+    "ai/strong/check-resource-sampling-anchor-v1.py": "25d0c03d9de11aad87b76305b1f1e6d39644223800f180d220e75c544af14f61",
+    "ai/strong/resource-sampling-anchor-probe-v1.cjs": "2bc6fbc45438915bc8be2f6721fb8a991211a6733977c93f7d6bb78f902d2746"
+  },
+  "runtime_manifest_sha256": "cebda6cb0ed6a1eff28cad8cd02cb17e37bb62f59595b2237b989337b40a9415",
+  "seconds": 3.347633608000251,
+  "output_hashes": {
+    "positions.jsonl": "a6e5a7155741fb561db15b734590ff374f10176ab275c76351775577ea30cb77",
+    "probe.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "design.json": "043cbeda73000d1e809cde525d950021807c48b7552ee59c2c37e982e8421a02"
+  },
+  "new_inference": false,
+  "rollouts": 0,
+  "new_full_game_trajectories": 0,
+  "new_hf_jobs": 0,
+  "preserved_initial_probe_failure": {
+    "path": "ai/runs/resource-sampling-anchor-v1",
+    "completed_turn_checks": 0,
+    "reason": "Malformed automation object in the adversarial test fixture, not a policy/engine failure. Replaced with a structurally valid private automation fixture; fixed probe error exit to avoid a blocked reader. Initial logs, design and original source are preserved."
+  },
+  "preserved_public_replay_failure": {
+    "path": "ai/runs/resource-sampling-anchor-v1-checked",
+    "completed_turn_checks": 0,
+    "completed_positions": 1,
+    "reason": "Direct E.move on a public empty deck sets cardsLeft=0 and nextCardWeak=false after a purchase. The probe now preserves these public invariants for Resources purchases and checks each transition against eight complete sampled worlds. Historical ModelResourceTurn is inspected without modification to determine whether the same defect exists there."
+  },
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "interpretation": "Holding the first public seed fixed preserves sampled deck, role assignment and continuation RNG prefix on these recorded turns. Public purchases still change cash/stock/markets. No policy choice, outcome or causal strength improvement was evaluated.",
+  "assessment_sha256": "c225c91344f837d1398a74a683c3eb245bf4d2696d4f18c45bc81d617af19d6e"
+}

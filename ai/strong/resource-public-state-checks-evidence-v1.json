@@ -1,0 +1,48 @@
+{
+  "status": "sampling_and_corrected_public_inputs_verified_on_20_recorded_turns_not_strength_tested",
+  "assessments": {
+    "resource-sampling-anchor-v1-validated": {
+      "assessment_sha256": "c225c91344f837d1398a74a683c3eb245bf4d2696d4f18c45bc81d617af19d6e",
+      "counts": {
+        "positions": 53,
+        "anchored_worlds_checked": 424,
+        "hidden_field_controls": 53,
+        "recorded_searches": 51,
+        "private_world_transition_controls": 264,
+        "historical_baseline_metadata_mismatches": 33,
+        "transitions": 33,
+        "state_seed_changes": 33,
+        "resampled_deckSha256_changes": 33,
+        "resampled_roles_changes": 32,
+        "resampled_rolloutRngPrefix_changes": 33
+      }
+    },
+    "resource-model-turn-v2": {
+      "assessment_sha256": "15f9085429ba0aab76df85e81e58c44e5d732372153621a49e51d7e2965eabe3",
+      "counts": {
+        "turns": 20,
+        "model_decisions": 67,
+        "private_state_feature_checks": 536,
+        "purchases": 47,
+        "changed_plans": 0,
+        "changed_initial_decisions": 0
+      }
+    }
+  },
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "78d2e4eba6aac8be55bdf70cd358e1c022044c26",
+    "archive_path": "archives/resource-public-state-checks-evidence-v1.tgz",
+    "archive_sha256": "ad5102c90806005fd201431e2575aeff5bcc6880ff91eb62781c313e2c529f23",
+    "manifest_sha256": "291fd4244119b342af1d927cc02355ec543683d87df961aec74f37c56af1e329",
+    "archived_files": 45,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "new_hf_jobs": 0,
+  "new_full_game_trajectories": 0,
+  "rollouts": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

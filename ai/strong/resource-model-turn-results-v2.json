@@ -1,0 +1,1920 @@
+{
+  "passed": true,
+  "counts": {
+    "turns": 20,
+    "model_decisions": 67,
+    "private_state_feature_checks": 536,
+    "purchases": 47,
+    "changed_plans": 0,
+    "changed_initial_decisions": 0
+  },
+  "cases": [
+    {
+      "players": 2,
+      "episode": 0,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 25,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 25,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 25,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 25,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 32
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 25,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 40
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 40,
+      "atomic_purchases": 4
+    },
+    {
+      "players": 2,
+      "episode": 1,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 27,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 27,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 1,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 27,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 24,
+      "atomic_purchases": 2
+    },
+    {
+      "players": 2,
+      "episode": 2,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 25,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 25,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 25,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 25,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 32
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 25,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 40
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 40,
+      "atomic_purchases": 4
+    },
+    {
+      "players": 2,
+      "episode": 3,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 27,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 27,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 1,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 27,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 24,
+      "atomic_purchases": 2
+    },
+    {
+      "players": 3,
+      "episode": 0,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 24,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 24,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 24,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        },
+        {
+          "index": 1,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 24,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 32
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 32,
+      "atomic_purchases": 3
+    },
+    {
+      "players": 3,
+      "episode": 1,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 23,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 23,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 1,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 23,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 24,
+      "atomic_purchases": 2
+    },
+    {
+      "players": 3,
+      "episode": 2,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 24,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 24,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 2,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 24,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 24,
+      "atomic_purchases": 2
+    },
+    {
+      "players": 3,
+      "episode": 3,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 23,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 23,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 23,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 23,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 32
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 23,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 40
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 40,
+      "atomic_purchases": 4
+    },
+    {
+      "players": 4,
+      "episode": 0,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "oil"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 27,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 1,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 27,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 16,
+      "atomic_purchases": 1
+    },
+    {
+      "players": 4,
+      "episode": 1,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "oil"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 26,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 1,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 26,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 16,
+      "atomic_purchases": 1
+    },
+    {
+      "players": 4,
+      "episode": 2,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 27,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 27,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 27,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        },
+        {
+          "index": 1,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 27,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 32
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 32,
+      "atomic_purchases": 3
+    },
+    {
+      "players": 4,
+      "episode": 3,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 26,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 26,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 26,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        },
+        {
+          "index": 1,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 26,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 32
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 32,
+      "atomic_purchases": 3
+    },
+    {
+      "players": 5,
+      "episode": 0,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "oil"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 30,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "oil"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 30,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 1,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 30,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 24,
+      "atomic_purchases": 2
+    },
+    {
+      "players": 5,
+      "episode": 1,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "oil"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 30,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "oil"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 30,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 1,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 30,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 24,
+      "atomic_purchases": 2
+    },
+    {
+      "players": 5,
+      "episode": 2,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "oil"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 30,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "oil"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 30,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 1,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 30,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 24,
+      "atomic_purchases": 2
+    },
+    {
+      "players": 5,
+      "episode": 3,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "oil"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 30,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "oil"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 30,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 1,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 30,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 24,
+      "atomic_purchases": 2
+    },
+    {
+      "players": 6,
+      "episode": 0,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "oil"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 29,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "oil"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 29,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 1,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 29,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 24,
+      "atomic_purchases": 2
+    },
+    {
+      "players": 6,
+      "episode": 1,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 28,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 28,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 1,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 28,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 24,
+      "atomic_purchases": 2
+    },
+    {
+      "players": 6,
+      "episode": 2,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "oil"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 29,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "oil"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 29,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 1,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 29,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "oil"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 24,
+      "atomic_purchases": 2
+    },
+    {
+      "players": 6,
+      "episode": 3,
+      "corrected_trace": [
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 28,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 8
+        },
+        {
+          "index": 0,
+          "move": {
+            "name": "BuyResource",
+            "data": {
+              "resource": "coal"
+            }
+          },
+          "publicMetadata": {
+            "cardsLeft": 28,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 16
+        },
+        {
+          "index": 1,
+          "move": {
+            "name": "Pass",
+            "data": true
+          },
+          "publicMetadata": {
+            "cardsLeft": 28,
+            "nextCardWeak": false
+          },
+          "privateStateFeatureChecks": 24
+        }
+      ],
+      "corrected_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "historical_actions": [
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "BuyResource",
+          "data": {
+            "resource": "coal"
+          }
+        },
+        {
+          "name": "Pass",
+          "data": true
+        }
+      ],
+      "plan_changed": false,
+      "checks": 24,
+      "atomic_purchases": 2
+    }
+  ],
+  "input_hashes": {
+    "ai/runs/resource-turn-full-integration-v1/search-roots.jsonl": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227",
+    "ai/runs/resource-turn-full-integration-recovered-v1/search-roots.jsonl": "61e59190b8084292d757e06febe9a6fa847a183bf6ce1fc80c71bab5ec77b40a"
+  },
+  "code_hashes": {
+    "ai/strong/resource-model-turn-v2.cjs": "75e920bff1de22b68b0ab0f3c39be71c6faca82962efcba865c19f0b5bfdc083",
+    "ai/strong/check-resource-model-turn-v2.cjs": "3130cf30d0097b739181fcfe12e088a8f8ebb5335555f7b55568a3214c0326cb",
+    "ai/strong/check-resource-model-turn-v2.py": "11f2dcf3b97d730c2d851d31d3654a28bcd9802f7e9ec2fc177f41033cd188a5"
+  },
+  "model_sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+  "runtime_manifest_sha256": "cebda6cb0ed6a1eff28cad8cd02cb17e37bb62f59595b2237b989337b40a9415",
+  "seconds": 0.6658137329995952,
+  "output_hashes": {
+    "worker.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "turns.jsonl": "760f472689286e6ef18866555ca0b19b9a9b9f32c9da1f750155c03115a28e59",
+    "design.json": "9192e9572b9732297750db6d3939884d511fe9816e83da6e7611e64f42df0174"
+  },
+  "new_hf_jobs": 0,
+  "rollouts": 0,
+  "new_full_game_trajectories": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "interpretation": "Actual model input features and legal menus agree with eight complete sampled states after every corrected public purchase on 20 roots. Plan changes are not evidence of strength improvement. The corrected primitive is not integrated into a full-game artifact yet.",
+  "assessment_sha256": "15f9085429ba0aab76df85e81e58c44e5d732372153621a49e51d7e2965eabe3"
+}

@@ -62934,5 +62934,62 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "interpretation": "Same official Node release, now cached at immutable HF revision and verified against official checksums. Historical source bootstrap hash retained, actual new bootstrap recorded separately. Two reviewed pre-evaluation retries only; owner cannot retry failures. No partial policy selection."
+    },
+    "resource_sampling_anchor_and_public_metadata_v1": {
+        "status": "sampling_mechanism_and_corrected_public_model_inputs_verified_not_strength_tested",
+        "recorded_at": "2026-10-28T12:49:35.395573+00:00",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "78d2e4eba6aac8be55bdf70cd358e1c022044c26",
+            "archive_path": "archives/resource-public-state-checks-evidence-v1.tgz",
+            "archive_sha256": "ad5102c90806005fd201431e2575aeff5bcc6880ff91eb62781c313e2c529f23",
+            "manifest_sha256": "291fd4244119b342af1d927cc02355ec543683d87df961aec74f37c56af1e329",
+            "archived_files": 45,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "assessments": {
+            "resource-sampling-anchor-v1-validated": {
+                "assessment_sha256": "c225c91344f837d1398a74a683c3eb245bf4d2696d4f18c45bc81d617af19d6e",
+                "counts": {
+                    "positions": 53,
+                    "anchored_worlds_checked": 424,
+                    "hidden_field_controls": 53,
+                    "recorded_searches": 51,
+                    "private_world_transition_controls": 264,
+                    "historical_baseline_metadata_mismatches": 33,
+                    "transitions": 33,
+                    "state_seed_changes": 33,
+                    "resampled_deckSha256_changes": 33,
+                    "resampled_roles_changes": 32,
+                    "resampled_rolloutRngPrefix_changes": 33
+                }
+            },
+            "resource-model-turn-v2": {
+                "assessment_sha256": "15f9085429ba0aab76df85e81e58c44e5d732372153621a49e51d7e2965eabe3",
+                "counts": {
+                    "turns": 20,
+                    "model_decisions": 67,
+                    "private_state_feature_checks": 536,
+                    "purchases": 47,
+                    "changed_plans": 0,
+                    "changed_initial_decisions": 0
+                }
+            }
+        },
+        "selection": "20 existing first resource-search turns: 2\u20136 players, all four rules, economic opponents, seat zero; all round 1/step 1.",
+        "finding": "State-derived seeds changed at every recorded purchase. Anchoring the first public seed keeps sampled decks, opponent roles and RNG prefix stable. Direct public purchases also exposed cardsLeft/nextCardWeak being overwritten from an omitted deck in the historical ModelResourceTurn.",
+        "correction": "Separate resource-model-turn-v2.cjs preserves public deck metadata for Resources purchases. Actual corrected features and legal menus matched eight complete sampled states on 67 model decisions; all 20 plans unchanged.",
+        "running_auction_source_unchanged": true,
+        "full_game_artifact_integration_complete": false,
+        "stable_sampling_policy_implemented": false,
+        "failed_local_probes_preserved": 2,
+        "new_hf_jobs": 0,
+        "new_full_game_trajectories": 0,
+        "rollouts": 0,
+        "gradients": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "next": "Integrate correction in a new pinned full-game artifact and validate later rounds; prepare an explicit stable-sampling control. Finish auction comparison before selecting another strategy study."
     }
 }

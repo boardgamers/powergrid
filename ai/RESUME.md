@@ -1,5 +1,18 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October update — stable-sampling policy integrated and validated.**
+
+The new pinned v3 artifact adds `atomic-search-anchored`, keeping its sampling
+seed fixed at the public turn start while still replanning each purchase.
+All 20 first searches match historical receipts exactly; 20 complete focal
+resource turns and six restart/reordering/error-recovery checks pass, with
+1,368 uncapped continuations and zero caps. An independent auditor tracks the
+actual first public request without using the reconstruction helper. Read
+[the integration handoff](RESOURCE-TURN-ANCHORED-POLICY-2026-10-28.md).
+This is engineering validation, not new strength evidence. Next prepare a measured
+runtime-only full-game pilot; complete-game anchored-policy auditing remains due.
+The active auction study and its owner stay unchanged. No final seeds or deployment.
+
 **28 October update — stateless resource sampling anchor verified.**
 
 A separate public-history helper now reconstructs the exact first-decision seed

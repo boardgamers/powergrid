@@ -1,0 +1,37 @@
+{
+  "status": "anchored_resource_policy_integration_verified_not_strength_tested",
+  "assessment_sha256": "993413f4612796751340610017db11b8d9391e70b444ba5b45564b655a94913f",
+  "descriptor_sha256": "f41f16f64bf4e9b068e09e15116a6f02c5254ef60c01bd7650a0d7ad356a2e57",
+  "artifact_manifest_sha256": "91c52c3ba66dde260b8dfedac1e4d227472193f82757a0317fe079c4ccba38cb",
+  "resource_turns": 20,
+  "counts": {
+    "rollouts": 1368,
+    "rollout_caps": 0,
+    "neural_decisions": 262150,
+    "decisions": 56,
+    "root_filter_overrides": 0,
+    "search_changes": 14,
+    "search_decisions": 52,
+    "resource_search_decisions": 52,
+    "first_searches_matching_history": 20,
+    "tampered_receipts_rejected": 80,
+    "atomic_requests": 56,
+    "lifecycle_replays": 6,
+    "invalid_history_errors": 2
+  },
+  "new_hf_jobs": 0,
+  "new_full_game_trajectories": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "c85f032c9db180ebebf57d1f6540194655dbea2d",
+    "archive_path": "archives/resource-turn-anchored-policy-evidence-v1.tgz",
+    "archive_sha256": "d10abf3654648f27ee1349b50ca6947e83def49711da71d822040d6a1ac9db9e",
+    "manifest_sha256": "48be922ce7a1a695ae3f8c7d0792d7502d0d9e9e2ecaba7dbf97f516ef71761d",
+    "archived_files": 69,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  }
+}

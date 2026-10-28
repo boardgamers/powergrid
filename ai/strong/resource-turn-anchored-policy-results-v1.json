@@ -1,0 +1,473 @@
+{
+  "passed": true,
+  "resource_turns": 20,
+  "counts": {
+    "rollouts": 1368,
+    "rollout_caps": 0,
+    "neural_decisions": 262150,
+    "decisions": 56,
+    "root_filter_overrides": 0,
+    "search_changes": 14,
+    "search_decisions": 52,
+    "resource_search_decisions": 52,
+    "first_searches_matching_history": 20,
+    "tampered_receipts_rejected": 80,
+    "atomic_requests": 56,
+    "lifecycle_replays": 6,
+    "invalid_history_errors": 2
+  },
+  "cases": [
+    {
+      "players": 2,
+      "episode": 0,
+      "actions": [
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 2,
+      "episode": 1,
+      "actions": [
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 2,
+      "episode": 2,
+      "actions": [
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 2,
+      "episode": 3,
+      "actions": [
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 3,
+      "episode": 0,
+      "actions": [
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 3,
+      "episode": 1,
+      "actions": [
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 3,
+      "episode": 2,
+      "actions": [
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 3,
+      "episode": 3,
+      "actions": [
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 4,
+      "episode": 0,
+      "actions": [
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 4,
+      "episode": 1,
+      "actions": [
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 4,
+      "episode": 2,
+      "actions": [
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 4,
+      "episode": 3,
+      "actions": [
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 5,
+      "episode": 0,
+      "actions": [
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 5,
+      "episode": 1,
+      "actions": [
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 5,
+      "episode": 2,
+      "actions": [
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 5,
+      "episode": 3,
+      "actions": [
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 6,
+      "episode": 0,
+      "actions": [
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 6,
+      "episode": 1,
+      "actions": [
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 6,
+      "episode": 2,
+      "actions": [
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "players": 6,
+      "episode": 3,
+      "actions": [
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    }
+  ],
+  "artifact": "/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai/ai/runs/resource-turn-full-artifact-v3",
+  "descriptor_sha256": "f41f16f64bf4e9b068e09e15116a6f02c5254ef60c01bd7650a0d7ad356a2e57",
+  "manifest_sha256": "91c52c3ba66dde260b8dfedac1e4d227472193f82757a0317fe079c4ccba38cb",
+  "input_hashes": {
+    "ai/runs/resource-turn-full-integration-v1/search-roots.jsonl": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227",
+    "ai/runs/resource-turn-full-integration-recovered-v1/search-roots.jsonl": "61e59190b8084292d757e06febe9a6fa847a183bf6ce1fc80c71bab5ec77b40a"
+  },
+  "code_hashes": {
+    "ai/strong/check-resource-turn-anchored-policy-v1.py": "04f0b37c7a48b2d8a68e41fac2555b436ae171a26556df50ae1662a2f545e599",
+    "ai/strong/check-resource-turn-anchored-policy-v1.cjs": "073504ba06600a7e6037f177ad2f330fef23ce79004d6ef2b74e4bdfa197207e"
+  },
+  "seconds": 368.41528236199883,
+  "output_hashes": {
+    "restart-6.stderr.log": "5d4b53cb56aa51531b520a2b935f38a97694a95a24bba5f6490a5b3fa48cf62f",
+    "lifecycle-results.jsonl": "f932a72feeff79e7eb52893f9fb5548e9f20045bf18f868891a4a2f863797a6a",
+    "describe-filter.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "describe-atomic-search-corrected.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "restart-2.stderr.log": "5d4b53cb56aa51531b520a2b935f38a97694a95a24bba5f6490a5b3fa48cf62f",
+    "descriptions.json": "401d8b3366a98d507b855666e9ebeeac86d65a3bd42a5c4bd4ee4d074179d8d6",
+    "describe-atomic-search-anchored.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fixture.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lifecycle-inputs.json": "93860c73e60bdfec5866ce5c22633d30c3a4542e4b872e2d8d690ab1f1e8812c",
+    "describe-search-turn.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "describe-model-turn.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "design.json": "8b7f490a5a663e8561d955070cadbe141bfca2998d81cdd6099dbc23b56cc652",
+    "describe-atomic-search.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "decisions.jsonl": "2391d9742ec52f69f2776073882002e4c6cd66b99e819717f23504f3b900c629",
+    "sources/check-resource-turn-anchored-policy-v1.py": "04f0b37c7a48b2d8a68e41fac2555b436ae171a26556df50ae1662a2f545e599",
+    "sources/check-resource-turn-anchored-policy-v1.cjs": "073504ba06600a7e6037f177ad2f330fef23ce79004d6ef2b74e4bdfa197207e"
+  },
+  "new_hf_jobs": 0,
+  "new_full_game_trajectories": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "interpretation": "Stable public-history sampling is integrated into a separately pinned atomic policy. First-search receipts match frozen history, complete focal resource turns are legal and independently seed-audited, and intermediate decisions survive cold restarts, reordered requests and malformed-history service recovery. New search rollouts are engineering checks, not independent strength data. Full-game runtime admission and strength testing remain due.",
+  "assessment_sha256": "993413f4612796751340610017db11b8d9391e70b444ba5b45564b655a94913f"
+}

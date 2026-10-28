@@ -1,0 +1,315 @@
+{
+  "created_at": "2026-10-28T23:24:37.741622+00:00",
+  "complete": true,
+  "jobs_verified": 4,
+  "games": 64,
+  "counts": {
+    "decisions": 8713,
+    "root_filter_overrides": 3,
+    "rollouts": 48560,
+    "rollout_caps": 0,
+    "neural_decisions": 6046875,
+    "search_changes": 225,
+    "search_decisions": 1192,
+    "surrogate_decisions": 0
+  },
+  "jobs": [
+    {
+      "job_id": "6ae2733541e90535df77d71e",
+      "name": "pg-current-auction-runtime-v1-filter-2p",
+      "arm": "filter",
+      "players": 2,
+      "games": 8,
+      "counts": {
+        "decisions": 1483,
+        "root_filter_overrides": 1,
+        "rollouts": 0,
+        "rollout_caps": 0,
+        "neural_decisions": 0,
+        "search_changes": 0,
+        "search_decisions": 0
+      },
+      "measurement": {
+        "seconds": 78.30777059309185,
+        "cpu_seconds": 288.03,
+        "sampled_peak_total_rss_bytes": 2297688064,
+        "memory_samples": 386,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "dd5f34dbd0e07c6c85169d2a0719d62eea8155bc",
+        "archive_path": "archives/pg-current-auction-runtime-v1-filter-2p.tgz",
+        "archive_sha256": "967dec21b9ace71c1d0eae533456c40c7bc69f7f14553f326990c909c018df71",
+        "manifest_sha256": "7e67722e3aca41ba3dcb53e329820bf0220fc867db695819e36fbbfd655eb8c0",
+        "archived_files": 37,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "launch_guard_sha256": "db0877b9e9ac036faa032f2ef9245049015bb8caa998f0009474bf64df9a5e67"
+    },
+    {
+      "job_id": "6ae273363fb22a235dd4a65d",
+      "name": "pg-current-auction-runtime-v1-filter-6p",
+      "arm": "filter",
+      "players": 6,
+      "games": 24,
+      "counts": {
+        "decisions": 2829,
+        "root_filter_overrides": 1,
+        "rollouts": 0,
+        "rollout_caps": 0,
+        "neural_decisions": 0,
+        "search_changes": 0,
+        "search_decisions": 0
+      },
+      "measurement": {
+        "seconds": 1549.8547244319925,
+        "cpu_seconds": 5920.21,
+        "sampled_peak_total_rss_bytes": 2678063104,
+        "memory_samples": 7664,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "b25c58f05464206c16e86398604ecf59285c675e",
+        "archive_path": "archives/pg-current-auction-runtime-v1-filter-6p.tgz",
+        "archive_sha256": "2e238588df08feae3d4a6a4414d661844a2d8bb2d4d877ceda7c965f51673cd6",
+        "manifest_sha256": "5ca0189616c41e57f6796ad446a01ae8d69ced945408f54bd7af8ffbb1c66fe4",
+        "archived_files": 85,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "launch_guard_sha256": "e448336021bf13ed44a176cf7a58f22132039df1ea1d5a49a71f759a9c6a5da3"
+    },
+    {
+      "job_id": "6ae2733641e90535df77d722",
+      "name": "pg-current-auction-runtime-v1-pop-2p",
+      "arm": "conservative_population",
+      "players": 2,
+      "games": 8,
+      "counts": {
+        "decisions": 1504,
+        "root_filter_overrides": 1,
+        "rollouts": 12000,
+        "rollout_caps": 0,
+        "neural_decisions": 1123276,
+        "search_changes": 60,
+        "search_decisions": 299,
+        "surrogate_decisions": 0
+      },
+      "measurement": {
+        "seconds": 589.3831361420162,
+        "cpu_seconds": 2493.16,
+        "sampled_peak_total_rss_bytes": 6772736000,
+        "memory_samples": 2895,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "5c742eae3c7aa1944389131e1d0895c9274db4fb",
+        "archive_path": "archives/pg-current-auction-runtime-v1-pop-2p.tgz",
+        "archive_sha256": "20f1e2ff96698ffe6266ee29a040479ab69768954293bcf22906368ab8fe3a25",
+        "manifest_sha256": "d32da6db72850370cdd56fdd5ad124202ff95d3f44bdb5c71af1c3bfdeaba359",
+        "archived_files": 37,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "launch_guard_sha256": "77c95a5420f0abffc71bc713e708678fa998f0a6169106343251818349ec1579"
+    },
+    {
+      "job_id": "6ae273363fb22a235dd4a660",
+      "name": "pg-current-auction-runtime-v1-pop-6p",
+      "arm": "conservative_population",
+      "players": 6,
+      "games": 24,
+      "counts": {
+        "decisions": 2897,
+        "root_filter_overrides": 0,
+        "rollouts": 36560,
+        "rollout_caps": 0,
+        "neural_decisions": 4923599,
+        "search_changes": 165,
+        "search_decisions": 893,
+        "surrogate_decisions": 0
+      },
+      "measurement": {
+        "seconds": 3956.071269206004,
+        "cpu_seconds": 18877.600000000002,
+        "sampled_peak_total_rss_bytes": 7332507648,
+        "memory_samples": 19368,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "5d02515d32c76769bde354e22aeb029c3dd1ca89",
+        "archive_path": "archives/pg-current-auction-runtime-v1-pop-6p.tgz",
+        "archive_sha256": "fb362484401ca029e11e53588416174701ef5794f4bde9ce5329deb379816d78",
+        "manifest_sha256": "30ea26b8613d4735bb6f4197761a1a6f47b5352c47ce7338aaa3a69ec59b365a",
+        "archived_files": 85,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "launch_guard_sha256": "9cc6043524ec91e52c3a96c78b396320a508576880ff98a2d667a0dbfc8e9439"
+    }
+  ],
+  "runtime_result_sha256": "fe1f794098e0755c61bb321371a133e0cf757e037c33ea462327f7d9f0afef68",
+  "original_collector_completed": true,
+  "original_collector_pid": 1655353,
+  "fresh_preparation_reaudited_raw_receipts": true,
+  "prepared_source_sha256": "383a561fb7b7d3ffaf8c6d3acac0e921a9a57889758c524352cd6ed081ee3656",
+  "source_manifest_sha256": "28752635cfaee648b3e6f5ab999132291be575d56d3cbc7fd3e6450ee3b399f5",
+  "admission_sha256": "01ebf7616c919918d85edf078ae8b632b5375ec0be3b901cf5efb373d03d2a8e",
+  "sizing": {
+    "flavor": "cpu-upgrade",
+    "workers": 4,
+    "search_workers": 4,
+    "inference_threads": 1,
+    "per_arm_count": {
+      "filter": {
+        "2": {
+          "deals_per_job": 8,
+          "projected_seconds_with_margin": 9165.891863637293,
+          "timeout_hours": 4,
+          "exceeds_three_hour_target": false
+        },
+        "3": {
+          "deals_per_job": 4,
+          "projected_seconds_with_margin": 7099.41889772797,
+          "timeout_hours": 3,
+          "exceeds_three_hour_target": false
+        },
+        "4": {
+          "deals_per_job": 4,
+          "projected_seconds_with_margin": 9165.891863637293,
+          "timeout_hours": 4,
+          "exceeds_three_hour_target": false
+        },
+        "5": {
+          "deals_per_job": 2,
+          "projected_seconds_with_margin": 6066.182414773308,
+          "timeout_hours": 3,
+          "exceeds_three_hour_target": false
+        },
+        "6": {
+          "deals_per_job": 2,
+          "projected_seconds_with_margin": 7099.41889772797,
+          "timeout_hours": 3,
+          "exceeds_three_hour_target": false
+        }
+      },
+      "conservative_population": {
+        "2": {
+          "deals_per_job": 2,
+          "projected_seconds_with_margin": 6174.761692274672,
+          "timeout_hours": 3,
+          "exceeds_three_hour_target": false
+        },
+        "3": {
+          "deals_per_job": 2,
+          "projected_seconds_with_margin": 8812.142538412008,
+          "timeout_hours": 4,
+          "exceeds_three_hour_target": false
+        },
+        "4": {
+          "deals_per_job": 1,
+          "projected_seconds_with_margin": 6174.761692274672,
+          "timeout_hours": 3,
+          "exceeds_three_hour_target": false
+        },
+        "5": {
+          "deals_per_job": 1,
+          "projected_seconds_with_margin": 7493.45211534334,
+          "timeout_hours": 3,
+          "exceeds_three_hour_target": false
+        },
+        "6": {
+          "deals_per_job": 1,
+          "projected_seconds_with_margin": 8812.142538412008,
+          "timeout_hours": 4,
+          "exceeds_three_hour_target": false
+        }
+      }
+    },
+    "measurements": [
+      {
+        "name": "pg-current-auction-runtime-v1-filter-2p",
+        "job_id": "6ae2733541e90535df77d71e",
+        "arm": "filter",
+        "players": 2,
+        "games": 8,
+        "seconds": 78.30777059309185,
+        "cpu_seconds": 288.03,
+        "sampled_peak_total_rss_bytes": 2297688064,
+        "memory_samples": 386,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      {
+        "name": "pg-current-auction-runtime-v1-filter-6p",
+        "job_id": "6ae273363fb22a235dd4a65d",
+        "arm": "filter",
+        "players": 6,
+        "games": 24,
+        "seconds": 1549.8547244319925,
+        "cpu_seconds": 5920.21,
+        "sampled_peak_total_rss_bytes": 2678063104,
+        "memory_samples": 7664,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      {
+        "name": "pg-current-auction-runtime-v1-pop-2p",
+        "job_id": "6ae2733641e90535df77d722",
+        "arm": "conservative_population",
+        "players": 2,
+        "games": 8,
+        "seconds": 589.3831361420162,
+        "cpu_seconds": 2493.16,
+        "sampled_peak_total_rss_bytes": 6772736000,
+        "memory_samples": 2895,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      {
+        "name": "pg-current-auction-runtime-v1-pop-6p",
+        "job_id": "6ae273363fb22a235dd4a660",
+        "arm": "conservative_population",
+        "players": 6,
+        "games": 24,
+        "seconds": 3956.071269206004,
+        "cpu_seconds": 18877.600000000002,
+        "sampled_peak_total_rss_bytes": 7332507648,
+        "memory_samples": 19368,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      }
+    ],
+    "per_game_seconds": {
+      "filter": 64.57728018466635,
+      "conservative_population": 164.8363028835835
+    },
+    "setup_allowance_seconds": 900,
+    "runtime_multiplier": 2,
+    "timeout_utilization": 0.75,
+    "target_seconds_per_job": 10800,
+    "sampled_peak_rss_bytes": 7332507648,
+    "memory_margin": 2,
+    "max_active_jobs": 64,
+    "rationale": "Same tested concurrency/hardware. Per arm, use the slower endpoint per game, double it for unseen deals/counts/opponents, and pack whole deals to a three-hour target. Never use pilot outcomes. This is a planning allowance, not a statistical bound."
+  },
+  "confirmation_jobs": 944,
+  "confirmation_jobs_by_arm": {
+    "filter": 272,
+    "conservative_population": 672
+  },
+  "confirmation_games": 26880,
+  "outcomes_used_for_sizing": false,
+  "controlled_speedup_claim": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

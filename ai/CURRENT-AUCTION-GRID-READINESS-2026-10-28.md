@@ -1,5 +1,25 @@
 # Current-engine confirmation: execution and analysis readiness
 
+**23:43 UTC superseding update:** original coordinator PID 1981427 has stopped
+and exited after 64 submissions. One job returned ERROR on a post-terminal
+30-second child shutdown timeout. All 48 original game files passed a separate
+diagnostic raw audit, but recovery is not admitted yet. See the current stop,
+immutable failure evidence and required recovery review in
+[the execution handoff](CURRENT-AUCTION-CONFIRMATION-2026-10-28.md). Do not restart
+the original owner or repeat source preparation; no policy/source changes or
+resubmissions have occurred. All 64 originals are now terminal: 63 COMPLETED,
+one ERROR. Only seven have the coordinator's collection audit so far.
+
+**23:27 UTC execution update:** all four original pilots / 64 games have passed
+and their measured costs admitted the unchanged confirmation. Source preparation
+re-audited all raw receipts. The sole coordinator **PID 1981427 / session 28315**
+is live; all first 64 original HF jobs were confirmed RUNNING. The full allocation
+is 944 jobs / 26,880 games, with a maximum of 64 active jobs. Read
+[the execution handoff](CURRENT-AUCTION-CONFIRMATION-2026-10-28.md) for source,
+cost review and recovery. The earlier collection-only owner has exited; do not
+repeat the historical preparation/launch commands below or start a competing
+collector. All policies, protocols and tested execution code remain unchanged.
+
 **22:44 UTC collection update:** PID 1655353 / session 81765 now runs the
 collection-only `strong/finish-current-auction-runtime-v1.py`. Both its actual
 process and the remaining original HF handle were verified live. Read

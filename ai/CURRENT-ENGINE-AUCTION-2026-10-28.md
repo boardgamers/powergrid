@@ -1,5 +1,24 @@
 # Current-engine auction search — 28 October 2026
 
+**23:43 UTC superseding update:** the confirmation owner has stopped after
+64 submissions because one original job failed during child-process shutdown.
+All 48 original terminal games in that job passed a separate diagnostic audit;
+the failed original report and ERROR remain preserved. Recovery admission and
+tests are still required before further submissions. Read the current
+[execution handoff](CURRENT-AUCTION-CONFIRMATION-2026-10-28.md); no frozen policies,
+source bytes or seeds changed, and no jobs were retried.
+All 64 original jobs are terminal: 63 COMPLETED and one ERROR, with seven
+complete collection audits so far. No confirmation owner or HF job is active.
+
+**23:27 UTC execution update:** all four current-engine runtime pilots / 64
+games passed independent auditing. Measured costs admitted the frozen 26,880-game
+confirmation; coordinator PID 1981427 / session 28315 is live with its first 64
+original HF jobs confirmed RUNNING. See
+[the execution handoff](CURRENT-AUCTION-CONFIRMATION-2026-10-28.md). Do not restart
+the completed runtime collector or run a competing confirmation owner. The
+current-engine 8840U benchmark also passed all 320 exact response checks. Final
+qualification remains outstanding and reserved final seeds are unused.
+
 The historical auction study remains complete and unchanged. Its cheaper
 population-search recipe is being moved to engine commit
 `3adad0cc0d1d31352aa7a9059bd15efa79647269` (2.0.19) in an isolated research

@@ -65820,5 +65820,665 @@
         "previous_goal_turn_classification": "progress",
         "current_goal_turn_classification": "progress",
         "next": "Review the complete four-original runtime costs, then use the frozen tested admission workflow; do not repeat either completed benchmark or collection."
+    },
+    "current_auction_confirmation_launch_v1": {
+        "status": "confirmation_stopped_after_original_post_terminal_shutdown_error_recovery_not_yet_admitted",
+        "recorded_at": "2026-10-28T23:45:15.921805+00:00",
+        "document": "ai/CURRENT-AUCTION-CONFIRMATION-2026-10-28.md",
+        "runtime_pilots": {
+            "verified_jobs": 4,
+            "games": 64,
+            "counts": {
+                "decisions": 8713,
+                "root_filter_overrides": 3,
+                "rollouts": 48560,
+                "rollout_caps": 0,
+                "neural_decisions": 6046875,
+                "search_changes": 225,
+                "search_decisions": 1192,
+                "surrogate_decisions": 0
+            },
+            "original_handles": [
+                "6ae2733541e90535df77d71e",
+                "6ae273363fb22a235dd4a65d",
+                "6ae2733641e90535df77d722",
+                "6ae273363fb22a235dd4a660"
+            ],
+            "runtime_result_sha256": "fe1f794098e0755c61bb321371a133e0cf757e037c33ea462327f7d9f0afef68",
+            "cost_review_sha256": "3c2d9388f6e5c98e2f2015ac3e0a3a8c43ffe43c8d776064b80fa05ef1bd6bf8",
+            "raw_archives": [
+                {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "dd5f34dbd0e07c6c85169d2a0719d62eea8155bc",
+                    "archive_path": "archives/pg-current-auction-runtime-v1-filter-2p.tgz",
+                    "archive_sha256": "967dec21b9ace71c1d0eae533456c40c7bc69f7f14553f326990c909c018df71",
+                    "manifest_sha256": "7e67722e3aca41ba3dcb53e329820bf0220fc867db695819e36fbbfd655eb8c0",
+                    "archived_files": 37,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "b25c58f05464206c16e86398604ecf59285c675e",
+                    "archive_path": "archives/pg-current-auction-runtime-v1-filter-6p.tgz",
+                    "archive_sha256": "2e238588df08feae3d4a6a4414d661844a2d8bb2d4d877ceda7c965f51673cd6",
+                    "manifest_sha256": "5ca0189616c41e57f6796ad446a01ae8d69ced945408f54bd7af8ffbb1c66fe4",
+                    "archived_files": 85,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "5c742eae3c7aa1944389131e1d0895c9274db4fb",
+                    "archive_path": "archives/pg-current-auction-runtime-v1-pop-2p.tgz",
+                    "archive_sha256": "20f1e2ff96698ffe6266ee29a040479ab69768954293bcf22906368ab8fe3a25",
+                    "manifest_sha256": "d32da6db72850370cdd56fdd5ad124202ff95d3f44bdb5c71af1c3bfdeaba359",
+                    "archived_files": 37,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "5d02515d32c76769bde354e22aeb029c3dd1ca89",
+                    "archive_path": "archives/pg-current-auction-runtime-v1-pop-6p.tgz",
+                    "archive_sha256": "fb362484401ca029e11e53588416174701ef5794f4bde9ce5329deb379816d78",
+                    "manifest_sha256": "30ea26b8613d4735bb6f4197761a1a6f47b5352c47ce7338aaa3a69ec59b365a",
+                    "archived_files": 85,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                }
+            ],
+            "prior_collector_pid": 1655353,
+            "prior_collector_exited": true,
+            "fresh_admission_raw_reaudit_passed": true
+        },
+        "comparison": {
+            "jobs": 944,
+            "games": 26880,
+            "games_per_arm": 13440,
+            "jobs_per_arm": {
+                "filter": 272,
+                "conservative_population": 672
+            },
+            "fresh_deals_per_count": 32,
+            "players": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "rules": [
+                "original/open",
+                "original/sealed",
+                "recharged/open",
+                "recharged/sealed"
+            ],
+            "opponent_count_cells": 27,
+            "seed_template": "current-auction-confirmation-v1-{players}p",
+            "protocol_sha256": "d0504c3f92d94fe96a1b336f26fe0e6c991502a3e03ff17fb1b2d00f53067d93",
+            "outcomes_used_for_sizing": false
+        },
+        "allocation": {
+            "flavor": "cpu-upgrade",
+            "workers": 4,
+            "search_workers": 4,
+            "inference_threads": 1,
+            "per_arm_count": {
+                "filter": {
+                    "2": {
+                        "deals_per_job": 8,
+                        "projected_seconds_with_margin": 9165.891863637293,
+                        "timeout_hours": 4,
+                        "exceeds_three_hour_target": false
+                    },
+                    "3": {
+                        "deals_per_job": 4,
+                        "projected_seconds_with_margin": 7099.41889772797,
+                        "timeout_hours": 3,
+                        "exceeds_three_hour_target": false
+                    },
+                    "4": {
+                        "deals_per_job": 4,
+                        "projected_seconds_with_margin": 9165.891863637293,
+                        "timeout_hours": 4,
+                        "exceeds_three_hour_target": false
+                    },
+                    "5": {
+                        "deals_per_job": 2,
+                        "projected_seconds_with_margin": 6066.182414773308,
+                        "timeout_hours": 3,
+                        "exceeds_three_hour_target": false
+                    },
+                    "6": {
+                        "deals_per_job": 2,
+                        "projected_seconds_with_margin": 7099.41889772797,
+                        "timeout_hours": 3,
+                        "exceeds_three_hour_target": false
+                    }
+                },
+                "conservative_population": {
+                    "2": {
+                        "deals_per_job": 2,
+                        "projected_seconds_with_margin": 6174.761692274672,
+                        "timeout_hours": 3,
+                        "exceeds_three_hour_target": false
+                    },
+                    "3": {
+                        "deals_per_job": 2,
+                        "projected_seconds_with_margin": 8812.142538412008,
+                        "timeout_hours": 4,
+                        "exceeds_three_hour_target": false
+                    },
+                    "4": {
+                        "deals_per_job": 1,
+                        "projected_seconds_with_margin": 6174.761692274672,
+                        "timeout_hours": 3,
+                        "exceeds_three_hour_target": false
+                    },
+                    "5": {
+                        "deals_per_job": 1,
+                        "projected_seconds_with_margin": 7493.45211534334,
+                        "timeout_hours": 3,
+                        "exceeds_three_hour_target": false
+                    },
+                    "6": {
+                        "deals_per_job": 1,
+                        "projected_seconds_with_margin": 8812.142538412008,
+                        "timeout_hours": 4,
+                        "exceeds_three_hour_target": false
+                    }
+                }
+            },
+            "measurements": [
+                {
+                    "name": "pg-current-auction-runtime-v1-filter-2p",
+                    "job_id": "6ae2733541e90535df77d71e",
+                    "arm": "filter",
+                    "players": 2,
+                    "games": 8,
+                    "seconds": 78.30777059309185,
+                    "cpu_seconds": 288.03,
+                    "sampled_peak_total_rss_bytes": 2297688064,
+                    "memory_samples": 386,
+                    "memory_sampling_period_seconds": 0.2,
+                    "includes_startup_and_validation": true
+                },
+                {
+                    "name": "pg-current-auction-runtime-v1-filter-6p",
+                    "job_id": "6ae273363fb22a235dd4a65d",
+                    "arm": "filter",
+                    "players": 6,
+                    "games": 24,
+                    "seconds": 1549.8547244319925,
+                    "cpu_seconds": 5920.21,
+                    "sampled_peak_total_rss_bytes": 2678063104,
+                    "memory_samples": 7664,
+                    "memory_sampling_period_seconds": 0.2,
+                    "includes_startup_and_validation": true
+                },
+                {
+                    "name": "pg-current-auction-runtime-v1-pop-2p",
+                    "job_id": "6ae2733641e90535df77d722",
+                    "arm": "conservative_population",
+                    "players": 2,
+                    "games": 8,
+                    "seconds": 589.3831361420162,
+                    "cpu_seconds": 2493.16,
+                    "sampled_peak_total_rss_bytes": 6772736000,
+                    "memory_samples": 2895,
+                    "memory_sampling_period_seconds": 0.2,
+                    "includes_startup_and_validation": true
+                },
+                {
+                    "name": "pg-current-auction-runtime-v1-pop-6p",
+                    "job_id": "6ae273363fb22a235dd4a660",
+                    "arm": "conservative_population",
+                    "players": 6,
+                    "games": 24,
+                    "seconds": 3956.071269206004,
+                    "cpu_seconds": 18877.600000000002,
+                    "sampled_peak_total_rss_bytes": 7332507648,
+                    "memory_samples": 19368,
+                    "memory_sampling_period_seconds": 0.2,
+                    "includes_startup_and_validation": true
+                }
+            ],
+            "per_game_seconds": {
+                "filter": 64.57728018466635,
+                "conservative_population": 164.8363028835835
+            },
+            "setup_allowance_seconds": 900,
+            "runtime_multiplier": 2,
+            "timeout_utilization": 0.75,
+            "target_seconds_per_job": 10800,
+            "sampled_peak_rss_bytes": 7332507648,
+            "memory_margin": 2,
+            "max_active_jobs": 64,
+            "rationale": "Same tested concurrency/hardware. Per arm, use the slower endpoint per game, double it for unseen deals/counts/opponents, and pack whole deals to a three-hour target. Never use pilot outcomes. This is a planning allowance, not a statistical bound."
+        },
+        "coordinator": {
+            "pid": 1981427,
+            "session": 28315,
+            "exited": true,
+            "exit_code": 1,
+            "state_path": "ai/runs/current-auction-grid-coordinator-v1/state.json",
+            "stage": "stopped_for_inspection",
+            "submitted_jobs": 64,
+            "verified_jobs": 7,
+            "code_pins_unchanged": 35,
+            "max_active_jobs": 64,
+            "automatic_restarts": false,
+            "failure_type": "AssertionError",
+            "failure": "Inspect terminal original job before adding more work",
+            "stopped_at": "2026-10-28T23:29:44.189160+00:00"
+        },
+        "initial_hf_snapshot": {
+            "checked_at": "2026-10-28T23:27:37.480049+00:00",
+            "status_counts": {
+                "RUNNING": 64
+            },
+            "originals": 64,
+            "snapshot_sha256": "1c06f402bf40a52956b59e12fdee3b14e62e23153da6ba0e67ef8f43884af3c0"
+        },
+        "latest_hf_snapshot": {
+            "checked_at": "2026-10-28T23:43:00.029705+00:00",
+            "counts": {
+                "COMPLETED": 63,
+                "ERROR": 1
+            },
+            "originals": [
+                {
+                    "id": "6ae2846c41e90535df77edbd",
+                    "name": "pg-current-confirm-v1-filter-economic-2p-00",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2846c41e90535df77edbf",
+                    "name": "pg-current-confirm-v1-filter-economic-2p-08",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2846d3fb22a235dd4bf11",
+                    "name": "pg-current-confirm-v1-filter-search_geo-2p-00",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2846d41e90535df77edc1",
+                    "name": "pg-current-confirm-v1-filter-economic-2p-16",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2846d41e90535df77edc3",
+                    "name": "pg-current-confirm-v1-filter-economic-2p-24",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2846d41e90535df77edc5",
+                    "name": "pg-current-confirm-v1-filter-search_geo-2p-08",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2846e3fb22a235dd4bf14",
+                    "name": "pg-current-confirm-v1-filter-search_geo-2p-16",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2846e3fb22a235dd4bf16",
+                    "name": "pg-current-confirm-v1-filter-legacy-2p-08",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2846e41e90535df77edc7",
+                    "name": "pg-current-confirm-v1-filter-search_geo-2p-24",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2846e41e90535df77edcb",
+                    "name": "pg-current-confirm-v1-filter-legacy-2p-00",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2846f3fb22a235dd4bf18",
+                    "name": "pg-current-confirm-v1-filter-heuristic-2p-00",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2846f41e90535df77edcd",
+                    "name": "pg-current-confirm-v1-filter-legacy-2p-16",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2846f41e90535df77edcf",
+                    "name": "pg-current-confirm-v1-filter-legacy-2p-24",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284703fb22a235dd4bf1a",
+                    "name": "pg-current-confirm-v1-filter-heuristic-2p-16",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847041e90535df77edd1",
+                    "name": "pg-current-confirm-v1-filter-heuristic-2p-08",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847041e90535df77edd3",
+                    "name": "pg-current-confirm-v1-filter-heuristic-2p-24",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284713fb22a235dd4bf1e",
+                    "name": "pg-current-confirm-v1-filter-rush-2p-16",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847141e90535df77edd5",
+                    "name": "pg-current-confirm-v1-filter-rush-2p-00",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847141e90535df77edd7",
+                    "name": "pg-current-confirm-v1-filter-rush-2p-08",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847141e90535df77edd9",
+                    "name": "pg-current-confirm-v1-filter-rush-2p-24",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284723fb22a235dd4bf20",
+                    "name": "pg-current-confirm-v1-filter-economic-3p-04",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847241e90535df77eddb",
+                    "name": "pg-current-confirm-v1-filter-economic-3p-00",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847241e90535df77edde",
+                    "name": "pg-current-confirm-v1-filter-economic-3p-08",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284733fb22a235dd4bf23",
+                    "name": "pg-current-confirm-v1-filter-economic-3p-12",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284733fb22a235dd4bf25",
+                    "name": "pg-current-confirm-v1-filter-economic-3p-16",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284733fb22a235dd4bf29",
+                    "name": "pg-current-confirm-v1-filter-economic-3p-20",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847341e90535df77ede0",
+                    "name": "pg-current-confirm-v1-filter-economic-3p-24",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284743fb22a235dd4bf2b",
+                    "name": "pg-current-confirm-v1-filter-economic-3p-28",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284743fb22a235dd4bf2d",
+                    "name": "pg-current-confirm-v1-filter-search_geo-3p-00",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284743fb22a235dd4bf2f",
+                    "name": "pg-current-confirm-v1-filter-search_geo-3p-04",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847441e90535df77ede2",
+                    "name": "pg-current-confirm-v1-filter-search_geo-3p-08",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284753fb22a235dd4bf33",
+                    "name": "pg-current-confirm-v1-filter-search_geo-3p-12",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284753fb22a235dd4bf37",
+                    "name": "pg-current-confirm-v1-filter-search_geo-3p-16",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284753fb22a235dd4bf39",
+                    "name": "pg-current-confirm-v1-filter-search_geo-3p-20",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284763fb22a235dd4bf3b",
+                    "name": "pg-current-confirm-v1-filter-search_geo-3p-24",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847641e90535df77ede6",
+                    "name": "pg-current-confirm-v1-filter-search_geo-3p-28",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847641e90535df77ede8",
+                    "name": "pg-current-confirm-v1-filter-legacy-3p-00",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847641e90535df77edea",
+                    "name": "pg-current-confirm-v1-filter-legacy-3p-04",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284773fb22a235dd4bf3d",
+                    "name": "pg-current-confirm-v1-filter-legacy-3p-12",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284773fb22a235dd4bf41",
+                    "name": "pg-current-confirm-v1-filter-legacy-3p-16",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847741e90535df77eded",
+                    "name": "pg-current-confirm-v1-filter-legacy-3p-08",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284783fb22a235dd4bf43",
+                    "name": "pg-current-confirm-v1-filter-legacy-3p-24",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284783fb22a235dd4bf45",
+                    "name": "pg-current-confirm-v1-filter-legacy-3p-28",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847841e90535df77edef",
+                    "name": "pg-current-confirm-v1-filter-legacy-3p-20",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847841e90535df77edf1",
+                    "name": "pg-current-confirm-v1-filter-heuristic-3p-00",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284793fb22a235dd4bf47",
+                    "name": "pg-current-confirm-v1-filter-heuristic-3p-08",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284793fb22a235dd4bf49",
+                    "name": "pg-current-confirm-v1-filter-heuristic-3p-12",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae284793fb22a235dd4bf4b",
+                    "name": "pg-current-confirm-v1-filter-heuristic-3p-16",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847941e90535df77edf3",
+                    "name": "pg-current-confirm-v1-filter-heuristic-3p-04",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847a3fb22a235dd4bf4d",
+                    "name": "pg-current-confirm-v1-filter-heuristic-3p-28",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847a41e90535df77edf5",
+                    "name": "pg-current-confirm-v1-filter-heuristic-3p-20",
+                    "stage": "ERROR"
+                },
+                {
+                    "id": "6ae2847a41e90535df77edf7",
+                    "name": "pg-current-confirm-v1-filter-heuristic-3p-24",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847b3fb22a235dd4bf4f",
+                    "name": "pg-current-confirm-v1-filter-rush-3p-04",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847b3fb22a235dd4bf51",
+                    "name": "pg-current-confirm-v1-filter-rush-3p-12",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847b41e90535df77edf9",
+                    "name": "pg-current-confirm-v1-filter-rush-3p-00",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847b41e90535df77edfb",
+                    "name": "pg-current-confirm-v1-filter-rush-3p-08",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847c3fb22a235dd4bf53",
+                    "name": "pg-current-confirm-v1-filter-rush-3p-16",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847c41e90535df77edfe",
+                    "name": "pg-current-confirm-v1-filter-rush-3p-20",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847c41e90535df77ee00",
+                    "name": "pg-current-confirm-v1-filter-rush-3p-24",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847d3fb22a235dd4bf58",
+                    "name": "pg-current-confirm-v1-filter-economic-4p-04",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847d41e90535df77ee02",
+                    "name": "pg-current-confirm-v1-filter-rush-3p-28",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847d41e90535df77ee04",
+                    "name": "pg-current-confirm-v1-filter-economic-4p-00",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847d41e90535df77ee06",
+                    "name": "pg-current-confirm-v1-filter-economic-4p-08",
+                    "stage": "COMPLETED"
+                },
+                {
+                    "id": "6ae2847e3fb22a235dd4bf5a",
+                    "name": "pg-current-confirm-v1-filter-economic-4p-12",
+                    "stage": "COMPLETED"
+                }
+            ],
+            "new_submissions": 0,
+            "owner_exited": true
+        },
+        "latest_hf_snapshot_sha256": "6e304b0ce26c7793550b7b30b6f8e4dc74b6406b236d1d224dec79bcecb25066",
+        "source": {
+            "repo": "coyotte508/powergrid-ai-training-v1",
+            "revision": "7db94147918597e1da1e8ee2f4bd12b96aa067b5",
+            "archive": "strong-source-current-auction-grid-v1.tgz",
+            "sha256": "bb2ef01bc09f176c62545971aa02b5e9dadc947fb14dd52ca191667ba456bfe0",
+            "source_manifest_sha256": "28752635cfaee648b3e6f5ab999132291be575d56d3cbc7fd3e6450ee3b399f5",
+            "protocol_sha256": "d0504c3f92d94fe96a1b336f26fe0e6c991502a3e03ff17fb1b2d00f53067d93"
+        },
+        "source_descriptor_sha256": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
+        "launch_archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "51bcd4362ec78690bf91cc54fe9aa0aecd8a7277",
+            "archive_path": "archives/current-auction-confirmation-launch-evidence-v1.tgz",
+            "archive_sha256": "a1f29e996bea95745a1d492bf50a470daacc4d27018982c89b457d2f62d60bc1",
+            "manifest_sha256": "7737f0811ca6ea433ab3b0bcd6f698c56fe413f0bc7af888636b20ce40da2ceb",
+            "archived_files": 128,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "archive_descriptor": "ai/strong/current-auction-confirmation-launch-evidence-v1.json",
+        "archive_descriptor_sha256": "c5559e407ff8b8b781768fc7444c0d600d84f7245b074fdc601f7edaf895600c",
+        "shutdown_diagnostic": {
+            "report": "ai/strong/current-auction-shutdown-diagnostic-v1.json",
+            "sha256": "091d0dc9801d679cb3ecb0f90853310df57bcfea5ae617a42d0414f008f9a844",
+            "original_job": "6ae2847a41e90535df77edf5",
+            "original_hf_stage": "ERROR",
+            "original_summary_games": 47,
+            "original_terminal_games": 48,
+            "omitted_episode": 264,
+            "all_original_games_pass_raw_audit": true,
+            "decisions_audited": 6486,
+            "original_raw_archive": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "c544b8a6006ee5be60b90e7362962a2c7f39bcd1",
+                "archive_path": "archives/pg-current-confirm-v1-filter-heuristic-3p-20.tgz",
+                "archive_sha256": "ea6c72626c478058b62e025bebc7dded141726554022a1d4ab7a51a60ecda903",
+                "manifest_sha256": "4114e92670ca286300f4c496232d10543b0b397a7f7babaa58b3675ad61634e4",
+                "archived_files": 156,
+                "format": "tar.gz",
+                "remote_archive_verified": true
+            },
+            "archive": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "500ad08c88eefdd638abdc95538ecb6fd9218e60",
+                "archive_path": "archives/current-auction-shutdown-diagnostic-evidence-v1.tgz",
+                "archive_sha256": "4594697ab72ae31605c6cc349574b582b943955f60ec98acc0efcd7b3ae3d2be",
+                "manifest_sha256": "360ed31a7c112ae1e154e55a19a47b06fa5d057461919a534c8222f040cd11fa",
+                "archived_files": 27,
+                "format": "tar.gz",
+                "remote_archive_verified": true
+            },
+            "admitted_for_confirmation": false,
+            "new_games": 0,
+            "new_policy_calls": 0,
+            "new_hf_jobs": 0
+        },
+        "new_hf_jobs": 64,
+        "resubmissions": 0,
+        "new_gradients": 0,
+        "weights_or_search_policy_changed": false,
+        "candidate_qualified": false,
+        "reserved_final_seeds_used": false,
+        "goal_status": "active",
+        "previous_goal_turn_classification": "progress",
+        "previous_goal_turn_note": "Finished and independently audited all 320 current-engine 8840U responses, archived evidence and pushed the result.",
+        "current_goal_turn_classification": "progress",
+        "next": "Test and independently review a narrow terminal-receipt recovery path, preserving original ERROR and all 48 games without reruns. Record explicit recovery admission before resuming any submissions; collect/audit the other 63 completed originals; retain the unchanged 26880-game plan."
     }
 }

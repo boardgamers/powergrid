@@ -1,0 +1,618 @@
+{
+  "runtime_pilots_complete": true,
+  "runtime_jobs": 4,
+  "runtime_games": 64,
+  "runtime_results_sha256": "fe1f794098e0755c61bb321371a133e0cf757e037c33ea462327f7d9f0afef68",
+  "cost_review_sha256": "3c2d9388f6e5c98e2f2015ac3e0a3a8c43ffe43c8d776064b80fa05ef1bd6bf8",
+  "confirmation_admitted": true,
+  "confirmation_jobs": 944,
+  "confirmation_games": 26880,
+  "original_owner_pid": 1981427,
+  "original_owner_session": 28315,
+  "snapshot_checked_at": "2026-10-28T23:27:37.480049+00:00",
+  "initial_originals": [
+    {
+      "name": "pg-current-confirm-v1-filter-economic-2p-00",
+      "job_id": "6ae2846c41e90535df77edbd",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-2p-00/launch.json",
+      "guard_sha256": "73839b4c1e474cb61f1f921d22c2df71910ca0f65e46987020725c13445ce5fb",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-2p-08",
+      "job_id": "6ae2846c41e90535df77edbf",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-2p-08/launch.json",
+      "guard_sha256": "ca469c37e6a7fd861c63e67b04fff4021dfeac319c2dbf0c848db7a7211cd744",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-2p-16",
+      "job_id": "6ae2846d41e90535df77edc1",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-2p-16/launch.json",
+      "guard_sha256": "f85192e12db54671b618868f1afdb936ed04ad3059979471716da0001b79af14",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-2p-24",
+      "job_id": "6ae2846d41e90535df77edc3",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-2p-24/launch.json",
+      "guard_sha256": "6eec12e9409d22f45d01202a6f64775c75c382fcb4cc4609c85797aec9e789be",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-3p-00",
+      "job_id": "6ae2847241e90535df77eddb",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-3p-00/launch.json",
+      "guard_sha256": "da40a4ee3179e522d9e686fd708712c8333578d45ae807fd1a3ac98d4b380175",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-3p-04",
+      "job_id": "6ae284723fb22a235dd4bf20",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-3p-04/launch.json",
+      "guard_sha256": "aea07a9be385713e2ffab349b3ae76a3a7934fe5ae1e992ed076adc43141a10c",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-3p-08",
+      "job_id": "6ae2847241e90535df77edde",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-3p-08/launch.json",
+      "guard_sha256": "22961ee91a2b069c8ce446cc066e0ff6d88124d4e76e8ed954875f88084d4c01",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-3p-12",
+      "job_id": "6ae284733fb22a235dd4bf23",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-3p-12/launch.json",
+      "guard_sha256": "ee31737be0eab83a9c1e5e9f1fcc2a5337e3604fd8be736fb27e62c95de80d21",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-3p-16",
+      "job_id": "6ae284733fb22a235dd4bf25",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-3p-16/launch.json",
+      "guard_sha256": "d8b0304645a544e512a44cf9b311f8705491f7270b4bee837ae35703a018b53f",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-3p-20",
+      "job_id": "6ae284733fb22a235dd4bf29",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-3p-20/launch.json",
+      "guard_sha256": "8f26b83829588d681de306f50a94bcae48972f5714bf08669df5113d0b81053a",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-3p-24",
+      "job_id": "6ae2847341e90535df77ede0",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-3p-24/launch.json",
+      "guard_sha256": "78881d587069fad64c4a2e4f052e581af2f7ec97e0c2a7279ac0c5739aa0e28e",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-3p-28",
+      "job_id": "6ae284743fb22a235dd4bf2b",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-3p-28/launch.json",
+      "guard_sha256": "9eaf3e5edbc044ea0a5694c96893ee0b93c1df8951ec3c783960f155cb60816a",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-4p-00",
+      "job_id": "6ae2847d41e90535df77ee04",
+      "arm": "filter",
+      "players": 4,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-4p-00/launch.json",
+      "guard_sha256": "8da9d3d7c2ff6326359f30520f3aa9a0904225959620e154c84185cdaf050acc",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-4p-04",
+      "job_id": "6ae2847d3fb22a235dd4bf58",
+      "arm": "filter",
+      "players": 4,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-4p-04/launch.json",
+      "guard_sha256": "e15267425b1e90b0b6cad1fcc05a011efb39e3dd84f2e068dd88b3a12a986a77",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-4p-08",
+      "job_id": "6ae2847d41e90535df77ee06",
+      "arm": "filter",
+      "players": 4,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-4p-08/launch.json",
+      "guard_sha256": "1f48d6c6eaa5ac5b4c1166d621252fe7b31fa98fe30dcecc703975989cbf0eff",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-4p-12",
+      "job_id": "6ae2847e3fb22a235dd4bf5a",
+      "arm": "filter",
+      "players": 4,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-4p-12/launch.json",
+      "guard_sha256": "c4014017a21211a68af13bdc15499d5864680e250c3562cee5bd90f4cc9c5d91",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-2p-00",
+      "job_id": "6ae2846f3fb22a235dd4bf18",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-heuristic-2p-00/launch.json",
+      "guard_sha256": "0b9ea28174c5b9607d9cb141f2350d3307670699d966c59cc1a78b20670d5bda",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-2p-08",
+      "job_id": "6ae2847041e90535df77edd1",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-heuristic-2p-08/launch.json",
+      "guard_sha256": "ca439d6e3f6c9a4552d66b160ec964ce874a9e167af1c43c2c7fa5e6955fdf2f",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-2p-16",
+      "job_id": "6ae284703fb22a235dd4bf1a",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-heuristic-2p-16/launch.json",
+      "guard_sha256": "e91c1f999b4a0a5f2833a76ef95be63493d1aa26400212e8ae8996eac19ef3ca",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-2p-24",
+      "job_id": "6ae2847041e90535df77edd3",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-heuristic-2p-24/launch.json",
+      "guard_sha256": "81803b301a37535fe388ae237f5555c01536b1386d2984955874d87e43e8e229",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-3p-00",
+      "job_id": "6ae2847841e90535df77edf1",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-heuristic-3p-00/launch.json",
+      "guard_sha256": "51668f4f65fba209a5e8e5e3b9b13821a09ea73b3784327ebcb08d2b1ce94a86",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-3p-04",
+      "job_id": "6ae2847941e90535df77edf3",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-heuristic-3p-04/launch.json",
+      "guard_sha256": "a6eba2a65cc75af2bce050c6c5675e0756e4942d0bbaa25be510eef2c07e7c2f",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-3p-08",
+      "job_id": "6ae284793fb22a235dd4bf47",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-heuristic-3p-08/launch.json",
+      "guard_sha256": "0439b413c387d6315337e9c9a793017ab4eb4cb8e0623a6cab27f2da72ec7ea9",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-3p-12",
+      "job_id": "6ae284793fb22a235dd4bf49",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-heuristic-3p-12/launch.json",
+      "guard_sha256": "130ab25e543c00f3686587cf3c23d20d94801e0f63630838c39206ca2f1aafa6",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-3p-16",
+      "job_id": "6ae284793fb22a235dd4bf4b",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-heuristic-3p-16/launch.json",
+      "guard_sha256": "694496f474010728fbf2e868356673610c0343eacc065430a15d22850c7f7e3d",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-3p-20",
+      "job_id": "6ae2847a41e90535df77edf5",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-heuristic-3p-20/launch.json",
+      "guard_sha256": "31e2da70da2305c562f7e8acbb0b712b3f5c00c732be80e313f7c5105c86fb6f",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-3p-24",
+      "job_id": "6ae2847a41e90535df77edf7",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-heuristic-3p-24/launch.json",
+      "guard_sha256": "c22ad5b941bb903c90e67ba07ac3c9f4b6b946fda659de154d60b82fff5c5cda",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-3p-28",
+      "job_id": "6ae2847a3fb22a235dd4bf4d",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-heuristic-3p-28/launch.json",
+      "guard_sha256": "d32810c73625cc4f80e37669aca5901bd8feff7eae040acfc4747d4d777b3c32",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-2p-00",
+      "job_id": "6ae2846e41e90535df77edcb",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-legacy-2p-00/launch.json",
+      "guard_sha256": "cdeeb2b06794bf9af96ed1834a25a99264ece064ccdeccfeaf14c5b1bee50d58",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-2p-08",
+      "job_id": "6ae2846e3fb22a235dd4bf16",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-legacy-2p-08/launch.json",
+      "guard_sha256": "d10a1f437016db0eaf2950ebcd0d1b4bf07e9b07bdf7f40ecef8de7baa12ebc4",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-2p-16",
+      "job_id": "6ae2846f41e90535df77edcd",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-legacy-2p-16/launch.json",
+      "guard_sha256": "6a1333906d4cc0afa79c4734329188751429e2cf13b9804a991e84d4cc94636a",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-2p-24",
+      "job_id": "6ae2846f41e90535df77edcf",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-legacy-2p-24/launch.json",
+      "guard_sha256": "5947a360515837d117c9d93cc27bee9c6cbbc164e0b12e63be1a35c23aea7246",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-3p-00",
+      "job_id": "6ae2847641e90535df77ede8",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-legacy-3p-00/launch.json",
+      "guard_sha256": "68c8f3c731c858457be1b9ad96bbd8f5973854de9d8491e1875f8b8e02e9c999",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-3p-04",
+      "job_id": "6ae2847641e90535df77edea",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-legacy-3p-04/launch.json",
+      "guard_sha256": "58e15dfde430a95b80fb0ff78761055932addef94269c339eb919ff6e231dce3",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-3p-08",
+      "job_id": "6ae2847741e90535df77eded",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-legacy-3p-08/launch.json",
+      "guard_sha256": "e3e653bd2066d583899b815869c4aa64d82f82cf3e7902ddcda4f2c77c13043b",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-3p-12",
+      "job_id": "6ae284773fb22a235dd4bf3d",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-legacy-3p-12/launch.json",
+      "guard_sha256": "272a95be7025d6b422db8b6b38f1c56f80a59cc5da5f7b10e4befee4240c156d",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-3p-16",
+      "job_id": "6ae284773fb22a235dd4bf41",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-legacy-3p-16/launch.json",
+      "guard_sha256": "1143f396e6b4bb45354c887095d8583a14109150033a5f27d75c8b2ad3d430af",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-3p-20",
+      "job_id": "6ae2847841e90535df77edef",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-legacy-3p-20/launch.json",
+      "guard_sha256": "9ff3a54c0fb82d3a837da7e67de1939520ed28dd66328b5bb374744693f1dcf3",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-3p-24",
+      "job_id": "6ae284783fb22a235dd4bf43",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-legacy-3p-24/launch.json",
+      "guard_sha256": "c68a8104ce73191c487c6ef4358641b590d098df8b511c92c4b24501f7eb3b07",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-3p-28",
+      "job_id": "6ae284783fb22a235dd4bf45",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-legacy-3p-28/launch.json",
+      "guard_sha256": "205e0355fb887c0f270c891bcf89f252ab67fa4fc007d22e7d36a22ac738c6ae",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-2p-00",
+      "job_id": "6ae2847141e90535df77edd5",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-rush-2p-00/launch.json",
+      "guard_sha256": "d2f771a6ba716c2b138652471d98cecd6a8d9db379c7f27f0245fd4ebd5b84dc",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-2p-08",
+      "job_id": "6ae2847141e90535df77edd7",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-rush-2p-08/launch.json",
+      "guard_sha256": "241440e0fa32422f0956d2ee0ca072d7ada6445681aaf51cf738708711df867c",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-2p-16",
+      "job_id": "6ae284713fb22a235dd4bf1e",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-rush-2p-16/launch.json",
+      "guard_sha256": "8c11e563f445bd6fad69cd5362d7f3968fed0735db87785db8eeec79d249098d",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-2p-24",
+      "job_id": "6ae2847141e90535df77edd9",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-rush-2p-24/launch.json",
+      "guard_sha256": "d292a4f76718a6b065e081c3a0939aaccc19c46e80edd590b4f1d6ce2013f5b1",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-3p-00",
+      "job_id": "6ae2847b41e90535df77edf9",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-rush-3p-00/launch.json",
+      "guard_sha256": "4ee0d90eb31f67a3ef9c6d0caf1745e8f157f7b65aa006536f67a461b7554c1d",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-3p-04",
+      "job_id": "6ae2847b3fb22a235dd4bf4f",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-rush-3p-04/launch.json",
+      "guard_sha256": "12f5815ee4c3fad10bbbeaff6d8f0c7d6500182acb014119f01079702cf6751e",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-3p-08",
+      "job_id": "6ae2847b41e90535df77edfb",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-rush-3p-08/launch.json",
+      "guard_sha256": "98d75b2efb7761ddad91e53e5714b08792dd03ee5030a09e779cc5e98f8dd953",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-3p-12",
+      "job_id": "6ae2847b3fb22a235dd4bf51",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-rush-3p-12/launch.json",
+      "guard_sha256": "83d870d9636c9f3add937622611c7a546688988b8a750660db8bc69c82beb68a",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-3p-16",
+      "job_id": "6ae2847c3fb22a235dd4bf53",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-rush-3p-16/launch.json",
+      "guard_sha256": "ed5947b4c00629726a24553dce22aa689970543d65662b6882c70631bd784b3d",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-3p-20",
+      "job_id": "6ae2847c41e90535df77edfe",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-rush-3p-20/launch.json",
+      "guard_sha256": "aa9b53a07c072717f5bef771627b4e809708657a47b5c78dc9808fe32bb7a8b3",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-3p-24",
+      "job_id": "6ae2847c41e90535df77ee00",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-rush-3p-24/launch.json",
+      "guard_sha256": "f280c8d8888aec578db259452092f97b68792c407bca6317fe8664acd988078a",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-3p-28",
+      "job_id": "6ae2847d41e90535df77ee02",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-rush-3p-28/launch.json",
+      "guard_sha256": "507ad5bd5d98e626f76e80174e82f5be792886393d02ec829fcf08a4fce88ded",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-2p-00",
+      "job_id": "6ae2846d3fb22a235dd4bf11",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-search_geo-2p-00/launch.json",
+      "guard_sha256": "43b2d6e0e44a0db39823e4be3a275afd314662670723ed23b91cf650fcf241fe",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-2p-08",
+      "job_id": "6ae2846d41e90535df77edc5",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-search_geo-2p-08/launch.json",
+      "guard_sha256": "95b5d3ddd2e83320ade4e46241c7b44ee5a3b93a53593e56f030a32b47fbd7ca",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-2p-16",
+      "job_id": "6ae2846e3fb22a235dd4bf14",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-search_geo-2p-16/launch.json",
+      "guard_sha256": "021a1da0a00abe4c2098cafc8642cb2a6347d90cb3f3ac11734af9bd455c7a40",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-2p-24",
+      "job_id": "6ae2846e41e90535df77edc7",
+      "arm": "filter",
+      "players": 2,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-search_geo-2p-24/launch.json",
+      "guard_sha256": "b69900788a8166de4f3b9ac26c529b147866bffe62a548289d361b96a6858af6",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-3p-00",
+      "job_id": "6ae284743fb22a235dd4bf2d",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-search_geo-3p-00/launch.json",
+      "guard_sha256": "0c24a91a9e684d24aa49c41d510d21c7affeb663334020e1c26af7a3cd2dfa4e",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-3p-04",
+      "job_id": "6ae284743fb22a235dd4bf2f",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-search_geo-3p-04/launch.json",
+      "guard_sha256": "7904b485c1a0d9054b1f67ada1ca312296632e50c5c0c88e1be641f1c6373550",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-3p-08",
+      "job_id": "6ae2847441e90535df77ede2",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-search_geo-3p-08/launch.json",
+      "guard_sha256": "2921796569082a8922e730b34cac04cadfe7d284ced5274f3fcd27963164412d",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-3p-12",
+      "job_id": "6ae284753fb22a235dd4bf33",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-search_geo-3p-12/launch.json",
+      "guard_sha256": "bb678bd83f58b8cc697fd868328fedcdcdd875a787f11f079be024f835ca24a8",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-3p-16",
+      "job_id": "6ae284753fb22a235dd4bf37",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-search_geo-3p-16/launch.json",
+      "guard_sha256": "9ea144102759e1175a812e2976b9293817260f7e1b09e87719efdea01fb10128",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-3p-20",
+      "job_id": "6ae284753fb22a235dd4bf39",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-search_geo-3p-20/launch.json",
+      "guard_sha256": "3f68b20d1646cd87f067ebe1ca3d0817bc24449a8c7b192f3111be37ed8b517e",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-3p-24",
+      "job_id": "6ae284763fb22a235dd4bf3b",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-search_geo-3p-24/launch.json",
+      "guard_sha256": "7b8d282bd76b9bce6749b90328687a90f4d867b1095b63101c198df4cdf10c5c",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-3p-28",
+      "job_id": "6ae2847641e90535df77ede6",
+      "arm": "filter",
+      "players": 3,
+      "guard_path": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-search_geo-3p-28/launch.json",
+      "guard_sha256": "643b1fb5b95d107648fc87f8a9ddf5533da3e48bb4eab2080568ee841fa75638",
+      "stage": "RUNNING"
+    }
+  ],
+  "initial_status_counts": {
+    "RUNNING": 64
+  },
+  "launch_snapshot_sha256": "1c06f402bf40a52956b59e12fdee3b14e62e23153da6ba0e67ef8f43884af3c0",
+  "source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "revision": "7db94147918597e1da1e8ee2f4bd12b96aa067b5",
+    "archive": "strong-source-current-auction-grid-v1.tgz",
+    "sha256": "bb2ef01bc09f176c62545971aa02b5e9dadc947fb14dd52ca191667ba456bfe0",
+    "source_manifest_sha256": "28752635cfaee648b3e6f5ab999132291be575d56d3cbc7fd3e6450ee3b399f5",
+    "protocol_sha256": "d0504c3f92d94fe96a1b336f26fe0e6c991502a3e03ff17fb1b2d00f53067d93"
+  },
+  "source_descriptor_sha256": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "51bcd4362ec78690bf91cc54fe9aa0aecd8a7277",
+    "archive_path": "archives/current-auction-confirmation-launch-evidence-v1.tgz",
+    "archive_sha256": "a1f29e996bea95745a1d492bf50a470daacc4d27018982c89b457d2f62d60bc1",
+    "manifest_sha256": "7737f0811ca6ea433ab3b0bcd6f698c56fe413f0bc7af888636b20ce40da2ceb",
+    "archived_files": 128,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "new_gradients": 0,
+  "policy_changed": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

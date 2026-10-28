@@ -1,5 +1,63 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October, 23:43 UTC — all 64 originals terminal; owner stopped and shutdown failure diagnosed.**
+
+Original coordinator PID 1981427 / session 28315 exited at 23:29:44 UTC after
+64 submissions and seven verified jobs. The latest HF snapshot found **63
+COMPLETED and one ERROR**, with no additional failures or active jobs. Completed
+status does not replace independent collection/audit. No further submissions,
+retries or replacements.
+Read [the updated execution handoff](CURRENT-AUCTION-CONFIRMATION-2026-10-28.md).
+
+The failed heuristic/3p job `6ae2847a41e90535df77edf5` contains all 48 terminal
+game files. One child's 30-second shutdown timeout occurred after its completed
+game was written, leaving only 47 records in the parent summary. The separately
+labelled diagnostic reconstruction passed the unchanged auditor on all 48
+original games / 6,486 decisions, without changing raw records or running policy
+inference. Original HF ERROR, failed report and immutable archive are preserved.
+The cause of slow child shutdown remains unknown. This is not yet admitted
+confirmation evidence and does not change the failure status.
+
+Next implement and test an explicit recovery path for complete terminal data,
+rejecting every incomplete/capped/mismatched/non-shutdown case. Keep all planned
+games, policies and seeds unchanged; record the recovery decision before any
+resumed submissions. Do not restart the original coordinator, redo source
+preparation, rerun the failed games or use partial wins. The source and 35 pins
+remain unchanged. Research active; no candidate qualified; final seeds unused.
+The successful diagnosis and original failure evidence are privately archived
+and download-verified at model revision
+`500ad08c88eefdd638abdc95538ecb6fd9218e60`; descriptor
+`strong/current-auction-shutdown-diagnostic-evidence-v1.json`. The full original
+failed job archive is separately pinned at revision
+`c544b8a6006ee5be60b90e7362962a2c7f39bcd1`.
+
+**28 October, 23:27 UTC — frozen current-engine confirmation launched.**
+
+Read [the confirmation execution handoff](CURRENT-AUCTION-CONFIRMATION-2026-10-28.md).
+All four original runtime pilots / 64 games passed, with 48,560 uncapped
+continuations. Fresh source preparation re-audited their raw evidence and sized
+**944 original jobs / 26,880 games** from costs alone. The source archive was
+uploaded and download-verified at dataset revision
+`7db94147918597e1da1e8ee2f4bd12b96aa067b5`.
+
+The sole coordinator is **PID 1981427 / session 28315**. Its actual process and
+35 pins were verified; a fresh HF inventory matched the first **64 originals,
+all RUNNING**, at 23:27:37 UTC. It owns at most 64 active jobs, collects/audits
+before further submissions and stops on failures without automatic retries or
+restarts. Do not launch a competing owner or collector. Preserve all original
+handles and intents. No partial-win analysis or policy changes.
+
+This is a fresh strength confirmation across 2–6 players and all four rules,
+with 32 independent deals per count. After all 26,880 games complete, the fixed
+comparison must independently re-audit every raw archive and retain every
+adverse result. Reserved final seeds remain unused; no candidate qualified.
+The original runtime collector and actual-8840U benchmark are complete and
+must not be restarted. Research remains active.
+The 128-file launch/recovery snapshot is privately archived and download-verified
+at model revision `51bcd4362ec78690bf91cc54fe9aa0aecd8a7277`; the descriptor is
+`strong/current-auction-confirmation-launch-evidence-v1.json`. It preserves the
+first 64 original guards and references the immutable raw pilot/source archives.
+
 **28 October, 23:19 UTC — current-engine 8840U benchmark completed and audited.**
 
 All **320/320 responses** match the exact references across 160 saved positions

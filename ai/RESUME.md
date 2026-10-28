@@ -1,5 +1,21 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October update — current-engine economic transitions verified on 33 recorded games.**
+
+The frozen and pinned current engines match after **16,330 actions**, with
+3,443 historical learner requests and all 33 final economies/outcomes verified.
+All legal menus and hidden bid logs match in this corpus. Fifteen log changes
+are exactly one extra `Starting Step 3.` event each. Clock/UI revision metadata
+exclusions and two preserved checker failures are explicit in
+[the transition replay](CURRENT-ENGINE-TRANSITIONS-2026-10-28.md).
+
+No model inference, search, fresh strength games, HF jobs or gradients were
+added. This supports fixed-action compatibility, not the discounted-nomination
+edge, edited choices, alternate decks, wrapper auto-pass, current-engine search
+migration or qualification. Finish the unchanged auction comparison before
+selecting another strength study. The two admitted corrected resource pilots
+remain separate runtime work. Final seeds remain unused; research stays active.
+
 **28 October, 18:31 UTC — corrected v4 runtime pilots launched.**
 
 The six originals are terminal: five audited successes / 88 games and one

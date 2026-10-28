@@ -64339,5 +64339,105 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "remaining": "Collect only these two exact v4 handles with the v4 collector; independently audit complete games, preserve failures, never retry uncertain submissions. Finish the separate unchanged 10080-game auction comparison before choosing another strength study. Current-engine transition/serving validation and final qualification remain outstanding."
+    },
+    "current_engine_fixed_transition_replay_v1": {
+        "recorded_at": "2026-10-28T18:48:30.554055+00:00",
+        "goal_turn_classification": "progress",
+        "previous_goal_turn_classification": "progress",
+        "status": "fixed_recorded_transitions_match_current_engine_not_strength_validation",
+        "document": "ai/CURRENT-ENGINE-TRANSITIONS-2026-10-28.md",
+        "current_engine_commit": "3adad0cc0d1d31352aa7a9059bd15efa79647269",
+        "recorded_games": 33,
+        "historical_requests_matching_except_clocks": 3443,
+        "learner_actions": 4720,
+        "opponent_actions": 11610,
+        "transitions": 16330,
+        "changed_economic_transitions": 0,
+        "changed_menus": 0,
+        "changed_hidden_bid_logs": 0,
+        "terminal_economies_exact": 33,
+        "semantic_log_differences": 15,
+        "log_difference_classification": "Only one appended Starting Step 3 event in each affected transition.",
+        "coverage": {
+            "players": {
+                "2": 2842,
+                "3": 1932,
+                "4": 2595,
+                "5": 3094,
+                "6": 5867
+            },
+            "rules": {
+                "original-sealed": 5943,
+                "recharged-sealed": 2973,
+                "original-open": 4048,
+                "recharged-open": 3366
+            },
+            "phases": {
+                "Auction": 4927,
+                "Resources": 5197,
+                "Building": 3029,
+                "Bureaucracy": 3177
+            },
+            "steps": {
+                "1": 8624,
+                "2": 2628,
+                "3": 5078
+            },
+            "moves": {
+                "ChoosePowerPlant": 845,
+                "Bid": 2234,
+                "BuyResource": 3901,
+                "Pass": 5172,
+                "Build": 1733,
+                "UsePowerPlant": 2013,
+                "DiscardPowerPlant": 432
+            },
+            "seats": {
+                "2:0": 1502,
+                "2:1": 1340,
+                "3:0": 673,
+                "3:1": 612,
+                "3:2": 647,
+                "4:0": 646,
+                "4:1": 651,
+                "4:2": 620,
+                "4:3": 678,
+                "5:0": 669,
+                "5:1": 604,
+                "5:2": 613,
+                "5:3": 592,
+                "5:4": 616,
+                "6:0": 1114,
+                "6:1": 954,
+                "6:2": 971,
+                "6:3": 933,
+                "6:4": 953,
+                "6:5": 942
+            }
+        },
+        "report_sha256": "562a0c9f124198f2d46588170024b45cc092ff0947341fa4afbcbfb4e4880143",
+        "design_sha256": "1d33fdb6465b80bdf688e6e5e036c77cb1b624388378051e6b939b822b964a5f",
+        "assessment_sha256": "d6057cd6fe5f4f732d10cd5b45b1ef0a1e5eed4a31506b885a7aeb0b620e51e1",
+        "differences_sha256": "12f38a4b4733983cea26e3960f4ef37cfede9ce969e7bffe3e7adc82de50d113",
+        "preserved_initial_harness_failures": 2,
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "e2338bf95ec9187aefb305519a1fe0bf62e71d81",
+            "archive_path": "archives/current-engine-transitions-evidence-v1.tgz",
+            "archive_sha256": "e19ff3ea024d291ae40f5ad6e7e88cf33a1bd1e8f4ec750a5cfbfd31986730e0",
+            "manifest_sha256": "72b7ef3650f17fa363ecfb1520691ca38c77562d2505af2ea40d9802c99a1eea",
+            "archived_files": 34,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "scope": "fixed-historical-transition-compatibility",
+        "new_hf_jobs": 0,
+        "new_inference": 0,
+        "new_search_rollouts": 0,
+        "new_full_game_trajectories": 0,
+        "new_gradients": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "remaining": "Finish unchanged auction comparison and collect the two corrected runtime pilots. Fixed-action parity does not validate discounted nomination, new policy trajectories, edited choices, alternate decks, platform auto-pass or search migration; validate intended engine and serving before final qualification/deployment."
     }
 }

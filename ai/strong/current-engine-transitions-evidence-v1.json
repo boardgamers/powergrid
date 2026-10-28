@@ -1,0 +1,30 @@
+{
+  "status": "fixed_recorded_transitions_match_current_engine_not_strength_validation",
+  "report_sha256": "562a0c9f124198f2d46588170024b45cc092ff0947341fa4afbcbfb4e4880143",
+  "design_sha256": "1d33fdb6465b80bdf688e6e5e036c77cb1b624388378051e6b939b822b964a5f",
+  "assessment_sha256": "d6057cd6fe5f4f732d10cd5b45b1ef0a1e5eed4a31506b885a7aeb0b620e51e1",
+  "differences_sha256": "12f38a4b4733983cea26e3960f4ef37cfede9ce969e7bffe3e7adc82de50d113",
+  "recorded_games": 33,
+  "transitions": 16330,
+  "original_requests_exact": 3443,
+  "terminal_economies_exact": 33,
+  "log_differences": 15,
+  "log_difference_classification": "Only one appended Starting Step 3 event in each affected transition.",
+  "preserved_initial_harness_failures": 2,
+  "new_hf_jobs": 0,
+  "new_inference": 0,
+  "new_full_game_trajectories": 0,
+  "new_gradients": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "e2338bf95ec9187aefb305519a1fe0bf62e71d81",
+    "archive_path": "archives/current-engine-transitions-evidence-v1.tgz",
+    "archive_sha256": "e19ff3ea024d291ae40f5ad6e7e88cf33a1bd1e8f4ec750a5cfbfd31986730e0",
+    "manifest_sha256": "72b7ef3650f17fa363ecfb1520691ca38c77562d2505af2ea40d9802c99a1eea",
+    "archived_files": 34,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  }
+}

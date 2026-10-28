@@ -1,0 +1,2049 @@
+{
+  "passed": true,
+  "scope": "fixed-historical-transition-replay",
+  "recorded_games": 33,
+  "original_requests_exact": 3443,
+  "learner_moves": 4720,
+  "opponent_moves": 11610,
+  "transitions": 16330,
+  "changed_economic_transitions": 0,
+  "changed_legal_menus": 0,
+  "newly_affordable_nominations": 0,
+  "current_action_rejections": 0,
+  "changed_log_transitions": 15,
+  "changed_hidden_log_transitions": 0,
+  "terminal_economies_exact": 33,
+  "coverage": {
+    "players": {
+      "2": 2842,
+      "3": 1932,
+      "4": 2595,
+      "5": 3094,
+      "6": 5867
+    },
+    "rules": {
+      "original-sealed": 5943,
+      "recharged-sealed": 2973,
+      "original-open": 4048,
+      "recharged-open": 3366
+    },
+    "phases": {
+      "Auction": 4927,
+      "Resources": 5197,
+      "Building": 3029,
+      "Bureaucracy": 3177
+    },
+    "steps": {
+      "1": 8624,
+      "2": 2628,
+      "3": 5078
+    },
+    "moves": {
+      "ChoosePowerPlant": 845,
+      "Bid": 2234,
+      "BuyResource": 3901,
+      "Pass": 5172,
+      "Build": 1733,
+      "UsePowerPlant": 2013,
+      "DiscardPowerPlant": 432
+    },
+    "seats": {
+      "2:0": 1502,
+      "2:1": 1340,
+      "3:0": 673,
+      "3:1": 612,
+      "3:2": 647,
+      "4:0": 646,
+      "4:1": 651,
+      "4:2": 620,
+      "4:3": 678,
+      "5:0": 669,
+      "5:1": 604,
+      "5:2": 613,
+      "5:3": 592,
+      "5:4": 616,
+      "6:0": 1114,
+      "6:1": 954,
+      "6:2": 971,
+      "6:3": 933,
+      "6:4": 953,
+      "6:5": 942
+    }
+  },
+  "games": [
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-2p-economic/decisions-0.jsonl",
+      "players": 2,
+      "seat": 0,
+      "requests": 118,
+      "steps": 329,
+      "learner_moves": 183,
+      "opponent_moves": 146,
+      "terminal_exact": true,
+      "final": {
+        "round": 12,
+        "players": [
+          {
+            "cities": 20,
+            "powered": 20,
+            "money": 66,
+            "capacity": 24,
+            "plants": [
+              26,
+              35,
+              46,
+              36
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 20,
+            "money": 126,
+            "capacity": 20,
+            "plants": [
+              27,
+              39,
+              50,
+              44
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-2p-economic/decisions-1.jsonl",
+      "players": 2,
+      "seat": 0,
+      "requests": 112,
+      "steps": 300,
+      "learner_moves": 156,
+      "opponent_moves": 144,
+      "terminal_exact": true,
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 42,
+            "capacity": 22,
+            "plants": [
+              34,
+              24,
+              46,
+              50
+            ]
+          },
+          {
+            "cities": 18,
+            "powered": 18,
+            "money": 10,
+            "capacity": 20,
+            "plants": [
+              16,
+              29,
+              36,
+              39
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-2p-economic/decisions-2.jsonl",
+      "players": 2,
+      "seat": 0,
+      "requests": 129,
+      "steps": 336,
+      "learner_moves": 179,
+      "opponent_moves": 157,
+      "terminal_exact": true,
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 30,
+            "capacity": 21,
+            "plants": [
+              27,
+              26,
+              46,
+              50
+            ]
+          },
+          {
+            "cities": 20,
+            "powered": 20,
+            "money": 0,
+            "capacity": 20,
+            "plants": [
+              15,
+              39,
+              31,
+              44
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-2p-economic/decisions-3.jsonl",
+      "players": 2,
+      "seat": 0,
+      "requests": 131,
+      "steps": 355,
+      "learner_moves": 182,
+      "opponent_moves": 173,
+      "terminal_exact": true,
+      "final": {
+        "round": 12,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 114,
+            "capacity": 24,
+            "plants": [
+              31,
+              50,
+              35,
+              46
+            ]
+          },
+          {
+            "cities": 20,
+            "powered": 18,
+            "money": 109,
+            "capacity": 18,
+            "plants": [
+              13,
+              39,
+              40,
+              44
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-2p-economic/decisions-4.jsonl",
+      "players": 2,
+      "seat": 1,
+      "requests": 107,
+      "steps": 300,
+      "learner_moves": 167,
+      "opponent_moves": 133,
+      "terminal_exact": true,
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 19,
+            "powered": 19,
+            "money": 112,
+            "capacity": 19,
+            "plants": [
+              27,
+              35,
+              44,
+              30
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 66,
+            "capacity": 24,
+            "plants": [
+              20,
+              39,
+              46,
+              50
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-2p-legacy/decisions-0.jsonl",
+      "players": 2,
+      "seat": 0,
+      "requests": 119,
+      "steps": 310,
+      "learner_moves": 169,
+      "opponent_moves": 141,
+      "terminal_exact": true,
+      "final": {
+        "round": 12,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 17,
+            "money": 79,
+            "capacity": 20,
+            "plants": [
+              23,
+              26,
+              39,
+              50
+            ]
+          },
+          {
+            "cities": 7,
+            "powered": 7,
+            "money": 18,
+            "capacity": 15,
+            "plants": [
+              20,
+              17,
+              29,
+              37
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-2p-legacy/decisions-1.jsonl",
+      "players": 2,
+      "seat": 0,
+      "requests": 102,
+      "steps": 257,
+      "learner_moves": 152,
+      "opponent_moves": 105,
+      "terminal_exact": true,
+      "final": {
+        "round": 10,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 19,
+            "money": 62,
+            "capacity": 19,
+            "plants": [
+              22,
+              31,
+              34,
+              50
+            ]
+          },
+          {
+            "cities": 8,
+            "powered": 8,
+            "money": 10,
+            "capacity": 12,
+            "plants": [
+              10,
+              7,
+              27,
+              35
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-2p-legacy/decisions-2.jsonl",
+      "players": 2,
+      "seat": 0,
+      "requests": 128,
+      "steps": 321,
+      "learner_moves": 184,
+      "opponent_moves": 137,
+      "terminal_exact": true,
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 13,
+            "capacity": 22,
+            "plants": [
+              24,
+              26,
+              39,
+              46
+            ]
+          },
+          {
+            "cities": 7,
+            "powered": 7,
+            "money": 21,
+            "capacity": 14,
+            "plants": [
+              20,
+              17,
+              13,
+              50
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-2p-legacy/decisions-3.jsonl",
+      "players": 2,
+      "seat": 0,
+      "requests": 119,
+      "steps": 334,
+      "learner_moves": 164,
+      "opponent_moves": 170,
+      "terminal_exact": true,
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 21,
+            "powered": 21,
+            "money": 75,
+            "capacity": 23,
+            "plants": [
+              31,
+              34,
+              50,
+              39
+            ]
+          },
+          {
+            "cities": 21,
+            "powered": 16,
+            "money": 6,
+            "capacity": 16,
+            "plants": [
+              16,
+              24,
+              26,
+              29
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-3p-economic/decisions-0.jsonl",
+      "players": 3,
+      "seat": 0,
+      "requests": 107,
+      "steps": 399,
+      "learner_moves": 149,
+      "opponent_moves": 250,
+      "terminal_exact": true,
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 17,
+            "powered": 17,
+            "money": 7,
+            "capacity": 19,
+            "plants": [
+              40,
+              38,
+              39
+            ]
+          },
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 124,
+            "capacity": 14,
+            "plants": [
+              26,
+              29,
+              44
+            ]
+          },
+          {
+            "cities": 15,
+            "powered": 15,
+            "money": 29,
+            "capacity": 16,
+            "plants": [
+              25,
+              30,
+              34
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-3p-economic/decisions-1.jsonl",
+      "players": 3,
+      "seat": 0,
+      "requests": 87,
+      "steps": 317,
+      "learner_moves": 120,
+      "opponent_moves": 197,
+      "terminal_exact": true,
+      "final": {
+        "round": 9,
+        "players": [
+          {
+            "cities": 17,
+            "powered": 17,
+            "money": 28,
+            "capacity": 18,
+            "plants": [
+              26,
+              50,
+              36
+            ]
+          },
+          {
+            "cities": 11,
+            "powered": 11,
+            "money": 21,
+            "capacity": 16,
+            "plants": [
+              33,
+              38,
+              44
+            ]
+          },
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 20,
+            "capacity": 16,
+            "plants": [
+              29,
+              31,
+              32
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-3p-economic/decisions-2.jsonl",
+      "players": 3,
+      "seat": 0,
+      "requests": 107,
+      "steps": 460,
+      "learner_moves": 148,
+      "opponent_moves": 312,
+      "terminal_exact": true,
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 16,
+            "powered": 16,
+            "money": 11,
+            "capacity": 18,
+            "plants": [
+              34,
+              46,
+              39
+            ]
+          },
+          {
+            "cities": 15,
+            "powered": 15,
+            "money": 117,
+            "capacity": 15,
+            "plants": [
+              29,
+              26,
+              40
+            ]
+          },
+          {
+            "cities": 19,
+            "powered": 15,
+            "money": 128,
+            "capacity": 15,
+            "plants": [
+              25,
+              44,
+              35
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-3p-economic/decisions-3.jsonl",
+      "players": 3,
+      "seat": 0,
+      "requests": 110,
+      "steps": 376,
+      "learner_moves": 138,
+      "opponent_moves": 238,
+      "terminal_exact": true,
+      "final": {
+        "round": 9,
+        "players": [
+          {
+            "cities": 18,
+            "powered": 18,
+            "money": 21,
+            "capacity": 18,
+            "plants": [
+              26,
+              50,
+              36
+            ]
+          },
+          {
+            "cities": 13,
+            "powered": 13,
+            "money": 23,
+            "capacity": 14,
+            "plants": [
+              18,
+              31,
+              40
+            ]
+          },
+          {
+            "cities": 8,
+            "powered": 8,
+            "money": 23,
+            "capacity": 17,
+            "plants": [
+              32,
+              33,
+              38
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-3p-economic/decisions-8.jsonl",
+      "players": 3,
+      "seat": 2,
+      "requests": 99,
+      "steps": 380,
+      "learner_moves": 140,
+      "opponent_moves": 240,
+      "terminal_exact": true,
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 2,
+            "capacity": 16,
+            "plants": [
+              25,
+              34,
+              39
+            ]
+          },
+          {
+            "cities": 16,
+            "powered": 16,
+            "money": 93,
+            "capacity": 16,
+            "plants": [
+              29,
+              44,
+              46
+            ]
+          },
+          {
+            "cities": 18,
+            "powered": 17,
+            "money": 40,
+            "capacity": 17,
+            "plants": [
+              26,
+              35,
+              38
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-4p-economic/decisions-0.jsonl",
+      "players": 4,
+      "seat": 0,
+      "requests": 95,
+      "steps": 531,
+      "learner_moves": 125,
+      "opponent_moves": 406,
+      "terminal_exact": true,
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 15,
+            "powered": 15,
+            "money": 8,
+            "capacity": 20,
+            "plants": [
+              38,
+              50,
+              46
+            ]
+          },
+          {
+            "cities": 18,
+            "powered": 16,
+            "money": 125,
+            "capacity": 16,
+            "plants": [
+              26,
+              31,
+              44
+            ]
+          },
+          {
+            "cities": 16,
+            "powered": 16,
+            "money": 124,
+            "capacity": 16,
+            "plants": [
+              28,
+              32,
+              39
+            ]
+          },
+          {
+            "cities": 16,
+            "powered": 16,
+            "money": 21,
+            "capacity": 17,
+            "plants": [
+              30,
+              34,
+              42
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-4p-economic/decisions-1.jsonl",
+      "players": 4,
+      "seat": 0,
+      "requests": 91,
+      "steps": 461,
+      "learner_moves": 126,
+      "opponent_moves": 335,
+      "terminal_exact": true,
+      "final": {
+        "round": 10,
+        "players": [
+          {
+            "cities": 19,
+            "powered": 18,
+            "money": 3,
+            "capacity": 18,
+            "plants": [
+              30,
+              39,
+              40
+            ]
+          },
+          {
+            "cities": 16,
+            "powered": 16,
+            "money": 33,
+            "capacity": 18,
+            "plants": [
+              33,
+              36,
+              46
+            ]
+          },
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 6,
+            "capacity": 15,
+            "plants": [
+              31,
+              27,
+              50
+            ]
+          },
+          {
+            "cities": 16,
+            "powered": 16,
+            "money": 40,
+            "capacity": 16,
+            "plants": [
+              21,
+              25,
+              38
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-4p-economic/decisions-12.jsonl",
+      "players": 4,
+      "seat": 3,
+      "requests": 94,
+      "steps": 453,
+      "learner_moves": 143,
+      "opponent_moves": 310,
+      "terminal_exact": true,
+      "final": {
+        "round": 10,
+        "players": [
+          {
+            "cities": 11,
+            "powered": 11,
+            "money": 12,
+            "capacity": 16,
+            "plants": [
+              29,
+              30,
+              39
+            ]
+          },
+          {
+            "cities": 12,
+            "powered": 12,
+            "money": 5,
+            "capacity": 17,
+            "plants": [
+              26,
+              32,
+              50
+            ]
+          },
+          {
+            "cities": 10,
+            "powered": 10,
+            "money": 16,
+            "capacity": 16,
+            "plants": [
+              33,
+              38,
+              34
+            ]
+          },
+          {
+            "cities": 18,
+            "powered": 16,
+            "money": 3,
+            "capacity": 16,
+            "plants": [
+              35,
+              46,
+              24
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-4p-economic/decisions-2.jsonl",
+      "players": 4,
+      "seat": 0,
+      "requests": 115,
+      "steps": 592,
+      "learner_moves": 145,
+      "opponent_moves": 447,
+      "terminal_exact": true,
+      "final": {
+        "round": 10,
+        "players": [
+          {
+            "cities": 17,
+            "powered": 15,
+            "money": 6,
+            "capacity": 15,
+            "plants": [
+              29,
+              24,
+              38
+            ]
+          },
+          {
+            "cities": 15,
+            "powered": 15,
+            "money": 51,
+            "capacity": 15,
+            "plants": [
+              27,
+              32,
+              39
+            ]
+          },
+          {
+            "cities": 17,
+            "powered": 17,
+            "money": 7,
+            "capacity": 18,
+            "plants": [
+              30,
+              31,
+              50
+            ]
+          },
+          {
+            "cities": 13,
+            "powered": 13,
+            "money": 6,
+            "capacity": 14,
+            "plants": [
+              26,
+              33,
+              44
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-4p-economic/decisions-3.jsonl",
+      "players": 4,
+      "seat": 0,
+      "requests": 116,
+      "steps": 558,
+      "learner_moves": 141,
+      "opponent_moves": 417,
+      "terminal_exact": true,
+      "final": {
+        "round": 10,
+        "players": [
+          {
+            "cities": 18,
+            "powered": 18,
+            "money": 35,
+            "capacity": 18,
+            "plants": [
+              26,
+              50,
+              36
+            ]
+          },
+          {
+            "cities": 16,
+            "powered": 16,
+            "money": 64,
+            "capacity": 19,
+            "plants": [
+              30,
+              38,
+              39
+            ]
+          },
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 17,
+            "capacity": 16,
+            "plants": [
+              25,
+              32,
+              34
+            ]
+          },
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 3,
+            "capacity": 16,
+            "plants": [
+              31,
+              28,
+              40
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-5p-economic/decisions-0.jsonl",
+      "players": 5,
+      "seat": 0,
+      "requests": 96,
+      "steps": 593,
+      "learner_moves": 134,
+      "opponent_moves": 459,
+      "terminal_exact": true,
+      "final": {
+        "round": 10,
+        "players": [
+          {
+            "cities": 17,
+            "powered": 17,
+            "money": 12,
+            "capacity": 20,
+            "plants": [
+              31,
+              38,
+              46
+            ]
+          },
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 34,
+            "capacity": 15,
+            "plants": [
+              34,
+              28,
+              50
+            ]
+          },
+          {
+            "cities": 16,
+            "powered": 16,
+            "money": 99,
+            "capacity": 16,
+            "plants": [
+              25,
+              26,
+              30
+            ]
+          },
+          {
+            "cities": 13,
+            "powered": 13,
+            "money": 40,
+            "capacity": 13,
+            "plants": [
+              21,
+              27,
+              39
+            ]
+          },
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 26,
+            "capacity": 14,
+            "plants": [
+              33,
+              32,
+              24
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-5p-economic/decisions-1.jsonl",
+      "players": 5,
+      "seat": 0,
+      "requests": 86,
+      "steps": 479,
+      "learner_moves": 124,
+      "opponent_moves": 355,
+      "terminal_exact": true,
+      "final": {
+        "round": 9,
+        "players": [
+          {
+            "cities": 17,
+            "powered": 16,
+            "money": 46,
+            "capacity": 16,
+            "plants": [
+              21,
+              30,
+              39
+            ]
+          },
+          {
+            "cities": 8,
+            "powered": 8,
+            "money": 29,
+            "capacity": 17,
+            "plants": [
+              29,
+              36,
+              50
+            ]
+          },
+          {
+            "cities": 7,
+            "powered": 7,
+            "money": 12,
+            "capacity": 16,
+            "plants": [
+              25,
+              31,
+              35
+            ]
+          },
+          {
+            "cities": 8,
+            "powered": 8,
+            "money": 4,
+            "capacity": 15,
+            "plants": [
+              34,
+              32,
+              33
+            ]
+          },
+          {
+            "cities": 10,
+            "powered": 10,
+            "money": 11,
+            "capacity": 17,
+            "plants": [
+              24,
+              46,
+              40
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-5p-economic/decisions-16.jsonl",
+      "players": 5,
+      "seat": 4,
+      "requests": 96,
+      "steps": 607,
+      "learner_moves": 133,
+      "opponent_moves": 474,
+      "terminal_exact": true,
+      "final": {
+        "round": 10,
+        "players": [
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 75,
+            "capacity": 16,
+            "plants": [
+              21,
+              31,
+              30
+            ]
+          },
+          {
+            "cities": 15,
+            "powered": 15,
+            "money": 12,
+            "capacity": 16,
+            "plants": [
+              33,
+              32,
+              39
+            ]
+          },
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 12,
+            "capacity": 16,
+            "plants": [
+              34,
+              20,
+              50
+            ]
+          },
+          {
+            "cities": 13,
+            "powered": 13,
+            "money": 136,
+            "capacity": 13,
+            "plants": [
+              25,
+              24,
+              28
+            ]
+          },
+          {
+            "cities": 16,
+            "powered": 16,
+            "money": 8,
+            "capacity": 17,
+            "plants": [
+              26,
+              35,
+              38
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-5p-economic/decisions-2.jsonl",
+      "players": 5,
+      "seat": 0,
+      "requests": 117,
+      "steps": 800,
+      "learner_moves": 155,
+      "opponent_moves": 645,
+      "terminal_exact": true,
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 16,
+            "powered": 14,
+            "money": 21,
+            "capacity": 14,
+            "plants": [
+              21,
+              30,
+              37
+            ]
+          },
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 85,
+            "capacity": 15,
+            "plants": [
+              24,
+              39,
+              35
+            ]
+          },
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 99,
+            "capacity": 17,
+            "plants": [
+              33,
+              46,
+              50
+            ]
+          },
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 117,
+            "capacity": 16,
+            "plants": [
+              34,
+              32,
+              26
+            ]
+          },
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 102,
+            "capacity": 18,
+            "plants": [
+              25,
+              38,
+              40
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-5p-economic/decisions-3.jsonl",
+      "players": 5,
+      "seat": 0,
+      "requests": 100,
+      "steps": 615,
+      "learner_moves": 122,
+      "opponent_moves": 493,
+      "terminal_exact": true,
+      "final": {
+        "round": 9,
+        "players": [
+          {
+            "cities": 15,
+            "powered": 15,
+            "money": 6,
+            "capacity": 16,
+            "plants": [
+              35,
+              29,
+              36
+            ]
+          },
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 37,
+            "capacity": 16,
+            "plants": [
+              25,
+              33,
+              46
+            ]
+          },
+          {
+            "cities": 13,
+            "powered": 13,
+            "money": 6,
+            "capacity": 16,
+            "plants": [
+              21,
+              39,
+              50
+            ]
+          },
+          {
+            "cities": 12,
+            "powered": 12,
+            "money": 0,
+            "capacity": 17,
+            "plants": [
+              24,
+              32,
+              38
+            ]
+          },
+          {
+            "cities": 13,
+            "powered": 13,
+            "money": 7,
+            "capacity": 17,
+            "plants": [
+              31,
+              30,
+              26
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-6p-economic/decisions-0.jsonl",
+      "players": 6,
+      "seat": 0,
+      "requests": 90,
+      "steps": 680,
+      "learner_moves": 127,
+      "opponent_moves": 553,
+      "terminal_exact": true,
+      "final": {
+        "round": 10,
+        "players": [
+          {
+            "cities": 17,
+            "powered": 15,
+            "money": 7,
+            "capacity": 15,
+            "plants": [
+              24,
+              25,
+              40
+            ]
+          },
+          {
+            "cities": 11,
+            "powered": 11,
+            "money": 0,
+            "capacity": 18,
+            "plants": [
+              20,
+              50,
+              46
+            ]
+          },
+          {
+            "cities": 16,
+            "powered": 15,
+            "money": 137,
+            "capacity": 15,
+            "plants": [
+              29,
+              26,
+              39
+            ]
+          },
+          {
+            "cities": 8,
+            "powered": 8,
+            "money": 18,
+            "capacity": 20,
+            "plants": [
+              32,
+              36,
+              38
+            ]
+          },
+          {
+            "cities": 13,
+            "powered": 13,
+            "money": 120,
+            "capacity": 17,
+            "plants": [
+              30,
+              34,
+              42
+            ]
+          },
+          {
+            "cities": 13,
+            "powered": 13,
+            "money": 131,
+            "capacity": 14,
+            "plants": [
+              21,
+              31,
+              33
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-6p-economic/decisions-1.jsonl",
+      "players": 6,
+      "seat": 0,
+      "requests": 77,
+      "steps": 506,
+      "learner_moves": 102,
+      "opponent_moves": 404,
+      "terminal_exact": true,
+      "final": {
+        "round": 8,
+        "players": [
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 25,
+            "capacity": 14,
+            "plants": [
+              15,
+              29,
+              38
+            ]
+          },
+          {
+            "cities": 3,
+            "powered": 3,
+            "money": 15,
+            "capacity": 15,
+            "plants": [
+              21,
+              33,
+              36
+            ]
+          },
+          {
+            "cities": 7,
+            "powered": 7,
+            "money": 10,
+            "capacity": 15,
+            "plants": [
+              20,
+              24,
+              40
+            ]
+          },
+          {
+            "cities": 9,
+            "powered": 9,
+            "money": 16,
+            "capacity": 17,
+            "plants": [
+              31,
+              34,
+              50
+            ]
+          },
+          {
+            "cities": 5,
+            "powered": 5,
+            "money": 9,
+            "capacity": 17,
+            "plants": [
+              26,
+              30,
+              39
+            ]
+          },
+          {
+            "cities": 9,
+            "powered": 9,
+            "money": 6,
+            "capacity": 15,
+            "plants": [
+              25,
+              28,
+              32
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-6p-economic/decisions-2.jsonl",
+      "players": 6,
+      "seat": 0,
+      "requests": 121,
+      "steps": 858,
+      "learner_moves": 158,
+      "opponent_moves": 700,
+      "terminal_exact": true,
+      "final": {
+        "round": 10,
+        "players": [
+          {
+            "cities": 15,
+            "powered": 15,
+            "money": 19,
+            "capacity": 15,
+            "plants": [
+              19,
+              36,
+              44
+            ]
+          },
+          {
+            "cities": 13,
+            "powered": 12,
+            "money": 3,
+            "capacity": 17,
+            "plants": [
+              25,
+              34,
+              46
+            ]
+          },
+          {
+            "cities": 13,
+            "powered": 13,
+            "money": 64,
+            "capacity": 18,
+            "plants": [
+              26,
+              32,
+              38
+            ]
+          },
+          {
+            "cities": 7,
+            "powered": 7,
+            "money": 16,
+            "capacity": 15,
+            "plants": [
+              28,
+              35,
+              40
+            ]
+          },
+          {
+            "cities": 13,
+            "powered": 13,
+            "money": 124,
+            "capacity": 13,
+            "plants": [
+              21,
+              27,
+              39
+            ]
+          },
+          {
+            "cities": 16,
+            "powered": 16,
+            "money": 100,
+            "capacity": 16,
+            "plants": [
+              29,
+              31,
+              50
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-6p-economic/decisions-20.jsonl",
+      "players": 6,
+      "seat": 5,
+      "requests": 90,
+      "steps": 593,
+      "learner_moves": 119,
+      "opponent_moves": 474,
+      "terminal_exact": true,
+      "final": {
+        "round": 9,
+        "players": [
+          {
+            "cities": 4,
+            "powered": 4,
+            "money": 24,
+            "capacity": 16,
+            "plants": [
+              31,
+              26,
+              35
+            ]
+          },
+          {
+            "cities": 11,
+            "powered": 11,
+            "money": 12,
+            "capacity": 14,
+            "plants": [
+              27,
+              33,
+              46
+            ]
+          },
+          {
+            "cities": 7,
+            "powered": 7,
+            "money": 13,
+            "capacity": 17,
+            "plants": [
+              30,
+              25,
+              39
+            ]
+          },
+          {
+            "cities": 10,
+            "powered": 10,
+            "money": 2,
+            "capacity": 15,
+            "plants": [
+              16,
+              34,
+              38
+            ]
+          },
+          {
+            "cities": 12,
+            "powered": 12,
+            "money": 14,
+            "capacity": 17,
+            "plants": [
+              29,
+              32,
+              36
+            ]
+          },
+          {
+            "cities": 15,
+            "powered": 15,
+            "money": 8,
+            "capacity": 16,
+            "plants": [
+              28,
+              40,
+              50
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-6p-economic/decisions-3.jsonl",
+      "players": 6,
+      "seat": 0,
+      "requests": 102,
+      "steps": 634,
+      "learner_moves": 126,
+      "opponent_moves": 508,
+      "terminal_exact": true,
+      "final": {
+        "round": 8,
+        "players": [
+          {
+            "cities": 13,
+            "powered": 13,
+            "money": 20,
+            "capacity": 14,
+            "plants": [
+              21,
+              24,
+              50
+            ]
+          },
+          {
+            "cities": 13,
+            "powered": 12,
+            "money": 5,
+            "capacity": 16,
+            "plants": [
+              26,
+              29,
+              36
+            ]
+          },
+          {
+            "cities": 4,
+            "powered": 4,
+            "money": 7,
+            "capacity": 14,
+            "plants": [
+              20,
+              27,
+              39
+            ]
+          },
+          {
+            "cities": 5,
+            "powered": 5,
+            "money": 16,
+            "capacity": 12,
+            "plants": [
+              18,
+              31,
+              33
+            ]
+          },
+          {
+            "cities": 15,
+            "powered": 15,
+            "money": 29,
+            "capacity": 15,
+            "plants": [
+              25,
+              30,
+              28
+            ]
+          },
+          {
+            "cities": 4,
+            "powered": 4,
+            "money": 19,
+            "capacity": 20,
+            "plants": [
+              32,
+              38,
+              46
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-6p-legacy/decisions-0.jsonl",
+      "players": 6,
+      "seat": 0,
+      "requests": 103,
+      "steps": 768,
+      "learner_moves": 133,
+      "opponent_moves": 635,
+      "terminal_exact": true,
+      "final": {
+        "round": 11,
+        "players": [
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 12,
+            "capacity": 17,
+            "plants": [
+              30,
+              50,
+              44
+            ]
+          },
+          {
+            "cities": 7,
+            "powered": 7,
+            "money": 28,
+            "capacity": 13,
+            "plants": [
+              28,
+              16,
+              40
+            ]
+          },
+          {
+            "cities": 9,
+            "powered": 9,
+            "money": 24,
+            "capacity": 17,
+            "plants": [
+              29,
+              39,
+              46
+            ]
+          },
+          {
+            "cities": 13,
+            "powered": 13,
+            "money": 0,
+            "capacity": 14,
+            "plants": [
+              21,
+              34,
+              35
+            ]
+          },
+          {
+            "cities": 13,
+            "powered": 8,
+            "money": 6,
+            "capacity": 15,
+            "plants": [
+              26,
+              23,
+              36
+            ]
+          },
+          {
+            "cities": 8,
+            "powered": 8,
+            "money": 13,
+            "capacity": 10,
+            "plants": [
+              17,
+              24,
+              33
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-6p-legacy/decisions-1.jsonl",
+      "players": 6,
+      "seat": 0,
+      "requests": 98,
+      "steps": 653,
+      "learner_moves": 132,
+      "opponent_moves": 521,
+      "terminal_exact": true,
+      "final": {
+        "round": 10,
+        "players": [
+          {
+            "cities": 15,
+            "powered": 15,
+            "money": 1,
+            "capacity": 18,
+            "plants": [
+              20,
+              50,
+              46
+            ]
+          },
+          {
+            "cities": 7,
+            "powered": 7,
+            "money": 12,
+            "capacity": 13,
+            "plants": [
+              28,
+              29,
+              34
+            ]
+          },
+          {
+            "cities": 10,
+            "powered": 10,
+            "money": 29,
+            "capacity": 17,
+            "plants": [
+              31,
+              39,
+              44
+            ]
+          },
+          {
+            "cities": 8,
+            "powered": 8,
+            "money": 25,
+            "capacity": 15,
+            "plants": [
+              26,
+              19,
+              38
+            ]
+          },
+          {
+            "cities": 10,
+            "powered": 10,
+            "money": 9,
+            "capacity": 16,
+            "plants": [
+              24,
+              35,
+              36
+            ]
+          },
+          {
+            "cities": 10,
+            "powered": 10,
+            "money": 8,
+            "capacity": 12,
+            "plants": [
+              11,
+              37,
+              40
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-6p-legacy/decisions-2.jsonl",
+      "players": 6,
+      "seat": 0,
+      "requests": 107,
+      "steps": 681,
+      "learner_moves": 145,
+      "opponent_moves": 536,
+      "terminal_exact": true,
+      "final": {
+        "round": 9,
+        "players": [
+          {
+            "cities": 15,
+            "powered": 15,
+            "money": 15,
+            "capacity": 18,
+            "plants": [
+              26,
+              32,
+              38
+            ]
+          },
+          {
+            "cities": 11,
+            "powered": 11,
+            "money": 6,
+            "capacity": 14,
+            "plants": [
+              19,
+              35,
+              50
+            ]
+          },
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 8,
+            "capacity": 18,
+            "plants": [
+              31,
+              40,
+              42
+            ]
+          },
+          {
+            "cities": 3,
+            "powered": 3,
+            "money": 20,
+            "capacity": 14,
+            "plants": [
+              17,
+              30,
+              39
+            ]
+          },
+          {
+            "cities": 5,
+            "powered": 5,
+            "money": 5,
+            "capacity": 12,
+            "plants": [
+              24,
+              21,
+              28
+            ]
+          },
+          {
+            "cities": 7,
+            "powered": 7,
+            "money": 5,
+            "capacity": 15,
+            "plants": [
+              25,
+              34,
+              44
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai/runs/resource-turn-full-integration-v2/model-turn-6p-legacy/decisions-3.jsonl",
+      "players": 6,
+      "seat": 0,
+      "requests": 74,
+      "steps": 494,
+      "learner_moves": 99,
+      "opponent_moves": 395,
+      "terminal_exact": true,
+      "final": {
+        "round": 7,
+        "players": [
+          {
+            "cities": 14,
+            "powered": 14,
+            "money": 13,
+            "capacity": 15,
+            "plants": [
+              25,
+              29,
+              30
+            ]
+          },
+          {
+            "cities": 6,
+            "powered": 6,
+            "money": 5,
+            "capacity": 10,
+            "plants": [
+              11,
+              26,
+              27
+            ]
+          },
+          {
+            "cities": 12,
+            "powered": 5,
+            "money": 25,
+            "capacity": 5,
+            "plants": [
+              15,
+              18
+            ]
+          },
+          {
+            "cities": 4,
+            "powered": 4,
+            "money": 19,
+            "capacity": 10,
+            "plants": [
+              12,
+              28,
+              33
+            ]
+          },
+          {
+            "cities": 6,
+            "powered": 6,
+            "money": 4,
+            "capacity": 12,
+            "plants": [
+              22,
+              24,
+              31
+            ]
+          },
+          {
+            "cities": 3,
+            "powered": 3,
+            "money": 21,
+            "capacity": 9,
+            "plants": [
+              5,
+              20,
+              23
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "new_inference": 0,
+  "new_search_rollouts": 0,
+  "new_hf_jobs": 0,
+  "new_full_game_trajectories": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "interpretation": "Fixed-action economic transition parity on 33 recorded games. New UI/revision metadata and clocks are excluded explicitly; menu/log differences are reported. Does not test automatic wrapper moves, edited choices, alternate decks, new options, fresh-policy strength, or current-engine search migration.",
+  "design_sha256": "1d33fdb6465b80bdf688e6e5e036c77cb1b624388378051e6b939b822b964a5f",
+  "assessment_sha256": "d6057cd6fe5f4f732d10cd5b45b1ef0a1e5eed4a31506b885a7aeb0b620e51e1",
+  "differences_sha256": "12f38a4b4733983cea26e3960f4ef37cfede9ce969e7bffe3e7adc82de50d113"
+}

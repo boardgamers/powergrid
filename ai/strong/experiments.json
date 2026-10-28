@@ -65489,5 +65489,65 @@
         "goal_status": "active",
         "candidate_qualified": false,
         "reserved_final_seeds_used": false
+    },
+    "current_auction_runtime_third_verified_v1": {
+        "status": "three_originals_verified_six_player_search_original_running",
+        "checked_at": "2026-10-28T22:39:45.791631+00:00",
+        "checkpoint": "ai/strong/current-auction-runtime-progress-v3.json",
+        "checkpoint_sha256": "ffd552e54bacccc8a98bbe0c052e4c0f52add67e13178829557b5331f57eae8b",
+        "verified_jobs": 3,
+        "verified_games": 40,
+        "new_verified_original": {
+            "name": "pg-current-auction-runtime-v1-filter-6p",
+            "job_id": "6ae273363fb22a235dd4a65d",
+            "games": 24,
+            "counts": {
+                "decisions": 2829,
+                "root_filter_overrides": 1,
+                "rollouts": 0,
+                "rollout_caps": 0,
+                "neural_decisions": 0,
+                "search_changes": 0,
+                "search_decisions": 0
+            },
+            "measurement": {
+                "seconds": 1549.8547244319925,
+                "cpu_seconds": 5920.21,
+                "sampled_peak_total_rss_bytes": 2678063104,
+                "memory_samples": 7664,
+                "memory_sampling_period_seconds": 0.2,
+                "includes_startup_and_validation": true
+            },
+            "guard_sha256": "e448336021bf13ed44a176cf7a58f22132039df1ea1d5a49a71f759a9c6a5da3",
+            "verified_receipt_sha256": "b36749f41685beb856e2ad0c5355d8dcda2e5e74c7e7e0f31a8845b8720bd0b1",
+            "archive": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "b25c58f05464206c16e86398604ecf59285c675e",
+                "archive_path": "archives/pg-current-auction-runtime-v1-filter-6p.tgz",
+                "archive_sha256": "2e238588df08feae3d4a6a4414d661844a2d8bb2d4d877ceda7c965f51673cd6",
+                "manifest_sha256": "5ca0189616c41e57f6796ad446a01ae8d69ced945408f54bd7af8ffbb1c66fe4",
+                "archived_files": 85,
+                "format": "tar.gz",
+                "remote_archive_verified": true
+            }
+        },
+        "remaining_original_progress": {
+            "checked_at": "2026-10-28T22:39:32.687369+00:00",
+            "name": "pg-current-auction-runtime-v1-pop-6p",
+            "job_id": "6ae273363fb22a235dd4a660",
+            "stage": "RUNNING",
+            "last_game_progress": {
+                "complete": 8,
+                "expected": 24,
+                "episode": 8
+            },
+            "progress_records": 8
+        },
+        "grid_admitted": false,
+        "new_hf_jobs": 0,
+        "new_gradients": 0,
+        "goal_status": "active",
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

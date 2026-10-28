@@ -1,0 +1,157 @@
+{
+  "checked_at": "2026-10-28T22:39:45.791631+00:00",
+  "status": "three_originals_verified_six_player_search_original_running",
+  "source_sha256": "d76b90f0ab5156c08c6c312abb7d7f640da79dfdd254f15c698ef049d47857c7",
+  "verified_jobs": 3,
+  "expected_jobs": 4,
+  "verified_games": 40,
+  "expected_games": 64,
+  "statuses": [
+    {
+      "checked_at": "2026-10-28T22:16:25.009033+00:00",
+      "job_id": "6ae2733541e90535df77d71e",
+      "stage": "COMPLETED",
+      "name": "pg-current-auction-runtime-v1-filter-2p"
+    },
+    {
+      "checked_at": "2026-10-28T22:39:36.287968+00:00",
+      "job_id": "6ae273363fb22a235dd4a65d",
+      "stage": "COMPLETED",
+      "name": "pg-current-auction-runtime-v1-filter-6p"
+    },
+    {
+      "checked_at": "2026-10-28T22:29:09.532952+00:00",
+      "job_id": "6ae2733641e90535df77d722",
+      "stage": "COMPLETED",
+      "name": "pg-current-auction-runtime-v1-pop-2p"
+    },
+    {
+      "checked_at": "2026-10-28T22:39:45.791631+00:00",
+      "job_id": "6ae273363fb22a235dd4a660",
+      "stage": "RUNNING",
+      "name": "pg-current-auction-runtime-v1-pop-6p"
+    }
+  ],
+  "verified": [
+    {
+      "name": "pg-current-auction-runtime-v1-filter-2p",
+      "job_id": "6ae2733541e90535df77d71e",
+      "games": 8,
+      "counts": {
+        "decisions": 1483,
+        "root_filter_overrides": 1,
+        "rollouts": 0,
+        "rollout_caps": 0,
+        "neural_decisions": 0,
+        "search_changes": 0,
+        "search_decisions": 0
+      },
+      "measurement": {
+        "seconds": 78.30777059309185,
+        "cpu_seconds": 288.03,
+        "sampled_peak_total_rss_bytes": 2297688064,
+        "memory_samples": 386,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      "guard_sha256": "db0877b9e9ac036faa032f2ef9245049015bb8caa998f0009474bf64df9a5e67",
+      "verified_receipt_sha256": "1d57a3b9a06bccf4737cfe2ce911dab1c84e6689ed8b6c2073e55c8d6a8d42a9",
+      "archive": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "dd5f34dbd0e07c6c85169d2a0719d62eea8155bc",
+        "archive_path": "archives/pg-current-auction-runtime-v1-filter-2p.tgz",
+        "archive_sha256": "967dec21b9ace71c1d0eae533456c40c7bc69f7f14553f326990c909c018df71",
+        "manifest_sha256": "7e67722e3aca41ba3dcb53e329820bf0220fc867db695819e36fbbfd655eb8c0",
+        "archived_files": 37,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-auction-runtime-v1-filter-6p",
+      "job_id": "6ae273363fb22a235dd4a65d",
+      "games": 24,
+      "counts": {
+        "decisions": 2829,
+        "root_filter_overrides": 1,
+        "rollouts": 0,
+        "rollout_caps": 0,
+        "neural_decisions": 0,
+        "search_changes": 0,
+        "search_decisions": 0
+      },
+      "measurement": {
+        "seconds": 1549.8547244319925,
+        "cpu_seconds": 5920.21,
+        "sampled_peak_total_rss_bytes": 2678063104,
+        "memory_samples": 7664,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      "guard_sha256": "e448336021bf13ed44a176cf7a58f22132039df1ea1d5a49a71f759a9c6a5da3",
+      "verified_receipt_sha256": "b36749f41685beb856e2ad0c5355d8dcda2e5e74c7e7e0f31a8845b8720bd0b1",
+      "archive": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "b25c58f05464206c16e86398604ecf59285c675e",
+        "archive_path": "archives/pg-current-auction-runtime-v1-filter-6p.tgz",
+        "archive_sha256": "2e238588df08feae3d4a6a4414d661844a2d8bb2d4d877ceda7c965f51673cd6",
+        "manifest_sha256": "5ca0189616c41e57f6796ad446a01ae8d69ced945408f54bd7af8ffbb1c66fe4",
+        "archived_files": 85,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-auction-runtime-v1-pop-2p",
+      "job_id": "6ae2733641e90535df77d722",
+      "games": 8,
+      "counts": {
+        "decisions": 1504,
+        "root_filter_overrides": 1,
+        "rollouts": 12000,
+        "rollout_caps": 0,
+        "neural_decisions": 1123276,
+        "search_changes": 60,
+        "search_decisions": 299,
+        "surrogate_decisions": 0
+      },
+      "measurement": {
+        "seconds": 589.3831361420162,
+        "cpu_seconds": 2493.16,
+        "sampled_peak_total_rss_bytes": 6772736000,
+        "memory_samples": 2895,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      "guard_sha256": "77c95a5420f0abffc71bc713e708678fa998f0a6169106343251818349ec1579",
+      "verified_receipt_sha256": "ac458c14eaf34cc7720ae2fd5634c642b271d0d14692ffd2fdc5fda4af659183",
+      "archive": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "5c742eae3c7aa1944389131e1d0895c9274db4fb",
+        "archive_path": "archives/pg-current-auction-runtime-v1-pop-2p.tgz",
+        "archive_sha256": "20f1e2ff96698ffe6266ee29a040479ab69768954293bcf22906368ab8fe3a25",
+        "manifest_sha256": "d32da6db72850370cdd56fdd5ad124202ff95d3f44bdb5c71af1c3bfdeaba359",
+        "archived_files": 37,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    }
+  ],
+  "remaining_original_progress": {
+    "checked_at": "2026-10-28T22:39:32.687369+00:00",
+    "name": "pg-current-auction-runtime-v1-pop-6p",
+    "job_id": "6ae273363fb22a235dd4a660",
+    "stage": "RUNNING",
+    "last_game_progress": {
+      "complete": 8,
+      "expected": 24,
+      "episode": 8
+    },
+    "progress_records": 8
+  },
+  "interpretation": "Runtime and portability only. In-progress counts are not audited completion or strength evidence. Wait for the remaining original job and complete raw audit before resource admission.",
+  "grid_admitted": false,
+  "goal_status": "active",
+  "candidate_qualified": false,
+  "reserved_final_seeds_used": false
+}

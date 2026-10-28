@@ -1,5 +1,15 @@
 # Current-engine confirmation: execution and analysis readiness
 
+**22:39 UTC update:** the original filter/6p job also passed its audit, bringing
+the completed total to 40/64 games. Its 24-game workflow took 1,549.85 seconds,
+5,920.21 CPU-seconds and 2.678 GB sampled peak RSS. Its immutable raw archive is
+revision `b25c58f05464206c16e86398604ecf59285c675e`, SHA-256
+`2e238588df08feae3d4a6a4414d661844a2d8bb2d4d877ceda7c965f51673cd6`.
+See `strong/current-auction-runtime-progress-v3.json`. The pop/6p original was
+confirmed RUNNING at 22:39:45; its earlier log check reported 8/24 complete.
+No grid source, coordinator or new jobs exist. The original 22:35 readiness
+snapshot and its archived bytes below remain unchanged.
+
 **28 October, 22:35 UTC. Research remains active; no candidate qualified.**
 
 The two original two-player runtime pilots are complete and independently

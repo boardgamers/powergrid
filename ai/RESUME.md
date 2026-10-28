@@ -1,5 +1,18 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October, 22:39 UTC — three original pilots now audited, 40/64 games.**
+
+The filter/6p original `6ae273363fb22a235dd4a65d` passed its independent raw
+audit: 24 complete games / 2,829 decisions, zero caps; measured workflow
+1,549.85 seconds wall / 5,920.21 CPU-seconds, sampled peak RSS 2.678 GB.
+Its verified private raw archive is revision `b25c58f05464206c16e86398604ecf59285c675e`.
+`strong/current-auction-runtime-progress-v3.json` preserves all three audits.
+The only remaining original, pop/6p `6ae273363fb22a235dd4a660`, was confirmed
+RUNNING at 22:39:45 UTC. Its preceding log check reported 8/24 games complete;
+that partial count is not an audit or strength result. No local collector is
+running. Next use the bounded runtime collector, then review the complete four
+pilot costs before preparing the fresh comparison. No jobs were added this turn.
+
 **28 October, 22:35 UTC — two original pilots audited; fresh comparison tooling tested.**
 
 Read [the current confirmation readiness note](CURRENT-AUCTION-GRID-READINESS-2026-10-28.md).

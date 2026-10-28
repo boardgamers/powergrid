@@ -1,5 +1,18 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October update — stateless resource sampling anchor verified.**
+
+A separate public-history helper now reconstructs the exact first-decision seed
+from every later purchase in 354 recorded turns / 1,664 positions. All 13,312
+sampled latent-world checks pass across 2–6 players, all rules and Steps 1–3.
+It uses no per-turn cache; duplicate/reordered requests, private-field controls
+and malformed-history rejection were checked. This is a mechanism, not a new
+strength result. No inference, continuations, full games or HF jobs were started
+for these checks. Read [the anchor handoff](RESOURCE-TURN-ANCHOR-2026-10-28.md).
+Next integrate a separately pinned stable-sampling policy and auditor; all v1/v2
+search policies remain unchanged. Finish the active auction comparison before
+choosing the next strategy study. No candidate is qualified or deployed.
+
 **28 October update — corrected full-game artifact v2 validated.**
 
 The correction is now integrated into a separately pinned full-game artifact.

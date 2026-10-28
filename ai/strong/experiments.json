@@ -63068,5 +63068,84 @@
         "reserved_final_seeds_used": false,
         "interpretation": "Public cardsLeft/nextCardWeak correction is integrated into a new pinned artifact; corrected atomic replanning separates input correctness from commitment. Existing choices/terminals replay exactly, all intermediate resource model inputs match complete sampled states, and two search roots reproduce historical continuations. Not fresh strength evidence.",
         "next": "Implement a stable-seed lifecycle control; finish the unchanged auction comparison before selecting a fresh resource strategy study. Search-policy full-game runtime admission, fresh paired strength, neural snapshot route and final serving gates remain due."
+    },
+    "resource_turn_stateless_sampling_anchor_v1": {
+        "date": "2026-10-28",
+        "status": "public_history_anchor_mechanism_verified_not_strength_tested",
+        "document": "ai/RESOURCE-TURN-ANCHOR-2026-10-28.md",
+        "result": "ai/strong/resource-turn-anchor-results-v1.json",
+        "evidence": "ai/strong/resource-turn-anchor-evidence-v1.json",
+        "turns": 354,
+        "counts": {
+            "positions": 1664,
+            "latent_world_checks": 13312,
+            "private_field_controls": 1664,
+            "duplicate_request_checks": 1664,
+            "purchases": 1310,
+            "state_dependent_seed_changes": 1310,
+            "reversed_request_checks": 1664,
+            "invalid_requests_rejected": 3158,
+            "untracked_spend_controls": 354,
+            "historical_seeds_reproduced": 51
+        },
+        "coverage": {
+            "players": {
+                "2": 105,
+                "3": 55,
+                "4": 55,
+                "5": 53,
+                "6": 86
+            },
+            "rules": {
+                "original/sealed": 133,
+                "recharged/sealed": 72,
+                "original/open": 78,
+                "recharged/open": 71
+            },
+            "steps": {
+                "1": 218,
+                "2": 38,
+                "3": 98
+            },
+            "rounds": {
+                "1": 53,
+                "2": 33,
+                "3": 33,
+                "4": 33,
+                "5": 33,
+                "6": 33,
+                "7": 33,
+                "8": 32,
+                "9": 30,
+                "10": 24,
+                "11": 14,
+                "12": 3
+            },
+            "families": {
+                "corrected-model": 334,
+                "historical-atomic-search": 20
+            }
+        },
+        "assessment_sha256": "090418ab0aced19b7c716d3093b68464acb13a88ab6605cce630d731efa99bf9",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "433586055f1733c20b8aa8e470b8f63aad2b8882",
+            "archive_path": "archives/resource-turn-anchor-evidence-v1.tgz",
+            "archive_sha256": "63bdb20c491d20282db3b15f11348bcf066afbc643582d12beea2bdf33f55f3f",
+            "manifest_sha256": "eab20a1829c8057ef3349280396e1496db7bb56febb1dc96df7957120b1b4c57",
+            "archived_files": 27,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "runtime_manifest_sha256": "cebda6cb0ed6a1eff28cad8cd02cb17e37bb62f59595b2237b989337b40a9415",
+        "interpretation": "The public purchase suffix reconstructs the exact first-decision seed and preserves sampled latent assumptions on these turns without process memory. Requires authentic complete public history; does not authenticate arbitrary forged logs. No search policy, causal strength gain or production readiness is established.",
+        "remaining": "Integrate separate stable-sampling search mode and independent audit, validate initial-search parity and later-purchase lifecycle, then full-game runtime admission before prospective strength comparison. Finish active auction comparison before selecting next strategy study.",
+        "new_inference": false,
+        "new_hf_jobs": 0,
+        "rollouts": 0,
+        "new_full_game_trajectories": 0,
+        "current_auction_source_changed": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

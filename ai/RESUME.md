@@ -1,5 +1,25 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October update — six resource runtime pilots launched; strength study unchanged.**
+
+The pinned v3 artifact is now running on six original HF jobs, **96 runtime-only
+games**, corrected atomic / anchored atomic / whole-turn search at two and six
+players, every seat and all four rule combinations. Direct inspection at 14:59
+UTC found all six RUNNING. Each has a four-hour timeout and no automatic retry.
+The wrapper already reproduced eight recorded games / 1,360 decisions exactly;
+eight fake-API submission guard tests passed. The full source was uploaded and
+download-verified at its immutable HF revision before submission.
+
+Read [the runtime handoff](RESOURCE-TURN-RUNTIME-2026-10-28.md) for exact original
+handles, source provenance, measurements and collection. No resource coordinator
+was created; inspect existing processes before the bounded `collect` operation.
+Do not repeat preparation or submission. Complete-game audit and runtime results
+remain pending; pilot wins are excluded from strength/candidate selection.
+`strong/resource-turn-runtime-launch-evidence-v1.json` indexes recovery evidence.
+The auction owner PID 1075760 remains live and unchanged (511 audited / 575
+submitted / 648 selected jobs at 14:57 UTC). Finish that full comparison before
+choosing the next strategy study. No gradients, final seeds or deployment.
+
 **28 October update — stable-sampling policy integrated and validated.**
 
 The new pinned v3 artifact adds `atomic-search-anchored`, keeping its sampling

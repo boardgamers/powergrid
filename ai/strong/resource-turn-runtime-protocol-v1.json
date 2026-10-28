@@ -1,0 +1,169 @@
+{
+  "revision": "resource-turn-runtime-v1",
+  "created_at": "2026-10-28T14:41:57.121155+00:00",
+  "scope": "runtime-only",
+  "purpose": "Measure full-game execution and audit boundaries for corrected atomic, anchored atomic and whole-turn resource search. Exclude all pilot outcomes from strength and candidate selection.",
+  "artifact_descriptor_sha256": "f41f16f64bf4e9b068e09e15116a6f02c5254ef60c01bd7650a0d7ad356a2e57",
+  "artifact_manifest_sha256": "91c52c3ba66dde260b8dfedac1e4d227472193f82757a0317fe079c4ccba38cb",
+  "integration_evidence_sha256": "79c41324d08cbf618b465bc9d07a0717ebfcbf552e69b0e5a4a13de3b6cf8d04",
+  "integration_archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "c85f032c9db180ebebf57d1f6540194655dbea2d",
+    "archive_path": "archives/resource-turn-anchored-policy-evidence-v1.tgz",
+    "archive_sha256": "d10abf3654648f27ee1349b50ca6947e83def49711da71d822040d6a1ac9db9e",
+    "manifest_sha256": "48be922ce7a1a695ae3f8c7d0792d7502d0d9e9e2ecaba7dbf97f516ef71761d",
+    "archived_files": 69,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "jobs": {
+    "pg-resource-turn-runtime-v1-corrected-2p.job.json": {
+      "name": "pg-resource-turn-runtime-v1-corrected-2p",
+      "mode": "atomic-search-corrected",
+      "players": 2,
+      "games": 8,
+      "workers": 4,
+      "seed": "resource-turn-runtime-v1-2p",
+      "opponent": "search_geo",
+      "start": 0,
+      "deals": 1,
+      "control": false,
+      "reference": null
+    },
+    "pg-resource-turn-runtime-v1-corrected-6p.job.json": {
+      "name": "pg-resource-turn-runtime-v1-corrected-6p",
+      "mode": "atomic-search-corrected",
+      "players": 6,
+      "games": 24,
+      "workers": 4,
+      "seed": "resource-turn-runtime-v1-6p",
+      "opponent": "search_geo",
+      "start": 0,
+      "deals": 1,
+      "control": false,
+      "reference": null
+    },
+    "pg-resource-turn-runtime-v1-anchored-2p.job.json": {
+      "name": "pg-resource-turn-runtime-v1-anchored-2p",
+      "mode": "atomic-search-anchored",
+      "players": 2,
+      "games": 8,
+      "workers": 4,
+      "seed": "resource-turn-runtime-v1-2p",
+      "opponent": "search_geo",
+      "start": 0,
+      "deals": 1,
+      "control": false,
+      "reference": null
+    },
+    "pg-resource-turn-runtime-v1-anchored-6p.job.json": {
+      "name": "pg-resource-turn-runtime-v1-anchored-6p",
+      "mode": "atomic-search-anchored",
+      "players": 6,
+      "games": 24,
+      "workers": 4,
+      "seed": "resource-turn-runtime-v1-6p",
+      "opponent": "search_geo",
+      "start": 0,
+      "deals": 1,
+      "control": false,
+      "reference": null
+    },
+    "pg-resource-turn-runtime-v1-whole-2p.job.json": {
+      "name": "pg-resource-turn-runtime-v1-whole-2p",
+      "mode": "search-turn",
+      "players": 2,
+      "games": 8,
+      "workers": 4,
+      "seed": "resource-turn-runtime-v1-2p",
+      "opponent": "search_geo",
+      "start": 0,
+      "deals": 1,
+      "control": false,
+      "reference": null
+    },
+    "pg-resource-turn-runtime-v1-whole-6p.job.json": {
+      "name": "pg-resource-turn-runtime-v1-whole-6p",
+      "mode": "search-turn",
+      "players": 6,
+      "games": 24,
+      "workers": 4,
+      "seed": "resource-turn-runtime-v1-6p",
+      "opponent": "search_geo",
+      "start": 0,
+      "deals": 1,
+      "control": false,
+      "reference": null
+    },
+    "pg-resource-turn-runtime-v1-control-2p.job.json": {
+      "name": "pg-resource-turn-runtime-v1-control-2p",
+      "mode": "filter",
+      "players": 2,
+      "games": 8,
+      "workers": 4,
+      "seed": "resource-replanning-development-v1-2p",
+      "opponent": "economic",
+      "start": 0,
+      "deals": 1,
+      "control": true,
+      "reference": "control-reference.json"
+    }
+  },
+  "hf_jobs": 6,
+  "hf_games": 96,
+  "local_recorded_replay_games": 8,
+  "flavor": "cpu-upgrade",
+  "timeout": "4h",
+  "max_concurrent_jobs": 6,
+  "resource_estimate": {
+    "calibration": [
+      {
+        "players": 2,
+        "job_id": "6add4e77046eb82b1ece123a",
+        "path": "ai/runs/resource-replanning-hf-runtime-collected-v1/resource-replanning-hf-runtime-v1-2p-resource-filter/verified.json",
+        "sha256": "031d37bb7b6fe147e66e809a2d0a4c121387956f3f2d952ba83b41b24c7b30ab",
+        "measurement": {
+          "seconds": 1204.863308650998,
+          "cpu_seconds": 4932.7699999999995,
+          "sampled_peak_total_rss_bytes": 7253655552,
+          "memory_samples": 11689,
+          "memory_sampling_period_seconds": 0.1
+        }
+      },
+      {
+        "players": 6,
+        "job_id": "6add4e781e112550ce7e5a74",
+        "path": "ai/runs/resource-replanning-hf-runtime-collected-v1/resource-replanning-hf-runtime-v1-6p-resource-filter/verified.json",
+        "sha256": "32a0bb2e92aae2d9b7b5f4e7eff3e0dc131aae6957917f0040fef5456805ea4d",
+        "measurement": {
+          "seconds": 1896.214949592999,
+          "cpu_seconds": 12197.48,
+          "sampled_peak_total_rss_bytes": 8154509312,
+          "memory_samples": 18270,
+          "memory_sampling_period_seconds": 0.1
+        }
+      }
+    ],
+    "estimated_seconds_with_setup": 8484.859798371996,
+    "reason": "900 seconds setup plus four times the previous largest measured HF endpoint wall time: factor two for reducing game concurrency from eight to four, and factor two for changed-policy overhead. Planning bound only; 75% timeout target, no guarantee.",
+    "prior_memory_peak_bytes": 8154509312
+  },
+  "reference_inputs": {
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/evaluation.json": "7290c96fc9ad3e7388451f3194a35c5172859fa713c1256227e74436ec0fca80",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/decisions-0.jsonl": "d76fc905f20cbb9746c28c560c08452cded067619384a133d027d18cb91bc2eb",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/decisions-1.jsonl": "81377e21e21d3618561f923ef10f4285f2aa86973a6678f4dbf526262aff7663",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/decisions-2.jsonl": "a7a5f2149eaf59193d3257eee334102ef6d812fa6a49f8c4fed7bff422db9394",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/decisions-3.jsonl": "d5fbf1f3f69b1836487a8bf27c198af5ed93a9c0f78c0d2922ffc455d2710877",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/decisions-4.jsonl": "f30e0446e3672070936627eafe050b83158d339cfbc8af12194ca148db5985d8",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/decisions-5.jsonl": "e944e2a7495abc2df75a401e9dc8614eb12d9b84b3f62f3ce284c812527161bc",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/decisions-6.jsonl": "73d57d6f5ad1f06ea04551415be03987a8b3aa5a943f0c8c0e9e85d39fbc814c",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/decisions-7.jsonl": "b7bea6a7e5638d5f883e8a63dea2a43451be1c2d349279d06dc97af4027cc8e5"
+  },
+  "preparer_sha256": "378959db2d7a394addc41b49d53296858296f0a13d1d43e67687e6006622138e",
+  "automatic_retries": false,
+  "development_admitted": false,
+  "new_strength_games": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

@@ -1,0 +1,119 @@
+{
+  "created_at": "2026-10-28T15:03:24.025708+00:00",
+  "scope": "runtime-only",
+  "source_descriptor_sha256": "c2022eea0186ddb76ddf8c4a227d417f1c5fcc05fe25a40449fffd21e357978d",
+  "source_revision": "8fa152b14b9940db50fb41d899c1ea6322c70405",
+  "source_archive_sha256": "5b9b405f3320249e63c8b3c618dacca6456d1e2feac46336bd659cff5192f49b",
+  "source_manifest_sha256": "d695e83d822f54ef7412ebe23e535ea87226317e778f8041adacd008614cd364",
+  "protocol_sha256": "f09275d1871fa59324a9cbd11fda6195f696bb18e7fda8c5237bf00b3afeb2c8",
+  "original_jobs": [
+    {
+      "name": "pg-resource-turn-runtime-v1-corrected-2p",
+      "job_id": "6ae20c1241e90535df775236",
+      "games": 8,
+      "mode": "atomic-search-corrected",
+      "players": 2,
+      "observed_status": {
+        "checked_at": "2026-10-28T14:59:32.476000+00:00",
+        "job_id": "6ae20c1241e90535df775236",
+        "stage": "RUNNING",
+        "name": "pg-resource-turn-runtime-v1-corrected-2p"
+      },
+      "guard_sha256": "ed6c8c349a1bddddb0ba2e2660ab4a631f21114799a5917f340a311de802f346"
+    },
+    {
+      "name": "pg-resource-turn-runtime-v1-corrected-6p",
+      "job_id": "6ae20c123fb22a235dd4146d",
+      "games": 24,
+      "mode": "atomic-search-corrected",
+      "players": 6,
+      "observed_status": {
+        "checked_at": "2026-10-28T14:59:32.795325+00:00",
+        "job_id": "6ae20c123fb22a235dd4146d",
+        "stage": "RUNNING",
+        "name": "pg-resource-turn-runtime-v1-corrected-6p"
+      },
+      "guard_sha256": "750944e01c483c2b62ecdf3162ca204f57794fa55194e0225c6e8605d085e230"
+    },
+    {
+      "name": "pg-resource-turn-runtime-v1-anchored-2p",
+      "job_id": "6ae20c133fb22a235dd4146f",
+      "games": 8,
+      "mode": "atomic-search-anchored",
+      "players": 2,
+      "observed_status": {
+        "checked_at": "2026-10-28T14:59:33.016115+00:00",
+        "job_id": "6ae20c133fb22a235dd4146f",
+        "stage": "RUNNING",
+        "name": "pg-resource-turn-runtime-v1-anchored-2p"
+      },
+      "guard_sha256": "67f685ee73984c99d3cc0c54c70e05322a016e73cffb39d9e57dce2bd36928ee"
+    },
+    {
+      "name": "pg-resource-turn-runtime-v1-anchored-6p",
+      "job_id": "6ae20c1341e90535df775238",
+      "games": 24,
+      "mode": "atomic-search-anchored",
+      "players": 6,
+      "observed_status": {
+        "checked_at": "2026-10-28T14:59:33.290777+00:00",
+        "job_id": "6ae20c1341e90535df775238",
+        "stage": "RUNNING",
+        "name": "pg-resource-turn-runtime-v1-anchored-6p"
+      },
+      "guard_sha256": "4a795f3e6a3caafb22d880ec4e8f55556edb27badae98433bec9908e9c214b99"
+    },
+    {
+      "name": "pg-resource-turn-runtime-v1-whole-2p",
+      "job_id": "6ae20c133fb22a235dd41471",
+      "games": 8,
+      "mode": "search-turn",
+      "players": 2,
+      "observed_status": {
+        "checked_at": "2026-10-28T14:59:33.512858+00:00",
+        "job_id": "6ae20c133fb22a235dd41471",
+        "stage": "RUNNING",
+        "name": "pg-resource-turn-runtime-v1-whole-2p"
+      },
+      "guard_sha256": "375a0c3c620dde654b062e4a5ee5fab374182f25d76ec03fbb6fbcac7ab7e801"
+    },
+    {
+      "name": "pg-resource-turn-runtime-v1-whole-6p",
+      "job_id": "6ae20c1341e90535df77523a",
+      "games": 24,
+      "mode": "search-turn",
+      "players": 6,
+      "observed_status": {
+        "checked_at": "2026-10-28T14:59:33.802288+00:00",
+        "job_id": "6ae20c1341e90535df77523a",
+        "stage": "RUNNING",
+        "name": "pg-resource-turn-runtime-v1-whole-6p"
+      },
+      "guard_sha256": "730a9c6df35aa35a1b15cfd8e580b95e5d72704a17370b9b7ee3ff40aad36847"
+    }
+  ],
+  "submitted_jobs": 6,
+  "planned_games": 96,
+  "verified_jobs_at_snapshot": 0,
+  "local_recorded_control_games": 8,
+  "local_recorded_control_decisions": 1360,
+  "submission_guard_tests": 8,
+  "automatic_retries": false,
+  "resource_coordinator_created": false,
+  "new_gradients": 0,
+  "new_strength_games": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "auction_source_changed": false,
+  "status": "original_runtime_jobs_launched_results_pending",
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "1de5edec1e444280c580de5a2d37ee5dd3d14661",
+    "archive_path": "archives/resource-turn-runtime-launch-evidence-v1.tgz",
+    "archive_sha256": "b4d0193946bdb7185023b7152e47aceaa1c574c55ffe71ec8eded37dbe88cb33",
+    "manifest_sha256": "73e1c6d1f657968f0925bc939238341503fc11385f497ba1f441bbc9b9184572",
+    "archived_files": 99,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  }
+}

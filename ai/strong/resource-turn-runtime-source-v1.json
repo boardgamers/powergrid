@@ -1,0 +1,187 @@
+{
+  "created_at": "2026-10-28T14:50:24.305630+00:00",
+  "archive": "strong-source-resource-turn-runtime-v1.tgz",
+  "sha256": "5b9b405f3320249e63c8b3c618dacca6456d1e2feac46336bd659cff5192f49b",
+  "bytes": 117283383,
+  "source_manifest_sha256": "d695e83d822f54ef7412ebe23e535ea87226317e778f8041adacd008614cd364",
+  "source_files": 1514,
+  "protocol_sha256": "f09275d1871fa59324a9cbd11fda6195f696bb18e7fda8c5237bf00b3afeb2c8",
+  "entry_sha256": "994e5eb4afb40e002e36bfc3d2c914ded5dbfe212a349dc76c9678f934bb701e",
+  "artifact_descriptor_sha256": "f41f16f64bf4e9b068e09e15116a6f02c5254ef60c01bd7650a0d7ad356a2e57",
+  "artifact_manifest_sha256": "91c52c3ba66dde260b8dfedac1e4d227472193f82757a0317fe079c4ccba38cb",
+  "preparation_sha256": "110b2dd87176fc324f67cd2fdd37666b94946a041ff550b6ebbec797ed083734",
+  "preflight_sha256": "005e0cbaf72ab12f1a3d988dd3356d9a4ae7ff589ce74a3a906a302ba396832f",
+  "launcher_sha256": "6aea9040ebd86b6ac9090227734e09faea7aae8bda0cc71a1947f2435b95d4db",
+  "bootstrap_sha256": "542b351db1b6e34f25e0a33e9cdba4b482203021a12455d5eab9eb28d6ae1443",
+  "node_cache_descriptor_sha256": "203e55de270732e1e15d838a8719eca9c3c0e4527cc49be54ea4f899735b9ae8",
+  "node_cache": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "repo_type": "dataset",
+    "path": "bootstrap/node-v24.14.0-linux-x64.tar.xz",
+    "official_url": "https://nodejs.org/dist/v24.14.0/node-v24.14.0-linux-x64.tar.xz",
+    "official_shasums_url": "https://nodejs.org/dist/v24.14.0/SHASUMS256.txt",
+    "sha256": "41cd79bb7877c81605a9e68ec4c91547774f46a40c67a17e34d7179ef11729df",
+    "bytes": 31039304,
+    "shasums_sha256": "e340782342ed6265ce9e14e9caa81e2260a9b4415bbd2c8ad20cea0e59617d65",
+    "local_archive": "ai/runs/node-runtime-cache-v1/node-v24.14.0-linux-x64.tar.xz.download-1",
+    "node_executable_sha256": "e237a2839d0cbdc9a9a2adda1a184afc0f5b20306ffbe923af5686550472d8a8",
+    "version": "v24.14.0",
+    "preparer_sha256": "eb4d912d8a4c0b8709c984cdbc295194850e630f5078e2d6ec91d4eea47337d4",
+    "new_hf_jobs": 0,
+    "qualification_eligible": false,
+    "reserved_final_seeds_used": false,
+    "revision": "a25e8feaa51bc9506c2469a1c7e5ad5c2d8bf346",
+    "remote_archive_verified": true,
+    "prepared_sha256": "9a69fce684b38484a58bb4b335516e4a29c1cbcc7f4284c4864a03c5c6a62453"
+  },
+  "rows": [
+    {
+      "file": "pg-resource-turn-runtime-v1-corrected-2p.job.json",
+      "job": {
+        "name": "pg-resource-turn-runtime-v1-corrected-2p",
+        "mode": "atomic-search-corrected",
+        "players": 2,
+        "games": 8,
+        "workers": 4,
+        "seed": "resource-turn-runtime-v1-2p",
+        "opponent": "search_geo",
+        "start": 0,
+        "deals": 1,
+        "control": false,
+        "reference": null
+      },
+      "job_spec_sha256": "1a07aad89cd03c43afe22f4473429b4f9345690dc274808c6f5cf6736f35de48"
+    },
+    {
+      "file": "pg-resource-turn-runtime-v1-corrected-6p.job.json",
+      "job": {
+        "name": "pg-resource-turn-runtime-v1-corrected-6p",
+        "mode": "atomic-search-corrected",
+        "players": 6,
+        "games": 24,
+        "workers": 4,
+        "seed": "resource-turn-runtime-v1-6p",
+        "opponent": "search_geo",
+        "start": 0,
+        "deals": 1,
+        "control": false,
+        "reference": null
+      },
+      "job_spec_sha256": "760d81182e2bd53ba0177d48549519de6f2a34e1befeab7ba50723d7e3dcf377"
+    },
+    {
+      "file": "pg-resource-turn-runtime-v1-anchored-2p.job.json",
+      "job": {
+        "name": "pg-resource-turn-runtime-v1-anchored-2p",
+        "mode": "atomic-search-anchored",
+        "players": 2,
+        "games": 8,
+        "workers": 4,
+        "seed": "resource-turn-runtime-v1-2p",
+        "opponent": "search_geo",
+        "start": 0,
+        "deals": 1,
+        "control": false,
+        "reference": null
+      },
+      "job_spec_sha256": "a944eec7e24bba823e26339b06d05cd2254e9f1f018bb24ba02ce04f549affd3"
+    },
+    {
+      "file": "pg-resource-turn-runtime-v1-anchored-6p.job.json",
+      "job": {
+        "name": "pg-resource-turn-runtime-v1-anchored-6p",
+        "mode": "atomic-search-anchored",
+        "players": 6,
+        "games": 24,
+        "workers": 4,
+        "seed": "resource-turn-runtime-v1-6p",
+        "opponent": "search_geo",
+        "start": 0,
+        "deals": 1,
+        "control": false,
+        "reference": null
+      },
+      "job_spec_sha256": "089801b857045206011b45c46d50c1bea6f440b1187296ac68c6d8001ff6280c"
+    },
+    {
+      "file": "pg-resource-turn-runtime-v1-whole-2p.job.json",
+      "job": {
+        "name": "pg-resource-turn-runtime-v1-whole-2p",
+        "mode": "search-turn",
+        "players": 2,
+        "games": 8,
+        "workers": 4,
+        "seed": "resource-turn-runtime-v1-2p",
+        "opponent": "search_geo",
+        "start": 0,
+        "deals": 1,
+        "control": false,
+        "reference": null
+      },
+      "job_spec_sha256": "7b1500731bc9da063f2714f5fa1194e2c818cd6d26dda2ee57a136b79a85a30e"
+    },
+    {
+      "file": "pg-resource-turn-runtime-v1-whole-6p.job.json",
+      "job": {
+        "name": "pg-resource-turn-runtime-v1-whole-6p",
+        "mode": "search-turn",
+        "players": 6,
+        "games": 24,
+        "workers": 4,
+        "seed": "resource-turn-runtime-v1-6p",
+        "opponent": "search_geo",
+        "start": 0,
+        "deals": 1,
+        "control": false,
+        "reference": null
+      },
+      "job_spec_sha256": "3b38a50287fb033090ce6c6f6a8ce7cd5afb4eaa58a7c32092bbac72e6858868"
+    }
+  ],
+  "flavor": "cpu-upgrade",
+  "timeout": "4h",
+  "max_concurrent_jobs": 6,
+  "resource_estimate": {
+    "calibration": [
+      {
+        "players": 2,
+        "job_id": "6add4e77046eb82b1ece123a",
+        "path": "ai/runs/resource-replanning-hf-runtime-collected-v1/resource-replanning-hf-runtime-v1-2p-resource-filter/verified.json",
+        "sha256": "031d37bb7b6fe147e66e809a2d0a4c121387956f3f2d952ba83b41b24c7b30ab",
+        "measurement": {
+          "seconds": 1204.863308650998,
+          "cpu_seconds": 4932.7699999999995,
+          "sampled_peak_total_rss_bytes": 7253655552,
+          "memory_samples": 11689,
+          "memory_sampling_period_seconds": 0.1
+        }
+      },
+      {
+        "players": 6,
+        "job_id": "6add4e781e112550ce7e5a74",
+        "path": "ai/runs/resource-replanning-hf-runtime-collected-v1/resource-replanning-hf-runtime-v1-6p-resource-filter/verified.json",
+        "sha256": "32a0bb2e92aae2d9b7b5f4e7eff3e0dc131aae6957917f0040fef5456805ea4d",
+        "measurement": {
+          "seconds": 1896.214949592999,
+          "cpu_seconds": 12197.48,
+          "sampled_peak_total_rss_bytes": 8154509312,
+          "memory_samples": 18270,
+          "memory_sampling_period_seconds": 0.1
+        }
+      }
+    ],
+    "estimated_seconds_with_setup": 8484.859798371996,
+    "reason": "900 seconds setup plus four times the previous largest measured HF endpoint wall time: factor two for reducing game concurrency from eight to four, and factor two for changed-policy overhead. Planning bound only; 75% timeout target, no guarantee.",
+    "prior_memory_peak_bytes": 8154509312
+  },
+  "games": 96,
+  "scope": "runtime-only",
+  "automatic_retries": false,
+  "new_strength_games": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "repo": "coyotte508/powergrid-ai-training-v1",
+  "revision": "8fa152b14b9940db50fb41d899c1ea6322c70405",
+  "hf_preparation_sha256": "77f0b4596ae68e24b10a6b738c9a6b4224a45146fb8c1f0e8a904510e893af81",
+  "remote_archive_verified": true
+}

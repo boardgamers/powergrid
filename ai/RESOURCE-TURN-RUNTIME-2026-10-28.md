@@ -2,6 +2,19 @@
 
 ## Current state
 
+**Collection update, 15:57 UTC:** two original jobs have now passed independent
+audit, totalling **16 games / 54,992 uncapped continuations / zero caps**. The
+corrected atomic two-player pilot adds eight games / 43,640 continuations,
+2,814.58 s measured wall, 8,462.71 CPU-s and 4.398 GB sampled process-tree peak
+RSS. Its raw archive is at private model revision
+`d67b0809dce1a7386a174a69ba5145f69f2a578e`,
+`archives/pg-resource-turn-runtime-v1-corrected-2p.tgz`, SHA-256
+`e7f8caf2a336fb097e6a49d3050580cdf04cd250506f99a0b60b4719209cf3d4`.
+The four other original handles were directly inspected as RUNNING. The complete
+96-game gate remains pending. This runtime evidence does not select a strategy.
+The [runtime profile](RESOURCE-RUNTIME-PROFILE-2026-10-28.md) measures where the
+completed whole-turn pilot spends its time without changing policy behaviour.
+
 **Collection update, 15:26 UTC:** the original whole-turn two-player job has
 completed and passed independent audit (eight games / 11,352 uncapped
 continuations / zero caps). Its measured workflow cost was 858.53 s wall,

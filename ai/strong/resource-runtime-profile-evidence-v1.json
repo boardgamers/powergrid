@@ -1,0 +1,36 @@
+{
+  "status": "runtime_profile_verified_not_strength_evidence",
+  "assessment_sha256": "6f506ef84b1f178266db0074a56136563cf3220f4eb925a04f26cf8f96add0d8",
+  "exact_original_receipts": 4,
+  "successful_replay_rollouts": 96,
+  "total_rollouts_including_failed_harness": 120,
+  "total_neural_decisions_including_failed_harness": 22265,
+  "local_component_fractions": {
+    "onnx_run": 0.5483482767114365,
+    "batch_preparation_and_postprocessing": 0.0406654682688659,
+    "rollout_engine_and_ipc": 0.38225426753116404,
+    "node_setup_baseline_exchange": 0.01919540971381848,
+    "other_python_and_process_startup": 0.00953657777471513
+  },
+  "preserved_failed_profile": {
+    "directory": "ai/runs/resource-runtime-profile-v1",
+    "summary_sha256": "64ea112b8b8493aa403f1e69316d7f04dfb9c825fc04981dbd55ce02f1e0efdc",
+    "original_profiler_sha256": "0adbf56d1da03e804fad5700ffa9a97cf7d20c2c03d0e8e3d058d8181273cb7b"
+  },
+  "new_hf_jobs": 0,
+  "new_full_game_trajectories": 0,
+  "new_strength_games": 0,
+  "new_gradients": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "a2874ce01ef24b454775d162372c392a8243ac73",
+    "archive_path": "archives/resource-runtime-profile-evidence-v1.tgz",
+    "archive_sha256": "1a2f315819981bac8116bb83bcc248e1e8c29292686e4c3f8ad0188e25d1cd89",
+    "manifest_sha256": "c0d7275b16ce54c5ed5b29cd36a489b445f804aea8a749f348d11e98484ae169",
+    "archived_files": 39,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  }
+}

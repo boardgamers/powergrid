@@ -1,5 +1,27 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October update — resource runtime bottleneck measured without changing policy.**
+
+In the complete audited whole-turn two-player pilot, Resources used 99.50% of
+summed policy time (95 calls, median 18.80 s on HF). Four predetermined first-turn
+roots were profiled locally and reproduce every original JSON diagnostic and
+continuation exactly: 54.83% ONNX execution, 38.23% engine/pool communication,
+4.07% batch preparation, with smaller remaining costs. These four early two-player
+positions are not a six-player or AMD 8840U benchmark. The initial profiler's
+Python-versus-JSON key comparison failure is preserved; the serialized receipt
+already matched. Read [the measured profile](RESOURCE-RUNTIME-PROFILE-2026-10-28.md).
+No new HF jobs, complete games, gradients or strength data. Use completed pilot
+memory/cost data before any new concurrency or accelerator experiment; current
+jobs are unchanged. The auction owner remained live with all pins matching at
+15:57 UTC (539 audited / 603 submitted of 648 selected jobs). Finish its full
+comparison before choosing the next strategy study. Final seeds remain unused.
+
+At the 15:57 resource collection, corrected atomic two-player also passed:
+eight games / 43,640 uncapped continuations, 2,814.58 s wall / 8,462.71 CPU-s.
+Together with whole-turn two-player, **two original pilots / 16 games** are
+independently verified. Four originals remain running; the 96-game gate is
+incomplete. No partial win results are used for selection.
+
 **28 October update — neural snapshot evaluation route verified on recorded games.**
 
 A separate adapter now runs the unchanged v3 resource policy against the frozen

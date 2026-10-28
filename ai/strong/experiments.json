@@ -63453,5 +63453,167 @@
         "current_auction_source_changed": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
+    },
+    "resource_runtime_profile_v1": {
+        "date": "2026-10-28",
+        "status": "runtime_profile_verified_not_strength_evidence",
+        "document": "ai/RESOURCE-RUNTIME-PROFILE-2026-10-28.md",
+        "result": "ai/strong/resource-runtime-profile-results-v1.json",
+        "evidence": "ai/strong/resource-runtime-profile-evidence-v1.json",
+        "assessment_sha256": "6f506ef84b1f178266db0074a56136563cf3220f4eb925a04f26cf8f96add0d8",
+        "exact_original_receipts": 4,
+        "hf_phase_timings": {
+            "source": "original_hf_job",
+            "job_id": "6ae20c133fb22a235dd41471",
+            "games": 8,
+            "phase_timings": {
+                "Auction": {
+                    "calls": 291,
+                    "sum_seconds": 4.792747220781166,
+                    "median_ms": 15.458148962352425,
+                    "p95_ms": 25.54694248829037,
+                    "max_ms": 38.619667990133166
+                },
+                "Resources": {
+                    "calls": 95,
+                    "sum_seconds": 2474.6600976121263,
+                    "median_ms": 18797.47191898059,
+                    "p95_ms": 74682.76553830357,
+                    "max_ms": 113467.40206796676
+                },
+                "Building": {
+                    "calls": 256,
+                    "sum_seconds": 3.9918355913832784,
+                    "median_ms": 14.335857995320112,
+                    "p95_ms": 24.828171532135457,
+                    "max_ms": 51.00766196846962
+                },
+                "Bureaucracy": {
+                    "calls": 277,
+                    "sum_seconds": 3.6390229234239087,
+                    "median_ms": 12.457323027774692,
+                    "p95_ms": 18.193250230979167,
+                    "max_ms": 41.612920991610736
+                }
+            },
+            "summed_policy_seconds": 2487.0837033477146,
+            "summed_search_seconds": 2472.951935295074,
+            "resource_fraction_of_summed_policy_time": 0.9950047496516239,
+            "search_fraction_of_resource_policy_time": 0.9993097386106881,
+            "rollouts": 11352,
+            "neural_decisions": 930744,
+            "workflow_measurement": {
+                "seconds": 858.5279077009764,
+                "cpu_seconds": 3079.6699999999996,
+                "sampled_peak_total_rss_bytes": 4555935744,
+                "memory_samples": 4193,
+                "memory_sampling_period_seconds": 0.2,
+                "includes_startup_and_validation": true
+            },
+            "interpretation": "Summed per-request wall intervals across four concurrent games; not job wall time, CPU attribution, production percentiles or AMD 8840U latency."
+        },
+        "local_component_fractions": {
+            "onnx_run": 0.5483482767114365,
+            "batch_preparation_and_postprocessing": 0.0406654682688659,
+            "rollout_engine_and_ipc": 0.38225426753116404,
+            "node_setup_baseline_exchange": 0.01919540971381848,
+            "other_python_and_process_startup": 0.00953657777471513
+        },
+        "successful_replay_rollouts": 96,
+        "total_rollouts_including_failed_harness": 120,
+        "total_neural_decisions_including_failed_harness": 22265,
+        "preserved_failed_profile": {
+            "directory": "ai/runs/resource-runtime-profile-v1",
+            "summary_sha256": "64ea112b8b8493aa403f1e69316d7f04dfb9c825fc04981dbd55ce02f1e0efdc",
+            "original_profiler_sha256": "0adbf56d1da03e804fad5700ffa9a97cf7d20c2c03d0e8e3d058d8181273cb7b"
+        },
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "a2874ce01ef24b454775d162372c392a8243ac73",
+            "archive_path": "archives/resource-runtime-profile-evidence-v1.tgz",
+            "archive_sha256": "1a2f315819981bac8116bb83bcc248e1e8c29292686e4c3f8ad0188e25d1cd89",
+            "manifest_sha256": "c0d7275b16ce54c5ed5b29cd36a489b445f804aea8a749f348d11e98484ae169",
+            "archived_files": 39,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "new_runtime_pilot_verified": {
+            "checked_at": "2026-10-28T15:57:15.980606+00:00",
+            "job_id": "6ae20c1241e90535df775236",
+            "stage": "COMPLETED",
+            "name": "pg-resource-turn-runtime-v1-corrected-2p",
+            "row": {
+                "file": "pg-resource-turn-runtime-v1-corrected-2p.job.json",
+                "job": {
+                    "name": "pg-resource-turn-runtime-v1-corrected-2p",
+                    "mode": "atomic-search-corrected",
+                    "players": 2,
+                    "games": 8,
+                    "workers": 4,
+                    "seed": "resource-turn-runtime-v1-2p",
+                    "opponent": "search_geo",
+                    "start": 0,
+                    "deals": 1,
+                    "control": false,
+                    "reference": null
+                },
+                "job_spec_sha256": "1a07aad89cd03c43afe22f4473429b4f9345690dc274808c6f5cf6736f35de48"
+            },
+            "review": {
+                "games": 8,
+                "audit": {
+                    "passed": true,
+                    "games": 8,
+                    "counts": {
+                        "policy_requests": 1302,
+                        "atomic_moves": 1302,
+                        "resource_turns": 0,
+                        "root_filter_overrides": 0,
+                        "rollouts": 43640,
+                        "rollout_caps": 0,
+                        "neural_decisions": 3182395
+                    },
+                    "paired_schedule_checked": true,
+                    "new_inference": 0,
+                    "new_hf_jobs": 0,
+                    "qualification_eligible": false,
+                    "reserved_final_seeds_used": false
+                },
+                "measurement": {
+                    "seconds": 2814.5818806749885,
+                    "cpu_seconds": 8462.710000000001,
+                    "sampled_peak_total_rss_bytes": 4398391296,
+                    "memory_samples": 13740,
+                    "memory_sampling_period_seconds": 0.2,
+                    "includes_startup_and_validation": true
+                },
+                "independent_audit_sha256": "63a44b42e78e48785944ec1587e13a50a7b75e46d4a69bb095cdef35860fbda8"
+            },
+            "evidence": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "d67b0809dce1a7386a174a69ba5145f69f2a578e",
+                "archive_path": "archives/pg-resource-turn-runtime-v1-corrected-2p.tgz",
+                "archive_sha256": "e7f8caf2a336fb097e6a49d3050580cdf04cd250506f99a0b60b4719209cf3d4",
+                "manifest_sha256": "39d9c0a1f53e1bd4a177bb8a064808998e2f41e56c130b2bf9ae77fe7788b102",
+                "archived_files": 41,
+                "format": "tar.gz",
+                "remote_archive_verified": true
+            },
+            "verified": true,
+            "source_sha256": "c2022eea0186ddb76ddf8c4a227d417f1c5fcc05fe25a40449fffd21e357978d",
+            "guard_sha256": "ed6c8c349a1bddddb0ba2e2660ab4a631f21114799a5917f340a311de802f346"
+        },
+        "new_runtime_pilot_verified_receipt_sha256": "8abd5d2c5b8b23bca21f1fc2219bd590da15849e1e1f022efe80a4be76d926b2",
+        "runtime_pilots_verified_at_checkpoint": 2,
+        "runtime_games_verified_at_checkpoint": 16,
+        "interpretation": "Runtime-only profile: all resource responses in one completed two-player pilot and four predetermined local first-resource-turn replays. JSON outputs and full continuation receipts match. Neural inference and engine/IPC both matter. Not a representative 6p or 8840U benchmark, not a GPU comparison or strength result.",
+        "next": "Finish original pilots and frozen auction comparison. Use complete worst-case timing/memory before admitting a throughput/concurrency test; no job or policy settings changed here.",
+        "new_hf_jobs": 0,
+        "new_full_game_trajectories": 0,
+        "new_strength_games": 0,
+        "new_gradients": 0,
+        "current_auction_source_changed": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

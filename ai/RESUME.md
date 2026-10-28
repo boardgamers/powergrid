@@ -1,5 +1,24 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October update — corrected-runtime launch controls verified, no new admission.**
+
+The separately prepared v4 runtime package now has a one-attempt launcher, with
+26 passing offline tests. It binds the original terminal evidence, source,
+separate reviewed budget and exact two-job schedule; it cannot create its own
+admission or retry an uncertain launch. The real preparation path was confirmed
+to reject missing terminal evidence/admission before creating execution artifacts.
+Read [the launcher handoff](RESOURCE-RUNTIME-LAUNCHER-2026-10-28.md). No actual
+admission, selected timeout, execution-source upload, new HF job, inference,
+new full game, gradient update or final-seed use was added. The v4 collector
+adaptation remains due before collecting any future corrected pilots.
+
+At the 17:28 UTC HF check, the original resource pilots remained three verified
+successes / 40 games, one preserved failure, and two running six-player originals.
+At 17:33 UTC the sole auction owner was confirmed alive (574 audited / 638
+submitted of 648 selected batches). Finish the original outcomes and complete
+auction comparison; do not select a policy from partial wins. No candidate has
+qualified or been deployed. The research goal remains active.
+
 **28 October update — corrected full-game job package verified, not admitted.**
 
 The v4 package's exact wrapper and full-game auditor reproduced eight recorded

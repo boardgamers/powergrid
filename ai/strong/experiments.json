@@ -63945,5 +63945,40 @@
         "qualified": false,
         "reserved_final_seeds_used": false,
         "next": "Preserve all original terminal runtime outcomes before creating a measured bounded admission and tested single-attempt launcher. Synthetic dry-test admission fixtures must never be used for execution. Continue the unchanged auction comparison."
+    },
+    "resource_runtime_corrected_launcher_v2": {
+        "status": "corrected_runtime_launcher_verified_not_admitted_or_launched",
+        "date": "2026-10-28",
+        "document": "ai/RESOURCE-RUNTIME-LAUNCHER-2026-10-28.md",
+        "launcher": "ai/strong/launch-resource-turn-runtime-v2.py",
+        "launcher_sha256": "603dbbf830693c72d23a2e9cde63fb0d3525809f8ca2a43cedf0582a70aacb68",
+        "tests": 26,
+        "test_assessment_sha256": "57ca963dd032f0a16e43329d362254cf190460d107f97af66219e5d3d8858040",
+        "source_manifest_sha256": "7678b22c535648280394cb7374c926bfcb2ea88da5c2d8b35100cda64a3c299a",
+        "evidence_descriptor": "ai/strong/resource-runtime-launcher-evidence-v2.json",
+        "evidence_descriptor_sha256": "8381c82d72937d9e4b60ab0420b5137660e889caee41af464d013701ee3ebb63",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "bf69ba97adc396a0338c35c64f71af4861864e83",
+            "archive_path": "archives/resource-runtime-launcher-evidence-v2.tgz",
+            "archive_sha256": "da02ef6328c87ad01c37ee4cde3cf392fcc896b3ed70a99263e9d4620bcd245b",
+            "manifest_sha256": "32b8ea8166fc6079a0bec005fc5e2b894a8837c8107a64c47041e726835f12a3",
+            "archived_files": 35,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "scope": "runtime-only",
+        "proposed_jobs": 2,
+        "proposed_games": 32,
+        "actual_admission_created": false,
+        "execution_source_uploaded": false,
+        "new_hf_jobs": 0,
+        "new_inference": 0,
+        "new_full_game_trajectories": 0,
+        "new_gradients": 0,
+        "automatic_retries": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "remaining": "Collect the six original terminal outcomes and review measured budget before a real admission; adapt failure-preserving v4 collection before collecting corrected pilots. Finish the unchanged auction comparison before another strength study."
     }
 }

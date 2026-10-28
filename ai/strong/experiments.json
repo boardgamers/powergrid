@@ -65417,5 +65417,77 @@
         "grid_admitted": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
+    },
+    "current_auction_grid_readiness_v1": {
+        "status": "tested_confirmation_plumbing_two_runtime_pilots_verified_two_running",
+        "checked_at": "2026-10-28T22:35:35.702864+00:00",
+        "readiness": "ai/strong/current-auction-grid-readiness-v1.json",
+        "readiness_sha256": "19bb347af99b3370428fb38e9f7e684da53034ea64fa428a23902abdf0072a29",
+        "evidence": "ai/strong/current-auction-grid-readiness-evidence-v1.json",
+        "evidence_sha256": "4308cdbadd4b0696e8c25fe6b0c834eb55a2bd82ac94778f18e77fc4e3889c73",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "7b466be6a632a349d63e6ba36247fb7f570369c2",
+            "archive_path": "archives/current-auction-grid-readiness-evidence-v1.tgz",
+            "archive_sha256": "71e08cfafb9a96dc4bd753923d6279f4e8dccf80ddb0a90145b703a7250c76f9",
+            "manifest_sha256": "4caa3b25d693e7b95fb45a8822ba34c295a79a6a7938190ad57671e63df50160",
+            "archived_files": 57,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "test_suites": {
+            "current-auction-grid-plan-tests-v1-final.log": 6,
+            "current-auction-grid-manager-tests-v1-final.log": 7,
+            "current-auction-confirmation-analysis-tests-v1-first.log": 13,
+            "current-auction-comparison-tests-v1-corrected.log": 5,
+            "current-auction-grid-coordinator-tests-v1.log": 4
+        },
+        "tests": 35,
+        "runtime_checkpoint": "ai/strong/current-auction-runtime-progress-v2.json",
+        "runtime_checkpoint_sha256": "e2c18e24197c9ef407ab4591d214409771706dfb06ad64668aae01ef5dc65ae8",
+        "runtime_verified_jobs": 2,
+        "runtime_verified_games": 16,
+        "original_runtime_jobs": [
+            {
+                "checked_at": "2026-10-28T22:16:25.009033+00:00",
+                "job_id": "6ae2733541e90535df77d71e",
+                "stage": "COMPLETED",
+                "name": "pg-current-auction-runtime-v1-filter-2p"
+            },
+            {
+                "checked_at": "2026-10-28T22:35:34.368897+00:00",
+                "job_id": "6ae273363fb22a235dd4a65d",
+                "stage": "RUNNING",
+                "name": "pg-current-auction-runtime-v1-filter-6p"
+            },
+            {
+                "checked_at": "2026-10-28T22:29:09.532952+00:00",
+                "job_id": "6ae2733641e90535df77d722",
+                "stage": "COMPLETED",
+                "name": "pg-current-auction-runtime-v1-pop-2p"
+            },
+            {
+                "checked_at": "2026-10-28T22:35:35.702864+00:00",
+                "job_id": "6ae273363fb22a235dd4a660",
+                "stage": "RUNNING",
+                "name": "pg-current-auction-runtime-v1-pop-6p"
+            }
+        ],
+        "search_rollouts_audited": 12000,
+        "neural_continuation_decisions_audited": 1123276,
+        "grid_admitted": false,
+        "grid_source_created": false,
+        "coordinator_started": false,
+        "new_hf_jobs_this_turn": 0,
+        "new_games_this_turn": 0,
+        "new_gradients": 0,
+        "initial_harness_and_preflight_failures_preserved": true,
+        "previous_goal_turn_classification": "no_progress",
+        "previous_goal_turn_note": "Answered the user Rust-engine question from existing records; no research state changed. Revalidated original live HF handles before further work.",
+        "current_goal_turn_classification": "progress",
+        "next": "Collect only the two remaining original six-player pilots; then review all four complete costs before admitting the fixed 26880-game comparison.",
+        "goal_status": "active",
+        "candidate_qualified": false,
+        "reserved_final_seeds_used": false
     }
 }

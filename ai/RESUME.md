@@ -1,5 +1,21 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October, 22:35 UTC — two original pilots audited; fresh comparison tooling tested.**
+
+Read [the current confirmation readiness note](CURRENT-AUCTION-GRID-READINESS-2026-10-28.md).
+Both two-player originals passed: 16 games in total, including 12,000 uncapped
+search continuations / 1,123,276 neural continuation decisions. Search workflow
+cost was 589.38 seconds wall / 2,493.16 CPU-seconds, sampled peak RSS 6.773 GB.
+Both six-player original handles were confirmed RUNNING at 22:35 UTC. Exact
+receipts and archives are in `strong/current-auction-runtime-progress-v2.json`.
+
+The source manager, coordinator and complete comparison passed 35 tests. No
+confirmation source or coordinator has been created and no grid jobs submitted.
+Complete the four original runtime audits and measured cost review first; the
+ready tooling does not authorize bypassing those prerequisites. The unchanged
+next protocol contains 26,880 games on 32 fresh deals per player count. Do not
+retune the policies or use final seeds. Research active; no candidate qualified.
+
 **28 October — current-engine auction adapter and search checks passed.**
 
 Read [the current-engine report](CURRENT-ENGINE-AUCTION-2026-10-28.md).

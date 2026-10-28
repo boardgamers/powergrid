@@ -63898,5 +63898,52 @@
         "qualified": false,
         "reserved_final_seeds_used": false,
         "next": "Finish collecting the remaining original runtime jobs and the full unchanged auction comparison. Admit any v4 full-game runtime work separately; preserve original failures and do not infer strength from engineering checks."
+    },
+    "resource_runtime_v4_package_preflight_v2": {
+        "recorded_at": "2026-10-28T17:20:12.032279+00:00",
+        "goal_turn_classification": "progress",
+        "previous_goal_turn_classification": "progress",
+        "status": "v4_runtime_package_replay_verified_not_admitted_or_launched",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "0c5597ce154a87da3a46a4e01ef209c7be43e237",
+            "archive_path": "archives/resource-runtime-preflight-evidence-v2.tgz",
+            "archive_sha256": "ae60f8e37c35f07d884bde1d5670489a4e458eeb01f27c5d12a6941dd31b2d55",
+            "manifest_sha256": "b2287c18da108682ff01758b3e1985e6ad15f5534bb6c90b5566c2f556872977",
+            "archived_files": 1603,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "source_manifest_sha256": "7678b22c535648280394cb7374c926bfcb2ea88da5c2d8b35100cda64a3c299a",
+        "source_files": 1510,
+        "entry_sha256": "28fc4f09a1ade8c7e4d8b49612eee06561d7cceb256798b77f4baad9e9afe474",
+        "protocol_sha256": "72f43b24137d18d578b694dd74aba1b0ea5e96864e62ab76cd80a313c15dff95",
+        "verification_sha256": "8516a6f00f965aaa756af16db010c308d0cc03d504eb1fc102daab01613414f4",
+        "admission_checks_sha256": "519ee34bcd398604b7edb7542e7c6be5aa150580b2c105647ac91b888193364e",
+        "jobs_dry_validated": 3,
+        "recorded_games_replayed": 8,
+        "exact_decisions": 1360,
+        "unadmitted_executions_rejected": 2,
+        "admission_checks": 12,
+        "actual_hf_admission_created": false,
+        "planned_hf_jobs": 2,
+        "planned_runtime_games": 32,
+        "selected_timeout_seconds": null,
+        "local_replay_measurement": {
+            "seconds": 19.050512310997874,
+            "cpu_seconds": 84.67,
+            "sampled_peak_total_rss_bytes": 1678475264,
+            "memory_samples": 93,
+            "memory_sampling_period_seconds": 0.2,
+            "includes_startup_and_validation": true
+        },
+        "initial_preparation_failure_preserved": "ai/runs/resource-turn-runtime-prepared-v2-initial",
+        "new_hf_jobs": 0,
+        "new_full_game_trajectories": 0,
+        "new_gradients": 0,
+        "new_strength_games": 0,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "next": "Preserve all original terminal runtime outcomes before creating a measured bounded admission and tested single-attempt launcher. Synthetic dry-test admission fixtures must never be used for execution. Continue the unchanged auction comparison."
     }
 }

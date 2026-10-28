@@ -1,0 +1,137 @@
+{
+  "revision": "resource-turn-runtime-v2",
+  "created_at": "2026-10-28T17:09:16.838572+00:00",
+  "scope": "runtime-only",
+  "purpose": "Prepare corrected v4 anchored full-game runtime validation at both endpoint player counts. Separate admission is mandatory after original outcomes and budget review. Exclude all pilot outcomes from strength and candidate selection.",
+  "artifact_descriptor_sha256": "1bf7b9ecdf79f68ee781cc6153cc5079e6dfe16c5051a155026a7307c6782048",
+  "artifact_manifest_sha256": "ce05c01a314305f5f0b3f7b55f6a8e13355ee0edb9bf5cae2c9688efd55cf795",
+  "integration_evidence_sha256": "da3c4c45479beb0998b9ceb1be6120766e48ebcddbc31ceaa39951099881e082",
+  "integration_archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "83f52cff588aade65aeebaa8a5cfcbd83fc6907b",
+    "archive_path": "archives/resource-turn-boundary-policy-evidence-v2.tgz",
+    "archive_sha256": "915541fc4723d82445f0686e51fe26a9555fd2a81c6f5c8d6e5bda8438ddc509",
+    "manifest_sha256": "15dfd1288426e2b1c64789f3c88eb8ec58bfd28f817727d8575518e659a0d226",
+    "archived_files": 75,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "jobs": {
+    "pg-resource-turn-runtime-v2-anchored-2p.job.json": {
+      "name": "pg-resource-turn-runtime-v2-anchored-2p",
+      "mode": "atomic-search-anchored",
+      "players": 2,
+      "games": 8,
+      "workers": 4,
+      "seed": "resource-turn-runtime-v2-2p",
+      "opponent": "search_geo",
+      "start": 0,
+      "deals": 1,
+      "control": false,
+      "reference": null
+    },
+    "pg-resource-turn-runtime-v2-anchored-6p.job.json": {
+      "name": "pg-resource-turn-runtime-v2-anchored-6p",
+      "mode": "atomic-search-anchored",
+      "players": 6,
+      "games": 24,
+      "workers": 4,
+      "seed": "resource-turn-runtime-v2-6p",
+      "opponent": "search_geo",
+      "start": 0,
+      "deals": 1,
+      "control": false,
+      "reference": null
+    },
+    "pg-resource-turn-runtime-v2-control-2p.job.json": {
+      "name": "pg-resource-turn-runtime-v2-control-2p",
+      "mode": "filter",
+      "players": 2,
+      "games": 8,
+      "workers": 4,
+      "seed": "resource-replanning-development-v1-2p",
+      "opponent": "economic",
+      "start": 0,
+      "deals": 1,
+      "control": true,
+      "reference": "control-reference.json"
+    }
+  },
+  "hf_jobs": 2,
+  "hf_games": 32,
+  "local_recorded_replay_games": 8,
+  "separate_admission_required": true,
+  "hf_admission_created": false,
+  "planned_flavor": "cpu-upgrade",
+  "planned_max_concurrent_jobs": 2,
+  "resource_estimate": {
+    "completed_calibration": [
+      {
+        "players": 2,
+        "mode": "atomic-search-corrected",
+        "job_id": "6ae20c1241e90535df775236",
+        "path": "ai/runs/resource-turn-runtime-hf-v1/pg-resource-turn-runtime-v1-corrected-2p/verified.json",
+        "sha256": "8abd5d2c5b8b23bca21f1fc2219bd590da15849e1e1f022efe80a4be76d926b2",
+        "measurement": {
+          "seconds": 2814.5818806749885,
+          "cpu_seconds": 8462.710000000001,
+          "sampled_peak_total_rss_bytes": 4398391296,
+          "memory_samples": 13740,
+          "memory_sampling_period_seconds": 0.2,
+          "includes_startup_and_validation": true
+        }
+      },
+      {
+        "players": 2,
+        "mode": "search-turn",
+        "job_id": "6ae20c133fb22a235dd41471",
+        "path": "ai/runs/resource-turn-runtime-hf-v1/pg-resource-turn-runtime-v1-whole-2p/verified.json",
+        "sha256": "e7fb7cc5b3ebb4f21aac8f24ba74a1571507f3d041190d2c7b80796192025f57",
+        "measurement": {
+          "seconds": 858.5279077009764,
+          "cpu_seconds": 3079.6699999999996,
+          "sampled_peak_total_rss_bytes": 4555935744,
+          "memory_samples": 4193,
+          "memory_sampling_period_seconds": 0.2,
+          "includes_startup_and_validation": true
+        }
+      },
+      {
+        "players": 6,
+        "mode": "search-turn",
+        "job_id": "6ae20c1341e90535df77523a",
+        "path": "ai/runs/resource-turn-runtime-outcomes-v2/pg-resource-turn-runtime-v1-whole-6p/verified.json",
+        "sha256": "1b1c2e1d1d244807518c48f5c9df42fe14c9baf9996cd99ba4774f81459c30ac",
+        "measurement": {
+          "seconds": 7056.3528083249985,
+          "cpu_seconds": 22701.910000000003,
+          "sampled_peak_total_rss_bytes": 4638265344,
+          "memory_samples": 33643,
+          "memory_sampling_period_seconds": 0.2,
+          "includes_startup_and_validation": true
+        }
+      }
+    ],
+    "timeout_seconds": null,
+    "reason": "Two original six-player atomic jobs are still live. Do not extrapolate a completed runtime from partial progress; set the separate budget only after original terminal outcomes are preserved.",
+    "prior_memory_peak_bytes": 4638265344
+  },
+  "reference_inputs": {
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/evaluation.json": "7290c96fc9ad3e7388451f3194a35c5172859fa713c1256227e74436ec0fca80",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/decisions-0.jsonl": "d76fc905f20cbb9746c28c560c08452cded067619384a133d027d18cb91bc2eb",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/decisions-1.jsonl": "81377e21e21d3618561f923ef10f4285f2aa86973a6678f4dbf526262aff7663",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/decisions-2.jsonl": "a7a5f2149eaf59193d3257eee334102ef6d812fa6a49f8c4fed7bff422db9394",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/decisions-3.jsonl": "d5fbf1f3f69b1836487a8bf27c198af5ed93a9c0f78c0d2922ffc455d2710877",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/decisions-4.jsonl": "f30e0446e3672070936627eafe050b83158d339cfbc8af12194ca148db5985d8",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/decisions-5.jsonl": "e944e2a7495abc2df75a401e9dc8614eb12d9b84b3f62f3ce284c812527161bc",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/decisions-6.jsonl": "73d57d6f5ad1f06ea04551415be03987a8b3aa5a943f0c8c0e9e85d39fbc814c",
+    "ai/runs/resource-replanning-development-collected-v1/resource-replanning-development-v1-filter-2p-economic-0-4/artifacts/evaluation/decisions-7.jsonl": "b7bea6a7e5638d5f883e8a63dea2a43451be1c2d349279d06dc97af4027cc8e5"
+  },
+  "preparer_sha256": "b3ef70f41050e49d3b5d7672f298bd8ad009a89c823e09c3656ebaa3d82f3ef7",
+  "automatic_retries": false,
+  "development_admitted": false,
+  "new_strength_games": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

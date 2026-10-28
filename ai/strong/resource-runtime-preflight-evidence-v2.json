@@ -1,0 +1,29 @@
+{
+  "status": "v4_runtime_package_replay_verified_not_admitted_or_launched",
+  "source_manifest_sha256": "7678b22c535648280394cb7374c926bfcb2ea88da5c2d8b35100cda64a3c299a",
+  "prepared_sha256": "2a4399fb656d4e4a765ad5826a8b8f51f0e874dda99206209e394b90e9dc6bf8",
+  "verification_sha256": "8516a6f00f965aaa756af16db010c308d0cc03d504eb1fc102daab01613414f4",
+  "admission_checks_sha256": "519ee34bcd398604b7edb7542e7c6be5aa150580b2c105647ac91b888193364e",
+  "recorded_games": 8,
+  "exact_decisions": 1360,
+  "admission_checks": 12,
+  "unadmitted_executions_rejected": 2,
+  "planned_hf_jobs": 2,
+  "planned_runtime_games": 32,
+  "actual_hf_admission_created": false,
+  "new_hf_jobs": 0,
+  "new_full_game_trajectories": 0,
+  "new_gradients": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "0c5597ce154a87da3a46a4e01ef209c7be43e237",
+    "archive_path": "archives/resource-runtime-preflight-evidence-v2.tgz",
+    "archive_sha256": "ae60f8e37c35f07d884bde1d5670489a4e458eeb01f27c5d12a6941dd31b2d55",
+    "manifest_sha256": "b2287c18da108682ff01758b3e1985e6ad15f5534bb6c90b5566c2f556872977",
+    "archived_files": 1603,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  }
+}

@@ -1,5 +1,24 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October update — corrected full-game job package verified, not admitted.**
+
+The v4 package's exact wrapper and full-game auditor reproduced eight recorded
+control games / all 1,360 decisions and terminal results. Three job specs pass
+dry validation, both experimental specs reject execution without a separate
+admission, and 12 additional admission/control-upload checks pass. The first
+preparation's incorrect historical-calibration path substitution is preserved;
+it failed before packaging or game execution. Read
+[the runtime preflight handoff](RESOURCE-RUNTIME-PREFLIGHT-2026-10-28.md).
+
+The proposed scope is two anchored-only endpoint jobs / 32 runtime games on new
+runtime seeds. **No actual admission, selected timeout, execution-source upload
+or job submission exists.** Original atomic six-player handles remain live
+(last reported 15/24 and 16/24 games); wait for terminal measured outcomes before
+setting the separate budget. Synthetic admission fixtures are dry-test data,
+not permission or evidence to launch. The full prepared source and replay
+receipts are archived for recovery. No fresh complete games, HF jobs, gradients,
+final seeds, qualification or deployment. Continue the unchanged auction study.
+
 **28 October update — corrected boundary integrated into a separate v4 policy.**
 
 Actual inference/search checks passed: 20 normal and three exceptional first

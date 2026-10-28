@@ -64015,5 +64015,52 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "remaining": "Preserve terminal original runtime outcomes and review their measured costs before admission. Complete the unchanged auction comparison before selecting another strength study."
+    },
+    "current_engine_saved_state_compatibility_v1": {
+        "date": "2026-10-28",
+        "status": "saved_state_menus_match_current_engine_with_confirmed_discount_edge_difference",
+        "document": "ai/CURRENT-ENGINE-COMPATIBILITY-2026-10-28.md",
+        "current_engine_commit": "3adad0cc0d1d31352aa7a9059bd15efa79647269",
+        "current_engine_version": "2.0.19",
+        "recorded_games": 33,
+        "recorded_requests": 3443,
+        "changed_recorded_menus": 0,
+        "setup_checks": 20,
+        "synthetic_discount_checks": 10,
+        "synthetic_auto_pass_checks": 20,
+        "full_transition_parity_verified": false,
+        "typecheck": false,
+        "report_sha256": "68ab2adcb2456759c6ba390a9bcd68877e9dca2dcd3d04c98fcc3a8729aa4669",
+        "evidence_descriptor": "ai/strong/current-engine-compatibility-evidence-v1.json",
+        "evidence_descriptor_sha256": "cf38727e322198a507c00f8b13bd5f3b55208b5c633086db38220d71bc10fa5c",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "e014be1a1d5b2e60f0d566640382c9a457863835",
+            "archive_path": "archives/current-engine-compatibility-evidence-v1.tgz",
+            "archive_sha256": "f08182dcff68988d63abf7bb5a35a78b8f8034a445350090b9b3265753ce50c1",
+            "manifest_sha256": "2464ecdab61dd8d9543e93bc231f60d6bc12d5d2b168f140e36d45bfa1b818f7",
+            "archived_files": 140,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "recorded_input_archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "8258d9b79e3fbd5b153fe557a970eed933ca90de",
+            "archive_path": "archives/resource-turn-full-integration-evidence-v2.tgz",
+            "archive_sha256": "e9e49af7b0a3a2b912787422a637557a4bb522b78ffc1455f3249101a95aaf71",
+            "manifest_sha256": "284949aac58e1d983037559cede076148ad6b882d9655ade104d323b167e1c17",
+            "archived_files": 242,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "initial_preparation_failure_preserved": true,
+        "scope": "engine-compatibility-only",
+        "new_hf_jobs": 0,
+        "new_inference": 0,
+        "new_full_games": 0,
+        "new_gradients": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "remaining": "Finish frozen auction comparison. Before qualification/deployment, explicitly choose intended engine, validate transitions/serving and discounted-nomination handling, and reject unsupported options; migrate only through a separately pinned evaluated runtime."
     }
 }

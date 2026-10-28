@@ -1,0 +1,42 @@
+{
+  "status": "saved_state_menus_match_current_engine_with_confirmed_discount_edge_difference",
+  "report_sha256": "68ab2adcb2456759c6ba390a9bcd68877e9dca2dcd3d04c98fcc3a8729aa4669",
+  "design_sha256": "9210eae79bcf594a9388182257d8ddd0b5f5dcfac8a3777b8619c16fc9d5b1d7",
+  "build_sha256": "b3230c20ab41bb6bf19cbacd31b413db088e97ed0111ef0cf72a62d72a1b4e65",
+  "current_engine_commit": "3adad0cc0d1d31352aa7a9059bd15efa79647269",
+  "current_engine_version": "2.0.19",
+  "recorded_games": 33,
+  "recorded_requests": 3443,
+  "changed_recorded_menus": 0,
+  "synthetic_discount_checks": 10,
+  "synthetic_auto_pass_checks": 20,
+  "setup_checks": 20,
+  "full_transition_parity_verified": false,
+  "typecheck": false,
+  "new_hf_jobs": 0,
+  "new_inference": 0,
+  "new_full_games": 0,
+  "new_gradients": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "recorded_input_archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "8258d9b79e3fbd5b153fe557a970eed933ca90de",
+    "archive_path": "archives/resource-turn-full-integration-evidence-v2.tgz",
+    "archive_sha256": "e9e49af7b0a3a2b912787422a637557a4bb522b78ffc1455f3249101a95aaf71",
+    "manifest_sha256": "284949aac58e1d983037559cede076148ad6b882d9655ade104d323b167e1c17",
+    "archived_files": 242,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "e014be1a1d5b2e60f0d566640382c9a457863835",
+    "archive_path": "archives/current-engine-compatibility-evidence-v1.tgz",
+    "archive_sha256": "f08182dcff68988d63abf7bb5a35a78b8f8034a445350090b9b3265753ce50c1",
+    "manifest_sha256": "2464ecdab61dd8d9543e93bc231f60d6bc12d5d2b168f140e36d45bfa1b818f7",
+    "archived_files": 140,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  }
+}

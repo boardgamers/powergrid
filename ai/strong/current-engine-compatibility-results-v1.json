@@ -1,0 +1,68 @@
+{
+  "current_engine_commit": "3adad0cc0d1d31352aa7a9059bd15efa79647269",
+  "current_engine_version": "2.0.19",
+  "scope": "recorded-public-action-menu-compatibility",
+  "recorded_games": 33,
+  "requests": 3443,
+  "old_menu_mismatches": 0,
+  "changed_menus": 0,
+  "changed_recorded_actions": 0,
+  "added_actions": 0,
+  "removed_actions": 0,
+  "changes_by_reason": {},
+  "coverage": {
+    "players": {
+      "2": 1065,
+      "3": 510,
+      "4": 511,
+      "5": 495,
+      "6": 862
+    },
+    "phases": {
+      "Auction": 1261,
+      "Resources": 334,
+      "Building": 908,
+      "Bureaucracy": 940
+    },
+    "rules": {
+      "original-sealed": 1214,
+      "recharged-sealed": 653,
+      "original-open": 824,
+      "recharged-open": 752
+    },
+    "steps": {
+      "1": 1856,
+      "2": 581,
+      "3": 1006
+    },
+    "seats": {
+      "2:0": 958,
+      "2:1": 107,
+      "3:0": 411,
+      "3:2": 99,
+      "4:0": 417,
+      "4:3": 94,
+      "5:0": 399,
+      "5:4": 96,
+      "6:0": 772,
+      "6:5": 90
+    }
+  },
+  "examples": [],
+  "synthetic_discount_checks": 10,
+  "synthetic_auto_pass_checks": 20,
+  "setup_checks": 20,
+  "setup_differences": 0,
+  "typecheck": false,
+  "recorded_menu_parity": true,
+  "recorded_actions_still_legal": true,
+  "interpretation": "Diagnostic only: menu compatibility on saved public states, not transition/full-game parity, strength, final qualification, or support for alternate decks/revisions/new options.",
+  "design_sha256": "9210eae79bcf594a9388182257d8ddd0b5f5dcfac8a3777b8619c16fc9d5b1d7",
+  "build_sha256": "b3230c20ab41bb6bf19cbacd31b413db088e97ed0111ef0cf72a62d72a1b4e65",
+  "details_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "new_hf_jobs": 0,
+  "new_inference": 0,
+  "new_full_games": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

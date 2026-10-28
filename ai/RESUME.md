@@ -1,5 +1,25 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October update — current-engine saved-state compatibility checked.**
+
+A separate build of current `origin/master` engine 2.0.19 matches all 3,443 legal
+menus in the predetermined 33-game recorded corpus (2–6 players, all rules,
+Steps 1–3) and 20 setup fixtures. Targeted checks also confirm a real difference
+outside those sampled positions: current Recharged rules permit nominating the
+discounted cheapest plant with one Elektro; the frozen research menu requires
+its printed number. Current auto-pass preserves that affordable choice.
+Read [the compatibility findings](CURRENT-ENGINE-COMPATIBILITY-2026-10-28.md).
+
+This is menu parity at saved states, not full-game transition or serving parity,
+and does not establish support for new options. Do not change running studies.
+Before final qualification/deployment, review the intended engine and separately
+validate any runtime migration and unsupported option handling. The initial
+preparation's wrong assessment-file binding is preserved; it failed before build
+or checks. No HF job, inference, full game, gradient, final seed or deployment
+was added. At 18:02 UTC the sole auction owner was live, with 648/648 selected
+batches submitted and 587 audited. Finish its complete comparison before choosing
+another strength study. No candidate qualified; the research goal remains active.
+
 **28 October update — corrected-runtime collector ready, no pilot launched.**
 
 The v4 collector now verifies exact launch/source/admission bindings and immutable

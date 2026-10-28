@@ -1,5 +1,19 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October, 20:24 UTC — both corrected resource runtime pilots verified.**
+
+The v4 two-/six-player jobs completed and passed independent audit: **32 games,
+118,392 uncapped continuations**, zero failures. The six-player workflow took
+6,585.55 seconds (1.83 h), with 5.108 GB sampled peak process-tree RSS. Read
+[the final runtime report](RESOURCE-RUNTIME-COMPLETE-2026-10-28.md) for exact
+handles, costs and immutable archives. Both resource jobs and their collector
+are finished; do not relaunch them. The original failed experiment is preserved.
+
+These are runtime-only games, not strength evidence or a controlled speedup.
+No new jobs, inference, games or gradients ran during collection. Finish the
+separate unchanged auction comparison before selecting another strength study.
+Research active; no candidate qualified and final seeds unused.
+
 **28 October update — untrained discount-feature model preserves predictions.**
 
 A separate schema-4.4 warm start of `frozen-1` adds 1,024 zero-initialized

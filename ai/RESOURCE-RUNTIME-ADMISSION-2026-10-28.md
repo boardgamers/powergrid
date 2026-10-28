@@ -1,5 +1,11 @@
 # Resource runtime: terminal originals and corrected v4 pilots
 
+**Final update, 20:24 UTC:** both separately admitted v4 jobs completed and
+passed independent audit, **32/32 games with zero rollout caps**. Their collector
+exited successfully. Read [the final results](RESOURCE-RUNTIME-COMPLETE-2026-10-28.md)
+for measured costs and immutable evidence; the launch observations below are
+historical. No resource jobs remain running, and none should be resubmitted.
+
 All six original resource pilots are terminal. Five jobs / **88 games** passed
 independent audit with zero rollout caps. The original anchored two-player job
 failed on the reproduced turn-boundary defect. Its partial evidence is preserved;

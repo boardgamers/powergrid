@@ -1,5 +1,26 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October, 23:19 UTC — current-engine 8840U benchmark completed and audited.**
+
+All **320/320 responses** match the exact references across 160 saved positions
+and both unchanged policies. Original target PID 3461338 finished at 23:16:01 UTC
+and has exited; collection and independent raw auditing passed. Do not relaunch
+or recollect. Canonical warm auction medians: filter **5.35 ms**, population search
+**8.34 s**; other stages **5.63 / 6.49 ms**. These are descriptive fixed-position
+timings, not general latency percentiles, a controlled engine speedup or final
+qualification. The replay verified 2,960 uncapped continuations and 512,203 neural
+decisions. Read [the final target report](CURRENT-AUCTION-CPU-2026-10-28.md).
+
+The original HF collection owner PID 1655353 finished at 23:19:23 UTC and has
+exited with all 40 pins intact. All four original pilots / 64 games are audited;
+review their complete measured costs next. Do not restart either process.
+The confirmation grid remains unadmitted. No HF jobs,
+new games, gradient updates, policy changes or reserved final seeds were added
+while collecting the target benchmark. No candidate qualified or deployed.
+The complete target raw receipts and independent audit are archived and
+download-verified at private model revision
+`632d31b0653a033da8f9a11a389d59311ad4c48f`.
+
 **28 October, 23:11 UTC — current-engine benchmark running on the actual 8840U.**
 
 Read [the current target benchmark handoff](CURRENT-AUCTION-CPU-2026-10-28.md).

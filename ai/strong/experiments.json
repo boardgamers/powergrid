@@ -65688,5 +65688,137 @@
         "candidate_qualified": false,
         "reserved_final_seeds_used": false,
         "next": "Inspect the same target PID; collect and independently audit all 320 responses after completion. Separately wait for original HF pilot collector, then review all four costs before confirmation admission."
+    },
+    "current_auction_cpu_results_v1": {
+        "status": "completed_current_engine_8840u_benchmark_independently_audited",
+        "recorded_at": "2026-10-28T23:21:28.798057+00:00",
+        "document": "ai/CURRENT-AUCTION-CPU-2026-10-28.md",
+        "target_pid": 3461338,
+        "target_exited": true,
+        "target_finished_at": "2026-10-28T23:16:01.910102+00:00",
+        "positions": 160,
+        "requests_audited": 320,
+        "exact_reference_responses": 320,
+        "counts": {
+            "decisions": 320,
+            "root_filter_overrides": 0,
+            "rollouts": 2960,
+            "rollout_caps": 0,
+            "neural_decisions": 512203,
+            "search_changes": 24,
+            "search_decisions": 88,
+            "surrogate_decisions": 0
+        },
+        "timings": {
+            "filter": {
+                "warm_groups": {
+                    "canonical": {
+                        "requests": 99,
+                        "median_ms": 5.6006149388849735,
+                        "p95_ms": 15.941091906279325,
+                        "max_ms": 18.929522018879652
+                    },
+                    "discount": {
+                        "requests": 40,
+                        "median_ms": 6.709054345265031,
+                        "p95_ms": 14.980131434276698,
+                        "max_ms": 15.721323899924755
+                    },
+                    "wrapper": {
+                        "requests": 20,
+                        "median_ms": 11.741189518943429,
+                        "p95_ms": 14.669301034882666,
+                        "max_ms": 16.19724091142416
+                    },
+                    "all": {
+                        "requests": 159,
+                        "median_ms": 6.198036018759012,
+                        "p95_ms": 15.457115415483711,
+                        "max_ms": 18.929522018879652
+                    }
+                },
+                "canonical_warm_auction_median_ms": 5.351335275918245,
+                "canonical_other_median_ms": 5.633512977510691,
+                "first_request_including_startup_ms": 684.5191479660571
+            },
+            "conservative_population": {
+                "warm_groups": {
+                    "canonical": {
+                        "requests": 99,
+                        "median_ms": 8.77518905326724,
+                        "p95_ms": 10588.803773839025,
+                        "max_ms": 12297.75291774422
+                    },
+                    "discount": {
+                        "requests": 40,
+                        "median_ms": 1749.0817946381867,
+                        "p95_ms": 7293.947049975394,
+                        "max_ms": 7883.331734221429
+                    },
+                    "wrapper": {
+                        "requests": 20,
+                        "median_ms": 6840.57422215119,
+                        "p95_ms": 8370.034676603973,
+                        "max_ms": 8439.57658810541
+                    },
+                    "all": {
+                        "requests": 159,
+                        "median_ms": 1076.0727766901255,
+                        "p95_ms": 9927.888888912274,
+                        "max_ms": 12297.75291774422
+                    }
+                },
+                "canonical_warm_auction_median_ms": 8335.58021299541,
+                "canonical_other_median_ms": 6.486681988462806,
+                "first_request_including_startup_ms": 9852.542331907898
+            }
+        },
+        "seconds": 550.9531144308858,
+        "cpu_seconds": 764.96,
+        "report": "ai/strong/current-auction-8840u-results-v1.json",
+        "report_sha256": "5617f2005a812e82711c92a90db2a162baac4e6e5de1bf2d087b255f9e0216fe",
+        "raw_receipts_sha256": "07114d2219b7fe24fe92442a185f74e0839cce9dc817f61e6b9c25c385f9e6e5",
+        "independent_audit_sha256": "5fefaf64be812184da5392a81467425e621ee3abcd782daaec81c9e9229f26d6",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "632d31b0653a033da8f9a11a389d59311ad4c48f",
+            "archive_path": "archives/current-auction-cpu-results-evidence-v1.tgz",
+            "archive_sha256": "957cf4130c573a79dcae9f3b178efdbe043bc0e07b8b28b4925cf69ca6f78788",
+            "manifest_sha256": "752920912fdd8b4b92e74b70ca0a464b8b8bd3395f7f44743cd595b1b14a07cc",
+            "archived_files": 21,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "package_archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "f491ed02f10cb71c00e7291d621bc7eb48387f22",
+            "archive_path": "archives/current-auction-cpu-launch-evidence-v1.tgz",
+            "archive_sha256": "1e90da09dd84698dbe6f3cf70ca0c5c5bf2424e49c06c972aab70083fe06fe47",
+            "manifest_sha256": "0aa1ab64075cde96f8d151ded9ff2fa2eb8091a47fd462d1183d47038bc57a68",
+            "archived_files": 19,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "original_runtime_collector": {
+            "pid": 1655353,
+            "exited": true,
+            "stage": "complete",
+            "verified_jobs": 4,
+            "games": 64,
+            "result_sha256": "fe1f794098e0755c61bb321371a133e0cf757e037c33ea462327f7d9f0afef68",
+            "pins_verified": 40
+        },
+        "new_hf_jobs": 0,
+        "new_full_games": 0,
+        "new_gradients": 0,
+        "new_local_search_rollouts": 0,
+        "policy_changed": false,
+        "confirmation_grid_admitted": false,
+        "candidate_qualified": false,
+        "reserved_final_seeds_used": false,
+        "goal_status": "active",
+        "previous_goal_turn_classification": "progress",
+        "current_goal_turn_classification": "progress",
+        "next": "Review the complete four-original runtime costs, then use the frozen tested admission workflow; do not repeat either completed benchmark or collection."
     }
 }

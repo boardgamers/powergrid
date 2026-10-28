@@ -1,21 +1,35 @@
 # Current-engine auction policies: AMD 8840U benchmark
 
-**28 October, 23:11 UTC: original target process is running, 250/320 responses.** Research remains
-active. This is engineering latency and cross-host response validation, not
-playing-strength evidence or the final 2,553-position qualification.
+**28 October, 23:19 UTC: completed and independently audited, 320/320 exact responses.**
+Research remains active. This is engineering latency and cross-host response
+validation, not playing-strength evidence or the final 2,553-position qualification.
 
 The original target is `minipc`, **AMD Ryzen 7 8840U w/ Radeon 780M Graphics**,
 PID **3461338**, isolated directory
 `/home/coyotte508/powergrid-ai-current-auction-8840u-v1`.
-The exact `/proc` command line was confirmed live. The first inspection reported
-170/320 requests complete: all 160 filtered-model requests and ten population
-search requests. Every completed request passed the target's legal-move,
-identity, continuation and exact-reference checks. Independent collection of
-all raw target receipts is still pending; do not report this partial count as
-a completed benchmark.
+It finished at **23:16:01 UTC** and its original process has exited. Collection
+and a fresh-interpreter audit verified all 320 raw responses, legal menus,
+policy identities, player order and complete reference pairing. All **2,960
+uncapped continuations / 512,203 neural continuation decisions** match the
+reference execution; search changed 24 of its 88 searched decisions. Only
+elapsed-time fields are excluded from semantic comparison.
 
-The 23:11 inspection confirmed the same original process live with 250 responses
-matching the references. This remains a partial run, pending complete collection.
+| Policy | Warm auction median | Other-stage median | First request including startup |
+| --- | ---: | ---: | ---: |
+| Filtered model | 5.35 ms | 5.63 ms | 0.685 s |
+| Population auction search | 8.34 s | 6.49 ms | 9.853 s |
+
+These canonical medians cover 39 warm auction and 60 other-stage requests per
+policy. The additional 40 discount/menu and 20 simultaneous-wrapper cases per
+policy are reported separately, with breakdowns for every player count. The
+complete target replay took 550.95 seconds wall / 764.96 CPU-seconds. These are
+fixed-position observations, not representative gameplay latency percentiles
+or a controlled comparison of old and current engine speed.
+
+The final report is `strong/current-auction-8840u-results-v1.json`, SHA-256
+`5617f2005a812e82711c92a90db2a162baac4e6e5de1bf2d087b255f9e0216fe`.
+Raw outputs and the successful independent audit are preserved in
+`runs/current-auction-8840u-collected-v1/`. Do not rerun the benchmark or collector.
 
 No previous Power Grid benchmark process was found on the target before this
 launch. Its existing Python environment and offline HF import dependencies are
@@ -79,8 +93,8 @@ Inspect the exact original process with:
 ai/.venv/bin/python -u -B ai/strong/benchmark-current-auction-8840u-v1.py inspect
 ```
 
-Once the original process has exited and its status confirms all 320 completed
-requests, collect it once:
+The following original collection command has already succeeded; it is recorded
+for provenance and must not be repeated:
 
 ```sh
 ai/.venv/bin/python -u -B ai/strong/benchmark-current-auction-8840u-v1.py collect
@@ -96,12 +110,17 @@ engine merely by subtracting its earlier timings.
 
 ## Parallel research and remaining requirements
 
-The original HF runtime collection owner is still PID 1655353 / session 81765.
-It had audited 40/64 games and confirmed the final pop/6p handle
-`6ae273363fb22a235dd4a660` RUNNING at 23:07 UTC. Do not run a competing HF collector.
+The original HF runtime collection owner PID 1655353 / session 81765 completed
+at 23:19:23 UTC and has exited, with all 40 source/input pins unchanged. All four
+original pilots / 64 games are now collected and audited, including final pop/6p
+handle `6ae273363fb22a235dd4a660`. Its result is
+`strong/current-auction-runtime-results-v1.json`, SHA-256
+`fe1f794098e0755c61bb321371a133e0cf757e037c33ea462327f7d9f0afef68`.
+Do not restart the collector. Full runtime cost review and grid admission remain
+the next separate step; no confirmation grid has been admitted or submitted.
 This target benchmark cannot submit HF work or admit the confirmation grid.
 
-After the fourth HF pilot finishes, review all measured costs before separately
+Review all four completed pilots' measured costs before separately
 preparing the frozen 26,880-game fresh strength confirmation. The final gate,
 selected-policy full serving coverage and standalone qualification package
 remain outstanding. No candidate qualified and reserved final seeds remain unused.
@@ -118,3 +137,13 @@ The 19-file archive includes the exact 130 MB package, so recovery does not need
 to regenerate any reference or simulation. Its descriptor is
 `strong/current-auction-cpu-launch-evidence-v1.json`; this records launch and
 reference readiness, not completed target verification.
+
+The **completed target evidence** is separately archived and download-verified
+at revision `632d31b0653a033da8f9a11a389d59311ad4c48f`,
+`archives/current-auction-cpu-results-evidence-v1.tgz`, SHA-256
+`957cf4130c573a79dcae9f3b178efdbe043bc0e07b8b28b4925cf69ca6f78788`.
+Its 21 files contain all raw target receipts, the independent audit, timing
+report and recovery metadata; the exact execution package is referenced through
+the immutable launch archive above. Descriptor:
+`strong/current-auction-cpu-results-evidence-v1.json`. Do not repeat collection
+or either upload.

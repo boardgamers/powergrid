@@ -1,0 +1,375 @@
+{
+  "complete": true,
+  "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+  "requests": 320,
+  "exact_reference_responses": 320,
+  "counts": {
+    "decisions": 320,
+    "root_filter_overrides": 0,
+    "rollouts": 2960,
+    "rollout_caps": 0,
+    "neural_decisions": 512203,
+    "search_changes": 24,
+    "search_decisions": 88,
+    "surrogate_decisions": 0
+  },
+  "timings": {
+    "filter": {
+      "warm_groups": {
+        "canonical": {
+          "requests": 99,
+          "median_ms": 5.6006149388849735,
+          "p95_ms": 15.941091906279325,
+          "max_ms": 18.929522018879652
+        },
+        "discount": {
+          "requests": 40,
+          "median_ms": 6.709054345265031,
+          "p95_ms": 14.980131434276698,
+          "max_ms": 15.721323899924755
+        },
+        "wrapper": {
+          "requests": 20,
+          "median_ms": 11.741189518943429,
+          "p95_ms": 14.669301034882666,
+          "max_ms": 16.19724091142416
+        },
+        "all": {
+          "requests": 159,
+          "median_ms": 6.198036018759012,
+          "p95_ms": 15.457115415483711,
+          "max_ms": 18.929522018879652
+        }
+      },
+      "canonical_warm_auction_median_ms": 5.351335275918245,
+      "canonical_other_median_ms": 5.633512977510691,
+      "first_request_including_startup_ms": 684.5191479660571
+    },
+    "conservative_population": {
+      "warm_groups": {
+        "canonical": {
+          "requests": 99,
+          "median_ms": 8.77518905326724,
+          "p95_ms": 10588.803773839025,
+          "max_ms": 12297.75291774422
+        },
+        "discount": {
+          "requests": 40,
+          "median_ms": 1749.0817946381867,
+          "p95_ms": 7293.947049975394,
+          "max_ms": 7883.331734221429
+        },
+        "wrapper": {
+          "requests": 20,
+          "median_ms": 6840.57422215119,
+          "p95_ms": 8370.034676603973,
+          "max_ms": 8439.57658810541
+        },
+        "all": {
+          "requests": 159,
+          "median_ms": 1076.0727766901255,
+          "p95_ms": 9927.888888912274,
+          "max_ms": 12297.75291774422
+        }
+      },
+      "canonical_warm_auction_median_ms": 8335.58021299541,
+      "canonical_other_median_ms": 6.486681988462806,
+      "first_request_including_startup_ms": 9852.542331907898
+    }
+  },
+  "seconds": 550.9531144308858,
+  "target_status_sha256": "1a13bf7cbcd9566eab40771d2f2e76b59897ef09cfe81201a95793375252131e",
+  "manifest_sha256": "3da298955ba7c682d5bec8ba85a4942430250abf14577515206f7e789681bc33",
+  "reference_sha256": "af1df3dab4b5dbcc62c5f61c8f58ec0f77959f85de64053ddde0460888f783de",
+  "scope": "160 saved current-engine cases / two exact policies. Fixed-position latency and parity, not representative gameplay percentiles or final 2553-position qualification.",
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "completed_at": "2026-10-28T23:16:01.910102+00:00",
+  "audited_at": "2026-10-28T23:19:03.947020+00:00",
+  "original_pid": 3461338,
+  "cpu_seconds": 764.96,
+  "per_player_count": {
+    "filter": {
+      "2": {
+        "canonical_auction": {
+          "requests": 7,
+          "median_ms": 6.235728040337563,
+          "min_ms": 4.209234844893217,
+          "max_ms": 14.0644540078938
+        },
+        "canonical_other": {
+          "requests": 12,
+          "median_ms": 5.0103680696338415,
+          "min_ms": 4.410312976688147,
+          "max_ms": 14.279096852988005
+        },
+        "discount": {
+          "requests": 6,
+          "median_ms": 4.561559529975057,
+          "min_ms": 3.826539032161236,
+          "max_ms": 6.488785147666931
+        },
+        "wrapper": {
+          "requests": 4,
+          "median_ms": 6.3262623734772205,
+          "min_ms": 4.923922009766102,
+          "max_ms": 8.324259892106056
+        }
+      },
+      "3": {
+        "canonical_auction": {
+          "requests": 8,
+          "median_ms": 5.253781797364354,
+          "min_ms": 4.2413268238306046,
+          "max_ms": 13.509243726730347
+        },
+        "canonical_other": {
+          "requests": 12,
+          "median_ms": 5.725015187636018,
+          "min_ms": 4.018929321318865,
+          "max_ms": 7.6230596750974655
+        },
+        "discount": {
+          "requests": 6,
+          "median_ms": 5.20114041864872,
+          "min_ms": 4.599818028509617,
+          "max_ms": 5.743370391428471
+        },
+        "wrapper": {
+          "requests": 4,
+          "median_ms": 13.151800958439708,
+          "min_ms": 10.839814320206642,
+          "max_ms": 14.588883146643639
+        }
+      },
+      "4": {
+        "canonical_auction": {
+          "requests": 8,
+          "median_ms": 5.774685647338629,
+          "min_ms": 4.412868060171604,
+          "max_ms": 17.459550872445107
+        },
+        "canonical_other": {
+          "requests": 12,
+          "median_ms": 5.0024783704429865,
+          "min_ms": 4.437715746462345,
+          "max_ms": 7.469784002751112
+        },
+        "discount": {
+          "requests": 6,
+          "median_ms": 5.251036491245031,
+          "min_ms": 4.568446893244982,
+          "max_ms": 7.04848300665617
+        },
+        "wrapper": {
+          "requests": 4,
+          "median_ms": 11.085741920396686,
+          "min_ms": 10.319200810045004,
+          "max_ms": 11.752031277865171
+        }
+      },
+      "5": {
+        "canonical_auction": {
+          "requests": 8,
+          "median_ms": 5.6374454870820045,
+          "min_ms": 4.394371993839741,
+          "max_ms": 18.929522018879652
+        },
+        "canonical_other": {
+          "requests": 12,
+          "median_ms": 6.323151523247361,
+          "min_ms": 4.512961022555828,
+          "max_ms": 10.73649525642395
+        },
+        "discount": {
+          "requests": 8,
+          "median_ms": 7.310211658477783,
+          "min_ms": 6.341982167214155,
+          "max_ms": 15.721323899924755
+        },
+        "wrapper": {
+          "requests": 4,
+          "median_ms": 13.433508574962616,
+          "min_ms": 10.717398021370173,
+          "max_ms": 16.19724091142416
+        }
+      },
+      "6": {
+        "canonical_auction": {
+          "requests": 8,
+          "median_ms": 5.720154847949743,
+          "min_ms": 4.5567951165139675,
+          "max_ms": 17.13645877316594
+        },
+        "canonical_other": {
+          "requests": 12,
+          "median_ms": 6.568439071998,
+          "min_ms": 4.912749864161015,
+          "max_ms": 9.314335882663727
+        },
+        "discount": {
+          "requests": 14,
+          "median_ms": 13.835296966135502,
+          "min_ms": 6.397871300578117,
+          "max_ms": 15.427758917212486
+        },
+        "wrapper": {
+          "requests": 4,
+          "median_ms": 12.15266203507781,
+          "min_ms": 11.634763795882463,
+          "max_ms": 14.477628748863935
+        }
+      }
+    },
+    "conservative_population": {
+      "2": {
+        "canonical_auction": {
+          "requests": 7,
+          "median_ms": 5769.677891861647,
+          "min_ms": 4337.814110796899,
+          "max_ms": 7577.2858946584165
+        },
+        "canonical_other": {
+          "requests": 12,
+          "median_ms": 5.83575782366097,
+          "min_ms": 4.10911301150918,
+          "max_ms": 13.721303083002567
+        },
+        "discount": {
+          "requests": 6,
+          "median_ms": 2395.4110054764897,
+          "min_ms": 4.780928138643503,
+          "max_ms": 6038.521594833583
+        },
+        "wrapper": {
+          "requests": 4,
+          "median_ms": 2702.9173034243286,
+          "min_ms": 5.178204737603664,
+          "max_ms": 5477.181403897703
+        }
+      },
+      "3": {
+        "canonical_auction": {
+          "requests": 8,
+          "median_ms": 6621.971419546753,
+          "min_ms": 5906.716492958367,
+          "max_ms": 8788.6968459934
+        },
+        "canonical_other": {
+          "requests": 12,
+          "median_ms": 5.7724162470549345,
+          "min_ms": 4.774113651365042,
+          "max_ms": 8.77518905326724
+        },
+        "discount": {
+          "requests": 6,
+          "median_ms": 2689.9633712600917,
+          "min_ms": 5.035027861595154,
+          "max_ms": 5401.810389943421
+        },
+        "wrapper": {
+          "requests": 4,
+          "median_ms": 3623.2613006141037,
+          "min_ms": 2497.8372529149055,
+          "max_ms": 4324.919802136719
+        }
+      },
+      "4": {
+        "canonical_auction": {
+          "requests": 8,
+          "median_ms": 8700.94236615114,
+          "min_ms": 6506.090813782066,
+          "max_ms": 11217.07010595128
+        },
+        "canonical_other": {
+          "requests": 12,
+          "median_ms": 6.7664263769984245,
+          "min_ms": 4.849509801715612,
+          "max_ms": 9.844909887760878
+        },
+        "discount": {
+          "requests": 6,
+          "median_ms": 3634.490979136899,
+          "min_ms": 5.376615561544895,
+          "max_ms": 7284.231038298458
+        },
+        "wrapper": {
+          "requests": 4,
+          "median_ms": 7526.146080577746,
+          "min_ms": 6960.378590039909,
+          "max_ms": 7776.556204073131
+        }
+      },
+      "5": {
+        "canonical_auction": {
+          "requests": 8,
+          "median_ms": 9482.113586505875,
+          "min_ms": 7246.17388471961,
+          "max_ms": 11463.226771913469
+        },
+        "canonical_other": {
+          "requests": 12,
+          "median_ms": 7.509132847189903,
+          "min_ms": 5.1039098761975765,
+          "max_ms": 11.64780417457223
+        },
+        "discount": {
+          "requests": 8,
+          "median_ms": 1915.819300338626,
+          "min_ms": 7.801858242601156,
+          "max_ms": 7883.331734221429
+        },
+        "wrapper": {
+          "requests": 4,
+          "median_ms": 6996.543116401881,
+          "min_ms": 6344.8186023160815,
+          "max_ms": 7574.994138907641
+        }
+      },
+      "6": {
+        "canonical_auction": {
+          "requests": 8,
+          "median_ms": 9927.876280620694,
+          "min_ms": 7365.004611667246,
+          "max_ms": 12297.75291774422
+        },
+        "canonical_other": {
+          "requests": 12,
+          "median_ms": 7.182674948126078,
+          "min_ms": 5.518540274351835,
+          "max_ms": 11.02453377097845
+        },
+        "discount": {
+          "requests": 14,
+          "median_ms": 1059.4977885484695,
+          "min_ms": 5.994495935738087,
+          "max_ms": 7478.551271837205
+        },
+        "wrapper": {
+          "requests": 4,
+          "median_ms": 7815.185443498194,
+          "min_ms": 6885.232248343527,
+          "max_ms": 8439.57658810541
+        }
+      }
+    }
+  },
+  "raw_receipts_sha256": "07114d2219b7fe24fe92442a185f74e0839cce9dc817f61e6b9c25c385f9e6e5",
+  "independent_audit_sha256": "5fefaf64be812184da5392a81467425e621ee3abcd782daaec81c9e9229f26d6",
+  "assessment_sha256": "c2f21d9425b9e29359e3aaf4aa56c70de53ead13d0ec04a4b0a6f2feaadb99cf",
+  "package_archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "f491ed02f10cb71c00e7291d621bc7eb48387f22",
+    "archive_path": "archives/current-auction-cpu-launch-evidence-v1.tgz",
+    "archive_sha256": "1e90da09dd84698dbe6f3cf70ca0c5c5bf2424e49c06c972aab70083fe06fe47",
+    "manifest_sha256": "0aa1ab64075cde96f8d151ded9ff2fa2eb8091a47fd462d1183d47038bc57a68",
+    "archived_files": 19,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "new_hf_jobs": 0,
+  "new_full_games": 0,
+  "new_gradients": 0,
+  "policy_changed": false,
+  "interpretation": "Descriptive fixed-position latency and exact cross-host responses; no controlled engine speedup, strength qualification, or final 2553-case validation."
+}

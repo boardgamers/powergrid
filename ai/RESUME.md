@@ -1,5 +1,28 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October, 21:24 UTC — complete auction study shows a substantial search gain.**
+
+All **10,080 games / 648 selected jobs** passed the complete independent audit.
+Against geographic search, equally weighted across 2–6 players, conservative
+population search gains **+20.19 percentage points [14.81, 25.74]** over the same
+filtered model. Dual gains +21.78 points, but its extra +1.59 points over population
+has interval [-2.90, 6.17] and costs about twice as much on the actual 8840U.
+Read [the complete comparison](CONSERVATIVE-AUCTION-COMPARISON-2026-10-28.md),
+including every adverse primary cell and immutable recovery references.
+
+Carry the unchanged cheaper recipe forward for separate confirmation after
+full current-engine search admission. Do not add retrospective count/rule
+routing, tune thresholds on these deals, or confuse this with final selection.
+The four-player original/open regression remains in the report. All HF studies,
+collectors and the comparator are finished; do not restart them. No new jobs or
+training launched during analysis. The next step is current-engine runtime
+admission and a predeclared fresh confirmation, not more inspection of partial
+results. Historical live-owner instructions below are superseded.
+
+Research remains active. No candidate is qualified or deployed; final seeds
+remain unused. Discount-aware training and resource improvements remain separate
+research options, not required changes to this frozen confirmation recipe.
+
 **28 October, 20:24 UTC — both corrected resource runtime pilots verified.**
 
 The v4 two-/six-player jobs completed and passed independent audit: **32 games,

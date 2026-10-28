@@ -1,0 +1,30 @@
+{
+  "status": "complete_development_comparison_independently_reaudited",
+  "comparison_sha256": "2d2e469a073e3cd71a919da6a137042cfb5fd2ea14d6fb0491997d06eee77e37",
+  "summary_sha256": "a472c79c5856d63944b8ea66d54906567191d074f60211470fb4ed2f6f1c06d0",
+  "collected_result_sha256": "6f23581f55da9c786ab1b32f454c6a930a9fa5d3ce2c3d5cc9a42db037ece552",
+  "source_sha256": "351fc4626837c2b7a9d1374e575852abd4fbf4e3d036fbbf406d9fedfb5acafa",
+  "protocol_sha256": "51b845f4a57c3131475e24267fbbb08eb624c391aa6a8e6a4f5d5c6b8ac718ee",
+  "games": 10080,
+  "selected_jobs": 648,
+  "total_hf_attempts": 650,
+  "failed_original_attempts_preserved": 2,
+  "raw_archives": 648,
+  "new_hf_jobs": 0,
+  "new_games": 0,
+  "new_inference": 0,
+  "new_gradient_updates": 0,
+  "candidate_selected": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "3700de5a33b24216d1ad9ded358aa851d733e678",
+    "archive_path": "archives/conservative-auction-comparison-evidence-v2.tgz",
+    "archive_sha256": "3fdb9e76f67be34eec2a060fc942f2e4f1b971c8f438e83207746234df3b586f",
+    "manifest_sha256": "0915b8de8fceca8b6299176331777ac023d27f7bdb2ef80662647b0f4b900b49",
+    "archived_files": 1353,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  }
+}

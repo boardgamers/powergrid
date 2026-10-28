@@ -64836,5 +64836,467 @@
         "reserved_final_seeds_used": false,
         "interpretation": "Both admitted corrected v4 pilots passed independent raw-artifact, decision and pairing audits. This establishes audited runtime execution only. No strength estimate or controlled speedup is inferred; original failed evidence remains unchanged.",
         "next": "Resource pilots and collection are complete; do not relaunch. Finish the unchanged auction comparison before choosing another strength experiment. Preserve final seeds for qualification."
+    },
+    "conservative_auction_development_complete_v2": {
+        "status": "complete_independently_reaudited_development_comparison",
+        "completed_at": "2026-10-28T21:24:47.273138+00:00",
+        "report": "ai/CONSERVATIVE-AUCTION-COMPARISON-2026-10-28.md",
+        "full_comparison_sha256": "2d2e469a073e3cd71a919da6a137042cfb5fd2ea14d6fb0491997d06eee77e37",
+        "summary": "ai/strong/conservative-auction-development-summary-v2.json",
+        "summary_sha256": "a472c79c5856d63944b8ea66d54906567191d074f60211470fb4ed2f6f1c06d0",
+        "archive_descriptor": "ai/strong/conservative-auction-comparison-evidence-v2.json",
+        "archive_descriptor_sha256": "9345a66b0d6ea745aaef63391ed02dfed0125b28730393b4693c62834c342667",
+        "protocol_sha256": "51b845f4a57c3131475e24267fbbb08eb624c391aa6a8e6a4f5d5c6b8ac718ee",
+        "source_sha256": "351fc4626837c2b7a9d1374e575852abd4fbf4e3d036fbbf406d9fedfb5acafa",
+        "games": 10080,
+        "games_per_arm": 3360,
+        "cells_per_arm": 27,
+        "independent_deals_per_count": 8,
+        "selected_hf_jobs": 648,
+        "total_hf_attempts": 650,
+        "failed_original_attempts": {
+            "pg-conservative-dev-v2-pop-heuristic-5p-02": {
+                "job_id": "6ae1dca83fb22a235dd3e7c7",
+                "error_kind": "HTTP502",
+                "log": "ai/runs/conservative-auction-development-hf-v2/pg-conservative-dev-v2-pop-heuristic-5p-02/job.log",
+                "log_sha256": "792f3c25a65262e4225f9a45048cb50d7acc02a2756f35795acb80ba1cd0aa9f",
+                "original_guard_sha256": "fcfd12b6f9453f1a800442f03f3fc46d31c7f36137e8c09e7e3d613f07a52046",
+                "row_hash": "befb597c7147a86fc739b638d7a98c06492969562efd0cd96d2c96620e3706fd",
+                "original_status": "ERROR",
+                "evaluation_started": false,
+                "original_output_archive_exists": false,
+                "exact_original_bootstrap_and_source_environment_verified": true,
+                "created_at": "2026-10-28 11:29:44.123000+00:00",
+                "started_at": "2026-10-28 11:29:48.775000+00:00",
+                "finished_at": "2026-10-28 11:31:09.958000+00:00"
+            },
+            "pg-conservative-dev-v2-pop-legacy-6p-00": {
+                "job_id": "6ae1dcb03fb22a235dd3e7eb",
+                "error_kind": "short_download",
+                "log": "ai/runs/conservative-auction-failure-inspection-v1/pg-conservative-dev-v2-pop-legacy-6p-00.log",
+                "log_sha256": "40bb0a3afee295dc11f07aef8ec7c29e16919ed5433168165eeccb9a32d1dd68",
+                "original_guard_sha256": "b84052b02ea7246adb070e9810323c6dfc976a942df3610029764bf9da632703",
+                "row_hash": "c88fc5c4434117a2f4f55dacf975dec34f1cd32bc7337b779da8c8bb8f1b6b14",
+                "original_status": "ERROR",
+                "evaluation_started": false,
+                "original_output_archive_exists": false,
+                "exact_original_bootstrap_and_source_environment_verified": true,
+                "created_at": "2026-10-28 11:29:52.882000+00:00",
+                "started_at": "2026-10-28 11:29:55.416000+00:00",
+                "finished_at": "2026-10-28 11:35:28.080000+00:00"
+            }
+        },
+        "raw_receipts_reaudited": true,
+        "rollout_caps": 0,
+        "search_equal_count": {
+            "conservative_population_minus_filter": {
+                "role": "primary",
+                "win_credit_difference": 0.201875,
+                "exact_difference": "323/1600",
+                "paired_whole_deal_95_interval": [
+                    0.148125,
+                    0.2573984375
+                ],
+                "per_count": {
+                    "2": {
+                        "weight": 0.2,
+                        "mean": 0.1953125,
+                        "exact_mean": "25/128",
+                        "deal_means": [
+                            0.0,
+                            0.4375,
+                            0.25,
+                            0.125,
+                            0.0,
+                            0.5,
+                            0.25,
+                            0.0
+                        ],
+                        "paired_whole_deal_95_interval": [
+                            0.0703125,
+                            0.328125
+                        ]
+                    },
+                    "3": {
+                        "weight": 0.2,
+                        "mean": 0.28125,
+                        "exact_mean": "9/32",
+                        "deal_means": [
+                            0.4166666666666667,
+                            0.5833333333333334,
+                            0.08333333333333333,
+                            0.0,
+                            0.5,
+                            0.08333333333333333,
+                            0.08333333333333333,
+                            0.5
+                        ],
+                        "paired_whole_deal_95_interval": [
+                            0.125,
+                            0.4375
+                        ]
+                    },
+                    "4": {
+                        "weight": 0.2,
+                        "mean": 0.125,
+                        "exact_mean": "1/8",
+                        "deal_means": [
+                            -0.125,
+                            -0.0625,
+                            0.25,
+                            0.3125,
+                            0.125,
+                            -0.0625,
+                            0.125,
+                            0.4375
+                        ],
+                        "paired_whole_deal_95_interval": [
+                            0.0,
+                            0.25
+                        ]
+                    },
+                    "5": {
+                        "weight": 0.2,
+                        "mean": 0.228125,
+                        "exact_mean": "73/320",
+                        "deal_means": [
+                            0.0,
+                            0.15,
+                            0.4,
+                            0.225,
+                            0.2,
+                            0.35,
+                            0.0,
+                            0.5
+                        ],
+                        "paired_whole_deal_95_interval": [
+                            0.1125,
+                            0.34375
+                        ]
+                    },
+                    "6": {
+                        "weight": 0.2,
+                        "mean": 0.1796875,
+                        "exact_mean": "23/128",
+                        "deal_means": [
+                            0.25,
+                            0.375,
+                            0.125,
+                            0.16666666666666666,
+                            0.25,
+                            0.125,
+                            -0.020833333333333332,
+                            0.16666666666666666
+                        ],
+                        "paired_whole_deal_95_interval": [
+                            0.10416666666666666,
+                            0.2552083333333333
+                        ]
+                    }
+                }
+            },
+            "conservative_dual_minus_filter": {
+                "role": "primary",
+                "win_credit_difference": 0.2178125,
+                "exact_difference": "697/3200",
+                "paired_whole_deal_95_interval": [
+                    0.17270833333333332,
+                    0.2636458333333333
+                ],
+                "per_count": {
+                    "2": {
+                        "weight": 0.2,
+                        "mean": 0.1015625,
+                        "exact_mean": "13/128",
+                        "deal_means": [
+                            0.125,
+                            0.0625,
+                            0.125,
+                            0.25,
+                            -0.125,
+                            0.125,
+                            0.0,
+                            0.25
+                        ],
+                        "paired_whole_deal_95_interval": [
+                            0.015625,
+                            0.1796875
+                        ]
+                    },
+                    "3": {
+                        "weight": 0.2,
+                        "mean": 0.3958333333333333,
+                        "exact_mean": "19/48",
+                        "deal_means": [
+                            0.5833333333333334,
+                            0.6666666666666666,
+                            0.08333333333333333,
+                            0.3333333333333333,
+                            0.6666666666666666,
+                            0.16666666666666666,
+                            0.25,
+                            0.4166666666666667
+                        ],
+                        "paired_whole_deal_95_interval": [
+                            0.25,
+                            0.5416666666666666
+                        ]
+                    },
+                    "4": {
+                        "weight": 0.2,
+                        "mean": 0.1953125,
+                        "exact_mean": "25/128",
+                        "deal_means": [
+                            0.1875,
+                            0.125,
+                            0.25,
+                            0.3125,
+                            0.0625,
+                            0.1875,
+                            0.0625,
+                            0.375
+                        ],
+                        "paired_whole_deal_95_interval": [
+                            0.125,
+                            0.265625
+                        ]
+                    },
+                    "5": {
+                        "weight": 0.2,
+                        "mean": 0.20625,
+                        "exact_mean": "33/160",
+                        "deal_means": [
+                            0.05,
+                            -0.05,
+                            0.2,
+                            0.3,
+                            0.35,
+                            0.3,
+                            0.1,
+                            0.4
+                        ],
+                        "paired_whole_deal_95_interval": [
+                            0.1,
+                            0.30625
+                        ]
+                    },
+                    "6": {
+                        "weight": 0.2,
+                        "mean": 0.19010416666666666,
+                        "exact_mean": "73/384",
+                        "deal_means": [
+                            0.08333333333333333,
+                            0.3333333333333333,
+                            0.16666666666666666,
+                            0.125,
+                            0.4583333333333333,
+                            0.08333333333333333,
+                            0.0625,
+                            0.20833333333333334
+                        ],
+                        "paired_whole_deal_95_interval": [
+                            0.109375,
+                            0.2864583333333333
+                        ]
+                    }
+                }
+            },
+            "conservative_dual_minus_conservative_population": {
+                "role": "secondary",
+                "win_credit_difference": 0.0159375,
+                "exact_difference": "51/3200",
+                "paired_whole_deal_95_interval": [
+                    -0.028958333333333332,
+                    0.06166666666666666
+                ],
+                "per_count": {
+                    "2": {
+                        "weight": 0.2,
+                        "mean": -0.09375,
+                        "exact_mean": "-3/32",
+                        "deal_means": [
+                            0.125,
+                            -0.375,
+                            -0.125,
+                            0.125,
+                            -0.125,
+                            -0.375,
+                            -0.25,
+                            0.25
+                        ],
+                        "paired_whole_deal_95_interval": [
+                            -0.25,
+                            0.0625
+                        ]
+                    },
+                    "3": {
+                        "weight": 0.2,
+                        "mean": 0.11458333333333333,
+                        "exact_mean": "11/96",
+                        "deal_means": [
+                            0.16666666666666666,
+                            0.08333333333333333,
+                            0.0,
+                            0.3333333333333333,
+                            0.16666666666666666,
+                            0.08333333333333333,
+                            0.16666666666666666,
+                            -0.08333333333333333
+                        ],
+                        "paired_whole_deal_95_interval": [
+                            0.03125,
+                            0.19791666666666666
+                        ]
+                    },
+                    "4": {
+                        "weight": 0.2,
+                        "mean": 0.0703125,
+                        "exact_mean": "9/128",
+                        "deal_means": [
+                            0.3125,
+                            0.1875,
+                            0.0,
+                            0.0,
+                            -0.0625,
+                            0.25,
+                            -0.0625,
+                            -0.0625
+                        ],
+                        "paired_whole_deal_95_interval": [
+                            -0.0234375,
+                            0.171875
+                        ]
+                    },
+                    "5": {
+                        "weight": 0.2,
+                        "mean": -0.021875,
+                        "exact_mean": "-7/320",
+                        "deal_means": [
+                            0.05,
+                            -0.2,
+                            -0.2,
+                            0.075,
+                            0.15,
+                            -0.05,
+                            0.1,
+                            -0.1
+                        ],
+                        "paired_whole_deal_95_interval": [
+                            -0.10937500000000001,
+                            0.06562499999999999
+                        ]
+                    },
+                    "6": {
+                        "weight": 0.2,
+                        "mean": 0.010416666666666666,
+                        "exact_mean": "1/96",
+                        "deal_means": [
+                            -0.16666666666666666,
+                            -0.041666666666666664,
+                            0.041666666666666664,
+                            -0.041666666666666664,
+                            0.20833333333333334,
+                            -0.041666666666666664,
+                            0.08333333333333333,
+                            0.041666666666666664
+                        ],
+                        "paired_whole_deal_95_interval": [
+                            -0.06249999999999999,
+                            0.08333333333333334
+                        ]
+                    }
+                }
+            }
+        },
+        "directions": {
+            "conservative_population_minus_filter": {
+                "negative": 11,
+                "zero": 15,
+                "positive": 109
+            },
+            "conservative_dual_minus_filter": {
+                "negative": 13,
+                "zero": 14,
+                "positive": 108
+            },
+            "conservative_dual_minus_conservative_population": {
+                "negative": 36,
+                "zero": 34,
+                "positive": 65
+            }
+        },
+        "costs": {
+            "filter": {
+                "counts": {
+                    "decisions": 444905,
+                    "root_filter_overrides": 103,
+                    "rollouts": 0,
+                    "rollout_caps": 0,
+                    "neural_decisions": 0,
+                    "search_changes": 0,
+                    "search_decisions": 0
+                },
+                "summed_job_wall_seconds": 60383.99410574808,
+                "cpu_seconds": 184801.54,
+                "max_sampled_job_rss_bytes": 2658152448,
+                "scope": "Concurrent HF batches including startup/validation; sum of job durations is neither elapsed experiment time nor AMD8840U serving latency."
+            },
+            "conservative_population": {
+                "counts": {
+                    "decisions": 442672,
+                    "root_filter_overrides": 58,
+                    "rollouts": 4346144,
+                    "rollout_caps": 0,
+                    "neural_decisions": 535712378,
+                    "search_changes": 18160,
+                    "search_decisions": 107468,
+                    "surrogate_decisions": 0
+                },
+                "summed_job_wall_seconds": 776692.2390915859,
+                "cpu_seconds": 2407791.8700000006,
+                "max_sampled_job_rss_bytes": 7187304448,
+                "scope": "Concurrent HF batches including startup/validation; sum of job durations is neither elapsed experiment time nor AMD8840U serving latency."
+            },
+            "conservative_dual": {
+                "counts": {
+                    "decisions": 443039,
+                    "root_filter_overrides": 48,
+                    "rollouts": 8770560,
+                    "rollout_caps": 0,
+                    "neural_decisions": 859632037,
+                    "search_changes": 13562,
+                    "search_decisions": 108454,
+                    "surrogate_decisions": 426173656
+                },
+                "summed_job_wall_seconds": 1357740.1059572573,
+                "cpu_seconds": 5130239.480000002,
+                "max_sampled_job_rss_bytes": 7193255936,
+                "scope": "Concurrent HF batches including startup/validation; sum of job durations is neither elapsed experiment time nor AMD8840U serving latency."
+            }
+        },
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "3700de5a33b24216d1ad9ded358aa851d733e678",
+            "archive_path": "archives/conservative-auction-comparison-evidence-v2.tgz",
+            "archive_sha256": "3fdb9e76f67be34eec2a060fc942f2e4f1b971c8f438e83207746234df3b586f",
+            "manifest_sha256": "0915b8de8fceca8b6299176331777ac023d27f7bdb2ef80662647b0f4b900b49",
+            "archived_files": 1353,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "decision": "Carry unchanged conservative_population recipe forward for separately predeclared fresh confirmation after full intended-current-engine search admission. Retain all adverse cells. No count/rule routing or threshold tuning on these evaluation deals; dual extra mean advantage is uncertain at roughly twice the measured target auction latency.",
+        "remaining": "Current-engine search/runtime admission, independent larger confirmation, final strength qualification, complete selected-policy export/serving and actual AMD8840U/package checks.",
+        "execution_owner_complete": true,
+        "comparison_process_exit_code": 0,
+        "new_hf_jobs_during_analysis": 0,
+        "new_games_during_analysis": 0,
+        "new_inference_during_analysis": 0,
+        "new_gradients": 0,
+        "final_candidate_selected": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "research_goal": "active",
+        "previous_goal_turn": "verified_wait",
+        "this_goal_turn": "progress"
     }
 }

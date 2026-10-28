@@ -1,5 +1,16 @@
 # Conservative auction comparison — execution readiness, 27 October 2026
 
+**28 October, 21:24 UTC — execution and independent analysis complete.** All
+648 selected jobs / 10,080 games were independently re-audited. Final execution
+owner PID 1075760 and comparator PID 602651 have exited successfully. Historical
+live-owner and pending-source instructions below are superseded; do not restart
+any coordinator. Two pre-evaluation failures and their reviewed replacements
+are preserved. Read [the complete comparison and next research decision](CONSERVATIVE-AUCTION-COMPARISON-2026-10-28.md).
+The cheaper conservative search gains +20.19 points over the filtered model
+against search, equally weighted across player counts; confirmation and intended-
+engine admission remain separate. No final candidate qualified, no reserved
+final seeds used, no deployment.
+
 **Update, 20:03 UTC:** original owner PID 1685160 was terminated by signal while
 waiting. After inspection, the sole recovery owner **PID 1919833 / session 94582**
 reuses all original jobs and gates with 24 unchanged pins. See the

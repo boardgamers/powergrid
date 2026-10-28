@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "original_games_in_replay_grid": 33,
+  "actual_inference_replays": 66,
+  "cli_replays": 8,
+  "replay_counts": {
+    "policy_requests": 8163,
+    "atomic_moves": 9440,
+    "resource_turns": 334,
+    "root_filter_overrides": 0,
+    "rollouts": 0,
+    "rollout_caps": 0,
+    "neural_decisions": 0
+  },
+  "cli_counts": {
+    "policy_requests": 945,
+    "atomic_moves": 1360,
+    "resource_turns": 91,
+    "root_filter_overrides": 0,
+    "rollouts": 0,
+    "rollout_caps": 0,
+    "neural_decisions": 0
+  },
+  "complete_search_turn_checks": 20,
+  "atomic_search_controls": 20,
+  "search_turn_counts": {
+    "rollouts": 544,
+    "rollout_caps": 0,
+    "neural_decisions": 104075
+  },
+  "recovery_repeated_completed_checks": 0,
+  "recovery_cases": [
+    [
+      6,
+      1
+    ],
+    [
+      6,
+      2
+    ],
+    [
+      6,
+      3
+    ]
+  ],
+  "recovery_seconds": 53.799480312000014,
+  "artifact": "ai/runs/resource-turn-full-artifact-v1",
+  "descriptor_sha256": "8e97c0165eee793dd3be7aefd1849281f36e88ac537c20b5906308f0a8fec723",
+  "manifest_sha256": "35fa75b5a808c12d903ebe4fb74568425d86f8b064595c39f3f3df58b8373607",
+  "checker_sha256": "1674dc9e7670c29b8d4a089783c0f91b30785fc749e548a6b1a0cbaa056aa541",
+  "finisher_sha256": "5a290dc66331727d4664c08d493d9cc6c44e31570a324cb0c3115869f901ec3f",
+  "new_full_game_trajectories": 0,
+  "new_hf_jobs": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "scope": "Pinned full-game execution controls verified on original recorded games and roots. Full-game search-policy runtime admission, stable-sampling causal control and fresh strength games remain pending.",
+  "assessment_path": "ai/runs/resource-turn-full-integration-recovered-v1/assessment.json",
+  "assessment_sha256": "4104615853f294d018ba9d3d7bf16b9baaf067c15fd85bf5ab075be6ab376050",
+  "total_replay_executions": 74,
+  "total_atomic_actions": 10800,
+  "total_grouped_resource_turns": 425,
+  "total_continuations_across_two_controls": 1088,
+  "running_auction_policies_changed": false,
+  "code_hashes": {
+    "resource_turn_full_policy_v1.py": "eaab9f521df091422db7d9203a4dee7dbb4d86b78bcf5be500f0a8b48c72beb0",
+    "resource_turn_full_arena_v1.py": "a2f87d455b1b625a9a904c1a440e51094c136089fd3ca31ed372acc0e0640e08",
+    "resource_turn_full_audit_v1.py": "b2238b5d4896a29028838292367689fc5f215e11105cc93c33572fb7385d56a0",
+    "prepare-resource-turn-full-artifact-v1.py": "ad2d651fb95465977df2ee13dac3f44ab42d2ba5c57152a6209ba1ff53db26d4",
+    "check-resource-turn-full-integration-v1.py": "1674dc9e7670c29b8d4a089783c0f91b30785fc749e548a6b1a0cbaa056aa541",
+    "finish-resource-turn-full-integration-v1.py": "5a290dc66331727d4664c08d493d9cc6c44e31570a324cb0c3115869f901ec3f"
+  }
+}

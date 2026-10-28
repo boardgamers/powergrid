@@ -1,12 +1,43 @@
 # Corrected runtime complete; development comparison launched — 27 October 2026
 
-**Checkpoint: 23:44 UTC. Research is active.** All four original corrected-runtime
+**Current execution — 28 October, 11:34 UTC.** V3 audited all **360 original jobs**
+then submitted 64 unsubmitted rows (**424 / 648 submitted**). It stopped at 11:32
+on `pg-conservative-dev-v2-pop-heuristic-5p-02`, HF `6ae1dca83fb22a235dd3e7c7`:
+HTTP 502 downloading Node v24.14.0, before source extraction or evaluation.
+PID 678525 is absent. The failed original and logs remain preserved; the other
+63 outstanding originals were directly observed RUNNING. No replacements or
+automatic retries have occurred. Research remains active, with reviewed
+infrastructure recovery and completion of the unchanged grid still required.
+
+The recovery archive descriptor is
+`strong/conservative-auction-development-owner-recovery-evidence-v3.json`.
+Its snapshot includes all 424 original guards and the 360 cached audits with
+immutable raw-archive references. Do not restart the stopped owner or treat this
+infrastructure failure as a measured policy outcome. Later complete comparison
+must use the eventual completed owner, not this stopped v3 checkpoint.
+
+**Recovery admission — 28 October, 11:19 UTC (historical).** The prior host rebooted; PID 1919833
+is absent and its original state/log remain preserved. Its last state recorded
+360 submitted jobs and 296 verified. All 64 outstanding original handles were
+directly observed COMPLETED, with no uncertain launch and all 24 code pins intact.
+The exact termination time/cause is unknown.
+
+The sole reviewed recovery owner is **PID 678525 / session 49555**, running
+`strong/recover-conservative-auction-development-v3.py`. It retains every original
+guard and the existing source, audits the completed originals first, then uses the
+unchanged coordinator loop to submit only remaining planned rows. Its state and
+360-handle admission record are under
+`runs/conservative-auction-development-coordinator-recovery-v3/`. Four recovery
+admission tests pass. No replacement jobs, failed-job retries, policy changes,
+partial-result selection or final seeds are involved. Research remains active.
+
+**Historical checkpoint: 27 October, 23:44 UTC.** All four original corrected-runtime
 pilots completed and passed independent raw auditing: **64 games / 8,416 decisions /
 135,608 uncapped continuations**. The previously failing episode 5 completed in its
 original corrected job. These repeated engineering seeds are runtime evidence;
 they are excluded from strength estimates.
 
-The sole coordinator is **PID 1919833**, original session **94582**. Its process
+The coordinator at that checkpoint was **PID 1919833**, original session **94582**. Its process
 and all 24 pins were directly verified before and after the new recovery snapshot.
 The unchanged **10,080-game / 648-job** development comparison has **310 original
 handles** in the snapshot ending `2026-10-27T23:44:56.066451+00:00`. It captures
@@ -84,7 +115,8 @@ Development source dataset: `coyotte508/powergrid-ai-training-v1`.
 - First 64 exact handles and direct statuses: `strong/conservative-auction-development-launch-state-v2.json`.
 - Later 310-handle recovery snapshot: `strong/conservative-auction-development-progress-state-v2.json`.
 - Original per-job guards: `runs/conservative-auction-development-hf-v2/*/launch.json`.
-- Recovery owner state: `runs/conservative-auction-development-coordinator-recovery-v2/state.json`.
+- Current recovery owner state: `runs/conservative-auction-development-coordinator-recovery-v3/state.json`.
+- Preserved previous owner state: `runs/conservative-auction-development-coordinator-recovery-v2/state.json`.
 
 The runtime source remains dataset revision
 `8f504f71b51c6ec5bc284c02b961d90923cdce88`, archive
@@ -125,7 +157,7 @@ independent comparison with the explicit recovery owner path:
 
 ```sh
 ai/.venv/bin/python -B ai/strong/compare-conservative-auction-development-v2.py \
-  --owner-state ai/runs/conservative-auction-development-coordinator-recovery-v2/state.json
+  --owner-state ai/runs/conservative-auction-development-coordinator-recovery-v3/state.json
 ```
 
 Retain all adverse cells and the predefined whole-deal bootstrap. Do not select a

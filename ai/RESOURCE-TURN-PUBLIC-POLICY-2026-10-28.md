@@ -1,5 +1,11 @@
 # Actual model and search producing complete resource turns
 
+**Follow-up:** the [pinned full-game evaluator](RESOURCE-TURN-FULL-EVALUATOR-2026-10-28.md)
+now connects this producer to filtered-model decisions in other phases and passes
+the recorded-game/CLI integration checks. References below to that missing
+connection describe this earlier producer checkpoint. Fresh search-policy
+full-game admission and strength comparisons remain pending.
+
 The actual frozen model and existing resource-search algorithm now produce the
 complete response consumed by the separate resource-turn arena. Checks pass on
 **755 saved model positions / 2,251 decisions** and **23 saved search cases /

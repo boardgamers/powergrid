@@ -1,0 +1,31 @@
+{
+  "status": "reviewed_grid_recovery_stopped_on_bootstrap_failure",
+  "snapshot_sha256": "d8447d725ebc4502d6e903f9c67f103f049ffe4214b256a628c2a68ba3dace1f",
+  "predecessor_sha256": "3c8a9214b6188ab592628983678f8b9274da02cf15458e3df1aba69c8934f3d3",
+  "previous_owner_state_sha256": "63d95a1b53fb815107bda721c0599855fab5ba9b488081b9cb8bbe86dfd54005",
+  "new_owner_pid": 678525,
+  "original_guards": 360,
+  "cached_audits_at_admission": 296,
+  "completed_originals_awaiting_audit_at_admission": 64,
+  "replacement_jobs": 0,
+  "captured_handles_at_archive": 424,
+  "captured_cached_audits_at_archive": 360,
+  "archive_snapshot_sha256": "8186cae11a685f2ec144a63f45cfa557c36b58a00c50a00d39b7371158dd7134",
+  "new_job_submissions_by_archiver": 0,
+  "automatic_restarts": false,
+  "audited_after_recovery": 360,
+  "submitted_before_stop": 424,
+  "failed_original_job_id": "6ae1dca83fb22a235dd3e7c7",
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "dca8674ff65adfcf1b1f9e42aef6931ec4a97cdf",
+    "archive_path": "archives/conservative-auction-development-owner-recovery-evidence-v3.tgz",
+    "archive_sha256": "5fa5666aed9c74f743573279d26babedd6510bc813809f8dcaa0d886c99af8be",
+    "manifest_sha256": "250dd222b5d70050776327536332e74880fd31fab8fa0453ac81960df5c12cd8",
+    "archived_files": 1192,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  }
+}

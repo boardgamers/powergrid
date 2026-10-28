@@ -1,6 +1,43 @@
 # Power Grid AI — resumed, 27 October 2026
 
-**Current checkpoint — 27 October, 23:44 UTC. Research is active.**
+**Current execution — 28 October, 11:34 UTC. Research is active; coordinator stopped for infrastructure review.**
+
+The reviewed v3 recovery audited all **360 original submitted jobs**, then
+submitted 64 previously unsubmitted rows: **424 / 648 jobs submitted**. It stopped
+at 11:32 UTC on `pg-conservative-dev-v2-pop-heuristic-5p-02`, original HF handle
+`6ae1dca83fb22a235dd3e7c7`: HTTP **502 Bad Gateway** downloading Node v24.14.0,
+before source extraction or evaluation. Its failed handle, bootstrap log and
+failure receipt are preserved. The other 63 unaudited originals were RUNNING at
+direct inspection; do not replace them. PID 678525 is now confirmed absent.
+
+Do not restart v3 or retry the failed job automatically. Next review a separately
+recorded infrastructure-only recovery preserving this failed original and every
+existing guard, then continue the same frozen study. No partial results have been
+used for selection. The protocol, policies, source and reserved final seeds are
+unchanged. The recovery archive is indexed by
+`strong/conservative-auction-development-owner-recovery-evidence-v3.json`.
+The live-owner references in historical checkpoints below are superseded.
+
+**Reviewed recovery admission — 28 October, 11:19 UTC (now stopped as described above).**
+
+The host rebooted after the previous checkpoint. Original coordinator PID 1919833
+is absent; its state and log are preserved. Its last checkpoint had **360 submitted
+jobs / 296 verified**. Direct inspection found all **64 unaudited original jobs
+COMPLETED**, with no ambiguous launch or failed handle. All 24 prior code pins match.
+The exact termination time/cause is not established.
+
+The sole reviewed recovery owner is now **PID 678525 / session 49555**, entry
+`strong/recover-conservative-auction-development-v3.py`. Its state and full
+360-handle predecessor record are under
+`runs/conservative-auction-development-coordinator-recovery-v3/`. It first audits
+the 64 completed originals, then continues only unsubmitted rows of the unchanged
+648-job / 10,080-game plan. It retains the original source, guards, audit gates
+and 64-job concurrency limit. No jobs are replaced and no failed jobs retried.
+Inspect the actual process before acting; never run a competing collector.
+Use this v3 owner path for the eventual complete-result comparison. Historical
+references below to the live v2 owner are superseded.
+
+**Historical recovery snapshot — 27 October, 23:44 UTC.**
 
 All four corrected runtime pilots passed: **64 games / 8,416 decisions / 135,608
 uncapped continuations**, independently re-audited from their raw archives. The
@@ -33,8 +70,12 @@ both JSON and direct execution. It preserves original actions and outcomes; this
 is an execution check, not a new policy or strength result. The active auction
 source and its sole coordinator remain unchanged. The [actual plan producer](RESOURCE-TURN-PUBLIC-POLICY-2026-10-28.md)
 also passes 755 saved model turns and 23 saved search cases through the full-turn
-JSON response. A pinned full-game evaluator, fresh resource-strategy comparison
-and selected-policy target benchmark are still pending; no new strength is claimed.
+JSON response. The separate [pinned full-game evaluator](RESOURCE-TURN-FULL-EVALUATOR-2026-10-28.md)
+now matches 66 recorded-game executions, an eight-game paired CLI check and all
+20 predetermined search roots. Its interrupted validation was recovered by running
+only the three unfinished roots. A stable-sampling causal control, fresh full-game
+search runtime admission, strategy comparison and selected-policy target benchmark
+remain pending; no new strength is claimed.
 
 Next: let the existing owner finish the unchanged development grid, then run the
 independent comparison with the explicit recovered owner-state path. No candidate

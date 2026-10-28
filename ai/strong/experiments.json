@@ -64639,5 +64639,67 @@
         "reserved_final_seeds_used": false,
         "interpretation": "The discounted nomination edge occurs in natural old-engine histories. Six training and four separate validation requests are recovered without editing money or game history. All are opponent turns at 5\u20136 players in Step 3; the current engine can strengthen opponents too. This is a bounded fixed-history sample, not action-value, outcome or prevalence evidence.",
         "next": "Finish the unchanged auction comparison. Keep recovered states as unlabelled regression/teacher-input candidates; preserve public-belief evaluation and whole-deal splits. Address broader discount-feature and omitted-nomination target coverage in a separately selected experiment. No further historical replay expansion needed without a new question."
+    },
+    "auction_discount_prediction_preserving_warm_start_v1": {
+        "recorded_at": "2026-10-28T20:14:46.811660+00:00",
+        "goal_turn_classification": "progress",
+        "previous_goal_turn_classification": "verified_wait",
+        "status": "untrained_discount_warm_start_exact_parity",
+        "document": "ai/AUCTION-DISCOUNT-WARMSTART-2026-10-28.md",
+        "report_sha256": "c2a9fdfe93bbd3bb19bf6368364c7fd88ad68a78794de47a42a2708856077186",
+        "design_sha256": "7b0e4e644e2bb3d918d4b51c5cc066b8033838861249969edb436befc3e361a1",
+        "groups": {
+            "cached_training_and_validation": 17280,
+            "serving": 2553,
+            "natural_discount": 10
+        },
+        "native_exact_positions": 19843,
+        "export_choices_equal": 19843,
+        "max_export_parent_error": [
+            0.0,
+            0.0
+        ],
+        "max_export_native_error": [
+            4.746425474877469e-10,
+            1.4215406629602967e-11
+        ],
+        "new_parameters": 1024,
+        "stored_parent_tensors_unchanged": true,
+        "stored_new_tensors_zero": true,
+        "diagnostic_paths_connected": true,
+        "policy_forward_positions": 119058,
+        "diagnostic_head_forward_positions": 256,
+        "inference_accounting": "Successful parity comparison only; export tracing and preserved initial failure/diagnostics are additional. Archive verification performs no inference.",
+        "initial_failure_preserved": true,
+        "repair": "Restore original contiguous feature prefixes before unchanged parent/embedding arithmetic. Exact parity requirement retained.",
+        "additional_code_pins": {
+            "ai/strong/model_v4.py": "965469c5855ffbf8f6c152713bf48d07fd851cd94b363785820498df7fe027e0"
+        },
+        "artifacts": {
+            "inference64.onnx": "6cd971021152d18230257a280f268ff828e136dc905014c015092797cb2983b2",
+            "inference64.pt": "8b0e2047e6dca7032df0045fcfeb2c8c64c886fe0c7dc24c61ad47bf65af39a9",
+            "encoder.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "warmstart.pt": "e1b49da001ee0573018171801b5fa9df804bce79646d0560963908aa32b3fe7a",
+            "design.json": "7b0e4e644e2bb3d918d4b51c5cc066b8033838861249969edb436befc3e361a1"
+        },
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "061e782250d045c9a6e241e548fabbe679a18484",
+            "archive_path": "archives/auction-discount-warmstart-evidence-v1.tgz",
+            "archive_sha256": "5f9ce3643e656de21632bf11f034fcece9a4231ecc473cf86a772a972e516e94",
+            "manifest_sha256": "ba66486f43fdf3f16ff4517b38dce0290fc8f44404a4e30ddbf079c3a6587ed8",
+            "archived_files": 48,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "new_gradient_updates": 0,
+        "new_hf_jobs": 0,
+        "new_games": 0,
+        "new_rollouts": 0,
+        "training_admitted": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "interpretation": "Untrained schema-4.4 extension and export preserve the old policy on these inputs. Original shortlist/fallback routing remains; missing teacher targets are not repaired by this prototype. No playing-strength claim, training admission or target-8840U latency measurement.",
+        "next": "Finish the unchanged complete auction comparison before selecting another strength experiment. Separately address omitted nomination labels, current-engine teachers, public-belief search and train/validation separation. The untrained extension is not registered in services and does not change the shortlist or frozen running policies."
     }
 }

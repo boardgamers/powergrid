@@ -1,5 +1,21 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October update — untrained discount-feature model preserves predictions.**
+
+A separate schema-4.4 warm start of `frozen-1` adds 1,024 zero-initialized
+parameters while retaining every old tensor and the existing shortlist/routing.
+All **19,843 checked inputs** have exact native float32/float64 parity and exact
+original-versus-new ONNX outputs/choices. An initial tiny stride-related
+float64 difference (no changed choices) is preserved; restoring the original
+contiguous prefixes fixed it without weakening the check. Read
+[the warm-start report](AUCTION-DISCOUNT-WARMSTART-2026-10-28.md).
+
+The prototype is untrained and not registered in existing services. It does
+not repair missing teacher-option coverage or admit another experiment. Finish
+the unchanged auction comparison before choosing training/teacher changes.
+No HF jobs, gradient updates, new games, deployment or final seeds were added.
+Research active; no candidate qualified.
+
 **28 October update — naturally occurring low-cash nominations recovered.**
 
 Replaying **1,040 saved game prefixes / 551,648 recorded actions** through the

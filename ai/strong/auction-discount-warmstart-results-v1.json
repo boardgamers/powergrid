@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "groups": {
+    "cached_training_and_validation": 17280,
+    "serving": 2553,
+    "natural_discount": 10
+  },
+  "native_exact_positions": 19843,
+  "export_choices_equal": 19843,
+  "max_export_parent_error": [
+    0.0,
+    0.0
+  ],
+  "max_export_native_error": [
+    4.746425474877469e-10,
+    1.4215406629602967e-11
+  ],
+  "serving_players": {
+    "2": 349,
+    "3": 427,
+    "4": 527,
+    "5": 609,
+    "6": 641
+  },
+  "new_tensors": 8,
+  "new_parameters": 1024,
+  "stored_parent_tensors_unchanged": true,
+  "stored_new_tensors_zero": true,
+  "diagnostic_paths_connected": true,
+  "policy_forward_positions": 119058,
+  "diagnostic_head_forward_positions": 256,
+  "new_gradient_updates": 0,
+  "new_hf_jobs": 0,
+  "new_games": 0,
+  "new_rollouts": 0,
+  "training_admitted": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "seconds": 58.53747607400146,
+  "design_sha256": "7b0e4e644e2bb3d918d4b51c5cc066b8033838861249969edb436befc3e361a1",
+  "artifacts": {
+    "inference64.onnx": "6cd971021152d18230257a280f268ff828e136dc905014c015092797cb2983b2",
+    "inference64.pt": "8b0e2047e6dca7032df0045fcfeb2c8c64c886fe0c7dc24c61ad47bf65af39a9",
+    "encoder.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "warmstart.pt": "e1b49da001ee0573018171801b5fa9df804bce79646d0560963908aa32b3fe7a",
+    "design.json": "7b0e4e644e2bb3d918d4b51c5cc066b8033838861249969edb436befc3e361a1"
+  },
+  "interpretation": "Untrained schema-4.4 extension and export preserve the old policy on these inputs. Original shortlist/fallback routing remains; missing teacher targets are not repaired by this prototype. No playing-strength claim, training admission or target-8840U latency measurement."
+}

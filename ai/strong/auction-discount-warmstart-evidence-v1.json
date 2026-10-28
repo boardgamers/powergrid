@@ -1,0 +1,77 @@
+{
+  "status": "untrained_discount_warm_start_exact_parity",
+  "report_sha256": "c2a9fdfe93bbd3bb19bf6368364c7fd88ad68a78794de47a42a2708856077186",
+  "design_sha256": "7b0e4e644e2bb3d918d4b51c5cc066b8033838861249969edb436befc3e361a1",
+  "parent": {
+    "key": "frozen-1",
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "6b6009756d7b5968bc5b6425efc84a94aab2a1d6",
+    "prefix": "runs/policy-iteration-training-v2-frozen/ensemble-1/derivative",
+    "files": {
+      "inference64.pt": "3c17d4228e7446f8859aa01e79020ed91f454312925d29c153a76f49f94118da",
+      "inference64.onnx": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+    },
+    "feature_revision": "4.3-strategic-correction",
+    "model_args": {
+      "head_type": "frozen",
+      "heads": 4,
+      "margin": 0.025,
+      "parent_margin": 0.025,
+      "disagreement_penalty": 1.0
+    },
+    "training_verified": true,
+    "parent_frozen": true,
+    "seeds": [
+      12101,
+      12102,
+      12103,
+      12104
+    ],
+    "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+    "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+    "training_verified_sha256": "881c8a4b34f937575cb3f3c851db794f81908621f4a93e47f467be852845974f",
+    "strict_parity_positions": 2553,
+    "cached_positions_checked": 17280,
+    "qualification_eligible": false
+  },
+  "parent_training_checkpoint_sha256": "6de3a433103a5cce4b88f54dd68ae8b4b4371d4e317ad9d8de1c5e3d4ea182fa",
+  "additional_code_pins": {
+    "ai/strong/model_v4.py": "965469c5855ffbf8f6c152713bf48d07fd851cd94b363785820498df7fe027e0"
+  },
+  "artifacts": {
+    "inference64.onnx": "6cd971021152d18230257a280f268ff828e136dc905014c015092797cb2983b2",
+    "inference64.pt": "8b0e2047e6dca7032df0045fcfeb2c8c64c886fe0c7dc24c61ad47bf65af39a9",
+    "encoder.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "warmstart.pt": "e1b49da001ee0573018171801b5fa9df804bce79646d0560963908aa32b3fe7a",
+    "design.json": "7b0e4e644e2bb3d918d4b51c5cc066b8033838861249969edb436befc3e361a1"
+  },
+  "groups": {
+    "cached_training_and_validation": 17280,
+    "serving": 2553,
+    "natural_discount": 10
+  },
+  "native_exact_positions": 19843,
+  "export_choices_equal": 19843,
+  "new_parameters": 1024,
+  "stored_parent_tensors_unchanged": true,
+  "stored_new_tensors_zero": true,
+  "initial_failure_preserved": true,
+  "new_hf_jobs": 0,
+  "new_gradient_updates": 0,
+  "new_games": 0,
+  "new_rollouts": 0,
+  "archive_verification_inference": 0,
+  "training_admitted": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "061e782250d045c9a6e241e548fabbe679a18484",
+    "archive_path": "archives/auction-discount-warmstart-evidence-v1.tgz",
+    "archive_sha256": "5f9ce3643e656de21632bf11f034fcece9a4231ecc473cf86a772a972e516e94",
+    "manifest_sha256": "ba66486f43fdf3f16ff4517b38dce0290fc8f44404a4e30ddbf079c3a6587ed8",
+    "archived_files": 48,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  }
+}

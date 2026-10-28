@@ -11,6 +11,13 @@ uncapped continuations / 512,203 neural decisions. The original local checker
 exited 0; do not rerun it. Engine/adapter copies and all failed harness evidence
 are preserved, with unchanged weights, features and auction-search settings.
 
+**22:16 UTC pilot checkpoint:** the original two-player filtered-model job
+completed and passed independent audit: 8 games / 1,483 decisions, zero caps.
+Measured workflow: 78.31 seconds, 288.03 CPU-seconds and 2.298 GB sampled peak
+process-tree RSS. The other three original jobs are confirmed RUNNING. This is
+runtime/portability evidence only. Exact statuses, raw archive revision and
+costs are in `strong/current-auction-runtime-progress-v1.json`.
+
 The evidence is independently re-audited and archived at private model revision
 `ca003e34a2b80b86f95aa8b7affc031b8bde2683`. The next confirmation is frozen:
 32 fresh deals per count, 26,880 games across two unchanged arms. Four current-

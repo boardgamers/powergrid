@@ -1,0 +1,74 @@
+{
+  "checked_at": "2026-10-28T22:16:29.294869+00:00",
+  "status": "one_original_verified_three_running",
+  "source_sha256": "d76b90f0ab5156c08c6c312abb7d7f640da79dfdd254f15c698ef049d47857c7",
+  "verified_jobs": 1,
+  "expected_jobs": 4,
+  "verified_games": 8,
+  "expected_games": 64,
+  "statuses": [
+    {
+      "checked_at": "2026-10-28T22:16:25.009033+00:00",
+      "job_id": "6ae2733541e90535df77d71e",
+      "stage": "COMPLETED",
+      "name": "pg-current-auction-runtime-v1-filter-2p"
+    },
+    {
+      "checked_at": "2026-10-28T22:16:28.799079+00:00",
+      "job_id": "6ae273363fb22a235dd4a65d",
+      "stage": "RUNNING",
+      "name": "pg-current-auction-runtime-v1-filter-6p"
+    },
+    {
+      "checked_at": "2026-10-28T22:16:29.066664+00:00",
+      "job_id": "6ae2733641e90535df77d722",
+      "stage": "RUNNING",
+      "name": "pg-current-auction-runtime-v1-pop-2p"
+    },
+    {
+      "checked_at": "2026-10-28T22:16:29.294869+00:00",
+      "job_id": "6ae273363fb22a235dd4a660",
+      "stage": "RUNNING",
+      "name": "pg-current-auction-runtime-v1-pop-6p"
+    }
+  ],
+  "verified": {
+    "name": "pg-current-auction-runtime-v1-filter-2p",
+    "job_id": "6ae2733541e90535df77d71e",
+    "games": 8,
+    "counts": {
+      "decisions": 1483,
+      "root_filter_overrides": 1,
+      "rollouts": 0,
+      "rollout_caps": 0,
+      "neural_decisions": 0,
+      "search_changes": 0,
+      "search_decisions": 0
+    },
+    "measurement": {
+      "seconds": 78.30777059309185,
+      "cpu_seconds": 288.03,
+      "sampled_peak_total_rss_bytes": 2297688064,
+      "memory_samples": 386,
+      "memory_sampling_period_seconds": 0.2,
+      "includes_startup_and_validation": true
+    },
+    "guard_sha256": "db0877b9e9ac036faa032f2ef9245049015bb8caa998f0009474bf64df9a5e67",
+    "verified_receipt_sha256": "1d57a3b9a06bccf4737cfe2ce911dab1c84e6689ed8b6c2073e55c8d6a8d42a9",
+    "archive": {
+      "repo": "coyotte508/powergrid-ai-germany-v1",
+      "revision": "dd5f34dbd0e07c6c85169d2a0719d62eea8155bc",
+      "archive_path": "archives/pg-current-auction-runtime-v1-filter-2p.tgz",
+      "archive_sha256": "967dec21b9ace71c1d0eae533456c40c7bc69f7f14553f326990c909c018df71",
+      "manifest_sha256": "7e67722e3aca41ba3dcb53e329820bf0220fc867db695819e36fbbfd655eb8c0",
+      "archived_files": 37,
+      "format": "tar.gz",
+      "remote_archive_verified": true
+    }
+  },
+  "interpretation": "Runtime and portability only; no strength inference from pilot wins. Continue bounded collection of remaining originals.",
+  "grid_admitted": false,
+  "goal_status": "active",
+  "candidate_qualified": false,
+  "reserved_final_seeds_used": false
+}

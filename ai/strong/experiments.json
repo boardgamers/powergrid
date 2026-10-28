@@ -65394,5 +65394,28 @@
         "candidate_qualified": false,
         "new_gradient_updates": 0,
         "reserved_final_seeds_used": false
+    },
+    "current_auction_runtime_first_verified_v1": {
+        "status": "one_original_verified_three_running",
+        "checked_at": "2026-10-28T22:16:29.294869+00:00",
+        "checkpoint": "ai/strong/current-auction-runtime-progress-v1.json",
+        "checkpoint_sha256": "edae8fa612f12473ddd9ae00e33dedf57b7c570cbd1395a7c6ffeb829559efc0",
+        "verified_jobs": 1,
+        "verified_games": 8,
+        "original_job": "6ae2733541e90535df77d71e",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "dd5f34dbd0e07c6c85169d2a0719d62eea8155bc",
+            "archive_path": "archives/pg-current-auction-runtime-v1-filter-2p.tgz",
+            "archive_sha256": "967dec21b9ace71c1d0eae533456c40c7bc69f7f14553f326990c909c018df71",
+            "manifest_sha256": "7e67722e3aca41ba3dcb53e329820bf0220fc867db695819e36fbbfd655eb8c0",
+            "archived_files": 37,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "remaining_original_jobs_running": 3,
+        "grid_admitted": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

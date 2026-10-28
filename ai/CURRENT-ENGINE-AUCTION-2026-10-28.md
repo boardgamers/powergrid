@@ -185,3 +185,15 @@ Do not launch the 26,880-game grid until all four pilots and independent raw
 receipts pass and measured costs determine its batch sizes and timeouts. Pilot
 win rates are not strength results. No new training was started in this turn.
 Research remains active, with no candidate qualified and no final seeds used.
+
+
+**22:16 UTC checkpoint:** the original filtered-model two-player job completed
+and independently passed all eight games / 1,483 decisions, with zero caps.
+Measured workflow was 78.31 seconds wall / 288.03 CPU-seconds, with 2.298 GB
+sampled peak process-tree RSS. Its 37-file raw archive is verified at private
+model revision `dd5f34dbd0e07c6c85169d2a0719d62eea8155bc`, path
+`archives/pg-current-auction-runtime-v1-filter-2p.tgz`, SHA-256
+`967dec21b9ace71c1d0eae533456c40c7bc69f7f14553f326990c909c018df71`.
+The other three original handles are still RUNNING. See
+`strong/current-auction-runtime-progress-v1.json`; no pilot wins are interpreted
+as strength evidence and the larger grid remains unadmitted.

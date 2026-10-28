@@ -1,5 +1,13 @@
 # Current-engine confirmation: execution and analysis readiness
 
+**22:44 UTC collection update:** PID 1655353 / session 81765 now runs the
+collection-only `strong/finish-current-auction-runtime-v1.py`. Both its actual
+process and the remaining original HF handle were verified live. Read
+`runs/current-auction-runtime-finish-v1/state.json` and its sibling first-run log
+before acting. Do not invoke the bounded collector below while this owner is
+alive. It exits after the four original audits and does not admit or submit the
+confirmation. Complete measured-cost review remains the next prerequisite.
+
 **22:39 UTC update:** the original filter/6p job also passed its audit, bringing
 the completed total to 40/64 games. Its 24-game workflow took 1,549.85 seconds,
 5,920.21 CPU-seconds and 2.678 GB sampled peak RSS. Its immutable raw archive is

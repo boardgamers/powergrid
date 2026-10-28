@@ -65549,5 +65549,38 @@
         "goal_status": "active",
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
+    },
+    "current_auction_runtime_collection_owner_v1": {
+        "status": "verified_wait_original_six_player_search_pilot",
+        "checked_at": "2026-10-28T22:44:46.466393+00:00",
+        "original_jobs": {
+            "pg-current-auction-runtime-v1-filter-2p": "6ae2733541e90535df77d71e",
+            "pg-current-auction-runtime-v1-filter-6p": "6ae273363fb22a235dd4a65d",
+            "pg-current-auction-runtime-v1-pop-2p": "6ae2733641e90535df77d722",
+            "pg-current-auction-runtime-v1-pop-6p": "6ae273363fb22a235dd4a660"
+        },
+        "collector_pid": 1655353,
+        "collector_session": 81765,
+        "collector_script": "ai/strong/finish-current-auction-runtime-v1.py",
+        "collector_state": "ai/runs/current-auction-runtime-finish-v1/state.json",
+        "collector_log": "ai/runs/current-auction-runtime-finish-v1-first.log",
+        "collector_code_sha256": "6cfad3621ac61dd3c71390aeab5460db6ff312d7ce295867c32de9d1506e6f20",
+        "pinned_inputs": 40,
+        "original_live_process_verified": true,
+        "verified_jobs": 3,
+        "verified_games": 40,
+        "new_hf_jobs": 0,
+        "new_games": 0,
+        "new_gradients": 0,
+        "grid_admitted": false,
+        "collector_can_submit": false,
+        "automatic_restarts": false,
+        "previous_goal_turn_classification": "progress",
+        "previous_goal_turn_note": "Pushed tested confirmation workflow and independently audited the third original pilot.",
+        "current_goal_turn_classification": "verified_wait",
+        "goal_status": "active",
+        "candidate_qualified": false,
+        "reserved_final_seeds_used": false,
+        "next": "Wait for the original collector, independently review complete pilot costs, then separately admit the fixed confirmation grid."
     }
 }

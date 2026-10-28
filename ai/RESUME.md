@@ -1,5 +1,22 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October, 22:44 UTC — collection-only watcher owns the remaining original.**
+
+Original pop/6p `6ae273363fb22a235dd4a660` was confirmed RUNNING at 22:44:46 UTC.
+The sole collector is now **PID 1655353 / session 81765**, executing
+`ai/strong/finish-current-auction-runtime-v1.py`; its actual `/proc` command line
+was verified after startup. It tracks only the four exact original handles,
+polls unverified originals once per minute, audits terminal results and exits.
+It cannot submit, restart, train, prepare/admit the grid or select a policy.
+Three original pilots remain audited (40/64 games). No new HF jobs this turn.
+
+Inspect `runs/current-auction-runtime-finish-v1/state.json` and
+`runs/current-auction-runtime-finish-v1-first.log`, then verify the actual process.
+Do not run a competing collector while it is alive. If stopped, inspect original
+handles and its failure/STOP state before any recovery; never restart on an
+observation timeout. Once complete, review the measured costs in the original
+four-job runtime result before using the prepared confirmation workflow below.
+
 **28 October, 22:39 UTC — three original pilots now audited, 40/64 games.**
 
 The filter/6p original `6ae273363fb22a235dd4a65d` passed its independent raw

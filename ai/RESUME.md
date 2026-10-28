@@ -1,5 +1,23 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October, 23:11 UTC — current-engine benchmark running on the actual 8840U.**
+
+Read [the current target benchmark handoff](CURRENT-AUCTION-CPU-2026-10-28.md).
+Remote original PID **3461338** on `minipc` was verified live; it runs the exact
+current-engine filter and population-search policies on 160 saved cases each.
+The latest inspection reported 250/320 responses, all matching reference so far.
+The 160 search references and 20 wrapper filter references were reused from
+their original audited execution; only 140 quick filter references were added.
+Six boundary/coverage tests passed. No local search rerun, new HF jobs, full
+games, gradients, policy changes or final seeds. Keep the package/runner/manager
+and original guard frozen; inspect or collect the existing process, never
+relaunch it. Full independent target audit and timing report are still pending.
+The exact package and launch evidence were uploaded and download-verified at
+private model revision `f491ed02f10cb71c00e7291d621bc7eb48387f22`.
+
+The HF collection owner PID 1655353 remains live and the last six-player original
+was confirmed RUNNING at 23:11 UTC. The confirmation grid is still not admitted.
+
 **28 October, 22:53 UTC — historical 4p/open regression fully decomposed.**
 
 Read [the complete saved-pair diagnostic](CONSERVATIVE-AUCTION-4P-OPEN-DIAGNOSTIC-2026-10-28.md).

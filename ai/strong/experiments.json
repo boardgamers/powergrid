@@ -62865,5 +62865,74 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "next": "Inspect the preserved bootstrap failure and record any reviewed infrastructure-only attempt explicitly; do not overwrite original guards or automatically retry. Other original jobs continue remotely. Complete full frozen grid before comparison."
+    },
+    "conservative_auction_bootstrap_recovery_v1": {
+        "status": "reviewed_bootstrap_recovery_active_no_new_strength_result",
+        "recorded_at": "2026-10-28T12:22:55.379959+00:00",
+        "source_sha256": "351fc4626837c2b7a9d1374e575852abd4fbf4e3d036fbbf406d9fedfb5acafa",
+        "reviewed_failures": 2,
+        "reviewed_attempts": {
+            "pg-conservative-dev-v2-pop-heuristic-5p-02": {
+                "original_job_id": "6ae1dca83fb22a235dd3e7c7",
+                "attempt_job_id": "6ae1e7b941e90535df77318d",
+                "original_guard_sha256": "fcfd12b6f9453f1a800442f03f3fc46d31c7f36137e8c09e7e3d613f07a52046",
+                "attempt_guard_sha256": "c3d57460381eb2b656577a4103118111895b6d5a21d7e101a8709ffd8c5e629c"
+            },
+            "pg-conservative-dev-v2-pop-legacy-6p-00": {
+                "original_job_id": "6ae1dcb03fb22a235dd3e7eb",
+                "attempt_job_id": "6ae1e7b941e90535df77318f",
+                "original_guard_sha256": "b84052b02ea7246adb070e9810323c6dfc976a942df3610029764bf9da632703",
+                "attempt_guard_sha256": "b81ed75caeb2ca5c4becf79abfbab4a84dbb728a92452c391da65bf3ab26524f"
+            }
+        },
+        "admission_selected_jobs": 424,
+        "admission_cached_audits": 360,
+        "admission_total_hf_attempts": 426,
+        "planned_selected_jobs": 648,
+        "planned_games": 10080,
+        "node_cache": {
+            "repo": "coyotte508/powergrid-ai-training-v1",
+            "repo_type": "dataset",
+            "path": "bootstrap/node-v24.14.0-linux-x64.tar.xz",
+            "official_url": "https://nodejs.org/dist/v24.14.0/node-v24.14.0-linux-x64.tar.xz",
+            "official_shasums_url": "https://nodejs.org/dist/v24.14.0/SHASUMS256.txt",
+            "sha256": "41cd79bb7877c81605a9e68ec4c91547774f46a40c67a17e34d7179ef11729df",
+            "bytes": 31039304,
+            "shasums_sha256": "e340782342ed6265ce9e14e9caa81e2260a9b4415bbd2c8ad20cea0e59617d65",
+            "local_archive": "ai/runs/node-runtime-cache-v1/node-v24.14.0-linux-x64.tar.xz.download-1",
+            "node_executable_sha256": "e237a2839d0cbdc9a9a2adda1a184afc0f5b20306ffbe923af5686550472d8a8",
+            "version": "v24.14.0",
+            "preparer_sha256": "eb4d912d8a4c0b8709c984cdbc295194850e630f5078e2d6ec91d4eea47337d4",
+            "new_hf_jobs": 0,
+            "qualification_eligible": false,
+            "reserved_final_seeds_used": false,
+            "revision": "a25e8feaa51bc9506c2469a1c7e5ad5c2d8bf346",
+            "remote_archive_verified": true,
+            "prepared_sha256": "9a69fce684b38484a58bb4b335516e4a29c1cbcc7f4284c4864a03c5c6a62453"
+        },
+        "bootstrap_recovery_sha256": "e30767e6edbc5e27a2db87dd0a80ae1e36ce48ba4ac394e4cb6797382c903ad9",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "bc85f2942018bf422aff8572e63acadfe29ff901",
+            "archive_path": "archives/conservative-auction-bootstrap-recovery-evidence-v1.tgz",
+            "archive_sha256": "89318d3a602645329de9f24feed03c89d9de412a45fcb01df5dfdf9627f872e0",
+            "manifest_sha256": "112b8aacaa6f978599543a5fb8978c95edf34e0adf936bcb374df0a1a7057939",
+            "archived_files": 1209,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "snapshot_sha256": "a8ebf9f20fa184d39d3373a007205c2fa1a621762a1536e819685266c29c2ef4",
+        "owner_script": "ai/strong/coordinate-conservative-auction-attempts-v1.py",
+        "owner_state": "ai/runs/conservative-auction-development-attempts-coordinator-v1/state.json",
+        "comparison_script": "ai/strong/compare-conservative-auction-attempts-v1.py",
+        "tests_passed": 20,
+        "bootstrap_syntax_checked": true,
+        "original_failed_guards_preserved": true,
+        "completed_games_repeated": 0,
+        "frozen_source_or_policies_changed": false,
+        "new_gradients": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "interpretation": "Same official Node release, now cached at immutable HF revision and verified against official checksums. Historical source bootstrap hash retained, actual new bootstrap recorded separately. Two reviewed pre-evaluation retries only; owner cannot retry failures. No partial policy selection."
     }
 }

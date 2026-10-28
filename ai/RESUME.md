@@ -1,5 +1,35 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**Current execution — 28 October, 12:18 UTC: reviewed bootstrap recovery is running.**
+
+The two Node-download failures occurred before evaluation and remain preserved.
+Exactly two explicit replacement attempts were submitted with the same frozen
+source, policies, seeds and Node v24.14.0 release. The Node archive now comes
+from a checksum-verified immutable HF dataset revision. No completed game was
+repeated, and no policy was selected from partial outcomes.
+
+The sole owner is **PID 1075760 / session 83119**,
+`strong/coordinate-conservative-auction-attempts-v1.py`. At admission it owned
+**424 selected study jobs / 426 total HF attempts**, including **360 audited**
+selected jobs and the two failed originals. The full plan remains **648 selected
+jobs / 10,080 games**. This snapshot is not live status: inspect the process and
+`runs/conservative-auction-development-attempts-coordinator-v1/state.json` before
+acting. It collects first, submits only unsubmitted rows, caps active jobs at 64,
+and stops on failures; it never creates another retry. Do not run another owner
+or collector. Old v3 is stopped and must not be restarted.
+
+A later owner checkpoint at **12:21:34 UTC** reached **370 audited / 434 selected
+jobs submitted / 436 total HF attempts**, with 64 active at submission. The
+verified HF recovery archive is indexed by
+`strong/conservative-auction-bootstrap-recovery-evidence-v1.json`.
+
+Read [the bootstrap recovery handoff](CONSERVATIVE-AUCTION-BOOTSTRAP-RECOVERY-2026-10-28.md)
+for both failed/replacement pairs, verified cache provenance and the final
+comparison command. Use the new attempts-aware collector/result/analysis;
+the old collector will correctly stop on the preserved failed originals.
+No new gradients, qualification, final seeds or deployment. Historical owner
+references below are superseded by this notice.
+
 **Current execution — 28 October, 11:34 UTC. Research is active; coordinator stopped for infrastructure review.**
 
 The reviewed v3 recovery audited all **360 original submitted jobs**, then

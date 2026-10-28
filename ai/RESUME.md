@@ -1,5 +1,28 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October update — corrected boundary integrated into a separate v4 policy.**
+
+Actual inference/search checks passed: 20 normal and three exceptional first
+searches match original complete receipts; all four observed false-commit
+resource turns finish legally; 99 other-phase decisions match; cold restart,
+stale-request ordering and invalid-history recovery pass. There were 2,448
+continuations / 114,561 continuation neural decisions / zero caps. Read
+[the corrected-policy handoff](RESOURCE-TURN-BOUNDARY-POLICY-2026-10-28.md).
+The v4 artifact is separately pinned; weights, runtime and search settings are
+unchanged. No new full-game runtime study or strength result is established.
+No jobs, complete evaluation games, gradients or final seeds were added.
+
+Original whole-turn six-player job `6ae20c1341e90535df77523a` also completed
+and passed independent audit: 24 games, 16,200 continuations, zero caps,
+7,056.35 seconds wall / 22,701.91 CPU seconds / 4.638 GB sampled peak RSS.
+The original runtime set now has **three verified successes / 40 games**, one
+preserved failed pilot and two six-player originals observed RUNNING. This
+supersedes the earlier two-success/three-running snapshots below. The original
+96-game success gate remains failed/incomplete; pilot wins are not selection
+evidence. Continue the unchanged auction comparison before choosing another
+strength study. Its owner was live at 16:54 UTC (563 audited / 627 submitted /
+648 selected). No candidate qualified or deployed.
+
 **28 October update — failure-preserving resource collection is available.**
 
 A bounded read-only HF check at 16:41 UTC confirms two verified successful

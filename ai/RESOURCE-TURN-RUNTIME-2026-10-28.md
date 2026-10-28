@@ -2,6 +2,16 @@
 
 ## Current state
 
+**Later collection update:** original whole-turn six-player job
+`6ae20c1341e90535df77523a` passed independent audit: 24 games, 16,200
+continuations, zero caps; 7,056.35 s wall, 22,701.91 CPU-s and 4.638 GB sampled
+peak RSS. The set now has **three verified successes / 40 games**, one preserved
+failure and two six-player originals observed RUNNING. The original success
+gate remains failed/incomplete. Exact raw archive and audit hashes are in the
+[corrected-policy handoff](RESOURCE-TURN-BOUNDARY-POLICY-2026-10-28.md), whose
+archive also preserves this new collection receipt. This is the unchanged v3
+pilot; no v4 runtime job has been submitted.
+
 **Collection update, 16:41 UTC:** the bounded failure-preserving collector
 confirmed **two verified successful jobs / 16 games, one preserved failed job,
 and three original six-player jobs still RUNNING**. The anchored two-player

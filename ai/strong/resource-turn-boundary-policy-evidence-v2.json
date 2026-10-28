@@ -1,0 +1,84 @@
+{
+  "status": "boundary_corrected_policy_integration_verified_not_runtime_or_strength_qualified",
+  "assessment_sha256": "35245e9387c2aa236cfcda6d8edb1560904ad8bc007f15dd87158dfef32d94d3",
+  "descriptor_sha256": "1bf7b9ecdf79f68ee781cc6153cc5079e6dfe16c5051a155026a7307c6782048",
+  "artifact_manifest_sha256": "ce05c01a314305f5f0b3f7b55f6a8e13355ee0edb9bf5cae2c9688efd55cf795",
+  "exceptional_resource_turns": 4,
+  "counts": {
+    "rollouts": 2448,
+    "rollout_caps": 0,
+    "neural_decisions": 114561,
+    "decisions": 51,
+    "root_filter_overrides": 0,
+    "search_changes": 20,
+    "search_decisions": 50,
+    "resource_search_decisions": 50,
+    "actual_policy_requests": 51,
+    "normal_first_searches_exact": 20,
+    "exceptional_first_searches_exact": 3,
+    "tampered_receipts_rejected": 20,
+    "non_resource_decisions_exact": 99,
+    "lifecycle_replays": 3,
+    "invalid_history_errors": 1
+  },
+  "newly_collected_original_pilot": {
+    "job_id": "6ae20c1341e90535df77523a",
+    "games": 24,
+    "review": {
+      "games": 24,
+      "audit": {
+        "passed": true,
+        "games": 24,
+        "counts": {
+          "policy_requests": 2285,
+          "atomic_moves": 2937,
+          "resource_turns": 223,
+          "root_filter_overrides": 0,
+          "rollouts": 16200,
+          "rollout_caps": 0,
+          "neural_decisions": 1544194
+        },
+        "paired_schedule_checked": true,
+        "new_inference": 0,
+        "new_hf_jobs": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
+      },
+      "measurement": {
+        "seconds": 7056.3528083249985,
+        "cpu_seconds": 22701.910000000003,
+        "sampled_peak_total_rss_bytes": 4638265344,
+        "memory_samples": 33643,
+        "memory_sampling_period_seconds": 0.2,
+        "includes_startup_and_validation": true
+      },
+      "independent_audit_sha256": "eba144fd975fc6f489ba00929854c0915af32a49b4821d956f38b902279cf3d3"
+    },
+    "raw_archive": {
+      "repo": "coyotte508/powergrid-ai-germany-v1",
+      "revision": "3bb5ee93cdd98cdc39d4ef814e5db8ec4c53a37b",
+      "archive_path": "archives/pg-resource-turn-runtime-v1-whole-6p.tgz",
+      "archive_sha256": "b57c61679acb2bc2d34d1414a9f1568f7e9f9c4f6a46bbe6ab7b1c01a1b8d495",
+      "manifest_sha256": "67c23c02210666e6f8a5df9d2bbf2fb559faf78fb56795c6467f945231f8f4a4",
+      "archived_files": 105,
+      "format": "tar.gz",
+      "remote_archive_verified": true
+    },
+    "verified_receipt_sha256": "1b1c2e1d1d244807518c48f5c9df42fe14c9baf9996cd99ba4774f81459c30ac"
+  },
+  "new_hf_jobs": 0,
+  "new_full_game_trajectories": 0,
+  "gradients": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "83f52cff588aade65aeebaa8a5cfcbd83fc6907b",
+    "archive_path": "archives/resource-turn-boundary-policy-evidence-v2.tgz",
+    "archive_sha256": "915541fc4723d82445f0686e51fe26a9555fd2a81c6f5c8d6e5bda8438ddc509",
+    "manifest_sha256": "15dfd1288426e2b1c64789f3c88eb8ec58bfd28f817727d8575518e659a0d226",
+    "archived_files": 75,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  }
+}

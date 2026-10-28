@@ -1,0 +1,261 @@
+{
+  "passed": true,
+  "exceptional_resource_turns": 4,
+  "counts": {
+    "rollouts": 2448,
+    "rollout_caps": 0,
+    "neural_decisions": 114561,
+    "decisions": 51,
+    "root_filter_overrides": 0,
+    "search_changes": 20,
+    "search_decisions": 50,
+    "resource_search_decisions": 50,
+    "actual_policy_requests": 51,
+    "normal_first_searches_exact": 20,
+    "exceptional_first_searches_exact": 3,
+    "tampered_receipts_rejected": 20,
+    "non_resource_decisions_exact": 99,
+    "lifecycle_replays": 3,
+    "invalid_history_errors": 1
+  },
+  "cases": [
+    {
+      "label": "whole-2p-3:350",
+      "actions": [
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "oil"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "label": "corrected-2p-2:332",
+      "actions": [
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "label": "corrected-2p-2:365",
+      "actions": [
+        {
+          "data": {
+            "resource": "garbage"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "garbage"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "uranium"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    },
+    {
+      "label": "original-failed-entry",
+      "actions": [
+        {
+          "data": {
+            "resource": "garbage"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "garbage"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "garbage"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": {
+            "resource": "coal"
+          },
+          "name": "BuyResource"
+        },
+        {
+          "data": true,
+          "name": "Pass"
+        }
+      ]
+    }
+  ],
+  "artifact": "/home/eliheros/Documents/Codex/2026-09-26/je-x20-2/work/powergrid-ai/ai/runs/resource-turn-full-artifact-v4",
+  "descriptor_sha256": "1bf7b9ecdf79f68ee781cc6153cc5079e6dfe16c5051a155026a7307c6782048",
+  "manifest_sha256": "ce05c01a314305f5f0b3f7b55f6a8e13355ee0edb9bf5cae2c9688efd55cf795",
+  "input_hashes": {
+    "ai/runs/resource-turn-full-integration-v1/search-roots.jsonl": "0451d6e1189a9c0008386efc13cbcff0d54ab28290a521b19f42fb243b86f227",
+    "ai/runs/resource-turn-full-integration-recovered-v1/search-roots.jsonl": "61e59190b8084292d757e06febe9a6fa847a183bf6ce1fc80c71bab5ec77b40a",
+    "ai/runs/resource-turn-runtime-hf-v1/pg-resource-turn-runtime-v1-whole-2p/artifacts/evaluation/decisions-3.jsonl": "785cc277eee970d57cee852e4742957e9d8fc1fbdc0e6029126d060e9a73b837",
+    "ai/runs/resource-turn-runtime-hf-v1/pg-resource-turn-runtime-v1-corrected-2p/artifacts/evaluation/decisions-2.jsonl": "738833b14ee1d49f4c6f5f064e4a110acbb2af3d7afb9cb28106692919377aa0",
+    "ai/runs/resource-turn-boundary-failure-v1/failed-request.json": "966cd4a7e99b90cc4fade18a322fed1adaf95f938ca1f08ed1da0b9fda926cdf",
+    "ai/runs/resource-turn-runtime-hf-v1/pg-resource-turn-runtime-v1-anchored-2p/artifacts/evaluation/decisions-7.jsonl": "a25de80c6585d70bfd7fa4cca963af1419655b56d92000c86321c9f1f859ffc1"
+  },
+  "code_hashes": {
+    "ai/strong/check-resource-turn-boundary-policy-v2.py": "8af6618bff45b83471eefdc47d4b7ffc147e43359d164ae23fbe607c06f74026",
+    "ai/strong/check-resource-turn-anchored-policy-v1.cjs": "073504ba06600a7e6037f177ad2f330fef23ce79004d6ef2b74e4bdfa197207e"
+  },
+  "seconds": 176.329644903999,
+  "output_hashes": {
+    "lifecycle-results.jsonl": "99d79e57ef19ddf12242fedb15edf4b7f52e5bda6ed959b8d517d11f53a57855",
+    "describe-filter.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "describe-atomic-search-corrected.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cold-restart.stderr.log": "98c9a647199b085588a9f3ef811fcdc1493a03b097c43f5afc372dc854831538",
+    "descriptions.json": "159d57f06b2764420cfc31417ea6403bde4368c6d06d6a589178382276c6c448",
+    "lifecycle-input.json": "e00b6f01fb579a827dfe76cba2c9fae632e01247e7053336779a305779d8ee8b",
+    "describe-atomic-search-anchored.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fixture.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "describe-search-turn.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "describe-model-turn.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "design.json": "219da627db43fd9088f48ac62b3e16943be1f95046477568cd191a2190c81e44",
+    "describe-atomic-search.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "decisions.jsonl": "363a29ca9735a79906ba2d5bfb52a4b25003e840923c55b3c7453c0a8f170119",
+    "sources/check-resource-turn-anchored-policy-v1.cjs": "073504ba06600a7e6037f177ad2f330fef23ce79004d6ef2b74e4bdfa197207e",
+    "sources/check-resource-turn-boundary-policy-v2.py": "8af6618bff45b83471eefdc47d4b7ffc147e43359d164ae23fbe607c06f74026"
+  },
+  "new_hf_jobs": 0,
+  "new_full_game_trajectories": 0,
+  "new_gradients": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "interpretation": "Corrected v4 policy executes actual search through all four observed false-commit resource turns with independent receipts, historical first-search parity and service recovery. No fresh complete game, runtime admission or strength improvement is established.",
+  "assessment_sha256": "35245e9387c2aa236cfcda6d8edb1560904ad8bc007f15dd87158dfef32d94d3"
+}

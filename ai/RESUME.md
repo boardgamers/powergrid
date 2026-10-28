@@ -1,5 +1,23 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October, 22:53 UTC — historical 4p/open regression fully decomposed.**
+
+Read [the complete saved-pair diagnostic](CONSERVATIVE-AUCTION-4P-OPEN-DIAGNOSTIC-2026-10-28.md).
+All 32 paired games (eight independent deals) were examined without simulations
+or inference: search lost nine baseline wins and gained seven, with 16 unchanged
+outcomes. All first divergences were same-input auction-search overrides.
+The spending means do not justify a bid cap: regressed pairs' median plant-spend
+difference is +2, improved pairs' median +33; large outliers reverse the mean
+comparison. This is post-hoc descriptive evidence, not a causal diagnosis or
+training data. The frozen fresh confirmation remains unchanged.
+
+The report checks 80 raw input hashes and references 16 immutable job archives;
+its own verified private HF archive is revision
+`eaef9f7377f3c334137af1e7a90cf74a9cc181c4`. The original analyzer session 98030
+exited 0. Collector PID 1655353 remains live and confirmed the remaining original
+pop/6p HF job RUNNING at 22:53:52 UTC. Do not compete with that collector. No new
+jobs, games, gradient updates or final seeds were used for this diagnostic.
+
 **28 October, 22:44 UTC — collection-only watcher owns the remaining original.**
 
 Original pop/6p `6ae273363fb22a235dd4a660` was confirmed RUNNING at 22:44:46 UTC.

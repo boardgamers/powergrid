@@ -65582,5 +65582,53 @@
         "candidate_qualified": false,
         "reserved_final_seeds_used": false,
         "next": "Wait for the original collector, independently review complete pilot costs, then separately admit the fixed confirmation grid."
+    },
+    "conservative_auction_4p_open_diagnostic_v1": {
+        "status": "complete_post_hoc_saved_receipt_diagnostic_confirmation_unchanged",
+        "report": "ai/strong/conservative-auction-4p-open-diagnostic-v1.json",
+        "report_sha256": "5c9a39534765fe39f2e0c642954a44f443e35c35cce0400b67053ca258634248",
+        "evidence": "ai/strong/conservative-auction-4p-open-diagnostic-evidence-v1.json",
+        "evidence_sha256": "f89484ec7b7199189a45a0cdfa0073ff6e7eb8e8735dc9d4f6b07e491fc783c0",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "eaef9f7377f3c334137af1e7a90cf74a9cc181c4",
+            "archive_path": "archives/conservative-auction-4p-open-diagnostic-evidence-v1.tgz",
+            "archive_sha256": "3473260239e8da8e4c12cc6d0d9d90fc892337273f451fcfdab7b92f83ca4f26",
+            "manifest_sha256": "fadb38a22aa661fea3c8710cd3a318dd51ec65b1e87258895d2c55376575f10b",
+            "archived_files": 8,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "paired_games": 32,
+        "raw_games": 64,
+        "independent_deals": 8,
+        "input_hashes_checked": 80,
+        "outcomes": {
+            "regressed": 9,
+            "unchanged": 16,
+            "improved": 7
+        },
+        "win_credits": {
+            "filter": "17",
+            "conservative_population": "15"
+        },
+        "all_first_divergences_same_public_input_auction_override": true,
+        "median_plant_spending_difference_regressed": 2,
+        "median_plant_spending_difference_improved": 33,
+        "interpretation": "Spending/outcome associations do not establish a causal overbidding defect. Preserve the same independent confirmation and report every adverse cell.",
+        "new_hf_jobs": 0,
+        "new_games": 0,
+        "new_inference": 0,
+        "new_gradients": 0,
+        "policy_changed": false,
+        "previous_goal_turn_classification": "verified_wait",
+        "previous_goal_turn_note": "Original HF handle and collection-only process were verified live; no replacement or grid submission.",
+        "current_goal_turn_classification": "progress",
+        "collector_pid": 1655353,
+        "collector_stage_at_snapshot": "waiting_for_original_pilots",
+        "collector_checked_at": "2026-10-28T22:54:52.779745+00:00",
+        "goal_status": "active",
+        "candidate_qualified": false,
+        "reserved_final_seeds_used": false
     }
 }
